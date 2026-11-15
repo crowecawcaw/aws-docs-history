@@ -3,7 +3,7 @@
 # PagerDuty integration
 <a name="pagerduty-integration"></a>
 
-Connect Amazon Quick to your PagerDuty system to manage incidents, alerts, schedules, and on-call rotations. You can perform these actions without leaving your Amazon Quick environment. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
+Connect AWS Quick to your PagerDuty system to manage incidents, alerts, schedules, and on-call rotations. You can perform these actions without leaving your AWS Quick environment. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## What you can do
 <a name="pagerduty-integration-capabilities"></a>
@@ -16,9 +16,9 @@ Create, update, and manage incidents, alerts, schedules, and escalation policies
 ## Set up PagerDuty integration
 <a name="pagerduty-integration-setup"></a>
 
-Follow these steps to connect Amazon Quick to your PagerDuty system.
+Follow these steps to connect AWS Quick to your PagerDuty system.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -43,7 +43,7 @@ Follow these steps to connect Amazon Quick to your PagerDuty system.
 ### What happens next
 <a name="pagerduty-integration-setup-results"></a>
 
-After you complete the setup, your PagerDuty integration appears in the integrations list. You can use it in Amazon Quick workflows, automations, and AI agents.
+After you complete the setup, your PagerDuty integration appears in the integrations list. You can use it in AWS Quick workflows, automations, and AI agents.
 
 ## Manage PagerDuty integrations
 <a name="pagerduty-integration-management"></a>

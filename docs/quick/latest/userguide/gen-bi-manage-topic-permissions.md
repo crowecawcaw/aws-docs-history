@@ -1,10 +1,10 @@
 
 
-# Manage topic permissions through dashboards in Amazon Quick Sight
+# Manage topic permissions through dashboards in AWS Quick Sight
 <a name="gen-bi-manage-topic-permissions"></a>
 
 **Note**  
-The topics referenced in this section refer to legacy Topics that are linked to dashboards for Q&A. For information about the new multi-dataset Topics experience, see [Working with Amazon Quick Sight Topics](topics.md).
+The topics referenced in this section refer to legacy Topics that are linked to dashboards for Q&A. For information about the new multi-dataset Topics experience, see [Working with AWS Quick Sight Topics](topics.md).
 
  Quick enables Authors to manage permissions for dashboards and their linked topics from a single location. When sharing dashboards with Q&A enabled, Authors can control topic viewer access directly from a dashboard's sharing preferences, eliminating the need to manage permissions in multiple locations. 
 

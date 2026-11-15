@@ -3,14 +3,14 @@
 # Monitor index storage usage
 <a name="index-usage-monitoring"></a>
 
-Index usage logs provide visibility into how your Amazon Quick index storage is consumed across knowledge bases and Spaces, including file uploads. You can use these logs to track growth trends, identify the largest sources, detect unexpected spikes, and plan capacity.
+Index usage logs provide visibility into how your AWS Quick index storage is consumed across knowledge bases and Spaces, including file uploads. You can use these logs to track growth trends, identify the largest sources, detect unexpected spikes, and plan capacity.
 
-Before you query index usage data, you must configure `INDEX_USAGE_LOGS` delivery. For instructions on setting up delivery, see [Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
+Before you query index usage data, you must configure `INDEX_USAGE_LOGS` delivery. For instructions on setting up delivery, see [Monitoring AWS Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
 
 ## Log schema
 <a name="index-usage-monitoring-schema"></a>
 
-Each index usage log event includes the common fields that are shared across all Amazon Quick log types, such as `resource_arn`, `event_timestamp`, `log_type`, `account_id`, and `user_arn`. The event also includes the following index-specific fields:
+Each index usage log event includes the common fields that are shared across all AWS Quick log types, such as `resource_arn`, `event_timestamp`, `log_type`, `account_id`, and `user_arn`. The event also includes the following index-specific fields:
 
 
 **Index usage log fields**  

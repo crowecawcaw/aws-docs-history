@@ -8,9 +8,9 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-In Amazon Quick Enterprise edition, you can email a report from any sheet in a dashboard. You can send reports from interactive dashboards and pixel perfect report sheets. Schedules include settings for when to send them, the contents to include, and who receives the email. You can view a sample report and a list of the datasets used in the report. To set up or change the schedule sent from a dashboard, make sure that you're an owner or co-owner of the dashboard.
+In AWS Quick Enterprise edition, you can email a report from any sheet in a dashboard. You can send reports from interactive dashboards and pixel perfect report sheets. Schedules include settings for when to send them, the contents to include, and who receives the email. You can view a sample report and a list of the datasets used in the report. To set up or change the schedule sent from a dashboard, make sure that you're an owner or co-owner of the dashboard.
 
-If you have access to the dashboard, you can change your subscription options by opening your view of the dashboard. For more information on how this works, see [Subscribing to email reports in Amazon Quick Sight](subscribing-to-reports.md).
+If you have access to the dashboard, you can change your subscription options by opening your view of the dashboard. For more information on how this works, see [Subscribing to email reports in AWS Quick Sight](subscribing-to-reports.md).
 
 Scheduling options that are available for an email report include the following:
 + **Once (Does not repeat)** – Sends the report only once at the date and time that you choose.
@@ -33,11 +33,11 @@ Anyone else who wants to get the emails can open the dashboard and set their own
 **Important**  
 When you share the dashboard with new Quick user names or groups, they automatically start receiving the email reports. If you don't want this to happen, you need to edit the report settings each time you add people to the dashboard. 
 
-For existing email schedules, you can pause the schedule in Amazon Quick Sight while you make changes. In the **Schedules** pane, you can pause or resume a scheduled report with the toggle that appears under each report. Pausing a report does not delete the report's schedule from Quick Sight.
+For existing email schedules, you can pause the schedule in AWS Quick Sight while you make changes. In the **Schedules** pane, you can pause or resume a scheduled report with the toggle that appears under each report. Pausing a report does not delete the report's schedule from Quick Sight.
 
 If your report includes custom visuals, be aware that you can't include images from a private network in an email report, even if you can access the images. If you want to include an image, use a publicly available one.
 
-Before you begin, make sure that you are using Amazon Quick Enterprise edition and that you have shared the dashboard with intended recipients. 
+Before you begin, make sure that you are using AWS Quick Enterprise edition and that you have shared the dashboard with intended recipients. 
 
 **To create or change an email report**
 

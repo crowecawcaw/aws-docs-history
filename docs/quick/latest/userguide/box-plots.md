@@ -20,7 +20,7 @@ Box plot visuals aren't compatible with MySQL 5.3 and earlier.
 
 **To create a basic box plot visual**
 
-1. Sign in to Amazon Quick at [https://quicksight.aws.amazon.com/](https://quicksight.aws.amazon.com/).
+1. Sign in to AWS Quick at [https://quicksight.aws.amazon.com/](https://quicksight.aws.amazon.com/).
 
 1. Open Quick and choose **Analyses** on the navigation pane at left.
 
@@ -36,4 +36,4 @@ Box plot visuals aren't compatible with MySQL 5.3 and earlier.
 
 1. (Optional) Add drill-down layers by dragging one or more additional fields to the **Group/Color** field well. For more information about adding drill-downs, see [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md).
 
-   To understand the features supported by box plots, see [Analytics formatting per type in Quick](analytics-format-options.md). For customization options, see [Formatting in Amazon Quick](formatting-a-visual.md). 
+   To understand the features supported by box plots, see [Analytics formatting per type in Quick](analytics-format-options.md). For customization options, see [Formatting in AWS Quick](formatting-a-visual.md). 

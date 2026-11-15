@@ -3,13 +3,13 @@
 # Google Calendar integration
 <a name="google-calendar-integration"></a>
 
-With the Google Calendar connector, you can access Google Calendar directly in Amazon Quick through natural language. You can create and update events, check availability, manage calendars, and organize attendees without leaving Amazon Quick.
+With the Google Calendar connector, you can access Google Calendar directly in AWS Quick through natural language. You can create and update events, check availability, manage calendars, and organize attendees without leaving AWS Quick.
 
-Amazon Quick supports multiple authentication methods for Google Calendar. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for Google Calendar. Choose the method that best fits your organization's security requirements.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. You authenticate directly with your Google account.
 + **Custom OAuth app** – Uses a customer-managed OAuth client created in the Google Cloud Console. This option gives your organization full control over the OAuth configuration.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="google-calendar-integration-prerequisites"></a>
@@ -17,19 +17,19 @@ For more information about the authentication methods that Amazon Quick supports
 Make sure that you have the following before you set up the integration.
 + A Google account with access to Google Calendar.
 + For **Custom OAuth app**: Access to the [Google Cloud Console](https://console.cloud.google.com/) on the Google website with permissions to create OAuth clients.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Google Cloud
 <a name="google-calendar-source-setup"></a>
 
-If you are using **Default OAuth app** authentication, skip this section and go to [Setting up the connector in Amazon Quick](#google-calendar-quicksuite-setup).
+If you are using **Default OAuth app** authentication, skip this section and go to [Setting up the connector in AWS Quick](#google-calendar-quicksuite-setup).
 
-For Custom OAuth app authentication, complete the following steps in the Google Cloud Console before you configure Amazon Quick. When you enable the API in step 3, search for and enable the **Google Calendar API**.
+For Custom OAuth app authentication, complete the following steps in the Google Cloud Console before you configure AWS Quick. When you enable the API in step 3, search for and enable the **Google Calendar API**.
 
 ### Create an OAuth client in Google Cloud Console
-<a name="w2aac46c28d101c13b7"></a>
+<a name="w2aac46c28d113c13b7"></a>
 
-Create an OAuth client in the Google Cloud Console to get the client credentials that you need for Amazon Quick. For more information, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2) on the Google website.
+Create an OAuth client in the Google Cloud Console to get the client credentials that you need for AWS Quick. For more information, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2) on the Google website.
 
 1. Sign in to the [Google Cloud Console](https://console.cloud.google.com/) on the Google website.
 
@@ -49,11 +49,11 @@ Create an OAuth client in the Google Cloud Console to get the client credentials
 1. Configure the client:
    + For **Application type**, choose **Web application**.
    + Enter a **Name** for your client.
-   + Under **Authorized redirect URIs**, add the Amazon Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
+   + Under **Authorized redirect URIs**, add the AWS Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
 
 1. Choose **Create**.
 
-1. Record the following values. You need them when you configure Amazon Quick.
+1. Record the following values. You need them when you configure AWS Quick.
    + **Client ID**
    + **Client secret**
 
@@ -74,7 +74,7 @@ The following scopes are requested when you connect to Google Calendar.
 **Note**  
 The `openid` and `email` scopes are automatically included in the OAuth consent flow for user authentication. They are not required for Service-to-Service OAuth.
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="google-calendar-quicksuite-setup"></a>
 
 ### Connect from the Available tab
@@ -82,7 +82,7 @@ The `openid` and `email` scopes are automatically included in the OAuth consent 
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **Google Calendar** and choose **Connect**.
 
@@ -93,9 +93,9 @@ To configure a connector with Custom OAuth app instead, use the **Create for you
 ### Create from the Create for your team tab
 <a name="google-calendar-full-setup"></a>
 
-After you complete any required Google Cloud configuration, create the connector in Amazon Quick.
+After you complete any required Google Cloud configuration, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -119,7 +119,7 @@ If a Google Calendar connector already exists, a dialog appears with your existi
       + **Client secret** – The client secret from your Google Cloud OAuth client.
       + **Token URL** – The token endpoint. Example: `https://oauth2.googleapis.com/token`
       + **Authorization URL** – The authorization endpoint. Example: `https://accounts.google.com/o/oauth2/v2/auth`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
 1. Choose **Next**.
 
@@ -169,12 +169,12 @@ The actions that you can use depend on the calendars accessible to the authentic
 To edit, share, or delete your connector, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations).
 
 ### Common Google authentication issues
-<a name="w2aac46c28d101c19b5"></a>
-+ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Google account is active and that you can sign in to [the Google website](https://accounts.google.com) directly. For Custom OAuth app, confirm that the redirect URI in your Google Cloud OAuth client matches the Amazon Quick callback URL.
-+ **App blocked by administrator** – If your Google Workspace administrator restricts third-party app access, you might see an error when you attempt to sign in. Contact your Google Workspace administrator to allow the Amazon Quick app.
+<a name="w2aac46c28d113c19b5"></a>
++ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Google account is active and that you can sign in to [the Google website](https://accounts.google.com) directly. For Custom OAuth app, confirm that the redirect URI in your Google Cloud OAuth client matches the AWS Quick callback URL.
++ **App blocked by administrator** – If your Google Workspace administrator restricts third-party app access, you might see an error when you attempt to sign in. Contact your Google Workspace administrator to allow the AWS Quick app.
 + **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Google Cloud OAuth client.
-+ **Authentication popup fails** – Verify that your browser allows popups from the Amazon Quick console domain. Try using a different browser or clearing your browser cache.
-+ **Permissions revoked** – If you previously revoked Amazon Quick access from your Google Account permissions settings, you need to re-authenticate by editing the connector and signing in again.
++ **Authentication popup fails** – Verify that your browser allows popups from the AWS Quick console domain. Try using a different browser or clearing your browser cache.
++ **Permissions revoked** – If you previously revoked AWS Quick access from your Google Account permissions settings, you need to re-authenticate by editing the connector and signing in again.
 + **Google API rate limiting** – Google might limit requests during high usage periods. If actions fail, retry after a few minutes.
 
 ### Google Calendar-specific issues

@@ -1,11 +1,11 @@
 
 
-# Amazon Quick asset management
+# AWS Quick asset management
 <a name="manage-qs-assets"></a>
 
-Use this section to manage all of the assets in your Amazon Quick account in one unified view. You can manage the following Quick assets: Analyses, Dashboards, Datasets, Data sources, Shared folders, and Agents.
+Use this section to manage all of the assets in your AWS Quick account in one unified view. You can manage the following Quick assets: Analyses, Dashboards, Datasets, Data sources, Shared folders, and Agents.
 
-For the full model of how user removal affects a user's assets and data, see [User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md).
+For the full model of how user removal affects a user's assets and data, see [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md).
 
 Here are some common reasons to use the asset manager:
 + **Transfer assets** – Quickly transfer assets from one user or group to another, for example when the original owner is no longer present.
@@ -13,7 +13,7 @@ Here are some common reasons to use the asset manager:
 + **Support authors** – Better support authors in tenancies by giving support engineers temporary access to the author's dashboard.
 + **Revoke access** – Quickly audit and revoke permissions, for example after implementations, customer support, or unexpected events.
 
-**To manage Amazon Quick assets**
+**To manage AWS Quick assets**
 
 1. Choose the profile icon, then **Manage Quick**.
 
@@ -32,4 +32,4 @@ Here are some common reasons to use the asset manager:
    + Use the **Share** button to share all of the selected assets. A popup window displays sharing options to apply to the users or groups you specify. 
    + Select one or more assets, then choose the **Transfer** button to transfer the selected assets from one user or group to another. The **Transfer** button only appears after you select at least one asset. A popup window displays transferring options to apply to the users or groups you specify.
 
-When you need to share a Amazon Quick asset with 100 or more users, consider using Amazon Quick groups. For more information on Amazon Quick groups, see [Creating and managing groups in Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/creating-quicksight-groups.html).
+When you need to share a AWS Quick asset with 100 or more users, consider using AWS Quick groups. For more information on AWS Quick groups, see [Creating and managing groups in AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/creating-quicksight-groups.html).

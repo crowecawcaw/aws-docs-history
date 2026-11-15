@@ -1,9 +1,9 @@
 
 
-# Getting started with the Amazon Quick desktop application
+# Getting started with the AWS Quick desktop application
 <a name="getting-started-desktop"></a>
 
-This section walks you through downloading, installing, and signing in to the Amazon Quick desktop application for macOS and Windows.
+This section walks you through downloading, installing, and signing in to the AWS Quick desktop application for macOS and Windows.
 
 ## Prerequisites
 <a name="desktop-prerequisites"></a>
@@ -44,7 +44,7 @@ Verify that your system meets the following requirements.
 **Important**  
 If your organization uses an Enterprise account, make sure an administrator has turned on desktop access before you distribute the application. For instructions, see [Turning on desktop access](desktop-enterprise-setup.md#desktop-enterprise-turn-on).
 
-To download the Amazon Quick desktop application, use the following links.
+To download the AWS Quick desktop application, use the following links.
 
 
 **Direct download links**  
@@ -60,9 +60,9 @@ To download the Amazon Quick desktop application, use the following links.
 
 1. Open the `.dmg` file.
 
-1. Drag **Amazon Quick** to the **Applications** folder.
+1. Drag **AWS Quick** to the **Applications** folder.
 
-1. Open **Amazon Quick** from the Applications folder or Launchpad.
+1. Open **AWS Quick** from the Applications folder or Launchpad.
 
 **Note**  
 On first launch, macOS might report that the application is from an unidentified developer or was downloaded from the internet. Choose **Open** to continue. If macOS blocks the application, open **System Settings**, choose **Privacy & Security**, scroll to **Security**, and choose **Open Anyway**.
@@ -73,7 +73,7 @@ On first launch, macOS might report that the application is from an unidentified
 
 1. Run the installer and follow the on-screen prompts.
 
-1. After installation, launch **Amazon Quick** from the Start menu or desktop shortcut.
+1. After installation, launch **AWS Quick** from the Start menu or desktop shortcut.
 
 **Note**  
 On first launch, Windows might display a SmartScreen prompt. Choose **More info**, then **Run anyway**, to continue.
@@ -95,13 +95,13 @@ When you open the application, the sign-in screen shows the available options.
 
 1. After authentication succeeds, the application loads the Home screen.
 
-**To sign in with your organization's Amazon Quick account**
+**To sign in with your organization's AWS Quick account**
 
 1. Open the application.
 
-1. Enter your Amazon Quick account name, and then choose **Sign In**.
+1. Enter your AWS Quick account name, and then choose **Sign In**.
 
-1. Your browser opens Amazon Quick. If you aren't already signed in to Quick on the web, sign in the way you usually do.
+1. Your browser opens AWS Quick. If you aren't already signed in to Quick on the web, sign in the way you usually do.
 
 1. The browser returns you to the application, and the Home screen loads.
 

@@ -1,6 +1,6 @@
 
 
-# Working with scenarios in Amazon Quick Sight
+# Working with scenarios in AWS Quick Sight
 <a name="scenarios"></a>
 
 All Quick users can use scenarios to analyze complex business problems with simple natural language.
@@ -12,19 +12,19 @@ Scenarios can help Quick Pro users to perform the following tasks:
 + Modify, extend, or reuse past analyses to quickly adapt to business changes
 + Dive deeper into data than spreadsheets allow
 
-Use the following topics to create and work with scenarios in Amazon Quick Sight.
+Use the following topics to create and work with scenarios in AWS Quick Sight.
 
 **Topics**
 + [Considerations for Quick Sight scenarios](#scenarios-considerations)
-+ [Creating an Amazon Quick Sight scenario](scenarios-create.md)
-+ [Working with threads in an Amazon Quick Sight scenario](scenarios-threads.md)
-+ [Working with data in an Amazon Quick Sight scenario](scenarios-data.md)
++ [Creating an AWS Quick Sight scenario](scenarios-create.md)
++ [Working with threads in an AWS Quick Sight scenario](scenarios-threads.md)
++ [Working with data in an AWS Quick Sight scenario](scenarios-data.md)
 
 ## Considerations for Quick Sight scenarios
 <a name="scenarios-considerations"></a>
 
-The following considerations apply to Amazon Quick Sight scenarios.
-+ Amazon Quick Sight scenarios are available to all users.
+The following considerations apply to AWS Quick Sight scenarios.
++ AWS Quick Sight scenarios are available to all users.
 + Scenarios are available in specific AWS Regions listed in [Supported AWS Regions for Amazon Q in Quick](regions.md#regions-aqs).
 
-After you review the considerations for Quick Sight scenarios, see [Creating an Amazon Quick Sight scenario](scenarios-create.md) to get started with scenarios in Amazon Quick Sight.
+After you review the considerations for Quick Sight scenarios, see [Creating an AWS Quick Sight scenario](scenarios-create.md) to get started with scenarios in AWS Quick Sight.

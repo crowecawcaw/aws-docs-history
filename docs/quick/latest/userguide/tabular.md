@@ -9,7 +9,7 @@ Table visuals don't display a legend. You can hide or display the title on a tab
 
 **To create a table visual**
 
-1. Open Amazon Quick and choose **Analyses** on the navigation pane at left.
+1. Open AWS Quick and choose **Analyses** on the navigation pane at left.
 
 1. Choose one of the following:
    + To create a new analysis, choose **New analysis** at upper right. For more information, see [Starting an analysis in Quick Sight](creating-an-analysis.md). 

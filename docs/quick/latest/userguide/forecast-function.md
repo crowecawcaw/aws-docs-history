@@ -7,7 +7,7 @@ The ML-powered forecast computation forecasts future metrics based on patterns o
 
 To use this function, you need at least one dimension in the **Time** field well. 
 
-For more information about working with forecasts, see [Forecasting and creating what-if scenarios with Amazon Quick Sight](forecasts-and-whatifs.md).
+For more information about working with forecasts, see [Forecasting and creating what-if scenarios with AWS Quick Sight](forecasts-and-whatifs.md).
 
 ## Parameters
 <a name="forecast-function-parameters"></a>

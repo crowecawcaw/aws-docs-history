@@ -14,9 +14,9 @@ The results of the queries that you run through the Presto query engine can be t
 
 Before you use Quick Sight as a Presto client to run queries, make sure that you configure data source profiles. You need a data source profile in Quick Sight for each Presto data source that you want to access. Use the following procedure to create a connection to Presto.
 
-**To create a new connection to a presto data source from Amazon Quick Sight (console)**
+**To create a new connection to a presto data source from AWS Quick Sight (console)**
 
-1. On the Amazon Quick Sight start page, choose **Data** at left.
+1. On the AWS Quick Sight start page, choose **Data** at left.
 
 1. Choose **Create** then **New dataset**. 
 
@@ -34,15 +34,15 @@ In most browsers, you can use Ctrl-F or Cmd-F to open a search box and enter **p
 
      To connect through a virtual private connection, choose the appropriate VPC name from the **VPC connections** list. 
 
-     If your Presto server allows unauthenticated access, AWS requires that you connect to it securely by using a private VPC connection. For information on configuring a new VPC, see [Configuring VPC connections in Amazon Quick Sight](working-with-aws-vpc.md).
+     If your Presto server allows unauthenticated access, AWS requires that you connect to it securely by using a private VPC connection. For information on configuring a new VPC, see [Configuring VPC connections in AWS Quick Sight](working-with-aws-vpc.md).
    + ****Database server**** – The name of the database server. 
-   + ****Port**** – The port that the server using to accept incoming connections from Amazon Quick Sight 
+   + ****Port**** – The port that the server using to accept incoming connections from AWS Quick Sight 
    + ****Catalog**** – The name of the catalog that you want to use. 
    + ****Authentication required**** – (Optional) This option only appears if you choose a VPC connection type. If the Presto data source that you're connecting to doesn't require authentication, choose **No**. Otherwise, keep the default setting (**Yes**). 
    + ****Username**** – Enter a user name to use to connect to Presto. Quick Sight applies the same user name and password to all connections that use this data source profile. If you want to monitor Quick Sight separately from other accounts, create a Presto account for each Quick Sight data source profile. 
 
      The Presto account that you use needs be able to access to the database and run `SELECT` statements on at least one table. 
-   + ****Password**** – The password to use with the Presto user name. Amazon Quick Sight encrypts all credentials that you use in data source profile. For more information, see [Data encryption in Amazon Quick](data-encryption.md). 
+   + ****Password**** – The password to use with the Presto user name. AWS Quick Sight encrypts all credentials that you use in data source profile. For more information, see [Data encryption in AWS Quick](data-encryption.md). 
    + ****Enable SSL**** – SSL is enabled by default. 
 
 1. Choose **Validate connection** to test your settings.

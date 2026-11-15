@@ -9,11 +9,11 @@ Use the following procedure to create a new analysis.
 
 **To create a new analysis**
 
-1. On the Amazon Quick start page, choose **Analyses**, and then choose **New analysis**.
+1. On the AWS Quick start page, choose **Analyses**, and then choose **New analysis**.
 
 1. Choose the dataset that you want to include in your new analysis, and then choose **USE IN ANALYSIS** in the top right.
 
-1. In the **New sheet** pop-up that appears, choose the sheet type that you want. You can choose between an **Interactive sheet** and a **Pixel perfect report**. To create a pixel perfect report, you need the pixel perfect reports add-on for your account. For more information about pixel perfect reports, see [Working with pixel perfect reports in Amazon Quick Sight](working-with-reports.md). For more information on sheets, see [Adding and managing sheets](working-with-multiple-sheets.md).
+1. In the **New sheet** pop-up that appears, choose the sheet type that you want. You can choose between an **Interactive sheet** and a **Pixel perfect report**. To create a pixel perfect report, you need the pixel perfect reports add-on for your account. For more information about pixel perfect reports, see [Working with pixel perfect reports in AWS Quick Sight](working-with-reports.md). For more information on sheets, see [Adding and managing sheets](working-with-multiple-sheets.md).
 
 1. (Optional) If you choose **Interactive sheet**, follow these steps:
    + (Optional): Choose the type layout that you want for your interactive sheet. You can choose one of the following options:
@@ -30,7 +30,7 @@ Use the following procedure to create a new analysis.
      + 1600px
      + 1920px
 
-     For more information on formatting interactive sheets, see [Working with interactive sheets in Amazon Quick Sight](working-with-interactive-sheets.md).
+     For more information on formatting interactive sheets, see [Working with interactive sheets in AWS Quick Sight](working-with-interactive-sheets.md).
 
 1. (Optional) If you choose **Pixel perfect report**, follow these steps:
    + (Optional) Choose the paper size that you want for your paginated report. You can choose from the following options:
@@ -48,9 +48,9 @@ Use the following procedure to create a new analysis.
      The default paper size is US letter (8.5 x 11 in.)
    + (Optional) Choose the orientation of the sheet. You can choose between **Portrait** or **Landscape**. The default option is portrait.
 
-     Before you can create Amazon Quick Sight pixel perfect reports, first get the pixel perfect reporting add-on for your Quick account. For more information on getting the pixel perfect reporting add-on, see [Get the Quick pixel perfect reports add-on](qs-reports-getting-started.md#qs-reports-getting-started-subscribe).
+     Before you can create AWS Quick Sight pixel perfect reports, first get the pixel perfect reporting add-on for your Quick account. For more information on getting the pixel perfect reporting add-on, see [Get the Quick pixel perfect reports add-on](qs-reports-getting-started.md#qs-reports-getting-started-subscribe).
 
-     For more information on formatting pixel perfect reports, see [Working with pixel perfect reports in Amazon Quick Sight](working-with-reports.md).
+     For more information on formatting pixel perfect reports, see [Working with pixel perfect reports in AWS Quick Sight](working-with-reports.md).
 
 1. Choose **Add**.
 

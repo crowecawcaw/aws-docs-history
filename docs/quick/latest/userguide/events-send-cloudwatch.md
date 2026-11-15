@@ -1,9 +1,9 @@
 
 
-# Creating rules to send Amazon Quick Sight events to Amazon CloudWatch
+# Creating rules to send AWS Quick Sight events to Amazon CloudWatch
 <a name="events-send-cloudwatch"></a>
 
-You can write simple rules to indicate which Amazon Quick Sight events interest you and which automated actions to take when an event matches a rule. For example, you can configure Amazon Quick Sight to send events to Amazon CloudWatch whenever a Amazon Quick Sight asset is placed in a folder. For more information, see the [Amazon EventBridge user guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
+You can write simple rules to indicate which AWS Quick Sight events interest you and which automated actions to take when an event matches a rule. For example, you can configure AWS Quick Sight to send events to Amazon CloudWatch whenever a AWS Quick Sight asset is placed in a folder. For more information, see the [Amazon EventBridge user guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
@@ -29,7 +29,7 @@ You can write simple rules to indicate which Amazon Quick Sight events interest 
    }
    ```
 
-   Alternatively, you can create the rule that only subscribes to a subset of event types in Amazon Quick Sight. For example, the following rule will only triggered when an asset is added to or removed from a folder with id `77e307e8-b41b-472a-90e8-fe3f471537be`.
+   Alternatively, you can create the rule that only subscribes to a subset of event types in AWS Quick Sight. For example, the following rule will only triggered when an asset is added to or removed from a folder with id `77e307e8-b41b-472a-90e8-fe3f471537be`.
 
    ```
    {

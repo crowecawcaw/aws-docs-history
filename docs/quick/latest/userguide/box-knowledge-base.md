@@ -3,7 +3,7 @@
 # Box knowledge base integration
 <a name="box-knowledge-base"></a>
 
-Use the Box knowledge base integration to index Box content so that Amazon Quick agents can search and answer questions about it. You can sync all of the Box content that you have access to, or choose specific Box folders and files. You can also configure advanced indexing settings when needed.
+Use the Box knowledge base integration to index Box content so that AWS Quick agents can search and answer questions about it. You can sync all of the Box content that you have access to, or choose specific Box folders and files. You can also configure advanced indexing settings when needed.
 
 **Access control limitation**  
 This user-managed setup does not support document-level access controls (ACLs). ACLs are mechanisms that control which users can access specific documents.
@@ -23,7 +23,7 @@ The setup wizard has two steps: create the knowledge base, and configure optiona
 ### Creating the knowledge base
 <a name="box-kb-setup-create"></a>
 
-1. Sign in to the Amazon Quick console, and then choose **Knowledge**.
+1. Sign in to the AWS Quick console, and then choose **Knowledge**.
 
 1. Under **Knowledge bases**, find **Box**, and then choose the **Add** (\+) icon.
 
@@ -60,7 +60,7 @@ Choose **Create** to create the knowledge base. After you choose **Create**, the
 ### Editing existing knowledge bases
 <a name="box-kb-edit"></a>
 
-1. Sign in to the Amazon Quick console, and then choose **Knowledge bases**.
+1. Sign in to the AWS Quick console, and then choose **Knowledge bases**.
 
 1. Select your Box knowledge base from the list.
 

@@ -24,7 +24,7 @@ You can view a list of spaces created by—or shared with—you.
 
 **To view a list of spaces**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Spaces**.
 
@@ -33,13 +33,13 @@ You can view a list of spaces created by—or shared with—you.
 ## Editing a space
 <a name="editing-spaces"></a>
 
-You can edit an Amazon Quick space. When you edit a space, you can perform the following actions:
+You can edit an AWS Quick space. When you edit a space, you can perform the following actions:
 + Edit space description and space name
 + Add and delete any files and link or unlink any resources ( dashboards, topics, knowledge bases, and application actions) that you've added.
 
 **To edit a space**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Spaces**.
 
@@ -51,16 +51,16 @@ You can edit an Amazon Quick space. When you edit a space, you can perform the f
 
    1. In the **All knowledge** section, select **Add knowledge** to add new content.
 
-   1. In **Amazon Quick resources** – Link and unlink resources as needed.
+   1. In **AWS Quick resources** – Link and unlink resources as needed.
 
 ## Adding knowledge to a space
 <a name="adding-resources-space"></a>
 
-You can add knowledge—files and Amazon Quick resources—to a space after it's been created.
+You can add knowledge—files and AWS Quick resources—to a space after it's been created.
 
 **To add knowledge to an existing space**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Spaces**, and then select your space from the list of spaces displayed.
 
@@ -79,7 +79,7 @@ You can view a list of content inside a space.
 
 **To view a list of content within a space**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Spaces**.
 
@@ -93,12 +93,12 @@ You can view a list of content inside a space.
 After you finish creating your space and adding knowledge to it, you can start interacting with it through agents. You can interact with an agent while in a space in the following ways:
 + Interact with a space using any agent
 **Note**  
-When you switch between spaces or open up a space during an on-going chat Amazon Quick detects your space and focuses your agent to it.
+When you switch between spaces or open up a space during an on-going chat AWS Quick detects your space and focuses your agent to it.
 + Interact with a specific knowledge source within a space using an agent
 
 **To use an agent to chat with a space**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. Then, do one of the following:
 
@@ -117,11 +117,11 @@ When you switch between spaces or open up a space during an on-going chat Amazon
 ## Sharing a space
 <a name="sharing-spaces"></a>
 
-You can share a space with any other Amazon Quick user. When you share a space with a user, you must also choose the permission levels that user has to the space—whether owner or viewer.
+You can share a space with any other AWS Quick user. When you share a space with a user, you must also choose the permission levels that user has to the space—whether owner or viewer.
 
 **To share a space**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Spaces**, and select the name of the space you want to share. The space should open.
 
@@ -135,11 +135,11 @@ You can also share a space from the space home page. Locate the space you want t
 ## Deleting a space
 <a name="deleting-spaces"></a>
 
-You can delete a Amazon Quick space. Deleting a space deletes all files associated with the space. Deleting a space unlinks assets associated with the space without deleting the assets. You can only delete a space you own.
+You can delete a AWS Quick space. Deleting a space deletes all files associated with the space. Deleting a space unlinks assets associated with the space without deleting the assets. You can only delete a space you own.
 
 **To delete a space**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Spaces**, and select the name of the space you want to share. The space should open.
 
@@ -151,11 +151,11 @@ You can also delete a space from the space home page. Locate the space you want 
 ## Removing knowledge from a space
 <a name="deleting-resources-space"></a>
 
-You can remove knowledge (remove files and unlink assets) from a space. When you remove files, they are removed from the Amazon Quick index in which they are stored. When you remove an asset, it unlinks it from the space without deleting it from the Amazon Quick system.
+You can remove knowledge (remove files and unlink assets) from a space. When you remove files, they are removed from the AWS Quick index in which they are stored. When you remove an asset, it unlinks it from the space without deleting it from the AWS Quick system.
 
 **To remove knowledge from an existing space**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Spaces**, and then select your space from the list of spaces displayed.
 
@@ -163,7 +163,7 @@ You can remove knowledge (remove files and unlink assets) from a space. When you
 
    1. In **Files uploaded** – From the **Actions** menu select **Delete**.
 
-   1. In **Amazon Quick resources** – From the **Actions** menu select **Remove from this space**.
+   1. In **AWS Quick resources** – From the **Actions** menu select **Remove from this space**.
 
 ## Adding data from external sources into your space
 <a name="adding-external-data-sources"></a>

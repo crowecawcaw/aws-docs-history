@@ -1,9 +1,9 @@
 
 
-# Working with pixel perfect reports in Amazon Quick Sight
+# Working with pixel perfect reports in AWS Quick Sight
 <a name="working-with-reports"></a>
 
-With Amazon Quick Sight Pixel Perfect Reports, you can create, schedule, and share highly formatted multipage PDF reports. You can also schedule data exports as CSV files using Quick Sight's existing web interface. This unifies historically separate systems for dashboards and reports. 
+With AWS Quick Sight Pixel Perfect Reports, you can create, schedule, and share highly formatted multipage PDF reports. You can also schedule data exports as CSV files using Quick Sight's existing web interface. This unifies historically separate systems for dashboards and reports. 
 
 Report creators can use Quick Sight's browser-based authoring experience to connect to a broad range of supported data sources and create highly formatted reports. They can specify the exact page size, length, and arrangement of images, charts, and tables with pixel-level precision. Authors can then use Quick Sight's scheduling mechanisms to set up and schedule highly personalized report delivery to end users, or archive reports for future use.
 
@@ -16,7 +16,7 @@ Pixel perfect reports are not available in the `eu-central-2` Europe (Zurich) re
 
 **Topics**
 + [Getting started](qs-reports-getting-started.md)
-+ [Creating reports from an analysis in Amazon Quick Sight](qs-reports-create-reports.md)
-+ [Formatting reports in Amazon Quick Sight](qs-reports-format-reports.md)
-+ [Consuming pixel perfect reports in Amazon Quick Sight](qs-reports-consume-reports.md)
++ [Creating reports from an analysis in AWS Quick Sight](qs-reports-create-reports.md)
++ [Formatting reports in AWS Quick Sight](qs-reports-format-reports.md)
++ [Consuming pixel perfect reports in AWS Quick Sight](qs-reports-consume-reports.md)
 + [Unsubscribe from paginated reporting in Quick Sight](qs-reports-getting-started-unsubscribe.md)

@@ -80,7 +80,7 @@ The connector must meet these requirements:
   + New actions on alerts: You will not see the option to attach a PDF of the sheet while adding a new action to an alert if your user or role is restricted the permission to use the **Export To PDF** capability.
   + Existing actions on alerts: If you have existing alerts with actions containing PDF attachments then those actions will be sent out without the PDF attachments when your user or role gets restricted from using the **Export To PDF** capability.
 
-To learn more about custom permissions, see [Custom permissions in Amazon Quick](custom-permissions.md).
+To learn more about custom permissions, see [Custom permissions in AWS Quick](custom-permissions.md).
 
 **Row Level Security (RLS) / Column Level Security (CLS)**
 + New actions on alerts: If your dashboard contains a dataset with RLS or CLS, then
@@ -90,7 +90,7 @@ To learn more about custom permissions, see [Custom permissions in Amazon Quick]
   + Existing actions on alerts tracking that dataset will stop working completely
   + Existing actions on alerts tracking a different dataset on the same dashboard will be sent out without any PDF attachments
 
-To learn more about RLS, see [Using row-level security in Amazon Quick](row-level-security.md).
+To learn more about RLS, see [Using row-level security in AWS Quick](row-level-security.md).
 
 To learn more about CLS, see [Using column-level security to restrict access to a dataset](row-level-security.md).
 

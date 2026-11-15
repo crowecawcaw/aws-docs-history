@@ -5,11 +5,11 @@
 
 **Applies to**  
 Applies to: Enterprise Edition  
-Intended audience: Administrators and Amazon Quick developers
+Intended audience: Administrators and AWS Quick developers
 
-In Enterprise edition, you can use custom permissions profiles to restrict the capabilities and features that people can access in Amazon Quick. Custom permissions is a scope-down policy. It can only restrict what a user has access to based on the default set of capabilities available to their role. It cannot be used to grant capabilities that a user does not already have.
+In Enterprise edition, you can use custom permissions profiles to restrict the capabilities and features that people can access in AWS Quick. Custom permissions is a scope-down policy. It can only restrict what a user has access to based on the default set of capabilities available to their role. It cannot be used to grant capabilities that a user does not already have.
 
-You can configure custom permissions at the account, role (admin, author, reader), and user levels for all identity types in Quick. You can assign custom permissions profiles to users and roles directly in the Amazon Quick admin console, or by using the Amazon Quick API and AWS Command Line Interface. The admin console also provides a Check permissions feature that lets you verify which profile is active for any user and at which level (user, role, or account) it applies.
+You can configure custom permissions at the account, role (admin, author, reader), and user levels for all identity types in Quick. You can assign custom permissions profiles to users and roles directly in the AWS Quick admin console, or by using the AWS Quick API and AWS Command Line Interface. The admin console also provides a Check permissions feature that lets you verify which profile is active for any user and at which level (user, role, or account) it applies.
 
 ## Permissions precedence
 <a name="permissions-precedence"></a>
@@ -25,7 +25,7 @@ If a user has custom permissions assigned at multiple levels, Quick evaluates th
 The first match wins. A user with a user-level allow-by-default profile is not subject to an account-level Deny by Default profile. Assign Deny by Default profiles at the appropriate level for your requirements.
 
 **Tip**  
-For an in-depth explanation of using custom permissions to establish enterprise controls in Quick, see [Establishing enterprise governance in Amazon Quick using custom permissions](https://aws.amazon.com/blogs/business-intelligence/establishing-enterprise-governance-in-amazon-quick-using-custom-permissions/) on the AWS Business Intelligence Blog.
+For an in-depth explanation of using custom permissions to establish enterprise controls in Quick, see [Establishing enterprise governance in AWS Quick using custom permissions](https://aws.amazon.com/blogs/business-intelligence/establishing-enterprise-governance-in-amazon-quick-using-custom-permissions/) on the AWS Business Intelligence Blog.
 
 The following limitations apply to custom permissions.
 + You can't grant permissions that are above a user's default role. For example, if a user has reader access, you can't grant permissions for that user to edit dashboards.
@@ -65,7 +65,7 @@ The **Badge** column indicates the governance category for each capability. **AI
 Use this group to control access to AI-powered features such as natural language Q&A, executive summaries, anomaly detection, and AI-generated insights.
 
 
-| Feature | Amazon Quick behavior | Badge | Parent capability | 
+| Feature | AWS Quick behavior | Badge | Parent capability | 
 | --- | --- | --- | --- | 
 | Apps | Restricts all app capabilities, including creating, updating, sharing, and using apps. | AI | Not applicable | 
 | Access apps native data store when using existing apps | Restricts apps from accessing their native data store when users run existing apps. | AI | Apps | 
@@ -115,7 +115,7 @@ Use this group to control access to AI-powered features such as natural language
 Use this group to control creation and management of core business intelligence assets: dashboards, analyses, datasets, SPICE capacity, and scheduled reports.
 
 
-| Feature | Amazon Quick behavior | Badge | Parent capability | 
+| Feature | AWS Quick behavior | Badge | Parent capability | 
 | --- | --- | --- | --- | 
 | Analyses | Restricts all analysis capabilities. | Contains AI | Not applicable | 
 | Build calculation with AI | Users can't build calculated fields with AI. | AI | Analyses | 
@@ -155,7 +155,7 @@ Use this group to control creation and management of core business intelligence 
 Use this group to control data source connections, including adding, editing, and removing third-party integrations such as Salesforce, Google Sheets, and databases.
 
 
-| Feature | Amazon Quick behavior | Badge | Parent capability | 
+| Feature | AWS Quick behavior | Badge | Parent capability | 
 | --- | --- | --- | --- | 
 | Actions | Restricts all connector capabilities. | AI | Not applicable | 
 | Data sources | Restricts all data source capabilities, including the ability to create, update, and share data sources for every connector. | Not applicable | Not applicable | 
@@ -197,7 +197,7 @@ These permissions are available under **Data sources**, in the **Connectors** gr
 
 **Creating or updating all data sources** and **Sharing data sources** apply to every connector. If you restrict either of them, the matching permissions are restricted for all connectors. Connector permissions that you don't restrict remain allowed.
 
-To set these permissions with the Amazon Quick API or the AWS Command Line Interface, use capability names. Replace {{Connector}} with the connector's name in the API, such as `Snowflake`, `RedshiftManual`, or `GoogleBigQuery`. For more information about capability names, see `Capabilities` in the [Amazon Quick API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Capabilities.html).
+To set these permissions with the AWS Quick API or the AWS Command Line Interface, use capability names. Replace {{Connector}} with the connector's name in the API, such as `Snowflake`, `RedshiftManual`, or `GoogleBigQuery`. For more information about capability names, see `Capabilities` in the [AWS Quick API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Capabilities.html).
 
 The following table lists the capability name for each permission.
 
@@ -224,6 +224,6 @@ aws quicksight create-custom-permissions \
 Use this group to control account-level settings, including user management, permission sets, billing, audit logs, and governance policies.
 
 
-| Feature | Amazon Quick behavior | Badge | Parent capability | 
+| Feature | AWS Quick behavior | Badge | Parent capability | 
 | --- | --- | --- | --- | 
 | Allow users to upgrade or request upgrades | Users can't upgrade their own role or request a role upgrade. | Not applicable | Not applicable | 

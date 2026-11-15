@@ -14,7 +14,7 @@ Use this section to diagnose and resolve common issues with OneDrive knowledge b
 | Issue | Cause | Resolution | 
 | --- | --- | --- | 
 | "Need admin approval" error during sign-in | Your tenant restricts user consent for third-party apps. | Ask a Global Administrator to grant admin consent. For more information, see [Admin consent for Microsoft 365](onedrive-kb-user-managed.md#onedrive-kb-user-admin-consent). | 
-| Sign-in window closes without completing | Browser popup blocker or cookie settings. | Allow popups from the Amazon Quick domain and ensure third-party cookies are enabled. | 
+| Sign-in window closes without completing | Browser popup blocker or cookie settings. | Allow popups from the AWS Quick domain and ensure third-party cookies are enabled. | 
 | "AADSTS65004: User declined to consent" | User chose Cancel or Deny on the consent dialog. | Retry the sign-in and choose Accept on the consent dialog. | 
 
 ## Token refresh with user-managed setup
@@ -24,7 +24,7 @@ User-managed setup uses the `offline_access` scope to obtain refresh tokens. Del
 
 To re-authenticate:
 
-1. Navigate to the **Knowledge bases** list page in Amazon Quick.
+1. Navigate to the **Knowledge bases** list page in AWS Quick.
 
 1. Locate the knowledge base that requires a refresh. In the **Actions** column, choose the three-dot menu and choose **Edit integration**.
 
@@ -45,7 +45,7 @@ When you re-authenticate, sign in using the same Microsoft 365 account that was 
 
 | Issue | Cause | Resolution | 
 | --- | --- | --- | 
-| Unable to access KMS key | The KMS key ARN is incorrect, the key does not exist in the specified Region, or the KMS key has not been added in the Amazon Quick admin console. | Verify the KMS key ARN and Region. Confirm the KMS key has been added under Manage account, AWS resources, AWS Key Management Service. Confirm the key is enabled and has not been scheduled for deletion. Multi-Region keys are not supported. | 
+| Unable to access KMS key | The KMS key ARN is incorrect, the key does not exist in the specified Region, or the KMS key has not been added in the AWS Quick admin console. | Verify the KMS key ARN and Region. Confirm the KMS key has been added under Manage account, AWS resources, AWS Key Management Service. Confirm the key is enabled and has not been scheduled for deletion. Multi-Region keys are not supported. | 
 | Invalid Tenant ID | The Tenant ID is malformed or does not match a valid Entra tenant. | Copy the Tenant ID directly from the Entra admin center: Microsoft Entra ID, Overview. | 
 | Invalid Client ID | The Client ID is incorrect or the app registration does not exist. | Copy the Application (Client) ID from App Registrations, your app, Overview. | 
 | Certificate validation failed | The thumbprint does not match the certificate in Entra, or the certificate has expired. | Verify the thumbprint using the base64url-encoded SHA-1 value from the certificate generation step. Ensure the certificate has not expired. | 

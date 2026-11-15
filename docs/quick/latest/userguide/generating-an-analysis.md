@@ -14,7 +14,7 @@ The generated output is a native Quick Sight analysis. It works with existing pu
 
 To generate an analysis from a natural language prompt, you need the following:
 + An AWS account
-+ Amazon Quick Enterprise Edition with at least one Author Pro user
++ AWS Quick Enterprise Edition with at least one Author Pro user
 + At least one dataset in your Quick Sight account
 
 ## Generating an analysis

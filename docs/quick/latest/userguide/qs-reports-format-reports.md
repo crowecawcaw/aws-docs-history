@@ -1,9 +1,9 @@
 
 
-# Formatting reports in Amazon Quick Sight
+# Formatting reports in AWS Quick Sight
 <a name="qs-reports-format-reports"></a>
 
-Use this section to learn how to format a pixel perfect report in Amazon Quick Sight.
+Use this section to learn how to format a pixel perfect report in AWS Quick Sight.
 
 **Topics**
 + [Working with sections](qs-reports-working-with-sections.md)

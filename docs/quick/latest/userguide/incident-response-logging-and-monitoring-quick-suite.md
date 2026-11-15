@@ -1,14 +1,14 @@
 
 
-# Using the Amazon Quick analytics dashboard
+# Using the AWS Quick analytics dashboard
 <a name="incident-response-logging-and-monitoring-quick-suite"></a>
 
-Analytics in Amazon Quick provides insights into how users interact with your instance across all features and capabilities. The analytics dashboard delivers the data-driven insights you need to make informed decisions about security, performance, and user experience.
+Analytics in AWS Quick provides insights into how users interact with your instance across all features and capabilities. The analytics dashboard delivers the data-driven insights you need to make informed decisions about security, performance, and user experience.
 
 **Note**  
 The analytics dashboard is only available for IAM administrators.
 
-The Amazon Quick analytics system captures detailed usage metrics from chat conversations, space interactions, flow executions, action invocations, research activities, automations, and custom agent usage. This comprehensive data collection enables you to understand not just what users are doing, but how effectively they're leveraging Quick to accomplish their goals while maintaining security and compliance standards.
+The AWS Quick analytics system captures detailed usage metrics from chat conversations, space interactions, flow executions, action invocations, research activities, automations, and custom agent usage. This comprehensive data collection enables you to understand not just what users are doing, but how effectively they're leveraging Quick to accomplish their goals while maintaining security and compliance standards.
 
 You can use analytics to:
 + Monitor user adoption and engagement across all Quick features
@@ -28,7 +28,7 @@ You can use analytics to:
 ## Analytics access and permissions
 <a name="analytics-access-permissions"></a>
 
-Access to analytics in Amazon Quick is controlled by user roles and permissions to ensure data security and privacy. Currently, only IAM administrators have access to the analytics dashboard.
+Access to analytics in AWS Quick is controlled by user roles and permissions to ensure data security and privacy. Currently, only IAM administrators have access to the analytics dashboard.
 
 To access the analytics dashboard, you need the following permission: `quicksight:QuickSuiteUsageMetrics`
 
@@ -43,7 +43,7 @@ If you have analytics access, you can view detailed query text, failed-query con
 ## Analytics dashboard overview
 <a name="analytics-dashboard-overview"></a>
 
-The Amazon Quick analytics dashboard is organized into several key sections that provide different perspectives on your instance usage and security events:
+The AWS Quick analytics dashboard is organized into several key sections that provide different perspectives on your instance usage and security events:
 
 ### Dashboard filters and controls
 <a name="dashboard-filters"></a>
@@ -55,7 +55,7 @@ The analytics dashboard provides filtering options to focus on specific data:
 ### Active user metrics
 <a name="active-user-metrics"></a>
 
-Track how users interact with your Amazon Quick instance over time.
+Track how users interact with your AWS Quick instance over time.
 
 This section displays user activity metrics including:
 + **Active users** – Daily, weekly, and monthly active user counts with trend comparisons
@@ -145,19 +145,19 @@ Use these metrics to understand user adoption patterns and identify engagement o
 ## Accessing the analytics dashboard
 <a name="accessing-analytics"></a>
 
-You can access the analytics dashboard from the Amazon Quick console if you have the appropriate permissions.
+You can access the analytics dashboard from the AWS Quick console if you have the appropriate permissions.
 
 **To access the analytics dashboard**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
-1. From the left navigation menu, select **Analytics**, and then select **Amazon Quick Usage Metrics**.
+1. From the left navigation menu, select **Analytics**, and then select **AWS Quick Usage Metrics**.
 
    The analytics dashboard opens, displaying an overview of your instance usage and available analytics.
 
 1. Use the date picker to specify the time interval for the graphs. You can choose from the following preset intervals:
    + **Last week** – This interval starts from the previous Sunday at 00:00 and goes until the following Sunday at 00:00 in the UTC time zone.
-   + **This week** – This interval starts on Monday at 00:00 and goes until 00:00 today as per the timezone relevant for the primary region of the Amazon Quick account.
+   + **This week** – This interval starts on Monday at 00:00 and goes until 00:00 today as per the timezone relevant for the primary region of the AWS Quick account.
    + **Last month** – This interval begins on the 1st day of the last month at 00:00 and ends on the first day of this month at 00:00 in the UTC time zone.
    + **This month** – This interval begins on the 1st day of this month at 00:00 and goes until 00:00 today in the UTC time zone.
 
@@ -172,7 +172,7 @@ The analytics dashboard displays various metrics that help you understand usage 
 ### User activity metrics
 <a name="user-activity-metrics"></a>
 
-User activity metrics help you understand how many people are actively using your Amazon Quick instance:
+User activity metrics help you understand how many people are actively using your AWS Quick instance:
 + **Daily active users** – Number of unique users who sent at least one message in a given day
 + **Weekly active users** – Number of unique users who sent at least one message in the current week starting from Monday
 + **Monthly active users** – Number of unique users who sent at least one message in the current month starting from the 1st day of the month
@@ -190,7 +190,7 @@ Security monitoring metrics help you track potential security issues and policy 
 ## Analytics limitations
 <a name="analytics-limitations"></a>
 
-The following limitations apply to Amazon Quick analytics:
+The following limitations apply to AWS Quick analytics:
 + Analytics primarily covers chat interactions and may not capture all types of Quick usage
 + Data processing may have a delay of up to 24 hours
 + Historical data availability depends on when analytics was first enabled

@@ -1,6 +1,6 @@
 
 
-# Deploying Amazon Quick on desktop to a managed fleet with MDM
+# Deploying AWS Quick on desktop to a managed fleet with MDM
 <a name="desktop-enterprise-mdm"></a>
 
 
@@ -13,7 +13,7 @@
 | --- |
 |    Intended audience:  System administrators  | 
 
-As an administrator, you can distribute the Amazon Quick desktop application to a managed fleet with mobile device management (MDM), without any per-machine interaction. This page describes the deployment using Microsoft Intune for both macOS and Windows. The artifacts it describes – a signed macOS `.pkg` and a per-machine Windows `.exe` – also work with other MDM solutions, such as Jamf, Kandji, and VMware Workspace ONE. Only the upload mechanics differ between solutions.
+As an administrator, you can distribute the AWS Quick desktop application to a managed fleet with mobile device management (MDM), without any per-machine interaction. This page describes the deployment using Microsoft Intune for both macOS and Windows. The artifacts it describes – a signed macOS `.pkg` and a per-machine Windows `.exe` – also work with other MDM solutions, such as Jamf, Kandji, and VMware Workspace ONE. Only the upload mechanics differ between solutions.
 
 This page describes how to complete the following tasks:
 
@@ -33,7 +33,7 @@ This page covers distributing the application binary. To let users sign in, you 
 
 Before you begin, verify that you have the following:
 + Administrator access to your MDM solution, and a fleet of devices that are enrolled in it.
-+ Devices that meet the Amazon Quick desktop application system requirements. For the macOS and Windows requirements, see [Prerequisites](getting-started-desktop.md#desktop-prerequisites).
++ Devices that meet the AWS Quick desktop application system requirements. For the macOS and Windows requirements, see [Prerequisites](getting-started-desktop.md#desktop-prerequisites).
 + For Windows, devices that run Windows Pro, Enterprise, or Education. The application deployment method for Windows uses the Win32 app type, which Microsoft Intune does not support on Windows Home. MDM enrollment also requires a Windows client edition (Windows Server is not supported for MDM enrollment).
 + For Windows, the Microsoft Win32 Content Prep Tool (`IntuneWinAppUtil.exe`), which packages the installer into the `.intunewin` format that the Win32 app type requires. For more information, see [Microsoft Win32 Content Prep Tool](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool) on GitHub.
 
@@ -43,7 +43,7 @@ Use the per-machine installer variants described in this page, not the per-user 
 ## Get the installer artifacts
 <a name="desktop-mdm-artifacts"></a>
 
-The Amazon Quick download service at `desktop.downloads.quick.aws.com` provides the desktop installers. For MDM deployment, use the per-machine installer for each platform. The per-machine installer differs from the per-user installer that individual users download from the standard download page:
+The AWS Quick download service at `desktop.downloads.quick.aws.com` provides the desktop installers. For MDM deployment, use the per-machine installer for each platform. The per-machine installer differs from the per-user installer that individual users download from the standard download page:
 + **macOS** – a signed, notarized component `.pkg`, named `Amazon Quick-{{version}}-arm64.pkg`, that installs `Amazon Quick.app` to the `/Applications` folder as the root user.
 + **Windows** – a per-machine `.exe`, named `Amazon Quick-Admin Setup {{version}}.exe`, that installs the application for all users into `C:\Program Files\Amazon Quick\`.
 
@@ -103,7 +103,7 @@ Use the **macOS app (PKG)** type, not the line-of-business app type.
 
 1. In the **Included apps** detection list, keep only the main application bundle and remove the helper bundles.
 **Keep only the main application bundle**  
-The macOS installer includes the main application plus four nested helper components inside `Contents/Frameworks/`. When you upload the `.pkg`, Microsoft Intune automatically populates the **Included apps** list with all five bundles. Delete the four helper rows (the ones whose IDs end in `.e0` through `.e3`, such as **Amazon Quick Helper (GPU)**) so that exactly one entry remains, with the following values.  
+The macOS installer includes the main application plus four nested helper components inside `Contents/Frameworks/`. When you upload the `.pkg`, Microsoft Intune automatically populates the **Included apps** list with all five bundles. Delete the four helper rows (the ones whose IDs end in `.e0` through `.e3`, such as **AWS Quick Helper (GPU)**) so that exactly one entry remains, with the following values.  
 
 
 <table>
@@ -199,7 +199,7 @@ Get-Content "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppWorkload
 ## Trusting a corporate certificate authority
 <a name="desktop-mdm-tls"></a>
 
-If your network inspects encrypted traffic or uses a custom corporate certificate authority (CA), the Amazon Quick desktop application must trust that CA. Otherwise, sign-in and responses can fail on the corporate network. Examples of traffic-inspection proxies include Zscaler and Netskope.
+If your network inspects encrypted traffic or uses a custom corporate certificate authority (CA), the AWS Quick desktop application must trust that CA. Otherwise, sign-in and responses can fail on the corporate network. Examples of traffic-inspection proxies include Zscaler and Netskope.
 
 Deploy the CA into the operating system trust store with an MDM certificate profile. The application reads the operating system trust store when it starts, so a CA that you install there is trusted for all of the application's outbound connections. This approach works on both platforms and requires no environment variables, scripts, or certificate file placement.
 
@@ -210,7 +210,7 @@ Windows
 Deploy a **Trusted certificate** configuration profile to the computer store under **Trusted Root**.
 
 **Note**  
-The certificate profile is the reliable path for the application itself. Deploy environment variables such as `REQUESTS_CA_BUNDLE`, `SSL_CERT_FILE`, or `NODE_EXTRA_CA_CERTS` only if other, non-Amazon Quick tools on the device require the CA through those variables.
+The certificate profile is the reliable path for the application itself. Deploy environment variables such as `REQUESTS_CA_BUNDLE`, `SSL_CERT_FILE`, or `NODE_EXTRA_CA_CERTS` only if other, non-AWS Quick tools on the device require the CA through those variables.
 
 ### Advanced: environment variables for mixed toolchains on Windows
 <a name="desktop-mdm-tls-envvars"></a>
@@ -229,7 +229,7 @@ SETX /M SSL_CERT_FILE "C:\ProgramData\Amazon Quick\certs\tls-ca-bundle.pem"
 exit /b 0
 ```
 
-The `NODE_EXTRA_CA_CERTS` variable is not consumed by the Amazon Quick agent, so the certificate profile remains the reliable path for the application itself. Use the environment-variable script only if other tooling on the device requires the CA through those variables.
+The `NODE_EXTRA_CA_CERTS` variable is not consumed by the AWS Quick agent, so the certificate profile remains the reliable path for the application itself. Use the environment-variable script only if other tooling on the device requires the CA through those variables.
 
 ## Troubleshooting MDM deployment
 <a name="desktop-mdm-troubleshooting"></a>

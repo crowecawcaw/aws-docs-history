@@ -1,12 +1,12 @@
 
 
-# Connect Amazon Quick to your existing tools with extensions
+# Connect AWS Quick to your existing tools with extensions
 <a name="working-with-extensions-detail"></a>
 
 **Note**  
-The Amazon Quick browser extension, Microsoft Outlook extension, Microsoft Word extension, Microsoft Excel extension, and Microsoft PowerPoint extension don't require admin setup to install and use. For the Slack and Microsoft Teams extensions, your Quick admin must [configure Amazon Quick access](https://docs.aws.amazon.com/quicksuite/latest/userguide/extension-access.html) before authors can deploy them.
+The AWS Quick browser extension, Microsoft Outlook extension, Microsoft Word extension, Microsoft Excel extension, and Microsoft PowerPoint extension don't require admin setup to install and use. For the Slack and Microsoft Teams extensions, your Quick admin must [configure AWS Quick access](https://docs.aws.amazon.com/quicksuite/latest/userguide/extension-access.html) before authors can deploy them.
 
-Amazon Quick extensions enable you to optimize your daily tasks with assistance from an AI tool added to the tools you already use. Whether you're browsing the web, collaborating in team channels, managing emails, or creating documents, Quick extensions bring AI-powered assistance directly into your existing workflows without requiring you to switch between applications.
+AWS Quick extensions enable you to optimize your daily tasks with assistance from an AI tool added to the tools you already use. Whether you're browsing the web, collaborating in team channels, managing emails, or creating documents, Quick extensions bring AI-powered assistance directly into your existing workflows without requiring you to switch between applications.
 
 The following extension types are available:
 + **Browser Extension** - Enhance your web browsing experience with AI-powered page summarization, content analysis, and knowledge access across Google Chrome, Firefox, and Microsoft Edge browsers. No admin setup required.
@@ -20,11 +20,11 @@ The following extension types are available:
 Each extension maintains enterprise-grade security and privacy standards while providing contextual AI assistance tailored to the specific application environment. All extensions integrate with your organization's Quick knowledge bases, custom agents, and configured data sources to provide relevant, accurate responses based on your permissions and access levels.
 
 **Topics**
-+ [Amazon Quick user interaction with extensions](extension-roles-overview.md)
-+ [Amazon Quick browser extension](browser-extension-user-guide.md)
-+ [Amazon Quick Microsoft Outlook extension](outlook-extension-guide.md)
-+ [Amazon Quick Microsoft Excel extension](excel-extension-guide.md)
-+ [Amazon Quick Microsoft Word extension](word-extension-guide.md)
-+ [Amazon Quick Microsoft PowerPoint extension](powerpoint-extension-guide.md)
-+ [Amazon Quick Slack extension](slack-extension-guide.md)
-+ [Amazon Quick Microsoft Teams extension](teams-extension-guide.md)
++ [AWS Quick user interaction with extensions](extension-roles-overview.md)
++ [AWS Quick browser extension](browser-extension-user-guide.md)
++ [AWS Quick Microsoft Outlook extension](outlook-extension-guide.md)
++ [AWS Quick Microsoft Excel extension](excel-extension-guide.md)
++ [AWS Quick Microsoft Word extension](word-extension-guide.md)
++ [AWS Quick Microsoft PowerPoint extension](powerpoint-extension-guide.md)
++ [AWS Quick Slack extension](slack-extension-guide.md)
++ [AWS Quick Microsoft Teams extension](teams-extension-guide.md)

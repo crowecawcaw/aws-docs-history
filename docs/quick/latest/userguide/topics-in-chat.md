@@ -1,6 +1,6 @@
 
 
-# Using Topics in Amazon Quick chat
+# Using Topics in AWS Quick chat
 <a name="topics-in-chat"></a>
 
 
@@ -8,7 +8,7 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-You can use Topics in Amazon Quick chat to ask natural language questions that span multiple datasets. The LLM-powered chat agent uses your defined relationships, dataset enrichment metadata, and custom instructions to generate cross-dataset SQL queries and return unified answers.
+You can use Topics in AWS Quick chat to ask natural language questions that span multiple datasets. The LLM-powered chat agent uses your defined relationships, dataset enrichment metadata, and custom instructions to generate cross-dataset SQL queries and return unified answers.
 
 ## How cross-dataset chat queries work
 <a name="topics-in-chat-how-it-works"></a>
@@ -40,7 +40,7 @@ The richer your enrichment metadata and custom instructions, the more accurately
 
 To chat with a Topic:
 + Navigate to the Topic and choose the chat icon. Your Topic is automatically available as the context.
-+ Or, from Amazon Quick chat, use the data filter to select **Specific data and apps** and choose your Topic.
++ Or, from AWS Quick chat, use the data filter to select **Specific data and apps** and choose your Topic.
 
 Ask natural language questions that span multiple datasets. For example:
 + "Show total sales by customer segment and store region"

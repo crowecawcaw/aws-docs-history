@@ -1,9 +1,9 @@
 
 
-# Creating an Amazon Quick Sight scenario
+# Creating an AWS Quick Sight scenario
 <a name="scenarios-create"></a>
 
-Amazon Quick Pro users can create scenarios from Quick Sight dashboards, or from the **Scenarios** section on the Quick Sight home page. Users can create as many scenarios as they need. Each user can have up to 3 active scenarios at a time. Each Quick Sight account supports up to 10 active scenarios at a time. Use the following procedure to create a scenario in Amazon Quick Sight.
+AWS Quick Pro users can create scenarios from Quick Sight dashboards, or from the **Scenarios** section on the Quick Sight home page. Users can create as many scenarios as they need. Each user can have up to 3 active scenarios at a time. Each Quick Sight account supports up to 10 active scenarios at a time. Use the following procedure to create a scenario in AWS Quick Sight.
 
 **Create a new scenario**
 
@@ -20,7 +20,7 @@ Amazon Quick Pro users can create scenarios from Quick Sight dashboards, or from
 
 1. The new scenario appears. In the text box, describe the problem that you want to solve. This input is the starting point for all of the data pivots and manipulations that will occur in the scenario. The description that you provide can be as broad or as specific as you want, for example "analyze usage trends" or “compute month-over-month and year-over-year changes in usage based on last month's data."
 
-1. Add the data that you want to use in the scenario. You can choose data from Quick Sight dashboards, or you can upload files from your computer. When you choose data from a dashboard, a preview of the selected data is generated for you to review. For more information about previewing and editing data in Quick Sight scenarios, see [Working with data in an Amazon Quick Sight scenario](scenarios-data.md).
+1. Add the data that you want to use in the scenario. You can choose data from Quick Sight dashboards, or you can upload files from your computer. When you choose data from a dashboard, a preview of the selected data is generated for you to review. For more information about previewing and editing data in Quick Sight scenarios, see [Working with data in an AWS Quick Sight scenario](scenarios-data.md).
 
    The following limits apply to the data that is used in a scenario:
    + You can add up to 10 data sources to a scenario.
@@ -32,4 +32,4 @@ Amazon Quick Pro users can create scenarios from Quick Sight dashboards, or from
 
 1. Choose **Start analysis**.
 
-When you start an analysis in a Quick Sight scenario, Quick Sight prepares your data for analysis and returns a new *thread*. The thread contains generated prompts that can be used to solve the problem that you described in the scenario. A thread is a turn based contextual conversation that consists of user prompts and Amazon Q responses that you can use to drill down on a specific scenario. You can use threads to write prompts that assume that Amazon Q remembers what was previously discussed in the thread. You can choose a prompt to continue the thread, or you can choose the plus sign (\+) above the thread to start a new thread. The new thread uses a different prompt than the first thread that you created. For more information about working with threads, see [Working with threads in an Amazon Quick Sight scenario](scenarios-threads.md).
+When you start an analysis in a Quick Sight scenario, Quick Sight prepares your data for analysis and returns a new *thread*. The thread contains generated prompts that can be used to solve the problem that you described in the scenario. A thread is a turn based contextual conversation that consists of user prompts and Amazon Q responses that you can use to drill down on a specific scenario. You can use threads to write prompts that assume that Amazon Q remembers what was previously discussed in the thread. You can choose a prompt to continue the thread, or you can choose the plus sign (\+) above the thread to start a new thread. The new thread uses a different prompt than the first thread that you created. For more information about working with threads, see [Working with threads in an AWS Quick Sight scenario](scenarios-threads.md).

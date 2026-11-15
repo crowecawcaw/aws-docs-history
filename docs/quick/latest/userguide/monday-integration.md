@@ -3,7 +3,7 @@
 # Monday.com integration
 <a name="monday-integration"></a>
 
-With Monday.com integration in Amazon Quick, you can manage project boards, track items, and coordinate team workflows through MCP server connectivity. This integration provides action capabilities for project management and team collaboration operations.
+With Monday.com integration in AWS Quick, you can manage project boards, track items, and coordinate team workflows through MCP server connectivity. This integration provides action capabilities for project management and team collaboration operations.
 
 ## What you can do
 <a name="monday-integration-capabilities"></a>

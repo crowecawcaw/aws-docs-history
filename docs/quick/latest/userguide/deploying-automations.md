@@ -3,7 +3,7 @@
 # Deploying automations
 <a name="deploying-automations"></a>
 
-After you create and test your automations in Amazon Quick Automate, the next step is to **deploy** them so they can run regularly on a trigger. Deployment makes the automation operational and ready for execution. You can add a trigger to a deployed automation to run it at a predefined schedule. Deployment involves configuring runtime settings, assigning users for human-in-the-loop tasks, verifying credentials and integrations.
+After you create and test your automations in AWS Quick Automate, the next step is to **deploy** them so they can run regularly on a trigger. Deployment makes the automation operational and ready for execution. You can add a trigger to a deployed automation to run it at a predefined schedule. Deployment involves configuring runtime settings, assigning users for human-in-the-loop tasks, verifying credentials and integrations.
 
 This section explains each step of the deployment process and how to configure your automation for reliability, security, and optimal performance.
 
@@ -15,7 +15,7 @@ Before deploying your automation, ensure that the following steps are complete:
 + **Version committed for deployment** - Only committed automation versions can be deployed. Review your changes, finalize the version, and commit it before proceeding.
 + **Integrations configured** - If your automation interacts with external applications such as Salesforce or Jira via APIs, make sure all necessary integrations are configured.
   + Navigate to **Connections → Integrations** in the left panel to create new integrations.
-  + Currently, only integrations available under the **Actions** tab are supported in Amazon Quick Automate.
+  + Currently, only integrations available under the **Actions** tab are supported in AWS Quick Automate.
   + Once an integration action is created, associate it with the **Automation Group** where it will be used.
   + The associated actions will then appear in the canvas. During deployment, you can select the appropriate connection to be used by the deployed automation.
 + **Credentials configured** - Verify that all credentials required by your automation are correctly set up.
@@ -59,7 +59,7 @@ Select the resolver users or user groups for each of the tasks that require huma
 #### Access (Credentials and Connections)
 <a name="access-credentials-connections"></a>
 
-Automations often need to connect to external systems, databases, or services. Amazon Quick Automate provides secure methods for managing credentials and connections without embedding sensitive information within your automation logic.
+Automations often need to connect to external systems, databases, or services. AWS Quick Automate provides secure methods for managing credentials and connections without embedding sensitive information within your automation logic.
 
 Connection and credential data are securely stored and encrypted, and made available to workflows at runtime without exposing them to authors or end users. This design ensures strong separation of secrets from automation definitions, improving both security and maintainability.
 
@@ -72,7 +72,7 @@ At deployment, ensure that the correct credentials and connections are selected 
 ## Setting up triggers
 <a name="setting-up-triggers"></a>
 
-Triggers determine when and how your automations run. You can configure automations to start based on a predefined schedule or invoke them programmatically through the Amazon QuickSight API.
+Triggers determine when and how your automations run. You can configure automations to start based on a predefined schedule or invoke them programmatically through the AWS Quick Sight API.
 
 ### Schedules
 <a name="setting-up-triggers-schedules"></a>
@@ -83,7 +83,7 @@ You can configure automations to start based on a predefined schedule. To setup 
 + Select the start date and time (Note that the actual execution will initiate within 15 minutes of the start time selected)
 + Select the end date and time
 + Select the timezone
-+ Amazon Quick Automate provided built-in scalability. Select the number of parallel executions of the automation (you can select a maximum of 10 parallel executions per trigger and 50 across all automations within an account. Please reach out to AWS)
++ AWS Quick Automate provided built-in scalability. Select the number of parallel executions of the automation (you can select a maximum of 10 parallel executions per trigger and 50 across all automations within an account. Please reach out to AWS)
 + For complex scheduling needs, you can use cron expressions to define precise running patterns. For example, to run an automation at 2:30 AM every Monday, Wednesday, and Friday, you would use the cron expression: `30 2 * * 1,3,5`.
 
 ### API triggers
@@ -95,7 +95,7 @@ The Automation Job APIs include two operations:
 + **StartAutomationJob** – Starts a new job for a deployed automation with an optional input payload.
 + **DescribeAutomationJob** – Retrieves the status, timestamps, and optional input and output payloads for a specified job.
 
-These APIs are part of the Amazon QuickSight service namespace. You access them through the `quicksight` namespace in the AWS SDK and AWS CLI.
+These APIs are part of the AWS Quick Sight service namespace. You access them through the `quicksight` namespace in the AWS SDK and AWS CLI.
 
 For more information about AWS SDKs and toolkits, see the [AWS Getting Started Resource Center](https://aws.amazon.com/getting-started/tools-sdks/).
 
@@ -115,7 +115,7 @@ To call the Automation Job APIs, you need the following identifiers:
 You can find the automation group ID and automation ID in the Deployments section when you open any automation and have a deployed version.
 
 **To find your identifiers**
-+ Sign in to Amazon Quick Automate.
++ Sign in to AWS Quick Automate.
 + In the left navigation pane, choose **Automations**.
 + Choose the automation group that contains your automation.
 + Choose the automation name to open the automation editor.
@@ -172,19 +172,19 @@ Attach a policy that grants the `quicksight:DescribeAutomationJob` action. The r
 ```
 
 AWS recommends scoping each permission to the most specific resource ARN possible to follow the principle of least privilege. For more information, see the following:
-+ [IAM policy examples for Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
++ [IAM policy examples for Quick](iam-policy-examples.md)
 + [Actions, resources, and condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonquicksight.html)
 + [IAM JSON policy elements](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html)
 
 ##### Deploy your automation
 <a name="api-triggers-deploy-automation"></a>
 
-The StartAutomationJob API targets deployed automations only. You must commit and deploy your automation in the Amazon Quick Automate console before you can invoke it through the API.
+The StartAutomationJob API targets deployed automations only. You must commit and deploy your automation in the AWS Quick Automate console before you can invoke it through the API.
 
 #### StartAutomationJob
 <a name="api-triggers-start-automation-job"></a>
 
-Starts a new job for a deployed automation. The operation is asynchronous — Amazon Quick Automate accepts the request, queues the job, and returns a **JobId** immediately. The automation runs in the background. If the automation has an input schema defined, Amazon Quick Automate validates the **InputPayload** against the schema before accepting the job. An invalid payload results in an **InvalidParameterValueException**.
+Starts a new job for a deployed automation. The operation is asynchronous — AWS Quick Automate accepts the request, queues the job, and returns a **JobId** immediately. The automation runs in the background. If the automation has an input schema defined, AWS Quick Automate validates the **InputPayload** against the schema before accepting the job. An invalid payload results in an **InvalidParameterValueException**.
 
 ##### Request syntax
 <a name="start-job-request-syntax"></a>
@@ -228,7 +228,7 @@ For more details, see the [API reference guide for StartAutomationJob](https://d
 
 Retrieves the status and details of a specified automation job, including execution timestamps and optional input and output payloads. Use this operation to poll for job completion after calling **StartAutomationJob**.
 
-The response does not include input and output payloads by default. Set the **IncludeInputPayload** and **IncludeOutputPayload** query parameters to `true` to request them. Amazon Quick Automate returns the output payload only when all of the following conditions are met:
+The response does not include input and output payloads by default. Set the **IncludeInputPayload** and **IncludeOutputPayload** query parameters to `true` to request them. AWS Quick Automate returns the output payload only when all of the following conditions are met:
 + **IncludeOutputPayload** is `true`.
 + **JobStatus** is `SUCCEEDED`.
 + The automation produced output values.
@@ -273,7 +273,7 @@ For more details, see the [API reference guide for DescribeAutomationJob](https:
 ## Run automations with API triggers using input and output
 <a name="run-automations-api-triggers-io"></a>
 
-You can include input values as a JSON payload when you start an automation job through the API. Amazon Quick Automate validates the payload against the automation's input schema before execution begins, and returns structured output values when the job completes.
+You can include input values as a JSON payload when you start an automation job through the API. AWS Quick Automate validates the payload against the automation's input schema before execution begins, and returns structured output values when the job completes.
 
 ### Prerequisites
 <a name="api-triggers-io-prerequisites"></a>

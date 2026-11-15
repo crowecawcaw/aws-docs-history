@@ -26,6 +26,6 @@ You can choose from three **Action types** when you configure an action:
 
 **Topics**
 + [Adding one-click interactive filters](quick-actions.md)
-+ [Creating and editing custom actions in Amazon Quick Sight](custom-actions.md)
++ [Creating and editing custom actions in AWS Quick Sight](custom-actions.md)
 + [Repairing custom actions](repairing-custom-actions.md)
-+ [Understanding field mapping for custom actions in Amazon Quick Sight](quicksight-actions-field-mapping.md)
++ [Understanding field mapping for custom actions in AWS Quick Sight](quicksight-actions-field-mapping.md)

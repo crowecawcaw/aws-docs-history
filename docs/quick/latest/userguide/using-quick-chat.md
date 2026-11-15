@@ -1,9 +1,9 @@
 
 
-# Ask questions, explore data, and get insights with chat in Amazon Quick
+# Ask questions, explore data, and get insights with chat in AWS Quick
 <a name="using-quick-chat"></a>
 
-You can use Amazon Quick chat to ask questions, interact with your Quick resources, and accomplish tasks using multiple agentic worflows using natural language. When you ask a question, Quick chat analyzes the data it has access to to generate comprehensive responses.
+You can use AWS Quick chat to ask questions, interact with your Quick resources, and accomplish tasks using multiple agentic worflows using natural language. When you ask a question, Quick chat analyzes the data it has access to to generate comprehensive responses.
 
 Quick chat provides you with the following capabilities.
 
@@ -28,18 +28,18 @@ Quick chat provides you with the following capabilities.
 + [Response events](#response-events)
 + [Explanations](#chat-explanations-summary)
 + [Contextual awareness](#contextual-awareness)
-+ [Managing your preferences in Amazon Quick](#user-preferences)
-+ [Amazon Quick chat explanations](chat-explanations.md)
++ [Managing your preferences in AWS Quick](#user-preferences)
++ [AWS Quick chat explanations](chat-explanations.md)
 
 ## Welcome message
 <a name="welcome-message"></a>
 
-When you log in, Amazon Quick chat displays a welcome message.
+When you log in, AWS Quick chat displays a welcome message.
 
 ## Suggested prompts
 <a name="suggested-prompts"></a>
 
-To help you get started on interacting with your resources in chat, Amazon Quick displays suggested prompts you can use to learn more about Amazon Quick features. Use these to get started on your tasks. Once you select a prompt, Amazon Quick guides you step-by-step through the information it needs from you to complete the task.
+To help you get started on interacting with your resources in chat, AWS Quick displays suggested prompts you can use to learn more about AWS Quick features. Use these to get started on your tasks. Once you select a prompt, AWS Quick guides you step-by-step through the information it needs from you to complete the task.
 
 **Note**  
 Suggested prompts are system generated for the system agent; you can't customize them. For custom agents, suggested prompts can be created and customized by the agent builder or owner.
@@ -47,8 +47,8 @@ Suggested prompts are system generated for the system agent; you can't customize
 ## Expand and collapse modes
 <a name="expand-collapse"></a>
 
-To help enhance your productivity and streamline your chat interactions, Amazon Quick offers two separate chat window display modes:
-+ **Collapse mode** – The default chat window display. Use for easy access to chat from within all Amazon Quick contexts.
+To help enhance your productivity and streamline your chat interactions, AWS Quick offers two separate chat window display modes:
++ **Collapse mode** – The default chat window display. Use for easy access to chat from within all AWS Quick contexts.
 + **Expand mode** – Access chat in an expanded view. Use this mode to work in the chat window without any distractions.
 
 You can open up the chat interface at any time by selecting the chat bubble icon from the top right navigation menu. You can also exit out of the chat at any time by selecting the cancel icon from the top navigation menu.
@@ -56,32 +56,32 @@ You can open up the chat interface at any time by selecting the chat bubble icon
 ## Agent picker
 <a name="agent-picker"></a>
 
-Chat agents in Amazon Quick are conversational assistants that help users explore data, analyze information, and take actions. You can pick any agent you've created to use during chat, or use the system agent **My Assistant** for your conversations.
+Chat agents in AWS Quick are conversational assistants that help users explore data, analyze information, and take actions. You can pick any agent you've created to use during chat, or use the system agent **My Assistant** for your conversations.
 
 To learn more about agents, see [Working with agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html).
 
 ## Scoping response generation to specific data
 <a name="data-filter"></a>
 
-When you use Amazon Quick, you can define what data you want your chat responses generated from using data filters. Data filters enable you to customize your chat's expertise area. The data available to your agent depends on whether it is bound to specific Amazon Quick knowledge and integrations, or if it's unbounded (not connected to specific Amazon Quick resources).
+When you use AWS Quick, you can define what data you want your chat responses generated from using data filters. Data filters enable you to customize your chat's expertise area. The data available to your agent depends on whether it is bound to specific AWS Quick knowledge and integrations, or if it's unbounded (not connected to specific AWS Quick resources).
 
-By default, an agent has knowledge of all your Amazon Quick resources and its underlying large language model (LLM). While using chat, you can select between the following knowledge modes:
-+ **All data and apps** – Amazon Quick will use all available knowledge sources (including spaces, dashboards, datasets, topics, knowledge bases, action integrations, and LLM knowledge) to generate a response to your prompts.
-+ **General knowledge** – Amazon Quick will only use LLM knowledge to generate responses to your prompts. It won't use any knowlegde from Amazon Quick resources.
+By default, an agent has knowledge of all your AWS Quick resources and its underlying large language model (LLM). While using chat, you can select between the following knowledge modes:
++ **All data and apps** – AWS Quick will use all available knowledge sources (including spaces, dashboards, datasets, topics, knowledge bases, action integrations, and LLM knowledge) to generate a response to your prompts.
++ **General knowledge** – AWS Quick will only use LLM knowledge to generate responses to your prompts. It won't use any knowlegde from AWS Quick resources.
 + **Specific data and apps** – Chat with a specific or multiple spaces, dashboards, datasets, topics, knowledge bases, or actions. To choose specific resources, select **Choose resource**.
 
-An agent with pre-defined knowledge, on the other hand, only has knowledge of existing Amazon Quick resources already linked to it, and its underlying LLM knowledge. While chatting with an agent with pre-defined knowledge, you get the following knowledge modes:
-+ **Pre-defined knowledge** – Amazon Quick will use only the Amazon Quick resource knowledge linked to the agent, and LLM knowledge, to generate responses. You can't change this setting. 
+An agent with pre-defined knowledge, on the other hand, only has knowledge of existing AWS Quick resources already linked to it, and its underlying LLM knowledge. While chatting with an agent with pre-defined knowledge, you get the following knowledge modes:
++ **Pre-defined knowledge** – AWS Quick will use only the AWS Quick resource knowledge linked to the agent, and LLM knowledge, to generate responses. You can't change this setting. 
 + **Additional data and apps** – Chat with a specific or multiple spaces, dashboards, datasets, topics, or knowledge bases and actions. To choose specific resources, select **Choose resource**.
 
 ## Chatting with datasets
 <a name="chatting-with-datasets"></a>
 
-You can chat with your datasets in Amazon Quick to ask questions and get insights from your data using natural language. To get started, you need to first create a dataset. For more information, see [Creating datasets](https://docs.aws.amazon.com/quicksight/latest/user/creating-data-sets.html).
+You can chat with your datasets in AWS Quick to ask questions and get insights from your data using natural language. To get started, you need to first create a dataset. For more information, see [Creating datasets](https://docs.aws.amazon.com/quicksight/latest/user/creating-data-sets.html).
 
-Amazon Quick chat supports the following dataset types:
+AWS Quick chat supports the following dataset types:
 + SPICE datasets
-+ Direct Query datasets against Amazon Redshift, Athena, Aurora PostgreSQL, and Amazon S3 Tables
++ Direct Query datasets against Amazon Redshift, Athena, Aurora PostgreSQL, Amazon S3 Tables, Databricks, and Snowflake
 
 **Note**  
 Direct Query datasets against other data sources are not yet supported for chat.
@@ -91,22 +91,22 @@ For SPICE datasets, the size limit of 2 TB and 2 billion rows applies when chatt
 ## Chatting with Topics
 <a name="chatting-with-topics"></a>
 
-You can chat with your Topics in Amazon Quick to ask natural language questions that span multiple datasets. When you select a Topic as your data context in chat, the LLM-powered chat agent uses the defined relationships, dataset enrichment metadata, and custom instructions to generate cross-dataset SQL queries and return unified answers.
+You can chat with your Topics in AWS Quick to ask natural language questions that span multiple datasets. When you select a Topic as your data context in chat, the LLM-powered chat agent uses the defined relationships, dataset enrichment metadata, and custom instructions to generate cross-dataset SQL queries and return unified answers.
 
 To chat with a Topic, use the data filter to select **Specific data and apps** and choose your Topic from the list. Or navigate to the Topic and choose the chat icon.
 
 The chat agent traverses relationships across datasets, identifying which tables contain the relevant columns, constructing SQL with appropriate joins, and returning a unified answer. You can view the generated SQL in the Explanation panel to verify the correct datasets and joins were used.
 
-Amazon Quick chat supports the following Topic types:
+AWS Quick chat supports the following Topic types:
 + **New Topics (multi-dataset)** – The LLM-powered chat agent generates cross-dataset SQL with runtime joins. It can produce inner joins, left joins, outer joins, unions, and subqueries based on your defined relationships and custom instructions.
 + **Legacy Topics** – The legacy ML-based fuzzy search model selects one dataset from the Topic and queries only that single dataset. Cross-dataset queries are not supported.
 
-For more information about creating and configuring Topics, see [Working with Amazon Quick Sight Topics](topics.md).
+For more information about creating and configuring Topics, see [Working with AWS Quick Sight Topics](topics.md).
 
 ## Web search
 <a name="web-search"></a>
 
-Amazon Quick comes with built-in web search capability. Amazon Quick chat automatically searches both your connected data sources and the web, providing comprehensive answers from either or both sources as needed. You can turn web search off for any query by clicking the globe icon in the chat panel. Any content retrieved from the web is appropriately cited in the final response.
+AWS Quick comes with built-in web search capability. AWS Quick chat automatically searches both your connected data sources and the web, providing comprehensive answers from either or both sources as needed. You can turn web search off for any query by clicking the globe icon in the chat panel. Any content retrieved from the web is appropriately cited in the final response.
 
 **Note**  
 Web search is available to users only if it has been enabled by admin.
@@ -114,7 +114,7 @@ Web search is available to users only if it has been enabled by admin.
 ## Upload files and chat
 <a name="file-uploads"></a>
 
-You can upload documents into Amazon Quick chat and ask Amazon Quick chat to summarize or analyze data based on the content of the uploaded documents.
+You can upload documents into AWS Quick chat and ask AWS Quick chat to summarize or analyze data based on the content of the uploaded documents.
 
 When you start a new conversation, you can upload new files, choose from a saved list of recent documents, or drag and drop files directly into the conversation.
 
@@ -146,27 +146,27 @@ Audio and video files are not supported as file uploads.
 ## Actions
 <a name="chat-actions"></a>
 
-Amazon Quick actions boost productivity by allowing you to perform relevant tasks in supported third-party services from your Amazon Quick chat interface, like sending an email using Microsoft Outlook, or creating a PagerDuty incident. You can invoke any actions configured and available to you from your Amazon Quick chat interface. To select an action, use the action application from the data scoping filter and select the third party application you want to perform actions in. Then, choose the action you want to perform from the available actions. The system checks if you have authorization to perform the action before performing it.
+AWS Quick actions boost productivity by allowing you to perform relevant tasks in supported third-party services from your AWS Quick chat interface, like sending an email using Microsoft Outlook, or creating a PagerDuty incident. You can invoke any actions configured and available to you from your AWS Quick chat interface. To select an action, use the action application from the data scoping filter and select the third party application you want to perform actions in. Then, choose the action you want to perform from the available actions. The system checks if you have authorization to perform the action before performing it.
 
-To learn more about actions, see [Actions in Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-integrations.html).
+To learn more about actions, see [Actions in AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-integrations.html).
 
 ## Flows
 <a name="chat-flows"></a>
 
-Use Amazon Quick flows to create shortcuts for everyday, repetitive tasks you perform while chatting in Amazon Quick. For example, if you find yourself using Amazon Quick chat to create and copy edit product launch descriptions, you can use Amazon Quick flows to generate an application that takes your draft content as input, and generates a polished draft—after content, style, and grammar review—as output.
+Use AWS Quick flows to create shortcuts for everyday, repetitive tasks you perform while chatting in AWS Quick. For example, if you find yourself using AWS Quick chat to create and copy edit product launch descriptions, you can use AWS Quick flows to generate an application that takes your draft content as input, and generates a polished draft—after content, style, and grammar review—as output.
 
 You can run a flow directly from chat within a conversation. Within a single conversation, you can talk to a chat agent as well as run a flow.
 
-To learn more about flows, see [Flows in Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/using-amazon-quick-flows.html).
+To learn more about flows, see [Flows in AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/using-amazon-quick-flows.html).
 
 ## Memory and response personalization
 <a name="chat-memory"></a>
 
-Memory in Amazon Quick chat helps personalize your conversations by remembering your preferences, context, and past interactions. Chat agents can reference this stored information to provide more personalized and contextually relevant responses without you needing to repeat information in every conversation, enabling more relevant and tailored responses over time.
+Memory in AWS Quick chat helps personalize your conversations by remembering your preferences, context, and past interactions. Chat agents can reference this stored information to provide more personalized and contextually relevant responses without you needing to repeat information in every conversation, enabling more relevant and tailored responses over time.
 
-When you interact with chat agents in Amazon Quick, you can provide your preferences including:
+When you interact with chat agents in AWS Quick, you can provide your preferences including:
 + Response style and format
-+ Frequently accessed Dashboards, Spaces, integrations, and other Amazon Quick assets
++ Frequently accessed Dashboards, Spaces, integrations, and other AWS Quick assets
 + Context about your role and responsibilities
 + Common tasks and workflows you perform
 
@@ -185,7 +185,7 @@ Chat memory isn't supported for accounts configured with [AWS KMS customer manag
 ## Source citations
 <a name="review-source-citation"></a>
 
-Amazon Quick chat responses provide in-text source citations in a numbered list. To view the source for a response, choose the number at the end of the sentence. The dialog box shows the title, URL, and a snippet from the source that was used to generate the response. Choose the URL to view the source document.
+AWS Quick chat responses provide in-text source citations in a numbered list. To view the source for a response, choose the number at the end of the sentence. The dialog box shows the title, URL, and a snippet from the source that was used to generate the response. Choose the URL to view the source document.
 
 To view the full list of sources, choose **Sources** at the end of the response. You can use the source list to fact-check the response, or for deeper analysis. 
 
@@ -197,7 +197,7 @@ You can copy and save the responses for later review and analysis. To copy a res
 ## Provide feedback
 <a name="provide-feedback"></a>
 
-You can provide direct feedback about the responses you received from Amazon Quick chat by using the thumbs-up or thumbs-down button. Your feedback is used to help address technical issues in the web experience. 
+You can provide direct feedback about the responses you received from AWS Quick chat by using the thumbs-up or thumbs-down button. Your feedback is used to help address technical issues in the web experience. 
 
 If you select the thumbs-down button, you can choose from the following feedback options:
 + **Inaccurate, not factually correct**
@@ -213,18 +213,18 @@ You can also copy conversation details from the feedback window for further trou
 ## Artifact panel
 <a name="artifact-panel"></a>
 
-An *artifact* in Amazon Quick is defined as any Amazon Quick generated content produced using Amazon Quick's underlying large language model's (LLM) generative capabilities, for example: contracts, email drafts, social media posts, tables, interactive charts, code blocks, or any Amazon Quick visuals.
+An *artifact* in AWS Quick is defined as any AWS Quick generated content produced using AWS Quick's underlying large language model's (LLM) generative capabilities, for example: contracts, email drafts, social media posts, tables, interactive charts, code blocks, or any AWS Quick visuals.
 
-Amazon Quick stores any artifacts it generates as responses during chat in an artifact panel. You can access any artifacts created during your chat by selecting **View more** from below the artifact in chat.
+AWS Quick stores any artifacts it generates as responses during chat in an artifact panel. You can access any artifacts created during your chat by selecting **View more** from below the artifact in chat.
 
 You can download artifacts as text, CSV, code files, Word documents, Excel spreadsheets, PowerPoint presentations, PDFs, and infographics. Saving artifacts to a Space is not currently supported.
 
-For more information about creating and downloading documents and visuals, see [Document and visual creation with Amazon Quick](document-and-visual-creation.md).
+For more information about creating and downloading documents and visuals, see [Document and visual creation with AWS Quick](document-and-visual-creation.md).
 
 ## Conversation management
 <a name="conversation-mgmt"></a>
 
-Amazon Quick stores conversations for up to 90 days, and you can access them in the left navigation pane. You can perform the following tasks to manage your conversations:
+AWS Quick stores conversations for up to 90 days, and you can access them in the left navigation pane. You can perform the following tasks to manage your conversations:
 + **Start new conversation** – Choose **\+** from the chat controls menu to start a new conversation.
 + **View conversation history** – Choose the clock icon to view all conversation history for the last 90 days. You can filter conversation history to specific agents.
 
@@ -234,7 +234,7 @@ Searching, saving, renaming, and sharing conversations with other users is not s
 ## Response events
 <a name="response-events"></a>
 
-For every natural language prompt Amazon Quick chat receives, it generates real-time processing steps while the request is being fulfilled. These steps can be viewed as part of **Response events** during response generation, and are also accessible once Amazon Quick has finished generating a response. Response events vary based on the chat interaction you're having (whether you're chatting with a file you've uploaded or with a Amazon Quick resource) and capture any rewrites to your response before it's finalized. A response event also includes the system generated identifiers for your conversation—you can copy and save the information for troubleshooting..
+For every natural language prompt AWS Quick chat receives, it generates real-time processing steps while the request is being fulfilled. These steps can be viewed as part of **Response events** during response generation, and are also accessible once AWS Quick has finished generating a response. Response events vary based on the chat interaction you're having (whether you're chatting with a file you've uploaded or with a AWS Quick resource) and capture any rewrites to your response before it's finalized. A response event also includes the system generated identifiers for your conversation—you can copy and save the information for troubleshooting..
 
 ## Explanations
 <a name="chat-explanations-summary"></a>
@@ -248,19 +248,19 @@ When you open an Explanation, you can see the following components:
 + **Calculation explained** – Shows any calculations that the model performed to arrive at the answer, presented in both natural language and as a math formula.
 + **Generated SQL** (datasets only) – Displays the specific SQL query that produced each numerical claim.
 
-For more information and examples, see [Amazon Quick chat explanations](chat-explanations.md).
+For more information and examples, see [AWS Quick chat explanations](chat-explanations.md).
 
 ## Contextual awareness
 <a name="contextual-awareness"></a>
 
-Amazon Quick chat is context aware. It registers the Amazon Quick resource you're interacting with and scopes your chat automatically to the resource. This way, when you start chatting, the resource you're interacting with is already included as a knowledge source for your chat.
+AWS Quick chat is context aware. It registers the AWS Quick resource you're interacting with and scopes your chat automatically to the resource. This way, when you start chatting, the resource you're interacting with is already included as a knowledge source for your chat.
 
-If you navigate to a specific Amazon Quick resource during an on-going chat, and that resource supports chat, Amazon Quick chat will automatically register your new context and ask you whether you want to chat with the specific resource you have navigated to. If you want to continue chatting in the mode you're in, you can choose to **Ignore** the message. Or you can choose **Yes** to focus your chat on the specific resource you're interacting with. If you do so, Amazon Quick automatically scopes your chat interactions to the resource in context.
+If you navigate to a specific AWS Quick resource during an on-going chat, and that resource supports chat, AWS Quick chat will automatically register your new context and ask you whether you want to chat with the specific resource you have navigated to. If you want to continue chatting in the mode you're in, you can choose to **Ignore** the message. Or you can choose **Yes** to focus your chat on the specific resource you're interacting with. If you do so, AWS Quick automatically scopes your chat interactions to the resource in context.
 
-## Managing your preferences in Amazon Quick
+## Managing your preferences in AWS Quick
 <a name="user-preferences"></a>
 
-User Preferences in Amazon Quick gives you control over how Quick looks, feels, and works for you. You can customize your chat experience, set a default chat agent, personalize how Quick interacts with you, and manage your memories — all from a single settings modal.
+User Preferences in AWS Quick gives you control over how Quick looks, feels, and works for you. You can customize your chat experience, set a default chat agent, personalize how Quick interacts with you, and manage your memories — all from a single settings modal.
 
 ### Customizing your chat experience
 <a name="customize-chat-experience"></a>
@@ -296,7 +296,7 @@ You can view and manage your memories directly from Preferences. Memories are in
 
 To access and configure your preferences:
 
-1. Go to the top-right corner of the Amazon Quick homepage.
+1. Go to the top-right corner of the AWS Quick homepage.
 
 1. Choose your account name.
 

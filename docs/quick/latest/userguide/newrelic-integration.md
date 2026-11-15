@@ -3,9 +3,9 @@
 # New Relic integration
 <a name="newrelic-integration"></a>
 
-With the New Relic connector, you can access the New Relic observability platform directly in Amazon Quick through natural language. You can investigate incidents, analyze application performance, query telemetry data, and generate reports without leaving Amazon Quick.
+With the New Relic connector, you can access the New Relic observability platform directly in AWS Quick through natural language. You can investigate incidents, analyze application performance, query telemetry data, and generate reports without leaving AWS Quick.
 
-New Relic is available as a built-in connector in Amazon Quick. To set up this integration, complete the following two steps. First, prepare your New Relic account with the required access. Then, create the integration in Amazon Quick and authenticate with your New Relic credentials. This integration uses OAuth 2.0 user authentication. For information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+New Relic is available as a built-in connector in AWS Quick. To set up this integration, complete the following two steps. First, prepare your New Relic account with the required access. Then, create the integration in AWS Quick and authenticate with your New Relic credentials. This integration uses OAuth 2.0 user authentication. For information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Prerequisites
 <a name="newrelic-integration-prerequisites"></a>
@@ -17,16 +17,16 @@ Before you set up the integration, make sure that you have the following resourc
 ## Verify your New Relic account
 <a name="newrelic-account-setup"></a>
 
-Before you configure Amazon Quick, verify that your New Relic account meets the following requirements.
+Before you configure AWS Quick, verify that your New Relic account meets the following requirements.
 + Your New Relic account is active and you can sign in to [login.newrelic.com](https://login.newrelic.com).
 + The entities and data that you want to query are accessible to your account.
 
-## Set up the integration in Amazon Quick
+## Set up the integration in AWS Quick
 <a name="newrelic-integration-setup"></a>
 
-After you verify your New Relic account access, create the integration in Amazon Quick.
+After you verify your New Relic account access, create the integration in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -39,7 +39,7 @@ After you verify your New Relic account access, create the integration in Amazon
 
 1. Choose **Create and continue**.
 
-1. On the integration detail page, choose **Sign in** and authenticate with your New Relic account credentials. This step authorizes Amazon Quick to access New Relic on behalf of the authenticated user.
+1. On the integration detail page, choose **Sign in** and authenticate with your New Relic account credentials. This step authorizes AWS Quick to access New Relic on behalf of the authenticated user.
 
 1. (Optional) Choose the users to share the integration with.
 

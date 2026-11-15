@@ -3,7 +3,7 @@
 # Monitoring performance
 <a name="monitoring-performance"></a>
 
-Amazon Quick Automate provides comprehensive monitoring capabilities that help you track performance, audit and troubleshoot your automations. This section describes how to use the performance monitoring features in Amazon Quick Automate.
+AWS Quick Automate provides comprehensive monitoring capabilities that help you track performance, audit and troubleshoot your automations. This section describes how to use the performance monitoring features in AWS Quick Automate.
 
 ## Prerequisites
 <a name="monitoring-prerequisites"></a>
@@ -125,7 +125,7 @@ Your selected environment applies across all dashboard tabs until changed.
 ## CloudWatch
 <a name="cloudwatch"></a>
 
-Amazon CloudWatch provides monitoring and observability capabilities for your automations in Amazon Quick Automate. This section explains the metrics available in CloudWatch, how to view the metrics, and how to set up alarms for these metrics.
+Amazon CloudWatch provides monitoring and observability capabilities for your automations in AWS Quick Automate. This section explains the metrics available in CloudWatch, how to view the metrics, and how to set up alarms for these metrics.
 
 ### Prerequisites
 <a name="cloudwatch-prerequisites"></a>
@@ -147,7 +147,7 @@ For detailed step-by-step instructions, see [Getting setup in CloudWatch](https:
 + Enter CloudWatch in the services search bar.
 + Choose CloudWatch from the results to open the CloudWatch console.
 
-### Accessing CloudWatch metrics for Amazon Quick Automate
+### Accessing CloudWatch metrics for AWS Quick Automate
 <a name="cloudwatch-accessing-metrics"></a>
 + Open the CloudWatch console.
 + In the left navigation pane, choose **Metrics**, **All metrics**.
@@ -160,7 +160,7 @@ For more detailed information, see the [CloudWatch metrics documentation](https:
 ### Available metrics
 <a name="cloudwatch-available-metrics"></a>
 
-Amazon Quick Automate publishes metrics to CloudWatch under the **QuickSight** namespace. Metrics are grouped by either **AutomationId** or **AutomationGroupId** dimensions.
+AWS Quick Automate publishes metrics to CloudWatch under the **QuickSight** namespace. Metrics are grouped by either **AutomationId** or **AutomationGroupId** dimensions.
 
 **Note**  
 CloudWatch is a Regional service. To view metrics, ensure that you are in the same AWS Region where your automations run.
@@ -188,7 +188,7 @@ These metrics provide a broader view across all cases:
 <a name="cloudwatch-finding-ids"></a>
 
 To find the AutomationId and AutomationGroupId for your automation:
-+ Sign in to Amazon Quick Automate.
++ Sign in to AWS Quick Automate.
 + In the left navigation pane, choose **Automations**.
 + Choose the automation group that contains your automation.
 + Choose the automation name to open the automation.

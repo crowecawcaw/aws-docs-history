@@ -1,9 +1,9 @@
 
 
-# Using Amazon Quick Flows
+# Using AWS Quick Flows
 <a name="using-amazon-quick-flows"></a>
 
-Amazon Quick Flows is a capability within Amazon Quick that lets any user create, customize, and share workflows that automate routine tasks. You can generate flows from conversations with chat agents, describe what you need in natural language, or build them manually using the visual editor — no technical skills required. Flows can also be published to an admin-managed library and shared with other Amazon Quick users in your organization.
+AWS Quick Flows is a capability within AWS Quick that lets any user create, customize, and share workflows that automate routine tasks. You can generate flows from conversations with chat agents, describe what you need in natural language, or build them manually using the visual editor — no technical skills required. Flows can also be published to an admin-managed library and shared with other AWS Quick users in your organization.
 
 Each flow is a sequence of steps that can gather user input, generate AI responses from your data or the web, take actions in connected applications, and apply logic to control how steps run.
 
@@ -46,9 +46,9 @@ For detailed explanations of each component, see [Flow components and features](
 ## Why Flows?
 <a name="why-flows"></a>
 
-Organizations face business processes that require both human judgment and system interactions. Amazon Quick Flows bridges this gap by combining AI reasoning with direct business actions, so you can automate tasks like generating responses for requests for proposals (RFPs), reviewing statements of work (SOWs), or compiling industry trends into a sales pitch.
+Organizations face business processes that require both human judgment and system interactions. AWS Quick Flows bridges this gap by combining AI reasoning with direct business actions, so you can automate tasks like generating responses for requests for proposals (RFPs), reviewing statements of work (SOWs), or compiling industry trends into a sales pitch.
 
-Amazon Quick Flows can help across departments:
+AWS Quick Flows can help across departments:
 + *Sales, marketing, and operations*: Qualifying leads, generating personalized proposals, creating marketing content, updating customer relationship management (CRM) records, and supporting processes like RFP responses
 + *Human resources (HR)*: Processing employee requests, answering policy questions, and automating onboarding steps
 + *Finance*: Analyzing expense reports, flagging anomalies, and processing routine approvals

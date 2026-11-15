@@ -3,12 +3,12 @@
 # Working with chat
 <a name="working-with-chat-desktop"></a>
 
-Chat is the primary way you interact with Amazon Quick on desktop. You can ask questions, get help with tasks, analyze files, create documents, generate visualizations, and work with your connected services through natural language. The following sections describe the chat features available in the desktop application.
+Chat is the primary way you interact with AWS Quick on desktop. You can ask questions, get help with tasks, analyze files, create documents, generate visualizations, and work with your connected services through natural language. The following sections describe the chat features available in the desktop application.
 
 ## Response preferences
 <a name="desktop-response-preferences"></a>
 
-Amazon Quick on desktop provides multiple response modes that you choose based on your task. To switch between modes, use the response preferences selector in the chat input area.
+AWS Quick on desktop provides multiple response modes that you choose based on your task. To switch between modes, use the response preferences selector in the chat input area.
 
 
 | Mode | Description | Best for | 
@@ -51,7 +51,7 @@ Each attachment can be up to 50 MB. When you attach a file, Quick can read, anal
 ### Local folders
 <a name="desktop-chat-local-folders"></a>
 
-You can give the agent access to local folders for it to read, write, or search their contents. To add a folder or view the folders you have already granted access to, choose the \+ (Add context) icon in the chat input area, choose Local folders, and then choose Manage folders. This opens the Knowledge tab in Customize, where adding a folder works the same as choosing **Customize > Knowledge** and adding a folder there. For more information, see [Knowledge](knowledge-desktop.md).
+You can give the agent access to local folders for it to read, write, or search their contents. To add a folder or view the folders you have already granted access to, choose the \+ (Add context) icon in the chat input area, choose Local folders, and then choose Manage folders. This opens the Knowledge tab in **Customize**, where adding a folder works the same as choosing **Customize** > **Knowledge** and adding a folder there. For more information, see [Knowledge](knowledge-desktop.md).
 
 ### Web search
 <a name="desktop-chat-web-search"></a>
@@ -63,7 +63,7 @@ To turn web search on or off, choose the \+ (Add context) icon in the chat input
 ### Spaces
 <a name="desktop-chat-spaces"></a>
 
-You can attach a space to your conversation to give Quick access to shared team knowledge. Spaces contain curated collections of information that your team maintains in Amazon Quick. While it is attached, Amazon Quick answers from the content in that space and does not reach outside it on its own, so the conversation works within a narrow, scoped context for confidentiality or data compliance. This applies to everything in the space, including its files, datasets, dashboards, topics, and actions.
+You can attach a space to your conversation to give Quick access to shared team knowledge. Spaces contain curated collections of information that your team maintains in AWS Quick. While it is attached, AWS Quick answers from the content in that space and does not reach outside it on its own, so the conversation works within a narrow, scoped context for confidentiality or data compliance. This applies to everything in the space, including its files, datasets, dashboards, topics, and actions.
 
 This is useful when you need answers grounded in your team's shared context, such as the following.
 + Project documentation
@@ -128,7 +128,7 @@ You can also queue follow-up messages while Quick is working. Queued items show 
 ## Coding agent sessions
 <a name="desktop-coding-agent-sessions"></a>
 
-You can use coding agents such as Kiro, Claude, or other connected agents to accomplish coding tasks directly inside a conversation. The desktop application's local code execution runs in an isolated sandbox that blocks common coding commands, so you delegate those tasks to a coding agent. For information about connecting a coding agent, see [Connectors](connections-desktop.md).
+You can use coding agents such as Kiro, Claude, or other connected agents to accomplish coding tasks directly inside a conversation. The desktop application's local code execution runs in an isolated sandbox that blocks common coding commands, so you delegate those tasks to a coding agent. For information about connecting a coding agent, see [Coding agents](connections-desktop.md#desktop-coding-agents).
 
 ## Plan mode
 <a name="desktop-plan-mode"></a>
@@ -179,7 +179,7 @@ When you step away during a long-running task and return, Quick shows an away-fr
 ## Managing conversations
 <a name="desktop-managing-conversations"></a>
 
-Quick keeps your conversation history in your Amazon Quick account, so it is available to you across the web, mobile, and desktop. You can organize, search, and manage your conversations with the following features.
+Quick keeps your conversation history in your AWS Quick account, so it is available to you across the web, mobile, and desktop. You can organize, search, and manage your conversations with the following features.
 + Folders: organize your conversations into folders. You can create, rename, and delete folders, and drag conversations between them. Auto-clean up sorts chats into folders by topic.
 + Pinning: pin important conversations to keep them at the top of your chat history.
 + Search: search across all of your conversations from the search control in the sidebar.
@@ -191,7 +191,7 @@ Your conversation history appears in the Recents section of the sidebar, organiz
 ## Creating documents and visuals
 <a name="desktop-creating-documents-visuals"></a>
 
-Quick generates documents directly from chat, including presentations (`.pptx`), Word documents (`.docx`), spreadsheets (`.xlsx`), PDF files, Markdown, and HTML, along with interactive data visualizations. Describe what you need. For example, "Create a presentation about our quarterly results." Generated items appear as artifacts that you can save locally or to your Library. For detailed information about supported formats, editing, visualizations, and best practices, see [Document and visual creation with Amazon Quick](document-and-visual-creation.md).
+Quick generates documents directly from chat, including presentations (`.pptx`), Word documents (`.docx`), spreadsheets (`.xlsx`), PDF files, Markdown, and HTML, along with interactive data visualizations. Describe what you need. For example, "Create a presentation about our quarterly results." Generated items appear as artifacts that you can save locally or to your Library. For detailed information about supported formats, editing, visualizations, and best practices, see [Document and visual creation with AWS Quick](document-and-visual-creation.md).
 
 For information about using your organization's published templates for Word documents and PowerPoint presentations, see [Brand assets](brand-assets-desktop.md).
 

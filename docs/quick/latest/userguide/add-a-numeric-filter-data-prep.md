@@ -54,7 +54,7 @@ Use the following procedure to create a numeric field filter.
      If you chose a comparison type of **Between**, enter the beginning of the value range in **Minimum value** and the end of the value range in **Maximum value**.
    + (Analyses only) To use an existing parameter, enable **Use parameters**, then choose your parameter from the list.
 
-     For parameters to appear in this list, create your parameters first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in Amazon Quick](parameters-in-quicksight.md). The values display alphabetically in the control, unless there are more than 1,000 distinct values. Then the control displays a search box instead. Each time you search for the value that you want to use, it initiates a new query. If the results contain more than 1,000 values, you can scroll through the values with pagination. 
+     For parameters to appear in this list, create your parameters first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in AWS Quick](parameters-in-quicksight.md). The values display alphabetically in the control, unless there are more than 1,000 distinct values. Then the control displays a search box instead. Each time you search for the value that you want to use, it initiates a new query. If the results contain more than 1,000 values, you can scroll through the values with pagination. 
 
 1. (Analyses only) For **Null options** choose **Exclude nulls**, **Include nulls**, or **Nulls only**.
 

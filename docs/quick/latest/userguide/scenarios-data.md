@@ -1,9 +1,9 @@
 
 
-# Working with data in an Amazon Quick Sight scenario
+# Working with data in an AWS Quick Sight scenario
 <a name="scenarios-data"></a>
 
-When you create a scenario in Amazon Quick Sight, you can preview and modify the data that the scenario uses to generate summaries. Use the following sections to learn about the ways Quick users can interact with data in a scenario.
+When you create a scenario in AWS Quick Sight, you can preview and modify the data that the scenario uses to generate summaries. Use the following sections to learn about the ways Quick users can interact with data in a scenario.
 
 **Topics**
 + [Adding more data to a scenario](#scenarios-data-add-data)
@@ -13,9 +13,9 @@ When you create a scenario in Amazon Quick Sight, you can preview and modify the
 ## Adding more data to a scenario
 <a name="scenarios-data-add-data"></a>
 
-After you create a scenario in Amazon Quick Sight, you can add more data to the scenario at any time. Use the following procedure to add data to an Amazon Quick Sight scenario.
+After you create a scenario in AWS Quick Sight, you can add more data to the scenario at any time. Use the following procedure to add data to an AWS Quick Sight scenario.
 
-**To add data to an existing Amazon Quick Sight scenario**
+**To add data to an existing AWS Quick Sight scenario**
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/).
 

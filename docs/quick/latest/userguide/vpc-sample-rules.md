@@ -5,13 +5,13 @@
 
 Following, you can find some example configurations of inbound and outbound rules for Amazon RDS and Amazon Redshift.
 
-## VPC connection rules: Amazon Quick Sight: Amazon RDS for MySQL
+## VPC connection rules: AWS Quick Sight: Amazon RDS for MySQL
 <a name="vpc-quicksight-to-rds-mysql"></a>
 
-The following tables show rule settings for connecting Amazon Quick Sight to Amazon RDS for MySQL. 
+The following tables show rule settings for connecting AWS Quick Sight to Amazon RDS for MySQL. 
 
 
-**Amazon Quick Sight Network interface security group: inbound rule**  
+**AWS Quick Sight Network interface security group: inbound rule**  
 
 |  |  | 
 | --- |--- |
@@ -19,10 +19,10 @@ The following tables show rule settings for connecting Amazon Quick Sight to Ama
 | Protocol | TCP | 
 | Port Range | 0 - 65535 | 
 | Source | {{sg-RDS11111111}} | 
-| Description | Amazon Quick Sight - RDS MySQL | 
+| Description | AWS Quick Sight - RDS MySQL | 
 
 
-**Amazon Quick Sight Network interface security group: outbound rule**  
+**AWS Quick Sight Network interface security group: outbound rule**  
 
 |  |  | 
 | --- |--- |
@@ -30,7 +30,7 @@ The following tables show rule settings for connecting Amazon Quick Sight to Ama
 | Protocol | TCP | 
 | Port Range | 3306 | 
 | Source | sg-RDS11111111 | 
-| Description | Amazon Quick Sight to RDS MySQL | 
+| Description | AWS Quick Sight to RDS MySQL | 
 
 
 **RDS MySQL: inbound rule**  
@@ -41,15 +41,15 @@ The following tables show rule settings for connecting Amazon Quick Sight to Ama
 | Protocol | TCP | 
 | Port Range | 3306 | 
 | Source | sg-ENI3333333 | 
-| Description | Amazon Quick Sight to RDS MySQL | 
+| Description | AWS Quick Sight to RDS MySQL | 
 
-## VPC connection rules: Amazon Redshift in Amazon Quick Sight
+## VPC connection rules: Amazon Redshift in AWS Quick Sight
 <a name="vpc-quicksight-to-redshift"></a>
 
-The following tables show rule settings for connecting Amazon Quick Sight to Amazon Redshift.
+The following tables show rule settings for connecting AWS Quick Sight to Amazon Redshift.
 
 
-**Amazon Quick Sight network interface security group: inbound rule**  
+**AWS Quick Sight network interface security group: inbound rule**  
 
 |  |  | 
 | --- |--- |
@@ -57,10 +57,10 @@ The following tables show rule settings for connecting Amazon Quick Sight to Ama
 | Protocol | TCP | 
 | Port Range | 0 - 65535 | 
 | Source | sg-RedSh222222 | 
-| Description | Amazon Quick Sight–Amazon Redshift | 
+| Description | AWS Quick Sight–Amazon Redshift | 
 
 
-**Amazon Quick Sight network interface security group: outbound rule**  
+**AWS Quick Sight network interface security group: outbound rule**  
 
 |  |  | 
 | --- |--- |
@@ -68,7 +68,7 @@ The following tables show rule settings for connecting Amazon Quick Sight to Ama
 | Protocol | TCP | 
 | Port Range | 5439 | 
 | Source | sg-RedSh222222 | 
-| Description | Amazon Quick Sight–Amazon Redshift | 
+| Description | AWS Quick Sight–Amazon Redshift | 
 
 
 **Amazon Redshift: inbound rule**  
@@ -79,4 +79,4 @@ The following tables show rule settings for connecting Amazon Quick Sight to Ama
 | Protocol | TCP | 
 | Port Range | 5439 | 
 | Source | sg-ENI3333333 | 
-| Description | Amazon Quick Sight–Amazon Redshift | 
+| Description | AWS Quick Sight–Amazon Redshift | 

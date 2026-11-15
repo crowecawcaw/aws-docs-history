@@ -5,14 +5,14 @@
 
 You can add metadata to documents in your Amazon S3 bucket to customize chat results and control document-level access. Metadata is additional information about a document, such as its title, creation date, and access permissions.
 
-Amazon Quick supports source attribution with citations. If you specify the `_source_uri` metadata field, the source attribution links in chat results direct users to the configured URL. If you don't specify a `_source_uri`, users can still access source documents through clickable citation links that download the file at query time.
+AWS Quick supports source attribution with citations. If you specify the `_source_uri` metadata field, the source attribution links in chat results direct users to the configured URL. If you don't specify a `_source_uri`, users can still access source documents through clickable citation links that download the file at query time.
 
 ## Document metadata location
 <a name="s3-metadata-location"></a>
 
-In Amazon S3, each metadata file can be associated with an indexed document. Your metadata files must be stored in the same Amazon S3 bucket as your indexed files. You can specify a location within the Amazon S3 bucket for your metadata files when configuring your Amazon S3 integration in Amazon Quick.
+In Amazon S3, each metadata file can be associated with an indexed document. Your metadata files must be stored in the same Amazon S3 bucket as your indexed files. You can specify a location within the Amazon S3 bucket for your metadata files when configuring your Amazon S3 integration in AWS Quick.
 
-If you don't specify an Amazon S3 prefix, your metadata files must be stored in the same location as your indexed documents. If you specify an Amazon S3 prefix for your metadata files, they must be in a directory structure parallel to your indexed documents. Amazon Quick looks only in the specified directory for your metadata. If the metadata isn't read, check that the directory location matches the location of your metadata.
+If you don't specify an Amazon S3 prefix, your metadata files must be stored in the same location as your indexed documents. If you specify an Amazon S3 prefix for your metadata files, they must be in a directory structure parallel to your indexed documents. AWS Quick looks only in the specified directory for your metadata. If the metadata isn't read, check that the directory location matches the location of your metadata.
 
 The following examples show how the indexed document location maps to the metadata file location. The document's Amazon S3 key is appended to the metadata's Amazon S3 prefix and then suffixed with `.metadata.json` to form the metadata file's Amazon S3 path.
 

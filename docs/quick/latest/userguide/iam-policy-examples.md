@@ -11,12 +11,12 @@ This section provides examples of IAM policies that you can use with Quick.
 This section shows examples of identity-based policies to use with Quick.
 
 **Topics**
-+ [IAM identity-based policies for Amazon Quick IAM console administration](#security_iam_conosole-administration)
++ [IAM identity-based policies for AWS Quick IAM console administration](#security_iam_conosole-administration)
 
-### IAM identity-based policies for Amazon Quick IAM console administration
+### IAM identity-based policies for AWS Quick IAM console administration
 <a name="security_iam_conosole-administration"></a>
 
-The following example shows the IAM permissions needed for Amazon Quick IAM console administration actions.
+The following example shows the IAM permissions needed for AWS Quick IAM console administration actions.
 
 ```
 {
@@ -78,7 +78,7 @@ The following example shows an IAM policy that allows dashboard sharing and embe
 ## IAM identity-based policies for Quick: namespaces
 <a name="security_iam_id-based-policy-examples-namespaces"></a>
 
-The following examples show IAM policies that allow a Amazon Quick administrator to create or delete namespaces.
+The following examples show IAM policies that allow a AWS Quick administrator to create or delete namespaces.
 
 **Creating namespaces**
 
@@ -125,7 +125,7 @@ The following examples show IAM policies that allow a Amazon Quick administrator
 ## IAM identity-based policies for Quick: custom permissions
 <a name="security_iam_id-based-policy-examples-custom-permissions"></a>
 
-The following example shows an IAM policy that allows a Amazon Quick administrator or a developer to manage custom permissions.
+The following example shows an IAM policy that allows a AWS Quick administrator or a developer to manage custom permissions.
 
 ```
 {
@@ -167,7 +167,7 @@ The following example shows another way to grant the same permissions as shown i
 ## IAM identity-based policies for Quick: customizing email report templates
 <a name="security_iam_id-based-policy-examples-email-customizations"></a>
 
-The following example shows a policy that allows viewing, updating, and creating email report templates in Amazon Quick, as well as obtaining verification attributes for an Amazon Simple Email Service identity. This policy allows a Amazon Quick administrator to create and update custom email report templates, and to confirm that any custom email address they want to send email reports from is a verified identity in SES.
+The following example shows a policy that allows viewing, updating, and creating email report templates in AWS Quick, as well as obtaining verification attributes for an Amazon Simple Email Service identity. This policy allows a AWS Quick administrator to create and update custom email report templates, and to confirm that any custom email address they want to send email reports from is a verified identity in SES.
 
 ```
 {
@@ -190,10 +190,10 @@ The following example shows a policy that allows viewing, updating, and creating
 }
 ```
 
-## IAM identity-based policies for Quick: create an Enterprise account with Amazon Quick managed users
+## IAM identity-based policies for Quick: create an Enterprise account with AWS Quick managed users
 <a name="security_iam_id-based-policy-examples-create-enterprise-account-managed-users"></a>
 
-The following example shows a policy that allows Amazon Quick admins to create an Enterprise edition Amazon Quick account with Amazon Quick managed users.
+The following example shows a policy that allows AWS Quick admins to create an Enterprise edition AWS Quick account with AWS Quick managed users.
 
 ```
 {
@@ -240,7 +240,7 @@ The following example shows a policy that allows Amazon Quick admins to create a
 ## IAM identity-based policies for Quick: creating users
 <a name="security_iam_id-based-policy-examples-create-users"></a>
 
-The following example shows a policy that allows creating Amazon Quick users only. For `quicksight:CreateReader`, `quicksight:CreateUser`, and `quicksight:CreateAdmin`, you can limit the permissions to **"Resource": "arn:aws:quicksight::{{<YOUR\_AWS\_ACCOUNTID>}}:user/${aws:userid}"**. For all other permissions described in this guide, use **"Resource": "\*"**. The resource you specify limits the scope of the permissions to the specified resource.
+The following example shows a policy that allows creating AWS Quick users only. For `quicksight:CreateReader`, `quicksight:CreateUser`, and `quicksight:CreateAdmin`, you can limit the permissions to **"Resource": "arn:aws:quicksight::{{<YOUR\_AWS\_ACCOUNTID>}}:user/${aws:userid}"**. For all other permissions described in this guide, use **"Resource": "\*"**. The resource you specify limits the scope of the permissions to the specified resource.
 
 ```
 {
@@ -260,7 +260,7 @@ The following example shows a policy that allows creating Amazon Quick users onl
 ## IAM identity-based policies for Quick: creating and managing groups
 <a name="security_iam_id-based-policy-examples-create-groups"></a>
 
-The following example shows a policy that allows Amazon Quick administrators and developers to create and manage groups.
+The following example shows a policy that allows AWS Quick administrators and developers to create and manage groups.
 
 ```
 {
@@ -287,7 +287,7 @@ The following example shows a policy that allows Amazon Quick administrators and
 ## IAM identity-based policies for Quick: All access for Standard edition
 <a name="security_iam_id-based-policy-examples-all-access-standard-edition"></a>
 
-The following example for Amazon Quick Standard edition shows a policy that allows subscribing and creating authors and readers. This example explicitly denies permission to unsubscribe from Amazon Quick.
+The following example for AWS Quick Standard edition shows a policy that allows subscribing and creating authors and readers. This example explicitly denies permission to unsubscribe from AWS Quick.
 
 ```
 {
@@ -326,11 +326,11 @@ The following example for Amazon Quick Standard edition shows a policy that allo
 ## IAM identity-based policies for Quick: All access for Enterprise edition with IAM Identity Center (Pro roles)
 <a name="security_iam_id-based-policy-examples-all-access-enterprise-edition-sso-pro"></a>
 
-The following example for Amazon Quick Enterprise edition shows a policy that allows a Amazon Quick user to subscribe to Amazon Quick, create users, and manage Active Directory in a Amazon Quick account that is integrated with IAM Identity Center.
+The following example for AWS Quick Enterprise edition shows a policy that allows a AWS Quick user to subscribe to AWS Quick, create users, and manage Active Directory in a AWS Quick account that is integrated with IAM Identity Center.
 
-This policy also allows users to subscribe to Amazon Quick Pro roles that grant access to Amazon Q in Quick Generative BI capabilities. For more information about Pro roles in Amazon Quick, see [Get started with Generative BI](https://docs.aws.amazon.com/quicksight/latest/user/generative-bi-get-started.html).
+This policy also allows users to subscribe to AWS Quick Pro roles that grant access to Amazon Q in Quick Generative BI capabilities. For more information about Pro roles in AWS Quick, see [Get started with Generative BI](https://docs.aws.amazon.com/quicksight/latest/user/generative-bi-get-started.html).
 
-This example explicitly denies permission to unsubscribe from Amazon Quick.
+This example explicitly denies permission to unsubscribe from AWS Quick.
 
 ```
 {
@@ -390,11 +390,11 @@ This example explicitly denies permission to unsubscribe from Amazon Quick.
 ## IAM identity-based policies for Quick: All access for Enterprise edition with IAM Identity Center
 <a name="security_iam_id-based-policy-examples-all-access-enterprise-edition-sso"></a>
 
-The following example for Amazon Quick Enterprise edition shows a policy that allows subscribing, creating users, and managing Active Directory in a Amazon Quick account that is integrated with IAM Identity Center.
+The following example for AWS Quick Enterprise edition shows a policy that allows subscribing, creating users, and managing Active Directory in a AWS Quick account that is integrated with IAM Identity Center.
 
-This policy does not grant permissions to create Pro roles in Amazon Quick. To create a policy that grants permission to subscribe to Pro roles in Amazon Quick, see [IAM identity-based policies for Amazon Quick: All access for Enterprise edition with IAM Identity Center (Pro roles)](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html#security_iam_id-based-policy-examples-all-access-enterprise-edition-sso-pro).
+This policy does not grant permissions to create Pro roles in AWS Quick. To create a policy that grants permission to subscribe to Pro roles in AWS Quick, see [IAM identity-based policies for AWS Quick: All access for Enterprise edition with IAM Identity Center (Pro roles)](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html#security_iam_id-based-policy-examples-all-access-enterprise-edition-sso-pro).
 
-This example explicitly denies permission to unsubscribe from Amazon Quick.
+This example explicitly denies permission to unsubscribe from AWS Quick.
 
 ```
 {
@@ -445,7 +445,7 @@ This example explicitly denies permission to unsubscribe from Amazon Quick.
 ## IAM identity-based policies for Quick: all access for Enterprise edition with Active Directory
 <a name="security_iam_id-based-policy-examples-all-access-enterprise-edition"></a>
 
-The following example for Amazon Quick Enterprise edition shows a policy that allows subscribing, creating users, and managing Active Directory in a Amazon Quick account that uses Active Directory for identity management. This example explicitly denies permission to unsubscribe from Amazon Quick.
+The following example for AWS Quick Enterprise edition shows a policy that allows subscribing, creating users, and managing Active Directory in a AWS Quick account that uses Active Directory for identity management. This example explicitly denies permission to unsubscribe from AWS Quick.
 
 ```
 {
@@ -486,7 +486,7 @@ The following example for Amazon Quick Enterprise edition shows a policy that al
 ## IAM identity-based policies for Quick: active directory groups
 <a name="security_iam_id-based-policy-examples-active-directory-groups"></a>
 
-The following example shows an IAM policy that allows Active Directory group management for an Amazon Quick Enterprise edition account.
+The following example shows an IAM policy that allows Active Directory group management for an AWS Quick Enterprise edition account.
 
 ```
 {
@@ -573,11 +573,11 @@ The following example shows an IAM policy that allows access to the admin key ma
 }
 ```
 
-The `"quicksight:ListKMSKeysForUser"` and `"kms:ListAliases"` permissions are required to access customer managed keys from the Amazon Quick console. `"quicksight:ListKMSKeysForUser"` and `"kms:ListAliases"` are not required to use the Amazon Quick key management APIs.
+The `"quicksight:ListKMSKeysForUser"` and `"kms:ListAliases"` permissions are required to access customer managed keys from the AWS Quick console. `"quicksight:ListKMSKeysForUser"` and `"kms:ListAliases"` are not required to use the AWS Quick key management APIs.
 
-To specify which keys you want a user to be able to access, add the ARNs of the keys that you want the user to access to the `UpdateKeyRegistration` condition with the `quicksight:KmsKeyArns` condition key. Users can only access the keys specified in `UpdateKeyRegistration`. For more information about supported condition keys for Amazon Quick, see [Condition keys for Amazon Quick](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonquicksight.html#amazonquicksight-policy-keys).
+To specify which keys you want a user to be able to access, add the ARNs of the keys that you want the user to access to the `UpdateKeyRegistration` condition with the `quicksight:KmsKeyArns` condition key. Users can only access the keys specified in `UpdateKeyRegistration`. For more information about supported condition keys for AWS Quick, see [Condition keys for AWS Quick](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonquicksight.html#amazonquicksight-policy-keys).
 
-The example below grants `Describe` permissions for all CMKs that are registered to a Amazon Quick account and `Update` permissons to specific CMKs that are registered to the Amazon Quick account.
+The example below grants `Describe` permissions for all CMKs that are registered to a AWS Quick account and `Update` permissons to specific CMKs that are registered to the AWS Quick account.
 
 ```
 {
@@ -621,7 +621,7 @@ The example below grants `Describe` permissions for all CMKs that are registered
 ## AWS resources Quick: scoping policies in Enterprise edition
 <a name="security_iam_id-based-policy-examples-scoping-policies"></a>
 
-The following example for Amazon Quick Enterprise edition shows a policy that allows setting default access to AWS resources and scoping policies for permissions to AWS resources.
+The following example for AWS Quick Enterprise edition shows a policy that allows setting default access to AWS resources and scoping policies for permissions to AWS resources.
 
 ```
 {

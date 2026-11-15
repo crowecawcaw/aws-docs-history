@@ -14,17 +14,17 @@
 |    Intended audience:  System administrators  | 
 
 **Note**  
-IAM identity federation doesn't support syncing identity provider groups with Amazon Quick.
+IAM identity federation doesn't support syncing identity provider groups with AWS Quick.
 
-In this scenario, your user initiates the sign-on process from an Amazon Quick application portal without being signed on to the identity provider. In this case, the user has a federated account managed by a third-party IdP. The user might have a user account on Quick. Quick sends an authentication request to the IdP. After the user is authenticated, Quick opens. 
+In this scenario, your user initiates the sign-on process from an AWS Quick application portal without being signed on to the identity provider. In this case, the user has a federated account managed by a third-party IdP. The user might have a user account on Quick. Quick sends an authentication request to the IdP. After the user is authenticated, Quick opens. 
 
 Beginning with the user signing into Quick, authentication flows through these steps:
 
 1. The user opens Quick. At this point, the user isn't signed in to the IdP. 
 
-1. The user attempts to sign in to Amazon Quick.
+1. The user attempts to sign in to AWS Quick.
 
-1. Amazon Quick redirects the user's input to the federation service and requests authentication.
+1. AWS Quick redirects the user's input to the federation service and requests authentication.
 
 1. The federation service and the IdP authenticate the user:
 
@@ -36,8 +36,8 @@ Beginning with the user signing into Quick, authentication flows through these s
 
    1. The user's browser posts the SAML assertion to the AWS Sign-In SAML endpoint (`https://signin.aws.amazon.com/saml`). 
 
-   1. AWS Sign-In receives the SAML request, processes the request, authenticates the user, and forwards the authentication token to the Amazon Quick service.
+   1. AWS Sign-In receives the SAML request, processes the request, authenticates the user, and forwards the authentication token to the AWS Quick service.
 
-1. Amazon Quick accepts the authentication token from AWS and presents Amazon Quick to the user.
+1. AWS Quick accepts the authentication token from AWS and presents AWS Quick to the user.
 
-From the user's perspective, the process happens transparently. The user starts at an Amazon Quick application portal. Amazon Quick negotiates authentication with your organization's federation service and AWS. Amazon Quick opens, without the user needing to supply any additional credentials.
+From the user's perspective, the process happens transparently. The user starts at an AWS Quick application portal. AWS Quick negotiates authentication with your organization's federation service and AWS. AWS Quick opens, without the user needing to supply any additional credentials.

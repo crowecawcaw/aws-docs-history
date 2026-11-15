@@ -14,9 +14,9 @@
 |    Intended audience:  System administrators  | 
 
 **Note**  
-IAM identity federation doesn't support syncing identity provider groups with Amazon Quick.
+IAM identity federation doesn't support syncing identity provider groups with AWS Quick.
 
-In this scenario, your users initiate the sign-on process from the identity provider's portal. After the users are authenticated, they sign in to Amazon Quick. After Quick checks that they are authorized, your users can access Quick. 
+In this scenario, your users initiate the sign-on process from the identity provider's portal. After the users are authenticated, they sign in to AWS Quick. After Quick checks that they are authorized, your users can access Quick. 
 
 Beginning with a user signing into the IdP, authentication flows through these steps:
 
@@ -30,17 +30,17 @@ Beginning with a user signing into the IdP, authentication flows through these s
 
    1. When authentication is successful, the federation service posts the SAML assertion to the user’s browser.
 
-1. The user opens Amazon Quick:
+1. The user opens AWS Quick:
 
    1. The user's browser posts the SAML assertion to the AWS Sign-In SAML endpoint (`https://signin.aws.amazon.com/saml`). 
 
-   1. AWS Sign-In receives the SAML request, processes the request, authenticates the user, and forwards the authentication token to the Amazon Quick service.
+   1. AWS Sign-In receives the SAML request, processes the request, authenticates the user, and forwards the authentication token to the AWS Quick service.
 
-1. Amazon Quick accepts the authentication token from AWS and presents Amazon Quick to the user.
+1. AWS Quick accepts the authentication token from AWS and presents AWS Quick to the user.
 
-From the user's perspective, the process happens transparently. The user starts at your organization's internal portal and lands at an Amazon Quick application portal, without ever having to supply any AWS credentials.
+From the user's perspective, the process happens transparently. The user starts at your organization's internal portal and lands at an AWS Quick application portal, without ever having to supply any AWS credentials.
 
-In the following diagram, you can find an authentication flow between Amazon Quick and a third-party identity provider (IdP). In this example, the administrator has set up a sign-in page to access Amazon Quick, called `applications.example.com`. When a user signs in, the sign-in page posts a request to a federation service that complies with SAML 2.0. The end user initiates authentication from the sign-on page of the IdP.
+In the following diagram, you can find an authentication flow between AWS Quick and a third-party identity provider (IdP). In this example, the administrator has set up a sign-in page to access AWS Quick, called `applications.example.com`. When a user signs in, the sign-in page posts a request to a federation service that complies with SAML 2.0. The end user initiates authentication from the sign-on page of the IdP.
 
 ![Quick SAML Diagram. The diagram contains two boxes. The first one describes an authentication process inside the enterprise. The second one describes authentication inside AWS. The process is described in the text following the table.](https://docs.aws.amazon.com/quick/latest/userguide/images/SAML-Flow-Diagram.png)
 

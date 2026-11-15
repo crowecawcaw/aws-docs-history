@@ -3,7 +3,7 @@
 # Q&A null support
 <a name="gen-bi-q-and-a-null-support"></a>
 
-Amazon Quick Sight Q&A has comprehensive support for null value handling, enabling users to create more sophisticated analyses and answer complex business questions. This functionality allows for precise filtering of null values, intuitive queries about missing data, and dynamic chart interactions.
+AWS Quick Sight Q&A has comprehensive support for null value handling, enabling users to create more sophisticated analyses and answer complex business questions. This functionality allows for precise filtering of null values, intuitive queries about missing data, and dynamic chart interactions.
 
 ## Add a filter to include or exclude null values
 <a name="add-filter-for-null"></a>

@@ -1,18 +1,18 @@
 
 
-# Amazon Quick Microsoft Teams extension
+# AWS Quick Microsoft Teams extension
 <a name="teams-extension"></a>
 
-The Quick extension for Microsoft Teams integrates AI-powered assistance directly into your team communication workflows. Users can mention @Amazon Quick in conversations to access company knowledge, use configured action connectors, and get contextual assistance without leaving their Teams environment.
+The Quick extension for Microsoft Teams integrates AI-powered assistance directly into your team communication workflows. Users can mention @AWS Quick in conversations to access company knowledge, use configured action connectors, and get contextual assistance without leaving their Teams environment.
 
 The Teams extension enables users to:
-+ Mention **@Amazon Quick** in conversations in Teams channels to add it as a collaborator.
-+ Use actions from connectors configured in Amazon Quick.
-+ Access any company knowledge sources added to your Amazon Quick instance from within Microsoft Teams.
++ Mention **@AWS Quick** in conversations in Teams channels to add it as a collaborator.
++ Use actions from connectors configured in AWS Quick.
++ Access any company knowledge sources added to your AWS Quick instance from within Microsoft Teams.
 
 **Important**  
-The Amazon Quick customer integrating Microsoft Teams must have a paid Microsoft Teams organization with an *M365 subscription for their organization*.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick customer integrating Microsoft Teams must have a paid Microsoft Teams organization with an *M365 subscription for their organization*.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Topics**
 + [Prerequisites for Microsoft Teams extension](#teams-prerequisites)
@@ -22,15 +22,15 @@ Amazon Quick does not use your user data for service improvement or for training
 ## Prerequisites for Microsoft Teams extension
 <a name="teams-prerequisites"></a>
 
-Before configuring access for the Amazon Quick extension to Microsoft Teams, administrators must complete the following steps:
+Before configuring access for the AWS Quick extension to Microsoft Teams, administrators must complete the following steps:
 
 1. Have a Microsoft 365 Business subscription and be a Global Admin or have administrative permissions (specifically `AppCatalog.ReadWrite.All`).
 
-1. Have a Amazon Quick instance.
+1. Have a AWS Quick instance.
 
 1. Your Microsoft 365 tenant ID. You can find this by going to the Azure portal > **Azure Active Directory** > **Properties**, or by using PowerShell. For detailed steps, see [How to find your tenant ID - Microsoft Entra](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-find-tenant) in the Microsoft Learn portal.
 
-If you configured the authentication to connect to Amazon Quick with IAM Identity Center, complete the following additional steps:
+If you configured the authentication to connect to AWS Quick with IAM Identity Center, complete the following additional steps:
 
 1. Ensure you have an IAM Identity Center instance enabled on your AWS account.
 
@@ -41,13 +41,13 @@ If you configured the authentication to connect to Amazon Quick with IAM Identit
 ## Configure Microsoft Teams extension access
 <a name="configure-teams-extension"></a>
 
-As an administrator, you must allow the Amazon Quick Microsoft Teams to connect to your Amazon Quick application environment. You can use the Amazon Quick console to manage extension access configurations.
+As an administrator, you must allow the AWS Quick Microsoft Teams to connect to your AWS Quick application environment. You can use the AWS Quick console to manage extension access configurations.
 
 ### User attribute mapping
 <a name="teams-user-attributes"></a>
 
 When you configure a Microsoft Teams extension, user identity is mapped by default using the following attributes:
-+ **Amazon Quick user attribute** - Email address is used to map Amazon Quick users to their corresponding Microsoft 365 accounts. The system uses the email address to establish the connection between user identities.
++ **AWS Quick user attribute** - Email address is used to map AWS Quick users to their corresponding Microsoft 365 accounts. The system uses the email address to establish the connection between user identities.
 + **M365 Office add-in user attribute** - User Principal Name (UPN) is used to match against Microsoft 365 user accounts. Users need to use the User Principal Name (UPN) to sign in to Microsoft 365. Email address that works on both cloud and on-premise systems.
 
 These default mappings ensure secure and accurate user identification across both platforms without requiring additional configuration.
@@ -89,7 +89,7 @@ Follow these steps only if you are using IAM Identity Center with Entra ID to se
 
    1. Choose **Web**.
 
-   1. Compose a callback URL using the following format, replacing {{your-region}} with your Amazon Quick instance AWS Region. The Teams extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
+   1. Compose a callback URL using the following format, replacing {{your-region}} with your AWS Quick instance AWS Region. The Teams extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
 
       ```
       qbs-cell001.dp.appintegrations.{{your-region}}.prod.plato.ai.aws.dev/auth/idc-tti/callback
@@ -148,7 +148,7 @@ Follow these steps only if you are using IAM Identity Center with Okta to set up
 
 1. Add callback URIs for each Region in which your Teams extension will be installed
 
-   1. Compose a callback URI for each Region where you want to configure the extension, using the following format and replacing {{your-region}} with your Amazon Quick instance AWS Region. The Teams extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
+   1. Compose a callback URI for each Region where you want to configure the extension, using the following format and replacing {{your-region}} with your AWS Quick instance AWS Region. The Teams extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
 
       ```
       qbs-cell001.dp.appintegrations.{{your-region}}.prod.plato.ai.aws.dev/auth/idc-tti/callback
@@ -271,11 +271,11 @@ Follow these steps to set up permissions on AWS Console:
 
 1. Copy and save the ARN of the IAM role you created for later. You will need it in the next steps.
 
-Now you can follow these steps to create a new extension access configuration that will allow Amazon Quick to integrate with your Microsoft Teams environment:
+Now you can follow these steps to create a new extension access configuration that will allow AWS Quick to integrate with your Microsoft Teams environment:
 
 **To create an extension access configuration**
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 
@@ -306,9 +306,9 @@ This is a one-time setup that establishes a trusted identity source for all exte
 
 1. From the success message, choose **View extensions** to finish installing your extension.
 **Note**  
-You can also navigate to the installation screen from **Connections** > **Extensions** in the Amazon Quick menu.
+You can also navigate to the installation screen from **Connections** > **Extensions** in the AWS Quick menu.
 
-Once created, this extension access configuration enables authors and other admin in your organization to create and deploy Amazon Quick extensions within your Microsoft Teams environment.
+Once created, this extension access configuration enables authors and other admin in your organization to create and deploy AWS Quick extensions within your Microsoft Teams environment.
 
 **Note**  
 For your end users to begin using your Microsoft Teams extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see Installing your Microsoft Teams extension in the Microsoft Teams extension author guide.
@@ -316,9 +316,9 @@ For your end users to begin using your Microsoft Teams extension, an admin or au
 ### Add Microsoft Teams extension access for accounts using other authentication methods
 <a name="add-teams-extension-access"></a>
 
-Follow these steps to create a new extension access configuration that will allow Amazon Quick to integrate with your Microsoft Teams environment.
+Follow these steps to create a new extension access configuration that will allow AWS Quick to integrate with your Microsoft Teams environment.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 
@@ -341,9 +341,9 @@ Follow these steps to create a new extension access configuration that will allo
 
 1. From the success message, select **View extensions** to finish installing your extension.
 **Note**  
-You can also navigate to the installation screen from **Connections** > **Extensions** in the Amazon Quick menu.
+You can also navigate to the installation screen from **Connections** > **Extensions** in the AWS Quick menu.
 
-Once created, this extension access configuration enables authors and other admins in your organization to deploy your Microsoft Teams Amazon Quick extension within your Microsoft Teams environment.
+Once created, this extension access configuration enables authors and other admins in your organization to deploy your Microsoft Teams AWS Quick extension within your Microsoft Teams environment.
 
 **Note**  
 For your end users to begin using your Microsoft Teams extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see [Installing your Microsoft Teams extension in the Microsoft Teams extension author guide](https://docs.aws.amazon.com/quicksuite/latest/userguide/teams-extension-author-guide.html#add-extensions-teams).
@@ -353,7 +353,7 @@ For your end users to begin using your Microsoft Teams extension, an admin or au
 
 Use these steps to modify the configuration settings of an existing Microsoft Teams extension access.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 
@@ -374,7 +374,7 @@ Your changes to the Microsoft Teams extension access configuration are saved and
 
 Follow these steps to permanently remove a Microsoft Teams extension access configuration. This action cannot be undone.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 

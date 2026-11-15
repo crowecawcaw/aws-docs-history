@@ -3,7 +3,7 @@
 # PagerDuty Advance integration
 <a name="pagerduty-advance-integration"></a>
 
-Connect Amazon Quick to the PagerDuty Advance MCP and use AI to securely contact PagerDuty Advance. Teams can access incident context, history, and runbooks from the SRE agent, query the Insights agent for proactive ways to improve, or alter on-call coverage with Shift agent from their AI-enabled platform of choice.
+Connect AWS Quick to the PagerDuty Advance MCP and use AI to securely contact PagerDuty Advance. Teams can access incident context, history, and runbooks from the SRE agent, query the Insights agent for proactive ways to improve, or alter on-call coverage with Shift agent from their AI-enabled platform of choice.
 
 ## What you can do
 <a name="pagerduty-advance-integration-capabilities"></a>
@@ -35,7 +35,7 @@ PagerDuty Advance integration uses MCP server connectivity to provide agent capa
 You'll need:
 + PagerDuty account with appropriate permissions
 + PagerDuty API credentials (Client ID and Client Secret)
-+ Amazon Quick with MCP integration enabled
++ AWS Quick with MCP integration enabled
 
 ## Compatibility
 <a name="pagerduty-advance-integration-compatibility"></a>

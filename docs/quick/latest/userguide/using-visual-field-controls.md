@@ -15,7 +15,7 @@ The field wells, on-visual editors, and drop targets available on a specific vis
 ## Dragging fields to drop targets or field wells
 <a name="dragging-a-field"></a>
 
-When you drag a field to either a drop target or field well, Amazon Quick provides you with information about whether the target element expects a measure or a dimension. Amazon Quick also provides you with information about whether that element is available for field assignment.
+When you drag a field to either a drop target or field well, AWS Quick provides you with information about whether the target element expects a measure or a dimension. AWS Quick also provides you with information about whether that element is available for field assignment.
 
 For example, when you drag a measure to the value drop target on a new single-measure line chart, you see the drop target color-coded green. That green color coding indicates that the drop target expects a measure. The drag label indicates that the target is available to add a field. 
 

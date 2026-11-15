@@ -3,13 +3,13 @@
 # Getting started with apps in Quick
 <a name="getting-started-apps"></a>
 
-You can create your first app in apps in Amazon Quick in minutes. This section walks you through each step.
+You can create your first app in apps in AWS Quick in minutes. This section walks you through each step.
 
 ## Prerequisites
 <a name="apps-prerequisites"></a>
 
 Before you begin, confirm the following:
-+ You have an active Amazon Quick account.
++ You have an active AWS Quick account.
 + Your subscription includes Author, Professional, Author Pro, Enterprise, or Admin Pro access.
 
 ## Open the apps in Quick landing page
@@ -17,7 +17,7 @@ Before you begin, confirm the following:
 
 To open the apps in Quick landing page:
 
-1. Sign in to Amazon Quick.
+1. Sign in to AWS Quick.
 
 1. In the navigation pane, choose **Apps**.
 
@@ -107,10 +107,10 @@ Apps in Quick supports three access levels:
 | Access level | Description | 
 | --- | --- | 
 | Limited | Only users you explicitly share the app with can access it. | 
-| Account | Everyone in your Amazon Quick account can access the app. | 
+| Account | Everyone in your AWS Quick account can access the app. | 
 | Public | Anyone on the internet can access the app without signing in. Available on Free and Plus accounts only. | 
 
-You can also toggle **Share with all** to make the app accessible to everyone in your Amazon Quick account, or choose **Copy link** to copy the published URL.
+You can also toggle **Share with all** to make the app accessible to everyone in your AWS Quick account, or choose **Copy link** to copy the published URL.
 
 ### Publish an app to the public internet
 <a name="apps-publish-public"></a>
@@ -126,12 +126,12 @@ To publish an app publicly (Free and Plus accounts):
 After publishing, the app receives a public URL that you can share with anyone. Anonymous viewers can use the app without creating an account.
 
 **Important**  
-Public apps cannot use connectors, embedded visuals, embedded chat experiences, or Amazon Quick spaces. If your app uses any of these integrations, remove them before publishing publicly.
+Public apps cannot use connectors, embedded visuals, embedded chat experiences, or AWS Quick spaces. If your app uses any of these integrations, remove them before publishing publicly.
 
 ## Manage public app usage
 <a name="apps-manage-public-usage"></a>
 
-When your app is published publicly, AI inference usage counts against your subscription quota. Monitor your usage in the Amazon Quick account settings.
+When your app is published publicly, AI inference usage counts against your subscription quota. Monitor your usage in the AWS Quick account settings.
 
 To manage or revoke public access:
 

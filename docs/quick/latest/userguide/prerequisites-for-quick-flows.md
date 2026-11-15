@@ -3,13 +3,13 @@
 # Prerequisites for Quick Flows
 <a name="prerequisites-for-quick-flows"></a>
 
- Before you can create and use Amazon Quick Flows, you need to ensure that your Amazon Quick administrator has completed the following prerequisites. 
+ Before you can create and use AWS Quick Flows, you need to ensure that your AWS Quick administrator has completed the following prerequisites. 
 
 ## Administrator setup requirements
 <a name="admin-setup-requirements"></a>
 
 Your Quick administrator must complete the following tasks before you can create and use Quick Flows:
-+ Set up and configure Quick for your organization. For more information, see [Setting up and signing into Amazon Quick](setting-up.md).
++ Set up and configure Quick for your organization. For more information, see [Setting up and signing into AWS Quick](setting-up.md).
 + (Optional) Restrict access to flows for specific users using custom permissions.
 
 For browser and region requirements, see [Supported browsers](supported-browsers.md).
@@ -17,7 +17,7 @@ For browser and region requirements, see [Supported browsers](supported-browsers
 ## Required permissions
 <a name="required-permissions-quick-flows"></a>
 
-Permissions to create, run, share, and govern flows are determined by user subscriptions and any configured custom permissions. For more information, see [Managing Quick subscriptions](managing-subscriptions.md) and [Managing user access inside Amazon Quick](managing-users.md).
+Permissions to create, run, share, and govern flows are determined by user subscriptions and any configured custom permissions. For more information, see [Managing Quick subscriptions](managing-subscriptions.md) and [Managing user access inside AWS Quick](managing-users.md).
 
 ## Amazon Bedrock model access
 <a name="bedrock-model-access"></a>

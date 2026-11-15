@@ -133,7 +133,7 @@ If your sync report shows items with status **SKIPPED** and error type **VALIDAT
 ## Sync run exceeds maximum runtime
 <a name="sync-exceeds-maximum-runtime"></a>
 
-If a sync run takes longer than 14 days, Amazon Quick ends the run with a status of **FAILED** and the message *Maximum sync time exceeded*. This typically happens when a knowledge base is configured to crawl more content than can be processed in a single run.
+If a sync run takes longer than 14 days, AWS Quick ends the run with a status of **FAILED** and the message *Maximum sync time exceeded*. This typically happens when a knowledge base is configured to crawl more content than can be processed in a single run.
 
 **To resolve:**
 

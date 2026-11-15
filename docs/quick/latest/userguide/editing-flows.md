@@ -8,7 +8,7 @@ After creating a flow, you can edit and configure it in the Flow editor.
 ## Accessing the Flow editor
 <a name="accessing-flow-editor"></a>
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. In the navigation pane, choose **Flows**.
 
@@ -206,4 +206,4 @@ The original prompt is read-only. To create a new flow based on a modified promp
 + Consider the user experience when designing the flow of steps.
 + Document your changes in the publication description to maintain a clear history of updates.
 
-Step configurations and available features may change over time. For the latest information, see the [Terminology and key concepts](terminology-and-key-concepts.md) and the [Amazon Quick Flows product page](https://aws.amazon.com/quicksight/q-apps/).
+Step configurations and available features may change over time. For the latest information, see the [Terminology and key concepts](terminology-and-key-concepts.md) and the [AWS Quick Flows product page](https://aws.amazon.com/quicksight/q-apps/).

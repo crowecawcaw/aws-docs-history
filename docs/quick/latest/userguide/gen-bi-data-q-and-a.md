@@ -5,7 +5,7 @@
 
 **Note**  
 The Q&A experience described in this section uses legacy Topics. To view the multi-visual experience, the legacy Topic author must add named entities and convert an existing topic to use generative capabilities or create a new generative topic. For more information, see [Authoring Q&A](gen-bi-author-q-and-a.md).  
-For the new multi-dataset Topics experience, which uses an LLM-powered chat agent to generate cross-dataset SQL queries with runtime joins, see [Using Topics in Amazon Quick chat](topics-in-chat.md).
+For the new multi-dataset Topics experience, which uses an LLM-powered chat agent to generate cross-dataset SQL queries with runtime joins, see [Using Topics in AWS Quick chat](topics-in-chat.md).
 
 Accelerate data-driven decisions with humanistic Q&A that includes:
 + AI-generated narrative that highlights key insights
@@ -38,7 +38,7 @@ To help you form questions, think *Who*, *What*, *Where*, *When* and *Why*.
 
 Unpacking your answer:
 + **Interpreted as:** – This is how Amazon Q interpreted your question. It will map your words to the underlying data so you can verify that you were correctly understood. If not, adjust your question or leave feedback for your author.
-+ **AI-generated narrative:** – A summary of the visuals that highlights key insights. If your Quick account is connected to an Amazon Q application, you may receive additional insights from unstructured data sources under **Insights from Q Business**. You can see the unstructured sources that are used in the **Sources** collabsible. For more information about connecting a Quick account to a Amazon Q Business application, see [Augmenting Amazon Quick Sight insights with Amazon Q Business](generative-bi-q-business.md).
++ **AI-generated narrative:** – A summary of the visuals that highlights key insights. If your Quick account is connected to an Amazon Q application, you may receive additional insights from unstructured data sources under **Insights from Q Business**. You can see the unstructured sources that are used in the **Sources** collabsible. For more information about connecting a Quick account to a Amazon Q Business application, see [Augmenting AWS Quick Sight insights with Amazon Q Business](generative-bi-q-business.md).
 + **Visuals:** – Visuals consist of: center visual that directly answers the question, supporting visual on the right that provides context, relevant KPIs, and a details table at the bottom.
 **Note**  
 If the field is not included in a named entity, then it will display as a single visual. 

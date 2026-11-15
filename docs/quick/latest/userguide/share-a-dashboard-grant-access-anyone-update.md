@@ -7,7 +7,7 @@ Use the following procedure to update a shared dashboard that can be accessed by
 
 **To update a public dashboard:**
 
-1. From the Amazon Quick start page, choose the analysis that is tied to the dashboard that you want to update and make your desired changes. You must be the owner or a co-owner of the analysis.
+1. From the AWS Quick start page, choose the analysis that is tied to the dashboard that you want to update and make your desired changes. You must be the owner or a co-owner of the analysis.
 
 1. In the analysis, choose **Publish**.
 

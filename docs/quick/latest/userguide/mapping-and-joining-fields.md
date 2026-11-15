@@ -16,7 +16,7 @@ Quick Sight can automatically map fields between datasets in the same analysis. 
 **Note**  
 After an automatic mapping exists, you can rename a field without breaking the field mapping. However, if you change the data type, the mapping is broken.
 
-For more information on field mapping for filter actions across datasets, see [Creating and editing custom actions in Amazon Quick Sight](custom-actions.md).
+For more information on field mapping for filter actions across datasets, see [Creating and editing custom actions in AWS Quick Sight](custom-actions.md).
 
 ## Joining fields
 <a name="mapping-and-joining-fields-manual"></a>

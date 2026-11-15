@@ -3,7 +3,7 @@
 # Brand assets
 <a name="brand-assets-desktop"></a>
 
-Brand assets help your organization keep a consistent brand style across the documents and presentations that people create in Amazon Quick. On the **Brand assets** tab, under **Customize**, brand managers upload your organization's brand templates or retrieve them from a connected file store. Quick extracts style elements and brand rules from those files and shows what it found so a person can review, edit, and publish it. After a brand is published, Quick can suggest its templates to users across your organization, choosing a suitable template for each task, so users don't need to find and attach a template in every chat.
+Brand assets help your organization keep a consistent brand style across the documents and presentations that people create in AWS Quick. On the **Brand assets** tab, under **Customize**, brand managers upload your organization's brand templates or retrieve them from a connected file store. Quick extracts style elements and brand rules from those files and shows what it found so a person can review, edit, and publish it. After a brand is published, Quick can suggest its templates to users across your organization, choosing a suitable template for each task, so users don't need to find and attach a template in every chat.
 
 Administrators control who manages brand assets by using [custom permissions](custom-permissions.md).
 
@@ -61,11 +61,11 @@ As an administrator, you decide who curates brand assets.
 ### Prerequisites
 <a name="brand-assets-admin-prereqs"></a>
 
-Brand assets are available only in Amazon Quick Enterprise edition.
+Brand assets are available only in AWS Quick Enterprise edition.
 
 Before your organization can use brand assets, make sure that:
 + Users sign in to Quick with your organization's credentials.
-+ Users have access to create Word documents and PowerPoint presentations in Quick. For an overview of document generation, see [Document and visual creation with Amazon Quick](document-and-visual-creation.md). For access controls, see [Custom permissions](custom-permissions.md).
++ Users have access to create Word documents and PowerPoint presentations in Quick. For an overview of document generation, see [Document and visual creation with AWS Quick](document-and-visual-creation.md). For access controls, see [Custom permissions](custom-permissions.md).
 + To extract a template directly from a file store, brand managers have access to that service and have enabled its connector in their account.
 
 ### Assigning brand managers
@@ -216,7 +216,7 @@ If you upload any other file type, Quick shows an error that lists the accepted 
 <a name="brand-assets-troubleshooting"></a>
 
 **The Brand assets tab isn't available**  
-Brand assets are available only in Amazon Quick Enterprise edition. Confirm that you signed in with your organization's Quick credentials rather than a social account, and that your administrator has made the feature available to your organization.
+Brand assets are available only in AWS Quick Enterprise edition. Confirm that you signed in with your organization's Quick credentials rather than a social account, and that your administrator has made the feature available to your organization.
 
 **You can't create or publish a brand**  
 Ask your administrator to check whether the **Create and update brand kits** capability is turned off for you. For configuration guidance, see [Assigning brand managers](#brand-assets-admin-delegate).

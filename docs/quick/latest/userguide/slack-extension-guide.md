@@ -1,16 +1,16 @@
 
 
-# Amazon Quick Slack extension
+# AWS Quick Slack extension
 <a name="slack-extension-guide"></a>
 
 **Note**  
-Before you deploy a Slack extension as an author, your Amazon Quick admin must [configure Amazon Quick access to Slack](https://docs.aws.amazon.com/quicksuite/latest/userguide/slack-extension.html).
+Before you deploy a Slack extension as an author, your AWS Quick admin must [configure AWS Quick access to Slack](https://docs.aws.amazon.com/quicksuite/latest/userguide/slack-extension.html).
 
-The Amazon Quick Slack extension brings AI-powered assistance directly into team conversations, enabling access to organizational knowledge and document analysis without leaving Slack.
+The AWS Quick Slack extension brings AI-powered assistance directly into team conversations, enabling access to organizational knowledge and document analysis without leaving Slack.
 
 Key capabilities include:
 + Extension access through Slack's AI assistant side panel for continuous availability.
-+ Engagement with Quick through **@Amazon Quick** mentions in channels for contextual team assistance. Contextual responses with relevant content from the Slack channel are not supported at this time.
++ Engagement with Quick through **@AWS Quick** mentions in channels for contextual team assistance. Contextual responses with relevant content from the Slack channel are not supported at this time.
 + Direct interaction through private messages for individual productivity.
 + External actions in third-party applications from Slack using [connectors](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-connectors.html) configured by your organization.
 + Unlimited usage for enhanced team collaboration and knowledge sharing.
@@ -21,5 +21,5 @@ Key capabilities include:
 + Contextual summaries and insights generation.
 
 **Topics**
-+ [Amazon Quick Slack extension author guide](slack-extension-author-guide.md)
-+ [Amazon Quick Slack extension user guide](slack-extension-user-guide.md)
++ [AWS Quick Slack extension author guide](slack-extension-author-guide.md)
++ [AWS Quick Slack extension user guide](slack-extension-user-guide.md)

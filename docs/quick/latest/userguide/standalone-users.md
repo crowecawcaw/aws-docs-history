@@ -1,12 +1,12 @@
 
 
-# Managing users in a Amazon Quick Free or Plus account
+# Managing users in a AWS Quick Free or Plus account
 <a name="standalone-users"></a>
 
-In a Amazon Quick Free or Plus account, the account administrator can invite team members by email, monitor user activity, and manage pending invitations. User management is handled directly within the Amazon Quick web application through the Manage Account page.
+In a AWS Quick Free or Plus account, the account administrator can invite team members by email, monitor user activity, and manage pending invitations. User management is handled directly within the AWS Quick web application through the Manage Account page.
 
 **Note**  
-This section applies to Amazon Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick). For information about managing users in AWS Console–based accounts, see [Managing user access inside Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/managing-users.html).
+This section applies to AWS Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick). For information about managing users in AWS Console–based accounts, see [Managing user access inside AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/managing-users.html).
 
 **Topics**
 + [User limits by plan](#standalone-users-limits)
@@ -18,16 +18,16 @@ This section applies to Amazon Quick Free and Plus accounts created at [aws.com/
 ## User limits by plan
 <a name="standalone-users-limits"></a>
 
-The number of users you can have in your account depends on your plan. For specific user limits for each plan, see [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/).
+The number of users you can have in your account depends on your plan. For specific user limits for each plan, see [AWS Quick pricing](https://aws.amazon.com/quick/pricing/).
 
-For more information about plans, see [Amazon Quick plans and pricing](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-plans.html).
+For more information about plans, see [AWS Quick plans and pricing](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-plans.html).
 
 ## Navigating to user management
 <a name="standalone-users-navigate"></a>
 
 **To access the Users page**
 
-1. Sign in to Amazon Quick at [aws.com/quick](https://aws.com/quick).
+1. Sign in to AWS Quick at [aws.com/quick](https://aws.com/quick).
 
 1. From the navigation panel, choose your username.
 
@@ -40,7 +40,7 @@ The Users page displays two tabs: **Active** and **Invited**.
 ## Managing active users
 <a name="standalone-users-active"></a>
 
-The **Active** tab displays all users who have accepted their invitation and are currently active in your Amazon Quick account.
+The **Active** tab displays all users who have accepted their invitation and are currently active in your AWS Quick account.
 
 **Topics**
 + [Active users table](#standalone-users-active-table)
@@ -75,7 +75,7 @@ You can view usage statistics for any active user.
 ## Inviting new users
 <a name="standalone-users-invite"></a>
 
-You can invite team members to join your Amazon Quick account by sending them an email invitation. Invited users receive an email with instructions to create an AWS Builder ID (if they don't already have one) and join your Quick account.
+You can invite team members to join your AWS Quick account by sending them an email invitation. Invited users receive an email with instructions to create an AWS Builder ID (if they don't already have one) and join your Quick account.
 
 **Note**  
 You can only invite users up to the maximum allowed by your plan. If you need to invite more users than your plan allows, consider [upgrading your plan](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-upgrade.html).
@@ -94,7 +94,7 @@ You can only invite users up to the maximum allowed by your plan. If you need to
 
 1. Choose **Send invitations**.
 
-   Amazon Quick sends an invitation email to each address. The invitations appear in the **Invited** tab.
+   AWS Quick sends an invitation email to each address. The invitations appear in the **Invited** tab.
 
 **Tip**  
 You can invite multiple users at once by entering several email addresses before choosing **Send invitations**. Each email address must be confirmed as a chip in the field before sending.
@@ -130,7 +130,7 @@ You can resend an invitation if the original email was not received, or cancel a
 
 1. Choose **Resend**.
 
-   Amazon Quick sends a new invitation email to the address.
+   AWS Quick sends a new invitation email to the address.
 
 **To cancel an invitation**
 

@@ -23,7 +23,7 @@ The following table is a simple example of data for a Sankey diagram.
 
 The following Sankey diagram is created when the dimensions and measure are added to the field well, with the A node on the left linking to the W, Y, and X nodes on the right. The width of each link between nodes is determined by the value in the Measure (Weight) column. The nodes are automatically ordered.
 
-To create multilevel Sankey diagrams in Amazon Quick, your dataset should still contain a measure and two dimensions (one for source and one for destination), but in this case your data values differ.
+To create multilevel Sankey diagrams in AWS Quick, your dataset should still contain a measure and two dimensions (one for source and one for destination), but in this case your data values differ.
 
 The following table is a simple example of data for a multilevel Sankey diagram with two stages.
 

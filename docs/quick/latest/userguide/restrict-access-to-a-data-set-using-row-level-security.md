@@ -8,7 +8,7 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-In the Enterprise edition of Amazon Quick, you can restrict access to a dataset by configuring row-level security (RLS) on it. You can do this before or after you have shared the dataset. When you share a dataset with RLS with dataset owners, they can still see all the data. When you share it with readers, however, they can only see the data restricted by the permission dataset rules. By adding row-level security, you can further control their access.
+In the Enterprise edition of AWS Quick, you can restrict access to a dataset by configuring row-level security (RLS) on it. You can do this before or after you have shared the dataset. When you share a dataset with RLS with dataset owners, they can still see all the data. When you share it with readers, however, they can only see the data restricted by the permission dataset rules. By adding row-level security, you can further control their access.
 
 **Note**  
 When applying SPICE datasets to row-level security, each field in the dataset can contain up to 2,047 Unicode characters. Fields that contain more than this quota are truncated during ingestion. To learn more about SPICE data quotas, see [SPICE quotas for imported data](data-source-limits.md#spice-limits).
@@ -21,7 +21,7 @@ To apply the dataset rules, you add the rules as a permissions dataset to your d
 + If you add a rule for a user or group and leave all other columns with no value (NULL), you grant them access to all the data. 
 + If you don't add a rule for a user or group, that user or group can't see any of the data. 
 + The full set of rule records that are applied per user must not exceed 999. This limitation applies to the total number of rules that are directly assigned to a username, plus any rules that are assigned to the user through group names. 
-+ If a field includes a comma (,) Amazon Quick treats each word separated from another by a comma as an individual value in the filter. For example, in `('AWS', 'INC')`, `AWS,INC` is considered as two strings: `AWS` and `INC`. To filter with `AWS,INC`, wrap the string with double quotation marks in the permissions dataset. 
++ If a field includes a comma (,) AWS Quick treats each word separated from another by a comma as an individual value in the filter. For example, in `('AWS', 'INC')`, `AWS,INC` is considered as two strings: `AWS` and `INC`. To filter with `AWS,INC`, wrap the string with double quotation marks in the permissions dataset. 
 
   If the restricted dataset is a SPICE dataset, the number of filter values applied per user can't exceed 192,000 for each restricted field. This applies to the total number of filter values that are directly assigned to a username, plus any filter values that are assigned to the user through group names.
 
@@ -29,7 +29,7 @@ To apply the dataset rules, you add the rules as a permissions dataset to your d
 
   Exceeding the filter value limit may cause the visual rendering to fail. We recommend adding an additional column to your restricted dataset to divide the rows into groups based on the original restricted column so that the filter list can be shortened.
 
-Amazon Quick treats spaces as literal values. If you have a space in a field that you are restricting, the dataset rule applies to those rows. Amazon Quick treats both NULLs and blanks (empty strings "") as "no value". A NULL is an empty field value. 
+AWS Quick treats spaces as literal values. If you have a space in a field that you are restricting, the dataset rule applies to those rows. AWS Quick treats both NULLs and blanks (empty strings "") as "no value". A NULL is an empty field value. 
 
 Depending on what data source your dataset is coming from, you can configure a direct query to access a table of permissions. Terms with spaces inside them don't need to be delimited with quotes. If you use a direct query, you can easily change the query in the original data source. 
 
@@ -56,7 +56,7 @@ Use the following procedure to create a permissions file or query to use as data
 
    The structure should look similar to one of the following. Make sure that you have at least one field that identifies either users or groups. You can include both, but only one is required, and only one is used at a time. The field that you use for users or groups can have any name you choose.
 **Note**  
-If you are specifying groups, use only Amazon Quick groups or Microsoft AD groups. 
+If you are specifying groups, use only AWS Quick groups or Microsoft AD groups. 
 
    The following example shows a table with groups.
 
@@ -167,7 +167,7 @@ To successfully duplicate it as a rules dataset, ensure the original dataset has
 
 To create a new rules dataset on the console, select NEW RULES DATASET under the NEW DATASET dropdown. When creating a rules dataset programmatically, add the following parameter: [UseAs: RLS\_RULES](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax). This is an optional parameter that is only used to create a rules dataset. Once a dataset has been created, either through the console or programmatically, and flagged as either a rules dataset or a regular dataset, it cannot be changed.
 
-Once datasets are flagged as rules datasets, Amazon Quick will apply strict SPICE ingestion rules on them. To ensure data integrity, SPICE ingestions for rules datasets will fail if there are invalid rows or cells exceeding length limits. You must fix the ingestion issues in order to re-initiate a successful ingestion. Strict ingestion rules are only applicable to rules datasets. Regular datasets will not have dataset ingestion failures when there are skipped rows or string truncations. 
+Once datasets are flagged as rules datasets, AWS Quick will apply strict SPICE ingestion rules on them. To ensure data integrity, SPICE ingestions for rules datasets will fail if there are invalid rows or cells exceeding length limits. You must fix the ingestion issues in order to re-initiate a successful ingestion. Strict ingestion rules are only applicable to rules datasets. Regular datasets will not have dataset ingestion failures when there are skipped rows or string truncations. 
 
 ## Applying row-level security
 <a name="apply-row-level-security"></a>
@@ -193,7 +193,7 @@ Use the following procedure to apply row-level security (RLS) by using a file or
 Some restrictions apply to NULL and empty string values when working with row-level security:  
 If your dataset has NULL values or empty strings ("") in the restricted fields, these rows are ignored when the restrictions are applied. 
 Inside the permissions dataset, NULL values and empty strings are treated the same. For more information, see the following table.
-To prevent accidentally exposing sensitive information, Amazon Quick skips empty RLS rules that grant access to everyone. An *empty RLS rule* occurs when all columns of a row have no value. Quick RLS treats NULL, empty strings (""), or empty comma separated strings (for example ",,,") as no value.  
+To prevent accidentally exposing sensitive information, AWS Quick skips empty RLS rules that grant access to everyone. An *empty RLS rule* occurs when all columns of a row have no value. Quick RLS treats NULL, empty strings (""), or empty comma separated strings (for example ",,,") as no value.  
 After skipping empty rules, other nonempty RLS rules still apply.
 If a permission dataset has only empty rules and all of them were skipped, no one will have access to any data restricted by this permission dataset.
 
@@ -220,7 +220,7 @@ If a permission dataset has only empty rules and all of them were skipped, no on
 
    Make certain that the dataset rules are removed. Then, choose the permissions dataset and choose **Remove data set**.
 
-   To overwrite permissions, choose a new permissions dataset and apply it. You can reuse the same dataset name. However, make sure to apply the new permissions in the **Permissions** screen to make these permissions active. SQL queries dynamically update, so these can be managed outside of Amazon Quick. For queries, the permissions are updated when the direct query cache is automatically refreshed.
+   To overwrite permissions, choose a new permissions dataset and apply it. You can reuse the same dataset name. However, make sure to apply the new permissions in the **Permissions** screen to make these permissions active. SQL queries dynamically update, so these can be managed outside of AWS Quick. For queries, the permissions are updated when the direct query cache is automatically refreshed.
 
 If you delete a file-based permissions dataset before you remove it from the target dataset, restricted users can't access the dataset. While the dataset is in this state, it remains marked as **RESTRICTED**. However, when you view **Permissions** for that dataset, you can see that it has no selected dataset rules. 
 

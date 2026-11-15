@@ -1,20 +1,20 @@
 
 
-# Using Amazon OpenSearch Service with Amazon Quick Sight
+# Using Amazon OpenSearch Service with AWS Quick Sight
 <a name="connecting-to-os"></a>
 
-Following, you can find how to connect to your Amazon OpenSearch Service data using Amazon Quick Sight.
+Following, you can find how to connect to your Amazon OpenSearch Service data using AWS Quick Sight.
 
 ## Creating a new Quick Sight data source connection for OpenSearch Service
 <a name="create-connection-to-es"></a>
 
 Following, you can find how to connect to OpenSearch Service
 
-Before you can proceed, Amazon Quick Sight needs to be authorized to connect to Amazon OpenSearch Service. If connections aren't enabled, you get an error when you try to connect. A Quick Sight administrator can authorize connections to AWS resources. 
+Before you can proceed, AWS Quick Sight needs to be authorized to connect to Amazon OpenSearch Service. If connections aren't enabled, you get an error when you try to connect. A Quick Sight administrator can authorize connections to AWS resources. 
 
 **To authorize Quick Sight to initiate a connection to OpenSearch Service**
 
-1. Open the menu by clicking on your profile icon at top right, then choose **Manage Quick**. If you don't see the **Manage Quick** option on your profile menu, ask your Amazon Quick administrator for assistance.
+1. Open the menu by clicking on your profile icon at top right, then choose **Manage Quick**. If you don't see the **Manage Quick** option on your profile menu, ask your AWS Quick administrator for assistance.
 
 1. Choose **Security & permissions**, **Add or remove**.
 

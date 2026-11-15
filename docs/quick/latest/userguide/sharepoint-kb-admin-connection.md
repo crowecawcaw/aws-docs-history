@@ -1,9 +1,9 @@
 
 
-# Create the knowledge base in Amazon Quick
+# Create the knowledge base in AWS Quick
 <a name="sharepoint-kb-admin-connection"></a>
 
-After you complete the service credentials setup, create the knowledge base in Amazon Quick and provide the credentials. Any enterprise user can complete this step. Amazon Quick administrator access is not required.
+After you complete the service credentials setup, create the knowledge base in AWS Quick and provide the credentials. Any enterprise user can complete this step. AWS Quick administrator access is not required.
 
 You need the following values from [Set up service credentials](sharepoint-kb-admin-config.md). If an administrator completed the setup on your behalf, collect these values before you proceed:
 + KMS key ARN (from Step 1)
@@ -15,7 +15,7 @@ You need the following values from [Set up service credentials](sharepoint-kb-ad
 ## Navigate to Knowledge
 <a name="sharepoint-kb-admin-connection-navigate"></a>
 
-1. In Amazon Quick, choose **Knowledge** from the left navigation pane.
+1. In AWS Quick, choose **Knowledge** from the left navigation pane.
 
 1. Under **Set up new knowledge base**, locate **Microsoft SharePoint Online** and choose the **Add** icon.
 
@@ -76,7 +76,7 @@ Each site URL and path must be accessible by the Entra app registration. If you 
 In the final step of the wizard, you can configure optional settings for the knowledge base.
 
 ACL management  
-Access Control List (ACL) management enables document-level access control for your SharePoint knowledge base. When enabled, Amazon Quick syncs the permission metadata from SharePoint during each crawl. At query time, Quick uses this metadata with a real-time access check. This check ensures that users only see answers from documents they can access in SharePoint.  
+Access Control List (ACL) management enables document-level access control for your SharePoint knowledge base. When enabled, AWS Quick syncs the permission metadata from SharePoint during each crawl. At query time, Quick uses this metadata with a real-time access check. This check ensures that users only see answers from documents they can access in SharePoint.  
 ACL management is unchecked (disabled) by default. To enable, select the **Control document access with ACLs** checkbox.  
 When you enable ACL management, the console displays a note that one-time admin consent might be required for real-time access verification. If you are a Microsoft 365 administrator, choose the **Grant admin consent** link to grant consent directly. If you are not an administrator, ask your Microsoft 365 admin to grant consent. For more information about admin consent, see [Admin consent](sharepoint-kb-acl.md#sharepoint-kb-acl-admin-consent).  
 ACL management cannot be changed after the knowledge base is created. This setting is immutable. If you need to change this setting, you must create a new knowledge base. Plan your ACL requirements carefully before creating the knowledge base.

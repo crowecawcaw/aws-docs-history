@@ -1,12 +1,12 @@
 
 
-# Managing assets in a Amazon Quick Free or Plus account
+# Managing assets in a AWS Quick Free or Plus account
 <a name="standalone-assets"></a>
 
-In a Amazon Quick Free or Plus account, assets represent the resources created and used within your account – including chat agents, spaces, automations, and other AI-powered tools. The Assets page in the Manage Account interface lets administrators view, search, filter, and manage all assets across the account.
+In a AWS Quick Free or Plus account, assets represent the resources created and used within your account – including chat agents, spaces, automations, and other AI-powered tools. The Assets page in the Manage Account interface lets administrators view, search, filter, and manage all assets across the account.
 
 **Note**  
-This section applies to Amazon Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick). For information about managing resources in AWS Console–based accounts, see [Administering Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html).
+This section applies to AWS Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick). For information about managing resources in AWS Console–based accounts, see [Administering AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html).
 
 **Topics**
 + [Navigating to asset management](#standalone-assets-navigate)
@@ -21,7 +21,7 @@ This section applies to Amazon Quick Free and Plus accounts created at [aws.com/
 
 **To access the Assets page**
 
-1. Sign in to Amazon Quick at [aws.com/quick](https://aws.com/quick).
+1. Sign in to AWS Quick at [aws.com/quick](https://aws.com/quick).
 
 1. From the navigation panel, choose your username.
 
@@ -85,7 +85,7 @@ The **Bulk action** button is disabled until at least one asset is selected.
 ## Built-in assets
 <a name="standalone-assets-built-in"></a>
 
-Every new Amazon Quick account includes a set of built-in assets that provide ready-to-use AI-powered tools for common business tasks. These assets are available immediately after account creation and do not count against any resource limits.
+Every new AWS Quick account includes a set of built-in assets that provide ready-to-use AI-powered tools for common business tasks. These assets are available immediately after account creation and do not count against any resource limits.
 
 
 | Asset name | Description | 
@@ -99,11 +99,11 @@ Every new Amazon Quick account includes a set of built-in assets that provide re
 | Job Description Generator | Drafts professional job descriptions based on role requirements and company context. | 
 | Product Launch Email Generator | Creates email campaigns for product launches, including subject lines and body content. | 
 | Customer Interest Optimizer | Analyzes customer data to identify interest patterns and suggest optimization strategies. | 
-| Flows Prompt Helper | Assists with writing effective prompts for Amazon Quick automations and flows. | 
+| Flows Prompt Helper | Assists with writing effective prompts for AWS Quick automations and flows. | 
 | RFP Response Generator | Drafts responses to Requests for Proposal (RFPs) based on your organization's capabilities and the RFP requirements. | 
 
 **Tip**  
-Built-in assets serve as starting points. You can customize these assets or create new ones tailored to your organization's specific needs. For more information about creating custom chat agents, see [Create and deploy AI assistants using Amazon Quick chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html).
+Built-in assets serve as starting points. You can customize these assets or create new ones tailored to your organization's specific needs. For more information about creating custom chat agents, see [Create and deploy AI assistants using AWS Quick chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html).
 
 ## Managing individual assets
 <a name="standalone-assets-individual"></a>

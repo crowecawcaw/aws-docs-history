@@ -3,10 +3,10 @@
 # Signing up at aws.com/quick
 <a name="standalone-signup"></a>
 
-Amazon Quick is available directly at [https://aws.com/quick](https://aws.com/quick) – no existing AWS account required. This page walks you through creating a Amazon Quick Free or Plus account using your email address or social login credentials.
+AWS Quick is available directly at [https://aws.com/quick](https://aws.com/quick) – no existing AWS account required. This page walks you through creating a AWS Quick Free or Plus account using your email address or social login credentials.
 
 **Note**  
-If your organization already uses AWS and you want to access Amazon Quick through the AWS Management Console, see [Signing up through the AWS Console](https://docs.aws.amazon.com/quicksuite/latest/userguide/signing-up.html) instead. For a comparison of features available with each account type, see [Pricing and availability](https://docs.aws.amazon.com/quicksuite/latest/userguide/what-is.html#pricing).
+If your organization already uses AWS and you want to access AWS Quick through the AWS Management Console, see [Signing up through the AWS Console](https://docs.aws.amazon.com/quicksuite/latest/userguide/signing-up.html) instead. For a comparison of features available with each account type, see [Pricing and availability](https://docs.aws.amazon.com/quicksuite/latest/userguide/what-is.html#pricing).
 
 **Topics**
 + [Who is this for?](#standalone-signup-who-is-this-for)
@@ -18,9 +18,9 @@ If your organization already uses AWS and you want to access Amazon Quick throug
 <a name="standalone-signup-who-is-this-for"></a>
 
 The direct signup at aws.com/quick is designed for:
-+ **Individuals** who want to explore Amazon Quick without creating an AWS account.
++ **Individuals** who want to explore AWS Quick without creating an AWS account.
 + **Small teams** who need a fast way to get started with AI-powered productivity tools.
-+ **Anyone** who wants to try Amazon Quick with a few clicks.
++ **Anyone** who wants to try AWS Quick with a few clicks.
 
 You can sign up with an email address or use an existing Google, Apple, GitHub, or Amazon account. An AWS account is created and managed automatically behind the scenes – you never need to interact with it directly.
 
@@ -39,11 +39,11 @@ This guide covers the email-based signup flow. Social login options follow a sim
 ## Step-by-step signup procedure
 <a name="standalone-signup-procedure"></a>
 
-**To sign up for a Amazon Quick Free or Plus account**
+**To sign up for a AWS Quick Free or Plus account**
 
 1. **Navigate to aws.com/quick.**
 
-   Open your web browser and go to [https://aws.com/quick](https://aws.com/quick). You see the Amazon Quick landing page with an option to **Sign up for free**.
+   Open your web browser and go to [https://aws.com/quick](https://aws.com/quick). You see the AWS Quick landing page with an option to **Sign up for free**.
 
 1. **Choose **Sign up for free**.**
 
@@ -51,15 +51,15 @@ This guide covers the email-based signup flow. Social login options follow a sim
 
 1. **Enter your email address.**
 
-   In the email field, type the email address you want to use for your Amazon Quick account. This email becomes your sign-in identity for Amazon Quick.
+   In the email field, type the email address you want to use for your AWS Quick account. This email becomes your sign-in identity for AWS Quick.
 
    After entering your email, choose **Continue**.
 **Tip**  
-Use an email address you check regularly. You need to verify it in the next step, and Amazon Quick sends important account notifications to this address.
+Use an email address you check regularly. You need to verify it in the next step, and AWS Quick sends important account notifications to this address.
 
 1. **Enter your name.**
 
-   On the next screen, enter your name. This is the display name that other users in your Amazon Quick account see.
+   On the next screen, enter your name. This is the display name that other users in your AWS Quick account see.
 
    Your email address is shown for confirmation. If you need to change it, choose **Change** to go back.
 
@@ -67,7 +67,7 @@ Use an email address you check regularly. You need to verify it in the next step
 
 1. **Verify your email address.**
 
-   Amazon Quick sends a 6-digit verification code to the email address you provided. Check your inbox (and spam/junk folder if needed) for an email from AWS.
+   AWS Quick sends a 6-digit verification code to the email address you provided. Check your inbox (and spam/junk folder if needed) for an email from AWS.
 
    Enter the 6-digit code in the verification field and choose **Continue**.
 **Note**  
@@ -86,21 +86,21 @@ If you don't receive the code, choose **Resend code** to send a new one. The res
 
 1. **Wait for account provisioning.**
 
-   After setting your password, Amazon Quick provisions your account. You see a "Setting up" screen with a brief message. This process typically takes less than one minute.
+   After setting your password, AWS Quick provisions your account. You see a "Setting up" screen with a brief message. This process typically takes less than one minute.
 **Note**  
-During this step, Amazon Quick automatically creates and configures an AWS account on your behalf. You don't need to manage this account – it's handled entirely by the service.
+During this step, AWS Quick automatically creates and configures an AWS account on your behalf. You don't need to manage this account – it's handled entirely by the service.
 
-1. **Choose how to access Amazon Quick.**
+1. **Choose how to access AWS Quick.**
 
    Once provisioning completes, the Welcome page appears. You have two options:
-   + **Download for macOS** – Download the Amazon Quick desktop application for your computer.
-   + **Continue on web for now** – Start using Amazon Quick immediately in your web browser.
+   + **Download for macOS** – Download the AWS Quick desktop application for your computer.
+   + **Continue on web for now** – Start using AWS Quick immediately in your web browser.
 
    Choose the option that works best for you. You can always download the desktop app later from the **Quick anywhere** menu in your profile settings.
 
 1. **Choose your work focus (Getting Started wizard).**
 
-   Amazon Quick presents a Getting Started wizard that helps personalize your experience. You can select one or more work focus topics, or skip this step entirely.
+   AWS Quick presents a Getting Started wizard that helps personalize your experience. You can select one or more work focus topics, or skip this step entirely.
 
    The available work focus topics are:
 
@@ -125,22 +125,22 @@ During this step, Amazon Quick automatically creates and configures an AWS accou
 
    Select a topic that matches your primary use case, then choose **Let's go**. Alternatively, choose **Skip and start chatting** to go directly to the chat interface.
 
-1. **Start using Amazon Quick.**
+1. **Start using AWS Quick.**
 
-   The Amazon Quick chat interface loads. If you selected a work focus topic, you see personalized suggestion cards tailored to your selection. The interface includes:
+   The AWS Quick chat interface loads. If you selected a work focus topic, you see personalized suggestion cards tailored to your selection. The interface includes:
    + **Left navigation** – Access New chat, Search, Spaces, Research, Chat agents, and More.
    + **Chat input** – Type questions or requests in the **Ask me anything** field.
    + **Attach files** – Upload documents for analysis (up to 20 files, under 50 MB each).
    + **Suggestion cards** – Pre-built prompts based on your selected work focus.
 
-   You're now ready to start using Amazon Quick. For information about features and capabilities, see [Getting started with Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/getting-started.html).
+   You're now ready to start using AWS Quick. For information about features and capabilities, see [Getting started with AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/getting-started.html).
 
 ## What happens behind the scenes
 <a name="standalone-signup-behind-the-scenes"></a>
 
-When you sign up at aws.com/quick, Amazon Quick automatically:
+When you sign up at aws.com/quick, AWS Quick automatically:
 
-1. Creates a **sign-in identity** linked to your email address – this is what you use to sign in to Amazon Quick.
+1. Creates a **sign-in identity** linked to your email address – this is what you use to sign in to AWS Quick.
 
 1. Provisions an **AWS account** that hosts your Quick resources – you don't need to access or manage this account.
 

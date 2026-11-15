@@ -3,11 +3,11 @@
 # Signing in with multiple accounts
 <a name="signing-in-multiple-accounts"></a>
 
-You can sign in to Amazon Quick with multiple accounts at the same time and switch between them as necessary.
+You can sign in to AWS Quick with multiple accounts at the same time and switch between them as necessary.
 
 **To sign in to multiple accounts**
 
-1. Follow the steps at [Signing in to Amazon Quick](signing-in.md) to sign in to Amazon Quick.
+1. Follow the steps at [Signing in to AWS Quick](signing-in.md) to sign in to AWS Quick.
 
 1. From the navigation bar, choose your account name to reveal a dropdown menu.
 
@@ -24,7 +24,7 @@ You can sign in to Amazon Quick with multiple accounts at the same time and swit
 ## URL structure
 <a name="multi-account-url-structure"></a>
 
-When using multiple accounts, Amazon Quick URLs include the account name to identify which account you're accessing.
+When using multiple accounts, AWS Quick URLs include the account name to identify which account you're accessing.
 
 ### Application URLs
 <a name="multi-account-application-urls"></a>
@@ -75,11 +75,11 @@ https://us-east-1.quicksight.aws.amazon.com/sn/console/account/123456789012-abc1
 
 ## Key considerations and limitations
 <a name="multi-account-considerations"></a>
-+ The URL structures above enable bookmarking of resources within the Amazon Quick account.
++ The URL structures above enable bookmarking of resources within the AWS Quick account.
 + You can simultaneously be signed in to different accounts in different tabs or windows in your browser.
-+ The Amazon Quick URL contains your account name. If you change it to another account name, you are prompted to sign in if you aren't already.
++ The AWS Quick URL contains your account name. If you change it to another account name, you are prompted to sign in if you aren't already.
 + You can sign in to up to five accounts. If you try to sign in to a sixth account, the system automatically signs out and forgets the least recently signed in account.
-+ Multi-account sign-in is not supported for IAM users who access Amazon Quick through IAM-based multi-account federation.
++ Multi-account sign-in is not supported for IAM users who access AWS Quick through IAM-based multi-account federation.
 
 ## IAM SSO federation with multi-account
 <a name="multi-account-iam-sso-federation"></a>

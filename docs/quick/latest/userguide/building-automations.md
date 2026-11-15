@@ -3,7 +3,7 @@
 # Building automations
 <a name="building-automations"></a>
 
-Amazon Quick Automate provides multiple methods for creating automations to suit different needs and skill levels. This section describes the available creation methods and tools.
+AWS Quick Automate provides multiple methods for creating automations to suit different needs and skill levels. This section describes the available creation methods and tools.
 
 ## Prerequisites
 <a name="building-prerequisites"></a>
@@ -18,7 +18,7 @@ You must have owner permissions to manage integrations and credentials for an au
 ## Creation methods
 <a name="creation-methods"></a>
 
-Choose from three approaches to build your automation. If you're new to Amazon Quick Automate, we recommend:
+Choose from three approaches to build your automation. If you're new to AWS Quick Automate, we recommend:
 + Start by exploring sample automations
 + Try creating a simple automation using natural language
 + Experiment with manual editing once you're familiar with the basics
@@ -26,7 +26,7 @@ Choose from three approaches to build your automation. If you're new to Amazon Q
 ### Using sample automations
 <a name="using-sample-automations"></a>
 
-Get started quickly by exploring pre-built samples that demonstrate common automation patterns. These samples provide hands-on examples of different automation capabilities and serve as learning resources to help you become familiar with the capabilities of Amazon Quick Automate. To use a sample automation:
+Get started quickly by exploring pre-built samples that demonstrate common automation patterns. These samples provide hands-on examples of different automation capabilities and serve as learning resources to help you become familiar with the capabilities of AWS Quick Automate. To use a sample automation:
 + Search to explore different samples by industry.
 + Click on the sample to view an overview of the automation.
   + If any integrations are required, they will be listed as prerequisites.
@@ -134,11 +134,11 @@ Check the action documentation for specific requirements
 ## Automation inputs and outputs
 <a name="automation-inputs-outputs"></a>
 
-Define input and output schemas to create reusable, parameterized automations in Amazon Quick Automate. By defining input and output schemas using the Start and End nodes, you can transform static automations into reusable workflows that accept different data each time they run. Instead of hardcoding values, you define typed input parameters that are provided at runtime and structured output values that are captured when the automation completes. Inputs and outputs work across all invocation methods: manual runs, API calls, and scheduled triggers.
+Define input and output schemas to create reusable, parameterized automations in AWS Quick Automate. By defining input and output schemas using the Start and End nodes, you can transform static automations into reusable workflows that accept different data each time they run. Instead of hardcoding values, you define typed input parameters that are provided at runtime and structured output values that are captured when the automation completes. Inputs and outputs work across all invocation methods: manual runs, API calls, and scheduled triggers.
 
 Key benefits of using inputs and outputs:
 + **Reusability** – Run the same automation with different data without modifying the automation itself.
-+ **Type safety** – Amazon Quick Automate validates input data against the schema before execution starts, which prevents invalid data from running.
++ **Type safety** – AWS Quick Automate validates input data against the schema before execution starts, which prevents invalid data from running.
 + **API integration** – Auto-generated schemas enable programmatic discovery and integration with external systems.
 + **Observability** – Structured outputs are captured as execution artifacts for audit and review.
 
@@ -180,7 +180,7 @@ Properties:
 Schemas define the structure of data that your automation accepts as input and produces as output. The authoring studio provides a visual form builder for defining input and output schemas directly on the automation canvas.
 
 To define an input schema:
-+ Open your automation in Amazon Quick Automate.
++ Open your automation in AWS Quick Automate.
 + Choose the **Start** node on the canvas to open the schema editor. You can also open the schema editor from the properties pane. To do this, choose the **Start** node, and then choose **Edit** in **Input format** in the properties pane.
 + Choose **\+Add field** to add an input field.
 + For each input field, configure the following properties:
@@ -247,7 +247,7 @@ You can use the input and output values in the following ways:
 ## Managing automation versions
 <a name="managing-automation-versions"></a>
 
-Amazon Quick Automate provides version control capabilities to help you track and maintain the history of updates to your automations and easily restore previous versions.
+AWS Quick Automate provides version control capabilities to help you track and maintain the history of updates to your automations and easily restore previous versions.
 
 ### Key concepts
 <a name="version-key-concepts"></a>

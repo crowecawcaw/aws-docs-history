@@ -9,9 +9,9 @@ Each rectangle on a heat map represents the value for the specified measure for 
 
 Heat maps and pivot tables display data in a similar tabular fashion. Use a heat map if you want to identify trends and outliers, because the use of color makes these easier to spot. Use a pivot table if you want to further analyze data on the visual, for example by changing column sort order or applying aggregate functions across rows or columns.
 
-To create a heat map, choose at least two fields of any data type. Amazon Quick populates the rectangle values with the count of the x-axis value for the intersecting y-axis value. Typically, you choose a measure and two dimensions.
+To create a heat map, choose at least two fields of any data type. AWS Quick populates the rectangle values with the count of the x-axis value for the intersecting y-axis value. Typically, you choose a measure and two dimensions.
 
-Heat maps show up to 50 data points for rows and up to 50 data points for columns. For more information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Heat maps show up to 50 data points for rows and up to 50 data points for columns. For more information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Heat map features
 <a name="heat-map-features"></a>
@@ -26,7 +26,7 @@ To understand the features supported by heat maps, use the following table.
 | Changing the axis range | Not applicable |  | [Range and scale on visual types in Quick](changing-visual-scale-axis-range.md) | 
 | Changing the visual colors | No |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes, with exceptions | You can focus on or exclude a rectangle in a heat map, except when you are using a date field as the rows dimension. In that case, you can only focus on a rectangle, not exclude it. | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | Yes | You can sort by the fields you choose for the columns and the values. | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | Yes | You can sort by the fields you choose for the columns and the values. | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You must apply aggregation to the fields you choose for the value, and can't apply aggregation to the fields you choose for the rows or columns. | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Yes | You can add drill-down levels to the Rows and Columns field wells. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
 | Conditional formatting | No |  | [Conditional formatting on visual types in Quick](conditional-formatting-for-visuals.md) | 

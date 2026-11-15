@@ -1,9 +1,9 @@
 
 
-# Work with integrations in Amazon Quick
+# Work with integrations in AWS Quick
 <a name="working-with-integrations"></a>
 
-Integrations in Amazon Quick connect you to external applications and services for AI-powered analysis and automation. With integrations, you can perform actions in external applications and bring data from external applications to enhance your AI agents and chat experiences.
+Integrations in AWS Quick connect you to external applications and services for AI-powered analysis and automation. With integrations, you can perform actions in external applications and bring data from external applications to enhance your AI agents and chat experiences.
 
 You can create three types of integrations:
 
@@ -16,7 +16,7 @@ Connect Quick with external applications to access data. Data access integration
 **Knowledge bases**  
 Connect to data access integrations to make specific content accessible for AI analysis. Choose which data or knowledge to include from external applications. Add knowledge bases to spaces or use them directly with chat agents.
 
-Use the Integrations tab in the Amazon Quick console to create these connections. You can connect to Model Context Protocol (MCP) servers, Google Drive, Amazon S3, web crawlers, OneDrive, and other supported applications.
+Use the Integrations tab in the AWS Quick console to create these connections. You can connect to Model Context Protocol (MCP) servers, Google Drive, Amazon S3, web crawlers, OneDrive, and other supported applications.
 
 **Note**  
 Not all applications support all integration types. Available options depend on each application's capabilities.

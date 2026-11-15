@@ -11,7 +11,7 @@ If you use an Amazon Redshift manifest file, Quick Sight processes the optional 
 
 Files that you select for import must be delimited text (for example, .csv or .tsv), log (.clf), or extended log (.elf) format, or JSON (.json). All files identified in one manifest file must use the same file format. Plus, they must have the same number and type of columns. Quick Sight supports UTF-8 file encoding, but not UTF-8 with byte-order mark (BOM). If you are importing JSON files, then for `globalUploadSettings` specify `format`, but not `delimiter`, `textqualifier`, or `containsHeader`.
 
-Make sure that any files that you specify are in Amazon S3 buckets that you have granted Quick Sight access to. For information about granting Quick Sight access to AWS resources, see [Configuring Amazon Quick Sight access to AWS data sources](access-to-aws-resources.md).
+Make sure that any files that you specify are in Amazon S3 buckets that you have granted Quick Sight access to. For information about granting Quick Sight access to AWS resources, see [Configuring AWS Quick Sight access to AWS data sources](access-to-aws-resources.md).
 
 ## Manifest file format for Quick Sight
 <a name="quicksight-manifest-file-format"></a>

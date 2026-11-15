@@ -5,7 +5,7 @@
 
 You can add an ML insight that detects *anomalies*, which are outliers that seem significant. To get started, you create for your insight a widget, also known as an *autonarrative*. As you configure your options, you can view a limited screenshot of your insight in the **Preview** pane at screen right.
 
-In your insight widget, you can add up to five dimension fields that are not calculated fields. In the field wells, values for **Categories** represent the dimensional values that Amazon Quick Sight uses to split the metric. For example, let's say that you are analyzing revenue across all product categories and product SKUs. There are 10 product categories, each with 10 product SKUs. Amazon Quick Sight splits the metric by the 100 unique combinations and runs anomaly detection on each combination for the split.
+In your insight widget, you can add up to five dimension fields that are not calculated fields. In the field wells, values for **Categories** represent the dimensional values that AWS Quick Sight uses to split the metric. For example, let's say that you are analyzing revenue across all product categories and product SKUs. There are 10 product categories, each with 10 product SKUs. AWS Quick Sight splits the metric by the 100 unique combinations and runs anomaly detection on each combination for the split.
 
 The following procedure shows how to do this, and also how to add contribution analysis to detect the key drivers that are causing each anomaly. You can add contribution analysis later, as described in [Using contribution analysis for key drivers](anomaly-detection-adding-key-drivers.md).
 
@@ -73,10 +73,10 @@ The following procedure shows how to do this, and also how to add contribution a
       + **[ALL]** to identify all anomalous values, high and low (default setting).
 
    1. **Delta** – Enter a custom value to use to identify anomalies. Any amount higher than the threshold value counts as an anomaly. The values here change how the insight works in your analysis. In this section, you can set the following:
-      + **Absolute value** – The actual value to use. For example, suppose this is 48. Amazon Quick Sight then identifies values as anomalous when the difference between a value and the expected value is greater than 48. 
-      + **Percentage** – The percentage threshold to use. For example, suppose this is 12.5%. Amazon Quick Sight then identifies values as anomalous when the difference between a value and the expected value is greater than 12.5%.
+      + **Absolute value** – The actual value to use. For example, suppose this is 48. AWS Quick Sight then identifies values as anomalous when the difference between a value and the expected value is greater than 48. 
+      + **Percentage** – The percentage threshold to use. For example, suppose this is 12.5%. AWS Quick Sight then identifies values as anomalous when the difference between a value and the expected value is greater than 12.5%.
 
-   1. **Sort by** – Choose a sort method for your results. Some methods are based on the anomaly score that Amazon Quick Sight generates. Amazon Quick Sight gives higher scores to data points that look anomalous. You can use any of the following options: 
+   1. **Sort by** – Choose a sort method for your results. Some methods are based on the anomaly score that AWS Quick Sight generates. AWS Quick Sight gives higher scores to data points that look anomalous. You can use any of the following options: 
       + **Weighted anomaly score** – The anomaly score multiplied by the log of the absolute value of the difference between the actual value and the expected value. This score is always a positive number. 
       + **Anomaly score** – The actual anomaly score assigned to this data point.
       + **Weighted difference from expected value** – The anomaly score multiplied by the difference between the actual value and the expected value (default).
@@ -88,9 +88,9 @@ The following procedure shows how to do this, and also how to add contribution a
    + **Start schedule on** – The date and time to start running this schedule.
    + **Timezone** – The time zone that the schedule runs in. To view a list, delete the current entry. 
 
-1. In the **Top contributors** section, set Amazon Quick Sight to analyze the key drivers when an outlier (anomaly) is detected.
+1. In the **Top contributors** section, set AWS Quick Sight to analyze the key drivers when an outlier (anomaly) is detected.
 
-   For example, Amazon Quick Sight can show the top customers that contributed to a spike in sales in the US for home improvement products. You can add up to four dimensions from your dataset. These include dimensions that you didn't add to the field wells of this insight widget.
+   For example, AWS Quick Sight can show the top customers that contributed to a spike in sales in the US for home improvement products. You can add up to four dimensions from your dataset. These include dimensions that you didn't add to the field wells of this insight widget.
 
    For a list of dimensions available for contribution analysis, choose **Select fields**.
 

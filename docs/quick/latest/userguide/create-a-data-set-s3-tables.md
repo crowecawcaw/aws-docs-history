@@ -18,11 +18,11 @@ Before authors can create datasets from Amazon S3 Tables, an admin must configur
 
 1. Log in as an admin user.
 
-1. Choose the people icon in the top right, and then choose **Manage QuickSuite** to open the admin page.
+1. Choose the people icon in the top right, and then choose **Manage account** to open the admin page.
 
 1. Choose the **AWS Resources** card to open the resource permissions page.
 
-1. Choose **Use QuickSuite-managed role (default)** so that Quick manages the related IAM role and permissions for you.
+1. Choose **Use Quick-managed role (default)** so that Quick manages the related IAM role and permissions for you.
 
 1. Select **Amazon S3 Tables**. All available S3 table buckets in your current Region are displayed.
 

@@ -3,7 +3,7 @@
 # Getting started
 <a name="getting-started-quick-automate"></a>
 
-Amazon Quick Automate is a browser-based solution that requires no installation, has minimal IT dependencies, and is always up to date. Amazon Quick Automate is designed for **technical teams and power users** who build, test, and maintain intelligent automations across enterprise systems. These users typically have a strong understanding of business processes, system integrations, but may not necessarily be software developers. Amazon Quick Automate equips advanced users and technical teams with the flexibility, control, and depth needed to design and scale enterprise-grade automations. To get started with Amazon Quick Automate, simply access it through your Amazon Quick and begin exploring the automation capabilities that best fit your needs.
+AWS Quick Automate is a browser-based solution that requires no installation, has minimal IT dependencies, and is always up to date. AWS Quick Automate is designed for **technical teams and power users** who build, test, and maintain intelligent automations across enterprise systems. These users typically have a strong understanding of business processes, system integrations, but may not necessarily be software developers. AWS Quick Automate equips advanced users and technical teams with the flexibility, control, and depth needed to design and scale enterprise-grade automations. To get started with AWS Quick Automate, simply access it through your AWS Quick and begin exploring the automation capabilities that best fit your needs.
 
 ## Key capabilities
 <a name="automate-key-capabilities"></a>
@@ -26,12 +26,12 @@ Amazon Quick Automate is a browser-based solution that requires no installation,
 ## Setup tasks
 <a name="automate-setup-tasks"></a>
 
-Complete these setup tasks to prepare your Amazon Quick Automate environment for creating automations.
+Complete these setup tasks to prepare your AWS Quick Automate environment for creating automations.
 
 ### Sign up
 <a name="automate-sign-up"></a>
 
-Before you can use Amazon Quick Automate, you need to sign up for and create your account. The sign-up process establishes your initial workspace and provides access to Amazon Quick Automate.
+Before you can use AWS Quick Automate, you need to sign up for and create your account. The sign-up process establishes your initial workspace and provides access to AWS Quick Automate.
 
 ### Set up automation groups
 <a name="automate-setup-groups"></a>
@@ -43,7 +43,7 @@ Setting up proper automation groups and permissions from the beginning helps mai
 ### Setup user roles
 <a name="automate-setup-user-roles"></a>
 
-Amazon Quick Automate provides granular role based access: Viewer, Contributor, and Owner. Viewers can submit new project ideas, interact with human in the loop tasks, and access monitoring dashboards. Contributors can build, test, and deploy automations. Owners can control automation access to systems through integrations and secure credentials as well as user access.
+AWS Quick Automate provides granular role based access: Viewer, Contributor, and Owner. Viewers can submit new project ideas, interact with human in the loop tasks, and access monitoring dashboards. Contributors can build, test, and deploy automations. Owners can control automation access to systems through integrations and secure credentials as well as user access.
 
 ### Configure integrations
 <a name="automate-configure-integrations"></a>
@@ -58,11 +58,11 @@ Amazon Quick Automate provides granular role based access: Viewer, Contributor, 
 ### Set up Virtual Private Cloud (VPC) connections
 <a name="automate-setup-vpc"></a>
 
-Amazon Quick Automate can access publicly hosted internet endpoints by default. For more complex setups, including accessing privately hosted websites, Amazon Quick Automate automation jobs can optionally be associated with your VPC. For more information, see [Setting up a VPC to use with Amazon Quick](vpc-setup-for-quicksight.md).
+AWS Quick Automate can access publicly hosted internet endpoints by default. For more complex setups, including accessing privately hosted websites, AWS Quick Automate automation jobs can optionally be associated with your VPC. For more information, see [Setting up a VPC to use with AWS Quick](vpc-setup-for-quicksight.md).
 
 With this configuration in place, all outbound network traffic from the managed browser is routed through an ENI in your configured VPC. From there, you can send that traffic to privately hosted resources or use it to obtain a persistent IP for IP allow listing.
 
-The VPC-connected Amazon Quick Automate setup provides:
+The VPC-connected AWS Quick Automate setup provides:
 + **Direct access** to privately hosted resources in the connected VPC
 + **Extended access** to other privately hosted resources in peered, PrivateLinked, etc. VPCs
 + **Internet access** through your managed Internet Gateway
@@ -100,7 +100,7 @@ Once the VPC Connection is created, associate it with your automation group from
 ### Create project
 <a name="automate-create-project"></a>
 
-This section walks you through the process of creating a new automation project in Amazon Quick Automate.
+This section walks you through the process of creating a new automation project in AWS Quick Automate.
 
 **To create a new project**
 

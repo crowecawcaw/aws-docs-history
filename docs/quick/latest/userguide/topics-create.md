@@ -11,7 +11,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators and authors  | 
+|    Intended audience:  AWS Quick administrators and authors  | 
 
 To create a Topic, you add one or more enriched datasets, define relationships between them, and optionally add custom instructions that guide how the AI interprets cross-dataset queries.
 
@@ -42,7 +42,7 @@ After publishing, share the Topic with business users so they can ask natural la
 <a name="topics-create-prerequisites"></a>
 
 Before creating a Topic, confirm that you have the following:
-+ Amazon Quick Enterprise Edition enabled with Author or Admin role.
++ AWS Quick Enterprise Edition enabled with Author or Admin role.
 + One or more datasets enriched with semantic metadata (column descriptions, synonyms, and semantic types). For more information, see [Data Preparation Experience (New)](data-prep-experience-new.md).
 + Datasets representing a dimensional model (fact tables and dimension tables) loaded into SPICE or accessible through a supported Direct Query source.
 + Permissions to create Topics and manage datasets.

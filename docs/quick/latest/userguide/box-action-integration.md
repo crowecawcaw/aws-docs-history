@@ -3,13 +3,13 @@
 # Box action integration
 <a name="box-action-integration"></a>
 
-With the Box connector, you can access Box AI features, manage files and folders, and organize content in hubs directly in Amazon Quick through natural language.
+With the Box connector, you can access Box AI features, manage files and folders, and organize content in hubs directly in AWS Quick through natural language.
 
-Amazon Quick supports the following authentication methods for Box Agent.
+AWS Quick supports the following authentication methods for Box Agent.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. You authenticate directly with your Box account.
 + **Custom OAuth app** – Uses a customer-managed OAuth 2.0 application registered in the Box Developer Console. This option gives your organization full control over the OAuth configuration.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="box-action-prerequisites"></a>
@@ -17,9 +17,9 @@ For more information about the authentication methods that Amazon Quick supports
 Make sure that you have the following before you set up the integration.
 + A Box account with access to files and folders.
 + For **Custom OAuth app**: Access to the Box Developer Console to create a custom app. For more information, see [OAuth 2.0 setup](https://developer.box.com/guides/authentication/oauth2/oauth2-setup) in the Box documentation.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="box-action-quicksuite-setup"></a>
 
 ### Connect from the Available tab
@@ -27,7 +27,7 @@ Make sure that you have the following before you set up the integration.
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **Box Agent** and choose **Connect**.
 
@@ -38,9 +38,9 @@ To configure a connector with Custom OAuth app instead, use the **Create for you
 ### Create from the Create for your team tab
 <a name="box-action-full-setup"></a>
 
-If you use Custom OAuth app authentication, create a custom app in the Box Developer Console before configuring Amazon Quick. For setup instructions, see [OAuth 2.0 setup](https://developer.box.com/guides/authentication/oauth2/oauth2-setup) in the Box documentation.
+If you use Custom OAuth app authentication, create a custom app in the Box Developer Console before configuring AWS Quick. For setup instructions, see [OAuth 2.0 setup](https://developer.box.com/guides/authentication/oauth2/oauth2-setup) in the Box documentation.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -114,6 +114,6 @@ After you set up the connector, the following actions are available.
 <a name="box-action-troubleshooting"></a>
 
 For instructions on editing, sharing, or deleting your connector, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations).
-+ **Authentication popup fails** – Verify that your browser allows popups from the Amazon Quick console domain.
++ **Authentication popup fails** – Verify that your browser allows popups from the AWS Quick console domain.
 + **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Box Developer Console app.
 + **Insufficient permissions** – Verify that your Box account has access to the files, folders, or hubs you are trying to access.

@@ -11,7 +11,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators and authors  | 
+|    Intended audience:  AWS Quick administrators and authors  | 
 
 Custom instructions are persistent natural language rules that guide the AI engine in interpreting domain-specific terminology and cross-dataset logic. Without them, the engine interprets terms literally. For example, "this year" defaults to the calendar year. However, if your organization runs on a fiscal year starting April 1, you need an instruction to override that default.
 

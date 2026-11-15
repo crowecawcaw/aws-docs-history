@@ -3,14 +3,14 @@
 # Cisco Webex Video Messaging integration
 <a name="cisco-webex-vidcast-integration"></a>
 
-With the Cisco Webex Video Messaging connector, you can manage video updates, retrieve transcripts, and access video metadata from Cisco Webex (formerly known as Vidcast) directly in Amazon Quick through natural language.
+With the Cisco Webex Video Messaging connector, you can manage video updates, retrieve transcripts, and access video metadata from Cisco Webex (formerly known as Vidcast) directly in AWS Quick through natural language.
 
-Amazon Quick supports multiple authentication methods for Cisco Webex Video Messaging. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for Cisco Webex Video Messaging. Choose the method that best fits your organization's security requirements.
 + **Custom OAuth app** – Uses a customer-managed application registered in the Webex Developer portal. This option gives your organization full control over the OAuth configuration.
 + **Service-to-Service OAuth** – Uses client credentials for server-to-server authentication without user interaction. Suitable for automated workflows.
 + **API Key** – Uses an API key for authentication.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="cisco-webex-vidcast-prerequisites"></a>
@@ -19,17 +19,17 @@ Make sure that you have the following before you set up the integration.
 + An active Cisco Webex account with access to Webex Video Messaging (Vidcast).
 + For **Custom OAuth app** or **Service-to-Service OAuth**: Access to the [Webex Developer portal](https://developer.webex.com/) on the Cisco website to create an integration and obtain client credentials.
 + For **API Key**: A Webex personal access token or API key with the required scopes.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Cisco Webex
 <a name="cisco-webex-vidcast-source-setup"></a>
 
-For Custom OAuth app or Service-to-Service OAuth authentication, create an integration in the [Webex Developer portal](https://developer.webex.com/) on the Cisco website and add the Amazon Quick callback URL `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback` as a redirect URI. Replace {{{region}}} with your AWS Region (for example, `us-east-1`). For step-by-step instructions, see [Vidcast MCP Server](https://developer.webex.com/mcp/docs/vidcast-mcp-server) in the Webex developer documentation. Record the Client ID and Client Secret — you need them when you configure Amazon Quick. For API Key authentication, generate a Webex personal access token or API key with the required scopes.
+For Custom OAuth app or Service-to-Service OAuth authentication, create an integration in the [Webex Developer portal](https://developer.webex.com/) on the Cisco website and add the AWS Quick callback URL `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback` as a redirect URI. Replace {{{region}}} with your AWS Region (for example, `us-east-1`). For step-by-step instructions, see [Vidcast MCP Server](https://developer.webex.com/mcp/docs/vidcast-mcp-server) in the Webex developer documentation. Record the Client ID and Client Secret — you need them when you configure AWS Quick. For API Key authentication, generate a Webex personal access token or API key with the required scopes.
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="cisco-webex-vidcast-quicksuite-setup"></a>
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -48,7 +48,7 @@ For Custom OAuth app or Service-to-Service OAuth authentication, create an integ
       + **Client secret** – The client secret from your Webex Developer portal integration.
       + **Token URL** – The token endpoint. Default: `https://webexapis.com/v1/access_token`
       + **Authorization URL** – The authorization endpoint. Default: `https://webexapis.com/v1/authorize`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
    1. For **Service-to-Service OAuth**, configure the following fields:
       + **Base URL** – The Webex Video Messaging MCP base URL. Default: `https://mcp.webexapis.com/mcp/vidcast`
@@ -74,7 +74,7 @@ For Custom OAuth app or Service-to-Service OAuth authentication, create an integ
 ## Available actions
 <a name="cisco-webex-vidcast-actions"></a>
 
-After you set up the connector, the actions exposed by Cisco Webex Video Messaging are available. To see the current set of actions for your connector, go to the connector's **Available actions** view in the Amazon Quick console.
+After you set up the connector, the actions exposed by Cisco Webex Video Messaging are available. To see the current set of actions for your connector, go to the connector's **Available actions** view in the AWS Quick console.
 
 ## Managing and troubleshooting
 <a name="cisco-webex-vidcast-troubleshooting"></a>
@@ -83,6 +83,6 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 
 ### Authentication issues
 <a name="cisco-webex-vidcast-troubleshooting-auth"></a>
-+ **Sign-in fails (Custom OAuth app)** – Verify that your Cisco Webex account is active and that you can sign in to Webex directly. Confirm that the redirect URI in your Webex Developer portal integration matches the Amazon Quick callback URL.
++ **Sign-in fails (Custom OAuth app)** – Verify that your Cisco Webex account is active and that you can sign in to Webex directly. Confirm that the redirect URI in your Webex Developer portal integration matches the AWS Quick callback URL.
 + **Invalid client credentials** – Verify that the Client ID and Client secret match the values in your Webex Developer portal integration or Service App.
 + **API Key authentication fails** – Verify that the API key has not been revoked and that it has the required scopes for Webex Video Messaging operations.

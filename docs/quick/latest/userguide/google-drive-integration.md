@@ -12,4 +12,4 @@ With the Google Drive integration, you can manage files and folders through acti
 Upload and download files, manage folders, search content, and track changes through the Google Drive API.
 
 **Knowledge base**  
-Index Google Drive document libraries, folders, and files. Amazon Quick agents can then search and answer questions about the content. Amazon Quick supports two setup methods: user-managed setup for quick configuration, and admin-managed setup with service credentials for document-level access control.
+Index Google Drive document libraries, folders, and files. AWS Quick agents can then search and answer questions about the content. AWS Quick supports two setup methods: user-managed setup for quick configuration, and admin-managed setup with service credentials for document-level access control.

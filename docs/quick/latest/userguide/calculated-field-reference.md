@@ -1,6 +1,6 @@
 
 
-# Calculated field function and operator reference for Amazon Quick
+# Calculated field function and operator reference for AWS Quick
 <a name="calculated-field-reference"></a>
 
 You can add calculated fields to a dataset during data preparation or from the analysis page. When you add a calculated field to a dataset during data preparation, it's available to all analyses that use that dataset. When you add a calculated field to a dataset in an analysis, it's available only in that analysis. 

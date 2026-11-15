@@ -3,7 +3,7 @@
 # Atlassian Confluence Cloud knowledge base integration
 <a name="confluence-knowledge-base"></a>
 
-Use the Atlassian Confluence Cloud knowledge base integration to index Confluence content so that Amazon Quick agents can search and answer questions about it. Amazon Quick supports optional document-level access controls (ACLs) for Confluence knowledge bases. When enabled, users only see answers from documents they are authorized to access in Confluence. For more information, see [Document-level access controls](confluence-kb-acl.md).
+Use the Atlassian Confluence Cloud knowledge base integration to index Confluence content so that AWS Quick agents can search and answer questions about it. AWS Quick supports optional document-level access controls (ACLs) for Confluence knowledge bases. When enabled, users only see answers from documents they are authorized to access in Confluence. For more information, see [Document-level access controls](confluence-kb-acl.md).
 
 ## Before you begin
 <a name="confluence-kb-prerequisites"></a>
@@ -12,7 +12,7 @@ Make sure you have the following before you set up the integration.
 + An Atlassian Confluence Cloud instance.
 + For Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
-If you plan to enable document-level access controls, you must provide Atlassian admin credentials during setup. These credentials allow Amazon Quick to access all user and group information regardless of individual email visibility settings. Without admin credentials, the ACL option is not available during knowledge base creation. To provide admin credentials, you need the following from your Atlassian organization administrator:
+If you plan to enable document-level access controls, you must provide Atlassian admin credentials during setup. These credentials allow AWS Quick to access all user and group information regardless of individual email visibility settings. Without admin credentials, the ACL option is not available during knowledge base creation. To provide admin credentials, you need the following from your Atlassian organization administrator:
 + **Atlassian admin API key** – An alphanumeric string generated in the Atlassian admin portal.
 + **Organization ID (UUID)** – The unique identifier for your Atlassian organization. You can find this in your browser URL when signed in to the admin portal: `admin.atlassian.com/o/{{orgId}}`.
 + **Directory ID (UUID)** – The unique identifier for your user directory. Retrieve this value using the Atlassian Admin Workspace API.
@@ -27,7 +27,7 @@ The setup wizard has three steps: authentication, knowledge base creation, and a
 ### Authenticate your account
 <a name="confluence-kb-setup-auth"></a>
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Under **Knowledge**, choose **Atlassian Confluence Cloud** and choose the Add (plus "\+") button.
 
@@ -47,7 +47,7 @@ Atlassian admin credentials are required to enable document-level access control
 
 1. Choose **Next**.
 
-1. Complete the Confluence Cloud authentication popup that appears. Review the requested permissions and choose **Accept** to authorize Amazon Quick to access your Confluence content.
+1. Complete the Confluence Cloud authentication popup that appears. Review the requested permissions and choose **Accept** to authorize AWS Quick to access your Confluence content.
 
 ### Create the knowledge base
 <a name="confluence-kb-setup-create"></a>
@@ -65,7 +65,7 @@ URLs that follow the structure `https://{{company}}.atlassian.net/wiki/spaces/{{
 ### Configure additional settings
 <a name="confluence-kb-setup-settings"></a>
 
-1. To enable document-level access controls, select **Control document access with ACLs**. This option is only available if you provided Atlassian admin credentials in **Authentication method**. When enabled, Amazon Quick syncs access control lists from Confluence and verifies each user's permissions at query time. For more information about how access controls work, see [Document-level access controls](confluence-kb-acl.md).
+1. To enable document-level access controls, select **Control document access with ACLs**. This option is only available if you provided Atlassian admin credentials in **Authentication method**. When enabled, AWS Quick syncs access control lists from Confluence and verifies each user's permissions at query time. For more information about how access controls work, see [Document-level access controls](confluence-kb-acl.md).
 
    If you do not enable ACLs, access is controlled at the knowledge base level. Anyone who has access to the knowledge base can get insights from all of the content within it. When ACLs are enabled, access is controlled at the document level. Users who have access to the knowledge base only see answers from documents that they are authorized to access in Confluence.
 **Important**  
@@ -86,7 +86,7 @@ If you did not provide Atlassian admin credentials in **Authentication method**,
 + Confluence pages and blog posts
 + Page and blog post attachments
 
-When you add a Confluence space URL, Amazon Quick crawls all pages and blog posts within that space. For supported attachment file types and size limits, see [File size and content limits](knowledge-base-integrations.md#file-size-and-content-limits).
+When you add a Confluence space URL, AWS Quick crawls all pages and blog posts within that space. For supported attachment file types and size limits, see [File size and content limits](knowledge-base-integrations.md#file-size-and-content-limits).
 
 ## Manage knowledge bases
 <a name="confluence-kb-management"></a>
@@ -94,7 +94,7 @@ When you add a Confluence space URL, Amazon Quick crawls all pages and blog post
 ### Edit existing knowledge bases
 <a name="confluence-kb-edit"></a>
 
-1. In the Amazon Quick console, choose **Knowledge bases**.
+1. In the AWS Quick console, choose **Knowledge bases**.
 
 1. Select your Confluence Cloud knowledge base from the list.
 
@@ -125,14 +125,14 @@ Your Atlassian site administrator has blocked user-installed OAuth apps. When th
 Use one of the following options to resolve this issue.
 + **Option 1 (Recommended): Admin authorizes the app directly**
 
-  1. An Atlassian site administrator navigates to Amazon Quick and starts a new knowledge base setup with Confluence Cloud.
+  1. An Atlassian site administrator navigates to AWS Quick and starts a new knowledge base setup with Confluence Cloud.
 
   1. Because the administrator has site-level permissions, a clean consent screen appears without the error.
 
   1. The administrator chooses **Accept** to install the app.
 
   After the administrator authorizes the app, all other users on the site can connect without issues.
-+ **Option 2: Temporarily allow user-installed apps** – An administrator goes to `admin.atlassian.com`, navigates to **Apps**, **Atlassian Apps**, then chooses the link for third-party and Marketplace apps. Under **Settings**, find **User Installed Apps** and toggle to allow user apps. After the user authorizes Amazon Quick, toggle the setting back to block user apps.
++ **Option 2: Temporarily allow user-installed apps** – An administrator goes to `admin.atlassian.com`, navigates to **Apps**, **Atlassian Apps**, then chooses the link for third-party and Marketplace apps. Under **Settings**, find **User Installed Apps** and toggle to allow user apps. After the user authorizes AWS Quick, toggle the setting back to block user apps.
 
 **Important**  
 Admin authorization applies per Atlassian site, not per organization. If your company has multiple sites (for example, `team-a.atlassian.net` and `team-b.atlassian.net`), each site requires separate authorization.
@@ -149,7 +149,7 @@ While user-installed apps are unblocked (Option 2), any user on the site can aut
 
 **Resolution steps:**
 
-1. Verify that your browser allows popups from the Amazon Quick console domain.
+1. Verify that your browser allows popups from the AWS Quick console domain.
 
 1. Verify that your Confluence Cloud instance is accessible from your network.
 

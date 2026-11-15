@@ -1,9 +1,9 @@
 
 
-# Visual types in Amazon Quick Sight
+# Visual types in AWS Quick Sight
 <a name="working-with-visual-types"></a>
 
-Amazon Quick Sight offers a range of visual types that you can use to display your data. Use the topics in this section to learn more about the capabilities of each visual type.
+AWS Quick Sight offers a range of visual types that you can use to display your data. Use the topics in this section to learn more about the capabilities of each visual type.
 
 **Topics**
 + [Measures and dimensions](#measures-and-dimensions)
@@ -43,9 +43,9 @@ Amazon Quick Sight offers a range of visual types that you can use to display yo
 
 We use the term *measure* to refer to numeric values that you use for measurement, comparison, and aggregation in visuals. A measure can be either a numeric field, like product cost, or a numeric aggregate on a field of any data type, like count of transaction IDs.
 
-We use the term *dimension* or *category* to refer to text or date fields that can be items, like products, or attributes that are related to measures and can be used to partition them. Examples are sales date for sales figures or product manufacturer for customer satisfaction numbers. Amazon Quick Sight automatically identifies a field as a measure or a dimension based on its data type. 
+We use the term *dimension* or *category* to refer to text or date fields that can be items, like products, or attributes that are related to measures and can be used to partition them. Examples are sales date for sales figures or product manufacturer for customer satisfaction numbers. AWS Quick Sight automatically identifies a field as a measure or a dimension based on its data type. 
 
-Numeric fields can act as dimensions, for example ZIP codes and most ID numbers. It's helpful to give such fields a string data type during data preparation. This way, Amazon Quick Sight understands that they are to be treated as dimensions and are not useful for performing mathematical calculations. 
+Numeric fields can act as dimensions, for example ZIP codes and most ID numbers. It's helpful to give such fields a string data type during data preparation. This way, AWS Quick Sight understands that they are to be treated as dimensions and are not useful for performing mathematical calculations. 
 
 You can change whether a field is displayed as a dimension or measure on an analysis-by-analysis basis instead. For more information, see [Fields as dimensions and measures](creating-a-visual.md#dimensions-and-measures).
 
@@ -56,15 +56,15 @@ All visual types limit the number of data points they display, so that the visua
 
 The number of data points supported varies by visual type. To learn more about display limits for a particular visual type, see the topic for that type. 
 
-The visual title identifies the number of data points displayed if you have reached the display limit for that visual type. If you have a large dataset and want to avoid running into the visual display limit, use one or more filters to reduce the amount of data displayed. For more information about using filters with visuals, see [Filtering data in Amazon Quick Sight](adding-a-filter.md).
+The visual title identifies the number of data points displayed if you have reached the display limit for that visual type. If you have a large dataset and want to avoid running into the visual display limit, use one or more filters to reduce the amount of data displayed. For more information about using filters with visuals, see [Filtering data in AWS Quick Sight](adding-a-filter.md).
 
-For dashboards and analyses, Amazon Quick Sight supports the following:
+For dashboards and analyses, AWS Quick Sight supports the following:
 + 50 datasets per dashboard
 + 20 sheets per dashboard
 + 30 visualization objects per sheet 
 
 **Note**  
-Amazon Quick Sight supports over 30 different *visual types* (categories of charts and visualizations such as bar charts, pie charts, and line charts). Each analysis sheet can contain up to 30 *visual instances* (individual chart objects) of any combination of types.
+AWS Quick Sight supports over 30 different *visual types* (categories of charts and visualizations such as bar charts, pie charts, and line charts). Each analysis sheet can contain up to 30 *visual instances* (individual chart objects) of any combination of types.
 
 You can also choose to limit how many data points you want to display in your visual, before they are added to the **other** category. This category contains the aggregated data for all the data beyond the cutoff limit for the visual type you are using—either the one you impose, or the one based on display limits. You can use the on-visual menu to choose whether to display the **other** category. The **other** category doesn't show on scatter plots, heat maps, maps, tables (tabular reports), or key performance indicators (KPIs). It also doesn't show on line charts when the x-axis is a date. Drilling down into the **other** category is not supported. 
 

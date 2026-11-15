@@ -11,7 +11,7 @@
 
 1. Choose the visual type that you want to use in your report.
 
-After you add a visual to a report, you can interact with it the same way you would if the visual was part of an interactive dashboard. You can drag and drop visuals anywhere you want, similar to a free-form layout in a Quick Sight interactive dashboard sheet. You can also overlap visuals, resize them, or bring them forward or to the back of the section. For more information on formatting visuals in Amazon Quick Sight, see [Formatting in Amazon Quick](formatting-a-visual.md).
+After you add a visual to a report, you can interact with it the same way you would if the visual was part of an interactive dashboard. You can drag and drop visuals anywhere you want, similar to a free-form layout in a Quick Sight interactive dashboard sheet. You can also overlap visuals, resize them, or bring them forward or to the back of the section. For more information on formatting visuals in AWS Quick Sight, see [Formatting in AWS Quick](formatting-a-visual.md).
 
 **To delete a visual**
 

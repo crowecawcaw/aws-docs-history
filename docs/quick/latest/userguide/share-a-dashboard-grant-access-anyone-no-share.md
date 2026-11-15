@@ -17,7 +17,7 @@ The following table describes the different scenarios for when a dashboard is pu
 
 **To turn off public sharing for a single dashboard**
 
-1. In Amazon Quick, open the published dashboard that you no longer want to share. You must be the owner or a co-owner of the dashboard.
+1. In AWS Quick, open the published dashboard that you no longer want to share. You must be the owner or a co-owner of the dashboard.
 
 1. In the published dashboard, choose the **Share** icon at upper-right, and then choose **Share dashboard**.
 
@@ -27,7 +27,7 @@ The following table describes the different scenarios for when a dashboard is pu
 
 **To turn off public sharing settings for all dashboards in a Quick user account**
 
-1. From the Amazon Quick start page, choose your user icon at upper right of your browser window, and then choose **Manage Quick**.
+1. From the AWS Quick start page, choose your user icon at upper right of your browser window, and then choose **Manage Quick**.
 
 1. In the page that opens, scroll down to the **Permissions** section.
 

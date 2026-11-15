@@ -3,14 +3,14 @@
 # Integration workflows
 <a name="integration-workflows"></a>
 
-The following procedures describe the general workflows for creating and managing different types of integrations in Amazon Quick.
+The following procedures describe the general workflows for creating and managing different types of integrations in AWS Quick.
 
 ## Creating a knowledge base
 <a name="creating-data-access-integration"></a>
 
-Knowledge bases connect external data sources to Amazon Quick so you can ask questions about and get insights from your content.
+Knowledge bases connect external data sources to AWS Quick so you can ask questions about and get insights from your content.
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Find the application you want to connect to (for example, **Google Drive**, **Microsoft OneDrive**, or **Amazon S3**) and choose the **Add** (\+) icon.
 
@@ -27,9 +27,9 @@ After you choose **Create**, the data sync starts automatically.
 ## Creating a connector
 <a name="creating-task-integration"></a>
 
-Connectors enable you to perform actions in external applications directly from Amazon Quick.
+Connectors enable you to perform actions in external applications directly from AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -41,19 +41,19 @@ Connectors enable you to perform actions in external applications directly from 
 
 1. Review the available actions and choose **Publish**.
 
-After successful creation, your connector is available for use in Amazon Quick chat, workflows, and Amazon Q Apps.
+After successful creation, your connector is available for use in AWS Quick chat, workflows, and Amazon Q Apps.
 
 ## Managing existing integrations
 <a name="managing-existing-integrations"></a>
 
-You can edit, delete, share, and manage existing integrations from the Amazon Quick console.
+You can edit, delete, share, and manage existing integrations from the AWS Quick console.
 
 ### To edit an integration
 <a name="to-edit-integration"></a>
 
 For knowledge bases:
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Choose the knowledge base you want to edit.
 
@@ -63,7 +63,7 @@ For knowledge bases:
 
 For connectors:
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the connector you want to edit.
 
@@ -76,7 +76,7 @@ For connectors:
 
 For knowledge bases:
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Choose the knowledge base you want to delete.
 
@@ -86,7 +86,7 @@ For knowledge bases:
 
 For connectors:
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the connector you want to delete.
 

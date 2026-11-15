@@ -36,7 +36,7 @@ The percentile value can be any numeric constant 0–100. A percentile value of 
 + PRE\_FILTER
 + PRE\_AGG
 + POST\_AGG\_FILTER (default) – To use this calculation level, specify an aggregation on `measure`, for example `sum(measure)`.
-PRE\_FILTER and PRE\_AGG are applied before the aggregation occurs in a visualization. For these two calculation levels, you can't specify an aggregation on `measure` in the calculated field expression. To learn more about calculation levels and when they apply, see [Order of evaluation in Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/order-of-evaluation-quicksight.html) and [Using level-aware calculations in Quick](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations.html).
+PRE\_FILTER and PRE\_AGG are applied before the aggregation occurs in a visualization. For these two calculation levels, you can't specify an aggregation on `measure` in the calculated field expression. To learn more about calculation levels and when they apply, see [Order of evaluation in AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/order-of-evaluation-quicksight.html) and [Using level-aware calculations in Quick](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations.html).
 
 ## Returns
 <a name="percentileContOver-function-return-type"></a>

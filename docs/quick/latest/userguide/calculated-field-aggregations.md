@@ -5,7 +5,7 @@
 
 Aggregate functions are only available during analysis and visualization. Each of these functions returns values grouped by the chosen dimension or dimensions. For each aggregation, there is also a conditional aggregation. These perform the same type of aggregation, based on a condition.
 
-When a calculated field formula contains an aggregation, it becomes a custom aggregation. To make sure that your data is accurately displayed, Amazon Quick applies the following rules:
+When a calculated field formula contains an aggregation, it becomes a custom aggregation. To make sure that your data is accurately displayed, AWS Quick applies the following rules:
 + Custom aggregations can't contain nested aggregate functions. For example, this formula doesn't work: `sum(avg(x)/avg(y))`. However, nesting nonaggregated functions inside or outside aggregate functions does work. For example, `ceil(avg(x))` works. So does `avg(ceil(x))`.
 + Custom aggregations can't contain both aggregated and nonaggregated fields, in any combination. For example, this formula doesn't work: `Sum(sales)+quantity`.
 + Filter groups can't contain both aggregated and nonaggregated fields.
@@ -13,7 +13,7 @@ When a calculated field formula contains an aggregation, it becomes a custom agg
 + In a pivot table, custom aggregations can't be added to table calculations.
 + Scatter plots with custom aggregations need at least one dimension under **Group/Color** in the field wells.
 
-For more information about supported functions and operators, see [Calculated field function and operator reference for Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/calculated-field-reference.html). 
+For more information about supported functions and operators, see [Calculated field function and operator reference for AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/calculated-field-reference.html). 
 
 The aggregate functions for calculated fields in Quick include the following.
 

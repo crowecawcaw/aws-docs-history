@@ -47,4 +47,4 @@ Use the following procedure to create a new dataset that connects to Amazon Athe
 
 1. Choose **Edit/preview data**. 
 
-1. Create a dataset and analyze the data using the table by choosing **Visualize**. For more information, see [Analyses and reports: Visualizing data in Amazon Quick Sight](working-with-visuals.md). 
+1. Create a dataset and analyze the data using the table by choosing **Visualize**. For more information, see [Analyses and reports: Visualizing data in AWS Quick Sight](working-with-visuals.md). 

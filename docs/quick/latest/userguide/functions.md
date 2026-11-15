@@ -3,7 +3,7 @@
 # Functions
 <a name="functions"></a>
 
-In this section, you can find a list of functions available in Amazon Quick. To view a list of functions sorted by category, with brief definitions, see [Functions by category](https://docs.aws.amazon.com/quicksight/latest/user/functions-by-category.html).
+In this section, you can find a list of functions available in AWS Quick. To view a list of functions sorted by category, with brief definitions, see [Functions by category](https://docs.aws.amazon.com/quicksight/latest/user/functions-by-category.html).
 
 **Topics**
 + [addDateTime](addDateTime-function.md)

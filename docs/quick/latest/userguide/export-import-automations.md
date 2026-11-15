@@ -3,9 +3,9 @@
 # Export and import automations
 <a name="export-import-automations"></a>
 
-You can use the import and export feature in Amazon Quick Automate to share and migrate automation versions across automation groups, AWS accounts, and AWS Regions. Use this feature to promote automations from development to production environments, create backups, or share automations with other teams.
+You can use the import and export feature in AWS Quick Automate to share and migrate automation versions across automation groups, AWS accounts, and AWS Regions. Use this feature to promote automations from development to production environments, create backups, or share automations with other teams.
 
-When you export an automation version, Amazon Quick Automate packages it into a secure, encrypted link that you can use to transfer the automation between environments. The export bundle contains the following:
+When you export an automation version, AWS Quick Automate packages it into a secure, encrypted link that you can use to transfer the automation between environments. The export bundle contains the following:
 + The automation workflow
 + Runtime configuration settings
 + Process step descriptions and metadata
@@ -26,21 +26,21 @@ The import and export feature supports the following use cases:
 <a name="export-import-prerequisites"></a>
 
 Before you import or export automations, make sure that you have the following:
-+ Access to Amazon Quick Automate.
++ Access to AWS Quick Automate.
 + Appropriate permissions to create and manage automations in both the source and destination environments.
-+ Amazon Quick Automate enabled in both the source and destination AWS accounts (for cross-account transfers).
++ AWS Quick Automate enabled in both the source and destination AWS accounts (for cross-account transfers).
 
 ## Export an automation
 <a name="export-an-automation"></a>
 
 To export an automation version, complete the following steps.
-+ Navigate to your automation in **Amazon Quick Automate**.
++ Navigate to your automation in **AWS Quick Automate**.
 + Choose the actions menu (⋮) next to **Edit automation**.
 + Choose **Export version**.
 + Choose the version from the dropdown list and wait for the link to be generated.
 + Choose **Copy link** or copy the link manually.
 
-Amazon Quick Automate generates a secure, pre-signed download link for your automation. Amazon Quick Automate encrypts the bundle by using AWS KMS with envelope encryption to protect your automation content.
+AWS Quick Automate generates a secure, pre-signed download link for your automation. AWS Quick Automate encrypts the bundle by using AWS KMS with envelope encryption to protect your automation content.
 
 ### Export link validity
 <a name="export-link-validity"></a>
@@ -61,4 +61,4 @@ To import an automation version, complete the following steps.
 <a name="export-import-considerations"></a>
 + You can export one automation version per operation.
 + Connectors, credentials, and other dependencies are not included in the export. You must configure these separately in the destination environment.
-+ For cross-account transfers, both the source and destination accounts must have Amazon Quick Automate enabled.
++ For cross-account transfers, both the source and destination accounts must have AWS Quick Automate enabled.

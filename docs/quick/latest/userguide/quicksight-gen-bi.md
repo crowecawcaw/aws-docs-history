@@ -7,10 +7,10 @@
  Powered by Amazon Bedrock: Amazon Q in Quick is built on Amazon Bedrock and includes [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html) implemented in Amazon Bedrock to enforce safety, security, and the responsible use of AI. 
 
 **Important**  
-For the latest Amazon Quick chat experience — including cross-dataset Q&A with multi-dataset Topics, agentic workflows, and LLM-powered natural language querying — see [Ask questions, explore data, and get insights with chat in Amazon Quick](using-quick-chat.md). To learn about the new multi-dataset Topics that serve as the semantic layer for both chat and analysis, see [Working with Amazon Quick Sight Topics](topics.md).  
+For the latest AWS Quick chat experience — including cross-dataset Q&A with multi-dataset Topics, agentic workflows, and LLM-powered natural language querying — see [Ask questions, explore data, and get insights with chat in AWS Quick](using-quick-chat.md). To learn about the new multi-dataset Topics that serve as the semantic layer for both chat and analysis, see [Working with AWS Quick Sight Topics](topics.md).  
 The Generative BI features described on this page represent the earlier experience. They continue to work as before.
 
-With Amazon Quick chat, you can utilize the Generative BI authoring experience, create executive summaries of your data, ask and answer questions of data, and generate data stories.
+With AWS Quick chat, you can utilize the Generative BI authoring experience, create executive summaries of your data, ask and answer questions of data, and generate data stories.
 
 To access all Quick Sight Generative BI features that are relevant to your task, choose the sparkle icon at the top right of any Quick page. In the pane that opens, the chat displays all content that is available based on the context of the task that you are performing. For example, if you're working in an Analysis, you can build a calculation, edit visuals, set up Q&A, or ask questions about your data. If you're working in a Dashboard, you can build a data story, generate an executive summary, or ask questions about the dashboard.
 
@@ -21,16 +21,16 @@ Use the following topics to learn more about Generative BI.
 
 **Topics**
 + [Get started with Generative BI](generative-bi-get-started.md)
-+ [Augmenting Amazon Quick Sight insights with Amazon Q Business](generative-bi-q-business.md)
++ [Augmenting AWS Quick Sight insights with Amazon Q Business](generative-bi-q-business.md)
 + [The Generative BI authoring experience](generative-bi-author-experience.md)
 + [Creating executive summaries](gen-bi-executive-summaries.md)
 + [Authoring Q&A](gen-bi-author-q-and-a.md)
-+ [Manage topic permissions through dashboards in Amazon Quick Sight](gen-bi-manage-topic-permissions.md)
-+ [Turn on the Dashboard Q&A experience in Amazon Quick Sight](dashboard-qa.md)
++ [Manage topic permissions through dashboards in AWS Quick Sight](gen-bi-manage-topic-permissions.md)
++ [Turn on the Dashboard Q&A experience in AWS Quick Sight](dashboard-qa.md)
 + [Q&A null support](gen-bi-q-and-a-null-support.md)
 + [Improve Q&A accuracy with custom instructions](gen-bi-improve-qa-accuracy-with-custom-instructions.md)
 + [Asking and answering questions of data with Generative BI](gen-bi-data-q-and-a.md)
 + [Opting out of Generative BI](generative-bi-opt-out.md)
-+ [Working with Amazon Quick Sight Topics](topics.md)
-+ [Working with data stories in Amazon Quick Sight](working-with-stories.md)
-+ [Working with scenarios in Amazon Quick Sight](scenarios.md)
++ [Working with AWS Quick Sight Topics](topics.md)
++ [Working with data stories in AWS Quick Sight](working-with-stories.md)
++ [Working with scenarios in AWS Quick Sight](scenarios.md)

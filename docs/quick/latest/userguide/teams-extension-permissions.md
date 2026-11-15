@@ -3,7 +3,7 @@
 # Microsoft Teams extension permissions
 <a name="teams-extension-permissions"></a>
 
-The Amazon Quick Microsoft Teams extension uses Microsoft's Resource-Specific Consent (RSC) framework. The bot only gets access to the specific meetings and chats where it is installed — not tenant-wide access to all Teams data. These permissions are granted automatically when the app is added to a meeting or chat; no additional admin action is needed.
+The AWS Quick Microsoft Teams extension uses Microsoft's Resource-Specific Consent (RSC) framework. The bot only gets access to the specific meetings and chats where it is installed — not tenant-wide access to all Teams data. These permissions are granted automatically when the app is added to a meeting or chat; no additional admin action is needed.
 
 The following table lists the RSC permissions used by the Teams extension.
 
@@ -37,5 +37,5 @@ After installation, go to Microsoft Entra > **Enterprise Applications**, find th
 <a name="teams-review-permissions"></a>
 
 Use the following locations to review permissions for the Microsoft Teams extension:
-+ **RSC Permissions:** Teams Admin Center > **Teams apps** > **Manage apps** > **Amazon Quick** > **Permissions**
++ **RSC Permissions:** Teams Admin Center > **Teams apps** > **Manage apps** > **AWS Quick** > **Permissions**
 + **Application Permissions:** Microsoft Entra > **Enterprise Applications** > find the app starting with "qbs" and ending with "teams" > **Permissions**

@@ -1,12 +1,12 @@
 
 
-# Granting everyone in your Amazon Quick account access to a dashboard with the Quick Sight API
+# Granting everyone in your AWS Quick account access to a dashboard with the Quick Sight API
 <a name="share-a-dashboard-grant-access-everyone-api"></a>
 
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
 Alternatively, you can grant everyone in your account access to the dashboard with the Quick Sight API using the `UpdateDashboardPermissions` operation. 
 
@@ -63,7 +63,7 @@ aws quicksight update-dashboard-permissions \
 	quicksight:ListDashboardVersions"
 ```
 
-For more information, see [UpdateDashboardPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPermissions.html) in the *Amazon Quick API Reference*.
+For more information, see [UpdateDashboardPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPermissions.html) in the *AWS Quick API Reference*.
 
 When all users in a Quick user account are granted access to the dashboard, the following snippet is added to AWS CloudTrail log as part of the `eventName` `UpdateDashboardAccess`, and the `eventCategory` `Management`.
 

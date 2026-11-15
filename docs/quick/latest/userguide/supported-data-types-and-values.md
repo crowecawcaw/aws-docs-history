@@ -3,9 +3,9 @@
 # Supported data types and values
 <a name="supported-data-types-and-values"></a>
 
-Amazon Quick Sight currently supports the following primitive data types: `Date`, `Decimal`, `Integer`, and `String`. The following data types are supported in SPICE: `Date`, `Decimal-fixed`, `Decimal-float`, `Integer`, and `String`. Quick Sight accepts Boolean values by promoting them to integers. It can also derive geospatial data types. Geospatial data types use metadata to interpret the physical data type. Latitude and longitude are numeric. All other geospatial categories are strings. 
+AWS Quick Sight currently supports the following primitive data types: `Date`, `Decimal`, `Integer`, and `String`. The following data types are supported in SPICE: `Date`, `Decimal-fixed`, `Decimal-float`, `Integer`, and `String`. Quick Sight accepts Boolean values by promoting them to integers. It can also derive geospatial data types. Geospatial data types use metadata to interpret the physical data type. Latitude and longitude are numeric. All other geospatial categories are strings. 
 
-Make sure that any table or file that you use as a data source contains only fields that can be implicitly converted to these data types. Amazon Quick Sight skips any fields or columns that can't be converted. If you get an error that says "fields were skipped because they use unsupported data types", alter your query or table to remove or recast unsupported data types.
+Make sure that any table or file that you use as a data source contains only fields that can be implicitly converted to these data types. AWS Quick Sight skips any fields or columns that can't be converted. If you get an error that says "fields were skipped because they use unsupported data types", alter your query or table to remove or recast unsupported data types.
 
 ## String and text data
 <a name="strings"></a>
@@ -14,14 +14,14 @@ Fields or columns that contain characters are called *strings*. A field with the
 
 The first time you query or import the data, Quick Sight tries to interpret the data that it identifies as other types, for example dates and numbers. It's a good idea to verify that the data types assigned to your fields or columns are correct. 
 
-For each string field in imported data, Quick Sight uses a field length of 8 bytes plus the UTF-8 encoded character length. Amazon Quick Sight supports UTF-8 file encoding, but not UTF-8 (with BOM).
+For each string field in imported data, Quick Sight uses a field length of 8 bytes plus the UTF-8 encoded character length. AWS Quick Sight supports UTF-8 file encoding, but not UTF-8 (with BOM).
 
 ## Date and time data
 <a name="dates"></a>
 
 Fields with a data type of `Date` also include time data, and are also known as `Datetime` fields. Quick Sight supports dates and times that use [supported date formats](#supported-date-formats). 
 
-Quick Sight uses UTC time for querying, filtering, and displaying date data. When date data doesn't specify a time zone, Quick Sight assumes UTC values. When date data does specify a time zone, Quick Sight converts it to display in UTC time. For example, a date field with a time zone offset like **2015-11-01T03:00:00-08:00** is converted to UTC and displayed in Amazon Quick Sight as **2015-11-01T15:30:00**. 
+Quick Sight uses UTC time for querying, filtering, and displaying date data. When date data doesn't specify a time zone, Quick Sight assumes UTC values. When date data does specify a time zone, Quick Sight converts it to display in UTC time. For example, a date field with a time zone offset like **2015-11-01T03:00:00-08:00** is converted to UTC and displayed in AWS Quick Sight as **2015-11-01T15:30:00**. 
 
 For each `DATE` field in imported data, Quick Sight uses a field length of 8 bytes. Quick Sight supports UTF-8 file encoding, but not UTF-8 (with BOM).
 
@@ -45,7 +45,7 @@ For existing SPICE datasets that contain fields that can be converted to the `De
 ## Supported data types from external data sources
 <a name="supported-data-types"></a>
 
-The following table lists data types that are supported when using the following data sources with Amazon Quick Sight. 
+The following table lists data types that are supported when using the following data sources with AWS Quick Sight. 
 
 
 
@@ -63,20 +63,20 @@ The following table lists data types that are supported when using the following
 ### Supported date formats
 <a name="supported-date-formats"></a>
 
-Amazon Quick Sight supports the date and time formats described in this section. Before you add data to Amazon Quick Sight, check if your date format is compatible. If you need to use an unsupported format, see [Using unsupported or custom dates](using-unsupported-dates.md).
+AWS Quick Sight supports the date and time formats described in this section. Before you add data to AWS Quick Sight, check if your date format is compatible. If you need to use an unsupported format, see [Using unsupported or custom dates](using-unsupported-dates.md).
 
 The supported formats vary depending on the data source type, as follows:
 
 
 | Data source | Clocks | Date formats | 
 | --- | --- | --- | 
-| File uploads<br />Amazon S3 sources<br />Athena<br />Salesforce | Both 24-hour and 12-hour clocks | Supported date and time formats are described in the Joda API documentation. <br />For a complete list of Joda date formats, see [Class DateTimeFormat](http://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html) on the Joda website.<br />For datasets stored in memory (SPICE), Amazon Quick Sight supports dates in the following range: `Jan 1, 0001 00:00:00 UTC` through `Dec 31, 9999, 23:59:59 UTC`.  | 
+| File uploads<br />Amazon S3 sources<br />Athena<br />Salesforce | Both 24-hour and 12-hour clocks | Supported date and time formats are described in the Joda API documentation. <br />For a complete list of Joda date formats, see [Class DateTimeFormat](http://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html) on the Joda website.<br />For datasets stored in memory (SPICE), AWS Quick Sight supports dates in the following range: `Jan 1, 0001 00:00:00 UTC` through `Dec 31, 9999, 23:59:59 UTC`.  | 
 | Relational databases sources | 24-hour clock only | The following data and time formats:1.   `dd/MM/yyyy HH:mm:ss`, for example 31/12/2016 15:30:00.  <br />2.   `dd/MM/yyyy`, for example 31/12/2016.  <br />3.   `dd/MMM/yyyy HH:mm:ss`, for example 31/Dec/2016 15:30:00.  <br />4.   `dd/MMM/yyyy`, for example 31/Dec/2016.  <br />5.   `dd-MMM-yyyy HH:mm:ss`, for example 31-Dec-2016 15:30:00.  <br />6.   `dd-MMM-yyyy`, for example 31-Dec-2016.  <br />7.   `dd-MM-yyyy HH:mm:ss`, for example 31-12-2016 15:30:00.  <br />8.   `dd-MM-yyyy`, for example 31-12-2016.  <br />9.   `MM/dd/yyyy HH:mm:ss`, for example 12/31/2016 15:30:00.  <br />10.   `MM/dd/yyyy`, for example 12/31/2016.  <br />11.   `MM-dd-yyyy HH:mm:ss`, for example 12-31-2016 15:30:00.  <br />12.   `MM-dd-yyyy`, for example 12-31-2016.  <br />13.   `MMM/dd/yyyy HH:mm:ss`, for example Dec/31/2016 15:30:00.  <br />14.   `MMM/dd/yyyy`, for example Dec/31/2016.  <br />15.   `MMM-dd-yyyy HH:mm:ss`, for example Dec-31-2016 15:30:00.  <br />16.   `MMM-dd-yyyy`, for example Dec-31-2016.  <br />17.   `yyyy/MM/dd HH:mm:ss`, for example 2016/12/31 15:30:00.  <br />18.   `yyyy/MM/dd`, for example 2016/12/31.  <br />19.   `yyyy/MMM/dd HH:mm:ss`, for example 2016/Dec/31 15:30:00.  <br />20.   `yyyy/MMM/dd`, for example 2016/Dec/31.  <br />21.   `yyyy-MM-dd HH:mm:ss`, for example 2016-12-31 15:30:00.  <br />22.   `yyyy-MM-dd`, for example 2016-12-31.  <br />23.   `yyyy-MMM-dd HH:mm:ss`, for example 2016-Dec-31 15:30:00.  <br />24.   `yyyy-MMM-dd`, for example 2016-Dec-31.  <br />25.  `yyyyMMdd'T'HHmmss`, for example 20161231T153000. <br />26.  `yyyy-MM-dd'T'HH:mm:ss`, for example 2016-12-31T15:30:00. <br />27.  `yyyyMMdd'T'HHmmss.SSS`, for example 20161231T153000.123. <br />28.  `MM/dd/yyyy HH:mm:ss.SSS`, for example 12/31/2016 15:30:00.123. <br />29.  `dd/MM/yyyy HH:mm:ss.SSS`, for example 31/12/2016 15:30:00.123. <br />30.  `yyyy/MM/dd HH:mm:ss.SSS`, for example 2016/12/31 15:30:00.123. <br />31.  `MMM/dd/yyyy HH:mm:ss.SSS`, for example Dec/31/2016 15:30:00.123. <br />32.  `dd/MMM/yyyy HH:mm:ss.SSS`, for example 31/Dec/2016 15:30:00.123. <br />33.  `yyyy/MMM/dd HH:mm:ss.SSS`, for example 2016/Dec/31 15:30:00.123. <br />34.  `yyyy-MM-dd'T'HH:mm:ss.SSS`, for example 2016-12-31T15:30:00.123. <br />35.  `MM-dd-yyyy HH:mm:ss.SSS`, for example 12-31-2016 15:30:00.123. <br />36.  `dd-MM-yyyy HH:mm:ss.SSS`, for example 31-12-2016 15:30:00.123. <br />37.  `yyyy-MM-dd HH:mm:ss.SSS`, for example 2016-12-31 15:30:00.123. <br />38.  `MMM-dd-yyyy HH:mm:ss.SSS`, for example Dec-31-2016 15:30:00.123. <br />39.  `dd-MMM-yyyy HH:mm:ss.SSS`, for example 31-Dec-2016 15:30:00.123. <br />40.  `yyyy-MMM-dd HH:mm:ss.SSS`, for example 2016-Dec-31 15:30:00.123.  | 
 
 ### Unsupported values in data
 <a name="unsupported-data-values"></a>
 
-If a field contains values that don't conform with the data type that Amazon Quick Sight assigns to the field, the rows containing those values are skipped. For example, take the following source data.
+If a field contains values that don't conform with the data type that AWS Quick Sight assigns to the field, the rows containing those values are skipped. For example, take the following source data.
 
 ```
 Sales ID    Sales Date    Sales Amount
@@ -87,7 +87,7 @@ Sales ID    Sales Date    Sales Amount
 004        3/8/2009          86.02
 ```
 
-Amazon Quick Sight interprets **Sales Date** as a date field and drops the row containing a nondate value, so only the following rows are imported.
+AWS Quick Sight interprets **Sales Date** as a date field and drops the row containing a nondate value, so only the following rows are imported.
 
 ```
 Sales ID    Sales Date    Sales Amount

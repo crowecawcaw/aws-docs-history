@@ -11,9 +11,9 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
-As an administrator, you can view and manage user license upgrade requests through the Amazon Quick admin console. This section describes how to approve, deny, or verify upgrade requests based on your organization's identity management setup.
+As an administrator, you can view and manage user license upgrade requests through the AWS Quick admin console. This section describes how to approve, deny, or verify upgrade requests based on your organization's identity management setup.
 
 ## Viewing upgrade requests
 <a name="viewing-upgrade-requests"></a>
@@ -22,9 +22,9 @@ To view pending upgrade requests, navigate to the User upgrades section in the a
 
 **To view upgrade requests**
 
-1. Sign in to the Amazon Quick console as an administrator.
+1. Sign in to the AWS Quick console as an administrator.
 
-1. Choose **Manage Amazon Quick** from the top right corner.
+1. Choose **Manage AWS Quick** from the top right corner.
 
 1. Navigate to the **User upgrades** section.
 
@@ -67,7 +67,7 @@ For organizations using IAM Identity Center or Active Directory, administrators 
 
 1. Add the user to the required group for the requested license tier.
 
-1. Return to the Amazon Quick admin console and choose **Verify**.
+1. Return to the AWS Quick admin console and choose **Verify**.
 
 1. The system checks the user's group membership and completes the upgrade if verification succeeds.
 

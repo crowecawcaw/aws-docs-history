@@ -1,6 +1,6 @@
 
 
-# Embedding Amazon Quick Sight visuals and dashboards for registered users with a 1-click embed code
+# Embedding AWS Quick Sight visuals and dashboards for registered users with a 1-click embed code
 <a name="embedded-analytics-1-click"></a>
 
 
@@ -8,9 +8,9 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-You can embed a visual or dashboard in your internal application for registered users of your Amazon Quick Sight account. You do so using the embed code that you get when you share the dashboard or from the **Embed visual** menu in Amazon Quick Sight. You don't have to run the Amazon Quick Sight embedding API to generate the embed code. You can copy the embed code from Amazon Quick Sight and paste it in your internal application's HTML code.
+You can embed a visual or dashboard in your internal application for registered users of your AWS Quick Sight account. You do so using the embed code that you get when you share the dashboard or from the **Embed visual** menu in AWS Quick Sight. You don't have to run the AWS Quick Sight embedding API to generate the embed code. You can copy the embed code from AWS Quick Sight and paste it in your internal application's HTML code.
 
-When users and groups (or all users on your Amazon Quick Sight account) who have access to the dashboard that you want to embed or that holds the visual that you want to embed access your internal application, they're prompted to sign in to the Amazon Quick Sight account with their credentials. After they are authenticated, they can access the visual or dashboard on their internal page. If you have single sign-on enabled, users aren't prompted to sign in again.
+When users and groups (or all users on your AWS Quick Sight account) who have access to the dashboard that you want to embed or that holds the visual that you want to embed access your internal application, they're prompted to sign in to the AWS Quick Sight account with their credentials. After they are authenticated, they can access the visual or dashboard on their internal page. If you have single sign-on enabled, users aren't prompted to sign in again.
 
 Following, you can find descriptions about how to embed a visual or dashboard for registered users using the visual or dashboard embed code.
 
@@ -32,7 +32,7 @@ For users to access your embedded dashboard, grant them access to view it. You c
 ## Step 2: Put the domain where you want to embed the visual or dashboard on your allow list
 <a name="embedded-analytics-1-click-allow-list"></a>
 
-To embed visuals and dashboards in your internal application, make sure that the domain where you're embedding is allow-listed in your Amazon Quick Sight account. For more information, see [Allow listing static domains](manage-domains.md#embedding-static).
+To embed visuals and dashboards in your internal application, make sure that the domain where you're embedding is allow-listed in your AWS Quick Sight account. For more information, see [Allow listing static domains](manage-domains.md#embedding-static).
 
 ## Step 3: Get the embed code
 <a name="embedded-analytics-1-click-code"></a>
@@ -41,11 +41,11 @@ Use the following procedure to get the visual or dashboard embed code.
 
 **To get the dashboard embed code**
 
-1. Open the published dashboard in Amazon Quick Sight and choose **Share** at upper right. Then choose **Share dashboard**.
+1. Open the published dashboard in AWS Quick Sight and choose **Share** at upper right. Then choose **Share dashboard**.
 
 1. In the **Share dashboard** page that opens, choose **Copy embed code** at upper left.
 
-   The embed code is copied to your clipboard and is similar to the following. The `{{quicksightdomain}}` in this example is the URL that you use to access your Amazon Quick Sight account.
+   The embed code is copied to your clipboard and is similar to the following. The `{{quicksightdomain}}` in this example is the URL that you use to access your AWS Quick Sight account.
 
    ```
    <iframe
@@ -57,11 +57,11 @@ Use the following procedure to get the visual or dashboard embed code.
 
 **To get the visual embed code**
 
-1. Open the published dashboard in Amazon Quick Sight and choose the visual that you want to embed. Then open the on-visual menu at the upper right of the visual and choose **Embed visual**.
+1. Open the published dashboard in AWS Quick Sight and choose the visual that you want to embed. Then open the on-visual menu at the upper right of the visual and choose **Embed visual**.
 
 1. In the **Embed visual** pane that opens, choose **Copy code**.
 
-   The embed code is copied to your clipboard and is similar to the following. The `{{quicksightdomain}}` in this example is the URL that you use to access your Amazon Quick Sight account.
+   The embed code is copied to your clipboard and is similar to the following. The `{{quicksightdomain}}` in this example is the URL that you use to access your AWS Quick Sight account.
 
    ```
    <iframe
@@ -79,7 +79,7 @@ Use the following procedure to paste the embed code into your internal applicati
 **To paste the code in your internal application's HTML page**
 + Open the HTML code for any page where you want to embed the dashboard and paste the embed code in.
 
-  The following example shows what this might look like for an embedded dashboard. The `{{quicksightdomain}}` in this example is the URL that you use to access your Amazon Quick Sight account.
+  The following example shows what this might look like for an embedded dashboard. The `{{quicksightdomain}}` in this example is the URL that you use to access your AWS Quick Sight account.
 
   ```
   <!DOCTYPE html>
@@ -98,7 +98,7 @@ Use the following procedure to paste the embed code into your internal applicati
       </html>
   ```
 
-  The following example shows what this might look like for an embedded visual. The `{{quicksightdomain}}` in this example is the URL that you use to access your Amazon Quick Sight account.
+  The following example shows what this might look like for an embedded visual. The `{{quicksightdomain}}` in this example is the URL that you use to access your AWS Quick Sight account.
 
   ```
   <!DOCTYPE html>

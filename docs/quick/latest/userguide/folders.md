@@ -1,6 +1,6 @@
 
 
-# Organizing assets into folders for Amazon Quick
+# Organizing assets into folders for AWS Quick
 <a name="folders"></a>
 
 

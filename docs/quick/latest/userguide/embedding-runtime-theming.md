@@ -1,17 +1,17 @@
 
 
-# Customize the look and feel of Amazon Quick Sight embedded dashboards and visuals
+# Customize the look and feel of AWS Quick Sight embedded dashboards and visuals
 <a name="embedding-runtime-theming"></a>
 
-You can use the Amazon Quick Sight Embedding SDK (version 2.5.0 and higher) to make changes to the theming of your embedded Amazon Quick Sight dashboards and visuals at runtime. Runtime theming makes it easier to integrate your Software as a service (SaaS) application with your Amazon Quick Sight embedded assets. Runtime theming allows you to synchronize the theme of your embedded content with the themes of the parent application that your Amazon Quick Sight assets are embedded into. You can also use runtime theming to add customization options for readers. Theming changes can be applied to embedded assets at initialization or throughout the lifetime of your embedded dashboard or visual.
+You can use the AWS Quick Sight Embedding SDK (version 2.5.0 and higher) to make changes to the theming of your embedded AWS Quick Sight dashboards and visuals at runtime. Runtime theming makes it easier to integrate your Software as a service (SaaS) application with your AWS Quick Sight embedded assets. Runtime theming allows you to synchronize the theme of your embedded content with the themes of the parent application that your AWS Quick Sight assets are embedded into. You can also use runtime theming to add customization options for readers. Theming changes can be applied to embedded assets at initialization or throughout the lifetime of your embedded dashboard or visual.
 
-For more information about themes, see [Using themes in Amazon Quick Sight](themes-in-quicksight.md). For more information about using the Amazon Quick Sight Embedding SDK, see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk) on GitHub.
+For more information about themes, see [Using themes in AWS Quick Sight](themes-in-quicksight.md). For more information about using the AWS Quick Sight Embedding SDK, see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk) on GitHub.
 
 **Prerequisites**
 
 Before you can get started, make sure that you have the following prerequisites.
-+ You are using the Amazon Quick Sight Embedding SDK version 2.5.0 or higher.
-+ Permissions to access the theme that you want to work with. To grant permissions to a theme in Amazon Quick Sight, make a `UpdateThemePermissions` API call or use the **Share** icon next to the theme in the Amazon Quick Sight console's analysis editor.
++ You are using the AWS Quick Sight Embedding SDK version 2.5.0 or higher.
++ Permissions to access the theme that you want to work with. To grant permissions to a theme in AWS Quick Sight, make a `UpdateThemePermissions` API call or use the **Share** icon next to the theme in the AWS Quick Sight console's analysis editor.
 
 ## Terminology and concepts
 <a name="runtime-theming-terminology"></a>
@@ -20,11 +20,11 @@ The following terminology can be useful when working with embedded runtime themi
 + *Theme* – A collection of settings that you can apply to multiple analyses and dashboards that change how the content is displayed.
 + *ThemeConfiguration* – A configuration object that contains all of the display properties for a theme.
 + *Theme Override* – A `ThemeConfiguration` object that is applied to the active theme to override some or all aspects of how content is displayed.
-+ *Theme ARN * – An Amazon Resource Name (ARN) that identifies a Amazon Quick Sight theme. Following is an example of custom theme ARN.
++ *Theme ARN * – An Amazon Resource Name (ARN) that identifies a AWS Quick Sight theme. Following is an example of custom theme ARN.
 
   `arn:aws:quicksight:region:account-id:theme/theme-id`
 
-  Amazon Quick Sight provided starter themes don't have a region in their theme ARN. Following is an example of a starter theme ARN.
+  AWS Quick Sight provided starter themes don't have a region in their theme ARN. Following is an example of a starter theme ARN.
 
   `arn:aws:quicksight::aws:theme/CLASSIC`
 
@@ -32,7 +32,7 @@ The following terminology can be useful when working with embedded runtime themi
 <a name="runtime-theming-setup"></a>
 
 Make sure that you have the following information ready to get started working with runtime theming.
-+ The theme ARNs of the themes that you want to use. You can choose an existing theme, or you can create a new one. To obtain a list all themes and theme ARNs in your Amazon Quick Sight account, make a call to the [ListThemes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListThemes.html) API operation. For information on preset Amazon Quick Sight themes, see [Setting a default theme for Amazon Quick analyses with the Amazon Quick APIs](customizing-quicksight-default-theme.md).
++ The theme ARNs of the themes that you want to use. You can choose an existing theme, or you can create a new one. To obtain a list all themes and theme ARNs in your AWS Quick Sight account, make a call to the [ListThemes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListThemes.html) API operation. For information on preset AWS Quick Sight themes, see [Setting a default theme for AWS Quick analyses with the AWS Quick APIs](customizing-quicksight-default-theme.md).
 + If you are using registered user embedding, make sure that the user has access to the themes that you want to use.
 
   If you are using anonymous user embedding, pass a list of theme ARNs to the `AuthorizedResourceArns` parameter of the `GenerateEmbedUrlForAnonymousUser` API. Anonymous users are granted access to any theme that is listed in the `AuthorizedResourceArns` parameter.
@@ -83,7 +83,7 @@ const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOp
 ## Initializing embedded content with a theme override
 <a name="runtime-theming-runtime-initialize-override"></a>
 
-Developers can use theme overrides to define the theme of an embedded dashboard or visual at runtime. This allows the dashboard or visual to inherit a theme from a third-party application without the need to pre-configure a theme within Amazon Quick Sight. To initialize an embedded dashboard or visual with a theme override, set the `themeOverride` property within `themeOptions` in either the `DashboardContentOptions` or `VisualContentOptions` parameters. The following example overrides the font of a dashboard's theme from the default font to `Amazon Ember`.
+Developers can use theme overrides to define the theme of an embedded dashboard or visual at runtime. This allows the dashboard or visual to inherit a theme from a third-party application without the need to pre-configure a theme within AWS Quick Sight. To initialize an embedded dashboard or visual with a theme override, set the `themeOverride` property within `themeOptions` in either the `DashboardContentOptions` or `VisualContentOptions` parameters. The following example overrides the font of a dashboard's theme from the default font to `Amazon Ember`.
 
 ```
 import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk';

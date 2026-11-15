@@ -1,9 +1,9 @@
 
 
-# Using Trino with Amazon Quick Sight
+# Using Trino with AWS Quick Sight
 <a name="connecting-to-trino"></a>
 
-Trino is a massively parallel processing (MPP) query engine built to quickly query data lakes with petabytes of data. Use this section to learn how to connect from Amazon Quick Sight to Trino. All traffic between Amazon Quick Sight and Trino is enabled by SSL. Amazon Quick Sight supports basic username and password authentication to Trino.
+Trino is a massively parallel processing (MPP) query engine built to quickly query data lakes with petabytes of data. Use this section to learn how to connect from AWS Quick Sight to Trino. All traffic between AWS Quick Sight and Trino is enabled by SSL. AWS Quick Sight supports basic username and password authentication to Trino.
 
 ## Creating a data source connection for Trino
 <a name="create-connection-to-trino"></a>
@@ -14,7 +14,7 @@ Trino is a massively parallel processing (MPP) query engine built to quickly que
 
 1. For **Data source name**, enter a descriptive name for your Trino data source connection. Because you can create many datasets from a connection to Trino, it's best to keep the name simple.
 
-1. For **Connection type**, select the type of network you're using. Choose **Public network** if your data is shared publicly. Choose **VPC** if your data is inside a VPC. To configure a VPC connection in Amazon Quick Sight, see [ Configuring the VPC connection in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-connection-in-quicksight.html).
+1. For **Connection type**, select the type of network you're using. Choose **Public network** if your data is shared publicly. Choose **VPC** if your data is inside a VPC. To configure a VPC connection in AWS Quick Sight, see [ Configuring the VPC connection in AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-connection-in-quicksight.html).
 
 1. For **Database server**, enter the hostname specified in your Trino connection details.
 
@@ -28,10 +28,10 @@ Trino is a massively parallel processing (MPP) query engine built to quickly que
 
 1. To finish and create the data source, choose **Create data source**.
 
-## Adding a new Amazon Quick Sight dataset for Trino
+## Adding a new AWS Quick Sight dataset for Trino
 <a name="create-dataset-using-trino"></a>
 
-After you go through the [ data source creation process](https://docs.aws.amazon.com/create-connection-to-starburst.html) for Trino, you can create Trino datasets to use for analysis. You can create new datasets from a new or an existing Trino data source. When you are creating a new data source, Amazon Quick Sight immediately takes you to creating a dataset, which is step 3 below. If you're using an existing data source to create a new dataset, start from step 1 below.
+After you go through the [ data source creation process](https://docs.aws.amazon.com/create-connection-to-starburst.html) for Trino, you can create Trino datasets to use for analysis. You can create new datasets from a new or an existing Trino data source. When you are creating a new data source, AWS Quick Sight immediately takes you to creating a dataset, which is step 3 below. If you're using an existing data source to create a new dataset, start from step 1 below.
 
 To create a dataset using a Trino data source, see the following steps.
 

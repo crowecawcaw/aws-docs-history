@@ -1,6 +1,6 @@
 
 
-# Set up enterprise sign-in with Okta for Amazon Quick on desktop
+# Set up enterprise sign-in with Okta for AWS Quick on desktop
 <a name="desktop-enterprise-okta"></a>
 
 
@@ -23,15 +23,15 @@ This page walks you through the three steps to set up enterprise sign-in with Ok
 
 1. Download, verify, and distribute the desktop application.
 
-Before you begin, review the prerequisites in [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md) and [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md).
+Before you begin, review the prerequisites in [Setting up AWS Quick on desktop for enterprise deployments](desktop-enterprise-setup.md) and [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md).
 
 **Note**  
-To sign in, users need an active Amazon Quick web session in their browser. The email address in Okta must exactly match the user's email address in Quick, and Okta must not mark that email address as unverified. For more information, see [How sign-in works with a dedicated identity provider](desktop-enterprise-advanced-idp.md#desktop-enterprise-how-it-works).
+To sign in, users need an active AWS Quick web session in their browser. The email address in Okta must exactly match the user's email address in Quick, and Okta must not mark that email address as unverified. For more information, see [How sign-in works with a dedicated identity provider](desktop-enterprise-advanced-idp.md#desktop-enterprise-how-it-works).
 
 ## Step 1: Create an OIDC application in Okta
 <a name="desktop-enterprise-okta-step1"></a>
 
-Register an OIDC native application in Okta. The Amazon Quick desktop application uses this client to authenticate users through the authorization code flow with PKCE, and requests the `openid`, `profile`, `email`, and `offline_access` scopes at sign-in.
+Register an OIDC native application in Okta. The AWS Quick desktop application uses this client to authenticate users through the authorization code flow with PKCE, and requests the `openid`, `profile`, `email`, and `offline_access` scopes at sign-in.
 
 For more information, see [Create OpenID Connect app integrations](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm) in the Okta documentation.
 
@@ -92,14 +92,14 @@ Use your standard Okta domain (for example, `your-org.okta.com`) in these endpoi
 ## Step 2: Add the desktop connector with your identity provider configuration
 <a name="w2aac51c53c15c27c27c19"></a>
 
-In the Amazon Quick console, add the desktop connector and enter the values that you recorded in Step 1.
+In the AWS Quick console, add the desktop connector and enter the values that you recorded in Step 1.
 
 **Important**  
 Adding the desktop connector turns on desktop access for all users in your account right away. To roll out desktop in stages, restrict the **Quick desktop** capability in a custom permissions profile before you add the connector. For more information, see [Turning on desktop access](desktop-enterprise-setup.md#desktop-enterprise-turn-on). You can also restrict the capability after you add the connector.
 
 **To add the desktop connector**
 
-1. Sign in to the Amazon Quick console as an administrator.
+1. Sign in to the AWS Quick console as an administrator.
 
 1. Choose your profile icon, and then choose **Manage account**.
 
@@ -144,7 +144,7 @@ Then, verify that enterprise sign-in works.
 
 **To verify enterprise sign-in**
 
-1. Open the Amazon Quick desktop application.
+1. Open the AWS Quick desktop application.
 
 1. On the sign-in screen, choose **Continue with SSO**.
 
@@ -153,6 +153,6 @@ Then, verify that enterprise sign-in works.
 1. Sign in with your corporate credentials. The application redirects to your identity provider, and then opens the Home screen after sign-in succeeds.
 
 **Tip**  
-If sign-in fails, check the values that you entered in Step 2 against the values from Step 1. For more information, see [Troubleshooting enterprise sign-in for Amazon Quick on desktop](desktop-enterprise-setup-troubleshooting.md).
+If sign-in fails, check the values that you entered in Step 2 against the values from Step 1. For more information, see [Troubleshooting enterprise sign-in for AWS Quick on desktop](desktop-enterprise-setup-troubleshooting.md).
 
-Finally, distribute the application to your users. Direct them to [Getting started with the Amazon Quick desktop application](getting-started-desktop.md) for download, installation, and sign-in instructions. Users choose **Continue with SSO** and sign in with their corporate credentials. They don't need any other setup.
+Finally, distribute the application to your users. Direct them to [Getting started with the AWS Quick desktop application](getting-started-desktop.md) for download, installation, and sign-in instructions. Users choose **Continue with SSO** and sign in with their corporate credentials. They don't need any other setup.

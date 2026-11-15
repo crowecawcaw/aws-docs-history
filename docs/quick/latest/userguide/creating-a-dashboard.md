@@ -3,11 +3,11 @@
 # Publishing dashboards
 <a name="creating-a-dashboard"></a>
 
-When you publish an analysis, that analysis becomes a dashboard that can be shared and interacted with by users of your Amazon Quick account or, in some cases, with anonymous users that aren't on your account. You can choose to publish one sheet of an analysis, all sheets in the analysis, or any other combination of sheets that you want. When you publish an interactive sheet, that sheet becomes an interactive dashboard that users can interact with. When you publish a pixel perfect report sheet, the sheet becomes a pixel perfect report that generates and saves a snapshot of the report's data when you schedule a report in Amazon Quick Sight. You can publish a dashboard that contains any combination of interactive sheets and pixel perfect reports from the same analysis.
+When you publish an analysis, that analysis becomes a dashboard that can be shared and interacted with by users of your AWS Quick account or, in some cases, with anonymous users that aren't on your account. You can choose to publish one sheet of an analysis, all sheets in the analysis, or any other combination of sheets that you want. When you publish an interactive sheet, that sheet becomes an interactive dashboard that users can interact with. When you publish a pixel perfect report sheet, the sheet becomes a pixel perfect report that generates and saves a snapshot of the report's data when you schedule a report in AWS Quick Sight. You can publish a dashboard that contains any combination of interactive sheets and pixel perfect reports from the same analysis.
 
 For more information about scheduling a report, see [Scheduling and sending Quick Sight reports by email](sending-reports.md) .
 
-For more information about viewing a report's snapshots, see [Consuming pixel perfect reports in Amazon Quick Sight](qs-reports-consume-reports.md).
+For more information about viewing a report's snapshots, see [Consuming pixel perfect reports in AWS Quick Sight](qs-reports-consume-reports.md).
 
 Use the following procedure to publish and optionally share a dashboard. You can also use this procedure to rename a published dashboard. A renamed dashboard retains its security and emailed report settings.
 
@@ -25,7 +25,7 @@ Use the following procedure to publish and optionally share a dashboard. You can
 
 1. (Optional) Add comments on the changes you have made in the notes section, which is available to view under [Version History](publishing-a-previous-dashboard-version.md).
 
-1. (Optional) To allow dashboard readers to share data stories, choose **Allow sharing data stories**. For more information about data stories, see [Working with data stories in Amazon Quick Sight](working-with-stories.md).
+1. (Optional) To allow dashboard readers to share data stories, choose **Allow sharing data stories**. For more information about data stories, see [Working with data stories in AWS Quick Sight](working-with-stories.md).
 
 1. (Optional) Open **More Settings**. These options are only available if at least one sheet in the new dashboard is an interactive sheet.
 **Note**  
@@ -51,6 +51,6 @@ This is a scrollable window. Scroll down in the **Publish a dashboard** window t
 
 1. (Optional) Do one of the following:
    + To publish a dashboard without sharing, choose **x** at the upper right of the **Share dashboard with users** screen when it appears. You can always share the dashboard later by choosing **File>Share** from the application bar. 
-   + To share the dashboard, follow the procedure in [Sharing Amazon Quick Sight dashboards](sharing-a-dashboard.md).
+   + To share the dashboard, follow the procedure in [Sharing AWS Quick Sight dashboards](sharing-a-dashboard.md).
 
    After you complete these steps, you complete creating and sharing the dashboard. Subscribers of the dashboard receive email that contains a link to the dashboard. Groups don't receive invitation emails.

@@ -3,12 +3,12 @@
 # Setting up permissions
 <a name="qbiz-indexes-permissions"></a>
 
-To use Amazon Q Business indexes in Amazon Quick, you need to set up the appropriate permissions based on your implementation method:
+To use Amazon Q Business indexes in AWS Quick, you need to set up the appropriate permissions based on your implementation method:
 
 ## Initial Setup
 <a name="initial-setup"></a>
 
-1. Sign in to the Amazon Quick console as an administrator.
+1. Sign in to the AWS Quick console as an administrator.
 
 1. Navigate to the **Admin** section.
 
@@ -25,9 +25,9 @@ You can either connect to an existing Amazon Q Business application or create a 
 
 1. Choose one of the following options:
    + **Connect to existing Amazon Q Business application** - Select an existing application from your account.
-   + **Create new Amazon Q Business application** - Create a new application. The new application will use the same authentication used by your Amazon Quick instance setup.
+   + **Create new Amazon Q Business application** - Create a new application. The new application will use the same authentication used by your AWS Quick instance setup.
 
-1. For new applications, the system automatically configures authentication based on your Amazon Quick instance setup.
+1. For new applications, the system automatically configures authentication based on your AWS Quick instance setup.
 
 1. Wait for application creation to complete.
 
@@ -41,7 +41,7 @@ You can either connect to an existing Amazon Q Business application or create a 
 + Access to the Amazon Q Business application is managed through the Amazon Q Business console.
 
 **Non-IDC Implementation**  
-+ All Amazon Quick users automatically gain access to connected Amazon Q Business indexes.
++ All AWS Quick users automatically gain access to connected Amazon Q Business indexes.
 + No additional access management required in Amazon Q Business.
 
-Once permissions are set up, you can use your Amazon Q Business index as a knowledge base in Amazon Quick, and Admin users can create knowledge bases from Amazon Q Business indexes.
+Once permissions are set up, you can use your Amazon Q Business index as a knowledge base in AWS Quick, and Admin users can create knowledge bases from Amazon Q Business indexes.

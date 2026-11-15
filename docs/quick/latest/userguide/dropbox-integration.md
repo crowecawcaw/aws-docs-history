@@ -3,14 +3,14 @@
 # Dropbox integration
 <a name="dropbox-integration"></a>
 
-With the Dropbox connector, you can access the Dropbox platform directly in Amazon Quick through natural language. You can upload files, manage folder structures, generate sharing links, and search for content without leaving Amazon Quick.
+With the Dropbox connector, you can access the Dropbox platform directly in AWS Quick through natural language. You can upload files, manage folder structures, generate sharing links, and search for content without leaving AWS Quick.
 
-Amazon Quick supports multiple authentication methods for Dropbox. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for Dropbox. Choose the method that best fits your organization's security requirements.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. You authenticate directly with your Dropbox account.
 + **Custom OAuth app** – Uses a customer-managed OAuth application that is registered in Dropbox. This option gives your organization full control over the OAuth configuration.
 + **API Key** – Uses a Dropbox access token for authentication. This method is suitable for individual use or testing.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="dropbox-integration-prerequisites"></a>
@@ -19,19 +19,19 @@ Make sure that you have the following before you set up the integration.
 + An active Dropbox account with access to the files and folders that you want to use.
 + For **Custom OAuth app**: Access to the [Dropbox App Console](https://www.dropbox.com/developers/apps) on the Dropbox website to create an app.
 + For **API Key**: An access token that is generated from the [Dropbox App Console](https://www.dropbox.com/developers/apps) on the Dropbox website.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Dropbox
 <a name="dropbox-source-setup"></a>
 
-If you are using **Default OAuth app** authentication, skip this section and go to [Setting up the connector in Amazon Quick](#dropbox-quicksuite-setup).
+If you are using **Default OAuth app** authentication, skip this section and go to [Setting up the connector in AWS Quick](#dropbox-quicksuite-setup).
 
-For Custom OAuth app or API Key authentication, complete the applicable steps in Dropbox before you configure Amazon Quick.
+For Custom OAuth app or API Key authentication, complete the applicable steps in Dropbox before you configure AWS Quick.
 
 ### Create a Dropbox app for Custom OAuth app
 <a name="dropbox-register-oauth"></a>
 
-Create an app in the Dropbox App Console to get the client credentials that you need for Amazon Quick.
+Create an app in the Dropbox App Console to get the client credentials that you need for AWS Quick.
 
 1. Sign in to your Dropbox account and go to the [Dropbox App Console](https://www.dropbox.com/developers/apps) on the Dropbox website.
 
@@ -45,11 +45,11 @@ Create an app in the Dropbox App Console to get the client credentials that you 
 
 1. Enter an app name and choose **Create app**.
 
-1. On the app settings page, record the following values. You need them when you configure Amazon Quick.
+1. On the app settings page, record the following values. You need them when you configure AWS Quick.
    + **App key** – This is your Client ID.
    + **App secret** – This is your Client secret.
 
-1. Under **OAuth 2**, in the **Redirect URIs** section, add the Amazon Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
+1. Under **OAuth 2**, in the **Redirect URIs** section, add the AWS Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
 
 1. Choose the **Permissions** tab and select the scopes that your integration requires. For the recommended scopes, see [Recommended scopes](#dropbox-oauth-scopes).
 
@@ -64,7 +64,7 @@ Generate an access token from the Dropbox App Console for API Key authentication
 
 1. Under **OAuth 2**, choose **Generate** to create an access token.
 
-1. Copy and securely store the generated token. You need it when you configure Amazon Quick.
+1. Copy and securely store the generated token. You need it when you configure AWS Quick.
 
 ### Recommended scopes
 <a name="dropbox-oauth-scopes"></a>
@@ -108,7 +108,7 @@ When you create a Dropbox app, configure the following scopes on the **Permissio
 | team\_info.read | Reads team information. | 
 | team\_info.write | Updates team information. | 
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="dropbox-quicksuite-setup"></a>
 
 ### Connect from the Available tab
@@ -116,7 +116,7 @@ When you create a Dropbox app, configure the following scopes on the **Permissio
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **Dropbox** and choose **Connect**.
 
@@ -127,9 +127,9 @@ To configure a connector with Custom OAuth app or API Key instead, use the **Cre
 ### Create from the Create for your team tab
 <a name="dropbox-full-setup"></a>
 
-After you complete any required Dropbox configuration, create the connector in Amazon Quick.
+After you complete any required Dropbox configuration, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -153,7 +153,7 @@ If a Dropbox connector already exists, a dialog appears with your existing conne
       + **Client secret** – The app secret from your Dropbox app.
       + **Token URL** – The token endpoint. Example: `https://api.dropboxapi.com/oauth2/token`
       + **Authorization URL** – The authorization endpoint. Example: `https://www.dropbox.com/oauth2/authorize`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
    1. For **API Key**, configure the following fields:
       + **Base URL** (Optional) – The Dropbox API base URL. Example: `https://api.dropboxapi.com`
@@ -209,7 +209,7 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 
 ### Authentication issues
 <a name="dropbox-troubleshooting-auth"></a>
-+ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Dropbox account is active and that you can sign in to [the Dropbox website](https://www.dropbox.com) directly. For Custom OAuth app, confirm that the redirect URL in your Dropbox app matches the Amazon Quick callback URL.
-+ **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the app key and app secret values in your Dropbox app. If you regenerated the app secret, update the value in Amazon Quick.
++ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Dropbox account is active and that you can sign in to [the Dropbox website](https://www.dropbox.com) directly. For Custom OAuth app, confirm that the redirect URL in your Dropbox app matches the AWS Quick callback URL.
++ **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the app key and app secret values in your Dropbox app. If you regenerated the app secret, update the value in AWS Quick.
 + **API Key rejected** – Verify that your access token is active. Tokens can expire or be revoked in the Dropbox App Console.
 + **Insufficient permissions** – Verify that your Dropbox app has the required permission scopes for the actions that you want to use.

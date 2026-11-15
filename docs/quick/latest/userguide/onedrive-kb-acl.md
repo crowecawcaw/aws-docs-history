@@ -3,14 +3,14 @@
 # Document-level access controls
 <a name="onedrive-kb-acl"></a>
 
-Admin-managed OneDrive knowledge bases include built-in document-level access control. Because admin-managed setup crawls the OneDrive content of every user in your organization, ACL is always enabled and cannot be turned off. Amazon Quick syncs access control lists (ACLs) from OneDrive during each crawl. The system verifies each user's permissions at query time, so users only see answers from documents they are authorized to access in OneDrive.
+Admin-managed OneDrive knowledge bases include built-in document-level access control. Because admin-managed setup crawls the OneDrive content of every user in your organization, ACL is always enabled and cannot be turned off. AWS Quick syncs access control lists (ACLs) from OneDrive during each crawl. The system verifies each user's permissions at query time, so users only see answers from documents they are authorized to access in OneDrive.
 
 ## How it works
 <a name="onedrive-kb-acl-how-it-works"></a>
 
-When a user queries an Amazon Quick agent that uses an admin-managed OneDrive knowledge base, the system enforces access controls in two stages:
+When a user queries an AWS Quick agent that uses an admin-managed OneDrive knowledge base, the system enforces access controls in two stages:
 
-1. **Pre-retrieval filtering** – Amazon Quick performs a semantic search against the vector index to find the most relevant document passages. The system applies access control lists that were synced from OneDrive during the last crawl. This produces a preliminary set of candidate documents.
+1. **Pre-retrieval filtering** – AWS Quick performs a semantic search against the vector index to find the most relevant document passages. The system applies access control lists that were synced from OneDrive during the last crawl. This produces a preliminary set of candidate documents.
 
 1. **Real-time verification** – The system verifies the candidate documents in real time by checking the querying user's current access in OneDrive. Only documents the user is currently authorized to access are included in the response.
 
@@ -30,7 +30,7 @@ For more information about ACL best practices, see [Best practices for managing 
 ## Real-time access verification
 <a name="onedrive-kb-acl-realtime"></a>
 
-The real-time verification stage uses a delegated OAuth flow managed automatically by Amazon Quick. Quick creates and manages a separate Microsoft Entra application specifically for this purpose. No customer configuration is required for this app. It is distinct from both the admin-managed app registration you created during setup and any user-managed OAuth app.
+The real-time verification stage uses a delegated OAuth flow managed automatically by AWS Quick. Quick creates and manages a separate Microsoft Entra application specifically for this purpose. No customer configuration is required for this app. It is distinct from both the admin-managed app registration you created during setup and any user-managed OAuth app.
 
 1. A user asks a question in the Quick chat assistant.
 
@@ -64,7 +64,7 @@ The real-time ACL app requests the following delegated permissions:
 
 The real-time ACL check uses a separate Microsoft Entra application from the one used in user-managed setup or the admin-managed app registration. If your organization requires admin consent, an administrator must grant consent for each application independently.
 
-When you create an admin-managed knowledge base, the Amazon Quick console provides a direct link to grant admin consent. This link is for the real-time ACL application. If you are a Microsoft 365 administrator, you can grant consent directly from the console. Otherwise, share the link with your administrator.
+When you create an admin-managed knowledge base, the AWS Quick console provides a direct link to grant admin consent. This link is for the real-time ACL application. If you are a Microsoft 365 administrator, you can grant consent directly from the console. Otherwise, share the link with your administrator.
 
 If admin consent is not granted, each user sees the consent dialog on their first query that involves OneDrive content. After accepting, they are not prompted again for approximately 90 days.
 

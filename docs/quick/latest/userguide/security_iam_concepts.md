@@ -3,12 +3,12 @@
 # Introduction to IAM concepts
 <a name="security_iam_concepts"></a>
 
-AWS Identity and Access Management (IAM) is an AWS service that helps an administrator to more securely control access to AWS resources. Administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Amazon Quick resources. IAM is an AWS service that you can use with no additional charge.
+AWS Identity and Access Management (IAM) is an AWS service that helps an administrator to more securely control access to AWS resources. Administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS Quick resources. IAM is an AWS service that you can use with no additional charge.
 
-IAM is used with Amazon Quick in several ways, including the following:
-+ If your company uses IAM for their identity management, people might have IAM user names and passwords that they use to sign in to Amazon Quick.
-+ If you want your Amazon Quick users to be automatically created at first sign-in, you can use IAM to create a policy for users who are preauthorized to use Amazon Quick.
-+ If you want to create specialized access for specific groups of Amazon Quick users or to specific resources, you can use IAM policies to accomplish this.
+IAM is used with AWS Quick in several ways, including the following:
++ If your company uses IAM for their identity management, people might have IAM user names and passwords that they use to sign in to AWS Quick.
++ If you want your AWS Quick users to be automatically created at first sign-in, you can use IAM to create a policy for users who are preauthorized to use AWS Quick.
++ If you want to create specialized access for specific groups of AWS Quick users or to specific resources, you can use IAM policies to accomplish this.
 
 **Topics**
 + [Audience](#security_iam_audience)
@@ -18,13 +18,13 @@ IAM is used with Amazon Quick in several ways, including the following:
 ## Audience
 <a name="security_iam_audience"></a>
 
-Use the following to help understand the context of the information provided in this section, and how it applies to your role. How you use AWS Identity and Access Management (IAM) differs depending on the work that you do in Amazon Quick.
+Use the following to help understand the context of the information provided in this section, and how it applies to your role. How you use AWS Identity and Access Management (IAM) differs depending on the work that you do in AWS Quick.
 
-**Service user** – In some cases, you might use Amazon Quick as an Author or Essentials (Reader) to interact with data, analyses, and dashboards, spaces, and agents through the Amazon Quick by using the browser interface. In these cases, this section provides only background information for you. You don't directly interact with the IAM service, except if you use IAM to sign into Amazon Quick.
+**Service user** – In some cases, you might use AWS Quick as an Author or Essentials (Reader) to interact with data, analyses, and dashboards, spaces, and agents through the AWS Quick by using the browser interface. In these cases, this section provides only background information for you. You don't directly interact with the IAM service, except if you use IAM to sign into AWS Quick.
 
-**Amazon Quick administrator** – If you're in charge of Amazon Quick resources at your company, you probably have full access to Amazon Quick. It's your job to determine which Amazon Quick features and resources your team members should access. If you have specialized requirements that you can't solve by using the Amazon Quick admin panel, then you can work with your administrator to create permissions policies for your Amazon Quick users. To learn more about IAM, read this page to understand the basic concepts of IAM. To learn more about how your company can use IAM with Amazon Quick, see [Using Amazon Quick with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html).
+**AWS Quick administrator** – If you're in charge of AWS Quick resources at your company, you probably have full access to AWS Quick. It's your job to determine which AWS Quick features and resources your team members should access. If you have specialized requirements that you can't solve by using the AWS Quick admin panel, then you can work with your administrator to create permissions policies for your AWS Quick users. To learn more about IAM, read this page to understand the basic concepts of IAM. To learn more about how your company can use IAM with AWS Quick, see [Using AWS Quick with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html).
 
-**Administrator** – If you're a system administrator, you might want to learn details about how you can write policies to manage access to Amazon Quick. To view examples of Amazon Quick identity-based policies that you can use in IAM, see [IAM identity-based policies for Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html#security_iam_id-based-policy-examples).
+**Administrator** – If you're a system administrator, you might want to learn details about how you can write policies to manage access to AWS Quick. To view examples of AWS Quick identity-based policies that you can use in IAM, see [IAM identity-based policies for AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html#security_iam_id-based-policy-examples).
 
 ## Authenticating with identities
 <a name="security_iam_authentication"></a>

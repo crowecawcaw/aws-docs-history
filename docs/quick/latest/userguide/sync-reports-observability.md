@@ -3,7 +3,7 @@
 # Sync reports and observability
 <a name="sync-reports-observability"></a>
 
-With Amazon Quick, you can view sync schedules, sync activity logs, and detailed sync reports for every knowledge base. If your knowledge base has document-level access control (ACL) enabled, you can also verify individual document permissions.
+With AWS Quick, you can view sync schedules, sync activity logs, and detailed sync reports for every knowledge base. If your knowledge base has document-level access control (ACL) enabled, you can also verify individual document permissions.
 
 ## Sync schedules and activity
 <a name="sync-reports-schedules"></a>

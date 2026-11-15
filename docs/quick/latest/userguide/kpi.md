@@ -14,14 +14,14 @@ A KPI displays a value comparison, the two values being compared, and a visual t
 ## KPI features
 <a name="kpi-features"></a>
 
-To understand the features supported by the KPI visual type in Amazon Quick, use the following table.
+To understand the features supported by the KPI visual type in AWS Quick, use the following table.
 
 
 | Feature | Supported? | Comments | For more information | 
 | --- | --- | --- | --- | 
 | Changing the title display | Yes |  | [Titles and subtitles on visual types in Quick](customizing-a-visual-title.md) | 
 | Removing the title | Yes | You can choose not to display a title. |  | 
-| Changing comparison method | Yes | By default, Amazon Quick automatically chooses a method. The settings are auto, difference, percent, and difference as percent. |  | 
+| Changing comparison method | Yes | By default, AWS Quick automatically chooses a method. The settings are auto, difference, percent, and difference as percent. |  | 
 | Changing the primary value displayed | Yes | You can choose comparison (default) or actual. |  | 
 | Displaying or removing the progress bar | Yes | You can format the visual to either display (default) or not display a progress bar. |  | 
 

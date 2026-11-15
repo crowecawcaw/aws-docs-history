@@ -15,6 +15,6 @@
 
 1. In the **Allow public access** pop-up that appears, enter `confirm` in the box to confirm your choice, and then choose **Confirm**.
 
-After you confirm your dashboard's access settings, an orange **PUBLIC** tag appears at upper right of your dashboard in the Amazon Quick console. Additionally, an eye icon appears on the dashboard on the Quick Sight Dashboards page, both in tile and list view.
+After you confirm your dashboard's access settings, an orange **PUBLIC** tag appears at upper right of your dashboard in the AWS Quick console. Additionally, an eye icon appears on the dashboard on the Quick Sight Dashboards page, both in tile and list view.
 
-Note that when public access is turned on, the dashboard can only be accessed using the link or when embedded using the embed code. For more information about sharing a link to the dashboard, see [Sharing a link a shared dashboard](share-a-dashboard-share-link.md). For more information about embedding dashboards for anyone on the internet, see [Embedding Amazon Quick Sight visuals and dashboards for anonymous users with a 1-click embed code](embedded-analytics-1-click-public.md).
+Note that when public access is turned on, the dashboard can only be accessed using the link or when embedded using the embed code. For more information about sharing a link to the dashboard, see [Sharing a link a shared dashboard](share-a-dashboard-share-link.md). For more information about embedding dashboards for anyone on the internet, see [Embedding AWS Quick Sight visuals and dashboards for anonymous users with a 1-click embed code](embedded-analytics-1-click-public.md).

@@ -1,6 +1,6 @@
 
 
-# Understanding Amazon Quick user billing
+# Understanding AWS Quick user billing
 <a name="understanding-quick-user-billing"></a>
 
 Your charges for a Quick user follow the user's lifecycle in your account, from the moment you provision the user through the period after you remove the user. The following sections explain when billing begins, how your first billing period is prorated, how ongoing monthly charges apply, and how removing a user affects your charges.
@@ -19,8 +19,8 @@ Billing for a Quick user begins when you provision the user in your account, not
 
 The exact moment billing begins depends on how you provision the user:
 + For users you provision through the API, such as by registering a user or creating an account subscription, billing begins when the API call creates the user, whether or not the user has signed in.
-+ For users who self-provision, billing begins the first time the user opens Amazon Quick.
-+ For users you map from a group in IAM Identity Center or Active Directory, billing begins when Amazon Quick detects the user through group synchronization.
++ For users who self-provision, billing begins the first time the user opens AWS Quick.
++ For users you map from a group in IAM Identity Center or Active Directory, billing begins when AWS Quick detects the user through group synchronization.
 
 ## Your first billing period
 <a name="billing-first-period"></a>
@@ -30,7 +30,7 @@ When you provision a user partway through a billing period, your charge for that
 ## Ongoing monthly billing
 <a name="billing-ongoing"></a>
 
-For each billing period a user remains in your account, you pay the monthly rate for that user's role. These subscription charges are separate from usage-based charges such as SPICE capacity or reader session usage. For a full comparison of the capabilities included with each subscription and current per-user pricing, see [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/).
+For each billing period a user remains in your account, you pay the monthly rate for that user's role. These subscription charges are separate from usage-based charges such as SPICE capacity or reader session usage. For a full comparison of the capabilities included with each subscription and current per-user pricing, see [AWS Quick pricing](https://aws.amazon.com/quick/pricing/).
 
 ## Billing when you remove a user
 <a name="billing-user-removal"></a>
@@ -48,4 +48,4 @@ The following examples show how your charges apply across a user's lifecycle:
 + For a user you provision and remove within the same billing period, you pay for that full period, and no charge applies afterward.
 + For a user who never signs in, you pay each billing period the user remains in your account, the same as an active user, until you remove the user.
 
-This billing behavior applies to all Amazon Quick user roles across editions and in all AWS Regions where Amazon Quick is available.
+This billing behavior applies to all AWS Quick user roles across editions and in all AWS Regions where AWS Quick is available.

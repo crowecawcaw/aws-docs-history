@@ -3,7 +3,7 @@
 # Restricting others from creating new datasets from your dataset
 <a name="restrict-create-dataset"></a>
 
-When you create a dataset in Amazon Quick, you can prevent others from using it as a source for other datasets. You can specify if others can use it to create any datasets at all. Or you can specify the type of datasets others can or can't create from your dataset, such as direct query datasets or SPICE datasets.
+When you create a dataset in AWS Quick, you can prevent others from using it as a source for other datasets. You can specify if others can use it to create any datasets at all. Or you can specify the type of datasets others can or can't create from your dataset, such as direct query datasets or SPICE datasets.
 
 Use the following procedure to learn how to restrict others from creating new datasets from your dataset.
 

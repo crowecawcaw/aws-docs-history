@@ -3,7 +3,7 @@
 # REST API Connection integration
 <a name="rest-api-integration"></a>
 
-With REST API Connection integration in Amazon Quick, you can perform actions with custom REST APIs and web services. This integration supports action execution only.
+With REST API Connection integration in AWS Quick, you can perform actions with custom REST APIs and web services. This integration supports action execution only.
 
 ## What you can do
 <a name="rest-api-integration-capabilities"></a>
@@ -27,7 +27,7 @@ Before you set up REST API integration, make sure you have the following:
 ## Prepare API endpoint and authentication
 <a name="rest-api-integration-authentication"></a>
 
-Before configuring the integration in Amazon Quick, prepare your REST API endpoint and authentication credentials. REST API Connection integration supports multiple authentication methods. Choose the method that matches your API requirements:
+Before configuring the integration in AWS Quick, prepare your REST API endpoint and authentication credentials. REST API Connection integration supports multiple authentication methods. Choose the method that matches your API requirements:
 
 **User authentication (OAuth)**  
 Gather the following information from your API provider:  
@@ -60,7 +60,7 @@ You can use custom headers and parameters for flexible authentication and API in
 
 After you have prepared your API endpoint and authentication credentials, follow these steps to create your REST API integration:
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 

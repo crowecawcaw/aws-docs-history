@@ -6,32 +6,32 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators  | 
+|    Intended audience:  AWS Quick administrators  | 
 
 Use this section to help troubleshoot connecting to Athena. 
 
-If you can't connect to Amazon Athena, you might get an insufficient permissions error when you run a query, showing that the permissions aren't configured. To verify that you can connect Amazon Quick Sight to Athena, check the following settings: 
-+ AWS resource permissions inside of Amazon Quick Sight
+If you can't connect to Amazon Athena, you might get an insufficient permissions error when you run a query, showing that the permissions aren't configured. To verify that you can connect AWS Quick Sight to Athena, check the following settings: 
++ AWS resource permissions inside of AWS Quick Sight
 + AWS Identity and Access Management (IAM) policies
 + Amazon S3 location
 + Query results location
 + AWS KMS key policy (for encrypted datasets only)
 
-For details, see following. For information about troubleshooting other Athena issues, see [Connectivity issues when using Amazon Athena with Amazon Quick Sight](troubleshoot-athena.md).
+For details, see following. For information about troubleshooting other Athena issues, see [Connectivity issues when using Amazon Athena with AWS Quick Sight](troubleshoot-athena.md).
 
-## Make sure that you authorized Amazon Quick Sight to use Athena
+## Make sure that you authorized AWS Quick Sight to use Athena
 <a name="troubleshoot-connect-athena-authorizing"></a>
 
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators  | 
+|    Intended audience:  AWS Quick administrators  | 
 
-Use the following procedure to make sure that you successfully authorized Amazon Quick Sight to use Athena. Permissions to AWS resources apply to all Amazon Quick Sight users.
+Use the following procedure to make sure that you successfully authorized AWS Quick Sight to use Athena. Permissions to AWS resources apply to all AWS Quick Sight users.
 
-To perform this action, you must be an Amazon Quick Sight administrator. To check if you have access, verify that you see the **Manage QuickSight** option when you open the menu from your profile at upper right.
+To perform this action, you must be an AWS Quick Sight administrator. To check if you have access, verify that you see the **Manage QuickSight** option when you open the menu from your profile at upper right.
 
-**To authorize Amazon Quick Sight to access Athena**
+**To authorize AWS Quick Sight to access Athena**
 
 1. Choose your profile name (upper right). Choose **Manage Quick Sight**, and then scroll down to the **Custom permissions** section.
 
@@ -41,7 +41,7 @@ To perform this action, you must be an Amazon Quick Sight administrator. To chec
 
    Then choose **Connect both**. 
 
-1. Choose the buckets that you want to access from Amazon Quick Sight. 
+1. Choose the buckets that you want to access from AWS Quick Sight. 
 
    The settings for S3 buckets that you access here are the same ones that you access by choosing Amazon S3 from the list of AWS services. Be careful that you don't inadvertently disable a bucket that someone else uses.
 
@@ -49,7 +49,7 @@ To perform this action, you must be an Amazon Quick Sight administrator. To chec
 
    
 
-1. Choose **Update** to save your new settings for Amazon Quick Sight access to AWS services. Or choose **Cancel** to exit without making any changes.
+1. Choose **Update** to save your new settings for AWS Quick Sight access to AWS services. Or choose **Cancel** to exit without making any changes.
 
 1. Make sure that you are using the correct AWS Region when you are finished.
 
@@ -85,9 +85,9 @@ For examples of IAM policies that work with Quick Sight, see [IAM policy example
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators  | 
+|    Intended audience:  AWS Quick administrators  | 
 
-To access Athena data from Quick Sight, first make sure that Athena and its S3 location are authorized in **Manage QuickSight** screen. For more information, see [Make sure that you authorized Amazon Quick Sight to use Athena](#troubleshoot-connect-athena-authorizing). 
+To access Athena data from Quick Sight, first make sure that Athena and its S3 location are authorized in **Manage QuickSight** screen. For more information, see [Make sure that you authorized AWS Quick Sight to use Athena](#troubleshoot-connect-athena-authorizing). 
 
 Next, verify the relevant IAM permissions. The IAM user for your Athena connection needs read/write access to the location where your results go in S3. Start by verifying that the IAM user has an attached policy that [allows access to Athena](https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#attach-managed-policies-for-using-ate), such as `AmazonAthenaFullAccess`. Let Athena create the bucket using the name that it requires, and then add this bucket to the list of buckets that QuickSight can access. If you change the default location of the results bucket (`aws-athena-query-results-*`), be sure that the IAM user has permission to read and write to the new location.
 

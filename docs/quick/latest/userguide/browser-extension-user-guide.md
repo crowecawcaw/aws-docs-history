@@ -1,12 +1,12 @@
 
 
-# Amazon Quick browser extension
+# AWS Quick browser extension
 <a name="browser-extension-user-guide"></a>
 
 **Important**  
-The Amazon Quick browser extension extension doesn't need any admin setup to install and use.
+The AWS Quick browser extension extension doesn't need any admin setup to install and use.
 
-The Amazon Quick browser extension integrates AI-powered assistance directly into your web browsing experience. Users can access Quick capabilities within their browser to enhance productivity, streamline research, and get instant help without switching between applications.
+The AWS Quick browser extension integrates AI-powered assistance directly into your web browsing experience. Users can access Quick capabilities within their browser to enhance productivity, streamline research, and get instant help without switching between applications.
 
 Key capabilities include:
 + Summarize web pages for quick understanding.
@@ -24,7 +24,7 @@ The AI-powered assistance enables you to maximize reading productivity, streamli
 + [Deploy the browser extension in your organization](#deploy-browser-extension-organization)
 + [Browser extension usage guidelines](#browser-extensions-usage-guidelines)
 + [Browser extension known limitations](#browser-extension-known-limitations)
-+ [Using Amazon Quick Flows in the browser extension](flows-in-browser-extension.md)
++ [Using AWS Quick Flows in the browser extension](flows-in-browser-extension.md)
 
 ## Supported browsers
 <a name="browser-extension-supported-browsers"></a>
@@ -197,13 +197,13 @@ When using the Quick browser extension, users can review past conversations and 
 ### Conversation retention and data privacy
 <a name="conversation-retention-policy"></a>
 
-Amazon Quick maintains strict data privacy through automated retention policies:
-+ Amazon Quick automatically deletes conversations and related files after 30 days of inactivity.
+AWS Quick maintains strict data privacy through automated retention policies:
++ AWS Quick automatically deletes conversations and related files after 30 days of inactivity.
 + Browser extension conversation retention follows your company's specific history rules.
-+ Browser extension retention periods may exceed Amazon Quick's standard 30-day limit based on organizational policies.
++ Browser extension retention periods may exceed AWS Quick's standard 30-day limit based on organizational policies.
 
 ## Browser extension known limitations
 <a name="browser-extension-known-limitations"></a>
 
-The following are known limitations of the Amazon Quick browser extension:
+The following are known limitations of the AWS Quick browser extension:
 + The browser extension supports up to a total of 20 web pages and uploaded files at a time. For more information, see [Upload files and chat](https://docs.aws.amazon.com/quicksuite/latest/userguide/using-quick-chat.html#file-uploads).

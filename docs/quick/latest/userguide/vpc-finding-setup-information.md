@@ -13,7 +13,7 @@
 | --- |
 |    Intended audience:  System administrators  | 
 
-To gather the information to have ready when you create a VPC connection in Amazon Quick Enterprise edition, take the steps listed following.
+To gather the information to have ready when you create a VPC connection in AWS Quick Enterprise edition, take the steps listed following.
 
 **Topics**
 + [Identify the data sources to use](#vpc-data-sources)
@@ -25,7 +25,7 @@ To gather the information to have ready when you create a VPC connection in Amaz
 ## Identify the data sources to use
 <a name="vpc-data-sources"></a>
 
-Start by identifying all the data sources that you want to connect to using Quick. For each of these, note the database's private IP, security group, and subnets. Amazon Quick connects to your data using the private IP. However, you don't need to enter this or the security group or subnet information for the VPC connection. This information helps you identify the other components you need for the Amazon Quick VPC connection.
+Start by identifying all the data sources that you want to connect to using Quick. For each of these, note the database's private IP, security group, and subnets. AWS Quick connects to your data using the private IP. However, you don't need to enter this or the security group or subnet information for the VPC connection. This information helps you identify the other components you need for the AWS Quick VPC connection.
 
 **Note**  
 For the connection to your data source to work, make sure that there's a traceable route from your data source to the VPC ID. For more details, see [Identify the data sources to use](https://docs.aws.amazon.com/quicksight/latest/user/vpc-finding-setup-information.html). 
@@ -35,13 +35,13 @@ For the connection to your data source to work, make sure that there's a traceab
 
 For the connection to work, the data, the subnets, and the security group must be in the same VPC. Make sure also that you use Quick in the same AWS Region with the VPC. 
 
-You can't use Amazon Quick in one AWS Region and expect to connect to a VPC in a different AWS Region.
+You can't use AWS Quick in one AWS Region and expect to connect to a VPC in a different AWS Region.
 
-If your team is already using Amazon Quick, you can see your current AWS Region displayed at the upper right of the Amazon Quick home screen. You can change the AWS Region you're using in Amazon Quick by changing the Region at the upper right of the Amazon Quick home screen. All the people who plan to use the data in the VPC must be using the same AWS Region in Amazon Quick.
+If your team is already using AWS Quick, you can see your current AWS Region displayed at the upper right of the AWS Quick home screen. You can change the AWS Region you're using in AWS Quick by changing the Region at the upper right of the AWS Quick home screen. All the people who plan to use the data in the VPC must be using the same AWS Region in AWS Quick.
 
 **Note**  
-The AWS Region that displays in the Amazon Quick console doesn't have to match your AWS CLI configuration. Take care not to mistake your current Amazon Quick console settings with the settings that apply in any AWS CLI commands that you run or the settings in other consoles. Changing the current AWS Region in any console doesn't change the Region anywhere except for that page.   
-For example, let's say you have three tabs open in one browser window. You can have the Amazon Quick console open in one AWS Region, the Amazon VPC console open in a second Region, the Amazon RDS console open in a third Region, and the AWS CLI running in a fourth Region. 
+The AWS Region that displays in the AWS Quick console doesn't have to match your AWS CLI configuration. Take care not to mistake your current AWS Quick console settings with the settings that apply in any AWS CLI commands that you run or the settings in other consoles. Changing the current AWS Region in any console doesn't change the Region anywhere except for that page.   
+For example, let's say you have three tabs open in one browser window. You can have the AWS Quick console open in one AWS Region, the Amazon VPC console open in a second Region, the Amazon RDS console open in a third Region, and the AWS CLI running in a fourth Region. 
 
 ## Identify the VPC ID to use
 <a name="vpc-id"></a>
@@ -73,7 +73,7 @@ In the Amazon VPC console, you can filter by VPC. This option is located at the 
 ## Identify the subnet IDs to use
 <a name="vpc-subnet-id"></a>
 
-To locate the subnet IDs for the subnets used by the VPC, open the VPC console. Locate the VPC you are using, and at least two subnets in different availibility zones. Amazon Quick creates its Amazon Quick elastic network interface (Amazon Quick network interface) for the subnets that you choose. The Amazon Quick network interfaces get created after you save your VPC connection settings, described in the following section. 
+To locate the subnet IDs for the subnets used by the VPC, open the VPC console. Locate the VPC you are using, and at least two subnets in different availibility zones. AWS Quick creates its AWS Quick elastic network interface (AWS Quick network interface) for the subnets that you choose. The AWS Quick network interfaces get created after you save your VPC connection settings, described in the following section. 
 
 Your database instances can reside in different subnets. However, make sure you can trace the route from this subnet to any data destinations that you want to reach. 
 

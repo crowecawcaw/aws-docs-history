@@ -3,7 +3,7 @@
 # Types of actions
 <a name="int-actions-types"></a>
 
-Amazon Quick supports two methods of invoking actions, each serving different use cases and authentication models.
+AWS Quick supports two methods of invoking actions, each serving different use cases and authentication models.
 
 ## On-demand actions
 <a name="qbs-actions-types-qbs-actions-on-demand"></a>

@@ -1,6 +1,6 @@
 
 
-# Filtering data in Amazon Quick Sight
+# Filtering data in AWS Quick Sight
 <a name="adding-a-filter"></a>
 
 You can use filters to refine the data in a dataset or an analysis. For example, you can create a filter on a region field that excludes data from a particular region in a dataset. You can also add a filter to an analysis, such as a filter on the range of dates that you want to include in any visuals in your analysis.
@@ -13,11 +13,11 @@ Also, when you create filters in an analysis, you can add a filter control to yo
 
 Each filter you create applies only to a single field. You can apply filters to both regular and calculated fields.
 
-There are several types of filters you can add to datasets and analyses. For more information about the types of filters you can add, and some of their options, see [Filter types in Amazon Quick](filtering-types.md).
+There are several types of filters you can add to datasets and analyses. For more information about the types of filters you can add, and some of their options, see [Filter types in AWS Quick](filtering-types.md).
 
 If you create multiple filters, all top-level filters apply together using AND. If you group filters by adding them inside a top-level filter, the filters in the group apply using OR.
 
-Amazon Quick Sight applies all of the enabled filters to the field. For example, suppose that there is one filter of `state = WA` and another filter of `sales >= 500`. Then the dataset or analysis only contains records that meet both of those criteria. If you disable one of these, only one filter applies.
+AWS Quick Sight applies all of the enabled filters to the field. For example, suppose that there is one filter of `state = WA` and another filter of `sales >= 500`. Then the dataset or analysis only contains records that meet both of those criteria. If you disable one of these, only one filter applies.
 
 Take care that multiple filters applied to the same field aren't mutually exclusive.
 
@@ -27,7 +27,7 @@ Use the following sections to learn how to view, add, edit, and delete filters.
 + [Viewing existing filters](viewing-filters-data-prep.md)
 + [Adding filters](add-a-filter-data-prep.md)
 + [Cross-sheet filters and controls](cross-sheet-filters.md)
-+ [Filter types in Amazon Quick](filtering-types.md)
++ [Filter types in AWS Quick](filtering-types.md)
 + [Adding filter controls to analysis sheets](filter-controls.md)
 + [Editing filters](edit-a-filter-data-prep.md)
 + [Enabling or disabling filters](disable-a-filter-data-prep.md)

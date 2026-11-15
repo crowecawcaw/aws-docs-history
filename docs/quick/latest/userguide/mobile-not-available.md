@@ -4,7 +4,7 @@
 <a name="mobile-not-available"></a>
 
 The following capabilities are available on desktop but not on mobile. Use the desktop application for these tasks.
-+ Apps (Apps in Amazon Quick): build and run apps on desktop.
++ Apps (Apps in AWS Quick): build and run apps on desktop.
 + Memory management: view and manage your memories on desktop.
 + Knowledge graph: view and manage your knowledge graph on desktop.
 + Incognito mode: start a private chat on desktop.

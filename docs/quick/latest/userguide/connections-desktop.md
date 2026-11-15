@@ -3,34 +3,34 @@
 # Connectors
 <a name="connections-desktop"></a>
 
-Connectors bring cloud connectors, system tools, local connectors, and coding agents together in one place, with a catalog to discover and add new ones. A connector links Amazon Quick to an external application or a native tool so agents can access data and act on your behalf. You manage them from Customize, on the Connectors tab, which supports four capabilities.
+Connectors bring cloud connectors, system tools, local connectors, and coding agents together in one place, with a catalog to discover and add new ones. A connector links AWS Quick to an external application or a native tool so agents can access data and act on your behalf. You manage them from **Customize**, on the **Connectors** tab, which supports four capabilities.
 + Cloud connectors connect Quick to external services such as Outlook, SharePoint, OneDrive, Slack, Jira, Asana, Airtable, and Salesforce, as well as remotely hosted Model Context Protocol (MCP) servers. Once connected, they are reachable from any Quick device, including desktop, mobile, and web. For the full list, see [Supported integrations](supported-integrations.md).
 + System tools are the capabilities Quick provides out of the box, such as image generation, browser automation, and research. You do not install or sign in to them, but you can turn them on or off. Some run in the cloud; others, such as browser automation, are device specific. For the full list, see [System tools](system-tools-desktop.md).
 + Local connectors run on your own machine, covering local MCP servers you host yourself. Their tools are available only when that machine is on and connected.
-+ Coding agents such as Kiro and Claude Code can be connected so you can delegate development work to them from chat. See the Coding agents section.
++ Coding agents such as Kiro and Claude Code can be connected so you can delegate development work to them from chat. For more information, see [Coding agents](#desktop-coding-agents).
 
 ## Discovering and adding connectors
 <a name="desktop-discovering-adding-connectors"></a>
 
-On the Connectors tab, you can discover and add connectors that expand what Amazon Quick can do for you. To see the full catalog, choose **Browse all**. Each connector card shows its name and a short description of what it does.
+On the **Connectors** tab, you can discover and add connectors that expand what AWS Quick can do for you. To see the full catalog, choose **Browse all**. Each connector card shows its name and a short description of what it does.
 
 **Adding a cloud connector**  
-Cloud connectors in the catalog are either connectors that have been shared with you or connectors that you can set up with a single click of Install followed by a sign-in. The Suggested for you area contains cloud connectors that have already been set up and shared with you, along with the most popular cloud connectors for Quick users. When you install one of these connectors, by default Amazon Quick connects to the external service using an Amazon-hosted OAuth application for that service. OAuth applications are the standard way an application, such as Quick, makes calls to an external application, such as Outlook or Salesforce, on your behalf. An end-user sign-in is also required.
+Cloud connectors in the catalog are either connectors that have been shared with you or connectors that you can set up with a single click of Install followed by a sign-in. The Suggested for you area contains cloud connectors that have already been set up and shared with you, along with the most popular cloud connectors for Quick users. When you install one of these connectors, by default AWS Quick connects to the external service using an Amazon-hosted OAuth application for that service. OAuth applications are the standard way an application, such as Quick, makes calls to an external application, such as Outlook or Salesforce, on your behalf. An end-user sign-in is also required.
 
-Some enterprises prefer to use their own OAuth application rather than the Amazon default. To do this, choose Create and then choose Cloud Connector. This Create option gives additional enterprise admin controls during setup, such as setting a connector's name, description, who it is shared with, and its tool permissions. Connectors that do not have an Amazon default OAuth application are also found in the Create section. Creating a custom connection to a remotely hosted MCP server also uses Create and then Cloud Connector.
+Some enterprises prefer to use their own OAuth application rather than the Amazon default. To do this, choose **Create**, and then choose **Cloud connector**. This Create option gives additional enterprise admin controls during setup, such as setting a connector's name, description, who it is shared with, and its tool permissions. Connectors that do not have an Amazon default OAuth application are also found in the Create section. Creating a custom connection to a remotely hosted MCP server also uses **Create** and then **Cloud connector**.
 
-Connectors you add appear automatically in the connectors table in the lower half of the Connectors tab.
+Connectors you add appear automatically in the connectors table in the lower half of the **Connectors** tab.
 
 **Adding a local connector**  
-Beyond the connectors in the catalog, you can add a local connector that runs on your own machine, such as a local MCP server. A local connector lets Amazon Quick use tools you host yourself, such as a database, an internal API, or a developer tool, so those tools become available to agents in chat and in scheduled tasks. To add one, choose Create and then choose Create local connector. Because a local connector runs on your machine, its tools are available only when that machine is on and connected. For the MCP server fields, see the MCP servers section.
+Beyond the connectors in the catalog, you can add a local connector that runs on your own machine, such as a local MCP server. A local connector lets AWS Quick use tools you host yourself, such as a database, an internal API, or a developer tool, so those tools become available to agents in chat and in scheduled tasks. To add one, choose **Create**, and then choose **Local connector**. Because a local connector runs on your machine, its tools are available only when that machine is on and connected. For the MCP server fields, see [MCP servers](#desktop-mcp-servers).
 
 **Adding a coding agent**  
-You can also connect a coding agent, an external AI coding tool such as Kiro or Claude Code, that Amazon Quick can hand development work to. Once a coding agent is connected and enabled, you can delegate tasks to it from chat, and it does the work and reports back. To add one, choose Create and then choose Coding agent. See the Coding agents section.
+You can also connect a coding agent, an external AI coding tool such as Kiro or Claude Code, that AWS Quick can hand development work to. Once a coding agent is connected and enabled, you can delegate tasks to it from chat, and it does the work and reports back. To add one, choose **Create**, and then choose **Coding agent**. For more information, see [Coding agents](#desktop-coding-agents).
 
 ## Managing your installed connectors
 <a name="desktop-managing-installed-connectors"></a>
 
-The Connectors tab has a table of all your installed connectors. Each connector shows its name and description, its Type (Cloud, Local, or System), its Owner, and its Status. To manage your connectors, you can do the following.
+The **Connectors** tab has a table of all your installed connectors. Each connector shows its name and description, its Type (Cloud, Local, or System), its Owner, and its Status. To manage your connectors, you can do the following.
 
 
 | Action | Description | 
@@ -40,7 +40,7 @@ The Connectors tab has a table of all your installed connectors. Each connector 
 | Sort | Order the list, for example by Recommended. | 
 | Sign in | Complete the authentication flow for a connector that requires it before it can be used. | 
 | Enable or disable | Turn an individual connector on or off with its status toggle, without removing it. | 
-| Create | Add a new connector (an MCP server or a coding agent) using the Create button. | 
+| Create | Add a new connector (a cloud connector, a local connector, or a coding agent) using the Create button. | 
 | Browse all | Open Add to Quick to discover and install more connectors. | 
 
 Each connector also has an actions menu with options that depend on its type. For all connectors, you can manage tool permissions (see the next section) and enable or disable the connector.
@@ -57,33 +57,33 @@ Some connectors are shared with you by your organization. A connector's Owner co
 ## Managing tool permissions
 <a name="desktop-managing-tool-permissions"></a>
 
-Connectors provide tools that agents can use on your behalf. Because a tool can make changes in an external application, Amazon Quick can pause for a consent step before a tool runs, keeping a human in the loop on the changes an agent makes. Whether this consent step is needed is controlled with tool permissions, which are set at two levels: a connector owner level and a user preference level.
+Connectors provide tools that agents can use on your behalf. Because a tool can make changes in an external application, AWS Quick can pause for a consent step before a tool runs, keeping a human in the loop on the changes an agent makes. Whether this consent step is needed is controlled with tool permissions, which are set at two levels: a connector owner level and a user preference level.
 
 Connector owners, usually the application admins who share connectors with users, control one level of settings, and those settings are enforced for everyone who uses the connector. At the owner level, each tool can be set to one of three options.
 
 
 | Owner setting | Description | 
 | --- | --- | 
-| Let Users Choose | Hands the decision to each user, who then chooses how the tool behaves for them. This is the default. | 
-| Always Ask | The tool always pauses for a consent step before it runs, for every user. | 
-| Disable | The tool is turned off and is not available to users. | 
+| Let users choose | Hands the decision to each user, who then chooses how the tool behaves for them. This is the default. | 
+| Always ask | The tool always pauses for a consent step before it runs, for every user. | 
+| Disabled | The tool is turned off and is not available to users. | 
 
-When a tool is set to Let Users Choose at the connector level, each user can set their own preference for the tools they use. The following options are available at the user level.
+When a tool is set to **Let users choose** at the connector level, each user can set their own preference for the tools they use. The following options are available at the user level.
 
 
 | User setting | Description | 
 | --- | --- | 
-| Always Allow | The tool runs without a consent step. | 
-| Ask Each Time | The tool pauses for a consent step each time it runs. | 
-| Disable | The tool is turned off for you and does not run. | 
+| Always allow | The tool runs without a consent step. | 
+| Ask each time | The tool pauses for a consent step each time it runs. | 
+| Always deny | The tool is turned off for you and does not run. | 
 
-By default, tools are set to Let Users Choose at the connector level. The user-level default then depends on whether the tool performs a write task or a read task.
+By default, tools are set to **Let users choose** at the connector level. The user-level default then depends on whether the tool performs a write task or a read task.
 
 
 | Task type | Connector-level default | User-level default | 
 | --- | --- | --- | 
-| Write tasks | Let Users Choose | Ask Each Time (can be changed by the user) | 
-| Read tasks | Let Users Choose | Always Allow (can be changed by the user) | 
+| Write tasks | Let users choose | Ask each time (can be changed by the user) | 
+| Read tasks | Let users choose | Always allow (can be changed by the user) | 
 
 For tools from an MCP server, Quick treats a tool as a read task only when the server marks it as read-only with the `readOnlyHint` annotation. Quick treats every other MCP tool as a write task.
 
@@ -92,13 +92,13 @@ New tools discovered during an MCP sync are disabled by default, so a connector 
 ## MCP servers
 <a name="desktop-mcp-servers"></a>
 
-Amazon Quick supports the Model Context Protocol (MCP), an open standard that extends Quick with custom tools and integrations. When you connect an MCP server, its tools become available in your chat conversations and scheduled runs, for example a server that provides database query tools.
+AWS Quick supports the Model Context Protocol (MCP), an open standard that extends Quick with custom tools and integrations. When you connect an MCP server, its tools become available in your chat conversations and scheduled runs, for example a server that provides database query tools.
 
-An MCP server that you add on desktop is a local connector that belongs to you. The desktop application stores its configuration on your computer, and only you can use it. To share an MCP server across the web, mobile, and desktop applications, its owner sets it up as a cloud connector instead. For more information, see [Model Context Protocol (MCP) integration](mcp-integration.md). A cloud connector runs from your Amazon Quick account, supports OAuth with Dynamic Client Registration (DCR), and stores its tokens in the account's token vault.
+An MCP server that you add on desktop is a local connector that belongs to you. The desktop application stores its configuration on your computer, and only you can use it. To share an MCP server across the web, mobile, and desktop applications, its owner sets it up as a cloud connector instead. For more information, see [Model Context Protocol (MCP) integration](mcp-integration.md). A cloud connector runs from your AWS Quick account, supports OAuth with Dynamic Client Registration (DCR), and stores its tokens in the account's token vault.
 
 How a local connector communicates depends on where the server runs. A server that runs as a command on your computer communicates over standard input and output (stdio). A server at a URL communicates over Streamable HTTP, and Quick falls back to HTTP with server-sent events (SSE) when the server doesn't support Streamable HTTP. Local connectors don't support OAuth or DCR, because the desktop application doesn't store or renew tokens for them. To authenticate to a URL server, add a header, such as an API key, and store its value as a secret.
 
-To add one, choose Create and then MCP server. A dialog offers three connection types. You can also paste a standard MCP server JSON configuration to populate the form.
+To add one, choose **Create**, and then choose **Local connector**. A dialog offers three connection types. You can also paste a standard MCP server JSON configuration to populate the form.
 
 **Local**  
 Run an MCP server as a command on your machine, the most common option for development tools and locally installed servers.
@@ -137,13 +137,13 @@ After you add servers, they appear in the MCP servers section, where you search,
 ## Coding agents
 <a name="desktop-coding-agents"></a>
 
-Coding agents are external AI coding tools that Amazon Quick delegates development tasks to, using the Agent Client Protocol (ACP). When enabled, you ask Quick to send work to a coding agent, for example "refactor this module," and Quick reports the results back.
+Coding agents are external AI coding tools that AWS Quick delegates development tasks to, using the Agent Client Protocol (ACP). When enabled, you ask Quick to send work to a coding agent, for example "refactor this module," and Quick reports the results back.
 
 **To add a coding agent**
 
-1. Choose Customize, and then choose the Connectors tab.
+1. Choose **Customize**, and then choose the **Connectors** tab.
 
-1. Choose Create, and then choose Coding agent.
+1. Choose **Create**, and then choose **Coding agent**.
 
 1. Configure the agent, and then save.
 
@@ -152,6 +152,6 @@ You add a coding agent from a preset (a one-click add for a supported agent, whi
 + Override path: where the agent runs. When empty, the agent runs in the current conversation's workspace. An absolute path supports mounted, external-volume, or remote setups.
 + MCP server forwarding: which MCP servers are forwarded to the agent: None (the default), All enabled, or Choose specific servers.
 
-For a supported preset agent, additional configuration is available: tool permissions with three states per tool (Off, Ask for Permission, or Auto-approve), write-path scoping, and model selection. You can test the connection before saving.
+For Kiro, you can set each tool to **Off**, **Ask**, or **Auto**, or choose a preset: **Read-only**, **Supervised**, or **Trust all**. Under **Allowed paths**, you list folders where Kiro can edit files without asking. You can also choose Kiro's model and test the connection before you save. Claude Code doesn't support ACP permission enforcement, so it runs with full access.
 
 Add only coding agents your organization approves. You are responsible for the security and data-handling compliance of any coding agent you register.

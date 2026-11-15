@@ -24,7 +24,7 @@ A positive or negative value that represents the amount of time that you want to
 + Q: This returns the quarter that the date belongs to (1–4). 
 + MM: This returns the month portion of the date. 
 + DD: This returns the day portion of the date. 
-+ WK: This returns the week portion of the date. The week starts on Sunday in Amazon Quick. 
++ WK: This returns the week portion of the date. The week starts on Sunday in AWS Quick. 
 + HH: This returns the hour portion of the date. 
 + MI: This returns the minute portion of the date. 
 + SS: This returns the second portion of the date.

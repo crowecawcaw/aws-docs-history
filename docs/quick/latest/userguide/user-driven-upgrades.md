@@ -11,9 +11,9 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
-User-driven license upgrades allow users to seamlessly transition between license tiers as their needs grow. When users encounter a feature that requires a higher tier or reach their usage limits, Amazon Quick provides contextual upgrade prompts to help them continue their work without interruption.
+User-driven license upgrades allow users to seamlessly transition between license tiers as their needs grow. When users encounter a feature that requires a higher tier or reach their usage limits, AWS Quick provides contextual upgrade prompts to help them continue their work without interruption.
 
 **Note**  
 Depending on your organization's settings, upgrades may process automatically or require administrator approval.
@@ -21,7 +21,7 @@ Depending on your organization's settings, upgrades may process automatically or
 ## Overview
 <a name="overview"></a>
 
-User-driven license upgrades enable Amazon Quick users to request higher-tier licenses when they encounter features or reach usage limits that require additional capabilities. This self-service approach reduces friction in the user experience while maintaining administrative control over licensing decisions.
+User-driven license upgrades enable AWS Quick users to request higher-tier licenses when they encounter features or reach usage limits that require additional capabilities. This self-service approach reduces friction in the user experience while maintaining administrative control over licensing decisions.
 
 The upgrade process is designed to be contextual and non-disruptive. Users see upgrade prompts at the moment they need additional capabilities, allowing them to continue their work seamlessly after approval.
 
@@ -37,7 +37,7 @@ Each upgrade path provides immediate access to new features upon approval, with 
 ## Feature-based upgrades
 <a name="feature-based-upgrades"></a>
 
-When users attempt to access features not available in their current tier, Amazon Quick presents contextual upgrade prompts. These prompts explain the benefits of the higher tier and guide users through the upgrade request process.
+When users attempt to access features not available in their current tier, AWS Quick presents contextual upgrade prompts. These prompts explain the benefits of the higher tier and guide users through the upgrade request process.
 
 Common scenarios that trigger feature-based upgrade prompts include:
 + Accessing advanced visualization types

@@ -1,13 +1,13 @@
 
 
-# Column not found when using Athena with Amazon Quick Sight
+# Column not found when using Athena with AWS Quick Sight
 <a name="troubleshoot-athena-column-not-found"></a>
 
 You can receive a "`column not found`" error if the columns in an analysis are missing from the Athena data source. 
 
-In Amazon Quick Sight, open your analysis. On the **Visualize** tab, choose **Choose dataset**, **Edit analysis data sets**. 
+In AWS Quick Sight, open your analysis. On the **Visualize** tab, choose **Choose dataset**, **Edit analysis data sets**. 
 
-On the **Data sets in this analysis** screen, choose **Edit** near your dataset to refresh the dataset. Amazon Quick Sight caches the schema for two minutes. So it can take two minutes before the latest changes display. 
+On the **Data sets in this analysis** screen, choose **Edit** near your dataset to refresh the dataset. AWS Quick Sight caches the schema for two minutes. So it can take two minutes before the latest changes display. 
 
 To investigate how the column was lost in the first place, you can go to the Athena console ([https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home)) and check the query history to find queries that edited the table.
 

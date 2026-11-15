@@ -1,9 +1,9 @@
 
 
-# Augmenting Amazon Quick Sight insights with Amazon Q Business
+# Augmenting AWS Quick Sight insights with Amazon Q Business
 <a name="generative-bi-q-business"></a>
 
-Amazon Quick account admins can connect their Quick account to Amazon Q Business to augment insights with unstructured data sources. [Amazon Q Business](https://aws.amazon.com/q/business/) is a generative AI assistant that helps your team work smarter. It can answer questions, provide summaries, generate content, and securely complete tasks based on the information in your enterprise systems.
+AWS Quick account admins can connect their Quick account to Amazon Q Business to augment insights with unstructured data sources. [Amazon Q Business](https://aws.amazon.com/q/business/) is a generative AI assistant that helps your team work smarter. It can answer questions, provide summaries, generate content, and securely complete tasks based on the information in your enterprise systems.
 
 When an Quick account is integrated with Amazon Q Business, users can now leverage this vast repository of organizational knowledge alongside their structured data analytics. This integration allows for more comprehensive and context-rich insights, as it combines quantitative data from Quick with qualitative information from various business documents and applications.
 
@@ -13,9 +13,9 @@ Use the following topics to configure an Amazon Q Business application in Quick.
 
 **Topics**
 + [Considerations](#generative-bi-q-business-considerations)
-+ [Configuring an Amazon Q Business application in Amazon Quick Sight](generative-bi-q-business-configure.md)
++ [Configuring an Amazon Q Business application in AWS Quick Sight](generative-bi-q-business-configure.md)
 + [Connect a Quick account to an existing Amazon Q Business application](generative-bi-q-business-link-existing-account.md)
-+ [Disconnect an Amazon Q Business application from an Amazon Quick account](generative-bi-q-business-delete-connection.md)
++ [Disconnect an Amazon Q Business application from an AWS Quick account](generative-bi-q-business-delete-connection.md)
 
 ## Considerations
 <a name="generative-bi-q-business-considerations"></a>

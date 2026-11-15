@@ -3,18 +3,18 @@
 # User-managed setup
 <a name="sharepoint-kb-user-managed"></a>
 
-With user-managed setup, you sign in to SharePoint directly and Amazon Quick handles authentication. Most users can complete setup in a few minutes.
+With user-managed setup, you sign in to SharePoint directly and AWS Quick handles authentication. Most users can complete setup in a few minutes.
 
 ## Prerequisites
 <a name="sharepoint-kb-user-prerequisites"></a>
 
 Before you begin, make sure you have the following:
 + A Microsoft 365 account with access to the SharePoint sites you want to index.
-+ Access to Amazon Quick with permissions to create knowledge bases.
-+ A browser that allows popups from the Amazon Quick console domain.
++ Access to AWS Quick with permissions to create knowledge bases.
++ A browser that allows popups from the AWS Quick console domain.
 
 **Important**  
-User-managed setup does not support document-level access control (ACL). All indexed content is accessible to any user who has access to the knowledge base in Amazon Quick. Individual permissions in SharePoint are not enforced. Carefully review which content you include when creating a knowledge base. If you require document-level access control, use [Admin-managed setup (service credentials)](sharepoint-kb-admin-managed.md) instead.
+User-managed setup does not support document-level access control (ACL). All indexed content is accessible to any user who has access to the knowledge base in AWS Quick. Individual permissions in SharePoint are not enforced. Carefully review which content you include when creating a knowledge base. If you require document-level access control, use [Admin-managed setup (service credentials)](sharepoint-kb-admin-managed.md) instead.
 
 ## Create the SharePoint knowledge base
 <a name="sharepoint-kb-user-create"></a>
@@ -22,7 +22,7 @@ User-managed setup does not support document-level access control (ACL). All ind
 ### Navigate to Knowledge
 <a name="sharepoint-kb-user-navigate"></a>
 
-1. In Amazon Quick, choose **Knowledge** from the left navigation panel.
+1. In AWS Quick, choose **Knowledge** from the left navigation panel.
 
 1. Under **Set up new knowledge base**, locate **Microsoft SharePoint Online** and choose the **\+** icon.
 
@@ -65,16 +65,16 @@ After you choose **Create**, you are returned to the knowledge base list page. T
 ## Admin consent for Microsoft 365
 <a name="sharepoint-kb-user-admin-consent"></a>
 
-Most users complete setup without any extra steps. However, if your Microsoft 365 tenant restricts third-party app access, you might see an error when you sign in. In this case, a Microsoft 365 administrator needs to grant one-time consent for the Amazon Quick application. After consent is granted, any user in your organization can connect.
+Most users complete setup without any extra steps. However, if your Microsoft 365 tenant restricts third-party app access, you might see an error when you sign in. In this case, a Microsoft 365 administrator needs to grant one-time consent for the AWS Quick application. After consent is granted, any user in your organization can connect.
 
 If you are not a Microsoft 365 administrator, share the following information with your administrator:
-+ **What to do:** Grant admin consent for the Amazon Quick SharePoint integration application.
-+ **Why:** Amazon Quick needs delegated read access to SharePoint sites and files to index content for knowledge bases.
++ **What to do:** Grant admin consent for the AWS Quick SharePoint integration application.
++ **Why:** AWS Quick needs delegated read access to SharePoint sites and files to index content for knowledge bases.
 
 ### Grant organization-wide admin consent
 <a name="entra-admin-consent"></a>
 
-Some Amazon Quick features require delegated permissions from Microsoft Entra. By default, each user sees a Microsoft consent dialog the first time they use the feature. A Microsoft 365 administrator can pre-consent on behalf of the entire organization so that individual users aren't prompted. This is a one-time action per application.
+Some AWS Quick features require delegated permissions from Microsoft Entra. By default, each user sees a Microsoft consent dialog the first time they use the feature. A Microsoft 365 administrator can pre-consent on behalf of the entire organization so that individual users aren't prompted. This is a one-time action per application.
 
 **Note**  
 If your Microsoft 365 tenant is configured to restrict user consent for third-party applications, admin consent is required, not optional. Without it, users see an error when they attempt to use the feature.
@@ -115,7 +115,7 @@ Administrators can also grant consent directly from the Microsoft Entra admin ce
 
 1. In the left navigation pane, expand **Entra ID** and choose **Enterprise applications**.
 
-1. Locate the enterprise application for the Amazon Quick feature.
+1. Locate the enterprise application for the AWS Quick feature.
 **Note**  
 The application name appears in the consent dialog that users see when they first use the feature.
 
@@ -166,7 +166,7 @@ The following delegated permissions are requested when a user signs in. Share th
 
 To edit, share, or delete your integration, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations).
 + **App blocked by administrator** – Your Microsoft 365 tenant restricts third-party app access. Ask your Microsoft 365 administrator to grant admin consent. For more information, see [Admin consent for Microsoft 365](#sharepoint-kb-user-admin-consent).
-+ **Sign-in window closes without completing** – Verify that your browser allows popups from the Amazon Quick console domain and that third-party cookies are enabled.
++ **Sign-in window closes without completing** – Verify that your browser allows popups from the AWS Quick console domain and that third-party cookies are enabled.
 + **Token expired** – Delegated credentials last approximately 90 days. If syncs fail after this period, you need to re-authenticate. For more information, see [Token refresh with user-managed setup](sharepoint-kb-troubleshooting.md#sharepoint-kb-troubleshooting-token-refresh).
 + **Missing content** – Verify that the account you used for authentication has access to the files and folders you selected. Content shared with you after the initial sync requires a resync to be indexed.
 
@@ -175,4 +175,4 @@ For additional troubleshooting, including sync monitoring and reports, see [Trou
 ## Next steps
 <a name="sharepoint-kb-user-next-steps"></a>
 
-After your knowledge base is created and the initial sync completes, you can use it in Amazon Quick to answer questions from your SharePoint content. To manage your knowledge base, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations).
+After your knowledge base is created and the initial sync completes, you can use it in AWS Quick to answer questions from your SharePoint content. To manage your knowledge base, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations).

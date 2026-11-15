@@ -3,14 +3,14 @@
 # Airtable integration
 <a name="airtable-integration"></a>
 
-With the Airtable connector, you can access the Airtable platform directly in Amazon Quick through natural language. You can create and update records, manage bases and tables, filter views, and perform relational data operations without leaving Amazon Quick.
+With the Airtable connector, you can access the Airtable platform directly in AWS Quick through natural language. You can create and update records, manage bases and tables, filter views, and perform relational data operations without leaving AWS Quick.
 
-Amazon Quick supports multiple authentication methods for Airtable. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for Airtable. Choose the method that best fits your organization's security requirements.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. Users authenticate directly with their Airtable account.
 + **Custom OAuth app** – Uses a customer-managed OAuth application registered in Airtable. This option gives your organization full control over the OAuth configuration.
 + **API Key** – Uses an Airtable personal access token for authentication. Suitable for individual use or testing.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="airtable-integration-prerequisites"></a>
@@ -19,19 +19,19 @@ Make sure that you have the following before you set up the integration.
 + An active Airtable account with access to the bases and data that you want to use.
 + For **Custom OAuth app**: Access to the [Airtable Builder Hub](https://airtable.com/create/oauth) on the Airtable website to register an OAuth integration.
 + For **API Key**: A personal access token from the [Airtable Builder Hub](https://airtable.com/create/tokens) on the Airtable website.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Airtable
 <a name="airtable-source-setup"></a>
 
-If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in Amazon Quick](#airtable-quicksuite-setup).
+If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in AWS Quick](#airtable-quicksuite-setup).
 
-For Custom OAuth app or API Key authentication, complete the applicable steps in Airtable before configuring Amazon Quick.
+For Custom OAuth app or API Key authentication, complete the applicable steps in Airtable before configuring AWS Quick.
 
 ### Register an OAuth integration (Custom OAuth app)
 <a name="airtable-register-oauth"></a>
 
-Create an OAuth integration in the Airtable Builder Hub to obtain the client credentials that you need for Amazon Quick.
+Create an OAuth integration in the Airtable Builder Hub to obtain the client credentials that you need for AWS Quick.
 
 1. Sign in to the [Airtable Builder Hub](https://airtable.com/create/oauth) on the Airtable website and choose **OAuth integrations**.
 
@@ -39,13 +39,13 @@ Create an OAuth integration in the Airtable Builder Hub to obtain the client cre
 
 1. Enter a **Name** for your integration.
 
-1. For **OAuth redirect URLs**, enter the redirect URL from Amazon Quick: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
+1. For **OAuth redirect URLs**, enter the redirect URL from AWS Quick: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
 
 1. Choose **Register integration**.
 
 1. After registration, generate a client secret by choosing **Regenerate client secret**.
 
-1. Record the following values. You need them when you configure Amazon Quick.
+1. Record the following values. You need them when you configure AWS Quick.
    + **Client ID**
    + **Client secret**
 
@@ -62,7 +62,7 @@ Create a personal access token in the Airtable Builder Hub for API Key authentic
 
 1. Configure the token name, scopes, and base access as needed for your use case.
 
-1. Copy and securely store the generated token. You need it when you configure Amazon Quick.
+1. Copy and securely store the generated token. You need it when you configure AWS Quick.
 
 ### Recommended scopes
 <a name="airtable-oauth-scopes"></a>
@@ -82,7 +82,7 @@ When you register an OAuth integration or create a personal access token, config
 | schema.bases:write | Edit the structure of bases, including table names and field types. | 
 | user.email:read | Read the email address of the authenticated user. | 
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="airtable-quicksuite-setup"></a>
 
 ### Connect from the Available tab
@@ -90,7 +90,7 @@ When you register an OAuth integration or create a personal access token, config
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **Airtable** and choose **Connect**.
 
@@ -101,9 +101,9 @@ To configure a connector with Custom OAuth app or API Key instead, use the **Cre
 ### Create from the Create for your team tab
 <a name="airtable-full-setup"></a>
 
-After you complete any required Airtable configuration, create the connector in Amazon Quick.
+After you complete any required Airtable configuration, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -127,7 +127,7 @@ If an Airtable connector already exists, a dialog appears with your existing con
       + **Client secret** – The client secret from your Airtable OAuth integration.
       + **Token URL** – The token endpoint. Example: `https://airtable.com/oauth2/v1/token`
       + **Authorization URL** – The authorization endpoint. Example: `https://airtable.com/oauth2/v1/authorize`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
    1. For **API Key**, configure the following fields:
       + **Base URL** (Optional) – The Airtable API base URL. Example: `https://api.airtable.com`
@@ -182,7 +182,7 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 
 ### Authentication issues
 <a name="airtable-troubleshooting-auth"></a>
-+ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Airtable account is active and that you can sign in to [airtable.com](https://airtable.com) on the Airtable website directly. For Custom OAuth app, confirm that the redirect URL in your Airtable OAuth integration matches the Amazon Quick callback URL.
-+ **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Airtable OAuth integration. If you regenerated the client secret, update the value in Amazon Quick.
++ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Airtable account is active and that you can sign in to [airtable.com](https://airtable.com) on the Airtable website directly. For Custom OAuth app, confirm that the redirect URL in your Airtable OAuth integration matches the AWS Quick callback URL.
++ **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Airtable OAuth integration. If you regenerated the client secret, update the value in AWS Quick.
 + **API Key rejected** – Verify that your personal access token is active and has the required scopes. Tokens can be revoked or expired in the Airtable Builder Hub.
 + **Insufficient permissions** – Verify that the scopes configured for your authentication method include the permissions required for the actions that you want to use. See [Recommended scopes](#airtable-oauth-scopes).

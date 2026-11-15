@@ -1,11 +1,11 @@
 
 
-# Granting anyone on the internet access to an Amazon Quick Sight dashboard using the Quick Sight API
+# Granting anyone on the internet access to an AWS Quick Sight dashboard using the Quick Sight API
 <a name="share-a-dashboard-grant-access-anyone-api"></a>
 
-Alternatively, you can grant anyone on the internet access to the dashboard with the Amazon Quick Sight API using the `UpdateDashboardPermissions` operation.
+Alternatively, you can grant anyone on the internet access to the dashboard with the AWS Quick Sight API using the `UpdateDashboardPermissions` operation.
 
-Before you begin, make sure to grant everyone in your account access to the dashboard. For more information, see [Granting everyone in your Amazon Quick account access to a dashboard with the Quick Sight API](share-a-dashboard-grant-access-everyone-api.md).
+Before you begin, make sure to grant everyone in your account access to the dashboard. For more information, see [Granting everyone in your AWS Quick account access to a dashboard with the Quick Sight API](share-a-dashboard-grant-access-everyone-api.md).
 
 The following example API request illustrates how to grant anyone on the internet access to a dashboard using an AWS CLI command. It grants link permissions on the dashboard in your account, and allows the following operations: `DescribeDashboard`, `QueryDashboard` and `ListDashboardVersions`.
 
@@ -67,7 +67,7 @@ Actions="quicksight:DescribeDashboard, quicksight:QueryDashboard,
 quicksight:ListDashboardVersions"
 ```
 
-For more information, see [UpdateDashboardPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPermissions.html) in the *Amazon Quick API Reference*.
+For more information, see [UpdateDashboardPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPermissions.html) in the *AWS Quick API Reference*.
 
 When anyone on the internet is granted access to the dashboard, the following snippet is added to AWS CloudTrail log as part of the `eventName` `UpdateDashboardAccess`, and the `eventCategory` `Management`.
 

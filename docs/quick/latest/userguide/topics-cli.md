@@ -1,6 +1,6 @@
 
 
-# Work with Quick Sight Topics using the Amazon Quick Sight APIs
+# Work with Quick Sight Topics using the AWS Quick Sight APIs
 <a name="topics-cli"></a>
 
 
@@ -11,9 +11,9 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
-Use this section to learn how to work with Quick Sight Topics using the Amazon Quick Sight command line interface (CLI).
+Use this section to learn how to work with Quick Sight Topics using the AWS Quick Sight command line interface (CLI).
 
 **Prerequisites**
 

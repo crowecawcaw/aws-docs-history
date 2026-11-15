@@ -1,6 +1,6 @@
 
 
-# Sharing your view of a Amazon Quick Sight dashboard
+# Sharing your view of a AWS Quick Sight dashboard
 <a name="share-dashboard-view"></a>
 
 While interacting with a published dashboard, you can choose to share a unique link to the dashboard with only your changes. For example, if you filter the data in the dashboard, you can share what you see with others who have permissions to see the dashboard. That way, they can see what you see, without your having to create a new dashboard. 

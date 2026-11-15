@@ -3,11 +3,11 @@
 # Authorizing connections to Amazon Athena
 <a name="athena"></a>
 
-If you need use Amazon Quick Sight with Amazon Athena or Amazon Athena Federated Query, you first need to authorize connections to Athena and the associated buckets in Amazon Simple Storage Service (Amazon S3). Amazon Athena is an interactive query service that makes it easy to analyze data directly in Amazon S3 using standard SQL. Athena Federated Query provides access to more types of data by using AWS Lambda. Using a connection from Quick to Athena, you can write SQL queries to interrogate data that's stored in relational, non-relational, object, and custom data sources. For more information, see [ Using Athena federated query](https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html) in the Amazon Athena User Guide. 
+If you need use AWS Quick Sight with Amazon Athena or Amazon Athena Federated Query, you first need to authorize connections to Athena and the associated buckets in Amazon Simple Storage Service (Amazon S3). Amazon Athena is an interactive query service that makes it easy to analyze data directly in Amazon S3 using standard SQL. Athena Federated Query provides access to more types of data by using AWS Lambda. Using a connection from Quick to Athena, you can write SQL queries to interrogate data that's stored in relational, non-relational, object, and custom data sources. For more information, see [ Using Athena federated query](https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html) in the Amazon Athena User Guide. 
 
 Review the following considerations when setting up access to Athena from Quick:
-+ Athena stores query results from Amazon Quick Sight in a bucket. By default, this bucket has a name similar to `aws-athena-query-results-AWSREGION-AWSACCOUNTID`, for example `aws-athena-query-results-us-east-2-111111111111`. Therefore, it's important to make sure Amazon Quick Sight has permissions to access the bucket Athena is currently using.
-+ If your data file is encrypted with an AWS KMS key, grant permissions to the Amazon Quick Sight IAM role to decrypt the key. The easiest way to do this is to use the AWS CLI. 
++ Athena stores query results from AWS Quick Sight in a bucket. By default, this bucket has a name similar to `aws-athena-query-results-AWSREGION-AWSACCOUNTID`, for example `aws-athena-query-results-us-east-2-111111111111`. Therefore, it's important to make sure AWS Quick Sight has permissions to access the bucket Athena is currently using.
++ If your data file is encrypted with an AWS KMS key, grant permissions to the AWS Quick Sight IAM role to decrypt the key. The easiest way to do this is to use the AWS CLI. 
 
   You can run the KMS [create-grant](https://docs.aws.amazon.com/cli/latest/reference/kms/create-grant.html) API operation in AWS CLI to do this. 
 
@@ -16,25 +16,25 @@ Review the following considerations when setting up access to Athena from Quick:
   --grantee-principal <QS_ROLE_ARN> --operations Decrypt
   ```
 
-  The Amazon Resource Name (ARN) for the Amazon Quick role has the format `arn:aws:iam::<account id>:role/service-role/aws-quicksight-s3-consumers-role-v<version number>` and can be accessed from the IAM console. To find your KMS key ARN, use the S3 console. Go to the bucket that contains your data file and choose the **Overview** tab. The key is located near **KMS key ID**.
-+ For Amazon Athena, Amazon S3, and Athena Query Federation connections, Amazon Quick uses the following IAM role by default: 
+  The Amazon Resource Name (ARN) for the AWS Quick role has the format `arn:aws:iam::<account id>:role/service-role/aws-quicksight-s3-consumers-role-v<version number>` and can be accessed from the IAM console. To find your KMS key ARN, use the S3 console. Go to the bucket that contains your data file and choose the **Overview** tab. The key is located near **KMS key ID**.
++ For Amazon Athena, Amazon S3, and Athena Query Federation connections, AWS Quick uses the following IAM role by default: 
 
   ```
   arn:aws:iam::{{AWS-ACCOUNT-ID}}:role/service-role/aws-quicksight-s3-consumers-role-v0
   ```
 
-  If the `aws-quicksight-s3-consumers-role-v0` is not present, then Amazon Quick uses:
+  If the `aws-quicksight-s3-consumers-role-v0` is not present, then AWS Quick uses:
 
   ```
   arn:aws:iam::{{AWS-ACCOUNT-ID}}:role/service-role/aws-quicksight-service-role-v0
   ```
-+ If you assigned scope-down policies to your users, verify that the policies contain the `lambda:InvokeFunction` permission. Without this permission, your users can't access Athena Federated Queries. For more information about assigning IAM policies to your users in Amazon Quick, see [Setting granular access to AWS services through IAM](https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-iam-interface.html). For more information about the lambda:InvokeFunction permission, see [Actions, resources, and condition keys for AWS Lambda](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html) in the *IAM User Guide*.
++ If you assigned scope-down policies to your users, verify that the policies contain the `lambda:InvokeFunction` permission. Without this permission, your users can't access Athena Federated Queries. For more information about assigning IAM policies to your users in AWS Quick, see [Setting granular access to AWS services through IAM](https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-iam-interface.html). For more information about the lambda:InvokeFunction permission, see [Actions, resources, and condition keys for AWS Lambda](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html) in the *IAM User Guide*.
 
-**To authorize Amazon Quick to connect to Athena or Athena federated data sources**
+**To authorize AWS Quick to connect to Athena or Athena federated data sources**
 
 1. (Optional) If you are using AWS Lake Formation with Athena, you also need to enable Lake Formation. For more information, see [Authorizing connections through AWS Lake Formation](https://docs.aws.amazon.com/quicksight/latest/user/lake-formation.html). 
 
-1. Open your profile menu at top right and choose **Manage QuickSight**. You must be a Amazon Quick administrator to do this. If you don't see **Manage QuickSight** on the profile menu, you don't have sufficient permissions. 
+1. Open your profile menu at top right and choose **Manage QuickSight**. You must be a AWS Quick administrator to do this. If you don't see **Manage QuickSight** on the profile menu, you don't have sufficient permissions. 
 
 1. Choose **Security & permissions**, **Add or remove**. 
 
@@ -46,7 +46,7 @@ Review the following considerations when setting up access to Athena from Quick:
 
 1. (Optional) To enable Athena federated queries, select the Lambda functions you want to use. 
 **Note**  
-You can only see Lambda functions for the Athena catalogs in the same region of Amazon Quick.
+You can only see Lambda functions for the Athena catalogs in the same region of AWS Quick.
 
 1. To confirm your changes, choose **Finish**.
 
@@ -56,7 +56,7 @@ You can only see Lambda functions for the Athena catalogs in the same region of 
 
 **To test the connection authorization settings**
 
-1. From the Amazon Quick start page, choose **Datasets**, **New dataset**.
+1. From the AWS Quick start page, choose **Datasets**, **New dataset**.
 
 1. Choose the Athena card.
 
@@ -64,11 +64,11 @@ You can only see Lambda functions for the Athena catalogs in the same region of 
 
 1. If the connection validates, you have successfully configured an Athena or Athena Federated Query connection.
 
-   If you don't have sufficient permissions to connect to an Athena dataset or run an Athena query, an error displays directing you to contact a Amazon Quick administrator. This error means need to recheck your connection authorization settings to find the discrepancy. 
+   If you don't have sufficient permissions to connect to an Athena dataset or run an Athena query, an error displays directing you to contact a AWS Quick administrator. This error means need to recheck your connection authorization settings to find the discrepancy. 
 
-1. After you can connect successfully, you or your Amazon Quick authors can create data sources connections and share them with other Amazon Quick authors. The authors can then create multiple datasets from the connections, to use in Amazon Quick dashboards.
+1. After you can connect successfully, you or your AWS Quick authors can create data sources connections and share them with other AWS Quick authors. The authors can then create multiple datasets from the connections, to use in AWS Quick dashboards.
 
-   For troubleshooting information on Athena, see [Connectivity issues when using Athena with Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/troubleshoot-athena.html).
+   For troubleshooting information on Athena, see [Connectivity issues when using Athena with AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/troubleshoot-athena.html).
 
 ## Using trusted identity propagation with Athena
 <a name="athena-trusted-identity-propagation"></a>
@@ -86,7 +86,7 @@ Before you get started, make sure that you have the following required prerequis
 
 **Important**  
 As you complete the following prerequisites, note that your IAM Identity Center instance, Athena workgroup, Lake Formation and Amazon S3 Access Grants must all be deployed in the same AWS Region.
-+ Configure your Quick account with IAM Identity Center. Trusted identity propagation is only supported for Quick accounts that are integrated with IAM Identity Center. For more information, see [Configure your Amazon Quick account with IAM Identity Center](setting-up-sso.md#sec-identity-management-identity-center).
++ Configure your Quick account with IAM Identity Center. Trusted identity propagation is only supported for Quick accounts that are integrated with IAM Identity Center. For more information, see [Configure your AWS Quick account with IAM Identity Center](setting-up-sso.md#sec-identity-management-identity-center).
 **Note**  
 To create Athena data sources, you must be an IAM Identity Center user (author) in a Quick account that uses IAM Identity Center.
 + An Athena workgroup that is enabled with IAM Identity Center. The Athena workgroup that you use must be using the same IAM Identity Center instance as the Quick account. For more information about configuring an Athena workgroup, see [Creating an IAM Identity Center enabled Athena workgroup.](https://docs.aws.amazon.com/athena/latest/ug/workgroups-identity-center.html#workgroups-identity-center-creating-an-identity-center-enabled-athena-workgroup) in the *Amazon Athena User Guide*. 

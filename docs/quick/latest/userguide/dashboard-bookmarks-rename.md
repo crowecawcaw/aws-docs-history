@@ -1,6 +1,6 @@
 
 
-# Renaming bookmarks in Amazon Quick Sight
+# Renaming bookmarks in AWS Quick Sight
 <a name="dashboard-bookmarks-rename"></a>
 
 Use the following procedure to rename a bookmark.

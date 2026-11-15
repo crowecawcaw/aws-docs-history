@@ -1,6 +1,6 @@
 
 
-# Setting a default theme for Amazon Quick analyses with the Amazon Quick APIs
+# Setting a default theme for AWS Quick analyses with the AWS Quick APIs
 <a name="customizing-quicksight-default-theme"></a>
 
 **To set a default theme by using the API**
@@ -26,7 +26,7 @@
 
 1. Use the [ListUsers](https://docs.aws.amazon.com//quicksight/latest/APIReference/API_ListUsers.html) or [ListGroups](https://docs.aws.amazon.com//quicksight/latest/APIReference/API_ListGroups.html) API operation to collect the Amazon Resource Names (ARNs) for users or groups that need to use the theme as a default. You need only the top-level ARN. If all your users are part of the same group, use the group ARN. 
 
-   For more information on Amazon Quick ARNs, see [ARN formats](https://docs.aws.amazon.com//quicksight/latest/APIReference/qs-arn-format.html) in the *Quick API Reference.* 
+   For more information on AWS Quick ARNs, see [ARN formats](https://docs.aws.amazon.com//quicksight/latest/APIReference/qs-arn-format.html) in the *Quick API Reference.* 
 
 1. If you're using a custom theme, grant access to the theme for the ARNs that you collected in the previous step. If you're using a starter theme, skip this step because all users have access to starter themes. 
 

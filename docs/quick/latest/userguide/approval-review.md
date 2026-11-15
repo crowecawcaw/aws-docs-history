@@ -16,7 +16,7 @@ When approval review is enabled, sharing a flow follows a three-stage cycle:
 ## Who can review flows
 <a name="admin-and-author-pro-view"></a>
 
-Users with Amazon Quick Enterprise subscriptions (Author Pro or Admin Pro roles) can review and approve flows. Users with Amazon Quick Professional subscriptions cannot review flows.
+Users with AWS Quick Enterprise subscriptions (Author Pro or Admin Pro roles) can review and approve flows. Users with AWS Quick Professional subscriptions cannot review flows.
 
 Reviewers can:
 + View all submitted flows in the **Pending approval** tab

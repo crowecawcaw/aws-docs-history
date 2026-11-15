@@ -19,7 +19,7 @@ When you filter on multiple measures (green fields marked with \#), you can appl
 
 1.  Choose the conditions to filter on. 
 
-   The data type of the field that you selected determines the options available here. For example, if you chose a numeric field, you can specify the aggregation, filter condition, and values. If you chose a text field, you can chose the filter type, filter condition, and values. And if you chose a date field, you can specify the filter type, condition, and time granularity. For more information about these options, see [Filter types in Amazon Quick](filtering-types.md).
+   The data type of the field that you selected determines the options available here. For example, if you chose a numeric field, you can specify the aggregation, filter condition, and values. If you chose a text field, you can chose the filter type, filter condition, and values. And if you chose a date field, you can specify the filter type, condition, and time granularity. For more information about these options, see [Filter types in AWS Quick](filtering-types.md).
 
 1.  (Optional) You can add additional filter conditions to the filter group by choosing **Add filter condition** again at bottom.
 

@@ -1,6 +1,6 @@
 
 
-# Parameters in Amazon Quick
+# Parameters in AWS Quick
 <a name="parameters-in-quicksight"></a>
 
 *Parameters* are named variables that can transfer a value for use by an action or an object. By using parameters, you can create an easier way for a dashboard user to interact with dashboard features in a less technical way. Parameters can also connect one dashboard to another, allowing a dashboard user to drill down into data that's in a different analysis.
@@ -22,7 +22,7 @@ Some ways that you can use parameters are the following:
 + Using controls and custom actions, you can let dashboard users set values for the URL actions. 
 
 **Topics**
-+ [Setting up parameters in Amazon Quick](parameters-set-up.md)
-+ [Using a control with a parameter in Amazon Quick](parameters-controls.md)
-+ [Creating parameter defaults in Amazon Quick](parameters-default-values.md)
-+ [Connecting to parameters in Amazon Quick](parameters-connections.md)
++ [Setting up parameters in AWS Quick](parameters-set-up.md)
++ [Using a control with a parameter in AWS Quick](parameters-controls.md)
++ [Creating parameter defaults in AWS Quick](parameters-default-values.md)
++ [Connecting to parameters in AWS Quick](parameters-connections.md)

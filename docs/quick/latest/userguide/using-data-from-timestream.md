@@ -1,16 +1,16 @@
 
 
-# Using Amazon Timestream data with Amazon Quick Sight
+# Using Amazon Timestream data with AWS Quick Sight
 <a name="using-data-from-timestream"></a>
 
-Following, you can find how to connect to your Amazon Timestream data using Amazon Quick Sight. For a brief overview, see the [Getting started with Amazon Timestream and Amazon QuickSight](https://youtu.be/TzW4HWl-L8s) video tutorial on YouTube. 
+Following, you can find how to connect to your Amazon Timestream data using AWS Quick Sight. For a brief overview, see the [Getting started with Amazon Timestream and Amazon QuickSight](https://youtu.be/TzW4HWl-L8s) video tutorial on YouTube. 
 
-## Creating a new Amazon Quick Sight data source connection for a Timestream database
+## Creating a new AWS Quick Sight data source connection for a Timestream database
 <a name="create-connection-to-timestream"></a>
 
-Following, you can find how to connect to Amazon Timestream from Amazon Quick Sight.
+Following, you can find how to connect to Amazon Timestream from AWS Quick Sight.
 
-Before you can proceed, Amazon Quick Sight needs to be authorized to connect to Amazon Timestream. If connections aren't enabled, you get an error when you try to connect. A Quick Sight administrator can authorize connections to AWS resources. To authorize, open the menu by clicking on your profile icon at top right. Choose **Manage QuickSight**, **Security & permissions**, **Add or remove**. Then enable the check box for Amazon Timestream, then choose **Update** to confirm. For more information, see [Configuring Amazon Quick Sight access to AWS data sources](access-to-aws-resources.md).
+Before you can proceed, AWS Quick Sight needs to be authorized to connect to Amazon Timestream. If connections aren't enabled, you get an error when you try to connect. A Quick Sight administrator can authorize connections to AWS resources. To authorize, open the menu by clicking on your profile icon at top right. Choose **Manage QuickSight**, **Security & permissions**, **Add or remove**. Then enable the check box for Amazon Timestream, then choose **Update** to confirm. For more information, see [Configuring AWS Quick Sight access to AWS data sources](access-to-aws-resources.md).
 
 **To connect to Amazon Timestream**
 
@@ -100,7 +100,7 @@ Currently, you can use a Timestream connection only for a single table in a data
 
    1. If you want to add calculated fields, choose **Add calculated field**. 
 
-   1. To add a model from SageMaker AI, choose **Augment with SageMaker**. This option is only available in Amazon Quick Enterprise edition.
+   1. To add a model from SageMaker AI, choose **Augment with SageMaker**. This option is only available in AWS Quick Enterprise edition.
 
    1. Clear the check box for any fields that you want to omit.
 

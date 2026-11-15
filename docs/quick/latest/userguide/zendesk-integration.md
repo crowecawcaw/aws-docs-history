@@ -3,11 +3,11 @@
 # Zendesk Suite integration
 <a name="zendesk-integration"></a>
 
-Manage your Zendesk support tickets directly from Amazon Quick using natural language. With the Zendesk Suite connector, you can create, update, search, and list support tickets without leaving Amazon Quick.
+Manage your Zendesk support tickets directly from AWS Quick using natural language. With the Zendesk Suite connector, you can create, update, search, and list support tickets without leaving AWS Quick.
 
-Zendesk Suite is available as a built-in connector in Amazon Quick. To set up this integration, complete the following two steps. First, prepare your Zendesk account with the required access. Then, create the connector in Amazon Quick and authenticate with your Zendesk credentials.
+Zendesk Suite is available as a built-in connector in AWS Quick. To set up this integration, complete the following two steps. First, prepare your Zendesk account with the required access. Then, create the connector in AWS Quick and authenticate with your Zendesk credentials.
 
-This connector supports OAuth user authentication and API key service authentication. For information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+This connector supports OAuth user authentication and API key service authentication. For information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Prerequisites
 <a name="zendesk-integration-prerequisites"></a>
@@ -20,14 +20,14 @@ Before you set up the integration, verify that you have the following resources 
 ## Verify your Zendesk account
 <a name="zendesk-account-setup"></a>
 
-Before you configure Amazon Quick, verify that your Zendesk account meets the following requirements.
+Before you configure AWS Quick, verify that your Zendesk account meets the following requirements.
 + Your Zendesk account is active and you can sign in to the [Zendesk sign-in page](https://www.zendesk.com/login/) on the Zendesk website.
 + The tickets and support data that you want to access are accessible to your account.
 
 ## Configure Zendesk account
 <a name="zendesk-configure-account"></a>
 
-The Custom OAuth app authentication method in Amazon Quick requires an OAuth client configured in Zendesk. The API key authentication method requires an API token.
+The Custom OAuth app authentication method in AWS Quick requires an OAuth client configured in Zendesk. The API key authentication method requires an API token.
 
 ### To configure an OAuth client
 <a name="zendesk-configure-oauth"></a>
@@ -48,7 +48,7 @@ Record the client secret now. You cannot retrieve it after you leave this page.
 
 1. After you capture the secret, choose **Save** again to create the OAuth client.
 
-The Identifier and the secret serve as the Client ID and Client Secret when you configure the connector in Amazon Quick with the Custom OAuth app authentication method.
+The Identifier and the secret serve as the Client ID and Client Secret when you configure the connector in AWS Quick with the Custom OAuth app authentication method.
 
 For more information, see [Using OAuth authentication with your application](https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application) on the Zendesk website.
 
@@ -65,16 +65,16 @@ For more information, see [Using OAuth authentication with your application](htt
 **Important**  
 Record the API token now. You cannot retrieve it after you leave this page.
 
-If you choose the API key authentication method in Amazon Quick, use this API token as the API key value.
+If you choose the API key authentication method in AWS Quick, use this API token as the API key value.
 
 For more information, see [Managing API token access to the Zendesk API](https://support.zendesk.com/hc/en-us/articles/4408889192858-Managing-API-token-access-to-the-Zendesk-API) on the Zendesk website.
 
-## Set up the integration in Amazon Quick
+## Set up the integration in AWS Quick
 <a name="zendesk-integration-setup"></a>
 
-After you verify your Zendesk account access, create the connector in Amazon Quick.
+After you verify your Zendesk account access, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 

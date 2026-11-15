@@ -3,7 +3,7 @@
 # Orchestration
 <a name="actions-orchestration"></a>
 
-Orchestration enables you to automate complex end-to-end processes, coordinating automated tasks with human decisions where needed. The orchestration capabilities in Amazon Quick Automate include case management for tracking work items and human-in-the-loop integration for incorporating human judgment.
+Orchestration enables you to automate complex end-to-end processes, coordinating automated tasks with human decisions where needed. The orchestration capabilities in AWS Quick Automate include case management for tracking work items and human-in-the-loop integration for incorporating human judgment.
 
 ## Case management
 <a name="case-management"></a>
@@ -30,7 +30,7 @@ To track the progress of work through your automation, cases follow a defined li
 ### Actions
 <a name="case-actions"></a>
 
-Amazon Quick Automate provides the following actions to create, process, and manage cases throughout their lifecycle.
+AWS Quick Automate provides the following actions to create, process, and manage cases throughout their lifecycle.
 
 Create new case  
 Creates a single case to track work. Each case has a reference name (e.g., "Order-12345") and stores custom data as key-value pairs. Cases are grouped by type (e.g., "Sales orders") for organization and reporting. Properties:  
@@ -71,7 +71,7 @@ Retrieves cases for reporting and analysis. Filter by case type, status, or refe
 ## Human-in-the-Loop (HITL)
 <a name="human-in-the-loop"></a>
 
-While many decisions can be automated, some scenarios require human judgment. Amazon Quick Automate's HITL capabilities allow you to seamlessly incorporate human decision-making into your automated processes. There are two ways to create HITL tasks:
+While many decisions can be automated, some scenarios require human judgment. AWS Quick Automate's HITL capabilities allow you to seamlessly incorporate human decision-making into your automated processes. There are two ways to create HITL tasks:
 + Using the Create user task action
 + Using HITL chat through a Custom agent
 
@@ -109,7 +109,7 @@ When creating a HITL task, you can build custom forms to collect exactly the inf
 ### HITL chat
 <a name="hitl-chat"></a>
 
-For scenarios requiring more dynamic interaction, Amazon Quick Automate also supports HITL chat through Custom agents. This enables natural language conversation between the agent and human reviewer. The agent can create a HITL tasks when it needs human input. The case will remain In progress while the agent chats with the human reviewer. Once sufficient input is provided, the agent will continue.
+For scenarios requiring more dynamic interaction, AWS Quick Automate also supports HITL chat through Custom agents. This enables natural language conversation between the agent and human reviewer. The agent can create a HITL tasks when it needs human input. The case will remain In progress while the agent chats with the human reviewer. Once sufficient input is provided, the agent will continue.
 
 ```
 # Example agent prompt for HITL chat

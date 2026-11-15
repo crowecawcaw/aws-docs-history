@@ -3,7 +3,7 @@
 # Reverting datasets back to previous published versions
 <a name="dataset-versioning"></a>
 
-When you save and publish changes to a dataset in Amazon Quick Sight, a new version of the dataset is created. At any time, you can see a list of all the previous published versions of that dataset. You can also preview a specific version in that history, or even revert the dataset back to a previous version, if needed.
+When you save and publish changes to a dataset in AWS Quick Sight, a new version of the dataset is created. At any time, you can see a list of all the previous published versions of that dataset. You can also preview a specific version in that history, or even revert the dataset back to a previous version, if needed.
 
 The following limitations apply to dataset versioning:
 + Only the most recent 1,000 versions of a dataset are shown in the publishing history, and are available for versioning.

@@ -3,7 +3,7 @@
 # Joining data
 <a name="joining-data"></a>
 
-You can use the join interface in Amazon Quick Sight to join objects from one or more data sources. By using Amazon Quick Sight to join the data, you can merge disparate data without duplicating the data from different sources. 
+You can use the join interface in AWS Quick Sight to join objects from one or more data sources. By using AWS Quick Sight to join the data, you can merge disparate data without duplicating the data from different sources. 
 
 ## Types of joined datasets
 <a name="join-dataset-types"></a>
@@ -58,12 +58,12 @@ Same-source datasets support geographical data types, but geographical fields ca
 
 Cross-source datasets don't support geographical data in any form.
 
-For some examples of joining tables across data sources, see the [Joining across data sources on Amazon Quick Sight](https://aws.amazon.com/blogs/big-data/joining-across-data-sources-on-amazon-quicksight/) post on the AWS Big Data Blog. 
+For some examples of joining tables across data sources, see the [Joining across data sources on AWS Quick Sight](https://aws.amazon.com/blogs/big-data/joining-across-data-sources-on-amazon-quicksight/) post on the AWS Big Data Blog. 
 
 ## Creating a join
 <a name="create-a-join"></a>
 
-Use the following procedure to join tables to use in a dataset. Before you begin, import or connect to your data. You can create a join between any of the data sources supported by Amazon Quick Sight, except Internet of Things (IoT) data. For example, you can add comma-separated value (.csv) files, tables, views, SQL queries, or JSON objects in an Amazon S3 bucket.
+Use the following procedure to join tables to use in a dataset. Before you begin, import or connect to your data. You can create a join between any of the data sources supported by AWS Quick Sight, except Internet of Things (IoT) data. For example, you can add comma-separated value (.csv) files, tables, views, SQL queries, or JSON objects in an Amazon S3 bucket.
 
 **To add one or more joins**
 
@@ -139,12 +139,12 @@ Use the following procedure to join tables to use in a dataset. Before you begin
    + **Add a calculation** (a calculated field).
    + **Restrict access to only me**, so only you can see it. This can be helpful when you are adding fields to a dataset that's already in use.
 
-1. (Optional) In the **Filters** section, you can add or edit filters. For more information, see [Filtering data in Amazon Quick Sight](adding-a-filter.md).
+1. (Optional) In the **Filters** section, you can add or edit filters. For more information, see [Filtering data in AWS Quick Sight](adding-a-filter.md).
 
 ## Join types
 <a name="join-types"></a>
 
-Amazon Quick Sight supports the following join types:
+AWS Quick Sight supports the following join types:
 + Inner joins
 + Left and right outer joins
 + Full outer joins

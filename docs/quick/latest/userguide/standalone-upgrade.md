@@ -1,12 +1,12 @@
 
 
-# Upgrading your Amazon Quick plan
+# Upgrading your AWS Quick plan
 <a name="standalone-upgrade"></a>
 
-You can upgrade your Amazon Quick plan to the Plus or Max plan at any time. This page walks you through the full upgrade process, including entering contact information, verifying your phone number, and adding a payment method.
+You can upgrade your AWS Quick plan to the Plus or Max plan at any time. This page walks you through the full upgrade process, including entering contact information, verifying your phone number, and adding a payment method.
 
 **Note**  
-This page applies to Amazon Quick accounts created with email or social at [aws.com/quick](https://aws.com/quick). For information about subscription management for Amazon Quick accessed through the AWS Management Console, see [Administering Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html).
+This page applies to AWS Quick accounts created with email or social at [aws.com/quick](https://aws.com/quick). For information about subscription management for AWS Quick accessed through the AWS Management Console, see [Administering AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html).
 
 **Topics**
 + [Accessing plan management](#standalone-upgrade-access)
@@ -21,13 +21,13 @@ You can access the plan management page in two ways.
 
 **Option 1: Through the profile menu**
 
-1. In the Amazon Quick navigation bar, choose your username.
+1. In the AWS Quick navigation bar, choose your username.
 
 1. Choose **Upgrade plan**. The plan management page opens in a new browser tab.
 
 **Option 2: Through Manage Account**
 
-1. In the Amazon Quick navigation bar, choose your username.
+1. In the AWS Quick navigation bar, choose your username.
 
 1. Choose **Manage account**.
 
@@ -62,13 +62,13 @@ You can access the plan management page in two ways.
 
 1. **Verify your phone number.**
 
-   Amazon Quick needs to verify your phone number for security purposes.
+   AWS Quick needs to verify your phone number for security purposes.
 **Note**  
 If you don't receive the code, choose **Resend code** after the countdown timer completes. Make sure your phone can receive SMS messages from short codes.
 
    1. On the **Verify your phone number** page, confirm that the displayed phone number is correct. If not, choose **Edit** to change it.
 
-   1. Choose **Send text message**. Amazon Quick sends a 4-digit verification code to your phone via SMS.
+   1. Choose **Send text message**. AWS Quick sends a 4-digit verification code to your phone via SMS.
 
    1. Enter the 4-digit verification code in the **Verification code** field.
 
@@ -82,7 +82,7 @@ You might be redirected to your bank's website to authorize a verification charg
 
    After entering your payment information, choose **Upgrade plan**.
 
-   Amazon Quick processes your payment method and activates your new plan. You are redirected to the **Plan & Billing** page.
+   AWS Quick processes your payment method and activates your new plan. You are redirected to the **Plan & Billing** page.
 
    Your upgrade takes effect immediately. All team collaboration features are now available.
 
@@ -92,7 +92,7 @@ You might be redirected to your bank's website to authorize a verification charg
 When you upgrade your plan, the change takes effect immediately.
 
 **Note**  
-The prices in the following examples are for illustration only. For current rates, see [Amazon Quick plans and pricing](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-plans.html).
+The prices in the following examples are for illustration only. For current rates, see [AWS Quick plans and pricing](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-plans.html).
 
 ### Monthly plan upgrades
 <a name="standalone-upgrade-billing-monthly"></a>

@@ -11,20 +11,20 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators  | 
+|    Intended audience:  AWS Quick administrators  | 
 
-In Amazon Quick Enterprise edition, you can embed Amazon Quick Sight dashboards, visuals, consoles, and Q search bars in an app or web page. Domains that are going to host these embedded assets must be on an *allow list*, the list of approved domains for your Quick subscription. This requirement protects your data by preventing unapproved domains from hosting embedded dashboards. To embed a Amazon Quick Sight dashboard, visual, console, or Q search bar to a web page or app, add approved domains to a static allow list in the Quick console. Alternatively, add them at runtime with the Quick API.
+In AWS Quick Enterprise edition, you can embed AWS Quick Sight dashboards, visuals, consoles, and Q search bars in an app or web page. Domains that are going to host these embedded assets must be on an *allow list*, the list of approved domains for your Quick subscription. This requirement protects your data by preventing unapproved domains from hosting embedded dashboards. To embed a AWS Quick Sight dashboard, visual, console, or Q search bar to a web page or app, add approved domains to a static allow list in the Quick console. Alternatively, add them at runtime with the Quick API.
 
 Use the following sections to learn more about adding domains for embedded analytics.
 
 **Topics**
 + [Allow listing static domains](#embedding-static)
-+ [Allow listing domains at runtime with the Amazon Quick API](#embedding-run-time)
++ [Allow listing domains at runtime with the AWS Quick API](#embedding-run-time)
 
 ## Allow listing static domains
 <a name="embedding-static"></a>
 
-You can add static domains to your allow list through the Amazon Quick console. All domains on your allow list (such as development, staging, and production) must be explicitly allowed, and they must use HTTPS. You can add up to 100 domains to the allow list.
+You can add static domains to your allow list through the AWS Quick console. All domains on your allow list (such as development, staging, and production) must be explicitly allowed, and they must use HTTPS. You can add up to 100 domains to the allow list.
 
 To embed a dashboard to a static domain:
 + Approve the hosting domains and subdomains for embedding.
@@ -37,7 +37,7 @@ Use the following procedure to view or edit the list of approved domains.
 
 1. Choose the profile icon at top right.
 
-1. Choose **Manage Amazon Quick**. You must be an Amazon Quick admin to access this screen.
+1. Choose **Manage AWS Quick**. You must be an AWS Quick admin to access this screen.
 
 1. Choose **Domains and Embedding** on the left. The domains that you can embed a dashboard in are listed at the bottom of the page. 
 
@@ -60,10 +60,10 @@ The following list shows examples of URLs that are *not* valid for embedded dash
 + https://111.222.33.44.55:1234
 + https://111.222.33.44.55
 
-## Allow listing domains at runtime with the Amazon Quick API
+## Allow listing domains at runtime with the AWS Quick API
 <a name="embedding-run-time"></a>
 
-You can add a domain at runtime to an allow list with the `AllowedDomains` parameter of a `GenerateEmbedUrlForAnonymousUser` or a `GenerateEmbedUrlForRegisteredUser` API call. The `AllowedDomains` parameter is an optional parameter. It grants you the option as a developer to override the static domains that are configured in the **Manage Amazon Quick** menu. 
+You can add a domain at runtime to an allow list with the `AllowedDomains` parameter of a `GenerateEmbedUrlForAnonymousUser` or a `GenerateEmbedUrlForRegisteredUser` API call. The `AllowedDomains` parameter is an optional parameter. It grants you the option as a developer to override the static domains that are configured in the **Manage AWS Quick** menu. 
 
 You can list up to three domains or subdomains. Adding domains to the allow list at runtime also adds HTTP support for the domain `localhost`. The generated URL is then embedded in a developer's website. Only the domains that are listed in the parameter can access the embedded dashboard.
 
@@ -76,7 +76,7 @@ Many different URL variations can point to the same resource. For example, the f
 If your policy uses operators that do not account for these URL variations, an attacker can bypass your restrictions by providing equivalent URL variations.  
 You must validate that your IAM policy uses appropriate condition operators to prevent bypass vulnerabilities and ensure that only your intended domains can access your embedded resources.
 
-To embed a dashboard to a domain at runtime, see [Embedding with the Amazon Quick APIs](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-api.html).
+To embed a dashboard to a domain at runtime, see [Embedding with the AWS Quick APIs](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-api.html).
 
 Make sure that you use a valid URL. The following list shows examples of URLs that are valid for embedded dashboards that use a runtime domain:
 + https://example-1.com
@@ -90,4 +90,4 @@ The following list shows examples of URLs that are *not* valid for embedded dash
 + https://111.222.33.44.55:1234
 + https://111.222.33.44.55
 
-For more information about embedded dashboards, see [Embedding with the Amazon Quick APIs](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-api.html). 
+For more information about embedded dashboards, see [Embedding with the AWS Quick APIs](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-api.html). 

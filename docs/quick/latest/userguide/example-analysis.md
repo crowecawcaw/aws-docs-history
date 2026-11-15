@@ -1,6 +1,6 @@
 
 
-# Tutorial: Create an Amazon Quick Sight dashboard using sample data
+# Tutorial: Create an AWS Quick Sight dashboard using sample data
 <a name="example-analysis"></a>
 
 Use the procedures in the following sections to complete these tasks:
@@ -15,7 +15,7 @@ Use the procedures in the following sections to complete these tasks:
 + Publish a dashboard based on the analysis.
 
 **Topics**
-+ [Tutorial: Create a prepared Amazon Quick Sight dataset](example-prepared-data-set.md)
-+ [Tutorial: Create an Amazon Quick Sight analysis](example-create-an-analysis.md)
-+ [Tutorial: Modify Amazon Quick Sight visuals](example-modify-visuals.md)
-+ [Tutorial: Create an Amazon Quick Sight dashboard](example-create-a-dashboard.md)
++ [Tutorial: Create a prepared AWS Quick Sight dataset](example-prepared-data-set.md)
++ [Tutorial: Create an AWS Quick Sight analysis](example-create-an-analysis.md)
++ [Tutorial: Modify AWS Quick Sight visuals](example-modify-visuals.md)
++ [Tutorial: Create an AWS Quick Sight dashboard](example-create-a-dashboard.md)

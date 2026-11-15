@@ -1,9 +1,9 @@
 
 
-# Amazon Quick desktop usage limits
+# AWS Quick desktop usage limits
 <a name="usage-limits-desktop"></a>
 
-Amazon Quick applies the following limits to your account.
+AWS Quick applies the following limits to your account.
 
 
 | Category | Limit | Value | 

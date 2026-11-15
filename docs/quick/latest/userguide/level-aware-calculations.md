@@ -110,7 +110,7 @@ LAC-W functions help you to answer the following types of questions:
 + What are the total sales in each category as compared to the industry average? The industry average should include all of the categories, even after filtering.
 + How are my customers grouped into cumulative spending ranges? We want to use the grouping as a dimension rather than a metric. 
 
-For more complex questions, you can inject a calculation or filter before Quick Sight gets to a specific point in its evaluation of your settings. To directly influence your results, you add a calculation level keyword to a table calculation. For more information on how Quick Sight evaluates queries, see [Order of evaluation in Amazon Quick Sight](order-of-evaluation-quicksight.md).
+For more complex questions, you can inject a calculation or filter before Quick Sight gets to a specific point in its evaluation of your settings. To directly influence your results, you add a calculation level keyword to a table calculation. For more information on how Quick Sight evaluates queries, see [Order of evaluation in AWS Quick Sight](order-of-evaluation-quicksight.md).
 
 The following calculation levels are supported for LAC-W functions:
 + **`PRE_FILTER`** – Before applying filters from the analysis, Quick Sight evaluates prefilter calculations. Then it applies any filters that are configured on these prefilter calculations.

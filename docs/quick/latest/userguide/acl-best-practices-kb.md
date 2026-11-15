@@ -3,7 +3,7 @@
 # Best practices for managing ACLs in knowledge bases
 <a name="acl-best-practices-kb"></a>
 
-With document-level access control lists (ACLs), Amazon Quick enforces source-document permissions for an ACL-aware knowledge base. Each authorized user retrieves only the indexed documents they have permission to access. Use ACLs when different users need access to different documents in the same knowledge base.
+With document-level access control lists (ACLs), AWS Quick enforces source-document permissions for an ACL-aware knowledge base. Each authorized user retrieves only the indexed documents they have permission to access. Use ACLs when different users need access to different documents in the same knowledge base.
 
 You're responsible for keeping source identities, groups, and document permissions accurate. Quick enforces the synchronized document permissions on every retrieval. For supported integrations, it also verifies document access against the source in real time when returning results. If Quick can't evaluate document permissions for a query, it returns no documents rather than unfiltered results.
 
@@ -57,7 +57,7 @@ When an employee leaves, clean up their access promptly:
 
 This prevents potential security issues if the email is later reassigned to someone else.
 
-Updating knowledge base ACLs is separate from removing the user from Quick. For the full model of how user removal affects a user's assets and data, see [User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md).
+Updating knowledge base ACLs is separate from removing the user from Quick. For the full model of how user removal affects a user's assets and data, see [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md).
 
 **Share admin-managed knowledge bases with co-owners**
 

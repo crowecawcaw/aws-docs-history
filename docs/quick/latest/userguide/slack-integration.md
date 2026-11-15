@@ -3,14 +3,14 @@
 # Slack integration
 <a name="slack-integration"></a>
 
-With the Slack connector, you can access the Slack platform directly in Amazon Quick through natural language. You can send messages, manage channels, search content, and interact with users and user groups without leaving Amazon Quick.
+With the Slack connector, you can access the Slack platform directly in AWS Quick through natural language. You can send messages, manage channels, search content, and interact with users and user groups without leaving AWS Quick.
 
-Amazon Quick supports multiple authentication methods for Slack. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for Slack. Choose the method that best fits your organization's security requirements.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. You authenticate directly with your Slack workspace.
 + **Custom OAuth app** – Uses a customer-managed Slack app. This option gives your organization full control over the OAuth configuration.
 + **Bearer Token** – Uses a Slack bot token for authentication. This method is suitable for bot-level access to a workspace.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="slack-integration-prerequisites"></a>
@@ -19,19 +19,19 @@ Make sure that you have the following before you set up the integration.
 + A Slack workspace with access to the channels and data that you want to use.
 + For **Custom OAuth app**: Access to the [Slack API dashboard](https://api.slack.com/apps) on the Slack website to create an app.
 + For **Bearer Token**: A bot token (starts with `xoxb-`) from a Slack app. For more information, see [Quickstart app settings](https://docs.slack.dev/app-management/quickstart-app-settings) on the Slack website.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Slack
 <a name="slack-source-setup"></a>
 
-If you are using **Default OAuth app** authentication, skip this section and go to [Setting up the connector in Amazon Quick](#slack-quicksuite-setup).
+If you are using **Default OAuth app** authentication, skip this section and go to [Setting up the connector in AWS Quick](#slack-quicksuite-setup).
 
-For Custom OAuth app or Bearer Token authentication, complete the applicable steps in Slack before you configure Amazon Quick.
+For Custom OAuth app or Bearer Token authentication, complete the applicable steps in Slack before you configure AWS Quick.
 
 ### Create a Slack app for Custom OAuth app or Bearer Token
 <a name="slack-register-oauth"></a>
 
-Create a Slack app to get the client credentials or bot token that you need for Amazon Quick.
+Create a Slack app to get the client credentials or bot token that you need for AWS Quick.
 
 1. Go to the [Slack API dashboard](https://api.slack.com/apps) on the Slack website and choose **Create New App**.
 
@@ -41,7 +41,7 @@ Create a Slack app to get the client credentials or bot token that you need for 
 
 1. In the left sidebar, choose **OAuth & Permissions**.
 
-1. Under **Redirect URLs**, choose **Add New Redirect URL** and enter the Amazon Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
+1. Under **Redirect URLs**, choose **Add New Redirect URL** and enter the AWS Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
 
    Choose **Add**, then choose **Save URLs**.
 
@@ -108,7 +108,7 @@ The following scopes are requested when you connect to Slack. When you create a 
 **Note**  
 Not all scopes are available for both User Token Scopes and Bot Token Scopes. Some scopes, such as `search:read` and `stars:read`, are available only as User Token Scopes. When you configure scopes for Bearer Token authentication, verify scope availability in the [Slack API scopes reference](https://api.slack.com/scopes) on the Slack website.
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="slack-quicksuite-setup"></a>
 
 ### Connect from the Available tab
@@ -116,7 +116,7 @@ Not all scopes are available for both User Token Scopes and Bot Token Scopes. So
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **Slack** and choose **Connect**.
 
@@ -127,9 +127,9 @@ To configure a connector with Custom OAuth app or Bearer Token instead, use the 
 ### Create from the Create for your team tab
 <a name="slack-full-setup"></a>
 
-After you complete any required Slack configuration, create the connector in Amazon Quick.
+After you complete any required Slack configuration, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -153,7 +153,7 @@ If a Slack connector already exists, a dialog appears with your existing connect
       + **Client secret** – The client secret from your Slack app.
       + **Token URL** – The token endpoint. Example: `https://slack.com/api/oauth.v2.access`
       + **Authorization URL** – The authorization endpoint. Example: `https://slack.com/oauth/v2/authorize`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
    1. For **Bearer Token**, configure the following fields:
       + **Base URL** (Optional) – The Slack API base URL. Example: `https://slack.com/api`
@@ -229,7 +229,7 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 
 ### Authentication issues
 <a name="slack-troubleshooting-auth"></a>
-+ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Slack workspace is active and that you can sign in to [the Slack website](https://slack.com) directly. For Custom OAuth app, confirm that the redirect URL in your Slack app matches the Amazon Quick callback URL.
++ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Slack workspace is active and that you can sign in to [the Slack website](https://slack.com) directly. For Custom OAuth app, confirm that the redirect URL in your Slack app matches the AWS Quick callback URL.
 + **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Slack app's Basic Information section.
 + **Bearer Token rejected** – Verify that your bot token is active and starts with `xoxb-`. Tokens can be revoked from the Slack API dashboard.
 + **Insufficient permissions** – Verify that the scopes configured for your Slack app include the permissions required for the actions that you want to use. See [Recommended scopes](#slack-oauth-scopes).

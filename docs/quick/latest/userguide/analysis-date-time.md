@@ -3,7 +3,7 @@
 # Customize date and time values of an analysis
 <a name="analysis-date-time"></a>
 
-In Amazon Quick, authors can set custom time zones and week start days of an analysis. When you set a custom week start or time zone, all visuals in the analysis that use datetime data are formatted to reflect the time zone or week start that the analysis uses.
+In AWS Quick, authors can set custom time zones and week start days of an analysis. When you set a custom week start or time zone, all visuals in the analysis that use datetime data are formatted to reflect the time zone or week start that the analysis uses.
 
 ## Setting custom time zones in an analysis
 <a name="analysis-timezone"></a>

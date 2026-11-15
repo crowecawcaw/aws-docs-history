@@ -3,7 +3,7 @@
 # Troubleshooting skipped row errors
 <a name="troubleshooting-skipped-rows"></a>
 
-When you import data, Amazon Quick Sight previews a portion of your data. If it can't interpret a row for any reason, Quick Sight skips the row. In some cases, the import will fail. When this happens, Quick Sight returns an error message that explains the failure.
+When you import data, AWS Quick Sight previews a portion of your data. If it can't interpret a row for any reason, Quick Sight skips the row. In some cases, the import will fail. When this happens, Quick Sight returns an error message that explains the failure.
 
 Fortunately, there's a limited number of things that can go wrong. Some issues can be avoided by being aware of examples like the following:
 + Make sure that there is no inconsistency between the field data type and the field data, for example occasional string data in a field with a numeric data type. Here are a few examples that can be difficult to detect when scanning the contents of a table: 

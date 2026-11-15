@@ -3,7 +3,7 @@
 # Agents
 <a name="agents-desktop"></a>
 
-Agents are configurable AIs in Amazon Quick. You give each one its own instructions, knowledge sources, and tools so it can answer questions and get work done for you. Quick is the built-in agent, and you can also build your own or install ones shared with you. Each agent can work with you in chat or run on its own on a routine. Agents can only access the same resources and services that you have access to, and you control what each agent is allowed to do.
+Agents are configurable AIs in AWS Quick. You give each one its own instructions, knowledge sources, and tools so it can answer questions and get work done for you. Quick is the built-in agent, and you can also build your own or install ones shared with you. Each agent can work with you in chat or run on its own on a routine. Agents can only access the same resources and services that you have access to, and you control what each agent is allowed to do.
 
 Users can browse agents that are shared with them on the Agents page by choosing **Browse all**. This view presents available agents in a read-only detail view along with the description and knowledge sources each one uses. From this view, you can install an agent to add it to your agent list. Once installed, an agent is ready to use anywhere you work: you can chat with it, @ mention it inline in any conversation, and run it on a routine, and it appears in your agent switcher for quick access. From the Agents page, you can favorite an agent for easy access or set an agent as your default. A published agent can also be accessed from Quick on the web.
 

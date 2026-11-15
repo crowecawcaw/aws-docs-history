@@ -1,9 +1,9 @@
 
 
-# Creating a reader generated report in Amazon Quick Sight
+# Creating a reader generated report in AWS Quick Sight
 <a name="reader-scheduling"></a>
 
-If a Amazon Quick author has set up a prompted report for a Quick Sight pixel perfect report, Quick Sight dashboard viewers can use the prompt to schedule their own reports for themselves. For more information about prompts for pixel perfect reports, see [Setting up prompts for paginated reports](paginated-reports-prompts.md).
+If a AWS Quick author has set up a prompted report for a Quick Sight pixel perfect report, Quick Sight dashboard viewers can use the prompt to schedule their own reports for themselves. For more information about prompts for pixel perfect reports, see [Setting up prompts for paginated reports](paginated-reports-prompts.md).
 
 Use the following sections to learn how to create and modify a reader generated report.
 
@@ -65,7 +65,7 @@ After you save a report schedule, the schedule appears in the **Schedules** pane
 ## Loading a saved view of a Quick Sight reader generated report
 <a name="reader-scheduling-load-view"></a>
 
-Amazon Quick readers can use the **Schedules** pane to load a saved view of any scheduled pixel perfect report thay have created or received. Use the following procedure to load a saved review of a scheduled report.
+AWS Quick readers can use the **Schedules** pane to load a saved view of any scheduled pixel perfect report thay have created or received. Use the following procedure to load a saved review of a scheduled report.
 
 **To load a saved view of a scheduled report**
 
@@ -82,7 +82,7 @@ Amazon Quick readers can use the **Schedules** pane to load a saved view of any 
 ## Updating the view of a scheduled reader generated report
 <a name="reader-scheduling-update-view"></a>
 
-After a Amazon Quick reader has created a report in Quick Sight, they can use the **Schedules** pane to update the dashboard view that is used in the scheduled report. Use the following procedure to update the dashboard view of a scheduled report.
+After a AWS Quick reader has created a report in Quick Sight, they can use the **Schedules** pane to update the dashboard view that is used in the scheduled report. Use the following procedure to update the dashboard view of a scheduled report.
 
 **To change the dashboard view of a scheduled report**
 
@@ -109,7 +109,7 @@ After a Amazon Quick reader has created a report in Quick Sight, they can use th
 ## Updating a reader generated report schedule
 <a name="reader-scheduling-update-schedule"></a>
 
-After they create a reader generated report, Amazon Quick readers can use the **Schedules** pane to make a report schedule active or inactive. Use the following procedure to update active status of a reader generated report schedule.
+After they create a reader generated report, AWS Quick readers can use the **Schedules** pane to make a report schedule active or inactive. Use the following procedure to update active status of a reader generated report schedule.
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/).
 

@@ -3,19 +3,19 @@
 # AWS Agent Registry integration
 <a name="aws-agent-registry-integration"></a>
 
-With Amazon Quick, you can connect to the [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html). Use this integration to surface the remote Model Context Protocol (MCP) servers registered in your Agent Registry as native Quick connectors. Your organization can maintain a single source of truth for its MCP servers in the Agent Registry while giving Quick users governed access to them.
+With AWS Quick, you can connect to the [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html). Use this integration to surface the remote Model Context Protocol (MCP) servers registered in your Agent Registry as native Quick connectors. Your organization can maintain a single source of truth for its MCP servers in the Agent Registry while giving Quick users governed access to them.
 
-As an account administrator, you link one Agent Registry to your Quick account from the Quick administration console. After the registry is linked, you see the registry's remote MCP records as pre-configured connector cards on the **Connectors** page. You can then create a connector from one. The connector works like any other Quick connector across Quick Chat, agents, apps, Amazon Quick Flows, and Amazon Quick Research.
+As an account administrator, you link one Agent Registry to your Quick account from the Quick administration console. After the registry is linked, you see the registry's remote MCP records as pre-configured connector cards on the **Connectors** page. You can then create a connector from one. The connector works like any other Quick connector across Quick Chat, agents, apps, AWS Quick Flows, and AWS Quick Research.
 
 Everything happens through the Quick administration console and the **Connectors** page. There is no separate command line or SDK to install. Records are read from the Agent Registry when the **Connectors** page loads. Nothing from the Agent Registry is copied into Quick.
 
 ## What is supported
 <a name="aws-agent-registry-supported"></a>
 
-The following table shows which Agent Registry records and configurations Amazon Quick supports.
+The following table shows which Agent Registry records and configurations AWS Quick supports.
 
 
-**AWS Agent Registry support in Amazon Quick**  
+**AWS Agent Registry support in AWS Quick**  
 
 | Supported | Not supported | 
 | --- | --- | 
@@ -96,7 +96,7 @@ Registry-sourced connectors are classified as **Custom MCP** connectors. This cl
 ## After setup
 <a name="aws-agent-registry-after-setup"></a>
 
-After a connector is created, it is available across Quick Chat, agents, apps, Amazon Quick Flows, and Amazon Quick Research, like any other Quick connector.
+After a connector is created, it is available across Quick Chat, agents, apps, AWS Quick Flows, and AWS Quick Research, like any other Quick connector.
 
 The connector is an independent Quick resource. Removing the registry link in the administration console does not delete connectors that were already created from it.
 

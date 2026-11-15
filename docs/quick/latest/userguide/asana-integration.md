@@ -3,7 +3,7 @@
 # Asana integration
 <a name="asana-integration"></a>
 
-Connect Amazon Quick to your Asana workspace to manage projects, tasks, and team collaboration. The Asana connector uses the Asana V2 Model Context Protocol (MCP) server. You can create, update, and manage Asana content without leaving your Amazon Quick environment. Every action runs as the authenticated user, and the connector limits access to what that user can do in Asana. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
+Connect AWS Quick to your Asana workspace to manage projects, tasks, and team collaboration. The Asana connector uses the Asana V2 Model Context Protocol (MCP) server. You can create, update, and manage Asana content without leaving your AWS Quick environment. Every action runs as the authenticated user, and the connector limits access to what that user can do in Asana. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Supported authentication methods
 <a name="asana-integration-authentication"></a>
@@ -22,12 +22,12 @@ Note the following behavior when you authenticate with the Asana MCP server:
 Before you set up the Asana connector, make sure you have the following:
 + An Asana account with access to the Asana developer console.
 + Permission to create and distribute apps in the Asana workspaces you want to connect.
-+ A Amazon Quick subscription that meets the integration requirements. For more information, see [Set up integrations in the console](integration-console-setup-process.md).
++ A AWS Quick subscription that meets the integration requirements. For more information, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring the Asana OAuth MCP app
 <a name="asana-integration-setup"></a>
 
-Create an OAuth MCP app in the Asana developer console, configure its OAuth settings, and configure workspace access before you set up the connector in Amazon Quick.
+Create an OAuth MCP app in the Asana developer console, configure its OAuth settings, and configure workspace access before you set up the connector in AWS Quick.
 
 ### Create an OAuth MCP app
 <a name="asana-create-mcp-app"></a>
@@ -42,14 +42,14 @@ Create an OAuth MCP app in the Asana developer console, configure its OAuth sett
 
 1. Choose **Create app**.
 
-1. Record the **Client ID** and **Client Secret**. You enter these values when you set up the connector in Amazon Quick.
+1. Record the **Client ID** and **Client Secret**. You enter these values when you set up the connector in AWS Quick.
 
 ### Configure OAuth settings
 <a name="asana-configure-oauth"></a>
 
 1. In the sidebar, choose **OAuth**.
 
-1. Add the Amazon Quick callback URL as the redirect URL. You can copy this value from the connector setup page in Amazon Quick.
+1. Add the AWS Quick callback URL as the redirect URL. You can copy this value from the connector setup page in AWS Quick.
 
 ### Configure workspace access
 <a name="asana-configure-workspace-access"></a>
@@ -65,12 +65,12 @@ Allow the app to be used in any workspace.
 **Important**  
 If you choose **Specific workspaces** but do not choose any workspaces, users receive an error when they try to authenticate.
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="asana-integration-connector-setup"></a>
 
-After you configure your Asana OAuth MCP app, set up the connector in Amazon Quick.
+After you configure your Asana OAuth MCP app, set up the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -94,7 +94,7 @@ Enter `https://app.asana.com/-/oauth_authorize`. Do not include a scope paramete
 **Token URL**  
 Enter `https://app.asana.com/-/oauth_token`.  
 **Redirect URL**  
-This field is pre-filled with the Amazon Quick callback URL. Use this value as the redirect URL in your Asana OAuth app.
+This field is pre-filled with the AWS Quick callback URL. Use this value as the redirect URL in your Asana OAuth app.
 
 1. Choose **Create and continue**.
 
@@ -116,7 +116,7 @@ The user's workspace is not included in the app's distribution settings. In the 
 Remove the scope parameter from the authorization URL. MCP apps do not use scopes.
 
 **Authentication failures**  
-Verify that the redirect URL matches the Amazon Quick callback URL, that the client ID and client secret are correct, and that the app is properly configured in **Manage distribution**.
+Verify that the redirect URL matches the AWS Quick callback URL, that the client ID and client secret are correct, and that the app is properly configured in **Manage distribution**.
 
 **Connection issues**  
 Verify that the access token is included in your requests and has not expired. Access tokens have a 1-hour lifetime. If the token has expired, the connector uses refresh tokens to obtain a new one automatically.

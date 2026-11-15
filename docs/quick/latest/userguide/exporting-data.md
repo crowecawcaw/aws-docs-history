@@ -6,7 +6,7 @@
 **Note**  
 Export files can directly return information from the dataset import. This makes the files vulnerable to CSV injection if the imported data contains formulas or commands. For this reason, export files can prompt security warnings. To avoid malicious activity, turn off links and macros when reading exported files.
 
-Using the Amazon Quick console, you can export data from any type of chart or graph. The export contains only the data in the fields that are currently visible in the selected visualization. Any data that is filtered out is excluded from the export file. You can export data into the following formats:
+Using the AWS Quick console, you can export data from any type of chart or graph. The export contains only the data in the fields that are currently visible in the selected visualization. Any data that is filtered out is excluded from the export file. You can export data into the following formats:
 + A text file containing comma-separated values (CSV), available for all visual types. 
 + A Microsoft Excel workbook file (.xslx), available for pivot tables and table charts only.
 
@@ -22,7 +22,7 @@ With a subscription to Paginated Reporting, you are able to [schedule the export
 + You can't export data from an insight, because insights consume the data, but don't contain the data. 
 + Quick Sight doesn't support exporting data from more than a single visualization at a time. To export data from additional visuals in the same analysis or dashboard, repeat this process for each visual. To export all the data from a dashboard or analysis, you need to connect to the original data source using valid credentials and a tool that you can use to extract data. 
 
-Use the following procedure to export data from a visualization in Amazon Quick Sight. Before you begin, open the analysis or dashboard that contains the data that you want to export.
+Use the following procedure to export data from a visualization in AWS Quick Sight. Before you begin, open the analysis or dashboard that contains the data that you want to export.
 
 **To export data from a visualization**
 

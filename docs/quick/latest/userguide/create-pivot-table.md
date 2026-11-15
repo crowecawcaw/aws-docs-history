@@ -11,7 +11,7 @@ Use the following procedure to create a pivot table.
 
 1. On the **Visuals** pane, choose **\+ Add**, and then choose the pivot table icon.
 
-1. From the **Fields list** pane, choose the fields that you want to include. Amazon Quick automatically places these into the field wells. 
+1. From the **Fields list** pane, choose the fields that you want to include. AWS Quick automatically places these into the field wells. 
 
    To change the placement of a field, drag it to the appropriate field wells. Typically, you use dimension or measure fields as indicated by the target field well. If you choose to use a dimension field as a measure, the **Count** aggregate function is automatically applied to it to create a numeric value.
    + To create a single-measure pivot table, drag a dimension to the **Rows** field well, a dimension to the **Columns** field well, and a measure to the **Values** field well.
@@ -26,6 +26,6 @@ To view roll-ups for calculated fields, make sure that you are using aggregates.
 ## Choosing a layout
 <a name="pivot-table-layout"></a>
 
-When you create a pivot table in Amazon Quick, you can further customize the way your data is presented with Tabular and Hierarchy layout options. For pivot tables that use a tabular layout, each row field is displayed in its own column. For pivot tables that use a hierarchy layout, all row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields. To change the layout of a pivot table visual, open the **Format visual** menu of the pivot table that you want to change and choose the layout option that you want from the **Pivot options** section.
+When you create a pivot table in AWS Quick, you can further customize the way your data is presented with Tabular and Hierarchy layout options. For pivot tables that use a tabular layout, each row field is displayed in its own column. For pivot tables that use a hierarchy layout, all row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields. To change the layout of a pivot table visual, open the **Format visual** menu of the pivot table that you want to change and choose the layout option that you want from the **Pivot options** section.
 
 Depending on the layout that you choose for your pivot table visual, different formatting options are available. For more information about formatting differences between tabular and hierarchy pivot tables, see [Table and pivot table formatting options in Quick](format-tables-pivot-tables.md).

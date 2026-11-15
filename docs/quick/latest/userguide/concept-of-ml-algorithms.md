@@ -1,14 +1,14 @@
 
 
-# Understanding the ML algorithm used by Amazon Quick Sight
+# Understanding the ML algorithm used by AWS Quick Sight
 <a name="concept-of-ml-algorithms"></a>
 
 
 |  | 
 | --- |
-| You don't need any technical experience in machine learning to use the ML-powered features in Amazon Quick Sight. This section dives into the technical aspects of the algorithm, for those who want the details about how it works. This information isn't required reading to use the features.  | 
+| You don't need any technical experience in machine learning to use the ML-powered features in AWS Quick Sight. This section dives into the technical aspects of the algorithm, for those who want the details about how it works. This information isn't required reading to use the features.  | 
 
-Amazon Quick Sight uses a built-in version of the Random Cut Forest (RCF) algorithm. The following sections explain what that means and how it is used in Amazon Quick Sight.
+AWS Quick Sight uses a built-in version of the Random Cut Forest (RCF) algorithm. The following sections explain what that means and how it is used in AWS Quick Sight.
 
 First, let's look at some of the terminology involved: 
 + Anomaly – Something that is characterized by its difference from the majority of the other things in the same sample. Also known as an outlier, an exception, a deviation, and so on.

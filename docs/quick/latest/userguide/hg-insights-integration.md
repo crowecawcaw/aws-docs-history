@@ -3,15 +3,15 @@
 # HG Insights integration
 <a name="hg-insights-integration"></a>
 
-With the HG Insights connector, you can access technographic data, query company technology profiles, and retrieve market intelligence directly in Amazon Quick through natural language.
+With the HG Insights connector, you can access technographic data, query company technology profiles, and retrieve market intelligence directly in AWS Quick through natural language.
 
-Amazon Quick supports multiple authentication methods for HG Insights. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for HG Insights. Choose the method that best fits your organization's security requirements.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. Users authenticate directly with their HG Insights account.
 + **Custom OAuth app** – Uses a customer-managed OAuth application. This option gives your organization full control over the OAuth configuration.
 + **Service-to-Service OAuth** – Uses client credentials for server-to-server authentication without user interaction. Suitable for automated workflows.
 + **API Key** – Uses an API key for authentication.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="hg-insights-integration-prerequisites"></a>
@@ -20,16 +20,16 @@ Make sure that you have the following before you set up the integration.
 + An active HG Insights account with access to the data products you want to query.
 + For **Custom OAuth app** or **Service-to-Service OAuth**: OAuth credentials from your HG Insights account.
 + For **API Key**: An HG Insights-issued API key.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring HG Insights
 <a name="hg-insights-source-setup"></a>
 
-If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in Amazon Quick](#hg-insights-quicksuite-setup).
+If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in AWS Quick](#hg-insights-quicksuite-setup).
 
-For Custom OAuth app or Service-to-Service OAuth authentication, register an OAuth client in your HG Insights Phoenix account and add the Amazon Quick callback URL `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback` as a redirect URI. Replace {{{region}}} with your AWS Region (for example, `us-east-1`). For step-by-step instructions, see [Phoenix by HG Insights](https://phoenix.hginsights.com/docs/intro) documentation. Record the Client ID and Client Secret — you need them when you configure Amazon Quick. For API Key authentication, generate an API key from your Phoenix account.
+For Custom OAuth app or Service-to-Service OAuth authentication, register an OAuth client in your HG Insights Phoenix account and add the AWS Quick callback URL `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback` as a redirect URI. Replace {{{region}}} with your AWS Region (for example, `us-east-1`). For step-by-step instructions, see [Phoenix by HG Insights](https://phoenix.hginsights.com/docs/intro) documentation. Record the Client ID and Client Secret — you need them when you configure AWS Quick. For API Key authentication, generate an API key from your Phoenix account.
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="hg-insights-quicksuite-setup"></a>
 
 ### Connect from the Available tab
@@ -37,7 +37,7 @@ For Custom OAuth app or Service-to-Service OAuth authentication, register an OAu
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **HG Insights** and choose **Connect**.
 
@@ -48,7 +48,7 @@ To configure a connector with one of the other authentication methods, use the *
 ### Create from the Create for your team tab
 <a name="hg-insights-full-setup"></a>
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -70,7 +70,7 @@ To configure a connector with one of the other authentication methods, use the *
       + **Client secret** – The client secret from your HG Insights OAuth app.
       + **Token URL** – The token endpoint. Default: `https://phoenix.hginsights.com/api/ai/token`
       + **Authorization URL** – The authorization endpoint. Default: `https://phoenix.hginsights.com/api/ai/authorize`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
    1. For **Service-to-Service OAuth**, configure the following fields:
       + **Client ID** – The client ID from your HG Insights OAuth app.
@@ -94,7 +94,7 @@ To configure a connector with one of the other authentication methods, use the *
 ## Available actions
 <a name="hg-insights-integration-actions"></a>
 
-After you set up the connector, the actions exposed by HG Insights are available. To see the current set of actions for your connector, go to the connector's **Available actions** view in the Amazon Quick console.
+After you set up the connector, the actions exposed by HG Insights are available. To see the current set of actions for your connector, go to the connector's **Available actions** view in the AWS Quick console.
 
 ## Managing and troubleshooting
 <a name="hg-insights-integration-troubleshooting"></a>
@@ -103,6 +103,6 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 
 ### Authentication issues
 <a name="hg-insights-troubleshooting-auth"></a>
-+ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your HG Insights account is active. For Custom OAuth app, confirm that the redirect URI in your HG Insights OAuth app matches the Amazon Quick callback URL.
++ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your HG Insights account is active. For Custom OAuth app, confirm that the redirect URI in your HG Insights OAuth app matches the AWS Quick callback URL.
 + **Invalid client credentials (Custom OAuth app or Service-to-Service OAuth)** – Verify that the Client ID and Client secret match the values in your HG Insights OAuth app.
 + **API Key authentication fails** – Verify that the API key has not been revoked.

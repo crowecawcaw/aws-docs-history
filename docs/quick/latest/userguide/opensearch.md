@@ -13,7 +13,7 @@
 | --- |
 |    Intended audience:  System administrators  | 
 
-Before you can use OpenSearch in a Amazon Quick Sight dataset, there are a few tasks for the Quick administrator to complete with the cooperation of a person who has access to the OpenSearch console. 
+Before you can use OpenSearch in a AWS Quick Sight dataset, there are a few tasks for the Quick administrator to complete with the cooperation of a person who has access to the OpenSearch console. 
 
 To get started, identify each OpenSearch domain that you want to connect to. Then gather the following information for each domain:
 + The name of the OpenSearch domain.
@@ -30,16 +30,16 @@ To get started, identify each OpenSearch domain that you want to connect to. The
 + If the domain has a regular endpoint (not a VPC endpoint), note that it uses the public network.
 + The start hour for the daily automated snapshot (if your users want to know).
 
-Before you proceed, the Amazon Quick administrator enables authorized connections from Amazon Quick to OpenSearch Service. This process is required for every AWS service that you connect to from Amazon Quick. You need to do this only once per AWS account for each AWS service that you use as a data source. 
+Before you proceed, the AWS Quick administrator enables authorized connections from AWS Quick to OpenSearch Service. This process is required for every AWS service that you connect to from AWS Quick. You need to do this only once per AWS account for each AWS service that you use as a data source. 
 
 For OpenSearch Service, the authorization process adds the AWS managed policy `AWSQuickSightOpenSearchPolicy` to your AWS account. 
 
 **Important**  
 Make sure that the IAM policy for your OpenSearch domain doesn't conflict with the permissions in `AWSQuickSightOpenSearchPolicy`. You can find the domain access policy in the OpenSearch Service console. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide*.
 
-**To turn on or turn off connections from Amazon Quick to OpenSearch Service**
+**To turn on or turn off connections from AWS Quick to OpenSearch Service**
 
-1. Within Amazon Quick, choose **Administrator** and **Manage Amazon Quick**.
+1. Within AWS Quick, choose **Administrator** and **Manage AWS Quick**.
 
 1. Choose **Security & permissions**, **Add or remove**.
 
@@ -49,7 +49,7 @@ Make sure that the IAM policy for your OpenSearch domain doesn't conflict with t
 
 1. Choose **Update** to confirm your choices.
 
-If needed, use the topics below to configure a OpenSearch VPC connection and permissions for Amazon Quick to access OpenSearch.
+If needed, use the topics below to configure a OpenSearch VPC connection and permissions for AWS Quick to access OpenSearch.
 
 **Topics**
 + [Using a VPC connection](#opensearch-and-vpc-connection)
@@ -58,26 +58,26 @@ If needed, use the topics below to configure a OpenSearch VPC connection and per
 ## Using a VPC connection
 <a name="opensearch-and-vpc-connection"></a>
 
-In some cases, your OpenSearch domain is in a virtual private cloud (VPC) based on the Amazon VPC service. If so, make sure to determine if Amazon Quick is already connected to the VPC ID that the OpenSearch domain uses. You can reuse an existing VPC connection. If you're not sure if it's working, you can test it. For more information, see [Testing the connection to your Amazon VPC data source](https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-quicksight-data-source-profile.html).
+In some cases, your OpenSearch domain is in a virtual private cloud (VPC) based on the Amazon VPC service. If so, make sure to determine if AWS Quick is already connected to the VPC ID that the OpenSearch domain uses. You can reuse an existing VPC connection. If you're not sure if it's working, you can test it. For more information, see [Testing the connection to your Amazon VPC data source](https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-quicksight-data-source-profile.html).
 
-If a connection isn't already defined in Amazon Quick for the VPC that you want to use, you can create one. This task is a multistep process that you need to complete before you proceed. To learn how to add Amazon Quick to a VPC and add a connection from Amazon Quick to the VPC, see [Connecting to a Amazon VPC with Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/working-with-aws-vpc.html).
+If a connection isn't already defined in AWS Quick for the VPC that you want to use, you can create one. This task is a multistep process that you need to complete before you proceed. To learn how to add AWS Quick to a VPC and add a connection from AWS Quick to the VPC, see [Connecting to a Amazon VPC with AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/working-with-aws-vpc.html).
 
 ## Using OpenSearch permissions
 <a name="opensearch-permissions"></a>
 
-After you configure Amazon Quick to connect to OpenSearch Service, you might need to enable permissions in OpenSearch. For this part of the setup process, you can use the OpenSearch Dashboards link for each OpenSearch domain. Use the following list to help determine what permissions you need:
+After you configure AWS Quick to connect to OpenSearch Service, you might need to enable permissions in OpenSearch. For this part of the setup process, you can use the OpenSearch Dashboards link for each OpenSearch domain. Use the following list to help determine what permissions you need:
 
-1. For domains that use fine-grained access control, configure permissions in the form of a role. This process is similar to using scoped-down policies in Amazon Quick.
+1. For domains that use fine-grained access control, configure permissions in the form of a role. This process is similar to using scoped-down policies in AWS Quick.
 
 1. For each domain that you create a role for, add a role mapping. 
 
 For more information, see following.
 
-If your OpenSearch domain has [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) enabled, there are some permissions to configure so the domain is accessible from Amazon Quick. Perform these steps for each domain that you want to use. 
+If your OpenSearch domain has [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) enabled, there are some permissions to configure so the domain is accessible from AWS Quick. Perform these steps for each domain that you want to use. 
 
 The following procedure uses OpenSearch Dashboards, which is an open-source tool that works with OpenSearch. You can find the link to Dashboards on the domain dashboard on the OpenSearch Service console. 
 
-**To add permissions to a domain to allow access from Amazon Quick**
+**To add permissions to a domain to allow access from AWS Quick**
 
 1. Open OpenSearch Dashboards for the OpenSearch domain that you want to work with. The URL is `{{opensearch-domain-endpoint}}/dashboards/`. 
 
@@ -123,7 +123,7 @@ Use the following procedure to add a role mapping for the permissions that you a
 
 1. On the **Mapped users** tab, choose **Manage mapping**.
 
-1. In the **Backend roles** section, enter the ARN of the AWS-managed IAM role for Amazon Quick. Following is an example.
+1. In the **Backend roles** section, enter the ARN of the AWS-managed IAM role for AWS Quick. Following is an example.
 
    ```
    arn:{{aws}}:iam::{{AWS-ACCOUNT-ID}}:role/service-role/{{aws-quicksight-service-role-v0}}

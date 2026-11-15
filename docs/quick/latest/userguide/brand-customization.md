@@ -1,9 +1,9 @@
 
 
-# Amazon Quick brand customization
+# AWS Quick brand customization
 <a name="brand-customization"></a>
 
-Amazon Quick allows account admins to customize their application's branding and visual theme to align with their organization's guidelines. This customization includes the following visual elements to create a cohesive look and feel across all non-administrative Amazon Quick console pages, schedules, alerts, and email reports.
+AWS Quick allows account admins to customize their application's branding and visual theme to align with their organization's guidelines. This customization includes the following visual elements to create a cohesive look and feel across all non-administrative AWS Quick console pages, schedules, alerts, and email reports.
 + Logo
 + Favicon
 + Associated alt text for visual assets
@@ -11,7 +11,7 @@ Amazon Quick allows account admins to customize their application's branding and
 The following list shows the different areas customizable theme colors are grouped into.
 
 **Brand colors**
-+ **Global navigation bar** colors are applied to the topmost bar in the Amazon Quick UI and include the company logo that is diaplayed in the standard and embedded Amazon Quick consoles.
++ **Global navigation bar** colors are applied to the topmost bar in the AWS Quick UI and include the company logo that is diaplayed in the standard and embedded AWS Quick consoles.
 + **Application bar** colors are applied to the secondary navigation bar that contains contextual actions.
 
 **Interaction colors**
@@ -37,21 +37,21 @@ The following list shows the different areas customizable theme colors are group
 + **Connection** colors are applied to the **Connection** icon.
 + **Automation** colors are applied to the **Automation** icon.
 
-Use the following sections to get started with brand customization in Amazon Quick.
+Use the following sections to get started with brand customization in AWS Quick.
 
 **Topics**
-+ [Permisisons for Amazon Quick brand customization](#brand-customization-permissions)
-+ [Create a custom brand in Amazon Quick](#brand-customization-create)
-+ [Setting a default theme for Amazon Quick analyses with the Amazon Quick APIs](customizing-quicksight-default-theme.md)
++ [Permisisons for AWS Quick brand customization](#brand-customization-permissions)
++ [Create a custom brand in AWS Quick](#brand-customization-create)
++ [Setting a default theme for AWS Quick analyses with the AWS Quick APIs](customizing-quicksight-default-theme.md)
 
-## Permisisons for Amazon Quick brand customization
+## Permisisons for AWS Quick brand customization
 <a name="brand-customization-permissions"></a>
 
-To set up a brand, you must be granted an Admin role through IAM Identity Center or IAM. Admins whose roles are granted to them within Amazon Quick can't create brands. To learn more about integrating your account with IAM Identity Center, see [Configure your Amazon Quick account with IAM Identity Center](https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html). For information about admin roles and capabilities, see [Understanding Amazon Quick subscriptions and roles](https://docs.aws.amazon.com/quicksight/latest/user/user-types.html#subscription-role-mapping).
+To set up a brand, you must be granted an Admin role through IAM Identity Center or IAM. Admins whose roles are granted to them within AWS Quick can't create brands. To learn more about integrating your account with IAM Identity Center, see [Configure your AWS Quick account with IAM Identity Center](https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html). For information about admin roles and capabilities, see [Understanding AWS Quick subscriptions and roles](https://docs.aws.amazon.com/quicksight/latest/user/user-types.html#subscription-role-mapping).
 
-Admin users can only manage brands that are in the same capacity Region as their Amazon Quick account.
+Admin users can only manage brands that are in the same capacity Region as their AWS Quick account.
 
-The IAM role that you use to create a brand in Amazon Quick must contain `quicksight:*` or granular action permissions to manage brands in the admin console. The following granular permissions are required for admins to work with Amazon Quick brands:
+The IAM role that you use to create a brand in AWS Quick must contain `quicksight:*` or granular action permissions to manage brands in the admin console. The following granular permissions are required for admins to work with AWS Quick brands:
 + `quicksight:CreateBrand`
 + `quicksight:UpdateBrand`
 + `quicksight:DescribeBrand`
@@ -63,12 +63,12 @@ The IAM role that you use to create a brand in Amazon Quick must contain `quicks
 + `quicksight:DescribeBrandAssignment`
 + `quicksight:DeleteBrandAssignment`
 
-After you confirm that your Admin role contains the required permissions, you can [Create a custom brand](https://docs.aws.amazon.com/quicksight/latest/user/brand-customization-create.html) in the Amazon Quick admin console.
+After you confirm that your Admin role contains the required permissions, you can [Create a custom brand](https://docs.aws.amazon.com/quicksight/latest/user/brand-customization-create.html) in the AWS Quick admin console.
 
-## Create a custom brand in Amazon Quick
+## Create a custom brand in AWS Quick
 <a name="brand-customization-create"></a>
 
-Use the following procedure to create a custom brand in Amazon Quick.
+Use the following procedure to create a custom brand in AWS Quick.
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/).
 
@@ -119,7 +119,7 @@ Use the following procedure to create a custom brand in Amazon Quick.
 
 1. To make changes to the theme colors of the brand, navigate to the **Appearance** pane on the left and choose **Theme**.
 
-1. The **Theme settings** page appears and displays all parts of a Amazon Quick theme that can be customized. The following image shows the configuration settings of the global navigation bar.  
+1. The **Theme settings** page appears and displays all parts of a AWS Quick theme that can be customized. The following image shows the configuration settings of the global navigation bar.  
 ![The configuration settings for the global navigation bar. Use the Background and Foreground swatches to customize the colors of every theme item listed on the Theme settings page.](https://docs.aws.amazon.com/quick/latest/userguide/images/navigation-bar.png)
 
 1. To change the background color of an area, navigate to the item that you want to change and choose the **Background** color swatch.
@@ -130,8 +130,8 @@ Use the following procedure to create a custom brand in Amazon Quick.
 
 1. In the **Custom color** pop up that appears, choose a color from the color gradient or enter a hex code value in the **HEX** bar, and then choose **APPLY**.
 
-1. When you are finished configuring a custom brand, choose **PUBLISH** to publish and apply the brand customization to all Amazon Quick user accounts. If you don't want to publish the brand, choose **SAVE** to save the brand for later.
+1. When you are finished configuring a custom brand, choose **PUBLISH** to publish and apply the brand customization to all AWS Quick user accounts. If you don't want to publish the brand, choose **SAVE** to save the brand for later.
 
-When you finish creating a brand in Amazon Quick, the new brand appears in the brands table on the **Customize application** page of the Quick admin console. The **Status** column of the brands table indicates which brand is currently published to the Quick account. To make changes to a custom brand, locate the brand that you want to change in the brands table, choose the ellipsis (three dots) icon in the **Actions** column, and then choose **Publish**, **Edit**, or **Delete**. 
+When you finish creating a brand in AWS Quick, the new brand appears in the brands table on the **Customize application** page of the Quick admin console. The **Status** column of the brands table indicates which brand is currently published to the Quick account. To make changes to a custom brand, locate the brand that you want to change in the brands table, choose the ellipsis (three dots) icon in the **Actions** column, and then choose **Publish**, **Edit**, or **Delete**. 
 
 Once you publish a brand, it can take up to 10 minutes for the new brand to propagate across all users.

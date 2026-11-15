@@ -1,20 +1,20 @@
 
 
-# Amazon Quick Slack extension
+# AWS Quick Slack extension
 <a name="slack-extension"></a>
 
 The Quick extension for Slack integrates AI-powered assistance directly into your team communication workflows. Users can access Quick knowledge and capabilities within Slack channels and direct messages without switching between applications.
 
 The Slack extension enables users to:
-+ Add Amazon Quick as a collaborator using **@Amazon Quick** mentions.
++ Add AWS Quick as a collaborator using **@AWS Quick** mentions.
 + Get conversation summaries and insights.
 + Access organizational knowledge bases and documents directly from Slack channels.
 + Generate notes and action items from discussions in Slack threads.
 + Get help with data analysis and report generation using uploaded files.
 
 **Important**  
-When Amazon Quick is used in public Slack channels, responses are based on the invoking user's permissions. This may include content that other channel members aren't authorized to access. Carefully evaluate using Amazon Quick in public channels to prevent unintended exposure of sensitive information.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+When AWS Quick is used in public Slack channels, responses are based on the invoking user's permissions. This may include content that other channel members aren't authorized to access. Carefully evaluate using AWS Quick in public channels to prevent unintended exposure of sensitive information.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Topics**
 + [Prerequisites for Slack extension](#slack-prerequisites)
@@ -23,13 +23,13 @@ Amazon Quick does not use your user data for service improvement or for training
 ## Prerequisites for Slack extension
 <a name="slack-prerequisites"></a>
 
-Before adding the Amazon Quick Slack Extension, administrators must complete the following requirements:
+Before adding the AWS Quick Slack Extension, administrators must complete the following requirements:
 + Have a paid Slack workspace.
 + Have admin access to your Slack workspace.
-+ Get started with Amazon Quick.
++ Get started with AWS Quick.
 + Your Slack workspace ID (must start with 'T' and be alphanumeric). One way to find your Slack workspace ID is by navigating to your Slack workspace and starting a chat with the Slack Developer Tools app running the `/sdt whoami` command. For more information, see [Locate your Slack URL or ID](https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID) in the Slack help center.
 
-If you configured the authentication to connect to Amazon Quick with IAM Identity Center, complete the following additional steps:
+If you configured the authentication to connect to AWS Quick with IAM Identity Center, complete the following additional steps:
 
 1. Ensure you have an IAM Identity Center instance enabled on your AWS account.
 
@@ -40,13 +40,13 @@ If you configured the authentication to connect to Amazon Quick with IAM Identit
 ## Configure Slack extension access
 <a name="configure-slack-extension"></a>
 
-As an administrator, you must allow your Amazon Quick Slack extension to connect to your Amazon Quick application environment. You can use the Amazon Quick console to manage extension access configurations.
+As an administrator, you must allow your AWS Quick Slack extension to connect to your AWS Quick application environment. You can use the AWS Quick console to manage extension access configurations.
 
 ### User attribute mapping
 <a name="slack-user-attributes"></a>
 
 When you configure a Slack extension, user identity is mapped by default using the following attributes:
-+ **Amazon Quick user attribute** - Email address is used to map Amazon Quick users to their corresponding Slack accounts. The system uses the email address to establish the connection between user identities.
++ **AWS Quick user attribute** - Email address is used to map AWS Quick users to their corresponding Slack accounts. The system uses the email address to establish the connection between user identities.
 + **Slack user attribute** - User Profile Email is used to match against Slack user accounts. This maps to the email address associated with the user's Slack profile.
 
 These default mappings ensure secure and accurate user identification across both platforms without requiring additional configuration.
@@ -88,7 +88,7 @@ Follow these steps only if you are using IAM Identity Center with Entra ID to se
 
    1. Choose **Web**.
 
-   1. Compose a callback URL using the following format, replacing {{your-region}} with your Amazon Quick instance AWS Region. The Slack extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
+   1. Compose a callback URL using the following format, replacing {{your-region}} with your AWS Quick instance AWS Region. The Slack extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
 
       ```
       qbs-cell001.dp.appintegrations.{{your-region}}.prod.plato.ai.aws.dev/auth/idc-tti/callback
@@ -147,7 +147,7 @@ Follow these steps only if you are using IAM Identity Center with Okta to set up
 
 1. Add callback URIs for each Region in which your Slack extension will be installed
 
-   1. Compose a callback URI for each Region where you want to configure the extension, using the following format and replacing {{your-region}} with your Amazon Quick instance AWS Region. The Slack extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
+   1. Compose a callback URI for each Region where you want to configure the extension, using the following format and replacing {{your-region}} with your AWS Quick instance AWS Region. The Slack extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
 
       ```
       qbs-cell001.dp.appintegrations.{{your-region}}.prod.plato.ai.aws.dev/auth/idc-tti/callback
@@ -270,11 +270,11 @@ Follow these steps to set up permissions on AWS Console:
 
 1. Copy and save the ARN of the IAM role you created for later. You will need it in the next steps.
 
-Now you can follow these steps to create a new extension access configuration that will allow Amazon Quick to integrate with your Slack environment:
+Now you can follow these steps to create a new extension access configuration that will allow AWS Quick to integrate with your Slack environment:
 
 **To create an extension access configuration**
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 
@@ -305,9 +305,9 @@ This is a one-time setup that establishes a trusted identity source for all exte
 
 1. From the success message, choose **View extensions** to finish installing your extension.
 **Note**  
-You can also navigate to the installation screen from **Connections** > **Extensions** in the Amazon Quick menu.
+You can also navigate to the installation screen from **Connections** > **Extensions** in the AWS Quick menu.
 
-Once created, this extension access configuration enables authors and other admin in your organization to create and deploy Amazon Quick extensions within your Slack environment.
+Once created, this extension access configuration enables authors and other admin in your organization to create and deploy AWS Quick extensions within your Slack environment.
 
 **Note**  
 For your end users to begin using your Slack extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see Installing your Slack extension in the Slack extension author guide.
@@ -315,9 +315,9 @@ For your end users to begin using your Slack extension, an admin or author must 
 ### Add Slack extension access for accounts using other authentication methods
 <a name="add-slack-extension-access"></a>
 
-Follow these steps to create a new extension access configuration that will allow Amazon Quick to integrate with your Slack environment.
+Follow these steps to create a new extension access configuration that will allow AWS Quick to integrate with your Slack environment.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 
@@ -340,9 +340,9 @@ Follow these steps to create a new extension access configuration that will allo
 
 1. From the success message, select **View extensions** to finish installing your extension.
 **Note**  
-You can also navigate to the installation screen from **Connections** > **Extensions** in the Amazon Quick menu.
+You can also navigate to the installation screen from **Connections** > **Extensions** in the AWS Quick menu.
 
-Once created, this extension access configuration enables authors and other admins in your organization to deploy Amazon Quick Slack extensions in their workspace.
+Once created, this extension access configuration enables authors and other admins in your organization to deploy AWS Quick Slack extensions in their workspace.
 
 **Note**  
 For your end users to begin using your Slack extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see [Installing your Slack extension in the Slack extension author guide](https://docs.aws.amazon.com/quicksuite/latest/userguide/slack-extension-author-guide.html#add-extensions-slack).
@@ -352,7 +352,7 @@ For your end users to begin using your Slack extension, an admin or author must 
 
 Use these steps to modify the configuration settings of an existing Slack extension access.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 
@@ -373,7 +373,7 @@ Your changes to the Slack extension access configuration are saved and will take
 
 Follow these steps to permanently remove a Slack extension access configuration. This action cannot be undone.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. Choose the profile picture icon.
 
@@ -390,4 +390,4 @@ Follow these steps to permanently remove a Slack extension access configuration.
 **Note**  
 Deleting a extension access removes access for all users in your Slack workspace and deletes all extensions created for Slack. If delete extension access fails, the admin must switch to the author view and delete the Slack extensions that are using the configured extension access before returning to delete the extension access.
 
-With Slack extension access configured, your team can now use **@Amazon Quick** mentions in channels and direct messages to access AI assistance and organizational knowledge directly within their Slack workspace.
+With Slack extension access configured, your team can now use **@AWS Quick** mentions in channels and direct messages to access AI assistance and organizational knowledge directly within their Slack workspace.

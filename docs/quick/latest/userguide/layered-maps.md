@@ -3,9 +3,9 @@
 # Using layer maps
 <a name="layered-maps"></a>
 
-Use layer maps to visualize data with custom geographic boundaries, such as congressional districts, sales territories, or user-defined regions. With layer maps, Quick authors upload GeoJSON files to Amazon Quick that shape layers over a base map and join with Quick data to visualize associated metrics and dimensions. Shape layers can be styled by color, border, and opacity. Quick authors can also add interactivity to layer maps through tooltips and custom actions.
+Use layer maps to visualize data with custom geographic boundaries, such as congressional districts, sales territories, or user-defined regions. With layer maps, Quick authors upload GeoJSON files to AWS Quick that shape layers over a base map and join with Quick data to visualize associated metrics and dimensions. Shape layers can be styled by color, border, and opacity. Quick authors can also add interactivity to layer maps through tooltips and custom actions.
 
-The following image shows a layer map visual in Amazon Quick.
+The following image shows a layer map visual in AWS Quick.
 
 ![Choropleth map of Washington DC area showing percentage data by census tract with gradient from green to orange.](https://docs.aws.amazon.com/quick/latest/userguide/images/layer-map.png)
 
@@ -13,7 +13,7 @@ The following image shows a layer map visual in Amazon Quick.
 ## Creating a shape layer with layered maps
 <a name="layered-maps-create"></a>
 
-Use the procedure below to create a shape layer with layer map visuals in Amazon Quick.
+Use the procedure below to create a shape layer with layer map visuals in AWS Quick.
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/).
 

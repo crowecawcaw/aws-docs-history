@@ -1,22 +1,22 @@
 
 
-# Forecasting and creating what-if scenarios with Amazon Quick Sight
+# Forecasting and creating what-if scenarios with AWS Quick Sight
 <a name="forecasts-and-whatifs"></a>
 
-Using ML-powered forecasting, you can forecast your key business metrics with point-and-click simplicity. No machine learning expertise is required. The built-in ML algorithm in Amazon Quick Sight is designed to handle complex real-world scenarios. Amazon Quick Sight uses machine learning to help provide more reliable forecasts than available by traditional means.
+Using ML-powered forecasting, you can forecast your key business metrics with point-and-click simplicity. No machine learning expertise is required. The built-in ML algorithm in AWS Quick Sight is designed to handle complex real-world scenarios. AWS Quick Sight uses machine learning to help provide more reliable forecasts than available by traditional means.
 
 For example, suppose that you are a business manager. Suppose that you want to forecast sales to see if you are going to meet your goal by the end of the year. Or, suppose that you expect a large deal to come through in two weeks and you want to know how it's going to affect your overall forecast. 
 
-You can forecast your business revenue with multiple levels of seasonality (for example, sales with both weekly and quarterly trends). Amazon Quick Sight automatically excludes anomalies in the data (for example, a spike in sales due to price drop or promotion) from influencing the forecast. You also don't have to clean and reprep the data with missing values because Amazon Quick Sight automatically handles that. In addition, with ML-powered forecasting, you can perform interactive what-if analyses to determine the growth trajectory you need to meet business goals.
+You can forecast your business revenue with multiple levels of seasonality (for example, sales with both weekly and quarterly trends). AWS Quick Sight automatically excludes anomalies in the data (for example, a spike in sales due to price drop or promotion) from influencing the forecast. You also don't have to clean and reprep the data with missing values because AWS Quick Sight automatically handles that. In addition, with ML-powered forecasting, you can perform interactive what-if analyses to determine the growth trajectory you need to meet business goals.
 
 ## Using forecasts and what-if scenarios
 <a name="using-forecasts"></a>
 
-You can add a forecasting widget to your existing analysis, and publish it as a dashboard. To analyze what-if scenarios, use an analysis, not a dashboard. With ML-powered forecasting, Amazon Quick Sight enables you to forecast complex, real-world scenarios such as data with multiple seasonality. It automatically excludes outliers that it identifies and imputes missing values.
+You can add a forecasting widget to your existing analysis, and publish it as a dashboard. To analyze what-if scenarios, use an analysis, not a dashboard. With ML-powered forecasting, AWS Quick Sight enables you to forecast complex, real-world scenarios such as data with multiple seasonality. It automatically excludes outliers that it identifies and imputes missing values.
 
 Use the following procedure to add a graphical forecast to your analysis, and explore what-if scenarios.
 
-Although the following procedure is for graphical forecasting, you can also add a forecast as a narrative in an insight widget. To learn more, see [Creating autonarratives with Amazon Quick Sight](narratives-creating.md).
+Although the following procedure is for graphical forecasting, you can also add a forecast as a narrative in an insight widget. To learn more, see [Creating autonarratives with AWS Quick Sight](narratives-creating.md).
 
 ML-powered forecasting is not compatible with [small multiples](small-multiples.md). To ensure accurate display of data and forecasts, avoid using small multiples in your visualizations.
 
@@ -46,7 +46,7 @@ ML-powered forecasting is not compatible with [small multiples](small-multiples.
    + **Dates** – If you are setting a target for a specific date, enter that date here. If you are using a time range, set the start and end dates.
    + **Target** – Set a target value for the metric.
 
-   Amazon Quick Sight adjusts the forecast to meet the target. 
+   AWS Quick Sight adjusts the forecast to meet the target. 
 **Note**  
 The **What-if analysis** option isn't available for multiple-metric forecasts. If you want to perform a what-if scenario on your forecast, your visual should contain only one metric.
 

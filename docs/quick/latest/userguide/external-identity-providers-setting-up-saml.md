@@ -1,6 +1,6 @@
 
 
-# Setting up IdP federation using IAM and Amazon Quick
+# Setting up IdP federation using IAM and AWS Quick
 <a name="external-identity-providers-setting-up-saml"></a>
 
 
@@ -14,9 +14,9 @@
 |    Intended audience:  System administrators  | 
 
 **Note**  
-IAM identity federation doesn't support syncing identity provider groups with Amazon Quick.
+IAM identity federation doesn't support syncing identity provider groups with AWS Quick.
 
-You can use an AWS Identity and Access Management (IAM) role and a relay state URL to configure an identity provider (IdP) that is compliant with SAML 2.0. The role grants users permissions to access Amazon Quick. The relay state is the portal that the user is forwarded to, after successful authentication by AWS.
+You can use an AWS Identity and Access Management (IAM) role and a relay state URL to configure an identity provider (IdP) that is compliant with SAML 2.0. The role grants users permissions to access AWS Quick. The relay state is the portal that the user is forwarded to, after successful authentication by AWS.
 
 **Topics**
 + [Prerequisites](#external-identity-providers-setting-up-prerequisites)
@@ -34,14 +34,14 @@ Before configuring your SAML 2.0 connection, do the following:
   + Inside your organization's network, configure your identity store, such as Windows Active Directory, to work with a SAML-based IdP. SAML-based IdPs include Active Directory Federation Services, Shibboleth, and so on.
   + Using your IdP, generate a metadata document that describes your organization as an identity provider.
   + Set up SAML 2.0 authentication, using the same steps as for the AWS Management Console. When this process is complete, you can configure your relay state to match the relay state of Quick. For more information, see [Configure the relay state of your federation](https://docs.aws.amazon.com/quicksight/latest/user/external-identity-providers-setting-up-saml.html#external-identity-providers-relay-state).
-+ Create an Amazon Quick account and note the name to use when you configure your IAM policy and IdP. For more information on creating an Amazon Quick account, see [Signing up for an Amazon Quick subscription](https://docs.aws.amazon.com/quicksight/latest/user/signing-up.html).
++ Create an AWS Quick account and note the name to use when you configure your IAM policy and IdP. For more information on creating an AWS Quick account, see [Signing up for an AWS Quick subscription](https://docs.aws.amazon.com/quicksight/latest/user/signing-up.html).
 
-After you create the setup to federate to the AWS Management Console as outlined in the tutorial, you can edit the relay state provided in the tutorial. You do so with the relay state of Amazon Quick, described in step 5 following. 
+After you create the setup to federate to the AWS Management Console as outlined in the tutorial, you can edit the relay state provided in the tutorial. You do so with the relay state of AWS Quick, described in step 5 following. 
 
 For more information, see the following resources:
 + [Integrating Third-Party SAML Solution Providers with AWS](https://docs.aws.amazon.com/singlesignon/latest/userguide/) in the *IAM User Guide*.
 +  [Troubleshooting SAML 2.0 federation with AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html), also in the *IAM User Guide*.
-+ [Setting up trust between ADFS and AWS and using Active Directory credentials to connect to Amazon Athena with ODBC driver](https://aws.amazon.com/blogs/big-data/setting-up-trust-between-adfs-and-aws-and-using-active-directory-credentials-to-connect-to-amazon-athena-with-odbc-driver/) – This walkthrough article is helpful, although you don't need to set up Athena in order to use Amazon Quick.
++ [Setting up trust between ADFS and AWS and using Active Directory credentials to connect to Amazon Athena with ODBC driver](https://aws.amazon.com/blogs/big-data/setting-up-trust-between-adfs-and-aws-and-using-active-directory-credentials-to-connect-to-amazon-athena-with-odbc-driver/) – This walkthrough article is helpful, although you don't need to set up Athena in order to use AWS Quick.
 
 ## Step 1: Create a SAML provider in AWS
 <a name="external-identity-providers-create-saml-provider"></a>
@@ -59,9 +59,9 @@ Your SAML identity provider defines your organization's IdP to AWS. It does so b
 ## Step 2: Configure permissions in AWS for your federated users
 <a name="external-identity-providers-grantperms"></a>
 
-Next, create an IAM role that establishes a trust relationship between IAM and your organization's IdP. This role identifies your IdP as a principal (trusted entity) for the purposes of federation. The role also defines which users authenticated by your organization's IdP are allowed to access Amazon Quick. For more information about creating a role for a SAML IdP, see [Creating a Role for SAML 2.0 Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html) in the *IAM User Guide*.
+Next, create an IAM role that establishes a trust relationship between IAM and your organization's IdP. This role identifies your IdP as a principal (trusted entity) for the purposes of federation. The role also defines which users authenticated by your organization's IdP are allowed to access AWS Quick. For more information about creating a role for a SAML IdP, see [Creating a Role for SAML 2.0 Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html) in the *IAM User Guide*.
 
-After you have created the role, you can limit the role to have permissions only to Amazon Quick by attaching an inline policy to the role. The following sample policy document provides access to Amazon Quick. This policy allows the user access to Amazon Quick and allows them to create both author accounts and reader accounts.
+After you have created the role, you can limit the role to have permissions only to AWS Quick by attaching an inline policy to the role. The following sample policy document provides access to AWS Quick. This policy allows the user access to AWS Quick and allows them to create both author accounts and reader accounts.
 
 **Note**  
 In the following example, replace {{<YOUR\_AWS\_ACCOUNT\_ID>}} with your 12-digit AWS account ID (with no hyphens ‘‐’).
@@ -83,7 +83,7 @@ In the following example, replace {{<YOUR\_AWS\_ACCOUNT\_ID>}} with your 12-digi
     }
 ```
 
-If you want to provide access to Amazon Quick and also the ability to create Amazon Quick admins, authors (standard users), and readers, you can use the following policy example. 
+If you want to provide access to AWS Quick and also the ability to create AWS Quick admins, authors (standard users), and readers, you can use the following policy example. 
 
 ```
     {
@@ -104,7 +104,7 @@ If you want to provide access to Amazon Quick and also the ability to create Ama
 
 You can view account details in the AWS Management Console.
 
-After you have set up SAML and the IAM policy or policies, you don't need to invite users manually. The first time that users open Amazon Quick, they are provisioned automatically, using the highest level permissions in the policy. For example, if they have permissions to both `quicksight:CreateUser` and `quicksight:CreateReader`, they are provisioned as authors. If they also have permissions to `quicksight:CreateAdmin`, they are provisioned as admins. Each permission level includes the ability to create the same level user and below. For example, an author can add other authors or readers. 
+After you have set up SAML and the IAM policy or policies, you don't need to invite users manually. The first time that users open AWS Quick, they are provisioned automatically, using the highest level permissions in the policy. For example, if they have permissions to both `quicksight:CreateUser` and `quicksight:CreateReader`, they are provisioned as authors. If they also have permissions to `quicksight:CreateAdmin`, they are provisioned as admins. Each permission level includes the ability to create the same level user and below. For example, an author can add other authors or readers. 
 
 Users who are invited manually are created in the role assigned by the person who invited them. They don't need to have policies that grant them permissions.
 
@@ -125,9 +125,9 @@ Next, configure the information that the IdP passes as SAML attributes to AWS as
 ## Step 5: Configure the relay state of your federation
 <a name="external-identity-providers-relay-state"></a>
 
-Finally, configure the relay state of your federation to point to the Amazon Quick relay state URL. After successful authentication by AWS, the user is directed to Amazon Quick, defined as the relay state in the SAML authentication response.
+Finally, configure the relay state of your federation to point to the AWS Quick relay state URL. After successful authentication by AWS, the user is directed to AWS Quick, defined as the relay state in the SAML authentication response.
 
-The relay state URL for Amazon Quick is as follows.
+The relay state URL for AWS Quick is as follows.
 
 ```
 https://quicksight.aws.amazon.com

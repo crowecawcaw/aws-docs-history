@@ -20,7 +20,7 @@ You can use the following operators in calculated fields. Quick uses the standar
 + OR
 + NOT
 
-Amazon Quick supports applying the following mathematical functions to an expression.
+AWS Quick supports applying the following mathematical functions to an expression.
 + `[Mod](https://docs.aws.amazon.com/quicksight/latest/user/mod-function.html)({{number}}, {{divisor}})` – Finds the remainder after dividing a number by a divisor.
 + `[Log](https://docs.aws.amazon.com/quicksight/latest/user/log-function.html)({{expression}}) `– Returns the base 10 logarithm of a given expression. 
 + `[Ln](https://docs.aws.amazon.com/quicksight/latest/user/ln-function.html)({{expression}}) `– Returns the natural logarithm of a given expression. 
@@ -52,7 +52,7 @@ The following example uses multiple arithmetic operators to determine a sales to
 ## Example: (/) Division
 <a name="operator-example-division-operators"></a>
 
-The following example uses division to divide 3 by 2. A value of 1.5 is returned. Amazon Quick uses floating point divisions.
+The following example uses division to divide 3 by 2. A value of 1.5 is returned. AWS Quick uses floating point divisions.
 
 ```
 3/2

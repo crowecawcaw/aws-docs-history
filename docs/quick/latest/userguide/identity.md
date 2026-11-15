@@ -11,17 +11,17 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 The following topics describe how to set up identity and access for Quick.
 + [Using IAM Identity Center](setting-up-sso.md)
 + [IAM federation](iam-federation.md)
-+ [Using Active Directory with Amazon Quick Enterprise edition](aws-directory-service.md)
-+ [Setting up IdP federation using IAM and Amazon Quick](external-identity-providers-setting-up-saml.md)
-+ [Using multi-factor authentication (MFA) with Amazon Quick](using-multi-factor-authentication-mfa.md)
++ [Using Active Directory with AWS Quick Enterprise edition](aws-directory-service.md)
++ [Setting up IdP federation using IAM and AWS Quick](external-identity-providers-setting-up-saml.md)
++ [Using multi-factor authentication (MFA) with AWS Quick](using-multi-factor-authentication-mfa.md)
 
 **Note**  
-In the following AWS Regions, Amazon Quick accounts can only use [IAM Identity Center](setting-up-sso.md) for identity and access management:  
+In the following AWS Regions, AWS Quick accounts can only use [IAM Identity Center](setting-up-sso.md) for identity and access management:  
 `af-south-1` Africa (Cape Town)
 `ap-southeast-3` Asia Pacific (Jakarta)
 `ap-southeast-5` Asia Pacific (Malaysia)
@@ -33,7 +33,7 @@ In the following AWS Regions, Amazon Quick accounts can only use [IAM Identity C
 
 The following sections help you configure the identity management method of your choice for Quick.
 
-IAM permissions control access to some sections of the Amazon Quick administration console. The following table lists admin actions and whether they require IAM permissions.
+IAM permissions control access to some sections of the AWS Quick administration console. The following table lists admin actions and whether they require IAM permissions.
 
 
 | Admin action | IAM permissions required | 
@@ -64,11 +64,11 @@ IAM permissions control access to some sections of the Amazon Quick administrati
 | **Email customization** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
 | **Quick Usage Metrics** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
 
-If you have the Amazon Quick admin role, you can perform actions that do not require IAM permissions. To perform actions that require IAM permissions, sign in to the AWS Management Console as an IAM principal with the appropriate `quicksight:*` permissions. You can also perform some admin actions programmatically through the Amazon Quick API. For a list of available API operations, see the [Amazon Quick API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.html).
+If you have the AWS Quick admin role, you can perform actions that do not require IAM permissions. To perform actions that require IAM permissions, sign in to the AWS Management Console as an IAM principal with the appropriate `quicksight:*` permissions. You can also perform some admin actions programmatically through the AWS Quick API. For a list of available API operations, see the [AWS Quick API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.html).
 
 **Topics**
 + [Using IAM](iam.md)
 + [Using IAM Identity Center](setting-up-sso.md)
 + [IAM federation](iam-federation.md)
-+ [Using Active Directory with Amazon Quick Enterprise edition](aws-directory-service.md)
-+ [Using multi-factor authentication (MFA) with Amazon Quick](using-multi-factor-authentication-mfa.md)
++ [Using Active Directory with AWS Quick Enterprise edition](aws-directory-service.md)
++ [Using multi-factor authentication (MFA) with AWS Quick](using-multi-factor-authentication-mfa.md)

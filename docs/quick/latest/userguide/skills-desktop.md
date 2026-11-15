@@ -3,7 +3,7 @@
 # Skills
 <a name="skills-desktop"></a>
 
-Skills are reusable sets of instructions that teach your agents how to do a specific task. Each skill packages the steps and know-how for that task. Instead of re-explaining how you want a task done every time, you capture it once as a skill, and Quick applies those instructions whenever the task comes up, for example writing a blog post that follows your brand guidelines, or preparing a weekly status update from your template. You can create your own skills, publish and share them, and install skills that other people in your organization share with you. You manage these from the **Skills** tab (**Customize > Skills**).
+Skills are reusable sets of instructions that teach your agents how to do a specific task. Each skill packages the steps and know-how for that task. Instead of re-explaining how you want a task done every time, you capture it once as a skill, and Quick applies those instructions whenever the task comes up, for example writing a blog post that follows your brand guidelines, or preparing a weekly status update from your template. You can create your own skills, publish and share them, and install skills that other people in your organization share with you. You manage these from the **Skills** tab (**Customize** > **Skills**).
 
 ## Skill definition
 <a name="desktop-skill-definition"></a>
@@ -38,7 +38,7 @@ Quick includes system skills, pre-installed skills for capabilities such as docu
 ## Creating a skill
 <a name="desktop-creating-a-skill"></a>
 
-To create a skill, choose **Customize > Skills**, choose **Create**, and then choose a method.
+To create a skill, choose **Customize** > **Skills**, choose **Create**, and then choose a method.
 
 **To create a skill from chat**
 
@@ -118,7 +118,7 @@ The **Skills** tab lists every skill you can use.
 ## Browsing for more skills
 <a name="desktop-browsing-more-skills"></a>
 
-To find skills beyond the ones in your list, choose **Browse all** on the **Skills** tab. This opens **Add to Quick**, scoped to skills, with two ways to find them: **Official** (curated, first-party skills provided by Amazon Quick) and **Shared with me** (skills that people or teams in your organization have shared with you). Search by name, filter by Owner and Category, and sort the results. Choose a skill to preview its description and details before you add it.
+To find skills beyond the ones in your list, choose **Browse all** on the **Skills** tab. This opens **Add to Quick**, scoped to skills, with two ways to find them: **Official** (curated, first-party skills provided by AWS Quick) and **Shared with me** (skills that people or teams in your organization have shared with you). Search by name, filter by Owner and Category, and sort the results. Choose a skill to preview its description and details before you add it.
 
 When you add a skill from Official or Shared with me, it enters your list as a reference to the owner's published version, not a copy. It stays in sync and updates automatically as the owner republishes. To make a version you can change, duplicate it.
 

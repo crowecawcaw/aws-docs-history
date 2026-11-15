@@ -3,9 +3,9 @@
 # Atlassian Jira Cloud integration
 <a name="jira-integration"></a>
 
-Use the Atlassian Jira Cloud connector to create, update, search, and manage Jira issues, projects, sprints, and users directly in Amazon Quick through natural language.
+Use the Atlassian Jira Cloud connector to create, update, search, and manage Jira issues, projects, sprints, and users directly in AWS Quick through natural language.
 
-Setting up this integration involves two steps. First, you create an OAuth 2.0 (3LO) app in the Atlassian Developer Console and configure its permissions. Then, you create the integration in Amazon Quick and connect it to your Atlassian app. For information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+Setting up this integration involves two steps. First, you create an OAuth 2.0 (3LO) app in the Atlassian Developer Console and configure its permissions. Then, you create the integration in AWS Quick and connect it to your Atlassian app. For information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="jira-integration-prerequisites"></a>
@@ -18,16 +18,16 @@ Make sure you have the following before you set up the integration.
 ## Configure the Atlassian Developer Console
 <a name="jira-atlassian-setup"></a>
 
-If you plan to use user authentication (3LO), create an OAuth 2.0 app in the Atlassian Developer Console before you configure Amazon Quick. Complete all of the following steps before moving to the Amazon Quick console.
+If you plan to use user authentication (3LO), create an OAuth 2.0 app in the Atlassian Developer Console before you configure AWS Quick. Complete all of the following steps before moving to the AWS Quick console.
 
-If you plan to use service authentication (API Key) only, you can skip this section and proceed to [Set up the integration in Amazon Quick](#jira-integration-setup).
+If you plan to use service authentication (API Key) only, you can skip this section and proceed to [Set up the integration in AWS Quick](#jira-integration-setup).
 
 For more information about OAuth 2.0 (3LO) apps, see [OAuth 2.0 (3LO) apps](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/) in the Atlassian developer documentation.
 
 ### Create an OAuth 2.0 (3LO) app
 <a name="atlassian-oauth-app"></a>
 
-Amazon Quick uses an Atlassian OAuth 2.0 (3LO) app to authenticate with your Atlassian Cloud product on behalf of your users. Create this app in the Atlassian Developer Console before you configure Amazon Quick.
+AWS Quick uses an Atlassian OAuth 2.0 (3LO) app to authenticate with your Atlassian Cloud product on behalf of your users. Create this app in the Atlassian Developer Console before you configure AWS Quick.
 
 1. Open the [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/) and sign in with your Atlassian account.
 
@@ -42,7 +42,7 @@ Amazon Quick uses an Atlassian OAuth 2.0 (3LO) app to authenticate with your Atl
 ### Configure permissions
 <a name="atlassian-oauth-permissions"></a>
 
-After you create the OAuth 2.0 app, add the API permissions that Amazon Quick needs to interact with your Atlassian product.
+After you create the OAuth 2.0 app, add the API permissions that AWS Quick needs to interact with your Atlassian product.
 
 1. From your app in the Atlassian Developer Console, choose **Permissions** in the left navigation.
 
@@ -96,20 +96,20 @@ Choose the **Granular scopes** tab, then choose **Edit Scopes**. Use the search 
 ### Configure authorization
 <a name="atlassian-oauth-authorization"></a>
 
-Set the callback URL so that Atlassian can redirect users back to Amazon Quick after they authorize the app.
+Set the callback URL so that Atlassian can redirect users back to AWS Quick after they authorize the app.
 
 1. From your app in the Atlassian Developer Console, choose **Authorization** in the left navigation.
 
 1. Next to **OAuth 2.0 (3LO)**, choose **Add**.
 
-1. For **Callback URLs**, enter `https://{{region}}.quicksight.aws.amazon.com/sn/oauthcallback`. Replace {{region}} with the AWS Region where your Amazon Quick instance is deployed, for example `us-east-1`.
+1. For **Callback URLs**, enter `https://{{region}}.quicksight.aws.amazon.com/sn/oauthcallback`. Replace {{region}} with the AWS Region where your AWS Quick instance is deployed, for example `us-east-1`.
 
 1. Choose **Save changes**.
 
 ### Record your credentials
 <a name="atlassian-oauth-credentials"></a>
 
-Before you leave the Atlassian Developer Console, confirm that you have the following values. You need them for the Amazon Quick configuration.
+Before you leave the Atlassian Developer Console, confirm that you have the following values. You need them for the AWS Quick configuration.
 
 1. From your app in the Atlassian Developer Console, choose **Settings** in the left navigation.
 
@@ -123,12 +123,12 @@ Before you leave the Atlassian Developer Console, confirm that you have the foll
 | Client ID | Settings page, under Authentication details | 
 | Secret | Settings page, under Authentication details | 
 
-## Set up the integration in Amazon Quick
+## Set up the integration in AWS Quick
 <a name="jira-integration-setup"></a>
 
-After you prepare your authentication credentials, create the integration in Amazon Quick.
+After you prepare your authentication credentials, create the integration in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -147,7 +147,7 @@ After you prepare your authentication credentials, create the integration in Ama
       + **Client secret** – Secret from the Settings page of your Atlassian OAuth app.
       + **Token URL** – `https://auth.atlassian.com/oauth/token`
       + **Authorization URL** – `https://auth.atlassian.com/authorize`
-      + **Redirect URL** – This field is pre-populated with your Amazon Quick callback URL.
+      + **Redirect URL** – This field is pre-populated with your AWS Quick callback URL.
 
    1. For **Service authentication**, configure the following fields:
       + **API Key** – Jira API token.
@@ -211,11 +211,11 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 
 ### Authentication issues
 <a name="jira-troubleshooting-auth"></a>
-+ **Incorrect app configuration** – Verify the OAuth app in the Atlassian Developer Console includes the required scopes and that the redirect URI matches your Amazon Quick configuration.
++ **Incorrect app configuration** – Verify the OAuth app in the Atlassian Developer Console includes the required scopes and that the redirect URI matches your AWS Quick configuration.
 + **Expired or revoked API token** – If using service authentication, check that the API token has not expired or been revoked. Due to a known Jira Cloud behavior ([JRACLOUD-82932](https://jira.atlassian.com/browse/JRACLOUD-82932)), the integration may appear to connect successfully even with invalid tokens.
 + **Incorrect Base URL** – The Base URL for API calls is not the same as the Jira Cloud login URL. Verify you are using the API URL format: `https://api.atlassian.com/ex/jira/{{yourInstanceId}}`. To find your instance ID, navigate to `https://{{your-domain}}.atlassian.net/_edge/tenant_info`.
 
 ### Common error messages
 <a name="jira-troubleshooting-errors"></a>
 + **`Access denied. You do not have permission to perform this action`** – The authenticated user does not have the required permissions in Jira Cloud. Contact your Jira Cloud administrator to verify and grant appropriate permissions.
-+ **`OAuth 2.0 authorization failed`** – Verify the client ID, client secret, and OAuth scopes are configured correctly in both the Atlassian Developer Console and Amazon Quick.
++ **`OAuth 2.0 authorization failed`** – Verify the client ID, client secret, and OAuth scopes are configured correctly in both the Atlassian Developer Console and AWS Quick.

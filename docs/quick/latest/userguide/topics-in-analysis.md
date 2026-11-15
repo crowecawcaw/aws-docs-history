@@ -11,7 +11,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators and authors  | 
+|    Intended audience:  AWS Quick administrators and authors  | 
 
 You can use a Topic as the data model for your Quick Sight analysis. When you create an analysis from a Topic, you can select fields from any of the datasets in the Topic. Quick Sight automatically performs runtime inner joins based on the relationships you defined, assembling precisely the join it needs for each visual.
 
@@ -44,7 +44,7 @@ When a visual references fields from multiple datasets:
 1. The result is displayed in the visual with the correct aggregation and grouping.
 
 **Note**  
-Runtime joins in analysis use inner join semantics. Only rows with matching keys in both datasets appear in results. If you need outer join behavior for analytical scenarios, use the Topic in Amazon Quick chat instead, where the chat agent can generate SQL with outer joins based on your custom instructions.
+Runtime joins in analysis use inner join semantics. Only rows with matching keys in both datasets appear in results. If you need outer join behavior for analytical scenarios, use the Topic in AWS Quick chat instead, where the chat agent can generate SQL with outer joins based on your custom instructions.
 
 ## Benefits of using Topics in analysis
 <a name="topics-in-analysis-benefits"></a>

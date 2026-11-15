@@ -1,6 +1,6 @@
 
 
-# Using Topics on sheets in Amazon Quick Sight
+# Using Topics on sheets in AWS Quick Sight
 <a name="using-q-topics-on-sheets"></a>
 
 You can use Quick Sight Topics as the data model for your analysis sheets. When you create an analysis from a Topic, you can select fields from any of the datasets in the Topic and Quick Sight automatically performs runtime inner joins based on the defined relationships. This eliminates the need to pre-join tables into a single flat dataset before building an analysis.
@@ -30,9 +30,9 @@ The following rules apply when working with Topics in analysis sheets:
 + Each dataset in the Topic can have its own independent refresh schedule. Visuals always reflect the latest data available in each dataset.
 
 **Note**  
-Runtime joins in analysis sheets use inner join semantics only. Rows without matching keys in both datasets are excluded from visual results. If you need outer join behavior, use the Topic in Amazon Quick chat, where the LLM-powered chat agent can generate SQL with outer joins based on custom instructions.
+Runtime joins in analysis sheets use inner join semantics only. Rows without matching keys in both datasets are excluded from visual results. If you need outer join behavior, use the Topic in AWS Quick chat, where the LLM-powered chat agent can generate SQL with outer joins based on custom instructions.
 
-For more information about creating and configuring Topics, see [Working with Amazon Quick Sight Topics](topics.md).
+For more information about creating and configuring Topics, see [Working with AWS Quick Sight Topics](topics.md).
 
 ## Enabling legacy Topics in an analysis
 <a name="topics-on-sheets-legacy"></a>

@@ -16,7 +16,7 @@ To create a word cloud, use one dimension in the **Group by** field well. Option
 
 Word clouds usually look better with 20–100 words or phrases, but the format settings offer a wide range of flexibility. If you choose too many words, they can become too small to be legible, depending on the size of your display. By default, word clouds display 100 distinct words. To show more, change the format setting for **Number of words**. 
 
-Word clouds are limited to 500 unique values for **Group by**. To avoid displaying the word **Other**, format the visual to hide the **Other** category. For more information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Word clouds are limited to 500 unique values for **Group by**. To avoid displaying the word **Other**, format the visual to hide the **Other** category. For more information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Word cloud features
 <a name="word-cloud-features"></a>
@@ -31,11 +31,11 @@ To understand the features supported by word clouds, see the following table.
 | Changing the axis range | Not applicable |  | [Range and scale on visual types in Quick](changing-visual-scale-axis-range.md) | 
 | Changing the visual colors | Yes | To change the color, choose a word and then choose a color. | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes |  | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | Yes |  | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | Yes |  | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You can't apply aggregation to the field that you choose for Group by. You must apply an aggregation to the field that you choose for Size.  | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Yes | You can add drill-down levels to the Group by field well. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
-| Using format options | Yes | You can choose to allow vertical words, emphasize scale, use a fluid layout, use lowercase, and set the amount of padding between words. You can set the maximum string length for the word cloud (default is 40). You can also choose the number of words for the Group by field (default is 100; maximum is 500). | [Formatting in Amazon Quick](formatting-a-visual.md) | 
-| Showing totals | No |  | [Formatting in Amazon Quick](formatting-a-visual.md) | 
+| Using format options | Yes | You can choose to allow vertical words, emphasize scale, use a fluid layout, use lowercase, and set the amount of padding between words. You can set the maximum string length for the word cloud (default is 40). You can also choose the number of words for the Group by field (default is 100; maximum is 500). | [Formatting in AWS Quick](formatting-a-visual.md) | 
+| Showing totals | No |  | [Formatting in AWS Quick](formatting-a-visual.md) | 
 
 ## Creating a word cloud
 <a name="create-word-cloud"></a>

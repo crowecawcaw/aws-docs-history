@@ -21,7 +21,7 @@ Use the following procedure to prepare a dataset based on a query to a database.
      If you have a long table list in the **Tables** pane, you can search for a specific table by typing a search term for **Search tables**. 
 
      Any table whose name contains the search term is shown. Search is case-insensitive and wildcards are not supported. Choose the cancel icon (**X**) to the right of the search box to return to viewing all tables.
-   + To use two or more joined tables to provide data, choose two tables and join them using the join pane. You must import data into Quick Sight if you choose to use joined tables. For more information about joining data using the Amazon Quick Sight interface, see [Joining data](https://docs.aws.amazon.com/quicksight/latest/user/joining-data.html).
+   + To use two or more joined tables to provide data, choose two tables and join them using the join pane. You must import data into Quick Sight if you choose to use joined tables. For more information about joining data using the AWS Quick Sight interface, see [Joining data](https://docs.aws.amazon.com/quicksight/latest/user/joining-data.html).
    + To use a custom SQL query to provide data in a new dataset, choose **Switch to Custom SQL** tool on the **Tables** pane. For more information, see [Using SQL to customize data](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-SQL-query.html).
 
      To change the SQL query in an existing dataset, choose **Edit SQL** on the **Fields** pane to open the SQL pane and edit the query.

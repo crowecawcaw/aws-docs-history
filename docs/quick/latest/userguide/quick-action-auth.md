@@ -3,19 +3,19 @@
 # Authentication methods
 <a name="quick-action-auth"></a>
 
-Amazon Quick supports multiple authentication methods for connectors. The available methods depend on the specific connector. During setup, you choose your authentication method from the **OAuth Configuration** options or from the connector-specific authentication settings.
+AWS Quick supports multiple authentication methods for connectors. The available methods depend on the specific connector. During setup, you choose your authentication method from the **OAuth Configuration** options or from the connector-specific authentication settings.
 
-Amazon Quick invokes connectors from your Amazon Quick account, so the web, mobile, and desktop applications don't call the third-party service directly. Amazon Quick stores each connector's OAuth tokens in a token vault in your Amazon Quick account and uses the refresh token to renew the access token. With three-legged OAuth (3LO), you sign in to the third-party service, so Amazon Quick doesn't receive your password. Some connectors authenticate differently, as the following sections describe.
+AWS Quick invokes connectors from your AWS Quick account, so the web, mobile, and desktop applications don't call the third-party service directly. AWS Quick stores each connector's OAuth tokens in a token vault in your AWS Quick account and uses the refresh token to renew the access token. With three-legged OAuth (3LO), you sign in to the third-party service, so AWS Quick doesn't receive your password. Some connectors authenticate differently, as the following sections describe.
 
 ## Default OAuth app
 <a name="quick-managed-auth"></a>
 
-Default OAuth app (also known as managed authentication or 3LO) is the recommended authentication method for personal access to third-party services. With this method, Amazon Quick manages the OAuth flow and no additional credentials are required from your organization.
+Default OAuth app (also known as managed authentication or 3LO) is the recommended authentication method for personal access to third-party services. With this method, AWS Quick manages the OAuth flow and no additional credentials are required from your organization.
 
 **Key features:**
 + No additional credentials or configuration required.
 + User-specific authentication through provider sign-in.
-+ Secure credential storage managed by Amazon Quick.
++ Secure credential storage managed by AWS Quick.
 + Automatic token refresh.
 + 90-day refresh token lifecycle.
 
@@ -35,7 +35,7 @@ Not all connectors support Default OAuth app. Check the connector-specific docum
 ## Custom OAuth app
 <a name="quick-custom-user-auth"></a>
 
-Custom OAuth app authentication is for organizations that require specific control over the OAuth application configuration. Like Default OAuth app, this method uses a three-legged OAuth (3LO) flow where users sign in directly with the service provider. The difference is that you provide your own OAuth credentials instead of using the Amazon Quick managed application.
+Custom OAuth app authentication is for organizations that require specific control over the OAuth application configuration. Like Default OAuth app, this method uses a three-legged OAuth (3LO) flow where users sign in directly with the service provider. The difference is that you provide your own OAuth credentials instead of using the AWS Quick managed application.
 
 **Required information:**
 + Client ID

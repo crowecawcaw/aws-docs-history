@@ -1,6 +1,6 @@
 
 
-# Amazon Quick JSON expression language for Highcharts visuals
+# AWS Quick JSON expression language for Highcharts visuals
 <a name="highchart-expressions"></a>
 
 Highcharts visuals accept most [valid JSON values](https://www.w3schools.com/js/js_json_datatypes.asp), standard arithmetic operators, string operators, and conditional operators. The following JSON values are not supported for Highcharts visuals:
@@ -14,9 +14,9 @@ With JSON expression language, expressions are represented as arrays, where the 
 
 JSON expression language supports *nested expressions*. Nested expressions are expressions that contain other expressions as arguments. For example `["split", ["toUpper", "hello world"], " "]` first converts the string `hello world` into an uppercase, then splits it into array of words, resulting in `["HELLO", "WORLD"]`.
 
-Use the following sections to learn more about JSON expression language for Highcharts visuals in Amazon Quick.
+Use the following sections to learn more about JSON expression language for Highcharts visuals in AWS Quick.
 
 **Topics**
 + [Arithmetics](jle-arithmetics.md)
 + [Array operations](jle-arrays.md)
-+ [Amazon Quick expressions](jle-qs-expressions.md)
++ [AWS Quick expressions](jle-qs-expressions.md)

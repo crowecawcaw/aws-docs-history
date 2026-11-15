@@ -1,9 +1,9 @@
 
 
-# Outbound connections and data egress in Amazon Quick
+# Outbound connections and data egress in AWS Quick
 <a name="outbound-connections"></a>
 
-Stored customer data in Amazon Quick does not leave its AWS Region. The documented exceptions are AI inference processed within a defined geography (cross-Region inference) and the outbound paths that you or your administrator enables. Every path described on this page is either off by default or requires explicit configuration before data can leave the service boundary.
+Stored customer data in AWS Quick does not leave its AWS Region. The documented exceptions are AI inference processed within a defined geography (cross-Region inference) and the outbound paths that you or your administrator enables. Every path described on this page is either off by default or requires explicit configuration before data can leave the service boundary.
 
 For related guidance on evaluating these paths before you enable them, see [Security in Quick](best-practices-security.md).
 
@@ -16,7 +16,7 @@ The following table summarizes each outbound path, the data that can leave, and 
 | --- | --- | --- | 
 | Connectors | Conversational context, user requests, and structured parameters sent to the connected third-party or AWS service | Administrator creates and configures the connector, selects authentication method and scopes; individual connectors can be restricted through custom permissions | 
 | Remote MCP servers | Tool invocation parameters derived from conversational context | Administrator creates the MCP integration (Enterprise subscription required) | 
-| Web search | Queries derived from user requests sent to external web search providers | Administrator enables web search for the organization | 
+| Web search | Web search queries derived from user requests if in-Region web search is not available (see below for detail) | Administrator enables web search for the organization | 
 | Third-party research providers | Research queries derived from the research objective | Administrator sets up each integration individually and shares it with authorized users; premium providers require a provisioned license; the Research custom permission removes all providers for a profile | 
 | Quick Apps (public access) | App content rendered to anonymous internet viewers | App owner enables public sharing (Free and Plus accounts only) | 
 | Embedding | Dashboard visuals, analytics, and generative BI content rendered in an external web application | Administrator or developer configures embedding with IAM API calls and domain allowlisting (Enterprise required) | 
@@ -27,7 +27,7 @@ The following table summarizes each outbound path, the data that can leave, and 
 ## Connectors
 <a name="outbound-connections-action-connectors"></a>
 
-Connectors create secure connections between Amazon Quick and third-party or AWS services. After an administrator configures a connector, it sends conversational context, user requests, and structured parameters to the target service.
+Connectors create secure connections between AWS Quick and third-party or AWS services. After an administrator configures a connector, it sends conversational context, user requests, and structured parameters to the target service.
 + **What triggers it** – On-demand connectors execute when a user initiates them. Automated workflow connectors execute on a schedule or in response to an event, without user interaction.
 + **Who controls it** – An administrator creates and configures each connector, choosing the authentication method (managed OAuth, custom user OAuth, API key, or service-to-service) and the scopes granted. A user can invoke only the connectors that an administrator shares with that user. Administrators can additionally restrict individual connectors through custom permissions. Each connector supports three permissions: **Create and Update action**, **Share action**, and **Use action**. Custom permissions profiles apply at the user, role, or account level. The most specific level takes precedence. For more information, see [Custom permissions](custom-permissions.md).
 + **What to verify** – Before enabling a connector, verify the authentication method and OAuth scopes granted, whether the connector is shared broadly or narrowly, whether it is on-demand or automated, and what the service-level authorization permits. The credential you configure defines the connector's reach into the connected system. The connector can act on whatever the granted scopes and the service-level authorization permit, and nothing more.
@@ -38,7 +38,7 @@ For more information about action types, see [On-demand actions](int-actions-typ
 <a name="outbound-connections-mcp"></a>
 
 With remote Model Context Protocol (MCP) server integrations, the AI assistant can invoke tools that those servers provide. When the assistant invokes a tool, it sends tool invocation parameters derived from conversational context to the MCP server endpoint.
-+ **What triggers it** – The AI assistant selects a tool during a user-initiated or automated conversation. During connection, Amazon Quick discovers and registers the tools that the MCP server provides. After discovery completes, each tool is listed as an action that you can review and turn on.
++ **What triggers it** – The AI assistant selects a tool during a user-initiated or automated conversation. During connection, AWS Quick discovers and registers the tools that the MCP server provides. After discovery completes, each tool is listed as an action that you can review and turn on.
 + **Who controls it** – An administrator creates the MCP integration in the console. The integration specifies the endpoint URL, the connection type (public internet or private VPC), and the authentication method. You need an Enterprise subscription. Administrators can restrict individual MCP connectors through custom permissions. Each connector supports three permissions: **Create and Update action**, **Share action**, and **Use action**. For more information, see [Custom permissions](custom-permissions.md).
 + **Transport restriction** – MCP integration supports remote servers only. Local stdio connections are not supported. An MCP integration cannot invoke a process running on a local machine.
 + **What to verify** – Before enabling an MCP integration, verify whether authentication is enabled (unauthenticated access is a selectable option), the OAuth scope if user authentication is selected, the network path (public internet or private VPC), and what tools the server exposes. Confirm that only the tools required for the intended use case are turned on.
@@ -48,7 +48,7 @@ For more information, see [Model Context Protocol (MCP) integration](mcp-integra
 ## Web search
 <a name="outbound-connections-web-search"></a>
 
-When web search is enabled, Amazon Quick sends queries derived from user requests to external web search providers. The assistant uses web search automatically in chat and research sessions to gather information from publicly available online sources.
+When web search is enabled, AWS Quick sends queries derived from user requests to an AWS service for web search. The assistant uses web search automatically in chat and research sessions to gather information from publicly available online sources.
 + **What triggers it** – The assistant selects web search during a user-initiated chat or research session. You can turn off web search for individual queries.
 + **Who controls it** – An administrator enables or disables web search for the organization. When web search is enabled, you can turn it off for each query. Web search queries route through designated AWS Regions based on the account's primary Region.
 + **What to verify** – Before enabling web search, determine whether your use case requires external web data and understand how queries route across Regions.
@@ -60,12 +60,12 @@ For more information about cross-Region routing for web search, see [Cross-Regio
 ## Third-party research providers
 <a name="outbound-connections-research-providers"></a>
 
-Amazon Quick Research integrates with third-party data providers such as FactSet, IDC, and S&P Global. When a user runs a research session, the agent determines which providers to use based on relevance to the research objective and sends queries to those providers.
+AWS Quick Research integrates with third-party data providers such as FactSet, IDC, and S&P Global. When a user runs a research session, the agent determines which providers to use based on relevance to the research objective and sends queries to those providers.
 + **What triggers it** – The research agent selects providers automatically based on relevance. Users choose which provider categories to include for each research session.
 + **Who controls it** – Access to third-party research providers is layered across multiple controls. An administrator sets up each integration individually and shares it only with the users who need access. Unshared integrations are unavailable. Premium providers (FactSet, IDC, S&P Global Energy, S&P Global Market Intelligence) additionally require an administrator-provisioned license. If you don't provision a license, those providers stay unavailable. The Research capability in custom permissions removes access to Research – and therefore all third-party providers – for a given profile. Restricting the "Use internet to enhance results" capability separately removes web-based search in chat agents and Research.
 + **What to verify** – Verify that each third-party data integration is shared only with authorized users. For premium providers, verify that licenses are provisioned only where needed. For public providers, verify that your acceptable-use policies permit sending research queries to external sources. Use the Research capability in custom permissions to remove Research entirely for profiles that must not reach any external provider. For more information about custom permissions, see [Custom permissions](custom-permissions.md).
 
-For more information, see [Using third party data in Amazon Quick Research](third-party-data.md) and [Select research materials](select-research-materials.md).
+For more information, see [Using third party data in AWS Quick Research](third-party-data.md) and [Select research materials](select-research-materials.md).
 
 ## Quick Apps and public access
 <a name="outbound-connections-apps"></a>
@@ -80,12 +80,12 @@ For more information, see [Security and sandbox in apps in Quick](security-sandb
 ## Embedding
 <a name="outbound-connections-embedding"></a>
 
-Embedding renders Amazon Quick dashboard visuals, analytics, and generative BI content in an external web application. Domain allowlisting controls where embedded content can render. Row-level security (RLS) and column-level security (CLS) are enforced for embedded viewers.
+Embedding renders AWS Quick dashboard visuals, analytics, and generative BI content in an external web application. Domain allowlisting controls where embedded content can render. Row-level security (RLS) and column-level security (CLS) are enforced for embedded viewers.
 + **What triggers it** – An administrator or developer configures embedding through IAM API calls. End users then access the embedded content in the host application.
 + **Who controls it** – An Enterprise subscription is required. The administrator or developer configures the `AllowedDomains` parameter to limit which domains can host embedded content. The IAM policy condition `AllowedEmbeddingDomains` provides additional restriction.
 + **What to verify** – Before enabling embedding, verify that every domain in the allowlist is controlled by your organization, that RLS and CLS are configured for the underlying datasets, and that you have an Enterprise subscription.
 
-For more information, see [Embedding Amazon Quick Sight analytics into your applications](embedding-overview.md).
+For more information, see [Embedding AWS Quick Sight analytics into your applications](embedding-overview.md).
 
 ## Exports and downloads
 <a name="outbound-connections-exports"></a>
@@ -100,7 +100,7 @@ For more information about restricting capabilities, see [Custom permissions](cu
 ## Log and metric delivery
 <a name="outbound-connections-logging"></a>
 
-Use log and metric delivery to send data from Amazon Quick to destinations that you control. Unlike the other paths on this page, data goes to your own AWS infrastructure rather than to a third party. Log types include chat conversations, user feedback, agent and research hours, index storage usage, and knowledge base file sync results.
+Use log and metric delivery to send data from AWS Quick to destinations that you control. Unlike the other paths on this page, data goes to your own AWS infrastructure rather than to a third party. Log types include chat conversations, user feedback, agent and research hours, index storage usage, and knowledge base file sync results.
 
 **Sensitive data in chat logs**  
 Chat logs can contain sensitive or personally identifiable data.
@@ -108,14 +108,14 @@ Chat logs can contain sensitive or personally identifiable data.
 + **Who controls it** – An administrator configures the delivery destination (CloudWatch Logs, Amazon S3, or Firehose). IAM permissions are required to set up delivery. When a destination uses a customer managed KMS key, the key policy must allow the delivery service principal.
 + **What to verify** – Before configuring log delivery, verify the encryption and access policies at the destination, the retention policies at the destination, and that personnel with access to the destination understand that chat logs can contain sensitive data.
 
-For more information, see [Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
+For more information, see [Monitoring AWS Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
 
 ## Cross-Region inference
 <a name="outbound-connections-cross-region-inference"></a>
 
 Cross-Region inference is processing within a defined geography, not customer-enabled egress. It is included on this page to prevent confusion, because it involves data moving between Regions. However, it differs from every other path described on this page. There is no customer-chosen destination. No data reaches a third party. Data stays on the AWS network, and stored data remains in the primary Region.
 + **What moves** – Inference inputs (prompts) and outputs (results) can move outside of the primary Region during processing. All data is transmitted encrypted across the AWS secure network.
-+ **What triggers it** – Amazon Quick automatically selects the optimal Region within a defined geography to process inference requests. You do not initiate or schedule this routing.
++ **What triggers it** – AWS Quick automatically selects the optimal Region within a defined geography to process inference requests. You do not initiate or schedule this routing.
 + **Who controls it** – Cross-Region inference is not a customer-configurable outbound path. Inference is processed within the Regions that make up your geography, no data reaches a third party, and stored data remains in your primary Region. Because there is no outbound destination, there is no destination for you to approve or restrict. You cannot disable cross-Region inference. Instead, verify which geography your Region belongs to. Confirm that the geography boundary satisfies your data residency requirements.
 + **Boundaries** – Cross-Region inference requests stay within the AWS Regions that are part of the geography where the data originally resides. Stored data remains only in the primary Region.
 

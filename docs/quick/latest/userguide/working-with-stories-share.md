@@ -1,6 +1,6 @@
 
 
-# Sharing a data story in Amazon Quick Sight
+# Sharing a data story in AWS Quick Sight
 <a name="working-with-stories-share"></a>
 
 Use the following procedure to share a data story.
@@ -17,7 +17,7 @@ Use the following procedure to share a data story.
 
 1. Choose **Publish & Share**.
 
-If you try to share a story and receive a message that the story cannot be shared, contact the owner of the dashboard ask them to toggle on the **Allow sharing data stories** switch. For more information about this switch, see [Tutorial: Create an Amazon Quick Sight dashboard](example-create-a-dashboard.md).
+If you try to share a story and receive a message that the story cannot be shared, contact the owner of the dashboard ask them to toggle on the **Allow sharing data stories** switch. For more information about this switch, see [Tutorial: Create an AWS Quick Sight dashboard](example-create-a-dashboard.md).
 
 If you try to share a data story and receive an error message, contact the owner of the dashboard or your Quick account admin for assistance.
 

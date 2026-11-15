@@ -13,7 +13,7 @@
 ## Creating a flow using natural language prompt (NLP)
 <a name="creating-flow-using-nlp"></a>
 
- The natural language prompt method lets you describe your desired flow in plain language, and Amazon Quick Flows generates a flow based on your description. 
+ The natural language prompt method lets you describe your desired flow in plain language, and AWS Quick Flows generates a flow based on your description. 
 
 1. Sign in to the Quick console.
 
@@ -98,7 +98,7 @@ You can create a flow from a conversation with a chat agent. For example, if you
 
 1. Choose the Quick Flows icon in the chat bar.
 
-1. Choose **Create Flow from conversation**. Amazon Quick Flows interprets the interactions in your conversation and brings you to the Create flow screen with a generated natural language prompt, name, and description.
+1. Choose **Create Flow from conversation**. AWS Quick Flows interprets the interactions in your conversation and brings you to the Create flow screen with a generated natural language prompt, name, and description.
 
 1. Review and edit the prompt, name, and description as needed.
 

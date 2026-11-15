@@ -1,9 +1,9 @@
 
 
-# Using Starburst with Amazon Quick Sight
+# Using Starburst with AWS Quick Sight
 <a name="connecting-to-starburst"></a>
 
-Starburst is a full-featured data lake analytics service built on top of a massively parallel processing (MPP) query engine, Trino. Use this section to learn how to connect from Amazon Quick Sight to Starburst. All traffic between Quick Sight and Starburst is enabled by SSL. If you're connecting to Starburst Galaxy, you can get the necessary connection details by logging in to your Starburst Galaxy account, then choose **Partner Connect** and then **Quick Sight**. You should be able to see information, such as hostname and port. Amazon Quick Sight supports basic username and password authentication to Starburst.
+Starburst is a full-featured data lake analytics service built on top of a massively parallel processing (MPP) query engine, Trino. Use this section to learn how to connect from AWS Quick Sight to Starburst. All traffic between Quick Sight and Starburst is enabled by SSL. If you're connecting to Starburst Galaxy, you can get the necessary connection details by logging in to your Starburst Galaxy account, then choose **Partner Connect** and then **Quick Sight**. You should be able to see information, such as hostname and port. AWS Quick Sight supports basic username and password authentication to Starburst.
 
 Quick Sight offers two ways to connect to Starburst: with your Starburst login credentials or with OAuth client credentials. Use the following sections to learn about both methods of connection.
 
@@ -22,7 +22,7 @@ Quick Sight offers two ways to connect to Starburst: with your Starburst login c
 
 1. For **Data source name**, enter a descriptive name for your Starburst data source connection. Because you can create many datasets from a connection to Starburst, it's best to keep the name simple.
 
-1. For **Connection type**, select the type of network you're using. Choose **Public network** if your data is shared publicly. Choose **VPC** if your data is inside a VPC. To configure a VPC connection in Amazon Quick Sight, see [ Configuring the VPC connection in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-connection-in-quicksight.html). This connection type is not available for Starburst Galaxy.
+1. For **Connection type**, select the type of network you're using. Choose **Public network** if your data is shared publicly. Choose **VPC** if your data is inside a VPC. To configure a VPC connection in AWS Quick Sight, see [ Configuring the VPC connection in AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-connection-in-quicksight.html). This connection type is not available for Starburst Galaxy.
 
 1. For **Database server** enter the hostname specified in your Starburst connection details.
 
@@ -37,7 +37,7 @@ Quick Sight offers two ways to connect to Starburst: with your Starburst login c
 1. To finish and create the data source, choose **Create data source**.
 
 **Note**  
-Connectivity between Amazon Quick Sight and Starburst was validated using Starburst version 420.
+Connectivity between AWS Quick Sight and Starburst was validated using Starburst version 420.
 
 After you have successfully created a data source connection between your Quick Sight and Starburst accounts, you can begin [Creating datasets](creating-data-sets.md) that contain Starburst data.
 

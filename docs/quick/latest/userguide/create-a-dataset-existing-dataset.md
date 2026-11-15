@@ -1,9 +1,9 @@
 
 
-# Creating a dataset using an existing dataset in Amazon Quick
+# Creating a dataset using an existing dataset in AWS Quick
 <a name="create-a-dataset-existing-dataset"></a>
 
-After you create a dataset in Amazon Quick, you can create additional datasets using it as a source. When you do this, any data preparation that the parent dataset contains, such as any joins or calculated fields, is kept. You can add additional preparation to the data in the new child datasets, such as joining new data and filtering data. You can also set up your own data refresh schedule for the child dataset and track the dashboards and analyses that use it.
+After you create a dataset in AWS Quick, you can create additional datasets using it as a source. When you do this, any data preparation that the parent dataset contains, such as any joins or calculated fields, is kept. You can add additional preparation to the data in the new child datasets, such as joining new data and filtering data. You can also set up your own data refresh schedule for the child dataset and track the dashboards and analyses that use it.
 
 Child datasets that are created using a dataset with RLS rules active as a source inherit the parent dataset's RLS rules. Users who are creating a child dataset from a larger parent dataset can only see the data that they have access to in the parent dataset. Then, you can add more RLS rules to the new child dataset in addition to the inherited RLS rules to further manage who can access the data that is in the new dataset. You can only create child datasets from datasets with RLS rules active in Direct Query.
 
@@ -22,7 +22,7 @@ Rather than manually creating and maintaining hundreds of unconnected datasets, 
 Along with using the key OPS metric, other teams in your organization can reuse column metadata from the centralized datasets that you created. For example, the Data Engineering team can define metadata, such as *name*, *description*, *data type*, and *folders*, in a centralized dataset. All subsequent teams can use it.
 
 **Note**  
-Amazon Quick supports creating up to two additional levels of datasets from a single dataset.  
+AWS Quick supports creating up to two additional levels of datasets from a single dataset.  
 For example, from a parent dataset, you can create a child dataset and then a grandchild dataset for a total of three dataset levels.
 
 ## Creating a dataset from an existing dataset
@@ -47,7 +47,7 @@ Use the following procedure to create a dataset from an existing dataset.
      + Direct query is supported for a single SPICE parent dataset. It is not supported for multiple SPICE parent datasets in a join.
    + **SPICE** – If you choose this option, you can set up a schedule for your new dataset to sync with the parent dataset. For more information about creating SPICE refresh schedules for datasets, see [Refreshing SPICE data](refreshing-imported-data.md).
 
-1. (Optional) Prepare your data for analysis. For more information about preparing data, see [Preparing data in Amazon Quick Sight](preparing-data.md).
+1. (Optional) Prepare your data for analysis. For more information about preparing data, see [Preparing data in AWS Quick Sight](preparing-data.md).
 
 1. (Optional) Set up row-level or column-level security (RLS/CLS) to restrict access to the dataset. For more information about setting up RLS, see [Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md). For more information about setting up CLS, see [Using column-level security to restrict access to a dataset](restrict-access-to-a-data-set-using-column-level-security.md).
 **Note**  

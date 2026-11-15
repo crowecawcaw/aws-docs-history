@@ -3,14 +3,14 @@
 # Using bar charts
 <a name="bar-charts"></a>
 
-Amazon Quick supports the following types of bar charts, with either horizontal or vertical orientation:
+AWS Quick supports the following types of bar charts, with either horizontal or vertical orientation:
 + **Single-measure** – A *single-measure bar chart* shows values for a single measure for a dimension. 
 + **Multi-measure** – A *multi-measure bar chart* shows values for multiple measure for a dimension. 
 + **Clustered** – A *clustered bar chart* shows values for a single measure for a dimension, grouped by another dimension. 
 + **Stacked** – A *stacked bar chart* is similar to a clustered bar chart in that it displays a measure for two dimensions. However, instead of clustering bars for each child dimension by the parent dimension, it displays one bar per parent dimension. It uses color blocks within the bars to show the relative values of each item in the child dimension. The color blocks reflect the value of each item in the child dimension relative to the total for the measure. A stacked bar chart uses a scale based on the maximum value for the selected measure. 
 + **Stacked 100 percent** – A *stacked 100 percent bar chart* is similar to a stacked bar chart. However, in a stacked 100 percent bar chart, the color blocks reflect the percentage of each item in the child dimension, out of 100 percent. 
 
-Bar charts show up to 10,000 data points on the axis for visuals that don't use group or color. For visuals that do use group or color, they show up to 50 data points on the axis and up to 50 data points for group or color. For more information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Bar charts show up to 10,000 data points on the axis for visuals that don't use group or color. For visuals that do use group or color, they show up to 50 data points on the axis and up to 50 data points for group or color. For more information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Creating single-measure bar charts
 <a name="create-bar-chart"></a>
@@ -130,7 +130,7 @@ To understand the features supported by bar charts, use the following table.
 | Showing or hiding axis lines, grid lines, axis labels, and axis sort icons | Yes |  | [Axes and grid lines on visual types in Quick](showing-hiding-axis-grid-tick.md) | 
 | Changing the visual colors | Yes |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes, with exceptions | You can focus on or exclude any bar on the chart, except when you are using a date field as the dimension for the axis. In that case, you can only focus on a bar, not exclude it. | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | Yes | You can sort on the fields you choose for the axis and the values. | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | Yes | You can sort on the fields you choose for the axis and the values. | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You must apply aggregation to the field or fields you choose for the value, and can't apply aggregation to the fields you choose for the axis or group/ color. | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Yes | You can add drill-down levels to the axis and Group/Color field wells. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
 | Showing data labels | Yes |  | [Data labels on visual types in Quick](customizing-visual-data-labels.md) | 

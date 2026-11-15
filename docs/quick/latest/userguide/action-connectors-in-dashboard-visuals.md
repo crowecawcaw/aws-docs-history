@@ -69,12 +69,12 @@ The connector must meet these requirements:
 **Custom Permissions/Capability Customization**
 + **Actions** capability: You cannot see or use actions if your user or role is restricted the permission to use the Actions capability
 
-To learn more about custom permissions, see [Custom permissions in Amazon Quick](custom-permissions.md).
+To learn more about custom permissions, see [Custom permissions in AWS Quick](custom-permissions.md).
 
 **Row Level Security (RLS) / Column Level Security (CLS)**
 + You cannot see or use actions on visuals that are based on datasets that use RLS or CLS.
 
-To learn more about RLS, see [Using row-level security in Amazon Quick](row-level-security.md).
+To learn more about RLS, see [Using row-level security in AWS Quick](row-level-security.md).
 
 To learn more about CLS, see [Using column-level security to restrict access to a dataset](row-level-security.md).
 

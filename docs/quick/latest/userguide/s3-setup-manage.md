@@ -8,7 +8,7 @@
 
 After your administrator has completed the setup tasks, follow these steps to create your Amazon S3 knowledge base.
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Under **Amazon S3**, choose **Add** (the plus **\+** button).
 
@@ -18,8 +18,8 @@ After your administrator has completed the setup tasks, follow these steps to cr
 
 1. If you are connecting a new bucket, fill in the connection details:
    + **Name** – A descriptive name for your Amazon S3 integration.
-   + **S3 bucket location** – Choose **Quick Suite instance account** to access Amazon S3 buckets in the same AWS account where Amazon Quick is enabled, or choose **Other AWS account** to access buckets in a different account.
-   + **S3 bucket URL** – The Amazon S3 bucket path containing your documents. Your Amazon S3 bucket must be in the same region as your Amazon Quick region.
+   + **S3 bucket location** – Choose **Quick Suite instance account** to access Amazon S3 buckets in the same AWS account where AWS Quick is enabled, or choose **Other AWS account** to access buckets in a different account.
+   + **S3 bucket URL** – The Amazon S3 bucket path containing your documents. Your Amazon S3 bucket must be in the same region as your AWS Quick region.
 
    Choose **Next**. The system validates your configuration. If errors occur, review the error message for specific remediation steps.
 **Note**  
@@ -55,7 +55,7 @@ After setting up your Amazon S3 integration, you can create and manage knowledge
 
 You can modify your existing Amazon S3 knowledge bases:
 
-1. In the Amazon Quick console, choose **Knowledge bases**.
+1. In the AWS Quick console, choose **Knowledge bases**.
 
 1. Select your Amazon S3 knowledge base from the list.
 
@@ -68,7 +68,7 @@ You can modify your existing Amazon S3 knowledge bases:
 
 You can create multiple knowledge bases from the same Amazon S3 integration:
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Choose your existing Amazon S3 integration from the list.
 
@@ -79,4 +79,4 @@ You can create multiple knowledge bases from the same Amazon S3 integration:
 For detailed information about knowledge base configuration options, see [Common configuration settings](knowledge-base-integrations.md#common-configuration-settings).
 
 **Note**  
-When you create a knowledge base in Amazon Quick, by default only you can get insights from the knowledge base. For shared content, you can provide access to different users and groups by updating the knowledge base permissions. To control document-level access within a knowledge base, see [Document-level ACLs](s3-acl.md).
+When you create a knowledge base in AWS Quick, by default only you can get insights from the knowledge base. For shared content, you can provide access to different users and groups by updating the knowledge base permissions. To control document-level access within a knowledge base, see [Document-level ACLs](s3-acl.md).

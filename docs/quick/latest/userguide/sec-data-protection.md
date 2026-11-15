@@ -1,9 +1,9 @@
 
 
-# Data protection in Amazon Quick
+# Data protection in AWS Quick
 <a name="sec-data-protection"></a>
 
-The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon Quick. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Quick. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
 For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
 + Use multi-factor authentication (MFA) with each account.
@@ -13,14 +13,14 @@ For data protection purposes, we recommend that you protect AWS account credenti
 + Use advanced managed security services such as Amazon Macie, which assists in discovering and securing sensitive data that is stored in Amazon S3.
 + If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
-We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with Amazon Quick or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AWS Quick or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
 
-Amazon Quick does not use customer data for training or improving underlying LLMs.
+AWS Quick does not use customer data for training or improving underlying LLMs.
 
-For information about safety controls for AI-powered chat interactions, see [AI guardrails in Amazon Quick](guardrails.md).
+For information about safety controls for AI-powered chat interactions, see [AI guardrails in AWS Quick](guardrails.md).
 
 **Topics**
-+ [Data encryption in Amazon Quick](data-encryption.md)
-+ [Inter-network traffic privacy in Amazon Quick](internetwork-traffic-privacy.md)
-+ [Outbound connections and data egress in Amazon Quick](outbound-connections.md)
-+ [User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md)
++ [Data encryption in AWS Quick](data-encryption.md)
++ [Inter-network traffic privacy in AWS Quick](internetwork-traffic-privacy.md)
++ [Outbound connections and data egress in AWS Quick](outbound-connections.md)
++ [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md)

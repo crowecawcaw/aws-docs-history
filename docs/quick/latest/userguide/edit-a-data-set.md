@@ -3,7 +3,7 @@
 # Editing datasets
 <a name="edit-a-data-set"></a>
 
-You can edit an existing dataset to perform data preparation. For more information about Quick Sight data preparation functionality, see [Preparing data in Amazon Quick Sight](preparing-data.md).
+You can edit an existing dataset to perform data preparation. For more information about Quick Sight data preparation functionality, see [Preparing data in AWS Quick Sight](preparing-data.md).
 
 You can open a dataset for editing from the **Datasets** page, or from the analysis page. Editing a dataset from either location modifies the dataset for all analyses that use it.
 
@@ -25,7 +25,7 @@ We recommend the following when you're dealing with data changes:
 + If you remove the dataset a visual is based on, you might need to recreate it from your documentation. You can edit the visual and select a new dataset to use with it. If you need to consistently use a new file to replace an older one, store your data in a location that is consistently available. For example, you might store your .csv file in Amazon S3 and create an S3 dataset to use for your visuals. For more information on access files stored in S3, see [Creating a dataset using Amazon S3 files](create-a-data-set-s3.md). 
 
   Or you can import the data into a table, and base your visual on a query. This way, the data structures don't change, even if the data contained in them changes.
-+ To centralize data management, consider creating general, multiple-purpose datasets that others can use to create their own datasets from. For more information, see [Creating a dataset using an existing dataset in Amazon Quick](create-a-dataset-existing-dataset.md).
++ To centralize data management, consider creating general, multiple-purpose datasets that others can use to create their own datasets from. For more information, see [Creating a dataset using an existing dataset in AWS Quick](create-a-dataset-existing-dataset.md).
 
 ## Editing a dataset from the Datasets page
 <a name="edit-a-data-set-data"></a>
@@ -34,7 +34,7 @@ We recommend the following when you're dealing with data changes:
 
 1. On the **Data** page that opens, choose the dataset that you want to edit, and then choose **Edit dataset** at upper right.
 
-   The data preparation page opens. For more information about the types of edits you can make to datasets, see [Preparing data in Amazon Quick Sight](preparing-data.md).
+   The data preparation page opens. For more information about the types of edits you can make to datasets, see [Preparing data in AWS Quick Sight](preparing-data.md).
 
 ## Editing a dataset in an analysis
 <a name="edit-a-data-set-analysis"></a>
@@ -47,4 +47,4 @@ Use the following procedure to edit a dataset from the analysis page.
 
 1. In **Data sets in this analysis** page that opens, choose the three dots at right of the dataset that you want to edit, and then choose **Edit**.
 
-   The dataset opens in the data preparation page.For more information about the types of edits you can make to datasets, see [Preparing data in Amazon Quick Sight](preparing-data.md).
+   The dataset opens in the data preparation page.For more information about the types of edits you can make to datasets, see [Preparing data in AWS Quick Sight](preparing-data.md).

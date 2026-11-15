@@ -1,6 +1,6 @@
 
 
-# Creating and editing custom actions in Amazon Quick Sight
+# Creating and editing custom actions in AWS Quick Sight
 <a name="custom-actions"></a>
 
 You create one action for each task that you want to be able to add to a visual. The actions you create become part of the functionality of each visual or insight.
@@ -30,7 +30,7 @@ You can set the following attributes and options for a custom action:
 
       The default is **All visuals**.
 
-      A cascading filter applies all the visuals that are set up in the **Target visuals** section of a specific filter action. Amazon Quick Sight initially evaluates your visuals and preconfigures the settings for you. But you can change the defaults if you wish to do so. You can set up multiple cascading filters on multiple visuals in the same sheet or analysis. When you are using the analysis or dashboard, you can use multiple cascading filters at the same time, although you activate each of these one at a time. 
+      A cascading filter applies all the visuals that are set up in the **Target visuals** section of a specific filter action. AWS Quick Sight initially evaluates your visuals and preconfigures the settings for you. But you can change the defaults if you wish to do so. You can set up multiple cascading filters on multiple visuals in the same sheet or analysis. When you are using the analysis or dashboard, you can use multiple cascading filters at the same time, although you activate each of these one at a time. 
 
       A filter action requires at least one target visual, because a filter action requires a source and a target. To filter only the current visual, create a regular filter instead by choosing **Filter** at left.
   + **Navigation action** settings include the following: 

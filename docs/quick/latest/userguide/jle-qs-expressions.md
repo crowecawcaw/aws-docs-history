@@ -1,9 +1,9 @@
 
 
-# Amazon Quick expressions
+# AWS Quick expressions
 <a name="jle-qs-expressions"></a>
 
-Amazon Quick offers additional expressions to enhance the functionality of Highcharts visuals. Use the following sections to learn more about common Quick expressions for highcharts visuals. For more information about JSON expression language in Amazon Quick, see the [Highcharts Visual QuickStart Guide](https://democentral.learnquicksight.online/#Dashboard-FeatureDemo-Highcharts-Visual) in [DemoCentral](https://democentral.learnquicksight.online/#).
+AWS Quick offers additional expressions to enhance the functionality of Highcharts visuals. Use the following sections to learn more about common Quick expressions for highcharts visuals. For more information about JSON expression language in AWS Quick, see the [Highcharts Visual QuickStart Guide](https://democentral.learnquicksight.online/#Dashboard-FeatureDemo-Highcharts-Visual) in [DemoCentral](https://democentral.learnquicksight.online/#).
 
 **Topics**
 + [`getColumn`](#highcharts-expressions-getcolumn)

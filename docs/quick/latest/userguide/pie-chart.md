@@ -9,7 +9,7 @@ Each wedge in a pie chart represents one item in the dimension. Wedge size repre
 
 To create a donut chart, use one dimension in the **Group/Color** field well. With only one field, the chart displays the division of values by row count. To display the division of dimension values by a metric value, you can add a metric field to the **Value** field well. 
 
-Pie charts show up to 20 data points for group or color. For more information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Pie charts show up to 20 data points for group or color. For more information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Pie chart features
 <a name="pie-chart-features"></a>
@@ -25,7 +25,7 @@ To understand the features supported by pie charts, use the following table.
 | Showing or hiding axis labels. | Yes |  | [Axes and grid lines on visual types in Quick](showing-hiding-axis-grid-tick.md) | 
 | Changing the visual colors | Yes |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes, with exceptions | You can focus on or exclude a wedge in a pie chart, except when you are using a date field as a dimension. In that case, you can only focus on a wedge, not exclude it. | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | Yes | You can sort on the field that you choose for the value or the group or color. | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | Yes | You can sort on the field that you choose for the value or the group or color. | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You must apply aggregation to the field that you choose for the value, and can't apply aggregation to the field that you choose for group or color. | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Yes | You can add drill-down levels to the Group/Color field well. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
 

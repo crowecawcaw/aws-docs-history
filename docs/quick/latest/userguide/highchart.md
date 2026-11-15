@@ -7,7 +7,7 @@ Use Highcharts visuals to create custom chart types and visuals that use the [Hi
 
 To configure a Highcharts visual, Quick authors need to add a Highcharts JSON schema to the visual in Quick. Authors can use Quick expressions to reference Quick fields, and formatting options in the JSON schema that they use to generate the Highcharts visual. The JSON **Chart code** editor provides contextual assistance for autocomplete and real time validation to ensure that the input JSON schemas are configured properly. To maintain security, the Highcharts visual editor does not accept CSS, JavaScript, or HTML code input.
 
-For more information about Highcharts visuals in Amazon Quick, see the [Highcharts Visual QuickStart Guide](https://democentral.learnquicksight.online/#Dashboard-FeatureDemo-Highcharts-Visual) in [DemoCentral](https://democentral.learnquicksight.online/#).
+For more information about Highcharts visuals in AWS Quick, see the [Highcharts Visual QuickStart Guide](https://democentral.learnquicksight.online/#Dashboard-FeatureDemo-Highcharts-Visual) in [DemoCentral](https://democentral.learnquicksight.online/#).
 
 The following image shows a lipstick chart that is configured in the **Chart code** JSON editor of a Highcharts visual in Quick.
 
@@ -19,7 +19,7 @@ For more examples of visuals that you can create with the Highcharts visual in Q
 ## Considerations
 <a name="highchart-considerations"></a>
 
-Before you start creating Highcharts visuals in Amazon Quick, review the following limitations that apply to Highcharts visuals.
+Before you start creating Highcharts visuals in AWS Quick, review the following limitations that apply to Highcharts visuals.
 + The following JSON values are not supported in the Highcharts **Chart code** JSON editor:
   + Functions
   + Dates
@@ -30,7 +30,7 @@ Before you start creating Highcharts visuals in Amazon Quick, review the followi
 ## Creating a Highcharts visual
 <a name="highchart-create"></a>
 
-Use the following procedure to create a Highcharts visual in Amazon Quick.
+Use the following procedure to create a Highcharts visual in AWS Quick.
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/).
 
@@ -96,12 +96,12 @@ Use the following procedure to create a Highcharts visual in Amazon Quick.
 
 1. (Optional) Open the **Reference** dropdown to access links to helpful Highctarts reference material.
 
-When you are happy with the rendered visual, close the properties pane. For more information about Quick Sight specific expressions that can be used to configure a Highcharts visual, see [Amazon Quick JSON expression language for Highcharts visuals](highchart-expressions.md).
+When you are happy with the rendered visual, close the properties pane. For more information about Quick Sight specific expressions that can be used to configure a Highcharts visual, see [AWS Quick JSON expression language for Highcharts visuals](highchart-expressions.md).
 
 ## Interactive Highchart features
 <a name="interactive-features"></a>
 
-Highchart visualizations in Amazon Quick Sight support custom actions, highlighting, and custom field color consistencies, allowing you to create interactive and visually cohesive charts that integrate seamlessly with other Quick Sight visuals.
+Highchart visualizations in AWS Quick Sight support custom actions, highlighting, and custom field color consistencies, allowing you to create interactive and visually cohesive charts that integrate seamlessly with other Quick Sight visuals.
 
 ### Custom actions
 <a name="custom-actions-feature"></a>

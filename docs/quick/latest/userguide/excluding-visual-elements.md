@@ -9,4 +9,4 @@ Excluding the element creates a filter that removes only that element from the v
 
 To see the excluded element again, you can either choose **Undo** on the application bar, or you can disable or delete the filter.
 
-For more information about filters, see [Filtering data in Amazon Quick Sight](adding-a-filter.md).
+For more information about filters, see [Filtering data in AWS Quick Sight](adding-a-filter.md).

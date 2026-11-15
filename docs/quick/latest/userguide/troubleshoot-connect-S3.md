@@ -5,13 +5,13 @@
 
 To successfully connect to Amazon S3, make sure that you configure authentication and create a valid manifest file inside the bucket you are trying to access. Also, make sure that the file described by the manifest is available.
 
-To verify authentication, make sure that you authorized Amazon Quick Sight to access the S3 account. It's not enough that you, the user, are authorized. Amazon Quick Sight must be authorized separately. 
+To verify authentication, make sure that you authorized AWS Quick Sight to access the S3 account. It's not enough that you, the user, are authorized. AWS Quick Sight must be authorized separately. 
 
-**To authorize Amazon Quick Sight to access your Amazon S3 bucket**
+**To authorize AWS Quick Sight to access your Amazon S3 bucket**
 
 1. In the AWS Region list at upper right, choose the US East (N. Virginia) Region. You use this AWS Region temporarily while you edit your account permissions. 
 
-1. Inside Amazon Quick Sight, choose your profile name (upper right). Choose **Manage Quick Sight**, and then scroll down to the **Custom permissions** section. 
+1. Inside AWS Quick Sight, choose your profile name (upper right). Choose **Manage Quick Sight**, and then scroll down to the **Custom permissions** section. 
 
 1. Choose **AWS resources** then choose **Add or remove**. 
 
@@ -19,13 +19,13 @@ To verify authentication, make sure that you authorized Amazon Quick Sight to ac
    + If the check box is clear, select the check box next to Amazon S3. 
    + If the check box is selected, choose **Details**, and then choose **Select S3 buckets**. 
 
-1. Choose the buckets that you want to access from Amazon Quick Sight. Then choose **Select**.
+1. Choose the buckets that you want to access from AWS Quick Sight. Then choose **Select**.
 
 1. Choose **Update**.
 
 1. If you changed your AWS Region during the first step of this process, change it back to the AWS Region that you want to use.
 
-We strongly recommend that you make sure that your manifest file is valid. If Amazon Quick Sight can't parse your file, it gives you an error message. That might be something like "We can't parse the manifest file as valid JSON" or "We can't connect to the S3 bucket."
+We strongly recommend that you make sure that your manifest file is valid. If AWS Quick Sight can't parse your file, it gives you an error message. That might be something like "We can't parse the manifest file as valid JSON" or "We can't connect to the S3 bucket."
 
 **To verify your manifest file**
 

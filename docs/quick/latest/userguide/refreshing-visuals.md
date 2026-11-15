@@ -9,7 +9,7 @@ If you want to refresh all visuals when you switch sheets, regardless of a chang
 
 **To refresh all visuals each time that you switch sheets in an analysis**
 
-1. In Amazon Quick, open the analysis.
+1. In AWS Quick, open the analysis.
 
 1. In the analysis, choose **Edit > Analysis Settings**.
 

@@ -3,9 +3,9 @@
 # Google Chat integration
 <a name="google-chat-integration"></a>
 
-With the Google Chat connector, you can send messages, manage spaces, and interact with chat threads from your Google Workspace account directly in Amazon Quick through natural language.
+With the Google Chat connector, you can send messages, manage spaces, and interact with chat threads from your Google Workspace account directly in AWS Quick through natural language.
 
-Google Chat uses Custom OAuth app authentication. For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+Google Chat uses Custom OAuth app authentication. For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="google-chat-prerequisites"></a>
@@ -14,12 +14,12 @@ Make sure that you have the following before you set up the integration.
 + An active Google Workspace account with access to the Google Chat spaces that you want to use.
 + An OAuth 2.0 client registered in the Google Cloud console for your Google Workspace project, with the Google Chat API enabled.
 + A Google Chat App configured in the Google Cloud console under the Google Chat API settings. The Chat App must be configured before you can use the Chat API to send messages and interact with spaces. For more information, see [Configure the Google Chat App](#google-chat-app-setup).
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Google Cloud
 <a name="google-chat-source-setup"></a>
 
-For Custom OAuth app authentication, create an OAuth 2.0 client in the [Google Cloud console](https://console.cloud.google.com/), enable the Google Chat API for your project, configure the OAuth consent screen with the Chat scopes that you need (for example, `chat.messages`, `chat.spaces`), and add the Amazon Quick callback URL `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback` as an authorized redirect URI. Replace {{{region}}} with your AWS Region (for example, `us-east-1`). For step-by-step instructions, see [Google Chat API](https://developers.google.com/workspace/chat) in the Google Workspace developer documentation. Record the Client ID and Client Secret — you need them when you configure Amazon Quick.
+For Custom OAuth app authentication, create an OAuth 2.0 client in the [Google Cloud console](https://console.cloud.google.com/), enable the Google Chat API for your project, configure the OAuth consent screen with the Chat scopes that you need (for example, `chat.messages`, `chat.spaces`), and add the AWS Quick callback URL `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback` as an authorized redirect URI. Replace {{{region}}} with your AWS Region (for example, `us-east-1`). For step-by-step instructions, see [Google Chat API](https://developers.google.com/workspace/chat) in the Google Workspace developer documentation. Record the Client ID and Client Secret — you need them when you configure AWS Quick.
 
 ### Configure the Google Chat App
 <a name="google-chat-app-setup"></a>
@@ -31,7 +31,7 @@ Before you can use the Google Chat API, you must configure a Google Chat App in 
 1. Choose **Google Chat API**, then choose the **Configuration** tab.
 
 1. Enter the following Chat App details:
-   + **App name**. A display name for the Chat App (for example, "Amazon Quick Integration").
+   + **App name**. A display name for the Chat App (for example, "AWS Quick Integration").
    + **Avatar URL** (Optional). A URL to an image that represents the Chat App in Google Chat.
    + **Description**. A brief description of the Chat App's purpose.
 
@@ -43,10 +43,10 @@ Before you can use the Google Chat API, you must configure a Google Chat App in 
 
 For more information about configuring Google Chat Apps, see [Google Chat app overview](https://developers.google.com/workspace/chat/overview) in the Google Workspace developer documentation.
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="google-chat-quicksuite-setup"></a>
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -63,7 +63,7 @@ For more information about configuring Google Chat Apps, see [Google Chat app ov
    + **Client secret** – The client secret from your Google Cloud OAuth 2.0 client.
    + **Token URL** – The Google OAuth token endpoint.
    + **Authorization URL** – The Google OAuth authorization endpoint.
-   + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+   + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
 1. Choose **Next**.
 
@@ -78,7 +78,7 @@ For more information about configuring Google Chat Apps, see [Google Chat app ov
 ## Available actions
 <a name="google-chat-actions"></a>
 
-After you set up the connector, the actions exposed by Google Chat are available. To see the current set of actions for your connector, go to the connector's **Available actions** view in the Amazon Quick console.
+After you set up the connector, the actions exposed by Google Chat are available. To see the current set of actions for your connector, go to the connector's **Available actions** view in the AWS Quick console.
 
 ## Managing and troubleshooting
 <a name="google-chat-troubleshooting"></a>
@@ -87,6 +87,6 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 
 ### Authentication issues
 <a name="google-chat-troubleshooting-auth"></a>
-+ **Sign-in fails** – Verify that your Google Workspace account is active and that you can sign in to Google Chat directly. Confirm that the authorized redirect URI in your Google Cloud OAuth 2.0 client matches the Amazon Quick callback URL.
++ **Sign-in fails** – Verify that your Google Workspace account is active and that you can sign in to Google Chat directly. Confirm that the authorized redirect URI in your Google Cloud OAuth 2.0 client matches the AWS Quick callback URL.
 + **Invalid client credentials** – Verify that the Client ID and Client Secret match the values in your Google Cloud OAuth 2.0 client.
 + **Insufficient permissions** – Verify that the Chat API is enabled and that your OAuth consent screen includes the required scopes for the operations you want to use.

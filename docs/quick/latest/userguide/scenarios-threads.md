@@ -1,6 +1,6 @@
 
 
-# Working with threads in an Amazon Quick Sight scenario
+# Working with threads in an AWS Quick Sight scenario
 <a name="scenarios-threads"></a>
 
 After you create a scenario in Quick Sight, the data that Amazon Q generates is presented in *threads* and *blocks*. A thread is a vertical chain of prompts and responses. A block is a single prompt and response pair. Each thread can contain up to 15 blocks, and each scenario can contain up to 50 blocks total across multiple threads.

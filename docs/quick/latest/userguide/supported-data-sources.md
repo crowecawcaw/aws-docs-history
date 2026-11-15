@@ -3,12 +3,12 @@
 # Supported data sources
 <a name="supported-data-sources"></a>
 
-Amazon Quick Sight supports a variety of data sources that you can use to provide data for analyses. The following data sources are supported.
+AWS Quick Sight supports a variety of data sources that you can use to provide data for analyses. The following data sources are supported.
 
 ## Connecting to relational data
 <a name="relational-data-sources"></a>
 
-You can use any of the following relational data stores as data sources for Amazon Quick Sight:
+You can use any of the following relational data stores as data sources for AWS Quick Sight:
 + Amazon Athena
 + Amazon Aurora
 + AWS Glue Data Catalog can be accessed using AWS Glue data catalog compatible services, such as Athena or Redshift Spectrum
@@ -28,13 +28,13 @@ You can use any of the following relational data stores as data sources for Amaz
 + Microsoft SQL Server 2012 or later
 + MySQL 5.7 or later
 **Note**  
-Effective October 2023, the MySQL community has deprecated support for MySQL version 5.7. This means that Amazon Quick Sight will no longer support new features, enhancements, bug fixes, or security patches for MySQL 5.7. Support for existing query workload will take place at a best effort basis. Quick Sight customers can still use MySQL 5.7 datasets with Quick Sight, but we encourage customers to upgrade their MySQL databases (DB) to major version 8.0 or higher. To see the statement provided by Amazon RDS, see [Amazon RDS Extended Support opt-in behavior is changing. Upgrade your Amazon RDS for MySQL 5.7 database instances before February 29, 2024 to avoid potential increase in charges](https://repost.aws/articles/ARHdQg4IelQS2uyXkNrINw-A/announcement-amazon-rds-extended-support-opt-in-behavior-is-changing-upgrade-your-amazon-rds-for-mysql-5-7-database-instances-before-february-29-2024-to-avoid-potential-increase-in-charges).  
+Effective October 2023, the MySQL community has deprecated support for MySQL version 5.7. This means that AWS Quick Sight will no longer support new features, enhancements, bug fixes, or security patches for MySQL 5.7. Support for existing query workload will take place at a best effort basis. Quick Sight customers can still use MySQL 5.7 datasets with Quick Sight, but we encourage customers to upgrade their MySQL databases (DB) to major version 8.0 or higher. To see the statement provided by Amazon RDS, see [Amazon RDS Extended Support opt-in behavior is changing. Upgrade your Amazon RDS for MySQL 5.7 database instances before February 29, 2024 to avoid potential increase in charges](https://repost.aws/articles/ARHdQg4IelQS2uyXkNrINw-A/announcement-amazon-rds-extended-support-opt-in-behavior-is-changing-upgrade-your-amazon-rds-for-mysql-5-7-database-instances-before-february-29-2024-to-avoid-potential-increase-in-charges).  
 Amazon RDS has updated their security settings for Amazon RDS MySQL 8.3. Any connections from Quick Sight to Amazon RDS MySQL 8.3 are SSL-enabled by default. This is the only option available for MySQL 8.3. connections.  
 TLS 1.2 for MySQL connections requires MySQL version 5.7.28 or higher. For MySQL versions below 5.7.28, Quick Sight falls back to TLS 1.1. If your security requirements mandate TLS 1.2, ensure your MySQL or Aurora MySQL database is running version 5.7.28 or higher.
 + Oracle 12c or later
 + PostgreSQL 9.3.1 or later
 **Note**  
-SCRAM based authentication to PostgreSQL from Amazon Quick Sight is supported for the following connectors: RDS hosted PostgreSQL, Aurora PostgreSQL, and Vanilla PostgreSQL. If the appropriate PostgreSQL engine version is used, and the correct configurations in PostgreSQL for SCRAM are set up, no additional configurations are needed in Quick Sight. If you are still experiencing issues establishing a SCRAM authentication to PostgreSQL from Quick Sight, please create a support ticket.
+SCRAM based authentication to PostgreSQL from AWS Quick Sight is supported for the following connectors: RDS hosted PostgreSQL, Aurora PostgreSQL, and Vanilla PostgreSQL. If the appropriate PostgreSQL engine version is used, and the correct configurations in PostgreSQL for SCRAM are set up, no additional configurations are needed in Quick Sight. If you are still experiencing issues establishing a SCRAM authentication to PostgreSQL from Quick Sight, please create a support ticket.
 + Presto 0.167 or later
 + Snowflake
 + Starburst
@@ -45,12 +45,12 @@ SCRAM based authentication to PostgreSQL from Amazon Quick Sight is supported fo
 **Note**  
 You can access additional data sources not listed here by linking or importing them through supported data sources.
 
-Amazon Redshift clusters, Amazon Athena databases, and Amazon RDS instances must be in AWS. Other database instances must be in one of the following environments to be accessible from Amazon Quick Sight:
+Amazon Redshift clusters, Amazon Athena databases, and Amazon RDS instances must be in AWS. Other database instances must be in one of the following environments to be accessible from AWS Quick Sight:
 + Amazon EC2
 + Local (on-premises) databases
 + Data in a data center or some other internet-accessible environment
 
-For more information, see [Infrastructure security in Amazon Quick](infrastructure-and-network-access.md).
+For more information, see [Infrastructure security in AWS Quick](infrastructure-and-network-access.md).
 
 ## Importing file data
 <a name="file-data-sources"></a>
@@ -68,9 +68,9 @@ Files in Amazon S3 that have been compressed with zip, or gzip ([www.gzip.org](h
 ### JSON data
 <a name="json-data-sources"></a>
 
-Amazon Quick Sight natively supports JSON flat files and JSON semistructured data files.
+AWS Quick Sight natively supports JSON flat files and JSON semistructured data files.
 
-You can either upload a JSON file or connect to your Amazon S3 bucket that contains JSON data. Amazon Quick Sight automatically performs schema and type inference on JSON files and embedded JSON objects. Then it flattens the JSON, so you can analyze and visualize application-generated data. 
+You can either upload a JSON file or connect to your Amazon S3 bucket that contains JSON data. AWS Quick Sight automatically performs schema and type inference on JSON files and embedded JSON objects. Then it flattens the JSON, so you can analyze and visualize application-generated data. 
 
 Basic support for JSON flat-file data includes the following:
 + Inferring the schema
@@ -116,7 +116,7 @@ SaaS sources that use OAuth require that you authorize the connection on the Saa
 + GitHub
 + Salesforce
 
-  You can use reports or objects in the following editions of Salesforce as data sources for Amazon Quick Sight:
+  You can use reports or objects in the following editions of Salesforce as data sources for AWS Quick Sight:
   + Enterprise Edition
   + Unlimited Edition
   + Developer Edition
@@ -126,4 +126,4 @@ SaaS sources that use OAuth require that you authorize the connection on the Saa
 
 To connect to on premises data sources, you need to add your data sources and a Quick-specific network interface to Amazon Virtual Private Cloud (Amazon VPC). When configured properly, a VPC based on Amazon VPC resembles a traditional network that you operate in your own data center. It enables you to secure and isolate traffic between resources. You define and control the network elements to suit your requirements, while still getting the benefit of cloud networking and the scalable infrastructure of AWS.
 
-For detailed information, see [Infrastructure security in Amazon Quick](infrastructure-and-network-access.md).
+For detailed information, see [Infrastructure security in AWS Quick](infrastructure-and-network-access.md).

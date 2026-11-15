@@ -1,9 +1,9 @@
 
 
-# Tutorial: Modify Amazon Quick Sight visuals
+# Tutorial: Modify AWS Quick Sight visuals
 <a name="example-modify-visuals"></a>
 
-Use the following procedures to modify the visuals that you created using the procedures in [Tutorial: Create an Amazon Quick Sight analysis](example-create-an-analysis.md). 
+Use the following procedures to modify the visuals that you created using the procedures in [Tutorial: Create an AWS Quick Sight analysis](example-create-an-analysis.md). 
 
 ## Modify the line chart visual
 <a name="example-line-visual"></a>
@@ -93,4 +93,4 @@ Modify both visuals by adding a filter and applying it to both of them.
 ## Next steps
 <a name="example-next-step-visuals"></a>
 
-Create a dashboard from your analysis by using the procedure in [Tutorial: Create an Amazon Quick Sight dashboard](example-create-a-dashboard.md).
+Create a dashboard from your analysis by using the procedure in [Tutorial: Create an AWS Quick Sight dashboard](example-create-a-dashboard.md).

@@ -3,11 +3,11 @@
 # Custom chat agents
 <a name="custom-agents"></a>
 
-Custom chat agents enable Amazon Quick users to create tailored conversational interfaces for specific business needs. Unlike the system chat agent, which is available to all users with chat permissions by default, custom chat agents can be selectively shared and configured by authorized users. Each custom chat agent keeps its own memories; see [Memories](memories-desktop.md).
+Custom chat agents enable AWS Quick users to create tailored conversational interfaces for specific business needs. Unlike the system chat agent, which is available to all users with chat permissions by default, custom chat agents can be selectively shared and configured by authorized users. Each custom chat agent keeps its own memories; see [Memories](memories-desktop.md).
 
 Users with chat agent creation capabilities can customize the chat agent's personality, response style, and capabilities through a natural language interface, or through the agent builder configuration flow. These users can also configure these chat agents with specific knowledge sources (like spaces) and workflows (like actions) while maintaining control over sharing and access permissions for each of those resources separately. Or, chat agents can be left unlinked for general purpose use which allows end users to use the agent with all or some of their resources.
 
-Quick admins must give users the permission to create chat agents. For information on which roles can create chat agents, refer to the [Amazon Quick pricing](https://aws.amazon.com/quicksuite/pricing/) documentation. For information on how to provide or restrict access to these features, see [Custom permissions](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-custom-permissions-profile.html) in the Quick Admin Guide.
+Quick admins must give users the permission to create chat agents. For information on which roles can create chat agents, refer to the [AWS Quick pricing](https://aws.amazon.com/quicksuite/pricing/) documentation. For information on how to provide or restrict access to these features, see [Custom permissions](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-custom-permissions-profile.html) in the Quick Admin Guide.
 
 **Topics**
 + [Create and preview custom chat agents](#create-custom-agents)
@@ -23,20 +23,20 @@ Quick admins must give users the permission to create chat agents. For informati
 ## Create and preview custom chat agents
 <a name="create-custom-agents"></a>
 
-You can create custom chat agents in Amazon Quick from the **Chat agents** menu on the Amazon Quick home page. You can preview and test your chat agent as you build it. When you create a custom chat agent, you are assigned as its owner by default. The following procedure outlines how to create a custom chat agent.
+You can create custom chat agents in AWS Quick from the **Chat agents** menu on the AWS Quick home page. You can preview and test your chat agent as you build it. When you create a custom chat agent, you are assigned as its owner by default. The following procedure outlines how to create a custom chat agent.
 
 ------
 #### [ Using natural language ]
 
 **To create a custom chat agent using a natural language prompt**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**, and then select **Create chat agent**.
 
 1. In **New chat agent**, do the following:
 
-   1. In the text input box, enter a natural language description for what kind of chat agent you want to create. This is the prompt Amazon Quick will use you create your chat agent. You can use the suggested sample instructions on the page to create your chat agent as well.
+   1. In the text input box, enter a natural language description for what kind of chat agent you want to create. This is the prompt AWS Quick will use you create your chat agent. You can use the suggested sample instructions on the page to create your chat agent as well.
 
    1. Then, select **Generate**. Selecting **Generate** takes the instruction or goal provided and expands it into chat agent instructions and configurations. It also scans the user's available resources (spaces and action connectors) and finds the most relevant matches based on the chat agent intent provided. The expanded builder UI is opened with these configurations for the user to review, customize, test, and launch.
 
@@ -52,7 +52,7 @@ When you launch a chat agent, it remains private by default. The chat agent only
 
 **To create a custom chat agent using builder mode**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**, and then select **Create chat agent**.
 
@@ -67,8 +67,8 @@ When you launch a chat agent, it remains private by default. The chat agent only
 1. In **Configure chat agent**, customize the following sections:
 
    1. In **AGENT PERSONA**, configure your chat agent's personality, identity, tone, and response style:
-      + For **Agent identity** – Define the identity of your chat agent. For example, you can give it instructions on what it's name and personality are. Amazon Quick will use defaults if left blank.
-      + For **Persona instructions** – Add instructions on how your chat agent interacts with users during chat. For example, you can define what your chat agent's primary tasks are. Amazon Quick uses these to customize your chat agent's persona.
+      + For **Agent identity** – Define the identity of your chat agent. For example, you can give it instructions on what it's name and personality are. AWS Quick will use defaults if left blank.
+      + For **Persona instructions** – Add instructions on how your chat agent interacts with users during chat. For example, you can define what your chat agent's primary tasks are. AWS Quick uses these to customize your chat agent's persona.
 
    1. In **Communication style**, for **Pick a response style preset** – Choose a response style. You can choose between the following response style presets or add custom instructions:
       + **Executive** – Optimized for high-level business communication and strategic insights.
@@ -76,11 +76,11 @@ When you launch a chat agent, it remains private by default. The chat agent only
       + **Creative** – Standard configuration for general-purpose interactions.
 
       Each preset has the following settings:
-      + For **Tone** – Add a natural language prompt to define your agent's tone. Amazon Quick will use it to customize your chat agent's persona.
-      + For **Response format** – Add a natural language prompt to define your chat agent's response style. Amazon Quick will use it to customize your chat agent's response style. Define the format of your chat chat agent's responses, for example: "Use bullet points for lists longer than 3 items".
+      + For **Tone** – Add a natural language prompt to define your agent's tone. AWS Quick will use it to customize your chat agent's persona.
+      + For **Response format** – Add a natural language prompt to define your chat agent's response style. AWS Quick will use it to customize your chat agent's response style. Define the format of your chat chat agent's responses, for example: "Use bullet points for lists longer than 3 items".
       + For **Length** – Specify the length of your chat agent's responses. Define the length of your chat agent's responses, for example: "Keep answers under 100 words".
 
-      When you choose a preset to use, Amazon Quick auto-populates the **Tone**, **Response format**, and **Length** instructions for your chat agent's responses based on the style chosen. You can further customize the existing prompts using natural language, or create new ones.
+      When you choose a preset to use, AWS Quick auto-populates the **Tone**, **Response format**, and **Length** instructions for your chat agent's responses based on the style chosen. You can further customize the existing prompts using natural language, or create new ones.
 
    1. In **Reference documents**, upload files that remain active in your chat agent's memory to guide all interactions. For more information about how reference documents work with other context types, see [Types of agent context](quicksuite/latest/userguide/agent-knowledge-sources-best-practices.html).
       + Select **Upload files** or drag and drop your documents to attach files that will guide your chat agent's responses.
@@ -88,7 +88,7 @@ When you launch a chat agent, it remains private by default. The chat agent only
 
 1. (Optional) In **Knowledge sources**, choose between the following options:
    + Continue without linking knowledge sources
-     + Your chat agent will generate responses from large language model (LLM) knowledge and all Amazon Quick resources the interacting user has access to. You can choose to select a specific knowledge source to focus on during chat. Choose this if you want to create a general purpose chat chat agent.
+     + Your chat agent will generate responses from large language model (LLM) knowledge and all AWS Quick resources the interacting user has access to. You can choose to select a specific knowledge source to focus on during chat. Choose this if you want to create a general purpose chat chat agent.
    + To link specific existing spaces
      + Select **Link**.
      + From the **Link spaces** modal, select the spaces you want to link to your chat agent, and then select **Link**.
@@ -102,7 +102,7 @@ When you launch a chat agent, it remains private by default. The chat agent only
 
        If you link a chat agent to a knowledge source, your chat agent will generate responses from large language model (LLM) knowledge and data from linked resources only. You can add up to 1 more knowledge source to this chat agent as temporray context during chat.
 **Note**  
-For more information on creating and using spaces, see [Working with spaces in Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-spaces.html).
+For more information on creating and using spaces, see [Working with spaces in AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-spaces.html).
 
        The system displays a success message to denote successful space creation. Return to the chat agent creation window.
      + In the chat agent creation window, from **Knowledge sources** select **Link**.
@@ -124,7 +124,7 @@ For more information on creating and using spaces, see [Working with spaces in A
      + In **Actions** review the actions available and then select **Next**.
      + In **Connection details**, enter the connection details needed and select **Add**.
 **Note**  
-For more information on creating and using connectors, see [Actions in Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qbs-actions.html).
+For more information on creating and using connectors, see [Actions in AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qbs-actions.html).
 
        The system displays a success message to denote successful action addition. Return to the chat agent creation window.
      + In the chat agent creation window, from **Actions** select **Link**.
@@ -148,7 +148,7 @@ When you launch a chat agent, it remains private by default. The chat agent only
 ## Share custom chat agents
 <a name="share-custom-agents"></a>
 
-When you create a chat agent, you are assigned as its owner by default. You can choose to share a chat agent you own with other Amazon Quick users using the following permissions:
+When you create a chat agent, you are assigned as its owner by default. You can choose to share a chat agent you own with other AWS Quick users using the following permissions:
 + *Owner* permissions – User can edit, share, use, and delete the chat agent.
 + *Viewer* permissions – User can view and use the chat agent.
 
@@ -158,7 +158,7 @@ The following procedure shows you how to share and assign permissions to chat ag
 
 **To share custom chat agents**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**
 
@@ -175,22 +175,22 @@ The following procedure shows you how to share and assign permissions to chat ag
 ## Embed custom chat agents
 <a name="embed-custom-agents"></a>
 
-You can embed a custom chat agent in an external website or application so that users can interact with it outside of the Amazon Quick console. To embed a chat agent, you must first allow the hosting domain in the Amazon Quick admin settings, and then generate the embed code from the chat agent's share options.
+You can embed a custom chat agent in an external website or application so that users can interact with it outside of the AWS Quick console. To embed a chat agent, you must first allow the hosting domain in the AWS Quick admin settings, and then generate the embed code from the chat agent's share options.
 
 Embedding a chat agent involves two steps:
 
-1. **Allow the hosting domain** – A Amazon Quick admin must add the domain (and optionally its subdomains) where the embedded chat agent will be hosted to the domain allow list.
+1. **Allow the hosting domain** – A AWS Quick admin must add the domain (and optionally its subdomains) where the embedded chat agent will be hosted to the domain allow list.
 
 1. **Generate the embed code** – The chat agent owner or an authorized user generates the embed code from the chat agent's share options.
 
 ### Allow a domain for embedded chat agents
 <a name="embed-agents-allow-domain"></a>
 
-Before you can embed a chat agent on an external website, a Amazon Quick admin must add the hosting domain to the allow list. You must be a Amazon Quick admin to complete this procedure. This ensures that only approved domains can host embedded chat agents.
+Before you can embed a chat agent on an external website, a AWS Quick admin must add the hosting domain to the allow list. You must be a AWS Quick admin to complete this procedure. This ensures that only approved domains can host embedded chat agents.
 
 **To allow a domain for embedding**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. Choose the profile icon.
 
@@ -213,7 +213,7 @@ After you allow the hosting domain, you can generate the embed code for a chat a
 
 **To generate the embed code for a chat agent**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the navigation pane, choose **Chat agents**.
 
@@ -230,14 +230,14 @@ The embedded chat agent is now available on your website. Users who visit the pa
 ## Update custom chat agents
 <a name="update-custom-agents"></a>
 
-You can update custom chat agents in Amazon Quick from the **Agents** menu on the Amazon Quick home page. The following procedure outlines how to do so.
+You can update custom chat agents in AWS Quick from the **Agents** menu on the AWS Quick home page. The following procedure outlines how to do so.
 
 **Note**  
 You can preview how your chat agent customizations updates perform, as you are configuring the chat agent, in the preview chat interface. Make sure to select **Update preview** before testing a change. Once all changes are tested in preview, select **Launch** to publish the changes to the chat agent currently in use.
 
 **To update a custom chat agent**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**
 
@@ -252,7 +252,7 @@ If you're the owner of a chat agent, you can choose to change the user access pe
 
 **To manage access to custom chat agents**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**
 
@@ -274,7 +274,7 @@ You can view a list of the chat agents you have created or have access to. The f
 
 **To view custom chat agents**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**
 
@@ -287,7 +287,7 @@ You can view the details of chat agents that are either created by you or shared
 
 **To view chat agent details**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**
 
@@ -312,13 +312,13 @@ You can also view chat agent details by navigating to the **Actions** column for
 ## Duplicate custom chat agents
 <a name="duplicate-agents"></a>
 
-You can duplicate existing custom chat agents without building a chat agent from scratch. Users can duplicate chat chat agents from the list page using the **Duplicate** action button. When you duplicate a chat agent, Amazon Quick creates a new chat agent with name format "[Original name] (copy)", which you can edit. All fields and configurations from the original chat agent are copied to the new version of the chat agent. Once duplicated, you can assign custom user access permissions to the duplicated chat agent and share it.
+You can duplicate existing custom chat agents without building a chat agent from scratch. Users can duplicate chat chat agents from the list page using the **Duplicate** action button. When you duplicate a chat agent, AWS Quick creates a new chat agent with name format "[Original name] (copy)", which you can edit. All fields and configurations from the original chat agent are copied to the new version of the chat agent. Once duplicated, you can assign custom user access permissions to the duplicated chat agent and share it.
 
 The following procedure outlines how to duplicate chat agents.
 
 **To duplicate custom chat agents**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**
 
@@ -331,11 +331,11 @@ The following procedure outlines how to duplicate chat agents.
 ## Delete chat agents
 <a name="delete-agents"></a>
 
-You can delete a Amazon Quick chat agent you own. The following procedure shows you how.
+You can delete a AWS Quick chat agent you own. The following procedure shows you how.
 
 **To delete a custom chat agent**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. From the left navigation menu, select **Chat agents**
 

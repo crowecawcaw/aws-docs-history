@@ -1,6 +1,6 @@
 
 
-# Authorizing connections from Amazon Quick Sight to Amazon Redshift clusters
+# Authorizing connections from AWS Quick Sight to Amazon Redshift clusters
 <a name="enabling-access-redshift"></a>
 
 
@@ -15,18 +15,18 @@
 
 You can provide access to Amazon Redshift data using three authentication methods: trusted identity propagation, run-as IAM role, or Amazon Redshift database credentials.
 
-With trusted identity propagation, a user's identity is passed to Amazon Redshift with single sign-on that is managed by IAM Identity Center. A user that accesses a dashboard in Amazon Quick Sight has their identity propagated to Amazon Redshift. In Amazon Redshift, fine grained data permissions are applied on the data before the data is presented in a Amazon Quick asset to the user. Amazon Quick authors can also connect to Amazon Redshift data sources without a password input or IAM role. If Amazon Redshift Spectrum is used, all permission management is centralized in Amazon Redshift. Trusted identity propagation is supported when Amazon Quick and Amazon Redshift use the same organization instance of IAM Identity Center. Trusted identity propagation is not currently supported for the following features.
+With trusted identity propagation, a user's identity is passed to Amazon Redshift with single sign-on that is managed by IAM Identity Center. A user that accesses a dashboard in AWS Quick Sight has their identity propagated to Amazon Redshift. In Amazon Redshift, fine grained data permissions are applied on the data before the data is presented in a AWS Quick asset to the user. AWS Quick authors can also connect to Amazon Redshift data sources without a password input or IAM role. If Amazon Redshift Spectrum is used, all permission management is centralized in Amazon Redshift. Trusted identity propagation is supported when AWS Quick and Amazon Redshift use the same organization instance of IAM Identity Center. Trusted identity propagation is not currently supported for the following features.
 + SPICE datasets
 + Custom SQL on data sources
 + Alerts
 + Email reports
-+ Amazon Quick Q
++ AWS Quick Q
 + CSV, Excel, and PDF exports
 + Anomaly detection
 
-For Amazon Quick to connect to an Amazon Redshift instance, you must create a new security group for that instance. This security group contains an inbound rule that authorizes access from the appropriate IP address range for the Amazon Quick servers in that AWS Region. To learn more about authorizing Amazon Quick connections, see [Manually enabling access to an Amazon Redshift cluster in a VPC](https://docs.aws.amazon.com/quicksight/latest/user/redshift-vpc-access.html).
+For AWS Quick to connect to an Amazon Redshift instance, you must create a new security group for that instance. This security group contains an inbound rule that authorizes access from the appropriate IP address range for the AWS Quick servers in that AWS Region. To learn more about authorizing AWS Quick connections, see [Manually enabling access to an Amazon Redshift cluster in a VPC](https://docs.aws.amazon.com/quicksight/latest/user/redshift-vpc-access.html).
 
-Enabling connection from Amazon Quick servers to your cluster is just one of several prerequisites for creating a data set based on an AWS database data source. For more information about what is required, see [Creating a dataset from a database](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-a-database-data-set.html).
+Enabling connection from AWS Quick servers to your cluster is just one of several prerequisites for creating a data set based on an AWS database data source. For more information about what is required, see [Creating a dataset from a database](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-a-database-data-set.html).
 
 **Topics**
 + [Enabling trusted identity propagation with Amazon Redshift](#redshift-trusted-identity-propagation)
@@ -36,42 +36,42 @@ Enabling connection from Amazon Quick servers to your cluster is just one of sev
 ## Enabling trusted identity propagation with Amazon Redshift
 <a name="redshift-trusted-identity-propagation"></a>
 
-Trusted identity propagation authenticates the end user in Amazon Redshift when they access Amazon Quick assets that leverage a trusted identity propagation enabled data source. When an author creates a data source with trusted identity propagation, the identity of the data source consumers in Amazon Quick Sight is propagated and logged in CloudTrail. This allows database administrators to centrally manage data security in Amazon Redshift and automatically apply all data security rules to data consumers in Amazon Quick. With other authentication methods, the data permissions of the author who created the data source are applied to all data source consumers. The data source author can choose to apply additional row and column level security to the data sources that they create in Amazon Quick Sight.
+Trusted identity propagation authenticates the end user in Amazon Redshift when they access AWS Quick assets that leverage a trusted identity propagation enabled data source. When an author creates a data source with trusted identity propagation, the identity of the data source consumers in AWS Quick Sight is propagated and logged in CloudTrail. This allows database administrators to centrally manage data security in Amazon Redshift and automatically apply all data security rules to data consumers in AWS Quick. With other authentication methods, the data permissions of the author who created the data source are applied to all data source consumers. The data source author can choose to apply additional row and column level security to the data sources that they create in AWS Quick Sight.
 
 Trusted identity propagation data sources are supported only in Direct Query datasets. SPICE datasets do not currently support trusted identity propagation.
 
 **Topics**
 + [Prerequisites](#redshift-trusted-identity-propagation-prerequisites)
-+ [Enabling trusted identity propagation in Amazon Quick Sight](#redshift-trusted-identity-propagation-enable)
++ [Enabling trusted identity propagation in AWS Quick Sight](#redshift-trusted-identity-propagation-enable)
 + [Connecting to Amazon Redshift with trusted identity propagation](#redshift-trusted-identity-propagation-connect)
 
 ### Prerequisites
 <a name="redshift-trusted-identity-propagation-prerequisites"></a>
 
 Before you get started, make sure that you have all of the required prerequisites ready.
-+ Trusted identity propagation is only supported for Amazon Quick accounts that are integrated with IAM Identity Center. For more information, see [Configure your Amazon Quick account with IAM Identity Center](https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html).
-+ An Amazon Redshift application that is integrated with IAM Identity Center. The Amazon Redshift cluster that you use must be in the same organization in AWS Organizations as the Amazon Quick account that you want to use. The cluster must also be configured with the same organization instance in IAM Identity Center that your Amazon Quick account is configured to. For more information about configuring a Amazon Redshift cluster, see [Integrating IAM Identity Center](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html).
++ Trusted identity propagation is only supported for AWS Quick accounts that are integrated with IAM Identity Center. For more information, see [Configure your AWS Quick account with IAM Identity Center](https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html).
++ An Amazon Redshift application that is integrated with IAM Identity Center. The Amazon Redshift cluster that you use must be in the same organization in AWS Organizations as the AWS Quick account that you want to use. The cluster must also be configured with the same organization instance in IAM Identity Center that your AWS Quick account is configured to. For more information about configuring a Amazon Redshift cluster, see [Integrating IAM Identity Center](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html).
 
-### Enabling trusted identity propagation in Amazon Quick Sight
+### Enabling trusted identity propagation in AWS Quick Sight
 <a name="redshift-trusted-identity-propagation-enable"></a>
 
-To configure Amazon Quick Sight to connect to Amazon Redshift data sources with trusted identity propagation, configure Amazon Redshift OAuth scopes to your Amazon Quick account.
+To configure AWS Quick Sight to connect to Amazon Redshift data sources with trusted identity propagation, configure Amazon Redshift OAuth scopes to your AWS Quick account.
 
-To add a scope that allows Amazon Quick to authorize identity propagation to Amazon Redshift, specify the AWS account ID of the Amazon Quick account and the service that you want to authorize identity propagation with, in this case `'REDSHIFT'`.
+To add a scope that allows AWS Quick to authorize identity propagation to Amazon Redshift, specify the AWS account ID of the AWS Quick account and the service that you want to authorize identity propagation with, in this case `'REDSHIFT'`.
 
-Specify the IAM Identity Center application ARN of the Amazon Redshift cluster that you are authorizing Amazon Quick to propagate user identities to. This information can be found in the Amazon Redshift console. If you don't specify authorized targets for the Amazon Redshift scope, Amazon Quick authorizes users from any Amazon Redshift cluster that share the same IAM Identity Center instance. The example below configures Amazon Quick to connect to Amazon Redshift data sources with trusted identity propagation.
+Specify the IAM Identity Center application ARN of the Amazon Redshift cluster that you are authorizing AWS Quick to propagate user identities to. This information can be found in the Amazon Redshift console. If you don't specify authorized targets for the Amazon Redshift scope, AWS Quick authorizes users from any Amazon Redshift cluster that share the same IAM Identity Center instance. The example below configures AWS Quick to connect to Amazon Redshift data sources with trusted identity propagation.
 
 ```
 aws quicksight update-identity-propagation-config --aws-account-id "{{AWSACCOUNTID}}" --service "REDSHIFT" --authorized-targets "arn:aws:sso::{{XXXXXXXXXXXX}}:application/ssoins-{{XXXXXXXXXXXX}}/apl-{{XXXXXXXXXXXX}}" "arn:aws:sso::{{XXXXXXXXXXXX}}:application/ssoins-{{XXXXXXXXXXXX}}/apl-{{XXXXXXXXXXXX}}"
 ```
 
-The following example deletes OAuth scopes from a Amazon Quick account.
+The following example deletes OAuth scopes from a AWS Quick account.
 
 ```
 aws quicksight delete-identity-propagation-config --aws-account-id "{{AWSACCOUNTID}}" --service "REDSHIFT" --authorized-targets "{{arn:aws:sso::{{XXXXXXXXXXXX}}:application/ssoins-{{XXXXXXXXXXXX}}apl-{{XXXXXXXXXXXX}}}} "arn:aws:sso::{{XXXXXXXXXXXX}}:application/ssoins-{{XXXXXXXXXXXX}}/apl-{{XXXXXXXXXXXX}}"
 ```
 
-The following example lists all OAuth scopes that are currently on a Amazon Quick account.
+The following example lists all OAuth scopes that are currently on a AWS Quick account.
 
 ```
 aws quicksight list-identity-propagation-configs --aws-account-id "{{AWSACCOUNTID}}"
@@ -84,7 +84,7 @@ Use the procedure below to connect to Amazon Redshift trusted identity propagati
 
 **To connect to Amazon Redshift with trusted identity propagation**
 
-1. Create a new dataset in Amazon Quick. For more information about creating a dataset, see [Creating datasets](https://docs.aws.amazon.com/quicksight/latest/user/creating-data-sets.html).
+1. Create a new dataset in AWS Quick. For more information about creating a dataset, see [Creating datasets](https://docs.aws.amazon.com/quicksight/latest/user/creating-data-sets.html).
 
 1. Choose Amazon Redshift as the data source for the new dataset.
 **Note**  
@@ -100,13 +100,13 @@ The authentication type of an existing data source can't be changed to trusted i
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-Use the following procedure to enable Amazon Quick Sight access to an Amazon Redshift cluster in a VPC.
+Use the following procedure to enable AWS Quick Sight access to an Amazon Redshift cluster in a VPC.
 
-**To enable Amazon Quick Sight access to an Amazon Redshift cluster in a VPC**
+**To enable AWS Quick Sight access to an Amazon Redshift cluster in a VPC**
 
 1. Sign in to the AWS Management Console and open the Amazon Redshift console at [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/).
 
-1. Navigate to the cluster that you want to make available in Amazon Quick.
+1. Navigate to the cluster that you want to make available in AWS Quick.
 
 1. In the **Cluster Properties** section, find **Port**. Note the **Port** value. 
 
@@ -150,7 +150,7 @@ Use the following procedure to enable Amazon Quick Sight access to an Amazon Red
 
 1. Choose **Save rules** to save your new inbound rule.
 
-1. In Amazon Quick, navigate to the **Manage Amazon Quick** menu.
+1. In AWS Quick, navigate to the **Manage AWS Quick** menu.
 
 1. Choose **Manage VPC connections**, and then choose **Add VPC connection**.
 
@@ -164,11 +164,11 @@ Use the following procedure to enable Amazon Quick Sight access to an Amazon Red
 
 1. In the Amazon Redshift console, navigate to the Amazon Redshift cluster that `redshift-security-group` is configured to. Choose **Properties**. under**Network and security settings**, enter the name of the security group.
 
-1. In Amazon Quick, choose **Datasets**, and then choose **New dataset**. Create a new dataset with the following values.
+1. In AWS Quick, choose **Datasets**, and then choose **New dataset**. Create a new dataset with the following values.
    + For **Data source**, choose **Amazon Redshift Auto-discovered**.
    + Give the data source a meaningful name.
-   + The instance ID should auto populate with the VPC connection that you created in Amazon Quick. If the instance ID doesn't auto populate, choose the VPC that you created from the dropdown list.
-   + Enter the database credentials. If your Amazon Quick account uses trusted identity propagation, choose **Single sign-on**.
+   + The instance ID should auto populate with the VPC connection that you created in AWS Quick. If the instance ID doesn't auto populate, choose the VPC that you created from the dropdown list.
+   + Enter the database credentials. If your AWS Quick account uses trusted identity propagation, choose **Single sign-on**.
 
 1. Validate the connection, and then choose **Create data source**.
 
@@ -177,11 +177,11 @@ If you want to restrict the default outbound rules further, update the outbound 
 ## Enabling access to Amazon Redshift Spectrum
 <a name="redshift-spectrum-access"></a>
 
-Using Amazon Redshift Spectrum, you can connect Amazon Quick to an external catalog with Amazon Redshift. For example, you can access the Amazon Athena catalog . You can then query unstructured data on your Amazon S3 data lake using an Amazon Redshift cluster instead of the Athena query engine. 
+Using Amazon Redshift Spectrum, you can connect AWS Quick to an external catalog with Amazon Redshift. For example, you can access the Amazon Athena catalog . You can then query unstructured data on your Amazon S3 data lake using an Amazon Redshift cluster instead of the Athena query engine. 
 
 You can also combine data sets that include data stored in Amazon Redshift and in S3. Then you can access them using the SQL syntax in Amazon Redshift. 
 
-After you've registered your data catalog (for Athena) or external schema (for a [Hive metastore](https://aws.amazon.com/blogs/big-data/migrate-external-table-definitions-from-a-hive-metastore-to-amazon-athena/)), you can use Amazon Quick to choose the external schema and Amazon Redshift Spectrum tables. This process works just as for any other Amazon Redshift tables in your cluster. You don't need to load or transform your data. 
+After you've registered your data catalog (for Athena) or external schema (for a [Hive metastore](https://aws.amazon.com/blogs/big-data/migrate-external-table-definitions-from-a-hive-metastore-to-amazon-athena/)), you can use AWS Quick to choose the external schema and Amazon Redshift Spectrum tables. This process works just as for any other Amazon Redshift tables in your cluster. You don't need to load or transform your data. 
 
 For more information on using Amazon Redshift Spectrum, see [Using Amazon Redshift Spectrum to query external data](https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html) in the *Amazon Redshift Database Developer Guide.*
 
@@ -192,4 +192,4 @@ To connect using Redshift Spectrum, do the following:
 
 Redshift Spectrum lets you separate storage from compute, so you can scale them separately. You only pay for the queries that you run.
 
-To connect to Redshift Spectrum tables, you don't need to grant Amazon Quick access to Amazon S3 or Athena. Amazon Quick needs access only to the Amazon Redshift cluster. For full details on configuring Redshift Spectrum, see [Getting started with Amazon Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-getting-started-using-spectrum.html) in the *Amazon Redshift Database Developer Guide*.
+To connect to Redshift Spectrum tables, you don't need to grant AWS Quick access to Amazon S3 or Athena. AWS Quick needs access only to the Amazon Redshift cluster. For full details on configuring Redshift Spectrum, see [Getting started with Amazon Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-getting-started-using-spectrum.html) in the *Amazon Redshift Database Developer Guide*.

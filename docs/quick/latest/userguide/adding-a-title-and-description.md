@@ -16,7 +16,7 @@ Use the following procedure to add a title and description to an analysis. Title
 
 1. For **Sheet title**, enter a title and press **Enter**. To remove a title, choose **Sheets** in the application bar and then choose **Delete title**. Or, to remove the title, you can select the title and then choose the **x**-shaped delete icon.
 
-   To create a dynamic sheet title, you can add existing parameters to the sheet title. For more information, see [Using parameters in titles and descriptions in Amazon Quick](parameters-in-titles.md).
+   To create a dynamic sheet title, you can add existing parameters to the sheet title. For more information, see [Using parameters in titles and descriptions in AWS Quick](parameters-in-titles.md).
 
 1. Choose **Sheets** in the application bar, and then choose **Add description**.
 

@@ -1,6 +1,6 @@
 
 
-# Using Amazon Quick automations
+# Using AWS Quick automations
 <a name="using-amazon-quick-automations"></a>
 
 Quick unifies AI agents for research, business insights, and automation into a single experience, helping business users make better decisions and act on them faster. Quick's automation capabilities handle everything from individual daily tasks to mission-critical enterprise processes, so teams can focus on higher-value work.
@@ -9,8 +9,8 @@ Quick unifies AI agents for research, business insights, and automation into a s
 <a name="automation-types"></a>
 
 Quick offers two automation capabilities designed for different levels of scale and complexity:
-+ **Amazon Quick Flows** empowers any business user to automate repetitive, routine tasks without needing technical expertise.
-+ **Amazon Quick Automate** enables power users to orchestrate end-to-end business processes at enterprise scale. Amazon Quick Automate is not available for Free or Plus accounts.
++ **AWS Quick Flows** empowers any business user to automate repetitive, routine tasks without needing technical expertise.
++ **AWS Quick Automate** enables power users to orchestrate end-to-end business processes at enterprise scale. AWS Quick Automate is not available for Free or Plus accounts.
 
 ## Choosing between Quick Flows and Quick Automate
 <a name="flows-vs-automate"></a>
@@ -22,5 +22,5 @@ The right choice depends on the scope and complexity of what you need to automat
 
 ## Getting started
 <a name="getting-started-automations"></a>
-+ To get started with Quick Flows, see [Using Amazon Quick Flows](using-amazon-quick-flows.md).
-+ To get started with Quick Automate, see [Using Amazon Quick Automate](using-amazon-quick-automate.md).
++ To get started with Quick Flows, see [Using AWS Quick Flows](using-amazon-quick-flows.md).
++ To get started with Quick Automate, see [Using AWS Quick Automate](using-amazon-quick-automate.md).

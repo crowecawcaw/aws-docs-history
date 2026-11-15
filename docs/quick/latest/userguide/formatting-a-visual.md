@@ -1,9 +1,9 @@
 
 
-# Formatting in Amazon Quick
+# Formatting in AWS Quick
 <a name="formatting-a-visual"></a>
 
-You choose from a variety of options to format and style your data visualizations. To format a visual, select the visual that you want to format and choose the **Format visual** icon on the upper-right corner of the visual. Once you have the format visual pane open, you can click on different visuals and controls to view formatting data for the specific visual or control. For more information about formatting a visual control, see [Using a control with a parameter in Amazon Quick](parameters-controls.md).
+You choose from a variety of options to format and style your data visualizations. To format a visual, select the visual that you want to format and choose the **Format visual** icon on the upper-right corner of the visual. Once you have the format visual pane open, you can click on different visuals and controls to view formatting data for the specific visual or control. For more information about formatting a visual control, see [Using a control with a parameter in AWS Quick](parameters-controls.md).
 
 Use the following sections to format and style your content:
 
@@ -18,7 +18,7 @@ Any format changes applied from the field wells are applied only to the selected
 + [Map and geospatial chart formatting options in Quick](geospatial-formatting.md)
 + [Axes and grid lines on visual types in Quick](showing-hiding-axis-grid-tick.md)
 + [Colors in visual types in Quick](changing-visual-colors.md)
-+ [Working with field level coloring in Amazon Quick](format-field-colors.md)
++ [Working with field level coloring in AWS Quick](format-field-colors.md)
 + [Conditional formatting on visual types in Quick](conditional-formatting-for-visuals.md)
 + [KPI options](KPI-options.md)
 + [Labels on visual types in Quick](customizing-visual-labels.md)

@@ -18,14 +18,14 @@ Use the following procedure to prepare a dataset based on text or Microsoft Exce
 
 1. Review the file upload settings and correct them if necessary. For more information about file upload settings, see [Choosing file upload settings](https://docs.aws.amazon.com/quicksight/latest/user/choosing-file-upload-settings.html).
 **Important**  
-If you want to change upload settings, make this change before you make any other changes to the dataset. New upload settings cause Amazon Quick Sight to reimport the file. This process overwrites all of your other changes.
+If you want to change upload settings, make this change before you make any other changes to the dataset. New upload settings cause AWS Quick Sight to reimport the file. This process overwrites all of your other changes.
 
 1. Prepare the data by doing one or more of the following:
    + [Selecting fields](https://docs.aws.amazon.com/quicksight/latest/user/selecting-fields.html)
    + [Editing field names and descriptions](https://docs.aws.amazon.com/quicksight/latest/user/changing-a-field-name.html)
    + [Changing a field data type](https://docs.aws.amazon.com/quicksight/latest/user/changing-a-field-data-type.html)
    + [Adding calculated fields](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-calculated-field-analysis.html)
-   + [Filtering data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html)
+   + [Filtering data in AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html)
 
 1. Check the [SPICE](spice.md) indicator to see if you have enough capacity to import the dataset. File datasets automatically load into SPICE. The import happens when you choose either **Save & visualize** or **Save**. 
 
@@ -54,7 +54,7 @@ Use the following procedure to prepare a Microsoft Excel dataset.
 
 1. Review the file upload settings and correct them if necessary. For more information about file upload settings, see [Choosing file upload settings](https://docs.aws.amazon.com/quicksight/latest/user/choosing-file-upload-settings.html). 
 **Important**  
-If it's necessary to change upload settings, make this change before you make any other changes to the dataset. Changing upload settings causes Amazon Quick Sight to reimport the file. This process overwrites any changes you have made so far.
+If it's necessary to change upload settings, make this change before you make any other changes to the dataset. Changing upload settings causes AWS Quick Sight to reimport the file. This process overwrites any changes you have made so far.
 
 1. (Optional) Change the worksheet selection. 
 
@@ -67,7 +67,7 @@ If it's necessary to change upload settings, make this change before you make an
    + [Adding calculated fields](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-calculated-field-analysis.html)
    + [Filtering data in Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html)
 
-1. Check the [SPICE](spice.md) indicator to see if you have enough space to import the dataset. Amazon Quick Sight must import Excel datasets into SPICE. This import happens when you choose either **Save & visualize** or **Save**.
+1. Check the [SPICE](spice.md) indicator to see if you have enough space to import the dataset. AWS Quick Sight must import Excel datasets into SPICE. This import happens when you choose either **Save & visualize** or **Save**.
 
    If you don't have enough SPICE capacity, you can choose to make the dataset smaller using one of the following methods:
    + Apply a filter to limit the number of rows.

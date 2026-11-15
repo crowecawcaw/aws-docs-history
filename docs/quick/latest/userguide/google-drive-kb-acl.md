@@ -3,14 +3,14 @@
 # Document-level access controls
 <a name="google-drive-kb-acl"></a>
 
-Admin-managed Google Drive knowledge bases include built-in document-level access control. Amazon Quick syncs access control lists (ACLs) from Google Drive during each crawl and verifies each user's permissions at query time, so users only see answers from documents that they are authorized to access.
+Admin-managed Google Drive knowledge bases include built-in document-level access control. AWS Quick syncs access control lists (ACLs) from Google Drive during each crawl and verifies each user's permissions at query time, so users only see answers from documents that they are authorized to access.
 
 ## How it works
 <a name="google-drive-kb-acl-how-it-works"></a>
 
-When a user submits a query to an Amazon Quick agent that uses an admin-managed Google Drive knowledge base, the system enforces access controls in two stages:
+When a user submits a query to an AWS Quick agent that uses an admin-managed Google Drive knowledge base, the system enforces access controls in two stages:
 
-1. **Pre-retrieval filtering** – Amazon Quick performs a semantic search against the vector index to find the most relevant document passages. The system applies access control lists that are already stored in the index. This produces a preliminary set of candidate documents. This stage is necessary because real-time API calls for every document in the index would be too costly at scale.
+1. **Pre-retrieval filtering** – AWS Quick performs a semantic search against the vector index to find the most relevant document passages. The system applies access control lists that are already stored in the index. This produces a preliminary set of candidate documents. This stage is necessary because real-time API calls for every document in the index would be too costly at scale.
 
 1. **Real-time verification** – The system verifies the candidate documents in real time by calling the Google Drive APIs. It uses the service account credential that the administrator provided to generate user-specific access tokens through impersonation. Google Drive maintains the source of truth for access control lists that are associated with each document. The system removes any documents that the user is not authorized to access from the result set.
 

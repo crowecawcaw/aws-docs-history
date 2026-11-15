@@ -1,11 +1,11 @@
 
 
-# Amazon Quick Microsoft Word extension
+# AWS Quick Microsoft Word extension
 <a name="word-extension-guide"></a>
 
-The Amazon Quick extension for Word helps you create professional documents faster by working directly in your document to generate, edit, and review content using natural language instructions.
+The AWS Quick extension for Word helps you create professional documents faster by working directly in your document to generate, edit, and review content using natural language instructions.
 
-You can search for Amazon Quick in the Microsoft Word app store or visit the [Quick for Word Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010615) to add the extension.
+You can search for AWS Quick in the Microsoft Word app store or visit the [Quick for Word Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010615) to add the extension.
 
 Key capabilities include:
 + **Content generation and editing:** Generate formatted content including headings, tables, and styled text using plain language instructions. Go from a blank page to a review-ready draft without manually formatting. Quick works directly in the document itself, automatically applying proper formatting and structure.
@@ -15,34 +15,34 @@ Key capabilities include:
 + **External actions:** Perform actions in third-party applications using your configured [connectors](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-connectors.html) or apps directly from Word.
 
 **Important**  
-The Amazon Quick Word extension uses generative AI to create and execute code within your Word application sandbox. AI can make mistakes and perform inaccurate actions within your Word document. No document content is read when the side panel is closed, and no data is sent to Amazon Quick unless you explicitly send a prompt.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick Word extension uses generative AI to create and execute code within your Word application sandbox. AI can make mistakes and perform inaccurate actions within your Word document. No document content is read when the side panel is closed, and no data is sent to AWS Quick unless you explicitly send a prompt.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
-The Amazon Quick Microsoft Word extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft Word extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When you use the extension, the time Amazon Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When you use the extension, the time AWS Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-## Amazon Quick Microsoft Word extension usage guidelines
+## AWS Quick Microsoft Word extension usage guidelines
 <a name="word-usage-guidelines"></a>
 
-As a user, you are responsible for keeping company information safe. The following guidance helps you use Amazon Quick apps securely while maintaining data privacy and compliance.
+As a user, you are responsible for keeping company information safe. The following guidance helps you use AWS Quick apps securely while maintaining data privacy and compliance.
 
 ### Conversation retention and accuracy
 <a name="word-conversation-retention"></a>
 
 Each conversation is stored for 30 days. You can review and manage your conversation history by choosing the conversation history button in the Word extension.
 
-Amazon Quick uses generative AI. You should review responses for accuracy.
+AWS Quick uses generative AI. You should review responses for accuracy.
 
-Usage of the Amazon Quick extension for Microsoft Word is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
+Usage of the AWS Quick extension for Microsoft Word is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
 
 ### Security considerations
 <a name="word-security-considerations"></a>
 
-To protect your organization's data, carefully evaluate usage and plan deployment with data privacy in mind. Amazon Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft Word conversations into your company's Amazon Quick instance.
+To protect your organization's data, carefully evaluate usage and plan deployment with data privacy in mind. AWS Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft Word conversations into your company's AWS Quick instance.
 
 ## Sample prompts
 <a name="word-sample-prompts"></a>

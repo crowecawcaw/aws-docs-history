@@ -1,16 +1,16 @@
 
 
-# Integrating Amazon SageMaker AI models with Amazon Quick Sight
+# Integrating Amazon SageMaker AI models with AWS Quick Sight
 <a name="sagemaker-integration"></a>
 
 **Note**  
-You don't need any technical experience in machine learning (ML) to author analyses and dashboards that use the ML-powered features in Amazon Quick Sight. 
+You don't need any technical experience in machine learning (ML) to author analyses and dashboards that use the ML-powered features in AWS Quick Sight. 
 
-You can augment your Amazon Quick Enterprise edition data with Amazon SageMaker AI machine learning models. You can run inferences on data stored in SPICE imported from any data source supported by Quick. For a full list of supported data sources, see [Supported data sources](supported-data-sources.md). 
+You can augment your AWS Quick Enterprise edition data with Amazon SageMaker AI machine learning models. You can run inferences on data stored in SPICE imported from any data source supported by Quick. For a full list of supported data sources, see [Supported data sources](supported-data-sources.md). 
 
 Using Quick with SageMaker AI models can save the time that you might otherwise spend managing data movement and writing code. The results are useful both for evaluating the model and—when you're satisfied with the results—for sharing with decision-makers. You can begin immediately after the model is built. Doing this surfaces your data scientists' prebuilt models, and enables you to apply the data science to your datasets. Then you can share these insights in your predictive dashboards. With the Quick serverless approach, the process scales seamlessly, so you don't need to worry about inference or query capacity.
 
-Amazon Quick supports SageMaker AI models that use regression and classification algorithms. You can apply this feature to get predictions for just about any business use case. Some examples include predicting the likelihood of customer churn, employee attrition, scoring sales leads, and assessing credit risks. To use Quick to provide predictions, the SageMaker AI model data for both input and output must be in tabular format. In multiclass or multilabel classification use cases, each output column has to contain a single value. Quick doesn’t support multiple values inside a single column. 
+AWS Quick supports SageMaker AI models that use regression and classification algorithms. You can apply this feature to get predictions for just about any business use case. Some examples include predicting the likelihood of customer churn, employee attrition, scoring sales leads, and assessing credit risks. To use Quick to provide predictions, the SageMaker AI model data for both input and output must be in tabular format. In multiclass or multilabel classification use cases, each output column has to contain a single value. Quick doesn’t support multiple values inside a single column. 
 
 **Topics**
 + [How SageMaker AI integration works](#sagemaker-how-it-works)
@@ -25,7 +25,7 @@ Amazon Quick supports SageMaker AI models that use regression and classification
 
  In general, the process works like this:
 
-1. An Amazon Quick administrator adds permissions for Quick to access SageMaker AI. To do this, open **Security & Permissions** settings from the **Manage Quick** page. Go to **Quick access to AWS services**, and add SageMaker AI. 
+1. An AWS Quick administrator adds permissions for Quick to access SageMaker AI. To do this, open **Security & Permissions** settings from the **Manage Quick** page. Go to **Quick access to AWS services**, and add SageMaker AI. 
 
    When you add these permissions, Quick is added to an AWS Identity and Access Management (IAM) role that provides access to list all the SageMaker AI models in your AWS account. It also provides permissions to run SageMaker AI jobs that have names that are prefixed with `quicksight-auto-generated-`. 
 
@@ -49,7 +49,7 @@ Amazon Quick supports SageMaker AI models that use regression and classification
 
 1. The data refresh starts every time you save the dataset. You can start the data refresh process manually by refreshing the SPICE dataset, or you can schedule it to run at a regular interval. During each data refresh, the system automatically calls SageMaker AI batch transform to update the output fields with new data. 
 
-   You can use the Amazon Quick Sight SPICE ingestion API operations to control the data refresh process. For more information about using these API operations, see the [Amazon Quick Sight API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-api-overview.html).
+   You can use the AWS Quick Sight SPICE ingestion API operations to control the data refresh process. For more information about using these API operations, see the [AWS Quick Sight API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-api-overview.html).
 
 ## Costs incurred (no additional costs with integration itself)
 <a name="sagemaker-cost-of-use"></a>
@@ -64,24 +64,24 @@ Using this feature doesn't require an additional fee in itself. Your costs inclu
 ## Usage guidelines
 <a name="sagemaker-usage-guidelines"></a>
 
-In Amazon Quick, the following usage guidelines apply to this Enterprise edition feature:
+In AWS Quick, the following usage guidelines apply to this Enterprise edition feature:
 + The processing of the model occurs in SPICE. Therefore, it can only apply to datasets that are stored in SPICE. The process currently supports up to 500 million rows per dataset.
 + Only Quick admins or authors can augment datasets with ML models. Readers can only view the results when they are part of a dashboard.
 + Each dataset can work with one and only one ML model. 
 + Output fields can't be used to calculate new fields.
 + Datasets can't be filtered by fields that are integrated with the model. In other words, if your dataset field is currently mapped to the ML model, you can't filter on that field. 
 
-In SageMaker AI, the following usage guidelines apply to a pretrained model that you use with Amazon Quick Sight:
-+ When you create the model, associate it with the Amazon Resource Name (ARN) for the appropriate IAM role. The IAM role for the SageMaker AI model needs to have access to the Amazon S3 bucket that Amazon Quick Sight uses. 
+In SageMaker AI, the following usage guidelines apply to a pretrained model that you use with AWS Quick Sight:
++ When you create the model, associate it with the Amazon Resource Name (ARN) for the appropriate IAM role. The IAM role for the SageMaker AI model needs to have access to the Amazon S3 bucket that AWS Quick Sight uses. 
 + Make sure that your model supports .csv files for both input and output. Make sure that your data is in a tabular format. 
 + Provide a schema file that contains metadata about the model, including the list of input and output fields. Currently, you must create this schema file manually.
-+ Consider the amount of time that it takes to complete your inference, which depends on a number of factors. These include the complexity of the model, the amount of data, and the compute capacity defined. Completing the inference can take several minutes to several hours. Amazon Quick Sight caps all data ingestion and inferencing jobs to a maximum of 10 hours. To reduce the time it takes to perform an inference, consider increasing the instance size or the number of instances.
++ Consider the amount of time that it takes to complete your inference, which depends on a number of factors. These include the complexity of the model, the amount of data, and the compute capacity defined. Completing the inference can take several minutes to several hours. AWS Quick Sight caps all data ingestion and inferencing jobs to a maximum of 10 hours. To reduce the time it takes to perform an inference, consider increasing the instance size or the number of instances.
 + Currently, you can use only batch transforms for integration with SageMaker AI, not real-time data. You can't use an SageMaker AI endpoint.
 
 ## Defining the schema file
 <a name="sagemaker-schema-file"></a>
 
-Before you use an SageMaker AI model with Quick Sight data, create the JSON schema file that contains the metadata that Amazon Quick Sight needs to process the model. The Amazon Quick author or admin uploads the schema file when configuring the dataset. 
+Before you use an SageMaker AI model with Quick Sight data, create the JSON schema file that contains the metadata that AWS Quick Sight needs to process the model. The AWS Quick author or admin uploads the schema file when configuring the dataset. 
 
 The schema fields are defined as follows. All fields are required unless specified in the following description. Attributes are case-sensitive.
 
@@ -103,7 +103,7 @@ A list of output columns that the SageMaker AI model produces. Quick Sight expec
 +  *type* – The data type of this column. This attribute takes the values `"INTEGER"`, `"STRING"`, and `"DECIMAL"`. 
 
  *instanceTypes*   
-A list of the ML instance types that SageMaker AI can provision to run the transform job. The list is provided to the Amazon Quick user to choose from. This list is limited to the types supported by SageMaker AI. For more information on supported types, see [TransformResources](https://docs.aws.amazon.com/sagemaker/latest/dg/API_TransformResources.html) in the *SageMaker AI Developer Guide.*
+A list of the ML instance types that SageMaker AI can provision to run the transform job. The list is provided to the AWS Quick user to choose from. This list is limited to the types supported by SageMaker AI. For more information on supported types, see [TransformResources](https://docs.aws.amazon.com/sagemaker/latest/dg/API_TransformResources.html) in the *SageMaker AI Developer Guide.*
 
  *defaultInstanceType*   
 (Optional) The instance type that is presented as the default option in the SageMaker AI wizard in Quick Sight. Include this instance type in `instanceTypes`.
@@ -178,7 +178,7 @@ Before you begin, have the following items available:
 + The name of the SageMaker AI model that you want to use to augment the dataset.
 + The schema of the model. This schema includes field name mappings and data types. It's helpful if it also contains recommended settings for instance type and number of instances to use.
 
-**To augment your Amazon Quick Sight dataset with SageMaker AI**
+**To augment your AWS Quick Sight dataset with SageMaker AI**
 
 1. Create a new dataset from the start page by choosing **Datasets**, and then choose **New dataset**.
 

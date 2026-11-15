@@ -1,6 +1,6 @@
 
 
-# Working with threshold alerts in Amazon Quick Sight
+# Working with threshold alerts in AWS Quick Sight
 <a name="threshold-alerts"></a>
 
 
@@ -8,7 +8,7 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-To stay informed about important changes in your data, you can create threshold alerts using KPI, Gauge, Table, and Pivot table visuals in an Amazon Quick Sight dashboard. With these alerts, you can set thresholds for your data and be notified by email when your data crosses them. You can also view and manage your alerts at anytime in a Quick Sight supported web browser.
+To stay informed about important changes in your data, you can create threshold alerts using KPI, Gauge, Table, and Pivot table visuals in an AWS Quick Sight dashboard. With these alerts, you can set thresholds for your data and be notified by email when your data crosses them. You can also view and manage your alerts at anytime in a Quick Sight supported web browser.
 
 For example, let's say that you're a customer success manager for a large organization and you want to know when the number of tickets in a support queue exceeds a certain number. Let's say too that you have a dashboard with a KPI, Gauge, Table or Pivot table visual that tracks the number of tickets in this queue. In this case, you can create an alert and be notified by email when the number exceeds the threshold you specified. That way, you can take action as soon as you're notified.
 
@@ -18,7 +18,7 @@ For example, let's say you have a dashboard with a filter control that you can u
 
 Threshold alerts are not available in the `eu-central-2` Europe (Zurich) region.
 
-For more information on KPI, Gauge, Table, or Pivot table visuals, see [Visual types in Amazon Quick Sight](working-with-visual-types.md).
+For more information on KPI, Gauge, Table, or Pivot table visuals, see [Visual types in AWS Quick Sight](working-with-visual-types.md).
 
 **Note**  
 You can't create alerts for visuals in an embedded dashboard or from the Quick mobile app.  

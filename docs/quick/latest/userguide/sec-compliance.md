@@ -1,9 +1,9 @@
 
 
-# Compliance validation for Amazon Quick
+# Compliance validation for AWS Quick
 <a name="sec-compliance"></a>
 
-Third-party auditors assess the security and compliance of Amazon Quick as part of multiple AWS compliance programs. Amazon Quick, across its web, desktop, and mobile clients, is in scope for the following programs:
+Third-party auditors assess the security and compliance of AWS Quick as part of multiple AWS compliance programs. AWS Quick, across its web, desktop, and mobile clients, is in scope for the following programs:
 + Federal Risk and Authorization Management Program (FedRAMP)
 + Health Insurance Portability and Accountability Act (HIPAA)
 + Payment Card Industry Data Security Standard (PCI DSS)
@@ -50,7 +50,7 @@ Program scope and audit reports change over time. To confirm the status that app
 ## Your compliance responsibilities
 <a name="sec-compliance-responsibility"></a>
 
-Your compliance responsibility when you use Amazon Quick depends on the sensitivity of your data, your company's compliance objectives, and applicable laws and regulations. Use the following AWS resources to help you meet your obligations:
+Your compliance responsibility when you use AWS Quick depends on the sensitivity of your data, your company's compliance objectives, and applicable laws and regulations. Use the following AWS resources to help you meet your obligations:
 + [Security and compliance quick start guides](https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance) – These deployment guides discuss architectural considerations and provide steps for deploying security- and compliance-focused baseline environments on AWS.
 + [AWS compliance resources](https://aws.amazon.com/compliance/resources/) – This collection of workbooks and guides might apply to your industry and location.
 + [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) – This AWS service assesses how well your resource configurations comply with internal practices, industry guidelines, and regulations.

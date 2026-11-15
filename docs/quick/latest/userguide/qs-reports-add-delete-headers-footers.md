@@ -5,7 +5,7 @@
 
 *Headers* and *Footers* are optional special sections located at the top and bottom of a pixel perfect report. Headers and footers are commonly used to display basic information like the date the report was created or the page number. You can interact with headers and footers the same way you interact with a regular section in a report.
 
-By default, every report in Amazon Quick Sight has a header and a footer. To remove the header or footer from your report, use the following procedure.
+By default, every report in AWS Quick Sight has a header and a footer. To remove the header or footer from your report, use the following procedure.
 
 **To remove a header or footer from a pixel perfect report**
 

@@ -11,26 +11,26 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 **Note**  
-IAM identity federation doesn't support syncing identity provider groups with Amazon Quick.
+IAM identity federation doesn't support syncing identity provider groups with AWS Quick.
 
-In Amazon Quick Enterprise edition, as an administrator you can restrict new users from using personal email addresses when provisioning through their identity provider (IdP) directly to Quick. Quick then uses the preconfigured email addresses passed through the IdP when provisioning new users to your account. For example, you can make it so that only corporate-assigned email addresses are used when users are provisioned to your Amazon Quick account through your IdP.
+In AWS Quick Enterprise edition, as an administrator you can restrict new users from using personal email addresses when provisioning through their identity provider (IdP) directly to Quick. Quick then uses the preconfigured email addresses passed through the IdP when provisioning new users to your account. For example, you can make it so that only corporate-assigned email addresses are used when users are provisioned to your AWS Quick account through your IdP.
 
 **Note**  
-Make sure that your users are federating directly to Amazon Quick through their IdP. Federating to the AWS Management Console through their IdP and then clicking into Amazon Quick results in an error and they won't be able to access Amazon Quick.
+Make sure that your users are federating directly to AWS Quick through their IdP. Federating to the AWS Management Console through their IdP and then clicking into AWS Quick results in an error and they won't be able to access AWS Quick.
 
-When you configure email syncing for federated users in Amazon Quick, users who log in to your Amazon Quick account for the first time have preassigned email addresses. These are used to register their accounts. With this approach, users can manually bypass by entering an email address. Also, users can't use an email address that might differ from the email address prescribed by you, the administrator.
+When you configure email syncing for federated users in AWS Quick, users who log in to your AWS Quick account for the first time have preassigned email addresses. These are used to register their accounts. With this approach, users can manually bypass by entering an email address. Also, users can't use an email address that might differ from the email address prescribed by you, the administrator.
 
-Amazon Quick supports provisioning through an IdP that supports SAML or OpenID Connect (OIDC) authentication. To configure email addresses for new users when provisioning through an IdP, you update the trust relationship for the IAM role that they use with `AssumeRoleWithSAML` or `AssumeRoleWithWebIdentity`. Then you add a SAML attribute or OIDC token in their IdP. Last, you turn on email syncing for federated users in Amazon Quick.
+AWS Quick supports provisioning through an IdP that supports SAML or OpenID Connect (OIDC) authentication. To configure email addresses for new users when provisioning through an IdP, you update the trust relationship for the IAM role that they use with `AssumeRoleWithSAML` or `AssumeRoleWithWebIdentity`. Then you add a SAML attribute or OIDC token in their IdP. Last, you turn on email syncing for federated users in AWS Quick.
 
 The following procedures describe these steps in detail.
 
 ## Step 1: Update the trust relationship for the IAM role with AssumeRoleWithSAML or AssumeRoleWithWebIdentity
 <a name="jit-email-syncing-step-1"></a>
 
-You can configure email addresses for your users to use when provisioning through your IdP to Amazon Quick. To do this, add the `sts:TagSession` action to the trust relationship for the IAM role that you use with `AssumeRoleWithSAML` or `AssumeRoleWithWebIdentity`. By doing this, you can pass in `principal` tags when users assume the role.
+You can configure email addresses for your users to use when provisioning through your IdP to AWS Quick. To do this, add the `sts:TagSession` action to the trust relationship for the IAM role that you use with `AssumeRoleWithSAML` or `AssumeRoleWithWebIdentity`. By doing this, you can pass in `principal` tags when users assume the role.
 
 The following example illustrates an updated IAM role where the IdP is Okta. To use this example, update the `Federated` Amazon Resource Name (ARN) with the ARN for your service provider. You can replace items in red with your AWS and IdP service-specific information.
 
@@ -85,19 +85,19 @@ If you're using Okta as your IdP, make sure to turn on a feature flag in your Ok
   "https://aws.amazon.com/tags": {"principal_tags": {"Email": ["{{john.doe@example.com}}"]
   ```
 
-## Step 3: Turn on email syncing for federated users in Amazon Quick
+## Step 3: Turn on email syncing for federated users in AWS Quick
 <a name="jit-email-syncing-step-3"></a>
 
-As described preceding, update the trust relationship for the IAM role and add a SAML attribute or OIDC token for the IAM `Principal` tag in your IdP. Then turn on email syncing for federated users in Amazon Quick as described in the following procedure.
+As described preceding, update the trust relationship for the IAM role and add a SAML attribute or OIDC token for the IAM `Principal` tag in your IdP. Then turn on email syncing for federated users in AWS Quick as described in the following procedure.
 
 **To turn on email syncing for federated users**
 
-1. From any page in Amazon Quick, choose your username at top right, and then choose **Manage Amazon Quick**.
+1. From any page in AWS Quick, choose your username at top right, and then choose **Manage AWS Quick**.
 
 1. Choose **Single sign-on (IAM federation)** in the menu at left.
 
 1. On the **Service Provider Initiated IAM federation** page, for **Email Syncing for Federated Users**, choose **ON**.
 
-   When email syncing for federated users is on, Amazon Quick uses the email addresses that you configured in steps 1 and 2 when provisioning new users to your account. Users can't enter their own email addresses.
+   When email syncing for federated users is on, AWS Quick uses the email addresses that you configured in steps 1 and 2 when provisioning new users to your account. Users can't enter their own email addresses.
 
-   When email syncing for federated users is off, Amazon Quick asks users to input their email address manually when provisioning new users to your account. They can use any email addresses that they want.
+   When email syncing for federated users is off, AWS Quick asks users to input their email address manually when provisioning new users to your account. They can use any email addresses that they want.

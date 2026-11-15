@@ -19,9 +19,9 @@ After defining your research objective, you can select the data sources that Qui
 
       If you're working with larger collections, consider using Spaces to organize and optimize extensive research materials for better results.
 
-   1. Choose **Quick assets** to include data spaces, dashboards, knowledge bases, and integrations in your research. For more information about creating and managing data spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md).
+   1. Choose **Quick assets** to include data spaces, dashboards, knowledge bases, and integrations in your research. For more information about creating and managing data spaces, see [Organize, collaborate, and share resources with spaces in AWS Quick](working-with-spaces.md).
 
-   1. Choose **Third party data** to incorporate data from premium datasets and trusted public data sources to enhance your research. For more information, see [Using third party data in Amazon Quick Research](third-party-data.md).
+   1. Choose **Third party data** to incorporate data from premium datasets and trusted public data sources to enhance your research. For more information, see [Using third party data in AWS Quick Research](third-party-data.md).
 
 1. Choose **Review plan** to review a draft research plan before starting, or choose **Start researching** to begin research immediately.
 
@@ -30,7 +30,7 @@ After defining your research objective, you can select the data sources that Qui
 
 Enable web search to allow Quick Research to gather information from publicly available online sources. This includes academic papers, industry reports, news articles, and other relevant web content related to your research objective.
 
-Amazon Quick uses the internet to enhance your results. Web search queries may be processed in a different AWS Region than your primary Region. For more information, see [Cross-Region calls for web search](regions.md#web-search-cross-region).
+AWS Quick uses the internet to enhance your results. Web search queries may be processed in a different AWS Region than your primary Region. For more information, see [Cross-Region calls for web search](regions.md#web-search-cross-region).
 
 To prioritize or avoid certain websites, you can expand the web search section to enter a list of preferred websites and a list of websites to avoid. Both fields are optional and can take a maximum of 3,500 characters.
 

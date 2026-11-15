@@ -35,7 +35,7 @@ If you want to format a number field by choosing from a list of common options, 
    + If you are using a thousands separator, choose whether to use a comma, dot, or space for the separator. A comma is the default. If you choose a dot instead, use a comma as the decimal separator.
 
 1. Expand the **Decimal Places** section and choose from the following options:
-   + Choose **Auto** to have Amazon Quick automatically determine the appropriate number of decimal places, or choose **Custom** to specify a number of decimal places. **Auto** is the default. 
+   + Choose **Auto** to have AWS Quick automatically determine the appropriate number of decimal places, or choose **Custom** to specify a number of decimal places. **Auto** is the default. 
    + If you chose **Custom**, enter the number of decimal places to use. Field values are rounded to the decimal places specified. For example, if you specify two decimal places, the value 6.728 is rounded to 6.73.
 
 1. Expand the **Units** section and choose from the following options:

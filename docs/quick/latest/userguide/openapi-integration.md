@@ -3,7 +3,7 @@
 # OpenAPI Specification integration
 <a name="openapi-integration"></a>
 
-With OpenAPI Specification integration, you can create custom integrations based on OpenAPI schemas. This allows you to connect to any API that provides an OpenAPI specification. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
+With OpenAPI Specification integration, you can create custom integrations based on OpenAPI schemas. This allows you to connect to any API that provides an OpenAPI specification. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## What you can do
 <a name="openapi-integration-capabilities"></a>
@@ -22,13 +22,13 @@ Import OpenAPI specifications to automatically generate available actions and ac
 Before you set up OpenAPI Specification integration, make sure you have the following:
 + OpenAPI specification (version 3.0.0 or higher) for your target API.
 + API authentication credentials (API key, OAuth, or other).
-+ Amazon Quick Author or higher.
++ AWS Quick Author or higher.
 + API documentation and endpoint access.
 
 ## Prepare OpenAPI specification and authentication
 <a name="openapi-integration-preparation"></a>
 
-Before setting up the integration in Amazon Quick, prepare your OpenAPI specification and authentication credentials. Your OpenAPI specification must meet specific requirements for successful integration.
+Before setting up the integration in AWS Quick, prepare your OpenAPI specification and authentication credentials. Your OpenAPI specification must meet specific requirements for successful integration.
 
 ### Basic requirements
 <a name="openapi-integration-basic-requirements"></a>
@@ -78,7 +78,7 @@ Unsupported authentication schemes in the OpenAPI specification will be ignored,
 
 After preparing your OpenAPI specification and authentication credentials, follow these steps to create your OpenAPI Specification integration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -101,7 +101,7 @@ After preparing your OpenAPI specification and authentication credentials, follo
 ### Expected results
 <a name="openapi-integration-setup-results"></a>
 
-After successful setup, your OpenAPI Specification integration appears in the integrations list with dynamically generated actions based on your schema. The integration is available for use in Amazon Quick workflows, automations, and AI agents, with tasks corresponding to the endpoints defined in your OpenAPI specification.
+After successful setup, your OpenAPI Specification integration appears in the integrations list with dynamically generated actions based on your schema. The integration is available for use in AWS Quick workflows, automations, and AI agents, with tasks corresponding to the endpoints defined in your OpenAPI specification.
 
 ## Format and pattern requirements
 <a name="openapi-integration-format-requirements"></a>

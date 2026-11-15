@@ -69,7 +69,7 @@ Branching conversations is available on Android only. See [Differences between i
 | Connectors | Limited | You can connect a service and re-authenticate an existing connection. Set up, manage, and remove connectors on desktop. | 
 | Skills | Limited | Skills run in your conversations. Manage skills on desktop. | 
 | Mission Control | Available |  | 
-| Apps (Apps in Amazon Quick) | Not available |  | 
+| Apps (Apps in AWS Quick) | Not available |  | 
 
 ## Settings
 <a name="mobile-availability-settings"></a>

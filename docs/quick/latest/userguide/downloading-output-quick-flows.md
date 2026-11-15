@@ -1,6 +1,6 @@
 
 
-# Downloading output in Amazon Quick Flows
+# Downloading output in AWS Quick Flows
 <a name="downloading-output-quick-flows"></a>
 
 After a flow run completes, you can download one or more step outputs as a Word (.docx) or PDF document. You can save files locally or to a shared Quick space for team collaboration. Downloaded files maintain the original formatting, including markdown structure, visual elements, and data tables.

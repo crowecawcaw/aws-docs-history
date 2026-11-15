@@ -1,6 +1,6 @@
 
 
-# Generate an executive summary of an Amazon Quick Sight dashboard
+# Generate an executive summary of an AWS Quick Sight dashboard
 <a name="use-executive-summaries"></a>
 
 Dashboard readers can generate executive summaries that provide a summary of all insights that Quick Sight has generated for the dashboard. Executive summaries make it easier for readers to find key insights and information about a dashboard at a glance.
@@ -15,4 +15,4 @@ When readers are viewing a dashboard that uses executive summaries, the **Execut
 
 Executive summaries use the data of the current dashboard sheet and visual settings. If the dashboard or visual settings are updated, a warning appears at the top of an executive summary. To refresh the executive summary of an updated dashboard, generate a new executive summary.
 
-After an executive summary is generated, Amazon Quick readers can copy the summary to their clipboard in order to share with others, or include in a Quick Sight story. For more information about Quick Sight stories, see [Working with data stories in Amazon Quick Sight](working-with-stories.md). 
+After an executive summary is generated, AWS Quick readers can copy the summary to their clipboard in order to share with others, or include in a Quick Sight story. For more information about Quick Sight stories, see [Working with data stories in AWS Quick Sight](working-with-stories.md). 

@@ -3,10 +3,10 @@
 # Supported browsers
 <a name="supported-browsers"></a>
 
-Before you start working with Amazon Quick, use the following table to verify that your browser is supported for Quick access.
+Before you start working with AWS Quick, use the following table to verify that your browser is supported for Quick access.
 
 **Note**  
-Amazon Quick ended support for Microsoft Internet Explorer 11 on July 31, 2022. We can no longer ensure that the features and web pages of Quick will function properly on IE 11. Please use one of our supported browsers: Microsoft Edge (Chromium), Google Chrome, or Mozilla Firefox.
+AWS Quick ended support for Microsoft Internet Explorer 11 on July 31, 2022. We can no longer ensure that the features and web pages of Quick will function properly on IE 11. Please use one of our supported browsers: Microsoft Edge (Chromium), Google Chrome, or Mozilla Firefox.
 
 
 

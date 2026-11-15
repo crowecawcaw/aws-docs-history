@@ -1,6 +1,6 @@
 
 
-# Sorting dashboard data in Amazon Quick Sight
+# Sorting dashboard data in AWS Quick Sight
 <a name="sorting-dashboard-data"></a>
 
 You can sort data in three ways: 

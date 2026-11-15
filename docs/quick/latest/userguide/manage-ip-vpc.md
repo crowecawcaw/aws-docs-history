@@ -3,7 +3,7 @@
 # Managing IP/VPC restrictions
 <a name="manage-ip-vpc"></a>
 
-## Turning on Internet Protocol (IP) and VPC endpoint restrictions in Amazon Quick
+## Turning on Internet Protocol (IP) and VPC endpoint restrictions in AWS Quick
 <a name="enabling-ip-restrictions"></a>
 
 
@@ -11,7 +11,7 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-You can limit access to your organization's Amazon Quick account to a predefined list of IP ranges, VPC IDs, and VPC endpoint IDs. For example, you can create an IP rule that allows users to access your Quick account only from IP addresses associated with your company's office or remote virtual private network (VPN). You can also create a VPC endpoint rule that allows users access to your Quick account only from the VPC that is used for Direct Connect.
+You can limit access to your organization's AWS Quick account to a predefined list of IP ranges, VPC IDs, and VPC endpoint IDs. For example, you can create an IP rule that allows users to access your Quick account only from IP addresses associated with your company's office or remote virtual private network (VPN). You can also create a VPC endpoint rule that allows users access to your Quick account only from the VPC that is used for Direct Connect.
 
 For more information about setting up VPC endpoints in Quick, see [Quick Interface VPC endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/quicksight/latest/developerguide/vpc-interface-endpoints.html) for more information about how to setup VPC endpoints.
 

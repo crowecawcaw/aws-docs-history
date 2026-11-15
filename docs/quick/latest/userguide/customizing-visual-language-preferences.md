@@ -3,9 +3,9 @@
 # Formatting visual numeric data based on language settings in Quick
 <a name="customizing-visual-language-preferences"></a>
 
-In Amazon Quick, you can choose how your numeric data values appear in visuals so that they align with the regional language that you have chosen.
+In AWS Quick, you can choose how your numeric data values appear in visuals so that they align with the regional language that you have chosen.
 
-As a Quick author, you can choose the language formatting that best fits your audience. Amazon Quick configures numeric data languages at the analysis level based on the language that you have chosen to view Quick in. You can change the format of numbers, currencies, and dates. You can change your Quick language settings in the **Language** dropdown list of the Quick **User** menu in the top-right corner. You can change the language formatting for a field across every visual in a sheet, or you can change the language formatting at the individual visual level.
+As a Quick author, you can choose the language formatting that best fits your audience. AWS Quick configures numeric data languages at the analysis level based on the language that you have chosen to view Quick in. You can change the format of numbers, currencies, and dates. You can change your Quick language settings in the **Language** dropdown list of the Quick **User** menu in the top-right corner. You can change the language formatting for a field across every visual in a sheet, or you can change the language formatting at the individual visual level.
 
 **To change the numeric language formatting of all visuals in an analysis**
 

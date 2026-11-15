@@ -1,6 +1,6 @@
 
 
-# Using multi-factor authentication (MFA) with Amazon Quick
+# Using multi-factor authentication (MFA) with AWS Quick
 <a name="using-multi-factor-authentication-mfa"></a>
 
 
@@ -14,10 +14,10 @@
 |    Intended audience:  System administrators  | 
 
 **Important**  
-Amazon Quick recommends that you integrate new Quick subscriptions with IAM Identity Center for identity management. This IAM identity federation user guide is provided as a reference for existing account configurations. For more information on integrating your Quick account with IAM Identity Center, see [Configure your Quick account with IAM Identity Center](https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html).
+AWS Quick recommends that you integrate new Quick subscriptions with IAM Identity Center for identity management. This IAM identity federation user guide is provided as a reference for existing account configurations. For more information on integrating your Quick account with IAM Identity Center, see [Configure your Quick account with IAM Identity Center](https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html).
 
 **Note**  
-IAM identity federation doesn't support syncing identity provider groups with Amazon Quick.
+IAM identity federation doesn't support syncing identity provider groups with AWS Quick.
 
 There are several ways that you can use multi-factor authentication (MFA) with Quick. You can use it with AWS Identity and Access Management (IAM). You can use it with AD Connector or your [AWS Directory Service](https://aws.amazon.com/directoryservice/) for Microsoft Active Directory, also known as AWS Microsoft Active Directory or AWS Managed Microsoft Active Directory. And if you use an external identity provider (IdP), AWS doesn't need to have any information about MFA because that is part of the authentication handled by the IdP. 
 

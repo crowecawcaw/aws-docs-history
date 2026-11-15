@@ -3,26 +3,26 @@
 # Build predictive models with SageMaker AI Canvas
 <a name="sagemaker-canvas-integration"></a>
 
-Amazon Quick authors can export data into SageMaker AI Canvas to build ML models that can be sent back to Quick. Authors can use these ML models to augment their datasets with predictive analytics that can be used to build analyses and dashboards.
+AWS Quick authors can export data into SageMaker AI Canvas to build ML models that can be sent back to Quick. Authors can use these ML models to augment their datasets with predictive analytics that can be used to build analyses and dashboards.
 
 **Prerequisites**
 + A Quick account that's integrated with IAM Identity Center. If your Quick account isn't integrated with IAM Identity Center, create a new Quick account and choose **Use IAM Identity Center enabled application** as the identity provider.
   + For more information on IAM Identity Center, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html).
-  + To learn more about integrating your Quick with IAM Identity Center, see [Configure your Amazon Quick account with IAM Identity Center](setting-up-sso.md#sec-identity-management-identity-center).
+  + To learn more about integrating your Quick with IAM Identity Center, see [Configure your AWS Quick account with IAM Identity Center](setting-up-sso.md#sec-identity-management-identity-center).
   + To import assets from an existing Quick account to a new Quick account that's integrated with IAM Identity Center, see [Asset bundle operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/asset-bundle-ops.html).
 + A new SageMaker AI domain that is integrated with IAM Identity Center. For more information about onboarding to SageMaker AI Domain with IAM Identity Center, see [Onboard to SageMaker AI Domain using IAM Identity Center](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-sso-users.html).
 
 **Topics**
-+ [Build a predictive model in SageMaker AI Canvas from Amazon Quick Sight](#sagemaker-canvas-integration-create-model)
++ [Build a predictive model in SageMaker AI Canvas from AWS Quick Sight](#sagemaker-canvas-integration-create-model)
 + [Create a dataset with a SageMaker AI Canvas model](#sagemaker-canvas-integration-create-dataset)
 + [Considerations](#sagemaker-canvas-integration-considerations)
 
-## Build a predictive model in SageMaker AI Canvas from Amazon Quick Sight
+## Build a predictive model in SageMaker AI Canvas from AWS Quick Sight
 <a name="sagemaker-canvas-integration-create-model"></a>
 
 **To build a predictive model in SageMaker AI Canvas**
 
-1. Log in to Amazon Quick and navigate to the tabular table or pivot table that you want to create a predictive model for.
+1. Log in to AWS Quick and navigate to the tabular table or pivot table that you want to create a predictive model for.
 
 1. Open the on-visual menu and choose **Build a predictive model**.
 
@@ -32,7 +32,7 @@ Amazon Quick authors can export data into SageMaker AI Canvas to build ML models
 
 1. In SageMaker AI Canvas, create a predictive model with the data that you exported from Quick Sight. You can choose to follow a guided tour that helps you create the predictive model, or you can skip the tour and work at your own pace. For more information about creating a predictive model in SageMaker AI Canvas, see [Build a model](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-build-model-how-to.html#canvas-build-model-numeric-categorical).
 
-1. Send the predictive model back to Quick Sight. For more information about sending a model from SageMaker AI Canvas to Amazon Quick Sight, see [Send your model to Amazon Quick Sight](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-send-model-to-quicksight.html).
+1. Send the predictive model back to Quick Sight. For more information about sending a model from SageMaker AI Canvas to AWS Quick Sight, see [Send your model to AWS Quick Sight](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-send-model-to-quicksight.html).
 
 ## Create a dataset with a SageMaker AI Canvas model
 <a name="sagemaker-canvas-integration-create-dataset"></a>

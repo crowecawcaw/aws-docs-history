@@ -1,6 +1,6 @@
 
 
-# Tutorial: Amazon Quick and IAM identity federation
+# Tutorial: AWS Quick and IAM identity federation
 <a name="tutorial-okta-quicksight"></a>
 
 
@@ -11,12 +11,12 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick Administrators and Amazon Quick developers  | 
+|    Intended audience:  AWS Quick Administrators and AWS Quick developers  | 
 
 **Note**  
-IAM identity federation doesn't support syncing identity provider groups with Amazon Quick.
+IAM identity federation doesn't support syncing identity provider groups with AWS Quick.
 
-In the following tutorial, you can find a walkthrough for setting up the IdP Okta as a federation service for Amazon Quick. Although this tutorial shows the integration of AWS Identity and Access Management (IAM) and Okta, you can also replicate this solution using your choice of SAML 2.0 IdPs.
+In the following tutorial, you can find a walkthrough for setting up the IdP Okta as a federation service for AWS Quick. Although this tutorial shows the integration of AWS Identity and Access Management (IAM) and Okta, you can also replicate this solution using your choice of SAML 2.0 IdPs.
 
 In the following procedure, you create an app in the Okta IdP using their "AWS Account Federation" shortcut. Okta describes this integration app as follows:
 
@@ -24,7 +24,7 @@ In the following procedure, you create an app in the Okta IdP using their "AWS A
 
 **To create an Okta app using Okta's "AWS Account Federation" application shortcut**
 
-1. Sign in to your Okta dashboard. If you don't have one, create a free Okta Developer Edition account by using [this Amazon Quick-branded URL](https://developer.okta.com/quickstart/). When you have activated your email, sign in to Okta.
+1. Sign in to your Okta dashboard. If you don't have one, create a free Okta Developer Edition account by using [this AWS Quick-branded URL](https://developer.okta.com/quickstart/). When you have activated your email, sign in to Okta.
 
 1. On the Okta website, choose **<> Developer Console** at upper left, and then choose **Classic UI**.
 
@@ -34,7 +34,7 @@ In the following procedure, you create an app in the Okta IdP using their "AWS A
 
 1. Choose **Add** to create an instance of this application.
 
-1. For **Application label**, enter **AWS Account Federation - Amazon Quick**.
+1. For **Application label**, enter **AWS Account Federation - AWS Quick**.
 
 1. Choose **Next**.
 
@@ -91,8 +91,8 @@ Next, you create an identity provider in your AWS account.
 
 1. Verify that the identity provider is created with your settings. In IAM, choose **Identity providers**, **Okta** (the IdP you added), **Download metadata**. The file should be the one that you recently uploaded.
 
-Next, you create an IAM role to enable the SAML 2.0 federation to act as a trusted entity in your AWS account. For this step, you need to choose how you want to provision users in Amazon Quick. You can do one of the following:
-+ Grant permission to the IAM role so that first-time visitors become Amazon Quick users automatically.
+Next, you create an IAM role to enable the SAML 2.0 federation to act as a trusted entity in your AWS account. For this step, you need to choose how you want to provision users in AWS Quick. You can do one of the following:
++ Grant permission to the IAM role so that first-time visitors become AWS Quick users automatically.
 
 **To create an IAM role for a SAML 2.0 federation as a trusted entity**
 
@@ -173,13 +173,13 @@ Next, you create an IAM role to enable the SAML 2.0 federation to act as a trust
 
    If you don't want to use automatic provisioning, you can skip the following step. 
 
-   To add a Amazon Quick user, use [register-user](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html). To add a Amazon Quick group, use [create-group](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroup.html). To add users to the Amazon Quick group, use [create-group-membership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroupMembership.html). 
+   To add a AWS Quick user, use [register-user](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html). To add a AWS Quick group, use [create-group](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroup.html). To add users to the AWS Quick group, use [create-group-membership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroupMembership.html). 
 
 1. (Optional) For **Search**, enter **QuicksightCreateReader**. Choose the policy to enable it (![](https://docs.aws.amazon.com/quick/latest/userguide/images/checkbox-on.png)).
 
-   Do this step if you want to provision Amazon Quick users automatically, rather than using the Amazon Quick API.
+   Do this step if you want to provision AWS Quick users automatically, rather than using the AWS Quick API.
 
-   The `QuicksightCreateReader` policy activates automatic provisioning by allowing use of the `quicksight:CreateReader` action. Doing this grants dashboard subscriber (reader-level) access to first-time users. A Amazon Quick administrator can later upgrade them from the Amazon Quick profile menu, **Manage Amazon Quick**, **Manage users**. 
+   The `QuicksightCreateReader` policy activates automatic provisioning by allowing use of the `quicksight:CreateReader` action. Doing this grants dashboard subscriber (reader-level) access to first-time users. A AWS Quick administrator can later upgrade them from the AWS Quick profile menu, **Manage AWS Quick**, **Manage users**. 
 
 1. To continue attaching the IAM policy or policies, choose **Next: Tags**. 
 
@@ -269,7 +269,7 @@ In the following procedure, you return to Okta to provide the access key. The ac
 
    1. Sign in to Okta. Choose **Applications**.
 
-   1. Choose **AWS Account Federation - Amazon Quick**—the application that you created at the beginning of this tutorial.
+   1. Choose **AWS Account Federation - AWS Quick**—the application that you created at the beginning of this tutorial.
 
    1. Choose the **Sign On** tab, between **General** and **Mobile**.
 
@@ -317,21 +317,21 @@ In the following procedure, you return to Okta to provide the access key. The ac
 
 1. Verify that you completed this step correctly by choosing the **People** or **Groups** filter at left, and checking the users or groups that you entered. If you can't complete this process because the role that you created doesn't appear in the list, return to the previous procedures to verify the settings.
 
-**To sign in to Amazon Quick using Okta (IdP to service provider sign-in)**
+**To sign in to AWS Quick using Okta (IdP to service provider sign-in)**
 
 1. If you are using an Okta administrator account, switch to user mode. 
 
-1. Sign in to your Okta Applications dashboard with a user that has been granted federated access. You should see a new application with your label, for example **AWS Account Federation - Amazon Quick**. 
+1. Sign in to your Okta Applications dashboard with a user that has been granted federated access. You should see a new application with your label, for example **AWS Account Federation - AWS Quick**. 
 
-1. Choose the application icon to launch **AWS Account Federation - Amazon Quick**.
+1. Choose the application icon to launch **AWS Account Federation - AWS Quick**.
 
 You can now manage identities using Okta and use federated access with Quick.
 
-The following procedure is an optional part of this tutorial. If you follow its steps, you authorize Amazon Quick to forward authorizations requests to the IdP on behalf of your users. Using this method, users can sign in to Amazon Quick with no need to sign in using the IdP page first.
+The following procedure is an optional part of this tutorial. If you follow its steps, you authorize AWS Quick to forward authorizations requests to the IdP on behalf of your users. Using this method, users can sign in to AWS Quick with no need to sign in using the IdP page first.
 
-**(Optional) To set up Amazon Quick to send authentication requests to Okta**
+**(Optional) To set up AWS Quick to send authentication requests to Okta**
 
-1. Open Amazon Quick, and choose **Manage Amazon Quick** from your profile menu.
+1. Open AWS Quick, and choose **Manage AWS Quick** from your profile menu.
 
 1. Choose **Single sign-on (IAM federation)** from the navigation pane.
 
@@ -340,16 +340,16 @@ The following procedure is an optional part of this tutorial. If you follow its 
 1. For **IdP URL**, enter `RelayState`. 
 
 1. Do one of the following: 
-   + To test signing in with your identity provider first, use the custom URL provided in **Test starting with your IdP**. You should arrive at the start page for Amazon Quick, for example https://quicksight.aws.amazon.com/sn/start.
-   + To test signing in with Amazon Quick first, use the custom URL provided in **Test the end-to-end experience**. The `enable-sso` parameter is appended to the URL. If `enable-sso=1`, IAM federation attempts to authenticate. If `enable-sso=0`, Amazon Quick doesn't send the authentication request, and you sign in to Amazon Quick as before.
+   + To test signing in with your identity provider first, use the custom URL provided in **Test starting with your IdP**. You should arrive at the start page for AWS Quick, for example https://quicksight.aws.amazon.com/sn/start.
+   + To test signing in with AWS Quick first, use the custom URL provided in **Test the end-to-end experience**. The `enable-sso` parameter is appended to the URL. If `enable-sso=1`, IAM federation attempts to authenticate. If `enable-sso=0`, AWS Quick doesn't send the authentication request, and you sign in to AWS Quick as before.
 
 1. For **Status**, choose **ON**.
 
 1. Choose **Save** to keep your settings.
 
-You can create a deep link to a Amazon Quick dashboard to allow users to use IAM federation to connect directly to specific dashboards. To do this, you append the relay state flag and dashboard URL to the Okta single sign-on URL, as described following.
+You can create a deep link to a AWS Quick dashboard to allow users to use IAM federation to connect directly to specific dashboards. To do this, you append the relay state flag and dashboard URL to the Okta single sign-on URL, as described following.
 
-**To create a deep link to a Amazon Quick dashboard for single sign-on**
+**To create a deep link to a AWS Quick dashboard for single sign-on**
 
 1. Locate the Okta application’s single sign-on (IAM federation) URL in the `metadata.xml` file that you downloaded beginning of the tutorial. You can find the URL near the bottom of the file, in the element named `md:SingleSignOnService`. The attribute is named `Location` and the value ends with `/sso/saml`, as shown in the following example.
 
@@ -357,9 +357,9 @@ You can create a deep link to a Amazon Quick dashboard to allow users to use IAM
    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dev-0000001.okta.com/app/amazon_aws/abcdef2hATwiVft645d5/sso/saml"/>
    ```
 
-1. Take the value of the IAM federation URL and append `?RelayState=` followed by the URL of your Amazon Quick dashboard. The `RelayState` parameter relays the state (the URL) that the user was in when they were redirected to the authentication URL.
+1. Take the value of the IAM federation URL and append `?RelayState=` followed by the URL of your AWS Quick dashboard. The `RelayState` parameter relays the state (the URL) that the user was in when they were redirected to the authentication URL.
 
-1. To the new IAM federation with the relay state added, append the URL of your Amazon Quick dashboard. The resulting URL should resemble the following.
+1. To the new IAM federation with the relay state added, append the URL of your AWS Quick dashboard. The resulting URL should resemble the following.
 
    ```
    https://dev-{{1-----0}}.okta.com/app/amazon_aws/{{abcdef2hATwiVft645d5}}/sso/saml?RelayState=https://us-west-2.quicksight.aws.amazon.com/sn/analyses/12a12a2a-121a-212a-121a-abcd12abc1ab

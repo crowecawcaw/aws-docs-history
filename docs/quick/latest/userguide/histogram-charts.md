@@ -3,11 +3,11 @@
 # Using histograms
 <a name="histogram-charts"></a>
 
-Use a histogram chart in Amazon Quick to display the distribution of continuous numerical values in your data. Amazon Quick uses un-normalized histograms, which use an absolute count of the data points or events in each bin.
+Use a histogram chart in AWS Quick to display the distribution of continuous numerical values in your data. AWS Quick uses un-normalized histograms, which use an absolute count of the data points or events in each bin.
 
 To create a histogram, you use one measure. A new histogram initially displays ten *bins* (also called *buckets*) across the X-axis. These appear as bars on the chart. You can customize the bins to suit your dataset. The Y-axis displays the absolute count of the values in each bin.
 
-Make sure that you adjust the format settings so that you have a clearly identifiable shape. If your data contains outliers, this becomes clear if you spot one or more values off to the side of the X-axis. For information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Make sure that you adjust the format settings so that you have a clearly identifiable shape. If your data contains outliers, this becomes clear if you spot one or more values off to the side of the X-axis. For information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Histogram features
 <a name="histogram-chart-features"></a>
@@ -67,7 +67,7 @@ Use the following procedure to format a histogram.
    + With the following settings, you can explore the best way to format the histogram for your dataset. For example, in some cases, you might have a tall peak in one bin, while most of the other bins look sparse. This isn't a useful view. You can use the following settings individually or together:
      + Change the **Number of data points displayed** in the **X-axis** settings.
 
-       Amazon Quick displays up to 100 bins (buckets) by default. If you want to display more (up to 1,000), change the X-axis setting for **Number of data points displayed**.
+       AWS Quick displays up to 100 bins (buckets) by default. If you want to display more (up to 1,000), change the X-axis setting for **Number of data points displayed**.
      + Enable **Logarithmic scale** in the **Y-axis** settings.
 
        Sometimes your data doesn't fit the shape that you want and this can provide misleading results. For example, if the shape is skewed so far to the right that you can't read it properly, you can apply a log scale to it. Doing this doesn't normalize your data; however, it does reduce the skew. 
@@ -77,7 +77,7 @@ Use the following procedure to format a histogram.
 
        To see all the data labels, even if they overlap, enable **Allow labels to overlap**.
 
-1. (Optional) Change other visual settings. For more information, see [Formatting in Amazon Quick](formatting-a-visual.md).
+1. (Optional) Change other visual settings. For more information, see [Formatting in AWS Quick](formatting-a-visual.md).
 
 ## Understanding histograms
 <a name="histogram-understanding"></a>

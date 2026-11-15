@@ -1,16 +1,16 @@
 
 
-# Creating a knowledge base in Amazon Quick
+# Creating a knowledge base in AWS Quick
 <a name="google-drive-kb-connection"></a>
 
-In this phase, you create a knowledge base in Amazon Quick and provide the service account credentials from the Google Workspace configuration. Any enterprise user can complete this phase. Amazon Quick administrator access is not required.
+In this phase, you create a knowledge base in AWS Quick and provide the service account credentials from the Google Workspace configuration. Any enterprise user can complete this phase. AWS Quick administrator access is not required.
 
 If a Google Workspace administrator completed the Google Workspace configuration on your behalf, you need the JSON key file and the delegated admin email address before you proceed.
 
 ## Setting up the knowledge base
 <a name="google-drive-kb-connection-setup"></a>
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Under **Knowledge bases**, find **Google Drive**, and then choose the **Add** (\+) icon.
 

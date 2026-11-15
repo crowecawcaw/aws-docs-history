@@ -11,9 +11,9 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
-In Enterprise edition, Amazon Quick provides a way for you to set up detailed access to resources in AWS services. Like every other AWS service, Quick uses IAM policies to control access for users and groups.
+In Enterprise edition, AWS Quick provides a way for you to set up detailed access to resources in AWS services. Like every other AWS service, Quick uses IAM policies to control access for users and groups.
 
 Before you begin, ask an administrator to set up the necessary IAM policies ahead of time. If these are set up, you can select them as part of the procedure in this section. For information about creating IAM policies to use with Quick, see [Identity and access management in Quick](https://docs.aws.amazon.com/quicksight/latest/user/identity.html).
 
@@ -27,7 +27,7 @@ Before you begin, ask an administrator to set up the necessary IAM policies ahea
 
 1. Under **Resource access for individual users and groups**, choose **IAM policy assignments**.
 
-   The remaining steps at this point involve choosing an IAM policy to assign to the user or group. You can assign multiple IAM policies to one Amazon Quick user or group. To determine permissions, Amazon Quick performs a union and an intersection with the AWS account–level policies. 
+   The remaining steps at this point involve choosing an IAM policy to assign to the user or group. You can assign multiple IAM policies to one AWS Quick user or group. To determine permissions, AWS Quick performs a union and an intersection with the AWS account–level policies. 
 
    If you already have active IAM policy assignments, they are listed on this page. You can search for existing assignments by using the search box. If you have drafts that aren't active yet, they are listed under **Assignment drafts**.
 
@@ -54,7 +54,7 @@ Before you begin, ask an administrator to set up the necessary IAM policies ahea
    1. **Step 3: Assign users and groups** – Choose specific users or groups. Or choose to use the selected IAM policy for all users and groups. 
 
       Choose one of the following.
-      + For **Assign to all users and groups**, select the check box to assign the IAM policy to all Amazon Quick users and groups. Choosing this option assigns the policy to all current and future users and groups. 
+      + For **Assign to all users and groups**, select the check box to assign the IAM policy to all AWS Quick users and groups. Choosing this option assigns the policy to all current and future users and groups. 
       + Choose the users and groups you want to assign to this IAM policy. You can search for them by name, email address, or group name.
 
       When you are finished selecting users and groups, choose **Next** to continue.

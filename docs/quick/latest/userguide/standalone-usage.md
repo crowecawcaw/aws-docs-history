@@ -1,12 +1,12 @@
 
 
-# Understanding usage on the Amazon Quick Plus and Max plans
+# Understanding usage on the AWS Quick Plus and Max plans
 <a name="standalone-usage"></a>
 
-Amazon Quick uses limits to keep your usage predictable and to spread heavy activity evenly across your billing month. Understanding how these limits work helps you avoid interruptions, decide when to enable more usage, and get the most from your plan.
+AWS Quick uses limits to keep your usage predictable and to spread heavy activity evenly across your billing month. Understanding how these limits work helps you avoid interruptions, decide when to enable more usage, and get the most from your plan.
 
 **Note**  
-This page applies to Amazon Quick Free, Plus, and Max accounts created with email or social login at [aws.com/quick](https://aws.com/quick). It does not apply to Amazon Quick Professional or Enterprise plans managed through the AWS Management Console, which handle usage differently.
+This page applies to AWS Quick Free, Plus, and Max accounts created with email or social login at [aws.com/quick](https://aws.com/quick). It does not apply to AWS Quick Professional or Enterprise plans managed through the AWS Management Console, which handle usage differently.
 
 **Topics**
 + [How usage limits work](#standalone-usage-how-limits-work)
@@ -49,7 +49,7 @@ If you need more usage, you can enable additional usage and set a maximum monthl
 
 **To enable additional usage**
 
-1. In Amazon Quick, from the navigation bar, choose your username, and then choose **Manage account**.
+1. In AWS Quick, from the navigation bar, choose your username, and then choose **Manage account**.
 
 1. Enable additional usage.
 

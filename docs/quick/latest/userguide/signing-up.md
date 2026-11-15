@@ -4,9 +4,9 @@
 <a name="signing-up"></a>
 
 **Note**  
-This section covers signing up for Amazon Quick through the AWS Management Console for organizations that already use AWS. If you want to sign up without an AWS account, see [Signing up at aws.com/quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-signup.html) for a faster setup process using email or social login. For a comparison of features available with each account type, see [Pricing and availability](https://docs.aws.amazon.com/quicksuite/latest/userguide/what-is.html#pricing).
+This section covers signing up for AWS Quick through the AWS Management Console for organizations that already use AWS. If you want to sign up without an AWS account, see [Signing up at aws.com/quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-signup.html) for a faster setup process using email or social login. For a comparison of features available with each account type, see [Pricing and availability](https://docs.aws.amazon.com/quicksuite/latest/userguide/what-is.html#pricing).
 
-When you first sign up for Amazon Quick, you get a free trial subscription for twenty-five users for 30 days. During the process of signing up, you may set options for your identity provider.
+When you first sign up for AWS Quick, you get a free trial subscription for twenty-five users for 30 days. During the process of signing up, you may set options for your identity provider.
 
 Before you begin, make sure that you can connect to an existing AWS account. If you don't have an AWS account, see [Complete initial configuration tasks](https://docs.aws.amazon.com/quicksuite/latest/userguide/setting-up). The person who signs up for Quick needs to have the correct AWS Identity and Access Management (IAM) permissions. For more information, see [IAM policy examples for Quick](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html). 
 

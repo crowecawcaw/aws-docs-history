@@ -3,7 +3,7 @@
 # Testing automations
 <a name="testing-automations"></a>
 
-Amazon Quick Automate provides comprehensive capabilities for testing your automations. This section describes the tools and features available for validating your automation behavior.
+AWS Quick Automate provides comprehensive capabilities for testing your automations. This section describes the tools and features available for validating your automation behavior.
 
 ## Test modes
 <a name="test-modes"></a>
@@ -51,12 +51,12 @@ During testing, your automation will be in one of these statuses:
 ### Test automations with inputs and outputs
 <a name="test-automations-inputs-outputs"></a>
 
-When you test an automation that has input and output fields defined, Amazon Quick Automate validates the input values and displays both inputs and outputs as expandable cards in the **Monitor** pane alongside the execution logs.
+When you test an automation that has input and output fields defined, AWS Quick Automate validates the input values and displays both inputs and outputs as expandable cards in the **Monitor** pane alongside the execution logs.
 
 #### Running an automation with inputs from the authoring studio
 <a name="running-automation-with-inputs"></a>
 
-When you choose **Run** or **Debug** to test an automation with inputs and outputs, the authoring studio (Studio) displays a dynamic input form titled **Provide input values**. Amazon Quick Automate automatically generates this form based on the schema you defined.
+When you choose **Run** or **Debug** to test an automation with inputs and outputs, the authoring studio (Studio) displays a dynamic input form titled **Provide input values**. AWS Quick Automate automatically generates this form based on the schema you defined.
 
 The form includes:
 + Field names from your schema.
@@ -73,7 +73,7 @@ To run an automation with inputs:
   + Optional fields can be left blank unless you want to override default values
 + Choose **Start** to begin the automation with your provided inputs.
 
-Amazon Quick Automate performs two layers of validation:
+AWS Quick Automate performs two layers of validation:
 + **Client-side validation** – Checks for blank required fields, correct data types, and file size limits before execution starts
 + **Runtime validation** – Validates the complete input payload against your JSON schema during execution
 
@@ -172,7 +172,7 @@ When your automation encounters an exception, the Automation Assistant can help 
 ## Test metrics
 <a name="test-metrics"></a>
 
-After your test completes, Amazon Quick Automate provides comprehensive test metrics to help understand automation performance and validate test coverage. View key metrics about your test run:
+After your test completes, AWS Quick Automate provides comprehensive test metrics to help understand automation performance and validate test coverage. View key metrics about your test run:
 + Total running time - How long the test took from start to finish
 + Number of completed cases - Count of cases that finished processing (excluding those created or pending)
 + Average time per case - The processing average time for each completed case

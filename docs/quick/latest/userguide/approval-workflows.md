@@ -11,12 +11,12 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 ## Approval workflow overview
 <a name="approval-workflows-overview"></a>
 
-With approval workflows, you require a designated approver group to review and approve certain actions on assets in Amazon Quick before those actions take effect. Use approval workflows when you want a trusted reviewer to validate a sharing decision before the approver grants access. This reduces the risk of unauthorized access to sensitive assets.
+With approval workflows, you require a designated approver group to review and approve certain actions on assets in AWS Quick before those actions take effect. Use approval workflows when you want a trusted reviewer to validate a sharing decision before the approver grants access. This reduces the risk of unauthorized access to sensitive assets.
 
 Currently, approval workflows support sharing actions. The target user receives access only after the approver approves the request.
 
@@ -156,7 +156,7 @@ Approvers can view the full dependency list on the asset page before deciding.
 ## API reference
 <a name="approval-workflows-api"></a>
 
-For programmatic management of approval policies, see the Amazon Quick API Reference.
+For programmatic management of approval policies, see the AWS Quick API Reference.
 
 ## Frequently asked questions
 <a name="approval-workflows-faq"></a>

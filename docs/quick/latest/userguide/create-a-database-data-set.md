@@ -3,7 +3,7 @@
 # Creating a dataset from a database
 <a name="create-a-database-data-set"></a>
 
-The following procedures walk you through connecting to database data sources and creating datasets. To create datasets from AWS data sources that your Amazon Quick account autodiscovered, use [Creating a dataset from an autodiscovered Amazon Redshift cluster or Amazon RDS instance](#create-a-data-set-autodiscovered). To create datasets from any other database data sources, use [Creating a dataset using a database that's not autodiscovered](#create-a-data-set-database). 
+The following procedures walk you through connecting to database data sources and creating datasets. To create datasets from AWS data sources that your AWS Quick account autodiscovered, use [Creating a dataset from an autodiscovered Amazon Redshift cluster or Amazon RDS instance](#create-a-data-set-autodiscovered). To create datasets from any other database data sources, use [Creating a dataset using a database that's not autodiscovered](#create-a-data-set-database). 
 
 ## Creating a dataset from an autodiscovered Amazon Redshift cluster or Amazon RDS instance
 <a name="create-a-data-set-autodiscovered"></a>
@@ -16,9 +16,9 @@ Use the following procedure to create a connection to an autodiscovered AWS data
 
 1. Confirm that the database credentials you plan to use have appropriate permissions as described in [Required permissions](required-permissions.md). 
 
-1. Make sure that you have configured the cluster or instance for Amazon Quick access by following the instructions in [Network and database configuration requirements](configure-access.md).
+1. Make sure that you have configured the cluster or instance for AWS Quick access by following the instructions in [Network and database configuration requirements](configure-access.md).
 
-1. On the Amazon Quick start page, choose **Data**.
+1. On the AWS Quick start page, choose **Data**.
 
 1. Choose **Create ** then choose **New dataset**.
 
@@ -37,7 +37,7 @@ Use the following procedure to create a connection to an autodiscovered AWS data
 
 1. If the connection validates, choose **Create data source**. If not, correct the connection information and try validating again.
 **Note**  
-Amazon Quick automatically secures connections to Amazon RDS instances and Amazon Redshift clusters by using Secure Sockets Layer (SSL). You don't need to do anything to enable this.
+AWS Quick automatically secures connections to Amazon RDS instances and Amazon Redshift clusters by using Secure Sockets Layer (SSL). You don't need to do anything to enable this.
 
 1. Choose one of the following:
    + **Custom SQL**
@@ -71,9 +71,9 @@ Use the following procedure to create a connection to any database other than an
 
 1. Confirm that the database credentials that you plan to use have appropriate permissions as described in [Required permissions](required-permissions.md). 
 
-1. Make sure that you have configured the cluster or instance for Amazon Quick access by following the instructions in [Network and database configuration requirements](configure-access.md).
+1. Make sure that you have configured the cluster or instance for AWS Quick access by following the instructions in [Network and database configuration requirements](configure-access.md).
 
-1. On the Amazon Quick start page, choose **Manage data**.
+1. On the AWS Quick start page, choose **Manage data**.
 
 1. Choose **Create ** then choose **New data set**.
 
@@ -84,7 +84,7 @@ Use the following procedure to create a connection to any database other than an
    + For **Database server**, enter one of the following values:
      + For an Amazon Redshift cluster or Amazon RDS instance, enter the endpoint of the cluster or instance without the port number. For example, if the endpoint value is `clustername.1234abcd.us-west-2.redshift.amazonaws.com:1234`, then enter `clustername.1234abcd.us-west-2.redshift.amazonaws.com`. You can get the endpoint value from the **Endpoint** field on the cluster or instance detail page in the AWS console.
      + For an Amazon EC2 instance of MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL, enter the public DNS address. You can get the public DNS value from the **Public DNS** field on the instance detail pane in the Amazon EC2 console.
-     + For a non-Amazon EC2 instance of MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL, enter the hostname or public IP address of the database server. If you are using Secure Sockets Layer (SSL) for a secured connection (recommended), you likely need to provide the hostname to match the information required by the SSL certificate. For a list of accepted certificates see [Amazon Quick SSL and CA certificates](configure-access.md#ca-certificates).
+     + For a non-Amazon EC2 instance of MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL, enter the hostname or public IP address of the database server. If you are using Secure Sockets Layer (SSL) for a secured connection (recommended), you likely need to provide the hostname to match the information required by the SSL certificate. For a list of accepted certificates see [AWS Quick SSL and CA certificates](configure-access.md#ca-certificates).
    + For **Port**, enter the port that the cluster or instance uses for connections.
    + For **Database name**, enter the name of the database that you want to use.
    + For **UserName**, enter the user name of a user account that has permissions to do the following: 
@@ -94,11 +94,11 @@ Use the following procedure to create a connection to any database other than an
 
 1. (Optional) If you are connecting to anything other than an Amazon Redshift cluster and you *don't* want a secured connection, make sure that **Enable SSL** is clear. *We strongly recommend leaving this checked*, because an unsecured connection can be open to tampering. 
 
-   For more information on how the target instance uses SSL to secure connections, see the documentation for the target database management system. Amazon Quick doesn't accept self-signed SSL certificates as valid. For a list of accepted certificates, see [Amazon Quick SSL and CA certificates](configure-access.md#ca-certificates).
+   For more information on how the target instance uses SSL to secure connections, see the documentation for the target database management system. AWS Quick doesn't accept self-signed SSL certificates as valid. For a list of accepted certificates, see [AWS Quick SSL and CA certificates](configure-access.md#ca-certificates).
 
-   Amazon Quick automatically secures connections to Amazon Redshift clusters by using SSL. You don't need to do anything to enable this.
+   AWS Quick automatically secures connections to Amazon Redshift clusters by using SSL. You don't need to do anything to enable this.
 
-   Some databases, such as Presto and Apache Spark, must meet additional requirements before Amazon Quick can connect. For more information, see [Creating a data source using Presto](create-a-data-source-presto.md), or [Creating a data source using Apache Spark](create-a-data-source-spark.md).
+   Some databases, such as Presto and Apache Spark, must meet additional requirements before AWS Quick can connect. For more information, see [Creating a data source using Presto](create-a-data-source-presto.md), or [Creating a data source using Apache Spark](create-a-data-source-spark.md).
 
 1. (Optional) Choose **Validate connection** to verify your connection information is correct.
 

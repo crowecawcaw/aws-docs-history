@@ -1,12 +1,12 @@
 
 
-# Plan and billing for Amazon Quick Free, Plus, and Max accounts
+# Plan and billing for AWS Quick Free, Plus, and Max accounts
 <a name="standalone-billing"></a>
 
-This topic describes how to view and manage your plan and billing information for Amazon Quick Free, Plus, and Max accounts created at [aws.com/quick](https://aws.com/quick).
+This topic describes how to view and manage your plan and billing information for AWS Quick Free, Plus, and Max accounts created at [aws.com/quick](https://aws.com/quick).
 
 **Note**  
-This section applies to Amazon Quick Free, Plus, and Max accounts. If your organization manages Amazon Quick through the AWS Management Console, billing is handled through your AWS account. For more information, see [AWS Billing and Cost Management](https://docs.aws.amazon.com/billing/latest/userguide/billing-what-is.html).
+This section applies to AWS Quick Free, Plus, and Max accounts. If your organization manages AWS Quick through the AWS Management Console, billing is handled through your AWS account. For more information, see [AWS Billing and Cost Management](https://docs.aws.amazon.com/billing/latest/userguide/billing-what-is.html).
 
 **Topics**
 + [Accessing Plan & Billing](#standalone-billing-access)
@@ -21,11 +21,11 @@ This section applies to Amazon Quick Free, Plus, and Max accounts. If your organ
 ## Accessing Plan & Billing
 <a name="standalone-billing-access"></a>
 
-The Plan & Billing page is located in the Amazon Quick account settings portal.
+The Plan & Billing page is located in the AWS Quick account settings portal.
 
 **To access Plan & Billing**
 
-1. In Amazon Quick, from the navigation bar, choose your username.
+1. In AWS Quick, from the navigation bar, choose your username.
 
 1. Choose **Manage account**.
 
@@ -35,7 +35,7 @@ The Plan & Billing page is located in the Amazon Quick account settings portal.
 
 The settings page has its own navigation panel with the following sections:
 + **Plan & Billing** – View your current plan, estimated charges, and billing history.
-+ **My account** – View your account profile and account details. For more information, see [Account settings for Amazon Quick Free and Plus accounts](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-account-settings.html).
++ **My account** – View your account profile and account details. For more information, see [Account settings for AWS Quick Free and Plus accounts](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-account-settings.html).
 + **Support** – Access AWS Support (opens externally).
 
 ## Viewing your current plan
@@ -43,7 +43,7 @@ The settings page has its own navigation panel with the following sections:
 
 The Plan & Billing page displays the following information about your current subscription:
 + **Current plan** – The name and type of your active plan. For example, **FREE**, **PLUS**, or **MAX**.
-+ **Manage plan** – Choose this button to view available plans and change your subscription. For more information, see [Upgrading your Amazon Quick plan](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-upgrade.html).
++ **Manage plan** – Choose this button to view available plans and change your subscription. For more information, see [Upgrading your AWS Quick plan](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-upgrade.html).
 + **Current estimated charges** – The estimated cost for your current billing period, displayed in USD.
 + **Days remaining** – For trial plans, the number of days remaining in the trial period along with the expiration date.
 + **Payment method** – The card type and last four digits of the payment method on file. A **Change** link is available to update your payment method.
@@ -77,7 +77,7 @@ Choose the **Preferences** button on the Plan & Billing page to configure your b
 ## How collaborator billing works
 <a name="standalone-billing-collaborator"></a>
 
-When you add a collaborator to your Amazon Quick Plus or Max account, billing for their seat begins when the collaborator **accepts the invitation** – not when the invitation is sent.
+When you add a collaborator to your AWS Quick Plus or Max account, billing for their seat begins when the collaborator **accepts the invitation** – not when the invitation is sent.
 
 ### When billing starts
 <a name="standalone-billing-collaborator-when"></a>
@@ -107,7 +107,7 @@ When you commit to an annual plan, your subscription is billed for the full annu
 ## Billing cycle and proration
 <a name="standalone-billing-proration"></a>
 
-Amazon Quick bills on a calendar-month basis.
+AWS Quick bills on a calendar-month basis.
 + Your billing month starts at 12:00 AM (UTC) on the first day of the month and ends at 11:59 PM (UTC) on the last day.
 + If you subscribe partway through a month, your first charge is prorated for the remaining days in that month. Your next full billing cycle starts on the 1st of the following month.
 + If you upgrade mid-month, you are billed immediately for the full new plan rate minus a full credit for your previous plan's monthly charge. Overage charges, if applicable, appear as a separate line item at the end of the billing cycle.
@@ -115,6 +115,6 @@ Amazon Quick bills on a calendar-month basis.
 ## Changing your plan
 <a name="standalone-billing-change-plan"></a>
 
-To upgrade, downgrade, or change your Amazon Quick plan, choose **Manage plan** on the Plan & Billing page. For detailed instructions on the upgrade process, including entering contact information and payment details, see [Upgrading your Amazon Quick plan](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-upgrade.html).
+To upgrade, downgrade, or change your AWS Quick plan, choose **Manage plan** on the Plan & Billing page. For detailed instructions on the upgrade process, including entering contact information and payment details, see [Upgrading your AWS Quick plan](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-upgrade.html).
 
-For information about the available plans and their features, see [Amazon Quick plans and pricing](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-plans.html).
+For information about the available plans and their features, see [AWS Quick plans and pricing](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-plans.html).

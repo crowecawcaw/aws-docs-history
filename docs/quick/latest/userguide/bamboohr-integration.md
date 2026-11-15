@@ -3,7 +3,7 @@
 # BambooHR integration
 <a name="bamboohr-integration"></a>
 
-Connect Amazon Quick to your BambooHR system to manage employee data, time-off requests, and HR processes. You can create, update, and manage HR content without leaving your Amazon Quick environment. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
+Connect AWS Quick to your BambooHR system to manage employee data, time-off requests, and HR processes. You can create, update, and manage HR content without leaving your AWS Quick environment. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## What you can do
 <a name="bamboohr-integration-capabilities"></a>
@@ -16,9 +16,9 @@ Create, update, and manage employee records, time-off requests, and other HR pro
 ## Set up BambooHR integration
 <a name="bamboohr-integration-setup"></a>
 
-Follow these steps to connect Amazon Quick to your BambooHR system.
+Follow these steps to connect AWS Quick to your BambooHR system.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -69,7 +69,7 @@ You can perform these management tasks for your BambooHR integration:
 
 To modify your BambooHR integration settings:
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose **BambooHR** from the connector list.
 
@@ -106,7 +106,7 @@ To permanently remove your BambooHR integration:
 ## What happens next
 <a name="bamboohr-integration-setup-results"></a>
 
-After you complete the setup, your BambooHR integration appears in the integrations list. You can use it in Amazon Quick workflows, automations, and AI agents to perform HR-related tasks.
+After you complete the setup, your BambooHR integration appears in the integrations list. You can use it in AWS Quick workflows, automations, and AI agents to perform HR-related tasks.
 
 ## Troubleshoot BambooHR integration
 <a name="bamboohr-integration-troubleshooting"></a>
@@ -117,7 +117,7 @@ Authentication failures
 Verify that your BambooHR credentials are correct and that the API key or OAuth application has the necessary permissions.
 
 Connection timeouts  
-Check that your BambooHR instance URL is correct and accessible from Amazon Quick.
+Check that your BambooHR instance URL is correct and accessible from AWS Quick.
 
 Permission errors  
 Ensure that the authenticated user or API key has the required permissions to perform the requested HR operations in BambooHR.

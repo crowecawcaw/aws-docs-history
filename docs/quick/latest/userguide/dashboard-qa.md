@@ -1,6 +1,6 @@
 
 
-# Turn on the Dashboard Q&A experience in Amazon Quick Sight
+# Turn on the Dashboard Q&A experience in AWS Quick Sight
 <a name="dashboard-qa"></a>
 
 Quick allows any Author to enable Q&A directly from their dashboards in one click without the need to create a Topic in Quick Sight. To do this, publish your dashboard and check the **Allow data Q&A** checkbox from the dashboard publishing menu. When you turn on dashboard Q&A, you can choose which datasets to use for dashboard Q&A to ensure that your end users get the answers they need.

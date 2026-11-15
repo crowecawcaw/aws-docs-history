@@ -20,7 +20,7 @@ Suppose that one of the following things occurs:
 + Autosave is on and there is a service failure, such that your most recent changes can't be saved.
 + Autosave is off, you turn it on, and one of the backlogged changes now being saved to the server conflicts with another user's changes.
 
-In this case, Amazon Quick Sight gives you the option to do one of two things. You can either let Amazon Quick Sight turn Autosave off and continue working in unsaved mode, or reload the analysis from the server and then redo your most recent changes. 
+In this case, AWS Quick Sight gives you the option to do one of two things. You can either let AWS Quick Sight turn Autosave off and continue working in unsaved mode, or reload the analysis from the server and then redo your most recent changes. 
 
 If your client authentication expires while you are editing an analysis, you are directed to sign in again. On successful sign-in, you are directed back to the analysis where you can continue working normally.
 

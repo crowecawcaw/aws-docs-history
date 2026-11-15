@@ -1,11 +1,11 @@
 
 
-# Embedding Amazon Quick Sight dashboards with the Amazon Quick Sight API
+# Embedding AWS Quick Sight dashboards with the AWS Quick Sight API
 <a name="embedding-dashboards"></a>
 
-Use the following topics to learn about embedding dashboards with the Amazon Quick Sight API.
+Use the following topics to learn about embedding dashboards with the AWS Quick Sight API.
 
 **Topics**
-+ [Embedding Amazon Quick Sight dashboards for registered users](embedded-analytics-dashboards-for-authenticated-users.md)
-+ [Embedding Amazon Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md)
++ [Embedding AWS Quick Sight dashboards for registered users](embedded-analytics-dashboards-for-authenticated-users.md)
++ [Embedding AWS Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md)
 + [Enabling executive summaries in embedded dashboards](embedded-analytics-genbi-executive-summaries-dashboard.md)

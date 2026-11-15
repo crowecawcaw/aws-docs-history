@@ -3,7 +3,7 @@
 # Prerequisites
 <a name="int-actions-prerequisites"></a>
 
-Before using actions in Amazon Quick, ensure you have the following:
+Before using actions in AWS Quick, ensure you have the following:
 
 ## Subscription requirements
 <a name="qbs-actions-prerequisites-qbs-actions-license-requirements"></a>
@@ -22,5 +22,5 @@ For AWS connectors, you need admin access to the relevant services.
 ## AWS account requirements
 <a name="qbs-actions-prerequisites-qbs-actions-aws-account-requirements"></a>
 + Active AWS account - A valid AWS account with billing enabled and in good standing.
-+ Appropriate IAM permissions - IAM roles and policies that allow Amazon Quick to access the required AWS services.
++ Appropriate IAM permissions - IAM roles and policies that allow AWS Quick to access the required AWS services.
 + Required service quotas - Sufficient service limits for the AWS services you plan to integrate with your actions.

@@ -16,7 +16,7 @@ The available step types are organized into the following groups:
 
 AI responses  
 + **Chat agent** — Gets a response from a custom agent and can take actions in connected applications.
-+ **Research** — Invokes Amazon Quick Research to generate research reports as part of your workflow.
++ **Research** — Invokes AWS Quick Research to generate research reports as part of your workflow.
 + **Web Search** — Generates responses using internet search results.
 + **General knowledge** — Gets a response directly from Amazon Bedrock models, with configurable response preferences for speed or versatility.
 + **UI Agent** — Navigates public websites that do not require a login and performs tasks like scrolling to find information or filling forms.
@@ -27,7 +27,7 @@ Flow logic
 
 Data insights  
 + **Quick data** — Retrieves responses from spaces and knowledge bases.
-+ **Dashboards and topics** — Gets insights from Amazon Quick Sight dashboards and topics.
++ **Dashboards and topics** — Gets insights from AWS Quick Sight dashboards and topics.
 
 Actions  
 + **Application actions** — Performs read or write operations in connected third-party applications through pre-built connectors.

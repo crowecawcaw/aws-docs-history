@@ -15,7 +15,7 @@ From the composer you choose which agent handles the conversation, set the respo
 ## Features
 <a name="desktop-navigation-rail"></a>
 
-The navigation rail on the left provides access to the main areas of Amazon Quick.
+The navigation rail on the left provides access to the main areas of AWS Quick.
 
 
 | Features | What you do there | 
@@ -24,7 +24,7 @@ The navigation rail on the left provides access to the main areas of Amazon Quic
 | Feed | Review a prioritized activity feed, your calendar, and your to-dos, drawn from connected services. For more information, see [Activity feed](activity-feed-desktop.md). | 
 | Library | Browse, search, and reuse your content and Quick resources in one place. | 
 | Customize | Manage the agents, skills, connectors, and knowledge that power your agents. | 
-| Apps | Open and build interactive applications (Apps in Amazon Quick). | 
+| Apps | Open and build interactive applications (Apps in AWS Quick). | 
 | Spaces | Open curated collections your team maintains, and chat against them. | 
 | More | Reach additional areas, such as Research, Data, Dashboards, and Automations. | 
 

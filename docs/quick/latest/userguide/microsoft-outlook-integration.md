@@ -3,14 +3,14 @@
 # Microsoft Outlook integration
 <a name="microsoft-outlook-integration"></a>
 
-With the Microsoft Outlook connector, you can access Outlook's email, calendar, and contact APIs directly in Amazon Quick through natural language.
+With the Microsoft Outlook connector, you can access Outlook's email, calendar, and contact APIs directly in AWS Quick through natural language.
 
-Amazon Quick supports multiple authentication methods for Microsoft Outlook. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for Microsoft Outlook. Choose the method that best fits your organization's security requirements.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. Users authenticate directly with their Microsoft account.
 + **Custom OAuth app** – Uses a customer-managed application registered in Microsoft Entra. This option gives your organization full control over the OAuth configuration. Users authenticate on behalf of a signed-in user (delegated permissions).
 + **Service-to-Service OAuth** – Uses client credentials for server-to-server authentication without user interaction (application permissions). Suitable for automated workflows.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="exchange-integration-prerequisites"></a>
@@ -18,14 +18,14 @@ For more information about the authentication methods that Amazon Quick supports
 Make sure that you have the following before you set up the integration.
 + A Microsoft 365 account with Outlook or Exchange Online access.
 + For **Custom OAuth app** or **Service-to-Service OAuth**: Access to the [Microsoft Entra admin center](https://entra.microsoft.com/) on the Microsoft website with at least Application Developer permissions.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Microsoft Entra
 <a name="exchange-entra-setup"></a>
 
-If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in Amazon Quick](#exchange-integration-setup).
+If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in AWS Quick](#exchange-integration-setup).
 
-Before you configure Amazon Quick, create an app registration in Microsoft Entra. Complete all of the following steps in Entra before moving to the Amazon Quick console.
+Before you configure AWS Quick, create an app registration in Microsoft Entra. Complete all of the following steps in Entra before moving to the AWS Quick console.
 
 For more information about app registrations, see [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app) in the Microsoft documentation.
 
@@ -42,16 +42,16 @@ For more information about app registrations, see [Register an application with 
 
 1. For **Supported account types**, choose **Accounts in this organizational directory only**.
 
-1. For **Redirect URI**, select **Web** and enter `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`. Replace {{{region}}} with the AWS Region where your Amazon Quick instance is deployed.
+1. For **Redirect URI**, select **Web** and enter `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`. Replace {{{region}}} with the AWS Region where your AWS Quick instance is deployed.
 
 1. Choose **Register**.
 
-1. On the overview page, copy the **Application (client) ID** and **Directory (tenant) ID**. You need these values for the Amazon Quick configuration.
+1. On the overview page, copy the **Application (client) ID** and **Directory (tenant) ID**. You need these values for the AWS Quick configuration.
 
 ### Create a client secret
 <a name="entra-client-secret"></a>
 
-Amazon Quick needs a client secret to authenticate with Microsoft Entra. This secret acts as a password for the app registration.
+AWS Quick needs a client secret to authenticate with Microsoft Entra. This secret acts as a password for the app registration.
 
 1. From your app registration, choose **Certificates & secrets**.
 
@@ -126,7 +126,7 @@ With service authentication, all actions execute as the service account. Any use
 ### Record your credentials
 <a name="entra-record-credentials"></a>
 
-Before leaving the Microsoft Entra admin center, confirm you have the following values. You need them for the Amazon Quick configuration.
+Before leaving the Microsoft Entra admin center, confirm you have the following values. You need them for the AWS Quick configuration.
 
 
 **Required credentials from Microsoft Entra**  
@@ -137,7 +137,7 @@ Before leaving the Microsoft Entra admin center, confirm you have the following 
 | Directory (tenant) ID | App registration overview page | 
 | Client secret value | Certificates & secrets page | 
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="exchange-integration-setup"></a>
 
 ### Connect from the Available tab
@@ -145,7 +145,7 @@ Before leaving the Microsoft Entra admin center, confirm you have the following 
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **Microsoft Outlook** and choose **Connect**.
 
@@ -156,9 +156,9 @@ To configure a connector with Custom OAuth app or Service-to-Service OAuth inste
 ### Create from the Create for your team tab
 <a name="outlook-full-setup"></a>
 
-After you complete any required Entra configuration, create the connector in Amazon Quick.
+After you complete any required Entra configuration, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -182,7 +182,7 @@ If a Microsoft Outlook connector already exists, a dialog appears with your exis
       + **Client secret** – The client secret value from your Entra app registration.
       + **Token URL** – The token endpoint. Example: `https://login.microsoftonline.com/{{{tenant-id}}}/oauth2/v2.0/token`
       + **Authorization URL** – The authorization endpoint. Example: `https://login.microsoftonline.com/{{{tenant-id}}}/oauth2/v2.0/authorize`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
    1. For **Service-to-Service OAuth** (service authentication with application permissions), configure the following fields:
       + **Base URL** (Optional) – The Microsoft Graph API base URL. Example: `https://graph.microsoft.com/v1.0`
@@ -190,7 +190,7 @@ If a Microsoft Outlook connector already exists, a dialog appears with your exis
       + **Client secret** – The client secret value from your Entra app registration.
       + **Token URL** – The token endpoint. Example: `https://login.microsoftonline.com/{{{tenant-id}}}/oauth2/v2.0/token`
 **Note**  
-The scope for the client credentials token request (`https://graph.microsoft.com/.default`) is set automatically by Amazon Quick. You do not need to configure it manually.
+The scope for the client credentials token request (`https://graph.microsoft.com/.default`) is set automatically by AWS Quick. You do not need to configure it manually.
 
 1. Choose **Next**.
 
@@ -255,15 +255,15 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 ## Admin consent for Microsoft 365
 <a name="exchange-admin-consent"></a>
 
-When you use the **Default OAuth app** authentication method, Amazon Quick uses an AWS-managed application to access Microsoft Outlook on behalf of the signed-in user. Most users can complete setup without any extra steps. However, if your Microsoft 365 tenant restricts third-party app access, a Microsoft 365 administrator must grant one-time consent before users can connect.
+When you use the **Default OAuth app** authentication method, AWS Quick uses an AWS-managed application to access Microsoft Outlook on behalf of the signed-in user. Most users can complete setup without any extra steps. However, if your Microsoft 365 tenant restricts third-party app access, a Microsoft 365 administrator must grant one-time consent before users can connect.
 
 If you see an error when you sign in during connector setup, your organization might restrict third-party app access. Share the following information with your Microsoft 365 administrator:
-+ **What to do:** Grant admin consent for the Amazon Quick Microsoft Outlook integration application.
-+ **Why:** Amazon Quick needs delegated access to Outlook email, calendar, and contact data to perform actions on behalf of users.
++ **What to do:** Grant admin consent for the AWS Quick Microsoft Outlook integration application.
++ **Why:** AWS Quick needs delegated access to Outlook email, calendar, and contact data to perform actions on behalf of users.
 
 An administrator can grant consent in one of the following ways:
 + **Through the consent dialog** – A Global Administrator or Privileged Role Administrator initiates the connector setup flow. In the Microsoft sign-in dialog, they select the **Consent on behalf of your organization** check box and choose **Accept**.
-+ **Through the Microsoft Entra admin center** – Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) on the Microsoft website. Choose **Enterprise applications**, locate the Amazon Quick application, choose **Permissions**, and choose **Grant admin consent for {{Your Organization}}**.
++ **Through the Microsoft Entra admin center** – Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) on the Microsoft website. Choose **Enterprise applications**, locate the AWS Quick application, choose **Permissions**, and choose **Grant admin consent for {{Your Organization}}**.
 
 After consent is granted, any user in your organization can connect without being prompted for individual consent.
 

@@ -37,7 +37,7 @@ To understand the features supported by line charts, use the following table.
 | Adding a second Y-axis | Yes |  | [Creating a dual-axis line chart](#dual-axis-chart) | 
 | Changing the visual colors | Yes |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes, with exceptions | You can focus on or exclude any line on the chart, except in the following cases:+  You create a multi-dimension line chart and use a date field as the dimension for the line color. <br />+  You create a measure or multi-measure line chart and use a date field as the dimension for the X axis. <br />In these cases, you can only focus on a line, not exclude it. | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | Yes, with exceptions | You can sort data for numeric measures in the X axis and Value field wells. Other data is automatically sorted in ascending order. | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | Yes, with exceptions | You can sort data for numeric measures in the X axis and Value field wells. Other data is automatically sorted in ascending order. | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You must apply aggregation to the field that you choose for the value, and can't apply aggregation to the fields you choose for the X axis and color. | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Yes | You can add drill-down levels to the X axis and Color field wells. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
 

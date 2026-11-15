@@ -11,18 +11,18 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 IAM Identity Center helps you securely create or connect your workforce identities and manage their access across AWS accounts and applications. 
 
-Before you integrate your Amazon Quick account with IAM Identity Center, set up IAM Identity Center in your AWS account. If you haven't set up IAM Identity Center in your AWS organization, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) in the *AWS IAM Identity Center User Guide*.
+Before you integrate your AWS Quick account with IAM Identity Center, set up IAM Identity Center in your AWS account. If you haven't set up IAM Identity Center in your AWS organization, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) in the *AWS IAM Identity Center User Guide*.
 
 If you want to configure an external identity provider with IAM Identity Center, see [Supported identity providers](https://docs.aws.amazon.com/singlesignon/latest/userguide/supported-idps.html) to view a list of supported identity providers' configuration steps.
 
 **Topics**
-+ [Configure your Amazon Quick account with IAM Identity Center](#sec-identity-management-identity-center)
++ [Configure your AWS Quick account with IAM Identity Center](#sec-identity-management-identity-center)
 
-## Configure your Amazon Quick account with IAM Identity Center
+## Configure your AWS Quick account with IAM Identity Center
 <a name="sec-identity-management-identity-center"></a>
 
 
@@ -37,16 +37,16 @@ If you want to configure an external identity provider with IAM Identity Center,
 
 IAM Identity Center helps you securely create or configure your existing workforce identities and manage their access across AWS accounts and applications. IAM Identity Center is the recommended approach for workforce authentication and authorization on AWS for organizations of any size and type. To learn more about IAM Identity Center, see [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/).
 
-Configure Amazon Quick and IAM Identity Center so that you can sign up for a new Amazon Quick account with an IAM Identity Center configured identity source. With IAM Identity Center, you can configure your external identity provider as an identity source. You can also use IAM Identity Center as an identity store if you don't want to use a third-party identity provider with Amazon Quick. Identity methods can't be changed after your account is created.
+Configure AWS Quick and IAM Identity Center so that you can sign up for a new AWS Quick account with an IAM Identity Center configured identity source. With IAM Identity Center, you can configure your external identity provider as an identity source. You can also use IAM Identity Center as an identity store if you don't want to use a third-party identity provider with AWS Quick. Identity methods can't be changed after your account is created.
 
-When you integrate your Amazon Quick account with IAM Identity Center, Amazon Quick account administrators can create a new Amazon Quick account that automatically has the identity provider's groups available. This simplifies asset sharing at scale in Amazon Quick.
+When you integrate your AWS Quick account with IAM Identity Center, AWS Quick account administrators can create a new AWS Quick account that automatically has the identity provider's groups available. This simplifies asset sharing at scale in AWS Quick.
 
-To learn more how to sign up for an Amazon Quick account with IAM Identity Center, see [Signing up for an Amazon Quick subscription](https://docs.aws.amazon.com/quicksight/latest/user/signing-up.html).
+To learn more how to sign up for an AWS Quick account with IAM Identity Center, see [Signing up for an AWS Quick subscription](https://docs.aws.amazon.com/quicksight/latest/user/signing-up.html).
 
-### Set up Amazon Quick with IAM Identity Center multi-Region
+### Set up AWS Quick with IAM Identity Center multi-Region
 <a name="idc-multi-region"></a>
 
-You can create an Amazon Quick Enterprise subscription in a supported AWS Region that is configured as an additional Region for your IAM Identity Center instance. When you call `CreateAccountSubscription` against a target Region endpoint, that Region becomes the capacity Region for your Quick default namespace.
+You can create an AWS Quick Enterprise subscription in a supported AWS Region that is configured as an additional Region for your IAM Identity Center instance. When you call `CreateAccountSubscription` against a target Region endpoint, that Region becomes the capacity Region for your Quick default namespace.
 
 This procedure applies only to the IAM Identity Center authentication method. It does not create a second Quick subscription or replicate an existing one. Each AWS account supports one Quick account subscription.
 
@@ -73,12 +73,12 @@ Before you create your Quick subscription in an additional Region, complete the 
 
 1. If your organization uses an external identity provider, add the target Region's Assertion Consumer Service (ACS) URL to your identity provider configuration. For more information, see [Multi-Region workforce access](https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-workforce-access.html) in the *AWS IAM Identity Center User Guide*.
 
-1. Confirm that the target Region is a supported Quick signup Region. For a list of supported Regions, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs).
+1. Confirm that the target Region is a supported Quick signup Region. For a list of supported Regions, see [Supported AWS Regions for AWS Quick](regions.md#regions-qs).
 
 #### To create a subscription in an additional Region
 <a name="idc-multi-region-create"></a>
 
-Use the AWS Command Line Interface or an AWS SDK to create an Amazon Quick Enterprise subscription in the target Region.
+Use the AWS Command Line Interface or an AWS SDK to create an AWS Quick Enterprise subscription in the target Region.
 
 **To create the subscription (AWS CLI)**
 
@@ -139,7 +139,7 @@ After the command completes, confirm that the subscription exists and is active.
 <a name="idc-multi-region-considerations"></a>
 
 Review the following considerations:
-+ You must use Amazon Quick Enterprise edition for IAM Identity Center authentication.
++ You must use AWS Quick Enterprise edition for IAM Identity Center authentication.
 + You must specify either `--admin-group` or `--admin-pro-group` when you use IAM Identity Center authentication.
 + You must choose a target Region that is both an active IAM Identity Center additional Region and a supported Quick signup Region.
 + You can create only one Quick account subscription for each AWS account. If your account already has a subscription, `CreateAccountSubscription` returns a resource-exists error.
@@ -149,8 +149,8 @@ Review the following considerations:
 <a name="idc-considerations"></a>
 
 **Irreversible actions**  
-The following actions permanently prevent all users from signing in to your Amazon Quick account. You cannot undo these actions.
-+ Disabling or deleting the Amazon Quick application in the IAM Identity Center console. If you want to delete your Amazon Quick account, see [Closing your Amazon Quick account](https://docs.aws.amazon.com/quicksight/latest/user/closing-account.html).
-+ Migrating the Amazon Quick account that contains your IAM Identity Center configuration to an AWS Organization that does not contain the IAM Identity Center instance that your Amazon Quick account is configured to.
-+ Deleting the IAM Identity Center instance that is configured to your Amazon Quick account.
+The following actions permanently prevent all users from signing in to your AWS Quick account. You cannot undo these actions.
++ Disabling or deleting the AWS Quick application in the IAM Identity Center console. If you want to delete your AWS Quick account, see [Closing your AWS Quick account](https://docs.aws.amazon.com/quicksight/latest/user/closing-account.html).
++ Migrating the AWS Quick account that contains your IAM Identity Center configuration to an AWS Organization that does not contain the IAM Identity Center instance that your AWS Quick account is configured to.
++ Deleting the IAM Identity Center instance that is configured to your AWS Quick account.
 + Editing IAM Identity Center application attributes, for example the **requires assignment** attribute.

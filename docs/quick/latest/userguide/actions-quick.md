@@ -3,7 +3,7 @@
 # Quick
 <a name="actions-quick"></a>
 
-With Quick actions, you can use native integrations with Amazon Quick features and services directly in your automations. These actions work within the Quick environment without requiring external authentication or complex infrastructure setup. You can interact with other Quick capabilities while using unified governance, permissions, and data management.
+With Quick actions, you can use native integrations with AWS Quick features and services directly in your automations. These actions work within the Quick environment without requiring external authentication or complex infrastructure setup. You can interact with other Quick capabilities while using unified governance, permissions, and data management.
 
 ## Shared File Actions
 <a name="shared-file-actions"></a>
@@ -47,7 +47,7 @@ Uploads a file to shared storage, making it available to other automations in th
 ### Access the files manually
 <a name="access-shared-files-manually"></a>
 
-You can manually access and download files in Amazon Quick Automate using either of the following methods.
+You can manually access and download files in AWS Quick Automate using either of the following methods.
 
 **From the authoring studio (Action)**
 + Choose the folder icon (📁) next to the **File to download** property for the **Download shared file** action to open the **Select File** dialog box. This displays the list of files available for the automation group.

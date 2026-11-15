@@ -11,9 +11,9 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick Administrators and Amazon Quick developers  | 
+|    Intended audience:  AWS Quick Administrators and AWS Quick developers  | 
 
-When you embed Amazon Quick dashboards in your application for users who are not provisioned (registered) in Quick, you can use row-level security (RLS) to filter/restrict data with tags. A tag is a user-specified string that identifies a session in your application. You can use tags to implement RLS controls for your datasets. By configuring RLS-based restrictions in datasets, Quick filters the data based on the session tags tied to the user identity/session.
+When you embed AWS Quick dashboards in your application for users who are not provisioned (registered) in Quick, you can use row-level security (RLS) to filter/restrict data with tags. A tag is a user-specified string that identifies a session in your application. You can use tags to implement RLS controls for your datasets. By configuring RLS-based restrictions in datasets, Quick filters the data based on the session tags tied to the user identity/session.
 
 For example, let's say you're a logistics company that has a customer-facing application for various retailers. Thousands of users from these retailers access your application to see metrics related to how their orders are getting shipped from your warehouse. 
 
@@ -25,7 +25,7 @@ To do so, complete the following steps:
 
 1. Assign values to those tags at runtime using the `GenerateEmbedUrlForAnonymousUser` API operation.
 
-   For more information about embedding dashboards for anonymous users using the `GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding Amazon Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md).
+   For more information about embedding dashboards for anonymous users using the `GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding AWS Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md).
 
 Before you can use RLS with tags, keep in mind the following points:
 + Using RLS with tags is currently only supported for anonymous embedding, specifically for embedded dashboards that use the `GenerateEmbedUrlForAnonymousUser` API operation.
@@ -36,7 +36,7 @@ Before you can use RLS with tags, keep in mind the following points:
 ## Step 1: Add RLS tags to a dataset
 <a name="quicksight-dev-rls-tags-add"></a>
 
-You can add tag-based rules to a dataset in Amazon Quick. Alternatively, you can call the `CreateDataSet` or `UpdateDataSet` API operation and add tag-based rules that way. For more information, see [Add RLS tags to a dataset using the API](#quicksight-dev-rls-tags-add-api).
+You can add tag-based rules to a dataset in AWS Quick. Alternatively, you can call the `CreateDataSet` or `UpdateDataSet` API operation and add tag-based rules that way. For more information, see [Add RLS tags to a dataset using the API](#quicksight-dev-rls-tags-add-api).
 
 Use the following procedure to add RLS tags to a dataset in Quick.
 
@@ -117,7 +117,7 @@ Review your architecture. If downstream customers or partners are allowed to cal
 ------
 #### [ CreateDataSet ]
 
-The following is an example for creating a dataset that uses RLS with tags. It assumes the scenario of the logistics company described previously. The tags are defined in the `row-level-permission-tag-configuration` element. The tags are defined on the columns that you want to secure the data for. For more information about this optional element, see [RowLevelPermissionTagConfiguration](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RowLevelPermissionTagConfiguration.html) in the *Amazon Quick API Reference*.
+The following is an example for creating a dataset that uses RLS with tags. It assumes the scenario of the logistics company described previously. The tags are defined in the `row-level-permission-tag-configuration` element. The tags are defined on the columns that you want to secure the data for. For more information about this optional element, see [RowLevelPermissionTagConfiguration](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RowLevelPermissionTagConfiguration.html) in the *AWS Quick API Reference*.
 
 ```
 create-data-set
@@ -250,7 +250,7 @@ The following is an example of the response definition.
 After tags are assigned and enabled on the dataset, make sure to give Quick authors permissions to see any of the data in the dataset when authoring a dashboard.   
 To give Quick authors permission to see data in the dataset, create a permissions file or query to use as dataset rules. For more information, see [Creating dataset rules for row-level security](restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security).
 
-For more information about the `RowLevelPermissionTagConfiguration` element, see [RowLevelPermissionTagConfiguration](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RowLevelPermissionTagConfiguration.html) in the *Amazon Quick API Reference*.
+For more information about the `RowLevelPermissionTagConfiguration` element, see [RowLevelPermissionTagConfiguration](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RowLevelPermissionTagConfiguration.html) in the *AWS Quick API Reference*.
 
 ## Step 2: Assign values to RLS tags at runtime
 <a name="quicksight-dev-rls-tags-assign-values"></a>
@@ -320,4 +320,4 @@ In this case, the following assignments are defined:
 
 The user using the generated URL can view only the rows having the `shift_manager` value in the `role` column. That user can view only the value `West`, `Central`, or `South` in the `retailer_id` column.
 
-For more information about embedding dashboards for anonymous users using the `GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding Amazon Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md), or [GenerateEmbedUrlForAnonymousUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html) in the *Amazon Quick API Reference*
+For more information about embedding dashboards for anonymous users using the `GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding AWS Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md), or [GenerateEmbedUrlForAnonymousUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html) in the *AWS Quick API Reference*

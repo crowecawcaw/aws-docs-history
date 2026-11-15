@@ -1,6 +1,6 @@
 
 
-# Creating parameter defaults in Amazon Quick
+# Creating parameter defaults in AWS Quick
 <a name="parameters-default-values"></a>
 
 Use this section to learn more about the types of parameter defaults that are available, and how to set up each of them. 
@@ -11,7 +11,7 @@ The simplest default is a static (unchanging) default, which shows the same valu
 
 **To create or edit a static default value that applies to everyone's dashboard view**
 
-1. Choose the context menu (`v`) by the parameter that you want to edit, or create a new parameter by following the steps in [Setting up parameters in Amazon Quick](parameters-set-up.md). 
+1. Choose the context menu (`v`) by the parameter that you want to edit, or create a new parameter by following the steps in [Setting up parameters in AWS Quick](parameters-set-up.md). 
 
 1. Enter a value for **Static default value** to set a static default. 
 
@@ -183,6 +183,6 @@ Use the following procedure to add a dynamic default parameter to your analysis.
 
 1. Choose **Apply** to save your setting changes, and then choose **Update** to save the parameter changes. To exit without saving changes, choose **Cancel** instead.
 
-1. Add a filter for each field that contains dynamic defaults to make the defaults work. To learn more about using filters with parameters, see [Using filters with parameters in Amazon Quick](parameters-filtering-by.md)
+1. Add a filter for each field that contains dynamic defaults to make the defaults work. To learn more about using filters with parameters, see [Using filters with parameters in AWS Quick](parameters-filtering-by.md)
 
-   Amazon Quick uses the static default value for anyone whose user name doesn't exist in the dataset, doesn't have a default assigned, or doesn't have a unique default. Each person can have only one set of defaults. If you don't want to use dynamic defaults, you can set a static default instead. 
+   AWS Quick uses the static default value for anyone whose user name doesn't exist in the dataset, doesn't have a default assigned, or doesn't have a unique default. Each person can have only one set of defaults. If you don't want to use dynamic defaults, you can set a static default instead. 

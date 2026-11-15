@@ -3,7 +3,7 @@
 # Supported integrations
 <a name="supported-integrations"></a>
 
-Amazon Quick supports integrations with various third-party applications and services. Each integration supports different combinations of actions and knowledge base creation capabilities. The following table shows the supported integrations and their capabilities.
+AWS Quick supports integrations with various third-party applications and services. Each integration supports different combinations of actions and knowledge base creation capabilities. The following table shows the supported integrations and their capabilities.
 
 
 **Supported Integration Capabilities**  
@@ -11,6 +11,7 @@ Amazon Quick supports integrations with various third-party applications and ser
 | Integration | Actions | Knowledge Base | 
 | --- | --- | --- | 
 | Adobe Marketing Agent | Yes | No | 
+| Adobe CX Enterprise Coworker | Yes | No | 
 | Airtable | Yes | No | 
 | Amazon S3 | Yes | Yes | 
 | Asana | Yes | No | 
@@ -20,8 +21,10 @@ Amazon Quick supports integrations with various third-party applications and ser
 | BambooHR | Yes | No | 
 | Box | Yes | No | 
 | Canva | Yes | No | 
+| Checkmarx | Yes | No | 
 | Cisco Webex Meetings | Yes | No | 
 | Cisco Webex Video Messaging | Yes | No | 
+| Cisco Workspaces | Yes | No | 
 | Dropbox | Yes | No | 
 | Dun & Bradstreet | Yes | No | 
 | Figma | Yes | No | 
@@ -82,7 +85,7 @@ Not all applications support all integration types. The available options depend
 <a name="integration-capability-definitions"></a>
 
 **Actions**  
-Call APIs and perform actions in external applications directly from Amazon Quick. You can share connectors with other users and use them in automated workflows.
+Call APIs and perform actions in external applications directly from AWS Quick. You can share connectors with other users and use them in automated workflows.
 
 **Knowledge base**  
 Create searchable repositories of information from external sources. Knowledge bases are children of data access integrations. Add them to spaces or use them directly in chat agents.

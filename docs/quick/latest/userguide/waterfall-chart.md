@@ -16,7 +16,7 @@ The following screenshot shows a waterfall chart.
 
 **To create a basic waterfall chart visual**
 
-1. Open Amazon Quick and choose **Analyses** on the navigation pane at left.
+1. Open AWS Quick and choose **Analyses** on the navigation pane at left.
 
 1. Choose one of the following:
    + To create a new analysis, choose **New analysis** at upper right. For more information, see [Starting an analysis in Quick Sight](creating-an-analysis.md). 
@@ -30,4 +30,4 @@ The following screenshot shows a waterfall chart.
 
 1. (Optional) Add drill-down layers by dragging one or more additional fields to the **Group/Color** field well. For more information about adding drill-downs, see [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md).
 
-   To understand the features supported by waterfall charts, see [Analytics formatting per type in Quick](analytics-format-options.md). For customization options, see [Formatting in Amazon Quick](formatting-a-visual.md). 
+   To understand the features supported by waterfall charts, see [Analytics formatting per type in Quick](analytics-format-options.md). For customization options, see [Formatting in AWS Quick](formatting-a-visual.md). 

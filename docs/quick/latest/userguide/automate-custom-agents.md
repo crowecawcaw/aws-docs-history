@@ -49,11 +49,11 @@ The structured output configuration for Custom agents follows the same format as
 ## Using Custom Models in Custom Agent (Bring your own bedrock model)
 <a name="custom-agent-byom"></a>
 
-Integrate your desired or custom fine-tuned models hosted in AWS Bedrock with Quick Suite automation workflows.
+Integrate your desired or custom fine-tuned models hosted in Amazon Bedrock with Quick automation workflows.
 
 Before you begin, ensure you have the following:
-+ A fine-tuned model deployed and accessible in AWS Bedrock
-+ Quick Suite Admin access for creating connectors
++ A fine-tuned model deployed and accessible in Amazon Bedrock
++ Quick Admin access for creating connectors
 + An IAM role with Bedrock permissions for invoking models
 + Your model ID (for example, `us.anthropic.claude-3-5-sonnet-20241022-v2:0`)
 
@@ -82,7 +82,7 @@ Add and configure a custom agent to use your fine-tuned model:
 Once configured, your custom agent uses the fine-tuned model to process requests according to the instructions you provided. You can now incorporate this agent into your Quick Automate workflows.
 
 **Note**  
-Ensure your model ID is correctly formatted and matches the model deployed in your AWS Bedrock account. You can find your model ID in the AWS Bedrock console under your provisioned models.
+Ensure your model ID is correctly formatted and matches the model deployed in your Amazon Bedrock account. You can find your model ID in the Amazon Bedrock console under your provisioned models.
 
 ## Custom agent testing
 <a name="custom-agent-testing"></a>
@@ -171,7 +171,7 @@ Although, in practice, when no appropriate actions are available, planner might 
 ## Using knowledge bases with custom agents
 <a name="custom-agent-knowledge-bases"></a>
 
-In Amazon Quick Automate, you can connect knowledge bases to custom agents to enable AI-powered retrieval and question answering over your organization's documents. By linking a Quick space to your automation group, custom agents can search and retrieve information from the knowledge bases within that space.
+In AWS Quick Automate, you can connect knowledge bases to custom agents to enable AI-powered retrieval and question answering over your organization's documents. By linking a Quick space to your automation group, custom agents can search and retrieve information from the knowledge bases within that space.
 
 Use this for automations that need to reference organizational knowledge — such as answering questions from policy documents, summarizing reports, or classifying content based on reference data.
 
@@ -179,7 +179,7 @@ Knowledge bases index your documents for semantic search, so the custom agent re
 
 ### Prerequisites
 <a name="custom-agent-kb-prerequisites"></a>
-+ A Quick space with one or more knowledge bases configured. For more information, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md).
++ A Quick space with one or more knowledge bases configured. For more information, see [Organize, collaborate, and share resources with spaces in AWS Quick](working-with-spaces.md).
 + An automation group where you are an owner
 + Owner-level access to the space you want to link
 
@@ -281,7 +281,7 @@ Constraints:
 ## Using datasets with custom agents
 <a name="custom-agent-datasets"></a>
 
-In Amazon Quick Automate, you can connect datasets to custom agents so that an agent can answer natural-language questions about your data. The underlying query returns a list of data tables and a string output from the API call. You can then convert this output into a desired data structure, either by prompting the custom agent or by using the structured output feature of the custom agent.
+In AWS Quick Automate, you can connect datasets to custom agents so that an agent can answer natural-language questions about your data. The underlying query returns a list of data tables and a string output from the API call. You can then convert this output into a desired data structure, either by prompting the custom agent or by using the structured output feature of the custom agent.
 
 Dataset Q&A (querying datasets) is an agentic action that you use with the custom agent. A custom agent can query multiple datasets, but it runs one query at a time.
 
@@ -331,7 +331,7 @@ To add datasets to a custom agent:
 
 1. Choose **Save**.
 
-A custom agent can use multiple datasets, but it runs one query at a time. If you connect a Quick space that contains a dataset, the agent can query that dataset as well. For more information about spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md).
+A custom agent can use multiple datasets, but it runs one query at a time. If you connect a Quick space that contains a dataset, the agent can query that dataset as well. For more information about spaces, see [Organize, collaborate, and share resources with spaces in AWS Quick](working-with-spaces.md).
 
 ### Query a dataset with the agent
 <a name="custom-agent-datasets-query"></a>
@@ -355,7 +355,7 @@ Instead of attaching datasets directly on the agent's **Datasets** tab, you can 
 
 To use datasets in a space:
 
-1. Add your dataset or datasets to a Quick space. For more information about spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md).
+1. Add your dataset or datasets to a Quick space. For more information about spaces, see [Organize, collaborate, and share resources with spaces in AWS Quick](working-with-spaces.md).
 
 1. Attach the space to your automation group. In the **Automations** tab, on the **Projects** page, choose **Groups** and select your group. In the **Assets** section, choose **Add**, and then choose **Spaces**. Select the space and choose **Add**.
 

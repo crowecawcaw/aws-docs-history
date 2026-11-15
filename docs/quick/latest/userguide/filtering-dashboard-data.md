@@ -1,18 +1,18 @@
 
 
-# Using filters on Amazon Quick Sight dashboard data
+# Using filters on AWS Quick Sight dashboard data
 <a name="filtering-dashboard-data"></a>
 
 You can use filters to refine the data displayed in a visual. Filters are applied to the data before any aggregate functions. If you have multiple filters, all top-level filters apply together using AND. If the filters are grouped inside a top-level filter, the filters in the group apply using OR. 
 
-Amazon Quick Sight applies all of the enabled filters to the field. For example, suppose that there is one filter of `state = WA` and another filter of `sales >= 500`. In this case, the dataset contains only records that meet both of those criteria. If you disable one of these, only one filter applies. Take care that multiple filters applied to the same field aren't mutually exclusive.
+AWS Quick Sight applies all of the enabled filters to the field. For example, suppose that there is one filter of `state = WA` and another filter of `sales >= 500`. In this case, the dataset contains only records that meet both of those criteria. If you disable one of these, only one filter applies. Take care that multiple filters applied to the same field aren't mutually exclusive.
 
 ## Viewing filters
 <a name="subscriber-dashboards-viewing-filters"></a>
 
 To see the existing filters, choose **Filter** on the element settings menu, then choose to view filters. The filters display in the **Applied filters** panel in order of creation, with the oldest filter on top.
 
-### Understanding filter icons in an Amazon Quick Sight dashboard
+### Understanding filter icons in an AWS Quick Sight dashboard
 <a name="subscriber-dashboards-understanding-filter-icons"></a>
 
 Filters in the **Applied filters** panel display icons to indicate how they are scoped and whether they are enabled.
@@ -23,7 +23,7 @@ One of several scope icons displays to the right of the filter name to indicate 
 
 The scope icons match the ones that display on the filter menu when you are choosing the scope for the filter.
 
-### Viewing filter details in an Amazon Quick Sight dashboard
+### Viewing filter details in an AWS Quick Sight dashboard
 <a name="subscriber-dashboards-viewing-filter-details"></a>
 
 To see filter details, choose **Filter** at left. The filter view retains your last selection. So when you open **Filter**, you see either the **Applied filters** or the **Edit filter** view.

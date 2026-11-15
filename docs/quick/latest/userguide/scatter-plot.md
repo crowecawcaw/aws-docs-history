@@ -7,7 +7,7 @@ Use scatter plots to visualize two or three measures across two dimensions.
 
 Each bubble on the scatter plot represents one or two dimension values. The X and Y axes represent two different measures that apply to the dimension. A bubble appears on the chart at the point where the values for the two measures for an item in the dimension intersect. Optionally, you can also use bubble size to represent an additional measure. 
 
-Scatter plots show up to 2500 datapoints in aggregated and unaggregated scenarios regardless of whether a color or label dimension is used in the visual. Due to the order of limit operations, there may be cases where fewer datapoints for a dataset are shown. For more information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Scatter plots show up to 2500 datapoints in aggregated and unaggregated scenarios regardless of whether a color or label dimension is used in the visual. Due to the order of limit operations, there may be cases where fewer datapoints for a dataset are shown. For more information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Scatter plot features
 <a name="scatter-plot-features"></a>
@@ -23,7 +23,7 @@ To understand the features supported by scatter plots, use the following table.
 | Showing or hiding axis lines, grid lines, axis labels, and axis sort icons | Yes |  | [Axes and grid lines on visual types in Quick](showing-hiding-axis-grid-tick.md) | 
 | Changing the visual colors | Yes |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes, with exceptions | You can focus on or exclude a bubble in a scatter plot, except when you are using a date field as a dimension. In that case, you can only focus on a bubble, not exclude it. | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | No |  | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | No |  | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You must apply aggregation to the fields you choose for the X axis, Y axis, and size, and can't apply aggregation to the field that you choose for the group or color. | [Changing field aggregation](changing-field-aggregation.md) | 
 | Displaying unaggregated fields | Yes | On the field context menu, choose None to display unaggregated X and Y axis values. If your scatter plot shows unaggregated fields, you can't apply aggregations to the field that is in the color or label field well. Mixed aggregation is not supported for scatter plots. |  | 
 | Adding drill-downs | Yes | You can add drill-down levels to the Group/Color field well. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 

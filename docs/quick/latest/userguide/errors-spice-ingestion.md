@@ -45,9 +45,9 @@ For imports and data refresh jobs that fail, Quick Sight provides an error code 
 
 ****ACCOUNT\_CAPACITY\_LIMIT\_EXCEEDED**** – This data exceeds your current SPICE capacity. Purchase more SPICE capacity or clean up existing SPICE data and then retry this ingestion.
 
-****CONNECTION\_FAILURE**** – Amazon Quick Sight can't connect to your data source. Check the data source connection settings and try again.
+****CONNECTION\_FAILURE**** – AWS Quick Sight can't connect to your data source. Check the data source connection settings and try again.
 
-****CUSTOMER\_ERROR**** – There was a problem parsing the data. If this persists, contact Amazon Quick Sight technical support.
+****CUSTOMER\_ERROR**** – There was a problem parsing the data. If this persists, contact AWS Quick Sight technical support.
 
 ****DATA\_SET\_DELETED**** – The data source or dataset was deleted or became unavailable during ingestion.
 
@@ -57,15 +57,15 @@ For imports and data refresh jobs that fail, Quick Sight provides an error code 
 
 ****DATA\_SOURCE\_CONNECTION\_FAILED**** – Data source connection failed. Check the URL and try again. If this error persists, contact your data source administrator for assistance.
 
-****DATA\_SOURCE\_NOT\_FOUND**** – No data source found. Check your Amazon Quick Sight data sources.
+****DATA\_SOURCE\_NOT\_FOUND**** – No data source found. Check your AWS Quick Sight data sources.
 
-****DATA\_TOLERANCE\_EXCEPTION**** – There are too many invalid rows. Amazon Quick Sight has reached the quota of rows that it can skip and still continue ingesting. Check your data and try again.
+****DATA\_TOLERANCE\_EXCEPTION**** – There are too many invalid rows. AWS Quick Sight has reached the quota of rows that it can skip and still continue ingesting. Check your data and try again.
 
-****FAILURE\_TO\_ASSUME\_ROLE**** – Amazon Quick Sight couldn't assume the correct AWS Identity and Access Management (IAM) role. Verify the policies for `Amazon Quick Sight-service-role` in the IAM console.
+****FAILURE\_TO\_ASSUME\_ROLE**** – AWS Quick Sight couldn't assume the correct AWS Identity and Access Management (IAM) role. Verify the policies for `AWS Quick Sight-service-role` in the IAM console.
 
-****FAILURE\_TO\_PROCESS\_JSON\_FILE**** – Amazon Quick Sight couldn't parse a manifest file as valid JSON.
+****FAILURE\_TO\_PROCESS\_JSON\_FILE**** – AWS Quick Sight couldn't parse a manifest file as valid JSON.
 
-****IAM\_ROLE\_NOT\_AVAILABLE**** – Amazon Quick Sight doesn't have permission to access the data source. To manage Amazon Quick Sight permissions on AWS resources, go to the **Security and Permissions** page under the **Manage Amazon Quick Sight** option as an administrator.
+****IAM\_ROLE\_NOT\_AVAILABLE**** – AWS Quick Sight doesn't have permission to access the data source. To manage AWS Quick Sight permissions on AWS resources, go to the **Security and Permissions** page under the **Manage AWS Quick Sight** option as an administrator.
 
 ****INGESTION\_CANCELED**** – The ingestion was canceled by the user.
 
@@ -87,15 +87,15 @@ For imports and data refresh jobs that fail, Quick Sight provides an error code 
 
 ****PASSWORD\_AUTHENTICATION\_FAILURE**** – Incorrect credentials appeared for a data source. Update your data source credentials and retry this ingestion.
 
-****PERMISSION\_DENIED**** – Access to the requested resources was denied by the data source. Request permissions from your database administrator or ensure proper permission has been granted to Amazon Quick Sight before retrying.
+****PERMISSION\_DENIED**** – Access to the requested resources was denied by the data source. Request permissions from your database administrator or ensure proper permission has been granted to AWS Quick Sight before retrying.
 
 ****QUERY\_TIMEOUT**** – A query to the data source timed out waiting for a response. Check your data source logs and try again.
 
 ****ROW\_SIZE\_LIMIT\_EXCEEDED**** – The row size quota exceeded the maximum.
 
-****S3\_FILE\_INACCESSIBLE**** – Couldn't connect to an S3 bucket. Make sure that you grant Amazon Quick Sight and users necessary permissions before you connect to the S3 bucket.
+****S3\_FILE\_INACCESSIBLE**** – Couldn't connect to an S3 bucket. Make sure that you grant AWS Quick Sight and users necessary permissions before you connect to the S3 bucket.
 
-****S3\_MANIFEST\_ERROR**** – Couldn't connect to S3 data. Make sure that your S3 manifest file is valid. Also verify access to the S3 data. Both Amazon Quick Sight and the Amazon Quick Sight user need permissions to connect to the S3 data.
+****S3\_MANIFEST\_ERROR**** – Couldn't connect to S3 data. Make sure that your S3 manifest file is valid. Also verify access to the S3 data. Both AWS Quick Sight and the AWS Quick Sight user need permissions to connect to the S3 data.
 
 ****S3\_UPLOADED\_FILE\_DELETED**** – The file or files for the ingestion were deleted (between ingestions). Check your S3 bucket and try again.
 
@@ -103,20 +103,20 @@ For imports and data refresh jobs that fail, Quick Sight provides an error code 
 
 ****SOURCE\_RESOURCE\_LIMIT\_EXCEEDED**** – A SQL query exceeds the resource quota of the data source. Examples of resources involved can include the concurrent query quota, the connection quota, and physical server resources. Contact your data source administrator for assistance.
 
-****SPICE\_TABLE\_NOT\_FOUND**** – An Amazon Quick Sight data source or dataset was deleted or became unavailable during ingestion. Check your dataset in Amazon Quick Sight and try again. For more information, see [Troubleshooting skipped row errors](troubleshooting-skipped-rows.md).
+****SPICE\_TABLE\_NOT\_FOUND**** – An AWS Quick Sight data source or dataset was deleted or became unavailable during ingestion. Check your dataset in AWS Quick Sight and try again. For more information, see [Troubleshooting skipped row errors](troubleshooting-skipped-rows.md).
 
 ****SQL\_EXCEPTION**** – A general SQL error occurred. This error can be caused by query timeouts, resource constraints, unexpected data definition language (DDL) changes before or during a query, and other database errors. Check your database settings and your query, and try again.
 
 ****SQL\_INVALID\_PARAMETER\_VALUE**** – An invalid SQL parameter appeared. Check your SQL and try again.
 
-****SQL\_NUMERIC\_OVERFLOW**** – Amazon Quick Sight encountered an out-of-range numeric exception. Check related values and calculated columns for overflows, and try again.
+****SQL\_NUMERIC\_OVERFLOW**** – AWS Quick Sight encountered an out-of-range numeric exception. Check related values and calculated columns for overflows, and try again.
 
-****SQL\_SCHEMA\_MISMATCH\_ERROR**** – The data source schema doesn't match the Amazon Quick Sight dataset. Update your Amazon Quick Sight dataset definition.
+****SQL\_SCHEMA\_MISMATCH\_ERROR**** – The data source schema doesn't match the AWS Quick Sight dataset. Update your AWS Quick Sight dataset definition.
 
-****SQL\_TABLE\_NOT\_FOUND**** – Amazon Quick Sight can't find the table in the data source. Verify the table specified in the dataset or custom SQL and try again.
+****SQL\_TABLE\_NOT\_FOUND**** – AWS Quick Sight can't find the table in the data source. Verify the table specified in the dataset or custom SQL and try again.
 
-****SSL\_CERTIFICATE\_VALIDATION\_FAILURE**** – Amazon Quick Sight can't validate the Secure Sockets Layer (SSL) certificate on your database server. Check the SSL status on that server with your database administrator and try again.
+****SSL\_CERTIFICATE\_VALIDATION\_FAILURE**** – AWS Quick Sight can't validate the Secure Sockets Layer (SSL) certificate on your database server. Check the SSL status on that server with your database administrator and try again.
 
-****UNRESOLVABLE\_HOST**** – Amazon Quick Sight can't resolve the host name of the data source. Verify the host name of the data source and try again.
+****UNRESOLVABLE\_HOST**** – AWS Quick Sight can't resolve the host name of the data source. Verify the host name of the data source and try again.
 
-****UNROUTABLE\_HOST**** – Amazon Quick Sight can't reach your data source because it's inside a private network. Ensure that your private VPC connection is configured correctly in Enterprise Edition, or allow Amazon Quick Sight IP address ranges to allow connectivity for Standard Edition. 
+****UNROUTABLE\_HOST**** – AWS Quick Sight can't reach your data source because it's inside a private network. Ensure that your private VPC connection is configured correctly in Enterprise Edition, or allow AWS Quick Sight IP address ranges to allow connectivity for Standard Edition. 

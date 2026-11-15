@@ -1,12 +1,12 @@
 
 
-# Account settings for Amazon Quick Free and Plus accounts
+# Account settings for AWS Quick Free and Plus accounts
 <a name="standalone-account-settings"></a>
 
-This topic describes how to view and manage account-level settings for Amazon Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick). Account settings include your profile information, account details, and support access.
+This topic describes how to view and manage account-level settings for AWS Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick). Account settings include your profile information, account details, and support access.
 
 **Note**  
-This section applies to Amazon Quick Free and Plus accounts. If your organization manages Amazon Quick through the AWS Management Console, account settings are managed through your AWS account and IAM Identity Center. For more information, see [Administering Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html).
+This section applies to AWS Quick Free and Plus accounts. If your organization manages AWS Quick through the AWS Management Console, account settings are managed through your AWS account and IAM Identity Center. For more information, see [Administering AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html).
 
 **Topics**
 + [Accessing account settings](#standalone-account-settings-access)
@@ -16,11 +16,11 @@ This section applies to Amazon Quick Free and Plus accounts. If your organizatio
 ## Accessing account settings
 <a name="standalone-account-settings-access"></a>
 
-The account settings are located in the Amazon Quick account settings portal, alongside Plan & Billing.
+The account settings are located in the AWS Quick account settings portal, alongside Plan & Billing.
 
 **To access account settings**
 
-1. In Amazon Quick, from the navigation bar, choose your username.
+1. In AWS Quick, from the navigation bar, choose your username.
 
 1. Choose **Manage account**.
 
@@ -49,20 +49,20 @@ The Profile & security section displays the following information:
 + **Manage profile & security** – Choose this link to open the AWS Builder ID profile management page in a new browser tab. From there, you can update your name, nickname, email, password, multi-factor authentication settings, and privacy preferences.
 
 **Note**  
-Your name and email address in Amazon Quick are managed through your AWS Builder ID. To change these details, choose **Manage profile & security** to open the Builder ID profile page, or choose **Edit profile** from the Amazon Quick profile menu. For more information, see [User profile and preferences in Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-profile.html).
+Your name and email address in AWS Quick are managed through your AWS Builder ID. To change these details, choose **Manage profile & security** to open the Builder ID profile page, or choose **Edit profile** from the AWS Quick profile menu. For more information, see [User profile and preferences in AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-profile.html).
 
 ### Account details
 <a name="standalone-account-settings-details"></a>
 
 The Account details section displays the following information:
-+ **Account ID** – A unique numeric identifier for your Amazon Quick account. You may need this ID when contacting AWS Support.
++ **Account ID** – A unique numeric identifier for your AWS Quick account. You may need this ID when contacting AWS Support.
 + **Copy Account ID** – Choose this button to copy your Account ID to the clipboard.
-+ **Close account** – Choose this button to close your Amazon Quick account. For more information, see [Account closure and reopening](#standalone-account-settings-closure).
++ **Close account** – Choose this button to close your AWS Quick account. For more information, see [Account closure and reopening](#standalone-account-settings-closure).
 
 ### Account closure and reopening
 <a name="standalone-account-settings-closure"></a>
 
-You can close your Amazon Quick account at any time. After closure, you have 90 days to reopen it before it is permanently closed and AWS deletes your content.
+You can close your AWS Quick account at any time. After closure, you have 90 days to reopen it before it is permanently closed and AWS deletes your content.
 
 **To close your account**
 + Go to **Manage account** → **Plan & Billing** → **My account** → **Close account**.
@@ -77,15 +77,15 @@ Before closing, note the following:
 ## Support
 <a name="standalone-account-settings-support"></a>
 
-To access AWS Support for Amazon Quick:
+To access AWS Support for AWS Quick:
 + In the left navigation of the settings portal, choose **Support**.
 
   The AWS Support portal opens in a new browser tab at `support.aws.amazon.com`.
 
 From the AWS Support portal, you can:
-+ Create a new support case for Amazon Quick.
++ Create a new support case for AWS Quick.
 + View the status of existing support cases.
 + Access self-service troubleshooting resources.
 
 **Tip**  
-You can also access support resources from within Amazon Quick by choosing your username, then choosing **Help** in the profile menu. The Help submenu includes links to Getting Started guides, Quick Documentation, the Quick Community forum, and How to Videos.
+You can also access support resources from within AWS Quick by choosing your username, then choosing **Help** in the profile menu. The Help submenu includes links to Getting Started guides, Quick Documentation, the Quick Community forum, and How to Videos.

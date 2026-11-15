@@ -3,11 +3,11 @@
 # Creating Quick scaled folders with the Quick APIs
 <a name="folders-scaled"></a>
 
-You can use the Amazon Quick APIs to create special scaled folders that can be shared with up to 3000 namespaces. Each namespace that is added to a folder can contain up to 100 principals. A *principal* is a user or a group of users. After you create a scaled folder and add the principals that you want, any QuickSight asset can be added to the folder. It can then be shared to every principal in the namespaces that the folder principals are assigned to. This streamlines the process to share Quick assets with thousands of users.
+You can use the AWS Quick APIs to create special scaled folders that can be shared with up to 3000 namespaces. Each namespace that is added to a folder can contain up to 100 principals. A *principal* is a user or a group of users. After you create a scaled folder and add the principals that you want, any QuickSight asset can be added to the folder. It can then be shared to every principal in the namespaces that the folder principals are assigned to. This streamlines the process to share Quick assets with thousands of users.
 
 Scaled folders can only be created with the Quick APIs. When you create a scaled folder, you can share the folder with up to 100 principals that are in the same namespace. You can add principals that belong to a different namespace with an `UpdateFolderPermissions` API call. After the folder is created, you can add and remove assets from the folder with the Quick APIs or the Quick console.
 
-Each Amazon Quick account holds up 100 scaled folders. You can add up to 100 assets to a scaled folder. If you want to share a scaled folder with more than 3000 namespaces, contact [AWS support](https://aws.amazon.com/contact-us/).
+Each AWS Quick account holds up 100 scaled folders. You can add up to 100 assets to a scaled folder. If you want to share a scaled folder with more than 3000 namespaces, contact [AWS support](https://aws.amazon.com/contact-us/).
 
 ## Examples
 <a name="folders-scaled-examples"></a>

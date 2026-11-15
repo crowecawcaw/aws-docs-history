@@ -3,7 +3,7 @@
 # Knowledge graph
 <a name="knowledge-graph-desktop"></a>
 
-Amazon Quick builds a personal knowledge graph that captures entities and the relationships between them from your connected data sources and files. The graph gives Quick contextual understanding of the people, projects, organizations, and events in your work, so it provides more relevant, personalized responses. It is kept for you, per user, in your Amazon Quick account. It complements your [Memories](memories-desktop.md), which capture the facts and preferences Quick learns from your conversations.
+AWS Quick builds a personal knowledge graph that captures entities and the relationships between them from your connected data sources and files. The graph gives Quick contextual understanding of the people, projects, organizations, and events in your work, so it provides more relevant, personalized responses. It is kept for you, per user, in your AWS Quick account. It complements your [Memories](memories-desktop.md), which capture the facts and preferences Quick learns from your conversations.
 
 If you ask about a project, Quick uses the graph to identify related people, recent meetings, associated documents, and relevant channels.
 
@@ -15,7 +15,7 @@ Quick organizes graph entities into categories that span the people, organizatio
 ## Data sources
 <a name="kg-desktop-data-sources"></a>
 
-The graph extracts entities from connected integrations and from local folders. When you enable auto-ingestion, Quick extracts entities from your connected apps. When you enable knowledge graph extraction for a folder on the Knowledge tab in Customize (see [Knowledge](knowledge-desktop.md)), Quick extracts entities from files in that folder, independently of keyword and semantic indexing.
+The graph extracts entities from connected integrations and from local folders. When you enable auto-ingestion, Quick extracts entities from your connected apps. When you turn on **Index and extract into knowledge graph** for a folder on the **Knowledge** tab in **Customize** (see [Knowledge](knowledge-desktop.md)), Quick extracts entities from the files in that folder.
 
 ## Viewing the knowledge graph
 <a name="kg-desktop-viewing"></a>
@@ -43,7 +43,7 @@ When you select an entity, the entity details panel shows the following.
 ## Configuring and resetting the knowledge graph
 <a name="kg-desktop-configuring-resetting"></a>
 
-The Knowledge graph settings include Auto-ingest from integrations, a single toggle that lets Quick learn from your connected apps and build the graph. Per-folder knowledge graph extraction is configured separately, on the Knowledge tab in Customize (see [Knowledge](knowledge-desktop.md)).
+The Knowledge graph settings include Auto-ingest from integrations, a single toggle that lets Quick learn from your connected apps and build the graph. Per-folder knowledge graph extraction is configured separately, on the **Knowledge** tab in **Customize** (see [Knowledge](knowledge-desktop.md)).
 
 You can reset the knowledge graph to permanently remove all entities and relationships that Quick has built. Resetting removes all people, projects, organizations, events, and relationships. It does not affect your files, your memories, or your connected services. Quick can rebuild the graph from those sources over time if you leave auto-ingest and per-folder extraction enabled.
 

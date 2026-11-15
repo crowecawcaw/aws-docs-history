@@ -3,7 +3,7 @@
 # The analysis menu
 <a name="analysis-menu"></a>
 
-While working on an analysis, Amazon Quick provides several menu options. You use these menu options to efficiently perform tasks without needing to manually navigate through your analysis to find the assets that you want to change.
+While working on an analysis, AWS Quick provides several menu options. You use these menu options to efficiently perform tasks without needing to manually navigate through your analysis to find the assets that you want to change.
 
 You can use these options to perform the following tasks.
 + *File* – Perform analysis management tasks, including creating, sharing, and publishing. Authors can use this option to make changes across all sheets or visuals in an analysis.

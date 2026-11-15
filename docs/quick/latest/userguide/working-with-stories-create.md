@@ -29,7 +29,7 @@ Use the following procedure to create a data story with Generative BI.
 
 1. (Optional) Use the **Select documents** section to upload up to 5 documents to be used in the data story. Each document can't exceed 10MB. These documents are only used to generate the data story and are not stored in Quick Sight. The following image shows the **Select documents** section of the **Build story** screen.
 
-1. (Optional) If your Quick account is connected to an Amazon Q Business application, check the **Use insights from Amazon Q Business** checkbox to augment your data story with unstructured data sources from Amazon Q Business. For more information about connecting a Quick account to a Amazon Q Business application, see [Augmenting Amazon Quick Sight insights with Amazon Q Business](generative-bi-q-business.md).
+1. (Optional) If your Quick account is connected to an Amazon Q Business application, check the **Use insights from Amazon Q Business** checkbox to augment your data story with unstructured data sources from Amazon Q Business. For more information about connecting a Quick account to a Amazon Q Business application, see [Augmenting AWS Quick Sight insights with Amazon Q Business](generative-bi-q-business.md).
 
 1. Choose **Build**.
 

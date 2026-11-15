@@ -3,7 +3,7 @@
 # Index capacity
 <a name="manage-data-capacity"></a>
 
-An index is a structured corpus of documents that allows for efficient searching, sorting, and data access. Amazon Quick uses an index to store, prepare, sync any files you upload to your Quick spaces. It then uses this indexed data to generate agent-driven responses during chat conversations.
+An index is a structured corpus of documents that allows for efficient searching, sorting, and data access. AWS Quick uses an index to store, prepare, sync any files you upload to your Quick spaces. It then uses this indexed data to generate agent-driven responses during chat conversations.
 
 **Topics**
 + [Storage allocation](#storage-allocation)
@@ -34,16 +34,16 @@ Quick Index has an auto-scaling limit currently set at 2 TB of storage per accou
 ## Total index capacity
 <a name="index-data-capacity"></a>
 
-You must purchase data storage capacity for your Amazon Quick index to ingest data from knowledge bases and upload files to spaces. In the index capacity page, the first horizontal bar shows your total index capacity. This is the current capacity available in your index to support file uploads and knowledge bases. You can switch between manual and auto-scaled index capacity modes as per your needs. When auto-scaling mode is **ON**, this capacity automatically adjusts to reflect the latest available capacity based on your ingestion needs. When manual mode is **ON**, this total capacity represents the actual capacity you have purchased for your account based on your estimate of the ingestion needs.
+You must purchase data storage capacity for your AWS Quick index to ingest data from knowledge bases and upload files to spaces. In the index capacity page, the first horizontal bar shows your total index capacity. This is the current capacity available in your index to support file uploads and knowledge bases. You can switch between manual and auto-scaled index capacity modes as per your needs. When auto-scaling mode is **ON**, this capacity automatically adjusts to reflect the latest available capacity based on your ingestion needs. When manual mode is **ON**, this total capacity represents the actual capacity you have purchased for your account based on your estimate of the ingestion needs.
 
-If you previously purchased Index capacity measured in extracted MBs of storage, your existing purchased capacity will be converted to the new Raw Storage dimension automatically. When buying capacity manually, you can also release unused capacity. If you want to release all provisioned index capacity, you can do so after deleting corresponding data—like file uploads in spaces and knowledge bases—in your Amazon Quick instance.
+If you previously purchased Index capacity measured in extracted MBs of storage, your existing purchased capacity will be converted to the new Raw Storage dimension automatically. When buying capacity manually, you can also release unused capacity. If you want to release all provisioned index capacity, you can do so after deleting corresponding data—like file uploads in spaces and knowledge bases—in your AWS Quick instance.
 
 **Note**  
-With auto-scaling enabled, Amazon Quick may temporarily provision capacity above your maximum purchase limit during periods of high concurrent usage to maintain performance. However, you are only charged for capacity up to your configured maximum purchase limit, not for any temporary over-provisioning that occurs.
+With auto-scaling enabled, AWS Quick may temporarily provision capacity above your maximum purchase limit during periods of high concurrent usage to maintain performance. However, you are only charged for capacity up to your configured maximum purchase limit, not for any temporary over-provisioning that occurs.
 
 **To manage purchase options**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. Select **Manage Quick**.
 
@@ -62,11 +62,11 @@ With auto-scaling enabled, Amazon Quick may temporarily provision capacity above
 ## To view index capacity usage
 <a name="used-index-data-capacity"></a>
 
-The Amazon Quick admin console displays both your purchased index capacity and your index capacity usage. The following procedure shows you how to view them.
+The AWS Quick admin console displays both your purchased index capacity and your index capacity usage. The following procedure shows you how to view them.
 
 **To view index data capacity usage**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. Select **Manage Quick**.
 
@@ -77,14 +77,14 @@ The Amazon Quick admin console displays both your purchased index capacity and y
 ## Release unused index capacity
 <a name="release-index-data-capacity"></a>
 
-The Amazon Quick admin console displays both your purchased index capacity and your index capacity usage. If you've manually provisioned capacity, you can choose to release unused index capacity. If you've enabled auto-scaling for your index, you don't need to release index capacity as Amazon Quick automatically scales index capacity to your usage. The following procedure shows you how to release unused index capacity.
+The AWS Quick admin console displays both your purchased index capacity and your index capacity usage. If you've manually provisioned capacity, you can choose to release unused index capacity. If you've enabled auto-scaling for your index, you don't need to release index capacity as AWS Quick automatically scales index capacity to your usage. The following procedure shows you how to release unused index capacity.
 
 **Note**  
 To release any provisioned index capacity, you must delete all datasets and files uploaded to spaces. Then, follow the steps to release unused index capacity.
 
 **To release index data capacity**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. Select **Manage Quick**.
 
@@ -97,12 +97,12 @@ To release any provisioned index capacity, you must delete all datasets and file
 ## Switch between capacity modes
 <a name="switch-capacity-modes"></a>
 
-You can switch between manual and auto-scale index capacity modes at any time. When switching from auto-scale to manual, your current capacity becomes your fixed manual capacity. When switching from manual to auto-scale, you set a maximum purchase limit and Amazon Quick automatically adjusts capacity based on usage.
+You can switch between manual and auto-scale index capacity modes at any time. When switching from auto-scale to manual, your current capacity becomes your fixed manual capacity. When switching from manual to auto-scale, you set a maximum purchase limit and AWS Quick automatically adjusts capacity based on usage.
 
 ------
 #### [ To switch from auto-scale to manual capacity ]
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. Select **Manage Quick**.
 
@@ -119,7 +119,7 @@ You can switch between manual and auto-scale index capacity modes at any time. W
 ------
 #### [ To switch from manual to auto-scale capacity ]
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
 1. Select **Manage Quick**.
 

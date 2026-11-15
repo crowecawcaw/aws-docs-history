@@ -1,11 +1,11 @@
 
 
-# Amazon Quick Microsoft PowerPoint extension
+# AWS Quick Microsoft PowerPoint extension
 <a name="powerpoint-extension-guide"></a>
 
-The Amazon Quick extension for PowerPoint helps you create compelling, data-driven presentations by integrating your enterprise data, AI-powered design assistance, and intelligent content generation directly into PowerPoint.
+The AWS Quick extension for PowerPoint helps you create compelling, data-driven presentations by integrating your enterprise data, AI-powered design assistance, and intelligent content generation directly into PowerPoint.
 
-You can search for Amazon Quick in the Microsoft PowerPoint app store or visit the [Quick for PowerPoint Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010606) to add the extension.
+You can search for AWS Quick in the Microsoft PowerPoint app store or visit the [Quick for PowerPoint Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010606) to add the extension.
 
 Key capabilities include:
 + **Presentation creation with enterprise data:** Generate complete presentations using data from Quick dashboards, spaces, and knowledge bases. Pull real-time metrics and insights directly from your organization's data sources, or create presentations from outlines, topics, or natural language descriptions.
@@ -14,34 +14,34 @@ Key capabilities include:
 + **Natural language editing:** Select slides or content and request modifications using conversational prompts. Add, delete, reorder, or reorganize slides effortlessly, and chat about your presentation content to get insights and suggestions.
 
 **Important**  
-The Amazon Quick PowerPoint extension uses generative AI to create and execute code within your PowerPoint application sandbox. AI can make mistakes and perform inaccurate actions within your PowerPoint slide deck. No presentation data is read when the side panel is closed, and no data is sent to Amazon Quick unless you explicitly send a prompt.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick PowerPoint extension uses generative AI to create and execute code within your PowerPoint application sandbox. AI can make mistakes and perform inaccurate actions within your PowerPoint slide deck. No presentation data is read when the side panel is closed, and no data is sent to AWS Quick unless you explicitly send a prompt.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
-The Amazon Quick Microsoft PowerPoint extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft PowerPoint extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When you use the extension, the time Amazon Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When you use the extension, the time AWS Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-## Amazon Quick Microsoft PowerPoint extension usage guidelines
+## AWS Quick Microsoft PowerPoint extension usage guidelines
 <a name="powerpoint-usage-guidelines"></a>
 
-As a user, you are responsible for keeping company information safe. The following guidance helps you use Amazon Quick apps securely while maintaining data privacy and compliance.
+As a user, you are responsible for keeping company information safe. The following guidance helps you use AWS Quick apps securely while maintaining data privacy and compliance.
 
 ### Conversation retention and accuracy
 <a name="powerpoint-conversation-retention"></a>
 
 Each conversation is stored for 30 days. You can review and manage your conversation history by choosing the conversation history button in the PowerPoint extension.
 
-Amazon Quick uses generative AI. You should review responses for accuracy.
+AWS Quick uses generative AI. You should review responses for accuracy.
 
-Usage of the Amazon Quick extension for Microsoft PowerPoint is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
+Usage of the AWS Quick extension for Microsoft PowerPoint is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
 
 ### Security considerations
 <a name="powerpoint-security-considerations"></a>
 
-To protect your organization's data, carefully evaluate usage and plan deployment with data privacy in mind. Amazon Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft PowerPoint conversations into your company's Amazon Quick instance.
+To protect your organization's data, carefully evaluate usage and plan deployment with data privacy in mind. AWS Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft PowerPoint conversations into your company's AWS Quick instance.
 
 ## Sample prompts
 <a name="powerpoint-sample-prompts"></a>

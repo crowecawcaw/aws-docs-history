@@ -3,7 +3,7 @@
 # Assigning custom permissions profiles
 <a name="custom-permissions-assign"></a>
 
-After you create a custom permissions profile, you can assign it to users, roles, or accounts. Users with sufficient permissions can also use the [`AWS::QuickSight::CustomPermissions`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.html) CloudFormation resource to manage Amazon Quick custom permissions profiles.
+After you create a custom permissions profile, you can assign it to users, roles, or accounts. Users with sufficient permissions can also use the [`AWS::QuickSight::CustomPermissions`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.html) CloudFormation resource to manage AWS Quick custom permissions profiles.
 
 ## Assigning a custom permissions profile (Quick console)
 <a name="custom-permissions-assign-console"></a>

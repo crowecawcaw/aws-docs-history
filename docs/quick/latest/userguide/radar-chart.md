@@ -3,7 +3,7 @@
 # Using radar charts
 <a name="radar-chart"></a>
 
-You can use radar charts, which are also known as spider charts, to visualize multivariate data in Amazon Quick. In a radar chart, one or more groups of values are plotted over multiple common variables. Each variable has its own axis, and each axis is arranged radially around a central point. The data points from a single observation are plotted on each axis and connected to each other to form a polygon. Multiple observations can be plotted in a single radar chart to display multiple polygons, which makes it easier to spot outlying values for multiple observations quickly. 
+You can use radar charts, which are also known as spider charts, to visualize multivariate data in AWS Quick. In a radar chart, one or more groups of values are plotted over multiple common variables. Each variable has its own axis, and each axis is arranged radially around a central point. The data points from a single observation are plotted on each axis and connected to each other to form a polygon. Multiple observations can be plotted in a single radar chart to display multiple polygons, which makes it easier to spot outlying values for multiple observations quickly. 
 
 In Quick, you can organize a radar chart along its category, value, or color axes by dragging and dropping fields to the **Category**, **Value**, and **Color** field wells. How you choose to distribute fields among the field wells determines the axis that the data is plotted on.
 
@@ -26,11 +26,11 @@ To view the features supported by radar charts, use the following table.
 | Changing the axis range | Yes |  | [Range and scale on visual types in Quick](changing-visual-scale-axis-range.md) | 
 | Changing the visual colors | Yes |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes |  | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | Limited | You can only sort data fields that are in the Category and Color field wells. | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | Limited | You can only sort data fields that are in the Category and Color field wells. | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes |  | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Not supported |  | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
-| Choosing size | Yes |  | [Formatting in Amazon Quick](formatting-a-visual.md) | 
-| Showing totals | Not supported |  | [Formatting in Amazon Quick](formatting-a-visual.md) | 
+| Choosing size | Yes |  | [Formatting in AWS Quick](formatting-a-visual.md) | 
+| Showing totals | Not supported |  | [Formatting in AWS Quick](formatting-a-visual.md) | 
 
 ## Creating a radar chart
 <a name="create-radar-chart"></a>

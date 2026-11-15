@@ -7,7 +7,7 @@ To visualize one or two measures for a dimension, use tree maps.
 
 Each rectangle on the tree map represents one item in the dimension. Rectangle size represents the proportion of the value for the selected measure that the item represents compared to the whole for the dimension. You can optionally use rectangle color to represent another measure for the item. Rectangle color represents where the value for the item falls in the range for the measure, with darker colors indicating higher values and lighter colors indicating lower ones.
 
-Tree maps show up to 100 data points for the **Group by** field. For more information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Tree maps show up to 100 data points for the **Group by** field. For more information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Tree map features
 <a name="tree-map-features"></a>
@@ -23,7 +23,7 @@ To understand the features supported by tree maps, use the following table.
 | Changing the axis range | Not applicable |  | [Range and scale on visual types in Quick](changing-visual-scale-axis-range.md) | 
 | Changing the visual colors | No |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes, with exceptions | You can focus on or exclude a rectangle from a tree map, except when you are using a date field as the dimension. In that case, you can only focus on a rectangle, not exclude it.  | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | No | Default sorting is in descending order by the measure in the Size column. | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | No | Default sorting is in descending order by the measure in the Size column. | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You must apply aggregation to the fields you choose for size and color, and can't apply aggregation to the field that you choose to group by. | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Yes | You can add drill-down levels to the Group by field well. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
 

@@ -3,7 +3,7 @@
 # Dataset Enrichment
 <a name="dataset-enrichment"></a>
 
-Dataset Enrichment is a capability in Amazon Quick Sight that enables dataset authors to add rich semantic metadata to their datasets. By providing descriptions, custom instructions, and structured metadata, you ensure that both human consumers and AI-powered agents understand what a dataset represents and how to use it.
+Dataset Enrichment is a capability in AWS Quick Sight that enables dataset authors to add rich semantic metadata to their datasets. By providing descriptions, custom instructions, and structured metadata, you ensure that both human consumers and AI-powered agents understand what a dataset represents and how to use it.
 
 ## Dataset Enrichment overview
 <a name="dataset-enrichment-overview"></a>
@@ -177,7 +177,7 @@ This change does not grant Professional subscribers any authoring capabilities. 
 <a name="dataset-qna-professional-automatic"></a>
 
 Professional subscribers automatically gain Dataset View access if they meet either of the following criteria:
-+ They are a member of an Amazon Quick Sight group where a dataset has been shared.
++ They are a member of an AWS Quick Sight group where a dataset has been shared.
 + They are a member of a folder that contains shared datasets.
 
 No action is required from authors or admins – existing sharing configurations automatically extend Dataset View access to Professional subscribers who are already part of these groups or folders.
@@ -186,7 +186,7 @@ No action is required from authors or admins – existing sharing configurations
 <a name="dataset-qna-professional-sharing"></a>
 
 To give Professional subscribers Dataset View access to additional datasets, use one of the following methods:
-+ Add the Professional subscriber to an Amazon Quick Sight group, then share the dataset with that group. The Professional subscriber automatically receives View access to the dataset.
++ Add the Professional subscriber to an AWS Quick Sight group, then share the dataset with that group. The Professional subscriber automatically receives View access to the dataset.
 + Place the dataset in a folder where the Professional subscriber has membership. The Professional subscriber automatically inherits View access through the folder.
 
 In both cases, Professional subscribers receive View-only access. They can see the dataset schema and use Dataset Q&A but cannot edit or create analyses from the dataset.

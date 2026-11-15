@@ -1,9 +1,9 @@
 
 
-# Amazon Quick Flows landing page
+# AWS Quick Flows landing page
 <a name="quick-flows-landing-page"></a>
 
-When you access Amazon Quick Flows, you are directed to the landing page. The landing page has three navigation tabs:
+When you access AWS Quick Flows, you are directed to the landing page. The landing page has three navigation tabs:
 + **Flows library** — Browse, search, and manage your flows and flows that others have shared with you.
 + **My schedules** — Monitor and manage scheduled flow runs.
 + **Pending approval** — Review and act on flows that are awaiting approval.

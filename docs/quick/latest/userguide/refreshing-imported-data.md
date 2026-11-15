@@ -17,7 +17,7 @@ Use the following procedure to refresh a [SPICE](spice.md) dataset based on an A
 1. Keep the refresh type as **Full refresh**.
 
 1. If you are refreshing an Amazon S3 dataset, choose one of the following options for **S3 Manifest**:
-   + To use the same manifest file you last provided to Amazon Quick Sight, choose **Existing Manifest**. If you have changed the manifest file at the file location or URL that you last provided, the data returned reflects those changes. 
+   + To use the same manifest file you last provided to AWS Quick Sight, choose **Existing Manifest**. If you have changed the manifest file at the file location or URL that you last provided, the data returned reflects those changes. 
    + To specify a new manifest file by uploading it from your local network, choose **Upload Manifest**, and then choose **Upload manifest file**. For **Open**, choose a file, and then choose **Open**.
    + To specify a new manifest file by providing a URL, enter the URL of the manifest in **Input manifest URL**. You can find the manifest file URL in the Amazon S3 console by opening the context (right-click) menu for the manifest file, choosing **Properties**, and looking at the **Link** box.
 
@@ -77,7 +77,7 @@ Use the following procedure to refresh a [SPICE](spice.md) dataset based on an A
 1. Keep the refresh type set to **Full refresh**. 
 
 1. (Optional) If you are refreshing an Amazon S3 dataset, choose one of the following options for **S3 Manifest**:
-   + To use the same manifest file that you last provided to Amazon Quick Sight, choose **Existing Manifest**. If you have changed the manifest file at the file location or URL that you last provided, the data returned reflects those changes.
+   + To use the same manifest file that you last provided to AWS Quick Sight, choose **Existing Manifest**. If you have changed the manifest file at the file location or URL that you last provided, the data returned reflects those changes.
    + To specify a new manifest file by uploading it from your local network, choose **Upload Manifest**, and then choose **Upload manifest file**. For **Open**, choose a file, and then choose **Open**.
    + To specify a new manifest file by providing a URL, enter the URL of the manifest in **Input manifest URL**. You can find the manifest file URL in the Amazon S3 console by opening the context (right-click) menu for the manifest file, choosing **Properties**, and looking at the **Link** box.
 

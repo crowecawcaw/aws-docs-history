@@ -3,23 +3,23 @@
 # Connector APIs
 <a name="action-connector-apis"></a>
 
-Connector APIs let you programmatically create and manage connections between Amazon Quick and external services. These APIs support the action integration functionality that allows users to perform actions in third-party applications directly from Amazon Quick chat interfaces and automated workflows.
+Connector APIs let you programmatically create and manage connections between AWS Quick and external services. These APIs support the action integration functionality that allows users to perform actions in third-party applications directly from AWS Quick chat interfaces and automated workflows.
 
 ## What are connector APIs?
 <a name="action-connector-apis-overview"></a>
 
-Connectors serve as the foundational resources that enable integration with first and third party applications. Through these APIs, you can authenticate to applications, manage permissions, and control which actions are available to users within your Amazon Quick applications.
+Connectors serve as the foundational resources that enable integration with first and third party applications. Through these APIs, you can authenticate to applications, manage permissions, and control which actions are available to users within your AWS Quick applications.
 
 ### How connector APIs support action integrations
 <a name="action-connector-apis-task-integrations"></a>
 
-Connector APIs provide the backend infrastructure for Amazon Quick action integrations. When you create a connector through the API, you establish a secure connection that lets you:
+Connector APIs provide the backend infrastructure for AWS Quick action integrations. When you create a connector through the API, you establish a secure connection that lets you:
 + Execute actions in external services through chat interfaces.
 + Perform automated workflows in background processes.
-+ Integrate third-party services with Amazon Quick applications.
++ Integrate third-party services with AWS Quick applications.
 + Manage authentication and permissions for service access.
 
-The APIs handle the complex authentication flows, credential management, and permission controls needed to securely connect Amazon Quick with external services.
+The APIs handle the complex authentication flows, credential management, and permission controls needed to securely connect AWS Quick with external services.
 
 ## Authentication methods
 <a name="action-connector-apis-authentication"></a>
@@ -33,7 +33,7 @@ Three-Legged OAuth provides the simplest setup for personal access to third-part
 + No initial configuration required.
 + User-specific authentication through service provider login.
 + Automatic token refresh with 90-day lifecycle.
-+ Secure credential storage managed by Amazon Quick.
++ Secure credential storage managed by AWS Quick.
 
 ### Service-to-service authentication (2LO)
 <a name="qbs-action-connector-apis-service-auth"></a>

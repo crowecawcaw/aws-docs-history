@@ -1,22 +1,22 @@
 
 
-# Developing applications with the Amazon Quick Sight API
+# Developing applications with the AWS Quick Sight API
 <a name="quicksight-sdks"></a>
 
 You can manage most aspects of your deployment by using the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs). 
 
-For more information on the API operations, see [Amazon Quick Sight API Reference](https://docs.aws.amazon.com/quicksight/index.html?id=docs_gateway). 
+For more information on the API operations, see [AWS Quick Sight API Reference](https://docs.aws.amazon.com/quicksight/index.html?id=docs_gateway). 
 
-Before you can call the Amazon Quick Sight API operations, you need the `quicksight:{{operation-name}}` permission in a policy attached to your IAM identity. For example, to call `list-users`, you need the permission `quicksight:ListUsers`. The same pattern applies to all operations.
+Before you can call the AWS Quick Sight API operations, you need the `quicksight:{{operation-name}}` permission in a policy attached to your IAM identity. For example, to call `list-users`, you need the permission `quicksight:ListUsers`. The same pattern applies to all operations.
 
-If you're not sure what the necessary permission is, you can attempt to make a call. The client then tells you what the missing permission is. You can use asterisk (`*`) in the Resource field of your permission policy instead of specifying explicit resources. However, we recommended that you restrict each permission as much as possible. You can restrict user access by specifying or excluding resources in the policy, using their Amazon Quick Sight Amazon Resource Name (ARN) identifier. 
+If you're not sure what the necessary permission is, you can attempt to make a call. The client then tells you what the missing permission is. You can use asterisk (`*`) in the Resource field of your permission policy instead of specifying explicit resources. However, we recommended that you restrict each permission as much as possible. You can restrict user access by specifying or excluding resources in the policy, using their AWS Quick Sight Amazon Resource Name (ARN) identifier. 
 
 For more information, see the following:
-+ [IAM policy examples for Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
++ [IAM policy examples for AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
 + [Actions, Resources, and Condition Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonquicksight.html)
 + [IAM JSON Policy Elements](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html)
 
-To retrieve the ARN of a user or a group, use the `Describe` operation on the relevant resource. You can also add conditions in IAM to further restrict access to an API in some scenarios. For instance, when adding `User1` to `Group1`, the main resource is `Group1`, so you can allow or deny access to certain groups, but you can also add a condition by using the IAM Amazon Quick Sight key `quicksight:UserName` to allow or prevent certain users from being added to that group. 
+To retrieve the ARN of a user or a group, use the `Describe` operation on the relevant resource. You can also add conditions in IAM to further restrict access to an API in some scenarios. For instance, when adding `User1` to `Group1`, the main resource is `Group1`, so you can allow or deny access to certain groups, but you can also add a condition by using the IAM AWS Quick Sight key `quicksight:UserName` to allow or prevent certain users from being added to that group. 
 
 Following is an example policy. It means that the caller with this policy attached, is able to invoke the `CreateGroupMembership` operation on any group, provided that the user name they are adding to the group is not `user1`. 
 
@@ -36,7 +36,7 @@ Following is an example policy. It means that the caller with this policy attach
 ------
 #### [ AWS CLI ]
 
-The following procedure explains how to interact with Amazon Quick Sight API operations through the AWS CLI. The following instructions have been tested in Bash but should be identical or similar in other command-line environments.
+The following procedure explains how to interact with AWS Quick Sight API operations through the AWS CLI. The following instructions have been tested in Bash but should be identical or similar in other command-line environments.
 
 1. Install AWS SDK in your environment. Instructions on how to do that are located here: [AWS Command line Interface](https://aws.amazon.com/cli/).
 
@@ -46,7 +46,7 @@ The following procedure explains how to interact with Amazon Quick Sight API ope
    aws configure
    ```
 
-1. Look at the Amazon Quick Sight SDK help by issuing the following command: 
+1. Look at the AWS Quick Sight SDK help by issuing the following command: 
 
    ```
    aws quicksight help
@@ -58,7 +58,7 @@ The following procedure explains how to interact with Amazon Quick Sight API ope
    aws quicksight list-users help
    ```
 
-1. Now you can call an Amazon Quick Sight API operation. This example returns a list of Amazon Quick Sight users in your account. 
+1. Now you can call an AWS Quick Sight API operation. This example returns a list of AWS Quick Sight users in your account. 
 
    ```
    aws quicksight list-users --aws-account-id {{aws-account-id}} --namespace default --region us-east-1
@@ -67,13 +67,13 @@ The following procedure explains how to interact with Amazon Quick Sight API ope
 ------
 #### [ Java SDK ]
 
-Use the following procedure to set up a Java app that interacts with Amazon Quick Sight. 
+Use the following procedure to set up a Java app that interacts with AWS Quick Sight. 
 
 1. To get started, create a Java project in your IDE.
 
-1. Import the Amazon Quick Sight SDK into your new project, for example: `AWSQuickSightJavaClient-1.11.x.jar`
+1. Import the AWS Quick Sight SDK into your new project, for example: `AWSQuickSightJavaClient-1.11.x.jar`
 
-1. Once your IDE indexes the Amazon Quick Sight SDK, you should be able to add an import line as follows: 
+1. Once your IDE indexes the AWS Quick Sight SDK, you should be able to add an import line as follows: 
 
    ```
    import com.amazonaws.services.quicksight.AmazonQuickSight;
@@ -81,14 +81,14 @@ Use the following procedure to set up a Java app that interacts with Amazon Quic
 
    If you IDE doesn't recognize this as valid, verify that you imported the SDK.
 
-1. Like other AWS SDKs, Amazon Quick Sight SDK requires external dependencies to perform many of its functions. You need to download and import those into the same project. The following dependencies are required:
+1. Like other AWS SDKs, AWS Quick Sight SDK requires external dependencies to perform many of its functions. You need to download and import those into the same project. The following dependencies are required:
    + `aws-java-sdk-1.11.402.jar` (AWS Java SDK and credentials setup) — See [ Set up the AWS SDK for Java ](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-install.html) 
    + `commons-logging-1.2.jar` — See [ https://commons.apache.org/proper/commons-logging/download\_logging.cgi ](https://commons.apache.org/proper/commons-logging/download_logging.cgi) 
    + `jackson-annotations-2.9.6.jar`, `jackson-core-2.9.6.jar`, and `jackson-databind-2.9.6.jar` — See [ http://repo1.maven.org/maven2/com/fasterxml/jackson/core/ ](https://repo1.maven.org/maven2/com/fasterxml/jackson/core/) 
    + `httpclient-4.5.6.jar`, `httpcore-4.4.10.jar` — See [ https://hc.apache.org/downloads.cgi ](https://hc.apache.org/downloads.cgi) 
    + `joda-time-2.1.jar` — See [ https://mvnrepository.com/artifact/joda-time/joda-time/2.1 ](https://mvnrepository.com/artifact/joda-time/joda-time/2.1) 
 
-1. Now, you are ready to create an Amazon Quick Sight client. You can use a default public endpoint that the client can communicate with or you can reference the endpoint explicitly. There are multiple ways to provide your AWS credentials. In the following example, we provide a direct, simple approach. The following client method is used to make all the API calls that follow:
+1. Now, you are ready to create an AWS Quick Sight client. You can use a default public endpoint that the client can communicate with or you can reference the endpoint explicitly. There are multiple ways to provide your AWS credentials. In the following example, we provide a direct, simple approach. The following client method is used to make all the API calls that follow:
 
    ```
    private static AmazonQuickSight getClient() {
@@ -111,9 +111,9 @@ Use the following procedure to set up a Java app that interacts with Amazon Quic
    	}
    ```
 
-1. Now, we can use the above client to list all the users in our Amazon Quick Sight account. 
+1. Now, we can use the above client to list all the users in our AWS Quick Sight account. 
 **Note**  
-You have to provide the AWS account ID that you used to subscribe to Amazon Quick Sight. This must match the AWS account ID of the caller’s identity. Cross-account calls aren't supported at this time. Furthermore, the required parameter `namespace` should always be set to {{default}}. 
+You have to provide the AWS account ID that you used to subscribe to AWS Quick Sight. This must match the AWS account ID of the caller’s identity. Cross-account calls aren't supported at this time. Furthermore, the required parameter `namespace` should always be set to {{default}}. 
 
    ```
    getClient().listUsers(new ListUsersRequest()
@@ -124,12 +124,12 @@ You have to provide the AWS account ID that you used to subscribe to Amazon Quic
            });
    ```
 
-1. To see a list of all possible API operations and the request objects they use, you can **CTRL-click** on the client object in your IDE in order to view the Amazon Quick Sight interface. Alternatively, find it within the `com.amazonaws.services.quicksight` package in the Amazon Quick Sight JavaClient JAR file.
+1. To see a list of all possible API operations and the request objects they use, you can **CTRL-click** on the client object in your IDE in order to view the AWS Quick Sight interface. Alternatively, find it within the `com.amazonaws.services.quicksight` package in the AWS Quick Sight JavaClient JAR file.
 
 ------
 #### [ JavaScript (Node.js) SDK ]
 
-Use the following procedure to interact with Amazon Quick Sight using Node.js. 
+Use the following procedure to interact with AWS Quick Sight using Node.js. 
 
 1. Set up your node environment using the following commands:
    + `npm install aws-sdk`
@@ -139,7 +139,7 @@ Use the following procedure to interact with Amazon Quick Sight using Node.js.
 
 1. For information on configuring the Node.js with AWS SDK and setting your credentials, see--> the [AWS SDK for JavaScript Developer Guide for SDK v2](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/welcome.html). 
 
-1. Use the following code sample to test your setup. HTTPS is required. The sample displays a full listing of Amazon Quick Sight operations along with their URL request parameters, followed by a list of Amazon Quick Sight users in your account.
+1. Use the following code sample to test your setup. HTTPS is required. The sample displays a full listing of AWS Quick Sight operations along with their URL request parameters, followed by a list of AWS Quick Sight users in your account.
 
    ```
    const AWS = require('aws-sdk');
@@ -169,7 +169,7 @@ Use the following procedure to interact with Amazon Quick Sight using Node.js.
 ------
 #### [ Python3 SDK ]
 
-Use the following procedure to create a custom built `botocore` package to interact with Amazon Quick Sight. 
+Use the following procedure to create a custom built `botocore` package to interact with AWS Quick Sight. 
 
 1. Create a credentials file in the AWS directory for your environment. In a Linux/Mac-based environment, that file is called \~/.aws/credentials and looks like this:
 
@@ -216,7 +216,7 @@ Use the following procedure to create a custom built `botocore` package to inter
 ------
 #### [ .NET/C\# SDK ]
 
-Use the following procedure to interact with Amazon Quick Sight using C\#.NET. This example is constructed on Microsoft Visual for Mac; the instructions can vary slightly based on your IDE and platform. However, they should be similar.
+Use the following procedure to interact with AWS Quick Sight using C\#.NET. This example is constructed on Microsoft Visual for Mac; the instructions can vary slightly based on your IDE and platform. However, they should be similar.
 
 
 
@@ -230,7 +230,7 @@ Use the following procedure to interact with Amazon Quick Sight using C\#.NET. T
 
 1. Choose **Add**, and name the source `QuickSightSDK`. Browse to the `nuget` folder and choose **Add Source**.
 
-1. Choose **OK**. Then, with `QuickSightSDK` selected, select all three Amazon Quick Sight packages:
+1. Choose **OK**. Then, with `QuickSightSDK` selected, select all three AWS Quick Sight packages:
    + `AWSSDK.QuickSight`
    + `AWSSDK.Extensions.NETCore.Setup`
    + `AWSSDK.Extensions.CognitoAuthentication`

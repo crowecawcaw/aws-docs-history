@@ -3,12 +3,12 @@
 # Activity feed
 <a name="activity-feed-desktop"></a>
 
-In Amazon Quick, the activity feed is your single place to catch what happened across your connected services, such as Slack, Outlook, and your calendar. You don't need to open each app. Quick reads that activity and surfaces only what is relevant to you. It uses your knowledge graph (the people, projects, and topics in your work) to decide what matters. A feed agent processes items from your messaging, email, and calendar sources. It assigns importance and suggests actions. The feed is organized into **Feed**, **Calendar**, and **To-dos** tabs.
+In AWS Quick, the activity feed is your single place to catch what happened across your connected services, such as Slack, Outlook, and your calendar. You don't need to open each app. Quick reads that activity and surfaces only what is relevant to you. It uses your knowledge graph (the people, projects, and topics in your work) to decide what matters. A feed agent processes items from your messaging, email, and calendar sources. It assigns importance and suggests actions. The feed is organized into **Feed**, **Calendar**, and **To-dos** tabs.
 
 The feed has these characteristics.
 + **Personalized every time**: items are ranked by what matters to you, not by what arrived most recently.
 + **Burns down as you work**: the feed gets smaller as you handle items, not bigger. The goal is an empty feed, not an endless timeline.
-+ **Does not consume agent hours**: using the feed does not consume agent hours. Only scheduled tasks that post results to your feed use agent hours. For plan availability and pricing, see [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/) on the AWS website.
++ **Does not consume agent hours**: using the feed does not consume agent hours. Only scheduled tasks that post results to your feed use agent hours. For plan availability and pricing, see [AWS Quick pricing](https://aws.amazon.com/quick/pricing/) on the AWS website.
 
 ## On Home
 <a name="activity-feed-home"></a>

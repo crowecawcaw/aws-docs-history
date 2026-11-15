@@ -1,9 +1,9 @@
 
 
-# Using Amazon Quick Flows in the browser extension
+# Using AWS Quick Flows in the browser extension
 <a name="flows-in-browser-extension"></a>
 
-Amazon Quick Flows in the browser extension enables you to run pre-defined workflows directly within your web browsing context. You can invoke flows that you've created or that have been shared with you, pass web page content as input, and execute multi-step workflows without leaving your browser.
+AWS Quick Flows in the browser extension enables you to run pre-defined workflows directly within your web browsing context. You can invoke flows that you've created or that have been shared with you, pass web page content as input, and execute multi-step workflows without leaving your browser.
 
 When you use flows in the browser extension, you can:
 + Invoke flows explicitly from the browser extension interface.
@@ -14,7 +14,7 @@ When you use flows in the browser extension, you can:
 <a name="flows-browser-prerequisites"></a>
 
 Before using flows in the browser extension, ensure you have:
-+ Appropriate permissions to execute flows in your Amazon Quick account.
++ Appropriate permissions to execute flows in your AWS Quick account.
 
 ## Invoking flows
 <a name="invoking-flows-browser"></a>
@@ -23,7 +23,7 @@ You can invoke flows from the browser extension to run workflows on the web page
 
 **To invoke a flow in the browser extension:**
 
-1. Open the Amazon Quick browser extension.
+1. Open the AWS Quick browser extension.
 
 1. In the chat interface, choose the **Flows** icon.
 

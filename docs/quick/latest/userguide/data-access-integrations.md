@@ -3,7 +3,7 @@
 # Data access integrations
 <a name="data-access-integrations"></a>
 
-Data access integrations in Amazon Quick establish secure connections to external data sources. They serve as the foundation for creating knowledge bases. Unlike connectors that perform actions, data access integrations focus on accessing and indexing content from third-party applications and services.
+Data access integrations in AWS Quick establish secure connections to external data sources. They serve as the foundation for creating knowledge bases. Unlike connectors that perform actions, data access integrations focus on accessing and indexing content from third-party applications and services.
 
 Data access integrations only configure authentication and point to the project or organization of the service. They cannot be used directly for analysis or by AI agents. You must create a connected knowledge base to make the data accessible.
 
@@ -66,7 +66,7 @@ For detailed configuration steps specific to each data source, see [Supported in
 ## Supported data sources
 <a name="data-access-integrations-supported-sources"></a>
 
-Amazon Quick supports data access integrations with the following applications and services. These integrations allow you to create knowledge bases from external data sources:
+AWS Quick supports data access integrations with the following applications and services. These integrations allow you to create knowledge bases from external data sources:
 + **Amazon S3** - Access documents and files stored in S3 buckets using AWS credentials.
 + **Atlassian Confluence** - Index pages, spaces, and attachments using user authentication or service authentication.
 + **Google Drive** - Connect to personal and shared drives using OAuth 2.0 authentication.
@@ -99,13 +99,13 @@ Data access integrations are organized into the following categories based on th
 Data access integrations use secure authentication methods to protect your data and maintain access controls. The authentication method depends on the specific data source and your organization's security requirements.
 
 **OAuth authentication**  
-Most cloud-based integrations (Google Drive, OneDrive, Confluence Cloud) use OAuth 2.0 for secure, token-based authentication. This method allows Amazon Quick to access your data without storing your credentials.
+Most cloud-based integrations (Google Drive, OneDrive, Confluence Cloud) use OAuth 2.0 for secure, token-based authentication. This method allows AWS Quick to access your data without storing your credentials.
 
 **Service account authentication**  
 Enterprise integrations may use service accounts for programmatic access. This method is common for AWS S3 and other infrastructure-based data sources.
 
 **No authentication**  
-Some integrations, such as web crawlers accessing public websites, may not require authentication. However, access controls are still enforced based on your Amazon Quick permissions.
+Some integrations, such as web crawlers accessing public websites, may not require authentication. However, access controls are still enforced based on your AWS Quick permissions.
 
 **Note**  
 Authentication requirements and available methods vary by user tier. Readers may have limited authentication options compared to Authors.
@@ -113,11 +113,11 @@ Authentication requirements and available methods vary by user tier. Readers may
 ### Access control and permissions
 <a name="data-access-integrations-permissions"></a>
 
-Data access integrations maintain security by enforcing access controls at multiple levels. When users query content through knowledge bases, Amazon Quick ensures they can only access content they have permission to view.
+Data access integrations maintain security by enforcing access controls at multiple levels. When users query content through knowledge bases, AWS Quick ensures they can only access content they have permission to view.
 + **Source-level permissions** - Users must have appropriate permissions in the source system (Google Drive, SharePoint, etc.).
-+ **Integration-level permissions** - Access to the integration itself is controlled by Amazon Quick permissions.
++ **Integration-level permissions** - Access to the integration itself is controlled by AWS Quick permissions.
 + **Knowledge base permissions** - Individual knowledge bases can have their own access controls.
-+ **Entity-level access controls** - When users query content, Amazon Quick verifies permissions for each document or item.
++ **Entity-level access controls** - When users query content, AWS Quick verifies permissions for each document or item.
 
 ### Key features and capabilities
 <a name="data-access-integrations-features"></a>
@@ -133,9 +133,9 @@ Data access integrations provide several features to enhance your data integrati
 <a name="data-access-integrations-prerequisites"></a>
 
 Before creating data access integrations, ensure you have the following requirements in place:
-+ **Amazon Quick permissions** - Author or Admin role to create and manage integrations.
++ **AWS Quick permissions** - Author or Admin role to create and manage integrations.
 + **Source system access** - Appropriate permissions in the target system (administrative access may be required for some integrations).
 + **Authentication credentials** - Valid credentials or service accounts for the target system.
-+ **Network connectivity** - Ensure Amazon Quick can access your data sources. Network requirements differ by integration type:
++ **Network connectivity** - Ensure AWS Quick can access your data sources. Network requirements differ by integration type:
   + **Knowledge bases** - Do not support VPC connectivity. Data sources must be accessible over the public internet.
   + **Connectors** - Support VPC connectivity for resource servers within your VPC. However, authentication servers must remain publicly accessible.

@@ -1,15 +1,15 @@
 
 
-# Configuring the VPC connection with the Amazon Quick CLI
+# Configuring the VPC connection with the AWS Quick CLI
 <a name="vpc-creating-a-connection-in-quicksight-cli"></a>
 
-To create a secure private connection to the Amazon VPC service from Quick with the Amazon Quick CLI, use the following procedure:
+To create a secure private connection to the Amazon VPC service from Quick with the AWS Quick CLI, use the following procedure:
 
 **Prerequisites**
 + Before you begin, make sure that you have the following information available to copy and paste into the **VPC Connection** page. For more information, see [Finding information to connect to a VPC](https://docs.aws.amazon.com/quicksight/latest/user/vpc-finding-setup-information.html).
   + AWS Region – The AWS Region where you plan to create a connection to your data source.
   + VPC ID – The ID of the VPC that contains the data, the subnets, and the security groups that you plan to use.
-  + Execution role– An IAM role that contains a trust policy that allows Amazon Quick to create, update, and delete network infrastructure in your account. This policy is required for all VPC connections. At minimum, the IAM policy needs the following Amazon EC2 permissions:
+  + Execution role– An IAM role that contains a trust policy that allows AWS Quick to create, update, and delete network infrastructure in your account. This policy is required for all VPC connections. At minimum, the IAM policy needs the following Amazon EC2 permissions:
     + `DescribeSecurityGroups`
     + `DescribeSubnets`
     + `CreateNetworkInterface`
@@ -44,7 +44,7 @@ To create a secure private connection to the Amazon VPC service from Quick with 
 
 ------
 
-    After you add the necessary permissions to an IAM role, attach a trust policy to allow Amazon Quick to configure the VPC connection to your account. The following shows an example trust policy that you can add to an existing IAM role to allow Amazon Quick access to the role:
+    After you add the necessary permissions to an IAM role, attach a trust policy to allow AWS Quick to configure the VPC connection to your account. The following shows an example trust policy that you can add to an existing IAM role to allow AWS Quick access to the role:
 
 ------
 #### [ JSON ]
@@ -67,7 +67,7 @@ To create a secure private connection to the Amazon VPC service from Quick with 
     ```
 
 ------
-  + Subnet IDs – The IDs of the subnets that the Amazon Quick network interface is using. Each VPC connection needs at least two subnets.
+  + Subnet IDs – The IDs of the subnets that the AWS Quick network interface is using. Each VPC connection needs at least two subnets.
   + Security group IDs – The IDs of the security groups. Each VPC connection needs at least one security group.
 
 ## Using the AWS CLI
@@ -133,9 +133,9 @@ The following table describes the different **Status** values for a network inte
 | **DELETED** | The network interface is deleted and can no longer be used. | 
 | **DELETION\_FAILED** | The network interface deletion failed and can still be used. | 
 | **DELETION\_SCHEDULED** | This network interface is scheduled for deletion. | 
-| **ATTACHMENT\_FAILED\_ROLLBACK\_FAILED** | The elastic interface failed to attach and Amazon Quick was unable to delete the elastic network interface that was created within your account. | 
+| **ATTACHMENT\_FAILED\_ROLLBACK\_FAILED** | The elastic interface failed to attach and AWS Quick was unable to delete the elastic network interface that was created within your account. | 
 
-You can also use the AWS CLI to generate a list of all VPC connections in your Amazon Quick account.
+You can also use the AWS CLI to generate a list of all VPC connections in your AWS Quick account.
 
 ```
 aws quicksight list-vpc-connections \

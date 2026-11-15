@@ -11,7 +11,7 @@ If you don't want to use any of the suggested insights, you can create your own 
 
 1. Do one of the following:
    + Choose the computation that you want to use from the list. As you choose each item, an example of that insight's output displays. When you find the one that you want to use, choose **Select**. 
-   + Exit this screen and customize the insight manually. An unconfigured insight has a **Customize insight** button. Choose the button to open the **Configure narrative** screen. For more information on using the expression editor, see [Creating autonarratives with Amazon Quick Sight](narratives-creating.md). 
+   + Exit this screen and customize the insight manually. An unconfigured insight has a **Customize insight** button. Choose the button to open the **Configure narrative** screen. For more information on using the expression editor, see [Creating autonarratives with AWS Quick Sight](narratives-creating.md). 
 
    Because you are initiating the creation of the insight, it's not based on an existing visual. When the insight is added to the analysis, it displays a note showing what kind of data it needs to complete your request. For example, it might ask for **1 dimension in Time**. In this case, you add a dimension to the **Time** field well. 
 

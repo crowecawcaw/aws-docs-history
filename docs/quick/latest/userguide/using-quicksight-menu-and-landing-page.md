@@ -1,24 +1,24 @@
 
 
-# Using the Amazon Quick menu and landing page
+# Using the AWS Quick menu and landing page
 <a name="using-quicksight-menu-and-landing-page"></a>
 
-After you sign in to Amazon Quick, you see the Amazon Quick landing page. This page provides tabs for your analyses, dashboards, folders, data, and more. It also provides a menu bar at the top, with options for the following:
-+ Searching Amazon Quick
+After you sign in to AWS Quick, you see the AWS Quick landing page. This page provides tabs for your analyses, dashboards, folders, data, and more. It also provides a menu bar at the top, with options for the following:
++ Searching AWS Quick
 + Accessing your user profile (managing Quick, language selection, and help)
 + Interacting with the Quick chat agent
 + Choosing the AWS Region that you want to work in
 + Discovering helpful resources (documentation, how-to videos, community forum, blogs, and more)
 
 **Note**  
-Consult your administrator before changing your AWS Region. Your default AWS Region is configured by your Amazon Quick administrator. Changing the AWS Region changes where your work is stored.
+Consult your administrator before changing your AWS Region. Your default AWS Region is configured by your AWS Quick administrator. Changing the AWS Region changes where your work is stored.
 
 ## Navigating the homepage
 <a name="navigating-the-homepage"></a>
 
 Using the navigation menu on the left, you can explore how to work with dashboards, build powerful analyses, manage your data sources, organize content with folders, leverage advanced analytics capabilities, and more.
 
-The following are all the available Amazon Quick capabilities:
+The following are all the available AWS Quick capabilities:
 + **Agents** – Build AI agents that intelligently analyze, plan, and work with your data to help complete tasks.
 + **Spaces** – Work with Amazon Q using specific files, data, and information to complete projects or organize teams.
 + **Scenarios** – Elevate your data exploration in the AI-driven workbook canvas that is enhanced with generative analysis capablities. Allow AI to suggest relevant data to enrich your insight discovery.
@@ -84,13 +84,13 @@ You can easily add, remove, and rearrange these widgets to create a personalized
 ## Accessing user profiles
 <a name="accessing-user-profiles"></a>
 
-To access the user profile menu, choose the user icon at the upper right of any page in Amazon Quick. Use this menu to manage Amazon Quick features, choose a language, change your AWS Region, get help from the documentation, or sign out of Amazon Quick.
+To access the user profile menu, choose the user icon at the upper right of any page in AWS Quick. Use this menu to manage AWS Quick features, choose a language, change your AWS Region, get help from the documentation, or sign out of AWS Quick.
 
 The following options are available from the user profile menu:
 + **Manage Quick** – If you have appropriate permissions, you can access administrative functions such as managing users, subscriptions, [SPICE](spice.md) capacity, and account settings.
-+ **Language setting** – Choose the language you want to use in the Amazon Quick user interface.
++ **Language setting** – Choose the language you want to use in the AWS Quick user interface.
 + **Region setting** – Choose the AWS Region that you want to work in.
 **Note**  
-Consult your administrator before changing your AWS Region. Your default AWS Region is configured by your Amazon Quick administrator. Changing the AWS Region changes where your work is stored.
+Consult your administrator before changing your AWS Region. Your default AWS Region is configured by your AWS Quick administrator. Changing the AWS Region changes where your work is stored.
 + **Help** – This will open the official Quick documentation, which you can view online, in Kindle, or as a PDF.
-+ **Sign out** – Choose this option to sign out of Amazon Quick and your AWS session. 
++ **Sign out** – Choose this option to sign out of AWS Quick and your AWS session. 

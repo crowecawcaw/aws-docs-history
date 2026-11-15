@@ -12,7 +12,7 @@ A knowledge base is an organized, indexed collection of documents or content fro
 
 Knowledge base is an indexed collection of documents or content from data sources such as Google Drive, optimized for generative AI-powered retrieval and question answering. Multiple knowledge bases can be created from the same source, and all can reside within a shared Quick Index. For example, if you sync two folders from Google Drive and create two knowledge bases — one for “Policy Documents” to answer queries such as *“What’s our refund policy”* and one for “Customer feedback” to answer queries such as *“What are the common customer complaints”* — both can be part of the same index. Quick distinguishes between them using the knowledge base id, so queries can be filtered to retrieve only the relevant documents from the desired knowledge base. This allows users to organize, secure, and retrieve information relevant to different domains or use cases, even though the underlying data is indexed together.
 
-Your knowledge bases can be used individually or shared with team members through Amazon Quick spaces. Our coarse-grained access control enables security at the knowledge base level, ensuring that users only receive information from knowledge bases they're authorized to access.
+Your knowledge bases can be used individually or shared with team members through AWS Quick spaces. Our coarse-grained access control enables security at the knowledge base level, ensuring that users only receive information from knowledge bases they're authorized to access.
 
 ### Creation process
 <a name="knowledge-base-creation-process"></a>
@@ -23,7 +23,7 @@ You can create knowledge bases while setting up a new data access integration an
 
 1. **Content selection** - Choose which content to include through filters and scope settings
 
-1. **Indexing** - Amazon Quick processes and indexes the selected content
+1. **Indexing** - AWS Quick processes and indexes the selected content
 
 1. **Availability** - The knowledge base becomes available for use in spaces and by AI agents
 
@@ -61,7 +61,7 @@ While these configuration options are available across most integrations, specif
 ### Service principal for knowledge base operations
 <a name="kb-service-principal"></a>
 
-If you use a customer-managed key (CMK) as your default CMK and Q data key (see [Encrypting your Amazon Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md)), Amazon Quick accesses your AWS KMS key using the `qbusiness.amazonaws.com` and `quicksight.amazonaws.com` service principals during knowledge base sync operations.
+If you use a customer-managed key (CMK) as your default CMK and Q data key (see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md)), AWS Quick accesses your AWS KMS key using the `qbusiness.amazonaws.com` and `quicksight.amazonaws.com` service principals during knowledge base sync operations.
 
 **Note**  
 Ensure that any policies governing access to your CMK permit both the `qbusiness.amazonaws.com` and `quicksight.amazonaws.com` service principals.
@@ -111,7 +111,7 @@ This safeguard protects against temporary network issues, permission changes, or
 #### Maximum sync duration
 <a name="maximum-sync-duration"></a>
 
-Each sync run has a maximum runtime of 14 days. If a sync run is still in progress after 14 days, Amazon Quick ends the run with a status of **FAILED** and the following error message:
+Each sync run has a maximum runtime of 14 days. If a sync run is still in progress after 14 days, AWS Quick ends the run with a status of **FAILED** and the following error message:
 
 Maximum sync time exceeded: Please edit your sync configuration to reduce the number of files to be crawled and ingested. For web crawler data sources, we recommend using Web Search feature if you want to chat with public websites like wikipedia.org.
 

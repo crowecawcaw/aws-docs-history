@@ -53,4 +53,4 @@ To enable column-level security on an analysis or dashboard, you need administra
 
 1. (Optional) Do one of the following:
    + To publish a dashboard without sharing, choose **x** at the upper right of the **Share dashboard with users** screen when it appears. You can share the dashboard later by choosing **Share** from the application bar.
-   + To share the dashboard, follow the procedure in [Sharing Amazon Quick Sight dashboards](sharing-a-dashboard.md).
+   + To share the dashboard, follow the procedure in [Sharing AWS Quick Sight dashboards](sharing-a-dashboard.md).

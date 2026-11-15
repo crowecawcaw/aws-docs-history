@@ -17,7 +17,7 @@ To remove a field from a visual, clear selection from it in the **Fields list** 
 ## Adding a field by selecting it in the fields list pane
 <a name="add-a-field-data-set"></a>
 
-You can also let Amazon Quick map the field to the most appropriate visual element. To do so, choose the field in the **Fields list** pane. Amazon Quick adds the field to the visual by populating the first empty field well that corresponds with that field type (either measure or dimension). If all of the visual elements are already populated, Amazon Quick determines the most appropriate field well and replaces the field in it with the field you selected.
+You can also let AWS Quick map the field to the most appropriate visual element. To do so, choose the field in the **Fields list** pane. AWS Quick adds the field to the visual by populating the first empty field well that corresponds with that field type (either measure or dimension). If all of the visual elements are already populated, AWS Quick determines the most appropriate field well and replaces the field in it with the field you selected.
 
 ## Adding a field by using a drop target
 <a name="add-a-field-drop-target"></a>

@@ -3,7 +3,7 @@
 # Map and geospatial chart formatting options in Quick
 <a name="geospatial-formatting"></a>
 
-In Amazon Quick, you can choose from multiple formatting options for your maps and geospatial charts. You can view formatting options by opening the **Properties** pane from the on-visual menu located at the top right of the currently selected geospatial map. 
+In AWS Quick, you can choose from multiple formatting options for your maps and geospatial charts. You can view formatting options by opening the **Properties** pane from the on-visual menu located at the top right of the currently selected geospatial map. 
 
 Quick authors and readers can also toggle the different formatting options of a geospatial map visual from the on visual menu.
 
@@ -12,5 +12,5 @@ Quick authors and readers can also toggle the different formatting options of a 
 
 **Topics**
 + [Base maps on geospatial maps in Quick](base-maps.md)
-+ [Geospatial heatmaps in Amazon Quick](heat-maps.md)
++ [Geospatial heatmaps in AWS Quick](heat-maps.md)
 + [Marker clustering on geospatial point maps in Quick](marker-clustering-on-maps.md)

@@ -1,11 +1,11 @@
 
 
-# Amazon Quick Microsoft Outlook extension
+# AWS Quick Microsoft Outlook extension
 <a name="outlook-extension-guide"></a>
 
-The Amazon Quick extension for Outlook helps you manage your entire inbox using natural language. You can summarize unread messages, organize your inbox, schedule meetings, and draft responses, all without leaving Outlook.
+The AWS Quick extension for Outlook helps you manage your entire inbox using natural language. You can summarize unread messages, organize your inbox, schedule meetings, and draft responses, all without leaving Outlook.
 
-You can search for Amazon Quick in the Microsoft Outlook app store or visit the [Quick for Outlook Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010695) to add the extension.
+You can search for AWS Quick in the Microsoft Outlook app store or visit the [Quick for Outlook Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010695) to add the extension.
 
 Key capabilities include:
 + **Inbox management:** Summarize and prioritize your unread emails, search for specific emails or discussions using natural language queries, and organize your inbox by moving emails to folders, flagging messages for follow-up, and more.
@@ -15,39 +15,39 @@ Key capabilities include:
 + **External actions:** Perform actions in third-party applications using your configured [connectors](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-connectors.html) or apps directly from Outlook.
 
 **Important**  
-The Amazon Quick Outlook extension uses generative AI to create and execute code within your Outlook application sandbox. AI can make mistakes and perform inaccurate actions within your Outlook mailbox. No email or content is read when the side panel is closed, and no data is sent to Amazon Quick unless you explicitly send a prompt.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick Outlook extension uses generative AI to create and execute code within your Outlook application sandbox. AI can make mistakes and perform inaccurate actions within your Outlook mailbox. No email or content is read when the side panel is closed, and no data is sent to AWS Quick unless you explicitly send a prompt.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
 Some features, such as inbox prioritization, calendar management, and email organization, require Microsoft Graph API permissions that must be granted by your administrator. If you are unable to perform these tasks, contact your administrator to ensure the required Graph API permissions have been approved for your organization. For more information, see [Microsoft Outlook extension permissions](outlook-extension.md#outlook-permissions) in the admin guide.
 
 **Note**  
-The Amazon Quick Microsoft Outlook extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft Outlook extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When you use the extension, the time Amazon Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When you use the extension, the time AWS Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-## Amazon Quick Microsoft Outlook extension usage guidelines
+## AWS Quick Microsoft Outlook extension usage guidelines
 <a name="outlook-usage-guidelines"></a>
 
-As a user, you are responsible for keeping company information safe. The following guidance helps you use Amazon Quick apps securely while maintaining data privacy and compliance.
+As a user, you are responsible for keeping company information safe. The following guidance helps you use AWS Quick apps securely while maintaining data privacy and compliance.
 
 ### Conversation retention and accuracy
 <a name="outlook-conversation-retention"></a>
 
 Each conversation is stored for 30 days. You can review and manage your conversation history by choosing the conversation history button in the Outlook extension.
 
-Amazon Quick uses generative AI. You should review responses for accuracy.
+AWS Quick uses generative AI. You should review responses for accuracy.
 
-Usage of the Amazon Quick extension for Microsoft Outlook is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
+Usage of the AWS Quick extension for Microsoft Outlook is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
 
 ### Security considerations
 <a name="outlook-security-considerations"></a>
 
-When you use Amazon Quick with email content, remember that responses reflect individual user permissions and content may include information not accessible to all email recipients. It may generate responses that contain sensitive data that can't be publicly shared.
+When you use AWS Quick with email content, remember that responses reflect individual user permissions and content may include information not accessible to all email recipients. It may generate responses that contain sensitive data that can't be publicly shared.
 
-To protect your organization's data, carefully evaluate email usage and plan deployment with data privacy in mind. Amazon Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft Outlook conversations into your company's Amazon Quick instance.
+To protect your organization's data, carefully evaluate email usage and plan deployment with data privacy in mind. AWS Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft Outlook conversations into your company's AWS Quick instance.
 
 ## Sample prompts
 <a name="outlook-sample-prompts"></a>

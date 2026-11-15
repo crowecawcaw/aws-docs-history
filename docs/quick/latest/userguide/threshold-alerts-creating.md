@@ -9,7 +9,7 @@ Use the following procedure to create threshold alerts for KPI or Gauge visuals 
 
 1. Open Quick and navigate to the dashboard that you want.
 
-   For more information about viewing dashboards as a dashboard subscriber in Quick, see [Interacting with Amazon Quick Sight dashboards](exploring-dashboards.md).
+   For more information about viewing dashboards as a dashboard subscriber in Quick, see [Interacting with AWS Quick Sight dashboards](exploring-dashboards.md).
 
 1. In the dashboard, select the visual that you want to create an alert for, open the menu at the upper-right, and choose **Create alert**.
 

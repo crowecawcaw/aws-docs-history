@@ -9,7 +9,7 @@ After you have created a visual, you can modify it in a range of ways to customi
 
 Quick Sight supports up to 50 datasets in a single analysis, and up to 50 visuals in a single sheet, and a limit of 20 sheets per analysis.
 
-You can create a visual in several ways. You can select the fields that you want and use AutoGraph to let Amazon Quick Sight determine the most appropriate visual type. Or you can choose a specific visual type and choose fields to populate it. If you aren't sure what questions your data can answer for you, you can choose **Suggested** on the tool bar and choose a visual that Amazon Quick Sight suggests. Suggested visuals are ones that we think are of interest, based on a preliminary examination of your data. For more information about AutoGraph, see [Using AutoGraph](autograph.md). 
+You can create a visual in several ways. You can select the fields that you want and use AutoGraph to let AWS Quick Sight determine the most appropriate visual type. Or you can choose a specific visual type and choose fields to populate it. If you aren't sure what questions your data can answer for you, you can choose **Suggested** on the tool bar and choose a visual that AWS Quick Sight suggests. Suggested visuals are ones that we think are of interest, based on a preliminary examination of your data. For more information about AutoGraph, see [Using AutoGraph](autograph.md). 
 
 You can add more visuals to the workspace by choosing **Add**, then **Add visual**. Visuals created after June 21, 2018, are smaller in size, fitting two on each row. You can resize the visuals and drag them to rearrange them. 
 
@@ -18,7 +18,7 @@ To create a useful visual, it helps to know what question you are trying to answ
 ## Fields as dimensions and measures
 <a name="dimensions-and-measures"></a>
 
-In the **Visuals** pane, dimension fields have blue icons and measure fields have orange icons. *Dimensions* are text or date fields that can be items, like products. Or they can be attributes that are related to measures and can be used to partition them, like sales date for sales figures. *Measures* are numeric values that you use for measurement, comparison, and aggregation. You typically use a combination of dimension and measure fields to produce a visual, for example sales totals (a measure) by sales date (a dimension). For more information about the types of fields expected by the different visual types, see the specific visual type topics in the [Visual types in Amazon Quick Sight](working-with-visual-types.md) section. For more information about changing a field's measure or dimension setting, see [Setting fields as a dimensions or measures](setting-dimension-or-measure.md).
+In the **Visuals** pane, dimension fields have blue icons and measure fields have orange icons. *Dimensions* are text or date fields that can be items, like products. Or they can be attributes that are related to measures and can be used to partition them, like sales date for sales figures. *Measures* are numeric values that you use for measurement, comparison, and aggregation. You typically use a combination of dimension and measure fields to produce a visual, for example sales totals (a measure) by sales date (a dimension). For more information about the types of fields expected by the different visual types, see the specific visual type topics in the [Visual types in AWS Quick Sight](working-with-visual-types.md) section. For more information about changing a field's measure or dimension setting, see [Setting fields as a dimensions or measures](setting-dimension-or-measure.md).
 
 ## Field limitations
 <a name="visual-field-limitations"></a>
@@ -50,7 +50,7 @@ Use the following procedure to create a new visual.
    A new, blank visual is created and receives focus.
 
 1. Use one of the following options:
-   + Choose the fields to use from the **Data** pane at left. If the fields aren't visible, choose **Visualize** to display it. Amazon Quick Sight creates the visual, using the visual type it determines is most compatible with the data you selected.
+   + Choose the fields to use from the **Data** pane at left. If the fields aren't visible, choose **Visualize** to display it. AWS Quick Sight creates the visual, using the visual type it determines is most compatible with the data you selected.
    + Choose the dropdown arrow next to the **ADD** button to choose a visual type. After the visual is created, choose the fields that you want to populate it.
 
      1. Choose the icon of a visual type from the **Visual types** pane.  
@@ -61,7 +61,7 @@ Use the following procedure to create a new visual.
 
      1. From the **Data** pane, drag the fields that you want to use to the appropriate field wells. Typically, you want to use dimension or measure fields as indicated by the color of the target field well. If you choose to use a dimension field to populate a **Value** field well, the **Count** aggregate function is automatically applied to it to create a numeric value.
 
-        Amazon Quick Sight creates the visual using the visual type you selected.
+        AWS Quick Sight creates the visual using the visual type you selected.
    + Create a visual using a suggestion.
 
      On the tool bar, choose **Suggested**, then choose a suggested visual.

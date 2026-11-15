@@ -3,7 +3,7 @@
 # Components within the data preparation experience
 <a name="data-prep-components"></a>
 
-Amazon Quick Sight's data preparation experience has the following core components.
+AWS Quick Sight's data preparation experience has the following core components.
 
 ## Workflow
 <a name="workflow-component"></a>

@@ -1,6 +1,6 @@
 
 
-# Managing VPC connection in Amazon Quick
+# Managing VPC connection in AWS Quick
 <a name="vpc-creating-a-connection-in-quicksight"></a>
 
 
@@ -11,11 +11,11 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
-With Amazon Quick Enterprise Edition, account admins can configure a secure, private VPC connection to a Amazon Quick account from the Amazon Quick console or from the Amazon Quick CLI. Read the following walkthroughs on how to create, edit, and delete a VPC connection from a Amazon Quick account.
+With AWS Quick Enterprise Edition, account admins can configure a secure, private VPC connection to a AWS Quick account from the AWS Quick console or from the AWS Quick CLI. Read the following walkthroughs on how to create, edit, and delete a VPC connection from a AWS Quick account.
 
 **Topics**
-+ [Configuring the VPC connection in the Amazon Quick console](vpc-creating-a-connection-in-quicksight-console.md)
-+ [Configuring the VPC connection with the Amazon Quick CLI](vpc-creating-a-connection-in-quicksight-cli.md)
++ [Configuring the VPC connection in the AWS Quick console](vpc-creating-a-connection-in-quicksight-console.md)
++ [Configuring the VPC connection with the AWS Quick CLI](vpc-creating-a-connection-in-quicksight-cli.md)
 + [Testing the connection to your VPC data source](vpc-creating-a-quicksight-data-source-profile.md)

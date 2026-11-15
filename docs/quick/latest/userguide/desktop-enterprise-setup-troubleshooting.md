@@ -1,6 +1,6 @@
 
 
-# Troubleshooting enterprise sign-in for Amazon Quick on desktop
+# Troubleshooting enterprise sign-in for AWS Quick on desktop
 <a name="desktop-enterprise-setup-troubleshooting"></a>
 
 
@@ -14,8 +14,8 @@
 |    Intended audience:  System administrators  | 
 
 If a user can't sign in to the desktop application, check the following:
-+ The user can sign in to Amazon Quick on the web in the same browser.
-+ The user has version 1.1.4053 or later of the desktop application. To check, choose **Amazon Quick** > **About Amazon Quick** in the menu bar.
++ The user can sign in to AWS Quick on the web in the same browser.
++ The user has version 1.1.4053 or later of the desktop application. To check, choose **AWS Quick** > **About AWS Quick** in the menu bar.
 
 The rest of this page applies if your administrator chose **Configure Identity Provider** (advanced) or still uses a desktop extension.
 
@@ -38,24 +38,24 @@ This error has two common causes:
 
 1. **The email claim is not being returned in the token.** For Microsoft Entra ID, you must add the `email` optional claim to the ID token under Token configuration (see Step 1). Additionally, the user's **Mail** attribute must be populated in their Entra ID profile. The User Principal Name (UPN) alone is not sufficient.
 
-1. **No matching user exists in Amazon Quick.** The email in the token must exactly match the email of a provisioned user. For IAM Identity Center accounts, verify the user's email in Identity Center matches. Email matching is case-sensitive.
+1. **No matching user exists in AWS Quick.** The email in the token must exactly match the email of a provisioned user. For IAM Identity Center accounts, verify the user's email in Identity Center matches. Email matching is case-sensitive.
 
 Token validation failure  
 This error has two common causes:  
 
 1. **The issuer URL does not match.** Verify that the issuer URL in the extension access configuration matches the issuer URL in your IdP's OpenID Connect (OIDC) configuration exactly.
 
-1. **The ID token is signed with an unsupported algorithm.** Amazon Quick accepts asymmetric signatures only. If your IdP signs ID tokens with HMAC (`HS256`, `HS384`, or `HS512`), validation fails regardless of the JWKS URI you configured, because the signing key is never published in a JWKS. Reconfigure your IdP to use a supported algorithm. For the list, see [Supported token signing algorithms](desktop-enterprise-advanced-idp.md#desktop-enterprise-token-signing).
+1. **The ID token is signed with an unsupported algorithm.** AWS Quick accepts asymmetric signatures only. If your IdP signs ID tokens with HMAC (`HS256`, `HS384`, or `HS512`), validation fails regardless of the JWKS URI you configured, because the signing key is never published in a JWKS. Reconfigure your IdP to use a supported algorithm. For the list, see [Supported token signing algorithms](desktop-enterprise-advanced-idp.md#desktop-enterprise-token-signing).
 
 Invalid issuer error (Microsoft Entra ID)  
 If sign-in fails with "Invalid issuer: https://login.microsoftonline.com/TENANT\_ID/v2.0", verify that the Issuer URL in your extension access configuration includes the `/v2.0` path suffix. The Entra ID v2.0 endpoint issues tokens with an `iss` claim that includes `/v2.0`. If the suffix is missing, delete the extension access and recreate it with the correct Issuer URL.
 
 Enterprise sign-in for Quick Desktop has not been configured for this account. Contact your IT team for further support.  
-+ This error means the extension access was created but the extension itself was not. In the Amazon Quick console, in the navigation pane, choose **Extensions**. If you don't see **Extensions**, choose **More** to find it. Create the extension, and select the extension access that you configured.
++ This error means the extension access was created but the extension itself was not. In the AWS Quick console, in the navigation pane, choose **Extensions**. If you don't see **Extensions**, choose **More** to find it. Create the extension, and select the extension access that you configured.
 + If your administrator moved to the desktop connector, update the application to version 1.1.4053 or later.
 
 User info request failed (HTTP 504)  
-This is a transient backend timeout. Sign in to your Amazon Quick account via the web browser first, then retry the desktop sign-in. If the error persists, verify network connectivity to the Amazon Quick service endpoint. For the list of required domains, see [Network access and required domains](desktop-security.md#desktop-network-access).
+This is a transient backend timeout. Sign in to your AWS Quick account via the web browser first, then retry the desktop sign-in. If the error persists, verify network connectivity to the AWS Quick service endpoint. For the list of required domains, see [Network access and required domains](desktop-security.md#desktop-network-access).
 
 Consent or permission errors (Microsoft Entra ID)  
 Grant admin consent for the required API permissions in the Azure portal. Navigate to the app registration's **API permissions** page and choose **Grant admin consent for [your organization]**.

@@ -6,7 +6,7 @@
 If you are using a file data source, confirm the upload settings, and correct them if necessary.
 
 **Important**  
-If it's necessary to change upload settings, make these changes before you make any other changes to the dataset. Changing upload settings causes Amazon Quick Sight to reimport the file. This process overwrites any changes you have made so far.
+If it's necessary to change upload settings, make these changes before you make any other changes to the dataset. Changing upload settings causes AWS Quick Sight to reimport the file. This process overwrites any changes you have made so far.
 
 ## Changing text file upload settings
 <a name="change-text-file-upload-settings"></a>

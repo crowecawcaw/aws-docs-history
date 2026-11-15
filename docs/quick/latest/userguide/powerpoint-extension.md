@@ -1,29 +1,29 @@
 
 
-# Amazon Quick Microsoft PowerPoint extension
+# AWS Quick Microsoft PowerPoint extension
 <a name="powerpoint-extension"></a>
 
-The Amazon Quick extension for PowerPoint integrates AI-powered assistance directly in your slide deck. Users can leverage Quick within PowerPoint to create presentations, add new slides, and make formatted edits to slides using their Quick enterprise data and apps.
+The AWS Quick extension for PowerPoint integrates AI-powered assistance directly in your slide deck. Users can leverage Quick within PowerPoint to create presentations, add new slides, and make formatted edits to slides using their Quick enterprise data and apps.
 
 The PowerPoint extension enables users to:
 + Create visually appealing and formatted templates using their own templates and brand guidelines.
 + Create and edit slides and visuals within PowerPoint using natural language and their Quick enterprise data and apps.
 + Make decks presentation ready by streamlining operations such as restructuring presentations, applying transitions, and more.
 
-The Quick PowerPoint extension is available within Amazon Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft PowerPoint app store. Users can search for Amazon Quick in the Microsoft PowerPoint app store or visit the [Quick for PowerPoint Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010606) to add the extension.
+The Quick PowerPoint extension is available within AWS Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft PowerPoint app store. Users can search for AWS Quick in the Microsoft PowerPoint app store or visit the [Quick for PowerPoint Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010606) to add the extension.
 
 **Important**  
-The Amazon Quick PowerPoint extension uses generative AI to create and execute code within your PowerPoint application sandbox to help you perform tasks within PowerPoint. AI can make mistakes and perform inaccurate actions within your PowerPoint slide deck.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick PowerPoint extension uses generative AI to create and execute code within your PowerPoint application sandbox to help you perform tasks within PowerPoint. AI can make mistakes and perform inaccurate actions within your PowerPoint slide deck.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
-The Amazon Quick Microsoft PowerPoint extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft PowerPoint extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When users use the extension, the time Amazon Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When users use the extension, the time AWS Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-The following procedures are for IT administrators who want to automatically deploy the Amazon Quick PowerPoint extension across their organization on behalf of their users.
+The following procedures are for IT administrators who want to automatically deploy the AWS Quick PowerPoint extension across their organization on behalf of their users.
 
 **Topics**
 + [Prerequisites for deploying the Microsoft PowerPoint extension to your organization](#powerpoint-prerequisites)
@@ -33,11 +33,11 @@ The following procedures are for IT administrators who want to automatically dep
 ## Prerequisites for deploying the Microsoft PowerPoint extension to your organization
 <a name="powerpoint-prerequisites"></a>
 
-Before configuring access to the Amazon Quick extension to Microsoft PowerPoint, administrators must complete the following steps:
+Before configuring access to the AWS Quick extension to Microsoft PowerPoint, administrators must complete the following steps:
 
 1. Have a Microsoft 365 Business subscription and be a Global Admin or have administrative permissions (specifically `AppCatalog.ReadWrite.All`).
 
-1. Have an Amazon Quick instance.
+1. Have an AWS Quick instance.
 
 ## Deploying the Microsoft PowerPoint extension to your organization
 <a name="powerpoint-deployment"></a>
@@ -50,9 +50,9 @@ Follow these steps to deploy the extension to your users:
 
 1. Click on **Get apps**.
 
-1. Search for "Amazon Quick".
+1. Search for "AWS Quick".
 
-1. Locate the tile for the Amazon Quick in PowerPoint and click on **Get it now**.
+1. Locate the tile for the AWS Quick in PowerPoint and click on **Get it now**.
 
 1. Confirm that you want to add the app.
 
@@ -65,7 +65,7 @@ Follow these steps to deploy the extension to your users:
 ## Microsoft PowerPoint extension permissions
 <a name="powerpoint-permissions"></a>
 
-The Amazon Quick PowerPoint extension uses the `ReadWriteDocument` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope. No Graph API permissions are needed during deployment.
+The AWS Quick PowerPoint extension uses the `ReadWriteDocument` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope. No Graph API permissions are needed during deployment.
 
 The default app capabilities for the PowerPoint add-in are:
 + Can read and make changes to your document

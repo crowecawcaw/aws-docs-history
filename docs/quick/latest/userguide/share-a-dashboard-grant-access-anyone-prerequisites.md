@@ -57,9 +57,9 @@ Before you can share a dashboard with anyone on the internet, make sure to do th
 
    You can also use the "Deny" policy as a Service Control Policy (SCP) if you don't want any of the accounts in your organization to have the public sharing feature. For more information, see [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) in the *AWS Organizations User Guide*.
 
-1. Turn on public sharing on your Amazon Quick account.
+1. Turn on public sharing on your AWS Quick account.
 
-   1. From the Amazon Quick start page, choose your user icon at the upper right of your browser window, and then choose **Manage Quick**.
+   1. From the AWS Quick start page, choose your user icon at the upper right of your browser window, and then choose **Manage Quick**.
 
    1. In the page that opens, scroll down to the **Permissions** section.
 

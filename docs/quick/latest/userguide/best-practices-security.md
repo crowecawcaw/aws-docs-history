@@ -3,11 +3,11 @@
 # Security in Quick
 <a name="best-practices-security"></a>
 
-Amazon Quick provides a number of security features to consider as you develop and implement your own security policies. The following best practices are general guidelines and don't represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions.
+AWS Quick provides a number of security features to consider as you develop and implement your own security policies. The following best practices are general guidelines and don't represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions.
 
-For more information about how your data is protected, including the statement that customer data is not used for training or improving underlying LLMs, see [Data protection in Amazon Quick](sec-data-protection.md).
+For more information about how your data is protected, including the statement that customer data is not used for training or improving underlying LLMs, see [Data protection in AWS Quick](sec-data-protection.md).
 
-For a conceptual explanation of how AI and agent capabilities change the risk analysis for Quick, including the two-condition model for adversarial content risk, see [AI and agent security in Amazon Quick](sec-agentic-security.md).
+For a conceptual explanation of how AI and agent capabilities change the risk analysis for Quick, including the two-condition model for adversarial content risk, see [AI and agent security in AWS Quick](sec-agentic-security.md).
 
 ****Decide before you deploy**** – The following decisions are irreversible or difficult to change after initial configuration. Make them deliberately before you create resources or onboard users.
 
@@ -18,7 +18,7 @@ For a conceptual explanation of how AI and agent capabilities change the risk an
 
 Customer managed KMS key support requires an Enterprise subscription. For the full list of participating resource types, see [Customer managed KMS key scope](customer-managed-keys.md#customer-managed-keys-scope).
 
-****Choose your identity model**** – Choose deliberately among IAM Identity Center, Active Directory, IAM federation, and Quick local users. Provisioning and offboarding behavior differ by model. In particular, Quick detects inactive users and populates the **Inactive users** list. This detection applies only to accounts that federate through IAM Identity Center or Active Directory. For more information, see [User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md).
+****Choose your identity model**** – Choose deliberately among IAM Identity Center, Active Directory, IAM federation, and Quick local users. Provisioning and offboarding behavior differ by model. In particular, Quick detects inactive users and populates the **Inactive users** list. This detection applies only to accounts that federate through IAM Identity Center or Active Directory. For more information, see [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md).
 
 ****Select the knowledge base access model at creation**** – For supported integrations, decide at creation whether a knowledge base is access control list (ACL) aware. Document-level ACL configuration is permanent. You cannot turn on ACLs for a knowledge base created without ACL support, and you cannot turn them off after you turn them on. To change ACL configuration, create a new knowledge base with your desired setting from the start.
 + **Supported integrations** – Amazon S3, Google Drive, Microsoft SharePoint, Atlassian Confluence Cloud, and Microsoft OneDrive.
@@ -40,7 +40,7 @@ For BI workloads, supplement permissions with row-level security, column-level s
 
 ****Deny by default for AI capabilities**** – If your organization has model-risk or change-approval requirements, restrict the AI capability category so that new AI capabilities are denied on launch day until you explicitly allow them. Without this restriction, every new AI capability that Quick ships is automatically available to all users upon release. For more information, see [Deny by Default](custom-permissions-governance.md).
 
-****Configure AI guardrails**** – Built-in content safety screening applies automatically to chat interactions. You can further configure up to 50 blocked words and phrases that Quick checks against both user requests and generated responses. For more information, see [AI guardrails in Amazon Quick](guardrails.md).
+****Configure AI guardrails**** – Built-in content safety screening applies automatically to chat interactions. You can further configure up to 50 blocked words and phrases that Quick checks against both user requests and generated responses. For more information, see [AI guardrails in AWS Quick](guardrails.md).
 
 ****Match oversight to how the action runs**** – Quick supports two invocation models with different security characteristics. Match your review depth to the autonomy and consequence of each model.
 + **On-demand actions** – User-initiated, interactive, and authenticated with the individual user's personal credentials. Each action runs as the invoking user and is bounded by that user's connector permissions. For more information, see [On-demand actions](int-actions-types.md#qbs-actions-types-qbs-actions-on-demand).
@@ -56,16 +56,16 @@ For BI workloads, supplement permissions with row-level security, column-level s
 ****Treat retrieved and external content as untrusted**** – The risk of acting on adversarial content requires two conditions: the assistant can read content from outside your trust boundary, and it can take a consequential action. Narrowing either side reduces exposure.
 + **Read surface** – Content from the following sources enters the assistant's context: knowledge base and index retrieval, files uploaded to spaces and chat, web search, third-party research providers, and content returned by connectors.
 + **Action surface** – Limit the connectors, actions, and outbound paths available to each role. A narrower action scope reduces the consequence of any single compromised input.
-+ **Built-in screening** – Built-in safety checks screen user requests, including requests that contain prompt attacks. Pair this screening with narrow action scope rather than relying on screening alone. For more information, see [AI guardrails in Amazon Quick](guardrails.md).
++ **Built-in screening** – Built-in safety checks screen user requests, including requests that contain prompt attacks. Pair this screening with narrow action scope rather than relying on screening alone. For more information, see [AI guardrails in AWS Quick](guardrails.md).
 
 ****Restrict network access**** – Use IP and VPC endpoint rules to control which networks can reach Quick through web, embedded, and mobile access. Rule types include CIDR blocks (IPv4), VPC IDs, and VPC endpoint IDs. You can add up to 100 IP and VPC endpoint rules combined. These rules are global and apply to all AWS Regions. Rule changes can take up to 10 minutes to take effect. IP and VPC endpoint rules require an Enterprise subscription.
 
-IP and VPC endpoint rules do *not* restrict access to the public API. To restrict API access, use IAM policy conditions. For more information, see [Turning on Internet Protocol (IP) and VPC endpoint restrictions in Amazon Quick](manage-ip-vpc.md#enabling-ip-restrictions).
+IP and VPC endpoint rules do *not* restrict access to the public API. To restrict API access, use IAM policy conditions. For more information, see [Turning on Internet Protocol (IP) and VPC endpoint restrictions in AWS Quick](manage-ip-vpc.md#enabling-ip-restrictions).
 
 ****Transfer ownership before you offboard**** – Assets left in the account without an owner become inaccessible to every user. Transfer ownership of connectors, agents, and automations before you remove a user from the account.
 + **Review orphaned assets** – Periodically review connectors, agents, and automations whose owners have left your organization. For more information, see [Orphaned assets](user-lifecycle-data-handling.md#user-removal-orphaned-assets).
 + **Review dormant connections** – Managed OAuth refresh tokens carry a 90-day lifecycle. Use this cadence as a trigger to review whether each connection is still needed, and remove connections that are no longer in use.
-+ **Plan for the full lifecycle** – For detailed guidance on user removal and its effects, see [User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md).
++ **Plan for the full lifecycle** – For detailed guidance on user removal and its effects, see [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md).
 
 ****Review what leaves**** – Each outbound path is customer-enabled, and each connection has its own authentication and data-access characteristics. Review each path as a potential egress channel before you turn it on.
 
@@ -76,10 +76,10 @@ IP and VPC endpoint rules do *not* restrict access to the public API. To restric
 
 For more information about the available authentication methods, see [Authentication methods](quick-action-auth.md).
 
-****Review each outbound path before enabling it**** – Before you enable an outbound capability, verify that the destination and the data that can flow to it meet your organization's requirements. Outbound paths include connectors, remote MCP servers, web search, third-party research providers, public apps, embedding, and export destinations. For per-path detail on what data can leave, what triggers it, who controls it, and what to verify, see [Outbound connections and data egress in Amazon Quick](outbound-connections.md).
+****Review each outbound path before enabling it**** – Before you enable an outbound capability, verify that the destination and the data that can flow to it meet your organization's requirements. Outbound paths include connectors, remote MCP servers, web search, third-party research providers, public apps, embedding, and export destinations. For per-path detail on what data can leave, what triggers it, who controls it, and what to verify, see [Outbound connections and data egress in AWS Quick](outbound-connections.md).
 
 ****Configure observability**** – Configure monitoring and logging before you onboard users at scale. Use the following signals together when you design monitoring and incident-response procedures. Before you rely on a signal for compliance, detection, or investigation, confirm that it covers the event you intend to track.
-+ **CloudTrail** – Records supported API operations and a documented set of non-API events such as dashboard views and user-management actions. CloudTrail does not capture chat conversation content or user feedback. For those signals, use CloudWatch vended logs. For more information, see [Monitoring Amazon Quick using CloudTrail](monitoring-cloudtrail.md).
++ **CloudTrail** – Records supported API operations and a documented set of non-API events such as dashboard views and user-management actions. CloudTrail does not capture chat conversation content or user feedback. For those signals, use CloudWatch vended logs. For more information, see [Monitoring AWS Quick using CloudTrail](monitoring-cloudtrail.md).
 + **CloudWatch vended logs** – Five log types deliver conversational and operational data to destinations you control (Amazon CloudWatch Logs, Amazon S3, or Firehose):
   + Chat conversations (`CHAT_LOGS`)
   + User feedback (`FEEDBACK_LOGS`)
@@ -87,18 +87,18 @@ For more information about the available authentication methods, see [Authentica
   + Index storage usage (`INDEX_USAGE_LOGS`)
   + Knowledge base file sync (`KB_FILE_SYNC_LOGS`)
 
-  Vended logs do not flow by default. Configure delivery shortly after you enable Quick AI features so that you do not lose early interaction data. For more information, see [Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
-+ **CloudWatch metrics and alarms** – Near-real-time operational metrics cover dashboards, visuals, dataset ingestions, unstructured datasets, connectors, and SPICE capacity. You can create CloudWatch alarms that send notifications when a metric reaches a threshold that you specify. For more information, see [Monitoring Amazon Quick using CloudWatch metrics](monitoring-cloudwatch-metrics.md).
-+ **Analytics dashboard** – Provides usage, adoption, and feedback insights for IAM administrators. Access requires the `quicksight:QuickSuiteUsageMetrics` permission. The analytics dashboard can expose detailed query text, failed-query content, and the full conversation context associated with negative feedback. Grant analytics access only to authorized administrators. For more information, see [Using the Amazon Quick analytics dashboard](incident-response-logging-and-monitoring-quick-suite.md).
+  Vended logs do not flow by default. Configure delivery shortly after you enable Quick AI features so that you do not lose early interaction data. For more information, see [Monitoring AWS Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
++ **CloudWatch metrics and alarms** – Near-real-time operational metrics cover dashboards, visuals, dataset ingestions, unstructured datasets, connectors, and SPICE capacity. You can create CloudWatch alarms that send notifications when a metric reaches a threshold that you specify. For more information, see [Monitoring AWS Quick using CloudWatch metrics](monitoring-cloudwatch-metrics.md).
++ **Analytics dashboard** – Provides usage, adoption, and feedback insights for IAM administrators. Access requires the `quicksight:QuickSuiteUsageMetrics` permission. The analytics dashboard can expose detailed query text, failed-query content, and the full conversation context associated with negative feedback. Grant analytics access only to authorized administrators. For more information, see [Using the AWS Quick analytics dashboard](incident-response-logging-and-monitoring-quick-suite.md).
 + **Feature-specific reports** – Some features produce their own operational reports, such as knowledge base sync reports that document per-file sync status.
 
-You control retention for all externalized signals. Set destination retention policies to match your compliance requirements. CloudTrail event history retains 90 days of management events by default. CloudWatch Logs, Amazon S3, and Firehose destination retention follows the policies you configure at each destination. For more information, see [Incident response, logging, and monitoring in Amazon Quick](incident-response-logging-and-monitoring.md).
+You control retention for all externalized signals. Set destination retention policies to match your compliance requirements. CloudTrail event history retains 90 days of management events by default. CloudWatch Logs, Amazon S3, and Firehose destination retention follows the policies you configure at each destination. For more information, see [Incident response, logging, and monitoring in AWS Quick](incident-response-logging-and-monitoring.md).
 
 CloudTrail records metadata (who, when, what operation) but not the message body or response content. CloudWatch vended chat logs capture user messages and system responses but not source document content. The analytics dashboard exposes conversation context only in the scope of negative feedback review. If your compliance model requires a signal not listed here, verify coverage before assuming it exists.
 
 ****Data source connectivity**** – The following practices help you connect securely to data sources.
 
-****Use VPC connections for private sources**** – Use a virtual private cloud (VPC) connection for data in AWS data sources and for data in on-premises servers without public connectivity. For AWS sources, Quick uses an elastic network interface for secure, private communication with data sources in a VPC. For on-premises sources, use Direct Connect or AWS Site-to-Site VPN to create a secure, private link. VPC connections require an Enterprise subscription. For more information, see [Managing VPC connection in Amazon Quick](vpc-creating-a-connection-in-quicksight.md).
+****Use VPC connections for private sources**** – Use a virtual private cloud (VPC) connection for data in AWS data sources and for data in on-premises servers without public connectivity. For AWS sources, Quick uses an elastic network interface for secure, private communication with data sources in a VPC. For on-premises sources, use Direct Connect or AWS Site-to-Site VPN to create a secure, private link. VPC connections require an Enterprise subscription. For more information, see [Managing VPC connection in AWS Quick](vpc-creating-a-connection-in-quicksight.md).
 
 ****Encrypt database connections with SSL**** – Use SSL to connect to your databases, especially if you are using public networks. Using SSL with Quick requires certificates signed by a publicly recognized certificate authority (CA).
 

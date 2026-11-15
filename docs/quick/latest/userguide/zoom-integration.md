@@ -3,13 +3,13 @@
 # Zoom integration
 <a name="zoom-integration"></a>
 
-With the Zoom connector, you can access the Zoom platform directly in Amazon Quick through natural language. You can create and manage meetings, access recordings and meeting summaries, view webinar details, and search contacts without leaving Amazon Quick.
+With the Zoom connector, you can access the Zoom platform directly in AWS Quick through natural language. You can create and manage meetings, access recordings and meeting summaries, view webinar details, and search contacts without leaving AWS Quick.
 
-Amazon Quick supports multiple authentication methods for Zoom. Choose the method that best fits your organization's security requirements.
+AWS Quick supports multiple authentication methods for Zoom. Choose the method that best fits your organization's security requirements.
 + **Default OAuth app** – Uses an AWS-managed OAuth application. No additional credentials are needed. Users authenticate directly with their Zoom account.
 + **Custom OAuth app** – Uses a customer-managed OAuth application registered in the Zoom App Marketplace. This option gives your organization full control over the OAuth configuration.
 
-For more information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+For more information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="zoom-integration-prerequisites"></a>
@@ -17,29 +17,29 @@ For more information about the authentication methods that Amazon Quick supports
 Make sure that you have the following before you set up the integration.
 + An active Zoom account with access to the meetings, recordings, and webinars that you want to use.
 + For **Custom OAuth app**: Access to the [Zoom App Marketplace](https://marketplace.zoom.us/) on the Zoom website to create an app.
-+ For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
++ For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## Configuring Zoom
 <a name="zoom-source-setup"></a>
 
-If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in Amazon Quick](#zoom-quicksuite-setup).
+If you are using **Default OAuth app** authentication, skip this section and proceed to [Setting up the connector in AWS Quick](#zoom-quicksuite-setup).
 
-For Custom OAuth app authentication, complete the following steps in the Zoom App Marketplace before configuring Amazon Quick.
+For Custom OAuth app authentication, complete the following steps in the Zoom App Marketplace before configuring AWS Quick.
 
 ### Create a Zoom app (Custom OAuth app)
 <a name="zoom-register-oauth"></a>
 
-Create an app in the Zoom App Marketplace to obtain the client credentials that you need for Amazon Quick. For more information, see [OAuth](https://developers.zoom.us/docs/integrations/oauth/) on the Zoom Developer website.
+Create an app in the Zoom App Marketplace to obtain the client credentials that you need for AWS Quick. For more information, see [OAuth](https://developers.zoom.us/docs/integrations/oauth/) on the Zoom Developer website.
 
 1. Sign in to the [Zoom App Marketplace](https://marketplace.zoom.us/) on the Zoom website and go to the app creation portal.
 
 1. Create a new application. Choose **General** for user-based OAuth or **Server-to-Server OAuth** for service-to-service authentication.
 
-1. On the **Basic Information** tab, under **App Credentials**, record the following values. You need them when you configure Amazon Quick.
+1. On the **Basic Information** tab, under **App Credentials**, record the following values. You need them when you configure AWS Quick.
    + **Client ID**
    + **Client secret**
 
-1. In the **OAuth Information** section, for **Authorized Redirect URI**, add the Amazon Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
+1. In the **OAuth Information** section, for **Authorized Redirect URI**, add the AWS Quick callback URL: `https://{{{region}}}.quicksight.aws.amazon.com/sn/oauthcallback`
 
 1. Choose the **Scopes** tab and choose **\+ Add Scopes** to select the permissions that your integration requires. For the recommended scopes, see [Recommended scopes](#zoom-oauth-scopes).
 
@@ -78,7 +78,7 @@ The following scopes are requested when you connect to Zoom. When you create a c
 **Note**  
 Additional scopes for whiteboard and marketplace features are also requested. The scopes listed above cover the primary meeting, recording, webinar, user, and contact actions.
 
-## Setting up the connector in Amazon Quick
+## Setting up the connector in AWS Quick
 <a name="zoom-quicksuite-setup"></a>
 
 ### Connect from the Available tab
@@ -86,7 +86,7 @@ Additional scopes for whiteboard and marketplace features are also requested. Th
 
 If you want to use Default OAuth app authentication, you can connect directly from the **Available** tab without additional configuration.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. On the **Available** tab, find **Zoom** and choose **Connect**.
 
@@ -97,9 +97,9 @@ To configure a connector with Custom OAuth app instead, use the **Create for you
 ### Create from the Create for your team tab
 <a name="zoom-full-setup"></a>
 
-After you complete any required Zoom configuration, create the connector in Amazon Quick.
+After you complete any required Zoom configuration, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -123,7 +123,7 @@ If a Zoom connector already exists, a dialog appears with your existing connecto
       + **Client secret** – The client secret from your Zoom app.
       + **Token URL** – The token endpoint. Example: `https://zoom.us/oauth/token`
       + **Authorization URL** – The authorization endpoint. Example: `https://zoom.us/oauth/authorize`
-      + **Redirect URL** – Pre-filled with the Amazon Quick callback URL.
+      + **Redirect URL** – Pre-filled with the AWS Quick callback URL.
 
 1. Choose **Next**.
 
@@ -175,6 +175,6 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 
 ### Authentication issues
 <a name="zoom-troubleshooting-auth"></a>
-+ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Zoom account is active and that you can sign in to [zoom.us](https://zoom.us) on the Zoom website directly. For Custom OAuth app, confirm that the redirect URI in your Zoom app matches the Amazon Quick callback URL.
++ **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Zoom account is active and that you can sign in to [zoom.us](https://zoom.us) on the Zoom website directly. For Custom OAuth app, confirm that the redirect URI in your Zoom app matches the AWS Quick callback URL.
 + **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Zoom app. You can view your credentials from the app settings in the Zoom App Marketplace.
 + **Insufficient permissions** – Verify that the scopes configured for your Zoom app include the permissions required for the actions that you want to use. See [Recommended scopes](#zoom-oauth-scopes).

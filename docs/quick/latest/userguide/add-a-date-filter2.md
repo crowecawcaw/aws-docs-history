@@ -23,7 +23,7 @@ Comparisons are applied inclusive to the date specified. For example, if you app
 You can also choose to include or exclude nulls, or exclusively show rows that contain nulls in this field. If you pass in a null date parameter (one without a default value), it doesn't filter the data until you provide a value.
 
 **Note**  
-If a column or attribute has no time zone information, then the client query engine sets the default interpretation of that date-time data. For example, suppose that a column contains a timestamp, rather than a timestamptz, and you are in a different time zone than the data's origin. In this case, the engine can render the timestamp differently than you expect. Amazon Quick and [SPICE](spice.md) both use Universal Coordinated Time (UTC) times. 
+If a column or attribute has no time zone information, then the client query engine sets the default interpretation of that date-time data. For example, suppose that a column contains a timestamp, rather than a timestamptz, and you are in a different time zone than the data's origin. In this case, the engine can render the timestamp differently than you expect. AWS Quick and [SPICE](spice.md) both use Universal Coordinated Time (UTC) times. 
 
 Use the following sections to learn how to create date filters in datasets and analyses.
 
@@ -86,7 +86,7 @@ Use the following procedure to create a range filter for a date field in an anal
 
    To use **Between**, enter both the start date and end date parameters separately. You can include the start date, the end date, or both in the range. 
 
-   To use parameters in a filter, create them first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in Amazon Quick](parameters-in-quicksight.md).
+   To use parameters in a filter, create them first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in AWS Quick](parameters-in-quicksight.md).
 
 1. For **Null options** choose **Exclude nulls**, **Include nulls**, or **Nulls only**.
 
@@ -121,7 +121,7 @@ Use the following procedure to create a relative filter for a date field in an a
 
 1. (Optional) If you are filtering by using an existing parameter, instead of specific dates, enable **Use parameters**, then choose your parameter or parameters from the list. 
 
-   To use parameters in a filter, create them first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in Amazon Quick](parameters-in-quicksight.md).
+   To use parameters in a filter, create them first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in AWS Quick](parameters-in-quicksight.md).
 
 1. When finished, choose **Apply**.
 
@@ -150,6 +150,6 @@ Use the following procedure to create a top and bottom filter for a date field i
 
    To use a parameter for **Top and bottom**, choose an integer parameter for the number of top or bottom items to show. 
 
-   To use parameters in a filter, create them first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in Amazon Quick](parameters-in-quicksight.md).
+   To use parameters in a filter, create them first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in AWS Quick](parameters-in-quicksight.md).
 
 1. When finished, choose **Apply**.

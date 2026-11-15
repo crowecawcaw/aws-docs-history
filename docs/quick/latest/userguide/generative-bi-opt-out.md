@@ -41,7 +41,7 @@ Disabling dashboard indexing and Q&A features
      1. Choose the profile icon, then choose **Manage Quick**.
 
      1. If necessary, in the left navigation pane, choose **Manage users**.
-        + If you use Quick identity (with or without IAM federation), update user roles or delete users using the steps in [Viewing Amazon Quick account details](managing-user-access-qs-iam.md#view-user-accounts) or [Deleting a Amazon Quick user account](managing-user-access-qs-iam.md#delete-a-user-account).
+        + If you use Quick identity (with or without IAM federation), update user roles or delete users using the steps in [Viewing AWS Quick account details](managing-user-access-qs-iam.md#view-user-accounts) or [Deleting a AWS Quick user account](managing-user-access-qs-iam.md#delete-a-user-account).
         + If you use IAM Identity Center or Microsoft Active Directory, update group and role mappings or delete user groups using the steps in [Managing user access](managing-user-access-idc.md#view-user-accounts-enterprise).
 
 1. Ensure there are no topics in the account by performing the following steps:

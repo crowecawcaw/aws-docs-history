@@ -1,6 +1,6 @@
 
 
-# Embedding the Amazon Quick Sight Q search bar for registered users
+# Embedding the AWS Quick Sight Q search bar for registered users
 <a name="embedded-analytics-q-search-bar-for-authenticated-users"></a>
 
 
@@ -11,34 +11,34 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
 **Note**  
-The embedded Amazon Quick Sight Q search bar provides the classic Amazon Quick Sight Q&A experience. Amazon Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
+The embedded AWS Quick Sight Q search bar provides the classic AWS Quick Sight Q&A experience. AWS Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in AWS Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
 
-In the following sections, you can find detailed information about how to set up an embedded Amazon Quick Sight Q search bar for registered users of Amazon Quick Sight.
+In the following sections, you can find detailed information about how to set up an embedded AWS Quick Sight Q search bar for registered users of AWS Quick Sight.
 
 **Topics**
 + [Step 1: Set up permissions](#embedded-q-bar-for-authenticated-users-step-1)
 + [Step 2: Generate the URL with the authentication code attached](#embedded-q-bar-for-authenticated-users-step-2)
 + [Step 3: Embed the Q search bar URL](#embedded-q-bar-for-authenticated-users-step-3)
-+ [Optional Amazon Quick Sight Q search bar embedding functionalities](#embedded-q-bar-for-authenticated-users-step-4)
++ [Optional AWS Quick Sight Q search bar embedding functionalities](#embedded-q-bar-for-authenticated-users-step-4)
 
 ## Step 1: Set up permissions
 <a name="embedded-q-bar-for-authenticated-users-step-1"></a>
 
 **Note**  
-The embedded Amazon Quick Sight Q search bar provides the classic Amazon Quick Sight Q&A experience. Amazon Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
+The embedded AWS Quick Sight Q search bar provides the classic AWS Quick Sight Q&A experience. AWS Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in AWS Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
 
 In the following section, you can find how to set up permissions for your backend application or web server to embed the Q search bar. This task requires administrative access to AWS Identity and Access Management (IAM).
 
-Each user who accesses a dashboard assumes a role that gives them Amazon Quick Sight access and permissions to the dashboard. To make this possible, create an IAM role in your AWS account. Associate an IAM policy with the role to provide permissions to any user who assumes it. The IAM role needs to provide permissions to retrieve embedding URLs for a specific user pool. 
+Each user who accesses a dashboard assumes a role that gives them AWS Quick Sight access and permissions to the dashboard. To make this possible, create an IAM role in your AWS account. Associate an IAM policy with the role to provide permissions to any user who assumes it. The IAM role needs to provide permissions to retrieve embedding URLs for a specific user pool. 
 
 With the help of the wildcard character *\**, you can grant the permissions to generate a URL for all users in a specific namespace. Or you can grant permissions to generate a URL for a subset of users in specific namespaces. For this, you add `quicksight:GenerateEmbedUrlForRegisteredUser`.
 
-You can create a condition in your IAM policy that limits the domains that developers can list in the `AllowedDomains` parameter of a `GenerateEmbedUrlForRegisteredUser` API operation. The `AllowedDomains` parameter is an optional parameter. It grants developers the option to override the static domains that are configured in the **Manage Amazon Quick Sight** menu and instead list up to three domains or subdomains that can access a generated URL. This URL is then embedded in a developer's website. Only the domains that are listed in the parameter can access the embedded Q search bar. Without this condition, developers can list any domain on the internet in the `AllowedDomains` parameter. 
+You can create a condition in your IAM policy that limits the domains that developers can list in the `AllowedDomains` parameter of a `GenerateEmbedUrlForRegisteredUser` API operation. The `AllowedDomains` parameter is an optional parameter. It grants developers the option to override the static domains that are configured in the **Manage AWS Quick Sight** menu and instead list up to three domains or subdomains that can access a generated URL. This URL is then embedded in a developer's website. Only the domains that are listed in the parameter can access the embedded Q search bar. Without this condition, developers can list any domain on the internet in the `AllowedDomains` parameter. 
 
-To limit the domains that developers can use with this parameter, add an `AllowedEmbeddingDomains` condition to your IAM policy. For more information about the `AllowedDomains` parameter, see [GenerateEmbedUrlForRegisteredUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html) in the *Amazon Quick Sight API Reference*.
+To limit the domains that developers can use with this parameter, add an `AllowedEmbeddingDomains` condition to your IAM policy. For more information about the `AllowedDomains` parameter, see [GenerateEmbedUrlForRegisteredUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html) in the *AWS Quick Sight API Reference*.
 
 **Security best practice for IAM condition operators**  
 Improperly configured IAM condition operators can allow unauthorized access to your embedded Quick resources through URL variations. When using the `quicksight:AllowedEmbeddingDomains` condition key in your IAM policies, use condition operators that either allow specific domains or deny all domains that are not specifically allowed. For more information about IAM condition operators, see [IAM JSON policy elements: Condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) in the IAM User Guide.  
@@ -51,11 +51,11 @@ You must validate that your IAM policy uses appropriate condition operators to p
 
 The following sample policy provides these permissions.
 
-Also, if you're creating first-time users who will be Amazon Quick Sight readers, make sure to add the `quicksight:RegisterUser` permission in the policy.
+Also, if you're creating first-time users who will be AWS Quick Sight readers, make sure to add the `quicksight:RegisterUser` permission in the policy.
 
-The following sample policy provides permission to retrieve an embedding URL for first-time users who are to be Amazon Quick Sight readers.
+The following sample policy provides permission to retrieve an embedding URL for first-time users who are to be AWS Quick Sight readers.
 
-Finally, your application's IAM identity must have a trust policy associated with it to allow access to the role that you just created. This means that when a user accesses your application, your application can assume the role on the user's behalf and provision the user in Amazon Quick Sight. 
+Finally, your application's IAM identity must have a trust policy associated with it to allow access to the role that you just created. This means that when a user accesses your application, your application can assume the role on the user's behalf and provision the user in AWS Quick Sight. 
 
 The following example shows a sample trust policy.
 
@@ -98,13 +98,13 @@ For more information regarding trust policies for OpenID Connect or Security Ass
 <a name="embedded-q-bar-for-authenticated-users-step-2"></a>
 
 **Note**  
-The embedded Amazon Quick Sight Q search bar provides the classic Amazon Quick Sight Q&A experience. Amazon Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
+The embedded AWS Quick Sight Q search bar provides the classic AWS Quick Sight Q&A experience. AWS Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in AWS Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
 
-In the following section, you can find how to authenticate your user and get the embeddable Q topic URL on your application server. If you plan to embed the Q bar for IAM or Amazon Quick Sight identity types, share the Q topic with the users.
+In the following section, you can find how to authenticate your user and get the embeddable Q topic URL on your application server. If you plan to embed the Q bar for IAM or AWS Quick Sight identity types, share the Q topic with the users.
 
-When a user accesses your app, the app assumes the IAM role on the user's behalf. Then the app adds the user to Amazon Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
+When a user accesses your app, the app assumes the IAM role on the user's behalf. Then the app adds the user to AWS Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
 
-Performing the described steps ensures that each viewer of the Q topic is uniquely provisioned in Amazon Quick Sight. It also enforces per-user settings, such as the row-level security and dynamic defaults for parameters.
+Performing the described steps ensures that each viewer of the Q topic is uniquely provisioned in AWS Quick Sight. It also enforces per-user settings, such as the row-level security and dynamic defaults for parameters.
 
 The following examples perform the IAM authentication on the user's behalf. This code runs on your app server.
 
@@ -432,11 +432,11 @@ export AWS_SECRET_ACCESS_KEY = "{{secret_key_from_assume_role}}"
 export AWS_SESSION_TOKEN     = "{{session_token_from_assume_role}}"
 ```
 
-Running these commands sets the role session ID of the user visiting your website to `embedding_quicksight_q_search_bar_role/john.doe@example.com`. The role session ID is made up of the role name from `role-arn` and the `role-session-name` value. Using the unique role session ID for each user ensures that appropriate permissions are set for each user. It also prevents any throttling of user access. *Throttling* is a security feature that prevents the same user from accessing Amazon Quick Sight from multiple locations. 
+Running these commands sets the role session ID of the user visiting your website to `embedding_quicksight_q_search_bar_role/john.doe@example.com`. The role session ID is made up of the role name from `role-arn` and the `role-session-name` value. Using the unique role session ID for each user ensures that appropriate permissions are set for each user. It also prevents any throttling of user access. *Throttling* is a security feature that prevents the same user from accessing AWS Quick Sight from multiple locations. 
 
-The role session ID also becomes the user name in Amazon Quick Sight. You can use this pattern to provision your users in Amazon Quick Sight ahead of time, or to provision them the first time that they access the Q search bar. 
+The role session ID also becomes the user name in AWS Quick Sight. You can use this pattern to provision your users in AWS Quick Sight ahead of time, or to provision them the first time that they access the Q search bar. 
 
-The following example shows the CLI command that you can use to provision a user. For more information about [RegisterUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html), [DescribeUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html), and other Amazon Quick Sight API operations, see the [Amazon Quick Sight API reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.html).
+The following example shows the CLI command that you can use to provision a user. For more information about [RegisterUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html), [DescribeUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html), and other AWS Quick Sight API operations, see the [AWS Quick Sight API reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.html).
 
 ```
 aws quicksight register-user \
@@ -452,9 +452,9 @@ aws quicksight register-user \
     --custom-permissions-name {{TeamA1}}
 ```
 
-If the user is authenticated through Microsoft AD, you don't need to use `RegisterUser` to set them up. Instead, they should be automatically subscribed the first time that they access Amazon Quick Sight. For Microsoft AD users, you can use `DescribeUser` to get the user Amazon Resource Name (ARN).
+If the user is authenticated through Microsoft AD, you don't need to use `RegisterUser` to set them up. Instead, they should be automatically subscribed the first time that they access AWS Quick Sight. For Microsoft AD users, you can use `DescribeUser` to get the user Amazon Resource Name (ARN).
 
-The first time a user accesses Amazon Quick Sight, you can also add this user to the group that the dashboard is shared with. The following example shows the CLI command to add a user to a group.
+The first time a user accesses AWS Quick Sight, you can also add this user to the group that the dashboard is shared with. The following example shows the CLI command to add a user to a group.
 
 ```
 aws quicksight create-group-membership \
@@ -464,7 +464,7 @@ aws quicksight create-group-membership \
     --member-name="{{embedding_quicksight_q_search_bar_role/john.doe@example.com}}"
 ```
 
-You now have a user of your app who is also a user of Amazon Quick Sight, and who has access to the dashboard. 
+You now have a user of your app who is also a user of AWS Quick Sight, and who has access to the dashboard. 
 
 Finally, to get a signed URL for the dashboard, call `generate-embed-url-for-registered-user` from the app server. This returns the embeddable dashboard URL. The following example shows how to generate the URL for an embedded dashboard using a server-side call for users authenticated through AWS Managed Microsoft AD or single sign-on (IAM Identity Center).
 
@@ -483,9 +483,9 @@ For more information about using this operation, see [GenerateEmbedUrlForRegiste
 <a name="embedded-q-bar-for-authenticated-users-step-3"></a>
 
 **Note**  
-The embedded Amazon Quick Sight Q search bar provides the classic Amazon Quick Sight Q&A experience. Amazon Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
+The embedded AWS Quick Sight Q search bar provides the classic AWS Quick Sight Q&A experience. AWS Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in AWS Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
 
-In the following section, you can find how to embed the Q search bar URL from step 3 in your website or application page. You do this with the [Amazon Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) (JavaScript). With the SDK, you can do the following: 
+In the following section, you can find how to embed the Q search bar URL from step 3 in your website or application page. You do this with the [AWS Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) (JavaScript). With the SDK, you can do the following: 
 + Place the Q search bar on an HTML page.
 + Pass parameters into the Q search bar.
 + Handle error states with messages that are customized to your application.
@@ -504,11 +504,11 @@ The following shows an example response from `generate-embed-url-for-registered-
 }
 ```
 
-Embed the Q search bar in your webpage by using the [Amazon Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) or by adding this URL into an iframe. If you set a fixed height and width number (in pixels), Amazon Quick Sight uses those and doesn't change your visual as your window resizes. If you set a relative percent height and width, Amazon Quick Sight provides a responsive layout that is modified as your window size changes. 
+Embed the Q search bar in your webpage by using the [AWS Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) or by adding this URL into an iframe. If you set a fixed height and width number (in pixels), AWS Quick Sight uses those and doesn't change your visual as your window resizes. If you set a relative percent height and width, AWS Quick Sight provides a responsive layout that is modified as your window size changes. 
 
-To do this, make sure that the domain to host the embedded Q search bar is on the *allow list*, the list of approved domains for your Amazon Quick Sight subscription. This requirement protects your data by keeping unapproved domains from hosting embedded dashboards. For more information about adding domains for an embedded Q search bar, see [Managing domains and embedding](https://docs.aws.amazon.com/quicksight/latest/user/manage-qs-domains-and-embedding.html).
+To do this, make sure that the domain to host the embedded Q search bar is on the *allow list*, the list of approved domains for your AWS Quick Sight subscription. This requirement protects your data by keeping unapproved domains from hosting embedded dashboards. For more information about adding domains for an embedded Q search bar, see [Managing domains and embedding](https://docs.aws.amazon.com/quicksight/latest/user/manage-qs-domains-and-embedding.html).
 
-When you use the Amazon Quick Sight Embedding SDK, the Q search bar on your page is dynamically resized based on the state. By using the Amazon Quick Sight Embedding SDK, you can also control parameters within the Q search bar and receive callbacks in terms of page load completion and errors. 
+When you use the AWS Quick Sight Embedding SDK, the Q search bar on your page is dynamically resized based on the state. By using the AWS Quick Sight Embedding SDK, you can also control parameters within the Q search bar and receive callbacks in terms of page load completion and errors. 
 
 The following example shows how to use the generated URL. This code is generated on your app server.
 
@@ -652,8 +652,8 @@ The following example shows how to use the generated URL. This code is generated
 </html>
 ```
 
-For this example to work, make sure to use the Amazon Quick Sight Embedding SDK to load the embedded dashboard on your website using JavaScript. To get your copy, do one of the following:
-+ Download the [Amazon Quick Sight embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object) from GitHub. This repository is maintained by a group of Amazon Quick Sight developers.
+For this example to work, make sure to use the AWS Quick Sight Embedding SDK to load the embedded dashboard on your website using JavaScript. To get your copy, do one of the following:
++ Download the [AWS Quick Sight embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object) from GitHub. This repository is maintained by a group of AWS Quick Sight developers.
 + Download the latest embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
 + If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
@@ -661,11 +661,11 @@ For this example to work, make sure to use the Amazon Quick Sight Embedding SDK 
   npm install amazon-quicksight-embedding-sdk
   ```
 
-## Optional Amazon Quick Sight Q search bar embedding functionalities
+## Optional AWS Quick Sight Q search bar embedding functionalities
 <a name="embedded-q-bar-for-authenticated-users-step-4"></a>
 
 **Note**  
-The embedded Amazon Quick Sight Q search bar provides the classic Amazon Quick Sight Q&A experience. Amazon Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
+The embedded AWS Quick Sight Q search bar provides the classic AWS Quick Sight Q&A experience. AWS Quick Sight integrates with Amazon Q Business to launch a new Generative Q&A experience. Developers are recommended to use the new Generative Q&A experience. For more information on the embedded Generative Q&A experience, see [Embedding the Amazon Q in AWS Quick Sight Generative Q&A experience](https://docs.aws.amazon.com/quicksight/latest/user/embedding-gen-bi.html).
 
 The following optional functionalities are available for the embedded Q search bar using the embedding SDK. 
 
@@ -684,4 +684,4 @@ The following options are only supported for Q search bar embedding.
   qBar.closeQPopover();
   ```
 
-For more information, see the [Amazon Quick Sight embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk).
+For more information, see the [AWS Quick Sight embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk).

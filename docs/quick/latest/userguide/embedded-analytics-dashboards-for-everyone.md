@@ -1,11 +1,11 @@
 
 
-# Embedding Amazon Quick Sight dashboards for anonymous (unregistered) users
+# Embedding AWS Quick Sight dashboards for anonymous (unregistered) users
 <a name="embedded-analytics-dashboards-for-everyone"></a>
 
 **Important**  
-Amazon Quick Sight has new API operations for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
-You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` API operations to embed dashboards and the Amazon Quick Sight console, but they don't contain the latest embedding capabilities. For more information about embedding using the old API operations, see [Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html).
+AWS Quick Sight has new API operations for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
+You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` API operations to embed dashboards and the AWS Quick Sight console, but they don't contain the latest embedding capabilities. For more information about embedding using the old API operations, see [Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html).
 
 
 |  | 
@@ -15,9 +15,9 @@ You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` API operat
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
-In the following sections, you can find detailed information about how to set up embedded Amazon Quick Sight dashboards for anonymous (unregistered) users.
+In the following sections, you can find detailed information about how to set up embedded AWS Quick Sight dashboards for anonymous (unregistered) users.
 
 **Topics**
 + [Step 1: Set up permissions](#embedded-analytics-dashboards-with-anonymous-users-step-1)
@@ -35,15 +35,15 @@ In the following sections, you can find detailed information about how to set up
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
 In the following section, you can find out how to set up permissions for the backend application or web server. This task requires administrative access to IAM.
 
-Each user who accesses a dashboard assumes a role that gives them Amazon Quick Sight access and permissions to the dashboard. To make this possible, create an IAM role in your AWS account. Associate an IAM policy with the role to provide permissions to any user who assumes it.
+Each user who accesses a dashboard assumes a role that gives them AWS Quick Sight access and permissions to the dashboard. To make this possible, create an IAM role in your AWS account. Associate an IAM policy with the role to provide permissions to any user who assumes it.
 
-You can create a condition in your IAM policy that limits the domains that developers can list in the `AllowedDomains` parameter of a `GenerateEmbedUrlForAnonymousUser` API operation. The `AllowedDomains` parameter is an optional parameter. It grants you as a developer the option to override the static domains that are configured in the **Manage Amazon Quick Sight** menu. Instead, you can list up to three domains or subdomains that can access a generated URL. This URL is then embedded in the website that you create. Only the domains that are listed in the parameter can access the embedded dashboard. Without this condition, you can list any domain on the internet in the `AllowedDomains` parameter. 
+You can create a condition in your IAM policy that limits the domains that developers can list in the `AllowedDomains` parameter of a `GenerateEmbedUrlForAnonymousUser` API operation. The `AllowedDomains` parameter is an optional parameter. It grants you as a developer the option to override the static domains that are configured in the **Manage AWS Quick Sight** menu. Instead, you can list up to three domains or subdomains that can access a generated URL. This URL is then embedded in the website that you create. Only the domains that are listed in the parameter can access the embedded dashboard. Without this condition, you can list any domain on the internet in the `AllowedDomains` parameter. 
 
-To limit the domains that developers can use with this parameter, add an `AllowedEmbeddingDomains` condition to your IAM policy. For more information about the `AllowedDomains` parameter, see [GenerateEmbedUrlForAnonymousUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html) in the *Amazon Quick Sight API Reference*.
+To limit the domains that developers can use with this parameter, add an `AllowedEmbeddingDomains` condition to your IAM policy. For more information about the `AllowedDomains` parameter, see [GenerateEmbedUrlForAnonymousUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html) in the *AWS Quick Sight API Reference*.
 
 **Security best practice for IAM condition operators**  
 Improperly configured IAM condition operators can allow unauthorized access to your embedded Quick resources through URL variations. When using the `quicksight:AllowedEmbeddingDomains` condition key in your IAM policies, use condition operators that either allow specific domains or deny all domains that are not specifically allowed. For more information about IAM condition operators, see [IAM JSON policy elements: Condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) in the IAM User Guide.  
@@ -102,11 +102,11 @@ For more information regarding trust policies, see [Temporary security credentia
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
 In the following section, you can find how to authenticate on behalf of the anonymous visitor and get the embeddable dashboard URL on your application server. 
 
-When a user accesses your app, the app assumes the IAM role on the user's behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
+When a user accesses your app, the app assumes the IAM role on the user's behalf. Then it adds the user to AWS Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
 
 The following examples perform the IAM authentication on the user's behalf. It passes an identifier as the unique role session ID. This code runs on your app server.
 
@@ -440,9 +440,9 @@ For more information about using this operation, see [GenerateEmbedUrlForAnonymo
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
-In the following section, you can find out how you can use the [Amazon Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) (JavaScript) to embed the dashboard URL from step 2 in your website or application page. With the SDK, you can do the following: 
+In the following section, you can find out how you can use the [AWS Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) (JavaScript) to embed the dashboard URL from step 2 in your website or application page. With the SDK, you can do the following: 
 + Place the dashboard on an HTML page.
 + Pass parameters into the dashboard.
 + Handle error states with messages that are customized to your application.
@@ -461,9 +461,9 @@ The following shows an example response from `generate-embed-url-for-anynymous-u
         }
 ```
 
-Embed this dashboard in your web page by using the [Amazon Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) or by adding this URL into an iframe. If you set a fixed height and width number (in pixels), Amazon Quick Sight uses those and doesn't change your visual as your window resizes. If you set a relative percent height and width, Amazon Quick Sight provides a responsive layout that is modified as your window size changes. By using the Amazon Quick Sight Embedding SDK, you can also control parameters within the dashboard and receive callbacks in terms of page load completion and errors. 
+Embed this dashboard in your web page by using the [AWS Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) or by adding this URL into an iframe. If you set a fixed height and width number (in pixels), AWS Quick Sight uses those and doesn't change your visual as your window resizes. If you set a relative percent height and width, AWS Quick Sight provides a responsive layout that is modified as your window size changes. By using the AWS Quick Sight Embedding SDK, you can also control parameters within the dashboard and receive callbacks in terms of page load completion and errors. 
 
-The domain that is going to host embedded dashboards must be on the *allow list*, the list of approved domains for your Quick subscription. This requirement protects your data by keeping unapproved domains from hosting embedded dashboards. For more information about adding domains for embedded dashboards, see [Allow listing domains at runtime with the Amazon Quick Sight API](https://docs.aws.amazon.com/quicksight/latest/user/embedding-run-time.html).
+The domain that is going to host embedded dashboards must be on the *allow list*, the list of approved domains for your Quick subscription. This requirement protects your data by keeping unapproved domains from hosting embedded dashboards. For more information about adding domains for embedded dashboards, see [Allow listing domains at runtime with the AWS Quick Sight API](https://docs.aws.amazon.com/quicksight/latest/user/embedding-run-time.html).
 
 The following example shows how to use the generated URL. This code resides on your app server.
 
@@ -660,9 +660,9 @@ The following example shows how to use the generated URL. This code resides on y
 </html>
 ```
 
-For this example to work, make sure to use the Amazon Quick Sight Embedding SDK to load the embedded dashboard on your website using JavaScript. To get your copy, do one of the following:
-+ Download the [Amazon Quick Sight Embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object) from GitHub. This repository is maintained by a group of Amazon Quick Sight developers.
-+ Download the latest Amazon Quick Sight Embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
+For this example to work, make sure to use the AWS Quick Sight Embedding SDK to load the embedded dashboard on your website using JavaScript. To get your copy, do one of the following:
++ Download the [AWS Quick Sight Embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object) from GitHub. This repository is maintained by a group of AWS Quick Sight developers.
++ Download the latest AWS Quick Sight Embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
 + If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
   ```

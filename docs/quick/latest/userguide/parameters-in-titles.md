@@ -1,9 +1,9 @@
 
 
-# Using parameters in titles and descriptions in Amazon Quick
+# Using parameters in titles and descriptions in AWS Quick
 <a name="parameters-in-titles"></a>
 
-When you create parameters in Amazon Quick, you can use them in titles and descriptions throughout your charts and analyses to dynamically display parameter values. 
+When you create parameters in AWS Quick, you can use them in titles and descriptions throughout your charts and analyses to dynamically display parameter values. 
 
 You can use parameters in the following areas of your analysis:
 + Chart titles and subtitles

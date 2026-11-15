@@ -1,11 +1,11 @@
 
 
-# Amazon Quick Microsoft Excel extension
+# AWS Quick Microsoft Excel extension
 <a name="excel-extension-guide"></a>
 
-The Amazon Quick extension for Excel helps you work with data faster by automating data cleaning, analysis, and visualization tasks while integrating with your enterprise data sources.
+The AWS Quick extension for Excel helps you work with data faster by automating data cleaning, analysis, and visualization tasks while integrating with your enterprise data sources.
 
-You can search for Amazon Quick in the Microsoft Excel app store or visit the [Quick for Excel Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010611) to add the extension.
+You can search for AWS Quick in the Microsoft Excel app store or visit the [Quick for Excel Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010611) to add the extension.
 
 Key capabilities include:
 + **Data import and preparation:** Pull data from Quick dashboards, structured datasets, spaces, and uploaded files directly into your spreadsheet. Identify inconsistencies and clean data automatically, and apply formatting and templates based on your data and objectives.
@@ -16,34 +16,34 @@ Key capabilities include:
 + **External actions:** Perform actions in third-party applications using your configured [connectors](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-connectors.html) or apps directly from Excel.
 
 **Important**  
-The Amazon Quick Excel extension uses generative AI to create and execute code within your Excel application sandbox. AI can make mistakes and perform inaccurate actions within your Excel workbook. No spreadsheet data is read when the side panel is closed, and no data is sent to Amazon Quick unless you explicitly send a prompt.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick Excel extension uses generative AI to create and execute code within your Excel application sandbox. AI can make mistakes and perform inaccurate actions within your Excel workbook. No spreadsheet data is read when the side panel is closed, and no data is sent to AWS Quick unless you explicitly send a prompt.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
-The Amazon Quick Microsoft Excel extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft Excel extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When you use the extension, the time Amazon Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When you use the extension, the time AWS Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-## Amazon Quick Microsoft Excel extension usage guidelines
+## AWS Quick Microsoft Excel extension usage guidelines
 <a name="excel-usage-guidelines"></a>
 
-As a user, you are responsible for keeping company information safe. The following guidance helps you use Amazon Quick apps securely while maintaining data privacy and compliance.
+As a user, you are responsible for keeping company information safe. The following guidance helps you use AWS Quick apps securely while maintaining data privacy and compliance.
 
 ### Conversation retention and accuracy
 <a name="excel-conversation-retention"></a>
 
 Each conversation is stored for 30 days. You can review and manage your conversation history by choosing the conversation history button in the Excel extension.
 
-Amazon Quick uses generative AI. You should review responses for accuracy.
+AWS Quick uses generative AI. You should review responses for accuracy.
 
-Usage of the Amazon Quick extension for Microsoft Excel is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
+Usage of the AWS Quick extension for Microsoft Excel is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
 
 ### Security considerations
 <a name="excel-security-considerations"></a>
 
-To protect your organization's data, carefully evaluate usage and plan deployment with data privacy in mind. Amazon Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft Excel conversations into your company's Amazon Quick instance.
+To protect your organization's data, carefully evaluate usage and plan deployment with data privacy in mind. AWS Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Microsoft Excel conversations into your company's AWS Quick instance.
 
 ## Sample prompts
 <a name="excel-sample-prompts"></a>

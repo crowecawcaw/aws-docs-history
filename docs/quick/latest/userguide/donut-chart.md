@@ -7,14 +7,14 @@ Use donut charts to compare values for items in a dimension. The best use for th
 
 Each wedge in a donut chart represents one value in a dimension. The size of the wedge represents the proportion of the value for the selected measure that the item represents compared to the whole for the dimension. Donut charts are best when precision isn't important and there are few items in the dimension.
 
-To learn how to use donut charts in Amazon Quick, you can watch this video:
+To learn how to use donut charts in AWS Quick, you can watch this video:
 
 [![AWS Videos](https://img.youtube.com/vi/vR6H4bXaRBY/0.jpg)](https://www.youtube.com/watch?v=vR6H4bXaRBY)
 
 
 To create a donut chart, use one dimension in the **Group/Color** field well. With only one field, the chart displays the division of values by row count. To display the division of dimension values by a metric value, you can add a metric field to the **Value** field well. 
 
-Donut charts show up to 20 data points for group or color. For more information about how Amazon Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
+Donut charts show up to 20 data points for group or color. For more information about how AWS Quick handles data that falls outside display limits, see [Display limits](working-with-visual-types.md#display-limits).
 
 ## Donut chart features
 <a name="donut-chart-features"></a>
@@ -30,11 +30,11 @@ To understand the features supported by donut charts, use the following table.
 | Changing the axis range | Not applicable |  | [Range and scale on visual types in Quick](changing-visual-scale-axis-range.md) | 
 | Changing the visual colors | Yes |  | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | Yes, with exceptions | You can focus on or exclude a wedge in a donut chart, except when you are using a date field as a dimension. In that case, you can only focus on a wedge, not exclude it. | [Focusing on visual elements](focusing-on-visual-elements.md)<br />[Excluding visual elements](excluding-visual-elements.md) | 
-| Sorting | Yes | You can sort on the field that you choose for the value or the group or color. | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | Yes | You can sort on the field that you choose for the value or the group or color. | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes | You must apply aggregation to the field that you choose for the value, and can't apply aggregation to the field that you choose for group or color. | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | Yes | You can add drill-down levels to the Group/Color field well. | [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md) | 
-| Choosing size | Yes | You can choose how thick the donut chart is: small, medium, and large. | [Formatting in Amazon Quick](formatting-a-visual.md) | 
-| Showing totals | Yes | You can choose to display or hide the aggregate of the Value field. By default, this displays the total count of the Group/Color field, or the total sum of the Value field. | [Formatting in Amazon Quick](formatting-a-visual.md) | 
+| Choosing size | Yes | You can choose how thick the donut chart is: small, medium, and large. | [Formatting in AWS Quick](formatting-a-visual.md) | 
+| Showing totals | Yes | You can choose to display or hide the aggregate of the Value field. By default, this displays the total count of the Group/Color field, or the total sum of the Value field. | [Formatting in AWS Quick](formatting-a-visual.md) | 
 
 ## Creating a donut chart
 <a name="create-donut-chart"></a>

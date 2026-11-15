@@ -6,10 +6,10 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 **Important**  
-Smart Approvals is available in the Amazon Quick desktop app and mobile app. It is not currently available in the web version.
+Smart Approvals is available in the AWS Quick desktop app and mobile app. It is not currently available in the web version.
 
 ## How Smart Approvals works
 <a name="smart-approvals-overview"></a>
@@ -76,7 +76,7 @@ When you turn Smart Approvals off, your eligible actions need your review instea
 ## Auditing Smart Approvals activity
 <a name="smart-approvals-audit"></a>
 
-Amazon Quick records Smart Approvals activity in AWS CloudTrail. CloudTrail records each action that Smart Approvals approves and each change that a user makes to their Smart Approvals setting. Each review event identifies the user, the agent, the connector and action, and the time. All Smart Approvals events use the event source `quicksight.amazonaws.com`.
+AWS Quick records Smart Approvals activity in AWS CloudTrail. CloudTrail records each action that Smart Approvals approves and each change that a user makes to their Smart Approvals setting. Each review event identifies the user, the agent, the connector and action, and the time. All Smart Approvals events use the event source `quicksight.amazonaws.com`.
 
 ### Changes to a user's Smart Approvals setting
 <a name="smart-approvals-audit-setting"></a>

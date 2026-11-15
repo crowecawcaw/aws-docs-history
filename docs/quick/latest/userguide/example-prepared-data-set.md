@@ -1,19 +1,19 @@
 
 
-# Tutorial: Create a prepared Amazon Quick Sight dataset
+# Tutorial: Create a prepared AWS Quick Sight dataset
 <a name="example-prepared-data-set"></a>
 
-Use the following procedure to prepare the Marketing dataset and create an analysis. If you don't see the Web and Social Media Analytics sample data already in Amazon Quick Sight, you can download it: [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.zip).
+Use the following procedure to prepare the Marketing dataset and create an analysis. If you don't see the Web and Social Media Analytics sample data already in AWS Quick Sight, you can download it: [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.zip).
 
 **To prepare the Marketing dataset and create an analysis**
 
-1. From the Amazon Quick homepage, choose **Data** in the navigation pane.
+1. From the AWS Quick homepage, choose **Data** in the navigation pane.
 
 1. In the **Datasets** tab, choose **New** then **Dataset**.
 
 1. From the existing data sources, choose the **Web and Social Media Analytics** Amazon S3 data source. Choose your table and then choose **Edit/Preview data**.
 
-   Amazon Quick opens the data preparation page.
+   AWS Quick opens the data preparation page.
 
 1. For **Dataset Name**, enter **Marketing Sample** to replace *Web and Social Media Analytics* for the dataset name.
 
@@ -50,4 +50,4 @@ Use the following procedure to prepare the Marketing dataset and create an analy
 ## Next steps
 <a name="example-next-step-data-set"></a>
 
-Create an analysis by using the procedure in [Tutorial: Create an Amazon Quick Sight analysis](example-create-an-analysis.md).
+Create an analysis by using the procedure in [Tutorial: Create an AWS Quick Sight analysis](example-create-an-analysis.md).

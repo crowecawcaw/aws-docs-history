@@ -16,7 +16,7 @@ A Topic in Quick Sight consists of four layers:
    + **Permissions.** Owners can modify the Topic. Viewers can ask questions and use the Topic in analysis but cannot change its configuration.
 
 1. **Consumption.** Business users interact with the Topic through multiple surfaces:
-   + **Chat.** Users ask natural language questions in the Amazon Quick chat interface. The LLM-powered chat agent parses the question, identifies relevant columns across datasets, constructs SQL with appropriate joins based on your defined relationships, and returns a unified answer.
+   + **Chat.** Users ask natural language questions in the AWS Quick chat interface. The LLM-powered chat agent parses the question, identifies relevant columns across datasets, constructs SQL with appropriate joins based on your defined relationships, and returns a unified answer.
    + **Analysis sheets.** Authors build visuals using fields from multiple datasets within the Topic. Quick Sight performs runtime inner joins automatically when a visual references fields from more than one dataset.
 
 Row-level security (RLS) is enforced at the dataset level during runtime joins. Users see only the data they are authorized to access, even when queries span multiple datasets.

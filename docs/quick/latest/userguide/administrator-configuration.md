@@ -11,18 +11,18 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
-As a Amazon Quick administrator, you can configure various settings for user-driven license upgrades, including enabling the feature, setting approval policies, and configuring custom permissions profiles.
+As a AWS Quick administrator, you can configure various settings for user-driven license upgrades, including enabling the feature, setting approval policies, and configuring custom permissions profiles.
 
 ## Enabling user-driven upgrades
 <a name="enabling-user-driven-upgrades"></a>
 
-Before users can request license upgrades, you must enable the user-driven upgrade feature in your Amazon Quick account settings.
+Before users can request license upgrades, you must enable the user-driven upgrade feature in your AWS Quick account settings.
 
 ### Access Administrator Settings
 <a name="access-administrator-settings"></a>
-+ Log in to your Amazon Quick administrator account
++ Log in to your AWS Quick administrator account
 + Navigate to the 'Manage Account' section of the console
 + Check for User upgrades Section
 + Use the toggle button to Enable/Disable - Automatically approve upgrades
@@ -35,19 +35,19 @@ Administrators can configure three types of upgrade governance:
 + **Admin Approval** (default for IAM Identity Center and AD) — Users can request upgrades that require administrator approval
 + **User Driven Upgrades** (default for IdP) — Users can upgrade automatically without approval
 
-## Creating a custom permissions profile for Amazon Quick account that is integrated with IAM Identity Center or Active Directory
+## Creating a custom permissions profile for AWS Quick account that is integrated with IAM Identity Center or Active Directory
 <a name="creating-custom-permissions-profile-idc-ad"></a>
 
-Amazon Quick account administrators can use the following procedure to create a custom permissions profile for an Amazon Quick account that is integrated with IAM Identity Center or Active Directory.
+AWS Quick account administrators can use the following procedure to create a custom permissions profile for an AWS Quick account that is integrated with IAM Identity Center or Active Directory.
 
-### To create a custom permissions profile for an Amazon Quick account that is integrated with IAM Identity Center or Active Directory
+### To create a custom permissions profile for an AWS Quick account that is integrated with IAM Identity Center or Active Directory
 <a name="create-custom-permissions-idc-ad"></a>
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/).
 
-1. Open Amazon Quick.
+1. Open AWS Quick.
 
-1. The Amazon Quick Admin console opens. Choose **Custom Permissions**.
+1. The AWS Quick Admin console opens. Choose **Custom Permissions**.
 
 1. The **Manage custom permissions** page opens. Choose one of the following options.
 
@@ -65,19 +65,19 @@ Amazon Quick account administrators can use the following procedure to create a 
 
 1. Once you are done making changes, record the name of the custom permissions profile. Provide the name of the custom permissions profile to API users so that they can apply the custom permissions profile to roles or users.
 
-## Creating a custom permissions profile for an Amazon Quick account that uses Amazon Quick managed users
+## Creating a custom permissions profile for an AWS Quick account that uses AWS Quick managed users
 <a name="creating-custom-permissions-profile-qs-managed"></a>
 
-Amazon Quick account administrators can use the following procedure to create a custom permissions profile for an Amazon Quick account that uses Amazon Quick managed users.
+AWS Quick account administrators can use the following procedure to create a custom permissions profile for an AWS Quick account that uses AWS Quick managed users.
 
-### To create a custom permissions profile for Amazon Quick managed users
+### To create a custom permissions profile for AWS Quick managed users
 <a name="create-custom-permissions-qs-managed"></a>
 
-1. Open the [Amazon Quick console](https://quicksight.aws.amazon.com/).
+1. Open the [AWS Quick console](https://quicksight.aws.amazon.com/).
 
-1. From any page in the Amazon Quick console, choose **Manage Amazon Quick** at the top right corner.
+1. From any page in the AWS Quick console, choose **Manage AWS Quick** at the top right corner.
 
-1. Only Amazon Quick administrators have access to the **Manage Amazon Quick** menu option. If you don't have access to the **Manage Amazon Quick** menu, contact your Amazon Quick administrator for assistance.
+1. Only AWS Quick administrators have access to the **Manage AWS Quick** menu option. If you don't have access to the **Manage AWS Quick** menu, contact your AWS Quick administrator for assistance.
 
 1. Choose **Custom permissions**. You can also choose the **Manage users** section and then choose **Manage custom permissions**.
 
@@ -100,12 +100,12 @@ Amazon Quick account administrators can use the following procedure to create a 
 ## Applying custom permissions profiles
 <a name="applying-custom-permissions-profiles"></a>
 
-### Apply a custom permissions profile to an Amazon Quick role with the Amazon Quick API
+### Apply a custom permissions profile to an AWS Quick role with the AWS Quick API
 <a name="apply-to-role"></a>
 
 For more information, see [Apply custom permissions profile to role](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console-apply-role.html#customizing-permissions-to-the-quicksight-console-apply-role).
 
-### Apply a custom permissions profile to a user with the Amazon Quick API
+### Apply a custom permissions profile to a user with the AWS Quick API
 <a name="apply-to-user"></a>
 
 For more information, see [Apply custom permissions profile to user](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console-apply-iam-user.html#customizing-permissions-to-the-quicksight-console-apply-iam-user).
@@ -115,7 +115,7 @@ For more information, see [Apply custom permissions profile to user](https://doc
 
 For more information, see [Apply custom permissions profile to account](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-custom-permissions-profile.html#customizing-permissions-to-the-quicksight-console-apply-account).
 
-### Apply a custom permissions profile to an account using the Amazon Quick APIs
+### Apply a custom permissions profile to an account using the AWS Quick APIs
 <a name="apply-using-apis"></a>
 
 For more information, see [Apply custom permissions profile using APIs](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-custom-permissions-profile.html#customizing-permissions-to-the-quicksight-console-apply-account-with-apis).

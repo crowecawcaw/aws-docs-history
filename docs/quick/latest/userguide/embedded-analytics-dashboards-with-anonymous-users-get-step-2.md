@@ -4,8 +4,8 @@
 <a name="embedded-analytics-dashboards-with-anonymous-users-get-step-2"></a>
 
 **Important**  
-Amazon Quick Sight has new APIs for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
-You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` APIs to embed dashboards and the Amazon Quick Sight console, but they do not contain the latest embedding capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your applications](https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html).
+AWS Quick Sight has new APIs for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
+You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` APIs to embed dashboards and the AWS Quick Sight console, but they do not contain the latest embedding capabilities. For the latest up-to-date embedding experience, see [Embedding AWS Quick Sight analytics into your applications](https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html).
 
 
 |  | 
@@ -15,11 +15,11 @@ You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` APIs to em
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick developers  | 
+|    Intended audience:  AWS Quick developers  | 
 
 In the following section, you can find how to authenticate on behalf of the anonymous visitor and get the embeddable dashboard URL on your application server. 
 
-When a user accesses your app, the app assumes the IAM role on the user's behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
+When a user accesses your app, the app assumes the IAM role on the user's behalf. Then it adds the user to AWS Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
 
 The following examples perform the IAM authentication on the user's behalf. It passes an identifier as the unique role session ID. This code runs on your app server.
 

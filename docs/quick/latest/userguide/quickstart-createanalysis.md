@@ -1,15 +1,15 @@
 
 
-# Quick start: Create an Amazon Quick Sight analysis with a single visual using sample data
+# Quick start: Create an AWS Quick Sight analysis with a single visual using sample data
 <a name="quickstart-createanalysis"></a>
 
-Before you create your first analysis, make sure to complete the steps in [Setting up and signing into Amazon Quick](setting-up.md). 
+Before you create your first analysis, make sure to complete the steps in [Setting up and signing into AWS Quick](setting-up.md). 
 
 With the following procedure, you use the Web and Social Media Analytics sample dataset to create an analysis containing a line chart visual. This visual shows the count by month of people that have added themselves to the mailing list. 
 
 **To create an analysis containing a line chart visual using a sample dataset**
 
-1. From the Amazon Quick homepage, from Amazon Quick Sight, choose **Analyses** from the left navigation menu. If you don't have sample data, you can download it from [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.zip). Unzip the file so you can use the .csv file.
+1. From the AWS Quick homepage, from AWS Quick Sight, choose **Analyses** from the left navigation menu. If you don't have sample data, you can download it from [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.zip). Unzip the file so you can use the .csv file.
 
    To upload the sample data, do the following:
 
@@ -29,7 +29,7 @@ With the following procedure, you use the Web and Social Media Analytics sample 
 
 1. In the **Data** pane, choose **Date**, and then choose **Mailing list adds**. 
 
-   Amazon Quick Sight uses AutoGraph to create the visual, selecting the visual type that it determines is most compatible with those fields. In this case, it selects a line chart that shows mailing list adds by day, which is the date granularity default.
+   AWS Quick Sight uses AutoGraph to create the visual, selecting the visual type that it determines is most compatible with those fields. In this case, it selects a line chart that shows mailing list adds by day, which is the date granularity default.
 
 1. Navigate to the **Field wells** at the bottom of the **Visuals** pane.
 

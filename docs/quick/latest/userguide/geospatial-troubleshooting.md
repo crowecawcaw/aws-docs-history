@@ -3,11 +3,11 @@
 # Geospatial troubleshooting
 <a name="geospatial-troubleshooting"></a>
 
-Use this section to discover the Amazon Quick Sight requirements for correctly processing geospatial data. If Amazon Quick Sight doesn't recognize your geospatial data as geospatial, use this section to help troubleshoot the issue. Make sure that your data follows the guidelines listed, so that it works in geospatial visuals.
+Use this section to discover the AWS Quick Sight requirements for correctly processing geospatial data. If AWS Quick Sight doesn't recognize your geospatial data as geospatial, use this section to help troubleshoot the issue. Make sure that your data follows the guidelines listed, so that it works in geospatial visuals.
 
 **Note**  
-Geospatial charts in Amazon Quick Sight currently aren't supported in some AWS Regions, including in China. We are working on adding support for more Regions.  
-If your geography follows all the guidelines listed here, and still generates errors, contact the Amazon Quick Sight team from within the Amazon Quick Sight console. 
+Geospatial charts in AWS Quick Sight currently aren't supported in some AWS Regions, including in China. We are working on adding support for more Regions.  
+If your geography follows all the guidelines listed here, and still generates errors, contact the AWS Quick Sight team from within the AWS Quick Sight console. 
 
 **Topics**
 + [Geocoding issues](#geocoding)
@@ -17,7 +17,7 @@ If your geography follows all the guidelines listed here, and still generates er
 ## Geocoding issues
 <a name="geocoding"></a>
 
-Amazon Quick Sight geocodes place names into latitude and longitude coordinates. It uses these coordinates to display place names on the map. Amazon Quick Sight skips any places that it can't geocode.
+AWS Quick Sight geocodes place names into latitude and longitude coordinates. It uses these coordinates to display place names on the map. AWS Quick Sight skips any places that it can't geocode.
 
 For this process to work properly, your data must include at least the country. Also, there can't be duplicate place names inside of a parent place name. 
 
@@ -47,7 +47,7 @@ To avoid this problem, you can add enough geographical data to indicate what loc
 Invalid geospatial data occurs when a place name (a city, for example) is listed under an incorrect parent (a state, for example). This issue might be a simple misspelling, or data entry error. 
 
 **Note**  
-Amazon Quick Sight doesn't support regions (for example, West Coast or South) as geospatial data. However, you can use a region as a filter in a visual.
+AWS Quick Sight doesn't support regions (for example, West Coast or South) as geospatial data. However, you can use a region as a filter in a visual.
 
 ### Issues with the default country in geocoding
 <a name="geospatial-default-country"></a>
@@ -71,9 +71,9 @@ If you don't create a hierarchy, your default country is based on your AWS Regio
 ## Issues with latitude and longitude
 <a name="latitude-and-longitude"></a>
 
-Amazon Quick Sight uses latitude and longitude coordinates in the background to find place names on a map. However, you can also use coordinates to create a map without using place names. This approach also works with unsupported place names. 
+AWS Quick Sight uses latitude and longitude coordinates in the background to find place names on a map. However, you can also use coordinates to create a map without using place names. This approach also works with unsupported place names. 
 
-Latitude and longitude values must be numeric. For example, the map point indicated by **28.5383355 -81.3792365** is compatible with Amazon Quick Sight. But **28° 32' 18.0096'' N 81° 22' 45.2424'' W** is not. 
+Latitude and longitude values must be numeric. For example, the map point indicated by **28.5383355 -81.3792365** is compatible with AWS Quick Sight. But **28° 32' 18.0096'' N 81° 22' 45.2424'' W** is not. 
 
 **Topics**
 + [Valid ranges for latitude and longitude coordinates](#valid-ranges-for-coordinates)
@@ -82,7 +82,7 @@ Latitude and longitude values must be numeric. For example, the map point indica
 ### Valid ranges for latitude and longitude coordinates
 <a name="valid-ranges-for-coordinates"></a>
 
-Amazon Quick Sight supports latitude and longitude coordinates within specific ranges. 
+AWS Quick Sight supports latitude and longitude coordinates within specific ranges. 
 
 
 
@@ -92,12 +92,12 @@ Amazon Quick Sight supports latitude and longitude coordinates within specific r
 | Latitude | Between -90 and 90 | 
 | Longitude | Between -180 to 180 | 
 
-Amazon Quick Sight skips any data outside these ranges. Out-of-range points can't be mapped on a map chart. 
+AWS Quick Sight skips any data outside these ranges. Out-of-range points can't be mapped on a map chart. 
 
 ### Using coordinates in degrees, minutes, and seconds (DMS) format
 <a name="using-coordinates-in-dms-format"></a>
 
-You can use a calculated field with a formula to create a numeric latitude and longitude out of character strings. Use this section to find different ways that you can create calculated fields in Amazon Quick Sight, to parse GPS latitude and longitude into numeric latitude and longitude. 
+You can use a calculated field with a formula to create a numeric latitude and longitude out of character strings. Use this section to find different ways that you can create calculated fields in AWS Quick Sight, to parse GPS latitude and longitude into numeric latitude and longitude. 
 
 The following sample converts latitude and longitude to numeric format from separate fields. For example, suppose that you parse **51° 30' 26.4636'' N 0° 7' 39.9288'' W** using space as a delimiter. In this case, you can use something like the following sample to convert the resulting fields to numeric latitude and longitude. 
 

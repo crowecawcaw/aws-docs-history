@@ -34,4 +34,4 @@ If you don't have enough [SPICE](spice.md) capacity, choose **Edit/Preview data*
    + To prepare the data before creating an analysis, choose **Edit/Preview data** to open data preparation for the selected report or object. For more information about data preparation, see [Preparing dataset examples](preparing-data-sets.md).
 
 **Note**  
-The Salesforce connector is not supported in embedded console deployments where users authenticate through namespace isolation. The OAuth authentication flow requires direct Amazon Quick Sight console access to complete the sign-in process.
+The Salesforce connector is not supported in embedded console deployments where users authenticate through namespace isolation. The OAuth authentication flow requires direct AWS Quick Sight console access to complete the sign-in process.

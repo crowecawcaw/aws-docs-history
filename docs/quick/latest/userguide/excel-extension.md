@@ -1,6 +1,6 @@
 
 
-# Amazon Quick Microsoft Excel extension
+# AWS Quick Microsoft Excel extension
 <a name="excel-extension"></a>
 
 The Quick extension for Microsoft Excel integrates AI-powered assistance directly into your spreadsheet workflows. Users can leverage Quick within Excel to perform analysis, import data and build workbooks, and streamline spreadsheet operations like creation of tables, charts, and formatting.
@@ -12,20 +12,20 @@ The Excel extension enables users to:
 + Automate spreadsheet operations such as formatting and applying filters and transformations.
 + Apply Excel functions and build and decode complex workbooks.
 
-The Quick Excel extension is available within Amazon Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft Excel app store. Users can search for Amazon Quick in the Microsoft Excel app store or visit the [Quick for Excel Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010611) to add the extension.
+The Quick Excel extension is available within AWS Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft Excel app store. Users can search for AWS Quick in the Microsoft Excel app store or visit the [Quick for Excel Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010611) to add the extension.
 
 **Important**  
-The Amazon Quick Excel extension uses generative AI to create and execute code within your Excel application sandbox to help you perform tasks within Excel. AI can make mistakes and perform inaccurate actions within your Excel workbook.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick Excel extension uses generative AI to create and execute code within your Excel application sandbox to help you perform tasks within Excel. AI can make mistakes and perform inaccurate actions within your Excel workbook.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
-The Amazon Quick Microsoft Excel extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft Excel extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When users use the extension, the time Amazon Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When users use the extension, the time AWS Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-The following procedures are for IT administrators who want to automatically deploy the Amazon Quick Excel extension across their organization on behalf of their users.
+The following procedures are for IT administrators who want to automatically deploy the AWS Quick Excel extension across their organization on behalf of their users.
 
 **Topics**
 + [Prerequisites for deploying the Microsoft Excel extension to your organization](#excel-prerequisites)
@@ -35,11 +35,11 @@ The following procedures are for IT administrators who want to automatically dep
 ## Prerequisites for deploying the Microsoft Excel extension to your organization
 <a name="excel-prerequisites"></a>
 
-Before configuring access to the Amazon Quick extension to Microsoft Excel, administrators must complete the following steps:
+Before configuring access to the AWS Quick extension to Microsoft Excel, administrators must complete the following steps:
 
 1. Have a Microsoft 365 Business subscription and be a Global Admin or have administrative permissions (specifically `AppCatalog.ReadWrite.All`).
 
-1. Have an Amazon Quick instance.
+1. Have an AWS Quick instance.
 
 ## Deploying the Microsoft Excel extension to your organization
 <a name="excel-deployment"></a>
@@ -52,9 +52,9 @@ Follow these steps to deploy the extension to your users:
 
 1. Click on **Get apps**.
 
-1. Search for "Amazon Quick".
+1. Search for "AWS Quick".
 
-1. Locate the tile for the Amazon Quick in Excel and click on **Get it now**.
+1. Locate the tile for the AWS Quick in Excel and click on **Get it now**.
 
 1. Confirm that you want to add the app.
 
@@ -67,7 +67,7 @@ Follow these steps to deploy the extension to your users:
 ## Microsoft Excel extension permissions
 <a name="excel-permissions"></a>
 
-The Amazon Quick Excel extension uses the `ReadWriteDocument` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope. No Graph API permissions are needed during deployment.
+The AWS Quick Excel extension uses the `ReadWriteDocument` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope. No Graph API permissions are needed during deployment.
 
 The default app capabilities for the Excel add-in are:
 + Can read and make changes to your document

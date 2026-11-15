@@ -1,6 +1,6 @@
 
 
-# Amazon Quick Microsoft Word extension
+# AWS Quick Microsoft Word extension
 <a name="word-extension"></a>
 
 The Quick extension for Microsoft Word integrates AI-powered assistance directly in your Word document. Users can leverage Quick within Word to draft content, make formatted edits, and perform reviews with track changes and comments enabled.
@@ -11,20 +11,20 @@ The Word extension enables users to:
 + Format or restructure your documents.
 + Redline your documents with track changes and/or comments enabled.
 
-The Quick Word extension is available within Amazon Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft Word app store. Users can search for Amazon Quick in the Microsoft Word app store or visit the [Quick for Word Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010615) to add the extension.
+The Quick Word extension is available within AWS Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft Word app store. Users can search for AWS Quick in the Microsoft Word app store or visit the [Quick for Word Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010615) to add the extension.
 
 **Important**  
-The Amazon Quick Word extension uses generative AI to create and execute code within your Word application sandbox to help you perform tasks within Word. AI can make mistakes and perform inaccurate actions within your Word document.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick Word extension uses generative AI to create and execute code within your Word application sandbox to help you perform tasks within Word. AI can make mistakes and perform inaccurate actions within your Word document.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
-The Amazon Quick Microsoft Word extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft Word extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When users use the extension, the time Amazon Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When users use the extension, the time AWS Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-The following procedures are for IT administrators who want to automatically deploy the Amazon Quick Word extension across their organization on behalf of their users.
+The following procedures are for IT administrators who want to automatically deploy the AWS Quick Word extension across their organization on behalf of their users.
 
 **Topics**
 + [Prerequisites for deploying the Microsoft Word extension to your organization](#word-prerequisites)
@@ -34,11 +34,11 @@ The following procedures are for IT administrators who want to automatically dep
 ## Prerequisites for deploying the Microsoft Word extension to your organization
 <a name="word-prerequisites"></a>
 
-Before configuring access to the Amazon Quick extension to Microsoft Word, administrators must complete the following steps:
+Before configuring access to the AWS Quick extension to Microsoft Word, administrators must complete the following steps:
 
 1. Have a Microsoft 365 Business subscription and be a Global Admin or have administrative permissions (specifically `AppCatalog.ReadWrite.All`).
 
-1. Have an Amazon Quick instance.
+1. Have an AWS Quick instance.
 
 ## Deploying the Microsoft Word extension to your organization
 <a name="word-deployment"></a>
@@ -51,9 +51,9 @@ Follow these steps to deploy the extension to your users:
 
 1. Click on **Get apps**.
 
-1. Search for "Amazon Quick".
+1. Search for "AWS Quick".
 
-1. Locate the tile for the Amazon Quick in Word and click on **Get it now**.
+1. Locate the tile for the AWS Quick in Word and click on **Get it now**.
 
 1. Confirm that you want to add the app.
 
@@ -66,7 +66,7 @@ Follow these steps to deploy the extension to your users:
 ## Microsoft Word extension permissions
 <a name="word-permissions"></a>
 
-The Amazon Quick Word extension uses the `ReadWriteDocument` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope. No Graph API permissions are needed during deployment.
+The AWS Quick Word extension uses the `ReadWriteDocument` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope. No Graph API permissions are needed during deployment.
 
 The default app capabilities for the Word add-in are:
 + Can read and make changes to your document

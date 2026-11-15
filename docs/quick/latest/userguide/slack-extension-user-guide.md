@@ -1,21 +1,21 @@
 
 
-# Amazon Quick Slack extension user guide
+# AWS Quick Slack extension user guide
 <a name="slack-extension-user-guide"></a>
 
-As a user, you can access Amazon Quick directly within Slack to get AI-powered assistance without leaving your workspace. The extension integrates seamlessly into your Slack environment, providing instant access to knowledge bases and intelligent responses.
+As a user, you can access AWS Quick directly within Slack to get AI-powered assistance without leaving your workspace. The extension integrates seamlessly into your Slack environment, providing instant access to knowledge bases and intelligent responses.
 
 **Topics**
 + [Add a Slack Extension to your Slack](#slack-extension-setup-users)
 + [Access Quick in your Slack side panel at any time](#access-slack-side-panel)
 + [Slack extension use cases](#slack-use-cases)
-+ [Amazon Quick Slack extension usage guidelines](#slack-usage-guidelines)
++ [AWS Quick Slack extension usage guidelines](#slack-usage-guidelines)
 + [Slack extension known limitations](#slack-extension-known-limitations)
 
 ## Add a Slack Extension to your Slack
 <a name="slack-extension-setup-users"></a>
 
-Install the Amazon Quick app in your Slack workspace to enable AI-powered assistance. This one-time setup makes Quick accessible throughout your Slack environment.
+Install the AWS Quick app in your Slack workspace to enable AI-powered assistance. This one-time setup makes Quick accessible throughout your Slack environment.
 
 **Add a Slack Extension to your Slack**
 
@@ -47,7 +47,7 @@ Once you've added Quick to your Slack workspace, you can access it conveniently 
 
 1. Click on your Slack profile picture in the bottom left of Slack.
 
-1. Navigate to **Preferences** > **Navigation** > **AI Apps and Agents** and select **Amazon Quick**.
+1. Navigate to **Preferences** > **Navigation** > **AI Apps and Agents** and select **AWS Quick**.
 
 1. Quick will now be available to access anywhere in Slack through an icon in the top right of your Slack window.
 
@@ -68,7 +68,7 @@ With Quick integrated into Slack, you can search and access your organization's 
 
 1. Navigate to a Slack conversation thread of your choice.
 
-1. Type **@Amazon Quick** and ask any question about the messages in that thread or its knowledge from your spaces and Quick knowledge bases.
+1. Type **@AWS Quick** and ask any question about the messages in that thread or its knowledge from your spaces and Quick knowledge bases.
 
 1. If Quick is not already added to the channel, you will be prompted to add it before receiving a response.
 
@@ -82,45 +82,45 @@ With Quick integrated into Slack, you can search and access your organization's 
 
 1. In any Slack channel or direct message, upload an image by dragging and dropping it or using the attachment button.
 
-1. Mention **@Amazon Quick** and ask questions about the uploaded image, such as requesting analysis, descriptions, or insights.
+1. Mention **@AWS Quick** and ask questions about the uploaded image, such as requesting analysis, descriptions, or insights.
 
 1. Quick will analyze the image and provide relevant information based on your request.
 
-## Amazon Quick Slack extension usage guidelines
+## AWS Quick Slack extension usage guidelines
 <a name="slack-usage-guidelines"></a>
 
-As a user, you are responsible for keeping company information safe. The following guidance helps you use Amazon Quick apps securely while maintaining data privacy and compliance.
+As a user, you are responsible for keeping company information safe. The following guidance helps you use AWS Quick apps securely while maintaining data privacy and compliance.
 
 ### When using the Slack extension
 <a name="slack-usage-when-using"></a>
 
-To start fresh, begin a new conversation by selecting **New chat** in direct messages. Closing the side panel ends your current conversation. You can access conversation history through Slack message history or the Amazon Quick chat instance, which includes conversations from all channels. You can view complete conversation details, including attachment names, and access the same knowledge base available in your Amazon Quick chat instance.
+To start fresh, begin a new conversation by selecting **New chat** in direct messages. Closing the side panel ends your current conversation. You can access conversation history through Slack message history or the AWS Quick chat instance, which includes conversations from all channels. You can view complete conversation details, including attachment names, and access the same knowledge base available in your AWS Quick chat instance.
 
 **Note**  
-Users can access conversation history in Slack. Deleting the conversation in Slack will not delete from conversation history in Amazon Quick. However, users need to visit the Amazon Quick chat instance to manage their conversations.
+Users can access conversation history in Slack. Deleting the conversation in Slack will not delete from conversation history in AWS Quick. However, users need to visit the AWS Quick chat instance to manage their conversations.
 
 ### Conversation retention policy and accuracy
 <a name="slack-conversation-retention"></a>
 
-Amazon Quick automatically deletes conversations after 30 days of inactivity. Slack conversation retention follows your company's specific history rules, and Slack retention periods may exceed Amazon Quick's 30-day limit.
+AWS Quick automatically deletes conversations after 30 days of inactivity. Slack conversation retention follows your company's specific history rules, and Slack retention periods may exceed AWS Quick's 30-day limit.
 
-Users can access conversation history in Slack through the AI App History tab. Deleting the conversation in Slack will not delete from conversation history in Amazon Quick. However, users need to visit the Amazon Quick chat instance to manage their conversations.
+Users can access conversation history in Slack through the AI App History tab. Deleting the conversation in Slack will not delete from conversation history in AWS Quick. However, users need to visit the AWS Quick chat instance to manage their conversations.
 
 ### Security considerations
 <a name="slack-security-considerations"></a>
 
-When you use Amazon Quick in public channels, remember that responses reflect individual user permissions and content may include information not accessible to all channel members. It may generate responses that contain sensitive data that can't be publicly shared.
+When you use AWS Quick in public channels, remember that responses reflect individual user permissions and content may include information not accessible to all channel members. It may generate responses that contain sensitive data that can't be publicly shared.
 
-To protect your organization's data, carefully evaluate public channel usage, consider the security implications, and plan deployment with data privacy in mind. Amazon Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Slack conversations into your company's Amazon Quick instance.
+To protect your organization's data, carefully evaluate public channel usage, consider the security implications, and plan deployment with data privacy in mind. AWS Quick maintains strict data privacy by not using customer data for service improvements, not using customer data to enhance language models, and not indexing Slack conversations into your company's AWS Quick instance.
 
 ## Slack extension known limitations
 <a name="slack-extension-known-limitations"></a>
 
-The following are known limitations of the Amazon Quick Slack extension:
+The following are known limitations of the AWS Quick Slack extension:
 + The Slack extension doesn't have access to all your Slack conversations. It only has access to the messages in Slack conversation threads where it is mentioned.
 + The Slack extension doesn't have access to previous messages when mentioned in a Slack channel or in group message.
 + The Slack extension isn't accessible in group direct messages or in direct messages with teammates unless it is explicitly added to the conversation as a member.
-+ You can filter Amazon Quick agents and spaces only in direct messages with the Slack extension. The Slack extension will use the default assistant and all spaces available to you when invoked in public such as in channels or group messages.
++ You can filter AWS Quick agents and spaces only in direct messages with the Slack extension. The Slack extension will use the default assistant and all spaces available to you when invoked in public such as in channels or group messages.
 + The Slack extension can't render visuals for prompts about your structured data.
 + Web search isn't supported in the Slack extension.
 + The Slack extension can't be configured to automatically reply to messages in channels or posts.
@@ -129,4 +129,4 @@ The following are known limitations of the Amazon Quick Slack extension:
 + [Actions](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-connectors.html) (using your action integrations) can only be performed in direct messages with the Slack extension.
 + Actions that require file uploads as inputs are not supported by the Slack extension.
 + [Flows](https://docs.aws.amazon.com/quicksuite/latest/userguide/flows.html) are not supported in the Slack extension at this time.
-+ File upload limitations are the same within Amazon Quick chat. For more information, see [Upload files and chat](https://docs.aws.amazon.com/quicksuite/latest/userguide/using-quick-chat.html#file-uploads).
++ File upload limitations are the same within AWS Quick chat. For more information, see [Upload files and chat](https://docs.aws.amazon.com/quicksuite/latest/userguide/using-quick-chat.html#file-uploads).

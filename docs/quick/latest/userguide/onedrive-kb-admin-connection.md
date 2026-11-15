@@ -1,9 +1,9 @@
 
 
-# Create the knowledge base in Amazon Quick
+# Create the knowledge base in AWS Quick
 <a name="onedrive-kb-admin-connection"></a>
 
-After you complete the service credentials setup, create the knowledge base in Amazon Quick and provide the credentials. Any enterprise user can complete this step. Amazon Quick administrator access is not required.
+After you complete the service credentials setup, create the knowledge base in AWS Quick and provide the credentials. Any enterprise user can complete this step. AWS Quick administrator access is not required.
 
 You need the following values from [Set up service credentials](onedrive-kb-admin-config.md). If an administrator completed the setup on your behalf, collect these values before you proceed:
 + KMS key ARN (from Step 1)
@@ -14,7 +14,7 @@ You need the following values from [Set up service credentials](onedrive-kb-admi
 ## Navigate to Knowledge
 <a name="onedrive-kb-admin-connection-navigate"></a>
 
-1. In Amazon Quick, choose **Knowledge** from the left navigation pane.
+1. In AWS Quick, choose **Knowledge** from the left navigation pane.
 
 1. Under **Set up new knowledge base**, locate **Microsoft OneDrive** and choose the **Add** icon.
 
@@ -51,7 +51,7 @@ Give the connection a recognizable name. This name appears in the **Connected ac
 
 Enter a **Name** and optional **Description** for your knowledge base.
 
-Admin-managed setup crawls the OneDrive content of every user in your organization. Under **All users**, Amazon Quick syncs files and permissions for all users. You do not select individual sites, drives, or paths.
+Admin-managed setup crawls the OneDrive content of every user in your organization. Under **All users**, AWS Quick syncs files and permissions for all users. You do not select individual sites, drives, or paths.
 
 Choose **Next**.
 

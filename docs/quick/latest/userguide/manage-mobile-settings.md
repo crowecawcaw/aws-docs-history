@@ -3,19 +3,19 @@
 # Managing mobile settings
 <a name="manage-mobile-settings"></a>
 
-Mobile settings allow Amazon Quick admins to enhance data security and maintain compliance standards for users accessing Quick through mobile devices. These settings apply to all users accessing Quick through the mobile application.
+Mobile settings allow AWS Quick admins to enhance data security and maintain compliance standards for users accessing Quick through mobile devices. These settings apply to all users accessing Quick through the mobile application.
 
 **To access mobile settings:**
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/).
 
-1. Choose the user icon at the top right, and then choose **Manage Amazon Quick**.
+1. Choose the user icon at the top right, and then choose **Manage AWS Quick**.
 
 1. Under the **Security** section, choose **Mobile settings**.
 
 1. Choose settings to enhance your data security on mobile devices:
-   + **Require use of biometrics or PIN to unlock device** - Check the box to enable this security requirement. When enabled, users must use fingerprint recognition, Face ID, device PINs, or other biometric authentication methods supported by their device to access Amazon Quick.
-   + **Require devices to use the latest version of the mobile operating system** - Check the box to enable this security requirement. When enabled, users must keep their mobile devices' operating systems up to date to access Amazon Quick.
+   + **Require use of biometrics or PIN to unlock device** - Check the box to enable this security requirement. When enabled, users must use fingerprint recognition, Face ID, device PINs, or other biometric authentication methods supported by their device to access AWS Quick.
+   + **Require devices to use the latest version of the mobile operating system** - Check the box to enable this security requirement. When enabled, users must keep their mobile devices' operating systems up to date to access AWS Quick.
 
 1. To manage how long users can remain logged in on mobile devices:
 

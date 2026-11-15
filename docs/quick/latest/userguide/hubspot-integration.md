@@ -3,11 +3,11 @@
 # HubSpot integration
 <a name="hubspot-integration"></a>
 
-Access your HubSpot CRM data directly from Amazon Quick using natural language. With the HubSpot connector, you can retrieve and list contacts, companies, deals, and tickets without leaving Amazon Quick.
+Access your HubSpot CRM data directly from AWS Quick using natural language. With the HubSpot connector, you can retrieve and list contacts, companies, deals, and tickets without leaving AWS Quick.
 
-HubSpot is available as a built-in connector in Amazon Quick. To set up this integration, complete the following two steps. First, prepare your HubSpot account with the required access. Then, create the connector in Amazon Quick and authenticate with your HubSpot credentials.
+HubSpot is available as a built-in connector in AWS Quick. To set up this integration, complete the following two steps. First, prepare your HubSpot account with the required access. Then, create the connector in AWS Quick and authenticate with your HubSpot credentials.
 
-This connector supports Custom OAuth app authentication. For information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+This connector supports Custom OAuth app authentication. For information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Prerequisites
 <a name="hubspot-integration-prerequisites"></a>
@@ -20,14 +20,14 @@ Before you set up the integration, verify that you have the following resources 
 ## Verifying your HubSpot account
 <a name="hubspot-account-setup"></a>
 
-Before you configure Amazon Quick, verify that your HubSpot account meets the following requirements.
+Before you configure AWS Quick, verify that your HubSpot account meets the following requirements.
 + Your HubSpot account is active and you can sign in to the [HubSpot sign-in page](https://app.hubspot.com/login) on the HubSpot website.
 + The CRM data that you want to access, including contacts, companies, deals, and tickets, is accessible to your account.
 
 ## Configuring your HubSpot account
 <a name="hubspot-configure-account"></a>
 
-The Custom OAuth app authentication method in Amazon Quick requires a MCP Auth app configured in your HubSpot developer settings.
+The Custom OAuth app authentication method in AWS Quick requires a MCP Auth app configured in your HubSpot developer settings.
 
 ### To configure a MCP Auth App
 <a name="hubspot-configure-oauth"></a>
@@ -47,16 +47,16 @@ The Custom OAuth app authentication method in Amazon Quick requires a MCP Auth a
 **Important**  
 Record the client secret and client ID.
 
-The client ID and client secret serve as the Client ID and Client Secret when you configure the connector in Amazon Quick with the Custom OAuth app authentication method.
+The client ID and client secret serve as the Client ID and Client Secret when you configure the connector in AWS Quick with the Custom OAuth app authentication method.
 
 For more information, see [HubSpot MCP server](https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server) on the HubSpot website.
 
-## Setting up the integration in Amazon Quick
+## Setting up the integration in AWS Quick
 <a name="hubspot-integration-setup"></a>
 
-After you verify your HubSpot account access, create the connector in Amazon Quick.
+After you verify your HubSpot account access, create the connector in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 

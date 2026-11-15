@@ -3,7 +3,7 @@
 # Functions by category
 <a name="functions-by-category"></a>
 
-In this section, you can find a list of the functions available in Amazon Quick, sorted by category.
+In this section, you can find a list of the functions available in AWS Quick, sorted by category.
 
 **Topics**
 + [Aggregate functions](#aggregate-functions)
@@ -17,7 +17,7 @@ In this section, you can find a list of the functions available in Amazon Quick,
 ## Aggregate functions
 <a name="aggregate-functions"></a>
 
-The aggregate functions for calculated fields in Amazon Quick include the following. These are only available during analysis and visualization. Each of these functions returns values grouped by the chosen dimension or dimensions. For each aggregation, there is also a conditional aggregation. These perform the same type of aggregation, based on a condition. 
+The aggregate functions for calculated fields in AWS Quick include the following. These are only available during analysis and visualization. Each of these functions returns values grouped by the chosen dimension or dimensions. For each aggregation, there is also a conditional aggregation. These perform the same type of aggregation, based on a condition. 
 + [avg](https://docs.aws.amazon.com/quicksight/latest/user/avg-function.html) averages the set of numbers in the specified measure, grouped by the chosen dimension or dimensions.
 + [avgIf](https://docs.aws.amazon.com/quicksight/latest/user/avgIf-function.html) calculates the average based on a conditional statement.
 + [count](https://docs.aws.amazon.com/quicksight/latest/user/count-function.html) calculates the number of values in a dimension or measure, grouped by the chosen dimension or dimensions. 
@@ -59,7 +59,7 @@ The aggregate functions for calculated fields in Amazon Quick include the follow
 ## Conditional functions
 <a name="conditional-functions"></a>
 
-The conditional functions for calculated fields in Amazon Quick include the following:
+The conditional functions for calculated fields in AWS Quick include the following:
 + [Coalesce](https://docs.aws.amazon.com/quicksight/latest/user/coalesce-function.html) returns the value of the first argument that is not null.
 + [Ifelse](https://docs.aws.amazon.com/quicksight/latest/user/ifelse-function.html) evaluates a set of *if*, *then* expression pairings, and returns the value of the *then* argument for the first *if* argument that evaluates to true.
 + [in](https://docs.aws.amazon.com/quicksight/latest/user/in-function.html) evaluates an expression to see if it is in a given list of values.
@@ -72,7 +72,7 @@ The conditional functions for calculated fields in Amazon Quick include the foll
 ## Date functions
 <a name="date-functions"></a>
 
-The date functions for calculated fields in Amazon Quick include the following:
+The date functions for calculated fields in AWS Quick include the following:
 + [addDateTime](https://docs.aws.amazon.com/quicksight/latest/user/addDateTime-function.html) adds or subtracts a unit of time to the date or time provided.
 + [addWorkDays](https://docs.aws.amazon.com/quicksight/latest/user/addWorkDays-function.html) adds or subtracts the given number of work days to the date or time provided.
 + [dateDiff](https://docs.aws.amazon.com/quicksight/latest/user/dateDiff-function.html) returns the difference in days between two date fields. 
@@ -87,7 +87,7 @@ The date functions for calculated fields in Amazon Quick include the following:
 ## Numeric functions
 <a name="numeric-functions"></a>
 
-The numeric functions for calculated fields in Amazon Quick include the following:
+The numeric functions for calculated fields in AWS Quick include the following:
 + [Ceil](https://docs.aws.amazon.com/quicksight/latest/user/ceil-function.html) rounds a decimal value to the next highest integer. 
 + [decimalToInt](https://docs.aws.amazon.com/quicksight/latest/user/decimalToInt-function.html) converts a decimal value to an integer. 
 + [Floor](https://docs.aws.amazon.com/quicksight/latest/user/floor-function.html) decrements a decimal value to the next lowest integer. 
@@ -97,7 +97,7 @@ The numeric functions for calculated fields in Amazon Quick include the followin
 ## Mathematical functions
 <a name="mathematical-functions"></a>
 
-The mathematical functions for calculated fields in Amazon Quick include the following: 
+The mathematical functions for calculated fields in AWS Quick include the following: 
 + `[Mod](https://docs.aws.amazon.com/quicksight/latest/user/mod-function.html)({{number}}, {{divisor}})` – Finds the remainder after dividing a number by a divisor.
 + `[Log](https://docs.aws.amazon.com/quicksight/latest/user/log-function.html)({{expression}}) `– Returns the base 10 logarithm of a given expression. 
 + `[Ln](https://docs.aws.amazon.com/quicksight/latest/user/ln-function.html)({{expression}}) `– Returns the natural logarithm of a given expression. 
@@ -108,7 +108,7 @@ The mathematical functions for calculated fields in Amazon Quick include the fol
 ## String functions
 <a name="string-functions"></a>
 
-The string (text) functions for calculated fields in Amazon Quick include the following:
+The string (text) functions for calculated fields in AWS Quick include the following:
 + [Concat](https://docs.aws.amazon.com/quicksight/latest/user/concat-function.html) concatenates two or more strings. 
 + [contains](https://docs.aws.amazon.com/quicksight/latest/user/contains-function.html) checks if an expression contains a substring. 
 + [endsWith](https://docs.aws.amazon.com/quicksight/latest/user/endsWith-function.html) checks if the expression ends with the substring specified.

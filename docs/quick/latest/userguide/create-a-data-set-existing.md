@@ -3,7 +3,7 @@
 # Creating a dataset using an existing data source
 <a name="create-a-data-set-existing"></a>
 
-After you make an initial connection to a Salesforce, AWS data store, or other database data source, Amazon Quick saves the connection information. It adds the data source to the **FROM EXISTING DATA SOURCES** section of the **Create a Data Set** page. You can use these existing data sources to create new datasets without respecifying connection information.
+After you make an initial connection to a Salesforce, AWS data store, or other database data source, AWS Quick saves the connection information. It adds the data source to the **FROM EXISTING DATA SOURCES** section of the **Create a Data Set** page. You can use these existing data sources to create new datasets without respecifying connection information.
 
 ## Creating a dataset using an existing Amazon S3 data source
 <a name="create-a-data-set-existing-s3"></a>
@@ -12,7 +12,7 @@ Use the following procedure to create a dataset using an existing Amazon S3 data
 
 **To create a dataset using an existing S3 data source**
 
-1. On the Amazon Quick start page, choose **Data**.
+1. On the AWS Quick start page, choose **Data**.
 
 1. Choose **Create** then choose **New dataset**.
 
@@ -27,7 +27,7 @@ To create a dataset using an existing Amazon Athena data source, use the followi
 
 **To create a dataset from an existing Athena connection profile**
 
-1. On the Amazon Quick start page, choose **Data**.
+1. On the AWS Quick start page, choose **Data**.
 
 1. Choose **Create ** then choose **New data set**.
 
@@ -35,7 +35,7 @@ To create a dataset using an existing Amazon Athena data source, use the followi
 
 1. Choose **Create data set**.
 
-   Amazon Quick creates a connection profile for this data source based only on the Athena workgroup. The database and table aren't saved. 
+   AWS Quick creates a connection profile for this data source based only on the Athena workgroup. The database and table aren't saved. 
 
 1. On the **Choose your table** screen, do one of the following:
    + To write a SQL query, choose **Use custom SQL**.
@@ -48,7 +48,7 @@ Use the following procedure to create a dataset using an existing Salesforce dat
 
 **To create a dataset using an existing Salesforce data source**
 
-1. On the Amazon Quick start page, choose **Data**.
+1. On the AWS Quick start page, choose **Data**.
 
 1. Choose **Create ** then choose **New data set**.
 
@@ -81,7 +81,7 @@ Use the following procedure to create a dataset using an existing database data 
 
 **To create a dataset using an existing database data source**
 
-1. On the Amazon Quick start page, choose **Data**.
+1. On the AWS Quick start page, choose **Data**.
 
 1. Choose **Create** then choose **New data set**.
 

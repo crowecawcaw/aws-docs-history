@@ -1,11 +1,11 @@
 
 
-# Connecting to data in Amazon Quick Sight
+# Connecting to data in AWS Quick Sight
 <a name="working-with-data"></a>
 
-People in many different roles use Amazon Quick Sight to help them do analysis and advanced calculations, design data dashboards, embed analytics, and make better-informed decisions. Before any of that can happen, someone who understands your data needs to add it to a [Quick Sight dataset](https://docs.aws.amazon.com/quicksuite/latest/userguide/creating-data-sets). Quick Sight supports direct connections and uploads from a variety of [data sources](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-data-sources).**Capabilities and use cases**
+People in many different roles use AWS Quick Sight to help them do analysis and advanced calculations, design data dashboards, embed analytics, and make better-informed decisions. Before any of that can happen, someone who understands your data needs to add it to a [Quick Sight dataset](https://docs.aws.amazon.com/quicksuite/latest/userguide/creating-data-sets). Quick Sight supports direct connections and uploads from a variety of [data sources](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-data-sources).**Capabilities and use cases**
 
-**Amazon Quick Standard edition capabilities**  
+**AWS Quick Standard edition capabilities**  
 After your data is available in Quick Standard edition, you can do the following:  
 + Transform the dataset with field formatting, hierarchies, data type conversions, and calculations.
 + Create one or more data analyses based on your newly created dataset.
@@ -18,7 +18,7 @@ After your data is available in Quick Standard edition, you can do the following
 + Share the dashboard so other people can use the dashboard, even if they don't use the analysis that it's based on.
 + Add more data to create more analyses and dashboards.
 
-**Amazon Quick** **Enterprise edition capabilities**  
+**AWS Quick** **Enterprise edition capabilities**  
 After your data is available in Quick Enterprise edition, you can do different things depending on your role. If you can build datasets, design analyses, and publish dashboards, you can do all of the things people using Standard edition can do.   
 In addition, these are some examples of additional tasks that you can do:  
 + Create analyses that use Quick Sight insights, including machine learning (ML) powered insights for forecasting, anomaly and outlier detection, and key driver identification.
@@ -51,13 +51,13 @@ If you subscribe to dashboards, you can do the following:
 + View dashboard snapshots in email.
 + Focus on making decisions with the data at your fingertips.
 
-After you connect to or import data, you create a dataset to shape and prepare data to share and reuse. You can view your available datasets on the **Data** page, which you reach by choosing **Data** on the Amazon Quick Sight start page. You can view available data sources and create a new dataset on the **Create a Data Set** page, which you reach by choosing **Create ** then **New dataset** on the **Data** page.
+After you connect to or import data, you create a dataset to shape and prepare data to share and reuse. You can view your available datasets on the **Data** page, which you reach by choosing **Data** on the AWS Quick Sight start page. You can view available data sources and create a new dataset on the **Create a Data Set** page, which you reach by choosing **Create ** then **New dataset** on the **Data** page.
 
 **Topics**
 + [Supported data sources](supported-data-sources.md)
 + [Connect to your data with integrations and datasets](connecting-to-data-examples.md)
-+ [Connecting to data catalogs in Amazon Quick](catalog-integration.md)
++ [Connecting to data catalogs in AWS Quick](catalog-integration.md)
 + [Data source quotas](data-source-limits.md)
 + [Supported data types and values](supported-data-types-and-values.md)
 + [Working with datasets](working-with-datasets.md)
-+ [Working with data sources in Amazon Quick Sight](working-with-data-sources.md)
++ [Working with data sources in AWS Quick Sight](working-with-data-sources.md)

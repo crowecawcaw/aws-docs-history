@@ -1,6 +1,6 @@
 
 
-# Running queries as an IAM role in Amazon Quick
+# Running queries as an IAM role in AWS Quick
 <a name="datasource-run-as-role"></a>
 
 You can enhance data security by using fine-grained access policies rather than broader permissions for data sources connected to Amazon Athena, Amazon Redshift or Amazon S3. You start by creating an AWS Identity and Access Management (IAM) role with permissions to be activated when a person or an API starts a query. Then, an Quick administrator or a developer assigns the IAM Role to an Athena or Amazon S3 data source. With the role in place, any person or API that runs the query has the exact permissions necessary to run the query. 
@@ -283,7 +283,7 @@ Amazon S3 data sources contain a manifest file that Quick uses to find and parse
 
 With the **RoleArn** property, you can grant access to the manifest file and the data that it references through a custom IAM role that overrides the account-wide role. Use the API to attach the ARN to the manifest file of the Amazon S3 data source. To do so, include the role ARN in the [RoleArn](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RoleArn.html) property of [S3Parameters](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_S3Parameters.html). For verification, you can see the role ARN in the **Edit S3 data source** dialog box. However, **Role ARN** is a read-only field, as shown in the following screenshot.
 
-To get started, create an Amazon S3 manifest file. Then, you can either upload it to Amazon Quick when you create a new Amazon S3 dataset or place the file into the Amazon S3 bucket that contains your data files. View the following example to see what a manifest file might look like:
+To get started, create an Amazon S3 manifest file. Then, you can either upload it to AWS Quick when you create a new Amazon S3 dataset or place the file into the Amazon S3 bucket that contains your data files. View the following example to see what a manifest file might look like:
 
 ```
 {

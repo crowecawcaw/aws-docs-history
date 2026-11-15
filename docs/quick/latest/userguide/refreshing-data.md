@@ -1,9 +1,9 @@
 
 
-# Refreshing data in Amazon Quick Sight
+# Refreshing data in AWS Quick Sight
 <a name="refreshing-data"></a>
 
-When refreshing data, Amazon Quick Sight handles datasets differently depending on the connection properties and the storage location of the data.
+When refreshing data, AWS Quick Sight handles datasets differently depending on the connection properties and the storage location of the data.
 
 If Quick Sight connects to the data store by using a direct query, the data automatically refreshes when you open an associated dataset, analysis, or dashboard. Filter controls are refreshed automatically every 24 hours.
 
@@ -13,7 +13,7 @@ For files that you manually uploaded to SPICE, you refresh these manually by imp
 
 You can refresh your [SPICE](spice.md) datasets at any time. Refreshing imports the data into SPICE again, so the data includes any changes since the last import.
 
-For Amazon Quick Sight Standard Edition, you can do a full refresh of your SPICE data at any time. For Amazon Quick Sight Enterprise Edition, you can do a full refresh or an incremental refresh (SQL-based data sources only) at any time.
+For AWS Quick Sight Standard Edition, you can do a full refresh of your SPICE data at any time. For AWS Quick Sight Enterprise Edition, you can do a full refresh or an incremental refresh (SQL-based data sources only) at any time.
 
 **Note**  
 If your dataset uses CustomSQL, refreshing incrementally might not benefit you. If the SQL query is complex, your database may not be able to optimize the filter with the look-back window. This can cause the query that pulls in the data to take longer than a full refresh. We recommend that you try reducing query execution time by refactoring the custom SQL. Note that results might vary depending on the type of optimization you make.

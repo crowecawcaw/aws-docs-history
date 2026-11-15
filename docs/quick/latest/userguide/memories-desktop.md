@@ -3,7 +3,7 @@
 # Memories
 <a name="memories-desktop"></a>
 
-Amazon Quick learns facts, preferences, procedures, and patterns from your conversations and saves them as memories. Quick uses these memories to tailor future responses. Each memory shows a confidence score, how often it has been used, and its source.
+AWS Quick learns facts, preferences, procedures, and patterns from your conversations and saves them as memories. Quick uses these memories to tailor future responses. Each memory shows a confidence score, how often it has been used, and its source.
 
 Memories are kept per agent. The default assistant and each custom agent have their own memories. A rule you set for one agent does not change how another agent behaves. Entities in your knowledge graph remain shared across agents.
 

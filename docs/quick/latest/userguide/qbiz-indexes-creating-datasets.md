@@ -5,7 +5,7 @@
 
 After setting up permissions, Admin or Admin Pro users can create knowledge bases from Amazon Q Business indexes:
 
-1. Sign in to the Amazon Quick console as an Admin or Admin pro user.
+1. Sign in to the AWS Quick console as an Admin or Admin pro user.
 
 1. Navigate to **Knowledge bases**.
 

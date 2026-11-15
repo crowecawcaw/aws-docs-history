@@ -12,7 +12,7 @@ Test Deny by Default configurations in a development or staging account before a
 ### What is Deny by Default?
 <a name="custom-permissions-governance-what-is"></a>
 
-Without Deny by Default, any new capability that Amazon Quick ships is automatically available to all users upon release. Administrators must manually restrict each new capability after every release. This reactive approach can expose regulated environments to unapproved capabilities before administrators have time to evaluate them.
+Without Deny by Default, any new capability that AWS Quick ships is automatically available to all users upon release. Administrators must manually restrict each new capability after every release. This reactive approach can expose regulated environments to unapproved capabilities before administrators have time to evaluate them.
 
 With Deny by Default enabled, new capabilities in a restricted category are automatically denied on launch day without administrator action. Administrators can then evaluate each new capability and explicitly allow it when ready. Restricting a category also restricts the capabilities that already exist in it, so you allow the ones your users need.
 
@@ -43,8 +43,8 @@ The following table describes the key terms and concepts for Deny by Default.
 
 | Term | Definition | 
 | --- | --- | 
-| Custom permissions profile | A named configuration object that defines which Amazon Quick capabilities are restricted for a set of users or roles. You can assign profiles at the user, role, or account level. | 
-| Capability category | A named grouping of Amazon Quick capabilities used as the unit of control for Deny by Default. At launch, the supported category is AI (all AI and LLM-powered capabilities). | 
+| Custom permissions profile | A named configuration object that defines which AWS Quick capabilities are restricted for a set of users or roles. You can assign profiles at the user, role, or account level. | 
+| Capability category | A named grouping of AWS Quick capabilities used as the unit of control for Deny by Default. At launch, the supported category is AI (all AI and LLM-powered capabilities). | 
 | Deny by Default | A setting you can enable within a custom permissions profile to restrict all capabilities in a designated category. Capabilities that Quick launches in that category later are also restricted automatically, without requiring administrator action at launch time. | 
 | Category restriction | Restricting a capability category denies every capability in that category for users assigned to the profile, current and future, except capabilities explicitly allowed in the profile. | 
 | Profile scope | Restricting a category affects only the profile it is configured in. Existing custom permissions profiles do not inherit the restriction. | 
@@ -74,7 +74,7 @@ Before you configure Deny by Default, verify that the following prerequisites ar
 + **Identity configuration** – Your Quick account must be integrated with IAM Identity Center, Active Directory, or configured with Quick managed users.
 
 **Note**  
-All API operations use Amazon QuickSight naming conventions. Permission strings use the `quicksight:` prefix.
+All API operations use AWS Quick Sight naming conventions. Permission strings use the `quicksight:` prefix.
 
 ## How capabilities are evaluated
 <a name="custom-permissions-governance-evaluation"></a>
@@ -83,11 +83,11 @@ The following rules describe how capability evaluation works when Deny by Defaul
 
 1. If a capability belongs to a restricted category (for example, `AI`) with `DENY_BY_DEFAULT` and is not listed in Capabilities, the user is denied by default. This is the primary effect of Deny by Default.
 
-1. If a capability is explicitly listed in Capabilities with `ALLOW`, the user is permitted for that specific capability. This overrides the `DENY_BY_DEFAULT` category default for that capability only. Other capabilities in the same category remain denied unless they are also explicitly set to `ALLOW`.
+1. If a capability is explicitly listed in Capabilities with `ALLOW`, that setting overrides `DENY_BY_DEFAULT` for that capability only. Other capabilities in the same category remain denied unless they are also explicitly set to `ALLOW`. An explicit `ALLOW` does not override a denial of a parent capability.
 
 1. If a capability is explicitly listed in Capabilities with `DENY`, the user is denied.
 
-1. If a capability is not listed and does not belong to a restricted category, the user is permitted (allow-by-default behavior is unchanged).
+1. If a capability is not listed and does not belong to a restricted category, the profile allows it unless a parent capability is denied. For example, an individual action connector is allowed when its Actions parent is allowed and the connector is not explicitly denied. The `AI` category does not restrict data source connectors.
 
 Quick evaluates these rules each time a user accesses a capability, based on the capability's category membership at that time. This is why a restricted category also covers capabilities that are added later.
 
@@ -104,7 +104,14 @@ The following table describes the supported categories for Deny by Default.
 
 | Category | Covers | 
 | --- | --- | 
-| `AI` | All AI and LLM-powered capabilities in Quick, including chat agents, flows, spaces, knowledge bases, apps AI inference, Q analyses, and Quick desktop AI features. | 
+| `AI` | All AI and LLM-powered capabilities in Quick, including chat agents, flows, spaces, knowledge bases (including knowledge base connectors), the Actions parent capability, external agents, apps AI inference, Q analyses, and Quick desktop AI features. | 
+
+**Note**  
+AI Deny by Default applies to the Actions parent capability, not directly to individual action connector types. If Actions is not explicitly allowed, all action connectors beneath it are denied, including new connector types added later. Explicitly allowing an individual connector does not override a denied Actions parent.  
+If you explicitly allow Actions, the custom permissions profile allows individual action connector types unless you explicitly deny them. This includes connector types launched after you configure the profile. AI Deny by Default therefore does not support allowing selected action connectors while automatically denying newly launched connector types.
+
+**Note**  
+Data source connectors aren't part of the `AI` category. Restricting AI capabilities doesn't restrict data sources, including data sources that Quick launches later. To restrict a data source, deny it explicitly in the profile.
 
 **Note**  
 The category system is modeled using tags. A capability can carry multiple category tags. If a capability is tagged with more than one category and more than one has Deny by Default enabled, the most restrictive setting applies.

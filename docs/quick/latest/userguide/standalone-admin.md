@@ -1,12 +1,12 @@
 
 
-# Managing a Amazon Quick Free or Plus account
+# Managing a AWS Quick Free or Plus account
 <a name="standalone-admin"></a>
 
-Amazon Quick Free and Plus accounts – created through the direct signup process at [aws.com/quick](https://aws.com/quick) – include a built-in administration interface for managing your account, users, assets, billing, and support. This interface is accessible directly within the Amazon Quick web application, without requiring access to the AWS Management Console.
+AWS Quick Free and Plus accounts – created through the direct signup process at [aws.com/quick](https://aws.com/quick) – include a built-in administration interface for managing your account, users, assets, billing, and support. This interface is accessible directly within the AWS Quick web application, without requiring access to the AWS Management Console.
 
 **Note**  
-This section applies to Amazon Quick Free and Plus accounts only. If your organization accesses Amazon Quick through the AWS Management Console, see [Administering Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html) for information about managing your account using IAM, IAM Identity Center, and other AWS services.
+This section applies to AWS Quick Free and Plus accounts only. If your organization accesses AWS Quick through the AWS Management Console, see [Administering AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/qsysadmin.html) for information about managing your account using IAM, IAM Identity Center, and other AWS services.
 
 **Topics**
 + [Account administration overview](#standalone-admin-overview)
@@ -17,24 +17,24 @@ This section applies to Amazon Quick Free and Plus accounts only. If your organi
 ## Account administration overview
 <a name="standalone-admin-overview"></a>
 
-When you create a Amazon Quick Free or Plus account at aws.com/quick, the person who completes the signup process is automatically assigned the **administrator** role. As the account administrator, you have full access to all account management capabilities, including user management, asset oversight, plan and billing configuration, and support resources.
+When you create a AWS Quick Free or Plus account at aws.com/quick, the person who completes the signup process is automatically assigned the **administrator** role. As the account administrator, you have full access to all account management capabilities, including user management, asset oversight, plan and billing configuration, and support resources.
 
 Free and Plus account administration is organized into the following sections:
 
 
 | Section | Description | 
 | --- | --- | 
-| Users | Invite team members, manage active users, view usage statistics, and manage pending invitations. For more information, see [Managing users in a Amazon Quick Free or Plus account](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-users.html). | 
-| Assets | View and manage all account resources including chat agents, spaces, automations, and built-in tools. For more information, see [Managing assets in a Amazon Quick Free or Plus account](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-assets.html). | 
-| Plan and billing | View your current plan, estimated charges, payment methods, and billing history. Upgrade or change your plan. For more information, see [Plan and billing for Amazon Quick Free and Plus accounts](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-billing.html). | 
-| Support | Access AWS Support resources for help with your Amazon Quick account. | 
+| Users | Invite team members, manage active users, view usage statistics, and manage pending invitations. For more information, see [Managing users in a AWS Quick Free or Plus account](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-users.html). | 
+| Assets | View and manage all account resources including chat agents, spaces, automations, and built-in tools. For more information, see [Managing assets in a AWS Quick Free or Plus account](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-assets.html). | 
+| Plan and billing | View your current plan, estimated charges, payment methods, and billing history. Upgrade or change your plan. For more information, see [Plan and billing for AWS Quick Free and Plus accounts](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-billing.html). | 
+| Support | Access AWS Support resources for help with your AWS Quick account. | 
 
 ## Accessing the Manage Account page
 <a name="standalone-admin-access"></a>
 
 **To access account administration**
 
-1. Sign in to Amazon Quick at [aws.com/quick](https://aws.com/quick).
+1. Sign in to AWS Quick at [aws.com/quick](https://aws.com/quick).
 
 1. From the navigation panel, choose your username (displayed with your initials and name).
 
@@ -68,4 +68,4 @@ The following table summarizes the key differences between Free and Plus account
 | Account creation | Automatic (AWS account created behind the scenes) | Manual AWS account setup required | 
 
 **Note**  
-Regardless of how your Amazon Quick account was created, all product features – including chat, chat agents, spaces, research, automations, Amazon Quick Sight, integrations, and extensions – function identically. The differences are limited to account setup, identity management, and billing.
+Regardless of how your AWS Quick account was created, all product features – including chat, chat agents, spaces, research, automations, AWS Quick Sight, integrations, and extensions – function identically. The differences are limited to account setup, identity management, and billing.

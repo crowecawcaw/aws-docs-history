@@ -1,9 +1,9 @@
 
 
-# Creating rules to send Amazon Quick Sight events to AWS Lambda
+# Creating rules to send AWS Quick Sight events to AWS Lambda
 <a name="events-send-lambda"></a>
 
-In this tutorial, you create an AWS Lambda function that logs the asset events in the Amazon Quick Sight account. You then create a rule that runs the function whenever there is an asset change. This tutorial assumes that you already signed up for Amazon Quick Sight.
+In this tutorial, you create an AWS Lambda function that logs the asset events in the AWS Quick Sight account. You then create a rule that runs the function whenever there is an asset change. This tutorial assumes that you already signed up for AWS Quick Sight.
 
 **Step 1: Create a Lambda function**
 
@@ -42,7 +42,7 @@ Create a Lambda function to log the state change events. You specify this functi
 
 **Step 2: Create a rule**
 
-Create a rule to run your Lambda function whenever you create/update/delete a Amazon Quick Sight asset.
+Create a rule to run your Lambda function whenever you create/update/delete a AWS Quick Sight asset.
 
 1. Sign in to the AWS Management Console and open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
@@ -68,7 +68,7 @@ Create a rule to run your Lambda function whenever you create/update/delete a Am
    }
    ```
 
-   Alternatively, you can create the rule that only subscribes to a subset of event types in Amazon Quick Sight. For example, the following rule will only triggered when an asset is added to or removed from a folder with id `77e307e8-b41b-472a-90e8-fe3f471537be`.
+   Alternatively, you can create the rule that only subscribes to a subset of event types in AWS Quick Sight. For example, the following rule will only triggered when an asset is added to or removed from a folder with id `77e307e8-b41b-472a-90e8-fe3f471537be`.
 
    ```
    {
@@ -92,7 +92,7 @@ Create a rule to run your Lambda function whenever you create/update/delete a Am
 
 To test your rule, create an analysis. After waiting a minute, verify that your Lambda function was invoked.
 
-1. Open the Amazon Quick Sight console at [https://quicksight.aws.amazon.com/](https://quicksight.aws.amazon.com/).
+1. Open the AWS Quick Sight console at [https://quicksight.aws.amazon.com/](https://quicksight.aws.amazon.com/).
 
 1. Create a new analysis.
 
@@ -126,4 +126,4 @@ To test your rule, create an analysis. After waiting a minute, verify that your 
    }
    ```
 
-For an example of Amazon Quick Sight event in JSON format, see [Overview of events for Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/events.html).
+For an example of AWS Quick Sight event in JSON format, see [Overview of events for AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/events.html).

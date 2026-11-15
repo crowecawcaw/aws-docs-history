@@ -1,9 +1,9 @@
 
 
-# Amazon Quick Microsoft Teams extension author guide
+# AWS Quick Microsoft Teams extension author guide
 <a name="teams-extension-author-guide"></a>
 
-As an Amazon Quick author, you can deploy Quick Microsoft Teams extensions after your admin establishes the foundational connection to your organization's Microsoft Teams workspace. Your capabilities depend on the permission level granted by your administrator.
+As an AWS Quick author, you can deploy Quick Microsoft Teams extensions after your admin establishes the foundational connection to your organization's Microsoft Teams workspace. Your capabilities depend on the permission level granted by your administrator.
 
 With **limited permissions** (view, share, delete only), you can manage basic extension operations through the landing page after admin completes all setup. With **full permissions** (deploy, view, share, delete, edit), you can complete OAuth deployments, download manifests, rename extensions, and access all editing features.
 
@@ -15,7 +15,7 @@ Author capabilities for Microsoft Teams extensions include:
 + Download manifest files for advanced Microsoft Teams customization (requires full permissions).
 
 **Note**  
-Before you deploy a Microsoft Teams extension as an author, your Quick admin must [configure Amazon Quick access to Microsoft Teams](https://docs.aws.amazon.com/quicksuite/latest/userguide/teams-extension.html).
+Before you deploy a Microsoft Teams extension as an author, your Quick admin must [configure AWS Quick access to Microsoft Teams](https://docs.aws.amazon.com/quicksuite/latest/userguide/teams-extension.html).
 
 **Topics**
 + [Deploy Microsoft Teams extension](#add-extensions-teams)
@@ -26,14 +26,14 @@ Before you deploy a Microsoft Teams extension as an author, your Quick admin mus
 ## Deploy Microsoft Teams extension
 <a name="add-extensions-teams"></a>
 
-Deploy a new Microsoft Teams extension instance in the Amazon Quick console. This process establishes the foundation for connecting AI-powered assistance to your Microsoft Teams workspace.
+Deploy a new Microsoft Teams extension instance in the AWS Quick console. This process establishes the foundation for connecting AI-powered assistance to your Microsoft Teams workspace.
 
 **Note**  
 This action requires full author permissions.
 
 Use this procedure to create and configure a new Microsoft Teams extension for your organization.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 
@@ -60,19 +60,19 @@ Use this procedure to create and configure a new Microsoft Teams extension for y
 **Note**  
 You can also navigate to the extensions summary page and deploy your extension from the **Actions** menu.
 
-1. Open the link and login as Global Admin or or someone with administrative permissions can add the Amazon Quick App to the Microsoft Teams admin center for your organization.
+1. Open the link and login as Global Admin or or someone with administrative permissions can add the AWS Quick App to the Microsoft Teams admin center for your organization.
 
 1. Choose **Teams apps** in the left navigation.
 
-1. Choose **Amazon Quick** from the list of available apps.
+1. Choose **AWS Quick** from the list of available apps.
 
 1. Review and grant admin consent by choosing the **Permissions** tab and reviewing the permissions and choose **Grant admin consent**.
 **Note**  
 If permissions are already granted, proceed to the end of the procedure, there is no further action required.
 
-1. Authenticate and choose **Accept** for Amazon Quick app.
+1. Authenticate and choose **Accept** for AWS Quick app.
 
-1. Confirm that an app titled Amazon Quick **Permissions** tab now says **Admin consent granted for all required permissions**.
+1. Confirm that an app titled AWS Quick **Permissions** tab now says **Admin consent granted for all required permissions**.
 
 1. All users assigned to the app from the Teams admin center can now find the app in the **Built for your org** section of the **Apps** page of their Teams app.
 
@@ -88,7 +88,7 @@ As an author, you can edit the extensions you deploy to your users. Modify exten
 
 Use this procedure to modify settings and configuration for an existing Microsoft Teams extension.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 
@@ -107,7 +107,7 @@ Share ownership and management permissions with specific users and groups, enabl
 
 Use this procedure to share your Microsoft Teams extension with other users and manage their access permissions.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 
@@ -132,7 +132,7 @@ As an author, you can delete the extensions you deploy to your users. Permanentl
 
 Use this procedure to permanently remove a Microsoft Teams extension from your organization.
 
-1. Sign in to Amazon Quick console.
+1. Sign in to AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 

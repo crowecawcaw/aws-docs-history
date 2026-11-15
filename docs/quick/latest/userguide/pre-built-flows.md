@@ -3,7 +3,7 @@
 # Using pre-built flows
 <a name="pre-built-flows"></a>
 
-Amazon Quick Flows provides pre-built flows and samples to help you get started.
+AWS Quick Flows provides pre-built flows and samples to help you get started.
 
 ## Pre-built flows
 <a name="available-pre-built-flows"></a>

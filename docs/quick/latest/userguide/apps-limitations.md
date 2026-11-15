@@ -3,12 +3,12 @@
 # Limitations of apps in Quick
 <a name="apps-limitations"></a>
 
-The following limitations apply to apps in Amazon Quick in its current release.
+The following limitations apply to apps in AWS Quick in its current release.
 
 ## Regional availability
 <a name="apps-regional-availability"></a>
 
-Apps in Amazon Quick is available in a subset of the AWS Regions that Amazon Quick supports: US East (N. Virginia), US West (Oregon), Europe (Ireland), and Asia Pacific (Sydney). Support for additional Regions is being added.
+Apps in AWS Quick is available in a subset of the AWS Regions that AWS Quick supports: US East (N. Virginia), US West (Oregon), Europe (Ireland), and Asia Pacific (Sydney). Support for additional Regions is being added.
 
 ## Limits
 <a name="apps-limits-platform"></a>
@@ -63,7 +63,7 @@ A published app refers to its columns by exact name and type as of build time. R
 ## Sharing and access
 <a name="apps-limits-sharing"></a>
 + **Subscription requirement** — Only users with Author, Professional, Author Pro, Enterprise, or Admin Pro subscriptions can view apps.
-+ **External access** — Users must have a Amazon Quick account to view an app, unless the app is published publicly. Public access is available on Free and Plus accounts only. Public apps cannot use connectors, embedded visuals, embedded chat, or spaces.
++ **External access** — Users must have a AWS Quick account to view an app, unless the app is published publicly. Public access is available on Free and Plus accounts only. Public apps cannot use connectors, embedded visuals, embedded chat, or spaces.
 
 ## Portability
 <a name="apps-limits-portability"></a>

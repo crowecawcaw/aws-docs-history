@@ -13,6 +13,6 @@ You can add calculated fields to a dataset during data preparation or from the a
 
 **Topics**
 + [Adding calculated fields](adding-a-calculated-field-analysis.md)
-+ [Order of evaluation in Amazon Quick Sight](order-of-evaluation-quicksight.md)
++ [Order of evaluation in AWS Quick Sight](order-of-evaluation-quicksight.md)
 + [Using level-aware calculations in Quick Sight](level-aware-calculations.md)
-+ [Calculated field function and operator reference for Amazon Quick](calculated-field-reference.md)
++ [Calculated field function and operator reference for AWS Quick](calculated-field-reference.md)

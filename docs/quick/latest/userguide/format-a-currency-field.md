@@ -53,7 +53,7 @@ If you want to choose the symbol for a currency field from a list of common opti
      + Millions (M)
      + Billions (B)
      + Trillions (T)
-   + If you want to use a custom prefix or suffix, specify it in the **Prefix** or **Suffix** box. Using a custom suffix is a good way to specify a currency suffix outside of those already offered by Amazon Quick. You can specify both. You can also specify a custom prefix in addition to the suffix added by selecting a unit.
+   + If you want to use a custom prefix or suffix, specify it in the **Prefix** or **Suffix** box. Using a custom suffix is a good way to specify a currency suffix outside of those already offered by AWS Quick. You can specify both. You can also specify a custom prefix in addition to the suffix added by selecting a unit.
 
 1. Expand the **Negatives** section and choose whether to display a negative value by using a minus sign or by enclosing it in parentheses. Using a minus sign is the default.
 

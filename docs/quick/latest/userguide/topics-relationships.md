@@ -11,7 +11,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators and authors  | 
+|    Intended audience:  AWS Quick administrators and authors  | 
 
 Relationships tell Quick Sight how to join datasets when a question or visual spans multiple tables. You define relationships by specifying join keys between dataset pairs using a JSON configuration file.
 
@@ -78,4 +78,4 @@ The following limitations apply to defined relationships:
 + A Topic cannot exceed 12 datasets.
 
 **Note**  
-When using Topics in Amazon Quick chat, the LLM-powered chat agent is not limited to inner joins. It can generate SQL with left joins, outer joins, unions, and subqueries based on your custom instructions. These join-type limitations apply only to the analysis sheet consumption path.
+When using Topics in AWS Quick chat, the LLM-powered chat agent is not limited to inner joins. It can generate SQL with left joins, outer joins, unions, and subqueries based on your custom instructions. These join-type limitations apply only to the analysis sheet consumption path.

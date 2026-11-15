@@ -27,7 +27,7 @@ Use the following procedure to customize the way the title and subtitle of a vis
    + To change the font color, choose the color (Abc) icon, and then pick a color. You can also enter a hexadecimal number or RGB values.
    + To add an unordered list, choose the unordered list icon.
    + To change the text alignment, choose the left, center, or right alignment icons.
-   + To add a parameter to a title or subtitle, choose an existing parameter from the list under **Parameters** at right. For more information about how to create parameters, see [Setting up parameters in Amazon Quick](parameters-set-up.md).
+   + To add a parameter to a title or subtitle, choose an existing parameter from the list under **Parameters** at right. For more information about how to create parameters, see [Setting up parameters in AWS Quick](parameters-set-up.md).
    + To add a hyperlink, highlight the text that you want to link, choose the hyperlink icon, and then choose from the following options:
      + For **Enter link**, enter the URL that you want to link to.
 

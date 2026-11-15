@@ -3,7 +3,7 @@
 # Set up service credentials
 <a name="sharepoint-kb-admin-config"></a>
 
-Before you create the knowledge base in Amazon Quick, complete the following configuration steps in AWS and Microsoft Entra ID. You create a KMS signing key, generate a certificate, register an application in Entra, and grant Amazon Quick permission to use the key.
+Before you create the knowledge base in AWS Quick, complete the following configuration steps in AWS and Microsoft Entra ID. You create a KMS signing key, generate a certificate, register an application in Entra, and grant AWS Quick permission to use the key.
 
 This setup involves multiple systems and might require coordination between different administrators in your organization. The following table summarizes each step and the role needed to complete it.
 
@@ -16,8 +16,8 @@ This setup involves multiple systems and might require coordination between diff
 | 2. Certificate | Generate a self-signed certificate using the KMS public key. | Same as Step 1 (AWS CLI and OpenSSL required) | 
 | 3. Entra app | Register an application in Microsoft Entra, assign API permissions, and upload the certificate. | Microsoft 365 Global Admin or Privileged Role Admin | 
 | 3b. Sites.Selected (optional) | Create a temporary admin app and grant per-site permissions via the Microsoft Graph API. | Microsoft 365 Global Admin (same as Step 3) | 
-| 4. KMS key access | Grant Amazon Quick permission to use the KMS key for signing. | Amazon Quick administrator (Admin Pro) | 
-| 5. Create KB | Create the knowledge base in Amazon Quick using the credentials from the previous steps. | Any Amazon Quick user (Author Pro or Admin Pro) | 
+| 4. KMS key access | Grant AWS Quick permission to use the KMS key for signing. | AWS Quick administrator (Admin Pro) | 
+| 5. Create KB | Create the knowledge base in AWS Quick using the credentials from the previous steps. | Any AWS Quick user (Author Pro or Admin Pro) | 
 
 **Tip**  
 In many organizations, a single person with both AWS and Microsoft 365 administrator access can complete all steps. If responsibilities are split across teams, share this table to coordinate the setup.
@@ -26,13 +26,13 @@ In many organizations, a single person with both AWS and Microsoft 365 administr
 <a name="sharepoint-kb-admin-config-prerequisites"></a>
 
 Before you begin, make sure that you have the following:
-+ An AWS account with an active Amazon Quick instance.
++ An AWS account with an active AWS Quick instance.
 + Access to the AWS KMS console (for creating the signing key).
-+ Amazon Quick administrator access (Admin Pro role) for granting KMS key permissions.
++ AWS Quick administrator access (Admin Pro role) for granting KMS key permissions.
 + A Microsoft 365 tenant with SharePoint Online.
 + Global Administrator or Privileged Role Administrator access in Microsoft Entra ID.
 + OpenSSL 3.0 or later and AWS CLI installed locally.
-+ The AWS account and Amazon Quick instance must be in the same Region.
++ The AWS account and AWS Quick instance must be in the same Region.
 
 ## Permissions
 <a name="sharepoint-kb-admin-config-permissions"></a>
@@ -127,7 +127,7 @@ The following table summarizes the values you create or collect during setup and
 ## Step 1: Create an AWS KMS asymmetric signing key
 <a name="sharepoint-kb-admin-step1-kms"></a>
 
-Amazon Quick uses an AWS KMS asymmetric key to sign OAuth assertions when authenticating with Microsoft Entra ID. The private key never leaves KMS. Only the public key is exported and embedded in a certificate that gets uploaded to your Entra app registration.
+AWS Quick uses an AWS KMS asymmetric key to sign OAuth assertions when authenticating with Microsoft Entra ID. The private key never leaves KMS. Only the public key is exported and embedded in a certificate that gets uploaded to your Entra app registration.
 
 ### Create the KMS key
 <a name="sharepoint-kb-admin-kms-create"></a>
@@ -160,7 +160,7 @@ On the **Configure key** page, set the following values:
 On the **Add labels** page, enter an alias for the key. For example: `quick-sharepoint-service-auth`.
 
 **Note**  
-The key administrator and key usage permissions on the following pages are optional. The defaults are sufficient for this setup. You grant Amazon Quick access to the key separately in Step 4.
+The key administrator and key usage permissions on the following pages are optional. The defaults are sufficient for this setup. You grant AWS Quick access to the key separately in Step 4.
 
 Choose **Skip to review**, then choose **Finish** to create the key.
 
@@ -383,7 +383,7 @@ The Entra portal displays the certificate thumbprint in hexadecimal format. This
 ## Step 3b: Grant site-level permissions (Sites.Selected only)
 <a name="sharepoint-kb-admin-sites-selected"></a>
 
-If you chose `Sites.Selected` as your permission scope, you must explicitly grant your Amazon Quick Entra app access to each SharePoint site. This requires a temporary admin app with `Sites.FullControl.All` permission to call the Microsoft Graph API.
+If you chose `Sites.Selected` as your permission scope, you must explicitly grant your AWS Quick Entra app access to each SharePoint site. This requires a temporary admin app with `Sites.FullControl.All` permission to call the Microsoft Graph API.
 
 Skip this step if you are using the all-sites permission scope (`Sites.Read.All` or `Sites.FullControl.All`).
 
@@ -403,7 +403,7 @@ Repeat for each site you want to include in the knowledge base.
 ### Create a temporary admin app
 <a name="sharepoint-kb-admin-sites-selected-admin-app"></a>
 
-The admin app is used only to grant site-level permissions to your Amazon Quick app. You can delete it after completing this step.
+The admin app is used only to grant site-level permissions to your AWS Quick app. You can delete it after completing this step.
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), go to **App registrations** and choose **New registration**.
 
@@ -465,7 +465,7 @@ The response contains an `access_token` field. Record this value for the next st
 ### Grant site-level permissions
 <a name="sharepoint-kb-admin-sites-selected-grant"></a>
 
-Use the admin token to grant your Amazon Quick Entra app `fullcontrol` access to each SharePoint site. Replace the {{placeholder}} values with your Site ID, admin token, and the client app ID and display name from Step 3.
+Use the admin token to grant your AWS Quick Entra app `fullcontrol` access to each SharePoint site. Replace the {{placeholder}} values with your Site ID, admin token, and the client app ID and display name from Step 3.
 
 **macOS and Linux (bash)**
 
@@ -520,20 +520,20 @@ Repeat this command for each SharePoint site you want to include in the knowledg
 After you have granted permissions to all required sites, you can delete the temporary admin app from the Microsoft Entra admin center. The site-level permissions you granted remain in effect independently of the admin app.
 
 **Note**  
-The temporary admin app is used only in your local environment to call the Microsoft Graph API. Amazon Quick never sees or has access to the admin app or its credentials. Only the client app credentials are provided to Amazon Quick when you create the knowledge base.
+The temporary admin app is used only in your local environment to call the Microsoft Graph API. AWS Quick never sees or has access to the admin app or its credentials. Only the client app credentials are provided to AWS Quick when you create the knowledge base.
 
-## Step 4: Grant Amazon Quick permission to the KMS key
+## Step 4: Grant AWS Quick permission to the KMS key
 <a name="sharepoint-kb-admin-step4-iam"></a>
 
-Amazon Quick needs permission to use the KMS key for signing OAuth assertions. You grant this permission from the Amazon Quick admin console.
+AWS Quick needs permission to use the KMS key for signing OAuth assertions. You grant this permission from the AWS Quick admin console.
 
 **Note**  
-This step requires Amazon Quick administrator access (Admin Pro role). If you are not an administrator, ask your Amazon Quick admin to complete this step using the KMS key ARN from Step 1.
+This step requires AWS Quick administrator access (Admin Pro role). If you are not an administrator, ask your AWS Quick admin to complete this step using the KMS key ARN from Step 1.
 
 **Important**  
-If your organization manages its own Amazon Quick IAM service role, the following console steps might not apply. Instead, ensure the role has `kms:Sign` permission on the KMS key ARN from Step 1.
+If your organization manages its own AWS Quick IAM service role, the following console steps might not apply. Instead, ensure the role has `kms:Sign` permission on the KMS key ARN from Step 1.
 
-1. In Amazon Quick, choose **Manage account** from the left navigation pane.
+1. In AWS Quick, choose **Manage account** from the left navigation pane.
 
 1. Under **Permissions**, choose **AWS resources**.
 
@@ -550,4 +550,4 @@ If your organization manages its own Amazon Quick IAM service role, the followin
 ## Next steps
 <a name="sharepoint-kb-admin-config-next-steps"></a>
 
-After you complete the setup, create the SharePoint Online knowledge base connection in Amazon Quick. For instructions, see [Create the knowledge base in Amazon Quick](sharepoint-kb-admin-connection.md).
+After you complete the setup, create the SharePoint Online knowledge base connection in AWS Quick. For instructions, see [Create the knowledge base in AWS Quick](sharepoint-kb-admin-connection.md).

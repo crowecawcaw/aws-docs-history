@@ -3,12 +3,12 @@
 # AI response steps
 <a name="ai-response-steps"></a>
 
-AI response steps generate content using AI models. Amazon Quick Flows provides the following AI response step types.
+AI response steps generate content using AI models. AWS Quick Flows provides the following AI response step types.
 
 ## Chat agent
 <a name="chat-agent-step"></a>
 
-Amazon Quick Flows allows you to use your chat agents to generate outputs from configured spaces or take action with configured action integrations, all within a workflow step.
+AWS Quick Flows allows you to use your chat agents to generate outputs from configured spaces or take action with configured action integrations, all within a workflow step.
 
 Chat agents contain domain-specific knowledge, custom instructions, and connected tools. When you integrate a chat agent into a flow, you can automatically apply this specialized knowledge across multiple workflows without recreating it. For example, if you built a sales assistant chat agent that understands product details and follows brand guidelines, you can embed it in your outreach flow to ensure consistent communication at scale.
 
@@ -20,9 +20,9 @@ The chat agent step is a single-turn interaction. The agent responds to the task
 ## Research
 <a name="research-step"></a>
 
-The research step invokes Amazon Quick Research to generate research reports within your flow. This lets you embed research directly into multi-step workflows — for example, creating account plans, conducting policy reviews, researching patent prior art, or generating industry reports.
+The research step invokes AWS Quick Research to generate research reports within your flow. This lets you embed research directly into multi-step workflows — for example, creating account plans, conducting policy reviews, researching patent prior art, or generating industry reports.
 
-For full details about Quick Research capabilities and limitations, see [Using Amazon Quick Research](using-amazon-quick-research.md). For configuration instructions, see [Editing flows](editing-flows.md).
+For full details about Quick Research capabilities and limitations, see [Using AWS Quick Research](using-amazon-quick-research.md). For configuration instructions, see [Editing flows](editing-flows.md).
 
 You can reference the research output in later steps — for example, to send a summary over email to your team.
 
@@ -41,7 +41,7 @@ Search results may vary over time as internet content changes. Some content may 
 ## General knowledge
 <a name="general-knowledge-step"></a>
 
-The General knowledge step generates text responses using Amazon Bedrock models. Instead of selecting a specific model, you choose a response preference, and Amazon Quick Flows automatically selects the most appropriate model based on your preference and the requirements of your flow.
+The General knowledge step generates text responses using Amazon Bedrock models. Instead of selecting a specific model, you choose a response preference, and AWS Quick Flows automatically selects the most appropriate model based on your preference and the requirements of your flow.
 
 Choose from:
 + **Fast responses** — Optimized for speed across image, video, and text inputs.

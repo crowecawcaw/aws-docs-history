@@ -1,9 +1,9 @@
 
 
-# Consuming a shared Amazon Quick Sight view
+# Consuming a shared AWS Quick Sight view
 <a name="embedded-view-sharing-sdk-consume"></a>
 
-After you create a new shared view, use the Embedding SDK to make the shared view consumable for other users. The examples below set up a consumable shared view for an embedded dashboard in Amazon Quick Sight.
+After you create a new shared view, use the Embedding SDK to make the shared view consumable for other users. The examples below set up a consumable shared view for an embedded dashboard in AWS Quick Sight.
 
 ------
 #### [ With an appended URL ]

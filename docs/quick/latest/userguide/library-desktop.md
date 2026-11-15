@@ -8,7 +8,7 @@ Library is where you browse, search, and pick up where you left off on content a
 ## What Library holds
 <a name="library-contents"></a>
 
-Library stores typed content, including documents, presentations, spreadsheets, PDF files, HTML, images, audio, video, and Markdown, along with Amazon Quick resources such as apps, spaces, agents, skills, research, datasets, dashboards, analyses, flows, automations, and topics.
+Library stores typed content, including documents, presentations, spreadsheets, PDF files, HTML, images, audio, video, and Markdown, along with AWS Quick resources such as apps, spaces, agents, skills, research, datasets, dashboards, analyses, flows, automations, and topics.
 
 ## Views and filters
 <a name="library-views"></a>

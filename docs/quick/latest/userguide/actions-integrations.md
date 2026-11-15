@@ -309,7 +309,7 @@ The REST API Connection integration enables Quick Automate to interact with cust
 
 Before creating automations with REST API integration, ensure you have:
 + **Configured REST API Integration**
-  + Access Quick Suite console
+  + Access Quick console
   + Navigate to Integrations > REST API Connection
   + Configure your REST API endpoint with base URL
   + Complete authentication setup (see Authentication section below)
@@ -328,11 +328,11 @@ For Quick Automate, this integration supports **OAuth 2.0** authentication. You 
 
 **OAuth 2.0 Setup Steps:**
 + Obtain OAuth credentials (Client ID and Client Secret) from your identity provider
-+ In the Quick Suite console, navigate to your REST API integration settings
++ In the Quick console, navigate to your REST API integration settings
 + Select OAuth 2.0 as the authentication method
 + Enter your Client ID and Client Secret
 + Configure the authorization URL and token URL provided by your API provider
-+ Complete the OAuth flow to authorize Quick Suite
++ Complete the OAuth flow to authorize Quick
 + Test the connection to verify authentication
 
 **Important Notes:**

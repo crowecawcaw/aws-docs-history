@@ -5,7 +5,7 @@
 
 Use the ServiceNow integration to perform actions within your ServiceNow instances, including managing incidents, problems, change requests, knowledge base articles, and attachments. This integration uses the ServiceNow REST API. For more information, see [REST API](https://docs.servicenow.com/bundle/xanadu-api-reference/page/build/applications/concept/api-rest.html) in the ServiceNow documentation.
 
-Setting up this integration involves two steps. First, you configure an OAuth application in your ServiceNow instance. Then, you create the integration in Amazon Quick and connect it to your ServiceNow app. For information about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md).
+Setting up this integration involves two steps. First, you configure an OAuth application in your ServiceNow instance. Then, you create the integration in AWS Quick and connect it to your ServiceNow app. For information about the authentication methods that AWS Quick supports, see [Authentication methods](quick-action-auth.md).
 
 ## Before you begin
 <a name="servicenow-integration-prerequisites"></a>
@@ -19,7 +19,7 @@ Before you set up the integration, verify that you have the following.
 ## Configure ServiceNow OAuth
 <a name="servicenow-oauth-setup"></a>
 
-Before you configure Amazon Quick, create an OAuth application endpoint in your ServiceNow instance. Complete all of the following steps in ServiceNow before moving to the Amazon Quick console.
+Before you configure AWS Quick, create an OAuth application endpoint in your ServiceNow instance. Complete all of the following steps in ServiceNow before moving to the AWS Quick console.
 
 For more information, see [Create an endpoint for clients to access the instance](https://www.servicenow.com/docs/bundle/xanadu-platform-security/page/administer/security/task/t_CreateEndpointforExternalClients.html) in the ServiceNow documentation.
 
@@ -42,7 +42,7 @@ To register the OAuth application, complete the following steps.
 
 1. Reopen the application registry entry and choose the lock icon next to **Client Secret** to reveal the value.
 
-1. Copy the **Client ID** and **Client Secret** values. You need these when you configure the integration in Amazon Quick.
+1. Copy the **Client ID** and **Client Secret** values. You need these when you configure the integration in AWS Quick.
 
 ### Additional steps for service authentication (client credentials)
 <a name="servicenow-oauth-client-credentials"></a>
@@ -65,14 +65,14 @@ If you plan to use service authentication, complete these additional steps after
 1. Set the **OAuth Application User** to an appropriately permissioned user, such as a user with the System Administrator role.
 
 **Important**  
-With service authentication, all actions execute as the configured OAuth application user. Any Amazon Quick user with access to this integration can perform actions using that account's permissions. Configure the account permissions to match your organization's security requirements.
+With service authentication, all actions execute as the configured OAuth application user. Any AWS Quick user with access to this integration can perform actions using that account's permissions. Configure the account permissions to match your organization's security requirements.
 
-## Set up the integration in Amazon Quick
+## Set up the integration in AWS Quick
 <a name="servicenow-action-integration-setup"></a>
 
-After you complete the ServiceNow OAuth configuration, create the integration in Amazon Quick.
+After you complete the ServiceNow OAuth configuration, create the integration in AWS Quick.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -159,7 +159,7 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 
 ### Authentication issues
 <a name="servicenow-troubleshooting-auth"></a>
-+ **OAuth authorization fails** – Verify that the Client ID and Client Secret match the values in your ServiceNow Application Registry. Confirm the Redirect URL in ServiceNow matches the URL in your Amazon Quick configuration exactly.
++ **OAuth authorization fails** – Verify that the Client ID and Client Secret match the values in your ServiceNow Application Registry. Confirm the Redirect URL in ServiceNow matches the URL in your AWS Quick configuration exactly.
 + **Service authentication fails** – Verify that the `glide.oauth.inbound.client.credential.grant_type.enabled` system property is set to `true`. Confirm the **OAuth Application User** field is populated on the application registry record.
 
 ### Common error messages

@@ -1,14 +1,14 @@
 
 
-# Monitoring Amazon Quick using CloudWatch Logs
+# Monitoring AWS Quick using CloudWatch Logs
 <a name="monitoring-cloudwatch-logs"></a>
 
-You can use [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) to deliver chat conversations, user feedback, agent hours usage, and index storage usage in Amazon Quick for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply).
+You can use [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) to deliver chat conversations, user feedback, agent hours usage, and index storage usage in AWS Quick for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply).
 
 **Important**  
-Set up vended log delivery shortly after enabling Amazon Quick AI features. Logs are not retroactive – you only receive events that occur after delivery is configured.
+Set up vended log delivery shortly after enabling AWS Quick AI features. Logs are not retroactive – you only receive events that occur after delivery is configured.
 
-The following are examples of tasks you can complete with logs from Amazon Quick:
+The following are examples of tasks you can complete with logs from AWS Quick:
 + Identify common user queries and pain points by reviewing the chat message content.
 + Monitor the quality of responses by looking at metrics like `feedbackReason`.
 + Understand user sentiment and satisfaction by analyzing the feedback data, including comments and usefulness ratings.
@@ -24,7 +24,7 @@ Logs from conversations might include sensitive or personally identifiable data 
 ## Supported log destinations
 <a name="quicksuite-chat-feedback-supported-log-destinations"></a>
 
-Amazon Quick can deliver logs to the following destinations:
+AWS Quick can deliver logs to the following destinations:
 + **Amazon CloudWatch Logs** – For real-time monitoring and analysis
 + **Amazon S3** – For long-term storage and batch processing
 + **Amazon Data Firehose** – For streaming analytics and data transformation
@@ -32,7 +32,7 @@ Amazon Quick can deliver logs to the following destinations:
 ## Supported log types
 <a name="quicksuite-chat-feedback-supported-log-types"></a>
 
-Amazon Quick supports the following log types. You specify one of these values as the `logType` when you create a delivery source.
+AWS Quick supports the following log types. You specify one of these values as the `logType` when you create a delivery source.
 + `CHAT_LOGS` – Chat conversation interactions, including the user message, system response, and status.
 + `FEEDBACK_LOGS` – User feedback on chat responses, such as usefulness ratings and reasons.
 + `AGENT_HOURS_LOGS` – Agent hours usage for each agent.
@@ -45,14 +45,14 @@ Amazon Quick supports the following log types. You specify one of these values a
 <a name="quicksuite-chat-feedback-logging-prerequisites"></a>
 
 Before you can enable logging, make sure that you have the following:
-+ An active Amazon Quick instance with Enterprise or Professional subscriptions
++ An active AWS Quick instance with Enterprise or Professional subscriptions
 + Appropriate IAM permissions to configure log delivery
 + A destination configured for your logs (CloudWatch Logs, Amazon S3 bucket, or Firehose)
 
 ## Configure logging
 <a name="quicksuite-chat-feedback-configure-logging"></a>
 
-To enable logging for Amazon Quick chat and feedback, configure IAM permissions, create a delivery source and destination, and verify log delivery.
+To enable logging for AWS Quick chat and feedback, configure IAM permissions, create a delivery source and destination, and verify log delivery.
 
 **Topics**
 + [Set up IAM permissions](#quicksuite-chat-feedback-setup-iam-permissions)
@@ -63,7 +63,7 @@ To enable logging for Amazon Quick chat and feedback, configure IAM permissions,
 ### Set up IAM permissions
 <a name="quicksuite-chat-feedback-setup-iam-permissions"></a>
 
-To set up CloudWatch Logs for Amazon Quick, use the following IAM policy examples to grant the necessary permissions.
+To set up CloudWatch Logs for AWS Quick, use the following IAM policy examples to grant the necessary permissions.
 
 ```
 {
@@ -207,14 +207,14 @@ After you configure log delivery, verify that logs are being delivered to your d
 ## Log schema and format
 <a name="quicksuite-chat-feedback-log-schema-format"></a>
 
-Each Amazon Quick log type has its own schema. The field names, including the log type and account identifiers, vary by log type – for example, chat and feedback logs use `logType` and `accountId`, while other log types use `log_type` and `account_id`. The fields for each log type are listed in the following sections.
+Each AWS Quick log type has its own schema. The field names, including the log type and account identifiers, vary by log type – for example, chat and feedback logs use `logType` and `accountId`, while other log types use `log_type` and `account_id`. The fields for each log type are listed in the following sections.
 
 ### Chat logs
 <a name="quicksuite-chat-logs"></a>
 
 Chat logs capture conversation interactions:
-+ `user_arn` – Amazon Quick user ARN associated with the event
-+ `user_type` – Amazon Quick user type associated with the event (for example, `ADMIN_PRO`)
++ `user_arn` – AWS Quick user ARN associated with the event
++ `user_type` – AWS Quick user type associated with the event (for example, `ADMIN_PRO`)
 + `status_code` – Status of the chat request (for example, `success`, `request_blocked`, `no_answer_found`)
 + `conversation_id` – Unique ID for the user conversation
 + `system_message_id` – System-generated message ID
@@ -222,17 +222,17 @@ Chat logs capture conversation interactions:
 + `user_message_id` – Unique ID of the user message
 + `user_message` – User message in the conversation
 + `agent_id` – Unique ID of the chat agent, or `SYSTEM` for the default agent
-+ `flow_id` – Unique ID of the Amazon Quick Flow, or `-` if not a flow invocation
++ `flow_id` – Unique ID of the AWS Quick Flow, or `-` if not a flow invocation
 + `system_text_message` – System response in the conversation
 + `user_selected_resources` – List of resources selected by user
 + `action_connectors` – List of connectors available in the conversation
 + `cited_resource` – List of cited resources
 + `file_attachment` – List of files attached by user
-+ `resource_arn` – Resource ARN of your Amazon Quick account
++ `resource_arn` – Resource ARN of your AWS Quick account
 + `event_timestamp` – Timestamp of the event
 + `logType` – `CHAT_LOGS`
 + `accountId` – AWS account ID
-+ `namespace` – (Default, String) Amazon Quick namespace of the user, taken from `user_arn`
++ `namespace` – (Default, String) AWS Quick namespace of the user, taken from `user_arn`
 + `surface_type` – (Default, String) Client the message came from (for example, `WEB_EXPERIENCE`, `QUICK_DESKTOP`, `BROWSER_EXTENSION_CHROME`, `MOBILE_EXPERIENCE`, `SLACK`, `OUTLOOK_ADD_IN_NATIVE_AUTH`)
 + `latency` – (Opt-in, Long) Time from the request to the end of the response, in milliseconds
 + `time_to_first_token` – (Opt-in, Long) Time from the request to the first part of the response, in milliseconds, or `0` when not measured. It currently equals `latency` except for chats from the Quick desktop app and Office add-ins, so treat it as a time to first token only when it is greater than 0 and less than `latency`.
@@ -274,8 +274,8 @@ The following is an example of chat logs:
 <a name="quicksuite-chat-feedback-logs"></a>
 
 Feedback logs capture user feedback on chat responses:
-+ `user_arn` – Amazon Quick user ARN associated with the event
-+ `user_type` – Amazon Quick user type associated with the event (for example, `ADMIN_PRO`)
++ `user_arn` – AWS Quick user ARN associated with the event
++ `user_type` – AWS Quick user type associated with the event (for example, `ADMIN_PRO`)
 + `status_code` – Status of the event delivery
 + `conversation_id` – Unique ID of the conversation
 + `system_message_id` – System generated message ID
@@ -283,11 +283,11 @@ Feedback logs capture user feedback on chat responses:
 + `feedback_type` – Type of feedback (for example, `Not Useful`, `Useful`)
 + `feedback_reason` – Feedback reason selected by the user
 + `feedback_details` – (Optional) Additional details provided by the user
-+ `resource_arn` – Resource ARN of your Amazon Quick account
++ `resource_arn` – Resource ARN of your AWS Quick account
 + `event_timestamp` – Timestamp of the event
 + `logType` – `FEEDBACK_LOGS`
 + `accountId` – AWS account ID
-+ `namespace` – (Default, String) Amazon Quick namespace of the user, taken from `user_arn`
++ `namespace` – (Default, String) AWS Quick namespace of the user, taken from `user_arn`
 
 The following is an example of feedback logs:
 
@@ -314,7 +314,7 @@ The following is an example of feedback logs:
 <a name="quicksuite-agent-hours-logs"></a>
 
 This log type captures the usage logs for different agents within your Quick account:
-+ `user_arn` – Amazon Quick user ARN associated with the event
++ `user_arn` – AWS Quick user ARN associated with the event
 + `subscription_type` – Subscription tier of the user. Values: `ENTERPRISE`, `PROFESSIONAL`.
 + `reporting_service` – The Quick surface that consumed agent hours. Current values include `FLOW`, `AUTOMATION`, and `RESEARCH`. New values might appear as additional Quick features begin metering agent hours.
 + `usage_group` – Whether the usage is covered by the subscription entitlement or billed as overage. Values:
@@ -322,7 +322,7 @@ This log type captures the usage logs for different agents within your Quick acc
   + `Extra` – Overage beyond the monthly grant. Billed on consumption.
 + `usage_hours` – Decimal value indicating the agent hours consumed for this record
 + `service_resource_arn` – ARN of the resource that consumed the hours (for example, a flow, automation, or research session)
-+ `resource_arn` – Resource ARN of your Amazon Quick account
++ `resource_arn` – Resource ARN of your AWS Quick account
 + `event_timestamp` – Time the usage was reported, as Unix epoch time in *seconds*. Other Quick log types use milliseconds.
 + `logType` – `AGENT_HOURS_LOGS`
 + `accountId` – AWS account ID
@@ -348,7 +348,7 @@ The following is an example of Agent Hours logs:
 <a name="quicksuite-agent-metadata-logs"></a>
 
 Agent metadata logs capture lifecycle events for chat agents, including creation, updates, permission changes, and deletion. One record is emitted per agent operation:
-+ `user_arn` – Amazon Quick user ARN associated with the event.
++ `user_arn` – AWS Quick user ARN associated with the event.
 + `event_name` – The agent lifecycle operation. Values include `CreateAgent`, `UpdateAgent`, `DeleteAgent`, `UpdateAgentPermissions`, and others as new operations are added.
 + `event_version` – Schema version of the log record.
 + `agent_id` – UUID of the agent.
@@ -372,7 +372,7 @@ Agent metadata logs capture lifecycle events for chat agents, including creation
 + `custom_prompt_input` – Custom prompt input configured for the agent.
 + `welcome_message` – Welcome message shown to users of the agent.
 + `starter_prompts` – Starter prompts suggested to users of the agent.
-+ `resource_arn` – Resource ARN of your Amazon Quick account.
++ `resource_arn` – Resource ARN of your AWS Quick account.
 + `event_timestamp` – Timestamp of the event.
 + `log_type` – `AGENT_METADATA_LOGS`.
 + `account_id` – AWS account ID.
@@ -405,14 +405,14 @@ The following is an example of an agent metadata log for a `CreateAgent` event:
 <a name="quicksuite-index-usage-logs"></a>
 
 Index usage logs capture per-source storage metrics for knowledge bases and Spaces. Events are published whenever a change occurs (created, updated, synced, or deleted):
-+ `user_arn` – Amazon Quick user ARN associated with the event
++ `user_arn` – AWS Quick user ARN associated with the event
 + `consumed_index_size` – Total size (in bytes) consumed by the entire index
 + `source_type` – Type of source: `SPACE` or `KB`
 + `source_name` – Display name of the Space or knowledge base
 + `source_arn` – Full ARN of the source
 + `consumed_source_size` – Size (in bytes) consumed by this individual source
 + `consumed_source_doc_count` – Number of documents in this source
-+ `resource_arn` – Resource ARN of your Amazon Quick account
++ `resource_arn` – Resource ARN of your AWS Quick account
 + `event_timestamp` – Timestamp of the event
 + `log_type` – `INDEX_USAGE_LOGS`
 + `account_id` – AWS account ID
@@ -515,13 +515,13 @@ The following example shows a skipped document log where crawling was skipped du
 Data loss prevention (DLP) logs capture DLP activity: the enforcement decision for each scanned file, and changes to your DLP configurations. Use them to audit policy changes and to monitor enforcement. The specific event is identified by `event_type`.
 
 Every `DLP_LOGS` record includes these common fields:
-+ `resource_arn` – Resource ARN of your Amazon Quick account
++ `resource_arn` – Resource ARN of your AWS Quick account
 + `event_timestamp` – Unix epoch time in milliseconds
 + `log_type` – `DLP_LOGS`
 + `account_id` – AWS account ID
 + `event_type` – The DLP event: `DLP_FILE_BLOCKED`, `DLP_FILE_WARNED`, `DLP_INSPECTION_FAILED`, `DLP_WARN_ACKNOWLEDGED`, `DLP_WARN_DECLINED`, `DLP_SETTING_CREATED`, `DLP_SETTING_UPDATED`, `DLP_SETTING_DELETED`, `DLP_SETTING_ENFORCEMENT_ENABLED`, or `DLP_SETTING_ENFORCEMENT_DISABLED`
 + `request_id` – Unique identifier for the event
-+ `user_arn` – Amazon Quick user ARN associated with the event (`system` for service-initiated events)
++ `user_arn` – AWS Quick user ARN associated with the event (`system` for service-initiated events)
 
 Enforcement events (`DLP_FILE_BLOCKED`, `DLP_FILE_WARNED`, `DLP_INSPECTION_FAILED`) add these fields:
 + `dlp_job_id` – Unique ID of the DLP scan job

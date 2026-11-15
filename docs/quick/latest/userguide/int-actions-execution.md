@@ -3,17 +3,17 @@
 # Action execution methods
 <a name="int-actions-execution"></a>
 
-Amazon Quick provides multiple ways to execute actions, accommodating different use cases and interaction preferences.
+AWS Quick provides multiple ways to execute actions, accommodating different use cases and interaction preferences.
 
 ## Chat interface
 <a name="qbs-actions-execution-qbs-actions-chat-interface"></a>
 
-You can execute implicit actions in the Amazon Quick chat.
+You can execute implicit actions in the AWS Quick chat.
 
 ### Implicit actions
 <a name="qbs-actions-execution-qbs-actions-implicit-actions"></a>
 
-Amazon Quick also supports implicit action execution through natural conversation with agents. Using advanced natural language processing, the system can identify when your conversation indicates the need for specific actions. Conversations are analyzed to determine which actions are required to fulfill your request.
+AWS Quick also supports implicit action execution through natural conversation with agents. Using advanced natural language processing, the system can identify when your conversation indicates the need for specific actions. Conversations are analyzed to determine which actions are required to fulfill your request.
 
 A single request might require multiple actions to complete. When this happens, the system handles these actions sequentially, guiding you through each step. For each identified action, the system presents the appropriate form for you to complete. After each action completes, you receive a confirmation before moving on to the next action in the sequence.
 

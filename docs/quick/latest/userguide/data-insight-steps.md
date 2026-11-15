@@ -17,7 +17,7 @@ For configuration instructions, see [Editing flows](editing-flows.md).
 ## Dashboards and topics
 <a name="dashboards-and-topics-step"></a>
 
-The Dashboards and topics step generates insights from your existing Amazon Quick Sight dashboards and topics. Responses can include charts, graphs, tables, and other visualizations.
+The Dashboards and topics step generates insights from your existing AWS Quick Sight dashboards and topics. Responses can include charts, graphs, tables, and other visualizations.
 
 Select a Quick Sight source (Dashboard or Topic) and write a prompt describing the insights you want. You can specify filters, date ranges, and other criteria in natural language.
 

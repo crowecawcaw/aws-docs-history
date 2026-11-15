@@ -1,15 +1,15 @@
 
 
-# Filtering data at runtime for Amazon Quick Sight embedded dashboards and visuals
+# Filtering data at runtime for AWS Quick Sight embedded dashboards and visuals
 <a name="embedding-runtime-filtering"></a>
 
-You can use filter methods in the Amazon Quick Sight embedding SDK to leverage the power of Amazon Quick Sight filters within your software as a service (SaaS) application at runtime. Runtime filters allow business owners to integrate their application with their embedded Amazon Quick Sight dashboards and visuals. To accomplish this, create customized filter controls in your application and apply filter presets based on data from your application. Then, developers can personalize filter configurations for end users at runtime.
+You can use filter methods in the AWS Quick Sight embedding SDK to leverage the power of AWS Quick Sight filters within your software as a service (SaaS) application at runtime. Runtime filters allow business owners to integrate their application with their embedded AWS Quick Sight dashboards and visuals. To accomplish this, create customized filter controls in your application and apply filter presets based on data from your application. Then, developers can personalize filter configurations for end users at runtime.
 
-Developers can create, query, update, and remove Amazon Quick Sight filters on an embedded dashboard or visual from their application with the Amazon Quick Sight Embedding SDK. Create Amazon Quick Sight filter objects in your application with the [FilterGroup](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_FilterGroup.html) data model and apply them to embedded dashboards and visuals using the filter methods. For more information about using the Amazon Quick Sight Embedding SDK, see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk) on GitHub.
+Developers can create, query, update, and remove AWS Quick Sight filters on an embedded dashboard or visual from their application with the AWS Quick Sight Embedding SDK. Create AWS Quick Sight filter objects in your application with the [FilterGroup](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_FilterGroup.html) data model and apply them to embedded dashboards and visuals using the filter methods. For more information about using the AWS Quick Sight Embedding SDK, see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk) on GitHub.
 
 **Prerequisites**
 
-Before you can get started, make sure that you are using the Amazon Quick Sight Embedding SDK version 2.5.0 or higher.
+Before you can get started, make sure that you are using the AWS Quick Sight Embedding SDK version 2.5.0 or higher.
 
 ## Terminology and concepts
 <a name="runtime-filtering-terminology"></a>
@@ -30,7 +30,7 @@ Before you begin, make sure that you have the following assets and information p
 
   In addition to the `getSheetVisuals` method, the `FilterGroup` that you add can only be scoped to the currently selected sheet.
 
-To use this feature, you must already have a dashboard or visual embedded into your application through the Amazon Quick Sight Embedding SDK. For more information about using the Amazon Quick Sight Embedding SDK, see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk) on GitHub.
+To use this feature, you must already have a dashboard or visual embedded into your application through the AWS Quick Sight Embedding SDK. For more information about using the AWS Quick Sight Embedding SDK, see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk) on GitHub.
 
 ## SDK method interface
 <a name="runtime-filtering-sdk-interface"></a>

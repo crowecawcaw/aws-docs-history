@@ -1,9 +1,9 @@
 
 
-# Using themes in Amazon Quick Sight
+# Using themes in AWS Quick Sight
 <a name="themes-in-quicksight"></a>
 
-In Amazon Quick Sight, a *theme* is a collection of settings that you can apply to multiple analyses and dashboards. Amazon Quick Sight includes some themes, and you can add your own by using the theme editor. You can share themes with permissions levels set to user or owner. Anyone who has access to the theme can apply it to analyses and dashboards, or use **Save as** to make their own copy of it. Theme owners can also edit the theme and share it with others.
+In AWS Quick Sight, a *theme* is a collection of settings that you can apply to multiple analyses and dashboards. AWS Quick Sight includes some themes, and you can add your own by using the theme editor. You can share themes with permissions levels set to user or owner. Anyone who has access to the theme can apply it to analyses and dashboards, or use **Save as** to make their own copy of it. Theme owners can also edit the theme and share it with others.
 
 An analysis can have only one theme applied. If you apply a theme to an analysis (by using the **Apply** button), it instantly changes it for everyone—both analysis and dashboard viewers. To explore and save color options without applying them, avoid editing and saving the applied theme. 
 
@@ -20,7 +20,7 @@ The following table defines the different settings.
 | Main  | Secondary foreground | The foreground color used for any sheet title, sheet control text, or UI that appears over the secondary background. | 
 | Main  | Accent | This setting is used as an interactive hint for the following:+  Buttons <br />+  Borders around the selected visual <br />+  Loading indicators <br />+  Narration customizations <br />+  Links <br />+  Filter panes for embedded dashboards   | 
 | Main  | Accent foreground | The foreground color applies to any text or other elements that appear over the accent color. | 
-| Main | Font | The font to use for all of the text. You can choose from a variety of fonts supported by Amazon Quick Sight. | 
+| Main | Font | The font to use for all of the text. You can choose from a variety of fonts supported by AWS Quick Sight. | 
 | Data  | Data colors | These are the data colors that charts rotate through when assigning colors to groups. You can add or remove colors to this list, or choose a color to change it. | 
 | Data  | Min max gradient | The default minimum and maximum gradient colors to use when a gradient is used as a scale, for example in heat maps. | 
 | Data  | Empty fill color | This is the color used with your data colors to indicate a lack of data. For example, this color appears in the empty portion of the progress bars that are shown in key performance indication (KPI) and gauge charts, or for empty heat map cells. | 
@@ -46,7 +46,7 @@ The following table defines the different settings.
 1. The list of themes shows the following:
    + **Applied theme** shows the theme that is currently applied to this analysis and its dashboards.
    + **My themes** shows themes that you created and themes that are shared with you. 
-   +  **Starter themes** shows themes created by Amazon Quick Sight.
+   +  **Starter themes** shows themes created by AWS Quick Sight.
 
 1. Each theme has context menu that you can access from the **…** icon.
 
@@ -56,7 +56,7 @@ The following table defines the different settings.
      + **Save** – Save changes you made to the theme. If you edit the applied theme save your changes, the new theme settings apply to all the analyses and dashboards that use it. An informational message displays before you overwrite an applied theme.
      + **Share** – Share the theme and assign user or owner permissions to other people.
      + **Delete** – Delete a theme. You can't undo this action. An informational message displays before you confirm deletion.
-   + ****Theme users**** – If someone shared the theme with you, or if it's an Amazon Quick Sight theme, you can do the following:
+   + ****Theme users**** – If someone shared the theme with you, or if it's an AWS Quick Sight theme, you can do the following:
      + **Apply** – Apply the theme to the current analysis. This option also applies the theme to dashboards created from the analysis. An informational message displays before you overwrite an applied theme.
      + **Save as** – Save the current theme to another name, so you can edit it.
    + ****Analysis authors**** – If you have access to the analysis, but not the theme, you can do the following:
@@ -79,7 +79,7 @@ The following procedure walks you through creating a theme. You can start on the
 
    You must have an analysis open to work with themes. However, the view you see with the theme applied is only a preview. Themes are separate from analyses. No changes are made to your analysis, even when you save a theme. 
 
-1. Choose **Main**. The color picker used in each of these settings is the standard one used throughout Amazon Quick Sight.
+1. Choose **Main**. The color picker used in each of these settings is the standard one used throughout AWS Quick Sight.
 
    Set colors for **Primary background** and **Primary foreground** to use in visuals and other high impact UI.
 

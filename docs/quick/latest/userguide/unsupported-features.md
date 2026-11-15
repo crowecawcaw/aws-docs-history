@@ -5,7 +5,7 @@
 
 While the new data preparation experience offers enhanced capabilities, some features from the legacy experience are not yet supported. This section outlines these features and provides guidance for handling affected workflows.
 
-When using unsupported data sources, Amazon Quick Sight automatically defaults to the legacy experience. For other unsupported features, select **Switch to legacy experience** in the top right corner of the data preparation page. Rules Datasets created in the legacy experience remain compatible with both legacy and new experience datasets.
+When using unsupported data sources, AWS Quick Sight automatically defaults to the legacy experience. For other unsupported features, select **Switch to legacy experience** in the top right corner of the data preparation page. Rules Datasets created in the legacy experience remain compatible with both legacy and new experience datasets.
 
 **Note**  
 The new data preparation experience now supports the following features:  
@@ -18,7 +18,7 @@ Geospatial data type
 SPICE and Direct Query parent dataset selection from the legacy experience (you can now use a legacy SPICE or Direct Query dataset as a parent for a new experience dataset).
 
 **Setting the geospatial type**  
-You set the geospatial type on the **Output** tab, not through **Change data type** on the **Transform** tab. Geospatial types (such as latitude and longitude) are not part of the regular data types. Because Amazon Quick Sight does not apply further transformations to these columns, it places them on the **Output** tab.
+You set the geospatial type on the **Output** tab, not through **Change data type** on the **Transform** tab. Geospatial types (such as latitude and longitude) are not part of the regular data types. Because AWS Quick Sight does not apply further transformations to these columns, it places them on the **Output** tab.
 
 To set the geospatial type of a column:
 
@@ -56,7 +56,7 @@ The following features are currently available only in the legacy experience.
 ## Future development
 <a name="future-development"></a>
 
-Amazon Quick Sight plans to implement these features in the new data preparation experience in the future. This approach ensures that the initial launch for the new data preparation experience prioritizes:
+AWS Quick Sight plans to implement these features in the new data preparation experience in the future. This approach ensures that the initial launch for the new data preparation experience prioritizes:
 
 **Enhanced capabilities**
 + Visual transformation workflows

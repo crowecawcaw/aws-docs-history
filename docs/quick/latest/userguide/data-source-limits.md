@@ -3,7 +3,7 @@
 # Data source quotas
 <a name="data-source-limits"></a>
 
-Data sources that you use with Amazon Quick Sight must conform to the following quotas.
+Data sources that you use with AWS Quick Sight must conform to the following quotas.
 
 **Topics**
 + [SPICE quotas for imported data](#spice-limits)
@@ -12,7 +12,7 @@ Data sources that you use with Amazon Quick Sight must conform to the following 
 ## SPICE quotas for imported data
 <a name="spice-limits"></a>
 
-When you create a new dataset in Amazon Quick Sight, [SPICE](spice.md) limits the number of rows you can add to a dataset. You can ingest data into SPICE from a query or from a file. Each file can have up to 2,000 columns. Each column name can have up to 127 Unicode characters. Each field can have up to 2,047 Unicode characters.If you use the new data preparation experience to create your SPICE dataset, each field can have up to 65,534 Unicode characters. 
+When you create a new dataset in AWS Quick Sight, [SPICE](spice.md) limits the number of rows you can add to a dataset. You can ingest data into SPICE from a query or from a file. Each file can have up to 2,000 columns. Each column name can have up to 127 Unicode characters. Each field can have up to 2,047 Unicode characters.If you use the new data preparation experience to create your SPICE dataset, each field can have up to 65,534 Unicode characters. 
 
 To retrieve a subset of data from a larger set, you can deselect columns or apply filters to reduce the size of the data. If you are importing from Amazon S3, each manifest can specify up to 1,000 files. 
 
@@ -31,7 +31,7 @@ In rare cases, if you're ingesting large rows into SPICE, you might reach the qu
 ## Quotas for direct SQL queries
 <a name="query-limits"></a>
 
-If you aren't importing data into SPICE, different quotas apply for space and time. For operations such as connecting, sampling data for a dataset, and generating visuals, timeouts can occur. In some cases, these are timeout quotas set by the source database engine. In other cases, such as visualizing, Amazon Quick Sight generates a timeout after 2 minutes.
+If you aren't importing data into SPICE, different quotas apply for space and time. For operations such as connecting, sampling data for a dataset, and generating visuals, timeouts can occur. In some cases, these are timeout quotas set by the source database engine. In other cases, such as visualizing, AWS Quick Sight generates a timeout after 2 minutes.
 
 However, not all database drivers react to the 2-minute timeout, for example Amazon Redshift. In these cases, the query runs for as long as it takes for the response to return, which can result in long-running queries on your database. When this happens, you can cancel the query from the database server to free up database resources. Follow the instructions for your database server about how to do this. For example, for more information on how to cancel queries in Amazon Redshift, see [Canceling a query in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/cancel_query.html), and [Implementing workload management in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-implementing-workload-management.html) in the *Amazon Redshift Database Developer Guide*.
 

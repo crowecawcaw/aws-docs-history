@@ -1,11 +1,11 @@
 
 
-# Chat agent customization in Amazon Quick
+# Chat agent customization in AWS Quick
 <a name="manage-agent"></a>
 
-When a user account subscribes to Quick, the service automatically creates a system default chat agent. This agent powers the default chat experience, allowing Amazon Quick users to leverage all chat functionalities (such as uploading files to chat, using large language model (LLM) parametric knowledge, and answering from their enterprise data) out of the box. The system default chat agent can be updated in the Amazon Quick agent section by a select set of users who are designated as owners for the agent by the admin.
+When a user account subscribes to Quick, the service automatically creates a system default chat agent. This agent powers the default chat experience, allowing AWS Quick users to leverage all chat functionalities (such as uploading files to chat, using large language model (LLM) parametric knowledge, and answering from their enterprise data) out of the box. The system default chat agent can be updated in the AWS Quick agent section by a select set of users who are designated as owners for the agent by the admin.
 
-Amazon Quick uses multiple safety controls for chat interactions in the Amazon Quick web experience. You can configure blocked words and phrases under **Guardrails and safety controls**. For information about built-in safeguards and blocked words and phrases, see [AI guardrails in Amazon Quick](guardrails.md).
+AWS Quick uses multiple safety controls for chat interactions in the AWS Quick web experience. You can configure blocked words and phrases under **Guardrails and safety controls**. For information about built-in safeguards and blocked words and phrases, see [AI guardrails in AWS Quick](guardrails.md).
 
 Admins can also configure whether URLs in chat responses appear as clickable hyperlinks or plain text. This setting applies across all chat agents and flows in your instance, allowing you to control how links are presented to users.
 
@@ -26,9 +26,9 @@ The system default chat agent can be edited by users the admin designates as own
 
 **To grant permissions to edit system default agent**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
-1. Select **Manage Quick** from the Amazon Quick admin console.
+1. Select **Manage Quick** from the AWS Quick admin console.
 
 1. From the admin console left navigation menu, select **Account**, and then select **Manage assets**.
 
@@ -43,13 +43,13 @@ The system default chat agent can be edited by users the admin designates as own
 ## Edit system chat agent settings
 <a name="edit-default-agent"></a>
 
-To customize your system chat agent, users designated as owners need to login to Amazon Quick and visit the agent library page. Admins can directly access this page by clicking on the **Go to agent** link in admin console under **Chat agent customization**. Once in Amazon Quick, follow these steps to edit your system default chat agent's properties. You can preview and test how your system agent works as you configure it.
+To customize your system chat agent, users designated as owners need to login to AWS Quick and visit the agent library page. Admins can directly access this page by clicking on the **Go to agent** link in admin console under **Chat agent customization**. Once in AWS Quick, follow these steps to edit your system default chat agent's properties. You can preview and test how your system agent works as you configure it.
 
 **To update system chat agent settings**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
-1. Select **Manage Quick** from the Amazon Quick admin console.
+1. Select **Manage Quick** from the AWS Quick admin console.
 
 1. From the admin console left navigation menu, select **Customization**, and then select **Chat agent customization**.
 
@@ -57,27 +57,27 @@ To customize your system chat agent, users designated as owners need to login to
 
 1. In the **My Assistant** page, in **Configure chat agent**, customize the following sections:
 
-   1. In **Chat agent persona**, configure your chat agent's personality, identity, tone, and response style. For detailed information about agent customization options, see [Working with chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html) in the *Amazon Quick User Guide*.
+   1. In **Chat agent persona**, configure your chat agent's personality, identity, tone, and response style. For detailed information about agent customization options, see [Working with chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html) in the *AWS Quick User Guide*.
 **Note**  
 This agent powers default chat interactions across all users of this account with chat feature access. Ensure that your instructions (e.g. identity and response style) work well for all users of this account.
 
-   1. In **Reference documents**, upload files that remain active in your chat agent's memory to guide all interactions. For detailed information about file upload options, see [Working with chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html) in the *Amazon Quick User Guide*.
+   1. In **Reference documents**, upload files that remain active in your chat agent's memory to guide all interactions. For detailed information about file upload options, see [Working with chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html) in the *AWS Quick User Guide*.
 **Note**  
 Since this agent is meant for broad use, this is a place to upload enterprise-level response templates and guides.  
 The system default agent isn't linked to specific knowledge sources, actions, or spaces to ensure it works for all users regardless of their access permissions. This setting can't be changed.
 
-1. In **Customization**, configure details to help recognize the chat agent. For detailed information about customization options, see [Working with chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html) in the *Amazon Quick User Guide*. 
+1. In **Customization**, configure details to help recognize the chat agent. For detailed information about customization options, see [Working with chat agents](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-agents.html) in the *AWS Quick User Guide*. 
 
 ## Configure clickable external links in chat responses
 <a name="configure-clickable-links"></a>
 
-Admins can configure whether URLs in chat agent responses appear as clickable hyperlinks. The following procedure shows you how to enable clickable hyperlinks for all chat agents in your Amazon Quick instance.
+Admins can configure whether URLs in chat agent responses appear as clickable hyperlinks. The following procedure shows you how to enable clickable hyperlinks for all chat agents in your AWS Quick instance.
 
 **To enable clickable external links**
 
-1. Log in to the Amazon Quick console.
+1. Log in to the AWS Quick console.
 
-1. Select **Manage Quick** from the Amazon Quick admin console.
+1. Select **Manage Quick** from the AWS Quick admin console.
 
 1. From the admin console left navigation menu, select **Customization**, and then select **Chat agent customization**.
 

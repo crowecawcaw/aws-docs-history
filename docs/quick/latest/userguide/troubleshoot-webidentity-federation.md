@@ -6,7 +6,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  Amazon Quick administrators  | 
+|    Intended audience:  AWS Quick administrators  | 
 
 When an individual in your organization is federating into Quick Sight using **AssumeRoleWithWebIdentity**, Quick Sight maps a single role-based user to a single external login. In some cases, that individual might be authenticated through an external login (such as Amazon Cognito) that's different from the originally mapped user. If so, they can't access Quick Sight and get the following unexpected error message.
 
@@ -95,7 +95,7 @@ aws quicksight register-user --aws-account-id 111222333 --namespace default
 --external-login-id 12345678-1234-1234-abc1-a1b1234567 --region us-east-1
 ```
 
-To learn more about using `RegisterUser` in the CLI, see [RegisterUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html) in the *Amazon Quick API Reference*.
+To learn more about using `RegisterUser` in the CLI, see [RegisterUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html) in the *AWS Quick API Reference*.
 
 ### Use DescribeUser to check external login information for users
 <a name="troubleshoot-webidentity-federation-how-describeuser"></a>
@@ -135,7 +135,7 @@ The result contains the external login information fields if there are any. Foll
 }
 ```
 
-To learn more about using `DescribeUser` in the CLI, see [DescribeUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html) in the *Amazon Quick API Reference*.
+To learn more about using `DescribeUser` in the CLI, see [DescribeUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html) in the *AWS Quick API Reference*.
 
 ### Use UpdateUser to update external login information for users
 <a name="troubleshoot-webidentity-federation-solutions-updateuser"></a>
@@ -198,4 +198,4 @@ aws quicksight update-user --aws-account-id 111222333 --namespace default
 --user-name CognitoQuickSightRole/cognito-user --email cognito-user@amazon.com --role ADMIN --external-login-federation-provider-type NONE --region us-west-2
 ```
 
-To learn more about using `UpdateUser` in the CLI, see the [UpdateUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html) in the *Amazon Quick API Reference*.
+To learn more about using `UpdateUser` in the CLI, see the [UpdateUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html) in the *AWS Quick API Reference*.

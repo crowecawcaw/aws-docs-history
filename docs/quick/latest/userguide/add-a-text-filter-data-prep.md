@@ -82,7 +82,7 @@ Comparison types are case-sensitive.
    + For **Value**, enter a literal value.
    + Select **Use parameters** to use an existing parameter, and then choose a parameter from the list.
 
-     For parameters to appear in this list, create your parameters first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in Amazon Quick](parameters-in-quicksight.md).
+     For parameters to appear in this list, create your parameters first. Usually, you create a parameter, add a control for it, and then add a filter for it. For more information, see [Parameters in AWS Quick](parameters-in-quicksight.md).
 
      The values display alphabetically in the control, unless there are more than 1,000 distinct values. Then the control displays a search box instead. Each time that you search for the value that you want to use, it starts a new query. If the results contain more than 1,000 values, you can scroll through the values with pagination.
 

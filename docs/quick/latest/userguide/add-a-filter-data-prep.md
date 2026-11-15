@@ -24,7 +24,7 @@ Use the following procedure to add filters to datasets.
 
 1. Choose the new filter in the pane to configure the filter. Or you can choose the three dots to the right of the new filter and choose **Edit**.
 
-   Depending on the data type of the field, your options for configuring the filter vary. For more information about the types of filters that you can create and their configurations, see [Filter types in Amazon Quick](filtering-types.md).
+   Depending on the data type of the field, your options for configuring the filter vary. For more information about the types of filters that you can create and their configurations, see [Filter types in AWS Quick](filtering-types.md).
 
 1. When finished, choose **Apply**.
 **Note**  
@@ -52,4 +52,4 @@ Use the following procedure to add filters to analyses.
    + **Single sheet** – The filter applies to a single sheet.
    + **Cross sheet** – The filter applies to multiple sheets in the dataset.
 
-   Depending on the data type of the field, your remaining options for configuring the filter vary. For more information about the types of filters you can create and their configurations, see [Filter types in Amazon Quick](filtering-types.md).
+   Depending on the data type of the field, your remaining options for configuring the filter vary. For more information about the types of filters you can create and their configurations, see [Filter types in AWS Quick](filtering-types.md).

@@ -3,20 +3,20 @@
 # Supported VPC data sources
 <a name="vpc-connection-supported-data-sources"></a>
 
-With a VPC connection, you can connect Amazon Quick to a data source inside your VPC over a private network path. Traffic stays off the public internet. Not every data source can use a VPC connection. VPC connections support the following two categories:
+With a VPC connection, you can connect AWS Quick to a data source inside your VPC over a private network path. Traffic stays off the public internet. Not every data source can use a VPC connection. VPC connections support the following two categories:
 
-Amazon Quick Sight data sources  
-Structured data sources, such as databases and data warehouses, that you connect to when you create datasets and analyses. Most of these support VPC connections. For more information about supported Amazon Quick Sight data sources, see [Amazon Quick Sight data sources that support VPC connections](#vpc-supported-sight-data-sources).
+AWS Quick Sight data sources  
+Structured data sources, such as databases and data warehouses, that you connect to when you create datasets and analyses. Most of these support VPC connections. For more information about supported AWS Quick Sight data sources, see [AWS Quick Sight data sources that support VPC connections](#vpc-supported-sight-data-sources).
 
 Knowledge base data sources  
 Data sources that you connect to when you create a knowledge base, including document repositories and content management systems. Amazon Redshift supports VPC connections in this category. For more information about knowledge base data sources, see [Knowledge base data sources that support VPC connections](#vpc-supported-knowledge-base-data-sources).
 
 Both categories share the same configuration requirements. For more information about those requirements, see [Requirements for a VPC data source](#vpc-data-source-requirements).
 
-## Amazon Quick Sight data sources that support VPC connections
+## AWS Quick Sight data sources that support VPC connections
 <a name="vpc-supported-sight-data-sources"></a>
 
-The following Amazon Quick Sight data sources support VPC connections. When you create a dataset from one of these sources, you can route the connection through a VPC connection:
+The following AWS Quick Sight data sources support VPC connections. When you create a dataset from one of these sources, you can route the connection through a VPC connection:
 + Amazon OpenSearch Service
 + Amazon Redshift
 + Amazon Relational Database Service
@@ -35,7 +35,7 @@ The following Amazon Quick Sight data sources support VPC connections. When you 
 + Teradata
 + Trino
 
-Other Amazon Quick Sight data sources can't use a VPC connection. This group includes Amazon Athena, Google BigQuery, Apache Spark, and Amazon Timestream. It also includes the connectors for software as a service (SaaS) applications, such as Salesforce, ServiceNow, Jira, and GitHub. If you attach a VPC connection to a data source that doesn't support one, the request fails with an invalid parameter error.
+Other AWS Quick Sight data sources can't use a VPC connection. This group includes Amazon Athena, Google BigQuery, Apache Spark, and Amazon Timestream. It also includes the connectors for software as a service (SaaS) applications, such as Salesforce, ServiceNow, Jira, and GitHub. If you attach a VPC connection to a data source that doesn't support one, the request fails with an invalid parameter error.
 
 ## Knowledge base data sources that support VPC connections
 <a name="vpc-supported-knowledge-base-data-sources"></a>
@@ -60,12 +60,12 @@ You can still restrict Amazon S3 bucket access to a VPC endpoint. That is a sepa
 ## Requirements for a VPC data source
 <a name="vpc-data-source-requirements"></a>
 
-Before you can reach a data source in your VPC from Amazon Quick, your configuration must meet the following requirements: 
+Before you can reach a data source in your VPC from AWS Quick, your configuration must meet the following requirements: 
 
 1. The Domain Name System (DNS) name of the VPC data source must resolve from outside your VPC. 
 
 1. The connection must return the private IP address of your instance. Databases hosted by Amazon Redshift, Amazon RDS, and Aurora automatically meet this requirement.
 
-1. A clearly defined network path must connect the data source and Amazon Quick.
+1. A clearly defined network path must connect the data source and AWS Quick.
 
-1. A VPC connection for the VPC must exist in Amazon Quick. You create or select one in the Amazon Quick console. 
+1. A VPC connection for the VPC must exist in AWS Quick. You create or select one in the AWS Quick console. 

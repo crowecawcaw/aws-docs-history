@@ -1,6 +1,6 @@
 
 
-# Granting anyone on the internet access to an Amazon Quick Sight dashboard
+# Granting anyone on the internet access to an AWS Quick Sight dashboard
 <a name="share-a-dashboard-grant-access-anyone"></a>
 
 
@@ -8,7 +8,7 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-You can also share your Amazon Quick Sight dashboard with anyone on the internet from the **Share** menu in the Amazon Quick console. When you do this, anyone on the internet will be able to access the dashboard, even if they aren't a registered user on your Quick account, when you share the dashboard link or embed the dashboard.
+You can also share your AWS Quick Sight dashboard with anyone on the internet from the **Share** menu in the AWS Quick console. When you do this, anyone on the internet will be able to access the dashboard, even if they aren't a registered user on your Quick account, when you share the dashboard link or embed the dashboard.
 
 Use the following sections to grant anyone on the internet access to dashboard when you share it.
 

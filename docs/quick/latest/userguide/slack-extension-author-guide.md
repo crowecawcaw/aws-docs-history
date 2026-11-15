@@ -1,9 +1,9 @@
 
 
-# Amazon Quick Slack extension author guide
+# AWS Quick Slack extension author guide
 <a name="slack-extension-author-guide"></a>
 
-As an Amazon Quick author, you can deploy Quick Slack extensions after your admin establishes the foundational connection to your organization's Slack workspace. Your capabilities depend on the permission level granted by your administrator.
+As an AWS Quick author, you can deploy Quick Slack extensions after your admin establishes the foundational connection to your organization's Slack workspace. Your capabilities depend on the permission level granted by your administrator.
 
 With **limited permissions** (view, share, delete only), you can manage basic extension operations through the landing page after admin completes all setup. With **full permissions** (deploy, view, share, delete, edit), you can complete the Slack OAuth application deployment, rename extensions, and access all editing features.
 
@@ -13,7 +13,7 @@ Author capabilities for Slack extensions:
 + Manage sharing and access permissions (available with limited or full permissions).
 
 **Note**  
-Before you deploy a Slack extension as an author, your Quick admin must [configure Amazon Quick access to Slack](https://docs.aws.amazon.com/quicksuite/latest/userguide/slack-extension.html).
+Before you deploy a Slack extension as an author, your Quick admin must [configure AWS Quick access to Slack](https://docs.aws.amazon.com/quicksuite/latest/userguide/slack-extension.html).
 
 **Topics**
 + [Deploy a Slack extension](#add-extensions-slack)
@@ -29,7 +29,7 @@ Deploy a new Slack extension instance in the Quick console. This process establi
 **Note**  
 This action requires full author permissions.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 
@@ -56,15 +56,15 @@ This action requires full author permissions.
 **Note**  
 You can also navigate to the extensions summary page and deploy your extension from the **Actions** menu.
 
-1. The link will open to a Slack login page where after you login (as admin) you will need to find and be asked to install the Amazon Quick app within your Slack workspace.
+1. The link will open to a Slack login page where after you login (as admin) you will need to find and be asked to install the AWS Quick app within your Slack workspace.
 **Note**  
 You may see a "This app is not approved by Slack banner." This message can be ignored.
 
-1. Choose **Allow** to install your Amazon Quick App for Slack.
+1. Choose **Allow** to install your AWS Quick App for Slack.
 
 1. Once the installation is complete, you will see the page confirming that the **Congratulations\! Your Slack App has been successfully installed.**
 
-1. Choose **Open the Amazon Quick App in Slack**.
+1. Choose **Open the AWS Quick App in Slack**.
 
 1. This will open your Slack workspace where all users will be required to sign-in.
 
@@ -78,7 +78,7 @@ This action requires full author permissions.
 
 As an author, you can edit the extensions you deploy to your users. Modify extension settings to update names, descriptions, or configuration options. Changes take effect immediately and apply to all users with access to the extension.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 
@@ -93,7 +93,7 @@ As an author, you can edit the extensions you deploy to your users. Modify exten
 
 Share ownership and management permissions with specific users and groups, enabling multiple users to manage extensions and assist with installation. You can assign different permission levels and manage access as needed.
 
-1. Sign in to the Amazon Quick console.
+1. Sign in to the AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 
@@ -114,7 +114,7 @@ Share ownership and management permissions with specific users and groups, enabl
 
 As an author, you can delete the extensions you deploy to your users. Permanently remove a extension from your Quick console and revoke access for all users. This action cannot be undone and requires confirmation.
 
-1. Sign in to Amazon Quick console.
+1. Sign in to AWS Quick console.
 
 1. In the left navigation, under **CONNECTIONS**, select **Extensions**.
 

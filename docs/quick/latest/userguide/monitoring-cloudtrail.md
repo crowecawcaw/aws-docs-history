@@ -1,29 +1,29 @@
 
 
-# Monitoring Amazon Quick using CloudTrail
+# Monitoring AWS Quick using CloudTrail
 <a name="monitoring-cloudtrail"></a>
 
-Amazon Quick is integrated with AWS CloudTrail. This service provides a record of actions taken by a user, role, or an AWS service in Amazon Quick. CloudTrail captures API calls for Amazon Quick as events. The calls captured include some calls from the console and all code calls to API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Quick. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine who made a request to Amazon Quick and when. You can also identify the source IP address, the specific request, and other details. 
+AWS Quick is integrated with AWS CloudTrail. This service provides a record of actions taken by a user, role, or an AWS service in AWS Quick. CloudTrail captures API calls for AWS Quick as events. The calls captured include some calls from the console and all code calls to API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Quick. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine who made a request to AWS Quick and when. You can also identify the source IP address, the specific request, and other details. 
 
 **Note**  
-CloudTrail records supported Amazon Quick API operations and the non-API events documented on this page. When you examine event samples, event records include selected metadata such as account ID, resource ID, and user identity. For chat conversations and feedback, use [Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md). For the full signal-by-capability model, see [Incident response, logging, and monitoring in Amazon Quick](incident-response-logging-and-monitoring.md).
+CloudTrail records supported AWS Quick API operations and the non-API events documented on this page. When you examine event samples, event records include selected metadata such as account ID, resource ID, and user identity. For chat conversations and feedback, use [Monitoring AWS Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md). For the full signal-by-capability model, see [Incident response, logging, and monitoring in AWS Quick](incident-response-logging-and-monitoring.md).
 
-Amazon Quick publishes operational metrics to CloudWatch, and you can create CloudWatch alarms on those metrics. For more information, see [Creating alarms with the Amazon CloudWatch console](monitoring-cloudwatch-metrics.md#cw-alerts). To alert on individual CloudTrail events, you can develop a custom solution that processes CloudTrail logs.
+AWS Quick publishes operational metrics to CloudWatch, and you can create CloudWatch alarms on those metrics. For more information, see [Creating alarms with the Amazon CloudWatch console](monitoring-cloudwatch-metrics.md#cw-alerts). To alert on individual CloudTrail events, you can develop a custom solution that processes CloudTrail logs.
 
-Amazon Quick service status can be viewed on the [Service Health Dashboard](https://status.aws.amazon.com/).
+AWS Quick service status can be viewed on the [Service Health Dashboard](https://status.aws.amazon.com/).
 
 By default, CloudTrail encrypts the log files it delivers to your bucket using [Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). For a directly manageable security layer, you can instead use [AWS KMS–managed keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) for your CloudTrail log files. SSE-KMS encrypts the log files but not the digest files. Digest files are encrypted with [Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). 
 
 To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 **Topics**
-+ [Logging Amazon Quick operations with AWS CloudTrail](#logging-using-cloudtrail)
-+ [Discovering Amazon Quick events in your trail](#logging-discovering-events)
-+ [Example: Amazon Quick log file entries](#understanding-quicksight-entries)
-+ [Logging Amazon Quick data events in CloudTrail](#logging-data-events)
++ [Logging AWS Quick operations with AWS CloudTrail](#logging-using-cloudtrail)
++ [Discovering AWS Quick events in your trail](#logging-discovering-events)
++ [Example: AWS Quick log file entries](#understanding-quicksight-entries)
++ [Logging AWS Quick data events in CloudTrail](#logging-data-events)
 + [Tracking non-API events by using CloudTrail logs](#logging-non-api)
 
-## Logging Amazon Quick operations with AWS CloudTrail
+## Logging AWS Quick operations with AWS CloudTrail
 <a name="logging-using-cloudtrail"></a>
 
 
@@ -31,23 +31,23 @@ To learn more about CloudTrail, including how to configure and enable it, see th
 | --- |
 |    Intended audience:  System administrators  | 
 
-CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in Amazon Quick, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in AWS Quick, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for Amazon Quick, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
+For an ongoing record of events in your AWS account, including events for AWS Quick, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
 + [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
 + [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
 + [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
 + [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 + [Cross-Account CloudTrail Logging](https://docs.aws.amazon.com/lake-formation/latest/dg/cross-account-logging.html) in the AWS Lake Formation Developer Guide – This topic includes instructions for including principal identities in cross-account CloudTrail logs.
 
-Amazon Quick supports logging the following actions as events in CloudTrail log files:
+AWS Quick supports logging the following actions as events in CloudTrail log files:
 + Whether the request was made with root or AWS Identity and Access Management user credentials
 + Whether the request was made with temporary security credentials for an IAM role or federated user
 + Whether the request was made by another AWS service
 
 For more information on user identity, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
-By default, each Amazon Quick log entry contains the following information:
+By default, each AWS Quick log entry contains the following information:
 +  **userIdentity** – User identity
 
   
@@ -63,7 +63,7 @@ By default, each Amazon Quick log entry contains the following information:
 +  **awsRegion** – AWS Region
 
   
-+  **eventSource (quicksight)** – Source of the event (Amazon Quick)
++  **eventSource (quicksight)** – Source of the event (AWS Quick)
 
   
 +  **eventType (AwsServiceEvent)** – Event type (AWS service event)
@@ -73,17 +73,17 @@ By default, each Amazon Quick log entry contains the following information:
 
   
 
-Some events include a `userIdentity.invokedBy` field set to `quicksight.amazonaws.com`. This indicates that the event was triggered by the Amazon Quick service on behalf of the account rather than by a direct user action. You can use this field to distinguish user-initiated operations from service-internal calls when analyzing your trail.
+Some events include a `userIdentity.invokedBy` field set to `quicksight.amazonaws.com`. This indicates that the event was triggered by the AWS Quick service on behalf of the account rather than by a direct user action. You can use this field to distinguish user-initiated operations from service-internal calls when analyzing your trail.
 
 **Note**  
-CloudTrail displays the user identity as `unknown` for users that were provisioned directly by Amazon Quick (legacy provisioning). Users authenticated through IAM Identity Center appear as `IdentityCenterUser` with full `onBehalfOf` details in the `userIdentity` element.
+CloudTrail displays the user identity as `unknown` for users that were provisioned directly by AWS Quick (legacy provisioning). Users authenticated through IAM Identity Center appear as `IdentityCenterUser` with full `onBehalfOf` details in the `userIdentity` element.
 
-## Discovering Amazon Quick events in your trail
+## Discovering AWS Quick events in your trail
 <a name="logging-discovering-events"></a>
 
-Amazon Quick adds new event names as features launch and evolve. The non-API events listed below represent a subset of what your trail captures. To discover all Amazon Quick events in your account, query your trail for `eventSource: quicksight.amazonaws.com` and inspect the `eventName` values. Event names follow a consistent pattern: the operation name (such as `CreateFlow` or `UpdateAgent`) matches the feature it relates to.
+AWS Quick adds new event names as features launch and evolve. The non-API events listed below represent a subset of what your trail captures. To discover all AWS Quick events in your account, query your trail for `eventSource: quicksight.amazonaws.com` and inspect the `eventName` values. Event names follow a consistent pattern: the operation name (such as `CreateFlow` or `UpdateAgent`) matches the feature it relates to.
 
-## Example: Amazon Quick log file entries
+## Example: AWS Quick log file entries
 <a name="understanding-quicksight-entries"></a>
 
  A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
@@ -140,12 +140,12 @@ The following example shows a CloudTrail log entry that demonstrates the `BatchC
    }
 ```
 
-## Logging Amazon Quick data events in CloudTrail
+## Logging AWS Quick data events in CloudTrail
 <a name="logging-data-events"></a>
 
-In addition to management events, Amazon Quick supports CloudTrail data events for selected resource types. Data events are off by default. Enable them through advanced event selectors on your trail.
+In addition to management events, AWS Quick supports CloudTrail data events for selected resource types. Data events are off by default. Enable them through advanced event selectors on your trail.
 
-The following Amazon Quick resource types support data events:
+The following AWS Quick resource types support data events:
 
 
 | Resource type | Event name | Availability | 
@@ -163,7 +163,7 @@ Data-event resource-type availability varies by account and AWS Region. If a res
 **Note**  
 The casing of `Quicksight` compared with `QuickSight` in resource type ARNs is intentional and varies by resource type. Use the exact casing shown above when configuring event selectors.
 
-### Enabling Amazon Quick data events
+### Enabling AWS Quick data events
 <a name="logging-data-events-enabling"></a>
 
 Use advanced event selectors to enable data events. Include a management-events selector to retain management event logging:

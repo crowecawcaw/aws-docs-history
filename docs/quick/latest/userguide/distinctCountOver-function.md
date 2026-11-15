@@ -33,7 +33,7 @@ Each field in the list is enclosed in {} (curly braces), if it is more than one 
 (Optional) Specifies the calculation level to use:  
 + **`PRE_FILTER`** – Prefilter calculations are computed before the dataset filters.
 + **`PRE_AGG`** – Preaggregate calculations are computed before applying aggregations and top and bottom *N* filters to the visuals.
-This value defaults to `POST_AGG_FILTER` when blank. `POST_AGG_FILTER` is not a valid level for this operation and will result in an error message. For more information, see [Using level-aware calculations in Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations.html).
+This value defaults to `POST_AGG_FILTER` when blank. `POST_AGG_FILTER` is not a valid level for this operation and will result in an error message. For more information, see [Using level-aware calculations in AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations.html).
 
 ## Example
 <a name="distinctCountOver-function-example"></a>

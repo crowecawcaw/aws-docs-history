@@ -15,9 +15,9 @@ If you encounter issues connecting to your Amazon S3 bucket, review the followin
 ## Cross-account access not configured
 <a name="s3-troubleshooting-cross-account"></a>
 
-**Issue:** Your administrator hasn't granted access to use Amazon S3 buckets from other AWS accounts in Amazon Quick.
+**Issue:** Your administrator hasn't granted access to use Amazon S3 buckets from other AWS accounts in AWS Quick.
 
-**Solution:** Ask your administrator to grant cross-account Amazon S3 access. For more information, see [Grant Amazon Quick access to Amazon S3 buckets](s3-admin-setup.md#s3-grant-bucket-access).
+**Solution:** Ask your administrator to grant cross-account Amazon S3 access. For more information, see [Grant AWS Quick access to Amazon S3 buckets](s3-admin-setup.md#s3-grant-bucket-access).
 
 ## Bucket not in approved list
 <a name="s3-troubleshooting-bucket-not-approved"></a>
@@ -49,10 +49,10 @@ The ARN `arn:aws:iam::account-id:role/service-role/aws-quicksight-service-role-v
 ## Cross-region restrictions
 <a name="s3-troubleshooting-cross-region"></a>
 
-**Issue:** The Amazon S3 bucket is located in a different AWS region than your Amazon Quick account or service.
+**Issue:** The Amazon S3 bucket is located in a different AWS region than your AWS Quick account or service.
 
 **Solution:**
-+ Verify the bucket region matches your Amazon Quick service region.
++ Verify the bucket region matches your AWS Quick service region.
 + Check bucket region using AWS CLI: `aws s3api get-bucket-location --bucket bucket-name`
 + Use a bucket in the same region as your service.
 

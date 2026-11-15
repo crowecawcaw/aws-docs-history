@@ -11,13 +11,13 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
-In the Enterprise edition, you can configure specific permissions for the AWS services that an Amazon Quick user can access. If no such configuration occurs, Quick uses a default set of permissions based on the user's settings. The current behavior is displayed in a blue information box. 
+In the Enterprise edition, you can configure specific permissions for the AWS services that an AWS Quick user can access. If no such configuration occurs, Quick uses a default set of permissions based on the user's settings. The current behavior is displayed in a blue information box. 
 
 **To change the default resource access for all users (to use when no other permissions are configured)**
 
-1. Sign in to Amazon Quick.
+1. Sign in to AWS Quick.
 
 1. At upper right, choose the profile icon, and then choose **Manage Quick**.
 

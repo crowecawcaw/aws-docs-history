@@ -1,9 +1,9 @@
 
 
-# Subscribing to Amazon Quick Sight dashboard emails and alerts
+# Subscribing to AWS Quick Sight dashboard emails and alerts
 <a name="subscriber-alerts"></a>
 
-Using Amazon Quick Sight, you can subscribe to updates for certain events, such as dashboard updates and anomaly alerts.
+Using AWS Quick Sight, you can subscribe to updates for certain events, such as dashboard updates and anomaly alerts.
 
 **Topics**
 + [Sign up for dashboard emails](#subscribing-to-a-dashboard-report-for-readers)

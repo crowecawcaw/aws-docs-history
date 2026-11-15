@@ -5,7 +5,7 @@
 
 Use the following procedure to add suggested insights to your analysis.
 
-Before you begin, make sure that your dataset meets the criteria outlined in [Dataset requirements for using ML insights with Amazon Quick Sight](ml-data-set-requirements.md).
+Before you begin, make sure that your dataset meets the criteria outlined in [Dataset requirements for using ML insights with AWS Quick Sight](ml-data-set-requirements.md).
 
 1. Begin with an analysis that has a few fields added to a visual. 
 
@@ -30,7 +30,7 @@ Before you begin, make sure that your dataset meets the criteria outlined in [Da
 
 1. Add a suggested insight to your analysis by choosing the plus sign (**\+**) near the insight title.
 
-1. (Optional) After you add an insight to your analysis, customize the narrative that you want it to display. To do this, choose the **v**-shaped on-visual menu, then choose **Customize narrative**. For more information, see [Creating autonarratives with Amazon Quick Sight](narratives-creating.md).
+1. (Optional) After you add an insight to your analysis, customize the narrative that you want it to display. To do this, choose the **v**-shaped on-visual menu, then choose **Customize narrative**. For more information, see [Creating autonarratives with AWS Quick Sight](narratives-creating.md).
 
    If your insight is for anomalies (outliers), you can also change the settings for the anomaly detection job. To do this, choose **Configure anomaly**. For more information, see [Setting up ML-powered anomaly detection for outlier analysis](anomaly-detection-using.md).
 

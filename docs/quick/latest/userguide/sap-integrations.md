@@ -3,7 +3,7 @@
 # SAP workload integrations
 <a name="sap-integrations"></a>
 
-With SAP workload integrations, you can perform actions within various SAP systems. Manage business data, inventory, materials, and business processes. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
+With SAP workload integrations, you can perform actions within various SAP systems. Manage business data, inventory, materials, and business processes. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
 ## What you can do
 <a name="sap-integrations-capabilities"></a>
@@ -22,13 +22,13 @@ Support for five different integration types: Bill of Materials, Business Partne
 Before you set up SAP workload integrations, make sure you have the following:
 + SAP system with appropriate modules installed and configured.
 + SAP user account with necessary permissions and authorizations.
-+ Amazon Quick Author or higher.
-+ Network connectivity between Amazon Quick and your SAP system.
++ AWS Quick Author or higher.
++ Network connectivity between AWS Quick and your SAP system.
 
 ## Prepare SAP system configuration and authentication
 <a name="sap-system-preparation"></a>
 
-Before setting up the integration in Amazon Quick, prepare your SAP system configuration and user authentication. SAP workload integrations support multiple authentication methods and require proper system setup.
+Before setting up the integration in AWS Quick, prepare your SAP system configuration and user authentication. SAP workload integrations support multiple authentication methods and require proper system setup.
 
 ### Authentication methods
 <a name="sap-authentication-methods"></a>
@@ -110,7 +110,7 @@ Prepare SAP user authentication credentials and ensure proper system access perm
 
 After preparing your SAP system configuration and authentication credentials, the setup process is similar for all SAP integration types. Choose between OAuth 2.0 or Basic Authentication based on your security requirements.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose the **Create for your team** tab.
 
@@ -153,7 +153,7 @@ After preparing your SAP system configuration and authentication credentials, th
 ### Expected results
 <a name="sap-integrations-setup-results"></a>
 
-After successful setup, your SAP workload integration appears in the integrations list and is available for use in Amazon Quick workflows, automations, and AI agents. You can perform SAP-specific actions directly from Amazon Quick using the configured authentication credentials.
+After successful setup, your SAP workload integration appears in the integrations list and is available for use in AWS Quick workflows, automations, and AI agents. You can perform SAP-specific actions directly from AWS Quick using the configured authentication credentials.
 
 ## Available operations by connector type
 <a name="sap-available-operations"></a>
@@ -256,7 +256,7 @@ After you create your SAP workload integration, you can manage it through severa
 
 Follow these steps to modify your SAP workload integration settings.
 
-1. In the Amazon Quick console, choose **Connectors**.
+1. In the AWS Quick console, choose **Connectors**.
 
 1. Choose your SAP workload connector from the connector list.
 

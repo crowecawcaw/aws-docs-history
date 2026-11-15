@@ -11,7 +11,7 @@ When you share a flow, you give others permission to view and run it, or to coll
 You can share a flow in three ways:
 + **With individuals** — Share with specific people using their email addresses.
 + **With groups** — Share with pre-defined groups in your organization (for example, departments or project teams).
-+ **With everyone** — Make the flow available to all users in your Amazon Quick Flows instance.
++ **With everyone** — Make the flow available to all users in your AWS Quick Flows instance.
 
 Depending on your organization's settings, sharing may require approval review. For more information, see [Approval review](approval-review.md).
 

@@ -8,7 +8,7 @@ Connector owners and administrators can enable or disable individual tools withi
 ## Tool permission settings
 <a name="connector-tool-permissions-review-behavior"></a>
 
-Connector authors configure tool permissions at the individual action level. The permission setting determines whether you see a confirmation prompt before an action runs. These settings apply across all Amazon Quick clients, including Chat, Agents, Pages, and Flows.
+Connector authors configure tool permissions at the individual action level. The permission setting determines whether you see a confirmation prompt before an action runs. These settings apply across all AWS Quick clients, including Chat, Agents, Pages, and Flows.
 
 **Always Ask**  
 When a connector author sets an action to **Always Ask**, every invocation presents you with a confirmation prompt. You cannot override this behavior through your user-level preferences. The prompt always appears.
@@ -53,7 +53,7 @@ You can configure tool behavior for your own connector. These settings apply onl
 ## Default behavior
 <a name="connector-tool-permissions-default-behavior"></a>
 
-The following table shows the default settings that Amazon Quick applies to each action type.
+The following table shows the default settings that AWS Quick applies to each action type.
 
 
 **Default behavior by action type**  

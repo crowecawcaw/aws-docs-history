@@ -8,7 +8,7 @@
 | --- |
 |  Applies to:  Enterprise Edition  | 
 
-With Web Crawler integration in Amazon Quick, you can create knowledge bases from website content by crawling and indexing web pages. This integration supports data ingestion capabilities with different authentication options.
+With Web Crawler integration in AWS Quick, you can create knowledge bases from website content by crawling and indexing web pages. This integration supports data ingestion capabilities with different authentication options.
 
 ## Web Crawler capabilities
 <a name="web-crawler-integration-capabilities"></a>
@@ -25,13 +25,13 @@ Web Crawler integration supports data ingestion only. It doesn't provide action 
 
 Before you set up Web Crawler integration, make sure you have the following:
 + Website URLs to crawl and index.
-+ You need a Amazon Quick account with Enterprise Edition.
++ You need a AWS Quick account with Enterprise Edition.
 + A website that is not behind a firewall and does not require special browser plugins to connect.
 
 ## Prepare website access and authentication
 <a name="web-crawler-integration-authentication"></a>
 
-Before setting up the integration in Amazon Quick, prepare your website access credentials. Web Crawler integration supports different authentication methods:
+Before setting up the integration in AWS Quick, prepare your website access credentials. Web Crawler integration supports different authentication methods:
 
 **No authentication**  
 Use for crawling websites that don't require authentication.
@@ -92,9 +92,9 @@ Submit button examples:
 ## Set up Web Crawler integration
 <a name="web-crawler-integration-setup"></a>
 
-After preparing your website access requirements, create the Web Crawler integration in Amazon Quick.
+After preparing your website access requirements, create the Web Crawler integration in AWS Quick.
 
-1. In the Amazon Quick console, choose **Knowledge**.
+1. In the AWS Quick console, choose **Knowledge**.
 
 1. Find **Web Crawler** and choose the **Add** (\+) icon.
 
@@ -106,7 +106,7 @@ After preparing your website access requirements, create the Web Crawler integra
 
    1. Enter the required details based on your chosen authentication method.
 
-   1. (Optional) Choose a VPC connection to crawl sites hosted in your private network. The VPC connection must be configured in admin settings before you can choose it here. For more information, see [Setting up a VPC to use with Amazon Quick](vpc-setup-for-quicksight.md).
+   1. (Optional) Choose a VPC connection to crawl sites hosted in your private network. The VPC connection must be configured in admin settings before you can choose it here. For more information, see [Setting up a VPC to use with AWS Quick](vpc-setup-for-quicksight.md).
 **Note**  
 You can't change the VPC connection after the integration is created. To use a different VPC connection, create a new integration.
 
@@ -176,7 +176,7 @@ After setting up your Web Crawler integration, you can create and manage knowled
 
 You can modify your existing Web Crawler knowledge bases:
 
-1. In the Amazon Quick console, choose **Knowledge bases**.
+1. In the AWS Quick console, choose **Knowledge bases**.
 
 1. Choose your Web Crawler knowledge base from the list.
 
@@ -281,7 +281,7 @@ Use this section to resolve common issues with Web Crawler integration.
 
 **Resolution steps:**
 
-1. Verify the site is reachable from the AWS Region where the Amazon Quick instance is set up.
+1. Verify the site is reachable from the AWS Region where the AWS Quick instance is set up.
 
 1. Verify that your credentials are correct and haven't expired.
 

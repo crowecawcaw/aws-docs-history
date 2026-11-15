@@ -3,7 +3,7 @@
 # Sharing knowledge bases and data sources
 <a name="sharing-kb-datasources"></a>
 
-Amazon Quick enables you to share knowledge bases and data source connections with other users in your account. You can collaborate with multiple users on knowledge bases or reuse existing data source connections without re-entering credentials.
+AWS Quick enables you to share knowledge bases and data source connections with other users in your account. You can collaborate with multiple users on knowledge bases or reuse existing data source connections without re-entering credentials.
 
 **Note**  
 All knowledge bases can be shared with the Viewer role, which allows users to query the knowledge base. The Owner role (co-owner sharing) is available only for admin-managed Microsoft SharePoint Online and Google Drive knowledge bases. Data source sharing is also limited to admin-managed SharePoint and Google Drive connections.
@@ -58,10 +58,10 @@ To change or remove a user's access to a knowledge base, complete the following 
 ## Sharing data source connections
 <a name="sharing-datasources"></a>
 
-Amazon Quick administrators can share data source connections with other users in their account. This enables multiple users to create knowledge bases using the same connection without re-entering credentials.
+AWS Quick administrators can share data source connections with other users in their account. This enables multiple users to create knowledge bases using the same connection without re-entering credentials.
 
 Before you share, note the following:
-+ Only users with Amazon Quick administrator privileges can share data source connections.
++ Only users with AWS Quick administrator privileges can share data source connections.
 + Data source sharing is available only for admin-managed (service credentials) connections. User-managed connections that are created through single sign-on cannot be shared.
 + If you revoke a user's access to a data source, the user's existing knowledge bases continue to sync. Knowledge bases that were previously created with the shared data source continue to sync normally.
 + If an administrator deletes a data source, then existing knowledge bases that are linked to it remain visible. However, syncs fail with an error that indicates the underlying data source was deleted.
@@ -80,7 +80,7 @@ Before you share, note the following:
 
 To share a data source connection with other users, complete the following steps.
 
-1. In Amazon Quick, choose **Manage account** from the left navigation pane.
+1. In AWS Quick, choose **Manage account** from the left navigation pane.
 
 1. Choose **Manage assets**.
 

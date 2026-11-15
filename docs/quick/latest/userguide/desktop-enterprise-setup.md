@@ -1,6 +1,6 @@
 
 
-# Setting up Amazon Quick on desktop for enterprise deployments
+# Setting up AWS Quick on desktop for enterprise deployments
 <a name="desktop-enterprise-setup"></a>
 
 
@@ -13,7 +13,7 @@
 | --- |
 |    Intended audience:  System administrators  | 
 
-Users in your organization sign in to Amazon Quick on desktop with the sign-in method your Quick account already uses on the web. By default, you don't register an OpenID Connect (OIDC) application in your identity provider, create a client ID, or add extension access. If a user can sign in to Quick on the web, that user can sign in to the desktop application.
+Users in your organization sign in to AWS Quick on desktop with the sign-in method your Quick account already uses on the web. By default, you don't register an OpenID Connect (OIDC) application in your identity provider, create a client ID, or add extension access. If a user can sign in to Quick on the web, that user can sign in to the desktop application.
 
 To turn on desktop access, an administrator adds the desktop connector one time. For instructions, see [Turning on desktop access](#desktop-enterprise-turn-on). If you need to manage desktop sign-in separately in your identity provider, you can set up a dedicated identity provider configuration instead. For more information, see [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md).
 
@@ -23,19 +23,19 @@ Both sign-in options work for accounts that use IAM Identity Center, IAM federat
 If your organization already set up enterprise sign-in for the desktop application with a desktop extension, that setup keeps working. To move to the desktop connector, see [Moving from the desktop extension to the desktop connector](#desktop-enterprise-migrate).
 
 **Note**  
-If you are using a Free or Plus account, this section does not apply to you. Continue to [Getting started with the Amazon Quick desktop application](getting-started-desktop.md).
+If you are using a Free or Plus account, this section does not apply to you. Continue to [Getting started with the AWS Quick desktop application](getting-started-desktop.md).
 
 ## Prerequisites
 <a name="desktop-enterprise-prerequisites"></a>
 
 Before you begin, verify that you have the following:
-+ An AWS account with an active Amazon Quick subscription. The account's home Region (identity Region) must be a supported AWS Region. For a list of supported Regions, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs).
-+ Administrator access to your Amazon Quick account.
++ An AWS account with an active AWS Quick subscription. The account's home Region (identity Region) must be a supported AWS Region. For a list of supported Regions, see [Supported AWS Regions for AWS Quick](regions.md#regions-qs).
++ Administrator access to your AWS Quick account.
 + Version 1.1.4053 or later of the desktop application.
-+ In restricted network environments, the ability to reach the required Amazon Quick and identity provider domains. For the list of domains to add to your allow list, see [Network access and required domains](desktop-security.md#desktop-network-access).
++ In restricted network environments, the ability to reach the required AWS Quick and identity provider domains. For the list of domains to add to your allow list, see [Network access and required domains](desktop-security.md#desktop-network-access).
 
 **Important**  
-Amazon Quick on desktop is available only in AWS Regions that support agentic features. To check your Region, see the **Agentic Features** column in [Supported AWS Regions for Amazon Quick](regions.md#regions-qs).
+AWS Quick on desktop is available only in AWS Regions that support agentic features. To check your Region, see the **Agentic Features** column in [Supported AWS Regions for AWS Quick](regions.md#regions-qs).
 
 ## Turning on desktop access
 <a name="desktop-enterprise-turn-on"></a>
@@ -45,7 +45,7 @@ Adding the desktop connector turns on desktop access for all users in your accou
 
 **To add the desktop connector**
 
-1. Sign in to the Amazon Quick console as an administrator.
+1. Sign in to the AWS Quick console as an administrator.
 
 1. Choose your profile icon, and then choose **Manage account**.
 
@@ -57,11 +57,11 @@ Adding the desktop connector turns on desktop access for all users in your accou
 
 1. Quick creates the connector. Verify that the connector card shows the name **Quick Desktop**, the connector type **Quick desktop**, and the status **Enabled**.
 
-To install the application, see [Getting started with the Amazon Quick desktop application](getting-started-desktop.md). To deploy the application to a managed fleet, see [Managed deployment configuration](desktop-enterprise-managed-deployment.md).
+To install the application, see [Getting started with the AWS Quick desktop application](getting-started-desktop.md). To deploy the application to a managed fleet, see [Managed deployment configuration](desktop-enterprise-managed-deployment.md).
 
 ## How sign-in works
 <a name="desktop-enterprise-sign-in"></a>
-+ To sign in, users need an active Amazon Quick web session in their browser. If they don't have one, the browser prompts them to sign in to Quick first.
++ To sign in, users need an active AWS Quick web session in their browser. If they don't have one, the browser prompts them to sign in to Quick first.
 + A sign-in lasts up to 30 days, regardless of activity. During that time, access lasts one hour and renews automatically in the background, so users stay signed in. After 30 days, users sign in again.
 + Users are signed out if access can't be renewed or their session ends.
 
@@ -76,11 +76,11 @@ If your organization set up enterprise sign-in with a desktop extension, that se
 
 **To move to the desktop connector**
 
-1. Update the desktop application on every device to version 1.1.4053 or later. To check the version, choose **Amazon Quick** > **About Amazon Quick** in the menu bar.
+1. Update the desktop application on every device to version 1.1.4053 or later. To check the version, choose **AWS Quick** > **About AWS Quick** in the menu bar.
 
 1. Add the desktop connector. For instructions, see [Turning on desktop access](#desktop-enterprise-turn-on).
 
-1. After all users have updated to version 1.1.4053 or later, delete the desktop extension on the **Extensions** page in the Amazon Quick console.
+1. After all users have updated to version 1.1.4053 or later, delete the desktop extension on the **Extensions** page in the AWS Quick console.
 
 **Important**  
 Don't delete the extension until all users have moved. Users who haven't moved yet lose access. Older versions of the application show this error: "Enterprise sign-in for Quick Desktop has not been configured for this account. Contact your IT team for further support."
@@ -95,5 +95,5 @@ If you use the `DisableAutoUpdates` policy, devices don't update automatically. 
 + [Moving from the desktop extension to the desktop connector](#desktop-enterprise-migrate)
 + [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md)
 + [Managed deployment configuration](desktop-enterprise-managed-deployment.md)
-+ [Troubleshooting enterprise sign-in for Amazon Quick on desktop](desktop-enterprise-setup-troubleshooting.md)
-+ [Deploying Amazon Quick on desktop to a managed fleet with MDM](desktop-enterprise-mdm.md)
++ [Troubleshooting enterprise sign-in for AWS Quick on desktop](desktop-enterprise-setup-troubleshooting.md)
++ [Deploying AWS Quick on desktop to a managed fleet with MDM](desktop-enterprise-mdm.md)

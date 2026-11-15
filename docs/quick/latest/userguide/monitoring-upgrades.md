@@ -11,7 +11,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 Administrators can monitor user upgrades through:
 + **CloudTrail logs** — Provides audit trails of all upgrade requests and approvals.
@@ -19,7 +19,7 @@ Administrators can monitor user upgrades through:
 ## Billing considerations for administrators
 <a name="billing-considerations"></a>
 + Users are billed for their highest license tier within each billing period.
-+ **Prorated Billing:** When you upgrade a user subscription in Amazon QuickSuite, billing is prorated for the month of the upgrade. This means:
++ **Prorated Billing:** When you upgrade a user subscription in AWS Quick, billing is prorated for the month of the upgrade. This means:
 
   If you upgrade from BI Reader ($3/month) to Professional ($20/month), you're billed at the $20/month rate from the time of upgrade until the end of that billing month.
 

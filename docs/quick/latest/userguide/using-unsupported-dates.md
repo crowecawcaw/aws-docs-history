@@ -3,15 +3,15 @@
 # Using unsupported or custom dates
 <a name="using-unsupported-dates"></a>
 
-Amazon Quick Sight natively supports a limited number of date formats. However, you can’t always control the format of the data provided to you. When your data contains a date in an unsupported format, you can tell Amazon Quick Sight how to interpret it.
+AWS Quick Sight natively supports a limited number of date formats. However, you can’t always control the format of the data provided to you. When your data contains a date in an unsupported format, you can tell AWS Quick Sight how to interpret it.
 
 You can do this by editing the dataset, and changing the format of the column from text or numeric to date. A screen appears after you make this change, so you can enter the format. For example, if you are using a relational data source, you can specify MM-dd-yyyy for a text field containing '09-19-2017', so it is interpreted as 2017-09-19T00:00:00.000Z. If you are using a nonrelational data source, you can do the same thing starting with a numeric field or a text field.
 
-Amazon Quick Sight only supports text to date for relational (SQL) sources. 
+AWS Quick Sight only supports text to date for relational (SQL) sources. 
 
 For more information on supported date formats, see [Supported date formats](supported-data-types-and-values.md#supported-date-formats).
 
-Use this procedure to help Amazon Quick Sight understand dates in different formats.
+Use this procedure to help AWS Quick Sight understand dates in different formats.
 
 1. For a dataset containing unsupported date formats, edit the data as follows. For the column containing your datetime data, change the data type from text to date. Do this by choosing the colorful data type icon beneath the column name in the data preview.
 **Note**  
@@ -22,6 +22,6 @@ For more information on Unix epoch datetimes, see [epochDate](epochDate-function
 
 1. Enter your date format, indicating which parts are month, date, year, or time. Formats are case-sensitive. 
 
-1. Choose **Validate** to make sure Amazon Quick Sight can now interpret your datetime data with the format you specified. Rows that don't validate are skipped and omitted from the dataset.
+1. Choose **Validate** to make sure AWS Quick Sight can now interpret your datetime data with the format you specified. Rows that don't validate are skipped and omitted from the dataset.
 
 1. When you are satisfied with the results, choose **Update**. Otherwise, choose **Close**.

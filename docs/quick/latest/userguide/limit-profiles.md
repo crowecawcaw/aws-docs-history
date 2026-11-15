@@ -6,7 +6,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 With Limits Management, you can monitor resource consumption. You can cap per-user usage before account-level service limits are reached. You can govern two resource types: *index storage* and *agent hours*.
 
@@ -125,4 +125,4 @@ Your users can view their own consumption in the **My usage** widget (available 
 + Agent hours used compared to their monthly limit. This value resets at the start of each billing cycle.
 + Index storage capacity consumed compared to their effective limit.
 
-For programmatic management of limit profiles, see the Amazon Quick API Reference.
+For programmatic management of limit profiles, see the AWS Quick API Reference.

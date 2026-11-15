@@ -1,6 +1,6 @@
 
 
-# Scheduling your Amazon Quick Flows
+# Scheduling your AWS Quick Flows
 <a name="schedules-in-quick-flows"></a>
 
 Schedules let you automate recurring flow runs without manual intervention. You can schedule flows you have created or flows that have been shared with you. All schedules are private to you and cannot be shared with other users.

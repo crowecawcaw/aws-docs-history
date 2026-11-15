@@ -1,9 +1,9 @@
 
 
-# Configuring an Amazon Q Business application in Amazon Quick Sight
+# Configuring an Amazon Q Business application in AWS Quick Sight
 <a name="generative-bi-q-business-configure"></a>
 
-Use the following procedure to connect an Amazon Quick account with Amazon Q Business
+Use the following procedure to connect an AWS Quick account with Amazon Q Business
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/).
 

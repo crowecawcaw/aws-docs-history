@@ -1,6 +1,6 @@
 
 
-# Amazon Quick Microsoft Outlook extension
+# AWS Quick Microsoft Outlook extension
 <a name="outlook-extension"></a>
 
 The Quick extension for Microsoft Outlook integrates AI-powered assistance directly into your email workflows. Users can leverage Quick within Outlook to streamline their inbox and calendar management, draft contextual emails using their Quick data, and perform external actions without switching applications.
@@ -12,20 +12,20 @@ The Outlook extension enables users to:
 + Summarize emails and draft contextual responses using Quick data.
 + Access their enterprise data and perform actions in external applications.
 
-The Amazon Quick Outlook extension is available within Amazon Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft Outlook app store. Users can search for Amazon Quick in the Microsoft Outlook app store or visit the [Quick for Outlook Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010695) to add the extension.
+The AWS Quick Outlook extension is available within AWS Quick to all eligible users by default and requires no administrative setup for user access if users can access the Microsoft Outlook app store. Users can search for AWS Quick in the Microsoft Outlook app store or visit the [Quick for Outlook Microsoft store page](https://marketplace.microsoft.com/en-us/product/WA200010695) to add the extension.
 
 **Important**  
-The Amazon Quick Outlook extension uses generative AI to create and execute code within your Outlook application sandbox to help you perform your Outlook tasks. AI can make mistakes and perform inaccurate actions within your Outlook mailbox.
-Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
+The AWS Quick Outlook extension uses generative AI to create and execute code within your Outlook application sandbox to help you perform your Outlook tasks. AI can make mistakes and perform inaccurate actions within your Outlook mailbox.
+AWS Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
 **Note**  
-The Amazon Quick Microsoft Outlook extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+The AWS Quick Microsoft Outlook extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
 To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
 
 **Note**  
-When users use the extension, the time Amazon Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+When users use the extension, the time AWS Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [AWS Quick pricing page](https://aws.amazon.com/quick/pricing/).
 
-The following procedures are for IT administrators who want to automatically deploy the Amazon Quick Outlook extension across their organization on behalf of their users.
+The following procedures are for IT administrators who want to automatically deploy the AWS Quick Outlook extension across their organization on behalf of their users.
 
 **Topics**
 + [Prerequisites for deploying the Microsoft Outlook extension to your organization](#outlook-prerequisites)
@@ -35,18 +35,18 @@ The following procedures are for IT administrators who want to automatically dep
 ## Prerequisites for deploying the Microsoft Outlook extension to your organization
 <a name="outlook-prerequisites"></a>
 
-Before configuring access to the Amazon Quick extension to Microsoft Outlook, administrators must complete the following steps:
+Before configuring access to the AWS Quick extension to Microsoft Outlook, administrators must complete the following steps:
 
 1. Have a Microsoft 365 Business subscription and be a Global Admin or have administrative permissions (specifically `AppCatalog.ReadWrite.All`).
 
-1. Have an Amazon Quick instance.
+1. Have an AWS Quick instance.
 
 1. Grant tenant-wide admin consent for Microsoft Graph permissions. This allows the extension to access inbox, calendar, and contact data for all users in your organization. Without these permissions, the extension can only respond to questions about the currently open email thread. For instructions, see [Grant tenant-wide admin consent](#outlook-grant-admin-consent).
 
 ## Microsoft Outlook extension permissions
 <a name="outlook-permissions"></a>
 
-The Amazon Quick Outlook extension uses the `ReadWriteMailbox` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope.
+The AWS Quick Outlook extension uses the `ReadWriteMailbox` Office JavaScript API permission level. This is an Office add-in manifest permission, not a Microsoft Graph API scope.
 
 The default app capabilities for the Outlook add-in are:
 + Can read and make changes to your document
@@ -59,10 +59,10 @@ The default app capabilities for the Outlook add-in are:
 The Outlook extension uses Microsoft Graph integration, which requires additional delegated permissions.
 
 **Important**  
-These permissions are required for the Amazon Quick Outlook extension to provide its full range of capabilities. Without these permissions granted, the extension can only answer questions about the currently open email thread and draft a reply. It cannot summarize your inbox, manage your calendar, or perform inbox-wide operations such as searching, organizing, or triaging emails.
+These permissions are required for the AWS Quick Outlook extension to provide its full range of capabilities. Without these permissions granted, the extension can only answer questions about the currently open email thread and draft a reply. It cannot summarize your inbox, manage your calendar, or perform inbox-wide operations such as searching, organizing, or triaging emails.
 
 **Note**  
-The Amazon Quick Outlook extension does not send emails or create calendar appointments automatically. It uses Human-in-the-Loop (HITL) confirmation before any sending action, so users always review and approve outgoing messages and calendar changes.
+The AWS Quick Outlook extension does not send emails or create calendar appointments automatically. It uses Human-in-the-Loop (HITL) confirmation before any sending action, so users always review and approve outgoing messages and calendar changes.
 
 Users are prompted to sign in the first time they interact with the extension. Administrators can pre-approve these permissions by granting tenant-wide admin consent (see [Grant tenant-wide admin consent](#outlook-grant-admin-consent)).
 
@@ -88,7 +88,7 @@ The following table lists the delegated Graph API permissions used by the Outloo
 ### Grant tenant-wide admin consent
 <a name="outlook-grant-admin-consent"></a>
 
-To enable the full capabilities of the Amazon Quick Outlook extension for all users in your organization, grant tenant-wide admin consent for the Microsoft Graph permissions listed above. This pre-approves the permissions so that individual users are not prompted to approve them when they first use the extension.
+To enable the full capabilities of the AWS Quick Outlook extension for all users in your organization, grant tenant-wide admin consent for the Microsoft Graph permissions listed above. This pre-approves the permissions so that individual users are not prompted to approve them when they first use the extension.
 
 You can complete this process using either Microsoft Graph PowerShell or Microsoft Graph Explorer.
 
@@ -116,7 +116,7 @@ Follow these steps to grant admin consent using Microsoft Graph PowerShell:
    Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
    ```
 
-1. Create a service principal for the Amazon Quick Outlook extension in your tenant and save the returned ID:
+1. Create a service principal for the AWS Quick Outlook extension in your tenant and save the returned ID:
 
    ```
    New-MgServicePrincipal -AppId "a5342f89-ebb1-4b1d-966c-34e8df972aaf"
@@ -147,7 +147,7 @@ Follow these steps to grant admin consent using Microsoft Graph Explorer:
    GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq 'Microsoft Graph'&$select=id,displayName
    ```
 
-1. Create a service principal for the Amazon Quick Outlook extension in your tenant and save the returned ID:
+1. Create a service principal for the AWS Quick Outlook extension in your tenant and save the returned ID:
 
    ```
    POST https://graph.microsoft.com/v1.0/servicePrincipals
@@ -178,12 +178,12 @@ Follow these steps to grant admin consent using Microsoft Graph Explorer:
    }
    ```
 
-After granting admin consent, users in your organization will not be prompted to approve permissions individually when they first use the Amazon Quick Outlook extension. The extension will have immediate access to its full capabilities.
+After granting admin consent, users in your organization will not be prompted to approve permissions individually when they first use the AWS Quick Outlook extension. The extension will have immediate access to its full capabilities.
 
 ### Where to review permissions
 <a name="outlook-review-permissions"></a>
 
-To review permissions for the Outlook extension, go to Microsoft Entra > **Enterprise Applications** > find the app called "Amazon Quick Outlook Agent" > **Permissions**.
+To review permissions for the Outlook extension, go to Microsoft Entra > **Enterprise Applications** > find the app called "AWS Quick Outlook Agent" > **Permissions**.
 
 ## Deploying the Microsoft Outlook extension to your organization
 <a name="outlook-deployment"></a>
@@ -196,9 +196,9 @@ After completing the prerequisites and granting admin consent for Microsoft Grap
 
 1. Choose **Get apps**.
 
-1. Search for "Amazon Quick".
+1. Search for "AWS Quick".
 
-1. Locate the tile for Amazon Quick in Outlook and choose **Get it now**.
+1. Locate the tile for AWS Quick in Outlook and choose **Get it now**.
 
 1. Confirm that you want to add the app.
 

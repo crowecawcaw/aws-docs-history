@@ -7,7 +7,7 @@ Use gauge charts to compare values for items in a measure. You can compare them 
 
 A gauge chart is similar to a nondigital gauge, for example a gas gauge in an automobile. It displays how much there is of the thing you are measuring. In a gauge chart, this measurement can exist alone or in relation to another measurement. Each color section in a gauge chart represents one value. In the following example, we are comparing actual sales to the sales goal, and the gauge shows that we must sell an additional 33.27% to meet the goal. 
 
-To learn how to use gauge charts in Amazon Quick, you can watch this video:
+To learn how to use gauge charts in AWS Quick, you can watch this video:
 
 [![AWS Videos](https://img.youtube.com/vi/03gYx4-iGak/0.jpg)](https://www.youtube.com/watch?v=03gYx4-iGak)
 
@@ -39,7 +39,7 @@ To understand the features supported by gauge charts, use the following table.
 | Changing the axis range | No |  |  | 
 | Changing the visual colors | Yes | The foreground color the filled area; it represents the Value. The background color the unfilled area; it represents the Target value if one is selected. | [Colors in visual types in Quick](changing-visual-colors.md) | 
 | Focusing on or excluding elements | No |  |  | 
-| Sorting | No |  | [Sorting visual data in Amazon Quick](sorting-visual-data.md) | 
+| Sorting | No |  | [Sorting visual data in AWS Quick](sorting-visual-data.md) | 
 | Performing field aggregation | Yes |  | [Changing field aggregation](changing-field-aggregation.md) | 
 | Adding drill-downs | No |  |  | 
 

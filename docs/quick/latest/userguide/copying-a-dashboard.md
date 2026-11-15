@@ -1,6 +1,6 @@
 
 
-# Copying an Amazon Quick Sight dashboard
+# Copying an AWS Quick Sight dashboard
 <a name="copying-a-dashboard"></a>
 
 If you have co-owner access or **Save as** privileges on an existing dashboard, you can copy it. To do this, create a new analysis from the dashboard and then create a new dashboard from the analysis that you copied.
@@ -26,5 +26,5 @@ If you can't see **Save as**, check with your administrator that you have the ri
 1. (Optional) Create a new dashboard with your changes to the new analysis by choosing **Share**, and then choosing **Publish Dashboard**.
 
 For more information, see the following: 
-+ [Sharing Amazon Quick Sight dashboards](sharing-a-dashboard.md)
++ [Sharing AWS Quick Sight dashboards](sharing-a-dashboard.md)
 + [Sharing Quick Sight analyses](sharing-analyses.md)

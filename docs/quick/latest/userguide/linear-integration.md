@@ -3,7 +3,7 @@
 # Linear integration
 <a name="linear-integration"></a>
 
-With Linear integration in Amazon Quick, you can manage issues, track projects, and streamline development workflows through MCP server connectivity. This integration provides action capabilities for project management and issue tracking operations.
+With Linear integration in AWS Quick, you can manage issues, track projects, and streamline development workflows through MCP server connectivity. This integration provides action capabilities for project management and issue tracking operations.
 
 ## What you can do
 <a name="linear-integration-capabilities"></a>

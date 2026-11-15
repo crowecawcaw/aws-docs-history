@@ -86,10 +86,10 @@ aws cloudtrail put-event-selectors \
 aws cloudtrail start-logging --name bedrock-kb-data-events
 ```
 
-## Step 2: Create metric filters for Amazon Quick retrieval calls
+## Step 2: Create metric filters for AWS Quick retrieval calls
 <a name="byo-bedrock-kb-monitoring-metrics"></a>
 
-Create metric filters to track retrieval calls and errors when Amazon Quick invokes your managed knowledge base.
+Create metric filters to track retrieval calls and errors when AWS Quick invokes your managed knowledge base.
 
 **Call volume metric** — tracks retrieval call volume to your managed knowledge base.
 
@@ -106,7 +106,7 @@ aws logs put-metric-filter \
   }]'
 ```
 
-**Error metric** — the following example counts `Retrieve` calls from Amazon Quick that fail with `AccessDenied`. This alarm fires when the Amazon Quick service role is missing permissions or when a cross-account resource policy is misconfigured. You can create additional metric filters for other error codes such as `ThrottlingException` depending on your monitoring needs.
+**Error metric** — the following example counts `Retrieve` calls from AWS Quick that fail with `AccessDenied`. This alarm fires when the AWS Quick service role is missing permissions or when a cross-account resource policy is misconfigured. You can create additional metric filters for other error codes such as `ThrottlingException` depending on your monitoring needs.
 
 ```
 aws logs put-metric-filter \

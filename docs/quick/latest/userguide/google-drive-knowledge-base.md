@@ -3,13 +3,13 @@
 # Google Drive knowledge base integration
 <a name="google-drive-knowledge-base"></a>
 
-With the Google Drive knowledge base integration, you can index your Google Drive content. Your Amazon Quick agents can then search this content and answer questions about it.
+With the Google Drive knowledge base integration, you can index your Google Drive content. Your AWS Quick agents can then search this content and answer questions about it.
 
-Amazon Quick supports two authentication methods for connecting to Google Drive:
+AWS Quick supports two authentication methods for connecting to Google Drive:
 + **User-managed setup** – You sign in to Google Drive directly to authorize the connection. This is the simplest way to get started. For more information, see [User-managed setup](google-drive-kb-user-managed.md).
-+ **Admin-managed setup (service credentials)** – A Google Workspace administrator creates a service account with domain-wide delegation to authorize the connection. A key benefit of admin-managed setup is built-in document-level access control (ACL). Amazon Quick automatically syncs access control lists from Google Drive. It verifies each user's permissions at query time, so users see answers only from documents that they are authorized to access. For more information, see [Admin-managed Google Drive knowledge base setup](google-drive-kb-admin-managed.md).
++ **Admin-managed setup (service credentials)** – A Google Workspace administrator creates a service account with domain-wide delegation to authorize the connection. A key benefit of admin-managed setup is built-in document-level access control (ACL). AWS Quick automatically syncs access control lists from Google Drive. It verifies each user's permissions at query time, so users see answers only from documents that they are authorized to access. For more information, see [Admin-managed Google Drive knowledge base setup](google-drive-kb-admin-managed.md).
 
-After you connect, Amazon Quick indexes your Google Drive files and folders into a knowledge base. Your Amazon Quick agents can then search this content and generate answers that are grounded in your Google Drive data.
+After you connect, AWS Quick indexes your Google Drive files and folders into a knowledge base. Your AWS Quick agents can then search this content and generate answers that are grounded in your Google Drive data.
 
 ## Prerequisites
 <a name="google-drive-kb-prerequisites"></a>
@@ -23,7 +23,7 @@ For admin-managed setup, additional prerequisites apply. For more information, s
 ## Supported content types
 <a name="google-drive-kb-content-types"></a>
 
-The Google Drive connector supports all of the common file types that Amazon Quick knowledge bases support. These include PDF, Word, Excel, PowerPoint, and text files. The connector also supports the following Google Workspace-specific formats:
+The Google Drive connector supports all of the common file types that AWS Quick knowledge bases support. These include PDF, Word, Excel, PowerPoint, and text files. The connector also supports the following Google Workspace-specific formats:
 + Google Docs
 + Google Sheets
 + Google Slides

@@ -3,7 +3,7 @@
 # Configure Google Workspace
 <a name="google-drive-kb-google-config"></a>
 
-To connect Amazon Quick to Google Drive, complete the following tasks in the Google Cloud console and Google Workspace Admin Console. You create a Google Cloud project, turn on the required APIs, generate service account credentials, and configure domain-wide delegation. You also create a dedicated admin user for the service account to impersonate.
+To connect AWS Quick to Google Drive, complete the following tasks in the Google Cloud console and Google Workspace Admin Console. You create a Google Cloud project, turn on the required APIs, generate service account credentials, and configure domain-wide delegation. You also create a dedicated admin user for the service account to impersonate.
 
 **Prerequisites**  
 Before you begin, make sure that you have the following:  
@@ -24,7 +24,7 @@ Permission to create projects in the Google Cloud console
 ## Turning on the required APIs
 <a name="google-drive-kb-enable-apis"></a>
 
-Amazon Quick requires three Google APIs. Turn on each one from the API Library.
+AWS Quick requires three Google APIs. Turn on each one from the API Library.
 
 1. In the navigation menu, choose **APIs & Services**, then choose **Library**.
 
@@ -51,7 +51,7 @@ Amazon Quick requires three Google APIs. Turn on each one from the API Library.
 
 1. Confirm that **JSON** is selected, then choose **Create**.
 
-The browser downloads a JSON file containing the private key. Store this file securely. You upload it to Amazon Quick in a later step.
+The browser downloads a JSON file containing the private key. Store this file securely. You upload it to AWS Quick in a later step.
 
 **Note**  
 If you receive an error stating that service account key creation is disabled by an organization policy, see [Resolving organization policy restrictions](#google-drive-kb-admin-troubleshooting-org-policy).
@@ -110,7 +110,7 @@ The service account acts on behalf of a Google Workspace admin user. Create a de
 
 1. Choose **Save**.
 
-Record the email address of this user. You need it when you create the knowledge base in Amazon Quick.
+Record the email address of this user. You need it when you create the knowledge base in AWS Quick.
 
 ## Troubleshooting the Google Workspace configuration
 <a name="google-drive-kb-google-config-troubleshooting"></a>

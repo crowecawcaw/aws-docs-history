@@ -10,24 +10,24 @@
 
 ## Connection issues
 <a name="desktop-ts-connection"></a>
-+ A messaging, email, or calendar connection fails: disconnect and reconnect in Customize, on the Connectors tab, verify your permissions in the third-party service, and check your internet connection.
++ A messaging, email, or calendar connection fails: disconnect and reconnect in **Customize**, on the **Connectors** tab, verify your permissions in the third-party service, and check your internet connection.
 + A connection shows Not synced: verify connectivity, then disconnect and reconnect; if it persists, the service might be having an outage.
-+ Sign-in or responses fail only on a corporate network or virtual private network (VPN): confirm the required Quick domains are reachable, and address Transport Layer Security (TLS) inspection with your network administrator (see [Security, privacy, and architecture of Amazon Quick on desktop](desktop-security.md)). If it persists, export logs and contact AWS Support.
++ Sign-in or responses fail only on a corporate network or virtual private network (VPN): confirm the required Quick domains are reachable, and address Transport Layer Security (TLS) inspection with your network administrator (see [Security, privacy, and architecture of AWS Quick on desktop](desktop-security.md)). If it persists, export logs and contact AWS Support.
 
 ## Performance issues
 <a name="desktop-ts-performance"></a>
 + Slow responses: switch to Fast mode, reduce thinking effort to Off or Low, close unused applications, and check your connection.
-+ High memory usage: reduce the number of indexed folders, disable semantic search where you do not need it, lower Maximum parallel tasks, and restart to clear cache. Search indexing pauses automatically when free disk space falls below 8.0 GiB.
++ High memory usage: reduce the number of indexed folders, lower Maximum parallel tasks, and restart to clear the cache.
 
 ## File access issues
 <a name="desktop-ts-file-access"></a>
-+ Quick cannot find a file: confirm the parent folder is added on the Knowledge tab in Customize. System temporary directories are always accessible. After you add a folder, Quick reads it immediately; indexing runs in the background.
-+ Search returns no results: confirm keyword search is on for the folder, check that indexing status is Ready, confirm the file is within the maximum index size, and enable semantic search for natural-language queries.
++ Quick cannot find a file: confirm the parent folder is added on the **Knowledge** tab in **Customize**. System temporary directories are always accessible. After you add a folder, Quick reads it immediately; indexing runs in the background.
++ Search returns no results: confirm that **Allow full file context for enhanced searching** is on for the folder, check that the folder's status is **Up to date**, and confirm that the file is within **Max file size** and isn't matched by **Exclude patterns**.
 
 ## Browser automation issues
 <a name="desktop-ts-browser"></a>
 
-Verify Browser Automation is enabled in Customize, on the Connectors tab. If you use your own browser, complete the remote-debugging setup and test the connection; otherwise, confirm a supported browser is installed.
+Verify Browser Automation is turned on in **Customize**, on the **Connectors** tab. If you use your own browser, complete the remote-debugging setup and test the connection; otherwise, confirm a supported browser is installed.
 
 ## Schedule issues
 <a name="desktop-ts-schedules"></a>
@@ -58,4 +58,4 @@ Export logs from Settings, on the Advanced tab, by selecting a time range and ch
 ## Getting additional help
 <a name="desktop-ts-help"></a>
 
-Export diagnostics and share them with your support team, contact your organization's IT administrator for enterprise issues, and visit the Amazon Quick documentation for the latest guidance.
+Export diagnostics and share them with your support team, contact your organization's IT administrator for enterprise issues, and visit the AWS Quick documentation for the latest guidance.

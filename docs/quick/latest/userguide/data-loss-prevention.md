@@ -6,14 +6,14 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
-Amazon Quick integrates with Microsoft Purview to enforce your organization's data loss prevention (DLP) policies. After you connect your Microsoft Purview tenant, Quick classifies and protects sensitive files shared through spaces, chat, and knowledge bases. Sensitive data stays within the boundaries that your organization's information governance policies define.
+AWS Quick integrates with Microsoft Purview to enforce your organization's data loss prevention (DLP) policies. After you connect your Microsoft Purview tenant, Quick classifies and protects sensitive files shared through spaces, chat, and knowledge bases. Sensitive data stays within the boundaries that your organization's information governance policies define.
 
 ## Data loss prevention concepts
 <a name="dlp-concepts"></a>
 
-Before you configure DLP in Amazon Quick, familiarize yourself with the following concepts.
+Before you configure DLP in AWS Quick, familiarize yourself with the following concepts.
 
 Sensitivity labels  
 Sensitivity labels are classifications that you define in your Microsoft Purview tenant to describe the sensitivity level of content – for example, *Public*, *Confidential*, or *Highly Confidential*. You can organize labels hierarchically with parent labels and sub-labels (child labels).
@@ -34,7 +34,7 @@ The provider outage action determines how Quick handles files when the DLP provi
 + **Allow** – Quick permits files through without restriction.
 
 Capabilities  
-Capabilities are the areas within Amazon Quick where Quick applies DLP enforcement.  
+Capabilities are the areas within AWS Quick where Quick applies DLP enforcement.  
 + **Spaces** – Files that users upload to collaborative workspaces.
 + **Chat** – Files that users share through chat conversations.
 + **Knowledge bases** – Content synced through SharePoint, OneDrive, and other connectors.
@@ -301,7 +301,7 @@ The dashboard card warns you when your Purview tenant has new labels that you ha
 ## Limits and validations
 <a name="dlp-limits"></a>
 
-The following limits apply to DLP in Amazon Quick.
+The following limits apply to DLP in AWS Quick.
 + **DLP configurations per account** – 10.
 + **Active DLP configurations per account** – 1.
 + **Maximum file size scanned** – 500 MB. Quick doesn't scan larger files.
@@ -334,7 +334,7 @@ In the public API, the default action is the `unmappedAction` field.
 ### Limitations for modified files
 <a name="dlp-modified-files"></a>
 
-Amazon Quick uses Microsoft Purview to read sensitivity labels from files. Certain changes to a file's extension, internal structure, or label metadata after labeling can affect label detection. In these cases, Quick might not detect a label, or might detect a different label from the one displayed in Microsoft Office.
+AWS Quick uses Microsoft Purview to read sensitivity labels from files. Certain changes to a file's extension, internal structure, or label metadata after labeling can affect label detection. In these cases, Quick might not detect a label, or might detect a different label from the one displayed in Microsoft Office.
 
 If Quick detects no label or treats the file as an unsupported type, it applies your configured default action. If Quick detects a different label, it applies the action configured for that label. As a result, a file you intend to block might be allowed.
 
@@ -345,12 +345,12 @@ To reduce the risk for files with no detected label or an unsupported file type,
 + **Use a dedicated app registration for DLP.** Register a separate Microsoft Entra ID application for Quick DLP rather than reusing an app registration that serves other integrations. A dedicated registration lets you rotate or revoke its credentials independently and keeps its permission scope narrow.
 + **Grant only the permissions that DLP needs.** Scope the app registration to `SensitivityLabels.Read.All` and `UnifiedPolicy.Tenant.Read`. If you use knowledge bases backed by SharePoint or OneDrive, add `Sites.Selected` to limit access to specific site collections (or `Sites.Read.All` for tenant-wide site access). These permissions are not required to list or map labels, and `Files.Read.All` is not required.
 + **Keep credentials in Secrets Manager.** Quick stores only the ARN of your secret. Quick reads your credentials at runtime and never displays them in the console, returns them from the API, or writes them to logs.
-+ **Monitor data loss prevention (DLP) activity.** Quick delivers a `DLP_LOGS` vended log to CloudWatch Logs, Amazon S3, or Firehose. Use it to audit DLP policy changes, including when enforcement was enabled or disabled and which principal made the change (`DLP_SETTING_*` events, `status`, and `last_updated_by`). You can also identify blocked, warned, or inspection-failed files by filtering on `event_type` and `failure_type`. For setup and the full schema, see [Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
++ **Monitor data loss prevention (DLP) activity.** Quick delivers a `DLP_LOGS` vended log to CloudWatch Logs, Amazon S3, or Firehose. Use it to audit DLP policy changes, including when enforcement was enabled or disabled and which principal made the change (`DLP_SETTING_*` events, `status`, and `last_updated_by`). You can also identify blocked, warned, or inspection-failed files by filtering on `event_type` and `failure_type`. For setup and the full schema, see [Monitoring AWS Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md).
 
 ## API reference
 <a name="dlp-api-reference"></a>
 
-For programmatic management of DLP settings, see the Amazon Quick API Reference.
+For programmatic management of DLP settings, see the AWS Quick API Reference.
 
 ## Setting up Quick knowledge bases
 <a name="dlp-setup-knowledge-bases"></a>

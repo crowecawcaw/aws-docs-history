@@ -11,7 +11,7 @@
 
 |  | 
 | --- |
-|    Intended audience:  System administrators and Amazon Quick administrators  | 
+|    Intended audience:  System administrators and AWS Quick administrators  | 
 
 AWS administrators can use this topic to learn more about managing accounts that are integrated with IAM Identity Center. The information in this section also applies to Quick accounts that use Active Directory.
 
@@ -22,7 +22,7 @@ Each Quick Enterprise edition account can have an unlimited number of users. Use
 Use the following topics to add, view, and deactivate Quick users.
 
 **Important**  
-You can't remap Amazon Quick users or groups from one identity store to another. For example, if you are migrating from an on-premises Active Directory to Directory Service, or the other way around, you unsubscribe and resubscribe to Amazon Quick. You do this because even if the user's aliases remain the same, the underlying identity data changes. To make the transition easier, request in advance that your users document all their Amazon Quick assets and settings before the migration. 
+You can't remap AWS Quick users or groups from one identity store to another. For example, if you are migrating from an on-premises Active Directory to Directory Service, or the other way around, you unsubscribe and resubscribe to AWS Quick. You do this because even if the user's aliases remain the same, the underlying identity data changes. To make the transition easier, request in advance that your users document all their AWS Quick assets and settings before the migration. 
 
 **Topics**
 + [Adding users](#add-user-accounts-enterprise)
@@ -34,7 +34,7 @@ You can't remap Amazon Quick users or groups from one identity store to another.
 ## Adding users
 <a name="add-user-accounts-enterprise"></a>
 
-With IAM Identity Center, add users to Amazon Quick by associating their IAM Identity Center group to an Admin, Admin Pro, Author, Author Pro, Reader, or Reader Pro role in Quick. All users in the selected groups are authorized to sign in to Quick.
+With IAM Identity Center, add users to AWS Quick by associating their IAM Identity Center group to an Admin, Admin Pro, Author, Author Pro, Reader, or Reader Pro role in Quick. All users in the selected groups are authorized to sign in to Quick.
 
 For more information about Pro roles in Quick see [Get started with Generative BI](https://docs.aws.amazon.com/quicksight/latest/user/generative-bi-get-started.html).
 
@@ -58,14 +58,14 @@ Use the following procedure to view groups that are assigned to a role that gran
 ## Deactivating user accounts
 <a name="deactivate-user-groups-enterprise"></a>
 
-Deactivating a Amazon Quick group or user account removes that group or user's access to Quick resources, like analyses or data sets. IAM Identity Center or Active Directory users that are removed from a group that grants them access to Quick lose access to Quick. These users appear in the **Inactive users** list in Quick and remain there until an administrator removes them. Before you deactivate a user, you can reassign their resources to another user with the asset management console.
+Deactivating a AWS Quick group or user account removes that group or user's access to Quick resources, like analyses or data sets. IAM Identity Center or Active Directory users that are removed from a group that grants them access to Quick lose access to Quick. These users appear in the **Inactive users** list in Quick and remain there until an administrator removes them. Before you deactivate a user, you can reassign their resources to another user with the asset management console.
 
 If you later need to reactivate a Quick user's account, put the user into a group with access to Quick. Doing this restores their access to Quick and to any existing resources that are still associated with that user. 
 
 **Note**  
-With IAM Identity Center integrated into your Amazon Quick account or Active Directory users, you can change a user's role type by moving them to a group that is associated with a different Amazon Quick role. If a user is in multiple groups that are mapped to different Amazon Quick role types, the user is able to access Amazon Quick with the role that offers the broadest level of access. Accounts that use other identity types can't upgrade or downgrade a user by transferring them between groups. For more information, see [Changing a user's role](https://docs.aws.amazon.com/quicksight/latest/user/updating-user-accounts-enterprise.html).
+With IAM Identity Center integrated into your AWS Quick account or Active Directory users, you can change a user's role type by moving them to a group that is associated with a different AWS Quick role. If a user is in multiple groups that are mapped to different AWS Quick role types, the user is able to access AWS Quick with the role that offers the broadest level of access. Accounts that use other identity types can't upgrade or downgrade a user by transferring them between groups. For more information, see [Changing a user's role](https://docs.aws.amazon.com/quicksight/latest/user/updating-user-accounts-enterprise.html).
 
-You can activate or deactivate multiple users at once by adding or removing one or more IAM Identity Center or Active Directory groups that are associated with a role in Amazon Quick. 
+You can activate or deactivate multiple users at once by adding or removing one or more IAM Identity Center or Active Directory groups that are associated with a role in AWS Quick. 
 
 ## Changing a user's role
 <a name="updating-user-accounts-enterprise"></a>
@@ -86,6 +86,6 @@ The five-minute time period allows changes to propagate throughout the system.
 
 If a user is deleted from IAM Identity Center or Active Directory or is removed from a group that's associated with a role in Quick, the user no longer exists in Quick. You do not need to delete the user in the Quick application. The deleted user will appear in the **Inactive users** list in Quick until the first day of the following month. After that date passes, the user is automatically removed from the list.
 
-When a user is removed from your identity provider, the user's assets are not transferred or deleted automatically. Administrators can review deleted users and transfer their assets to another user. To transfer assets that no longer have an owner, see [Amazon Quick asset management](manage-qs-assets.md). For the full model of how user removal affects assets and data, see [User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md).
+When a user is removed from your identity provider, the user's assets are not transferred or deleted automatically. Administrators can review deleted users and transfer their assets to another user. To transfer assets that no longer have an owner, see [AWS Quick asset management](manage-qs-assets.md). For the full model of how user removal affects assets and data, see [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md).
 
-Removing a user affects billing for the current billing period. For how billing works when you remove a user, see [Understanding Amazon Quick user billing](understanding-quick-user-billing.md).
+Removing a user affects billing for the current billing period. For how billing works when you remove a user, see [Understanding AWS Quick user billing](understanding-quick-user-billing.md).

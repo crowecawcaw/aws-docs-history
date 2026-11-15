@@ -1,12 +1,12 @@
 
 
-# Configuring the VPC connection in the Amazon Quick console
+# Configuring the VPC connection in the AWS Quick console
 <a name="vpc-creating-a-connection-in-quicksight-console"></a>
 
-To create a secure private connection to the Amazon VPC service from the Amazon Quick console, use the following procedure. 
+To create a secure private connection to the Amazon VPC service from the AWS Quick console, use the following procedure. 
 
 **Prerequisites**
-+ Sign in to Amazon Quick as a Amazon Quick admin to set up a VPC connection in Amazon Quick. To verify that you're a Amazon Quick administrator, choose your profile icon in the upper-right. If your profile menu contains the option **Manage Amazon Quick**, then you're a Amazon Quick administrator. Make sure your admin role in IAM includes the following permissions. The `"iam:PassRole"` permission needs to be applied only to the execution role that is created in the procedures below.
++ Sign in to AWS Quick as a AWS Quick admin to set up a VPC connection in AWS Quick. To verify that you're a AWS Quick administrator, choose your profile icon in the upper-right. If your profile menu contains the option **Manage AWS Quick**, then you're a AWS Quick administrator. Make sure your admin role in IAM includes the following permissions. The `"iam:PassRole"` permission needs to be applied only to the execution role that is created in the procedures below.
   + `"quicksight:ListVPCConnections"`
   + `"quicksight:CreateVPCConnection"`
   + `"quicksight:DescribeVPCConnection"`
@@ -44,7 +44,7 @@ To create a secure private connection to the Amazon VPC service from the Amazon 
 + Before you begin, make sure that you have the following information available to copy and paste into the **VPC Connection** screen. For more information, see [Finding information to connect to a VPC](https://docs.aws.amazon.com/quicksight/latest/user/vpc-finding-setup-information.html). 
   + AWS Region – The AWS Region where you plan to create a connection to your data source.
   + VPC ID – The ID of the VPC that contains the data, the subnets, and the security groups that you plan to use.
-  + Execution role– An IAM role that contains a trust policy that allows Amazon Quick to create, update, and delete network infrastructure in your account. This policy is required for all VPC connections. At minimum, the IAM policy needs the following Amazon EC2 permissions:
+  + Execution role– An IAM role that contains a trust policy that allows AWS Quick to create, update, and delete network infrastructure in your account. This policy is required for all VPC connections. At minimum, the IAM policy needs the following Amazon EC2 permissions:
     + `DescribeSecurityGroups`
     + `DescribeSubnets`
     + `CreateNetworkInterface`
@@ -79,7 +79,7 @@ To create a secure private connection to the Amazon VPC service from the Amazon 
 
 ------
 
-    After you add the necessary permissions to an IAM role, attach a trust policy to allow Amazon Quick to configure the VPC connection to your account. The following example shows a trust policy that you can add to an existing IAM role to allow Amazon Quick access to the role:
+    After you add the necessary permissions to an IAM role, attach a trust policy to allow AWS Quick to configure the VPC connection to your account. The following example shows a trust policy that you can add to an existing IAM role to allow AWS Quick access to the role:
 
 ------
 #### [ JSON ]
@@ -102,14 +102,14 @@ To create a secure private connection to the Amazon VPC service from the Amazon 
     ```
 
 ------
-  + Subnet IDs – The IDs of the subnets that the Amazon Quick network interface is using. Each VPC connection needs at least two subnets.
+  + Subnet IDs – The IDs of the subnets that the AWS Quick network interface is using. Each VPC connection needs at least two subnets.
   + Security group IDs – The IDs of the security groups. Each VPC connection needs at least one security group.
 
 **To create a secure private connection to the Amazon VPC service from Quick Enterprise edition**
 
-1. In Amazon Quick, choose your profile icon in the upper-right, then choose **Manage Amazon Quick**.
+1. In AWS Quick, choose your profile icon in the upper-right, then choose **Manage AWS Quick**.
 
-   Only Amazon Quick administrators can view the **Manage Amazon Quick** option. If you don't see this option on your profile menu, you're not an administrator. In this case, contact your Amazon Quick account administrators for assistance.
+   Only AWS Quick administrators can view the **Manage AWS Quick** option. If you don't see this option on your profile menu, you're not an administrator. In this case, contact your AWS Quick account administrators for assistance.
 
 1. In the left navigation pane, choose **Manage VPC connections**.
 
@@ -117,9 +117,9 @@ To create a secure private connection to the Amazon VPC service from the Amazon 
 
 1. For **VPC connection name**, enter a unique descriptive name of your choice. This name doesn't need to be an actual VPC ID or name.
 
-1. In the **VPC ID** dropdown menu, choose the ID of the VPC in Amazon EC2 that you want to connect to your Amazon Quick account. This field can't be changed later.
+1. In the **VPC ID** dropdown menu, choose the ID of the VPC in Amazon EC2 that you want to connect to your AWS Quick account. This field can't be changed later.
 
-1. In the **Execution role** dropdown menu, choose the appropriate IAM role to use for the VPC connection. The **Execution role** dropdown only shows IAM policies that contain a trust policy that allows Amazon Quick to configure the VPC connection to your account.
+1. In the **Execution role** dropdown menu, choose the appropriate IAM role to use for the VPC connection. The **Execution role** dropdown only shows IAM policies that contain a trust policy that allows AWS Quick to configure the VPC connection to your account.
 
 1. In the **Subnets** table, choose a subnet ID from the **Subnet ID** dropdown menu of at least two of the listed **Availability zones**. The Availability Zones listed in the **Subnets** table are determined based on how you configured the VPC connection in the Amazon EC2 console.
 
@@ -127,11 +127,11 @@ To create a secure private connection to the Amazon VPC service from the Amazon 
 
    If your database host IP address must be resolved through private DNS servers in your AWS account, enter IP addresses for Route 53 Resolver inbound endpoints (one per line). 
 
-   Make sure that you are entering an endpoint, rather than a database address like the one you plan to use in Amazon Quick. Most databases that are hosted by AWS don't need to resolve DNS queries between VPCs and a customer's network. For more information, see [Resolving DNS queries between VPCs and your network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html) in the *Amazon Route 53 Developer Guide.* You only need this endpoint if you can't resolve the IP address that connects to your database by using the public DNS server system.
+   Make sure that you are entering an endpoint, rather than a database address like the one you plan to use in AWS Quick. Most databases that are hosted by AWS don't need to resolve DNS queries between VPCs and a customer's network. For more information, see [Resolving DNS queries between VPCs and your network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html) in the *Amazon Route 53 Developer Guide.* You only need this endpoint if you can't resolve the IP address that connects to your database by using the public DNS server system.
 
 1. Review your choices, then choose **ADD**.
 
-When you finish creating a VPC connection, the new connection appears in the **Manage VPC connections** table. In some cases, the status of the new VPC might be **UNAVAILABLE** until the connection is configured on the backend. After Amazon Quick is finished configuring the new connection, the status of the connection switches to **AVAILABLE**, which indicates that the connection has been established. The following table describes the different **Status** values for a VPC connection.
+When you finish creating a VPC connection, the new connection appears in the **Manage VPC connections** table. In some cases, the status of the new VPC might be **UNAVAILABLE** until the connection is configured on the backend. After AWS Quick is finished configuring the new connection, the status of the connection switches to **AVAILABLE**, which indicates that the connection has been established. The following table describes the different **Status** values for a VPC connection.
 
 
 | Status | Description | 
@@ -156,10 +156,10 @@ The following table describes the different **Status** values for a network inte
 | **DELETED** | The network interface is deleted and can no longer be used. | 
 | **DELETION\_FAILED** | The network interface deletion failed and can still be used. | 
 | **DELETION\_SCHEDULED** | This network interface is scheduled for deletion. | 
-| **ATTACHMENT\_FAILED\_ROLLBACK\_FAILED** | The elastic interface failed to attach and Amazon Quick was unable to delete the elastic network interface that was created within your account. | 
+| **ATTACHMENT\_FAILED\_ROLLBACK\_FAILED** | The elastic interface failed to attach and AWS Quick was unable to delete the elastic network interface that was created within your account. | 
 
 When you delete a network interface from a VPC connection, the status of the connection changes to **PARTIALLY AVAILABLE** to indicate the loss of a network interface.
 
 To make changes to an existing VPC connection, choose the more actions (three-dots) button to the right of the connection that you want to modify, and choose **Edit**. In the **Edit VPC connection** window that appears, make your changes, and then choose **SAVE**.
 
-To delete a VPC connection, choose the more actions (three-dots) button to the right of the connection that you want to delete and choose **Delete**. In the **Delete Amazon Quick VPC Connection** pop-up that appears, confirm that you want to delete the connection, and then choose **Delete**.
+To delete a VPC connection, choose the more actions (three-dots) button to the right of the connection that you want to delete and choose **Delete**. In the **Delete AWS Quick VPC Connection** pop-up that appears, confirm that you want to delete the connection, and then choose **Delete**.

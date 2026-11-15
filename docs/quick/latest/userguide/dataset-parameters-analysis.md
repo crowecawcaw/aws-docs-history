@@ -32,7 +32,7 @@ When you create a new analysis from a dataset that contains parameters, you need
 
    1. In the **Mapped dataset parameters** table, you will see the dataset parameter that you are mapping to the new analysis parameter. You can add other dataset parameters to this analysis parameter by choosing the **ADD DATASET PARAMETER** dropdown and then choosing the parameter that you want to map. You can unmap a dataset parameter by choosing the **Remove** button next to the dataset parameter that you want to remove.
 
-   For more information on creating analysis parameters, see [Setting up parameters in Amazon Quick](parameters-set-up.md).
+   For more information on creating analysis parameters, see [Setting up parameters in AWS Quick](parameters-set-up.md).
 
 When you map a dataset parameter to an analysis parameter, the analysis parameter represents the dataset parameter wherever it is used in the analysis.
 

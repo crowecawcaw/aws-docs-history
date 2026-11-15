@@ -1,6 +1,6 @@
 
 
-# Setting up parameters in Amazon Quick
+# Setting up parameters in AWS Quick
 <a name="parameters-set-up"></a>
 
 Use the following procedure to create or edit a basic parameter.

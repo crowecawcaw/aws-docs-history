@@ -21,7 +21,7 @@ The period of the date that you want returned. Valid periods are as follows:
 + Q: This returns the date of the first day of the quarter that the date belongs to. 
 + MM: This returns the month portion of the date.
 + DD: This returns the day portion of the date.
-+ WK: This returns the week portion of the date. The week starts on Sunday in Amazon Quick.
++ WK: This returns the week portion of the date. The week starts on Sunday in AWS Quick.
 + HH: This returns the hour portion of the date.
 + MI: This returns the minute portion of the date.
 + SS: This returns the second portion of the date.

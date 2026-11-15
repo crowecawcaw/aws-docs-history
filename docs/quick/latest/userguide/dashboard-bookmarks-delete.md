@@ -1,6 +1,6 @@
 
 
-# Deleting bookmarks in Amazon Quick Sight
+# Deleting bookmarks in AWS Quick Sight
 <a name="dashboard-bookmarks-delete"></a>
 
 Use the following procedure to delete a bookmark.

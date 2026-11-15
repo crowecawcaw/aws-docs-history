@@ -3,7 +3,7 @@
 # Using parameters in a URL
 <a name="parameters-in-a-url"></a>
 
-You can use a parameter name and value in a URL in Amazon Quick to set a default value for that parameter in a dashboard or analysis. 
+You can use a parameter name and value in a URL in AWS Quick to set a default value for that parameter in a dashboard or analysis. 
 
 The following example shows the URL of a dashboard that sets a parameter for another dashboard.
 

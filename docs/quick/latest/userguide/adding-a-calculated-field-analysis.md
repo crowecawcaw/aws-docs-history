@@ -44,12 +44,12 @@ When you add a dataset to an analysis, every calculated field that exists in the
 
 1. When finished, choose **Save**.
 
-For more information about how to create formulas using the available functions in Quick Sight, see [Calculated field function and operator reference for Amazon Quick](calculated-field-reference.md).
+For more information about how to create formulas using the available functions in Quick Sight, see [Calculated field function and operator reference for AWS Quick](calculated-field-reference.md).
 
 ## Adding calculated fields to a dataset
 <a name="using-the-calculated-field-editor"></a>
 
-Amazon Quick Sight authors can genreate calculated fields during the data preparation phase of a dataset's creation. When you create a calculated field for a dataset, the field becomes a new column in the dataset. All analyses that use the dataset inherit the dataset's calculated fields.
+AWS Quick Sight authors can genreate calculated fields during the data preparation phase of a dataset's creation. When you create a calculated field for a dataset, the field becomes a new column in the dataset. All analyses that use the dataset inherit the dataset's calculated fields.
 
 If the calculated field operates at the row level and the dataset is stored in SPICE, Quick Sight computes and materializes the result in SPICE. If the calculated field relies on an aggregation function, Quick Sight retains the formula and performs the calculation when the analysis is generated. This type of calculated field is called an unmaterialized calculated field.
 

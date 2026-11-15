@@ -1,6 +1,6 @@
 
 
-# Using a control with a parameter in Amazon Quick
+# Using a control with a parameter in AWS Quick
 <a name="parameters-controls"></a>
 
 In dashboards, parameter controls appear at the top of the data sheet, which contains a set of visuals. Providing a control allows users to choose a value to use in a predefined filter or URL action. Dashboard users can use controls to apply filtering across all visuals datasets on a dashboard, without having to create the filters themselves. 
@@ -85,7 +85,7 @@ The finished control appears at the top of the workspace. The context menu, shap
 + **Refresh list** applies only to drop-downs that are linked to a field in a dataset. Choosing **Refresh list** queries the data to check for changes. Data used in the control is cached.
 + **Edit** reopens the control creation screen so that you can change your settings.
 
-  Once you have the **Edit control** pane open, you can click on different visuals and controls to view formatting data for the specific visual or control. For more information about formatting a visual, see [Formatting in Amazon Quick](formatting-a-visual.md).
+  Once you have the **Edit control** pane open, you can click on different visuals and controls to view formatting data for the specific visual or control. For more information about formatting a visual, see [Formatting in AWS Quick](formatting-a-visual.md).
 + **Delete** removes the control. You can recreate it by choosing the parameter context menu.
 
 ## Configuring custom sort for controls
