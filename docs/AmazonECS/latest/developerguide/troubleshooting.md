@@ -95,5 +95,5 @@ For information about AI-powered troubleshooting, see the following:
 
 | Action | Learn more | 
 | --- | --- | 
-| Troubleshoot with Amazon Q Developer in the console. |  [Troubleshooting with Amazon Q Developer](troubleshooting-with-Q.md)  | 
+| Troubleshoot with the AWS assistant in the console. |  [Troubleshooting with AWS assistant](troubleshooting-with-Q.md)  | 
 | Troubleshoot with AI assistants using the Amazon ECS MCP server. |  [Amazon ECS MCP server](ecs-mcp-introduction.md)  | 

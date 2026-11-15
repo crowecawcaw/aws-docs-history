@@ -1,21 +1,21 @@
 
 
-# Using Amazon Q Developer to provide task definition recommendations in the Amazon ECS console
+# Using AWS assistant to provide task definition recommendations in the Amazon ECS console
 <a name="using-amazon-q"></a>
 
-When you use the JSON editor in the Amazon ECS console to create a task definition, you can use Amazon Q Developer to provide AI-generated code suggestions for your task definitions. 
+When you use the JSON editor in the Amazon ECS console to create a task definition, you can use the AWS assistant to provide AI-generated code suggestions for your task definitions. 
 
-You can use the inline chat capability to ask Amazon Q Developer to generate, explain, or refactor task definition JSON with a conversational interface. You can inject generated suggestions at any point in the task definition and accept or reject the changes proposed. Amazon ECS has also enhanced the existing inline suggestions feature to utilize Amazon Q Developer.
+You can use the inline chat capability to ask the AWS assistant to generate, explain, or refactor task definition JSON with a conversational interface. You can inject generated suggestions at any point in the task definition and accept or reject the changes proposed. Amazon ECS has also enhanced the existing inline suggestions feature to utilize the AWS assistant.
 
-When you create a task definition using the JSON editor, you can have Amazon Q Developer provide recommendations to help you create a task definition more quickly. You can have property-based inline suggestions, or use the Amazon Q Developer suggestions to autocomplete whole blocks of sample code.
+When you create a task definition using the JSON editor, you can have the AWS assistant provide recommendations to help you create a task definition more quickly. You can have property-based inline suggestions, or use the AWS assistant suggestions to autocomplete whole blocks of sample code.
 
-You can use this feature in Regions where Amazon Q Developer is supported. For more information, see [AWS Services by Regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
+You can use this feature in Regions where the AWS assistant is supported. For more information, see [AWS Services by Regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
 ## Prerequisites
 <a name="amazon-q-prerequisites"></a>
 
 The following are prerequisites:
-+ In addition to the console permissions, the user that creates the task definition in the console must have the `codewhisperer:GenerateRecommendations` permission for the recommendations and `q:SendMessage` to use inline chat. For more information, see [Permissions required for using Amazon Q Developer to provide recommendations in the console](console-permissions.md#amazon-q-permission).
++ In addition to the console permissions, the user that creates the task definition in the console must have the `codewhisperer:GenerateRecommendations` permission for the recommendations and `q:SendMessage` to use inline chat. For more information, see [Permissions required for using AWS assistant to provide recommendations in the console](console-permissions.md#amazon-q-permission).
 
 ## Procedure
 <a name="amazon-q-procedure"></a>
@@ -51,13 +51,13 @@ The following are prerequisites:
    }
    ```
 
-1. In the Amazon Q inline suggestions pop-up, choose **Allow**.
+1. In the AWS assistant inline suggestions pop-up, choose **Allow**.
 
-   If you dismiss the pop-up, you can enable Amazon Q under the gear icon.
+   If you dismiss the pop-up, you can enable the AWS assistant under the gear icon.
 
 1. In the JSON editor box, edit the JSON document.
 
-   To have Amazon Q create and populate the parameters, enter a comment with what you want to add. In the following example, the comment causes Amazon Q to generate the lines in bold.
+   To have the AWS assistant create and populate the parameters, enter a comment with what you want to add. In the following example, the comment causes the AWS assistant to generate the lines in bold.
 
    ```
    {
@@ -104,11 +104,11 @@ The following are prerequisites:
 
 1. To use the inline chate feature, you can highlight the lines, and then choose the star icon. 
 
-   The Amazon Q Developer chat box displays.
+   The AWS assistant chat box displays.
 
    Enter your request.
 
-   Amazon Q Developer generates, and then updates the JSON.
+   The AWS assistant generates, and then updates the JSON.
 
    To accept the changes, choose **Accept All**
 

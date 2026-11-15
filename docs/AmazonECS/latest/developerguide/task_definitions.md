@@ -28,7 +28,7 @@ After you create a task definition, you can run the task definition as a task or
 + [Amazon ECS task definition states](task-definition-state.md)
 + [Architect your application for Amazon ECS](application_architecture.md)
 + [Creating an Amazon ECS task definition using the console](create-task-definition.md)
-+ [Using Amazon Q Developer to provide task definition recommendations in the Amazon ECS console](using-amazon-q.md)
++ [Using AWS assistant to provide task definition recommendations in the Amazon ECS console](using-amazon-q.md)
 + [Updating an Amazon ECS task definition using the console](update-task-definition-console-v2.md)
 + [Deregistering an Amazon ECS task definition revision using the console](deregister-task-definition-v2.md)
 + [Deleting an Amazon ECS task definition revision using the console](delete-task-definition-v2.md)

@@ -36,12 +36,6 @@ When the service scheduler updates the computed desired count for a service or t
 `TASKS_STOPPED`  
 The service has stopped the running task.
 
-`SERVICE_DEPLOYMENT_IN_PROGRESS`  
-A service deployment is in progress. The service deployment can be either a rollback, or a new service revision.
-
-`SERVICE_DEPLOYMENT_COMPLETED`  
-A service deployment is in the steady state and is complete. The service deployment can be either a rollback, or to deploy an updated service revision.
-
 ## Service action events with `WARN` event type
 <a name="ecs_service_events_warn_type"></a>
 
@@ -76,9 +70,6 @@ A common cause of this service event being generated is because tags were being 
 
 `SERVICE_HEALTH_UNKNOWN`  
 The service was unable to describe the health data for tasks.
-
-`SERVICE_DEPLOYMENT_FAILED`  
-A service deployment did not reach the steady. This happens when a CloudWatch is triggered or the circuit breaker detects a service deployment failure.
 
 **Example Service steady state event**  
 Service steady state events are delivered in the following format. For more information about EventBridge parameters, see [Events in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  

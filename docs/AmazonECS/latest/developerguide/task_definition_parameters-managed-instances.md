@@ -92,7 +92,7 @@ Task-level CPU and memory parameters are ignored for Windows containers. We reco
 Type: String  
 Required: Conditional  
 The hard limit of CPU units to present for the task. You can specify CPU values in the JSON file as a string in CPU units or virtual CPUs (vCPUs). For example, you can specify a CPU value either as `1024` in CPU units or `1 vCPU` in vCPUs. When the task definition is registered, a vCPU value is converted to an integer indicating the CPU units.  
-This field is optional. If your cluster doesn't have any registered container instances with the requested CPU units available, the task fails. Supported values are between `0.125` vCPUs and `10` vCPUs.
+This field is optional. If your cluster doesn't have any registered container instances with the requested CPU units available, the task fails. Supported values are between `128` CPU units (`0.125` vCPUs) and `196608` CPU units (`192` vCPUs).
 
 `memory`  
 Type: String  

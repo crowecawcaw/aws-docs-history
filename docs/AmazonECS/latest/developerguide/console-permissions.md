@@ -105,10 +105,10 @@ The following policy contains the required permissions, and limits the actions t
 
 ------
 
-## Permissions required for using Amazon Q Developer to provide recommendations in the console
+## Permissions required for using AWS assistant to provide recommendations in the console
 <a name="amazon-q-permission"></a>
 
- For Amazon Q Developer to provide recommendations in the Amazon ECS; console, you must enable the correct IAM permissions for either your IAM user or role. You must add the `codewhisperer:GenerateRecommendations` permission.
+ For the AWS assistant to provide recommendations in the Amazon ECS; console, you must enable the correct IAM permissions for either your IAM user or role. You must add the `codewhisperer:GenerateRecommendations` permission.
 
 ------
 #### [ JSON ]

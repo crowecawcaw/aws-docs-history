@@ -19,7 +19,7 @@ When you create a revision, you can modify the following container properties an
 + Volumes and container mount points
 + Private registry
 
-You can have Amazon Q provide recommendations when you use the JSON editor. For more information, see [Using Amazon Q Developer to provide task definition recommendations in the Amazon ECS console](using-amazon-q.md)
+You can have the AWS assistant provide recommendations when you use the JSON editor. For more information, see [Using AWS assistant to provide task definition recommendations in the Amazon ECS console](using-amazon-q.md)
 
 ## JSON validation
 <a name="json-validate-for-update"></a>

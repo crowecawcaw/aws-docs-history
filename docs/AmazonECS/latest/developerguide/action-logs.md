@@ -10,7 +10,7 @@ With Amazon ECS Action Logs, you can monitor all actions that Amazon ECS perform
 
 Action Logs record previously invisible operations such as container image downloads, load balancer registrations, and security group configurations. Without Action Logs, you can only observe the start and end states of your resources. With Action Logs, you can see every intermediate step that Amazon ECS takes between those states.
 
-When you enable Action Logs, Amazon Q in the AWS Management Console can access these logs to help you debug deployment failures and daemon issues directly from the console.
+When you enable Action Logs, the AWS assistant in the AWS Management Console can access these logs to help you debug deployment failures and daemon issues directly from the console.
 
 ## Benefits of Action Logs
 <a name="action-logs-benefits"></a>
