@@ -8,7 +8,7 @@ Conditional constructs perform different actions in your component document base
 ## if Construct
 <a name="toe-conditional-if"></a>
 
-You can use the `if` construct to evaluate whether a step should run or not. By default, when the `if` conditional expression evaluates to `true`, AWSTOE runs the step, and when the condition evaluates to `false`, AWSTOE skips the step. If a step is skipped, it's treated as a successful step when AWSTOE evaluates whether the phase and document ran successfully.
+You can use the `if` construct to evaluate whether a step should run or not. By default, when the `if` conditional expression evaluates to `true`, AWSTOE runs the step, and when the condition evaluates to `false`, AWSTOE skips the step. If a step is skipped, it's treated as a successful step when AWSTOE evaluates whether the phase and document ran successfully. A skipped step produces no outputs. For more information about how chaining expressions that refer to its outputs resolve, see [Chain from a step that was skipped](toe-use-documents.md#document-chaining-skipped-steps).
 
 **Note**  
 An `if` statement is only evaluated one time, even if the step triggers a restart. If a step restarts, it recognizes that the `if` statement has already been evaluated, and continues where it left off.

@@ -3,7 +3,7 @@
 # Create and update container image pipelines
 <a name="container-image-pipelines"></a>
 
-You can set up, configure, and manage container image pipelines using the Image Builder console, through the Image Builder API, or with **imagebuilder** commands in the AWS CLI. The **Create image pipeline** console wizard provides starting artifacts, and guides you through steps to:
+You can manage container image pipelines from the Image Builder console, the API, **imagebuilder** commands in the AWS CLI, or AWS Tools for PowerShell. The **Create image pipeline** console wizard provides starting artifacts, and guides you through steps to:
 + Select a base image from quick-start managed images, Amazon ECR, or Docker Hub repositories
 + Add and remove software
 + Customize settings and scripts
@@ -14,7 +14,7 @@ You can set up, configure, and manage container image pipelines using the Image 
 For more information and a step-by-step tutorial about using the **Create image pipeline** console wizard, see [Tutorial: Create an image pipeline with output Docker container image from the Image Builder console wizard](start-build-container-pipeline.md).
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 **Topics**
 + [Create a container image pipeline from the AWS CLI](cli-create-container-pipeline.md)

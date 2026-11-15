@@ -59,15 +59,15 @@ The following example demonstrates how dynamic variables use string interpolatio
       {
         "imageId": "{{ $.stepOutputs.CreateImageFromInstance.imageId }}",
         "region": "us-east-1",
-        "buildDate": "{{ $.imagebuilder.dateTime }}",
-        "instanceType": "{{ $.stepOutputs.LaunchStep.instanceType }}"
+        "imageName": "{{ $.imagebuilder.imageName }}",
+        "instanceId": "{{ $.stepOutputs.LaunchStep.instanceId }}"
       }
 ```
 
 In this example, the JSONPath expressions wrapped in double curly braces are resolved at runtime:
 + `{{ $.stepOutputs.CreateImageFromInstance.imageId }}` - Resolves to the actual image ID from the CreateImageFromInstance step
-+ `{{ $.imagebuilder.dateTime }}` - Resolves to the current build timestamp. See [Use Image Builder system variables](#wfdoc-ib-vars) for a list of Image Builder system variables that you can use.
-+ `{{ $.stepOutputs.LaunchStep.instanceType }}` - Resolves to the instance type used in the LaunchStep
++ `{{ $.imagebuilder.imageName }}` - Resolves to the name of the image. See [Use Image Builder system variables](#wfdoc-ib-vars) for a list of Image Builder system variables that you can use.
++ `{{ $.stepOutputs.LaunchStep.instanceId }}` - Resolves to the ID of the instance that the LaunchStep launched
 
 The literal strings like `"region": "us-east-1"` remain unchanged.
 
@@ -86,6 +86,8 @@ Image Builder provides the following system variables that you can use in your w
 | cloudWatchLogStream | The name of the CloudWatch Logs stream for output logs. | String | {{1.0.0/1}} | 
 | collectImageMetadata | The setting that directs Image Builder whether to collect instance metadata. | Boolean | `true` \| `false` | 
 | collectImageScanFindings | Specifies whether Image Builder collects image scan findings for the image. The value is `true` when scanning is turned on for a test instance scan or a container image scan. It's `false` for an on-demand AMI scan. | Boolean | `true` \| `false` | 
+| distributionConfigurationArn | The Amazon Resource Name (ARN) of the distribution configuration for the image. If the image doesn't have a distribution configuration, the value is an empty string. | String | arn:aws:imagebuilder:{{us-east-1}}:{{111122223333}}:distribution-configuration/{{sampleDistributionConfiguration}} | 
+| imageArn | The ARN of the image build version that the workflow runs for. | String | arn:aws:imagebuilder:{{us-east-1}}:{{111122223333}}:image/{{sampleImage}}/{{1.0.0/1}} | 
 | imageBuildNumber | The build version number of the image. | Integer | {{1}} | 
 | imageId | The AMI id of the base image. | String | {{ami-1234567890abcdef1}} | 
 | imageName | The name of the image. | String | {{sampleImage}} | 

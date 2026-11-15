@@ -15,7 +15,7 @@ To create a new build, test, or distribution workflow, select the tab that match
 #### [ Console ]
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 You can use the following process to create a new workflow in the Image Builder console.
 

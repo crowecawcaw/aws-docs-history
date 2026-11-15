@@ -5,10 +5,10 @@
 
 After you have created an Image Builder image pipeline for your AMI image, you can make changes to the infrastructure configuration and distribution settings from the Image Builder console.
 
-To update an image pipeline with a new image recipe, you must use the AWS CLI. For more information, see [Update AMI image pipelines from the AWS CLI](cli-update-image-pipeline.md) in this guide.
+To update an image pipeline with a new image recipe, you must use the AWS CLI or AWS Tools for PowerShell. For more information, see [Update AMI image pipelines from the AWS CLI](cli-update-image-pipeline.md) in this guide.
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 **Choose an existing Image Builder pipeline**
 

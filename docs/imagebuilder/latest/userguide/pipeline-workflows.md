@@ -9,7 +9,7 @@ Build workflow
 Build workflows run during the `Build` stage of the workflow framework. You can specify only one build workflow for your pipeline. Or you can skip the build entirely to configure a test-only pipeline. If a pipeline with an on-demand AMI scan skips the build, the scan targets the parent AMI of the recipe. Your account must own that AMI. For more information, see [Workflows for pipelines with on-demand AMI scans](#pipeline-workflows-ami-scan).
 
 Test workflow  
-Test workflows run during the `Test` stage of the workflow framework. You can add one or more test workflows to your pipeline, up to the limit of ten workflows total, which also counts your build and distribution workflows. Test workflows can run in parallel or one at a time, depending on how you define your test groups. You can also skip tests entirely if you only want your pipeline to build, unless the pipeline uses an on-demand AMI scan.
+Test workflows run during the `Test` stage of the workflow framework. You can add one or more test workflows to your pipeline. The limit is 10 workflows in total, including your build and distribution workflows. Test workflows can run in parallel or one at a time, depending on how you define your test groups. You can also skip tests entirely if you only want your pipeline to build, unless the pipeline uses an on-demand AMI scan.
 
 Distribution workflow  
 Distribution workflows run during the `Distribution` stage of the workflow framework. A distribution workflow is optional. If you do not specify one, Image Builder still distributes your AMI by running the distribution configuration that you attach to the pipeline or image. Specify a distribution workflow when you want to override that distribution configuration with different distribution settings, or to gain more visibility into the distribution process. You can specify one distribution workflow for your pipeline. If you build container images and do not specify a distribution workflow, Image Builder adds the Amazon managed container-distribution workflow for you.
@@ -19,7 +19,7 @@ Distribution workflows run during the `Distribution` stage of the workflow frame
 ## Define test groups for test workflows
 <a name="pipeline-workflows-test-groups"></a>
 
-You define test workflows within test groups. You can run multiple test workflows for your pipeline. The combined limit is ten workflows total, which includes your build and distribution workflows. You decide whether to run the test workflows in a specific order or to run as many as possible at the same time. How they run depends on how you define your test groups. The following scenarios demonstrate several ways that you can define your test workflows.
+You define test workflows within test groups. You can run multiple test workflows for your pipeline. The combined limit is 10 workflows total, which includes your build and distribution workflows. You decide whether to run the test workflows in a specific order or to run as many as possible at the same time. How they run depends on how you define your test groups. The following scenarios demonstrate several ways that you can define your test workflows.
 
 **Note**  
 The `parallelGroup` and `onFailure` settings apply only to test workflows. Image Builder rejects them on a build or distribution workflow with an `InvalidParameterCombinationException`.
@@ -27,7 +27,9 @@ The `parallelGroup` and `onFailure` settings apply only to test workflows. Image
 **How test groups run**  
 Image Builder runs your test workflows in test groups. It runs the groups one at a time. The test workflows within a single group run at the same time (in parallel). Image Builder runs up to five test workflows at the same time; if a group has more than five, Image Builder starts the next test workflow as each one finishes. A test workflow that isn't part of a group runs on its own.
 
-How you define test groups depends on whether you use the console or the AWS CLI and API. Select the tab that matches the method you use.
+A pipeline can have up to 10 workflows in total, including your build and distribution workflows. The console limits a group to 5 test workflows.
+
+How you define test groups depends on whether you use the console, the AWS CLI and API, or AWS Tools for PowerShell. Select the tab that matches the method you use.
 
 ------
 #### [ Console ]
@@ -36,7 +38,7 @@ When you create or edit a pipeline in the console, you define your test workflow
 
 The console organizes test workflows into test groups. A new pipeline starts with one test group. To build your test configuration, do the following:
 + **Add a test workflow to a group** – Add a test workflow to a group and select the workflow from your own workflows (**Owned by me**) or the AWS managed workflows (**Managed by Amazon**). If the workflow defines parameters, the console shows them so that you can enter values. A group can hold up to five test workflows, which run at the same time.
-+ **Add a test group** – Add another test group to run a different set of tests. You can add up to ten test groups. To rename a group, choose **Edit name**. A group name can have up to 128 characters, and can include letters, numbers, hyphens (`-`), and underscores (`_`).
++ **Add a test group** – Add another test group to run a different set of tests. You can add up to 10 test groups. To rename a group, choose **Edit name**. A group name can have up to 128 characters, and can include letters, numbers, hyphens (`-`), and underscores (`_`).
 
 Image Builder runs the test groups one at a time, in the order that they appear in the wizard. The test workflows within a group run at the same time. A group can contain up to five test workflows. To run your tests one at a time, put each test workflow in its own group.
 
@@ -48,23 +50,32 @@ You can add or remove test workflows and groups, but you cannot reorder them. Pl
 
 When you use the AWS CLI or the Image Builder API, you don't define test groups directly. Instead, you set the `parallelGroup` attribute on each test workflow in the `workflows` list. Test workflows that have the same `parallelGroup` value form one group and run at the same time. A test workflow that has no `parallelGroup` value runs on its own. If you don't set a `parallelGroup` value on any of your test workflows, Image Builder runs them one at a time.
 
-The AWS CLI and API don't limit the number of test workflows in a group. The only limit is the total number of workflows, which can't exceed ten (including your build and distribution workflows). The console limits a group to five test workflows.
+The AWS CLI and API don't limit the number of test workflows in a group.
 
+------
+#### [ PowerShell ]
+
+When you use Tools for PowerShell, you don't define test groups directly. Instead, you set the `ParallelGroup` property on each test workflow's `WorkflowConfiguration` object in the list that you pass to the `Workflow` parameter. Test workflows that have the same `ParallelGroup` value form one group and run at the same time. A test workflow that has no `ParallelGroup` value runs on its own. If you don't set a `ParallelGroup` value on any of your test workflows, Image Builder runs them one at a time.
+
+Tools for PowerShell and the API don't limit the number of test workflows in a group.
+
+------
+
+**Test workflow order in the AWS CLI, API, and Tools for PowerShell**  
 Image Builder always runs build workflows first, then test workflows, then the distribution workflow. This order applies regardless of how you list them.
 
 Within the test stage, Image Builder orders your test workflows as follows:
-+ It orders the groups by the position where each group first appears in your `workflows` list. It does not order them by the `parallelGroup` value.
++ It orders the groups by the position where each group first appears in your list of workflows. It does not order them by the group name.
 + It keeps each workflow that has no group in its listed position.
 + It runs the workflows in a group together, at the position where that group first appears.
 
-**Example**
-
-Suppose you list five test workflows in this order, and set the `parallelGroup` value on some of them:
+**Example**  
+Suppose you list 5 test workflows in this order, and set the `parallelGroup` value (`ParallelGroup` in Tools for PowerShell) on some of them:
 + Test workflow A – no group
-+ Test workflow B – `parallelGroup`: `tests-1`
++ Test workflow B – group `tests-1`
 + Test workflow C – no group
-+ Test workflow D – `parallelGroup`: `tests-1`
-+ Test workflow E – `parallelGroup`: `tests-2`
++ Test workflow D – group `tests-1`
++ Test workflow E – group `tests-2`
 
 Image Builder runs them in the following order:
 
@@ -76,12 +87,10 @@ Image Builder runs them in the following order:
 
 1. Test workflow E, on its own, in the `tests-2` group.
 
-Test workflow D runs together with test workflow B because they share a group, even though you listed test workflow C between them. The group named `tests-1` runs before `tests-2` because `tests-1` appears first in the list – the group order follows the order in the list, not the `parallelGroup` value.
-
-------
+Test workflow D runs together with test workflow B because they share a group, even though you listed test workflow C between them. The `tests-1` group runs before the `tests-2` group because it appears first in the list. The group order follows the order in the list, not the group name.
 
 **Scenario 1: Run one test workflow at a time**  
-To run all of your test workflows one at a time, configure a separate test group for each test workflow, up to the combined limit of ten workflows total (which includes your build and distribution workflows). Image Builder runs the test groups one at a time. This is one way to ensure that your test workflows run one at a time in a specific order.
+To run all of your test workflows one at a time, configure a separate test group for each test workflow. You can have up to 10 workflows in total, including your build and distribution workflows. Image Builder runs the test groups one at a time. This is one way to ensure that your test workflows run one at a time in a specific order.
 
 **Scenario 2: Run multiple test workflows at the same time**  
 If the order doesn't matter, and you want to run as many test workflows as possible at the same time, you can configure a single test group and put the maximum number of test workflows in it. Image Builder starts up to five test workflows at the same time, and starts additional test workflows as others complete. If your goal is to run your test workflows as fast as possible, this is one way to do it.
@@ -158,19 +167,48 @@ For a step-by-step walkthrough of the full **Create image pipeline** wizard, see
 ------
 #### [ AWS CLI ]
 
-To associate custom image workflows when you create a pipeline, use the [create-image-pipeline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image-pipeline.html) command. Specify your execution role with the `--execution-role` parameter, and list your build, test, and distribution workflows with the `--workflows` parameter. The following example creates a pipeline with one build workflow, one test workflow, and one distribution workflow.
+To associate custom image workflows when you create a pipeline, use the [create-image-pipeline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image-pipeline.html) command. Specify your execution role with the `--execution-role` parameter, and list your build, test, and distribution workflows with the `--workflows` parameter. The following example creates a pipeline with one build workflow, one test workflow, and one distribution workflow:
 
 ```
 aws imagebuilder create-image-pipeline \
     --name {{example-pipeline}} \
     --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{example}}/{{1.0.0}} \
     --infrastructure-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{example}} \
-    --execution-role arn:aws:iam::{{111122223333}}:role/{{ImageBuilderWorkflowExecutionRole}} \
+    --execution-role arn:aws:iam::{{111122223333}}:role/{{image-builder-workflow-execution-role}} \
     --workflows '[
         {"workflowArn":"arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/build/{{example-build}}/{{1.0.0}}"},
         {"workflowArn":"arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{example-test}}/{{1.0.0}}","parallelGroup":"{{group-1}}","onFailure":"CONTINUE"},
         {"workflowArn":"arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/distribution/{{example-distribute}}/{{1.0.0}}"}
     ]'
+```
+
+------
+#### [ PowerShell ]
+
+To associate custom image workflows when you create a pipeline, use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet. Specify your execution role with the `ExecutionRole` parameter. Pass your build, test, and distribution workflows to the `Workflow` parameter as a list of `WorkflowConfiguration` objects. The following example creates a pipeline with one build workflow, one test workflow, and one distribution workflow:
+
+```
+Import-Module AWS.Tools.Imagebuilder
+
+$workflows = @(
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/build/{{example-build}}/{{1.0.0}}"
+    },
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn   = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{example-test}}/{{1.0.0}}"
+        ParallelGroup = "{{group-1}}"
+        OnFailure     = "CONTINUE"
+    },
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/distribution/{{example-distribute}}/{{1.0.0}}"
+    }
+)
+
+New-EC2IBImagePipeline -Name {{example-pipeline}} `
+    -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{example}}/{{1.0.0}} `
+    -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{example}} `
+    -ExecutionRole arn:aws:iam::{{111122223333}}:role/{{image-builder-workflow-execution-role}} `
+    -Workflow $workflows
 ```
 
 ------

@@ -3,7 +3,7 @@
 # Create and update AMI image pipelines
 <a name="ami-image-pipelines"></a>
 
-You can set up, configure, and manage AMI image pipelines from the Image Builder console, through the Image Builder API, SDKs or the AWS CLI. In the console, you can use the **Create image pipeline** console wizard to guide you through the following steps.
+You can manage AMI image pipelines from the Image Builder console, the API, SDKs, the AWS CLI, or AWS Tools for PowerShell. In the console, you can use the **Create image pipeline** console wizard to guide you through the following steps.
 + Specify pipeline details such as name, description, and resource tags.
 + Configure pipeline schedule and logging defaults. For scheduled pipeline execution, you can set the number of consecutive failures that are allowed before Image Builder disables the pipeline.
 + Select an AMI image recipe that includes a base image from quick-start Amazon managed images, images that you created or that were shared with you, or images that you subscribe to through the AWS Marketplace. The recipe also includes components that perform the following tasks on the EC2 instances that Image Builder uses to build your image:
@@ -21,7 +21,7 @@ You can set up, configure, and manage AMI image pipelines from the Image Builder
 For more information and a step-by-step tutorial about using the **Create image pipeline** console wizard with default values where provided, see [Tutorial: Create an image pipeline with output AMI from the Image Builder console wizard](start-build-image-pipeline.md).
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 **Topics**
 + [Create an AMI image pipeline from the AWS CLI](cli-create-image-pipeline.md)

@@ -97,7 +97,7 @@ or
 The chaining feature allows you to recycle code and improve the maintainability of the document.
 
 **Rules for chaining**
-+ Chaining expressions can be used only in the inputs section of each step.
++ Chaining expressions can be used in a step's inputs, in its `if` condition, and in the values of a `forEach` loop.
 + Statements with chaining expressions must be enclosed in quotes. For example:
   + **Invalid expression**: `echo {{ phase.step.inputs.variable }}`
   + **Valid expression**: `"echo {{ phase.step.inputs.variable }}"`
@@ -140,6 +140,51 @@ phases:
           commands:
             - 'Write-Host "Hello"'
 ```
+
+### Chain from a step that was skipped
+<a name="document-chaining-skipped-steps"></a>
+
+When a step's `if` condition skips the step, the step produces no outputs. A chaining expression that refers to the outputs of a skipped step resolves to an empty string instead of failing the run. This applies to expressions in step inputs, in `if` conditions, and in `forEach` values. For more information about the `if` construct, see [if Construct](toe-conditional-constructs.md#toe-conditional-if).
+
+You can use this to check whether an earlier step produced output. The following example YAML document installs a tool only when it isn't already installed. Replace `{{sample-tool}}` with the name of your tool:
+
+```
+name: SkippedStepReferenceExample
+description: Installs a sample tool only when it is not already installed.
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: GetInstalledVersion
+        action: ExecuteBash
+        if:
+          binaryExists: '{{sample-tool}}'
+        inputs:
+          commands:
+            - {{sample-tool}} --version
+      - name: InstallSampleTool
+        action: ExecuteBash
+        if:
+          stringEquals: ''
+          value: '{{ build.GetInstalledVersion.outputs.stdout }}'
+        inputs:
+          commands:
+            - echo "Installing {{sample-tool}}"
+      - name: ReportVersion
+        action: ExecuteBash
+        inputs:
+          commands:
+            - 'echo "Version before this build: [{{ build.GetInstalledVersion.outputs.stdout }}]"'
+```
+
+The `GetInstalledVersion` step runs only when the tool is installed. When the tool isn't installed, AWSTOE skips that step. Its `stdout` output then resolves to an empty string. The `if` condition of the `InstallSampleTool` step matches, so that step runs. The `ReportVersion` step prints `Version before this build: []`.
+
+When the tool is installed, AWSTOE skips the `InstallSampleTool` step instead. The `ReportVersion` step prints the installed version.
+
+The following rules still apply when a step is skipped:
++ AWSTOE resolves the inputs of a skipped step, even though the step doesn't run. If they can't be resolved, for example because they refer to an environment variable that isn't set, the run fails at that step.
++ The expression must name an output that the step's action provides. For example, an expression that refers to `build.GetInstalledVersion.outputs.{{undefinedOutput}}` fails the run, whether or not the step was skipped.
++ An expression can't refer to the outputs of a later step or of the step that contains it. It also can't refer to the outputs of a later phase or of a phase that the run doesn't include.
 
 ## Document schema and definitions
 <a name="document-schema"></a>

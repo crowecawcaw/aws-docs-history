@@ -10,6 +10,9 @@ EC2 Image Builder provides a number of security features to consider as you deve
 + Apply all available Windows or Linux security patches during image builds.
 + Periodically apply managed AMI updates to your macOS recipes and create new images to launch instances that have the latest security patches.
 + When you import a Windows ISO disk image, obtain the ISO from Microsoft or an authorized reseller. Also, grant the instance profile role only the permissions that the import requires. For more information, see [Security considerations for ISO disk image import](import-iso-disk.md#iso-import-security).
++ Use base images, container images, and components from sources that you trust. To use a fixed base image, specify an AMI ID or an Image Builder build version ARN that ends with the build number. For more information, see [Your responsibility for base images and other source content](data-protection.md#source-image-trust).
++ Grant the instance profile role only the permissions that your builds need, and require Instance Metadata Service Version 2 (IMDSv2) on build and test instances. For more information, see [Your responsibility for build and test instances](data-protection.md#build-instance-trust).
++ If you use tags to control access to Image Builder resources, restrict who can change those tags. For more information, see [Control access with IAM policies and tags](data-protection.md#access-control-trust).
 
 We strongly recommend that you test your images to validate the security posture and applicable security compliance levels. Solutions such as [Amazon Inspector](https://aws.amazon.com/inspector/) can help validate the security and compliance posture of images.
 

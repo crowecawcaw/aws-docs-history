@@ -43,7 +43,7 @@ The following table compares the features of image recipes and container recipes
 | --- | --- | --- | 
 | Output | AMI | Docker container image in Amazon ECR | 
 | Base image sources | AMI ID, Image Builder image ARN, SSM parameter, AWS Marketplace product | Docker Hub image, Amazon ECR image, Amazon-managed image, Image Builder image ARN | 
-| Dockerfile | Not applicable | Required (template with contextual variables) | 
+| Dockerfile | Not applicable | Template with contextual variables (Image Builder applies the default template if you don't provide one) | 
 | Target repository | Not applicable | Amazon ECR (required) | 
 | Storage configuration | Block device mappings for the output AMI | Block device mappings for the build instance | 
 | User data | Supported (overrides default cloud-init) | Not supported at recipe level | 

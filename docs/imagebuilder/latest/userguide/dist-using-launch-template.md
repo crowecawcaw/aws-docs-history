@@ -42,10 +42,13 @@ To provide a launch template with your output AMI, follow these steps in the con
 
 1. Continue specifying any additional settings that you require, and choose **Create settings** to create your new distribution settings resource.
 
-## Add an EC2 launch template to AMI distribution settings from the AWS CLI
+## Add an EC2 launch template to AMI distribution settings from the AWS CLI or Tools for PowerShell
 <a name="dist-using-launch-template-cli"></a>
 
-This section describes how to configure a distribution settings file with a launch template, and use the **create-image** command in the AWS CLI to build and distribute an Image Builder AMI and a new version of the launch template that uses it.
+This section describes how to configure distribution settings with a launch template. You can then build and distribute an Image Builder AMI and a new version of the launch template that uses it. Use the **create-image** command in the AWS CLI or the [New-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImage.html) cmdlet in AWS Tools for PowerShell.
+
+------
+#### [ AWS CLI ]
 
 1. 
 
@@ -53,7 +56,7 @@ This section describes how to configure a distribution settings file with a laun
 
    Before you can create an Image Builder AMI with a launch template, using the AWS CLI, you must create a distribution configuration JSON structure that specifies the `launchTemplateConfigurations` settings. You must specify at least one `launchTemplateConfigurations` entry in the source Region.
 
-   The following sample file, named `create-distribution-config-launch-template.json`, shows a few possible scenarios for launch template configuration in the source Region.
+   The following sample file, named `create-distribution-config-launch-template.json`, shows a few possible scenarios for launch template configuration in the source Region:
 
    ```
    {
@@ -68,16 +71,16 @@ This section describes how to configure a distribution settings file with a laun
                },
                "launchTemplateConfigurations": [
                    {
-                       "launchTemplateId": "lt-0a1bcde2fgh34567",
-                       "accountId": "935302948087",
+                       "launchTemplateId": "lt-0a1bcde2fgh345678",
+                       "accountId": "111122223333",
                        "setDefaultVersion": true
                    },
                    {
-                       "launchTemplateId": "lt-0aaa1bcde2ff3456"
+                       "launchTemplateId": "lt-0aaa1bcde2ff34567"
                    },
                    {
-                       "launchTemplateId": "lt-12345678901234567",
-                       "accountId": "123456789012"
+                       "launchTemplateId": "lt-1234567890abcdef0",
+                       "accountId": "444455556666"
                    }
                ]
            }
@@ -95,10 +98,49 @@ This section describes how to configure a distribution settings file with a laun
    + Attach the distribution configuration JSON file you created in the `--cli-input-json` parameter.
 
    ```
-   aws imagebuilder create-distribution-configuration --name {{my distribution name}}--cli-input-json file://{{create-distribution-config-launch-template.json}}
+   aws imagebuilder create-distribution-configuration --name {{my-distribution-name}} --cli-input-json file://{{create-distribution-config-launch-template.json}}
    ```
 **Note**  
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
 *You can also provide JSON directly in the command, using the `--distributions` parameter.*
+
+------
+#### [ PowerShell ]
+
+Tools for PowerShell doesn't take a JSON input file. Instead, each top-level JSON key is a cmdlet parameter, such as `Name`, `Description`, `Distribution`, and `ClientToken`. Build each distribution as an `Amazon.Imagebuilder.Model.Distribution` object. Each entry in `LaunchTemplateConfigurations` is a `LaunchTemplateConfiguration` object.
+
+The following example shows how to use the [New-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBDistributionConfiguration.html) cmdlet to create distribution settings with the same launch template configurations as the AWS CLI example:
+
+```
+Import-Module AWS.Tools.Imagebuilder
+$distribution = [Amazon.Imagebuilder.Model.Distribution]@{
+    Region = "us-west-2"
+    AmiDistributionConfiguration = [Amazon.Imagebuilder.Model.AmiDistributionConfiguration]@{
+        Name = "test-{{imagebuilder:buildDate}}-{{imagebuilder:buildVersion}}"
+        Description = "description"
+    }
+    LaunchTemplateConfigurations = @(
+        [Amazon.Imagebuilder.Model.LaunchTemplateConfiguration]@{
+            LaunchTemplateId = "lt-0a1bcde2fgh345678"
+            AccountId = "111122223333"
+            SetDefaultVersion = $true
+        },
+        [Amazon.Imagebuilder.Model.LaunchTemplateConfiguration]@{
+            LaunchTemplateId = "lt-0aaa1bcde2ff34567"
+        },
+        [Amazon.Imagebuilder.Model.LaunchTemplateConfiguration]@{
+            LaunchTemplateId = "lt-1234567890abcdef0"
+            AccountId = "444455556666"
+        }
+    )
+}
+
+New-EC2IBDistributionConfiguration -Name "{{my-distribution-name}}" `
+    -Description "This is just a test" `
+    -Distribution $distribution `
+    -ClientToken clientToken1
+```
+
+------

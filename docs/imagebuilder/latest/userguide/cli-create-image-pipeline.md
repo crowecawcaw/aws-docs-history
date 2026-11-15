@@ -11,7 +11,7 @@ How often your pipeline builds a new image to incorporate any pending updates fr
   + `EXPRESSION_MATCH_ONLY` – your pipeline will build a new image every time the cron expression matches the current time. 
   + `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` – your pipeline builds a new image only when the schedule expression matches and there are pending updates to your base image or components. If no updates are pending, the build is skipped. To build immediately without waiting for updates, run the pipeline manually.
 
-When you run the **create-image-pipeline** command in the AWS CLI, many of the configuration resources are optional. However, some of the resources have conditional requirements, depending on what type of image the pipeline creates. The following resource identifiers are required for AMI image pipelines:
+Many configuration resources are optional when you run the [create-image-pipeline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image-pipeline.html) command in the AWS CLI or the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet in AWS Tools for PowerShell. However, some of the resources have conditional requirements, depending on what type of image the pipeline creates. The following resource identifiers are required for AMI image pipelines:
 + Image recipe ARN
 + Infrastructure configuration ARN
 
@@ -20,20 +20,23 @@ When you run the **create-image-pipeline** command in the AWS CLI, many of the c
 **Example: Create a Windows 2019 image**  
 This example configures a pipeline that is scheduled to run once a week on Sunday. The configuration file shown in the first step uses existing resources for the image recipe, infrastructure, and distribution configuration, along with other settings to create a Windows 2019 image.
 
+------
+#### [ AWS CLI ]
+
 1. 
 
-**Create a configuration file (optional)**
+**(Optional) Create a configuration file**
 
-   This example uses a configuration file named `create-image-pipeline.json` to configure the settings in one place. Alternatively, you can use command line options when you run the command to specify all of the details that are shown here in the configuration file.
+   This example uses a configuration file named `create-image-pipeline.json` to configure the settings in one place. Alternatively, you can use command-line options when you run the command to specify all of the details in the following configuration file:
 
    ```
    {
-   	"name": "{{ExampleWindows2019Pipeline}}",
-   	"description": "{{Builds Windows 2019 Images}}",
+   	"name": "{{example-windows-2019-pipeline}}",
+   	"description": "{{Builds Windows Server 2019 images}}",
    	"enhancedImageMetadataEnabled": true,
-   	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-recipe}}/2020.12.03",
-   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
+   	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-example-recipe}}/2020.12.03",
+   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}}",
    	"imageTestsConfiguration": {
    		"imageTestsEnabled": true,
    		"timeoutMinutes": 60
@@ -51,59 +54,85 @@ The path for the JSON file should follow the appropriate convention for the base
 
 1. 
 
-**Run the command to create an image**
+**Run the command to create the pipeline**
 
-   This example uses the configuration file created in the first step as input to the `create-image-pipeline` command. Alternatively, you can specify the settings and resources for your pipeline directly when you run the command. For more information, see [create-image-pipeline](https://docs.aws.amazon.com/cli/latest/reference/imagebuilder/create-image-pipeline.html) in the *AWS CLI Reference*.
+   This example uses the configuration file created in the first step as input to the **create-image-pipeline** command. Alternatively, you can specify the settings and resources for your pipeline directly when you run the command. Run the following command:
 
    ```
    aws imagebuilder create-image-pipeline --cli-input-json file://create-image-pipeline.json
    ```
 
+------
+#### [ PowerShell ]
+
+Tools for PowerShell doesn't take a JSON input file. Instead, you pass each top-level JSON key as a cmdlet parameter. Each nested setting becomes a parameter that combines the parent object name and the setting name. For example, `schedule.scheduleExpression` becomes `Schedule_ScheduleExpression`, and `imageTestsConfiguration.timeoutMinutes` becomes `ImageTestsConfiguration_TimeoutMinute`. Boolean values are `$true` or `$false`.
+
+The following example shows how to use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet to create the pipeline with the same settings as the AWS CLI example:
+
+```
+New-EC2IBImagePipeline -Name {{example-windows-2019-pipeline}} `
+    -Description "{{Builds Windows Server 2019 images}}" `
+    -EnhancedImageMetadataEnabled $true `
+    -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-example-recipe}}/2020.12.03 `
+    -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}} `
+    -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}} `
+    -ImageTestsConfiguration_ImageTestsEnabled $true `
+    -ImageTestsConfiguration_TimeoutMinute 60 `
+    -Schedule_ScheduleExpression "cron(0 0 * * SUN *)" `
+    -Schedule_PipelineExecutionStartCondition EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE `
+    -Status ENABLED
+```
+
+------
+
 **Example: Create a pipeline with image scanning and custom workflows**  
 This example configures a pipeline that checks every seven days and runs only when dependency updates are available. The configuration file uses existing resources for the image recipe and infrastructure. It enables [vulnerability scanning](https://docs.aws.amazon.com/imagebuilder/latest/userguide/integ-inspector.html) with Amazon Inspector. The configuration also specifies [custom workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html) with an execution role. Parallel groups run security and functional tests at the same time. Pipeline logs are sent to custom [CloudWatch log groups](https://docs.aws.amazon.com/imagebuilder/latest/userguide/monitor-cwlogs.html).
+
+------
+#### [ AWS CLI ]
 
 1. 
 
 **Create a configuration file**
 
-   Create a JSON file named `create-pipeline-with-workflows.json`. This file defines the pipeline configuration with image scanning enabled and custom test workflows. Replace the placeholder values with your own resource ARNs.
+   Create a JSON file named `create-pipeline-with-workflows.json`. This file defines the pipeline configuration with image scanning enabled and custom test workflows. Replace the placeholder values in the following example with your own resource ARNs:
 
    ```
    {
-   	"name": "{{MyPipelineWithScanning}}",
+   	"name": "{{my-pipeline-with-scanning}}",
    	"description": "{{Pipeline with vulnerability scanning and custom workflows}}",
-   	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-recipe}}/1.0.0",
-   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-infra-config}}",
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-dist-config}}",
+   	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-recipe}}/1.0.0",
+   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-infra-config}}",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-dist-config}}",
    	"imageScanningConfiguration": {
    		"imageScanningEnabled": true
    	},
    	"workflows": [
    		{
-   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:workflow/build/{{my-build-workflow}}/1.0.0"
+   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/build/{{my-build-workflow}}/1.0.0"
    		},
    		{
-   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:workflow/test/{{my-security-scan}}/1.0.0",
+   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-security-scan}}/1.0.0",
    			"onFailure": "ABORT",
    			"parallelGroup": "security"
    		},
    		{
-   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:workflow/test/{{my-compliance-check}}/1.0.0",
+   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-compliance-check}}/1.0.0",
    			"onFailure": "ABORT",
    			"parallelGroup": "security"
    		},
    		{
-   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:workflow/test/{{my-functional-test}}/1.0.0",
+   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-functional-test}}/1.0.0",
    			"onFailure": "CONTINUE",
    			"parallelGroup": "functional"
    		},
    		{
-   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:workflow/test/{{my-performance-test}}/1.0.0",
+   			"workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-performance-test}}/1.0.0",
    			"onFailure": "CONTINUE",
    			"parallelGroup": "functional"
    		}
    	],
-   	"executionRole": "arn:aws:iam::{{123456789012}}:role/{{ImageBuilderExecutionRole}}",
+   	"executionRole": "arn:aws:iam::{{111122223333}}:role/{{image-builder-execution-role}}",
    	"loggingConfiguration": {
    		"imageLogGroupName": "/aws/imagebuilder/{{my-pipeline-image-logs}}",
    		"pipelineLogGroupName": "/aws/imagebuilder/{{my-pipeline-execution-logs}}"
@@ -131,14 +160,72 @@ The path for the JSON file should follow the appropriate convention for the base
    aws imagebuilder create-image-pipeline --cli-input-json file://create-pipeline-with-workflows.json
    ```
 
+------
+#### [ PowerShell ]
+
+In Tools for PowerShell, the `workflows` array becomes a list of `WorkflowConfiguration` objects that you pass to the `Workflow` parameter. Each object sets the same `WorkflowArn`, `OnFailure`, and `ParallelGroup` values as the AWS CLI example. The other nested settings use flattened parameters. For example, `imageScanningConfiguration.imageScanningEnabled` becomes `ImageScanningConfiguration_ImageScanningEnabled`, and `loggingConfiguration.imageLogGroupName` becomes `LoggingConfiguration_ImageLogGroupName`.
+
+The following example shows how to use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet to create the pipeline with the same settings as the AWS CLI example:
+
+```
+Import-Module AWS.Tools.Imagebuilder
+
+$workflows = @(
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/build/{{my-build-workflow}}/1.0.0"
+    },
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn   = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-security-scan}}/1.0.0"
+        OnFailure     = "ABORT"
+        ParallelGroup = "security"
+    },
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn   = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-compliance-check}}/1.0.0"
+        OnFailure     = "ABORT"
+        ParallelGroup = "security"
+    },
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn   = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-functional-test}}/1.0.0"
+        OnFailure     = "CONTINUE"
+        ParallelGroup = "functional"
+    },
+    [Amazon.Imagebuilder.Model.WorkflowConfiguration]@{
+        WorkflowArn   = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/test/{{my-performance-test}}/1.0.0"
+        OnFailure     = "CONTINUE"
+        ParallelGroup = "functional"
+    }
+)
+
+New-EC2IBImagePipeline -Name {{my-pipeline-with-scanning}} `
+    -Description "{{Pipeline with vulnerability scanning and custom workflows}}" `
+    -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-recipe}}/1.0.0 `
+    -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-infra-config}} `
+    -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-dist-config}} `
+    -ImageScanningConfiguration_ImageScanningEnabled $true `
+    -Workflow $workflows `
+    -ExecutionRole arn:aws:iam::{{111122223333}}:role/{{image-builder-execution-role}} `
+    -LoggingConfiguration_ImageLogGroupName /aws/imagebuilder/{{my-pipeline-image-logs}} `
+    -LoggingConfiguration_PipelineLogGroupName /aws/imagebuilder/{{my-pipeline-execution-logs}} `
+    -ImageTestsConfiguration_ImageTestsEnabled $true `
+    -ImageTestsConfiguration_TimeoutMinute 60 `
+    -Schedule_ScheduleExpression "rate(7 days)" `
+    -Schedule_PipelineExecutionStartCondition EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE `
+    -Status ENABLED
+```
+
+------
+
 **Example: Create a pipeline with an on-demand AMI scan**  
 This example configures a pipeline that requests an on-demand AMI scan of the output AMI on each run. The image fails if the AMI has a finding with a fix available that's more severe than `HIGH`. For more information about on-demand AMI scans, see [Scan output AMIs with on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan).
+
+------
+#### [ AWS CLI ]
 
 1. 
 
 **Create a configuration file**
 
-   Create a JSON file named `create-pipeline-with-ami-scan.json` with the following content. Replace the placeholder values with your own resource ARNs.
+   Create a JSON file named `create-pipeline-with-ami-scan.json` with the following content. Replace the placeholder values with your own resource ARNs:
 
    ```
    {
@@ -169,5 +256,28 @@ The path for the JSON file should follow the appropriate convention for the base
    ```
    aws imagebuilder create-image-pipeline --cli-input-json file://{{create-pipeline-with-ami-scan.json}}
    ```
+
+------
+#### [ PowerShell ]
+
+In Tools for PowerShell, the nested `imageScanningConfiguration` settings use flattened parameters. For example, `imageScanningConfiguration.scanResultCondition.maximumSeverityLabel` becomes `ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel`. The `imageScanningTypes` list becomes the `ImageScanningConfiguration_ImageScanningType` parameter.
+
+**Note**  
+The `ImageScanningConfiguration_ImageScanningType` and `ImageScanningConfiguration_ScanResultCondition_*` parameters require `AWS.Tools.Imagebuilder` 5.0.331 or later.
+
+The following example shows how to use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet to create the pipeline with the same settings as the AWS CLI example:
+
+```
+New-EC2IBImagePipeline -Name {{my-ami-scan-pipeline}} `
+    -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-recipe}}/1.0.0 `
+    -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-infra-config}} `
+    -ImageTestsConfiguration_ImageTestsEnabled $true `
+    -ImageScanningConfiguration_ImageScanningEnabled $true `
+    -ImageScanningConfiguration_ImageScanningType ON_DEMAND_AMI_CVE `
+    -ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel {{HIGH}} `
+    -ImageScanningConfiguration_ScanResultCondition_FixAvailable {{$true}}
+```
+
+------
 
 You don't need to list the `test-ami-scan` workflow. Image Builder adds it on each pipeline run. To change how long the workflow waits for the scan, list it in `workflows` and set its `WaitForAmiScanTimeoutSeconds` parameter. If you specify `workflows` without a build workflow, the scan targets the parent AMI of the recipe. Your account must own that AMI. For the workflow parameters, see [AMI scan managed workflow (test-ami-scan)](manage-image-workflows.md#managed-workflow-test-ami-scan). For all scanning fields, see [Create custom images with Image Builder](create-images.md).

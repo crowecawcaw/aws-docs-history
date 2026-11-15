@@ -245,12 +245,15 @@ To create distribution settings in the Image Builder console, follow these steps
 
 1. Continue specifying any additional settings that you require, and choose **Create settings** to create your new distribution settings resource.
 
-## Configure cross-account distribution for an Image Builder AMI from the AWS CLI
+## Configure cross-account distribution for an Image Builder AMI from the AWS CLI or Tools for PowerShell
 <a name="cross-account-dist-cli-ami-create"></a>
 
-This section describes how to configure a distribution settings file and use the **create-image** command in the AWS CLI to build and distribute an Image Builder AMI across accounts.
+This section describes how to configure distribution settings for cross-account distribution. You can then build and distribute an Image Builder AMI across accounts. Use the **create-image** command in the AWS CLI or the [New-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImage.html) cmdlet in AWS Tools for PowerShell.
 
-Configuring cross-account distribution requires specific IAM permissions. You must complete the [Prerequisites for cross-account AMI distribution](#cross-account-dist-prereqs) for this section before you run the **create-image** command.
+Configuring cross-account distribution requires specific IAM permissions. You must complete the [Prerequisites for cross-account AMI distribution](#cross-account-dist-prereqs) for this section before you run the **create-image** command or the `New-EC2IBImage` cmdlet.
+
+------
+#### [ AWS CLI ]
 
 1. 
 
@@ -258,7 +261,7 @@ Configuring cross-account distribution requires specific IAM permissions. You mu
 
    Before you use the **create-image** command in the AWS CLI to create an Image Builder AMI that is distributed to another account, you must create a `DistributionConfiguration` JSON structure that specifies the target account IDs in the `AmiDistributionConfiguration` settings. You must specify at least one `AmiDistributionConfiguration` in the source Region.
 
-   The following sample file, named `create-distribution-configuration.json`, shows configuration for cross-account image distribution in the source Region.
+   The following sample file, named `create-distribution-configuration.json`, shows configuration for cross-account image distribution in the source Region:
 
    ```
    {
@@ -267,7 +270,7 @@ Configuring cross-account distribution requires specific IAM permissions. You mu
    	"distributions": [
    		{
    			"amiDistributionConfiguration": {
-   				"targetAccountIds": ["123456789012", "987654321098"],
+   				"targetAccountIds": ["111122223333", "444455556666"],
    				"name": "Name {{ imagebuilder:buildDate }}", 
    				"description": "ImageCopy Ami Copy Configuration"
    			}, 
@@ -286,10 +289,35 @@ Configuring cross-account distribution requires specific IAM permissions. You mu
    + Attach the distribution configuration JSON file you created in the `--cli-input-json` parameter.
 
    ```
-   aws imagebuilder create-distribution-configuration --name {{my distribution name}} --cli-input-json file://{{create-distribution-configuration.json}}
+   aws imagebuilder create-distribution-configuration --name {{my-distribution-name}} --cli-input-json file://{{create-distribution-configuration.json}}
    ```
 **Note**  
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
 *You can also provide JSON directly in the command, using the `--distributions` parameter.*
+
+------
+#### [ PowerShell ]
+
+Tools for PowerShell doesn't take a JSON input file. Instead, each top-level JSON key is a cmdlet parameter, such as `Name`, `Description`, and `Distribution`. Build each distribution as an `Amazon.Imagebuilder.Model.Distribution` object. The `TargetAccountIds` property of the `AmiDistributionConfiguration` object takes an array of target account IDs.
+
+The following example shows how to use the [New-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBDistributionConfiguration.html) cmdlet to create distribution settings for cross-account image distribution in the source Region:
+
+```
+Import-Module AWS.Tools.Imagebuilder
+$distribution = [Amazon.Imagebuilder.Model.Distribution]@{
+    Region = "us-west-2"
+    AmiDistributionConfiguration = [Amazon.Imagebuilder.Model.AmiDistributionConfiguration]@{
+        TargetAccountIds = @("111122223333", "444455556666")
+        Name = "Name {{ imagebuilder:buildDate }}"
+        Description = "ImageCopy Ami Copy Configuration"
+    }
+}
+
+New-EC2IBDistributionConfiguration -Name "{{my-distribution-name}}" `
+    -Description "Cross Account Distribution Configuration Example" `
+    -Distribution $distribution
+```
+
+------

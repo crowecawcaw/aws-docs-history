@@ -8,14 +8,12 @@ EC2 Image Builder integrates with AWS services for monitoring and troubleshootin
 For advanced troubleshooting, you can run predefined commands and scripts using [AWS Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html).
 
 **Tip**  
-You can use the Troubleshoot feature, powered by AWS DevOps Agent, to diagnose failed builds and get AI-powered root cause analysis with remediation steps. For more information, see [Troubleshoot failed builds with AI - Preview](devops-agent-troubleshooting.md).
+You can use the Troubleshoot feature, powered by AWS DevOps Agent, to diagnose failed builds and get AI-powered root cause analysis with remediation steps. For more information, see [Troubleshoot failed builds with AI](devops-agent-troubleshooting.md). If you work in a terminal or IDE, your own AI coding agent can diagnose failed builds with the Image Builder skill. For more information, see [Use Image Builder with an AI coding agent](agent-toolkit-skill.md).
 
 **Topics**
 + [Troubleshoot pipeline builds](#troubleshooting-pipelines)
 + [Find the cause of a failed image build with failure context](image-failure-context.md)
 + [Troubleshooting scenarios](#image-builder-troubleshooting-scenarios)
-+ [Troubleshoot failed builds with AI - Preview](devops-agent-troubleshooting.md)
-+ [Troubleshoot builds with an AI coding agent](agent-toolkit-skill.md)
 
 ## Troubleshoot pipeline builds
 <a name="troubleshooting-pipelines"></a>
@@ -260,3 +258,6 @@ When you retry a failed image or run the pipeline again, Image Builder starts a 
   + `INTERNAL_ERROR` – Retry the image.
 + **The scan results weren't available** – Retry the image. If the problem continues, contact Support.
 + **The AMI breached the scan result condition** – To review the findings, call the Amazon EC2 [GetImageFindings](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageFindings.html) API action with the AMI ID from the failure message. Remediate the findings, for example, by updating your components or the parent image. Alternatively, change the scan result condition. For more information, see [Scan result conditions](integ-inspector.md#integ-inspector-ami-scan-condition).
+
+**Tip**  
+If none of these scenarios match your failure, you can start an AI-powered investigation that analyzes your build logs, workflow steps, and related resources. For more information, see [Troubleshoot failed builds with AI](devops-agent-troubleshooting.md). If you work in a terminal or IDE, your own AI coding agent can run the same kind of diagnosis with the Image Builder skill. For more information, see [Use Image Builder with an AI coding agent](agent-toolkit-skill.md).

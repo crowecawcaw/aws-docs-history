@@ -3,14 +3,14 @@
 # Configure custom images with Image Builder
 <a name="manage-resources"></a>
 
-Configuration resources are the building blocks that make up image pipelines, as well as the images those pipelines produce. This chapter covers creating, maintaining, and sharing Image Builder resources, including components, recipes, and images, along with infrastructure configuration and distribution settings.
+Configuration resources are the building blocks that make up image pipelines, as well as the images those pipelines produce. This chapter covers creating and maintaining Image Builder resources, including components, recipes, and images, along with infrastructure configuration and distribution settings.
 
 **Note**  
 To help you manage your Image Builder resources, you can assign your own metadata to each resource in the form of tags. You use tags to categorize your AWS resources in different ways; for example, by purpose, owner, or environment. This is useful when you have many resources of the same type. You can more readily identify a specific resource based on the tags you've assigned to it.  
 For more information about tagging your resources using Image Builder commands in the AWS CLI, see the [Tag resources](tag-resources.md) section of this guide.
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 **Topics**
 + [Manage recipes in Image Builder](manage-recipes.md)

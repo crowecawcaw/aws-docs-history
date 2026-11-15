@@ -12,7 +12,7 @@ We recommend that you configure all EC2 instances that Image Builder launches fr
 #### [ Console ]
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 To create an infrastructure configuration resource from the Image Builder console, follow these steps:
 

@@ -108,7 +108,7 @@ Example:
 + **Target repository name** – The Amazon ECR repository where your output image is stored if there is no other repository specified in your pipeline's distribution configuration for the Region where the pipeline runs (Region 1).
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 **To create a new container recipe version:**
 
@@ -152,7 +152,13 @@ Component parameters are plain text values, and are logged in AWS CloudTrail. We
        + **name** (string, required) – The name of the component parameter to set.
        + **value** (array of strings, required) – Contains an array of strings to set the value for the named component parameter. If there is a default value defined for the component, and no other value is provided, AWSTOE uses the default value.
    + **containerType** (string, required) – The type of container to create. Valid values include `DOCKER`.
-   + **dockerfileTemplateData** (string) – The inline Dockerfile template for building your image. Inline data is limited to 16,000 characters. You must specify either `dockerfileTemplateData` or `dockerfileTemplateUri`, but not both.
+   + **dockerfileTemplateData** (string) – The inline Dockerfile template for building your image. Inline data is limited to 16,000 characters. You can specify either `dockerfileTemplateData` or `dockerfileTemplateUri`, but not both. If you omit both, Image Builder creates the recipe with the following default template, which references your base image, environment settings, and components:
+
+     ```
+     FROM {{{ imagebuilder:parentImage }}}
+     {{{ imagebuilder:environments }}}
+     {{{ imagebuilder:components }}}
+     ```
 
      Your Dockerfile template can include contextual variables (placeholders that Image Builder replaces with build information at runtime). Include at least the `parentImage` variable. If your recipe includes components, also include the `environments` variable and the `components` variable.  
 **parentImage (required)**  
@@ -330,7 +336,7 @@ Review the following constraints before you create a container recipe:
 + AWS Marketplace components aren't supported in container recipes.
 + Components are optional. You can customize the output image with BUILD components, with instructions in your Dockerfile template (for example, `RUN` or `COPY` statements), or both. TEST components validate the image but don't modify it.
 + Container recipes don't support the macOS platform.
-+ For the Dockerfile template, provide either inline data (up to 16,000 characters) or an Amazon S3 URI. You can't specify both.
++ For the Dockerfile template, provide either inline data (up to 16,000 characters) or an Amazon S3 URI. You can't specify both. If you omit both, Image Builder creates the recipe with the default template.
 + The cumulative recipe size can't exceed 25 KB. If you receive a size error, reduce the number of component parameters or shorten parameter values. This limit is separate from the Dockerfile template size limits.
 + When you set `platformOverride` to `Windows`, you must also specify `imageOsVersionOverride`. This applies to any non-Image Builder parent image, such as an Amazon ECR image or a Docker Hub image.
 
@@ -344,7 +350,7 @@ The following table lists common errors that you might encounter when you create
 | --- | --- | --- | 
 | "Container Recipes must not contain marketplace components" | A AWS Marketplace component in a container recipe. | Use only non-AWS Marketplace components. | 
 | "Container recipes don't currently support the macOS platform" | platformOverride is set to macOS. | Use Linux or Windows. | 
-| "You must specify either dockerfileTemplateData or a dockerfileTemplateUri" | You specified both or neither. | Provide exactly one. | 
+| "You must specify either dockerfileTemplateData or a dockerfileTemplateUri" | You specified both properties. | Provide only one. If you omit both, Image Builder uses the default Dockerfile template. | 
 | "Invalid S3 URI" | A malformed Amazon S3 path in dockerfileTemplateUri. | Use the format s3://{{bucket}}/{{key}}. | 
 | "You cannot specify a platform override when using an Image Builder Image as your parent" | platformOverride with an Image Builder image ARN. | Remove platformOverride. Image Builder detects the platform from the parent image metadata. | 
 | "You must specify an image OsVersion override when using ECR Repositories as your parent image for Windows Platform" | A Windows platformOverride without an OS version. | Add the imageOsVersionOverride field. | 

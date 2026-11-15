@@ -27,16 +27,16 @@ To see a list of the distribution configurations created under your account in t
 ------
 #### [ AWS CLI ]
 
-The following example shows how to use the [list-distribution-configurations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-distribution-configurations.html) command in the AWS CLI to list all of your distribution configurations.
+The following example shows how to use the [list-distribution-configurations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-distribution-configurations.html) command in the AWS CLI to list all of your distribution configurations:
 
 ```
 aws imagebuilder list-distribution-configurations
 ```
 
-You can filter the list by distribution configuration `name`, which is the only supported filter. To page through results, use the `--page-size`, `--max-items`, and `--starting-token` options. The `--page-size` value can't exceed 25.
+You can filter the list by distribution configuration `name`, which is the only supported filter. To page through results, use the `--page-size`, `--max-items`, and `--starting-token` options. The `--page-size` value can't exceed 100. The following example filters the list by name:
 
 ```
-aws imagebuilder list-distribution-configurations --filters name=name,values={{MyExampleDistribution}}
+aws imagebuilder list-distribution-configurations --filters name=name,values={{my-example-distribution}}
 ```
 
 ------
@@ -46,6 +46,12 @@ The following example shows how to use the [Get-EC2IBDistributionConfigurationLi
 
 ```
 Get-EC2IBDistributionConfigurationList
+```
+
+You can filter the list by distribution configuration `name`, which is the only supported filter. By default, the cmdlet retrieves all pages of results. To get one page at a time, use the `NoAutoIteration`, `MaxResult`, and `NextToken` parameters. The `MaxResult` value can't exceed 100. The following example filters the list by name:
+
+```
+Get-EC2IBDistributionConfigurationList -Filter @{Name="name";Values="{{my-example-distribution}}"}
 ```
 
 ------
@@ -73,19 +79,19 @@ On the distribution detail page, you can also **Edit** the distribution details,
 ------
 #### [ AWS CLI ]
 
-The following example shows how to use the [get-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-distribution-configuration.html) command in the AWS CLI to get the details of a distribution configuration by specifying its ARN.
+The following example shows how to use the [get-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-distribution-configuration.html) command in the AWS CLI to get the details of a distribution configuration by specifying its Amazon Resource Name (ARN):
 
 ```
-aws imagebuilder get-distribution-configuration --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}
+aws imagebuilder get-distribution-configuration --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}}
 ```
 
 ------
 #### [ PowerShell ]
 
-The following example shows how to use the [Get-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBDistributionConfiguration.html) cmdlet to get the details of a distribution configuration by specifying its ARN:
+The following example shows how to use the [Get-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBDistributionConfiguration.html) cmdlet to get the details of a distribution configuration by specifying its Amazon Resource Name (ARN):
 
 ```
-Get-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}
+Get-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}}
 ```
 
 ------
@@ -93,7 +99,7 @@ Get-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebu
 ## Delete a distribution configuration
 <a name="delete-distribution-config"></a>
 
-Delete a distribution configuration from the AWS Management Console or the AWS CLI.
+Delete a distribution configuration from the AWS Management Console, the AWS CLI, or AWS Tools for PowerShell.
 
 **Note**  
 You can't delete a distribution configuration that an image pipeline still references. Update or delete the pipeline first. For more information about deleting resources in Image Builder, see [Delete outdated or unused Image Builder resources](delete-resources.md).
@@ -114,10 +120,19 @@ To delete a distribution configuration in the Image Builder console, follow thes
 ------
 #### [ AWS CLI ]
 
-The following example shows how to use the [delete-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/delete-distribution-configuration.html) command to delete a distribution configuration by specifying its ARN.
+The following example shows how to use the [delete-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/delete-distribution-configuration.html) command to delete a distribution configuration by specifying its ARN:
 
 ```
-aws imagebuilder delete-distribution-configuration --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}
+aws imagebuilder delete-distribution-configuration --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}}
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBDistributionConfiguration.html) cmdlet to delete a distribution configuration by specifying its ARN:
+
+```
+Remove-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}}
 ```
 
 ------

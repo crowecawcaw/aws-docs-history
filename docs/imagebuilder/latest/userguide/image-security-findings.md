@@ -6,9 +6,9 @@
 Image Builder integrates with Amazon Inspector to scan the images that you build for software vulnerabilities. Amazon Inspector is a paid service.
 
 Image Builder supports the following scan types. An AMI image or AMI pipeline uses one scan type, and you can't combine the two AMI scan types.
-+ **Test instance scan** (`TEST_INSTANCE_CVE`) – For AMI images. Amazon Inspector scans the test instance that Image Builder launches during the test stage, and Image Builder saves a copy of the findings with your image. You can view the findings on the **Security findings** pages of the Image Builder console, or with the **ListImageScanFindings** API action. This scan type requires that Amazon Inspector is activated for your account. It's the default scan type for AMI images.
-+ **On-demand AMI scan** (`ON_DEMAND_AMI_CVE`) – For AMI images. Amazon Inspector scans the output AMI that the build creates. This scan type doesn't require Amazon Inspector activation. You can set a scan result condition that fails the image if the AMI has findings that are more severe than you allow. You can view the results for the AMI on the Amazon EC2 console. For more information, see [Scan output AMIs with on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan).
-+ **Container image scan** – For container images. Amazon Inspector scans a copy of your container image that Image Builder pushes to Amazon ECR, and Image Builder saves a copy of the findings with your image. The findings appear in the same places as test instance scan findings. This scan type requires that Amazon Inspector is activated for Amazon ECR in your account.
++ **Test instance scan** (`TEST_INSTANCE_CVE`) – For AMI images. Amazon Inspector scans the test instance that Image Builder launches during the test stage, and Image Builder saves a copy of the findings with your image. You can view the findings on the **Security findings** pages of the Image Builder console, or with the **ListImageScanFindings** API action (filter by image build version or pipeline to scope the results). This scan type requires that Amazon Inspector is activated for your account in the AWS Region where you build the image. It's the default scan type for AMI images.
++ **On-demand AMI scan** (`ON_DEMAND_AMI_CVE`) – For AMI images. Amazon Inspector scans the output AMI that the build creates. We recommend that you use this scan type for AMI images. It doesn't require Amazon Inspector activation. You can set a scan result condition that fails the image if the AMI has findings that are more severe than you allow. You can view the results for the AMI on the Amazon EC2 console. For more information, see [Scan output AMIs with on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan).
++ **Container image scan** – For container images. Amazon Inspector scans a copy of your container image that Image Builder pushes to Amazon ECR, and Image Builder saves a copy of the findings with your image. The findings appear in the same places as test instance scan findings. This scan type requires that Amazon Inspector is activated for Amazon ECR in your account in the AWS Region where you build the image.
 
 The information in this topic about findings management, retention, and scan status applies to test instance scans and container image scans, because Image Builder saves the findings for these scan types. For the results of an on-demand AMI scan, see [View on-demand AMI scan results](integ-inspector.md#integ-inspector-ami-scan-results).
 
@@ -31,14 +31,14 @@ For test instance scans and container image scans, Image Builder saves a copy of
 
 In the AWS Management Console, you choose the scan type in the settings of an image pipeline. The console doesn't offer scan settings for images that you create outside a pipeline. To configure scanning with the AWS CLI or the Image Builder API, see the image scanning settings in [Create custom images with Image Builder](create-images.md), and the pipeline examples in [Create an AMI image pipeline from the AWS CLI](cli-create-image-pipeline.md).
 
-**Step 1: Activate Amazon Inspector security scans for your account**  
-Test instance scans and container image scans require that Amazon Inspector is activated for your account. On-demand AMI scans don't. If you use only on-demand AMI scans, skip to Step 2. To activate Amazon Inspector from the Image Builder console, follow these steps:
+**Step 1: Activate Amazon Inspector security scans in the build Region**  
+Test instance scans and container image scans require that Amazon Inspector is activated for your account in the AWS Region where you build your image. Amazon Inspector activation is Regional, not account-wide. On-demand AMI scans don't require activation. If you use only on-demand AMI scans, skip to Step 2. To activate Amazon Inspector from the Image Builder console, follow these steps:
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/).
 
 1. Choose **Security scanning settings** from the navigation pane.
 
-   The **Security scanning settings** page shows whether **EC2 security scanning** and **ECR security scanning** are enabled for your account.
+   The **Security scanning settings** page shows whether **EC2 security scanning** and **ECR security scanning** are enabled for your account in the current AWS Region.
 
 1. Choose **Launch Amazon Inspector** to open the Amazon Inspector account management page.
 
@@ -63,8 +63,8 @@ To choose the scan type when you create or edit a pipeline, follow these steps:
    + To update a pipeline, select the checkbox next to the pipeline name, and then choose **Edit pipeline** from the **Actions** menu.
 
 1. In the **Advanced settings** section, choose the scan type:
-   + For an AMI image recipe, for **EC2 image scanning**, choose **Instance scan** or **On-demand AMI scan**. To turn off scanning, choose **Disabled**. **Instance scan** is available only when Amazon Inspector is activated for Amazon EC2 in your account.
-   + For a container recipe, for **ECR container scanning**, choose **Enabled**. This setting is available only when Amazon Inspector is activated for Amazon ECR in your account.
+   + For an AMI image recipe, for **EC2 image scanning**, choose **Instance scan** or **On-demand AMI scan**. To turn off scanning, choose **Disabled**. **Instance scan** is available only when Amazon Inspector is activated for Amazon EC2 in your account in the current AWS Region.
+   + For a container recipe, for **ECR container scanning**, choose **Enabled**. This setting is available only when Amazon Inspector is activated for Amazon ECR in your account in the current AWS Region.
 
 1. If you chose **On-demand AMI scan**, set the following options:
    + For **Maximum allowed severity**, choose the most severe finding that the image can have: **High**, **Medium**, **Low**, or **Informational**. If the AMI has a more severe finding, the image fails. A critical finding always fails the image. The exception is a critical finding that has no fix available when you count only findings that have a fix. To scan without failing the image, choose **Any severity (don't fail the build)**, which is the default. With this choice, the pipeline has no scan result condition.
@@ -165,7 +165,7 @@ Image Builder treats the following Amazon Inspector reasons as terminal. When Am
 If the scan doesn't reach a terminal state in time, Image Builder sets the image scan status to `FAILED` with the reason `UNKNOWN`. By default, Image Builder waits 15 minutes for the scan. If the `CollectImageScanFindings` step sets `timeoutSeconds`, that value limits the whole step instead, including the wait for the scan. When the default wait ends, Image Builder also writes a message to the image's log group in CloudWatch Logs that says the image scan didn't finish. For the log group names, see [Monitor Image Builder logs with Amazon CloudWatch Logs](monitor-cwlogs.md).
 
 The scan also ends this way in the following cases, because Amazon Inspector reports no coverage for the resource:
-+ Amazon Inspector isn't activated for your account when the build runs.
++ Amazon Inspector isn't activated for your account in the build Region when the build runs.
 + The scanned resource is terminated before the scan completes.
 
 **Failed scans can't be repeated**  

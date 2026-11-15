@@ -5,7 +5,7 @@
 
 Before you configure distribution settings for your output images, we recommend that you verify availability for any underlying infrastructure or other requirements for instances that are launched from your output image in the distribution target Regions. For example, not all Regions support EC2 Mac Dedicated Hosts, which are required to launch instances from a macOS image. For more information about instance types and pricing for Dedicated Hosts, see [Amazon EC2 Dedicated Hosts Pricing](https://aws.amazon.com/ec2/dedicated-hosts/pricing/).
 
-A *distribution configuration* is a reusable resource that tells Image Builder where and how to deliver the output images that a build produces. You can attach one distribution configuration to a pipeline or to a **CreateImage** request, and you must specify one in a **DistributeImage** request. You manage distribution configurations from the Image Builder console, the Image Builder API, or **imagebuilder** commands in the AWS CLI. With a distribution configuration, Image Builder can perform the following actions:
+A *distribution configuration* is a reusable resource that tells Image Builder where and how to deliver the output images that a build produces. You can attach one distribution configuration to a pipeline or to a **CreateImage** request, and you must specify one in a **DistributeImage** request. You manage distribution configurations from the Image Builder console, the Image Builder API, **imagebuilder** commands in the AWS CLI, or AWS Tools for PowerShell. With a distribution configuration, Image Builder can perform the following actions:
 
 **AMI distribution**
 + Specify the name and description of your output AMI.
@@ -15,8 +15,8 @@ To make an AMI public, set the launch permission authorized accounts to `all`. F
 **Important**  
 You cannot make AMIs with watermarks public. If your image recipe includes watermarks, or if the source AMI has watermarks attached, you cannot set launch permissions to public. Image Builder rejects the distribution configuration. Watermarks propagate automatically when you copy or distribute an AMI across Regions or accounts. For more information, see [Track AMI lineage with watermarks](ami-watermarks.md).
 + Copy the output AMI into each target account that you specify in the destination Region. Each target account owns its copy of the AMI, and is billed for any associated charges. Organizations and OUs don't receive copies. To give them access, grant launch permission instead.
-+ Copy the AMI to the owner's account in other AWS Regions. In a Region other than the one where the build runs, Image Builder copies the AMI to the owner's account only if you omit `targetAccountIds` or include the owner's account ID in it.
-+ Export VM image disks to Amazon Simple Storage Service (Amazon S3). For more information, see [Example: Create distribution settings for output VM disks from the AWS CLI](cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config).
++ Copy the AMI to the owner's account in other AWS Regions. In a Region other than the one where the build runs, Image Builder copies the AMI to the owner's account only if you omit `targetAccountIds` or include the owner's account ID in it. If your image uses an on-demand AMI scan, Amazon Inspector scans only the AMI in the build Region, not the copies. For more information, see [Requirements and limitations for on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan-limits).
++ Export VM image disks to Amazon Simple Storage Service (Amazon S3). For more information, see [Example: Create distribution settings for output VM disks](cr-upd-ami-distribution-settings.md#cli-create-vm-dist-config).
 
 **Container image distribution**
 + Specify the ECR repository where Image Builder stores the output image in the distribution Region.
@@ -24,9 +24,10 @@ You cannot make AMIs with watermarks public. If your image recipe includes water
 You can use your distribution settings in the following ways to deliver images to target Regions, accounts, AWS Organizations and organizational units (OUs) one time, or with every pipeline build:
 + To automatically deliver updated images to specified Regions, accounts, Organizations, and OUs, use distribution settings with an Image Builder pipeline that runs on a schedule.
 + To create a new image and deliver it to the specified Regions, accounts, Organizations, and OUs, use distribution settings with an Image Builder pipeline that you run one time from the Image Builder console, using **Run pipeline** from the **Actions** menu.
-+ To create a new image and deliver it to the specified Regions, accounts, Organizations, and OUs, use distribution settings with the following API action or Image Builder command in the AWS CLI:
++ To create a new image and deliver it to the specified Regions, accounts, Organizations, and OUs, use distribution settings. Use them with one of the following Image Builder API actions, AWS CLI commands, or Tools for PowerShell cmdlets:
   + The [CreateImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImage.html) action in the Image Builder API.
   + The [create-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html) command in the AWS CLI.
+  + The [New-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImage.html) cmdlet in AWS Tools for PowerShell.
 + To export virtual machine (VM) image disks to S3 buckets in target Regions as part of your regular image build process.
 
 **Tip**  

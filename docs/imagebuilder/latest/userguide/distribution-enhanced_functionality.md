@@ -44,46 +44,80 @@ To distribute an existing image in the Image Builder console, follow these steps
 ------
 #### [ AWS CLI ]
 
-The following examples show how to distribute an existing image with the [distribute-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/distribute-image.html) command. You can specify the `--execution-role` by role name or by full ARN; the following examples show both forms.
+The following examples show how to distribute an existing image with the [distribute-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/distribute-image.html) command. You can set the `--execution-role` option to a role name or a full ARN. The following examples show both forms.
 
 **Distribute from an AMI ID**  
-
+The following example distributes an image that you specify by AMI ID:
 
 ```
 aws imagebuilder distribute-image \
     --source-image ami-0abcdef1234567890 \
-    --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-distribution}} \
-    --execution-role arn:aws:iam::{{123456789012}}:role/{{MyImageBuilderDistributionRole}}
+    --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-distribution}} \
+    --execution-role arn:aws:iam::{{111122223333}}:role/{{my-image-builder-distribution-role}}
 ```
 
 **Distribute from an SSM parameter**  
-
+The following example distributes the image that an SSM parameter references:
 
 ```
 aws imagebuilder distribute-image \
     --source-image ssm:{{/golden/latest-ami}} \
-    --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-distribution}} \
-    --execution-role {{MyImageBuilderDistributionRole}}
+    --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-distribution}} \
+    --execution-role {{my-image-builder-distribution-role}}
 ```
 
 **Distribute from an Image Builder image version ARN**  
-This example uses a build version ARN. You can also omit the trailing build number (`/1`) to distribute the latest build of that image version.
+You can omit the trailing build number (`/1`) to distribute the latest build of that image version. The following example distributes an image that you specify by build version ARN:
 
 ```
 aws imagebuilder distribute-image \
-    --source-image arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-image}}/1.0.0/1 \
-    --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-distribution}} \
-    --execution-role {{MyImageBuilderDistributionRole}}
+    --source-image arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-image}}/1.0.0/1 \
+    --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-distribution}} \
+    --execution-role {{my-image-builder-distribution-role}}
 ```
 
-The command returns the `imageBuildVersionArn` for the distribution. Track its progress the same way you track a build – see [List images and build versions](image-details-list.md).
+The command returns the `imageBuildVersionArn` for the distribution. Track its progress the same way that you track a build. For more information, see [List images and build versions](image-details-list.md).
+
+------
+#### [ PowerShell ]
+
+The following examples show how to distribute an existing image with the [Start-EC2IBImageDistribution](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-EC2IBImageDistribution.html) cmdlet. You can set the `ExecutionRole` parameter to a role name or a full ARN. The following examples show both forms.
+
+**Distribute from an AMI ID**  
+The following example distributes an image that you specify by AMI ID:
+
+```
+Start-EC2IBImageDistribution -SourceImage ami-0abcdef1234567890 `
+    -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-distribution}} `
+    -ExecutionRole arn:aws:iam::{{111122223333}}:role/{{my-image-builder-distribution-role}}
+```
+
+**Distribute from an SSM parameter**  
+The following example distributes the image that an SSM parameter references:
+
+```
+Start-EC2IBImageDistribution -SourceImage ssm:{{/golden/latest-ami}} `
+    -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-distribution}} `
+    -ExecutionRole {{my-image-builder-distribution-role}}
+```
+
+**Distribute from an Image Builder image version ARN**  
+You can omit the trailing build number (`/1`) to distribute the latest build of that image version. The following example distributes an image that you specify by build version ARN:
+
+```
+Start-EC2IBImageDistribution -SourceImage arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-image}}/1.0.0/1 `
+    -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-distribution}} `
+    -ExecutionRole {{my-image-builder-distribution-role}}
+```
+
+The cmdlet returns the image build version ARN for the distribution. Track its progress the same way that you track a build. For more information, see [List images and build versions](image-details-list.md).
 
 ------
 
 ## Retry a failed image
 <a name="distribution-retry"></a>
 
-If an image fails during its test or distribution phase, use the [retry-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/retry-image.html) command (the **RetryImage** API) to rerun the image from the start of the phase that failed. Steps in that phase run again. If an AMI copy from the earlier attempt is still available in a target Region and account, Image Builder reuses it instead of copying the AMI again. Image Builder reuses the original execution role, distribution configuration, and settings, so you don't rebuild the image. The retry assumes the same execution role, so any permission fixes that you make to that role apply to the retry.
+If an image fails during its test or distribution phase, you can rerun it from the start of the phase that failed. To do this, use the [retry-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/retry-image.html) command, the [Start-EC2IBImageRetry](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-EC2IBImageRetry.html) cmdlet, or the **RetryImage** API action. Steps in that phase run again. If an AMI copy from the earlier attempt is still available in a target Region and account, Image Builder reuses it instead of copying the AMI again. Image Builder reuses the original execution role, distribution configuration, and settings, so you don't rebuild the image. The retry assumes the same execution role, so any permission fixes that you make to that role apply to the retry.
 
 **Prerequisites**  
 Before you retry a failed image, verify the following. A retry counts against your concurrent image build quota, and Image Builder rejects the retry if you've already reached that quota.
@@ -113,7 +147,16 @@ Provide the image build version ARN of the failed image:
 
 ```
 aws imagebuilder retry-image \
-    --image-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-image}}/1.0.0/1
+    --image-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-image}}/1.0.0/1
+```
+
+------
+#### [ PowerShell ]
+
+To retry a failed image with the [Start-EC2IBImageRetry](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-EC2IBImageRetry.html) cmdlet, provide the image build version ARN of the failed image:
+
+```
+Start-EC2IBImageRetry -ImageBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-image}}/1.0.0/1
 ```
 
 ------

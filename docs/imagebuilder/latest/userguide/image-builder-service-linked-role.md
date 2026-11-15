@@ -16,14 +16,14 @@ Image Builder uses the **AWSServiceRoleForImageBuilder** service-linked role to 
 
 The service-linked role includes the permissions for on-demand AMI scans. Image Builder uses the service-linked role for the scan if you don't specify an execution role for the image. For more information, see [Permissions for on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan-permissions).
 
-You don't need to manually create this service-linked role. When you create your first Image Builder image in the AWS Management Console, the AWS CLI, or the AWS API, Image Builder creates the service-linked role for you.
+You don't need to manually create this service-linked role. Image Builder creates the service-linked role for you when you create your first Image Builder image. This applies whether you use the AWS Management Console, the AWS CLI, AWS Tools for PowerShell, or the AWS API.
 
 The following actions create a new image:
 + Run the pipeline wizard in the Image Builder console to create a custom image.
-+ Use one of the following API actions, or its corresponding AWS CLI command:
-  + The [CreateImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImage.html) API action ([create-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html) in the AWS CLI).
-  + The [ImportVmImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportVmImage.html) API action ([import-vm-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/import-vm-image.html) in the AWS CLI).
-  + The [StartImagePipelineExecution](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartImagePipelineExecution.html) API action ([start-image-pipeline-execution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/start-image-pipeline-execution.html) in the AWS CLI).
++ Use one of the following API actions, or its corresponding AWS CLI command or Tools for PowerShell cmdlet:
+  + The [CreateImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImage.html) API action ([create-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html) in the AWS CLI, [New-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImage.html) in Tools for PowerShell).
+  + The [ImportVmImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportVmImage.html) API action ([import-vm-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/import-vm-image.html) in the AWS CLI, [Import-EC2IBVmImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Import-EC2IBVmImage.html) in Tools for PowerShell).
+  + The [StartImagePipelineExecution](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartImagePipelineExecution.html) API action ([start-image-pipeline-execution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/start-image-pipeline-execution.html) in the AWS CLI, [Start-EC2IBImagePipelineExecution](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-EC2IBImagePipelineExecution.html) in Tools for PowerShell).
 
 **Important**  
 If the service-linked role is deleted from your account, you can use the same process to create it again. When you create your first EC2 Image Builder resource, Image Builder creates the service-linked role for you again.
@@ -33,23 +33,39 @@ To see permissions for the **AWSServiceRoleForImageBuilder**, see the [AWSServic
 ## Removing an Image Builder service-linked role from your account
 <a name="image-builder-slr-deleting"></a>
 
-You can use the IAM console, the AWS CLI, or the AWS API to manually remove the service-linked role for Image Builder from your account. However, before you do this, you must ensure that there are no Image Builder resources enabled that refer to it.
+To remove the Image Builder service-linked role from your account, use the IAM console, the AWS CLI, AWS Tools for PowerShell, or the AWS API. However, before you do this, you must ensure that there are no Image Builder resources enabled that refer to it.
 
 **Note**  
 If the Image Builder service is using the role when you try to delete the resources, the deletion might fail. If that happens, wait for a few minutes and try the operation again.
 
 **Clean up Image Builder resources used by the `AWSServiceRoleForImageBuilder` role**
 
-1. Verify that no pipeline builds are running before you start. To cancel a running build, use the `cancel-image-creation` command from the AWS CLI.
+1. Verify that no pipeline builds are running before you start.
+
+------
+#### [ AWS CLI ]
+
+   To cancel a running build, use the [cancel-image-creation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/cancel-image-creation.html) command:
 
    ```
    aws imagebuilder cancel-image-creation --image-build-version-arn {{arn:aws:imagebuilder:us-east-1:123456789012:image/sample-image/1.0.0/1}}
    ```
 
+------
+#### [ PowerShell ]
+
+   To cancel a running build, use the [Stop-EC2IBImageCreation](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2IBImageCreation.html) cmdlet:
+
+   ```
+   Stop-EC2IBImageCreation -ImageBuildVersionArn {{arn:aws:imagebuilder:us-east-1:123456789012:image/sample-image/1.0.0/1}}
+   ```
+
+------
+
 1. Change all pipeline schedules to use a manual build process, or delete them if you won't be using them again. For more information about deleting resources, see [Delete outdated or unused Image Builder resources](delete-resources.md).
 
 **Delete the service-linked role using IAM**  
-You can use the IAM console, the AWS CLI, or the AWS API to delete the `AWSServiceRoleForImageBuilder` role from your account. For more information, see [ Deleting a Service-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
+You can use the IAM console, the AWS CLI, AWS Tools for PowerShell, or the AWS API to delete the `AWSServiceRoleForImageBuilder` role from your account. For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#id_roles_manage_delete_slr) in the *IAM User Guide*.
 
 ## Supported Regions for Image Builder service-linked roles
 <a name="image-builder-slr-regions"></a>

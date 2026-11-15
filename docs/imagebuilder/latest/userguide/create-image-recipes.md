@@ -79,7 +79,7 @@ If you use encryption for your volumes, you must select the key for each volume 
 If you don't have an existing recipe, use the Image Builder pipeline wizard, or choose **Image recipes** from the navigation pane and then choose **Create image recipe**. The fields described in this section apply to both new recipes and new versions.
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 **To create a new image recipe version:**
 

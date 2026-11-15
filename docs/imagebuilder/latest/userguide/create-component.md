@@ -19,7 +19,7 @@ The following sections show you how to create components from the console, the A
 <a name="create-component-ib-console"></a>
 
 **Tip**  
-Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+Now you can create with AI. For more information, see [Create and update resources with AI](ai-assisted-resource-creation.md).
 
 To create an AWSTOE application component from the Image Builder console, follow these steps:
 

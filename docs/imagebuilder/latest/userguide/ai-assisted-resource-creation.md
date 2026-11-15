@@ -1,10 +1,7 @@
 
 
-# Create and update resources with AI - Preview
+# Create and update resources with AI
 <a name="ai-assisted-resource-creation"></a>
-
-**Preview feature**  
-This feature is in preview and is subject to change.
 
 Configuring EC2 Image Builder resources means working through many settings. The Create with AI feature in Image Builder, powered by AWS DevOps Agent, suggests values from a natural language description of the resource that you want to create or edit.
 

@@ -185,7 +185,7 @@ The **Security findings** tab displays the Common Vulnerabilities and Exposures 
 
 To make sure that Image Builder captures findings for your image, configure scanning as follows:
 
-1. Activate Amazon Inspector scans for your account. For more information, see [Getting started tutorial: Activating Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/getting_started_tutorial.html) in the *Amazon Inspector User Guide*.
+1. Activate Amazon Inspector scans for your account in the AWS Region where you build the image. For more information, see [Getting started tutorial: Activating Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/getting_started_tutorial.html) in the *Amazon Inspector User Guide*.
 
 1. Turn on a test instance scan or a container image scan for the pipeline that creates this image. Image Builder then saves a snapshot of the findings before the scanned resource is removed. For more information, see [Configure security scans for Image Builder images in the AWS Management Console](image-security-findings.md#image-config-security-scans)
 
