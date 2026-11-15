@@ -12,7 +12,11 @@ A subscriber's `Type` is `UNORDERED` or `FIFO`. An unordered subscriber delivers
 
 An event group belongs to the account that published it. Two accounts that publish to a shared bus with the same `EventGroupId` create two separate groups: their events are not ordered relative to each other, and they do not share a group's throughput. For the group limits, see [Custom Event Bus quotas](eb-quota.md#eb-custom-bus-quotas).
 
-Within a FIFO subscriber, an event that cannot be delivered holds up the later events in its own group while other groups continue. Keep group identifiers bounded, for example a customer identifier or an order identifier, and do not derive them from unbounded input. A FIFO target such as an Amazon SQS FIFO queue enforces its own length and character limits on the group identifier.
+Within a FIFO subscriber, a failed delivery holds up every event group, not only the group of the event that failed. One target call can carry events of several groups. If the call fails, EventBridge retries every event in it. While EventBridge retries, the subscriber reads no further events from the bus. EventBridge can still deliver other events that the subscriber had already read.
+
+Later events of every group wait until the call succeeds or its retries run out. The subscriber's `RetryPolicy` sets those limits. For the limits, and for failures that EventBridge retries without limit, see [Retry limits](eb-custom-bus-retry.md#eb-custom-bus-retry-policy).
+
+Keep group identifiers bounded, for example a customer identifier or an order identifier, and do not derive them from unbounded input. A FIFO target such as an Amazon SQS FIFO queue enforces its own length and character limits on the group identifier.
 
 A FIFO subscriber accepts `InvocationType` `EVENT` for a Lambda target, but order then holds only up to the hand-off into Lambda's asynchronous queue. Use `REQUEST_RESPONSE` for ordered processing.
 

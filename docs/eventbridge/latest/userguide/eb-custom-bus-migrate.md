@@ -24,7 +24,7 @@ Four capabilities have no Custom Event Bus - Classic equivalent, so you can use 
 + Pause and resume with a backlog
 + A second publish API for non-JSON payloads
 
-You do not have to move everything. The two buses run side by side, so a Custom Event Bus - Classic rule can target a Custom Event Bus, and a subscriber can target a Custom Event Bus - Classic. You can move one consumer or one producer at a time. See [Event bus target: bus to bus](eb-custom-bus-target-bus.md).
+You do not have to move everything. The two buses run side by side, so a Custom Event Bus - Classic rule can target a Custom Event Bus in the same Region, and a subscriber can target a Custom Event Bus - Classic. You can move one consumer or one producer at a time. See [Event bus target: bus to bus](eb-custom-bus-target-bus.md).
 
 ## What does not change
 <a name="eb-custom-bus-migrate-unchanged"></a>

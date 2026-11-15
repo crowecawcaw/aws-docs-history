@@ -16,7 +16,9 @@ Delivery stops at whichever limit is reached first.
 | MaxRetryAttempts | 0 to 185 | 5 | 
 | MaxEventAgeInSeconds | 60 to 86,400 | 300 | 
 
-The defaults are shorter than a Custom Event Bus - Classic target's 24 hours and 185 attempts. A migrated design that relied on a day of retries must set `MaxEventAgeInSeconds` to 86,400 explicitly; otherwise events that fail during a target outage longer than 5 minutes go to the dead-letter queue instead of being delivered late. For a FIFO subscriber, a failing event blocks the later events in its group for as long as it is retried, so a long retry window trades order for latency.
+The defaults are shorter than a Custom Event Bus - Classic target's 24 hours and 185 attempts. A migrated design that relied on a day of retries must set `MaxEventAgeInSeconds` to 86,400 explicitly; otherwise events that fail during a target outage longer than 5 minutes go to the dead-letter queue instead of being delivered late.
+
+For a FIFO subscriber, a failed call holds up the later events of every event group. The hold lasts until the call's events are delivered, written to the dead-letter queue, or dropped. So a long retry window keeps order at the cost of delaying all of the subscriber's events. EventBridge retries some failures inside EventBridge without limit, regardless of `RetryPolicy`. Such a failure holds up a FIFO subscriber until a retry succeeds. For more information about ordering, see [Ordering and deduplicating events on a Custom Event Bus](eb-custom-bus-ordering.md).
 
 ## The dead-letter record
 <a name="eb-custom-bus-retry-record"></a>

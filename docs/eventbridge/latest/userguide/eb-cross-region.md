@@ -15,6 +15,8 @@ You can configure EventBridge to send and receive [events](eb-events.md) between
 
 Specifying an event bus in another AWS Region as a target is part of creating the rule.
 
+You can't specify a Custom Event Bus (a bus whose ARN contains `event-busv2`) as a target in a different Region. EventBridge rejects the request. For more information, see [Event bus target: bus to bus](eb-custom-bus-target-bus.md).
+
 **To create a rule that sends events to a different AWS account using the console**
 
 1. Follow the steps in the [Creating rules using the Enhanced Builder](eb-create-rule-visual.md) procedure.

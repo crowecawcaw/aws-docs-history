@@ -8,7 +8,7 @@ Three sources tell you what a bus and its subscribers are doing. Amazon CloudWat
 ## Metrics
 <a name="eb-custom-bus-observability-metrics"></a>
 
-Subscriber metrics carry two dimensions, `EventBus` and `Subscriber`, each holding the resource name and its generated ID (the last two segments of the ARN). For example, `EventBus` holds a value like `my-bus/5ltooic85xdh3driyogmu87ln` and `Subscriber` a value like `my-sub/282042snsiuyel613wyp110fd`. When the subscriber belongs to a different account from the bus, EventBridge also emits the metric with `EventBus` and `SubscriberAccount` so that the bus owner can see consumption per account. The following table lists the metrics.
+Subscriber metrics carry two dimensions, `EventBus` and `Subscriber`, each holding the resource name and its generated ID (the last two segments of the ARN). For example, `EventBus` holds a value like `my-bus/5ltooic85xdh3driyogmu87ln` and `Subscriber` a value like `my-sub/282042snsiuyel613wyp110fd`. EventBridge also emits subscriber metrics with `EventBus` and `SubscriberAccount` so that the bus owner can see consumption per account. This applies to subscribers in other accounts and to subscribers in the bus owner's account, where `SubscriberAccount` holds the bus owner's account ID. `EventsDelivered` and `EgressBytes` carry this pair of dimensions, and other metrics might too. The following table lists the metrics.
 
 
 | Metric | Unit | Meaning | 

@@ -3,7 +3,9 @@
 # Event bus target: bus to bus
 <a name="eb-custom-bus-target-bus"></a>
 
-To forward events to another event bus, set `TargetArn` to that bus's ARN. The destination can be another Custom Event Bus or a Custom Event Bus - Classic, in the same Region or a different one. The destination bus must be in the same account as the subscriber. No parameter block is needed. A Custom Event Bus - Classic rule can likewise name a Custom Event Bus as its target, so events can move in either direction during a migration.
+To forward events to another event bus, set `TargetArn` to that bus's ARN. The destination can be another Custom Event Bus or a Custom Event Bus - Classic, in the same Region or a different one. The destination bus must be in the same account as the subscriber. No parameter block is needed. A Custom Event Bus - Classic rule can likewise name a Custom Event Bus as its target, in the same Region as the rule, so events can move in either direction during a migration.
+
+A Custom Event Bus - Classic rule can't target a Custom Event Bus in a different Region, and EventBridge rejects the request. To send events across Regions to a Custom Event Bus, set the rule's target to a Custom Event Bus - Classic in the destination Region, and add a rule on that bus that targets the Custom Event Bus in the same Region.
 
 ## Parameters
 <a name="eb-custom-bus-target-bus-parameters"></a>

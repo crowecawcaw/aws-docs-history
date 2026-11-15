@@ -18,9 +18,9 @@ You can also [generate a template from an existing event bus](https://docs.aws.a
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. In the navigation pane, choose **Rules**.
+1. In the navigation pane, choose **Event buses**.
 
-1. Under **Select event bus**, choose the event bus that contains the rules you want to include in the template.
+1. Choose the event bus that contains the rules you want to include in the template, and then choose **Rules**.
 
 1. Under **Rules**, choose the rules you want to include in the generated CloudFormation template.
 

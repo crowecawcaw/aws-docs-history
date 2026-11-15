@@ -361,16 +361,16 @@ The following table list AWS services and the management events they generate th
 | AWS Proton | DeleteEnvironmentTemplateVersion | API call | 
 | AWS Proton | DeleteServiceTemplateVersion | API call | 
 | Amazon QLDB | ShowCatalog | API call | 
-| Amazon Quick | GenerateEmbedUrlForAnonymousUser | API call | 
-| Amazon Quick | GenerateEmbedUrlForRegisteredUser | API call | 
-| Amazon Quick | QueryDatabase | Service event | 
-| Amazon Quick | SearchAnalyses | API call | 
-| Amazon Quick | SearchDashboards | API call | 
-| Amazon Quick | SearchDataSets | API call | 
-| Amazon Quick | SearchDataSources | API call | 
-| Amazon Quick | SearchFolders | API call | 
-| Amazon Quick | SearchGroups | API call | 
-| Amazon Quick | SearchUsers | API call | 
+| AWS Quick | GenerateEmbedUrlForAnonymousUser | API call | 
+| AWS Quick | GenerateEmbedUrlForRegisteredUser | API call | 
+| AWS Quick | QueryDatabase | Service event | 
+| AWS Quick | SearchAnalyses | API call | 
+| AWS Quick | SearchDashboards | API call | 
+| AWS Quick | SearchDataSets | API call | 
+| AWS Quick | SearchDataSources | API call | 
+| AWS Quick | SearchFolders | API call | 
+| AWS Quick | SearchGroups | API call | 
+| AWS Quick | SearchUsers | API call | 
 | Amazon Relational Database Service | DownloadCompleteDBLogFile | API call | 
 | Amazon Relational Database Service | DownloadDBLogFilePortion | API call | 
 | Amazon Rekognition | CompareFaces | API call | 

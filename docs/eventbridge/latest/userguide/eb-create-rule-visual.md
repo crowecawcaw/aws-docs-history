@@ -37,7 +37,9 @@ First, choose the events you want to send to the target.
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. In the navigation pane, choose **Rules**, and then choose **Create rule**.
+1. In the navigation pane, choose **Event buses**.
+
+1. Choose the event bus that you want to use, choose **Rules**, and then choose **Create rule**.
 
 1. On the rule builder selection page, choose **Enhanced Builder**.
 

@@ -11,6 +11,7 @@ If the contents of events on the event bus change, EventBridge creates new versi
 <a name="eb-schemas-infer-considerations"></a>
 
 Take into account the following considerations before enabling schema discover on an event bus:
++ You can't use schema discovery on a Custom Event Bus. The `CreateDiscoverer` action rejects the ARN of a Custom Event Bus, which contains `event-busv2`.
 + Enabling event discovery on an event bus can incur a cost. The first five million processed events in each month are free.
 + EventBridge infers schemas from cross-account events by default but you can disable it by updating the `cross-account` property. For more information, see [Discoverers](https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html) in the EventBridge Schema Registry API Reference.
 

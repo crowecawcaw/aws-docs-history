@@ -69,7 +69,9 @@ Create a rule to send events to your topic when an Amazon S3 object is created.
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. In the navigation pane, choose **Rules**.
+1. In the navigation pane, choose **Event buses**.
+
+1. Choose the **default** event bus, and then choose **Rules**.
 
 1. Choose **Create rule**.
 

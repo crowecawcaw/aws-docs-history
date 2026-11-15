@@ -49,7 +49,9 @@ Create a rule to send events to your stream when you stop an Amazon EC2 instance
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. In the navigation pane, choose **Rules**.
+1. In the navigation pane, choose **Event buses**.
+
+1. Choose the **default** event bus, and then choose **Rules**.
 
 1. Choose **Create rule**.
 
@@ -134,9 +136,11 @@ To test your rule, stop an Amazon EC2 instance. Wait a few minutes for the insta
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. In the navigation pane, choose **Rules**.
+1. In the navigation pane, choose **Event buses**.
 
-   Choose the name of the rule that you created and choose **Metrics for the rule**.
+1. Choose the **default** event bus, and then choose **Rules**.
+
+1. Choose the name of the rule that you created and choose **Metrics for the rule**.
 
 1. (Optional) When you're finished, terminate the instance. For more information, see [Terminate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html) in the *Amazon EC2 User Guide*.
 
