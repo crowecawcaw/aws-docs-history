@@ -124,11 +124,17 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
   <tr><td>Asia Pacific (Hyderabad)</td><td>ap-south-2</td><td>dkim.ap-south-2.amazonses.com</td></tr>
   <tr><td>Asia Pacific (Jakarta)</td><td>ap-southeast-3</td><td>dkim.ap-southeast-3.amazonses.com</td></tr>
   <tr><td>Asia Pacific (Malaysia)</td><td>ap-southeast-5</td><td>dkim.ap-southeast-5.amazonses.com</td></tr>
+  <tr><td>Asia Pacific (Melbourne)</td><td>ap-southeast-4</td><td>dkim.ap-southeast-4.amazonses.com</td></tr>
+  <tr><td>Asia Pacific (New Zealand)</td><td>ap-southeast-6</td><td>dkim.ap-southeast-6.amazonses.com</td></tr>
   <tr><td>Canada West (Calgary)</td><td>ca-west-1</td><td>dkim.ca-west-1.amazonses.com</td></tr>
   <tr><td>Asia Pacific (Osaka)</td><td>ap-northeast-3</td><td>dkim.ap-northeast-3.amazonses.com</td></tr>
+  <tr><td>Asia Pacific (Taipei)</td><td>ap-east-2</td><td>dkim.ap-east-2.amazonses.com</td></tr>
+  <tr><td>Asia Pacific (Thailand)</td><td>ap-southeast-7</td><td>dkim.ap-southeast-7.amazonses.com</td></tr>
   <tr><td>Europe (Milan)</td><td>eu-south-1</td><td>dkim.eu-south-1.amazonses.com</td></tr>
+  <tr><td>Europe (Spain)</td><td>eu-south-2</td><td>dkim.eu-south-2.amazonses.com</td></tr>
   <tr><td>Europe (Zurich)</td><td>eu-central-2</td><td>dkim.eu-central-2.amazonses.com</td></tr>
   <tr><td>Israel (Tel Aviv)</td><td>il-central-1</td><td>dkim.il-central-1.amazonses.com</td></tr>
+  <tr><td>Mexico (Central)</td><td>mx-central-1</td><td>dkim.mx-central-1.amazonses.com</td></tr>
   <tr><td>Middle East (UAE)</td><td>me-central-1</td><td>dkim.me-central-1.amazonses.com</td></tr>
   <tr><td>AWS GovCloud (US-East)</td><td>us-gov-east-1</td><td>dkim.us-gov-east-1.amazonses.com</td></tr>
   <tr><td colspan="2">All other regions</td><td>dkim.amazonses.com</td></tr>
@@ -150,11 +156,15 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
 | Asia Pacific (Hyderabad) | r.ap-south-2.awstrack.me | 
 | Asia Pacific (Jakarta) | r.ap-southeast-3.awstrack.me | 
 | Asia Pacific (Malaysia) | r.ap-southeast-5.awstrack.me | 
+| Asia Pacific (Melbourne) | r.ap-southeast-4.awstrack.me | 
 | Asia Pacific (Mumbai) | r.ap-south-1.awstrack.me | 
+| Asia Pacific (New Zealand) | r.ap-southeast-6.awstrack.me | 
 | Asia Pacific (Osaka) | r.ap-northeast-3.awstrack.me | 
 | Asia Pacific (Seoul) | r.ap-northeast-2.awstrack.me | 
 | Asia Pacific (Singapore) | r.ap-southeast-1.awstrack.me | 
 | Asia Pacific (Sydney) | r.ap-southeast-2.awstrack.me | 
+| Asia Pacific (Taipei) | r.ap-east-2.awstrack.me | 
+| Asia Pacific (Thailand) | r.ap-southeast-7.awstrack.me | 
 | Asia Pacific (Tokyo) | r.ap-northeast-1.awstrack.me | 
 | Canada (Central) | r.ca-central-1.awstrack.me | 
 | Canada West (Calgary) | r.ca-west-1.awstrack.me | 
@@ -162,9 +172,12 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
 | Europe (Ireland) | r.eu-west-1.awstrack.me | 
 | Europe (London) | r.eu-west-2.awstrack.me | 
 | Europe (Milan) | r.eu-south-1.awstrack.me | 
+| Europe (Paris) | r.eu-west-3.awstrack.me | 
+| Europe (Spain) | r.eu-south-2.awstrack.me | 
 | Europe (Stockholm) | r.eu-north-1.awstrack.me | 
 | Europe (Zurich) | r.eu-central-2.awstrack.me | 
 | Israel (Tel Aviv) | r.il-central-1.awstrack.me | 
+| Mexico (Central) | r.mx-central-1.awstrack.me | 
 | Middle East (Bahrain) | r.me-south-1.awstrack.me | 
 | Middle East (UAE) | r.me-central-1.awstrack.me | 
 | South America (São Paulo) | r.sa-east-1.awstrack.me | 
@@ -185,12 +198,16 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
 | Africa (Cape Town) | feedback-smtp.af-south-1.amazonses.com | 
 | Asia Pacific (Hyderabad) | feedback-smtp.ap-south-2.amazonses.com | 
 | Asia Pacific (Jakarta) | feedback-smtp.ap-southeast-3.amazonses.com | 
+| Asia Pacific (Melbourne) | feedback-smtp.ap-southeast-4.amazonses.com | 
 | Asia Pacific (Mumbai) | feedback-smtp.ap-south-1.amazonses.com | 
+| Asia Pacific (New Zealand) | feedback-smtp.ap-southeast-6.amazonses.com | 
 | Asia Pacific (Osaka) | feedback-smtp.ap-northeast-3.amazonses.com | 
 | Asia Pacific (Seoul) | feedback-smtp.ap-northeast-2.amazonses.com | 
 | Asia Pacific (Singapore) | feedback-smtp.ap-southeast-1.amazonses.com | 
 | Asia Pacific (Sydney) | feedback-smtp.ap-southeast-2.amazonses.com | 
 | Asia Pacific (Malaysia) | feedback-smtp.ap-southeast-5.amazonses.com | 
+| Asia Pacific (Taipei) | feedback-smtp.ap-east-2.amazonses.com | 
+| Asia Pacific (Thailand) | feedback-smtp.ap-southeast-7.amazonses.com | 
 | Asia Pacific (Tokyo) | feedback-smtp.ap-northeast-1.amazonses.com | 
 | Canada (Central) | feedback-smtp.ca-central-1.amazonses.com | 
 | Canada West (Calgary) | feedback-smtp.ca-west-1.amazonses.com | 
@@ -199,9 +216,11 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
 | Europe (London) | feedback-smtp.eu-west-2.amazonses.com | 
 | Europe (Milan) | feedback-smtp.eu-south-1.amazonses.com | 
 | Europe (Paris) | feedback-smtp.eu-west-3.amazonses.com | 
+| Europe (Spain) | feedback-smtp.eu-south-2.amazonses.com | 
 | Europe (Stockholm) | feedback-smtp.eu-north-1.amazonses.com | 
 | Europe (Zurich) | feedback-smtp.eu-central-2.amazonses.com | 
 | Israel (Tel Aviv) | feedback-smtp.il-central-1.amazonses.com | 
+| Mexico (Central) | feedback-smtp.mx-central-1.amazonses.com | 
 | Middle East (Bahrain) | feedback-smtp.me-south-1.amazonses.com | 
 | Middle East (UAE) | feedback-smtp.me-central-1.amazonses.com | 
 | South America (São Paulo) | feedback-smtp.sa-east-1.amazonses.com | 
@@ -219,6 +238,7 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
 | us-west-1 | 206.55.142.0/24 | 
 | us-west-2 | 206.55.131.0/24 | 
 | af-south-1 | 216.221.183.0/24 | 
+| ap-east-2 | 98.77.27.0/24 | 
 | ap-northeast-1 | 206.55.130.0/24 | 
 | ap-northeast-2 | 206.55.139.0/24 | 
 | ap-northeast-3 | 206.55.140.0/24 | 
@@ -227,7 +247,10 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
 | ap-southeast-1 | 206.55.143.0/24 | 
 | ap-southeast-2 | 206.55.128.0/24 | 
 | ap-southeast-3 | 216.221.180.0/24 | 
+| ap-southeast-4 | 98.77.9.0/24 | 
 | ap-southeast-5 | 216.221.178.0/24 | 
+| ap-southeast-6 | 98.77.25.0/24 | 
+| ap-southeast-7 | 98.77.12.0/24 | 
 | ca-central-1 | 216.221.176.0/24 | 
 | ca-west-1 | 216.221.186.0/24 | 
 | il-central-1 | 216.221.181.0/24 | 
@@ -235,11 +258,13 @@ Amazon SES does not support email receiving in the following Regions: *AWS GovCl
 | eu-central-2 | 216.221.184.0/24 | 
 | eu-north-1 | 206.55.135.0/24 | 
 | eu-south-1 | 216.221.182.0/24 | 
+| eu-south-2 | 216.221.189.0/24 | 
 | eu-west-1 | 206.55.133.0/24 | 
 | eu-west-2 | 206.55.141.0/24 | 
 | eu-west-3 | 206.55.137.0/24 | 
 | me-central-1 | 216.221.177.0/24 | 
 | me-south-1 | 216.221.179.0/24 | 
+| mx-central-1 | 98.77.23.0/24 | 
 | sa-east-1 | 206.55.138.0/24 | 
 | us-gov-east-1 | 216.221.188.0/24 | 
 | us-gov-west-1 | 216.221.187.0/24 | 

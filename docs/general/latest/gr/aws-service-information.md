@@ -217,7 +217,7 @@ Choose one of the following links to go to the page for that service. To view th
 + [Amazon Q Business](amazonq.md)
 + [Amazon Q Developer](amazonqdev.md)
 + [Quick Setup](quick-setup.md)
-+ [Amazon Quick Sight](quicksight.md)
++ [AWS Quick Sight](quicksight.md)
 + [AWS RAM](ram.md)
 + [Recycle Bin](rbin.md)
 + [Amazon Redshift](redshift-service.md)
