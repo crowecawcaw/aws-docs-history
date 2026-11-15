@@ -20,11 +20,13 @@ The following considerations apply to shared Verified Access groups.
 + To share a Verified Access group, you must own it. You can't share a Verified Access group that was shared with you.
 + If you enable sharing with the accounts in your organization, you can share resources, such as Verified Access groups, without using invitations. Otherwise, the consumer receives an invitation and must accept it to access the shared group. To enable sharing, from the management account for your organization, open the **[Settings](https://console.aws.amazon.com/ram/home#Settings:)** page in the AWS RAM console and choose **Enable sharing with AWS Organizations**.
 + You can't delete a group if there are associated Verified Access endpoints. You can view the endpoints created by consumer accounts on the **Verified Access endpoints** page in your account. The account ID of the owner of an endpoint is reflected in the Amazon Resource Name (ARN) of the certificate for the endpoint.
++ For endpoints that other accounts create in your group, you have permission to view, modify, and turn off the endpoint policy, and to delete the endpoint. You don't have permission to modify any other settings of those endpoints.
 
 **Consumers**
 + To view the Verified Access groups that are shared with you, open the **Verified Access groups** page in the console, or call [describe-verified-access-groups](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-verified-access-groups.html). The account ID of the owner is reflected in the **Owner** field and the Amazon Resource Name (ARN) of the group.
 + When you create a Verified Access endpoint, you can specify any Verified Access groups that were shared with you.
 + You can't view endpoints that are associated with the shared group but not owned by you.
++ The owner of the shared group can view your endpoints in the group. The owner can also view, modify, and turn off the endpoint policies of those endpoints. When an endpoint has a policy, both the group policy and the endpoint policy must allow access. If the owner turns off your endpoint policy, only the group policy controls access to your application.
 + If the owner of the Verified Access group deletes the resource share, you can't create a new Verified Access endpoint in the group. Any Verified Access endpoints that you created prior to the deletion of the resource share are unaffected by the deletion of the resource share. However, the owner of the shared group can delete your endpoints.
 
 ## Resource shares

@@ -5,6 +5,9 @@
 
 Use the following procedures to modify the policy for a Verified Access endpoint. After you make the changes, it takes several minutes before they take effect.
 
+**Note**  
+If you create an endpoint in a Verified Access group that another account shared with you, the owner of the group can also view, modify, and turn off the endpoint policy. For more information, see [Share a Verified Access group with another AWS account](sharing-groups.md).
+
 **To modify a Verified Access endpoint policy using the console**
 
 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
