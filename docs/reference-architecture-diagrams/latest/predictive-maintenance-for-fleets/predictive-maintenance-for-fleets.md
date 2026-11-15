@@ -29,7 +29,7 @@ The following steps describe the ML pipeline and notification flow for this arch
 
 1. Store completed predictions in Amazon Aurora for record-keeping and future model improvements.
 
-1. Display predictions on the [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) dashboard.
+1. Display predictions on the [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) dashboard.
 
 1. Send real-time failure warning notifications to [Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/).
 
