@@ -15,7 +15,7 @@ Amazon Timestream for LiveAnalytics integrates with a variety of AWS services an
 + [Amazon Kinesis](Kinesis.md)
 + [Amazon MQ](MQ.md)
 + [Amazon MSK](MSK.md)
-+ [Amazon Quick](Quicksight.md)
++ [AWS Quick](Quicksight.md)
 + [Amazon SageMaker AI](Sagemaker.md)
 + [Amazon SQS](SQS.md)
 + [Using DBeaver to work with Amazon Timestream](DBeaver.md)
