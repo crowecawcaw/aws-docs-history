@@ -147,6 +147,6 @@ Visualize data using Quick by either reading your Athena table or S3 bucket dire
 **Tip**  
 If you're reading from S3 directly, confirm that your vehicle data is in JSON format because Quick doesn't support Apache Parquet format.
 
-For more information, see the following topics in the *Amazon Quick User Guide*:
+For more information, see the following topics in the *AWS Quick User Guide*:
 + [Supported data sources](https://docs.aws.amazon.com/quicksight/latest/user/supported-data-sources.html)
 + [Creating a data source](https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-source.html)
