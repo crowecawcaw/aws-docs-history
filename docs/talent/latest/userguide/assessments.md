@@ -20,7 +20,8 @@ Amazon Connect Talent offers the following assessment types:
 ## The assessment scale
 <a name="assessments-scale"></a>
 
-Assessments report results on a four-level scale:
+Assessments report results on a five-level scale:
++ Very Low
 + Low
 + Moderate
 + High

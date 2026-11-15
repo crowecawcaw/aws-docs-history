@@ -30,7 +30,7 @@ When the candidate chooses the button or opens the link, Amazon Connect Talent l
 
 A candidate receives an email invitation to complete an evaluation for a specific role. Opening the link launches the branded experience. Amazon Connect Talent guides the candidate through the following steps:
 
-1. **Review the role and job details** – The candidate sees the position details (the job description added by the recruiter) and a role overview (a brief AI-generated summary of the role). The candidate can choose **Start evaluation** to proceed or **Opt out** to decline the entire evaluation.
+1. **Review the role and job details** – The candidate sees the job title and a role overview (a brief AI-generated summary of the role). The candidate can choose **Start evaluation** to proceed or **Opt out** to decline the entire evaluation.
 
 1. **Review and accept disclosures** – The candidate reviews any disclosures configured by your organization and chooses **Accept and continue** to proceed. For more information about adding disclosures, see [Configure disclosures](https://docs.aws.amazon.com/talent/latest/adminguide/configure-disclosures.html) in the *Amazon Connect Talent Administrator Guide*.
 

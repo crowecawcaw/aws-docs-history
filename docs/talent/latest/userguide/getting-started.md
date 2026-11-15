@@ -70,10 +70,10 @@ The navigation sidebar is available on every page in Amazon Connect Talent. It p
 
 The sidebar collapses to icons on smaller screens.
 
-### Amazon Connect Talent Teammate
+### Chat with Amazon Connect Talent
 <a name="navigate-home-dashboard-assist"></a>
 
-Amazon Connect Talent Teammate is an AI-powered teammate that answers questions about your work and surfaces information from across the application. For more information, see [Amazon Connect Talent Teammate](connect-talent-assistant.md).
+In the chat, Amazon Connect Talent answers questions about your work and surfaces information from across the application. For more information, see [Chat with Amazon Connect Talent](connect-talent-assistant.md).
 
 ## Testing Amazon Connect Talent
 <a name="getting-started-test"></a>

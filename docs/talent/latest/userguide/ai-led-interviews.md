@@ -33,4 +33,4 @@ Each interview module starts with a default set of questions, and Amazon Connect
 ## Interview playback
 <a name="ai-led-interviews-playback"></a>
 
-After a candidate completes the interview, you can review a two-column playback: the list of questions alongside a synchronized transcript, with optional audio. A timeline bar shows how much of the interview the candidate spoke compared with the interviewer.
+After a candidate completes the interview, you can review a two-column playback: the list of questions alongside a synchronized transcript, with optional audio. A timeline bar shows how much of the interview the candidate spoke compared with Amazon Connect Talent.

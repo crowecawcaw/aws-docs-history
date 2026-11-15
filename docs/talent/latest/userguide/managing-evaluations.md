@@ -78,7 +78,7 @@ You can't edit an evaluation after you publish it. A published evaluation is rea
 You can restore a removed question while you work. Each interview module starts with a default set of questions, and Amazon Connect Talent estimates the interview duration from the number of questions.
 
 **Important**  
-AI-led interviews have a maximum duration of 30 minutes, at which point the interview ends. The interviewer informs the candidate that the interview is ending. If the candidate has not answered all of the questions, this does not negatively affect their score. Amazon Connect Talent scores only competencies for which the candidate provided a response. To learn more about how scoring works, see [How scoring works](how-scoring-works.md).
+AI-led interviews have a maximum duration of 30 minutes, at which point the interview ends. The AI interviewer tells the candidate that the interview is ending. If the candidate has not answered all of the questions, this does not negatively affect their score. Amazon Connect Talent scores only competencies for which the candidate provided a response. To learn more about how scoring works, see [How scoring works](how-scoring-works.md).
 
 ### Edit assessments
 <a name="edit-eval-assessments"></a>

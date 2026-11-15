@@ -42,9 +42,9 @@ Start here to get a quick read on the candidate before you review the Assessment
 ### Assessments
 <a name="rcr-assessments"></a>
 
-The Assessments section shows the full results for each assessment included in the evaluation. Each competency measured by the assessment has a score on the four-level assessment scale. These scores reflect how closely the candidate's responses match the behavioral patterns associated with success in that competency—they are not pass/fail judgments. For more information about the scale, see [How assessments work](assessments.md).
+The Assessments section shows the full results for each assessment included in the evaluation. Each competency measured by the assessment has a score on the five-level assessment scale. These scores reflect how closely the candidate's responses match the behavioral patterns associated with success in that competency—they are not pass/fail judgments. For more information about the scale, see [How assessments work](assessments.md).
 
-A High or Very High score means the candidate's responses aligned well with the behaviors expected for that competency. A Low or Moderate score means the candidate's responses were less aligned—it does not mean the candidate failed.
+A High or Very High score means the candidate's responses aligned well with the behaviors expected for that competency. A Very Low, Low, or Moderate score means the candidate's responses were less aligned—it does not mean the candidate failed.
 
 Use assessment results alongside interview results to build a fuller picture of the candidate. For more information about how assessments are selected and scored, see [How assessments work](assessments.md).
 

@@ -28,7 +28,7 @@ The rubric is derived from the job description and competencies, and it is fixed
 Amazon Connect Talent applies rubrics automatically during scoring. This removes subjectivity from the evaluation process and ensures every candidate is measured the same way, every time.
 
 **Tip**  
-Want to see the details behind a scoring rubric? Ask the [Amazon Connect Talent Teammate](connect-talent-assistant.md) about a specific evaluation. The Teammate can walk you through the behaviors the rubric looks for and how they map to competencies.
+Want to see the details behind a scoring rubric? Ask Amazon Connect Talent about a specific evaluation [in the chat](connect-talent-assistant.md). It can walk you through the behaviors the rubric looks for and how they map to competencies.
 
 ## What counts as evidence
 <a name="how-scoring-evidence"></a>
@@ -52,6 +52,6 @@ For more information about how interview scores appear on the candidate results 
 ## Assessment scores
 <a name="how-scoring-assessments"></a>
 
-Assessments use a separate scale from the interview. Assessment results appear on the four-level assessment scale. For more information, see [How assessments work](assessments.md). These scores reflect how closely the candidate's responses match the behavioral patterns associated with success in that competency – they are not pass/fail judgments.
+Assessments use a separate scale from the interview. Assessment results appear on the five-level assessment scale. For more information, see [How assessments work](assessments.md). These scores reflect how closely the candidate's responses match the behavioral patterns associated with success in that competency – they are not pass/fail judgments.
 
 Amazon Connect Talent selects the most relevant assessments for the job's competencies from its assessment library and tailors each one to the role. Not every evaluation includes assessments – Amazon Connect Talent adds assessments only when the job's competencies match what an assessment measures. For more information, see [How assessments work](assessments.md).
