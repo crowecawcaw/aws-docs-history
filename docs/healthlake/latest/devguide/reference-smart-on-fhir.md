@@ -1,7 +1,6 @@
 
 
 # SMART on FHIR support for AWS HealthLake
-<a name="reference-smart-on-fhir"></a>
 
 A Substitutable Medical Applications and Reusable Technologies (SMART) on FHIR enabled HealthLake data store allows access to SMART on FHIR compliant applications. HealthLake data is accessed by authenticating and authorizing requests using a third-party authorization server. So instead of managing user credentials via AWS Identity and Access Management, you are doing so using a SMART on FHIR compliant authorization server.
 

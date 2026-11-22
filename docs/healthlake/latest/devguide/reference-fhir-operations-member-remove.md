@@ -1,7 +1,6 @@
 
 
 # `$member-remove` operation for HealthLake
-<a name="reference-fhir-operations-member-remove"></a>
 
 The `$member-remove` operation allows you to remove members from a FHIR Member Attribution List (Group resource) in AWS HealthLake. This operation is part of the DaVinci Member Attribution Implementation Guide and supports the reconciliation process for managing member attributions.
 

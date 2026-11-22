@@ -1,18 +1,17 @@
 
 
 # Making a FHIR REST API request on a SMART-enabled HealthLake data store
-<a name="reference-smart-on-fhir-request-example"></a>
 
 You can make FHIR REST API requests on a SMART on FHIR-enabled HealthLake data store. The following example shows a request from client application containing a JWT in the authorization header and how Lambda should decode the response. After the client application request is authorized and authenticated, it must receive a bearer token from the authorization server. Use the bearer token in the authorization header when sending a FHIR REST API request on a SMART on FHIR-enabled HealthLake data store.
 
-```
+```http
 GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Patient/[ID]
 Authorization: Bearer {{auth-server-provided-bearer-token}}
 ```
 
 Because a bearer token was found in the authorization header and no AWS IAM identity was detected HealthLake invokes the Lambda function specified when the SMART on FHIR enabled HealthLake data store was created. When the token is successfully decoded by your Lambda function, the following example response is sent to HealthLake.
 
-```
+```json
 {
   "authPayload": {
     "iss": "https://authorization-server-endpoint/oauth2/token", # The issuer identifier of the authorization server

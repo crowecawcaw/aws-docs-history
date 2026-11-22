@@ -1,7 +1,6 @@
 
 
 # Enabling resource matching
-<a name="resource-matching-enabling"></a>
 
 Resource matching is available in preview and is enabled per request.
 

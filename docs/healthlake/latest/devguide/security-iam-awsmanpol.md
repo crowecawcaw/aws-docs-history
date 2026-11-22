@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS HealthLake
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -53,7 +52,7 @@ This policy includes the following statement.
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

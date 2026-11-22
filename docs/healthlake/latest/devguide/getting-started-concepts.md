@@ -1,7 +1,6 @@
 
 
 # AWS HealthLake concepts
-<a name="getting-started-concepts"></a>
 
 The following terminology and concepts are central to your understanding and use of AWS HealthLake.
 
@@ -27,4 +26,4 @@ AWS HealthLake integrates with HIPAA eligible natural language processing (NLP) 
 ## Integrated analytics
 <a name="concept-integrated-analytics"></a>
 
-AWS HealthLake goes beyond FHIR `search` and `bundle` APIs to provide integrated analytics for querying and analyzing large volumes of health data. During import, HealthLake automatically generates tables for SQL index and query. This enables you to gain actionable insights from complex healthcare data without requiring extensive data engineering work. For more information, see [Querying HealthLake data with Amazon Athena](integrating-athena.md) and [AWS HealthLake sample projects](reference-healthlake-sample-projects.md).
+AWS HealthLake goes beyond FHIR `search` and `bundle` APIs to provide integrated analytics for querying and analyzing large volumes of health data. As you import and change data, HealthLake keeps the data in Apache Iceberg tables that analytics engines such as Amazon Athena can query. This enables you to gain actionable insights from complex healthcare data without requiring extensive data engineering work. For more information, see [Analyzing HealthLake data](integrating-analytics.md) and [AWS HealthLake sample projects](reference-healthlake-sample-projects.md).

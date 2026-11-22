@@ -1,7 +1,6 @@
 
 
 # Searching FHIR resources with POST
-<a name="searching-fhir-resources-post"></a>
 
 You can use the FHIR [`search`](https://hl7.org/fhir/R4/search.html) interaction with `POST` requests to search a HealthLake data store. When using `POST`, HealthLake supports search parameters in either the URL or in a request body, but you cannot use both in a single request.
 
@@ -25,7 +24,7 @@ The following procedure is followed by examples using FHIR R4 `search` interacti
 
 1. Construct a JSON body for the request, specifying the FHIR data to search for. For the purpose of this procedure, you will search `Observation` resources to discover patients who have never smoked. To specify the medical code status `Never smoker`, set `value-concept=266919005` in the JSON request body. Save the file as `search-observation.json`.
 
-   ```
+   ```json
    value-concept=266919005
    ```
 
@@ -40,7 +39,7 @@ When making a `POST` request with search parameters in the request body, use `Co
 
    SigV4 authorization
 
-   ```
+   ```sh
    curl --request POST \
      'https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Observation/_search' \						
      --aws-sigv4 'aws:amz:region:healthlake' \
@@ -56,7 +55,7 @@ When making a `POST` request with search parameters in the request body, use `Co
 
    SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_IdentityProviderConfiguration.html) data type.
 
-   ```
+   ```json
    {
        "AuthorizationStrategy": "SMART_ON_FHIR",
        "FineGrainedAuthorizationEnabled": true,
@@ -83,13 +82,13 @@ HealthLake supports a subset of FHIR R4 search parameters. For more information,
 
 Although age is not a defined resource type in FHIR, it is captured as an element in the [`Patient`](https://hl7.org/fhir/R4/patient.html) resource type. Use the following example to make a `POST`-based search request on the `Patient` resource type. The following search example uses the `eq` [search comparator](reference-fhir-search-parameters.md#search-comparators) to search for individuals born in 1997.
 
-```
+```http
 POST https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Patient/_search
 ```
 
 To specify the year 1997 in the search, add the following element to the request body.
 
-```
+```json
 birthdate=eq1997
 ```
 
@@ -100,13 +99,13 @@ Using the following to make a `POST` request on the `Condition` resource type. T
 
 You have to specify a request URL and a request body. Here is an example request URL.
 
-```
+```http
 POST https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Condition/_search
 ```
 
 To specify the medical code you want to search, you add the following JSON element to the request body.
 
-```
+```json
 code=72892002
 ```
 
@@ -115,13 +114,13 @@ code=72892002
 
 To see the results of HealthLake's integrated natural language processing (NLP) when making a `POST` request on the `DocumentReference` resource type, format a request as follows.
 
-```
+```HTTP
 POST https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/DocumentReference/_search
 ```
 
 To specify the `DocumentReference` search parameters to reference, see [Search parameter types](reference-fhir-search-parameters.md#search-parameter-types). The following query string uses multiple search parameters to search on Amazon Comprehend Medical API operations used to generate the integrated NLP results.
 
-```
+```json
 _lastUpdated=le2021-12-19&infer-icd10cm-entity-text-concept-score;=streptococcal|0.6&infer-rxnorm-entity-text-concept-score=Amoxicillin|0.8
 ```
 
@@ -132,13 +131,13 @@ Use the following example to make a `POST` request on the `Location` resource ty
 
 You must specify a request URL and a request body. Here is an example request URL.
 
-```
+```http
 POST https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Location/_search
 ```
 
 To specify `Boston` in the search, add the following element to the request body:
 
-```
+```json
 address=Boston
 ```
 
@@ -147,13 +146,13 @@ address=Boston
 
 Use the following example to make a `POST`-based search request on the `Observation` resource type. The search uses the `value-concept` search parameter to look for medical code, `266919005` that indicates `Never smoker`.
 
-```
+```http
 POST https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Observation/_search
 ```
 
 To specify the status, `Never smoker` , set `value-concept=266919005` in the body of the JSON.
 
-```
+```json
 value-concept=266919005
 ```
 

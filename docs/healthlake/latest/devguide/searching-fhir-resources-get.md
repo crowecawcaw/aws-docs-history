@@ -1,7 +1,6 @@
 
 
 # Searching FHIR resources with GET
-<a name="searching-fhir-resources-get"></a>
 
 You can use `GET` requests to search a HealthLake data store. When using `GET`, HealthLake supports providing search parameters as part of the URL, but not as part of a request body. For more information, see [FHIR R4 search parameters for HealthLake](reference-fhir-search-parameters.md).
 
@@ -30,7 +29,7 @@ The following procedure is followed by examples that use `GET` to search a Healt
 
    SigV4 authorization
 
-   ```
+   ```sh
    curl --request GET \
      'https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Patient?_total=accurate' \   
      --aws-sigv4 'aws:amz:region:healthlake' \
@@ -44,7 +43,7 @@ The following procedure is followed by examples that use `GET` to search a Healt
 
    SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_IdentityProviderConfiguration.html) data type.
 
-   ```
+   ```json
    {
        "AuthorizationStrategy": "SMART_ON_FHIR",
        "FineGrainedAuthorizationEnabled": true,
@@ -87,7 +86,7 @@ HealthLake supports a subset of FHIR R4 search parameters. For more information,
 
 Although age is not a defined resource type in FHIR, it is captured as an element in the [`Patient`](https://hl7.org/fhir/R4/patient.html) resource type. Use the following example to make a `GET`-based search request on [`Patient`](https://hl7.org/fhir/R4/patient.html) resource types using the [birthDate](https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate) element and the `eq` [search comparator](reference-fhir-search-parameters.md#search-comparators) to search for individuals born in the year 1997.
 
-```
+```http
 GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Patient?birthdate=eq1997
 ```
 
@@ -96,7 +95,7 @@ GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Pat
 
 Use the following example to make a `GET` request on the [`Condition`](https://hl7.org/fhir/R4/condition.html) resource type. The search finds conditions in your HealthLake data store that contain the SNOMED medical code `72892002`, which translates to `Normal pregnancy`.
 
-```
+```http
 GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Condition?code=72892002
 ```
 
@@ -105,7 +104,7 @@ GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Con
 
 The following example shows how to create a `GET` request on the [`DocumentReference`](https://hl7.org/fhir/R4/documentreference.html) resource type for `Patient`(s) with a streptococcal diagnosis and who have also been prescribed amoxicillin.
 
-```
+```http
 GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/DocumentReference?_lastUpdated=le2021-12-19&infer-icd10cm-entity-text-concept-score;=streptococcal|0.6&infer-rxnorm-entity-text-concept-score=Amoxicillin|0.8
 ```
 
@@ -114,7 +113,7 @@ GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Doc
 
 Use the following example to make a `GET` request on the [`Location`](https://hl7.org/fhir/R4/location.html) resource type. The following search finds locations in your HealthLake data store that contain the city name Boston as part of the address.
 
-```
+```http
 GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Location?address=boston
 ```
 
@@ -123,7 +122,7 @@ GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Loc
 
 Use the following example to make a `GET`-based search request on the [`Observation`](https://hl7.org/fhir/R4/observation.html) resource type. This search uses the `value-concept` [search parameter](reference-fhir-search-parameters.md) to look for medical code `266919005`, which translates to `Never smoker`.
 
-```
+```http
 GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Observation?value-concept=266919005
 ```
 

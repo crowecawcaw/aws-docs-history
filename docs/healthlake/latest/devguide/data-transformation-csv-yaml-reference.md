@@ -1,7 +1,6 @@
 
 
 # Understanding CSV profiles
-<a name="data-transformation-csv-yaml-reference"></a>
 
 A CSV transformation profile is a declarative YAML document that tells Data Transformation Agent how to turn your relational CSV tables into FHIR R4 resources. You can have the Data Transformation AI agent generate this for you from sample files, or author and edit it by hand. This section explains the structure and every building block so you can write or refine a mapping yourself.
 
@@ -19,7 +18,7 @@ Your CSV data is relational: patients in one file, their phone numbers in anothe
 
 A CSV mapping profile is a YAML file with two top-level fields:
 
-```
+```yaml
 sourceSystemId: my-hospital-ehr
 tables:
   - tableName: PATIENTS
@@ -46,7 +45,7 @@ tables:
 
 Each entry in the `tables` list describes a single CSV file:
 
-```
+```yaml
 - tableName: PT_DEM
   primaryKeyColumn: PAT_ID
   foreignKeys:
@@ -84,7 +83,7 @@ Data Transformation Agent matches each table definition to a CSV file in your in
 
 Foreign keys document how a column in this table relates to a column in another table:
 
-```
+```yaml
 foreignKeys:
   - column: PAT_ID
     referencedTable: PT_DEM
@@ -111,7 +110,7 @@ Foreign keys don't join tables or create references on their own. To fold child 
 
 A resource mapping declares the FHIR resource type to produce and how to populate it:
 
-```
+```yaml
 resourceMappings:
   - targetResourceType: Patient
     fieldMappings:
@@ -135,7 +134,7 @@ resourceMappings:
 
 Each field mapping connects one FHIR element path to one or more source columns:
 
-```
+```yaml
 fieldMappings:
   - fhirPath: name[0].family
     sourceColumn: LAST_NM
@@ -172,7 +171,7 @@ fieldMappings:
 
 By default, every mapped value is emitted as a JSON string. Use `targetFhirType` to emit a different JSON type:
 
-```
+```yaml
 # Boolean example
 - fhirPath: active
   sourceColumn: IS_ACTIVE
@@ -181,7 +180,7 @@ By default, every mapped value is emitted as a JSON string. Use `targetFhirType`
   targetFhirType: boolean
 ```
 
-```
+```yaml
 # Integer example
 - fhirPath: multipleBirthInteger
   sourceColumn: BIRTH_ORDER
@@ -190,7 +189,7 @@ By default, every mapped value is emitted as a JSON string. Use `targetFhirType`
   targetFhirType: integer
 ```
 
-```
+```yaml
 # Decimal example
 - fhirPath: valueQuantity.value
   sourceColumn: LAB_RESULT
@@ -199,7 +198,7 @@ By default, every mapped value is emitted as a JSON string. Use `targetFhirType`
   targetFhirType: decimal
 ```
 
-```
+```yaml
 # JSON example
 - fhirPath: address[0]
   sourceColumn: ADDRESS_JSON
@@ -232,7 +231,7 @@ Some FHIR elements are objects or arrays rather than scalars. If your source col
 
 Given this field mapping:
 
-```
+```yaml
 - fhirPath: address[0]
   sourceColumn: ADDRESS_JSON
   transform:
@@ -242,13 +241,13 @@ Given this field mapping:
 
 And this value in the `ADDRESS_JSON` column:
 
-```
+```json
 {"city":"Seattle","state":"WA","line":["123 Main St"]}
 ```
 
 The conversion produces:
 
-```
+```json
 {
   "address": [
     {
@@ -287,7 +286,7 @@ The engine supports 8 transform types.
 
 Copies the source value as-is into the target field with no modification:
 
-```
+```yaml
 - fhirPath: name[0].family
   sourceColumn: LAST_NM
   transform:
@@ -301,7 +300,7 @@ Example: if the CSV column `LAST_NM` contains `Smith`, the output is `"family": 
 
 Joins multiple source columns into a single string:
 
-```
+```yaml
 - fhirPath: name[0].text
   sourceColumns:
     - FIRST_NM
@@ -323,7 +322,7 @@ Joins multiple source columns into a single string:
 
 Parses a date/time string in the source format and re-formats it for FHIR:
 
-```
+```yaml
 - fhirPath: birthDate
   sourceColumn: DOB
   transform:
@@ -354,7 +353,7 @@ A FHIR dateTime that includes a time must include a time zone. A `toPattern` wit
 
 Maps discrete source values to FHIR values using a lookup table:
 
-```
+```yaml
 - fhirPath: gender
   sourceColumn: SEX_CD
   transform:
@@ -380,7 +379,7 @@ If the source value does not match any key in `mappings`, the field is omitted f
 
 Builds a string from a template. Each `${COLUMN_NAME}` placeholder is replaced with that column's value from the current row. All other text is copied as-is, so a template with no placeholders produces a constant value:
 
-```
+```yaml
 # Constant value
 - fhirPath: identifier[0].system
   sourceColumn: MRN
@@ -389,7 +388,7 @@ Builds a string from a template. Each `${COLUMN_NAME}` placeholder is replaced w
     expression: http://hospital.example.org/mrn
 ```
 
-```
+```yaml
 # Value built from source columns
 - fhirPath: identifier[0].value
   sourceColumn: MRN
@@ -417,7 +416,7 @@ If a placeholder names a column that isn't in the CSV, the placeholder is replac
 
 Chooses the emitted value based on whether a named column is present (non-null and non-empty). If the column is absent and no `absentValue` is set, the element is omitted:
 
-```
+```yaml
 - fhirPath: deceasedBoolean
   sourceColumn: DEATH_DT
   transform:
@@ -442,7 +441,7 @@ Example: if `DEATH_DT` has a value, `deceasedBoolean` is `true`; if `DEATH_DT` i
 
 To transform the value instead of emitting a static one, nest a transform under `innerTransform`. It runs only when `conditionColumn` is present:
 
-```
+```yaml
 # DISCH_DT values are recorded in UTC, so a literal 'Z' is appended
 - fhirPath: period.end
   sourceColumn: DISCH_DT
@@ -460,7 +459,7 @@ To transform the value instead of emitting a static one, nest a transform under 
 
 Generates a FHIR Reference to another resource produced by the mapping:
 
-```
+```yaml
 - fhirPath: subject.reference
   sourceColumn: PAT_ID
   transform:
@@ -484,7 +483,7 @@ The referenced table must be declared in the same mapping profile, and the sourc
 
 Applies a Java regular expression to the source value and returns the text captured by one of its groups. Use it to extract a portion of a value:
 
-```
+```yaml
 - fhirPath: identifier[0].value
   sourceColumn: RAW_ID
   transform:
@@ -505,7 +504,7 @@ The pattern is matched against the source value, and the text of the capturing g
 
 More examples:
 
-```
+```yaml
 # Extract the code from a prefixed value like "ICD-10:E11.9"
 - fhirPath: code.coding[0].code
   sourceColumn: DIAG_CD
@@ -515,7 +514,7 @@ More examples:
     group: 1
 ```
 
-```
+```yaml
 # Keep the 5-digit ZIP code from a ZIP+4 value like "62701-1234"
 - fhirPath: address[0].postalCode
   sourceColumn: ZIP_RAW
@@ -535,7 +534,7 @@ Aggregation is how child-table rows fold into a parent resource. A parent table 
 
 Each matching child row becomes a new entry in the target array:
 
-```
+```yaml
 aggregationMappings:
   - childTable: PT_PHONE
     joinColumn: PAT_ID
@@ -572,7 +571,7 @@ aggregationMappings:
 
 Example output (JSON):
 
-```
+```json
 {
   "resourceType": "Patient",
   "telecom": [
@@ -587,7 +586,7 @@ Example output (JSON):
 
 Set `mergeIntoParent: true` for a 1:1 relationship. The child row's fields are written directly onto the parent resource instead of being appended to an array. Only the first matching child row is used. If more than one child row matches the parent's primary key, the additional rows are ignored and a warning is emitted. Each child field mapping's `fhirPath` is a full dot-notation path from the parent resource root, so include the target element in the path (for example, `maritalStatus.text`). Merge paths address singular nested elements. They don't use array index notation such as `[0]`.
 
-```
+```yaml
 aggregationMappings:
   - childTable: PT_SUPPLEMENT
     joinColumn: PAT_ID
@@ -615,7 +614,7 @@ aggregationMappings:
 
 Example output (JSON):
 
-```
+```json
 {
   "resourceType": "Patient",
   "maritalStatus": {
@@ -640,7 +639,7 @@ Example output (JSON):
 
 When a single table contains multiple rows per logical entity (for example, a conditions table with one row per code, where a condition coded in both ICD-10 and SNOMED CT has two rows that share a `COND_ID`), use `groupByPk` to group rows by the primary key and produce array fields from the grouped rows:
 
-```
+```yaml
 - tableName: CONDITION_CODES
   primaryKeyColumn: COND_ID
   groupByPk: true
@@ -689,7 +688,7 @@ Some tables exist only to provide data that is aggregated into a parent resource
 
 Instead, upload the child table's CSV file to the same input Amazon S3 location and reference it by name from the parent's `aggregationMappings`. The value of `childTable` is the CSV file name without the `.csv` extension:
 
-```
+```yaml
 # PT_PHONE.csv is uploaded alongside PT_DEM.csv but is not listed under tables
 - tableName: PT_DEM
   primaryKeyColumn: PAT_ID
@@ -710,7 +709,7 @@ If a child table should also produce its own resources (for example, an ENCOUNTE
 
 This example converts 4 CSV files (`PT_DEM`, `PT_PHONE`, `PROVIDERS`, and `ENCOUNTERS`) into Patient, Practitioner, and Encounter resources with cross-table references and aggregation. `PT_PHONE` is a child-only table, so it is not listed under `tables`:
 
-```
+```yaml
 sourceSystemId: acme-hospital
 
 tables:

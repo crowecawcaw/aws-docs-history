@@ -1,7 +1,6 @@
 
 
 # Example Subscription payloads
-<a name="managing-fhir-subs-ex-sub-payload"></a>
 
 The following code examples show how to create Subscription payloads.
 

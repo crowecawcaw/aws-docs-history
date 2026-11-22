@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="data-transformation-setting-up"></a>
 
 In this chapter, you use the AWS Management Console to set up the required permissions to start using AWS HealthLake Data transformation and running data transformation jobs.
 
@@ -13,7 +12,7 @@ To get started with AWS, you need an AWS account. For information about creating
 ## Configure an IAM user or role to use HealthLake Data Transformation
 <a name="data-transformation-setting-up-iam"></a>
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -62,7 +61,7 @@ To set up data transformation job permissions
 **Note**  
 Replace 123456789012 with your AWS account ID.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -84,7 +83,7 @@ Replace 123456789012 with your AWS account ID.
 
 1. Add a permissions policy to the data access role that grants read access to your source bucket, write access to your output bucket, and the required AWS KMS permissions to encrypt and decrypt data. Replace the bucket names and AWS KMS key ARN with your own values.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [

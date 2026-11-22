@@ -1,7 +1,6 @@
 
 
 # FHIR R4 supported resource types for HealthLake
-<a name="reference-fhir-resource-types"></a>
 
 The following table lists the FHIR R4 resource types supported by AWS HealthLake. For more information, see [Resource Index](https://hl7.org/fhir/R4/resourcelist.html) in the **FHIR R4 documentation**.
 

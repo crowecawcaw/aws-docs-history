@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS HealthLake
-<a name="reference-healthlake-troubleshooting"></a>
 
 The following topics provide troubleshooting advice for errors and issues that you might encounter when using the AWS CLI, AWS SDKs, or HealthLake console. If you find an issue that is not listed in this section, use the **Provide feedback** button on the right sidebar of this page to report it.
 
@@ -48,7 +47,7 @@ To analyze why an import job failed use the `DescribeFHIRImportJob` API to analy
 
 A sample output file might be similar to the following:
 
-```
+```json
 {"lineId":3, UpdateResourceResponse:{"jsonBlob":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"processing","diagnostics":"1 validation error detected: Value 'Patient123' at 'resourceType' failed to satisfy constraint: Member must satisfy regular expression pattern: [A-Za-z]{1,256}"}]}, "statusCode":400}
 {"lineId":5, UpdateResourceResponse:{"jsonBlob":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"processing","diagnostics":"This property must be an simple value, not a com.google.gson.JsonArray","location":["/EffectEvidenceSynthesis/name"]},{"severity":"error","code":"processing","diagnostics":"Unrecognised property '@telecom'","location":["/EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Unrecognised property '@gender'","location":["/EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Unrecognised property '@birthDate'","location":["/EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Unrecognised property '@address'","location":["/EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Unrecognised property '@maritalStatus'","location":["/EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Unrecognised property '@multipleBirthBoolean'","location":["/EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Unrecognised property '@communication'","location":["/EffectEvidenceSynthesis"]},{"severity":"warning","code":"processing","diagnostics":"Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches('[A-Z]([A-Za-z0-9_]){0,254}')]","location":["EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Profile http://hl7.org/fhir/StructureDefinition/EffectEvidenceSynthesis, Element 'EffectEvidenceSynthesis.status': minimum required = 1, but only found 0","location":["EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Profile http://hl7.org/fhir/StructureDefinition/EffectEvidenceSynthesis, Element 'EffectEvidenceSynthesis.population': minimum required = 1, but only found 0","location":["EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Profile http://hl7.org/fhir/StructureDefinition/EffectEvidenceSynthesis, Element 'EffectEvidenceSynthesis.exposure': minimum required = 1, but only found 0","location":["EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Profile http://hl7.org/fhir/StructureDefinition/EffectEvidenceSynthesis, Element 'EffectEvidenceSynthesis.exposureAlternative': minimum required = 1, but only found 0","location":["EffectEvidenceSynthesis"]},{"severity":"error","code":"processing","diagnostics":"Profile http://hl7.org/fhir/StructureDefinition/EffectEvidenceSynthesis, Element 'EffectEvidenceSynthesis.outcome': minimum required = 1, but only found 0","location":["EffectEvidenceSynthesis"]},{"severity":"information","code":"processing","diagnostics":"Unknown extension http://synthetichealth.github.io/synthea/disability-adjusted-life-years","location":["EffectEvidenceSynthesis.extension[3]"]},{"severity":"information","code":"processing","diagnostics":"Unknown extension http://synthetichealth.github.io/synthea/quality-adjusted-life-years","location":["EffectEvidenceSynthesis.extension[4]"]}]}, "statusCode":400}
 {"lineId":7, UpdateResourceResponse:{"jsonBlob":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"processing","diagnostics":"2 validation errors detected: Value at 'resourceId' failed to satisfy constraint: Member must satisfy regular expression pattern: [A-Za-z0-9-.]{1,64}; Value at 'resourceId' failed to satisfy constraint: Member must have length greater than or equal to 1"}]}, "statusCode":400}
@@ -72,7 +71,7 @@ Determine the [Data store authorization strategy](getting-started-concepts.md#co
 
 To create SigV4 authorization using the AWS SDK for Python (Boto3), create a script similar to the following example.
 
-```
+```python
 import boto3
 import requests
 import json
@@ -152,7 +151,7 @@ To turn on HealthLake NLP integration, create a support case using [AWS Support 
 
 If a `DocumentReference` resource is not valid, HealthLake provides an extension indicating a validation error instead of providing it in the integrated medical NLP output. To find `DocumentReference` resources that led to a validation error during NLP processing, you can use HealthLake’s FHIR `search` function with search key **cm-decoration-status** and search value **VALIDATION\_ERROR**. This search will list all `DocumentReference` resources that led to validation errors, along with an error message describing the nature of the error. The structure of the extension field in those `DocumentReference` resources with validation errors will resemble the following example.
 
-```
+```json
 "extension": [
           {
               "extension": [
@@ -180,7 +179,7 @@ A `VALIDATION_ERROR` can also occur if NLP decoration creates more than 10,000 n
 
 If your IAM user or role contains the `AWSLakeFormationDataAdmin` AWS managed policy you cannot add new data lake administrators. You will get an error containing the following:
 
-```
+```json
 User arn:aws:sts::111122223333:assumed-role/lakeformation-admin-user is not authorized to perform: lakeformation:PutDataLakeSettings on resource: arn:aws:lakeformation:us-east-2:111122223333:catalog:111122223333 with an explicit deny in an identity-based policy
 ```
 

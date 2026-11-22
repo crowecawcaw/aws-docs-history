@@ -1,7 +1,6 @@
 
 
 # Compliance reference for AWS HealthLake
-<a name="reference-compliance"></a>
 
 AWS HealthLake provides features designed to help you track and report API usage in alignment with CMS (Centers for Medicare & Medicaid Services) interoperability requirements. These features enable you to categorize API transactions by CMS-mandated categories and automatically capture usage metrics for compliance reporting purposes.
 

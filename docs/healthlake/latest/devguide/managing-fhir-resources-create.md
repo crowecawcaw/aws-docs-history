@@ -1,7 +1,6 @@
 
 
 # Creating a FHIR resource
-<a name="managing-fhir-resources-create"></a>
 
 The FHIR `create` interaction creates a new FHIR resource in a HealthLake data store. For additional information, see [`create`](https://hl7.org/fhir/R4/http.html#create) in the **FHIR R4 RESTful API documentation**.
 
@@ -50,7 +49,7 @@ The FHIR `create` interaction creates a new FHIR resource in a HealthLake data s
 
    SigV4 authorization
 
-   ```
+   ```sh
    curl --request POST \
      'https://healthlake.{{region}}.amazonaws.com/datastore/{{datastore-id}}/r4/Patient' \
      --aws-sigv4 'aws:amz:region:healthlake' \
@@ -65,7 +64,7 @@ The FHIR `create` interaction creates a new FHIR resource in a HealthLake data s
 
    SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_IdentityProviderConfiguration.html) data type.
 
-   ```
+   ```json
    {
        "AuthorizationStrategy": "SMART_ON_FHIR",
        "FineGrainedAuthorizationEnabled": true,
@@ -104,7 +103,7 @@ When creating a FHIR resource, you can optionally specify an `x-amzn-healthlake-
 
 Resources created with the minimal validation level may be ingested into a Datastore despite failing validation required for search indexing. In this case, resources will be updated to include a Healthlake specific extension to document said failures:
 
-```
+```json
 {
     "url": "http://healthlake.amazonaws.com/fhir/StructureDefinition/validation-issue",
     "valueString": "{\"resourceType\":\"OperationOutcome\",\"issue\":[{\"severity\":\"error\",\"code\":\"processing\",\"details\":{\"text\":\"FHIR resource in payload failed FHIR validation rules.\"},\"diagnostics\":\"FHIR resource in payload failed FHIR validation rules.\"}]}"

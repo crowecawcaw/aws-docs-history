@@ -1,7 +1,6 @@
 
 
 # AWS HealthLake sample projects
-<a name="reference-healthlake-sample-projects"></a>
 
 To further your analysis, you can use HealthLake with other AWS services as demonstrated in the following blog post examples.
 

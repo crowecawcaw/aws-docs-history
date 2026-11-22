@@ -1,7 +1,6 @@
 
 
 # Creating a HealthLake data store
-<a name="managing-data-stores-create"></a>
 
 Use `CreateFHIRDatastore` to create an AWS HealthLake data store conformant to the FHIR R4 specification. HealthLake data stores are used for importing, managing, searching, and exporting FHIR data. You can choose to import (preload) Synthea open source FHIR R4 health data into your data store when you create it. For more information, see [Preloaded data types](reference-healthlake-preloaded-data-types.md).
 
@@ -81,7 +80,7 @@ Output:
 
 **SDK for Python (Boto3)**  
 
-```
+```python
     @classmethod
     def from_client(cls) -> "HealthLakeWrapper":
         """
@@ -134,7 +133,7 @@ Output:
 ```
 The following code shows an example of parameters for a SMART on FHIR-enabled HealthLake data store.   
 
-```
+```python
             sse_configuration = {
                 "KmsEncryptionConfig": {"CmkType": "AWS_OWNED_KMS_KEY"}
             }
@@ -182,7 +181,7 @@ The following code shows an example of parameters for a SMART on FHIR-enabled He
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_datastore_name = 'MyHealthLakeDataStore'
         oo_result = lo_hll->createfhirdatastore(

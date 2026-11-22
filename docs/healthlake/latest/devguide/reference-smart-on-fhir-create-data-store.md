@@ -1,7 +1,6 @@
 
 
 # Creating a SMART on FHIR enabled HealthLake data store
-<a name="reference-smart-on-fhir-create-data-store"></a>
 
 To use the SMART on FHIR framework with HealthLake, create a HealthLake data store with the `IdentityProviderConfiguration` parameter specified in your `CreateFHIRDatastore` request. In the `IdentityProviderConfiguration` parameter you specify the following information:
 + Set the [AuthorizationStrategy](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_IdentityProviderConfiguration.html) equal to `SMART_ON_FHIR_V1`.
@@ -21,7 +20,7 @@ You can use the following code example to create SMART on FHIR enabled HealthLak
 
 In the `identity-provider-configuration` parameter you can *optionally* enable fine-grained authorization by setting `FineGrainedAuthorizationEnabled` equal to `True`. To learn more about Fine grained authorization, see [Using fine-grained authorization with a SMART on FHIR enabled HealthLake data store](reference-smart-on-fhir-fine-grained-authorization.md). The example below contains a special character `\` to indicate line breaks or as an escape character. This is for clarity.
 
-```
+```sh
 aws healthlake create-fhir-datastore \
   --region us-east-1 \
   --datastore-name "your-data-store-name" \
@@ -39,7 +38,7 @@ aws healthlake create-fhir-datastore \
 
 When successful you get the following JSON response:
 
-```
+```json
 {
   "DatastoreArn": "arn:aws:healthlake:your-region:111122223333:datastore/fhir/your-datastore-id",
   "DatastoreEndpoint": "https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/",

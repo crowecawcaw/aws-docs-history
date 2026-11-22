@@ -1,7 +1,6 @@
 
 
 # Deleting Resource Types with `$bulk-delete`
-<a name="reference-fhir-operations-bulk-delete"></a>
 
 AWS HealthLake supports the `$bulk-delete` operation, enabling deletion of all resources of a specific type within a datastore. This operation is particularly useful when you need to:
 + Perform seasonal auditing and clean-up
@@ -14,7 +13,7 @@ AWS HealthLake supports the `$bulk-delete` operation, enabling deletion of all r
 
 The `$bulk-delete` operation can be invoked using POST methods:
 
-```
+```HTTP
 POST [base]/[ResourceType]/$bulk-delete?isHardDelete=false&deleteAuditEvent=true
 ```
 
@@ -36,14 +35,14 @@ POST [base]/[ResourceType]/$bulk-delete?isHardDelete=false&deleteAuditEvent=true
 **Example Request**  
 
 
-```
+```HTTP
 POST [base]/Observation/$bulk-delete?isHardDelete=false
 ```
 
 **Example Response**  
 
 
-```
+```json
 {
       "jobId": "jobId",
       "jobStatus": "SUBMITTED"
@@ -55,13 +54,13 @@ POST [base]/Observation/$bulk-delete?isHardDelete=false
 
 To check the status of a bulk delete job:
 
-```
+```HTTP
 GET [base]/$bulk-delete/[jobId]
 ```
 
 The operation returns job status information:
 
-```
+```json
 {
       "datastoreId": "datastoreId",
       "jobId": "jobId",

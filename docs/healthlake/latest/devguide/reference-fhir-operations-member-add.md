@@ -1,7 +1,6 @@
 
 
 # `$member-add` operation for HealthLake
-<a name="reference-fhir-operations-member-add"></a>
 
 The FHIR `$member-add` operation adds a member (patient) to a Group resource, specifically a Member Attribution List. This operation is part of the DaVinci Member Attribution Implementation Guide and supports the reconciliation process for managing member attributions.
 

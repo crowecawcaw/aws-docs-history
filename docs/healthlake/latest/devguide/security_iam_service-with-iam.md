@@ -1,7 +1,6 @@
 
 
 # How AWS HealthLake works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to HealthLake, learn what IAM features are available to use with HealthLake.
 

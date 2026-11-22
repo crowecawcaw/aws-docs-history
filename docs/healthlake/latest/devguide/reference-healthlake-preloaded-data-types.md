@@ -1,7 +1,6 @@
 
 
 # Synthea preloaded data types for HealthLake
-<a name="reference-healthlake-preloaded-data-types"></a>
 
 HealthLake supports only SYNTHEA as a preloaded data type. [Synthea](https://synthetichealth.github.io/synthea/) is a synthetic patient generator that models `Patient` medical history. It’s hosted in an open-source Git repository that allows HealthLake to generate a FHIR R4-compliant resource `Bundle` so that users can test models without using actual patient data.
 

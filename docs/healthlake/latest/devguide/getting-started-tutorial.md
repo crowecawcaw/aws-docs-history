@@ -1,7 +1,6 @@
 
 
 # AWS HealthLake tutorial
-<a name="getting-started-tutorial"></a>
 
 **Objective**
 

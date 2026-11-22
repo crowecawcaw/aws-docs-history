@@ -1,7 +1,6 @@
 
 
 # Use `CreateFHIRDatastore` with an AWS SDK or CLI
-<a name="example_healthlake_CreateFHIRDatastore_section"></a>
 
 The following code examples show how to use `CreateFHIRDatastore`.
 
@@ -66,7 +65,7 @@ Output:
 
 **SDK for Python (Boto3)**  
 
-```
+```python
     @classmethod
     def from_client(cls) -> "HealthLakeWrapper":
         """
@@ -119,7 +118,7 @@ Output:
 ```
 The following code shows an example of parameters for a SMART on FHIR-enabled HealthLake data store.   
 
-```
+```python
             sse_configuration = {
                 "KmsEncryptionConfig": {"CmkType": "AWS_OWNED_KMS_KEY"}
             }
@@ -167,7 +166,7 @@ The following code shows an example of parameters for a SMART on FHIR-enabled He
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_datastore_name = 'MyHealthLakeDataStore'
         oo_result = lo_hll->createfhirdatastore(

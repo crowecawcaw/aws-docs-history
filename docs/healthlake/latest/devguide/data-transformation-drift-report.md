@@ -1,7 +1,6 @@
 
 
 # Understanding drift reports
-<a name="data-transformation-drift-report"></a>
 
  When drift detection is enabled, the bulk job writes an aggregate report named `jobLevelDriftResult.json` to your output location. The report tells you how much of your source data the profile actually captured, and what it missed: so you know where to improve your mappings. 
 
@@ -13,7 +12,7 @@
 ## C-CDA drift report
 <a name="data-transformation-drift-report-ccda"></a>
 
-```
+```json
 {
   "jobId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
   "profileId": "0f1e2d3c4b5a69788796a5b4c3d2e1f0",
@@ -94,7 +93,7 @@
 
  For CSV jobs, the report is organized around tables (each CSV file is a table), columns, and rows: not sections and OIDs. 
 
-```
+```json
 {
   "jobId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
   "profileId": "0f1e2d3c4b5a69788796a5b4c3d2e1f0",
@@ -170,7 +169,7 @@
 
  [How to read it](#data-transformation-drift-report-csv-read) describes the bulk (asynchronous) format that a transformation job writes to Amazon S3. When you run drift detection synchronously, the API response includes the comma-separated value (CSV) drift report inline. To enable this, set `enableDriftDetection` to `true` on a `TransformData` request. Because a sync request processes a single input rather than a whole dataset, its report has a simpler structure. 
 
-```
+```json
 {
   "sourceFormat": "CSV",
   "summary": {

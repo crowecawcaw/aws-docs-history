@@ -1,7 +1,6 @@
 
 
 # Getting started with the AWS Management Console
-<a name="data-transformation-getting-started-console"></a>
 
 ## Step 1: Navigate to Data Transformation Agent
 <a name="data-transformation-getting-started-console-step1"></a>

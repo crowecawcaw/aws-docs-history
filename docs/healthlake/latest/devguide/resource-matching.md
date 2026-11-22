@@ -1,7 +1,6 @@
 
 
 # Matching duplicate FHIR resources
-<a name="resource-matching"></a>
 
 Resource matching identifies FHIR resources in a HealthLake data store that represent the same real-world entity and links them without modifying or merging the original resources. When aggregating data from multiple systems, resource matching connects the same entity written as several separate resources so you can build an accurate, unified view without operating a master data management system.
 

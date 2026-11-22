@@ -1,7 +1,6 @@
 
 
 # Listing HealthLake data stores
-<a name="managing-data-stores-list"></a>
 
 Use `ListFHIRDatastores` to list all HealthLake data stores in a user's account, regardless of data store status. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`ListFHIRDatastores`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ListFHIRDatastores.html) in the *AWS HealthLake API Reference*.
 
@@ -60,7 +59,7 @@ Output:
 
 **SDK for Python (Boto3)**  
 
-```
+```python
     @classmethod
     def from_client(cls) -> "HealthLakeWrapper":
         """
@@ -109,7 +108,7 @@ Output:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_hll->listfhirdatastores( ).
         DATA(lt_datastores) = oo_result->get_datastorepropertieslist( ).

@@ -1,7 +1,6 @@
 
 
 # Getting started with the SDK and AWS CLI
-<a name="data-transformation-getting-started-cli"></a>
 
 ## Install and configure
 <a name="data-transformation-getting-started-cli-install"></a>
@@ -16,7 +15,7 @@ The AWS CLI cannot process streaming responses. To use UpdateProfileWithAgent fr
 
 1. Run the file with the following command.
 
-   ```
+   ```bash
    python my_healthlake_script.py
    ```
 
@@ -26,7 +25,7 @@ The AWS CLI cannot process streaming responses. To use UpdateProfileWithAgent fr
 ### Start from AWS Starter Profile (CCDA only)
 <a name="data-transformation-getting-started-cli-step1-starter"></a>
 
-```
+```bash
 aws healthlake create-data-transformation-profile \
   --region us-west-2 \
   --source-format CCDA \
@@ -39,7 +38,7 @@ aws healthlake create-data-transformation-profile \
 
 Create profile:
 
-```
+```bash
 aws healthlake create-data-transformation-profile \
   --region us-west-2 \
   --source-format CSV \
@@ -54,7 +53,7 @@ Run the AI agent using the AWS Python SDK to create initial YAML mapping.
 
 For a CSV profile, this is where the agent analyzes the sample files you provided at creation and generates the YAML mapping:
 
-```
+```python3
 import boto3
 
 client = boto3.client(
@@ -76,7 +75,7 @@ Continue the conversation with the same `ConversationId` to refine the mapping a
 ### Start from local Mapping
 <a name="data-transformation-getting-started-cli-step1-raw"></a>
 
-```
+```bash
 aws healthlake create-data-transformation-profile \
   --region us-west-2 \
   --source-format CCDA \
@@ -87,7 +86,7 @@ aws healthlake create-data-transformation-profile \
 ### Clone from existing Profile
 <a name="data-transformation-getting-started-cli-step1-clone"></a>
 
-```
+```bash
 aws healthlake create-data-transformation-profile \
   --region us-east-1 \
   --source-format CCDA \
@@ -97,7 +96,7 @@ aws healthlake create-data-transformation-profile \
 
 Response:
 
-```
+```json
 {
     "ProfileId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
     "Version": 0,
@@ -115,7 +114,7 @@ The profile is created in draft state (version 0).
 
 The following example shows how to chat with the agent to customize the profile using the AWS Python SDK:
 
-```
+```python3
 import boto3
 import json
 
@@ -142,7 +141,7 @@ for event in response_stream:
 
 Response:
 
-```
+```json
 {"event_type": "ProgressEvent", "Message": "Reviewing CCDA Transformation Capabilities"}
 {"event_type": "ProgressEvent", "Message": "Let me load the CCDA samples and start analyzing."}
 {
@@ -159,7 +158,7 @@ Response:
 
 Continue the conversation with the returned `ConversationId`:
 
-```
+```python3
 import boto3
 
 client = boto3.client(
@@ -182,7 +181,7 @@ response = client.update_profile_with_agent(
 
 The sync conversion endpoint is REST-only. Test a profile against a sample document before publishing:
 
-```
+```bash
 curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/transform-data" \
   --aws-sigv4 "aws:amz:us-west-2:healthlake" \
   --user "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" \
@@ -197,7 +196,7 @@ curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/tran
 
 Response:
 
-```
+```json
 {
     "TransformedData": "{\"resourceType\":\"Bundle\",\"type\":\"collection\",\"entry\":[...]}",
     "DriftReport": "{\"fileDriftResults\":[{\"documentOid\":\"2.16.840.1.113883.10.20.22.1.2\",\"sectionCoverageRate\":0.92,\"overallCoverageRate\":0.88,\"resourceAccuracy\":0.97,\"unknownSections\":{\"2.16.840.1.113883.10.20.22.2.14\":1},\"unknownEntries\":{},\"missingExpectedResources\":{}}]}"
@@ -211,7 +210,7 @@ ProvenanceEnabled defaults to true. Provenance resources are generated unless yo
 
 For a CSV profile, pass your input as a map of table names to CSV content. Each key in CsvInput must match a tableName in your profile's mapping configuration:
 
-```
+```bash
 curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/transform-data" \
   --aws-sigv4 "aws:amz:us-west-2:healthlake" \
   --user "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" \
@@ -230,7 +229,7 @@ curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/tran
 
 To send more than one table in a single request, add entries to CsvInput:
 
-```
+```json
 {
   "ProfileId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
   "InputData": {
@@ -244,7 +243,7 @@ To send more than one table in a single request, add entries to CsvInput:
 
 Response:
 
-```
+```json
 {
     "TransformedData": "{\"resourceType\":\"Bundle\",\"type\":\"transaction\",\"entry\":[...]}",
     "DriftReport": "{\"sourceFormat\":\"CSV\",\"summary\":{\"totalTablesInProfile\":1,\"totalTablesInInput\":1,\"tablesProcessed\":1,\"tablesUnmapped\":0,\"totalColumnsInInput\":7,\"columnsMapped\":7,\"columnsUnmapped\":0,\"totalRowsProcessed\":2,\"totalResourcesGenerated\":2,\"tablesCoverageRate\":1.0,\"columnsCoverageRate\":1.0,\"perTableRowCounts\":{\"patients\":2}},\"unmappedTables\":[],\"unmappedColumns\":[],\"warnings\":[]}"
@@ -259,7 +258,7 @@ Keep the following in mind when you convert CSV input:
 ## Step 4: Publish the profile
 <a name="data-transformation-getting-started-cli-step4"></a>
 
-```
+```bash
 aws healthlake publish-data-transformation-profile \
   --region us-west-2 \
   --profile-id "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6" \
@@ -279,7 +278,7 @@ Data Transformation Agent offers 3 ways of converting your source data to FHIR R
 
 For a C-CDA profile:
 
-```
+```bash
 curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/transform-data" \
   --aws-sigv4 "aws:amz:us-west-2:healthlake" \
   --user "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" \
@@ -294,7 +293,7 @@ curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/tran
 
 For a CSV profile:
 
-```
+```bash
 curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/transform-data" \
   --aws-sigv4 "aws:amz:us-west-2:healthlake" \
   --user "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" \
@@ -313,7 +312,7 @@ curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/tran
 ### 2. Run a bulk transformation job to Amazon S3
 <a name="data-transformation-getting-started-cli-bulk-s3"></a>
 
-```
+```bash
 aws healthlake start-data-transformation-job \
   --region us-west-2 \
   --profile-id "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6" \
@@ -327,7 +326,7 @@ aws healthlake start-data-transformation-job \
 
 Monitor the job:
 
-```
+```bash
 # Check status
 aws healthlake describe-data-transformation-job \
   --region us-west-2 \
@@ -345,7 +344,7 @@ aws healthlake list-data-transformation-jobs \
 
 To convert source files and load the resulting FHIR resources directly into a HealthLake datastore in a single step, use the existing StartFHIRImportJob API with the transformation profile fields:
 
-```
+```bash
 aws healthlake start-fhir-import-job \
   --region us-west-2 \
   --datastore-id "your-datastore-id" \
@@ -363,7 +362,7 @@ This starts a two-phase job: first the service converts your source files using 
 
 Monitor the job:
 
-```
+```bash
 aws healthlake describe-fhir-import-job \
   --region us-west-2 \
   --datastore-id "your-datastore-id" \

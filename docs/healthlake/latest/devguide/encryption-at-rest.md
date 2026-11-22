@@ -1,7 +1,6 @@
 
 
 # Encryption at REST for AWS HealthLake
-<a name="encryption-at-rest"></a>
 
 HealthLake provides encryption by default to protect sensitive customer data at rest by using a service owned AWS Key Management Service (AWS KMS) key. Customer-managed KMS keys are also supported and are required for both importing and exporting files from a data store. To learn more about Customer-managed KMS Key, see [Amazon Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html). Customers can choose an AWS owned KMS key or a Customer-managed KMS key when creating a data store. The encryption configuration cannot be changed after a data store has been created. If a data store is using an AWS owned KMS Key, it will be denoted as AWS\_OWNED\_KMS\_KEY and you will not see the specific key used for encryption at rest.
 
@@ -44,7 +43,7 @@ To use your customer managed KMS key with your HealthLake resources, the followi
 
 The following is a policy statement example that allows a user to create and interact with a data store in AWS HealthLake which is encrypted by that key:
 
-```
+```json
     
 "Statement": [
     {
@@ -99,7 +98,7 @@ The following shows how to use CreateGrant to allow HealthLake to access a custo
 
 Users are not required to create their own grants. HealthLake creates a grant on your behalf by sending a CreateGrant request to AWS KMS. Grants in AWS KMS are used to give HealthLake access to a AWS KMS key in a customer account.
 
-```
+```json
              {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -168,7 +167,7 @@ Users are not required to create their own grants. HealthLake creates a grant on
 
 The following examples shows how to use GenerateDataKey to ensure the user has necessary permissions to encrypt data before storing it.
 
-```
+```json
              {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -223,7 +222,7 @@ The following examples shows how to use GenerateDataKey to ensure the user has n
 
 The following example shows how HealthLake calls the Decrypt operation to use the stored encrypted data key to access the encrypted data.
 
-```
+```json
              {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -278,7 +277,7 @@ The following example shows how HealthLake calls the Decrypt operation to use th
 
 The following example shows how HealthLake uses the DescribeKey operation to verify if the AWS KMS customer owned AWS KMS key is in a usable state and to help a user troubleshoot if it is not functional.
 
-```
+```json
              {
     "eventVersion": "1.08",
     "userIdentity": {

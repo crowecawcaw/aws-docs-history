@@ -1,7 +1,6 @@
 
 
 # Fetching the SMART on FHIR Discovery Document
-<a name="reference-smart-on-fhir-discovery-document"></a>
 
 SMART defines a Discovery Document that allows clients to learn the authorization endpoint URLs and features a HealthLake data store supports. This information helps clients direct authorization requests to the right endpoint and construct authorization requests the HealthLake data store supports.
 
@@ -23,7 +22,7 @@ For a client application to make a successful FHIR REST request to HealthLake, i
 ------
 #### [ curl ]
 
-   ```
+   ```sh
    curl --request GET \
      'https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/.well-known/smart-configuration \
      --aws-sigv4 'aws:amz:region:healthlake' \
@@ -36,7 +35,7 @@ For a client application to make a successful FHIR REST request to HealthLake, i
 
    The Discovery Document for the HealthLake data store returns as a JSON blob, where you can find the `authorization_endpoint` and the `token_endpoint`, along with the specifications and defined capabilities for the data store.
 
-   ```
+   ```json
    {
        "authorization_endpoint": {{"https://oidc.example.com/authorize"}},
        "token_endpoint": {{"https://oidc.example.com/oauth/token"}},

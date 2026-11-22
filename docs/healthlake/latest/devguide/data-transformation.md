@@ -1,7 +1,6 @@
 
 
 # Transforming healthcare data
-<a name="data-transformation"></a>
 
 AWS HealthLake Data Transformation Agent is a fully managed service that converts legacy healthcare data into the Fast Healthcare Interoperability Resources (FHIR) R4 standard. It accepts two source formats: C-CDA (Consolidated Clinical Document Architecture, the standard XML format for clinical documents such as discharge summaries and care plans) and CSV: and produces FHIR R4 resources that applications can query through standard FHIR APIs. No FHIR expertise is required: the Data Transformation AI agent authors and edits the conversion logic from a description of what you need.
 

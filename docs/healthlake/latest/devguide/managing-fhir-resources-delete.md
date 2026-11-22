@@ -1,7 +1,6 @@
 
 
 # Deleting a FHIR resource
-<a name="managing-fhir-resources-delete"></a>
 
 The FHIR `delete` interaction removes an existing FHIR resource from a HealthLake data store. For additional information, see [`delete`](https://hl7.org/fhir/R4/http.html#delete) in the **FHIR R4 RESTful API documentation**.
 
@@ -25,7 +24,7 @@ The FHIR `delete` interaction removes an existing FHIR resource from a HealthLak
 
    SigV4 authorization
 
-   ```
+   ```sh
    curl --request DELETE \
      'https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Patient/{{id}}' \
      --aws-sigv4 'aws:amz:region:healthlake' \
@@ -41,7 +40,7 @@ The FHIR `delete` interaction removes an existing FHIR resource from a HealthLak
 
    SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_IdentityProviderConfiguration.html) data type.
 
-   ```
+   ```json
    {
        "AuthorizationStrategy": "SMART_ON_FHIR",
        "FineGrainedAuthorizationEnabled": true,
@@ -172,7 +171,7 @@ When the search matches no resources, a request with `_count` returns HTTP `200`
 **Partial success (version conflict)**  
 A resource can be modified between the search and the delete. Successfully deleted resources return `204`; conflicting resources return `412` in the same `Bundle`.
 
-```
+```json
 {
   "resourceType": "Bundle",
   "type": "batch-response",
@@ -208,7 +207,7 @@ A resource can be modified between the search and the delete. Successfully delet
 
 A single request deletes at most one page of matches. If more matching resources remain, the response `Bundle` includes a `link` with a `next` relation and a URL. Send an HTTP `DELETE` request to that URL to delete the next page, and repeat until the response no longer contains a `next` link. The `next` link must be followed with `DELETE` (the same method as the original request), not `GET`.
 
-```
+```json
 {
   "resourceType": "Bundle",
   "type": "batch-response",

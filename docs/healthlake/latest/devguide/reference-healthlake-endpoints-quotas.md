@@ -1,7 +1,6 @@
 
 
 # AWS HealthLake endpoints and quotas
-<a name="reference-healthlake-endpoints-quotas"></a>
 
 The following topics contain information about AWS HealthLake service endpoints and quotas.
 

@@ -1,7 +1,6 @@
 
 
 # Idempotency and Concurrency
-<a name="managing-fhir-resources-idempotency"></a>
 
 ## Idempotency Keys
 <a name="idempotency-keys"></a>

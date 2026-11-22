@@ -1,7 +1,6 @@
 
 
 # Support reference for AWS HealthLake
-<a name="reference-healthlake"></a>
 
 The following supporting reference material is available for AWS HealthLake.
 

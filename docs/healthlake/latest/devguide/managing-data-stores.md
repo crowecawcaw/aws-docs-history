@@ -1,7 +1,6 @@
 
 
 # Managing data stores with AWS HealthLake
-<a name="managing-data-stores"></a>
 
 With AWS HealthLake, you create and manage data stores for FHIR R4 resources. When you create a HealthLake data store, a FHIR data respository is made available via a RESTful API [endpoint](reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints). You can choose to import (preload) Synthea open source FHIR R4 health data into your data store when you create it. For more information, see [Preloaded data types](reference-healthlake-preloaded-data-types.md).
 

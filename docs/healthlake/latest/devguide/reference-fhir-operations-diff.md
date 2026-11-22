@@ -1,7 +1,6 @@
 
 
 # Comparing Resources with `$diff`
-<a name="reference-fhir-operations-diff"></a>
 
 AWS HealthLake supports the `$diff` operation, which returns the changes between two FHIR resources as a FHIR `Parameters` resource. For example, after a patient's family name is corrected from `Roe` to `Major`, a `$diff` of version 1 and version 2 of that `Patient` returns one `replace` operation for `Patient.name[0].family`.
 
@@ -12,7 +11,7 @@ You can call `$diff` at two levels. Both use `GET` and return the same [Response
 ## Instance level: compare two versions of one resource
 <a name="diff-instance-level"></a>
 
-```
+```HTTP
 GET [base]/[ResourceType]/[ID]/$diff?source=[VersionID]&target=[VersionID]
 ```
 
@@ -33,14 +32,14 @@ With no parameters, HealthLake compares the version just before the latest to th
 **Example Request**  
 
 
-```
+```HTTP
 GET [base]/Patient/example-patient/$diff?source=1&target=2
 ```
 
 **Example Response**  
 
 
-```
+```json
 {
   "resourceType": "Parameters",
   "parameter": [
@@ -86,7 +85,7 @@ GET [base]/Patient/example-patient/$diff?source=1&target=2
 ## Type level: compare two resources of the same type
 <a name="diff-type-level"></a>
 
-```
+```HTTP
 GET [base]/[ResourceType]/$diff?from=[ID]&to=[ID]
 ```
 
@@ -102,14 +101,14 @@ The following table lists the type-level parameters.
 **Example Request**  
 
 
-```
+```HTTP
 GET [base]/Patient/$diff?from=patient-a&to=Patient/patient-b/_history/3
 ```
 
 **Example Response**  
 
 
-```
+```json
 {
   "resourceType": "Parameters",
   "parameter": [

@@ -1,7 +1,6 @@
 
 
 # AWS HealthLake reference
-<a name="reference"></a>
 
 The following supporting reference material is available for SMART on FHIR, FHIR, and AWS HealthLake.
 

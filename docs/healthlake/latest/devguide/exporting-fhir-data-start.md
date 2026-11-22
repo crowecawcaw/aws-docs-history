@@ -1,7 +1,6 @@
 
 
 # Starting a FHIR export job
-<a name="exporting-fhir-data-start"></a>
 
 Use `StartFHIRExportJob` to start a FHIR export job from a HealthLake data store. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`StartFHIRExportJob`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_StartFHIRExportJob.html) in the *AWS HealthLake API Reference*.
 
@@ -44,7 +43,7 @@ Output:
 
 **SDK for Python (Boto3)**  
 
-```
+```python
     @classmethod
     def from_client(cls) -> "HealthLakeWrapper":
         """
@@ -100,7 +99,7 @@ Output:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_job_name = 'MyExportJob'
         " iv_output_s3_uri = 's3://my-bucket/export/output/'

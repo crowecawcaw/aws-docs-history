@@ -1,7 +1,6 @@
 
 
 # Mapping Codes Between Terminologies with `$translate`
-<a name="reference-fhir-operations-translate"></a>
 
 AWS HealthLake supports the `$translate` operation for ConceptMap resources, enabling you to map a code from one code system to an equivalent code in another using ConceptMaps you have ingested into your datastore. This operation is particularly useful when you need to:
 + Map codes between terminologies (for example, ICD-10-CM to SNOMED CT)
@@ -17,7 +16,7 @@ The `$translate` operation can be invoked on ConceptMap resources using both GET
 **Supported Operations**  
 
 
-```
+```HTTP
 GET  [base]/ConceptMap/$translate?url={...}&system={...}&code={...}
 GET  [base]/ConceptMap/[id]/$translate?system={...}&code={...}
 POST [base]/ConceptMap/$translate
@@ -48,21 +47,21 @@ The `url`, `source`, and `target` parameters are scope filters that apply only t
 **GET Request (by ConceptMap ID)**  
 
 
-```
+```HTTP
 GET [base]/ConceptMap/example-conceptmap/$translate?system={{http://snomed.info/sct}}&code={{44054006}}
 ```
 
 **GET Request (by canonical URL)**  
 
 
-```
+```HTTP
 GET [base]/ConceptMap/$translate?url={{http://example.com/ConceptMap/sct-to-icd10}}&system={{http://snomed.info/sct}}&code={{44054006}}
 ```
 
 **POST Request**  
 
 
-```
+```json
 POST [base]/ConceptMap/$translate
 Content-Type: application/fhir+json
 
@@ -92,7 +91,7 @@ Content-Type: application/fhir+json
 **Sample Response**  
 The operation returns a `Parameters` resource. The `result` parameter indicates whether a match was found. Each `match` contains the target `concept` and an `equivalence`:
 
-```
+```json
 {
   "resourceType": "Parameters",
   "parameter": [

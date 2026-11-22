@@ -1,7 +1,6 @@
 
 
 # Retrieving Concept Details with `$lookup`
-<a name="reference-fhir-operations-lookup"></a>
 
 AWS HealthLake now supports the `$lookup` operation for CodeSystem resources, enabling you to retrieve details about a specific concept in a code system by providing identifying information such as its code. This operation is particularly useful when you need to:
 + Retrieve detailed information about specific medical codes
@@ -17,7 +16,7 @@ The `$lookup` operation can be invoked on CodeSystem resources using both GET an
 **Supported Operations**  
 
 
-```
+```HTTP
 GET [base]/CodeSystem/$lookup?system={{http://snomed.info/sct&code=73211009&version=20230901}}
 POST [base]/CodeSystem/$lookup
 ```
@@ -40,14 +39,14 @@ HealthLake supports a subset of FHIR R4 `$lookup` parameters:
 **GET Request**  
 
 
-```
+```HTTP
 GET [base]/CodeSystem/$lookup?system={{http://snomed.info/sct&code=71620000&version=2023-09}}
 ```
 
 **POST Request**  
 
 
-```
+```json
 POST [base]/CodeSystem/$lookup
 Content-Type: application/fhir+json
 
@@ -73,7 +72,7 @@ Content-Type: application/fhir+json
 **Sample Response**  
 The operation returns a Parameters resource containing the concept details:
 
-```
+```json
 {
     "resourceType": "Parameters",
     "parameter": [{

@@ -1,7 +1,6 @@
 
 
 # Use `StartFHIRImportJob` with an AWS SDK or CLI
-<a name="example_healthlake_StartFHIRImportJob_section"></a>
 
 The following code examples show how to use `StartFHIRImportJob`.
 
@@ -36,7 +35,7 @@ Output:
 
 **SDK for Python (Boto3)**  
 
-```
+```python
     @classmethod
     def from_client(cls) -> "HealthLakeWrapper":
         """
@@ -97,7 +96,7 @@ Output:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_job_name = 'MyImportJob'
         " iv_input_s3_uri = 's3://my-bucket/import/data.ndjson'

@@ -1,7 +1,6 @@
 
 
 # Updating a FHIR resource
-<a name="managing-fhir-resources-update"></a>
 
 The FHIR `update` interaction creates a new current version for an existing resource or creates an initial version if no resource already exists for the given `id`. For additional information, see [`update`](https://hl7.org/fhir/R4/http.html#update) in the **FHIR R4 RESTful API documentation**.
 
@@ -20,7 +19,7 @@ The FHIR `update` interaction creates a new current version for an existing reso
 
 1. Construct a `JSON` body for the request, specifying the FHIR data updates to be made. For the purpose of this procedure, save the file as `update-patient.json`.
 
-   ```
+   ```json
    {
        "id": "2de04858-ba65-44c1-8af1-f2fe69a977d9",
        "resourceType": "Patient",
@@ -52,7 +51,7 @@ The FHIR `update` interaction creates a new current version for an existing reso
 
    SigV4 authorization
 
-   ```
+   ```sh
    curl --request PUT \
      'https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/Patient/{{id}}' \
      --aws-sigv4 'aws:amz:region:healthlake' \
@@ -69,7 +68,7 @@ The FHIR `update` interaction creates a new current version for an existing reso
 
    SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_IdentityProviderConfiguration.html) data type.
 
-   ```
+   ```json
    {
        "AuthorizationStrategy": "SMART_ON_FHIR",
        "FineGrainedAuthorizationEnabled": true,
@@ -124,7 +123,7 @@ When updating a FHIR resource, you can optionally specify an `x-amzn-healthlake-
 
 Resources updated with the minimal validation level may be ingested into a Datastore despite failing validation required for search indexing. In this case, resources will be updated to include a Healthlake specific extension to document said failures:
 
-```
+```json
 {
     "url": "http://healthlake.amazonaws.com/fhir/StructureDefinition/validation-issue",
     "valueString": "{\"resourceType\":\"OperationOutcome\",\"issue\":[{\"severity\":\"error\",\"code\":\"processing\",\"details\":{\"text\":\"FHIR resource in payload failed FHIR validation rules.\"},\"diagnostics\":\"FHIR resource in payload failed FHIR validation rules.\"}]}"

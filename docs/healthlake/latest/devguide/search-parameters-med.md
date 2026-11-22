@@ -1,7 +1,6 @@
 
 
 # Search parameters for HealthLake integrated NLP
-<a name="search-parameters-med"></a>
 
 The following table lists the searchable attributes for HealthLake integrated NLP.
 

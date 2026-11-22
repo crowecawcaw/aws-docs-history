@@ -1,7 +1,6 @@
 
 
 # Creating AWS HealthLake resources with AWS CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
 AWS HealthLake is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want and CloudFormation provisions and configures those resources for you.
 

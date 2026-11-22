@@ -1,7 +1,6 @@
 
 
 # Patching resources at scale with `$bulk-patch`
-<a name="reference-fhir-operations-bulk-patch"></a>
 
 AWS HealthLake supports the `$bulk-patch` operation for applying patch operations to large numbers of FHIR resources asynchronously. You can target a specific list of resources by ID, or all resources of a given type within a datastore. With this operation, you can modify resources at scale without updating each resource individually.
 
@@ -22,13 +21,13 @@ Resources that are deleted or modified after job submission are skipped rather t
 
 The `$bulk-patch` operation is asynchronous. To start a job, submit a POST request:
 
-```
+```HTTP
 POST [base]/$bulk-patch
 ```
 
 To poll the status of a job, use the describe endpoint:
 
-```
+```HTTP
 GET [base]/$bulk-patch/{jobId}
 ```
 
@@ -62,7 +61,7 @@ You can target resources in two modes.
 **Resource type mode**  
 In resource type mode, the operation patches all resources of a specific type in the datastore.
 
-```
+```json
 {
     "resourceType": "Patient",
     "operations": { ... }
@@ -72,7 +71,7 @@ In resource type mode, the operation patches all resources of a specific type in
 **Resource IDs mode**  
 In resource IDs mode, the operation patches a specific list of resources by ID. All resource IDs must be the same type and match the `resourceType` parameter. The format can be a full reference (`[resourceType]/[id]`) or only the ID (`[id]`). The list can contain up to 50,000 resource IDs.
 
-```
+```json
 {
     "resourceType": "Patient",
     "resourceIds": ["Patient/001", "Patient/002", "Patient/003"],
@@ -93,7 +92,7 @@ The following example submits a bulk patch job that adds a compliance tag to spe
 **Example Request**  
 
 
-```
+```HTTP
 POST [base]/$bulk-patch
 Content-Type: application/json
 
@@ -125,7 +124,7 @@ Content-Type: application/json
 **Example Response**  
 
 
-```
+```json
 {
     "datastoreId": "datastoreId",
     "jobId": "jobId",
@@ -138,13 +137,13 @@ Content-Type: application/json
 
 After you submit a job, poll the job status to track progress and retrieve results. The job transitions through `SUBMITTED` and `IN_PROGRESS`, and then to a terminal state of `COMPLETED` or `COMPLETED_WITH_ERRORS`.
 
-```
+```HTTP
 GET [base]/$bulk-patch/{jobId}
 ```
 
 The following example shows a response for a job that is in progress.
 
-```
+```json
 {
     "datastoreId": "datastoreId",
     "jobId": "jobId",
@@ -161,7 +160,7 @@ The `estimatedResourceCount` is exact for resource IDs mode, and is equal to the
 
 When the job reaches a terminal state, the describe response includes a count summary of succeeded, failed, and skipped resources. If any resources failed or were skipped, the response lists the reasons in `failedResources` and `skippedResources`. The job status is `COMPLETED_WITH_ERRORS` when there are any failures, whether a customer error or a server error. Response size limits the `failedResources` and `skippedResources` lists, so they might be truncated. Check `failedResourcesTruncated` and `skippedResourcesTruncated` to determine whether the full list is included.
 
-```
+```json
 {
     "datastoreId": "datastoreId",
     "jobId": "jobId",
@@ -245,7 +244,7 @@ The `$bulk-patch` operation is designed for high-volume processing and runs asyn
 + **Concurrency** — Each datastore supports a maximum of 1 concurrent bulk patch job. The operation queues additional jobs and starts them automatically when the current job completes.
 + **Scalability** — Each job supports up to 2 billion resources. The operation rejects jobs that exceed this limit. This limit prevents prolonged processing times, during which many resources can change state, and avoids holding datastore job concurrency for an extended period. Use resource IDs mode to partition the workload. Sample response when a job exceeds the supported scale:
 
-  ```
+  ```json
   "status": "COMPLETED_WITH_ERRORS",
   "message": "The requested bulk patch operation exceeds the supported scale."
   ```

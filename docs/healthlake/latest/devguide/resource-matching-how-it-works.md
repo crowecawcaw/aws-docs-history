@@ -1,7 +1,6 @@
 
 
 # How resource matching works
-<a name="resource-matching-how-it-works"></a>
 
 Whenever a resource is written to your data store – through a bulk import job or a REST API `create`, `update` or `delete`, resource matching evaluates its `identifier` values against the other resources of the same type in the data store. Matching is deterministic: two resources are linked when they share a high-confidence healthcare identifier, and each identifier is matched according to its real-world scope.
 + **Globally unique identifiers** – an identifier such as a National Provider Identifier (NPI) or Social Security Number (SSN) refers to the same entity regardless of which system issued the record. These are matched on value.

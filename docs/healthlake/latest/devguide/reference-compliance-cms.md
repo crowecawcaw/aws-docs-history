@@ -1,7 +1,6 @@
 
 
 # CMS compliance features
-<a name="reference-compliance-cms"></a>
 
 AWS HealthLake provides features to help you meet CMS (Centers for Medicare & Medicaid Services) interoperability and compliance requirements. These features enable you to track API usage by CMS category and subsequently report usage metrics for compliance purposes.
 
@@ -65,7 +64,7 @@ The interoperability endpoint path is simply inserted between your base URL and 
 
 **Current API call (still works):**
 
-```
+```bash
 curl -X GET \
   https://healthlake.us-east-1.amazonaws.com/datastore/abc123/r4/Patient/123 \
   -H "Authorization: Bearer <token>" \
@@ -74,7 +73,7 @@ curl -X GET \
 
 **With Patient Access interoperability endpoint (for CMS tracking):**
 
-```
+```bash
 curl -X GET \
   https://healthlake.us-east-1.amazonaws.com/datastore/abc123/patientaccess/v2/r4/Patient/123 \
   -H "Authorization: Bearer <token>" \
@@ -122,7 +121,7 @@ When you use the CMS interoperability endpoints, HealthLake automatically emits 
 
 When you make an API call using an interoperability endpoint:
 
-```
+```bash
 # This call...
 curl https://healthlake.us-east-1.amazonaws.com/datastore/abc123/patientaccess/v2/r4/Patient/123
 
@@ -169,7 +168,7 @@ All existing HealthLake metrics now include the additional dimensions when using
 
 **Query all Patient Access API calls by application:**
 
-```
+```sql
 SELECT SUM(CallCount)
 FROM "AWS/HealthLake"
 WHERE DatastoreId = '75c1cf9b0d71cd38fec8f7fb317c4c1a'

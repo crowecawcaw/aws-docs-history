@@ -1,7 +1,6 @@
 
 
 # Setting up AWS HealthLake
-<a name="getting-started-setting-up"></a>
 
 In this chapter, you use the AWS Management Console to set up the required permissions to start using AWS HealthLake and create a data store. To set up permissions to create a data store, you create an IAM user or role that is a data lake administrator and HealthLake administrator. You make this user a data lake administrator in AWS Lake Formation. The data lake administrator grants Lake Formation access to resources needed to use Amazon Athena to query a data store. After you create a HealthLake data store, you can set up permissions for importing and exporting files. 
 
@@ -52,7 +51,7 @@ The `AWSLakeFormationDataAdmin` policy grants access to all AWS Lake Formation r
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -89,7 +88,7 @@ For more information on the `AWSLakeFormationDataAdmin` policy, see [Lake Format
 <a name="setting-up-add-lake-formation"></a>
 
 **Note**  
-This step is required if you are integrating [SQL index and query](integrating-athena.md).
+This step is required if you are integrating [Amazon Athena](integrating-athena.md).
 
 Next, the IAM administrator must add the user or role created in the previous step as a data lake administrator in Lake Formation.
 
@@ -173,7 +172,7 @@ After you set up permission, you are ready to import files into your data store 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -207,7 +206,7 @@ After you set up permission, you are ready to import files into your data store 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{
@@ -275,7 +274,7 @@ The user or role that sets up permissions must have permission to create roles, 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -315,7 +314,7 @@ The user or role that sets up permissions must have permission to create roles, 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -349,7 +348,7 @@ The user or role that sets up permissions must have permission to create roles, 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{
@@ -432,7 +431,7 @@ Boto3 requires Python 3.8 or later. To avoid conflicts with other packages on yo
 
 1. Verify the setup using the following command.
 
-   ```
+   ```bash
    python3 -c "import boto3; print(boto3.__version__)"
    ```
 

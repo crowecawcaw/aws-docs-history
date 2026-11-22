@@ -1,7 +1,6 @@
 
 
 # Retrieving ValueSet Codes with `$expand`
-<a name="reference-fhir-operations-expand"></a>
 
 AWS HealthLake now supports the `$expand` operation for ValueSets that were ingested by you as a customer, enabling you to retrieve the complete list of codes contained within those ValueSet resource(s). This operation is particularly useful when you need to:
 + Retrieve all possible codes for validation purposes
@@ -16,7 +15,7 @@ The `$expand` operation can be invoked on ValueSet resources using both GET and 
 **Supported Operations**  
 
 
-```
+```json
 GET/POST [base]/ValueSet/[id]/$expand
 GET [base]/ValueSet/$expand?url=http:{{//example.com}}
 POST [base]/ValueSet/$expand
@@ -42,21 +41,21 @@ HealthLake supports a subset of FHIR R4 `$expand` parameters:
 **GET Request by ID**  
 
 
-```
+```HTTP
 GET [base]/ValueSet/example-valueset/$expand
 ```
 
 **GET Request by URL with Filter**  
 
 
-```
+```HTTP
 GET [base]/ValueSet/$expand?url=http:{{//example.com/ValueSet/my-valueset&filter=male&count=5}}
 ```
 
 **POST Request with Parameters (by ID)**  
 
 
-```
+```json
 POST [base]/ValueSet/example-valueset/$expand
 Content-Type: application/fhir+json
 
@@ -78,7 +77,7 @@ Content-Type: application/fhir+json
 **POST Request with Parameters (by URL)**  
 
 
-```
+```json
 POST [base]/ValueSet/$expand
 Content-Type: application/fhir+json
 
@@ -100,7 +99,7 @@ Content-Type: application/fhir+json
 **Sample Response**  
 The operation returns a ValueSet resource with an `expansion` element containing the expanded codes:
 
-```
+```json
 {
   "resourceType": "ValueSet",
   "id": "administrative-gender",

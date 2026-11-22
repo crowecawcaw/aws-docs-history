@@ -1,7 +1,6 @@
 
 
 # Modifying Resources with PATCH Operation
-<a name="managing-fhir-resources-patch"></a>
 
 AWS HealthLake supports the PATCH operation for FHIR resources, enabling you to modify resources by targeting specific elements to add, replace, or delete without updating the entire resource. This operation is particularly useful when you need to:
 + Make targeted updates to large resources
@@ -37,7 +36,7 @@ Uses FHIRPath expressions to target elements by their content and relationships,
 
 The PATCH operation can be invoked directly on FHIR resources using the PATCH HTTP method:
 
-```
+```json
 PATCH [base]/[resource-type]/[id]{?_format=[mime-type]}
 ```
 
@@ -83,7 +82,7 @@ JSON Patch uses JSON Pointer syntax (RFC 6901):
 **Direct JSON Patch Request with Multiple Operations**  
 
 
-```
+```json
 PATCH [base]/Patient/example
 Content-Type: application/json-patch+json
 If-Match: W/"1"
@@ -128,7 +127,7 @@ If-Match: W/"1"
 **Direct JSON Patch Request with Single Operation**  
 
 
-```
+```json
 PATCH [base]/Patient/example
 Content-Type: application/json-patch+json
 
@@ -144,7 +143,7 @@ Content-Type: application/json-patch+json
 **JSON Patch in Bundle**  
 Use a Binary resource containing the base64-encoded JSON Patch payload:
 
-```
+```json
 {
   "resourceType": "Bundle",
   "type": "transaction",
@@ -194,7 +193,7 @@ FHIRPath Patch uses FHIRPath expressions, supporting:
 **Direct FHIRPath Patch Request**  
 
 
-```
+```json
 PATCH [base]/Patient/123
 Content-Type: application/fhir+json
 Authorization: ...
@@ -216,7 +215,7 @@ Authorization: ...
 **FHIRPath Patch in Bundle**  
 Use a Parameters resource as the entry resource with `method: PATCH`:
 
-```
+```json
 {
   "resourceType": "Bundle",
   "type": "transaction",
@@ -255,7 +254,7 @@ Use a Parameters resource as the entry resource with `method: PATCH`:
 
 The operation returns the updated resource with new version information:
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/fhir+json
 ETag: W/"2"

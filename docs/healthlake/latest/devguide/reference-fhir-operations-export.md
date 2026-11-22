@@ -1,7 +1,6 @@
 
 
 # Exporting HealthLake data with FHIR `$export`
-<a name="reference-fhir-operations-export"></a>
 
 You can export data in bulk from your HealthLake data store using the FHIR $export operation. HealthLake supports FHIR `$export` using `POST` and `GET` requests. To make an export request with `POST`, you must have an IAM user, group, or role with the required permissions, specify `$export` as part of the request, and include desired parameters in the request body.
 
@@ -141,7 +140,7 @@ The export request also requires a body in `JSON` format. The body can include t
 **Example Body of an export request made using the FHIR REST API**  
 To make an export request by using the FHIR REST API, you must specify a body, as shown in the following.  
 
-```
+```json
 {
   "DataAccessRoleArn": "arn:aws:iam::444455556666:role/your-healthlake-service-role",
   "JobName": "your-export-job",
@@ -158,13 +157,13 @@ When your request is successful, you will receive the following response.
 
 *Response Header*
 
-```
+```http
 content-location: https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/export/your-export-request-job-id
 ```
 
 *Response Body*
 
-```
+```json
 {
   "datastoreId": "your-data-store-id",
   "jobStatus": "SUBMITTED",
@@ -186,13 +185,13 @@ The following topics describe how you can get the status on or cancel a current 
 
 To cancel an export request, make a `DELETE` request and supply the job ID in the request URL.
 
-```
+```http
 DELETE https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/export/your-export-request-job-id
 ```
 
 When your request is successful, you receive the following.
 
-```
+```json
 {
   "exportJobProperties": {
     "jobId": "your-original-export-request-job-id",
@@ -204,7 +203,7 @@ When your request is successful, you receive the following.
 
 When your request is not successful, you receive the following.
 
-```
+```json
 {
   "resourceType": "OperationOutcome",
   "issue": [
@@ -222,7 +221,7 @@ When your request is not successful, you receive the following.
 
 To get the status of an export request, make a `GET` request by using `export` and your `export-request-job-id`.
 
-```
+```http
 GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/export/your-export-request-id
 ```
 
@@ -242,7 +241,7 @@ The JSON response will contain an `ExportJobProperties` object. It may contain t
 **Example : Body of a describe export request made using the FHIR REST API**  
 When successful, you will get the following JSON response.  
 
-```
+```json
 {
   "exportJobProperties": {
     "jobId": "your-export-request-id",
@@ -264,7 +263,7 @@ When successful, you will get the following JSON response.
 
 When the export job is complete, each entry in the `output` array of the response includes a `count` key with the number of resources in that file. `count` is omitted when a count is not available, for example for a canceled export.
 
-```
+```json
 "output": [
   {
     "type": "Patient",

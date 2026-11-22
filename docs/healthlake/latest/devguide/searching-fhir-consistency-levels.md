@@ -1,7 +1,6 @@
 
 
 # FHIR Search Consistency Levels
-<a name="searching-fhir-consistency-levels"></a>
 
 AWS HealthLake's search index operates on an Eventual Consistency model for `GET` and `POST` with SEARCH operations. With eventual consistency, if there is a pending search index update for a resource, the search results exclude version N-1 of the resource until the index update completes.
 

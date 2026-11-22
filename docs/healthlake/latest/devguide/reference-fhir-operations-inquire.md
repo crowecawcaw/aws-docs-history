@@ -1,7 +1,6 @@
 
 
 # FHIR `$inquire` operation for HealthLake
-<a name="reference-fhir-operations-inquire"></a>
 
 The `$inquire` operation enables you to check the status of a previously submitted prior authorization request. This operation implements the [Da Vinci Prior Authorization Support (PAS) Implementation Guide](https://hl7.org/fhir/us/davinci-pas/), providing a standardized FHIR-based workflow to retrieve the current authorization decision.
 
@@ -18,7 +17,7 @@ The `$inquire` operation enables you to check the status of a previously submitt
 ## API endpoint
 <a name="inquire-api-endpoint"></a>
 
-```
+```http
 POST /datastore/{datastoreId}/r4/Claim/$inquire  
 Content-Type: application/fhir+json
 ```
@@ -65,7 +64,7 @@ All inquiries must be tied to a specific patient. System-wide queries without pa
 ## Example request
 <a name="inquire-example-request"></a>
 
-```
+```json
 POST /datastore/example-datastore/r4/Claim/$inquire  
 Content-Type: application/fhir+json  
 Authorization: Bearer <your-token>  
@@ -174,7 +173,7 @@ You'll receive a PAS Inquiry Response Bundle containing:
 | error | An error occurred during processing | 
 | partial | Partial authorization granted | 
 
-```
+```json
 {  
   "resourceType": "Bundle",  
   "identifier": {  
@@ -292,7 +291,7 @@ You'll receive a PAS Inquiry Response Bundle containing:
 
 Returned when the request format is invalid or validation fails.
 
-```
+```json
 {  
     "resourceType": "OperationOutcome",  
     "issue": [  
@@ -310,7 +309,7 @@ Returned when the request format is invalid or validation fails.
 
 Returned when authentication credentials are missing or invalid.
 
-```
+```json
 {  
     "resourceType": "OperationOutcome",  
     "issue": [  
@@ -328,7 +327,7 @@ Returned when authentication credentials are missing or invalid.
 
 Returned when the authenticated user lacks permission to access the requested resource.
 
-```
+```json
 {  
     "resourceType": "OperationOutcome",  
     "issue": [  
@@ -346,7 +345,7 @@ Returned when the authenticated user lacks permission to access the requested re
 
 Returned when no matching ClaimResponse is found for the inquiry.
 
-```
+```json
 {  
   "resourceType": "OperationOutcome",
   "issue": [{
@@ -362,7 +361,7 @@ Returned when no matching ClaimResponse is found for the inquiry.
 
 Returned when the Content-Type header is not application/fhir\+json.
 
-```
+```json
 {  
   "resourceType": "OperationOutcome",  
   "issue": [{  
@@ -378,7 +377,7 @@ Returned when the Content-Type header is not application/fhir\+json.
 
 Returned when rate limits are exceeded.
 
-```
+```json
 {  
   "resourceType": "OperationOutcome",  
   "issue": [{  

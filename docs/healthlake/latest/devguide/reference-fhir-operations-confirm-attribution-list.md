@@ -1,7 +1,6 @@
 
 
 # FHIR R4 `$confirm-attribution-list` operation for HealthLake
-<a name="reference-fhir-operations-confirm-attribution-list"></a>
 
 Indicates to a Producer that the Consumer has no more changes to make to the Attribution List. This operation finalizes the attribution list by removing inactive members from the list, changing the status to "final", and acknowledging the operation. This operation is part of the [FHIR Member Attribution (ATR) List IG 2.1.0 implementation.](https://build.fhir.org/ig/HL7/davinci-atr/spec.html)
 

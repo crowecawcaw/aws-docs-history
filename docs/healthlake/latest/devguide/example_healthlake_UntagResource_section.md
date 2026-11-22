@@ -1,7 +1,6 @@
 
 
 # Use `UntagResource` with an AWS SDK or CLI
-<a name="example_healthlake_UntagResource_section"></a>
 
 The following code examples show how to use `UntagResource`.
 
@@ -26,7 +25,7 @@ This command produces no output.
 
 **SDK for Python (Boto3)**  
 
-```
+```python
     @classmethod
     def from_client(cls) -> "HealthLakeWrapper":
         """
@@ -65,7 +64,7 @@ This command produces no output.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_resource_arn = 'arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6'
         lo_hll->untagresource(

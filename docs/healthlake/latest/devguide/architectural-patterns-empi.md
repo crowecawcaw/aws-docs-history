@@ -1,7 +1,6 @@
 
 
 # Integrating AWS HealthLake with an Enterprise Master Patient Index (EMPI)
-<a name="architectural-patterns-empi"></a>
 
 If your organization already operates a third-party Enterprise Master Patient Index (EMPI), you can integrate it with AWS HealthLake by resolving patient identities upstream—before data is ingested.
 

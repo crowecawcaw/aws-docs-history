@@ -1,7 +1,6 @@
 
 
 # Filtering notifications with AWS HealthLake
-<a name="managing-fhir-subscriptions-filter-notif"></a>
 
 Refine your notifications using standard FHIR search parameters in your `Subscription` criteria.
 

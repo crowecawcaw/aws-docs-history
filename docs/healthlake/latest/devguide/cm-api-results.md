@@ -1,7 +1,6 @@
 
 
 # HealthLake integrated NLP example requests
-<a name="cm-api-results"></a>
 
 **Example 1: `Patient` record ingested into a HealthLake data store**
 
@@ -10,7 +9,7 @@ Following is an example of a clinical note based on of a `Patient` encounter wit
 **Synthetic data**  
 The text in the following example is synthetic content and does not contain protected health information (PHI).
 
-```
+```md
 1991-08-31
 
 # Chief Complaint
@@ -52,13 +51,13 @@ The patient was placed on a careplan:
 
 As a reminder, this information is encoded in base64 format in the `DocumentReference` resource. When this document is ingested into HealthLake and the Amazon Comprehend Medical API operations are complete, to see the results, you can start with the `GET`request on the `DocumentReference` resource type.
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/DocumentReference
 ```
 
 When the Amazon Comprehend Medical API operations are successful, look for these key-value pairs inside the `extension` linked to the following `"url": "http://healthlake.amazonaws.com/aws-cm/"`
 
-```
+```json
 {
 		"url": "http://healthlake.amazonaws.com/aws-cm/status/",
 		"valueString": "SUCCESS"
@@ -76,7 +75,7 @@ The following tabs show you how the ingested medical record is reported in your 
 
 To the see the results for a single `DocumentReference` resource type, make a `GET` request where the `id` of a specific resource is provided.
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/DocumentReference/0e938f03-da7f-4178-acd8-eea9586c46ed
 ```
 
@@ -86,7 +85,7 @@ Here is the `http://healthlake.amazonaws.com/system-generated-resources/` portio
 
 To see how these resource types have been amended, choose the related tabs.
 
-```
+```json
 {
 		"extension": [
 			{
@@ -117,7 +116,7 @@ To see how these resource types have been amended, choose the related tabs.
 
 To the see the results for a single `Linkage` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Linkage/e366d29f-2c22-4c19-866e-09603937935a
 ```
 
@@ -127,7 +126,7 @@ The response contains the `item` element. In it, the key-value pair `"type": "so
 
 *You also see the `meta` element, and a corresponding key-value pair, `"tag": [{"display": "SYSTEM_GENERATED"}]`, indicating these resources were created by HealthLake.*
 
-```
+```json
 {
 		"resourceType": "Linkage",
 		"id": "e366d29f-2c22-4c19-866e-09603937935a",
@@ -170,7 +169,7 @@ The response contains the `item` element. In it, the key-value pair `"type": "so
 
 To the see the results for a single `Observation` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Observation/e366d29f-2c22-4c19-866e-09603937935a
 ```
 
@@ -186,7 +185,7 @@ HealthLake appends the following three key-value pairs.
 
 The following truncated JSON response contains only the `code` element.
 
-```
+```json
 "code": {
 		"coding":
 		[
@@ -207,7 +206,7 @@ The `meta` element contains metadata that indicates whether the `code` element c
 
 The following truncated JSON response contains only the `meta` element.
 
-```
+```json
 "meta": {
 		"lastUpdated": "2022-10-21T19:38:30.879Z",
 		"tag": [{
@@ -223,7 +222,7 @@ For each `coding` element added, you will see an `entity-score` and an `entity-C
 
 The following truncated JSON response contains only the `modifierExtension` element.
 
-```
+```json
 "modifierExtension": [{
 			"url": "http://healthlake.amazonaws.com/aws-cm/infer-icd10/aws-cm-icd10-entity-score",
 			"valueDecimal": 0.45005733
@@ -249,7 +248,7 @@ The following truncated JSON response contains only the `modifierExtension` elem
 
 **Full JSON Response**
 
-```
+```json
 {
 		"subject": {
 			"reference": "Patient/0679b7b7-937d-488a-b48d-6315b8e7003b"
@@ -300,7 +299,7 @@ The following truncated JSON response contains only the `modifierExtension` elem
 
 To the see the results for a single `Condition` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Condition/b06d343d-ddb8-4f36-82cb-853fcd434dfd
 ```
 
@@ -316,7 +315,7 @@ HealthLake appends the following three key-value pairs.
 
 The following truncated JSON response contains only the `code` element.
 
-```
+```json
 "code": {
 		"coding":
 		[
@@ -337,7 +336,7 @@ The `meta` element contains metadata that indicates whether the `code` element c
 
 The following truncated JSON response contains only the `meta` element.
 
-```
+```json
 "meta": {
 		"lastUpdated": "2022-10-21T19:38:30.877Z",
 		"tag": [{
@@ -353,7 +352,7 @@ For each `coding` element added, you will see an `entity-score` and an `entity-C
 
 The following truncated JSON response contains only the `modifierExtension` element.
 
-```
+```json
 "modifierExtension": [{
 			"url": "http://healthlake.amazonaws.com/aws-cm/infer-icd10/aws-cm-icd10-entity-score",
 			"valueDecimal": 0.94417894
@@ -379,7 +378,7 @@ The following truncated JSON response contains only the `modifierExtension` elem
 
 **Full JSON Response**
 
-```
+```json
 {
 		"subject": {
 			"reference": "Patient/0679b7b7-937d-488a-b48d-6315b8e7003b"
@@ -433,7 +432,7 @@ Here is an example of a clinical note based off of a patient's encounter with a 
 **Synthetic data**  
 The text in this example is synthetic content and does not contain protected health information (PHI).
 
-```
+```md
 Tom is not prescribed Advil
 ```
 
@@ -444,7 +443,7 @@ The following tabs show how the ingested medical record is reported in your Heal
 
 To the see the results for a single `DocumentReference` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/DocumentReference/c549125d-a218-421f-b8bf-23614c5e796c
 ```
 
@@ -452,7 +451,7 @@ When successful, you get a `200` HTTP response code and the following truncated 
 
 The key-value pair, `"url": "http://healthlake.amazonaws.com/system-generated-resources/"`, indicates that the resource types inside this `extension` have been added by Amazon Comprehend Medical API operations. You can see the new `Linkage` resource type, and multiple `MedicationStatement` resources.
 
-```
+```json
 "extension": [{
 			"extension": [{
 					"url": "http://healthlake.amazonaws.com/linkage",
@@ -500,7 +499,7 @@ The key-value pair, `"url": "http://healthlake.amazonaws.com/system-generated-re
 
 To the see the results for a single `Linkage` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/Linkage/394bb244-177b-4409-8657-26b20ed56dd7
 ```
 
@@ -510,7 +509,7 @@ The response contains the `item` element. In it, the key-value pair `"type": "so
 
 You can also see the `meta` element and a corresponding key-value pair, `"tag": [{"display": "SYSTEM_GENERATED"}]`, indicating that these resources were created by HealthLake.
 
-```
+```json
 {
 		"resourceType": "Linkage",
 		"id": "394bb244-177b-4409-8657-26b20ed56dd7",
@@ -572,7 +571,7 @@ You can also see the `meta` element and a corresponding key-value pair, `"tag": 
 
 To the see the results for a single `MedicationStatement` resource type, make a `GET` request where the `ID` of a specific resource is provided. 
 
-```
+```http
 GET https://https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/eeb8005725ae22b35b4edbdc68cf2dfd/r4/MedicationStatement/9a89b0d3-6681-45ca-9926-27951edce5c7
 ```
 
@@ -588,7 +587,7 @@ HealthLake appends the following three key-value pairs.
 
 The following truncated JSON response contains only the `MedicationStatement` element.
 
-```
+```json
 "medicationCodeableConcept": {
 		"coding": [
 			{
@@ -605,7 +604,7 @@ The `meta` element contains metadata that indicates whether the `code` element c
 
 The following truncated JSON response contains only the `meta` element.
 
-```
+```json
 "meta": {
 		"lastUpdated": "2022-10-24T20:05:02.800Z",
 		"tag": [
@@ -619,7 +618,7 @@ The following truncated JSON response contains only the `meta` element.
 **`modifierExtension`**  
 The `modifierExtension` element contains key-value pairs that provide a link back to the original `DocumentReference` used to generate the results and the related Linkage resource type.
 
-```
+```json
 "modifierExtension": [
 			{
 				"url": "http://healthlake.amazonaws.com/system-generated-linkage",

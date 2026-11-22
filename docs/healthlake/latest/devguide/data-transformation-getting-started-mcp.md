@@ -1,7 +1,6 @@
 
 
 # Getting started with MCP
-<a name="data-transformation-getting-started-mcp"></a>
 
  Every Data Transformation Agent API is available as an MCP tool, so you can author profiles, run test conversions, and debug failures from an MCP-compatible AI agent without leaving your IDE. 
 

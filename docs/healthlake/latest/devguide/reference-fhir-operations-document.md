@@ -1,7 +1,6 @@
 
 
 # Generating Clinical Documents with `$document`
-<a name="reference-fhir-operations-document"></a>
 
 AWS HealthLake now supports the `$document` operation for Composition resources, enabling you to generate a complete clinical document by bundling the Composition with all its referenced resources into a single cohesive package. This operation is essential for healthcare applications that need to:
 + Create standardized clinical documents
@@ -17,7 +16,7 @@ The `$document` operation can be invoked on Composition resources using both GET
 **Supported Operations**  
 
 
-```
+```HTTP
 GET/POST [base]/Composition/[id]/$document
 ```
 
@@ -37,14 +36,14 @@ HealthLake supports the following FHIR `$document` parameter:
 **GET Request**  
 
 
-```
+```HTTP
 GET [base]/Composition/{{180f219f-97a8-486d-99d9-ed631fe4fc57}}/$document?persist=true
 ```
 
 **POST Request with Parameters**  
 
 
-```
+```json
 POST [base]/Composition/{{180f219f-97a8-486d-99d9-ed631fe4fc57}}/$document
 Content-Type: application/fhir+json
 
@@ -62,7 +61,7 @@ Content-Type: application/fhir+json
 **Sample Response**  
 The operation returns a Bundle resource of type "document" containing the Composition and all referenced resources:
 
-```
+```json
 {
   "resourceType": "Bundle",
   "id": "{{180f219f-97a8-486d-99d9-ed631fe4fc57}}",

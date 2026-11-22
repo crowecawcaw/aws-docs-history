@@ -1,7 +1,6 @@
 
 
 # Tracking linkage history
-<a name="resource-matching-tracking-history"></a>
 
 Resource matching does not delete a `Linkage` when a grouping changes. When resources are split into separate groups, or a group drops below two members, the superseded `Linkage` is retained with its `active` field set to `false`. Current groupings have `active` set to `true`. This lets you trace how a resource's linkages have evolved over time – for example, to audit why two records were once grouped and are no longer, or to reconstruct the state of a grouping at an earlier point.
 

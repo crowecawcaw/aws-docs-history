@@ -1,7 +1,6 @@
 
 
 # HealthLake authentication requirements for SMART on FHIR
-<a name="reference-smart-on-fhir-authentication"></a>
 
 To access FHIR resources in a SMART on FHIR-enabled HealthLake data store, a client application must be authorized by an OAuth 2.0-compliant authorization server and present an OAuth Bearer token as part of a FHIR REST API request. To find the authorization server's endpoint, use the HealthLake SMART on FHIR Discovery Document via a `Well-Known` Uniform Resource Identifier. To learn more about this process, see [Fetching the SMART on FHIR Discovery Document](reference-smart-on-fhir-discovery-document.md).
 

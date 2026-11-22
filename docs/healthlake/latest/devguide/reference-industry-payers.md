@@ -1,7 +1,6 @@
 
 
 # HealthLake for Payers
-<a name="reference-industry-payers"></a>
 
  Health plans and payer technology providers face a convergence of regulatory mandates and operational complexity. The CMS Interoperability and Prior Authorization Final Rule (CMS-0057-F) and the CMS Interoperability and Patient Access Final Rule (CMS-9115-F) require FHIR APIs, and utilization management and chart review workflows operate at high volume. 
 

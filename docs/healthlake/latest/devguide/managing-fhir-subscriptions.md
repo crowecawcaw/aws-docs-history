@@ -1,7 +1,6 @@
 
 
 # Managing FHIR Subscriptions in AWS HealthLake
-<a name="managing-fhir-subscriptions"></a>
 
 AWS HealthLake supports FHIR Subscriptions, allowing you to receive real-time notifications when specific healthcare data changes occur. This capability implements the FHIR R5 Backport topic-based subscription model, providing improved scalability and flexibility over the traditional FHIR R4 subscription model.
 

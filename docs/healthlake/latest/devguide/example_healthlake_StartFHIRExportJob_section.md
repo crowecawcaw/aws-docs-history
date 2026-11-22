@@ -1,7 +1,6 @@
 
 
 # Use `StartFHIRExportJob` with an AWS SDK or CLI
-<a name="example_healthlake_StartFHIRExportJob_section"></a>
 
 The following code examples show how to use `StartFHIRExportJob`.
 
@@ -35,7 +34,7 @@ Output:
 
 **SDK for Python (Boto3)**  
 
-```
+```python
     @classmethod
     def from_client(cls) -> "HealthLakeWrapper":
         """
@@ -91,7 +90,7 @@ Output:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_job_name = 'MyExportJob'
         " iv_output_s3_uri = 's3://my-bucket/export/output/'

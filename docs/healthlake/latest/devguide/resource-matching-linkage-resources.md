@@ -1,7 +1,6 @@
 
 
 # Working with Linkage resources
-<a name="resource-matching-linkage-resources"></a>
 
 When resource matching finds a match, it creates a FHIR `Linkage` resource that references the matched resources. The originals are not changed. Resource matching uses a **grouped** model: all resources determined to be the same entity are collected into a single `Linkage`, with one `source` item and one or more `alternate` items. The oldest resource in the group (by `meta.lastUpdated`) is the `source`; newer resources are `alternate`. A resource belongs to at most one `Linkage` group. You can retrieve and search `Linkage` resources using the same FHIR R4 interactions as any other resource type (see [Searching FHIR resources](searching-fhir-resources.md)).
 
@@ -13,7 +12,7 @@ A `Linkage` created by resource matching includes:
 
 The following example shows a `Linkage` resource that groups three Patient resources. Patient/patient-A and Patient/patient-B share a Social Security number, and Patient/patient-A and Patient/patient-C share a hospital medical record number.
 
-```
+```json
 {
     "resourceType": "Linkage",
     "id": "linkage-001",

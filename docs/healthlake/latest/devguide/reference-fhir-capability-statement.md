@@ -1,7 +1,6 @@
 
 
 # FHIR R4 Capability Statement for AWS HealthLake
-<a name="reference-fhir-capability-statement"></a>
 
 To find the FHIR-related capabilities (behaviors) of an active HealthLake data store, you must retrieve its Capability Statement. The Capability Statement is used as a statement of actual server functionality or a statement of required or desired server implementation. The FHIR [`capabilities`](https://hl7.org/fhir/R4/http.html#capabilities) interaction retrieves information about HealthLake data store capabilities and which portions of the FHIR specification it supports. HealthLake validates FHIR resource types according to the FHIR R4 [`StructureDefinition`](https://hl7.org/fhir/R4/structuredefinition.html) resource.
 
@@ -21,7 +20,7 @@ To find the FHIR-related capabilities (behaviors) of an active HealthLake data s
 ------
 #### [ curl ]
 
-   ```
+   ```sh
    curl --request GET \
      'https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/metadata \
      --aws-sigv4 'aws:amz:region:healthlake' \
