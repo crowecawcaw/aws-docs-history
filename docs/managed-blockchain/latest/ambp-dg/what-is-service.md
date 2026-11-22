@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # What is Amazon Managed Blockchain (AMB) Access Polygon?
-<a name="what-is-service"></a>
 
 Amazon Managed Blockchain (AMB) Access Polygon is a fully managed service that helps you build resilient Web3 applications on the Polygon blockchain. AMB Access Polygon provides instant and serverless access to the Polygon blockchain.
 

@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Getting started with Amazon Managed Blockchain (AMB) Access Polygon
-<a name="getting-started"></a>
 
 Get started with Amazon Managed Blockchain (AMB) Access Polygon by using the information and procedures in this section.
 
@@ -20,7 +19,7 @@ Get started with Amazon Managed Blockchain (AMB) Access Polygon by using the inf
 
 To access the public endpoint for the Polygon Mainnet to make JSON-RPC calls, you must have user credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`) that have the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Access Polygon. In a terminal with the AWS CLI installed, run the following command to create an IAM policy to access both Polygon endpoints: 
 
-```
+```json
 cat <<EOT > ~/amb-polygon-access-policy.json
 {
     "Version": "2012-10-17",		 	 	 
@@ -76,23 +75,23 @@ For more information, see the [RPCs supported by AMB Access Polygon](https://doc
 Sign requests with your IAM user credentials by using [Signature Version 4 (SigV4)](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in order to make Polygon JSON-RPC requests to the AMB Access Polygon endpoints. The [`awscurl`](https://github.com/okigan/awscurl) command line tool can help you sign requests to AWS services using SigV4. For more information, see the [awscurl README.md](https://github.com/okigan/awscurl#readme).  
 Install `awscurl` by using the method appropriate to your operating system. On macOS, HomeBrew is the recommended application:  
 
-```
+```curl
 brew install awscurl
 ```
 If you have already installed and configured the AWS CLI, your IAM user credentials and the default AWS Region are set in your environment and have access to `awscurl`. Using `awscurl`, submit a request to the Polygon *Mainnet* by invoking the `eth_getBlockByNumber` RPC. This call accepts a string parameter corresponding to the block number for which you want to retrieve information.   
 The following command retrieves the block data from the Polygon Mainnet by using the block number in the `params` array to select the specific block for which to retrieve the headers.   
 
-```
+```curl
 awscurl -X POST -d '{ "jsonrpc": "2.0", "id": "{{eth_getBlockByNumber-curltest"}}, "method":"{{eth_getBlockByNumber}}", "params":["{{latest}}", {{false}}] }' --service managedblockchain https://{{mainnet}}.polygon.managedblockchain.{{us-east-1}}.amazonaws.com -k
 ```
 You can also make this same request using `curl` and the AMB Access token based access feature using `Accessor` tokens. For more information, see [Creating and managing Accessor tokens for token-based access to make AMB Access Polygon requests](polygon-tokens.md).  
 
-```
+```curl
 curl -X POST -d '{"jsonrpc":"2.0", "id": "{{eth_getBlockByNumber-curltest"}}, "method":"{{eth_getBlockByNumber}}", "params":["{{latest}}", {{false}}] }' 'https://{{mainnet}}.polygon.managedblockchain.{{us-east-1}}.amazonaws.com?billingtoken={{your-billing-token}}'
 ```
 The response from either command returns information about the *latest* block. See the following example for illustrative purposes:   
 
-```
+```json
 {"error":null,"id":"eth_getBlockByNumber-curltest","jsonrpc":"1.0",
       "result":{"baseFeePerGas":"0x873bf591e","difficulty":"0x18",
       "extraData":"0xd78301000683626f7288676f312e32312e32856c696e757800000000000000009a\
@@ -135,7 +134,7 @@ To run this example Node.js script, apply the following prerequisites:
 After you complete all prerequisites, copy the following files into a directory in your local environment by using your preferred code editor:  
 *package.json*  
 
-```
+```json
 {
   "name": "polygon-rpc",
   "version": "1.0.0",
@@ -159,7 +158,7 @@ After you complete all prerequisites, copy the following files into a directory 
   
 *dispatch-evm-rpc.js*  
 
-```
+```javascript
 const axios = require("axios");
 const SHA256 = require("@aws-crypto/sha256-js").Sha256;
 const defaultProvider = require("@aws-sdk/credential-provider-node").defaultProvider;
@@ -215,7 +214,7 @@ The following code uses a hardcoded private key to generate a wallet Signer usin
 If needed, contact your account team to advise on wallet and Signer best practices.
   
 
-```
+```javascript
 const ethers = require("ethers");
 
 //set AMB Access Polygon endpoint using token based access (TBA)
@@ -249,7 +248,7 @@ sendTx("{{recipent-address}}");
 ```
 *readTx.js*  
 
-```
+```javascript
 let rpcRequest = require("./dispatch-evm-rpc").rpcRequest;
 let ethers = require("ethers");
 
@@ -307,7 +306,7 @@ node sendTx.js
 
 The response received back resembles the following: 
 
-```
+```json
 TransactionResponse {
 provider: JsonRpcProvider {},
 blockNumber: null,
@@ -348,7 +347,7 @@ This code uses a utility, `dispatch-evm-rpc.js`, which signs HTTPS requests to A
 
 The response received back resembles the following: 
 
-```
+```json
 TX DETAILS: {
 blockHash: '0x59433e0096c783acab0659175460bb3c919545ac14e737d7465b3ddc********',
 blockNumber: '0x28b4059',

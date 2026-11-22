@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Polygon use cases with Amazon Managed Blockchain (AMB) Access Polygon
-<a name="polygon-usecases"></a>
 
 The Polygon blockchain is commonly used in building decentralized applications (dApps) related to NFTs, Web3 games, and tokenization use cases, among others. This topic provides a list of some of the use cases that you can implement using Amazon Managed Blockchain (AMB) Access Polygon.
 

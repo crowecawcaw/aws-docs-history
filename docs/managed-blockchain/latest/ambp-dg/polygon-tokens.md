@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Creating and managing Accessor tokens for token-based access to make AMB Access Polygon requests
-<a name="polygon-tokens"></a>
 
 You can also use *Accessor* tokens to make JSON-RPC calls to the Polygon network endpoints as a convenient alternative to the Signature Version 4 (SigV4) signing process. You must provide a `BILLING_TOKEN` from one of the Accessor tokens you [create](https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/API_CreateAccessor.html) and add as a parameter with your calls.
 
@@ -51,7 +50,7 @@ aws managedblockchain create-accessor --accessor-type BILLING_TOKEN --network-ty
 
 The previous command returns the `AccessorId` along with the `BillingToken`, as shown in the following example.
 
-```
+```json
 {
 "AccessorId": "ac-NGQ6QNKXLNEBXD3UI6********",
 "NetworkType": "POLYGON_MAINNET", 
@@ -91,7 +90,7 @@ aws managedblockchain get-accessor --accessor-id {{ac-NGQ6QNKXLNEBXD3UI6********
 
  The `BillingToken` and other key properties are returned as shown in the following example. Some values in the example have been obfuscated for security reasons but appear fully in actual responses.
 
-```
+```json
 {
   "Accessor": {
   "Id": "ac-NGQ6QNKXLNEBXD3UI6********",

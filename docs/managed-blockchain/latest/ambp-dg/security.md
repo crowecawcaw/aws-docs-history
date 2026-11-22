@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Security in Amazon Managed Blockchain (AMB) Access Polygon
-<a name="security"></a>
 
 Cloud security at AWS is of the highest priority. As an AWS customer, you benefit from data centers and network architectures that are built to meet the requirements of the most security-sensitive organizations.
 

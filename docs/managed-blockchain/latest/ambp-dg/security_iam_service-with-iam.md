@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # How Amazon Managed Blockchain (AMB) Access Polygon works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AMB Access Polygon, learn what IAM features are available to use with AMB Access Polygon.
 

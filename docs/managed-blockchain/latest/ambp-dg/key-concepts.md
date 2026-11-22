@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Key concepts: Amazon Managed Blockchain (AMB) Access Polygon
-<a name="key-concepts"></a>
 
 **Note**  
 This guide assumes that you're familiar with the concepts that are essential to Polygon. These concepts include staking, dApps, transactions, wallets, smart contracts, Polygon (POL, formerly MATIC), and others. Before using Amazon Managed Blockchain (AMB) Access Polygon, we recommend that you review the [ Polygon Development Documentation](https://polygon.technology/developers) and the [Polygon wiki](https://wiki.polygon.technology/). 

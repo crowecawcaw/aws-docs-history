@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Tutorials for Amazon Managed Blockchain (AMB) Access Polygon
-<a name="tutorials"></a>
 
 The following tutorials highlighted in this section are *Community Articles* from AWS re:Post that provide walkthroughs to help you learn how to perform some common tasks on the Polygon blockchain using AMB Access Polygon.
 + [Sending transactions using AMB Access Polygon and web3.js](https://repost.aws/articles/AR4_8KnunzSta9ARvlS-8YrA/send-transactions-on-the-polygon-mumbai-network-with-amb-access-and-web3-js)

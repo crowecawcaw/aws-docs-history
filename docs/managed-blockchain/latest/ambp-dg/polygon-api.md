@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Managed Blockchain API and the JSON-RPCs supported with AMB Access Polygon
-<a name="polygon-api"></a>
 
 Amazon Managed Blockchain provides API operations for [creating and managing token accessors ](https://docs.aws.amazon.com/managed-blockchain/latest/ambp-dg/polygon-tokens.html)for AMB Access Polygon. For more information, see the * [Managed Blockchain API Reference Guide](https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/Welcome.html) *.
 

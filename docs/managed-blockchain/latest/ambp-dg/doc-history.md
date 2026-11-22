@@ -5,7 +5,6 @@ End of support notice: Amazon Managed Blockchain will stop accepting new custome
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
 # Document history for the AMB Access Polygon User Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for AMB Access Polygon.
 
