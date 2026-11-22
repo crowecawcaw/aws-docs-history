@@ -1,7 +1,6 @@
 
 
 # Personalization Using AI/ML for Lodging
-<a name="personalization-ai-ml-lodging"></a>
 
 Publication date: **August 25, 2022 ([Diagram history](#perslodge-history))**
 
