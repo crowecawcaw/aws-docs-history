@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Simple Email Service v2
-<a name="list_sesv2"></a>
 
 Amazon Simple Email Service v2 (service prefix: `ses`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -474,6 +473,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   PutAccountDeliveryAttributes  **
+  - **IAM action:**  [ses:PutAccountDeliveryAttributes](#list_sesv2-action-PutAccountDeliveryAttributes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   PutAccountDetails  **
   - **IAM action:**  [ses:PutAccountDetails](#list_sesv2-action-PutAccountDetails) 
   - **Condition key:** 
@@ -613,16 +618,19 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   SendBulkEmail  **
-  - **IAM action:**  [ses:SendBulkEmail](#list_sesv2-action-SendBulkEmail) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [ses:SendBulkEmail](#list_sesv2-action-SendBulkEmail)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ses:SendBulkTemplatedEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBulkTemplatedEmail.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   SendCustomVerificationEmail  **
   - **IAM action:**  [ses:SendCustomVerificationEmail](#list_sesv2-action-SendCustomVerificationEmail) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   SendEmail  **
+  - **IAM action:**  [ses:SendEmail](#list_sesv2-action-SendEmail)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ses:SendRawEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ses:SendTemplatedEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   TagResource  **
   - **IAM action:**  [ses:TagResource](#list_sesv2-action-TagResource) 
@@ -1181,6 +1189,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [PutAccountDedicatedIpWarmupAttributes](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutAccountDedicatedIpWarmupAttributes.html)  **
   - **Description:** Grants permission to enable or disable the automatic warm-up feature for dedicated IP addresses
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_sesv2-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [PutAccountDeliveryAttributes](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutAccountDeliveryAttributes.html)  **
+  - **Description:** Grants permission to change the delivery attributes for your account
   - **Resource types (\*required):** 
   - **Condition keys:** [ses:ApiVersion](#list_sesv2-ses_ApiVersion)
   - **Access level:** Write

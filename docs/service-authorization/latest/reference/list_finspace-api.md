@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon FinSpace API
-<a name="list_finspace-api"></a>
 
 Amazon FinSpace API (service prefix: `finspace-api`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

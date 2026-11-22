@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CloudWatch Network Synthetic Monitor
-<a name="list_networkmonitor"></a>
 
 Amazon CloudWatch Network Synthetic Monitor (service prefix: `networkmonitor`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

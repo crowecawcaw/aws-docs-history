@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Config
-<a name="list_config"></a>
 
 AWS Config (service prefix: `config`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -14,6 +13,7 @@ References:
 **Topics**
 + [API operations defined by AWS Config](#list_config-operations)
 + [Actions defined by AWS Config](#list_config-actions-as-permissions)
++ [Permission-only actions for AWS Config](#list_config-permission-only-actions)
 + [Resource types defined by AWS Config](#list_config-resources-for-iam-policies)
 + [Condition keys for AWS Config](#list_config-policy-keys)
 
@@ -672,7 +672,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConformancePack.html)  **
   - **Description:** Grants permission to delete the specified conformance pack and all the AWS Config rules and all evaluation results within that conformance pack
   - **Resource types (\*required):** [ConformancePack\*](#list_config-resource-ConformancePack)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[config:ConformancePackType](#list_config-config_ConformancePackType)
   - **Access level:** Write
 
 - **   [DeleteConnector](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConnector.html)  **
@@ -1111,7 +1111,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [PutConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html)  **
   - **Description:** Grants permission to create or update a conformance pack
   - **Resource types (\*required):** [ConformancePack\*](#list_config-resource-ConformancePack)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[config:ConformancePackType](#list_config-config_ConformancePackType)
   - **Access level:** Write
 
 - **   [PutConnector](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html)  **
@@ -1262,6 +1262,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+## Permission-only actions for AWS Config
+<a name="list_config-permission-only-actions"></a>
+
+The following actions are defined by AWS Config but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [AllowVendedLogDeliveryForResource](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html)  **
+  - **Description:** Grants permission to configure vended log delivery for Config
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal)
+  - **Access level:** Permissions management, Write
+
+
+
 ## Resource types defined by AWS Config
 <a name="list_config-resources-for-iam-policies"></a>
 
@@ -1295,3 +1311,4 @@ AWS Config defines the following condition keys that can be used in the `Conditi
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of mandatory tags in the request | ArrayOfString | 
 |   [config:ConfigurationRecorderServicePrincipal](https://docs.aws.amazon.com/config/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by service principal of the configuration recorder | String | 
+|   [config:ConformancePackType](https://docs.aws.amazon.com/config/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by the type of the conformance pack | String | 

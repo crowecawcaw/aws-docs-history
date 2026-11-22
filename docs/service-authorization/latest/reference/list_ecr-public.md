@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Elastic Container Registry Public
-<a name="list_ecr-public"></a>
 
 Amazon Elastic Container Registry Public (service prefix: `ecr-public`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

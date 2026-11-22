@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CloudTrail Data
-<a name="list_cloudtrail-data"></a>
 
 AWS CloudTrail Data (service prefix: `cloudtrail-data`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Timestream
-<a name="list_timestream"></a>
 
 Amazon Timestream (service prefix: `timestream`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

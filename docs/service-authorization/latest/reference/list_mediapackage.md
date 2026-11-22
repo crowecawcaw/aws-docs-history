@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental MediaPackage
-<a name="list_mediapackage"></a>
 
 AWS Elemental MediaPackage (service prefix: `mediapackage`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

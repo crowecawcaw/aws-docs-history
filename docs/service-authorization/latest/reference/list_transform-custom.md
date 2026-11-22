@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Transform custom
-<a name="list_transform-custom"></a>
 
 AWS Transform custom (service prefix: `transform-custom`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -13,6 +12,7 @@ References:
 
 **Topics**
 + [Actions defined by AWS Transform custom](#list_transform-custom-actions-as-permissions)
++ [Permission-only actions for AWS Transform custom](#list_transform-custom-permission-only-actions)
 + [Resource types defined by AWS Transform custom](#list_transform-custom-resources-for-iam-policies)
 + [Condition keys for AWS Transform custom](#list_transform-custom-policy-keys)
 
@@ -36,9 +36,21 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [CancelSkillCreationJob](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke CancelSkillCreationJob on AWS Transform custom. Does not grant reporting a job's progress or result, which is UpdateSkillCreationJob
+  - **Resource types (\*required):** [skill-creation-job\*](#list_transform-custom-resource-skill-creation-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CompleteTransformationPackageUpload](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke CompleteTransformationPackageUpload on AWS Transform custom
   - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConnectSource](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke ConnectSource on AWS Transform custom
+  - **Resource types (\*required):** [source\*](#list_transform-custom-resource-source)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -69,6 +81,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateRemediation](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke CreateRemediation on AWS Transform custom
   - **Resource types (\*required):** [remediation\*](#list_transform-custom-resource-remediation)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRemediationPlan](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke CreateRemediationPlan on AWS Transform custom
+  - **Resource types (\*required):** [remediation-plan\*](#list_transform-custom-resource-remediation-plan)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Access level:** Write
 
@@ -117,6 +135,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteRemediation](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke DeleteRemediation on AWS Transform custom
   - **Resource types (\*required):** [remediation\*](#list_transform-custom-resource-remediation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRemediationPlan](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke DeleteRemediationPlan on AWS Transform custom
+  - **Resource types (\*required):** [remediation-plan\*](#list_transform-custom-resource-remediation-plan)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -180,6 +204,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetIssueGroup](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke GetIssueGroup on AWS Transform custom
+  - **Resource types (\*required):** [issue-group\*](#list_transform-custom-resource-issue-group)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetKnowledgeItem](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke GetKnowledgeItem on AWS Transform custom
   - **Resource types (\*required):** [knowledge-item\*](#list_transform-custom-resource-knowledge-item)
@@ -192,6 +222,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetRemediationPlan](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke GetRemediationPlan on AWS Transform custom
+  - **Resource types (\*required):** [remediation-plan\*](#list_transform-custom-resource-remediation-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetRepository](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke GetRepository on AWS Transform custom
   - **Resource types (\*required):** [repository\*](#list_transform-custom-resource-repository)
@@ -201,6 +237,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetResourcePolicy](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to retrieve the resource policy attached to a shareable resource
   - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSkillCreationJob](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke GetSkillCreationJob on AWS Transform custom
+  - **Resource types (\*required):** [skill-creation-job\*](#list_transform-custom-resource-skill-creation-job)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -246,8 +288,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListIssueGroups](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke ListIssueGroups on AWS Transform custom
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListKnowledgeItems](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke ListKnowledgeItems on AWS Transform custom
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRemediationPlans](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke ListRemediationPlans on AWS Transform custom
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -260,6 +314,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListRepositories](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke ListRepositories on AWS Transform custom
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSkillCreationJobs](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke ListSkillCreationJobs on AWS Transform custom
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -306,15 +366,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StartSkillCreationJob](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke StartSkillCreationJob on AWS Transform custom
+  - **Resource types (\*required):** [skill-creation-job\*](#list_transform-custom-resource-skill-creation-job)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [TagResource](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke TagResource on AWS Transform custom
   - **Resource types (\*required):** [analysis](#list_transform-custom-resource-analysis) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [campaign](#list_transform-custom-resource-campaign) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [finding](#list_transform-custom-resource-finding) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Resource types (\*required):** [issue-group](#list_transform-custom-resource-issue-group) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [knowledge-item](#list_transform-custom-resource-knowledge-item) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [package](#list_transform-custom-resource-package) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [remediation](#list_transform-custom-resource-remediation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Resource types (\*required):** [remediation-plan](#list_transform-custom-resource-remediation-plan) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [repository](#list_transform-custom-resource-repository) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Resource types (\*required):** [skill-creation-job](#list_transform-custom-resource-skill-creation-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [source](#list_transform-custom-resource-source) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_transform-custom-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -329,10 +398,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [analysis](#list_transform-custom-resource-analysis) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [campaign](#list_transform-custom-resource-campaign) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [finding](#list_transform-custom-resource-finding) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Resource types (\*required):** [issue-group](#list_transform-custom-resource-issue-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [knowledge-item](#list_transform-custom-resource-knowledge-item) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [package](#list_transform-custom-resource-package) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [remediation](#list_transform-custom-resource-remediation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Resource types (\*required):** [remediation-plan](#list_transform-custom-resource-remediation-plan) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [repository](#list_transform-custom-resource-repository) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
+  - **Resource types (\*required):** [skill-creation-job](#list_transform-custom-resource-skill-creation-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Resource types (\*required):** [source](#list_transform-custom-resource-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transform-custom-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -354,6 +426,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateIssueGroup](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke UpdateIssueGroup on AWS Transform custom
+  - **Resource types (\*required):** [issue-group\*](#list_transform-custom-resource-issue-group)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateKnowledgeItemConfiguration](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke UpdateKnowledgeItemConfiguration on AWS Transform custom
   - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
@@ -372,15 +450,49 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateRemediationPlan](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke UpdateRemediationPlan on AWS Transform custom
+  - **Resource types (\*required):** [remediation-plan\*](#list_transform-custom-resource-remediation-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateRepository](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke UpdateRepository on AWS Transform custom
   - **Resource types (\*required):** [repository\*](#list_transform-custom-resource-repository)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateSkillCreationJob](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to invoke UpdateSkillCreationJob on AWS Transform custom. Granted to a skill-creation job's executor, which needs only this action and GetSkillCreationJob; it does not grant cancelling a job
+  - **Resource types (\*required):** [skill-creation-job\*](#list_transform-custom-resource-skill-creation-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateSource](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke UpdateSource on AWS Transform custom
   - **Resource types (\*required):** [source\*](#list_transform-custom-resource-source)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
+
+## Permission-only actions for AWS Transform custom
+<a name="list_transform-custom-permission-only-actions"></a>
+
+The following actions are defined by AWS Transform custom but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [ReadRepositoryContent](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to read the contents of a repository through its source
+  - **Resource types (\*required):** [repository\*](#list_transform-custom-resource-repository)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [WriteRepositoryContent](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to write to a repository through its source
+  - **Resource types (\*required):** [repository\*](#list_transform-custom-resource-repository)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -398,10 +510,13 @@ The following resource types are defined by this service and can be used in the 
 |  [analysis](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:analysis/${AnalysisId} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 |  [campaign](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:campaign/${Name} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 |  [finding](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:finding/${FindingId} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
+|  [issue-group](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:issue-group/${IssueGroupId} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 |  [knowledge-item](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:package/${TransformationPackageName}/knowledge-item/${Id} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 |  [package](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:package/${Name} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 |  [remediation](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:remediation/${RemediationId} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
+|  [remediation-plan](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:remediation-plan/${RemediationPlanId} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 |  [repository](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:repository/${RepositoryId} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
+|  [skill-creation-job](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:skill-creation-job/${SkillCreationJobId} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 |  [source](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  | arn:${Partition}:transform-custom:${Region}:${Account}:source/${Name} | [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Transform custom

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Systems Manager for SAP
-<a name="list_ssm-sap"></a>
 
 AWS Systems Manager for SAP (service prefix: `ssm-sap`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

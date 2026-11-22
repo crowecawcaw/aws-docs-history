@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Identity and Access Management (IAM)
-<a name="list_iam"></a>
 
 AWS Identity and Access Management (IAM) (service prefix: `iam`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -1143,6 +1142,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateOpenIDConnectProvider](#list_iam-action-UpdateOpenIDConnectProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateOpenIDConnectProviderThumbprint  **
   - **SDK client:** iam
   - **IAM action:**  [iam:UpdateOpenIDConnectProviderThumbprint](#list_iam-action-UpdateOpenIDConnectProviderThumbprint) 
@@ -1224,6 +1230,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   GetRequestAuthorizationDetails  **
+  - **SDK client:** iam-toolbox
+  - **IAM action:**  [iam:GetRequestAuthorizationDetails](#list_iam-action-GetRequestAuthorizationDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRequestAuthorizationPolicy  **
+  - **SDK client:** iam-toolbox
+  - **IAM action:**  [iam:GetRequestAuthorizationPolicy](#list_iam-action-GetRequestAuthorizationPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 
 
@@ -1328,7 +1348,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html)  **
   - **Description:** Grants permission to create an IAM resource that describes an identity provider (IdP) that supports OpenID Connect (OIDC)
   - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:EnableIdentityCenterAssociation](#list_iam-iam_EnableIdentityCenterAssociation)<br />[iam:EnableIdentityPropagation](#list_iam-iam_EnableIdentityPropagation)<br />[iam:RequestIdentityCenterInstanceArn](#list_iam-iam_RequestIdentityCenterInstanceArn)<br />[iam:RequestIdentityProviderIssuers](#list_iam-iam_RequestIdentityProviderIssuers)<br />[iam:ResourceIdentityCenterInstanceArn](#list_iam-iam_ResourceIdentityCenterInstanceArn)<br />[iam:ResourceIdentityProviderIssuers](#list_iam-iam_ResourceIdentityProviderIssuers)
   - **Access level:** Write
 
 - **   [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html)  **
@@ -1352,7 +1372,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html)  **
   - **Description:** Grants permission to create an IAM resource that describes an identity provider (IdP) that supports SAML 2.0
   - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:EnableIdentityCenterAssociation](#list_iam-iam_EnableIdentityCenterAssociation)<br />[iam:EnableIdentityPropagation](#list_iam-iam_EnableIdentityPropagation)<br />[iam:RequestIdentityCenterInstanceArn](#list_iam-iam_RequestIdentityCenterInstanceArn)<br />[iam:RequestIdentityProviderIssuers](#list_iam-iam_RequestIdentityProviderIssuers)<br />[iam:ResourceIdentityCenterInstanceArn](#list_iam-iam_ResourceIdentityCenterInstanceArn)<br />[iam:ResourceIdentityProviderIssuers](#list_iam-iam_ResourceIdentityProviderIssuers)
   - **Access level:** Write
 
 - **   [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)  **
@@ -1746,6 +1766,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve information about a version of the specified managed policy, including the policy document
   - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRequestAuthorizationDetails](https://docs.aws.amazon.com/iam-toolbox/latest/APIReference/API_GetRequestAuthorizationDetails.html)  **
+  - **Description:** Grants permission to retrieve authorization details for a specific access denied request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetRequestAuthorizationPolicy](https://docs.aws.amazon.com/iam-toolbox/latest/APIReference/API_GetRequestAuthorizationPolicy.html)  **
+  - **Description:** Grants permission to retrieve a policy evaluated for a specific access denied request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Read
 
 - **   [GetRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html)  **
@@ -2296,6 +2328,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to update the context provider and IAM Identity Center configuration of an existing IAM OpenID Connect (OIDC) provider resource
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:EnableIdentityCenterAssociation](#list_iam-iam_EnableIdentityCenterAssociation)<br />[iam:EnableIdentityPropagation](#list_iam-iam_EnableIdentityPropagation)<br />[iam:RequestIdentityCenterInstanceArn](#list_iam-iam_RequestIdentityCenterInstanceArn)<br />[iam:ResourceIdentityCenterInstanceArn](#list_iam-iam_ResourceIdentityCenterInstanceArn)<br />[iam:ResourceIdentityProviderIssuers](#list_iam-iam_ResourceIdentityProviderIssuers)
+  - **Access level:** Write
+
 - **   [UpdateOpenIDConnectProviderThumbprint](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.html)  **
   - **Description:** Grants permission to update the entire list of server certificate thumbprints that are associated with an OpenID Connect (OIDC) provider resource
   - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
@@ -2315,9 +2353,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [UpdateSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html)  **
-  - **Description:** Grants permission to update the metadata document for an existing SAML provider resource
+  - **Description:** Grants permission to update the SAML metadata document, context provider, and IAM Identity Center configuration of an existing IAM SAML provider resource
   - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:EnableIdentityCenterAssociation](#list_iam-iam_EnableIdentityCenterAssociation)<br />[iam:EnableIdentityPropagation](#list_iam-iam_EnableIdentityPropagation)<br />[iam:RequestIdentityCenterInstanceArn](#list_iam-iam_RequestIdentityCenterInstanceArn)<br />[iam:RequestIdentityProviderIssuers](#list_iam-iam_RequestIdentityProviderIssuers)<br />[iam:ResourceIdentityCenterInstanceArn](#list_iam-iam_ResourceIdentityCenterInstanceArn)<br />[iam:ResourceIdentityProviderIssuers](#list_iam-iam_ResourceIdentityProviderIssuers)
   - **Access level:** Write
 
 - **   [UpdateSSHPublicKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSSHPublicKey.html)  **
@@ -2434,6 +2472,8 @@ AWS Identity and Access Management (IAM) defines the following condition keys th
 |   [iam:AssociatedResourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_AssociatedResourceArn)  | Filters access by the resource that the role will be used on behalf of | ARN | 
 |   [iam:DelegationDuration](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_DelegationDuration)  | Filters access based on the requested delegation duration | String | 
 |   [iam:DelegationRequestOwner](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_DelegationRequestOwner)  | Filters access based on the delegation request owner | ARN | 
+|   [iam:EnableIdentityCenterAssociation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation)  | Filters access by whether the request associates an IAM Identity Center instance with an IAM identity provider (true) or removes the association (false) | Bool | 
+|   [iam:EnableIdentityPropagation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation)  | Filters access by whether the request adds (true) or removes (false) a context provider on an IAM identity provider | Bool | 
 |   [iam:FIDO-FIPS-140-2-certification](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_FIDO-FIPS-140-2-certification)  | Filters access by the MFA device FIPS-140-2 validation certification level at the time of registration of a FIDO security key | String | 
 |   [iam:FIDO-FIPS-140-3-certification](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_FIDO-FIPS-140-3-certification)  | Filters access by the MFA device FIPS-140-3 validation certification level at the time of registration of a FIDO security key | String | 
 |   [iam:FIDO-certification](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_FIDO-certification)  | Filters access by the MFA device FIDO certification level at the time of registration of a FIDO security key | String | 
@@ -2443,6 +2483,10 @@ AWS Identity and Access Management (IAM) defines the following condition keys th
 |   [iam:PermissionsBoundary](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_PermissionsBoundary)  | Filters access if the specified policy is set as the permissions boundary on the IAM entity (user or role) | ARN | 
 |   [iam:PolicyARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_PolicyARN)  | Filters access by the ARN of an IAM policy | ARN | 
 |   [iam:RegisterSecurityKey](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RegisterSecurityKey)  | Filters access by the current state of MFA device enablement | String | 
+|   [iam:RequestIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn)  | Filters access by the ARN of the IAM Identity Center instance in the request | ARN | 
+|   [iam:RequestIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers)  | Filters access by the issuer values in the request: the issuer URL without the https:// prefix for OIDC providers, or a lowercase hex SHA-384 hash of each signing certificate's DER SubjectPublicKeyInfo for SAML providers | ArrayOfString | 
+|   [iam:ResourceIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn)  | Filters access by the ARN of the IAM Identity Center instance associated with the existing IAM identity provider in the request | ARN | 
+|   [iam:ResourceIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers)  | Filters access by the issuer values of the existing IAM identity provider in the request: the issuer URL without the https:// prefix for OIDC providers, or a lowercase hex SHA-384 hash of each signing certificate's DER SubjectPublicKeyInfo for SAML providers | ArrayOfString | 
 |   [iam:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceTag)  | Filters access by the tags attached to an IAM entity (user or role) | String | 
 |   [iam:RoleTemplateARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RoleTemplateARN)  | Filters access by the role template ARN used in the request | ARN | 
 |   [iam:ServiceSpecificCredentialAgeDays](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ServiceSpecificCredentialAgeDays)  | Filters access by the duration until the credential's expiration | Numeric | 

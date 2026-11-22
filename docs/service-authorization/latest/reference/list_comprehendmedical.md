@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Comprehend Medical
-<a name="list_comprehendmedical"></a>
 
 Amazon Comprehend Medical (service prefix: `comprehendmedical`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

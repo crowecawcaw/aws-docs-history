@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental MediaConvert
-<a name="list_mediaconvert"></a>
 
 AWS Elemental MediaConvert (service prefix: `mediaconvert`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon MemoryDB
-<a name="list_memorydb"></a>
 
 Amazon MemoryDB (service prefix: `memorydb`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EMR Serverless
-<a name="list_emr-serverless"></a>
 
 Amazon EMR Serverless (service prefix: `emr-serverless`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

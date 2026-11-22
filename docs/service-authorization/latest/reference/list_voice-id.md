@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Connect Voice ID
-<a name="list_voice-id"></a>
 
 Amazon Connect Voice ID (service prefix: `voiceid`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

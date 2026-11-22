@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS License Manager Linux Subscriptions Manager
-<a name="list_license-manager-linux-subscriptions"></a>
 
 AWS License Manager Linux Subscriptions Manager (service prefix: `license-manager-linux-subscriptions`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

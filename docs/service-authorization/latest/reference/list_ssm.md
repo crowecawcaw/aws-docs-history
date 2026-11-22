@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Systems Manager
-<a name="list_ssm"></a>
 
 AWS Systems Manager (service prefix: `ssm`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

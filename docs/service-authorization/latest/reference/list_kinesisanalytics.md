@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Kinesis Analytics
-<a name="list_kinesisanalytics"></a>
 
 Amazon Kinesis Analytics (service prefix: `kinesisanalytics`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

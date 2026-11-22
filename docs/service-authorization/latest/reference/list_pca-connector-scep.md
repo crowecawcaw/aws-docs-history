@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Private CA Connector for SCEP
-<a name="list_pca-connector-scep"></a>
 
 AWS Private CA Connector for SCEP (service prefix: `pca-connector-scep`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

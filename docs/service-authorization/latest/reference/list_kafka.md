@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Managed Streaming for Apache Kafka
-<a name="list_kafka"></a>
 
 Amazon Managed Streaming for Apache Kafka (service prefix: `kafka`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -37,6 +36,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateAssessment  **
+  - **IAM action:**  [kafka:CreateAssessment](#list_kafka-action-CreateAssessment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   CreateChannel  **
   - **IAM action:**  [kafka:CreateChannel](#list_kafka-action-CreateChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -70,6 +73,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateVpcConnection  **
   - **IAM action:**  [kafka:CreateVpcConnection](#list_kafka-action-CreateVpcConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAssessment  **
+  - **IAM action:**  [kafka:DeleteAssessment](#list_kafka-action-DeleteAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   DeleteChannel  **
   - **IAM action:**  [kafka:DeleteChannel](#list_kafka-action-DeleteChannel) 
@@ -111,6 +120,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   DescribeAssessment  **
+  - **IAM action:**  [kafka:DescribeAssessment](#list_kafka-action-DescribeAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   DescribeChannel  **
   - **IAM action:**  [kafka:DescribeChannel](#list_kafka-action-DescribeChannel) 
@@ -168,6 +183,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [kafka-cluster:DescribeTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [kafka-cluster:DescribeTopicDynamicConfiguration](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
 
+- **   DescribeTopicReassignment  **
+  - **IAM action:**  [kafka:DescribeTopicReassignment](#list_kafka-action-DescribeTopicReassignment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DescribeVpcConnection  **
   - **IAM action:**  [kafka:DescribeVpcConnection](#list_kafka-action-DescribeVpcConnection) 
   - **Condition key:** 
@@ -188,6 +209,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetCompatibleKafkaVersions  **
   - **IAM action:**  [kafka:GetCompatibleKafkaVersions](#list_kafka-action-GetCompatibleKafkaVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssessmentFindings  **
+  - **IAM action:**  [kafka:ListAssessmentFindings](#list_kafka-action-ListAssessmentFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssessments  **
+  - **IAM action:**  [kafka:ListAssessments](#list_kafka-action-ListAssessments) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -270,6 +303,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListTopicReassignments  **
+  - **IAM action:**  [kafka:ListTopicReassignments](#list_kafka-action-ListTopicReassignments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTopics  **
   - **IAM action:**  [kafka-cluster:Connect](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [kafka-cluster:DescribeTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
@@ -294,6 +333,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   RejectClientVpcConnection  **
   - **IAM action:**  [kafka:RejectClientVpcConnection](#list_kafka-action-RejectClientVpcConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartTopicReassignment  **
+  - **IAM action:**  [kafka:StartTopicReassignment](#list_kafka-action-StartTopicReassignment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopTopicReassignment  **
+  - **IAM action:**  [kafka:StopTopicReassignment](#list_kafka-action-StopTopicReassignment) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -416,6 +467,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [CreateAssessment](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-assessments.html#CreateAssessment)  **
+  - **Description:** Grants permission to create an assessment of an MSK cluster
+  - **Resource types (\*required):** [assessment\*](#list_kafka-resource-assessment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateChannel](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels.html#CreateChannel)  **
   - **Description:** Grants permission to create an MSK Data Channel for an MSK cluster
   - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
@@ -456,6 +513,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create a MSK VPC connection
   - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAssessment](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-assessments-assessmentarn.html#DeleteAssessment)  **
+  - **Description:** Grants permission to delete an assessment of an MSK cluster and its findings
+  - **Resource types (\*required):** [assessment\*](#list_kafka-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteChannel](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels-channelarn.html#DeleteChannel)  **
@@ -499,6 +562,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
   - **Access level:** Write
+
+- **   [DescribeAssessment](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-assessments-assessmentarn.html#DescribeAssessment)  **
+  - **Description:** Grants permission to describe an assessment of an MSK cluster
+  - **Resource types (\*required):** [assessment\*](#list_kafka-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [DescribeChannel](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels-channelarn.html#DescribeChannel)  **
   - **Description:** Grants permission to describe an MSK Data Channel
@@ -560,6 +629,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [DescribeTopicReassignment](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topic-reassignments-topicreassignmentoperationarn.html#DescribeTopicReassignment)  **
+  - **Description:** Grants permission to describe a topic reassignment in an Amazon MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [topic-reassignment\*](#list_kafka-resource-topic-reassignment) / **Condition keys:**  
+  - **Access level:** Read
+
 - **   [DescribeVpcConnection](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connection-arn.html#DescribeVpcConnection)  **
   - **Description:** Grants permission to describe a MSK VPC connection
   - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection)
@@ -582,6 +657,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to get a list of the Apache Kafka versions to which you can update an MSK cluster
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssessmentFindings](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-assessments-assessmentarn-findings.html#ListAssessmentFindings)  **
+  - **Description:** Grants permission to list the findings of an assessment of an MSK cluster
+  - **Resource types (\*required):** [assessment\*](#list_kafka-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAssessments](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-assessments.html#ListAssessments)  **
+  - **Description:** Grants permission to list the assessments of an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListChannels](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels.html#ListChannels)  **
@@ -658,9 +745,15 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#ListTagsForResource)  **
   - **Description:** Grants permission to list tags of an MSK resource
+  - **Resource types (\*required):** [assessment](#list_kafka-resource-assessment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cluster](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTopicReassignments](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topic-reassignments.html#ListTopicReassignments)  **
+  - **Description:** Grants permission to list the topic reassignments of an Amazon MSK cluster
   - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   [ListTopics](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topics.html)  **
   - **Description:** Grants permission to list all Kafka topics for a specified MSK cluster
@@ -692,14 +785,28 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StartTopicReassignment](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topic-reassignments.html#StartTopicReassignment)  **
+  - **Description:** Grants permission to start a topic reassignment that moves topic partitions between broker types in an Amazon MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [topic-reassignment\*](#list_kafka-resource-topic-reassignment) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopTopicReassignment](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topic-reassignments-topicreassignmentoperationarn-stop.html#StopTopicReassignment)  **
+  - **Description:** Grants permission to stop a topic reassignment in an Amazon MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [topic-reassignment\*](#list_kafka-resource-topic-reassignment) / **Condition keys:**  
+  - **Access level:** Write
+
 - **   [TagResource](https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#TagResource)  **
   - **Description:** Grants permission to tag an MSK resource
+  - **Resource types (\*required):** [assessment](#list_kafka-resource-assessment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Resource types (\*required):** [cluster](#list_kafka-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Resource types (\*required):** [vpc-connection](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#UntagResource)  **
   - **Description:** Grants permission to remove tags from an MSK resource
+  - **Resource types (\*required):** [assessment](#list_kafka-resource-assessment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Resource types (\*required):** [cluster](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Resource types (\*required):** [vpc-connection](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Access level:** Tagging, Write
@@ -799,12 +906,14 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
+|  [assessment](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:assessment/${ClusterUuid}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
 |  [channel](https://docs.aws.amazon.com/msk/latest/developerguide/msk-data-channel.html)  | arn:${Partition}:kafka:${Region}:${Account}:channel/${ClusterName}/${ClusterUuid}/${ChannelName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
 |  [cluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html)  | arn:${Partition}:kafka:${Region}:${Account}:cluster/${ClusterName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
 |  [configuration](https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html)  | arn:${Partition}:kafka:${Region}:${Account}:configuration/${ConfigurationName}/${Uuid} |   | 
 |  [group](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:group/${ClusterName}/${ClusterUuid}/${GroupName} |   | 
 |  [replicator](https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html)  | arn:${Partition}:kafka:${Region}:${Account}:replicator/${ReplicatorName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
 |  [topic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:topic/${ClusterName}/${ClusterUuid}/${TopicName} |   | 
+|  [topic-reassignment](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:topic-reassignment/${ClusterName}/${ClusterUuid}/${Uuid} |   | 
 |  [transactional-id](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:transactional-id/${ClusterName}/${ClusterUuid}/${TransactionalId} |   | 
 |  [vpc-connection](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections-arn.html)  | arn:${Partition}:kafka:${Region}:${VpcOwnerAccount}:vpc-connection/${ClusterOwnerAccount}/${ClusterName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
 

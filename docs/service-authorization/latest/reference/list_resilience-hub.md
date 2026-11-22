@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Resilience Hub
-<a name="list_resilience-hub"></a>
 
 AWS Resilience Hub (service prefix: `resiliencehub`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

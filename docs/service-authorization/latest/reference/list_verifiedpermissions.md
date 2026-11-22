@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Verified Permissions
-<a name="list_verifiedpermissions"></a>
 
 Amazon Verified Permissions (service prefix: `verifiedpermissions`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

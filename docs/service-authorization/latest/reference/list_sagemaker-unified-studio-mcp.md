@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon SageMaker Unified Studio MCP
-<a name="list_sagemaker-unified-studio-mcp"></a>
 
 Amazon SageMaker Unified Studio MCP (service prefix: `sagemaker-unified-studio-mcp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

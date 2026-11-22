@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon RDS Data API
-<a name="list_rds-data"></a>
 
 Amazon RDS Data API (service prefix: `rds-data`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

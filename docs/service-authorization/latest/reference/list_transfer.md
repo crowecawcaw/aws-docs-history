@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Transfer Family
-<a name="list_transfer"></a>
 
 AWS Transfer Family (service prefix: `transfer`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

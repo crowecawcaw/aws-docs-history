@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS reInvent event pass amount charge to customer AWS account
-<a name="list_eventsbilltoaws"></a>
 
 AWS reInvent event pass amount charge to customer AWS account (service prefix: `eventsbilltoaws`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

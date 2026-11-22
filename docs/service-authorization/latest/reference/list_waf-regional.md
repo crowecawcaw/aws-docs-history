@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS WAF Regional
-<a name="list_waf-regional"></a>
 
 AWS WAF Regional (service prefix: `waf-regional`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

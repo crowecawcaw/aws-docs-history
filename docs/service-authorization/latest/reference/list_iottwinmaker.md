@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT TwinMaker
-<a name="list_iottwinmaker"></a>
 
 AWS IoT TwinMaker (service prefix: `iottwinmaker`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

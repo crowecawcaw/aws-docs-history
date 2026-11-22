@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Location
-<a name="list_location"></a>
 
 Amazon Location (service prefix: `geo`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Support Plans
-<a name="list_supportplans"></a>
 
 AWS Support Plans (service prefix: `supportplans`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

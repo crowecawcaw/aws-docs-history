@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Apache Kafka APIs for Amazon MSK clusters
-<a name="list_kafka-cluster"></a>
 
 Apache Kafka APIs for Amazon MSK clusters (service prefix: `kafka-cluster`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

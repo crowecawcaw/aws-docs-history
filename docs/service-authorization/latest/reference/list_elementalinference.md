@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental Inference
-<a name="list_elementalinference"></a>
 
 AWS Elemental Inference (service prefix: `elemental-inference`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -39,6 +38,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [elemental-inference:CreateFeed](#list_elementalinference-action-CreateFeed)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [elemental-inference:TagResource](#list_elementalinference-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** elemental-inference.amazonaws.com / **Access level:** Write
+
+- **   CreateFunction  **
+  - **IAM action:**  [elemental-inference:TagResource](#list_elementalinference-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   CreateQuestionSet  **
+  - **IAM action:**  [elemental-inference:TagResource](#list_elementalinference-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
 
 - **   CreateScheduleAction  **
   - **IAM action:**  [elemental-inference:CreateScheduleAction](#list_elementalinference-action-CreateScheduleAction) 
@@ -286,12 +297,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to add tags to a resource
   - **Resource types (\*required):** [dictionary](#list_elementalinference-resource-dictionary) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_elementalinference-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_elementalinference-aws_TagKeys)
   - **Resource types (\*required):** [feed](#list_elementalinference-resource-feed) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_elementalinference-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_elementalinference-aws_TagKeys)
+  - **Resource types (\*required):** question-set / **Condition keys:** [aws:RequestTag/${TagKey}](#list_elementalinference-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_elementalinference-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_UntagResource.html)  **
   - **Description:** Grants permission to remove tags from a resource
   - **Resource types (\*required):** [dictionary](#list_elementalinference-resource-dictionary) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_elementalinference-aws_TagKeys)
   - **Resource types (\*required):** [feed](#list_elementalinference-resource-feed) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_elementalinference-aws_TagKeys)
+  - **Resource types (\*required):** question-set / **Condition keys:** [aws:TagKeys](#list_elementalinference-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UpdateDictionary](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_UpdateDictionary.html)  **

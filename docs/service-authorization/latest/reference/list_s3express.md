@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon S3 Express
-<a name="list_s3express"></a>
 
 Amazon S3 Express (service prefix: `s3express`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

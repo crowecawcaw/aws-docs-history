@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Network Firewall
-<a name="list_network-firewall"></a>
 
 AWS Network Firewall (service prefix: `network-firewall`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -257,6 +256,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListContextStores  **
+  - **IAM action:**  [network-firewall:ListContextStores](#list_network-firewall-action-ListContextStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListFirewallPolicies  **
   - **IAM action:**  [network-firewall:ListFirewallPolicies](#list_network-firewall-action-ListFirewallPolicies) 
   - **Condition key:** 
@@ -283,6 +288,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListFlowOperations  **
   - **IAM action:**  [network-firewall:ListFlowOperations](#list_network-firewall-action-ListFlowOperations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResourcesInContextStore  **
+  - **IAM action:**  [network-firewall:ListResourcesInContextStore](#list_network-firewall-action-ListResourcesInContextStore) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -781,6 +792,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListContextStores](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListContextStores.html)  **
+  - **Description:** Grants permission to retrieve the context stores associated with the transit gateway firewalls in an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListFirewallPolicies](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListFirewallPolicies.html)  **
   - **Description:** Grants permission to retrieve the metadata for firewall policies
   - **Resource types (\*required):** [FirewallPolicy\*](#list_network-firewall-resource-FirewallPolicy)
@@ -827,6 +844,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve the metadata for proxy rule groups
   - **Resource types (\*required):** [ProxyRuleGroup\*](#list_network-firewall-resource-ProxyRuleGroup)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListResourcesInContextStore](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListResourcesInContextStore.html)  **
+  - **Description:** Grants permission to retrieve the resource contexts recorded in a context store
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** List
 
 - **   [ListRuleGroups](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListRuleGroups.html)  **

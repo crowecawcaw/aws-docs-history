@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Managed Grafana
-<a name="list_grafana"></a>
 
 Amazon Managed Grafana (service prefix: `grafana`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT Core Device Advisor
-<a name="list_iotdeviceadvisor"></a>
 
 AWS IoT Core Device Advisor (service prefix: `iotdeviceadvisor`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

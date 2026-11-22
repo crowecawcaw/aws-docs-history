@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Compute Optimizer
-<a name="list_compute-optimizer"></a>
 
 AWS Compute Optimizer (service prefix: `compute-optimizer`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

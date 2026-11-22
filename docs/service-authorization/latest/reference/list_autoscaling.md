@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EC2 Auto Scaling
-<a name="list_autoscaling"></a>
 
 Amazon EC2 Auto Scaling (service prefix: `autoscaling`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

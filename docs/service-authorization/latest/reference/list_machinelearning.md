@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Machine Learning
-<a name="list_machinelearning"></a>
 
 Amazon Machine Learning (service prefix: `machinelearning`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -301,7 +300,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetEvaluation](https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetEvaluation.html)  **
   - **Description:** Returns an Evaluation that includes metadata as well as the current status of the Evaluation
-  - **Resource types (\*required):** [datasource\*](#list_machinelearning-resource-datasource)
+  - **Resource types (\*required):** [evaluation\*](#list_machinelearning-resource-evaluation)
   - **Condition keys:**  
   - **Access level:** Read
 

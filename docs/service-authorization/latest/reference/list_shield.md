@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Shield
-<a name="list_shield"></a>
 
 AWS Shield (service prefix: `shield`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

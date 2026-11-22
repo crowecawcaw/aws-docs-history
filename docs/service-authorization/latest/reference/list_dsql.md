@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Aurora DSQL
-<a name="list_dsql"></a>
 
 Amazon Aurora DSQL (service prefix: `dsql`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -299,6 +298,12 @@ The following actions are defined by Amazon Aurora DSQL but are not directly inv
   - **Resource types (\*required):** [Cluster\*](#list_dsql-resource-Cluster)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_dsql-aws_ResourceTag___TagKey_)
   - **Access level:** Write
+
+- **   [AllowVendedLogDeliveryForResource](${APIReferenceDocPage})  **
+  - **Description:** Grants permission to configure vended log delivery for an Aurora DSQL cluster
+  - **Resource types (\*required):** [Cluster\*](#list_dsql-resource-Cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_dsql-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
 
 - **   [InjectError](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html)  **
   - **Description:** Grants permission to inject errors in targeted clusters

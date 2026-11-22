@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon S3 Tables
-<a name="list_s3tables"></a>
 
 Amazon S3 Tables (service prefix: `s3tables`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -101,6 +100,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteTableReplication  **
   - **IAM action:**  [s3tables:DeleteTableReplication](#list_s3tables-action-DeleteTableReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateTableReplication  **
+  - **IAM action:**  [s3tables:DisassociateTableReplication](#list_s3tables-action-DisassociateTableReplication) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -445,6 +450,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeleteTableReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_DeleteTableReplication.html)  **
   - **Description:** Grants permission to delete table replication configuration on a table
+  - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
+  - **Access level:** Write
+
+- **   [DisassociateTableReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_DisassociateTableReplication.html)  **
+  - **Description:** Grants permission to disassociate table replication on a table
   - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
   - **Access level:** Write

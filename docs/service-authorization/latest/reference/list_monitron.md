@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Monitron
-<a name="list_monitron"></a>
 
 Amazon Monitron (service prefix: `monitron`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

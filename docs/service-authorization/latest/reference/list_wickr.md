@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Wickr
-<a name="list_wickr"></a>
 
 AWS Wickr (service prefix: `wickr`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

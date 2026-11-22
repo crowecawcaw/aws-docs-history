@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon MQ
-<a name="list_mq"></a>
 
 Amazon MQ (service prefix: `mq`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

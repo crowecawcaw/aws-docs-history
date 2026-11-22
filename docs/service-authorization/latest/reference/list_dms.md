@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Database Migration Service
-<a name="list_dms"></a>
 
 AWS Database Migration Service (service prefix: `dms`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -111,6 +110,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateReplicationTask  **
   - **IAM action:**  [dms:AddTagsToResource](#list_dms-action-AddTagsToResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [dms:CreateReplicationTask](#list_dms-action-CreateReplicationTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** dms.amazonaws.com / **Access level:** Write
 
 - **   DeleteCertificate  **
   - **IAM action:**  [dms:DeleteCertificate](#list_dms-action-DeleteCertificate) 
@@ -555,10 +555,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   ModifyReplicationTask  **
-  - **IAM action:**  [dms:ModifyReplicationTask](#list_dms-action-ModifyReplicationTask) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [dms:ModifyReplicationTask](#list_dms-action-ModifyReplicationTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** dms.amazonaws.com / **Access level:** Write
 
 - **   MoveReplicationTask  **
   - **IAM action:**  [dms:MoveReplicationTask](#list_dms-action-MoveReplicationTask) 

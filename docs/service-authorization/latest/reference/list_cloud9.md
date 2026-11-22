@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Cloud9
-<a name="list_cloud9"></a>
 
 AWS Cloud9 (service prefix: `cloud9`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

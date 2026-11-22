@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CodeArtifact
-<a name="list_codeartifact"></a>
 
 AWS CodeArtifact (service prefix: `codeartifact`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

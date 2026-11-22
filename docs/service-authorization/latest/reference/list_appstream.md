@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon AppStream 2.0
-<a name="list_appstream"></a>
 
 Amazon AppStream 2.0 (service prefix: `appstream`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -25,14 +24,32 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   AssociateAppBlockBuilderAppBlock  **
+  - **IAM action:**  [appstream:AssociateAppBlockBuilderAppBlock](#list_appstream-action-AssociateAppBlockBuilderAppBlock) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AssociateApplicationFleet  **
   - **IAM action:**  [appstream:AssociateApplicationFleet](#list_appstream-action-AssociateApplicationFleet) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   AssociateApplicationToEntitlement  **
+  - **IAM action:**  [appstream:AssociateApplicationToEntitlement](#list_appstream-action-AssociateApplicationToEntitlement) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AssociateFleet  **
   - **IAM action:**  [appstream:AssociateFleet](#list_appstream-action-AssociateFleet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateSoftwareToImageBuilder  **
+  - **IAM action:**  [appstream:AssociateSoftwareToImageBuilder](#list_appstream-action-AssociateSoftwareToImageBuilder) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -61,6 +78,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateAppBlockBuilder  **
+  - **IAM action:**  [appstream:CreateAppBlockBuilder](#list_appstream-action-CreateAppBlockBuilder)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appstream:TagResource](#list_appstream-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   CreateApplication  **
   - **IAM action:**  [appstream:CreateApplication](#list_appstream-action-CreateApplication) 
   - **Condition key:** 
@@ -79,6 +100,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateExportImageTask  **
+  - **IAM action:**  [appstream:CreateExportImageTask](#list_appstream-action-CreateExportImageTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appstream.amazonaws.com / **Access level:** Write
+
 - **   CreateFleet  **
   - **IAM action:**  [appstream:CreateFleet](#list_appstream-action-CreateFleet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [appstream:TagResource](#list_appstream-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -95,6 +120,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateImportedImage  **
+  - **IAM action:**  [appstream:CreateImportedImage](#list_appstream-action-CreateImportedImage)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appstream.amazonaws.com / **Access level:** Write
+
 - **   CreateStack  **
   - **IAM action:**  [appstream:CreateStack](#list_appstream-action-CreateStack)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [appstream:TagResource](#list_appstream-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -105,10 +134,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
-- **   CreateUpdatedImage  **
-  - **IAM action:**  [appstream:CreateUpdatedImage](#list_appstream-action-CreateUpdatedImage)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [appstream:TagResource](#list_appstream-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-
 - **   CreateUsageReportSubscription  **
   - **IAM action:**  [appstream:CreateUsageReportSubscription](#list_appstream-action-CreateUsageReportSubscription) 
   - **Condition key:** 
@@ -117,6 +142,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateUser  **
   - **IAM action:**  [appstream:CreateUser](#list_appstream-action-CreateUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAppBlock  **
+  - **IAM action:**  [appstream:DeleteAppBlock](#list_appstream-action-DeleteAppBlock) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAppBlockBuilder  **
+  - **IAM action:**  [appstream:DeleteAppBlockBuilder](#list_appstream-action-DeleteAppBlockBuilder) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -253,6 +290,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   DescribeSoftwareAssociations  **
+  - **IAM action:**  [appstream:DescribeSoftwareAssociations](#list_appstream-action-DescribeSoftwareAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   DescribeStacks  **
   - **IAM action:**  [appstream:DescribeStacks](#list_appstream-action-DescribeStacks) 
   - **Condition key:** 
@@ -289,6 +332,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DisassociateAppBlockBuilderAppBlock  **
+  - **IAM action:**  [appstream:DisassociateAppBlockBuilderAppBlock](#list_appstream-action-DisassociateAppBlockBuilderAppBlock) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DisassociateApplicationFleet  **
   - **IAM action:**  [appstream:DisassociateApplicationFleet](#list_appstream-action-DisassociateApplicationFleet) 
   - **Condition key:** 
@@ -319,6 +368,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   GetExportImageTask  **
+  - **IAM action:**  [appstream:GetExportImageTask](#list_appstream-action-GetExportImageTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListAssociatedFleets  **
   - **IAM action:**  [appstream:ListAssociatedFleets](#list_appstream-action-ListAssociatedFleets) 
   - **Condition key:** 
@@ -337,11 +392,23 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListExportImageTasks  **
+  - **IAM action:**  [appstream:ListExportImageTasks](#list_appstream-action-ListExportImageTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTagsForResource  **
   - **IAM action:**  [appstream:ListTagsForResource](#list_appstream-action-ListTagsForResource) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   StartAppBlockBuilder  **
+  - **IAM action:**  [appstream:StartAppBlockBuilder](#list_appstream-action-StartAppBlockBuilder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   StartFleet  **
   - **IAM action:**  [appstream:StartFleet](#list_appstream-action-StartFleet) 
@@ -351,6 +418,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   StartImageBuilder  **
   - **IAM action:**  [appstream:StartImageBuilder](#list_appstream-action-StartImageBuilder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartSoftwareDeploymentToImageBuilder  **
+  - **IAM action:**  [appstream:StartSoftwareDeploymentToImageBuilder](#list_appstream-action-StartSoftwareDeploymentToImageBuilder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopAppBlockBuilder  **
+  - **IAM action:**  [appstream:StopAppBlockBuilder](#list_appstream-action-StopAppBlockBuilder) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -379,6 +458,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
 
+- **   UpdateAppBlockBuilder  **
+  - **IAM action:**  [appstream:UpdateAppBlockBuilder](#list_appstream-action-UpdateAppBlockBuilder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [appstream:UpdateApplication](#list_appstream-action-UpdateApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateDirectoryConfig  **
   - **IAM action:**  [appstream:UpdateDirectoryConfig](#list_appstream-action-UpdateDirectoryConfig) 
   - **Condition key:** 
@@ -394,6 +485,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdateFleet  **
   - **IAM action:**  [appstream:UpdateFleet](#list_appstream-action-UpdateFleet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appstream.amazonaws.com / **Access level:** Write
+
+- **   UpdateImageBuilder  **
+  - **IAM action:**  [appstream:UpdateImageBuilder](#list_appstream-action-UpdateImageBuilder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateImagePermissions  **
   - **IAM action:**  [appstream:UpdateImagePermissions](#list_appstream-action-UpdateImagePermissions) 

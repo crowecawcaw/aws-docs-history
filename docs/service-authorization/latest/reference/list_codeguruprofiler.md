@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CodeGuru Profiler
-<a name="list_codeguruprofiler"></a>
 
 Amazon CodeGuru Profiler (service prefix: `codeguru-profiler`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

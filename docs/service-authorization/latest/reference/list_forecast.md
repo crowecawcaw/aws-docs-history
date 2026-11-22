@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Forecast
-<a name="list_forecast"></a>
 
 Amazon Forecast (service prefix: `forecast`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

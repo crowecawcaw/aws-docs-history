@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon DataZone
-<a name="list_datazone"></a>
 
 Amazon DataZone (service prefix: `datazone`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -1049,6 +1048,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateAssetFilter  **
   - **IAM action:**  [datazone:UpdateAssetFilter](#list_datazone-action-UpdateAssetFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssetOwner  **
+  - **IAM action:**  [datazone:UpdateAssetOwner](#list_datazone-action-UpdateAssetOwner) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write

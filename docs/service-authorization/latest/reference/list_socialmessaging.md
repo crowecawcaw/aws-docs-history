@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS End User Messaging Social
-<a name="list_socialmessaging"></a>
 
 AWS End User Messaging Social (service prefix: `social-messaging`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

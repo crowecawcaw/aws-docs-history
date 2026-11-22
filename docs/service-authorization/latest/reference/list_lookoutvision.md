@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Lookout for Vision
-<a name="list_lookoutvision"></a>
 
 Amazon Lookout for Vision (service prefix: `lookoutvision`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

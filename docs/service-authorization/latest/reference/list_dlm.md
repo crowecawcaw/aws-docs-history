@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Data Lifecycle Manager
-<a name="list_dlm"></a>
 
 Amazon Data Lifecycle Manager (service prefix: `dlm`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

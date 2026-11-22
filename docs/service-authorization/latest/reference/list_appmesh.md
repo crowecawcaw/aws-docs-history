@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS App Mesh
-<a name="list_appmesh"></a>
 
 AWS App Mesh (service prefix: `appmesh`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

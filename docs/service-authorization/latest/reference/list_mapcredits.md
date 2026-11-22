@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Migration Acceleration Program Credits
-<a name="list_mapcredits"></a>
 
 AWS Migration Acceleration Program Credits (service prefix: `mapcredits`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkSpaces Secure Browser
-<a name="list_workspaces-web"></a>
 
 Amazon WorkSpaces Secure Browser (service prefix: `workspaces-web`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

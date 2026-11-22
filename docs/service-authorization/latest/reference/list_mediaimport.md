@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AmazonMediaImport
-<a name="list_mediaimport"></a>
 
 AmazonMediaImport (service prefix: `mediaimport`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

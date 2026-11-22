@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Secrets Manager
-<a name="list_secretsmanager"></a>
 
 AWS Secrets Manager (service prefix: `secretsmanager`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

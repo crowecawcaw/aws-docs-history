@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CloudWatch Logs
-<a name="list_logs"></a>
 
 Amazon CloudWatch Logs (service prefix: `logs`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -558,10 +557,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   PutIntegration  **
-  - **IAM action:**  [logs:PutIntegration](#list_logs-action-PutIntegration) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [logs:PutIntegration](#list_logs-action-PutIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** directquery.opensearchservice.amazonaws.com / **Access level:** Write
 
 - **   PutLogEvents  **
   - **IAM action:**  [logs:PutLogEvents](#list_logs-action-PutLogEvents) 

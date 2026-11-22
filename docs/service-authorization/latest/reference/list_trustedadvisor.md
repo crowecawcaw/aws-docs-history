@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Trusted Advisor
-<a name="list_trustedadvisor"></a>
 
 AWS Trusted Advisor (service prefix: `trustedadvisor`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

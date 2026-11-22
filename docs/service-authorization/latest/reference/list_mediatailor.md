@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental MediaTailor
-<a name="list_mediatailor"></a>
 
 AWS Elemental MediaTailor (service prefix: `mediatailor`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

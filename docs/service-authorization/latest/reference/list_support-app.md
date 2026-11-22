@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Support App in Slack
-<a name="list_support-app"></a>
 
 AWS Support App in Slack (service prefix: `supportapp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Partner Central
-<a name="list_partner-central"></a>
 
 AWS Partner Central (service prefix: `partnercentral`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -425,12 +424,26 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   GetChannelContract  **
+  - **SDK client:** partnercentral-channel
+  - **IAM action:**  [partnercentral:GetChannelContract](#list_partner-central-action-GetChannelContract) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetRelationship  **
   - **SDK client:** partnercentral-channel
   - **IAM action:**  [partnercentral:GetRelationship](#list_partner-central-action-GetRelationship) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   ListChannelContracts  **
+  - **SDK client:** partnercentral-channel
+  - **IAM action:**  [partnercentral:ListChannelContracts](#list_partner-central-action-ListChannelContracts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListChannelHandshakes  **
   - **SDK client:** partnercentral-channel
@@ -603,6 +616,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
 
+- **   UpdateMarketplaceRevenueShare  **
+  - **SDK client:** partnercentral-revenue-measurement
+  - **IAM action:**  [partnercentral:UpdateMarketplaceRevenueShare](#list_partner-central-action-UpdateMarketplaceRevenueShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateMarketplaceRevenueShareAllocation  **
   - **SDK client:** partnercentral-revenue-measurement
   - **IAM action:**  [partnercentral:UpdateMarketplaceRevenueShareAllocation](#list_partner-central-action-UpdateMarketplaceRevenueShareAllocation) 
@@ -634,6 +654,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   AssociateOpportunity  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:AssociateOpportunity](#list_partner-central-action-AssociateOpportunity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateCustomerAccount  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:CreateCustomerAccount](#list_partner-central-action-CreateCustomerAccount) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -673,6 +700,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [partnercentral:GetOpportunity](#list_partner-central-action-GetOpportunity)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [partnercentral:TagResource](#list_partner-central-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   DeleteCustomerAccount  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:DeleteCustomerAccount](#list_partner-central-action-DeleteCustomerAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteResourceSnapshotJob  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:DeleteResourceSnapshotJob](#list_partner-central-action-DeleteResourceSnapshotJob) 
@@ -694,6 +728,34 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetCustomerAccount  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:GetCustomerAccount](#list_partner-central-action-GetCustomerAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomerAccountBulkJob  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:GetCustomerAccountBulkJob](#list_partner-central-action-GetCustomerAccountBulkJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomerAccountBulkJobReportUrl  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:GetCustomerAccountBulkJobReportUrl](#list_partner-central-action-GetCustomerAccountBulkJobReportUrl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomerAccountStatistics  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:GetCustomerAccountStatistics](#list_partner-central-action-GetCustomerAccountStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetEngagement  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:GetEngagement](#list_partner-central-action-GetEngagement) 
@@ -711,6 +773,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   GetOpportunity  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:GetOpportunity](#list_partner-central-action-GetOpportunity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOpportunityBulkJobReportUrl  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:GetOpportunityBulkJobReportUrl](#list_partner-central-action-GetOpportunityBulkJobReportUrl) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -743,6 +812,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListCustomerAccountBulkJobResults  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:ListCustomerAccountBulkJobResults](#list_partner-central-action-ListCustomerAccountBulkJobResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCustomerAccountBulkJobs  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:ListCustomerAccountBulkJobs](#list_partner-central-action-ListCustomerAccountBulkJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListEngagementByAcceptingInvitationTasks  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:ListEngagementByAcceptingInvitationTasks](#list_partner-central-action-ListEngagementByAcceptingInvitationTasks) 
@@ -753,6 +836,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListEngagementFromOpportunityTasks  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:ListEngagementFromOpportunityTasks](#list_partner-central-action-ListEngagementFromOpportunityTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEngagementGroups  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:ListEngagementGroups](#list_partner-central-action-ListEngagementGroups) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -788,6 +878,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListOpportunities  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:ListOpportunities](#list_partner-central-action-ListOpportunities) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOpportunityBulkJobResults  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:ListOpportunityBulkJobResults](#list_partner-central-action-ListOpportunityBulkJobResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOpportunityBulkJobs  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:ListOpportunityBulkJobs](#list_partner-central-action-ListOpportunityBulkJobs) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -846,6 +950,34 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   SearchCustomerAccounts  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:SearchCustomerAccounts](#list_partner-central-action-SearchCustomerAccounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SearchEngagements  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:SearchEngagements](#list_partner-central-action-SearchEngagements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SearchOpportunities  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:SearchOpportunities](#list_partner-central-action-SearchOpportunities) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartCustomerAccountBulkJob  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:StartCustomerAccountBulkJob](#list_partner-central-action-StartCustomerAccountBulkJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartEngagementByAcceptingInvitationTask  **
   - **SDK client:** partnercentral-selling
   - **IAM action:**  [partnercentral:AcceptEngagementInvitation](#list_partner-central-action-AcceptEngagementInvitation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -870,8 +1002,16 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [partnercentral:SubmitOpportunity](#list_partner-central-action-SubmitOpportunity)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [partnercentral:TagResource](#list_partner-central-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   StartOpportunityBulkJob  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:StartOpportunityBulkJob](#list_partner-central-action-StartOpportunityBulkJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartOpportunityFromEngagementTask  **
   - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:CreateEngagementContext](#list_partner-central-action-CreateEngagementContext)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [partnercentral:CreateOpportunity](#list_partner-central-action-CreateOpportunity)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [partnercentral:CreateResourceSnapshot](#list_partner-central-action-CreateResourceSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [partnercentral:CreateResourceSnapshotJob](#list_partner-central-action-CreateResourceSnapshotJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -922,6 +1062,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
+
+- **   UpdateCustomerAccount  **
+  - **SDK client:** partnercentral-selling
+  - **IAM action:**  [partnercentral:UpdateCustomerAccount](#list_partner-central-action-UpdateCustomerAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateEngagementContext  **
   - **SDK client:** partnercentral-selling
@@ -1000,6 +1147,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:RelatedEntityType](#list_partner-central-partnercentral_RelatedEntityType)
   - **Access level:** Write
 
+- **   [BatchCreateCampaignAsset](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_BatchCreateCampaignAsset.html)  **
+  - **Description:** Grants permission to create assets in a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [CancelBenefitApplication](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_benefits_CancelBenefitApplication.html)  **
   - **Description:** Grants permission to cancel benefit applications in AWS Partner Central
   - **Resource types (\*required):** [BenefitApplication\*](#list_partner-central-resource-BenefitApplication)
@@ -1016,6 +1169,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to cancel business plan submission tasks in AWS Partner Central
   - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [CancelChannelContract](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_CancelChannelContract.html)  **
+  - **Description:** Grants permission to cancel channel contracts in AWS Partner Central
+  - **Resource types (\*required):** [ChannelContract\*](#list_partner-central-resource-ChannelContract)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:ChannelContractType](#list_partner-central-partnercentral_ChannelContractType)
   - **Access level:** Write
 
 - **   [CancelChannelHandshake](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_CancelChannelHandshake.html)  **
@@ -1060,6 +1219,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:BusinessPlanItemStage](#list_partner-central-partnercentral_BusinessPlanItemStage)<br />[partnercentral:BusinessPlanItemType](#list_partner-central-partnercentral_BusinessPlanItemType)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [CreateCampaign](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_CreateCampaign.html)  **
+  - **Description:** Grants permission to create a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [CreateChannelContract](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_CreateChannelContract.html)  **
+  - **Description:** Grants permission to create channel contracts in AWS Partner Central
+  - **Resource types (\*required):** [ChannelContract\*](#list_partner-central-resource-ChannelContract)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:ChannelContractType](#list_partner-central-partnercentral_ChannelContractType)
+  - **Access level:** Write
+
 - **   [CreateChannelHandshake](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_CreateChannelHandshake.html)  **
   - **Description:** Grants permission to create channel handshakes in AWS Partner Central
   - **Resource types (\*required):** [ProgramManagementAccount](#list_partner-central-resource-ProgramManagementAccount) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:ChannelHandshakeType](#list_partner-central-partnercentral_ChannelHandshakeType)
@@ -1070,6 +1241,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create connection invitations in AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [CreateCustomerAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_CreateCustomerAccount.html)  **
+  - **Description:** Grants permission to create customer account mappings on AWS Partner Central
+  - **Resource types (\*required):** [CustomerAccount\*](#list_partner-central-resource-CustomerAccount)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [CreateDataSubscription](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to create a data subscription that delivers a partner analytics dataset to the caller's own AWS account in AWS Partner Central
+  - **Resource types (\*required):** [DataSubscription\*](#list_partner-central-resource-DataSubscription)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [CreateEngagement](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_CreateEngagement.html)  **
@@ -1144,6 +1327,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [CreateSocialConnectionAuthorizationUrl](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_CreateSocialConnectionAuthorizationUrl.html)  **
+  - **Description:** Grants permission to create an authorization URL for connecting a social media account in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [DeactivateCampaignAsset](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_DeactivateCampaignAsset.html)  **
+  - **Description:** Grants permission to deactivate an asset of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [DeleteBusinessPlanAttachment](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_DeleteBusinessPlanAttachment.html)  **
   - **Description:** Grants permission to delete business plan attachments in AWS Partner Central
   - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
@@ -1154,6 +1349,30 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to delete business plan items in AWS Partner Central
   - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:BusinessPlanItemStage](#list_partner-central-partnercentral_BusinessPlanItemStage)<br />[partnercentral:BusinessPlanItemType](#list_partner-central-partnercentral_BusinessPlanItemType)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [DeleteCampaign](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_DeleteCampaign.html)  **
+  - **Description:** Grants permission to delete a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [DeleteCampaignAsset](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_DeleteCampaignAsset.html)  **
+  - **Description:** Grants permission to delete an asset of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [DeleteCustomerAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_DeleteCustomerAccount.html)  **
+  - **Description:** Grants permission to delete customer account mappings on AWS Partner Central
+  - **Resource types (\*required):** [CustomerAccount\*](#list_partner-central-resource-CustomerAccount)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [DeleteDataSubscription](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to delete a data subscription in AWS Partner Central
+  - **Resource types (\*required):** [DataSubscription\*](#list_partner-central-resource-DataSubscription)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [DeleteProgramManagementAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_DeleteProgramManagementAccount.html)  **
@@ -1172,6 +1391,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to deleting resource snapshot jobs on AWS Partner Central
   - **Resource types (\*required):** [resource-snapshot-job\*](#list_partner-central-resource-resource-snapshot-job)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [DeleteSocialConnection](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_DeleteSocialConnection.html)  **
+  - **Description:** Grants permission to delete a connected social media account in AWS Partner Central
+  - **Resource types (\*required):** [SocialConnection\*](#list_partner-central-resource-SocialConnection)
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [DisassociateAwsTrainingCertificationEmailDomain](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_DisassociateAwsTrainingCertificationEmailDomain.html)  **
@@ -1271,6 +1496,42 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Read
 
+- **   [GetCampaign](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCampaign.html)  **
+  - **Description:** Grants permission to retrieve a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCampaignAsset](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCampaignAsset.html)  **
+  - **Description:** Grants permission to retrieve an asset of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCampaignAssetActivationTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCampaignAssetActivationTask.html)  **
+  - **Description:** Grants permission to retrieve the asset activation task of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCampaignAssetExportTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCampaignAssetExportTask.html)  **
+  - **Description:** Grants permission to retrieve an asset export task of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCampaignTemplate](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCampaignTemplate.html)  **
+  - **Description:** Grants permission to retrieve a marketing campaign template in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetChannelContract](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_GetChannelContract.html)  **
+  - **Description:** Grants permission to retrieve channel contracts in AWS Partner Central
+  - **Resource types (\*required):** [ChannelContract\*](#list_partner-central-resource-ChannelContract)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:ChannelContractType](#list_partner-central-partnercentral_ChannelContractType)
+  - **Access level:** Read
+
 - **   [GetConnection](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetConnection.html)  **
   - **Description:** Grants permission to retrieve connection details in AWS Partner Central
   - **Resource types (\*required):** [Connection\*](#list_partner-central-resource-Connection)
@@ -1287,6 +1548,36 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve connection preferences in AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCustomerAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCustomerAccount.html)  **
+  - **Description:** Grants permission to retrieve details of customer account mappings on AWS Partner Central
+  - **Resource types (\*required):** [CustomerAccount\*](#list_partner-central-resource-CustomerAccount)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCustomerAccountBulkJob](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCustomerAccountBulkJob.html)  **
+  - **Description:** Grants permission to retrieve details of customer account bulk jobs on AWS Partner Central
+  - **Resource types (\*required):** [CustomerAccountBulkJob\*](#list_partner-central-resource-CustomerAccountBulkJob)
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCustomerAccountBulkJobReportUrl](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCustomerAccountBulkJobReportUrl.html)  **
+  - **Description:** Grants permission to retrieve the report download URL of customer account bulk jobs on AWS Partner Central
+  - **Resource types (\*required):** [CustomerAccountBulkJob\*](#list_partner-central-resource-CustomerAccountBulkJob)
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetCustomerAccountStatistics](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetCustomerAccountStatistics.html)  **
+  - **Description:** Grants permission to retrieve aggregate statistics for customer account mappings on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetDataSubscription](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to retrieve details of a data subscription in AWS Partner Central
+  - **Resource types (\*required):** [DataSubscription\*](#list_partner-central-resource-DataSubscription)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Read
 
 - **   [GetEngagement](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetEngagement.html)  **
@@ -1317,6 +1608,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve details of Opportunities on AWS Partner Central
   - **Resource types (\*required):** [Opportunity\*](#list_partner-central-resource-Opportunity)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetOpportunityBulkJobReportUrl](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetOpportunityBulkJobReportUrl.html)  **
+  - **Description:** Grants permission to retrieve the report download URL of opportunity bulk jobs on AWS Partner Central
+  - **Resource types (\*required):** [OpportunityBulkJob\*](#list_partner-central-resource-OpportunityBulkJob)
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Read
 
 - **   [GetPartner](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetPartner.html)  **
@@ -1493,6 +1790,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** List
 
+- **   [ListCampaignAssets](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListCampaignAssets.html)  **
+  - **Description:** Grants permission to list the assets of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListCampaigns](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListCampaigns.html)  **
+  - **Description:** Grants permission to list marketing campaigns in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListChannelContracts](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_ListChannelContracts.html)  **
+  - **Description:** Grants permission to list channel contracts in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:ChannelContractType](#list_partner-central-partnercentral_ChannelContractType)
+  - **Access level:** List
+
 - **   [ListChannelHandshakes](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_ListChannelHandshakes.html)  **
   - **Description:** Grants permission to list channel handshakes in AWS Partner Central
   - **Resource types (\*required):** [ChannelHandshake\*](#list_partner-central-resource-ChannelHandshake)
@@ -1511,6 +1826,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** List
 
+- **   [ListCustomerAccountBulkJobResults](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListCustomerAccountBulkJobResults.html)  **
+  - **Description:** Grants permission to list the per-row results of customer account bulk jobs on AWS Partner Central
+  - **Resource types (\*required):** [CustomerAccountBulkJob\*](#list_partner-central-resource-CustomerAccountBulkJob)
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListCustomerAccountBulkJobs](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListCustomerAccountBulkJobs.html)  **
+  - **Description:** Grants permission to list customer account bulk jobs on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListDataSubscriptions](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to list data subscriptions in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
 - **   [ListEngagementByAcceptingInvitationTasks](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListEngagementByAcceptingInvitationTasks.html)  **
   - **Description:** Grants permission to listing engagements by accepting invitation tasks in AWS Partner Central
   - **Resource types (\*required):** 
@@ -1519,6 +1852,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListEngagementFromOpportunityTasks](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListEngagementFromOpportunityTasks.html)  **
   - **Description:** Grants permission to listing engagements from opportunity tasks in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListEngagementGroups](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListEngagementGroups.html)  **
+  - **Description:** Grants permission to list engagement groups on AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** List
@@ -1561,6 +1900,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListOpportunities](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListOpportunities.html)  **
   - **Description:** Grants permission to list Opportunities on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListOpportunityBulkJobResults](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListOpportunityBulkJobResults.html)  **
+  - **Description:** Grants permission to list the per-row results of opportunity bulk jobs on AWS Partner Central
+  - **Resource types (\*required):** [OpportunityBulkJob\*](#list_partner-central-resource-OpportunityBulkJob)
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListOpportunityBulkJobs](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListOpportunityBulkJobs.html)  **
+  - **Description:** Grants permission to list opportunity bulk jobs on AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** List
@@ -1625,6 +1976,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** List
 
+- **   [ListSocialConnections](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListSocialConnections.html)  **
+  - **Description:** Grants permission to list connected social media accounts in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
 - **   [ListSolutions](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListSolutions.html)  **
   - **Description:** Grants permission to list Solutions on AWS Partner Central
   - **Resource types (\*required):** 
@@ -1685,7 +2042,25 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
-- **   [SearchOpportunities](https://docs.aws.amazon.com/partner-central/latest/APIReference/access-control.html)  **
+- **   [SearchCampaignTemplates](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_SearchCampaignTemplates.html)  **
+  - **Description:** Grants permission to search marketing campaign templates in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [SearchCustomerAccounts](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_SearchCustomerAccounts.html)  **
+  - **Description:** Grants permission to search customer account mappings on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [SearchEngagements](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_SearchEngagements.html)  **
+  - **Description:** Grants permission to search engagements on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [SearchOpportunities](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_SearchOpportunities.html)  **
   - **Description:** Grants permission to search Opportunities on AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
@@ -1715,6 +2090,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [StartCampaignAssetActivationTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_StartCampaignAssetActivationTask.html)  **
+  - **Description:** Grants permission to activate assets of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [StartCampaignAssetExportTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_StartCampaignAssetExportTask.html)  **
+  - **Description:** Grants permission to export the assets of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [StartCustomerAccountBulkJob](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_StartCustomerAccountBulkJob.html)  **
+  - **Description:** Grants permission to start bulk jobs that create customer account mappings on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [StartEngagementByAcceptingInvitationTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_StartEngagementByAcceptingInvitationTask.html)  **
   - **Description:** Grants permission to initiate tasks that start Engagements on AWS Partner Central by accepting an Engagement Invitation
   - **Resource types (\*required):** [engagement-by-accepting-invitation-task\*](#list_partner-central-resource-engagement-by-accepting-invitation-task)
@@ -1725,6 +2118,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to initiate tasks that start Engagements from Opportunities on AWS Partner Central
   - **Resource types (\*required):** [engagement-from-opportunity-task\*](#list_partner-central-resource-engagement-from-opportunity-task)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [StartOpportunityBulkJob](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_StartOpportunityBulkJob.html)  **
+  - **Description:** Grants permission to start bulk jobs that create or update Opportunities from a file on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [StartOpportunityFromEngagementTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_StartOpportunityFromEngagementTask.html)  **
@@ -1797,7 +2196,11 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to add new tags to a resource. Supported resource: ResourceSnapshotJob
   - **Resource types (\*required):** [BenefitApplication](#list_partner-central-resource-BenefitApplication) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [BusinessPlan](#list_partner-central-resource-BusinessPlan) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [Campaign](#list_partner-central-resource-Campaign) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [ChannelContract](#list_partner-central-resource-ChannelContract) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [ChannelHandshake](#list_partner-central-resource-ChannelHandshake) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [CustomerAccount](#list_partner-central-resource-CustomerAccount) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [DataSubscription](#list_partner-central-resource-DataSubscription) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [MarketplaceRevenueShare](#list_partner-central-resource-MarketplaceRevenueShare) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [Opportunity](#list_partner-central-resource-Opportunity) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [Partner](#list_partner-central-resource-Partner) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
@@ -1811,7 +2214,11 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to remove tags from a resource. Supported resource: ResourceSnapshotJob
   - **Resource types (\*required):** [BenefitApplication](#list_partner-central-resource-BenefitApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [BusinessPlan](#list_partner-central-resource-BusinessPlan) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [Campaign](#list_partner-central-resource-Campaign) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [ChannelContract](#list_partner-central-resource-ChannelContract) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [ChannelHandshake](#list_partner-central-resource-ChannelHandshake) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [CustomerAccount](#list_partner-central-resource-CustomerAccount) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [DataSubscription](#list_partner-central-resource-DataSubscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [MarketplaceRevenueShare](#list_partner-central-resource-MarketplaceRevenueShare) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [Opportunity](#list_partner-central-resource-Opportunity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [Partner](#list_partner-central-resource-Partner) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
@@ -1839,16 +2246,40 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:BusinessPlanItemStage](#list_partner-central-partnercentral_BusinessPlanItemStage)<br />[partnercentral:BusinessPlanItemType](#list_partner-central-partnercentral_BusinessPlanItemType)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [UpdateCampaign](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_UpdateCampaign.html)  **
+  - **Description:** Grants permission to update a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [UpdateCampaignAsset](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_UpdateCampaignAsset.html)  **
+  - **Description:** Grants permission to update an asset of a marketing campaign in AWS Partner Central
+  - **Resource types (\*required):** [Campaign\*](#list_partner-central-resource-Campaign)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [UpdateConnectionPreferences](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_UpdateConnectionPreferences.html)  **
   - **Description:** Grants permission to update connection preferences in AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [UpdateCustomerAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_UpdateCustomerAccount.html)  **
+  - **Description:** Grants permission to update customer account mappings on AWS Partner Central
+  - **Resource types (\*required):** [CustomerAccount\*](#list_partner-central-resource-CustomerAccount)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [UpdateEngagementContext](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_UpdateEngagementContext.html)  **
   - **Description:** Grants permission to update engagement contexts in AWS Partner Central
   - **Resource types (\*required):** [Engagement\*](#list_partner-central-resource-Engagement)
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [UpdateMarketplaceRevenueShare](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_prm_UpdateMarketplaceRevenueShare.html)  **
+  - **Description:** Grants permission to update marketplace revenue shares in AWS Partner Central
+  - **Resource types (\*required):** [MarketplaceRevenueShare\*](#list_partner-central-resource-MarketplaceRevenueShare)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [UpdateMarketplaceRevenueShareAllocation](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_prm_UpdateMarketplaceRevenueShareAllocation.html)  **
@@ -1917,15 +2348,22 @@ The following resource types are defined by this service and can be used in the 
 |  [BenefitAllocation](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-benefit-allocations.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-allocation/${Identifier} |   | 
 |  [BenefitApplication](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-benefit-applications.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-application/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [BusinessPlan](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-business-plans.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/business-plan/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
+|  [Campaign](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_Campaign.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/campaign/${CampaignId} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
+|  [ChannelContract](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-channel-management.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/channel-contract/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [ChannelHandshake](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-channel-management.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/channel-handshake/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [Connection](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-account-connections.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection/${Identifier} |   | 
 |  [ConnectionInvitation](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-account-connections.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection-invitation/${Identifier} |   | 
 |  [ConnectionPreferences](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-account-connections.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/connection-preferences |   | 
+|  [CustomerAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-customer-accounts.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/customer-account/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
+|  [CustomerAccountBulkJob](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-customer-accounts.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/customer-account-bulk-job/${Identifier} |   | 
 |  [Dashboard](https://docs.aws.amazon.com/partner-central/latest/getting-started/partner-analytics.html)  | arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${TableId}/Dashboard/${DashboardId} |   | 
+|  [DataSubscription](https://docs.aws.amazon.com/partner-central/latest/getting-started/partner-analytics.html)  | arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${Domain}/DataSubscription/${DataSubscriptionId} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [Dataset](https://docs.aws.amazon.com/partner-central/latest/getting-started/partner-analytics.html)  | arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${Domain}/Dataset/${DatasetName} |   | 
 |  [Engagement](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-multi-partner-opportunities.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement/${Identifier} |   | 
-|  [MarketplaceRevenueShare](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-marketplace-revenue-share.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/marketplace-revenue-share/${MarketplaceProductId} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
+|  [EngagementGroup](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-your-leads.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-group/${Identifier} |   | 
+|  [MarketplaceRevenueShare](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-marketplace-revenue-share.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/marketplace-revenue-share/${MarketplaceRevenueShareId} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [Opportunity](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-your-opportunities.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/opportunity/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
+|  [OpportunityBulkJob](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-bulk-jobs.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/opportunity-bulk-job/${Identifier} |   | 
 |  [OpportunityFromEngagementTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-multi-partner-opportunities.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/opportunity-from-engagement-task/${TaskId} |   | 
 |  [Partner](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-partner-registration.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/partner/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [ProgramManagementAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-channel-management.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
@@ -1933,6 +2371,7 @@ The following resource types are defined by this service and can be used in the 
 |  [Relationship](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-channel-management.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${ProgramManagementAccountId}/relationship/${RelationshipId} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [ResourceSnapshot](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-multi-partner-opportunities.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/engagement/${EngagementIdentifier}/resource/${ResourceType}/${ResourceIdentifier}/template/${TemplateIdentifier}/resource-snapshot/${SnapshotRevision} |   | 
 |  [RevenueAttribution](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-revenue-attribution.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/revenue-attribution/${RevenueAttributionId} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
+|  [SocialConnection](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_SocialConnection.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/social-connection/${SocialConnectionId} |   | 
 |  [Solution](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListSolutions.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/solution/${Identifier} |   | 
 |  [engagement-by-accepting-invitation-task](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-multi-partner-opportunities.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-by-accepting-invitation-task/${TaskId} |   | 
 |  [engagement-from-opportunity-task](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-multi-partner-opportunities.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-from-opportunity-task/${TaskId} |   | 
@@ -1955,6 +2394,7 @@ AWS Partner Central defines the following condition keys that can be used in the
 |   [partnercentral:BusinessPlanItemStage](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by the stage of a business plan item | String | 
 |   [partnercentral:BusinessPlanItemType](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by the type of a business plan item | String | 
 |   [partnercentral:Catalog](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by a specific Catalog | String | 
+|   [partnercentral:ChannelContractType](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by channel contract types | String | 
 |   [partnercentral:ChannelHandshakeType](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by channel handshake types | String | 
 |   [partnercentral:FulfillmentTypes](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by benefit fulfillment types | ArrayOfString | 
 |   [partnercentral:Programs](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by program | ArrayOfString | 

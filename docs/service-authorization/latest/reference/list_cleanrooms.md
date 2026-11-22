@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Clean Rooms
-<a name="list_cleanrooms"></a>
 
 AWS Clean Rooms (service prefix: `cleanrooms`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

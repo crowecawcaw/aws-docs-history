@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Lex V2
-<a name="list_lex-v2"></a>
 
 Amazon Lex V2 (service prefix: `lex`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

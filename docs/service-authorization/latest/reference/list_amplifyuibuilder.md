@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Amplify UI Builder
-<a name="list_amplifyuibuilder"></a>
 
 AWS Amplify UI Builder (service prefix: `amplifyuibuilder`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

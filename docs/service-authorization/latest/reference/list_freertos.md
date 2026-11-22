@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon FreeRTOS
-<a name="list_freertos"></a>
 
 Amazon FreeRTOS (service prefix: `freertos`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Connect Customer Profiles
-<a name="list_customer-profiles"></a>
 
 Amazon Connect Customer Profiles (service prefix: `profile`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

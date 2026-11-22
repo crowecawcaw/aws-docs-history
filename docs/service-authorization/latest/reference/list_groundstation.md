@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Ground Station
-<a name="list_groundstation"></a>
 
 AWS Ground Station (service prefix: `groundstation`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

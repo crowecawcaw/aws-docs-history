@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental Support Cases
-<a name="list_elemental-support-cases"></a>
 
 AWS Elemental Support Cases (service prefix: `elemental-support-cases`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

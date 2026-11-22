@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS service providing managed private networks
-<a name="list_private-networks"></a>
 
 AWS service providing managed private networks (service prefix: `private-networks`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

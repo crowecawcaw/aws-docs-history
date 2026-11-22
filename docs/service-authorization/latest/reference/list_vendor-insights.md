@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace Vendor Insights
-<a name="list_vendor-insights"></a>
 
 AWS Marketplace Vendor Insights (service prefix: `vendor-insights`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

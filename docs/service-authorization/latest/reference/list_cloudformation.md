@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CloudFormation
-<a name="list_cloudformation"></a>
 
 AWS CloudFormation (service prefix: `cloudformation`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -602,7 +601,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateChangeSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html)  **
   - **Description:** Grants permission to create a list of changes for a stack
   - **Resource types (\*required):** [stack\*](#list_cloudformation-resource-stack)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudformation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudformation-aws_TagKeys)<br />[cloudformation:ChangeSetName](#list_cloudformation-cloudformation_ChangeSetName)<br />[cloudformation:ImportResourceTypes](#list_cloudformation-cloudformation_ImportResourceTypes)<br />[cloudformation:ResourceTypes](#list_cloudformation-cloudformation_ResourceTypes)<br />[cloudformation:RoleArn](#list_cloudformation-cloudformation_RoleArn)<br />[cloudformation:StackPolicyUrl](#list_cloudformation-cloudformation_StackPolicyUrl)<br />[cloudformation:TemplateUrl](#list_cloudformation-cloudformation_TemplateUrl)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudformation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudformation-aws_TagKeys)<br />[cloudformation:ChangeSetName](#list_cloudformation-cloudformation_ChangeSetName)<br />[cloudformation:DisableValidation](#list_cloudformation-cloudformation_DisableValidation)<br />[cloudformation:ImportResourceTypes](#list_cloudformation-cloudformation_ImportResourceTypes)<br />[cloudformation:ResourceTypes](#list_cloudformation-cloudformation_ResourceTypes)<br />[cloudformation:RoleArn](#list_cloudformation-cloudformation_RoleArn)<br />[cloudformation:StackPolicyUrl](#list_cloudformation-cloudformation_StackPolicyUrl)<br />[cloudformation:TemplateUrl](#list_cloudformation-cloudformation_TemplateUrl)
   - **Access level:** Write
 
 - **   [CreateGeneratedTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateGeneratedTemplate.html)  **
@@ -614,7 +613,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateStack](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html)  **
   - **Description:** Grants permission to create a stack as specified in the template
   - **Resource types (\*required):** [stack\*](#list_cloudformation-resource-stack)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudformation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudformation-aws_TagKeys)<br />[cloudformation:ResourceTypes](#list_cloudformation-cloudformation_ResourceTypes)<br />[cloudformation:RoleArn](#list_cloudformation-cloudformation_RoleArn)<br />[cloudformation:StackPolicyUrl](#list_cloudformation-cloudformation_StackPolicyUrl)<br />[cloudformation:TemplateUrl](#list_cloudformation-cloudformation_TemplateUrl)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudformation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudformation-aws_TagKeys)<br />[cloudformation:DisableValidation](#list_cloudformation-cloudformation_DisableValidation)<br />[cloudformation:ResourceTypes](#list_cloudformation-cloudformation_ResourceTypes)<br />[cloudformation:RoleArn](#list_cloudformation-cloudformation_RoleArn)<br />[cloudformation:StackPolicyUrl](#list_cloudformation-cloudformation_StackPolicyUrl)<br />[cloudformation:TemplateUrl](#list_cloudformation-cloudformation_TemplateUrl)
   - **Access level:** Write
 
 - **   [CreateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html)  **
@@ -1116,7 +1115,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateStack](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html)  **
   - **Description:** Grants permission to update a stack as specified in the template
   - **Resource types (\*required):** [stack\*](#list_cloudformation-resource-stack)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudformation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudformation-aws_TagKeys)<br />[cloudformation:ResourceTypes](#list_cloudformation-cloudformation_ResourceTypes)<br />[cloudformation:RoleArn](#list_cloudformation-cloudformation_RoleArn)<br />[cloudformation:StackPolicyUrl](#list_cloudformation-cloudformation_StackPolicyUrl)<br />[cloudformation:TemplateUrl](#list_cloudformation-cloudformation_TemplateUrl)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudformation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudformation-aws_TagKeys)<br />[cloudformation:DisableValidation](#list_cloudformation-cloudformation_DisableValidation)<br />[cloudformation:ResourceTypes](#list_cloudformation-cloudformation_ResourceTypes)<br />[cloudformation:RoleArn](#list_cloudformation-cloudformation_RoleArn)<br />[cloudformation:StackPolicyUrl](#list_cloudformation-cloudformation_StackPolicyUrl)<br />[cloudformation:TemplateUrl](#list_cloudformation-cloudformation_TemplateUrl)
   - **Access level:** Write
 
 - **   [UpdateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackInstances.html)  **
@@ -1190,6 +1189,7 @@ AWS CloudFormation defines the following condition keys that can be used in the 
 |   [aws:TagKeys](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-template-conditions)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
 |   [cloudformation:ChangeSetName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-template-conditions)  | Filters access by an AWS CloudFormation change set name. Use to control which change sets IAM users can execute or delete | String | 
 |   [cloudformation:CreateAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-template-conditions)  | Filters access by the name of a resource-mutating API action. Use to control which APIs IAM users can use to add or remove tags on a stack or stack set | String | 
+|   [cloudformation:DisableValidation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-template-conditions)  | Filters access by whether pre-deployment validation is disabled in the request. Use to control which IAM users can skip pre-deployment validation when they create or update stacks or create change sets | Bool | 
 |   [cloudformation:ImportResourceTypes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-template-conditions)  | Filters access by the template resource types, such as AWS::EC2::Instance. Use to control which resource types IAM users can work with when they want to import a resource into a stack | String | 
 |   [cloudformation:ResourceTypes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-template-conditions)  | Filters access by the template resource types, such as AWS::EC2::Instance. Use to control which resource types IAM users can work with when they create or update a stack | ArrayOfString | 
 |   [cloudformation:RoleArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-template-conditions)  | Filters access by the ARN of an IAM service role. Use to control which service role IAM users can use to work with stacks or change sets | ARN | 

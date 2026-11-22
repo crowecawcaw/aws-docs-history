@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EC2
-<a name="list_ec2"></a>
 
 Amazon EC2 (service prefix: `ec2`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -779,6 +778,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateTransitGatewayMulticastDomain  **
   - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [ec2:CreateTransitGatewayMulticastDomain](#list_ec2-action-CreateTransitGatewayMulticastDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateTransitGatewayNetworkFunctionAttachment  **
+  - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
 
 - **   CreateTransitGatewayPeeringAttachment  **
   - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write

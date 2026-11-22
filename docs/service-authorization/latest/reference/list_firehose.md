@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Kinesis Firehose
-<a name="list_firehose"></a>
 
 Amazon Kinesis Firehose (service prefix: `firehose`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

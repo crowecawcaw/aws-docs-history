@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS User Experience Customization
-<a name="list_uxc"></a>
 
 AWS User Experience Customization (service prefix: `uxc`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

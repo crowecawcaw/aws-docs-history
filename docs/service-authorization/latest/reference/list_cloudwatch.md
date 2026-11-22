@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CloudWatch
-<a name="list_cloudwatch"></a>
 
 Amazon CloudWatch (service prefix: `cloudwatch`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -883,6 +882,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Write
 
+- **   [CreateOmniAgentAsset](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_CreateOmniAgentAsset.html)  **
+  - **Description:** Grants permission to create an agent asset
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Access level:** Write
+
 - **   [CreateOmniDashboard](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_CreateOmniDashboard.html)  **
   - **Description:** Grants permission to create an omni dashboard
   - **Resource types (\*required):** 
@@ -1013,6 +1018,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to delete the CloudWatch metric stream that you specify
   - **Resource types (\*required):** [metric-stream\*](#list_cloudwatch-resource-metric-stream)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOmniAgentAsset](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_DeleteOmniAgentAsset.html)  **
+  - **Description:** Grants permission to delete an agent asset
+  - **Resource types (\*required):** [omni-agent-asset\*](#list_cloudwatch-resource-omni-agent-asset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Write
 
 - **   [DeleteOmniDashboard](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_DeleteOmniDashboard.html)  **
@@ -1243,6 +1254,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetMonitoringAssessment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html)  **
+  - **Description:** Grants permission to get the status, progress, scope and retention of a monitoring assessment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetOmniAgentAsset](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_GetOmniAgentAsset.html)  **
+  - **Description:** Grants permission to get an agent asset
+  - **Resource types (\*required):** [omni-agent-asset\*](#list_cloudwatch-resource-omni-agent-asset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Access level:** Read
+
 - **   [GetOmniDashboard](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_GetOmniDashboard.html)  **
   - **Description:** Grants permission to get an omni dashboard
   - **Resource types (\*required):** [omni-dashboard\*](#list_cloudwatch-resource-omni-dashboard)
@@ -1421,6 +1444,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve a list of valid metrics stored for the AWS account owner
   - **Resource types (\*required):** [dataset](#list_cloudwatch-resource-dataset)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Access level:** List
+
+- **   [ListMonitoringAssessmentResults](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html)  **
+  - **Description:** Grants permission to list the recommendations produced by a monitoring assessment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMonitoringAssessments](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html)  **
+  - **Description:** Grants permission to list the monitoring assessments in an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOmniAgentAssets](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_ListOmniAgentAssets.html)  **
+  - **Description:** Grants permission to list agent assets
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** List
 
 - **   [ListOmniDashboards](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_ListOmniDashboards.html)  **
@@ -1611,6 +1652,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StartMonitoringAssessment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html)  **
+  - **Description:** Grants permission to start a monitoring assessment that produces recommendations to improve observability
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [StartOmniThreadSession](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_StartOmniThreadSession.html)  **
   - **Description:** Grants permission to start an omni thread session
   - **Resource types (\*required):** 
@@ -1726,6 +1773,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateIntegration](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_UpdateIntegration.html)  **
   - **Description:** Grants permission to update an integration
   - **Resource types (\*required):** [integration\*](#list_cloudwatch-resource-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Access level:** Write
+
+- **   [UpdateOmniAgentAsset](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_UpdateOmniAgentAsset.html)  **
+  - **Description:** Grants permission to update an agent asset
+  - **Resource types (\*required):** [omni-agent-asset\*](#list_cloudwatch-resource-omni-agent-asset)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Write
 
@@ -1883,6 +1936,7 @@ The following resource types are defined by this service and can be used in the 
 |  [integration](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:integration/${IntegrationId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [metric-query-definition](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:metric-query-definition/${MetricDataQueryDefinitionId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [metric-stream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:metric-stream/${MetricStreamName} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
+|  [omni-agent-asset](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:omni-agent-asset/${AssetId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [omni-dashboard](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:omni-dashboard/${DashboardId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [organization-access-grant](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:organization-access-grant/${GrantId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [organization-domain](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:organization-domain/${DomainId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 

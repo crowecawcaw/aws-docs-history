@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CodeConnections
-<a name="list_codeconnections"></a>
 
 AWS CodeConnections (service prefix: `codeconnections`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -234,6 +233,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to get the latest sync status for a repository
   - **Resource types (\*required):** [RepositoryLink\*](#list_codeconnections-resource-RepositoryLink)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeconnections-aws_ResourceTag___TagKey_)<br />[codeconnections:Branch](#list_codeconnections-codeconnections_Branch)
+  - **Access level:** Read
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-sharing)  **
+  - **Description:** Grants permission to retrieve the resource policy configured for a Connection
+  - **Resource types (\*required):** [Connection\*](#list_codeconnections-resource-Connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeconnections-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetResourceSyncStatus](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetResourceSyncStatus.html)  **

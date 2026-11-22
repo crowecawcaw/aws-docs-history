@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Well-Architected Tool
-<a name="list_wellarchitected"></a>
 
 AWS Well-Architected Tool (service prefix: `wellarchitected`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -38,6 +37,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateAgentBasicProfile  **
+  - **IAM action:**  [wellarchitected:CreateAgentBasicProfile](#list_wellarchitected-action-CreateAgentBasicProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wellarchitected:TagResource](#list_wellarchitected-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   CreateAgentContext  **
   - **IAM action:**  [wellarchitected:CreateAgentContext](#list_wellarchitected-action-CreateAgentContext) 
   - **Condition key:** 
@@ -46,6 +49,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateAgentGoal  **
   - **IAM action:**  [wellarchitected:CreateAgentGoal](#list_wellarchitected-action-CreateAgentGoal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAgentOrganizationalProfile  **
+  - **IAM action:**  [wellarchitected:CreateAgentOrganizationalProfile](#list_wellarchitected-action-CreateAgentOrganizationalProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAgentOrganizationalReport  **
+  - **IAM action:**  [wellarchitected:CreateAgentOrganizationalReport](#list_wellarchitected-action-CreateAgentOrganizationalReport) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -119,8 +134,26 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteAgentOrganizationalReport  **
+  - **IAM action:**  [wellarchitected:DeleteAgentOrganizationalReport](#list_wellarchitected-action-DeleteAgentOrganizationalReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteAgentProfile  **
   - **IAM action:**  [wellarchitected:DeleteAgentProfile](#list_wellarchitected-action-DeleteAgentProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAgentProfilePolicy  **
+  - **IAM action:**  [wellarchitected:DeleteAgentProfilePolicy](#list_wellarchitected-action-DeleteAgentProfilePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAgentRecommendationPolicy  **
+  - **IAM action:**  [wellarchitected:DeleteAgentRecommendationPolicy](#list_wellarchitected-action-DeleteAgentRecommendationPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -203,8 +236,32 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetAgentOrganizationalReport  **
+  - **IAM action:**  [wellarchitected:GetAgentOrganizationalReport](#list_wellarchitected-action-GetAgentOrganizationalReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentOrganizationalReportData  **
+  - **IAM action:**  [wellarchitected:GetAgentOrganizationalReportData](#list_wellarchitected-action-GetAgentOrganizationalReportData) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentPreferences  **
+  - **IAM action:**  [wellarchitected:GetAgentPreferences](#list_wellarchitected-action-GetAgentPreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetAgentProfile  **
   - **IAM action:**  [wellarchitected:GetAgentProfile](#list_wellarchitected-action-GetAgentProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentProfilePolicy  **
+  - **IAM action:**  [wellarchitected:GetAgentProfilePolicy](#list_wellarchitected-action-GetAgentProfilePolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -217,6 +274,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetAgentRecommendationGeneration  **
   - **IAM action:**  [wellarchitected:GetAgentRecommendationGeneration](#list_wellarchitected-action-GetAgentRecommendationGeneration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentRecommendationPolicy  **
+  - **IAM action:**  [wellarchitected:GetAgentRecommendationPolicy](#list_wellarchitected-action-GetAgentRecommendationPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -317,6 +380,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListAgentGoals  **
   - **IAM action:**  [wellarchitected:ListAgentGoals](#list_wellarchitected-action-ListAgentGoals) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAgentOrganizationalReports  **
+  - **IAM action:**  [wellarchitected:ListAgentOrganizationalReports](#list_wellarchitected-action-ListAgentOrganizationalReports) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -459,8 +528,32 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   PutAgentPreferences  **
+  - **IAM action:**  [wellarchitected:PutAgentPreferences](#list_wellarchitected-action-PutAgentPreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutAgentProfilePolicy  **
+  - **IAM action:**  [wellarchitected:PutAgentProfilePolicy](#list_wellarchitected-action-PutAgentProfilePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   PutAgentRecommendationFeedback  **
   - **IAM action:**  [wellarchitected:PutAgentRecommendationFeedback](#list_wellarchitected-action-PutAgentRecommendationFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutAgentRecommendationPolicy  **
+  - **IAM action:**  [wellarchitected:PutAgentRecommendationPolicy](#list_wellarchitected-action-PutAgentRecommendationPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SendAgentOrganizationalReportDataToS3  **
+  - **IAM action:**  [wellarchitected:SendAgentOrganizationalReportDataToS3](#list_wellarchitected-action-SendAgentOrganizationalReportDataToS3) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -491,6 +584,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateAgentGoal  **
   - **IAM action:**  [wellarchitected:UpdateAgentGoal](#list_wellarchitected-action-UpdateAgentGoal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAgentOrganizationalProfile  **
+  - **IAM action:**  [wellarchitected:UpdateAgentOrganizationalProfile](#list_wellarchitected-action-UpdateAgentOrganizationalProfile) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write

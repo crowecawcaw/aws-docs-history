@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Transcribe
-<a name="list_transcribe"></a>
 
 Amazon Transcribe (service prefix: `transcribe`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -240,6 +239,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
+
+- **   TranscribeAudio  **
+  - **IAM action:**  [transcribe:TranscribeAudio](#list_transcribe-action-TranscribeAudio) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UntagResource  **
   - **IAM action:**  [transcribe:UntagResource](#list_transcribe-action-UntagResource) 
@@ -556,6 +561,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_transcribe-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_transcribe-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_transcribe-aws_TagKeys)<br />[transcribe:OutputBucketName](#list_transcribe-transcribe_OutputBucketName)<br />[transcribe:OutputEncryptionKMSKeyId](#list_transcribe-transcribe_OutputEncryptionKMSKeyId)<br />[transcribe:OutputKey](#list_transcribe-transcribe_OutputKey)
   - **Access level:** Tagging, Write
+
+- **   [TranscribeAudio](https://docs.aws.amazon.com/transcribe/latest/dg/API_TranscribeAudio.html)  **
+  - **Description:** Grants permission to transcribe a media file and return the transcript in the response
+  - **Resource types (\*required):** [vocabulary](#list_transcribe-resource-vocabulary) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transcribe-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [vocabularyfilter](#list_transcribe-resource-vocabularyfilter) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transcribe-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/transcribe/latest/dg/API_UntagResource.html)  **
   - **Description:** Grants permission to untag a resource with given key

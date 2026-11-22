@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkSpaces Application Manager
-<a name="list_wam"></a>
 
 Amazon WorkSpaces Application Manager (service prefix: `wam`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

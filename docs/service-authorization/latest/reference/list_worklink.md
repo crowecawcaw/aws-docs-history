@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkLink
-<a name="list_worklink"></a>
 
 Amazon WorkLink (service prefix: `worklink`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

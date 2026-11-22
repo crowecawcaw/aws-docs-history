@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CloudFront KeyValueStore
-<a name="list_cloudfront-keyvaluestore"></a>
 
 Amazon CloudFront KeyValueStore (service prefix: `cloudfront-keyvaluestore`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

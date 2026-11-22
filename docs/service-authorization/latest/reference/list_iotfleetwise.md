@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT FleetWise
-<a name="list_iotfleetwise"></a>
 
 AWS IoT FleetWise (service prefix: `iotfleetwise`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

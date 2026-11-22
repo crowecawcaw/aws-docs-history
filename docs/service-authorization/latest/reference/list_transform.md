@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Transform
-<a name="list_transform"></a>
 
 AWS Transform (service prefix: `transform`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -90,6 +89,24 @@ The following actions are defined by AWS Transform but are not directly invocabl
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetPartner](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **
+  - **Description:** Grants permission to invoke GetPartner on AWS Transform
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPartnerByAccountId](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **
+  - **Description:** Grants permission to invoke GetPartnerByAccountId on AWS Transform
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPartnerByArn](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **
+  - **Description:** Grants permission to invoke GetPartnerByArn on AWS Transform
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetWebAppUrl](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **
   - **Description:** Grants permission to invoke GetWebAppUrl on AWS Transform
   - **Resource types (\*required):** 
@@ -126,10 +143,22 @@ The following actions are defined by AWS Transform but are not directly invocabl
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [PutPartner](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **
+  - **Description:** Grants permission to invoke PutPartner on AWS Transform
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [RejectConnector](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **
   - **Description:** Grants permission to invoke RejectConnector on AWS Transform
   - **Resource types (\*required):** [connector\*](#list_transform-resource-connector)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemovePartner](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **
+  - **Description:** Grants permission to invoke RemovePartner on AWS Transform
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [TagResource](https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html)  **

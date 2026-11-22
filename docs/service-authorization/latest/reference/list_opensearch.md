@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon OpenSearch
-<a name="list_opensearch"></a>
 
 Amazon OpenSearch (service prefix: `opensearch`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

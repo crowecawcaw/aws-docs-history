@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Compute Optimizer Automation
-<a name="list_compute-optimizer-automation"></a>
 
 AWS Compute Optimizer Automation (service prefix: `aco-automation`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -37,6 +36,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteAutomationRule  **
   - **IAM action:**  [aco-automation:DeleteAutomationRule](#list_compute-optimizer-automation-action-DeleteAutomationRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOrganizationEnrollmentConfiguration  **
+  - **IAM action:**  [aco-automation:DeleteOrganizationEnrollmentConfiguration](#list_compute-optimizer-automation-action-DeleteOrganizationEnrollmentConfiguration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -105,6 +110,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListOrganizationEnrollmentConfigurations  **
+  - **IAM action:**  [aco-automation:ListOrganizationEnrollmentConfigurations](#list_compute-optimizer-automation-action-ListOrganizationEnrollmentConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOrganizationalUnits  **
+  - **IAM action:**  [aco-automation:ListOrganizationalUnits](#list_compute-optimizer-automation-action-ListOrganizationalUnits) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListRecommendedActionSummaries  **
   - **IAM action:**  [aco-automation:ListRecommendedActionSummaries](#list_compute-optimizer-automation-action-ListRecommendedActionSummaries) 
   - **Condition key:** 
@@ -120,6 +137,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   PutOrganizationEnrollmentConfiguration  **
+  - **IAM action:**  [aco-automation:PutOrganizationEnrollmentConfiguration](#list_compute-optimizer-automation-action-PutOrganizationEnrollmentConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   RollbackAutomationEvent  **
   - **IAM action:**  [aco-automation:RollbackAutomationEvent](#list_compute-optimizer-automation-action-RollbackAutomationEvent) 
@@ -183,6 +206,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to delete automation rule
   - **Resource types (\*required):** [AutomationRule\*](#list_compute-optimizer-automation-resource-AutomationRule)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_compute-optimizer-automation-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOrganizationEnrollmentConfiguration](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_automation_DeleteOrganizationEnrollmentConfiguration.html)  **
+  - **Description:** Grants permission to delete organization enrollment configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [DisassociateAccounts](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_automation_DisassociateAccounts.html)  **
@@ -251,6 +280,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListOrganizationEnrollmentConfigurations](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_automation_ListOrganizationEnrollmentConfigurations.html)  **
+  - **Description:** Grants permission to list organization enrollment configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOrganizationalUnits](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_automation_ListOrganizationalUnits.html)  **
+  - **Description:** Grants permission to list organizational units and their effective organization rule modes
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListRecommendedActionSummaries](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_automation_ListRecommendedActionSummaries.html)  **
   - **Description:** Grants permission to list recommended action summaries
   - **Resource types (\*required):** 
@@ -268,6 +309,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [AutomationRule\*](#list_compute-optimizer-automation-resource-AutomationRule)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_compute-optimizer-automation-aws_ResourceTag___TagKey_)
   - **Access level:** List
+
+- **   [PutOrganizationEnrollmentConfiguration](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_automation_PutOrganizationEnrollmentConfiguration.html)  **
+  - **Description:** Grants permission to create or update an organization enrollment configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
 
 - **   [RollbackAutomationEvent](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_automation_RollbackAutomationEvent.html)  **
   - **Description:** Grants permission to initiate a rollback for an automation event

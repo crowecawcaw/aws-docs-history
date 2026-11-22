@@ -1,14 +1,13 @@
 
 
 # Actions, resources, and condition keys for AWS Cloud Map
-<a name="list_servicediscovery"></a>
 
 AWS Cloud Map (service prefix: `servicediscovery`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
 + Learn how to [configure this service](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html).
 + View a list of the [API operations available for this service](https://docs.aws.amazon.com/cloud-map/latest/api/Welcome.html).
-+ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/cloud-map/latest/dg/auth-and-access-control.html) permission policies.
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/cloud-map/latest/dg/security-iam.html) permission policies.
 + View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/servicediscovery/servicediscovery.json) for this service.
 
 **Topics**
@@ -211,19 +210,19 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateHttpNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateHttpNamespace.html)  **
   - **Description:** Grants permission to create an HTTP namespace
   - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_servicediscovery-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_servicediscovery-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_servicediscovery-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_servicediscovery-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreatePrivateDnsNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreatePrivateDnsNamespace.html)  **
   - **Description:** Grants permission to create a private namespace based on DNS, which will be visible only inside a specified Amazon VPC
   - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_servicediscovery-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_servicediscovery-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_servicediscovery-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_servicediscovery-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreatePublicDnsNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreatePublicDnsNamespace.html)  **
   - **Description:** Grants permission to create a public namespace based on DNS, which will be visible on the internet
   - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_servicediscovery-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_servicediscovery-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_servicediscovery-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_servicediscovery-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html)  **
@@ -251,7 +250,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [DeregisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_DeregisterInstance.html)  **
-  - **Description:** Grants permission to delete the records and the health check, if any, that Amazon Route 53 created for the specified instance
+  - **Description:** Grants permission to deregister an instance from a specified service
   - **Resource types (\*required):** [service\*](#list_servicediscovery-resource-service)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_)<br />[servicediscovery:ServiceArn](#list_servicediscovery-servicediscovery_ServiceArn)<br />[servicediscovery:ServiceCreatedByAccount](#list_servicediscovery-servicediscovery_ServiceCreatedByAccount)
   - **Access level:** Write
@@ -329,7 +328,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListTagsForResource.html)  **
-  - **Description:** Grants permission to lists tags for the specified resource
+  - **Description:** Grants permission to list tags for the specified resource
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
@@ -353,7 +352,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Tagging, Write
 
 - **   [UpdateHttpNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateHttpNamespace.html)  **
-  - **Description:** Grants permission to update the settings for a HTTP namespace
+  - **Description:** Grants permission to update the settings for an HTTP namespace
   - **Resource types (\*required):** [namespace\*](#list_servicediscovery-resource-namespace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -427,8 +426,8 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
-|  [namespace](https://docs.aws.amazon.com/cloud-map/latest/dg/API_Namespace.html)  | arn:${Partition}:servicediscovery:${Region}:${Account}:namespace/${NamespaceId} | [aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_) | 
-|  [service](https://docs.aws.amazon.com/cloud-map/latest/dg/API_Service.html)  | arn:${Partition}:servicediscovery:${Region}:${Account}:service/${ServiceId} | [aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_) | 
+|  [namespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_Namespace.html)  | arn:${Partition}:servicediscovery:${Region}:${Account}:namespace/${NamespaceId} | [aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_) | 
+|  [service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html)  | arn:${Partition}:servicediscovery:${Region}:${Account}:service/${ServiceId} | [aws:ResourceTag/${TagKey}](#list_servicediscovery-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Cloud Map
 <a name="list_servicediscovery-policy-keys"></a>
@@ -439,11 +438,11 @@ AWS Cloud Map defines the following condition keys that can be used in the `Cond
 
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
-|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters actions based on the tags that are passed in the request | String | 
-|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters actions based on the tags associated with the resource | String | 
-|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters actions based on the tag keys that are passed in the request | ArrayOfString | 
-|   [servicediscovery:NamespaceArn](https://docs.aws.amazon.com/cloud-map/latest/dg/access-control-overview.html#specifying-conditions)  | Filters access by specifying the Amazon Resource Name (ARN) for the related namespace | ARN | 
-|   [servicediscovery:NamespaceName](https://docs.aws.amazon.com/cloud-map/latest/dg/access-control-overview.html#specifying-conditions)  | Filters access by specifying the name of the related namespace | String | 
-|   [servicediscovery:ServiceArn](https://docs.aws.amazon.com/cloud-map/latest/dg/access-control-overview.html#specifying-conditions)  | Filters access by specifying the Amazon Resource Name (ARN) for the related service | ARN | 
-|   [servicediscovery:ServiceCreatedByAccount](https://docs.aws.amazon.com/cloud-map/latest/dg/access-control-overview.html#specifying-conditions)  | Filters access by specifying the account id of the related service creator | String | 
-|   [servicediscovery:ServiceName](https://docs.aws.amazon.com/cloud-map/latest/dg/access-control-overview.html#specifying-conditions)  | Filters access by specifying the name of the related service | String | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag's key and value in a request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys in a request | ArrayOfString | 
+|   [servicediscovery:NamespaceArn](https://docs.aws.amazon.com/cloud-map/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by specifying the Amazon Resource Name (ARN) for the related namespace | ARN | 
+|   [servicediscovery:NamespaceName](https://docs.aws.amazon.com/cloud-map/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by the HTTP name (HttpName) of the namespace specified in the request | String | 
+|   [servicediscovery:ServiceArn](https://docs.aws.amazon.com/cloud-map/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by specifying the Amazon Resource Name (ARN) for the related service | ARN | 
+|   [servicediscovery:ServiceCreatedByAccount](https://docs.aws.amazon.com/cloud-map/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by specifying the account id of the related service creator | String | 
+|   [servicediscovery:ServiceName](https://docs.aws.amazon.com/cloud-map/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by specifying the name of the related service | String | 

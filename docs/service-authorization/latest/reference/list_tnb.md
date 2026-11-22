@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Telco Network Builder
-<a name="list_tnb"></a>
 
 AWS Telco Network Builder (service prefix: `tnb`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Recycle Bin
-<a name="list_rbin"></a>
 
 AWS Recycle Bin (service prefix: `rbin`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

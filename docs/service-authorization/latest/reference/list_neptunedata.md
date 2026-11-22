@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Neptune
-<a name="list_neptunedata"></a>
 
 Amazon Neptune (service prefix: `neptune-db`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

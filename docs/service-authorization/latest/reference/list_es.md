@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon OpenSearch Service
-<a name="list_es"></a>
 
 Amazon OpenSearch Service (service prefix: `es`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

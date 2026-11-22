@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Microservice Extractor for .NET
-<a name="list_serviceextract"></a>
 
 AWS Microservice Extractor for .NET (service prefix: `serviceextract`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

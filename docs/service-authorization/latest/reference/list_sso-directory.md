@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IAM Identity Center directory
-<a name="list_sso-directory"></a>
 
 AWS IAM Identity Center directory (service prefix: `sso-directory`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

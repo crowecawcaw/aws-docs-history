@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Clean Rooms ML
-<a name="list_cleanroomsml"></a>
 
 AWS Clean Rooms ML (service prefix: `cleanrooms-ml`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

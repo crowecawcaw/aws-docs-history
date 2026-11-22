@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Security Agent
-<a name="list_securityagent"></a>
 
 AWS Security Agent (service prefix: `securityagent`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -458,6 +457,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   ResumePentestJob  **
+  - **IAM action:**  [securityagent:ResumePentestJob](#list_securityagent-action-ResumePentestJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   StartCodeRemediation  **
   - **IAM action:**  [securityagent:StartCodeRemediation](#list_securityagent-action-StartCodeRemediation) 
@@ -937,6 +942,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetPentestEstimate](https://docs.aws.amazon.com/securityagent/API_GetPentestEstimate.html)  **
+  - **Description:** Grants permission to retrieve the latest cost estimate for a penetration test
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetProviderRegistrationManifest](https://docs.aws.amazon.com/securityagent/API_GetProviderRegistrationManifest.html)  **
   - **Description:** Grants permission to retrieve the provider registration manifest used for browser-based integration registration
   - **Resource types (\*required):** 
@@ -1175,6 +1186,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StartPentestEstimationRun](https://docs.aws.amazon.com/securityagent/API_StartPentestEstimationRun.html)  **
+  - **Description:** Grants permission to start a cost estimation run for a penetration test
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StartPentestJob](https://docs.aws.amazon.com/securityagent/API_StartPentestJob.html)  **
   - **Description:** Grants permission to initiate the execution of a penetration test
   - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
@@ -1195,6 +1212,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [StopCodeReviewJob](https://docs.aws.amazon.com/securityagent/API_StopCodeReviewJob.html)  **
   - **Description:** Grants permission to stop the execution of a running code review
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopPentestEstimationRun](https://docs.aws.amazon.com/securityagent/API_StopPentestEstimationRun.html)  **
+  - **Description:** Grants permission to stop a running cost estimation run for a penetration test
   - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Write

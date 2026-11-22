@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CloudTrail
-<a name="list_cloudtrail"></a>
 
 AWS CloudTrail (service prefix: `cloudtrail`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

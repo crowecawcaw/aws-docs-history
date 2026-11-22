@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CloudSearch
-<a name="list_cloudsearch"></a>
 
 Amazon CloudSearch (service prefix: `cloudsearch`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

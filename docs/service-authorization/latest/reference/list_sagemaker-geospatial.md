@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon SageMaker geospatial capabilities
-<a name="list_sagemaker-geospatial"></a>
 
 Amazon SageMaker geospatial capabilities (service prefix: `sagemaker-geospatial`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS App2Container
-<a name="list_a2c"></a>
 
 AWS App2Container (service prefix: `a2c`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CloudWatch RUM
-<a name="list_rum"></a>
 
 AWS CloudWatch RUM (service prefix: `rum`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

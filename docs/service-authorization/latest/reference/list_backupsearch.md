@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Backup Search
-<a name="list_backupsearch"></a>
 
 AWS Backup Search (service prefix: `backup-search`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

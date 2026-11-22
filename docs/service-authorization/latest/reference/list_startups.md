@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Startups
-<a name="list_startups"></a>
 
 AWS Startups (service prefix: `startups`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

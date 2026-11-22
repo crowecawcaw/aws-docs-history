@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Network Flow Monitor
-<a name="list_networkflowmonitor"></a>
 
 Network Flow Monitor (service prefix: `networkflowmonitor`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -29,12 +28,22 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [networkflowmonitor:CreateMonitor](#list_networkflowmonitor-action-CreateMonitor)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkflowmonitor:TagResource](#list_networkflowmonitor-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   CreatePerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:CreatePerformanceMonitor](#list_networkflowmonitor-action-CreatePerformanceMonitor)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [networkflowmonitor:TagResource](#list_networkflowmonitor-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   CreateScope  **
   - **IAM action:**  [networkflowmonitor:CreateScope](#list_networkflowmonitor-action-CreateScope)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkflowmonitor:TagResource](#list_networkflowmonitor-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   DeleteMonitor  **
   - **IAM action:**  [networkflowmonitor:DeleteMonitor](#list_networkflowmonitor-action-DeleteMonitor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:DeletePerformanceMonitor](#list_networkflowmonitor-action-DeletePerformanceMonitor) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -51,8 +60,26 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetMonitorScopeSuggestions  **
+  - **IAM action:**  [networkflowmonitor:GetMonitorScopeSuggestions](#list_networkflowmonitor-action-GetMonitorScopeSuggestions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:GetPerformanceMonitor](#list_networkflowmonitor-action-GetPerformanceMonitor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetQueryResultsMonitorTopContributors  **
   - **IAM action:**  [networkflowmonitor:GetQueryResultsMonitorTopContributors](#list_networkflowmonitor-action-GetQueryResultsMonitorTopContributors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetQueryResultsPerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:GetQueryResultsPerformanceMonitor](#list_networkflowmonitor-action-GetQueryResultsPerformanceMonitor) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -71,6 +98,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetQueryStatusMonitorTopContributors  **
   - **IAM action:**  [networkflowmonitor:GetQueryStatusMonitorTopContributors](#list_networkflowmonitor-action-GetQueryStatusMonitorTopContributors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetQueryStatusPerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:GetQueryStatusPerformanceMonitor](#list_networkflowmonitor-action-GetQueryStatusPerformanceMonitor) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -99,6 +132,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListPerformanceMonitors  **
+  - **IAM action:**  [networkflowmonitor:ListPerformanceMonitors](#list_networkflowmonitor-action-ListPerformanceMonitors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListScopes  **
   - **IAM action:**  [networkflowmonitor:ListScopes](#list_networkflowmonitor-action-ListScopes) 
   - **Condition key:** 
@@ -117,6 +156,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   StartQueryPerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:StartQueryPerformanceMonitor](#list_networkflowmonitor-action-StartQueryPerformanceMonitor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartQueryWorkloadInsightsTopContributors  **
   - **IAM action:**  [networkflowmonitor:StartQueryWorkloadInsightsTopContributors](#list_networkflowmonitor-action-StartQueryWorkloadInsightsTopContributors) 
   - **Condition key:** 
@@ -131,6 +176,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   StopQueryMonitorTopContributors  **
   - **IAM action:**  [networkflowmonitor:StopQueryMonitorTopContributors](#list_networkflowmonitor-action-StopQueryMonitorTopContributors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopQueryPerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:StopQueryPerformanceMonitor](#list_networkflowmonitor-action-StopQueryPerformanceMonitor) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -165,6 +216,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdatePerformanceMonitor  **
+  - **IAM action:**  [networkflowmonitor:UpdatePerformanceMonitor](#list_networkflowmonitor-action-UpdatePerformanceMonitor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateScope  **
   - **IAM action:**  [networkflowmonitor:UpdateScope](#list_networkflowmonitor-action-UpdateScope) 
   - **Condition key:** 
@@ -187,6 +244,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkflowmonitor-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreatePerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_CreatePerformanceMonitor.html)  **
+  - **Description:** Grants permission to create a performance monitor
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkflowmonitor-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateScope](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_CreateScope.html)  **
   - **Description:** Grants permission to create a scope
   - **Resource types (\*required):** 
@@ -196,6 +259,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_DeleteMonitor.html)  **
   - **Description:** Grants permission to delete a monitor
   - **Resource types (\*required):** [monitor\*](#list_networkflowmonitor-resource-monitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_DeletePerformanceMonitor.html)  **
+  - **Description:** Grants permission to delete a performance monitor
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -211,9 +280,27 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetMonitorScopeSuggestions](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetMonitorScopeSuggestions.html)  **
+  - **Description:** Grants permission to get scope suggestions for a performance monitor
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetPerformanceMonitor.html)  **
+  - **Description:** Grants permission to get information about a performance monitor
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetQueryResultsMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html)  **
   - **Description:** Grants permission to get the results of a query that retrieves top contributors data for a monitor
   - **Resource types (\*required):** [monitor\*](#list_networkflowmonitor-resource-monitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetQueryResultsPerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsPerformanceMonitor.html)  **
+  - **Description:** Grants permission to get the results of a performance monitor query
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -232,6 +319,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetQueryStatusMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryStatusMonitorTopContributors.html)  **
   - **Description:** Grants permission to get the status of a query that retrieves top contributors data for a monitor
   - **Resource types (\*required):** [monitor\*](#list_networkflowmonitor-resource-monitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetQueryStatusPerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryStatusPerformanceMonitor.html)  **
+  - **Description:** Grants permission to get the status of a performance monitor query
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -259,6 +352,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListPerformanceMonitors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_ListPerformanceMonitors.html)  **
+  - **Description:** Grants permission to list the performance monitors in an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListScopes](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_ListScopes.html)  **
   - **Description:** Grants permission to get all scopes for an account
   - **Resource types (\*required):** 
@@ -268,6 +367,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListTagsForResource](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_ListTagsForResource.html)  **
   - **Description:** Grants permission to list the tags for a resource
   - **Resource types (\*required):** [monitor](#list_networkflowmonitor-resource-monitor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [performancemonitor](#list_networkflowmonitor-resource-performancemonitor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [scope](#list_networkflowmonitor-resource-scope) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -280,6 +380,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [StartQueryMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StartQueryMonitorTopContributors.html)  **
   - **Description:** Grants permission to start a query for retrieving top contributors data for a monitor
   - **Resource types (\*required):** [monitor\*](#list_networkflowmonitor-resource-monitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartQueryPerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StartQueryPerformanceMonitor.html)  **
+  - **Description:** Grants permission to start a query for a performance monitor
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -301,6 +407,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StopQueryPerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StopQueryPerformanceMonitor.html)  **
+  - **Description:** Grants permission to stop a query for a performance monitor
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StopQueryWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StopQueryWorkloadInsightsTopContributors.html)  **
   - **Description:** Grants permission to stop a query for retrieving top contributors for workload insights
   - **Resource types (\*required):** [scope\*](#list_networkflowmonitor-resource-scope)
@@ -316,18 +428,26 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [TagResource](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to add tags to a resource
   - **Resource types (\*required):** [monitor](#list_networkflowmonitor-resource-monitor) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkflowmonitor-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
+  - **Resource types (\*required):** [performancemonitor](#list_networkflowmonitor-resource-performancemonitor) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkflowmonitor-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
   - **Resource types (\*required):** [scope](#list_networkflowmonitor-resource-scope) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkflowmonitor-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_UntagResource.html)  **
   - **Description:** Grants permission to remove tags from a resource
   - **Resource types (\*required):** [monitor](#list_networkflowmonitor-resource-monitor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
+  - **Resource types (\*required):** [performancemonitor](#list_networkflowmonitor-resource-performancemonitor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
   - **Resource types (\*required):** [scope](#list_networkflowmonitor-resource-scope) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkflowmonitor-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UpdateMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_UpdateMonitor.html)  **
   - **Description:** Grants permission to update a monitor
   - **Resource types (\*required):** [monitor\*](#list_networkflowmonitor-resource-monitor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_UpdatePerformanceMonitor.html)  **
+  - **Description:** Grants permission to update a performance monitor
+  - **Resource types (\*required):** [performancemonitor\*](#list_networkflowmonitor-resource-performancemonitor)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -349,6 +469,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-NetworkFlowMonitor-configure-monitors.html)  | arn:${Partition}:networkflowmonitor:${Region}:${Account}:monitor/${MonitorName} | [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_) | 
+|  [performancemonitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-NetworkFlowMonitor-configure-monitors.html)  | arn:${Partition}:networkflowmonitor:${Region}:${Account}:performancemonitor/${MonitorName} | [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_) | 
 |  [scope](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-NetworkFlowMonitor-organizations.html)  | arn:${Partition}:networkflowmonitor:${Region}:${Account}:scope/${ScopeId} | [aws:ResourceTag/${TagKey}](#list_networkflowmonitor-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Network Flow Monitor

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon One Enterprise
-<a name="list_one"></a>
 
 Amazon One Enterprise (service prefix: `one`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

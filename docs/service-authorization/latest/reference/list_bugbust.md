@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS BugBust
-<a name="list_bugbust"></a>
 
 AWS BugBust (service prefix: `bugbust`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

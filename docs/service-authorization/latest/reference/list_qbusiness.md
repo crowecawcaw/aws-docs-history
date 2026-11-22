@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Q Business
-<a name="list_qbusiness"></a>
 
 Amazon Q Business (service prefix: `qbusiness`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

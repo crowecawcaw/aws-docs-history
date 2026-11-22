@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Kinesis Analytics V2
-<a name="list_kinesisanalyticsv2"></a>
 
 Amazon Kinesis Analytics V2 (service prefix: `kinesisanalytics`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -14,6 +13,7 @@ References:
 **Topics**
 + [API operations defined by Amazon Kinesis Analytics V2](#list_kinesisanalyticsv2-operations)
 + [Actions defined by Amazon Kinesis Analytics V2](#list_kinesisanalyticsv2-actions-as-permissions)
++ [Permission-only actions for Amazon Kinesis Analytics V2](#list_kinesisanalyticsv2-permission-only-actions)
 + [Resource types defined by Amazon Kinesis Analytics V2](#list_kinesisanalyticsv2-resources-for-iam-policies)
 + [Condition keys for Amazon Kinesis Analytics V2](#list_kinesisanalyticsv2-policy-keys)
 
@@ -65,10 +65,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   CreateSnapshot  **
-  - **IAM action:**  [kinesisanalytics:TagResource](#list_kinesisanalyticsv2-action-TagResource) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Tagging, Write
+  - **IAM action:**  [kinesisanalytics:CreateSnapshot](#list_kinesisanalyticsv2-action-CreateSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kinesisanalytics:TagResource](#list_kinesisanalyticsv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   DeleteApplication  **
   - **IAM action:**  [kinesisanalytics:DeleteApplication](#list_kinesisanalyticsv2-action-DeleteApplication) 
@@ -112,6 +110,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteSnapshot  **
+  - **IAM action:**  [kinesisanalytics:DeleteSnapshot](#list_kinesisanalyticsv2-action-DeleteSnapshot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DescribeApplication  **
   - **IAM action:**  [kinesisanalytics:DescribeApplication](#list_kinesisanalyticsv2-action-DescribeApplication) 
   - **Condition key:** 
@@ -136,15 +140,29 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   DescribeSnapshot  **
+  - **IAM action:**  [kinesisanalytics:DescribeSnapshot](#list_kinesisanalyticsv2-action-DescribeSnapshot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSnapshotOperation  **
+  - **IAM action:**  [kinesisanalytics:DescribeSnapshotOperation](#list_kinesisanalyticsv2-action-DescribeSnapshotOperation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DiscoverInputSchema  **
   - **IAM action:**  [kinesisanalytics:DiscoverInputSchema](#list_kinesisanalyticsv2-action-DiscoverInputSchema)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
 
+- **   ExportSnapshot  **
+  - **IAM action:**  [kinesisanalytics:ExportSnapshot](#list_kinesisanalyticsv2-action-ExportSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
 - **   ImportSnapshot  **
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) 
-  - **Condition key:** iam:PassedToService
-  - **Possible value(s):** kinesisanalytics.amazonaws.com
-  - **Access level:** Write
+  - **IAM action:**  [kinesisanalytics:ImportSnapshot](#list_kinesisanalyticsv2-action-ImportSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
 
 - **   ListApplicationOperations  **
   - **IAM action:**  [kinesisanalytics:ListApplicationOperations](#list_kinesisanalyticsv2-action-ListApplicationOperations) 
@@ -166,6 +184,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListApplications  **
   - **IAM action:**  [kinesisanalytics:ListApplications](#list_kinesisanalyticsv2-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSnapshotOperations  **
+  - **IAM action:**  [kinesisanalytics:ListSnapshotOperations](#list_kinesisanalyticsv2-action-ListSnapshotOperations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSnapshots  **
+  - **IAM action:**  [kinesisanalytics:ListSnapshots](#list_kinesisanalyticsv2-action-ListSnapshots) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -280,6 +310,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [CreateSnapshot](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_CreateSnapshot.html)  **
+  - **Description:** Grants permission to create a snapshot from a running application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalyticsv2-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesisanalyticsv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [DeleteApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DeleteApplication.html)  **
   - **Description:** Grants permission to delete the application
   - **Resource types (\*required):** [application\*](#list_kinesisanalyticsv2-resource-application)
@@ -322,6 +358,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteSnapshot](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DeleteSnapshot.html)  **
+  - **Description:** Grants permission to delete a snapshot
+  - **Resource types (\*required):** [snapshot\*](#list_kinesisanalyticsv2-resource-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DescribeApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DescribeApplication.html)  **
   - **Description:** Grants permission to describe the specified application
   - **Resource types (\*required):** [application\*](#list_kinesisanalyticsv2-resource-application)
@@ -346,11 +388,35 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [DescribeSnapshot](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DescribeSnapshot.html)  **
+  - **Description:** Grants permission to describe a snapshot
+  - **Resource types (\*required):** [snapshot\*](#list_kinesisanalyticsv2-resource-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSnapshotOperation](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DescribeSnapshotOperation.html)  **
+  - **Description:** Grants permission to describe a snapshot operation for a snapshot like import, export, create and delete
+  - **Resource types (\*required):** [snapshot\*](#list_kinesisanalyticsv2-resource-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DiscoverInputSchema](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DiscoverInputSchema.html)  **
   - **Description:** Grants permission to discover the input schema for the application
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
+
+- **   [ExportSnapshot](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_ExportSnapshot.html)  **
+  - **Description:** Grants permission to export an MSF snapshot to a customer-managed S3 location
+  - **Resource types (\*required):** [snapshot\*](#list_kinesisanalyticsv2-resource-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ImportSnapshot](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_ImportSnapshot.html)  **
+  - **Description:** Grants permission to import a Flink savepoint from a customer-managed S3 location as an MSF snapshot
+  - **Resource types (\*required):** [snapshot\*](#list_kinesisanalyticsv2-resource-snapshot)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesisanalyticsv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
+  - **Access level:** Write
 
 - **   [ListApplicationOperations](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_ListApplicationOperations.html)  **
   - **Description:** Grants permission to list application operations of an application
@@ -376,10 +442,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListTagsForResource](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_ListTagsForResource.html)  **
-  - **Description:** Grants permission to fetch the tags associated with the application
-  - **Resource types (\*required):** [application\*](#list_kinesisanalyticsv2-resource-application)
+- **   [ListSnapshotOperations](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_ListSnapshotOperations.html)  **
+  - **Description:** Grants permission to list snapshot operations for a snapshot like import, export, create and delete
+  - **Resource types (\*required):** [snapshot\*](#list_kinesisanalyticsv2-resource-snapshot)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSnapshots](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_ListSnapshots.html)  **
+  - **Description:** Grants permission to list snapshots in an account
+  - **Resource types (\*required):** [application](#list_kinesisanalyticsv2-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to fetch the tags associated with the resource like application, snapshot
+  - **Resource types (\*required):** [application](#list_kinesisanalyticsv2-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [snapshot](#list_kinesisanalyticsv2-resource-snapshot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [RollbackApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_RollbackApplication.html)  **
@@ -401,15 +479,15 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [TagResource](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_TagResource.html)  **
-  - **Description:** Grants permission to add tags to the application
-  - **Resource types (\*required):** [application\*](#list_kinesisanalyticsv2-resource-application)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesisanalyticsv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
+  - **Description:** Grants permission to add tags to the resource like an application, snapshot
+  - **Resource types (\*required):** [application](#list_kinesisanalyticsv2-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesisanalyticsv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
+  - **Resource types (\*required):** [snapshot](#list_kinesisanalyticsv2-resource-snapshot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesisanalyticsv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UntagResource.html)  **
-  - **Description:** Grants permission to remove the specified tags from the application
-  - **Resource types (\*required):** [application\*](#list_kinesisanalyticsv2-resource-application)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
+  - **Description:** Grants permission to remove the specified tags from the resource like application, snapshot
+  - **Resource types (\*required):** [application](#list_kinesisanalyticsv2-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
+  - **Resource types (\*required):** [snapshot](#list_kinesisanalyticsv2-resource-snapshot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalyticsv2-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UpdateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UpdateApplication.html)  **
@@ -426,6 +504,28 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+## Permission-only actions for Amazon Kinesis Analytics V2
+<a name="list_kinesisanalyticsv2-permission-only-actions"></a>
+
+The following actions are defined by Amazon Kinesis Analytics V2 but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [CreateSystemSnapshot](https://docs.aws.amazon.com/managed-flink/latest/java/security-iam-snapshots.html#security-iam-snapshots-actions)  **
+  - **Description:** Grants permission to enable system snapshot creation for a running application from StartApplication, UpdateApplication, StopApplication, AddApplicationVPCConfiguration, DeleteApplicationVPCConfiguration, AddApplicationCloudWatchLoggingOption and DeleteApplicationCloudWatchLoggingOption
+  - **Resource types (\*required):** [application\*](#list_kinesisanalyticsv2-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RestoreFromSnapshot](https://docs.aws.amazon.com/managed-flink/latest/java/security-iam-snapshots.html#security-iam-snapshots-actions)  **
+  - **Description:** Grants permission to restore an application from a snapshot
+  - **Resource types (\*required):** [snapshot\*](#list_kinesisanalyticsv2-resource-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+
+
 ## Resource types defined by Amazon Kinesis Analytics V2
 <a name="list_kinesisanalyticsv2-resources-for-iam-policies"></a>
 
@@ -436,6 +536,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-it-works.html)  | arn:${Partition}:kinesisanalytics:${Region}:${Account}:application/${ApplicationName} | [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_) | 
+|  [snapshot](https://docs.aws.amazon.com/managed-flink/latest/java/snapshots-how-it-works.html)  | arn:${Partition}:kinesisanalytics:${Region}:${Account}:snapshot/${SnapshotName} | [aws:ResourceTag/${TagKey}](#list_kinesisanalyticsv2-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Kinesis Analytics V2
 <a name="list_kinesisanalyticsv2-policy-keys"></a>
@@ -447,5 +548,5 @@ Amazon Kinesis Analytics V2 defines the following condition keys that can be use
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by set of values for each of the tags | String | 
-|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value assoicated with the resource | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of mandatory tag keys in the request | ArrayOfString | 

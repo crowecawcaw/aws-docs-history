@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental MediaLive
-<a name="list_medialive"></a>
 
 AWS Elemental MediaLive (service prefix: `medialive`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Amplify Admin
-<a name="list_amplifybackend"></a>
 
 AWS Amplify Admin (service prefix: `amplifybackend`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

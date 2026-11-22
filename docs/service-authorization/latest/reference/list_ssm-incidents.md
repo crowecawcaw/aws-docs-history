@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Systems Manager Incident Manager
-<a name="list_ssm-incidents"></a>
 
 AWS Systems Manager Incident Manager (service prefix: `ssm-incidents`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

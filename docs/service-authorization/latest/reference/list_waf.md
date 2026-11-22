@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS WAF
-<a name="list_waf"></a>
 
 AWS WAF (service prefix: `waf`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

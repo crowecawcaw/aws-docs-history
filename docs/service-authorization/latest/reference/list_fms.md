@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Firewall Manager
-<a name="list_fms"></a>
 
 AWS Firewall Manager (service prefix: `fms`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

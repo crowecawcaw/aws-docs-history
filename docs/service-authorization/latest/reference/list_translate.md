@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Translate
-<a name="list_translate"></a>
 
 Amazon Translate (service prefix: `translate`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Mainframe Modernization Application Testing
-<a name="list_apptest"></a>
 
 AWS Mainframe Modernization Application Testing (service prefix: `apptest`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

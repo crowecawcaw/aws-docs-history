@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Keyspaces (for Apache Cassandra)
-<a name="list_keyspaces"></a>
 
 Amazon Keyspaces (for Apache Cassandra) (service prefix: `cassandra`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

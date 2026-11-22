@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon OpenSearch Serverless
-<a name="list_opensearchserverless"></a>
 
 Amazon OpenSearch Serverless (service prefix: `aoss`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -266,10 +265,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** List
 
 - **   ListTagsForResource  **
-  - **IAM action:**  [aoss:ListTagsForResource](#list_opensearchserverless-action-ListTagsForResource) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** List
+  - **IAM action:**  [aoss:ListTagsForResource](#list_opensearchserverless-action-ListTagsForResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [osm:ListTagsForResource](https://docs.aws.amazon.com/opensearch-service/latest/MemoryAPIReference/API_ListTagsForResource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   ListVpcEndpoints  **
   - **IAM action:**  [aoss:ListVpcEndpoints](#list_opensearchserverless-action-ListVpcEndpoints) 
@@ -278,16 +275,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** List
 
 - **   TagResource  **
-  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Tagging, Write
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [osm:TagResource](https://docs.aws.amazon.com/opensearch-service/latest/MemoryAPIReference/API_TagResource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   UntagResource  **
-  - **IAM action:**  [aoss:UntagResource](#list_opensearchserverless-action-UntagResource) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Tagging, Write
+  - **IAM action:**  [aoss:UntagResource](#list_opensearchserverless-action-UntagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [osm:UntagResource](https://docs.aws.amazon.com/opensearch-service/latest/MemoryAPIReference/API_UntagResource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   UpdateAccessPolicy  **
   - **IAM action:**  [aoss:UpdateAccessPolicy](#list_opensearchserverless-action-UpdateAccessPolicy) 

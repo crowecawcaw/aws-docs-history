@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon AppIntegrations
-<a name="list_appintegrations"></a>
 
 Amazon AppIntegrations (service prefix: `app-integrations`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

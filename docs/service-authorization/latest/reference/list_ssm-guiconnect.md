@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Systems Manager GUI Connect
-<a name="list_ssm-guiconnect"></a>
 
 AWS Systems Manager GUI Connect (service prefix: `ssm-guiconnect`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

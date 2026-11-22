@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental Appliances and Software Activation Service
-<a name="list_elemental-activations"></a>
 
 AWS Elemental Appliances and Software Activation Service (service prefix: `elemental-activations`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

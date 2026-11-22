@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Billing
-<a name="list_billing"></a>
 
 AWS Billing (service prefix: `billing`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -185,11 +184,23 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [billing:RedeemCredits](#list_billing-action-RedeemCredits)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [aws-portal:ModifyBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
+- **   SplitCredit  **
+  - **IAM action:**  [billing:SplitCredit](#list_billing-action-SplitCredit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   TagResource  **
   - **IAM action:**  [billing:TagResource](#list_billing-action-TagResource) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
+
+- **   TransferCredit  **
+  - **IAM action:**  [billing:TransferCredit](#list_billing-action-TransferCredit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UntagResource  **
   - **IAM action:**  [billing:UntagResource](#list_billing-action-UntagResource) 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Consolidated Billing
-<a name="list_consolidatedbilling"></a>
 
 AWS Consolidated Billing (service prefix: `consolidatedbilling`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

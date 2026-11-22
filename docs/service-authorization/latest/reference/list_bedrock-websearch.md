@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Bedrock Web Search
-<a name="list_bedrock-websearch"></a>
 
 Amazon Bedrock Web Search (service prefix: `bedrock-websearch`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

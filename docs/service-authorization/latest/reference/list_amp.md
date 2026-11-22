@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Managed Service for Prometheus
-<a name="list_amp"></a>
 
 Amazon Managed Service for Prometheus (service prefix: `aps`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

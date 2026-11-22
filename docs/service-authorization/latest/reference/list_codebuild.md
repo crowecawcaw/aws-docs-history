@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CodeBuild
-<a name="list_codebuild"></a>
 
 AWS CodeBuild (service prefix: `codebuild`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Auto Scaling
-<a name="list_autoscaling-plans"></a>
 
 AWS Auto Scaling (service prefix: `autoscaling-plans`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

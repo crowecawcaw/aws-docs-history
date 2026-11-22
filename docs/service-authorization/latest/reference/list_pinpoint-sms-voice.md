@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Pinpoint SMS and Voice Service
-<a name="list_pinpoint-sms-voice"></a>
 
 Amazon Pinpoint SMS and Voice Service (service prefix: `sms-voice`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon S3 Object Lambda
-<a name="list_s3-object-lambda"></a>
 
 Amazon S3 Object Lambda (service prefix: `s3-object-lambda`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

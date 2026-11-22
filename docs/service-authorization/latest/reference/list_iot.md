@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT
-<a name="list_iot"></a>
 
 AWS IoT (service prefix: `iot`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

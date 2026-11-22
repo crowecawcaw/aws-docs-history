@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon DevOps Guru
-<a name="list_devops-guru"></a>
 
 Amazon DevOps Guru (service prefix: `devops-guru`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

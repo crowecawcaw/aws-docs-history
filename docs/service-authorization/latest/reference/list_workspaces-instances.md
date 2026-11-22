@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS WorkSpaces Managed Instances
-<a name="list_workspaces-instances"></a>
 
 AWS WorkSpaces Managed Instances (service prefix: `workspaces-instances`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

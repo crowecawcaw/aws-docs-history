@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Systems Manager Quick Setup
-<a name="list_ssm-quicksetup"></a>
 
 AWS Systems Manager Quick Setup (service prefix: `ssm-quicksetup`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

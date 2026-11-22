@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Continuum
-<a name="list_continuum"></a>
 
 AWS Continuum (service prefix: `continuum`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -25,11 +24,99 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   AssociateCollector  **
+  - **IAM action:**  [continuum:AssociateCollector](#list_continuum-action-AssociateCollector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** continuum.amazonaws.com / **Access level:** Write
+
+- **   CreateCodeFinding  **
+  - **IAM action:**  [continuum:CreateCodeFinding](#list_continuum-action-CreateCodeFinding) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateCodeScan  **
+  - **IAM action:**  [continuum:CreateCodeScan](#list_continuum-action-CreateCodeScan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateCollector  **
+  - **IAM action:**  [continuum:CreateCollector](#list_continuum-action-CreateCollector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** collector.continuum.amazonaws.com / **Access level:** Write
+
+- **   CreateEnvironment  **
+  - **IAM action:**  [continuum:CreateEnvironment](#list_continuum-action-CreateEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** continuum.amazonaws.com / **Access level:** Write
+
+- **   CreateIntegration  **
+  - **IAM action:**  [continuum:CreateIntegration](#list_continuum-action-CreateIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** continuum.amazonaws.com / **Access level:** Write
+
+- **   DeleteCollector  **
+  - **IAM action:**  [continuum:DeleteCollector](#list_continuum-action-DeleteCollector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEnvironment  **
+  - **IAM action:**  [continuum:DeleteEnvironment](#list_continuum-action-DeleteEnvironment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteIntegration  **
   - **IAM action:**  [continuum:DeleteIntegration](#list_continuum-action-DeleteIntegration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   DisassociateCollector  **
+  - **IAM action:**  [continuum:DisassociateCollector](#list_continuum-action-DisassociateCollector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetCodeFinding  **
+  - **IAM action:**  [continuum:GetCodeFinding](#list_continuum-action-GetCodeFinding) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCodeIssue  **
+  - **IAM action:**  [continuum:GetCodeIssue](#list_continuum-action-GetCodeIssue) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCodeIssueArtifact  **
+  - **IAM action:**  [continuum:GetCodeIssueArtifact](#list_continuum-action-GetCodeIssueArtifact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCodeScan  **
+  - **IAM action:**  [continuum:GetCodeScan](#list_continuum-action-GetCodeScan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCollector  **
+  - **IAM action:**  [continuum:GetCollector](#list_continuum-action-GetCollector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCollectorDataAccessAuthorization  **
+  - **IAM action:**  [continuum:GetCollectorDataAccessAuthorization](#list_continuum-action-GetCollectorDataAccessAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEnvironment  **
+  - **IAM action:**  [continuum:GetEnvironment](#list_continuum-action-GetEnvironment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   GetIntegration  **
   - **IAM action:**  [continuum:GetIntegration](#list_continuum-action-GetIntegration) 
@@ -37,17 +124,91 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetResourcePolicy  **
+  - **IAM action:**  [continuum:GetResourcePolicy](#list_continuum-action-GetResourcePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAssociatedCollectors  **
+  - **IAM action:**  [continuum:ListAssociatedCollectors](#list_continuum-action-ListAssociatedCollectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssociatedEnvironments  **
+  - **IAM action:**  [continuum:ListAssociatedEnvironments](#list_continuum-action-ListAssociatedEnvironments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCodeFindings  **
+  - **IAM action:**  [continuum:ListCodeFindings](#list_continuum-action-ListCodeFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCodeIssueArtifacts  **
+  - **IAM action:**  [continuum:ListCodeIssueArtifacts](#list_continuum-action-ListCodeIssueArtifacts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCodeIssues  **
+  - **IAM action:**  [continuum:ListCodeIssues](#list_continuum-action-ListCodeIssues) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCodeScans  **
+  - **IAM action:**  [continuum:ListCodeScans](#list_continuum-action-ListCodeScans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCollectors  **
+  - **IAM action:**  [continuum:ListCollectors](#list_continuum-action-ListCollectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironments  **
+  - **IAM action:**  [continuum:ListEnvironments](#list_continuum-action-ListEnvironments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListIntegrations  **
   - **IAM action:**  [continuum:ListIntegrations](#list_continuum-action-ListIntegrations) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   PutResourcePolicy  **
+  - **IAM action:**  [continuum:PutResourcePolicy](#list_continuum-action-PutResourcePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartIntegrationAuthorization  **
   - **IAM action:**  [continuum:StartIntegrationAuthorization](#list_continuum-action-StartIntegrationAuthorization) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   UpdateCollector  **
+  - **IAM action:**  [continuum:UpdateCollector](#list_continuum-action-UpdateCollector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** collector.continuum.amazonaws.com / **Access level:** Write
+
+- **   UpdateEnvironment  **
+  - **IAM action:**  [continuum:UpdateEnvironment](#list_continuum-action-UpdateEnvironment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIntegration  **
+  - **IAM action:**  [continuum:UpdateIntegration](#list_continuum-action-UpdateIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** continuum.amazonaws.com / **Access level:** Write
 
 
 

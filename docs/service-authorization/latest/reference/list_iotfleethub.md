@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT Fleet Hub for Device Management
-<a name="list_iotfleethub"></a>
 
 AWS IoT Fleet Hub for Device Management (service prefix: `iotfleethub`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

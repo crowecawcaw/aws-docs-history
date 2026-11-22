@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Support
-<a name="list_support"></a>
 
 AWS Support (service prefix: `support`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -182,6 +181,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [ResolveCase](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html)  | Grants permission to resolve an AWS Support case |  |   | Write | 
 |   [ResolveInteraction](https://docs.aws.amazon.com/awssupport/latest/user/accessing-support.html)  | Grants permission to mark a specific interaction as resolved by its unique identifier, indicating that the issue has been addressed and no further action is needed |  |   | Write | 
 |   [SearchForCases](https://docs.aws.amazon.com/awssupport/latest/user/accessing-support.html)  | Grants permission to return a list of AWS Support cases that matches the given inputs |  |   | Read | 
+|   [SearchInteractions](https://docs.aws.amazon.com/awssupport/latest/user/accessing-support.html)  | Grants permission to search interactions using filters |  |   | Read | 
 |   [StartInteraction](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_StartInteraction.html)  | Grants permission to start a specific interaction to receive personalized troubleshooting assistance for account and technical issues |  |   | Write | 
 |   [UpdateCaseSeverity](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_UpdateCaseSeverity.html)  | Grants permission to update the severity for a single AWS Support case. This is an internally managed function |  |   | Write | 
 |   [UpdateInteraction](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_UpdateInteraction.html)  | Grants permission to update a specific interaction to receive personalized troubleshooting assistance for account and technical issues |  |   | Write | 

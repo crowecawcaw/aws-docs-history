@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkMail Message Flow
-<a name="list_workmailmessageflow"></a>
 
 Amazon WorkMail Message Flow (service prefix: `workmailmessageflow`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

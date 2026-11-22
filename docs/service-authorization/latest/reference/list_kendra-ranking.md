@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Kendra Intelligent Ranking
-<a name="list_kendra-ranking"></a>
 
 Amazon Kendra Intelligent Ranking (service prefix: `kendra-ranking`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

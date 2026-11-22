@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS HealthOmics
-<a name="list_omics"></a>
 
 AWS HealthOmics (service prefix: `omics`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -901,8 +900,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetReadSet](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSet.html)  **
   - **Description:** Grants permission to get a Read Set in the given Sequence Store
-  - **Resource types (\*required):** [readSet\*](#list_omics-resource-readSet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [readSet\*](#list_omics-resource-readSet)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetReadSetActivationJob](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSetActivationJob.html)  **
@@ -925,14 +924,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetReadSetMetadata](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSetMetadata.html)  **
   - **Description:** Grants permission to get details about a Read Set in the given Sequence Store
-  - **Resource types (\*required):** [readSet\*](#list_omics-resource-readSet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [readSet\*](#list_omics-resource-readSet)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetReference](https://docs.aws.amazon.com/omics/latest/api/API_GetReference.html)  **
   - **Description:** Grants permission to get a Reference in the given Reference Store
-  - **Resource types (\*required):** [reference\*](#list_omics-resource-reference) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [reference\*](#list_omics-resource-reference)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetReferenceImportJob](https://docs.aws.amazon.com/omics/latest/api/API_GetReferenceImportJob.html)  **
@@ -943,8 +942,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetReferenceMetadata](https://docs.aws.amazon.com/omics/latest/api/API_GetReferenceMetadata.html)  **
   - **Description:** Grants permission to get details about a Reference in the given Reference Store
-  - **Resource types (\*required):** [reference\*](#list_omics-resource-reference) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [reference\*](#list_omics-resource-reference)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetReferenceStore](https://docs.aws.amazon.com/omics/latest/api/API_GetReferenceStore.html)  **

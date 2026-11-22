@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CloudWatch Application Signals
-<a name="list_application-signals"></a>
 
 Amazon CloudWatch Application Signals (service prefix: `application-signals`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Simple Workflow Service
-<a name="list_swf"></a>
 
 Amazon Simple Workflow Service (service prefix: `swf`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

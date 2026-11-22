@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Route 53 Domains
-<a name="list_route53domains"></a>
 
 Amazon Route 53 Domains (service prefix: `route53domains`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

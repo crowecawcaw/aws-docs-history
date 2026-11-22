@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Panorama
-<a name="list_panorama"></a>
 
 AWS Panorama (service prefix: `panorama`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

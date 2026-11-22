@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS X-Ray
-<a name="list_xray"></a>
 
 AWS X-Ray (service prefix: `xray`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

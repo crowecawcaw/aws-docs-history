@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT Analytics
-<a name="list_iotanalytics"></a>
 
 AWS IoT Analytics (service prefix: `iotanalytics`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

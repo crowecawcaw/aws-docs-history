@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EKS MCP Server
-<a name="list_eks-mcp"></a>
 
 Amazon EKS MCP Server (service prefix: `eks-mcp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Route 53 Profiles
-<a name="list_route53profiles"></a>
 
 Amazon Route 53 Profiles (service prefix: `route53profiles`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

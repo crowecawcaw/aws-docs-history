@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Neptune Analytics
-<a name="list_neptune-graph"></a>
 
 Amazon Neptune Analytics (service prefix: `neptune-graph`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

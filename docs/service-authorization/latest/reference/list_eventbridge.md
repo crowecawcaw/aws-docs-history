@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EventBridge
-<a name="list_eventbridge"></a>
 
 Amazon EventBridge (service prefix: `events`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -35,6 +34,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **SDK client:** eventbridgev2
   - **IAM action:**  [events:CreateEventSource](#list_eventbridge-action-CreateEventSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [events:TagResource](#list_eventbridge-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** events.amazonaws.com / **Access level:** Write
 
 - **   CreateSubscriber  **
   - **SDK client:** eventbridgev2
@@ -161,6 +161,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   RotateWebhookCredentials  **
+  - **SDK client:** eventbridgev2
+  - **IAM action:**  [events:RotateWebhookCredentials](#list_eventbridge-action-RotateWebhookCredentials) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   TagResource  **
   - **SDK client:** eventbridgev2
   - **IAM action:**  [events:TagResource](#list_eventbridge-action-TagResource) 
@@ -184,10 +191,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateEventSource  **
   - **SDK client:** eventbridgev2
-  - **IAM action:**  [events:UpdateEventSource](#list_eventbridge-action-UpdateEventSource) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [events:UpdateEventSource](#list_eventbridge-action-UpdateEventSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** events.amazonaws.com / **Access level:** Write
 
 - **   UpdateSubscriber  **
   - **SDK client:** eventbridgev2
@@ -636,8 +641,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventSource.html)  **
   - **Description:** Grants permission to create an event source that forwards events to an event bus
-  - **Resource types (\*required):** [event-busv2\*](#list_eventbridge-resource-event-busv2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_eventbridge-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_eventbridge-aws_TagKeys)<br />[events:source](#list_eventbridge-events_source)
-  - **Resource types (\*required):** [event-sourcev2\*](#list_eventbridge-resource-event-sourcev2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_eventbridge-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_eventbridge-aws_TagKeys)<br />[events:source](#list_eventbridge-events_source)
+  - **Resource types (\*required):** [event-busv2\*](#list_eventbridge-resource-event-busv2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_eventbridge-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_eventbridge-aws_TagKeys)<br />[events:EventSourceType](#list_eventbridge-events_EventSourceType)<br />[events:source](#list_eventbridge-events_source)
+  - **Resource types (\*required):** [event-sourcev2\*](#list_eventbridge-resource-event-sourcev2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_eventbridge-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_eventbridge-aws_TagKeys)<br />[events:EventSourceType](#list_eventbridge-events_EventSourceType)<br />[events:source](#list_eventbridge-events_source)
   - **Access level:** Write
 
 - **   [CreatePartnerEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreatePartnerEventSource.html)  **
@@ -956,6 +961,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [RotateWebhookCredentials](https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_RotateWebhookCredentials.html)  **
+  - **Description:** Grants permission to rotate credentials of a webhook event source
+  - **Resource types (\*required):** [event-sourcev2\*](#list_eventbridge-resource-event-sourcev2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StartReplay](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_StartReplay.html)  **
   - **Description:** Grants permission to start a replay of an archive
   - **Resource types (\*required):** [archive\*](#list_eventbridge-resource-archive) / **Condition keys:**  
@@ -1022,8 +1033,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdateEventSource.html)  **
   - **Description:** Grants permission to update an event source
-  - **Resource types (\*required):** [event-busv2](#list_eventbridge-resource-event-busv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[events:source](#list_eventbridge-events_source)
-  - **Resource types (\*required):** [event-sourcev2\*](#list_eventbridge-resource-event-sourcev2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[events:source](#list_eventbridge-events_source)
+  - **Resource types (\*required):** [event-busv2](#list_eventbridge-resource-event-busv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[events:EventSourceType](#list_eventbridge-events_EventSourceType)<br />[events:source](#list_eventbridge-events_source)
+  - **Resource types (\*required):** [event-sourcev2\*](#list_eventbridge-resource-event-sourcev2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[events:EventSourceType](#list_eventbridge-events_EventSourceType)<br />[events:source](#list_eventbridge-events_source)
   - **Access level:** Write
 
 - **   [UpdateSubscriber](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdateSubscriber.html)  **
@@ -1052,6 +1063,12 @@ The following actions are defined by Amazon EventBridge but are not directly inv
   - **Description:** Grants permission to invoke an api destination
   - **Resource types (\*required):** [api-destination\*](#list_eventbridge-resource-api-destination)
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutWebhookEvents](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-custom-bus-webhook-sources.html)  **
+  - **Description:** Grants permission to send events from webhook event sources to Amazon EventBridge
+  - **Resource types (\*required):** [event-busv2\*](#list_eventbridge-resource-event-busv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_eventbridge-aws_ResourceTag___TagKey_)<br />[events:Metadata/${MetadataKey}](#list_eventbridge-events_Metadata___MetadataKey_)<br />[events:SystemMetadata/ContentType](#list_eventbridge-events_SystemMetadata_ContentType)
   - **Access level:** Write
 
 - **   [RetrieveConnectionCredentials](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)  **
@@ -1104,13 +1121,14 @@ Amazon EventBridge defines the following condition keys that can be used in the 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tags in the request to event bus and rule actions | ArrayOfString | 
 |   [events:ContentFilterPresent](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by whether a subscriber declares a payload-scope content filter to CreateSubscriber and UpdateSubscriber actions | Bool | 
 |   [events:EventBusArn](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html#limiting-access-to-event-buses)  | Filters access by the ARN of the event buses that can be associated with an endpoint to CreateEndpoint and UpdateEndpoint actions | ArrayOfARN | 
+|   [events:EventSourceType](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by the type of event source (aws.service, aws.partner, or webhook) to CreateEventSource and UpdateEventSource actions | String | 
 |   [events:ManagedBy](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by AWS services. If a rule is created by an AWS service on your behalf, the value is the principal name of the service that created the rule | String | 
-|   [events:Metadata/${MetadataKey}](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by a metadata key-value pair on the published event to PutRawEvents actions, or by the exact-match values declared for that key in a subscriber's metadata filter to CreateSubscriber and UpdateSubscriber actions | ArrayOfString | 
+|   [events:Metadata/${MetadataKey}](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by a metadata key-value pair on the published event to PutRawEvents and PutWebhookEvents actions, or by the exact-match values declared for that key in a subscriber's metadata filter to CreateSubscriber and UpdateSubscriber actions | ArrayOfString | 
 |   [events:Metadata/${MetadataKey}/Matcher](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by the match type declared for a metadata key in a subscriber's filter to CreateSubscriber and UpdateSubscriber actions | String | 
 |   [events:PolicyName](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by the name of the resource policy specified in the request to resource policy actions | String | 
 |   [events:SystemMetadata/AwsDetailType](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by the detail type recorded in the system metadata of an event forwarded onto an event bus to PutEvents and PutRawEvents actions | String | 
 |   [events:SystemMetadata/AwsSource](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by the source recorded in the system metadata of an event forwarded onto an event bus to PutEvents and PutRawEvents actions | String | 
-|   [events:SystemMetadata/ContentType](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by the content type declared on an event for PutRawEvents and for forwarded events authorized as PutEvents | String | 
+|   [events:SystemMetadata/ContentType](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html)  | Filters access by the content type declared on an event for PutRawEvents, PutWebhookEvents, and for forwarded events authorized as PutEvents | String | 
 |   [events:TargetArn](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html#limiting-access-to-targets)  | Filters access by the ARN of a target that can be put to a rule to PutTargets actions. TargetARN doesn't include DeadLetterConfigArn | ArrayOfARN | 
 |   [events:creatorAccount](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html#events-creator-account)  | Filters access by the account the rule was created in to rule actions | String | 
 |   [events:detail-type](https://docs.aws.amazon.com/eventbridge/latest/userguide/policy-keys-eventbridge.html#events-pattern-detail-type)  | Filters access by the literal string of the detail-type of the event to PutEvents and PutRule actions | ArrayOfString | 

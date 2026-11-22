@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Athena
-<a name="list_athena"></a>
 
 Amazon Athena (service prefix: `athena`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

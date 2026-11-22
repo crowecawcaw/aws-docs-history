@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Kinesis Video Streams
-<a name="list_kinesis-video-streams"></a>
 
 Amazon Kinesis Video Streams (service prefix: `kinesisvideo`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

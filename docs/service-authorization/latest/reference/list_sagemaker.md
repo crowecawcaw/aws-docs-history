@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon SageMaker
-<a name="list_sagemaker"></a>
 
 Amazon SageMaker (service prefix: `sagemaker`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -29,6 +28,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   AddAssociation  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:AddAssociation](#list_sagemaker-action-AddAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AddInferenceGateway  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:AddInferenceGateway](#list_sagemaker-action-AddInferenceGateway) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -160,10 +166,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateClusterExtension  **
   - **SDK client:** sagemaker
-  - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Tagging, Write
+  - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [sagemaker:CreateClusterExtension](#list_sagemaker-action-CreateClusterExtension)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateClusterSchedulerConfig  **
   - **SDK client:** sagemaker
@@ -231,6 +235,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sagemaker:CreateFlowDefinition](#list_sagemaker-action-CreateFlowDefinition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker.amazonaws.com / **Access level:** Write
 
+- **   CreateGlobalInferenceGateway  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [sagemaker:CreateGlobalInferenceGateway](#list_sagemaker-action-CreateGlobalInferenceGateway)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker.amazonaws.com / **Access level:** Write
+
 - **   CreateHub  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -288,6 +298,11 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [sagemaker:CreateInferenceRecommendationsJob](#list_sagemaker-action-CreateInferenceRecommendationsJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker.amazonaws.com / **Access level:** Write
+
+- **   CreateInferenceRouter  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [sagemaker:CreateInferenceRouter](#list_sagemaker-action-CreateInferenceRouter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateJob  **
   - **SDK client:** sagemaker
@@ -575,6 +590,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteClusterExtension  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DeleteClusterExtension](#list_sagemaker-action-DeleteClusterExtension) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteClusterSchedulerConfig  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DeleteClusterSchedulerConfig](#list_sagemaker-action-DeleteClusterSchedulerConfig) 
@@ -638,6 +660,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteEndpointPolicy  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DeleteEndpointPolicy](#list_sagemaker-action-DeleteEndpointPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
 - **   DeleteExperiment  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DeleteExperiment](#list_sagemaker-action-DeleteExperiment) 
@@ -655,6 +684,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DeleteFlowDefinition  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DeleteFlowDefinition](#list_sagemaker-action-DeleteFlowDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteGlobalInferenceGateway  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DeleteGlobalInferenceGateway](#list_sagemaker-action-DeleteGlobalInferenceGateway) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -718,6 +754,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DeleteInferenceExperiment  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DeleteInferenceExperiment](#list_sagemaker-action-DeleteInferenceExperiment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInferenceRouter  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DeleteInferenceRouter](#list_sagemaker-action-DeleteInferenceRouter) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -995,6 +1038,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   DescribeCapacityReservation  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DescribeCapacityReservation](#list_sagemaker-action-DescribeCapacityReservation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DescribeCluster  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DescribeCluster](#list_sagemaker-action-DescribeCluster) 
@@ -1005,6 +1055,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DescribeClusterEvent  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DescribeClusterEvent](#list_sagemaker-action-DescribeClusterEvent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeClusterExtension  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DescribeClusterExtension](#list_sagemaker-action-DescribeClusterExtension) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -1107,6 +1164,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   DescribeGlobalInferenceGateway  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DescribeGlobalInferenceGateway](#list_sagemaker-action-DescribeGlobalInferenceGateway) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DescribeHub  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DescribeHub](#list_sagemaker-action-DescribeHub) 
@@ -1166,6 +1230,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DescribeInferenceRecommendationsJob  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DescribeInferenceRecommendationsJob](#list_sagemaker-action-DescribeInferenceRecommendationsJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeInferenceRouter  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DescribeInferenceRouter](#list_sagemaker-action-DescribeInferenceRouter) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -1345,6 +1416,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   DescribeResourceAssociations  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DescribeResourceAssociations](#list_sagemaker-action-DescribeResourceAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DescribeSpace  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DescribeSpace](#list_sagemaker-action-DescribeSpace) 
@@ -1471,6 +1549,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   GetCapacityReservationUsage  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:GetCapacityReservationUsage](#list_sagemaker-action-GetCapacityReservationUsage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEndpointPolicy  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:GetEndpointPolicy](#list_sagemaker-action-GetEndpointPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetLineageGroupPolicy  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:GetLineageGroupPolicy](#list_sagemaker-action-GetLineageGroupPolicy) 
@@ -1596,9 +1688,30 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListCapacityReservations  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:ListCapacityReservations](#list_sagemaker-action-ListCapacityReservations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListClusterEvents  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:ListClusterEvents](#list_sagemaker-action-ListClusterEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClusterExtensionVersions  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:ListClusterExtensionVersions](#list_sagemaker-action-ListClusterExtensionVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClusterExtensions  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:ListClusterExtensions](#list_sagemaker-action-ListClusterExtensions) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -1701,6 +1814,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListGlobalInferenceGateways  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:ListGlobalInferenceGateways](#list_sagemaker-action-ListGlobalInferenceGateways) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListHubContentVersions  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:ListHubContentVersions](#list_sagemaker-action-ListHubContentVersions) 
@@ -1764,6 +1884,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListInferenceGateways  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:ListInferenceGateways](#list_sagemaker-action-ListInferenceGateways) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListInferenceRecommendationsJobSteps  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:ListInferenceRecommendationsJobSteps](#list_sagemaker-action-ListInferenceRecommendationsJobSteps) 
@@ -1774,6 +1901,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListInferenceRecommendationsJobs  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:ListInferenceRecommendationsJobs](#list_sagemaker-action-ListInferenceRecommendationsJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInferenceRouters  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:ListInferenceRouters](#list_sagemaker-action-ListInferenceRouters) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -2114,6 +2248,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   MoveClusterNodes  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:BatchAddClusterNodes](#list_sagemaker-action-BatchAddClusterNodes)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [sagemaker:BatchDeleteClusterNodes](#list_sagemaker-action-BatchDeleteClusterNodes)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   PutEndpointPolicy  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:PutEndpointPolicy](#list_sagemaker-action-PutEndpointPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
 - **   PutModelPackageGroupPolicy  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:PutModelPackageGroupPolicy](#list_sagemaker-action-PutModelPackageGroupPolicy) 
@@ -2127,6 +2273,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   RemoveInferenceGateway  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:RemoveInferenceGateway](#list_sagemaker-action-RemoveInferenceGateway) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   RenderUiTemplate  **
   - **SDK client:** sagemaker
@@ -2372,6 +2525,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sagemaker:UpdateClusterSoftware](#list_sagemaker-action-UpdateClusterSoftware)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker.amazonaws.com / **Access level:** Write
 
+- **   UpdateClusterExtension  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:UpdateClusterExtension](#list_sagemaker-action-UpdateClusterExtension) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateClusterSchedulerConfig  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:UpdateClusterSchedulerConfig](#list_sagemaker-action-UpdateClusterSchedulerConfig) 
@@ -2447,6 +2607,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateGlobalInferenceGateway  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:UpdateGlobalInferenceGateway](#list_sagemaker-action-UpdateGlobalInferenceGateway) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateHub  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:UpdateHub](#list_sagemaker-action-UpdateHub) 
@@ -2497,6 +2664,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdateInferenceExperiment  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:UpdateInferenceExperiment](#list_sagemaker-action-UpdateInferenceExperiment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateInferenceRouter  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:UpdateInferenceRouter](#list_sagemaker-action-UpdateInferenceRouter) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -2727,10 +2901,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   InvokeEndpoint  **
   - **SDK client:** sagemaker-runtime
-  - **IAM action:**  [sagemaker:InvokeEndpoint](#list_sagemaker-action-InvokeEndpoint) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [sagemaker:CallWithBearerToken](#list_sagemaker-action-CallWithBearerToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [sagemaker:InvokeEndpoint](#list_sagemaker-action-InvokeEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   InvokeEndpointAsync  **
   - **SDK client:** sagemaker-runtime
@@ -2821,6 +2993,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [experiment-trial-component\*](#list_sagemaker-resource-experiment-trial-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [AddInferenceGateway](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddInferenceGateway.html)  **
+  - **Description:** Grants permission to add a HyperPod inference gateway as a member of a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html)  **
   - **Description:** Grants permission to add or overwrite one or more tags for the specified Amazon SageMaker resource
   - **Resource types (\*required):** [action](#list_sagemaker-resource-action) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
@@ -2849,8 +3027,10 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [experiment](#list_sagemaker-resource-experiment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [experiment-trial](#list_sagemaker-resource-experiment-trial) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [experiment-trial-component](#list_sagemaker-resource-experiment-trial-component) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
+  - **Resource types (\*required):** [extension](#list_sagemaker-resource-extension) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [feature-group](#list_sagemaker-resource-feature-group) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [flow-definition](#list_sagemaker-resource-flow-definition) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
+  - **Resource types (\*required):** [global-inference-gateway](#list_sagemaker-resource-global-inference-gateway) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [hub](#list_sagemaker-resource-hub) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [hub-content](#list_sagemaker-resource-hub-content) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [human-task-ui](#list_sagemaker-resource-human-task-ui) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
@@ -2858,6 +3038,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [image](#list_sagemaker-resource-image) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [inference-component](#list_sagemaker-resource-inference-component) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [inference-recommendations-job](#list_sagemaker-resource-inference-recommendations-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
+  - **Resource types (\*required):** [inference-router](#list_sagemaker-resource-inference-router) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [job](#list_sagemaker-resource-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [labeling-job](#list_sagemaker-resource-labeling-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [mlflow-app](#list_sagemaker-resource-mlflow-app) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
@@ -2878,6 +3059,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [processing-job](#list_sagemaker-resource-processing-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [project](#list_sagemaker-resource-project) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [reserved-capacity](#list_sagemaker-resource-reserved-capacity) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
+  - **Resource types (\*required):** [sm-capacity-reservation](#list_sagemaker-resource-sm-capacity-reservation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [space](#list_sagemaker-resource-space) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [studio-lifecycle-config](#list_sagemaker-resource-studio-lifecycle-config) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
   - **Resource types (\*required):** [training-job](#list_sagemaker-resource-training-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TaggingAction](#list_sagemaker-sagemaker_TaggingAction)
@@ -3044,6 +3226,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [training-plan](#list_sagemaker-resource-training-plan) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:InstanceTypes](#list_sagemaker-sagemaker_InstanceTypes)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:VpcSecurityGroupIds](#list_sagemaker-sagemaker_VpcSecurityGroupIds)<br />[sagemaker:VpcSubnets](#list_sagemaker-sagemaker_VpcSubnets)
   - **Access level:** Write
 
+- **   [CreateClusterExtension](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateClusterExtension.html)  **
+  - **Description:** Grants permission to install an extension on a SageMaker HyperPod cluster
+  - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extension\*](#list_sagemaker-resource-extension) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CreateClusterSchedulerConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateClusterSchedulerConfig.html)  **
   - **Description:** Grants permission to create a cluster scheduler config
   - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -3140,6 +3328,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:WorkteamArn](#list_sagemaker-sagemaker_WorkteamArn)<br />[sagemaker:WorkteamType](#list_sagemaker-sagemaker_WorkteamType)
   - **Access level:** Write
 
+- **   [CreateGlobalInferenceGateway](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateGlobalInferenceGateway.html)  **
+  - **Description:** Grants permission to create a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CreateHub](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHub.html)  **
   - **Description:** Grants permission to create a hub
   - **Resource types (\*required):** [hub\*](#list_sagemaker-resource-hub)
@@ -3197,6 +3391,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateInferenceRecommendationsJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html)  **
   - **Description:** Grants permission to create an inference recommendations job
   - **Resource types (\*required):** [inference-recommendations-job\*](#list_sagemaker-resource-inference-recommendations-job)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateInferenceRouter](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRouter.html)  **
+  - **Description:** Grants permission to create an inference router
+  - **Resource types (\*required):** [inference-router\*](#list_sagemaker-resource-inference-router)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -3486,6 +3686,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteClusterExtension](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteClusterExtension.html)  **
+  - **Description:** Grants permission to remove an extension from a SageMaker HyperPod cluster
+  - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extension\*](#list_sagemaker-resource-extension) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteClusterSchedulerConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteClusterSchedulerConfig.html)  **
   - **Description:** Grants permission to delete a cluster scheduler config
   - **Resource types (\*required):** [cluster-scheduler-config\*](#list_sagemaker-resource-cluster-scheduler-config)
@@ -3558,6 +3764,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteEndpointPolicy](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpointPolicy.html)  **
+  - **Description:** Grants permission to delete the resource-based policy of an endpoint
+  - **Resource types (\*required):** [endpoint\*](#list_sagemaker-resource-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
 - **   [DeleteExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteExperiment.html)  **
   - **Description:** Grants permission to delete an experiment
   - **Resource types (\*required):** [experiment\*](#list_sagemaker-resource-experiment)
@@ -3573,6 +3785,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteFlowDefinition](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteFlowDefinition.html)  **
   - **Description:** Grants permission to delete the specified flow definition
   - **Resource types (\*required):** [flow-definition\*](#list_sagemaker-resource-flow-definition)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteGlobalInferenceGateway](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteGlobalInferenceGateway.html)  **
+  - **Description:** Grants permission to delete a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -3633,6 +3851,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteInferenceExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceExperiment.html)  **
   - **Description:** Grants permission to delete an inference experiment
   - **Resource types (\*required):** [inference-experiment\*](#list_sagemaker-resource-inference-experiment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteInferenceRouter](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceRouter.html)  **
+  - **Description:** Grants permission to delete an inference router
+  - **Resource types (\*required):** [inference-router\*](#list_sagemaker-resource-inference-router)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -3802,8 +4026,10 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [experiment](#list_sagemaker-resource-experiment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [experiment-trial](#list_sagemaker-resource-experiment-trial) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [experiment-trial-component](#list_sagemaker-resource-experiment-trial-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extension](#list_sagemaker-resource-extension) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [feature-group](#list_sagemaker-resource-feature-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [flow-definition](#list_sagemaker-resource-flow-definition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [global-inference-gateway](#list_sagemaker-resource-global-inference-gateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [hub](#list_sagemaker-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [hub-content](#list_sagemaker-resource-hub-content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [human-task-ui](#list_sagemaker-resource-human-task-ui) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -3811,6 +4037,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [image](#list_sagemaker-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [inference-component](#list_sagemaker-resource-inference-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [inference-recommendations-job](#list_sagemaker-resource-inference-recommendations-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [inference-router](#list_sagemaker-resource-inference-router) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [job](#list_sagemaker-resource-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [labeling-job](#list_sagemaker-resource-labeling-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [mlflow-app](#list_sagemaker-resource-mlflow-app) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -3831,6 +4058,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [processing-job](#list_sagemaker-resource-processing-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [project](#list_sagemaker-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [reserved-capacity](#list_sagemaker-resource-reserved-capacity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [sm-capacity-reservation](#list_sagemaker-resource-sm-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [space](#list_sagemaker-resource-space) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [studio-lifecycle-config](#list_sagemaker-resource-studio-lifecycle-config) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [training-job](#list_sagemaker-resource-training-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -3954,6 +4182,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [DescribeCapacityReservation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCapacityReservation.html)  **
+  - **Description:** Grants permission to return information about a specified capacity reservation
+  - **Resource types (\*required):** [sm-capacity-reservation\*](#list_sagemaker-resource-sm-capacity-reservation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCluster.html)  **
   - **Description:** Grants permission to return information about a SageMaker HyperPod cluster
   - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster)
@@ -3964,6 +4198,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to return information about an Event within a SageMaker HyperPod cluster
   - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeClusterExtension](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterExtension.html)  **
+  - **Description:** Grants permission to return information about an extension installed on a SageMaker HyperPod cluster
+  - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extension\*](#list_sagemaker-resource-extension) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribeClusterNode](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterNode.html)  **
@@ -4074,6 +4314,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [DescribeGlobalInferenceGateway](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeGlobalInferenceGateway.html)  **
+  - **Description:** Grants permission to return the description of a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeHub](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHub.html)  **
   - **Description:** Grants permission to describe hubs
   - **Resource types (\*required):** [hub\*](#list_sagemaker-resource-hub)
@@ -4131,6 +4377,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DescribeInferenceRecommendationsJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceRecommendationsJob.html)  **
   - **Description:** Grants permission to get information about an inference recommendations job
   - **Resource types (\*required):** [inference-recommendations-job\*](#list_sagemaker-resource-inference-recommendations-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeInferenceRouter](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceRouter.html)  **
+  - **Description:** Grants permission to return the description of an inference router
+  - **Resource types (\*required):** [inference-router\*](#list_sagemaker-resource-inference-router)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -4251,13 +4503,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DescribePipeline](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribePipeline.html)  **
   - **Description:** Grants permission to get information about a pipeline
   - **Resource types (\*required):** [pipeline\*](#list_sagemaker-resource-pipeline)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionAlias](#list_sagemaker-sagemaker_PipelineVersionAlias)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribePipelineDefinitionForExecution](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribePipelineDefinitionForExecution.html)  **
   - **Description:** Grants permission to get the pipeline definition for a pipeline execution
   - **Resource types (\*required):** [pipeline-execution\*](#list_sagemaker-resource-pipeline-execution)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionAlias](#list_sagemaker-sagemaker_PipelineVersionAlias)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribePipelineExecution](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribePipelineExecution.html)  **
@@ -4281,6 +4533,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DescribeReservedCapacity](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeReservedCapacity.html)  **
   - **Description:** Grants permission to return information about a specified Reserved Capacity
   - **Resource types (\*required):** [reserved-capacity\*](#list_sagemaker-resource-reserved-capacity)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeResourceAssociations](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeResourceAssociations.html)  **
+  - **Description:** Grants permission to return the SageMaker service associations of a specified capacity reservation
+  - **Resource types (\*required):** [sm-capacity-reservation\*](#list_sagemaker-resource-sm-capacity-reservation)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -4405,6 +4663,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [GetCapacityReservationUsage](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetCapacityReservationUsage.html)  **
+  - **Description:** Grants permission to return the in-use instance counts of a specified capacity reservation
+  - **Resource types (\*required):** [sm-capacity-reservation\*](#list_sagemaker-resource-sm-capacity-reservation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetDeployments](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_edge_GetDeployments.html)  **
   - **Description:** Grants permission to get deployment plan for device
   - **Resource types (\*required):** [device\*](#list_sagemaker-resource-device)
@@ -4420,6 +4684,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetDeviceRegistration](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_edge_GetDeviceRegistration.html)  **
   - **Description:** Grants permission to get device registration. After you deploy a model onto edge devices this api is used to get current device registration
   - **Resource types (\*required):** [device\*](#list_sagemaker-resource-device)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEndpointPolicy](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetEndpointPolicy.html)  **
+  - **Description:** Grants permission to get the resource-based policy of an endpoint
+  - **Resource types (\*required):** [endpoint\*](#list_sagemaker-resource-endpoint)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -4479,20 +4749,44 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [InvokeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html)  **
   - **Description:** Grants permission to invoke an endpoint. After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint
-  - **Resource types (\*required):** [endpoint\*](#list_sagemaker-resource-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TargetModel](#list_sagemaker-sagemaker_TargetModel)
-  - **Resource types (\*required):** [inference-component](#list_sagemaker-resource-inference-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:TargetModel](#list_sagemaker-sagemaker_TargetModel)
+  - **Resource types (\*required):** [endpoint\*](#list_sagemaker-resource-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:SourceInferenceRouterArn](#list_sagemaker-sagemaker_SourceInferenceRouterArn)<br />[sagemaker:TargetModel](#list_sagemaker-sagemaker_TargetModel)
+  - **Resource types (\*required):** [inference-component](#list_sagemaker-resource-inference-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:SourceInferenceRouterArn](#list_sagemaker-sagemaker_SourceInferenceRouterArn)<br />[sagemaker:TargetModel](#list_sagemaker-sagemaker_TargetModel)
   - **Access level:** Read
 
 - **   [InvokeEndpointAsync](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html)  **
   - **Description:** Grants permission to get inferences from the hosted model at the specified endpoint in an asynchronous manner
   - **Resource types (\*required):** [endpoint\*](#list_sagemaker-resource-endpoint)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:SourceInferenceRouterArn](#list_sagemaker-sagemaker_SourceInferenceRouterArn)
   - **Access level:** Read
 
 - **   [InvokeEndpointWithResponseStream](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html)  **
   - **Description:** Grants permission to get the inference response as a stream from the specified endpoint
   - **Resource types (\*required):** [endpoint\*](#list_sagemaker-resource-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [inference-component](#list_sagemaker-resource-inference-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InvokeGlobalInferenceGateway](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeGlobalInferenceGateway.html)  **
+  - **Description:** Grants permission to invoke a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InvokeGlobalInferenceGatewayWithResponseStream](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeGlobalInferenceGatewayWithResponseStream.html)  **
+  - **Description:** Grants permission to invoke a global inference gateway and stream the response
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InvokeInferenceRouter](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeInferenceRouter.html)  **
+  - **Description:** Grants permission to invoke an inference router
+  - **Resource types (\*required):** [inference-router\*](#list_sagemaker-resource-inference-router)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InvokeInferenceRouterAsync](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeInferenceRouterAsync.html)  **
+  - **Description:** Grants permission to invoke an inference router in an asynchronous manner
+  - **Resource types (\*required):** [inference-router\*](#list_sagemaker-resource-inference-router)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [ListAIBenchmarkJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListAIBenchmarkJobs.html)  **
@@ -4567,8 +4861,26 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListCapacityReservations](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCapacityReservations.html)  **
+  - **Description:** Grants permission to list capacity reservations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListClusterEvents](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterEvents.html)  **
   - **Description:** Grants permission to list events within a SageMaker HyperPod cluster
+  - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListClusterExtensionVersions](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterExtensionVersions.html)  **
+  - **Description:** Grants permission to list the versions of an extension that you can install on a SageMaker HyperPod cluster
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListClusterExtensions](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterExtensions.html)  **
+  - **Description:** Grants permission to list the extensions installed on a SageMaker HyperPod cluster
   - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** List
@@ -4681,6 +4993,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListGlobalInferenceGateways](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListGlobalInferenceGateways.html)  **
+  - **Description:** Grants permission to list global inference gateways
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListHubContentVersions](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubContentVersions.html)  **
   - **Description:** Grants permission to list all versions of hub content
   - **Resource types (\*required):** [hub\*](#list_sagemaker-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -4741,6 +5059,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListInferenceGateways](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceGateways.html)  **
+  - **Description:** Grants permission to list the member HyperPod inference gateways of a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [ListInferenceRecommendationsJobSteps](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html)  **
   - **Description:** Grants permission to list inference recommendations job steps
   - **Resource types (\*required):** 
@@ -4749,6 +5073,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListInferenceRecommendationsJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobs.html)  **
   - **Description:** Grants permission to list inference recommendations jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInferenceRouters](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRouters.html)  **
+  - **Description:** Grants permission to list inference routers
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -4912,7 +5242,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListPipelineExecutions](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListPipelineExecutions.html)  **
   - **Description:** Grants permission to list executions for a pipeline
   - **Resource types (\*required):** [pipeline\*](#list_sagemaker-resource-pipeline)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionAlias](#list_sagemaker-sagemaker_PipelineVersionAlias)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListPipelineParametersForExecution](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListPipelineParametersForExecution.html)  **
@@ -5009,8 +5339,10 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [experiment](#list_sagemaker-resource-experiment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [experiment-trial](#list_sagemaker-resource-experiment-trial) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [experiment-trial-component](#list_sagemaker-resource-experiment-trial-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extension](#list_sagemaker-resource-extension) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [feature-group](#list_sagemaker-resource-feature-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [flow-definition](#list_sagemaker-resource-flow-definition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [global-inference-gateway](#list_sagemaker-resource-global-inference-gateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [hub](#list_sagemaker-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [hub-content](#list_sagemaker-resource-hub-content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [human-task-ui](#list_sagemaker-resource-human-task-ui) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -5018,6 +5350,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [image](#list_sagemaker-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [inference-component](#list_sagemaker-resource-inference-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [inference-recommendations-job](#list_sagemaker-resource-inference-recommendations-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [inference-router](#list_sagemaker-resource-inference-router) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [job](#list_sagemaker-resource-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [labeling-job](#list_sagemaker-resource-labeling-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [mlflow-app](#list_sagemaker-resource-mlflow-app) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -5039,6 +5372,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [processing-job](#list_sagemaker-resource-processing-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [project](#list_sagemaker-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [reserved-capacity](#list_sagemaker-resource-reserved-capacity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [sm-capacity-reservation](#list_sagemaker-resource-sm-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [space](#list_sagemaker-resource-space) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [studio-lifecycle-config](#list_sagemaker-resource-studio-lifecycle-config) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Resource types (\*required):** [training-job](#list_sagemaker-resource-training-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
@@ -5114,6 +5448,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [PutEndpointPolicy](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PutEndpointPolicy.html)  **
+  - **Description:** Grants permission to attach or replace the resource-based policy of an endpoint
+  - **Resource types (\*required):** [endpoint\*](#list_sagemaker-resource-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
 - **   [PutLineageGroupPolicy](https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html)  **
   - **Description:** Grants permission to put a lineage group policy
   - **Resource types (\*required):** 
@@ -5142,6 +5482,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to register a set of devices
   - **Resource types (\*required):** [device\*](#list_sagemaker-resource-device)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemoveInferenceGateway](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RemoveInferenceGateway.html)  **
+  - **Description:** Grants permission to remove a member HyperPod inference gateway from a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [RenderUiTemplate](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RenderUiTemplate.html)  **
@@ -5255,7 +5601,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [StartPipelineExecution](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html)  **
   - **Description:** Grants permission to start a pipeline execution
   - **Resource types (\*required):** [pipeline\*](#list_sagemaker-resource-pipeline)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionAlias](#list_sagemaker-sagemaker_PipelineVersionAlias)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [StartSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartSession.html)  **
@@ -5363,7 +5709,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [StopPipelineExecution](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopPipelineExecution.html)  **
   - **Description:** Grants permission to stop a pipeline execution
   - **Resource types (\*required):** [pipeline-execution\*](#list_sagemaker-resource-pipeline-execution)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionAlias](#list_sagemaker-sagemaker_PipelineVersionAlias)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [StopProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopProcessingJob.html)  **
@@ -5419,6 +5765,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:InstanceTypes](#list_sagemaker-sagemaker_InstanceTypes)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:VpcSecurityGroupIds](#list_sagemaker-sagemaker_VpcSecurityGroupIds)<br />[sagemaker:VpcSubnets](#list_sagemaker-sagemaker_VpcSubnets)
   - **Resource types (\*required):** [reserved-capacity](#list_sagemaker-resource-reserved-capacity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:InstanceTypes](#list_sagemaker-sagemaker_InstanceTypes)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:VpcSecurityGroupIds](#list_sagemaker-sagemaker_VpcSecurityGroupIds)<br />[sagemaker:VpcSubnets](#list_sagemaker-sagemaker_VpcSubnets)
   - **Resource types (\*required):** [training-plan](#list_sagemaker-resource-training-plan) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:InstanceTypes](#list_sagemaker-sagemaker_InstanceTypes)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:VpcSecurityGroupIds](#list_sagemaker-sagemaker_VpcSecurityGroupIds)<br />[sagemaker:VpcSubnets](#list_sagemaker-sagemaker_VpcSubnets)
+  - **Access level:** Write
+
+- **   [UpdateClusterExtension](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterExtension.html)  **
+  - **Description:** Grants permission to update an extension installed on a SageMaker HyperPod cluster
+  - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extension\*](#list_sagemaker-resource-extension) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateClusterSchedulerConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSchedulerConfig.html)  **
@@ -5499,6 +5851,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateGlobalInferenceGateway](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateGlobalInferenceGateway.html)  **
+  - **Description:** Grants permission to update a global inference gateway
+  - **Resource types (\*required):** [global-inference-gateway\*](#list_sagemaker-resource-global-inference-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateHub](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHub.html)  **
   - **Description:** Grants permission to update hubs
   - **Resource types (\*required):** [hub\*](#list_sagemaker-resource-hub)
@@ -5544,6 +5902,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateInferenceExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceExperiment.html)  **
   - **Description:** Grants permission to update an inference experiment
   - **Resource types (\*required):** [inference-experiment\*](#list_sagemaker-resource-inference-experiment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateInferenceRouter](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceRouter.html)  **
+  - **Description:** Grants permission to update an inference router
+  - **Resource types (\*required):** [inference-router\*](#list_sagemaker-resource-inference-router)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -5616,7 +5980,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdatePipelineVersion](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdatePipelineVersion.html)  **
   - **Description:** Grants permission to update a pipeline version
   - **Resource types (\*required):** [pipeline\*](#list_sagemaker-resource-pipeline)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:PipelineVersionAlias](#list_sagemaker-sagemaker_PipelineVersionAlias)<br />[sagemaker:PipelineVersionId](#list_sagemaker-sagemaker_PipelineVersionId)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateProject](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateProject.html)  **
@@ -5810,8 +6174,10 @@ The following resource types are defined by this service and can be used in the 
 |  [experiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Experiment.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:experiment/${ExperimentName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [experiment-trial](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Trial.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:experiment-trial/${TrialName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [experiment-trial-component](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrialComponent.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:experiment-trial-component/${TrialComponentName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
+|  [extension](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-cluster.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:extension/${ClusterIdentifier}/${ExtensionName}/${ExtensionId} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [feature-group](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:feature-group/${FeatureGroupName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [flow-definition](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-create-flow-definition.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:flow-definition/${FlowDefinitionName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
+|  [global-inference-gateway](https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeGlobalInferenceGateway.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:global-inference-gateway/${GlobalInferenceGatewayId} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [hub](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-content-sharing.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:hub/${HubName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [hub-content](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-content-sharing.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:hub-content/${HubName}/${HubContentType}/${HubContentName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [human-loop](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-start-human-loop.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:human-loop/${HumanLoopName} |   | 
@@ -5822,6 +6188,7 @@ The following resource types are defined by this service and can be used in the 
 |  [inference-component](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:inference-component/${InferenceComponentName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [inference-experiment](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-experiment.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:inference-experiment/${InferenceExperimentName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [inference-recommendations-job](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-recommender-recommendation-jobs.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:inference-recommendations-job/${InferenceRecommendationsJobName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
+|  [inference-router](https://docs.aws.amazon.com/sagemaker/latest/dg/API_InferenceRouterSummary.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:inference-router/${InferenceRouterName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [job](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-training.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:job/${JobCategory}/${JobName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [labeling-job](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:labeling-job/${LabelingJobName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [lineage-group](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_LineageGroupSummary.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:lineage-group/${LineageGroupName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
@@ -5849,6 +6216,7 @@ The following resource types are defined by this service and can be used in the 
 |  [sagemaker-catalog](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceCatalog.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:sagemaker-catalog/${ResourceCatalogName} |   | 
 |  [shared-model](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:shared-model/${SharedModelId} |   | 
 |  [shared-model-event](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:shared-model-event/${EventId} |   | 
+|  [sm-capacity-reservation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCapacityReservation.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:sm-capacity-reservation/${CapacityReservationId} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [space](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-entity-status.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:space/${DomainId}/${SpaceName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [studio-lifecycle-config](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-lcc.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:studio-lifecycle-config/${StudioLifecycleConfigName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [training-job](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-training.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:training-job/${TrainingJobName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
@@ -5916,6 +6284,7 @@ Amazon SageMaker defines the following condition keys that can be used in the `C
 |   [sagemaker:OutputKmsKey](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the output kms key associated with the resource in the request. This key has been deprecated. It has been replaced by sagemaker:OutputKmsKeyArn | ARN | 
 |   [sagemaker:OutputKmsKeyArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the output kms key associated with the resource in the request. The ARN of the key-id must be used | ARN | 
 |   [sagemaker:OwnerUserProfileArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the OwnerUserProfile arn associated with the space in the request | ARN | 
+|   [sagemaker:PipelineVersionAlias](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access to specific version aliases of a SageMaker pipeline | String | 
 |   [sagemaker:PipelineVersionId](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access to specific version IDs of a Sagemaker pipeline | String | 
 |   [sagemaker:RemoteAccess](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the remote access flag associated with the space in the request | String | 
 |   [sagemaker:ResourceTag/](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the preface string for a tag key and value pair attached to a resource | String | 
@@ -5924,6 +6293,7 @@ Amazon SageMaker defines the following condition keys that can be used in the `C
 |   [sagemaker:SearchVisibilityCondition/${FilterKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Limits the results of your search request to the resources that you can access. ${FilterKey} is a key that the VisibilityConditions configuration presents in the Search request | String | 
 |   [sagemaker:ServerlessMaxConcurrency](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by limiting maximum concurrency used for Serverless inference in the request | Numeric | 
 |   [sagemaker:ServerlessMemorySize](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by limiting memory size used for Serverless inference in the request | Numeric | 
+|   [sagemaker:SourceInferenceRouterArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the ARN of the inference router that the request was routed through | ARN | 
 |   [sagemaker:SpaceSharingType](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the sharing type associated with the space in the request | String | 
 |   [sagemaker:StudioLifecycleConfigArns](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the list of lifecycle configuration ARNs associated with the resource in the request | ArrayOfARN | 
 |   [sagemaker:TaggingAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys)  | Filters access by the API actions to which a user can apply tags. Uses the name of the API operation that creates a taggable resource to filter access | String | 

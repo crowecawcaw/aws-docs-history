@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Redshift
-<a name="list_redshift"></a>
 
 Amazon Redshift (service prefix: `redshift`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

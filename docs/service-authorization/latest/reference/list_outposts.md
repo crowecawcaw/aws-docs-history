@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Outposts
-<a name="list_outposts"></a>
 
 AWS Outposts (service prefix: `outposts`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

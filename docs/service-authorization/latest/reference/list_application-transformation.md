@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Application Transformation Service
-<a name="list_application-transformation"></a>
 
 AWS Application Transformation Service (service prefix: `application-transformation`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

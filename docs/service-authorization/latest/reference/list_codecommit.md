@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CodeCommit
-<a name="list_codecommit"></a>
 
 AWS CodeCommit (service prefix: `codecommit`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

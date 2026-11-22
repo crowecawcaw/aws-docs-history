@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Savings Plans
-<a name="list_savingsplans"></a>
 
 AWS Savings Plans (service prefix: `savingsplans`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Diagnostic tools
-<a name="list_ts"></a>
 
 AWS Diagnostic tools (service prefix: `ts`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS User Notifications
-<a name="list_notifications"></a>
 
 AWS User Notifications (service prefix: `notifications`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

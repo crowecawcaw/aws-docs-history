@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Assurance
-<a name="list_assurance"></a>
 
 AWS Assurance (service prefix: `assurance`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -362,7 +361,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [ListDiscoveredResources](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListDiscoveredResources.html)  **
-  - **Description:** Grants permission to list the resources found by a discovery job (paginated)
+  - **Description:** Grants permission to list the resources in scope for an environment or project (paginated)
   - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
   - **Access level:** Read

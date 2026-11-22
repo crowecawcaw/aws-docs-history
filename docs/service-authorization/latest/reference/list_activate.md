@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Activate
-<a name="list_activate"></a>
 
 AWS Activate (service prefix: `activate`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

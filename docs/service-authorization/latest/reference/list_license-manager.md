@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS License Manager
-<a name="list_license-manager"></a>
 
 AWS License Manager (service prefix: `license-manager`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

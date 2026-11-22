@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Pinpoint
-<a name="list_pinpoint"></a>
 
 Amazon Pinpoint (service prefix: `mobiletargeting`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

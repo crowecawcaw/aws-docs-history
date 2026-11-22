@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Serverless Application Repository
-<a name="list_serverlessrepo"></a>
 
 AWS Serverless Application Repository (service prefix: `serverlessrepo`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

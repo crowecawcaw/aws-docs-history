@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elastic Load Balancing V2
-<a name="list_elbv2"></a>
 
 AWS Elastic Load Balancing V2 (service prefix: `elasticloadbalancing`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

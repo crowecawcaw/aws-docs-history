@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS AppSync
-<a name="list_appsync"></a>
 
 AWS AppSync (service prefix: `appsync`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

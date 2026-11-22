@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Nova Act
-<a name="list_nova-act"></a>
 
 Amazon Nova Act (service prefix: `nova-act`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

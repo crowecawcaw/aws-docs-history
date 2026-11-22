@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Global Accelerator
-<a name="list_globalaccelerator"></a>
 
 AWS Global Accelerator (service prefix: `globalaccelerator`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

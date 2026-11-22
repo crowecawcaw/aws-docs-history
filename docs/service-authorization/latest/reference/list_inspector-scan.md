@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon InspectorScan
-<a name="list_inspector-scan"></a>
 
 Amazon InspectorScan (service prefix: `inspector-scan`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

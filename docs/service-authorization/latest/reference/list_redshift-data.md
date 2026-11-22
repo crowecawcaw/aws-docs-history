@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Redshift Data API
-<a name="list_redshift-data"></a>
 
 Amazon Redshift Data API (service prefix: `redshift-data`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Backup Gateway
-<a name="list_backup-gateway"></a>
 
 AWS Backup Gateway (service prefix: `backup-gateway`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

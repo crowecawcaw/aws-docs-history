@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Cognito Sync
-<a name="list_cognito-sync"></a>
 
 Amazon Cognito Sync (service prefix: `cognito-sync`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

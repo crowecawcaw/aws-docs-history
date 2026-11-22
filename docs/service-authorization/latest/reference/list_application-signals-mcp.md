@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CloudWatch Application Signals MCP Server
-<a name="list_application-signals-mcp"></a>
 
 Amazon CloudWatch Application Signals MCP Server (service prefix: `application-signals-mcp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

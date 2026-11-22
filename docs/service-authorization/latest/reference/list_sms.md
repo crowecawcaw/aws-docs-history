@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Server Migration Service
-<a name="list_sms"></a>
 
 AWS Server Migration Service (service prefix: `sms`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

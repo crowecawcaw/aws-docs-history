@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Multi-party approval
-<a name="list_mpa"></a>
 
 Multi-party approval (service prefix: `mpa`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

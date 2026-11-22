@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IQ Permissions
-<a name="list_iq-permission"></a>
 
 AWS IQ Permissions (service prefix: `iq-permission`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

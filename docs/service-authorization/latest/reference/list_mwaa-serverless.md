@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS MWAA Serverless
-<a name="list_mwaa-serverless"></a>
 
 AWS MWAA Serverless (service prefix: `airflow-serverless`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

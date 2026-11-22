@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Tiros
-<a name="list_tiros"></a>
 
 AWS Tiros (service prefix: `tiros`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

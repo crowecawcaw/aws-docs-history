@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Managed Streaming for Kafka Connect
-<a name="list_kafkaconnect"></a>
 
 Amazon Managed Streaming for Kafka Connect (service prefix: `kafkaconnect`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

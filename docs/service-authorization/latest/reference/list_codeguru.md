@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon CodeGuru
-<a name="list_codeguru"></a>
 
 Amazon CodeGuru (service prefix: `codeguru`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

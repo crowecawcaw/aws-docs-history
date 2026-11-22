@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Lookout for Equipment
-<a name="list_lookoutequipment"></a>
 
 Amazon Lookout for Equipment (service prefix: `lookoutequipment`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -158,7 +157,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ImportModelVersion  **
   - **IAM action:**  [lookoutequipment:ImportModelVersion](#list_lookoutequipment-action-ImportModelVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [lookoutequipment:TagResource](#list_lookoutequipment-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** lookoutequipment.amazonaws.com / **Access level:** Write
 
 - **   ListDataIngestionJobs  **
   - **IAM action:**  [lookoutequipment:ListDataIngestionJobs](#list_lookoutequipment-action-ListDataIngestionJobs) 

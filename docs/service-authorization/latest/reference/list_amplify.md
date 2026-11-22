@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Amplify
-<a name="list_amplify"></a>
 
 AWS Amplify (service prefix: `amplify`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

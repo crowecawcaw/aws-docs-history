@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Chatbot
-<a name="list_chatbot"></a>
 
 AWS Chatbot (service prefix: `chatbot`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

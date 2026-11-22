@@ -1,14 +1,13 @@
 
 
 # Actions, resources, and condition keys for AWS Network Security Manager
-<a name="list_network-security-manager"></a>
 
 AWS Network Security Manager (service prefix: `network-security-manager`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
 + Learn how to [configure this service](https://docs.aws.amazon.com/network-security-manager/latest/devguide/).
 + View a list of the [API operations available for this service](https://docs.aws.amazon.com/network-security-manager/latest/APIReference/).
-+ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/network-security-manager/latest/devguide/security-am.html) permission policies.
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/network-security-manager/latest/devguide/security-iam.html) permission policies.
 + View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/network-security-manager/network-security-manager.json) for this service.
 
 **Topics**
@@ -167,6 +166,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListEntityCoverages  **
+  - **IAM action:**  [network-security-manager:ListEntityCoverages](#list_network-security-manager-action-ListEntityCoverages) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListPolicies  **
   - **IAM action:**  [network-security-manager:ListPolicies](#list_network-security-manager-action-ListPolicies) 
   - **Condition key:** 
@@ -175,6 +180,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListPolicySnapshots  **
   - **IAM action:**  [network-security-manager:ListPolicySnapshots](#list_network-security-manager-action-ListPolicySnapshots) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListProtectedResourceCoverages  **
+  - **IAM action:**  [network-security-manager:ListProtectedResourceCoverages](#list_network-security-manager-action-ListProtectedResourceCoverages) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -457,6 +468,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListEntityCoverages](https://docs.aws.amazon.com/network-security-manager/latest/APIReference/API_ListEntityCoverages.html)  **
+  - **Description:** Grants permission to list the protected resources covered by a Network Security Manager policy
+  - **Resource types (\*required):** [policy\*](#list_network-security-manager-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-security-manager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [ListPolicies](https://docs.aws.amazon.com/network-security-manager/latest/APIReference/API_ListPolicies.html)  **
   - **Description:** Grants permission to list policies
   - **Resource types (\*required):** 
@@ -467,6 +484,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list the snapshots of a policy
   - **Resource types (\*required):** [policy\*](#list_network-security-manager-resource-policy)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-security-manager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListProtectedResourceCoverages](https://docs.aws.amazon.com/network-security-manager/latest/APIReference/API_ListProtectedResourceCoverages.html)  **
+  - **Description:** Grants permission to list the Network Security Manager entities that cover a protected resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [network-security-manager:ProtectedResourceArn](#list_network-security-manager-network-security-manager_ProtectedResourceArn)
   - **Access level:** Read
 
 - **   [ListResourceAssociations](https://docs.aws.amazon.com/network-security-manager/latest/APIReference/API_ListResourceAssociations.html)  **
@@ -644,3 +667,4 @@ AWS Network Security Manager defines the following condition keys that can be us
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
+|   [network-security-manager:ProtectedResourceArn](https://docs.aws.amazon.com/network-security-manager/latest/devguide/security-iam.html)  | Filters access by the ARN of the protected resource whose coverage is being listed | ARN | 

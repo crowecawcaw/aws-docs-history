@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Invoicing Service
-<a name="list_invoicing"></a>
 
 AWS Invoicing Service (service prefix: `invoicing`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

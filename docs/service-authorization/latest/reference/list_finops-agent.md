@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS FinOps Agent
-<a name="list_finops-agent"></a>
 
 AWS FinOps Agent (service prefix: `finops-agent`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -58,6 +57,7 @@ The following actions are defined by AWS FinOps Agent but are not directly invoc
 |   [GetDocumentContent](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to download document content |  |   | Read | 
 |   [GetDocumentMetadata](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to view document metadata |  |   | Read | 
 |   [GetIntegration](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to view details of a third-party integration |  |   | Read | 
+|   [GetOrganizationAccess](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to view the organization-wide access setting for FinOps Agent |  |   | Read | 
 |   [GetTask](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to view details of a task |  |   | Read | 
 |   [GetTurn](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to view details of a conversation turn |  |   | Read | 
 |   [ListAgentSpaces](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to list all FinOps Agent workspaces in the account |  |   | List | 
@@ -77,6 +77,7 @@ The following actions are defined by AWS FinOps Agent but are not directly invoc
 |   [UpdateAutomation](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to update an automation |  |   | Write | 
 |   [UpdateConnection](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to update a connection |  |   | Write | 
 |   [UpdateDocument](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to update a document's content and metadata |  |   | Write | 
+|   [UpdateOrganizationAccess](https://docs.aws.amazon.com/finops-agent/)  | Grants permission to enable or disable organization-wide access for FinOps Agent |  |   | Write | 
 
 ## Resource types defined by AWS FinOps Agent
 <a name="list_finops-agent-resources-for-iam-policies"></a>

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Cloud Directory
-<a name="list_clouddirectory"></a>
 
 Amazon Cloud Directory (service prefix: `clouddirectory`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

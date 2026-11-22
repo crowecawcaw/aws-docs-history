@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon GameLift Servers
-<a name="list_gamelift"></a>
 
 Amazon GameLift Servers (service prefix: `gamelift`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

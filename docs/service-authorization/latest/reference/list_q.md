@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Q
-<a name="list_q"></a>
 
 Amazon Q (service prefix: `q`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

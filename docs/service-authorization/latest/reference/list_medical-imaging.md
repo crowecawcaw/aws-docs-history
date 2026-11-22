@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS HealthImaging
-<a name="list_medical-imaging"></a>
 
 AWS HealthImaging (service prefix: `medical-imaging`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

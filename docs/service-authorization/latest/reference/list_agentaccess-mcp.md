@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkSpaces AgentAccess MCP Server
-<a name="list_agentaccess-mcp"></a>
 
 Amazon WorkSpaces AgentAccess MCP Server (service prefix: `agentaccess-mcp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

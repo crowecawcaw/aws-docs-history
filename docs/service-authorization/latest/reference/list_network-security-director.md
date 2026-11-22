@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Shield network security director
-<a name="list_network-security-director"></a>
 
 AWS Shield network security director (service prefix: `network-security-director`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Migration Hub
-<a name="list_migration-hub"></a>
 
 AWS Migration Hub (service prefix: `mgh`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Route 53 Recovery Controls
-<a name="list_route53-recovery-control-config"></a>
 
 Amazon Route 53 Recovery Controls (service prefix: `route53-recovery-control-config`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

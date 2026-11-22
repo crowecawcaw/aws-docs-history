@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Account access manager
-<a name="list_account-access-manager"></a>
 
 Account access manager (service prefix: `account-access`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

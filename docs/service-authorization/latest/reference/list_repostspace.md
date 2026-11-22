@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS rePost Private
-<a name="list_repostspace"></a>
 
 AWS rePost Private (service prefix: `repostspace`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

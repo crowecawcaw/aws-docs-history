@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Entity Resolution
-<a name="list_entityresolution"></a>
 
 AWS Entity Resolution (service prefix: `entityresolution`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

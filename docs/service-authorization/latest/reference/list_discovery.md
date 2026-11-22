@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Application Discovery Service
-<a name="list_discovery"></a>
 
 AWS Application Discovery Service (service prefix: `discovery`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

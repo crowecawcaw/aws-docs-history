@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Signer
-<a name="list_signer"></a>
 
 AWS Signer (service prefix: `signer`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

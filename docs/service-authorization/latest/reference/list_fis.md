@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Fault Injection Service
-<a name="list_fis"></a>
 
 AWS Fault Injection Service (service prefix: `fis`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

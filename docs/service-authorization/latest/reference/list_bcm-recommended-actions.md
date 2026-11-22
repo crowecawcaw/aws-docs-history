@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Billing And Cost Management Recommended Actions
-<a name="list_bcm-recommended-actions"></a>
 
 AWS Billing And Cost Management Recommended Actions (service prefix: `bcm-recommended-actions`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

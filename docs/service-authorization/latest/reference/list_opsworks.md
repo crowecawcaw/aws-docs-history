@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS OpsWorks
-<a name="list_opsworks"></a>
 
 AWS OpsWorks (service prefix: `opsworks`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

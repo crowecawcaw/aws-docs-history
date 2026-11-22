@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon SNS
-<a name="list_sns"></a>
 
 Amazon SNS (service prefix: `sns`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

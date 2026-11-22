@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon SageMaker with MLflow
-<a name="list_sagemaker-mlflow"></a>
 
 Amazon SageMaker with MLflow (service prefix: `sagemaker-mlflow`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

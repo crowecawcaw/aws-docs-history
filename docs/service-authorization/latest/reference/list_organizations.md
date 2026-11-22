@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Organizations
-<a name="list_organizations"></a>
 
 AWS Organizations (service prefix: `organizations`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

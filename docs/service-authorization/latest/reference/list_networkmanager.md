@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Network Manager
-<a name="list_networkmanager"></a>
 
 AWS Network Manager (service prefix: `networkmanager`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -37,6 +36,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   AssociateContextStore  **
+  - **IAM action:**  [networkmanager:AssociateContextStore](#list_networkmanager-action-AssociateContextStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AssociateCustomerGateway  **
   - **IAM action:**  [networkmanager:AssociateCustomerGateway](#list_networkmanager-action-AssociateCustomerGateway) 
   - **Condition key:** 
@@ -67,6 +72,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateConnection  **
   - **IAM action:**  [networkmanager:CreateConnection](#list_networkmanager-action-CreateConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [networkmanager:TagResource](#list_networkmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateContextStore  **
+  - **IAM action:**  [networkmanager:CreateContextStore](#list_networkmanager-action-CreateContextStore)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:TagResource](#list_networkmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateCoreNetwork  **
@@ -136,6 +145,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteConnection  **
   - **IAM action:**  [networkmanager:DeleteConnection](#list_networkmanager-action-DeleteConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteContextStore  **
+  - **IAM action:**  [networkmanager:DeleteContextStore](#list_networkmanager-action-DeleteContextStore) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -212,6 +227,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DisassociateContextStore  **
+  - **IAM action:**  [networkmanager:DisassociateContextStore](#list_networkmanager-action-DisassociateContextStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DisassociateCustomerGateway  **
   - **IAM action:**  [networkmanager:DisassociateCustomerGateway](#list_networkmanager-action-DisassociateCustomerGateway) 
   - **Condition key:** 
@@ -259,6 +280,24 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   GetContextStore  **
+  - **IAM action:**  [networkmanager:GetContextStore](#list_networkmanager-action-GetContextStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContextStoreAssociation  **
+  - **IAM action:**  [networkmanager:GetContextStoreAssociation](#list_networkmanager-action-GetContextStoreAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContextVersion  **
+  - **IAM action:**  [networkmanager:GetContextVersion](#list_networkmanager-action-GetContextVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   GetCoreNetwork  **
   - **IAM action:**  [networkmanager:GetCoreNetwork](#list_networkmanager-action-GetCoreNetwork) 
@@ -422,6 +461,30 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListContextChanges  **
+  - **IAM action:**  [networkmanager:ListContextChanges](#list_networkmanager-action-ListContextChanges) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListContextStoreAssociations  **
+  - **IAM action:**  [networkmanager:ListContextStoreAssociations](#list_networkmanager-action-ListContextStoreAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContextStores  **
+  - **IAM action:**  [networkmanager:ListContextStores](#list_networkmanager-action-ListContextStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContexts  **
+  - **IAM action:**  [networkmanager:ListContexts](#list_networkmanager-action-ListContexts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListCoreNetworkPolicyVersions  **
   - **IAM action:**  [networkmanager:ListCoreNetworkPolicyVersions](#list_networkmanager-action-ListCoreNetworkPolicyVersions) 
   - **Condition key:** 
@@ -542,6 +605,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateContextStore  **
+  - **IAM action:**  [networkmanager:UpdateContextStore](#list_networkmanager-action-UpdateContextStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateCoreNetwork  **
   - **IAM action:**  [networkmanager:UpdateCoreNetwork](#list_networkmanager-action-UpdateCoreNetwork) 
   - **Condition key:** 
@@ -612,6 +681,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [global-network\*](#list_networkmanager-resource-global-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [AssociateContextStore](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_AssociateContextStore.html)  **
+  - **Description:** Grants permission to associate a transit gateway with a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[networkmanager:tgwArn](#list_networkmanager-networkmanager_tgwArn)
+  - **Access level:** Write
+
 - **   [AssociateCustomerGateway](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_AssociateCustomerGateway.html)  **
   - **Description:** Grants permission to associate a customer gateway to a device
   - **Resource types (\*required):** [device\*](#list_networkmanager-resource-device) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[networkmanager:cgwArn](#list_networkmanager-networkmanager_cgwArn)
@@ -647,6 +722,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateConnection](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateConnection.html)  **
   - **Description:** Grants permission to create a new connection
+  - **Resource types (\*required):** [global-network\*](#list_networkmanager-resource-global-network)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateContextStore](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateContextStore.html)  **
+  - **Description:** Grants permission to create a context store in a global network
   - **Resource types (\*required):** [global-network\*](#list_networkmanager-resource-global-network)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Access level:** Write
@@ -735,6 +816,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [global-network\*](#list_networkmanager-resource-global-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteContextStore](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeleteContextStore.html)  **
+  - **Description:** Grants permission to delete a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteCoreNetwork](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeleteCoreNetwork.html)  **
   - **Description:** Grants permission to delete a core network
   - **Resource types (\*required):** [core-network\*](#list_networkmanager-resource-core-network)
@@ -807,6 +894,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DisassociateContextStore](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DisassociateContextStore.html)  **
+  - **Description:** Grants permission to disassociate a transit gateway from a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[networkmanager:tgwArn](#list_networkmanager-networkmanager_tgwArn)
+  - **Access level:** Write
+
 - **   [DisassociateCustomerGateway](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DisassociateCustomerGateway.html)  **
   - **Description:** Grants permission to disassociate a customer gateway from a device
   - **Resource types (\*required):** [global-network\*](#list_networkmanager-resource-global-network)
@@ -855,6 +948,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [connection](#list_networkmanager-resource-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [global-network\*](#list_networkmanager-resource-global-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** List
+
+- **   [GetContextStore](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetContextStore.html)  **
+  - **Description:** Grants permission to retrieve a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetContextStoreAssociation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetContextStoreAssociation.html)  **
+  - **Description:** Grants permission to retrieve the association between a context store and a transit gateway
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[networkmanager:tgwArn](#list_networkmanager-networkmanager_tgwArn)
+  - **Access level:** Read
+
+- **   [GetContextVersion](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetContextVersion.html)  **
+  - **Description:** Grants permission to retrieve the current context version of a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [GetCoreNetwork](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetCoreNetwork.html)  **
   - **Description:** Grants permission to retrieve a core network
@@ -1019,6 +1130,30 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListContextChanges](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListContextChanges.html)  **
+  - **Description:** Grants permission to list the resource context changes in a context store since a context version
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListContextStoreAssociations](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListContextStoreAssociations.html)  **
+  - **Description:** Grants permission to list the transit gateway associations of a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListContextStores](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListContextStores.html)  **
+  - **Description:** Grants permission to list context stores
+  - **Resource types (\*required):** [context-store](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListContexts](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListContexts.html)  **
+  - **Description:** Grants permission to list the resource contexts in a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [ListCoreNetworkPolicyVersions](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListCoreNetworkPolicyVersions.html)  **
   - **Description:** Grants permission to list core network policy versions
   - **Resource types (\*required):** [core-network\*](#list_networkmanager-resource-core-network)
@@ -1060,10 +1195,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [attachment](#list_networkmanager-resource-attachment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [connect-peer](#list_networkmanager-resource-connect-peer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [connection](#list_networkmanager-resource-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [context-store](#list_networkmanager-resource-context-store) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [core-network](#list_networkmanager-resource-core-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [device](#list_networkmanager-resource-device) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [global-network](#list_networkmanager-resource-global-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [link](#list_networkmanager-resource-link) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [network-scope](#list_networkmanager-resource-network-scope) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[networkmanager:ManagedBy](#list_networkmanager-networkmanager_ManagedBy)
   - **Resource types (\*required):** [peering](#list_networkmanager-resource-peering) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [site](#list_networkmanager-resource-site) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -1127,10 +1264,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [attachment](#list_networkmanager-resource-attachment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [connect-peer](#list_networkmanager-resource-connect-peer) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [connection](#list_networkmanager-resource-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
+  - **Resource types (\*required):** [context-store](#list_networkmanager-resource-context-store) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [core-network](#list_networkmanager-resource-core-network) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [device](#list_networkmanager-resource-device) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [global-network](#list_networkmanager-resource-global-network) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [link](#list_networkmanager-resource-link) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
+  - **Resource types (\*required):** [network-scope](#list_networkmanager-resource-network-scope) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)<br />[networkmanager:ManagedBy](#list_networkmanager-networkmanager_ManagedBy)
   - **Resource types (\*required):** [peering](#list_networkmanager-resource-peering) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [site](#list_networkmanager-resource-site) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_networkmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Access level:** Tagging, Write
@@ -1140,10 +1279,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [attachment](#list_networkmanager-resource-attachment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [connect-peer](#list_networkmanager-resource-connect-peer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [connection](#list_networkmanager-resource-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
+  - **Resource types (\*required):** [context-store](#list_networkmanager-resource-context-store) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [core-network](#list_networkmanager-resource-core-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [device](#list_networkmanager-resource-device) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [global-network](#list_networkmanager-resource-global-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [link](#list_networkmanager-resource-link) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
+  - **Resource types (\*required):** [network-scope](#list_networkmanager-resource-network-scope) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)<br />[networkmanager:ManagedBy](#list_networkmanager-networkmanager_ManagedBy)
   - **Resource types (\*required):** [peering](#list_networkmanager-resource-peering) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [site](#list_networkmanager-resource-site) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Access level:** Tagging, Write
@@ -1158,6 +1299,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update a connection
   - **Resource types (\*required):** [connection\*](#list_networkmanager-resource-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [global-network\*](#list_networkmanager-resource-global-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateContextStore](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateContextStore.html)  **
+  - **Description:** Grants permission to update a context store
+  - **Resource types (\*required):** [context-store\*](#list_networkmanager-resource-context-store)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateCoreNetwork](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateCoreNetwork.html)  **
@@ -1222,10 +1369,12 @@ The following resource types are defined by this service and can be used in the 
 |  [attachment](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:attachment/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 |  [connect-peer](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:connect-peer/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 |  [connection](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:connection/${GlobalNetworkId}/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
+|  [context-store](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:context-store/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 |  [core-network](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:core-network/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 |  [device](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:device/${GlobalNetworkId}/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 |  [global-network](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:global-network/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 |  [link](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:link/${GlobalNetworkId}/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
+|  [network-scope](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager:${Region}:${Account}:network-scope/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[networkmanager:ManagedBy](#list_networkmanager-networkmanager_ManagedBy) | 
 |  [peering](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:peering/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 |  [site](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)  | arn:${Partition}:networkmanager::${Account}:site/${GlobalNetworkId}/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_) | 
 
@@ -1241,11 +1390,12 @@ AWS Network Manager defines the following condition keys that can be used in the
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
+|   [networkmanager:ManagedBy](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by the service that manages the network scope | String | 
 |   [networkmanager:cgwArn](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which customer gateways can be associated or disassociated | ARN | 
 |   [networkmanager:directConnectGatewayArn](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which Direct Connect gateway can be used to a create/update attachment | ARN | 
 |   [networkmanager:edgeLocations](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which edge locations can be added or removed from a Direct Connect gateway attachment | ArrayOfString | 
 |   [networkmanager:subnetArns](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which VPC subnets can be added or removed from a VPC attachment | ArrayOfARN | 
-|   [networkmanager:tgwArn](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which transit gateways can be registered, deregistered, or peered | ARN | 
+|   [networkmanager:tgwArn](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which transit gateways can be registered, deregistered, or peered, or associated with or disassociated from a context store | ARN | 
 |   [networkmanager:tgwConnectPeerArn](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which transit gateway connect peers can be associated or disassociated | ARN | 
 |   [networkmanager:tgwRtbArn](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which Transit Gateway Route Table can be used to create an attachment | ARN | 
 |   [networkmanager:vpcArn](https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html)  | Filters access by which VPC can be used to a create/update attachment | ARN | 

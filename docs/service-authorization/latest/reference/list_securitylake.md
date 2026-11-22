@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Security Lake
-<a name="list_securitylake"></a>
 
 Amazon Security Lake (service prefix: `securitylake`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

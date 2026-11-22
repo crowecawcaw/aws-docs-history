@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Bedrock
-<a name="list_bedrock"></a>
 
 Amazon Bedrock (service prefix: `bedrock`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

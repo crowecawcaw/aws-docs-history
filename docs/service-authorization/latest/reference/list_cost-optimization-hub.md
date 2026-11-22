@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Cost Optimization Hub
-<a name="list_cost-optimization-hub"></a>
 
 AWS Cost Optimization Hub (service prefix: `cost-optimization-hub`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

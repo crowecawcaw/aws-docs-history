@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT Managed Integrations
-<a name="list_iot-managed-integrations"></a>
 
 AWS IoT Managed Integrations (service prefix: `iotmanagedintegrations`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

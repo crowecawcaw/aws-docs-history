@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Inspector2 Telemetry Channel
-<a name="list_inspector2-telemetry"></a>
 
 Amazon Inspector2 Telemetry Channel (service prefix: `inspector2-telemetry`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

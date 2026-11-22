@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS App Mesh Preview
-<a name="list_appmesh-preview"></a>
 
 AWS App Mesh Preview (service prefix: `appmesh-preview`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

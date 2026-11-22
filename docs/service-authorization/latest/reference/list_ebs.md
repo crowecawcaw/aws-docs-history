@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Elastic Block Store
-<a name="list_ebs"></a>
 
 Amazon Elastic Block Store (service prefix: `ebs`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

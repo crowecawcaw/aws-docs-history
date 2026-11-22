@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Connect Health
-<a name="list_connecthealth"></a>
 
 Amazon Connect Health (service prefix: `health-agent`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -32,6 +31,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateDataset  **
+  - **IAM action:**  [health-agent:CreateDataset](#list_connecthealth-action-CreateDataset) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateDomain  **
   - **IAM action:**  [health-agent:CreateDomain](#list_connecthealth-action-CreateDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [health-agent:TagResource](#list_connecthealth-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -49,14 +54,32 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteDataset  **
+  - **IAM action:**  [health-agent:DeleteDataset](#list_connecthealth-action-DeleteDataset) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteDomain  **
   - **IAM action:**  [health-agent:DeleteDomain](#list_connecthealth-action-DeleteDomain) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   GetDataset  **
+  - **IAM action:**  [health-agent:GetDataset](#list_connecthealth-action-GetDataset) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetDomain  **
   - **IAM action:**  [health-agent:GetDomain](#list_connecthealth-action-GetDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMedicalCodingJob  **
+  - **IAM action:**  [health-agent:GetMedicalCodingJob](#list_connecthealth-action-GetMedicalCodingJob) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -79,6 +102,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListDatasets  **
+  - **IAM action:**  [health-agent:ListDatasets](#list_connecthealth-action-ListDatasets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListDomains  **
   - **IAM action:**  [health-agent:ListDomains](#list_connecthealth-action-ListDomains) 
   - **Condition key:** 
@@ -97,6 +126,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   StartMedicalCodingJob  **
+  - **IAM action:**  [health-agent:StartMedicalCodingJob](#list_connecthealth-action-StartMedicalCodingJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartMedicalScribeListeningSession  **
   - **IAM action:**  [health-agent:StartMedicalScribeListeningSession](#list_connecthealth-action-StartMedicalScribeListeningSession) 
   - **Condition key:** 
@@ -105,6 +140,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   StartPatientInsightsJob  **
   - **IAM action:**  [health-agent:StartPatientInsightsJob](#list_connecthealth-action-StartPatientInsightsJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SubmitFeedback  **
+  - **IAM action:**  [health-agent:SubmitFeedback](#list_connecthealth-action-SubmitFeedback) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -137,6 +178,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [CreateDataset](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_CreateDataset.html)  **
+  - **Description:** Grants permission to create a dataset within a domain
+  - **Resource types (\*required):** [Dataset\*](#list_connecthealth-resource-Dataset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CreateDomain](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_CreateDomain.html)  **
   - **Description:** Grants permission to create a new domain for managing HealthAgent resources
   - **Resource types (\*required):** 
@@ -155,11 +202,23 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteDataset](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_DeleteDataset.html)  **
+  - **Description:** Grants permission to delete a dataset
+  - **Resource types (\*required):** [Dataset\*](#list_connecthealth-resource-Dataset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteDomain](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_DeleteDomain.html)  **
   - **Description:** Grants permission to delete a domain and all associated resources
   - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** Write
+
+- **   [GetDataset](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetDataset.html)  **
+  - **Description:** Grants permission to retrieve information about a dataset
+  - **Resource types (\*required):** [Dataset\*](#list_connecthealth-resource-Dataset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [GetDomain](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetDomain.html)  **
   - **Description:** Grants permission to retrieve information about a domain
@@ -171,6 +230,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve aggregated analytics for a domain
   - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMedicalCodingJob](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetMedicalCodingJob.html)  **
+  - **Description:** Grants permission to get details of a started medical coding job
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MedicalCodingJob\*](#list_connecthealth-resource-MedicalCodingJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetMedicalScribeListeningSession](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetMedicalScribeListeningSession.html)  **
@@ -190,6 +255,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** Read
+
+- **   [ListDatasets](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_ListDatasets.html)  **
+  - **Description:** Grants permission to list the datasets within a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** List
 
 - **   [ListDomains](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_ListDomains.html)  **
   - **Description:** Grants permission to list domains for a given account
@@ -215,6 +286,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [StartMedicalCodingJob](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_StartMedicalCodingJob.html)  **
+  - **Description:** Grants permission to start a medical coding job
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MedicalCodingJob\*](#list_connecthealth-resource-MedicalCodingJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StartMedicalScribeListeningSession](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_StartMedicalScribeListeningSession.html)  **
   - **Description:** Grants permission to start a new Medical Scribe listening session for real-time audio transcription
   - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
@@ -225,6 +302,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to start a new patient insights job
   - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [PatientInsightsJob\*](#list_connecthealth-resource-PatientInsightsJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SubmitFeedback](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_SubmitFeedback.html)  **
+  - **Description:** Grants permission to submit feedback on the output of a job/session within a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [TagResource](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_TagResource.html)  **
@@ -448,8 +531,10 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [Agent](https://docs.aws.amazon.com/connecthealth/latest/userguide/agent-customization.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/agent/${AgentId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
+|  [Dataset](https://docs.aws.amazon.com/connecthealth/latest/userguide/)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/dataset/${DatasetId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
 |  [Domain](https://docs.aws.amazon.com/connecthealth/latest/userguide/setting-up.html#setting-up-create-domain)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
 |  [Integration](https://docs.aws.amazon.com/connecthealth/latest/userguide/configuring-testing-pe-agents.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/integration/${IntegrationId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
+|  [MedicalCodingJob](https://docs.aws.amazon.com/connecthealth/latest/userguide/)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/medical-coding-job/${JobId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
 |  [PatientInsightsJob](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-insights.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/patient-insights-job/${JobId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
 |  [Session](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/session/${SessionId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
 |  [Subscription](https://docs.aws.amazon.com/connecthealth/latest/userguide/ambient-documentation.html#al-subscription-management)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/subscription/${SubscriptionId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 

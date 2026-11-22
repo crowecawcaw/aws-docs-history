@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EventBridge Scheduler
-<a name="list_scheduler"></a>
 
 Amazon EventBridge Scheduler (service prefix: `scheduler`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

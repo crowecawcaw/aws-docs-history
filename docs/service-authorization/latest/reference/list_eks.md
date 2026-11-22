@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Elastic Kubernetes Service
-<a name="list_eks"></a>
 
 Amazon Elastic Kubernetes Service (service prefix: `eks`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon ECS MCP Service
-<a name="list_ecs-mcp"></a>
 
 Amazon ECS MCP Service (service prefix: `ecs-mcp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

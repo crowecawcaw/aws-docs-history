@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental MediaPackage VOD
-<a name="list_mediapackage-vod"></a>
 
 AWS Elemental MediaPackage VOD (service prefix: `mediapackage-vod`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

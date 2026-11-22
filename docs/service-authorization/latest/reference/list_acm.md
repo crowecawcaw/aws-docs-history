@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Certificate Manager
-<a name="list_acm"></a>
 
 AWS Certificate Manager (service prefix: `acm`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

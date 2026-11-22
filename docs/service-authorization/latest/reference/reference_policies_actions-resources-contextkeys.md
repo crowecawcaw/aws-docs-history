@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS services
-<a name="reference_policies_actions-resources-contextkeys"></a>
 
 Each AWS service can define API operations, actions, resources, and condition context keys for use in IAM policies. This topic describes how the elements provided for each service are documented. 
 
@@ -49,13 +48,16 @@ The **condition keys** table lists all of the condition keys that you can use in
 + [AWS Billing Conductor (billingconductor)](list_billingconductor.md)
 + [AWS Cloud Control API (cloudformation)](list_cloudcontrol.md)
 + [AWS Cloud Map (servicediscovery)](list_servicediscovery.md)
++ [AWS Abuse Signal API (abuse)](list_abuse-signal.md)
 + [AWS Account Management (account)](list_account.md)
 + [AWS Action Recommendations (action-recommendations)](list_action-recommendations.md)
 + [AWS Activate (activate)](list_activate.md)
 + [AWS Agent Registry (agent-registry)](list_agent-registry.md)
++ [AWS Agent Registry Public Search and Discovery (agent-discovery)](list_agent-discovery.md)
 + [AWS Amplify (amplify)](list_amplify.md)
 + [AWS Amplify Admin (amplifybackend)](list_amplifybackend.md)
 + [AWS Amplify UI Builder (amplifyuibuilder)](list_amplifyuibuilder.md)
++ [AWS API Portal (apiportal)](list_apiportal.md)
 + [AWS App Mesh (appmesh)](list_appmesh.md)
 + [AWS App Mesh Preview (appmesh-preview)](list_appmesh-preview.md)
 + [AWS App Runner (apprunner)](list_apprunner.md)
@@ -123,6 +125,7 @@ The **condition keys** table lists all of the condition keys that you can use in
 + [AWS Direct Connect (directconnect)](list_directconnect.md)
 + [AWS Directory Service (ds)](list_ds.md)
 + [AWS Directory Service Data (ds-data)](list_ds-data.md)
++ [AWS Edge Analytics Platform (apex)](list_apex.md)
 + [AWS Elastic Beanstalk (elasticbeanstalk)](list_elasticbeanstalk.md)
 + [AWS Elastic Disaster Recovery (drs)](list_drs.md)
 + [AWS Elastic Load Balancing (elasticloadbalancing)](list_elb.md)
@@ -230,7 +233,7 @@ The **condition keys** table lists all of the condition keys that you can use in
 + [AWS Resource Explorer (resource-explorer-2)](list_resource-explorer-2.md)
 + [AWS Resource Groups (resource-groups)](list_resource-groups.md)
 + [AWS RoboMaker (robomaker)](list_robomaker.md)
-+ [AWS Route53 Global Resolver (route53globalresolver)](list_route53globalresolver.md)
++ [AWS Route 53 Global Resolver (route53globalresolver)](list_route53globalresolver.md)
 + [AWS RTB Fabric (rtbfabric)](list_rtbfabric.md)
 + [AWS Savings Plans (savingsplans)](list_savingsplans.md)
 + [AWS Secrets Manager (secretsmanager)](list_secretsmanager.md)
@@ -279,11 +282,13 @@ The **condition keys** table lists all of the condition keys that you can use in
 + [AWS WAF V2 (wafv2)](list_wafv2.md)
 + [AWS Well-Architected Tool (wellarchitected)](list_wellarchitected.md)
 + [AWS Wickr (wickr)](list_wickr.md)
++ [AWS Workload Telemetry Service (workload-telemetry)](list_workload-telemetry.md)
 + [AWS WorkSpaces Managed Instances (workspaces-instances)](list_workspaces-instances.md)
 + [AWS X-Ray (xray)](list_xray.md)
 + [AWS Billing (billing)](list_billing.md)
 + [AWS Billing and Cost Management Dashboards (bcm-dashboards)](list_bcm-dashboards.md)
 + [AWS Billing And Cost Management Data Exports (bcm-data-exports)](list_bcm-data-exports.md)
++ [AWS Billing and Cost Management Data Hub (bcm-data-hub)](list_bcm-data-hub.md)
 + [AWS Billing And Cost Management Pricing Calculator (bcm-pricing-calculator)](list_bcm-pricing-calculator.md)
 + [AWS Billing And Cost Management Recommended Actions (bcm-recommended-actions)](list_bcm-recommended-actions.md)
 + [AWS Billing Console (aws-portal)](list_aws-portal.md)
@@ -446,6 +451,7 @@ The **condition keys** table lists all of the condition keys that you can use in
 + [Amazon One Enterprise (one)](list_one.md)
 + [Amazon OpenSearch (opensearch)](list_opensearch.md)
 + [Amazon OpenSearch Ingestion (osis)](list_osis.md)
++ [Amazon OpenSearch Memory (osm)](list_opensearchmemory.md)
 + [Amazon OpenSearch Serverless (aoss)](list_opensearchserverless.md)
 + [Amazon OpenSearch Service (es)](list_es.md)
 + [Amazon Personalize (personalize)](list_personalize.md)

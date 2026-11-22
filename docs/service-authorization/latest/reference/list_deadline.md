@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Deadline Cloud
-<a name="list_deadline"></a>
 
 AWS Deadline Cloud (service prefix: `deadline`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

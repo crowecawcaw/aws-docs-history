@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Timestream InfluxDB
-<a name="list_timestream-influxdb"></a>
 
 Amazon Timestream InfluxDB (service prefix: `timestream-influxdb`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

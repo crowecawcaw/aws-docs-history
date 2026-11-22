@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon DocumentDB Elastic Clusters
-<a name="list_docdb-elastic"></a>
 
 Amazon DocumentDB Elastic Clusters (service prefix: `docdb-elastic`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS DataSync
-<a name="list_datasync"></a>
 
 AWS DataSync (service prefix: `datasync`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

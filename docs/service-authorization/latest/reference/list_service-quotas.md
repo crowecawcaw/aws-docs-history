@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Service Quotas
-<a name="list_service-quotas"></a>
 
 Service Quotas (service prefix: `servicequotas`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

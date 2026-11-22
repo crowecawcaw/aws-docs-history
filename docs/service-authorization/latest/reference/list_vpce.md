@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS PrivateLink
-<a name="list_vpce"></a>
 
 AWS PrivateLink (service prefix: `vpce`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

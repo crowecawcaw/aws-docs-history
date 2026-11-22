@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Route 53 Recovery Cluster
-<a name="list_route53-recovery-cluster"></a>
 
 Amazon Route 53 Recovery Cluster (service prefix: `route53-recovery-cluster`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

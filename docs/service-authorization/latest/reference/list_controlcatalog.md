@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Control Catalog
-<a name="list_controlcatalog"></a>
 
 AWS Control Catalog (service prefix: `controlcatalog`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

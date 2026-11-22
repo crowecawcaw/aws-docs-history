@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Pinpoint Email Service
-<a name="list_pinpoint-email"></a>
 
 Amazon Pinpoint Email Service (service prefix: `ses`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -242,6 +241,11 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   SendEmail  **
+  - **IAM action:**  [ses:SendEmail](#list_pinpoint-email-action-SendEmail)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ses:SendRawEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ses:SendTemplatedEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   TagResource  **
   - **IAM action:**  [ses:TagResource](#list_pinpoint-email-action-TagResource) 

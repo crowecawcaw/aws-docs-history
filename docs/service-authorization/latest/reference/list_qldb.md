@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon QLDB
-<a name="list_qldb"></a>
 
 Amazon QLDB (service prefix: `qldb`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon S3 Glacier
-<a name="list_glacier"></a>
 
 Amazon S3 Glacier (service prefix: `glacier`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

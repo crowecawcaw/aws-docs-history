@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS App Runner
-<a name="list_apprunner"></a>
 
 AWS App Runner (service prefix: `apprunner`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

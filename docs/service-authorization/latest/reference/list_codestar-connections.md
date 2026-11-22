@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CodeStar Connections
-<a name="list_codestar-connections"></a>
 
 AWS CodeStar Connections (service prefix: `codestar-connections`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

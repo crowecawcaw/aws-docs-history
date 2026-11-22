@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Honeycode
-<a name="list_honeycode"></a>
 
 Amazon Honeycode (service prefix: `honeycode`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

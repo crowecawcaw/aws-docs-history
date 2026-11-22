@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Simple Email Service - Mail Manager
-<a name="list_mailmanager"></a>
 
 Amazon Simple Email Service - Mail Manager (service prefix: `ses`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

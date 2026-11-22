@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Management Console Mobile App
-<a name="list_consoleapp"></a>
 
 AWS Management Console Mobile App (service prefix: `consoleapp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

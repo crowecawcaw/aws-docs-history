@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Nimble Studio
-<a name="list_nimble"></a>
 
 Amazon Nimble Studio (service prefix: `nimble`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

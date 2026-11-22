@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkDocs
-<a name="list_workdocs"></a>
 
 Amazon WorkDocs (service prefix: `workdocs`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Elastic Container Registry
-<a name="list_ecr"></a>
 
 Amazon Elastic Container Registry (service prefix: `ecr`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

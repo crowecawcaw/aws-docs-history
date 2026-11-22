@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Private CA Connector for Active Directory
-<a name="list_pca-connector-ad"></a>
 
 AWS Private CA Connector for Active Directory (service prefix: `pca-connector-ad`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Route 53
-<a name="list_route53"></a>
 
 Amazon Route 53 (service prefix: `route53`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -66,6 +65,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   CreateHealthCheckSource  **
+  - **IAM action:**  [route53:ChangeTagsForResource](#list_route53-action-ChangeTagsForResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [route53:CreateHealthCheckSource](#list_route53-action-CreateHealthCheckSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateHostedZone  **
   - **IAM action:**  [route53:CreateHostedZone](#list_route53-action-CreateHostedZone) 
@@ -135,6 +138,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteHealthCheck  **
   - **IAM action:**  [route53:DeleteHealthCheck](#list_route53-action-DeleteHealthCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteHealthCheckSource  **
+  - **IAM action:**  [route53:DeleteHealthCheckSource](#list_route53-action-DeleteHealthCheckSource) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -253,6 +262,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   GetHealthCheckSource  **
+  - **IAM action:**  [route53:GetHealthCheckSource](#list_route53-action-GetHealthCheckSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetHealthCheckStatus  **
   - **IAM action:**  [route53:GetHealthCheckStatus](#list_route53-action-GetHealthCheckStatus) 
   - **Condition key:** 
@@ -264,6 +279,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   GetHostedZoneChangeBatch  **
+  - **IAM action:**  [route53:GetHostedZoneChangeBatch](#list_route53-action-GetHostedZoneChangeBatch)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [route53:ListResourceRecordSets](#list_route53-action-ListResourceRecordSets)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
 
 - **   GetHostedZoneCount  **
   - **IAM action:**  [route53:GetHostedZoneCount](#list_route53-action-GetHostedZoneCount) 
@@ -337,11 +356,29 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListHealthCheckSources  **
+  - **IAM action:**  [route53:ListHealthCheckSources](#list_route53-action-ListHealthCheckSources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListHealthChecks  **
   - **IAM action:**  [route53:ListHealthChecks](#list_route53-action-ListHealthChecks) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   ListHealthChecksBySource  **
+  - **IAM action:**  [route53:ListHealthChecksBySource](#list_route53-action-ListHealthChecksBySource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListHostedZoneChangeBatches  **
+  - **IAM action:**  [route53:ListHostedZoneChangeBatches](#list_route53-action-ListHostedZoneChangeBatches) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListHostedZones  **
   - **IAM action:**  [route53:ListHostedZones](#list_route53-action-ListHostedZones) 
@@ -366,6 +403,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   ListResourceRecordSetChanges  **
+  - **IAM action:**  [route53:GetHostedZoneChangeBatch](#list_route53-action-GetHostedZoneChangeBatch)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [route53:ListResourceRecordSets](#list_route53-action-ListResourceRecordSets)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
 
 - **   ListResourceRecordSetProtections  **
   - **IAM action:**  [route53:ListResourceRecordSetProtections](#list_route53-action-ListResourceRecordSetProtections) 
@@ -457,6 +498,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateHostedZoneTier  **
+  - **IAM action:**  [route53:UpdateHostedZoneTier](#list_route53-action-UpdateHostedZoneTier) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateTrafficPolicyComment  **
   - **IAM action:**  [route53:UpdateTrafficPolicyComment](#list_route53-action-UpdateTrafficPolicyComment) 
   - **Condition key:** 
@@ -504,8 +551,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [ChangeTagsForResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html)  **
-  - **Description:** Grants permission to add, edit, or delete tags for a health check or a hosted zone
+  - **Description:** Grants permission to add, edit, or delete tags for a health check, health check source, or hosted zone
   - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck) / **Condition keys:**  
+  - **Resource types (\*required):** [healthchecksource\*](#list_route53-resource-healthchecksource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-aws_TagKeys)
   - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone) / **Condition keys:**  
   - **Access level:** Tagging, Write
 
@@ -519,6 +567,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create a new health check, which monitors the health and performance of your web applications, web servers, and other resources
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateHealthCheckSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheckSource.html)  **
+  - **Description:** Grants permission to create a health check source, which Route 53 uses to run health checks against private endpoints in a VPC
+  - **Resource types (\*required):** [healthchecksource\*](#list_route53-resource-healthchecksource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html)  **
@@ -597,6 +651,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to delete a health check
   - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck)
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteHealthCheckSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheckSource.html)  **
+  - **Description:** Grants permission to delete a health check source
+  - **Resource types (\*required):** [healthchecksource\*](#list_route53-resource-healthchecksource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html)  **
@@ -719,6 +779,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [GetHealthCheckSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckSource.html)  **
+  - **Description:** Grants permission to get information about a specified health check source
+  - **Resource types (\*required):** [healthchecksource\*](#list_route53-resource-healthchecksource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetHealthCheckStatus](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html)  **
   - **Description:** Grants permission to get the status of a specified health check
   - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck)
@@ -727,6 +793,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html)  **
   - **Description:** Grants permission to get information about a specified hosted zone including the four name servers that Route 53 assigned to the hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetHostedZoneChangeBatch](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneChangeBatch.html)  **
+  - **Description:** Grants permission to get the records that a specified change batch created, updated, or deleted in a hosted zone, and to list the changes to a specified record in a hosted zone's change history
   - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
   - **Condition keys:**  
   - **Access level:** List
@@ -809,11 +881,29 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [ListHealthCheckSources](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthCheckSources.html)  **
+  - **Description:** Grants permission to get a list of the health check sources that are associated with the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html)  **
   - **Description:** Grants permission to get a list of the health checks that are associated with the current AWS account
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
+
+- **   [ListHealthChecksBySource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecksBySource.html)  **
+  - **Description:** Grants permission to get a list of the health checks that use a specified health check source
+  - **Resource types (\*required):** [healthchecksource\*](#list_route53-resource-healthchecksource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListHostedZoneChangeBatches](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZoneChangeBatches.html)  **
+  - **Description:** Grants permission to get a list of the change batches in a specified hosted zone's change history
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
 
 - **   [ListHostedZones](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html)  **
   - **Description:** Grants permission to get a list of the public and private hosted zones that are associated with the current AWS account
@@ -864,14 +954,16 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResource.html)  **
-  - **Description:** Grants permission to list tags for one health check or hosted zone
+  - **Description:** Grants permission to list tags for one health check, health check source, or hosted zone
   - **Resource types (\*required):** [healthcheck](#list_route53-resource-healthcheck) / **Condition keys:**  
+  - **Resource types (\*required):** [healthchecksource](#list_route53-resource-healthchecksource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone) / **Condition keys:**  
   - **Access level:** Read
 
 - **   [ListTagsForResources](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html)  **
-  - **Description:** Grants permission to list tags for up to 10 health checks or hosted zones
+  - **Description:** Grants permission to list tags for up to 10 health checks, health check sources, or hosted zones
   - **Resource types (\*required):** [healthcheck](#list_route53-resource-healthcheck) / **Condition keys:**  
+  - **Resource types (\*required):** [healthchecksource](#list_route53-resource-healthchecksource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone) / **Condition keys:**  
   - **Access level:** Read
 
@@ -935,6 +1027,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [UpdateHostedZoneTier](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneTier.html)  **
+  - **Description:** Grants permission to update the tier for a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [UpdateIpGuardrailPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateIpGuardrailPolicy.html)  **
   - **Description:** Grants permission to update the rules of an IP guardrail policy
   - **Resource types (\*required):** 
@@ -968,6 +1066,7 @@ The following resource types are defined by this service and can be used in the 
 |  [cidrcollection](API_CidrCollection.html)  | arn:${Partition}:route53:::cidrcollection/${Id} |   | 
 |  [delegationset](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-concepts.html#route-53-concepts-reusable-delegation-set)  | arn:${Partition}:route53:::delegationset/${Id} |   | 
 |  [healthcheck](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-concepts.html#route-53-concepts-health-check)  | arn:${Partition}:route53:::healthcheck/${Id} |   | 
+|  [healthchecksource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckSource.html)  | arn:${Partition}:route53:::healthchecksource/${Id} | [aws:ResourceTag/${TagKey}](#list_route53-aws_ResourceTag___TagKey_) | 
 |  [hostedzone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-concepts.html#route-53-concepts-hosted-zone)  | arn:${Partition}:route53:::hostedzone/${Id} |   | 
 |  [queryloggingconfig](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html)  | arn:${Partition}:route53:::queryloggingconfig/${Id} |   | 
 |  [trafficpolicy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-policies.html)  | arn:${Partition}:route53:::trafficpolicy/${Id} |   | 
@@ -983,6 +1082,9 @@ Amazon Route 53 defines the following condition keys that can be used in the `Co
 
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag's key and value in a request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters actions based on the presence of tag key-value pairs in the request | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys in a request | ArrayOfString | 
 |   [route53:ChangeResourceRecordSetsActions](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrsetConditionKeys)  | Filters access by the change actions, CREATE, UPSERT, or DELETE, in a ChangeResourceRecordSets request | ArrayOfString | 
 |   [route53:ChangeResourceRecordSetsNormalizedRecordNames](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrsetConditionKeys)  | Filters access by the normalized DNS record names in a ChangeResourceRecordSets request | ArrayOfString | 
 |   [route53:ChangeResourceRecordSetsRecordTypes](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrsetConditionKeys)  | Filters access by the DNS record types in a ChangeResourceRecordSets request | ArrayOfString | 

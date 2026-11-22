@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Textract
-<a name="list_textract"></a>
 
 Amazon Textract (service prefix: `textract`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -51,6 +50,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [textract:CreateAdapterVersion](#list_textract-action-CreateAdapterVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [textract:TagResource](#list_textract-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   CreateBlueprint  **
+  - **IAM action:**  [textract:CreateBlueprint](#list_textract-action-CreateBlueprint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [textract:TagResource](#list_textract-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateBlueprintVersion  **
+  - **IAM action:**  [textract:CreateBlueprintVersion](#list_textract-action-CreateBlueprintVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateProject  **
+  - **IAM action:**  [textract:CreateProject](#list_textract-action-CreateProject)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [textract:TagResource](#list_textract-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   DeleteAdapter  **
   - **IAM action:**  [textract:DeleteAdapter](#list_textract-action-DeleteAdapter) 
   - **Condition key:** 
@@ -59,6 +72,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteAdapterVersion  **
   - **IAM action:**  [textract:DeleteAdapterVersion](#list_textract-action-DeleteAdapterVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteBlueprint  **
+  - **IAM action:**  [textract:DeleteBlueprint](#list_textract-action-DeleteBlueprint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProject  **
+  - **IAM action:**  [textract:DeleteProject](#list_textract-action-DeleteProject) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -81,8 +106,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetBlueprint  **
+  - **IAM action:**  [textract:GetBlueprint](#list_textract-action-GetBlueprint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetDocumentAnalysis  **
   - **IAM action:**  [textract:GetDocumentAnalysis](#list_textract-action-GetDocumentAnalysis) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDocumentInsights  **
+  - **IAM action:**  [textract:GetDocumentInsights](#list_textract-action-GetDocumentInsights) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -111,6 +148,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetProject  **
+  - **IAM action:**  [textract:GetProject](#list_textract-action-GetProject) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListAdapterVersions  **
   - **IAM action:**  [textract:ListAdapterVersions](#list_textract-action-ListAdapterVersions) 
   - **Condition key:** 
@@ -123,6 +166,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListBlueprints  **
+  - **IAM action:**  [textract:ListBlueprints](#list_textract-action-ListBlueprints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProjects  **
+  - **IAM action:**  [textract:ListProjects](#list_textract-action-ListProjects) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTagsForResource  **
   - **IAM action:**  [textract:ListTagsForResource](#list_textract-action-ListTagsForResource) 
   - **Condition key:** 
@@ -132,6 +187,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   StartDocumentAnalysis  **
   - **IAM action:**  [textract:StartDocumentAnalysis](#list_textract-action-StartDocumentAnalysis)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** textract.amazonaws.com / **Access level:** Write
+
+- **   StartDocumentInsights  **
+  - **IAM action:**  [textract:StartDocumentInsights](#list_textract-action-StartDocumentInsights)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [textract:TagResource](#list_textract-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   StartDocumentTextDetection  **
   - **IAM action:**  [textract:StartDocumentTextDetection](#list_textract-action-StartDocumentTextDetection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -159,6 +218,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateAdapter  **
   - **IAM action:**  [textract:UpdateAdapter](#list_textract-action-UpdateAdapter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateBlueprint  **
+  - **IAM action:**  [textract:UpdateBlueprint](#list_textract-action-UpdateBlueprint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateProject  **
+  - **IAM action:**  [textract:UpdateProject](#list_textract-action-UpdateProject) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -203,6 +274,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateBlueprint](https://docs.aws.amazon.com/textract/latest/dg/API_CreateBlueprint.html)  **
+  - **Description:** Grants permission to create an Amazon Textract blueprint
+  - **Resource types (\*required):** [blueprint\*](#list_textract-resource-blueprint)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateBlueprintVersion](https://docs.aws.amazon.com/textract/latest/dg/API_CreateBlueprintVersion.html)  **
+  - **Description:** Grants permission to create an Amazon Textract blueprint version
+  - **Resource types (\*required):** [blueprint\*](#list_textract-resource-blueprint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateProject](https://docs.aws.amazon.com/textract/latest/dg/API_CreateProject.html)  **
+  - **Description:** Grants permission to create an Amazon Textract project
+  - **Resource types (\*required):** [blueprint](#list_textract-resource-blueprint) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [project\*](#list_textract-resource-project) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [DeleteAdapter](https://docs.aws.amazon.com/textract/latest/dg/API_DeleteAdapter.html)  **
   - **Description:** Grants permission to delete an Amazon Textract adapter
   - **Resource types (\*required):** [adapter\*](#list_textract-resource-adapter)
@@ -212,6 +301,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteAdapterVersion](https://docs.aws.amazon.com/textract/latest/dg/API_DeleteAdapterVersion.html)  **
   - **Description:** Grants permission to delete an Amazon Textract adapter version
   - **Resource types (\*required):** [adapterversion\*](#list_textract-resource-adapterversion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteBlueprint](https://docs.aws.amazon.com/textract/latest/dg/API_DeleteBlueprint.html)  **
+  - **Description:** Grants permission to delete an Amazon Textract blueprint
+  - **Resource types (\*required):** [blueprint\*](#list_textract-resource-blueprint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProject](https://docs.aws.amazon.com/textract/latest/dg/API_DeleteProject.html)  **
+  - **Description:** Grants permission to delete an Amazon Textract project
+  - **Resource types (\*required):** [project\*](#list_textract-resource-project)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -233,10 +334,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetBlueprint](https://docs.aws.amazon.com/textract/latest/dg/API_GetBlueprint.html)  **
+  - **Description:** Grants permission to get an Amazon Textract blueprint
+  - **Resource types (\*required):** [blueprint\*](#list_textract-resource-blueprint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/dg/API_GetDocumentAnalysis.html)  **
   - **Description:** Grants permission to return information about a document analysis job
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDocumentInsights](https://docs.aws.amazon.com/textract/latest/dg/API_GetDocumentInsights.html)  **
+  - **Description:** Grants permission to return information about a document insights job
+  - **Resource types (\*required):** [job\*](#list_textract-resource-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/dg/API_GetDocumentTextDetection.html)  **
@@ -263,6 +376,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetProject](https://docs.aws.amazon.com/textract/latest/dg/API_GetProject.html)  **
+  - **Description:** Grants permission to get an Amazon Textract project
+  - **Resource types (\*required):** [project\*](#list_textract-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [ListAdapterVersions](https://docs.aws.amazon.com/textract/latest/dg/API_ListAdapterVersions.html)  **
   - **Description:** Grants permission to list Amazon Textract adapter versions
   - **Resource types (\*required):** 
@@ -275,16 +394,38 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [ListBlueprints](https://docs.aws.amazon.com/textract/latest/dg/API_ListBlueprints.html)  **
+  - **Description:** Grants permission to list Amazon Textract blueprints
+  - **Resource types (\*required):** [blueprint\*](#list_textract-resource-blueprint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [project](#list_textract-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProjects](https://docs.aws.amazon.com/textract/latest/dg/API_ListProjects.html)  **
+  - **Description:** Grants permission to list Amazon Textract projects
+  - **Resource types (\*required):** [blueprint](#list_textract-resource-blueprint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [project\*](#list_textract-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [ListTagsForResource](https://docs.aws.amazon.com/textract/latest/dg/API_ListTagsForResource.html)  **
   - **Description:** Grants permission to return a list of tags associated with a resource
   - **Resource types (\*required):** [adapter](#list_textract-resource-adapter) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [adapterversion](#list_textract-resource-adapterversion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [blueprint](#list_textract-resource-blueprint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [job](#list_textract-resource-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [project](#list_textract-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/dg/API_StartDocumentAnalysis.html)  **
   - **Description:** Grants permission to start an asynchronous job to detect instances of real-world document entities within an image or pdf provided as input
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartDocumentInsights](https://docs.aws.amazon.com/textract/latest/dg/API_StartDocumentInsights.html)  **
+  - **Description:** Grants permission to start an asynchronous job to extract insights from a document
+  - **Resource types (\*required):** [blueprint](#list_textract-resource-blueprint) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [job\*](#list_textract-resource-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [project](#list_textract-resource-project) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
   - **Access level:** Write
 
 - **   [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/dg/API_StartDocumentTextDetection.html)  **
@@ -309,18 +450,36 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to add one or more tags to a resource
   - **Resource types (\*required):** [adapter](#list_textract-resource-adapter) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
   - **Resource types (\*required):** [adapterversion](#list_textract-resource-adapterversion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [blueprint](#list_textract-resource-blueprint) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [job](#list_textract-resource-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [project](#list_textract-resource-project) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_textract-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/textract/latest/dg/API_UntagResource.html)  **
   - **Description:** Grants permission to remove one or more tags from a resource
   - **Resource types (\*required):** [adapter](#list_textract-resource-adapter) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
   - **Resource types (\*required):** [adapterversion](#list_textract-resource-adapterversion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [blueprint](#list_textract-resource-blueprint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [job](#list_textract-resource-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
+  - **Resource types (\*required):** [project](#list_textract-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_textract-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UpdateAdapter](https://docs.aws.amazon.com/textract/latest/dg/API_UpdateAdapter.html)  **
   - **Description:** Grants permission to update Amazon Textract adapter
   - **Resource types (\*required):** [adapter\*](#list_textract-resource-adapter)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateBlueprint](https://docs.aws.amazon.com/textract/latest/dg/API_UpdateBlueprint.html)  **
+  - **Description:** Grants permission to update an Amazon Textract blueprint
+  - **Resource types (\*required):** [blueprint\*](#list_textract-resource-blueprint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateProject](https://docs.aws.amazon.com/textract/latest/dg/API_UpdateProject.html)  **
+  - **Description:** Grants permission to update an Amazon Textract project
+  - **Resource types (\*required):** [blueprint](#list_textract-resource-blueprint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [project\*](#list_textract-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 
@@ -336,6 +495,9 @@ The following resource types are defined by this service and can be used in the 
 | --- | --- | --- | 
 |  [adapter](https://docs.aws.amazon.com/textract/latest/dg/API_AdapterOverview.html)  | arn:${Partition}:textract:${Region}:${Account}:/adapters/${AdapterId} | [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_) | 
 |  [adapterversion](https://docs.aws.amazon.com/textract/latest/dg/API_AdapterVersionOverview.html)  | arn:${Partition}:textract:${Region}:${Account}:/adapters/${AdapterId}/versions/${AdapterVersion} | [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_) | 
+|  [blueprint](https://docs.aws.amazon.com/textract/latest/dg/API_BlueprintSummary.html)  | arn:${Partition}:textract:${Region}:${Account}:blueprint/${BlueprintId} | [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_) | 
+|  [job](https://docs.aws.amazon.com/textract/latest/dg/API_StartDocumentInsights.html)  | arn:${Partition}:textract:${Region}:${Account}:job/${JobId} | [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_) | 
+|  [project](https://docs.aws.amazon.com/textract/latest/dg/API_ProjectSummary.html)  | arn:${Partition}:textract:${Region}:${Account}:project/${ProjectId} | [aws:ResourceTag/${TagKey}](#list_textract-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Textract
 <a name="list_textract-policy-keys"></a>

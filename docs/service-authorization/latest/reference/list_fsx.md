@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon FSx
-<a name="list_fsx"></a>
 
 Amazon FSx (service prefix: `fsx`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -336,6 +335,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [volume](#list_fsx-resource-volume) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateClusterPeer](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateClusterPeer.html)  **
+  - **Description:** Grants permission to create a cluster peer relationship between an Amazon FSx for Ontap file system and another Amazon FSx for Ontap file system or ONTAP cluster
+  - **Resource types (\*required):** [cluster-peer\*](#list_fsx-resource-cluster-peer) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [file-system\*](#list_fsx-resource-file-system) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateDataRepositoryAssociation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateDataRepositoryAssociation.html)  **
   - **Description:** Grants permission to create a new data respository association for an Amazon FSx for Lustre file system
   - **Resource types (\*required):** [association\*](#list_fsx-resource-association) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)<br />[fsx:NfsDataRepositoryAuthenticationEnabled](#list_fsx-fsx_NfsDataRepositoryAuthenticationEnabled)<br />[fsx:NfsDataRepositoryEncryptionInTransitEnabled](#list_fsx-fsx_NfsDataRepositoryEncryptionInTransitEnabled)
@@ -366,16 +371,43 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [file-system\*](#list_fsx-resource-file-system) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateSnapmirrorPolicy](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateSnapmirrorPolicy.html)  **
+  - **Description:** Grants permission to create a SnapMirror policy for an Amazon FSx for Ontap file system or storage virtual machine
+  - **Resource types (\*required):** [file-system](#list_fsx-resource-file-system) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapmirror-policy\*](#list_fsx-resource-snapmirror-policy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [storage-virtual-machine](#list_fsx-resource-storage-virtual-machine) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSnapmirrorRelationship](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateSnapmirrorRelationship.html)  **
+  - **Description:** Grants permission to create a SnapMirror relationship that replicates data from a source volume to a destination volume
+  - **Resource types (\*required):** [snapmirror-policy](#list_fsx-resource-snapmirror-policy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapmirror-relationship\*](#list_fsx-resource-snapmirror-relationship) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)<br />[fsx:SnapmirrorSourcePath](#list_fsx-fsx_SnapmirrorSourcePath)
+  - **Resource types (\*required):** [volume\*](#list_fsx-resource-volume) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateSnapshot](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateSnapshot.html)  **
   - **Description:** Grants permission to create a new snapshot on a volume
   - **Resource types (\*required):** [snapshot\*](#list_fsx-resource-snapshot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [volume\*](#list_fsx-resource-volume) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateSnapshotPolicy](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateSnapshotPolicy.html)  **
+  - **Description:** Grants permission to create a snapshot policy for an Amazon FSx for Ontap file system or storage virtual machine
+  - **Resource types (\*required):** [file-system](#list_fsx-resource-file-system) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapshot-policy\*](#list_fsx-resource-snapshot-policy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [storage-virtual-machine](#list_fsx-resource-storage-virtual-machine) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateStorageVirtualMachine](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateStorageVirtualMachine.html)  **
   - **Description:** Grants permission to create a new storage virtual machine in an Amazon FSx for Ontap file system
   - **Resource types (\*required):** [file-system\*](#list_fsx-resource-file-system) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [storage-virtual-machine\*](#list_fsx-resource-storage-virtual-machine) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateStorageVirtualMachinePeer](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateStorageVirtualMachinePeer.html)  **
+  - **Description:** Grants permission to create a peer relationship between a storage virtual machine and a storage virtual machine on another Amazon FSx for Ontap file system or ONTAP cluster
+  - **Resource types (\*required):** [storage-virtual-machine\*](#list_fsx-resource-storage-virtual-machine) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [svm-peer\*](#list_fsx-resource-svm-peer) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateVolume.html)  **
@@ -398,6 +430,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteClusterPeer](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteClusterPeer.html)  **
+  - **Description:** Grants permission to delete a cluster peer
+  - **Resource types (\*required):** [cluster-peer\*](#list_fsx-resource-cluster-peer)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteDataRepositoryAssociation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteDataRepositoryAssociation.html)  **
   - **Description:** Grants permission to delete a data repository association
   - **Resource types (\*required):** [association\*](#list_fsx-resource-association)
@@ -416,15 +454,39 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [file-system\*](#list_fsx-resource-file-system) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteSnapmirrorPolicy](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteSnapmirrorPolicy.html)  **
+  - **Description:** Grants permission to delete a SnapMirror policy
+  - **Resource types (\*required):** [snapmirror-policy\*](#list_fsx-resource-snapmirror-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSnapmirrorRelationship](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteSnapmirrorRelationship.html)  **
+  - **Description:** Grants permission to delete a SnapMirror relationship
+  - **Resource types (\*required):** [snapmirror-relationship\*](#list_fsx-resource-snapmirror-relationship)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteSnapshot](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteSnapshot.html)  **
   - **Description:** Grants permission to delete a snapshot on a volume
   - **Resource types (\*required):** [snapshot\*](#list_fsx-resource-snapshot)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteSnapshotPolicy](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteSnapshotPolicy.html)  **
+  - **Description:** Grants permission to delete a snapshot policy
+  - **Resource types (\*required):** [snapshot-policy\*](#list_fsx-resource-snapshot-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteStorageVirtualMachine](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteStorageVirtualMachine.html)  **
   - **Description:** Grants permission to delete a storage virtual machine, deleting its contents
   - **Resource types (\*required):** [storage-virtual-machine\*](#list_fsx-resource-storage-virtual-machine)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteStorageVirtualMachinePeer](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteStorageVirtualMachinePeer.html)  **
+  - **Description:** Grants permission to delete a storage virtual machine peer
+  - **Resource types (\*required):** [svm-peer\*](#list_fsx-resource-svm-peer)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -436,6 +498,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DescribeBackups](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeBackups.html)  **
   - **Description:** Grants permission to return the descriptions of all backups owned by your AWS account in the AWS Region of the endpoint that you're calling
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeClusterPeers](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeClusterPeers.html)  **
+  - **Description:** Grants permission to return the descriptions of all cluster peers owned by your AWS account in the AWS Region of the endpoint that you're calling
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
@@ -482,8 +550,32 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [DescribeSnapmirrorPolicies](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapmirrorPolicies.html)  **
+  - **Description:** Grants permission to return the descriptions of all SnapMirror policies owned by your AWS account in the AWS Region of the endpoint that you're calling
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeSnapmirrorRelationships](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapmirrorRelationships.html)  **
+  - **Description:** Grants permission to return the descriptions of all SnapMirror relationships owned by your AWS account in the AWS Region of the endpoint that you're calling
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeSnapshotPolicies](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshotPolicies.html)  **
+  - **Description:** Grants permission to return the descriptions of all snapshot policies owned by your AWS account in the AWS Region of the endpoint that you're calling
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [DescribeSnapshots](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html)  **
   - **Description:** Grants permission to return the descriptions of all snapshots owned by your AWS account in the AWS Region of the endpoint you're calling
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeStorageVirtualMachinePeers](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeStorageVirtualMachinePeers.html)  **
+  - **Description:** Grants permission to return the descriptions of all storage virtual machine peers owned by your AWS account in the AWS Region of the endpoint that you're calling
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
@@ -516,10 +608,15 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list tags for an Amazon FSx resource
   - **Resource types (\*required):** [association](#list_fsx-resource-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [backup](#list_fsx-resource-backup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cluster-peer](#list_fsx-resource-cluster-peer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [file-cache](#list_fsx-resource-file-cache) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [file-system](#list_fsx-resource-file-system) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [snapmirror-policy](#list_fsx-resource-snapmirror-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [snapmirror-relationship](#list_fsx-resource-snapmirror-relationship) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [snapshot](#list_fsx-resource-snapshot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [snapshot-policy](#list_fsx-resource-snapshot-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [storage-virtual-machine](#list_fsx-resource-storage-virtual-machine) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [svm-peer](#list_fsx-resource-svm-peer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [task](#list_fsx-resource-task) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [volume](#list_fsx-resource-volume) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -546,10 +643,15 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to tag an Amazon FSx resource
   - **Resource types (\*required):** [association](#list_fsx-resource-association) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)<br />[fsx:NfsDataRepositoryAuthenticationEnabled](#list_fsx-fsx_NfsDataRepositoryAuthenticationEnabled)<br />[fsx:NfsDataRepositoryEncryptionInTransitEnabled](#list_fsx-fsx_NfsDataRepositoryEncryptionInTransitEnabled)
   - **Resource types (\*required):** [backup](#list_fsx-resource-backup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [cluster-peer](#list_fsx-resource-cluster-peer) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [file-cache](#list_fsx-resource-file-cache) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [file-system](#list_fsx-resource-file-system) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapmirror-policy](#list_fsx-resource-snapmirror-policy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapmirror-relationship](#list_fsx-resource-snapmirror-relationship) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [snapshot](#list_fsx-resource-snapshot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapshot-policy](#list_fsx-resource-snapshot-policy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [storage-virtual-machine](#list_fsx-resource-storage-virtual-machine) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [svm-peer](#list_fsx-resource-svm-peer) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [task](#list_fsx-resource-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [volume](#list_fsx-resource-volume) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_fsx-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)<br />[fsx:ParentVolumeId](#list_fsx-fsx_ParentVolumeId)<br />[fsx:StorageVirtualMachineId](#list_fsx-fsx_StorageVirtualMachineId)
   - **Access level:** Tagging, Write
@@ -558,13 +660,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to remove a tag from an Amazon FSx resource
   - **Resource types (\*required):** [association](#list_fsx-resource-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [backup](#list_fsx-resource-backup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [cluster-peer](#list_fsx-resource-cluster-peer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [file-cache](#list_fsx-resource-file-cache) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [file-system](#list_fsx-resource-file-system) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapmirror-policy](#list_fsx-resource-snapmirror-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapmirror-relationship](#list_fsx-resource-snapmirror-relationship) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [snapshot](#list_fsx-resource-snapshot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [snapshot-policy](#list_fsx-resource-snapshot-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [storage-virtual-machine](#list_fsx-resource-storage-virtual-machine) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
+  - **Resource types (\*required):** [svm-peer](#list_fsx-resource-svm-peer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [task](#list_fsx-resource-task) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Resource types (\*required):** [volume](#list_fsx-resource-volume) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_fsx-aws_TagKeys)
   - **Access level:** Tagging, Write
+
+- **   [UpdateClusterPeer](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateClusterPeer.html)  **
+  - **Description:** Grants permission to update a cluster peer
+  - **Resource types (\*required):** [cluster-peer\*](#list_fsx-resource-cluster-peer)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [UpdateDataRepositoryAssociation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateDataRepositoryAssociation.html)  **
   - **Description:** Grants permission to update data repository association configuration
@@ -590,15 +703,39 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [UpdateSnapmirrorPolicy](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateSnapmirrorPolicy.html)  **
+  - **Description:** Grants permission to update a SnapMirror policy
+  - **Resource types (\*required):** [snapmirror-policy\*](#list_fsx-resource-snapmirror-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSnapmirrorRelationship](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateSnapmirrorRelationship.html)  **
+  - **Description:** Grants permission to update a SnapMirror relationship
+  - **Resource types (\*required):** [snapmirror-policy](#list_fsx-resource-snapmirror-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [snapmirror-relationship\*](#list_fsx-resource-snapmirror-relationship) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateSnapshot](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateSnapshot.html)  **
   - **Description:** Grants permission to update snapshot configuration
   - **Resource types (\*required):** [snapshot\*](#list_fsx-resource-snapshot)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateSnapshotPolicy](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateSnapshotPolicy.html)  **
+  - **Description:** Grants permission to update a snapshot policy
+  - **Resource types (\*required):** [snapshot-policy\*](#list_fsx-resource-snapshot-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateStorageVirtualMachine](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateStorageVirtualMachine.html)  **
   - **Description:** Grants permission to update storage virtual machine configuration
   - **Resource types (\*required):** [storage-virtual-machine\*](#list_fsx-resource-storage-virtual-machine)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateStorageVirtualMachinePeer](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateStorageVirtualMachinePeer.html)  **
+  - **Description:** Grants permission to update a storage virtual machine peer
+  - **Resource types (\*required):** [svm-peer\*](#list_fsx-resource-svm-peer)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -679,10 +816,15 @@ The following resource types are defined by this service and can be used in the 
 | --- | --- | --- | 
 |  [association](https://docs.aws.amazon.com/fsx/latest/LustreGuide/access-control-overview.html#access-control-resources)  | arn:${Partition}:fsx:${Region}:${Account}:association/${FileSystemIdOrFileCacheId}/${DataRepositoryAssociationId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 |  [backup](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/access-control-overview.html#access-control-resources)  | arn:${Partition}:fsx:${Region}:${Account}:backup/${BackupId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
+|  [cluster-peer](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:cluster-peer/${FileSystemId}/${ClusterPeerId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 |  [file-cache](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:file-cache/${FileCacheId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 |  [file-system](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/access-control-overview.html#access-control-resources)  | arn:${Partition}:fsx:${Region}:${Account}:file-system/${FileSystemId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
+|  [snapmirror-policy](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:snapmirror-policy/${FileSystemIdOrStorageVirtualMachineId}/${SnapmirrorPolicyId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
+|  [snapmirror-relationship](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:snapmirror-relationship/${FileSystemId}/${VolumeId}/${SnapmirrorRelationshipId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 |  [snapshot](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-control-overview.html#access-control-resources)  | arn:${Partition}:fsx:${Region}:${Account}:snapshot/${VolumeId}/${SnapshotId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
+|  [snapshot-policy](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:snapshot-policy/${FileSystemIdOrStorageVirtualMachineId}/${SnapshotPolicyId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 |  [storage-virtual-machine](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:storage-virtual-machine/${FileSystemId}/${StorageVirtualMachineId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
+|  [svm-peer](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:svm-peer/${FileSystemId}/${StorageVirtualMachineId}/${StorageVirtualMachinePeerId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 |  [task](https://docs.aws.amazon.com/fsx/latest/LustreGuide/access-control-overview.html#access-control-resources)  | arn:${Partition}:fsx:${Region}:${Account}:task/${TaskId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 |  [volume](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html)  | arn:${Partition}:fsx:${Region}:${Account}:volume/${FileSystemId}/${VolumeId} | [aws:ResourceTag/${TagKey}](#list_fsx-aws_ResourceTag___TagKey_) | 
 
@@ -703,4 +845,5 @@ Amazon FSx defines the following condition keys that can be used in the `Conditi
 |   [fsx:NfsDataRepositoryAuthenticationEnabled](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/encryption-in-transit.html)  | Filters access by NFS data repositories which support authentication | Bool | 
 |   [fsx:NfsDataRepositoryEncryptionInTransitEnabled](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/encryption-in-transit.html)  | Filters access by NFS data repositories which support encryption-in-transit | Bool | 
 |   [fsx:ParentVolumeId](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/creating-volumes.html)  | Filters access by the containing parent volume for mutating volume operations | String | 
+|   [fsx:SnapmirrorSourcePath](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap-snapmirror.html#snapmirror-relationship)  | Filters access by the source path of a SnapMirror relationship | String | 
 |   [fsx:StorageVirtualMachineId](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-volumes.html)  | Filters access by the containing storage virtual machine for a volume for mutating volume operations | String | 

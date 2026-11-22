@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Braket
-<a name="list_braket"></a>
 
 Amazon Braket (service prefix: `braket`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

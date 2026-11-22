@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace Image Building Service
-<a name="list_marketplace-image-build"></a>
 
 AWS Marketplace Image Building Service (service prefix: `aws-marketplace`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Managed Blockchain Query
-<a name="list_managedblockchain-query"></a>
 
 Amazon Managed Blockchain Query (service prefix: `managedblockchain-query`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

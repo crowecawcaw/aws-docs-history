@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT Greengrass
-<a name="list_greengrass"></a>
 
 AWS IoT Greengrass (service prefix: `greengrass`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

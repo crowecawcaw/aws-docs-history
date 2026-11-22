@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Cloud Control API
-<a name="list_cloudcontrol"></a>
 
 AWS Cloud Control API (service prefix: `cloudformation`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

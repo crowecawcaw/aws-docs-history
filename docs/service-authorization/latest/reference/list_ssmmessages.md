@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Message Gateway Service
-<a name="list_ssmmessages"></a>
 
 Amazon Message Gateway Service (service prefix: `ssmmessages`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

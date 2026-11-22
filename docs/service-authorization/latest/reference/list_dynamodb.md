@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon DynamoDB
-<a name="list_dynamodb"></a>
 
 Amazon DynamoDB (service prefix: `dynamodb`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

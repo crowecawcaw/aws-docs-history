@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Key Management Service
-<a name="list_kms"></a>
 
 AWS Key Management Service (service prefix: `kms`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -540,7 +539,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html)  **
   - **Description:** Controls permission to view the key policy for the specified AWS KMS key
   - **Resource types (\*required):** [key\*](#list_kms-resource-key)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kms-aws_ResourceTag___TagKey_)<br />[kms:CallerAccount](#list_kms-kms_CallerAccount)<br />[kms:KeyOrigin](#list_kms-kms_KeyOrigin)<br />[kms:KeySpec](#list_kms-kms_KeySpec)<br />[kms:KeyUsage](#list_kms-kms_KeyUsage)<br />[kms:MultiRegion](#list_kms-kms_MultiRegion)<br />[kms:MultiRegionKeyType](#list_kms-kms_MultiRegionKeyType)<br />[kms:ResourceAliases](#list_kms-kms_ResourceAliases)<br />[kms:ViaService](#list_kms-kms_ViaService)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kms-aws_ResourceTag___TagKey_)<br />[kms:CallerAccount](#list_kms-kms_CallerAccount)<br />[kms:KeyOrigin](#list_kms-kms_KeyOrigin)<br />[kms:KeySpec](#list_kms-kms_KeySpec)<br />[kms:KeyUsage](#list_kms-kms_KeyUsage)<br />[kms:MultiRegion](#list_kms-kms_MultiRegion)<br />[kms:MultiRegionKeyType](#list_kms-kms_MultiRegionKeyType)<br />[kms:PolicyName](#list_kms-kms_PolicyName)<br />[kms:ResourceAliases](#list_kms-kms_ResourceAliases)<br />[kms:ViaService](#list_kms-kms_ViaService)
   - **Access level:** Read
 
 - **   [GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html)  **
@@ -612,7 +611,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html)  **
   - **Description:** Controls permission to replace the key policy for the specified AWS KMS key
   - **Resource types (\*required):** [key\*](#list_kms-resource-key)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kms-aws_ResourceTag___TagKey_)<br />[kms:BypassPolicyLockoutSafetyCheck](#list_kms-kms_BypassPolicyLockoutSafetyCheck)<br />[kms:CallerAccount](#list_kms-kms_CallerAccount)<br />[kms:KeyOrigin](#list_kms-kms_KeyOrigin)<br />[kms:KeySpec](#list_kms-kms_KeySpec)<br />[kms:KeyUsage](#list_kms-kms_KeyUsage)<br />[kms:MultiRegion](#list_kms-kms_MultiRegion)<br />[kms:MultiRegionKeyType](#list_kms-kms_MultiRegionKeyType)<br />[kms:ResourceAliases](#list_kms-kms_ResourceAliases)<br />[kms:ViaService](#list_kms-kms_ViaService)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kms-aws_ResourceTag___TagKey_)<br />[kms:BypassPolicyLockoutSafetyCheck](#list_kms-kms_BypassPolicyLockoutSafetyCheck)<br />[kms:CallerAccount](#list_kms-kms_CallerAccount)<br />[kms:KeyOrigin](#list_kms-kms_KeyOrigin)<br />[kms:KeySpec](#list_kms-kms_KeySpec)<br />[kms:KeyUsage](#list_kms-kms_KeyUsage)<br />[kms:MultiRegion](#list_kms-kms_MultiRegion)<br />[kms:MultiRegionKeyType](#list_kms-kms_MultiRegionKeyType)<br />[kms:PolicyName](#list_kms-kms_PolicyName)<br />[kms:ResourceAliases](#list_kms-kms_ResourceAliases)<br />[kms:ViaService](#list_kms-kms_ViaService)
   - **Access level:** Permissions management, Write
 
 - **   [ReEncryptFrom](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html)  **
@@ -777,6 +776,7 @@ AWS Key Management Service defines the following condition keys that can be used
 |   [kms:MessageType](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-message-type)  | Filters access to the Sign and Verify operations based on the value of the MessageType parameter in the request | String | 
 |   [kms:MultiRegion](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-multi-region)  | Filters access to an API operation based on the MultiRegion property of the AWS KMS key created by or used in the operation. Use it to qualify authorization of the CreateKey operation or any operation that is authorized for a KMS key resource | Bool | 
 |   [kms:MultiRegionKeyType](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-multi-region-key-type)  | Filters access to an API operation based on the MultiRegionKeyType property of the AWS KMS key created by or used in the operation. Use it to qualify authorization of the CreateKey operation or any operation that is authorized for a KMS key resource | String | 
+|   [kms:PolicyName](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-policy-name)  | Filters access to the GetKeyPolicy and PutKeyPolicy operations based on the value of the PolicyName parameter in the request | String | 
 |   [kms:PrimaryRegion](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-primary-region)  | Filters access to the UpdatePrimaryRegion operation based on the value of the PrimaryRegion parameter in the request | String | 
 |   [kms:ReEncryptOnSameKey](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-reencrypt-on-same-key)  | Filters access to the ReEncrypt operation when it uses the same AWS KMS key that was used for the Encrypt operation | Bool | 
 |   [kms:RecipientAttestation:ImageSha384](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-nitro-enclaves.html#conditions-kms-recipient-image-sha)  | Filters access to the API operations based on the image hash in the attestation document in the request | String | 

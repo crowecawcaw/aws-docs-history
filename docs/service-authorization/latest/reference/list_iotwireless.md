@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS IoT Wireless
-<a name="list_iotwireless"></a>
 
 AWS IoT Wireless (service prefix: `iotwireless`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon GameLift Streams
-<a name="list_gameliftstreams"></a>
 
 Amazon GameLift Streams (service prefix: `gameliftstreams`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

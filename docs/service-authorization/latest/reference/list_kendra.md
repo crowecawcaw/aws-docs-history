@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Kendra
-<a name="list_kendra"></a>
 
 Amazon Kendra (service prefix: `kendra`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

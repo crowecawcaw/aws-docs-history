@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Directory Service
-<a name="list_ds"></a>
 
 AWS Directory Service (service prefix: `ds`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

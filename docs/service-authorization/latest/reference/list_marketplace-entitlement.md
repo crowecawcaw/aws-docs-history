@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace Entitlement Service
-<a name="list_marketplace-entitlement"></a>
 
 AWS Marketplace Entitlement Service (service prefix: `aws-marketplace`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

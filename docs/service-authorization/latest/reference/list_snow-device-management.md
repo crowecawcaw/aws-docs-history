@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Snow Device Management
-<a name="list_snow-device-management"></a>
 
 AWS Snow Device Management (service prefix: `snow-device-management`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CloudHSM
-<a name="list_cloudhsm"></a>
 
 AWS CloudHSM (service prefix: `cloudhsm`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

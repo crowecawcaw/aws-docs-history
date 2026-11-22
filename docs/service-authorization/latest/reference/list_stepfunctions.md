@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Step Functions
-<a name="list_stepfunctions"></a>
 
 AWS Step Functions (service prefix: `states`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

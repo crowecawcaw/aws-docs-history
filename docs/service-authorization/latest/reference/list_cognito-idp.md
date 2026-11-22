@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Cognito User Pools
-<a name="list_cognito-idp"></a>
 
 Amazon Cognito User Pools (service prefix: `cognito-idp`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -224,6 +223,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CancelPointInTimeRecovery  **
+  - **IAM action:**  [cognito-idp:CancelPointInTimeRecovery](#list_cognito-idp-action-CancelPointInTimeRecovery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   ChangePassword  **
   - **IAM action:**  [cognito-idp:ChangePassword](#list_cognito-idp-action-ChangePassword) 
   - **Condition key:** 
@@ -244,6 +249,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ConfirmSignUp  **
   - **IAM action:**  [cognito-idp:ConfirmSignUp](#list_cognito-idp-action-ConfirmSignUp) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateCIMDPolicy  **
+  - **IAM action:**  [cognito-idp:CreateCIMDPolicy](#list_cognito-idp-action-CreateCIMDPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -297,6 +308,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateUserPoolReplica  **
   - **IAM action:**  [cognito-idp:CreateUserPoolReplica](#list_cognito-idp-action-CreateUserPoolReplica) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCIMDPolicy  **
+  - **IAM action:**  [cognito-idp:DeleteCIMDPolicy](#list_cognito-idp-action-DeleteCIMDPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -373,6 +390,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DescribeCIMDPolicy  **
+  - **IAM action:**  [cognito-idp:DescribeCIMDPolicy](#list_cognito-idp-action-DescribeCIMDPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DescribeIdentityProvider  **
   - **IAM action:**  [cognito-idp:DescribeIdentityProvider](#list_cognito-idp-action-DescribeIdentityProvider) 
   - **Condition key:** 
@@ -387,6 +410,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DescribeManagedLoginBrandingByClient  **
   - **IAM action:**  [cognito-idp:DescribeManagedLoginBrandingByClient](#list_cognito-idp-action-DescribeManagedLoginBrandingByClient) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribePointInTimeRecovery  **
+  - **IAM action:**  [cognito-idp:DescribePointInTimeRecovery](#list_cognito-idp-action-DescribePointInTimeRecovery) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -457,6 +486,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetClientToken  **
   - **IAM action:**  [cognito-idp:GetClientToken](#list_cognito-idp-action-GetClientToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetDerivedToken  **
+  - **IAM action:**  [cognito-idp:GetDerivedToken](#list_cognito-idp-action-GetDerivedToken) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -551,6 +586,24 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   InitiatePointInTimeRecovery  **
+  - **IAM action:**  [cognito-idp:InitiatePointInTimeRecovery](#list_cognito-idp-action-InitiatePointInTimeRecovery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListCIMDPolicies  **
+  - **IAM action:**  [cognito-idp:ListCIMDPolicies](#list_cognito-idp-action-ListCIMDPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClientMetadataURLs  **
+  - **IAM action:**  [cognito-idp:ListClientMetadataURLs](#list_cognito-idp-action-ListClientMetadataURLs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListDevices  **
   - **IAM action:**  [cognito-idp:ListDevices](#list_cognito-idp-action-ListDevices) 
   - **Condition key:** 
@@ -565,6 +618,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListIdentityProviders  **
   - **IAM action:**  [cognito-idp:ListIdentityProviders](#list_cognito-idp-action-ListIdentityProviders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPointInTimeRecoveries  **
+  - **IAM action:**  [cognito-idp:ListPointInTimeRecoveries](#list_cognito-idp-action-ListPointInTimeRecoveries) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -711,6 +770,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   StartPointInTimeRecovery  **
+  - **IAM action:**  [cognito-idp:StartPointInTimeRecovery](#list_cognito-idp-action-StartPointInTimeRecovery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartUserImportJob  **
   - **IAM action:**  [cognito-idp:StartUserImportJob](#list_cognito-idp-action-StartUserImportJob) 
   - **Condition key:** 
@@ -737,6 +802,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateAuthEventFeedback  **
   - **IAM action:**  [cognito-idp:UpdateAuthEventFeedback](#list_cognito-idp-action-UpdateAuthEventFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCIMDPolicy  **
+  - **IAM action:**  [cognito-idp:UpdateCIMDPolicy](#list_cognito-idp-action-UpdateCIMDPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateClientMetadataURLState  **
+  - **IAM action:**  [cognito-idp:UpdateClientMetadataURLState](#list_cognito-idp-action-UpdateClientMetadataURLState) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -1029,6 +1106,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [CancelPointInTimeRecovery](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CancelPointInTimeRecovery.html)  **
+  - **Description:** Grants permission to cancel point in time recovery job for a user pool
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [ChangePassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ChangePassword.html)  **
   - **Description:** Grants permission to change the password for a specified user in a user pool
   - **Resource types (\*required):** 
@@ -1051,6 +1134,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to confirm registration of a user and handles the existing alias from a previous user
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateCIMDPolicy](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateCIMDPolicy.html)  **
+  - **Description:** Grants permission to create a client ID metadata document (CIMD) policy for an app client
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreateGroup](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html)  **
@@ -1109,6 +1198,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateUserPoolReplica](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolReplica.html)  **
   - **Description:** Grants permission to create a replica of a user pool
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCIMDPolicy](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteCIMDPolicy.html)  **
+  - **Description:** Grants permission to delete a client ID metadata document (CIMD) policy
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -1185,6 +1280,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DescribeCIMDPolicy](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeCIMDPolicy.html)  **
+  - **Description:** Grants permission to get the configuration of a client ID metadata document (CIMD) policy
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.html)  **
   - **Description:** Grants permission to describe any user pool identity provider
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
@@ -1199,6 +1300,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DescribeManagedLoginBrandingByClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html)  **
   - **Description:** Grants permission to get the detailed information about the branding style of managed login associated with an appclient
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribePointInTimeRecovery](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribePointInTimeRecovery.html)  **
+  - **Description:** Grants permission to describe point in time recovery job for a user pool
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -1271,6 +1378,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetClientToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetClientToken.html)  **
   - **Description:** Grants permission to issue an access token for machine-to-machine authorization with an app client ID and client secret
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetDerivedToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetDerivedToken.html)  **
+  - **Description:** Grants permission to exchange a token for one that is further scoped and audience-bound
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
@@ -1365,6 +1478,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [InitiatePointInTimeRecovery](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiatePointInTimeRecovery.html)  **
+  - **Description:** Grants permission to initiate point in time recovery job for a user pool
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListCIMDPolicies](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListCIMDPolicies.html)  **
+  - **Description:** Grants permission to list the client ID metadata document (CIMD) policies in a user pool
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListClientMetadataURLs](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListClientMetadataURLs.html)  **
+  - **Description:** Grants permission to list the client metadata document URLs and their cache state for a client ID metadata document (CIMD) policy
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [ListDevices](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListDevices.html)  **
   - **Description:** Grants permission to list the devices
   - **Resource types (\*required):** 
@@ -1379,6 +1510,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListIdentityProviders](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListIdentityProviders.html)  **
   - **Description:** Grants permission to list all identity providers in user pools
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPointInTimeRecoveries](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListPointInTimeRecoveries.html)  **
+  - **Description:** Grants permission to list point in time recovery jobs for a user pool
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** List
@@ -1527,6 +1664,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [StartPointInTimeRecovery](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_StartPointInTimeRecovery.html)  **
+  - **Description:** Grants permission to start point in time recovery job for a user pool
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StartUserImportJob](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_StartUserImportJob.html)  **
   - **Description:** Grants permission to start any user import job
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
@@ -1553,6 +1696,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateAuthEventFeedback](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateAuthEventFeedback.html)  **
   - **Description:** Grants permission to update the feedback for the user authentication event
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateCIMDPolicy](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateCIMDPolicy.html)  **
+  - **Description:** Grants permission to update the configuration of a client ID metadata document (CIMD) policy
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateClientMetadataURLState](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateClientMetadataURLState.html)  **
+  - **Description:** Grants permission to refresh or invalidate the cached client metadata document for a URL
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Write

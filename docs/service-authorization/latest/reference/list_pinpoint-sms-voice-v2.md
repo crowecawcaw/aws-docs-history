@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS End User Messaging SMS and Voice V2
-<a name="list_pinpoint-sms-voice-v2"></a>
 
 AWS End User Messaging SMS and Voice V2 (service prefix: `sms-voice`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

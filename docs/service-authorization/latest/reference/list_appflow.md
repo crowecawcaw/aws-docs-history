@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon AppFlow
-<a name="list_appflow"></a>
 
 Amazon AppFlow (service prefix: `appflow`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

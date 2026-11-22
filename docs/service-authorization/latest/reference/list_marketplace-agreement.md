@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace
-<a name="list_marketplace-agreement"></a>
 
 AWS Marketplace (service prefix: `aws-marketplace`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -25,6 +24,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   AcceptAgreementApproval  **
+  - **IAM action:**  [aws-marketplace:AcceptAgreementApproval](#list_marketplace-agreement-action-AcceptAgreementApproval) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AcceptAgreementCancellationRequest  **
   - **IAM action:**  [aws-marketplace:AcceptAgreementCancellationRequest](#list_marketplace-agreement-action-AcceptAgreementCancellationRequest)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [aws-marketplace:CancelAgreement](#list_marketplace-agreement-action-CancelAgreement)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -36,6 +41,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   AcceptAgreementRequest  **
   - **IAM action:**  [aws-marketplace:AcceptAgreementRequest](#list_marketplace-agreement-action-AcceptAgreementRequest)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [aws-marketplace:Subscribe](#list_marketplace-agreement-action-Subscribe)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aws-marketplace:UpdatePurchaseOrders](#list_marketplace-agreement-action-UpdatePurchaseOrders)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   BatchCreateBillingAdjustmentRequest  **
   - **IAM action:**  [aws-marketplace:BatchCreateBillingAdjustmentRequest](#list_marketplace-agreement-action-BatchCreateBillingAdjustmentRequest) 
@@ -59,6 +65,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CancelAgreementRequest  **
+  - **IAM action:**  [aws-marketplace:CancelAgreementRequest](#list_marketplace-agreement-action-CancelAgreementRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateAgreementRequest  **
   - **IAM action:**  [aws-marketplace:CreateAgreementRequest](#list_marketplace-agreement-action-CreateAgreementRequest)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [aws-marketplace:Subscribe](#list_marketplace-agreement-action-Subscribe)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -67,8 +79,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [aws-marketplace:DescribeAgreement](#list_marketplace-agreement-action-DescribeAgreement)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [aws-marketplace:ViewSubscriptions](#list_marketplace-agreement-action-ViewSubscriptions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
 
+- **   GetAgreementApproval  **
+  - **IAM action:**  [aws-marketplace:GetAgreementApproval](#list_marketplace-agreement-action-GetAgreementApproval) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetAgreementCancellationRequest  **
   - **IAM action:**  [aws-marketplace:GetAgreementCancellationRequest](#list_marketplace-agreement-action-GetAgreementCancellationRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgreementContacts  **
+  - **IAM action:**  [aws-marketplace:GetAgreementContacts](#list_marketplace-agreement-action-GetAgreementContacts) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -83,6 +107,24 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetAgreementRequest  **
+  - **IAM action:**  [aws-marketplace:GetAgreementRequest](#list_marketplace-agreement-action-GetAgreementRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgreementRequestApprovalPlans  **
+  - **IAM action:**  [aws-marketplace:GetAgreementRequestApprovalPlans](#list_marketplace-agreement-action-GetAgreementRequestApprovalPlans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgreementRequestTerms  **
+  - **IAM action:**  [aws-marketplace:GetAgreementRequestTerms](#list_marketplace-agreement-action-GetAgreementRequestTerms) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetAgreementTerms  **
   - **IAM action:**  [aws-marketplace:GetAgreementTerms](#list_marketplace-agreement-action-GetAgreementTerms)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [aws-marketplace:ViewSubscriptions](#list_marketplace-agreement-action-ViewSubscriptions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
@@ -92,6 +134,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   ListAgreementApprovals  **
+  - **IAM action:**  [aws-marketplace:ListAgreementApprovals](#list_marketplace-agreement-action-ListAgreementApprovals) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListAgreementCancellationRequests  **
   - **IAM action:**  [aws-marketplace:ListAgreementCancellationRequests](#list_marketplace-agreement-action-ListAgreementCancellationRequests) 
@@ -117,11 +165,23 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListAgreementRequests  **
+  - **IAM action:**  [aws-marketplace:ListAgreementRequests](#list_marketplace-agreement-action-ListAgreementRequests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListBillingAdjustmentRequests  **
   - **IAM action:**  [aws-marketplace:ListBillingAdjustmentRequests](#list_marketplace-agreement-action-ListBillingAdjustmentRequests) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   RejectAgreementApproval  **
+  - **IAM action:**  [aws-marketplace:RejectAgreementApproval](#list_marketplace-agreement-action-RejectAgreementApproval) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   RejectAgreementCancellationRequest  **
   - **IAM action:**  [aws-marketplace:RejectAgreementCancellationRequest](#list_marketplace-agreement-action-RejectAgreementCancellationRequest) 
@@ -168,6 +228,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 | Actions | Description | Resource types (\*required) | Condition keys | Access level | 
 | --- | --- | --- | --- | --- | 
+|   [AcceptAgreementApproval](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to approve an agreement approval |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Write | 
 |   [AcceptAgreementApprovalRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to approve an incoming subscription request (for providers who provide products that require subscription verification) |  |   | Write | 
 |   [AcceptAgreementCancellationRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to accept an agreement cancellation request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
 |   [AcceptAgreementPaymentRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to accept a payment request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
@@ -176,17 +237,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [CancelAgreement](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to cancel agreements |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Write | 
 |   [CancelAgreementCancellationRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to cancel a pending agreement cancellation request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
 |   [CancelAgreementPaymentRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to cancel a payment request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
-|   [CancelAgreementRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to cancel pending subscription requests for products that require subscription verification |  |   | Write | 
+|   [CancelAgreementRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to cancel pending subscription requests for products that require subscription verification |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Write | 
 |   [CreateAgreementRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to create an agreement request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:ProductId](#list_marketplace-agreement-aws-marketplace_ProductId) | Write | 
 |   [DescribeAgreement](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to describe the metadata about the agreement |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Read | 
+|   [GetAgreementApproval](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the details of an agreement approval |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Read | 
 |   [GetAgreementApprovalRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the details of incoming subscription requests (for providers who provide products that require subscription verification) |  |   | Read | 
 |   [GetAgreementCancellationRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the details of an agreement cancellation request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Read | 
+|   [GetAgreementContacts](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to get the contacts associated with an agreement |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Read | 
 |   [GetAgreementEntitlements](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to get the entitlements associated with an agreement |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Read | 
 |   [GetAgreementPaymentRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view details for a payment request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Read | 
-|   [GetAgreementRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the details of subscription requests for data products that require subscription verification |  |   | Read | 
+|   [GetAgreementRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the details of subscription requests for data products that require subscription verification |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Read | 
+|   [GetAgreementRequestApprovalPlans](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the approval plans for an agreement request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Read | 
+|   [GetAgreementRequestTerms](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the terms of an agreement request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Read | 
 |   [GetAgreementTerms](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to get a list of terms for an agreement |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | List | 
 |   [GetBillingAdjustmentRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to view the details of a billing adjustment request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Read | 
 |   [ListAgreementApprovalRequests](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list incoming subscription requests (for providers who provide products that require subscription verification) |  |   | List | 
+|   [ListAgreementApprovals](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list agreement approvals |  |   | List | 
 |   [ListAgreementCancellationRequests](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list agreement cancellation requests |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | List | 
 |   [ListAgreementCharges](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list charges associated with an agreement |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | List | 
 |   [ListAgreementInvoiceLineItems](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list invoice line items for an agreement |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | List | 
@@ -194,12 +260,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [ListAgreementRequests](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list subscription requests for products that require subscription verification |  |   | List | 
 |   [ListBillingAdjustmentRequests](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list billing adjustment requests |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | List | 
 |   [ListEntitlementDetails](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to list details of the entitlements associated with an agreement. Note that this action is not applicable to Marketplace purchases |  |   | Read | 
+|   [RejectAgreementApproval](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to reject an agreement approval |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Write | 
 |   [RejectAgreementApprovalRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to decline an incoming subscription requests (for providers who provide products that require subscription verification) |  |   | Write | 
 |   [RejectAgreementCancellationRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to reject an agreement cancellation request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
 |   [RejectAgreementPaymentRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to reject a payment request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
 |   [SearchAgreements](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to search agreements |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | List | 
 |   [SendAgreementCancellationRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to send an agreement cancellation request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
 |   [SendAgreementPaymentRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to send a payment request |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType)<br />[aws-marketplace:PartyType](#list_marketplace-agreement-aws-marketplace_PartyType) | Write | 
+|   [StartAgreementApprovals](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to initiate tasks that request approvals for an agreement. Callers must also have the aws-marketplace:AcceptAgreementRequest permission |  | [aws-marketplace:AgreementType](#list_marketplace-agreement-aws-marketplace_AgreementType) | Write | 
 |   [Subscribe](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to subscribe to AWS Marketplace products. Includes the ability to send a subscription request for products that require subscription verification. Includes the ability to enable auto-renewal for an existing subscription |  |   | Write | 
 |   [Unsubscribe](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to unsubscribe from AWS Marketplace products. Includes the ability to disable auto-renewal for an existing subscription |  |   | Write | 
 |   [UpdateAgreementApprovalRequest](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html)  | Grants permission to make changes to an incoming subscription request, including the ability to delete the prospective subscriber's information (for providers who provide products that require subscription verification) |  |   | Write | 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon API Gateway Management V2
-<a name="list_apigatewayv2"></a>
 
 Amazon API Gateway Management V2 (service prefix: `apigateway`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

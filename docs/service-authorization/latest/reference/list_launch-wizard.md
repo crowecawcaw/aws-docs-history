@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Launch Wizard
-<a name="list_launch-wizard"></a>
 
 AWS Launch Wizard (service prefix: `launchwizard`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

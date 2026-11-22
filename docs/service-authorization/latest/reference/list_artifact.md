@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Artifact
-<a name="list_artifact"></a>
 
 AWS Artifact (service prefix: `artifact`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Connect Outbound Campaigns
-<a name="list_connect-outbound-campaigns"></a>
 
 Amazon Connect Outbound Campaigns (service prefix: `connect-campaigns`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Resource Group Tagging API
-<a name="list_resourcegroupstaggingapi"></a>
 
 Amazon Resource Group Tagging API (service prefix: `tag`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

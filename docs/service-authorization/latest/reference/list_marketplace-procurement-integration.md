@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace Procurement Systems Integration
-<a name="list_marketplace-procurement-integration"></a>
 
 AWS Marketplace Procurement Systems Integration (service prefix: `aws-marketplace`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

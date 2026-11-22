@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Interconnect
-<a name="list_interconnect"></a>
 
 AWS Interconnect (service prefix: `interconnect`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

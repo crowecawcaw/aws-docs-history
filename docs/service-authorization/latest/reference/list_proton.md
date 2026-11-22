@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Proton
-<a name="list_proton"></a>
 
 AWS Proton (service prefix: `proton`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

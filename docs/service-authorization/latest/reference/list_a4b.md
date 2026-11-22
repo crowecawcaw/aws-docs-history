@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Alexa for Business
-<a name="list_a4b"></a>
 
 Alexa for Business (service prefix: `a4b`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

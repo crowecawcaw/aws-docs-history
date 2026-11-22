@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Comprehend
-<a name="list_comprehend"></a>
 
 Amazon Comprehend (service prefix: `comprehend`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

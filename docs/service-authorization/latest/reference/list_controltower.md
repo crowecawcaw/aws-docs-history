@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Control Tower
-<a name="list_controltower"></a>
 
 AWS Control Tower (service prefix: `controltower`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

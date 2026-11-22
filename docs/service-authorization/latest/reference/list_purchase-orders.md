@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Purchase Orders Console
-<a name="list_purchase-orders"></a>
 
 AWS Purchase Orders Console (service prefix: `purchase-orders`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

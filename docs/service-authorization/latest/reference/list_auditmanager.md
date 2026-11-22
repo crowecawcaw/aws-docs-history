@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Audit Manager
-<a name="list_auditmanager"></a>
 
 AWS Audit Manager (service prefix: `auditmanager`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

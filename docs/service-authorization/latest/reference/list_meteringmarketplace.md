@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace Metering Service
-<a name="list_meteringmarketplace"></a>
 
 AWS Marketplace Metering Service (service prefix: `aws-marketplace`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

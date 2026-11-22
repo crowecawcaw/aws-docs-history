@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS WAF V2
-<a name="list_wafv2"></a>
 
 AWS WAF V2 (service prefix: `wafv2`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -61,6 +60,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateWebACL  **
   - **IAM action:**  [wafv2:CreateWebACL](#list_wafv2-action-CreateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [wafv2:TagResource](#list_wafv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** wafv2.amazonaws.com / **Access level:** Write
 
 - **   DeleteAPIKey  **
   - **IAM action:**  [wafv2:DeleteAPIKey](#list_wafv2-action-DeleteAPIKey) 
@@ -144,6 +144,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetDecryptedAPIKey  **
   - **IAM action:**  [wafv2:GetDecryptedAPIKey](#list_wafv2-action-GetDecryptedAPIKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEvent  **
+  - **IAM action:**  [wafv2:GetEvent](#list_wafv2-action-GetEvent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEventActor  **
+  - **IAM action:**  [wafv2:GetEventActor](#list_wafv2-action-GetEventActor) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -251,6 +263,24 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListAvailableManagedRuleGroups  **
   - **IAM action:**  [wafv2:ListAvailableManagedRuleGroups](#list_wafv2-action-ListAvailableManagedRuleGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEventActors  **
+  - **IAM action:**  [wafv2:ListEventActors](#list_wafv2-action-ListEventActors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEvents  **
+  - **IAM action:**  [wafv2:ListEvents](#list_wafv2-action-ListEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEventsByWebACL  **
+  - **IAM action:**  [wafv2:ListEventsByWebACL](#list_wafv2-action-ListEventsByWebACL) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -369,10 +399,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   UpdateWebACL  **
-  - **IAM action:**  [wafv2:UpdateWebACL](#list_wafv2-action-UpdateWebACL) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [wafv2:UpdateWebACL](#list_wafv2-action-UpdateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** wafv2.amazonaws.com / **Access level:** Write
 
 
 
@@ -527,6 +555,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetEvent](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetEvent.html)  **
+  - **Description:** Grants permission to retrieve the full details of a single event detected for a WebACL, including its summary, event actors, tracking timeline
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEventActor](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetEventActor.html)  **
+  - **Description:** Grants permission to retrieve the full details of a single event actor, including its latest observed attributes, associated events, and attribute history
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetIPSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetIPSet.html)  **
   - **Description:** Grants permission to retrieve details about an IPSet
   - **Resource types (\*required):** [ipset\*](#list_wafv2-resource-ipset)
@@ -640,6 +680,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve an array of managed rule groups that are available for you to use
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEventActors](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListEventActors.html)  **
+  - **Description:** Grants permission to retrieve a list of event actor summaries for your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEvents](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListEvents.html)  **
+  - **Description:** Grants permission to retrieve a list of event summaries for the web ACLs in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEventsByWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListEventsByWebACL.html)  **
+  - **Description:** Grants permission to retrieve a list of event summaries for a specific WebACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListIPSets](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListIPSets.html)  **

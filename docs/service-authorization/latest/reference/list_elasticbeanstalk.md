@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elastic Beanstalk
-<a name="list_elasticbeanstalk"></a>
 
 AWS Elastic Beanstalk (service prefix: `elasticbeanstalk`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

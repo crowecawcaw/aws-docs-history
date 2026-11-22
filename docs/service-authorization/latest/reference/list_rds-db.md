@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon RDS IAM Authentication
-<a name="list_rds-db"></a>
 
 Amazon RDS IAM Authentication (service prefix: `rds-db`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon S3 Vectors
-<a name="list_s3vectors"></a>
 
 Amazon S3 Vectors (service prefix: `s3vectors`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -127,7 +126,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [QueryVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_QueryVectors.html)  **
-  - **Description:** Grants permission to find approximate nearest neighbors within a specified search vector index for a given query vector
+  - **Description:** Grants permission to query a specified vector index using vector similarity, full-text, or hybrid search
   - **Resource types (\*required):** [Index\*](#list_s3vectors-resource-Index)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
   - **Access level:** Read
@@ -146,6 +145,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateIndexMode](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_UpdateIndexMode.html)  **
   - **Description:** Grants permission to update the index mode for a specified vector index
+  - **Resource types (\*required):** [Index\*](#list_s3vectors-resource-Index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_UpdateMetadataConfiguration.html)  **
+  - **Description:** Grants permission to update the metadata configuration for a specified vector index
   - **Resource types (\*required):** [Index\*](#list_s3vectors-resource-Index)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
   - **Access level:** Write

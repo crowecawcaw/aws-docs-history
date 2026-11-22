@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Free Tier
-<a name="list_freetier"></a>
 
 AWS Free Tier (service prefix: `freetier`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS DevOps Agent Service
-<a name="list_devops-agent"></a>
 
 AWS DevOps Agent Service (service prefix: `aidevops`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -199,6 +198,36 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aidevops:ServiceType](#list_devops-agent-aidevops_ServiceType)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [BatchCreateAccessProfileAssignment](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_BatchCreateAccessProfileAssignment.html)  **
+  - **Description:** Grants permission to assign principals to an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteAccessProfileAssignment](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_BatchDeleteAccessProfileAssignment.html)  **
+  - **Description:** Grants permission to unassign principals from an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteAccessProfileEntitlement](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_BatchDeleteAccessProfileEntitlement.html)  **
+  - **Description:** Grants permission to delete entitlements from an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchPutAccessProfileEntitlement](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_BatchPutAccessProfileEntitlement.html)  **
+  - **Description:** Grants permission to put entitlements on an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAccessProfile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateAccessProfile.html)  **
+  - **Description:** Grants permission to create an access profile
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CreateAccessToken](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateAccessToken.html)  **
   - **Description:** Grants permission to create an access token
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
@@ -257,6 +286,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create a trigger
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAccessProfile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeleteAccessProfile.html)  **
+  - **Description:** Grants permission to delete an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteAgentSpace](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeleteAgentSpace.html)  **
@@ -348,6 +383,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
+
+- **   [GetAccessProfile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAccessProfile.html)  **
+  - **Description:** Grants permission to get an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [GetAccessToken](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAccessToken.html)  **
   - **Description:** Grants permission to get access token details
@@ -456,6 +497,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
+
+- **   [ListAccessProfileAssignments](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAccessProfileAssignments.html)  **
+  - **Description:** Grants permission to list the assignments of an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAccessProfileEntitlements](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAccessProfileEntitlements.html)  **
+  - **Description:** Grants permission to list the entitlements of an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAccessProfiles](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAccessProfiles.html)  **
+  - **Description:** Grants permission to list access profiles
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
 
 - **   [ListAccessTokens](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAccessTokens.html)  **
   - **Description:** Grants permission to list access tokens
@@ -670,6 +729,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [service](#list_devops-agent-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
   - **Access level:** Tagging, Write
 
+- **   [UpdateAccessProfile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAccessProfile.html)  **
+  - **Description:** Grants permission to update an access profile
+  - **Resource types (\*required):** [access-profile\*](#list_devops-agent-resource-access-profile) / **Condition keys:**  
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAccessProfilesOrder](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAccessProfilesOrder.html)  **
+  - **Description:** Grants permission to update the order of access profiles
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateAgentSpace](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAgentSpace.html)  **
   - **Description:** Grants permission to update agentspace
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
@@ -776,6 +847,7 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
+|  [access-profile](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/access-profile/${AccessProfileId} |   | 
 |  [agentspace](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId} | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_) | 
 |  [asset](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/asset/${AssetId} |   | 
 |  [associations](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/association/${AssociationId} |   | 

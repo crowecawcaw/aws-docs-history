@@ -1,9 +1,8 @@
 
 
-# Actions, resources, and condition keys for AWS Route53 Global Resolver
-<a name="list_route53globalresolver"></a>
+# Actions, resources, and condition keys for AWS Route 53 Global Resolver
 
-AWS Route53 Global Resolver (service prefix: `route53globalresolver`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
+AWS Route 53 Global Resolver (service prefix: `route53globalresolver`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
 + Learn how to [configure this service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/).
@@ -12,13 +11,13 @@ References:
 + View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/route53globalresolver/route53globalresolver.json) for this service.
 
 **Topics**
-+ [API operations defined by AWS Route53 Global Resolver](#list_route53globalresolver-operations)
-+ [Actions defined by AWS Route53 Global Resolver](#list_route53globalresolver-actions-as-permissions)
-+ [Permission-only actions for AWS Route53 Global Resolver](#list_route53globalresolver-permission-only-actions)
-+ [Resource types defined by AWS Route53 Global Resolver](#list_route53globalresolver-resources-for-iam-policies)
-+ [Condition keys for AWS Route53 Global Resolver](#list_route53globalresolver-policy-keys)
++ [API operations defined by AWS Route 53 Global Resolver](#list_route53globalresolver-operations)
++ [Actions defined by AWS Route 53 Global Resolver](#list_route53globalresolver-actions-as-permissions)
++ [Permission-only actions for AWS Route 53 Global Resolver](#list_route53globalresolver-permission-only-actions)
++ [Resource types defined by AWS Route 53 Global Resolver](#list_route53globalresolver-resources-for-iam-policies)
++ [Condition keys for AWS Route 53 Global Resolver](#list_route53globalresolver-policy-keys)
 
-## API operations defined by AWS Route53 Global Resolver
+## API operations defined by AWS Route 53 Global Resolver
 <a name="list_route53globalresolver-operations"></a>
 
 The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_route53globalresolver-actions-as-permissions).
@@ -58,6 +57,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [route53globalresolver:CreateAccessToken](#list_route53globalresolver-action-CreateAccessToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [route53globalresolver:TagResource](#list_route53globalresolver-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   CreateCoreNetworkEndpoint  **
+  - **IAM action:**  [route53globalresolver:CreateCoreNetworkEndpoint](#list_route53globalresolver-action-CreateCoreNetworkEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [route53globalresolver:TagResource](#list_route53globalresolver-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   CreateDNSView  **
   - **IAM action:**  [route53globalresolver:CreateDNSView](#list_route53globalresolver-action-CreateDNSView)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [route53globalresolver:TagResource](#list_route53globalresolver-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -84,6 +87,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteAccessToken  **
   - **IAM action:**  [route53globalresolver:DeleteAccessToken](#list_route53globalresolver-action-DeleteAccessToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCoreNetworkEndpoint  **
+  - **IAM action:**  [route53globalresolver:DeleteCoreNetworkEndpoint](#list_route53globalresolver-action-DeleteCoreNetworkEndpoint) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -142,6 +151,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetCoreNetworkEndpoint  **
+  - **IAM action:**  [route53globalresolver:GetCoreNetworkEndpoint](#list_route53globalresolver-action-GetCoreNetworkEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetDNSView  **
   - **IAM action:**  [route53globalresolver:GetDNSView](#list_route53globalresolver-action-GetDNSView) 
   - **Condition key:** 
@@ -196,6 +211,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListCoreNetworkEndpoints  **
+  - **IAM action:**  [route53globalresolver:ListCoreNetworkEndpoints](#list_route53globalresolver-action-ListCoreNetworkEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListDNSViews  **
   - **IAM action:**  [route53globalresolver:ListDNSViews](#list_route53globalresolver-action-ListDNSViews) 
   - **Condition key:** 
@@ -238,6 +259,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListSharedDNSViews  **
+  - **IAM action:**  [route53globalresolver:ListSharedDNSViews](#list_route53globalresolver-action-ListSharedDNSViews) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTagsForResource  **
   - **IAM action:**  [route53globalresolver:ListTagsForResource](#list_route53globalresolver-action-ListTagsForResource) 
   - **Condition key:** 
@@ -264,6 +291,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateAccessToken  **
   - **IAM action:**  [route53globalresolver:UpdateAccessToken](#list_route53globalresolver-action-UpdateAccessToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCoreNetworkEndpoint  **
+  - **IAM action:**  [route53globalresolver:UpdateCoreNetworkEndpoint](#list_route53globalresolver-action-UpdateCoreNetworkEndpoint) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -300,7 +333,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
-## Actions defined by AWS Route53 Global Resolver
+## Actions defined by AWS Route 53 Global Resolver
 <a name="list_route53globalresolver-actions-as-permissions"></a>
 
 You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
@@ -308,292 +341,331 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
-- **   [AssociateHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_AssociateHostedZone)  **
+- **   [AssociateHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_AssociateHostedZone.html)  **
   - **Description:** Grants permission to associate a resource to a hosted zone
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [BatchCreateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_BatchCreateFirewallRule)  **
+- **   [BatchCreateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_BatchCreateFirewallRule.html)  **
   - **Description:** Grants permission to create multiple firewall rules
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [BatchDeleteFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_BatchDeleteFirewallRule)  **
+- **   [BatchDeleteFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_BatchDeleteFirewallRule.html)  **
   - **Description:** Grants permission to delete multiple firewall rules
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [BatchUpdateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_BatchUpdateFirewallRule)  **
+- **   [BatchUpdateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_BatchUpdateFirewallRule.html)  **
   - **Description:** Grants permission to update multiple firewall rules
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [CreateAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateAccessSource)  **
+- **   [CreateAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateAccessSource.html)  **
   - **Description:** Grants permission to create an access source
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Access level:** Write
 
-- **   [CreateAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateAccessToken)  **
+- **   [CreateAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateAccessToken.html)  **
   - **Description:** Grants permission to create an access token
   - **Resource types (\*required):** [access-token\*](#list_route53globalresolver-resource-access-token)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Access level:** Write
 
-- **   [CreateDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateDNSView)  **
+- **   [CreateCoreNetworkEndpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateCoreNetworkEndpoint.html)  **
+  - **Description:** Grants permission to create a core network endpoint
+  - **Resource types (\*required):** [core-network-endpoint\*](#list_route53globalresolver-resource-core-network-endpoint)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateDNSView.html)  **
   - **Description:** Grants permission to create a dns view
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Access level:** Write
 
-- **   [CreateFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateFirewallDomainList)  **
+- **   [CreateFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateFirewallDomainList.html)  **
   - **Description:** Grants permission to create a firewall domain list
   - **Resource types (\*required):** [firewall-domain-list\*](#list_route53globalresolver-resource-firewall-domain-list)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Access level:** Write
 
-- **   [CreateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateFirewallRule)  **
+- **   [CreateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateFirewallRule.html)  **
   - **Description:** Grants permission to create a firewall rule
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [firewall-domain-list](#list_route53globalresolver-resource-firewall-domain-list) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [CreateGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateGlobalResolver)  **
+- **   [CreateGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CreateGlobalResolver.html)  **
   - **Description:** Grants permission to create a global resolver
   - **Resource types (\*required):** [global-resolver\*](#list_route53globalresolver-resource-global-resolver)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Access level:** Write
 
-- **   [DeleteAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteAccessSource)  **
+- **   [DeleteAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteAccessSource.html)  **
   - **Description:** Grants permission to delete an access source
   - **Resource types (\*required):** [access-source\*](#list_route53globalresolver-resource-access-source)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DeleteAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteAccessToken)  **
+- **   [DeleteAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteAccessToken.html)  **
   - **Description:** Grants permission to delete an access token
   - **Resource types (\*required):** [access-token\*](#list_route53globalresolver-resource-access-token)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DeleteDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteDNSView)  **
+- **   [DeleteCoreNetworkEndpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteCoreNetworkEndpoint.html)  **
+  - **Description:** Grants permission to delete a core network endpoint
+  - **Resource types (\*required):** [core-network-endpoint\*](#list_route53globalresolver-resource-core-network-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteDNSView.html)  **
   - **Description:** Grants permission to delete a dns view
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DeleteFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteFirewallDomainList)  **
+- **   [DeleteFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteFirewallDomainList.html)  **
   - **Description:** Grants permission to delete a firewall domain list
   - **Resource types (\*required):** [firewall-domain-list\*](#list_route53globalresolver-resource-firewall-domain-list)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DeleteFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteFirewallRule)  **
+- **   [DeleteFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteFirewallRule.html)  **
   - **Description:** Grants permission to delete a firewall rule
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [DeleteGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteGlobalResolver)  **
+- **   [DeleteGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DeleteGlobalResolver.html)  **
   - **Description:** Grants permission to delete a global resolver
   - **Resource types (\*required):** [global-resolver\*](#list_route53globalresolver-resource-global-resolver)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DisableDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DisableDNSView)  **
+- **   [DisableDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DisableDNSView.html)  **
   - **Description:** Grants permission to disable a dns view
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DisassociateHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DisassociateHostedZone)  **
+- **   [DisassociateHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DisassociateHostedZone.html)  **
   - **Description:** Grants permission to disassociate a hosted zone from a resource
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [EnableDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_EnableDNSView)  **
+- **   [EnableDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_EnableDNSView.html)  **
   - **Description:** Grants permission to enable a dns view
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [GetAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetAccessSource)  **
+- **   [GetAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetAccessSource.html)  **
   - **Description:** Grants permission to get an access source
   - **Resource types (\*required):** [access-source\*](#list_route53globalresolver-resource-access-source)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [GetAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetAccessToken)  **
+- **   [GetAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetAccessToken.html)  **
   - **Description:** Grants permission to get an access token
   - **Resource types (\*required):** [access-token\*](#list_route53globalresolver-resource-access-token)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [GetDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetDNSView)  **
+- **   [GetCoreNetworkEndpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetCoreNetworkEndpoint.html)  **
+  - **Description:** Grants permission to get a core network endpoint
+  - **Resource types (\*required):** [core-network-endpoint\*](#list_route53globalresolver-resource-core-network-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetDNSView.html)  **
   - **Description:** Grants permission to get a dns view
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [GetFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetFirewallDomainList)  **
+- **   [GetFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetFirewallDomainList.html)  **
   - **Description:** Grants permission to get a firewall domain list
   - **Resource types (\*required):** [firewall-domain-list\*](#list_route53globalresolver-resource-firewall-domain-list)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [GetFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetFirewallRule)  **
+- **   [GetFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetFirewallRule.html)  **
   - **Description:** Grants permission to get a firewall rule
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
 
-- **   [GetGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetGlobalResolver)  **
+- **   [GetGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetGlobalResolver.html)  **
   - **Description:** Grants permission to get a global resolver
   - **Resource types (\*required):** [global-resolver\*](#list_route53globalresolver-resource-global-resolver)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [GetHostedZoneAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetHostedZoneAssociation)  **
+- **   [GetHostedZoneAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetHostedZoneAssociation.html)  **
   - **Description:** Grants permission to get a hosted zone association
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
 
-- **   [GetManagedFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetManagedFirewallDomainList)  **
+- **   [GetManagedFirewallDomainList](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GetManagedFirewallDomainList.html)  **
   - **Description:** Grants permission to get a managed firewall domain list
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
 
-- **   [ImportFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ImportFirewallDomains)  **
+- **   [ImportFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ImportFirewallDomains.html)  **
   - **Description:** Grants permission to import firewall domains from an S3 bucket
   - **Resource types (\*required):** [firewall-domain-list\*](#list_route53globalresolver-resource-firewall-domain-list)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [ListAccessSources](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListAccessSources)  **
+- **   [ListAccessSources](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListAccessSources.html)  **
   - **Description:** Grants permission to list access sources
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListAccessTokens](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListAccessTokens)  **
+- **   [ListAccessTokens](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListAccessTokens.html)  **
   - **Description:** Grants permission to list access tokens
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListDNSViews](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListDNSViews)  **
+- **   [ListCoreNetworkEndpoints](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListCoreNetworkEndpoints.html)  **
+  - **Description:** Grants permission to list core network endpoints
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDNSViews](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListDNSViews.html)  **
   - **Description:** Grants permission to list dns views
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListFirewallDomainLists](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomainLists)  **
+- **   [ListFirewallDomainLists](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomainLists.html)  **
   - **Description:** Grants permission to list firewall domain lists
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomains)  **
+- **   [ListFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallDomains.html)  **
   - **Description:** Grants permission to list firewall domains
   - **Resource types (\*required):** [firewall-domain-list\*](#list_route53globalresolver-resource-firewall-domain-list)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [ListFirewallRules](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallRules)  **
+- **   [ListFirewallRules](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListFirewallRules.html)  **
   - **Description:** Grants permission to list firewall rules
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
-- **   [ListGlobalResolvers](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListGlobalResolvers)  **
+- **   [ListGlobalResolvers](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListGlobalResolvers.html)  **
   - **Description:** Grants permission to list global resolvers
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListHostedZoneAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListHostedZoneAssociations)  **
+- **   [ListHostedZoneAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListHostedZoneAssociations.html)  **
   - **Description:** Grants permission to list hosted zone associations
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListManagedFirewallDomainLists](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListManagedFirewallDomainLists)  **
+- **   [ListManagedFirewallDomainLists](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListManagedFirewallDomainLists.html)  **
   - **Description:** Grants permission to list managed firewall domain lists
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListTagsForResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListTagsForResource)  **
+- **   [ListSharedDNSViews](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListSharedDNSViews.html)  **
+  - **Description:** Grants permission to list shared dns views
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_ListTagsForResource.html)  **
   - **Description:** Grants permission to list tags for a resource
   - **Resource types (\*required):** [access-source](#list_route53globalresolver-resource-access-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [access-token](#list_route53globalresolver-resource-access-token) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [core-network-endpoint](#list_route53globalresolver-resource-core-network-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [dns-view](#list_route53globalresolver-resource-dns-view) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [firewall-domain-list](#list_route53globalresolver-resource-firewall-domain-list) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [global-resolver](#list_route53globalresolver-resource-global-resolver) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [TagResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_TagResource)  **
+- **   [TagResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_TagResource.html)  **
   - **Description:** Grants permission to tag a resource
   - **Resource types (\*required):** [access-source](#list_route53globalresolver-resource-access-source) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [access-token](#list_route53globalresolver-resource-access-token) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
+  - **Resource types (\*required):** [core-network-endpoint](#list_route53globalresolver-resource-core-network-endpoint) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [dns-view](#list_route53globalresolver-resource-dns-view) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [firewall-domain-list](#list_route53globalresolver-resource-firewall-domain-list) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [global-resolver](#list_route53globalresolver-resource-global-resolver) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53globalresolver-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Access level:** Tagging, Write
 
-- **   [UntagResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UntagResource)  **
+- **   [UntagResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UntagResource.html)  **
   - **Description:** Grants permission to untag a resource
   - **Resource types (\*required):** [access-source](#list_route53globalresolver-resource-access-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [access-token](#list_route53globalresolver-resource-access-token) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
+  - **Resource types (\*required):** [core-network-endpoint](#list_route53globalresolver-resource-core-network-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [dns-view](#list_route53globalresolver-resource-dns-view) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [firewall-domain-list](#list_route53globalresolver-resource-firewall-domain-list) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Resource types (\*required):** [global-resolver](#list_route53globalresolver-resource-global-resolver) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53globalresolver-aws_TagKeys)
   - **Access level:** Tagging, Write
 
-- **   [UpdateAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateAccessSource)  **
+- **   [UpdateAccessSource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateAccessSource.html)  **
   - **Description:** Grants permission to update an access source
   - **Resource types (\*required):** [access-source\*](#list_route53globalresolver-resource-access-source)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [UpdateAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateAccessToken)  **
+- **   [UpdateAccessToken](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateAccessToken.html)  **
   - **Description:** Grants permission to update an access token
   - **Resource types (\*required):** [access-token\*](#list_route53globalresolver-resource-access-token)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [UpdateDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateDNSView)  **
+- **   [UpdateCoreNetworkEndpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateCoreNetworkEndpoint.html)  **
+  - **Description:** Grants permission to update a core network endpoint
+  - **Resource types (\*required):** [core-network-endpoint\*](#list_route53globalresolver-resource-core-network-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDNSView](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateDNSView.html)  **
   - **Description:** Grants permission to update a dns view
   - **Resource types (\*required):** [dns-view\*](#list_route53globalresolver-resource-dns-view)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [UpdateFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateFirewallDomains)  **
+- **   [UpdateFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateFirewallDomains.html)  **
   - **Description:** Grants permission to update firewall domains
   - **Resource types (\*required):** [firewall-domain-list\*](#list_route53globalresolver-resource-firewall-domain-list)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [UpdateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateFirewallRule)  **
+- **   [UpdateFirewallRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateFirewallRule.html)  **
   - **Description:** Grants permission to update an firewall rule
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [UpdateGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateGlobalResolver)  **
+- **   [UpdateGlobalResolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateGlobalResolver.html)  **
   - **Description:** Grants permission to update a global resolver
   - **Resource types (\*required):** [global-resolver\*](#list_route53globalresolver-resource-global-resolver)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [UpdateHostedZoneAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateHostedZoneAssociation)  **
+- **   [UpdateHostedZoneAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_UpdateHostedZoneAssociation.html)  **
   - **Description:** Grants permission to update a hosted zone association
   - **Resource types (\*required):** 
   - **Condition keys:**  
@@ -601,10 +673,10 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
-## Permission-only actions for AWS Route53 Global Resolver
+## Permission-only actions for AWS Route 53 Global Resolver
 <a name="list_route53globalresolver-permission-only-actions"></a>
 
-The following actions are defined by AWS Route53 Global Resolver but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+The following actions are defined by AWS Route 53 Global Resolver but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
 
 
@@ -617,7 +689,7 @@ The following actions are defined by AWS Route53 Global Resolver but are not dir
 
 
 
-## Resource types defined by AWS Route53 Global Resolver
+## Resource types defined by AWS Route 53 Global Resolver
 <a name="list_route53globalresolver-resources-for-iam-policies"></a>
 
 The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
@@ -628,14 +700,15 @@ The following resource types are defined by this service and can be used in the 
 | --- | --- | --- | 
 |  [access-source](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_AccessSource.html)  | arn:${Partition}:route53globalresolver::${Account}:access-source/${Id} | [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_) | 
 |  [access-token](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_AccessToken.html)  | arn:${Partition}:route53globalresolver::${Account}:access-token/${Id} | [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_) | 
+|  [core-network-endpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_CoreNetworkEndpoint.html)  | arn:${Partition}:route53globalresolver::${Account}:core-network-endpoint/${Id} | [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_) | 
 |  [dns-view](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_DNSView.html)  | arn:${Partition}:route53globalresolver::${Account}:dns-view/${Id} | [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_) | 
 |  [firewall-domain-list](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_FirewallDomainList.html)  | arn:${Partition}:route53globalresolver::${Account}:firewall-domain-list/${Id} | [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_) | 
 |  [global-resolver](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53globalresolver_GlobalResolver.html)  | arn:${Partition}:route53globalresolver::${Account}:global-resolver/${Id} | [aws:ResourceTag/${TagKey}](#list_route53globalresolver-aws_ResourceTag___TagKey_) | 
 
-## Condition keys for AWS Route53 Global Resolver
+## Condition keys for AWS Route 53 Global Resolver
 <a name="list_route53globalresolver-policy-keys"></a>
 
-AWS Route53 Global Resolver defines the following condition keys that can be used in the `Condition` element of an IAM policy.
+AWS Route 53 Global Resolver defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
 
 

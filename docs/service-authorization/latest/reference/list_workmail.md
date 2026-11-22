@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkMail
-<a name="list_workmail"></a>
 
 Amazon WorkMail (service prefix: `workmail`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

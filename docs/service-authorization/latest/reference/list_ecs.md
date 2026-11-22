@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Elastic Container Service
-<a name="list_ecs"></a>
 
 Amazon Elastic Container Service (service prefix: `ecs`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

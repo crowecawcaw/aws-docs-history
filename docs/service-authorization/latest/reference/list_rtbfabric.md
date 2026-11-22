@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS RTB Fabric
-<a name="list_rtbfabric"></a>
 
 AWS RTB Fabric (service prefix: `rtbfabric`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -103,6 +102,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   GetAvailableModule  **
+  - **IAM action:**  [rtbfabric:GetAvailableModule](#list_rtbfabric-action-GetAvailableModule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAvailableModuleVersion  **
+  - **IAM action:**  [rtbfabric:GetAvailableModuleVersion](#list_rtbfabric-action-GetAvailableModuleVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetCertificateAssociation  **
   - **IAM action:**  [rtbfabric:GetCertificateAssociation](#list_rtbfabric-action-GetCertificateAssociation) 
   - **Condition key:** 
@@ -145,6 +156,24 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetUpdate  **
+  - **IAM action:**  [rtbfabric:GetUpdate](#list_rtbfabric-action-GetUpdate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAvailableModuleVersions  **
+  - **IAM action:**  [rtbfabric:ListAvailableModuleVersions](#list_rtbfabric-action-ListAvailableModuleVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAvailableModules  **
+  - **IAM action:**  [rtbfabric:ListAvailableModules](#list_rtbfabric-action-ListAvailableModules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListCertificateAssociations  **
   - **IAM action:**  [rtbfabric:ListCertificateAssociations](#list_rtbfabric-action-ListCertificateAssociations) 
   - **Condition key:** 
@@ -180,6 +209,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   ListUpdates  **
+  - **IAM action:**  [rtbfabric:ListUpdates](#list_rtbfabric-action-ListUpdates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutLinkFlows  **
+  - **IAM action:**  [rtbfabric:PutLinkFlows](#list_rtbfabric-action-PutLinkFlows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   RejectLink  **
   - **IAM action:**  [rtbfabric:RejectLink](#list_rtbfabric-action-RejectLink) 
@@ -329,6 +370,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rtbfabric-aws_ResourceTag___TagKey_)<br />[rtbfabric:ResponderGatewayGatewayId](#list_rtbfabric-rtbfabric_ResponderGatewayGatewayId)
   - **Access level:** Write
 
+- **   [GetAvailableModule](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_GetAvailableModule.html)  **
+  - **Description:** Grants permission to retrieve information about a module that you can attach
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAvailableModuleVersion](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_GetAvailableModuleVersion.html)  **
+  - **Description:** Grants permission to retrieve information about a version of a module that you can attach
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetCertificateAssociation](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_GetCertificateAssociation.html)  **
   - **Description:** Grants permission to retrieve details of a certificate association with a responder gateway
   - **Resource types (\*required):** [ResponderGateway\*](#list_rtbfabric-resource-ResponderGateway)
@@ -371,6 +424,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rtbfabric-aws_ResourceTag___TagKey_)<br />[rtbfabric:ResponderGatewayGatewayId](#list_rtbfabric-rtbfabric_ResponderGatewayGatewayId)
   - **Access level:** Read
 
+- **   [GetUpdate](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_GetUpdate.html)  **
+  - **Description:** Grants permission to retrieve information about an update
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListAvailableModuleVersions](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_ListAvailableModuleVersions.html)  **
+  - **Description:** Grants permission to list the versions of a module that you can attach
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAvailableModules](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_ListAvailableModules.html)  **
+  - **Description:** Grants permission to list the modules that you can attach
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListCertificateAssociations](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_ListCertificateAssociations.html)  **
   - **Description:** Grants permission to list certificate associations for a responder gateway
   - **Resource types (\*required):** [ResponderGateway\*](#list_rtbfabric-resource-ResponderGateway)
@@ -410,6 +481,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [RequesterGateway](#list_rtbfabric-resource-RequesterGateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rtbfabric-aws_ResourceTag___TagKey_)<br />[rtbfabric:RequesterGatewayGatewayId](#list_rtbfabric-rtbfabric_RequesterGatewayGatewayId)
   - **Resource types (\*required):** [ResponderGateway](#list_rtbfabric-resource-ResponderGateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rtbfabric-aws_ResourceTag___TagKey_)<br />[rtbfabric:ResponderGatewayGatewayId](#list_rtbfabric-rtbfabric_ResponderGatewayGatewayId)
   - **Access level:** Read
+
+- **   [ListUpdates](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_ListUpdates.html)  **
+  - **Description:** Grants permission to list the updates on a gateway
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutLinkFlows](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_PutLinkFlows.html)  **
+  - **Description:** Grants permission to replace the flow configuration of a link
+  - **Resource types (\*required):** [Link\*](#list_rtbfabric-resource-Link)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rtbfabric-aws_ResourceTag___TagKey_)<br />[rtbfabric:LinkLinkId](#list_rtbfabric-rtbfabric_LinkLinkId)<br />[rtbfabric:RequesterGatewayGatewayId](#list_rtbfabric-rtbfabric_RequesterGatewayGatewayId)<br />[rtbfabric:ResponderGatewayGatewayId](#list_rtbfabric-rtbfabric_ResponderGatewayGatewayId)
+  - **Access level:** Write
 
 - **   [RejectLink](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_RejectLink.html)  **
   - **Description:** Grants permission to reject a link request between RTB applications

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Sustainability
-<a name="list_sustainability"></a>
 
 AWS Sustainability (service prefix: `sustainability`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

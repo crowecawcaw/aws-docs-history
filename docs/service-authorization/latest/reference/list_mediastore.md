@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Elemental MediaStore
-<a name="list_mediastore"></a>
 
 AWS Elemental MediaStore (service prefix: `mediastore`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

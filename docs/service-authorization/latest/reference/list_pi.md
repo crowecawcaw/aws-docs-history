@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Performance Insights
-<a name="list_pi"></a>
 
 AWS Performance Insights (service prefix: `pi`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

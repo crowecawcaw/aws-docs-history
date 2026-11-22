@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Bedrock Agentcore
-<a name="list_bedrock-agentcore"></a>
 
 Amazon Bedrock Agentcore (service prefix: `bedrock-agentcore`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -97,6 +96,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteDatasetGeneration  **
+  - **SDK client:** bedrock-agentcore
+  - **IAM action:**  [bedrock-agentcore:DeleteDatasetGeneration](#list_bedrock-agentcore-action-DeleteDatasetGeneration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteEvent  **
   - **SDK client:** bedrock-agentcore
   - **IAM action:**  [bedrock-agentcore:DeleteEvent](#list_bedrock-agentcore-action-DeleteEvent) 
@@ -153,6 +159,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetAgentInsight  **
+  - **SDK client:** bedrock-agentcore
+  - **IAM action:**  [bedrock-agentcore:GetAgentInsight](#list_bedrock-agentcore-action-GetAgentInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetBatchEvaluation  **
   - **SDK client:** bedrock-agentcore
   - **IAM action:**  [bedrock-agentcore:GetBatchEvaluation](#list_bedrock-agentcore-action-GetBatchEvaluation) 
@@ -170,6 +183,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   GetCodeInterpreterSession  **
   - **SDK client:** bedrock-agentcore
   - **IAM action:**  [bedrock-agentcore:GetCodeInterpreterSession](#list_bedrock-agentcore-action-GetCodeInterpreterSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDatasetGeneration  **
+  - **SDK client:** bedrock-agentcore
+  - **IAM action:**  [bedrock-agentcore:GetDatasetGeneration](#list_bedrock-agentcore-action-GetDatasetGeneration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -301,6 +321,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListAgentInsights  **
+  - **SDK client:** bedrock-agentcore
+  - **IAM action:**  [bedrock-agentcore:ListAgentInsights](#list_bedrock-agentcore-action-ListAgentInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListBatchEvaluations  **
   - **SDK client:** bedrock-agentcore
   - **IAM action:**  [bedrock-agentcore:ListBatchEvaluations](#list_bedrock-agentcore-action-ListBatchEvaluations) 
@@ -318,6 +345,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListCodeInterpreterSessions  **
   - **SDK client:** bedrock-agentcore
   - **IAM action:**  [bedrock-agentcore:ListCodeInterpreterSessions](#list_bedrock-agentcore-action-ListCodeInterpreterSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDatasetGenerations  **
+  - **SDK client:** bedrock-agentcore
+  - **IAM action:**  [bedrock-agentcore:ListDatasetGenerations](#list_bedrock-agentcore-action-ListDatasetGenerations) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -466,6 +500,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **SDK client:** bedrock-agentcore
   - **IAM action:**  [bedrock-agentcore:UpdateABTest](#list_bedrock-agentcore-action-UpdateABTest)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** bedrock-agentcore.amazonaws.com / **Access level:** Write
+
+- **   UpdateAgentInsight  **
+  - **SDK client:** bedrock-agentcore
+  - **IAM action:**  [bedrock-agentcore:UpdateAgentInsight](#list_bedrock-agentcore-action-UpdateAgentInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateBrowserStream  **
   - **SDK client:** bedrock-agentcore
@@ -868,6 +909,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   GetAgentInsightStore  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:GetAgentInsightStore](#list_bedrock-agentcore-action-GetAgentInsightStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetAgentRuntime  **
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:GetAgentRuntime](#list_bedrock-agentcore-action-GetAgentRuntime) 
@@ -1112,6 +1160,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   ListAgentInsightStores  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:ListAgentInsightStores](#list_bedrock-agentcore-action-ListAgentInsightStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListAgentRuntimeEndpoints  **
   - **SDK client:** bedrock-agentcore-control
@@ -1448,6 +1503,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
+
+- **   UpdateAgentInsightStore  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:UpdateAgentInsightStore](#list_bedrock-agentcore-action-UpdateAgentInsightStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateAgentRuntime  **
   - **SDK client:** bedrock-agentcore-control
@@ -1969,6 +2031,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteDatasetGeneration](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_DeleteDatasetGeneration.html)  **
+  - **Description:** Grants permission to delete a dataset generation job record
+  - **Resource types (\*required):** [dataset\*](#list_bedrock-agentcore-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteEvaluator](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteEvaluator.html)  **
   - **Description:** Grants permission to delete an evaluator
   - **Resource types (\*required):** [evaluator\*](#list_bedrock-agentcore-resource-evaluator)
@@ -2132,6 +2200,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [runtime-endpoint\*](#list_bedrock-agentcore-resource-runtime-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetAgentInsight](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetAgentInsight.html)  **
+  - **Description:** Grants permission to get details of an agent insight
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentInsightStore](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetAgentInsightStore.html)  **
+  - **Description:** Grants permission to get details of an agent insight store
+  - **Resource types (\*required):** [agent-insight-store\*](#list_bedrock-agentcore-resource-agent-insight-store)
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetAgentRuntime.html)  **
   - **Description:** Grants permission to get details of an agent runtime
   - **Resource types (\*required):** [runtime\*](#list_bedrock-agentcore-resource-runtime)
@@ -2212,6 +2292,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetDataset](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetDataset.html)  **
   - **Description:** Grants permission to get details of a dataset
+  - **Resource types (\*required):** [dataset\*](#list_bedrock-agentcore-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDatasetGeneration](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetDatasetGeneration.html)  **
+  - **Description:** Grants permission to get details of a dataset generation job
   - **Resource types (\*required):** [dataset\*](#list_bedrock-agentcore-resource-dataset)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -2511,6 +2597,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListAgentInsightStores](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListAgentInsightStores.html)  **
+  - **Description:** Grants permission to list agent insight stores
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAgentInsights](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListAgentInsights.html)  **
+  - **Description:** Grants permission to list agent insights
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListAgentRuntimeEndpoints](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListAgentRuntimeEndpoints.html)  **
   - **Description:** Grants permission to list agent runtime endpoints
   - **Resource types (\*required):** 
@@ -2603,6 +2701,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListDatasetExamples](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListDatasetExamples.html)  **
   - **Description:** Grants permission to list examples in a dataset
+  - **Resource types (\*required):** [dataset\*](#list_bedrock-agentcore-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDatasetGenerations](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListDatasetGenerations.html)  **
+  - **Description:** Grants permission to list the dataset generation jobs of a dataset
   - **Resource types (\*required):** [dataset\*](#list_bedrock-agentcore-resource-dataset)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** List
@@ -2891,6 +2995,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [code-interpreter-custom\*](#list_bedrock-agentcore-resource-code-interpreter-custom) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StartDatasetGeneration](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartDatasetGeneration.html)  **
+  - **Description:** Grants permission to start a dataset generation job that adds examples to a dataset from agent traces
+  - **Resource types (\*required):** [dataset\*](#list_bedrock-agentcore-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StartMemoryExtractionJob](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartMemoryExtractionJob.html)  **
   - **Description:** Grants permission to start memory extraction job
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
@@ -2989,6 +3099,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update an A/B test
   - **Resource types (\*required):** [ab-test\*](#list_bedrock-agentcore-resource-ab-test)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentInsight](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateAgentInsight.html)  **
+  - **Description:** Grants permission to update an agent insight
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAgentInsightStore](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentInsightStore.html)  **
+  - **Description:** Grants permission to update an agent insight store
+  - **Resource types (\*required):** [agent-insight-store\*](#list_bedrock-agentcore-resource-agent-insight-store)
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [UpdateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html)  **
@@ -3277,6 +3399,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [ab-test](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/abTest.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:ab-test/${ABTestId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
+|  [agent-insight-store](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/agentInsightStore.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:agent-insight-store/${AgentInsightStoreId} |   | 
 |  [apikeycredentialprovider](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/apikeycredentialprovider.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:token-vault/${TokenVaultId}/apikeycredentialprovider/${Name} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [batch-evaluate](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/batchEvaluation.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:batch-evaluate/${BatchEvaluationId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/browser.html)  | arn:${Partition}:bedrock-agentcore:${Region}:aws:browser/${BrowserId} |   | 

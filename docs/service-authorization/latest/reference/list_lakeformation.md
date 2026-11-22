@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Lake Formation
-<a name="list_lakeformation"></a>
 
 AWS Lake Formation (service prefix: `lakeformation`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

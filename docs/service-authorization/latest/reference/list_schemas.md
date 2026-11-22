@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EventBridge Schemas
-<a name="list_schemas"></a>
 
 Amazon EventBridge Schemas (service prefix: `schemas`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

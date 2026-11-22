@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Fraud Detector
-<a name="list_frauddetector"></a>
 
 Amazon Fraud Detector (service prefix: `frauddetector`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

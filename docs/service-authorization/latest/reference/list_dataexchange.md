@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Data Exchange
-<a name="list_dataexchange"></a>
 
 AWS Data Exchange (service prefix: `dataexchange`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

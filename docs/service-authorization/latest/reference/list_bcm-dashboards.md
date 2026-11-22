@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Billing and Cost Management Dashboards
-<a name="list_bcm-dashboards"></a>
 
 AWS Billing and Cost Management Dashboards (service prefix: `bcm-dashboards`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

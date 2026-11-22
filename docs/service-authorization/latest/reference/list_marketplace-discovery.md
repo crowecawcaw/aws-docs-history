@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace Discovery
-<a name="list_marketplace-discovery"></a>
 
 AWS Marketplace Discovery (service prefix: `aws-marketplace`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -57,6 +56,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListFulfillmentOptions  **
   - **IAM action:**  [aws-marketplace:ListFulfillmentOptions](#list_marketplace-discovery-action-ListFulfillmentOptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListListingAttributes  **
+  - **IAM action:**  [aws-marketplace:ListListingAttributes](#list_marketplace-discovery-action-ListListingAttributes) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -120,6 +125,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListFulfillmentOptions](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_ListFulfillmentOptions.html)  **
   - **Description:** Grants permission to list fulfillment options for a product
   - **Resource types (\*required):** [Product\*](#list_marketplace-discovery-resource-Product)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListListingAttributes](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-discovery_ListListingAttributes.html)  **
+  - **Description:** Grants permission to list attributes of a listing
+  - **Resource types (\*required):** [Listing\*](#list_marketplace-discovery-resource-Listing)
   - **Condition keys:**  
   - **Access level:** List
 

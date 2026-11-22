@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Route 53 Resolver
-<a name="list_route53resolver"></a>
 
 Amazon Route 53 Resolver (service prefix: `route53resolver`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -270,6 +269,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListFirewallDomains  **
   - **IAM action:**  [route53resolver:ListFirewallDomains](#list_route53resolver-action-ListFirewallDomains) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFirewallRuleDomains  **
+  - **IAM action:**  [route53resolver:ListFirewallRuleDomains](#list_route53resolver-action-ListFirewallRuleDomains) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -695,6 +700,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallDomains.html)  **
   - **Description:** Grants permission to list all the Firewall domain under a specified Firewall domain list
   - **Resource types (\*required):** [firewall-domain-list\*](#list_route53resolver-resource-firewall-domain-list)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53resolver-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListFirewallRuleDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallRuleDomains.html)  **
+  - **Description:** Grants permission to list the domains of a specified Firewall rule in a Firewall rule group, including the domains suggested for an AutoAllowlist Firewall rule
+  - **Resource types (\*required):** [firewall-rule-group\*](#list_route53resolver-resource-firewall-rule-group)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53resolver-aws_ResourceTag___TagKey_)
   - **Access level:** List
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Kinesis Data Streams
-<a name="list_kinesis"></a>
 
 Amazon Kinesis Data Streams (service prefix: `kinesis`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -26,6 +25,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   AcknowledgeDeadLetterQueueRecords  **
+  - **IAM action:**  [kinesis:AcknowledgeDeadLetterQueueRecords](#list_kinesis-action-AcknowledgeDeadLetterQueueRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AcknowledgeQueueRecords  **
+  - **IAM action:**  [kinesis:AcknowledgeQueueRecords](#list_kinesis-action-AcknowledgeQueueRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AddTagsToStream  **
   - **IAM action:**  [kinesis:AddTagsToStream](#list_kinesis-action-AddTagsToStream) 
   - **Condition key:** 
@@ -34,9 +45,14 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateChannel  **
   - **IAM action:**  [kinesis:AssociateStreamsWithChannel](#list_kinesis-action-AssociateStreamsWithChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [kinesis:CreateChannel](#list_kinesis-action-CreateChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [kinesis:CreateChannel](#list_kinesis-action-CreateChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [kinesis:TagResource](#list_kinesis-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesis.amazonaws.com / **Access level:** Write
+
+- **   CreateQueue  **
+  - **IAM action:**  [kinesis:AssociateStreamsWithQueue](#list_kinesis-action-AssociateStreamsWithQueue)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kinesis:CreateQueue](#list_kinesis-action-CreateQueue)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kinesis:TagResource](#list_kinesis-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateStream  **
   - **IAM action:**  [kinesis:AddTagsToStream](#list_kinesis-action-AddTagsToStream)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -50,6 +66,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteChannel  **
   - **IAM action:**  [kinesis:DeleteChannel](#list_kinesis-action-DeleteChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteQueue  **
+  - **IAM action:**  [kinesis:DeleteQueue](#list_kinesis-action-DeleteQueue) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -86,6 +108,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DescribeLimits  **
   - **IAM action:**  [kinesis:DescribeLimits](#list_kinesis-action-DescribeLimits) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeQueue  **
+  - **IAM action:**  [kinesis:DescribeQueue](#list_kinesis-action-DescribeQueue) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -150,6 +178,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListQueues  **
+  - **IAM action:**  [kinesis:ListQueues](#list_kinesis-action-ListQueues) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListShards  **
   - **IAM action:**  [kinesis:ListShards](#list_kinesis-action-ListShards) 
   - **Condition key:** 
@@ -204,6 +238,16 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   ReceiveDeadLetterQueueRecords  **
+  - **IAM action:**  [kinesis:ReceiveDeadLetterQueueRecords](#list_kinesis-action-ReceiveDeadLetterQueueRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ReceiveQueueRecords  **
+  - **IAM action:**  [kinesis:ReceiveQueueRecords](#list_kinesis-action-ReceiveQueueRecords)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [kinesis:ReceiveQueueRecords](#list_kinesis-action-ReceiveQueueRecords)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
 - **   RegisterStreamConsumer  **
   - **IAM action:**  [kinesis:RegisterStreamConsumer](#list_kinesis-action-RegisterStreamConsumer)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [kinesis:TagResource](#list_kinesis-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -213,6 +257,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
+
+- **   RestoreDeadLetterQueueRecords  **
+  - **IAM action:**  [kinesis:RestoreDeadLetterQueueRecords](#list_kinesis-action-RestoreDeadLetterQueueRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   SplitShard  **
   - **IAM action:**  [kinesis:SplitShard](#list_kinesis-action-SplitShard) 
@@ -262,8 +312,26 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateDeadLetterQueueRecordsVisibility  **
+  - **IAM action:**  [kinesis:UpdateDeadLetterQueueRecordsVisibility](#list_kinesis-action-UpdateDeadLetterQueueRecordsVisibility) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateMaxRecordSize  **
   - **IAM action:**  [kinesis:UpdateMaxRecordSize](#list_kinesis-action-UpdateMaxRecordSize) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateQueue  **
+  - **IAM action:**  [kinesis:UpdateQueue](#list_kinesis-action-UpdateQueue) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateQueueRecordsVisibility  **
+  - **IAM action:**  [kinesis:UpdateQueueRecordsVisibility](#list_kinesis-action-UpdateQueueRecordsVisibility) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -302,23 +370,35 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+- **   [AcknowledgeDeadLetterQueueRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AcknowledgeDeadLetterQueueRecords.html)  **
+  - **Description:** Grants permission to acknowledge one or more dead-letter records received from the specified queue so the queue does not deliver them again
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AcknowledgeQueueRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AcknowledgeQueueRecords.html)  **
+  - **Description:** Grants permission to acknowledge one or more data records received from the specified queue so the queue does not deliver them again
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [AddTagsToStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html)  **
   - **Description:** Grants permission to add or update tags for the specified Amazon Kinesis stream. Each stream can have up to 50 tags
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Access level:** Tagging, Write
 
-- **   [AssociateStreamsWithChannel](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateChannel.html)  **
-  - **Description:** Grants permission to associate a stream with a channel
-  - **Resource types (\*required):** [channel\*](#list_kinesis-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
-
 - **   [CreateChannel](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateChannel.html)  **
   - **Description:** Grants permission to create a channel that delivers data from a selected single stream to a destination
   - **Resource types (\*required):** [channel\*](#list_kinesis-resource-channel)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
-  - **Access level:** Tagging, Write
+  - **Access level:** Write
+
+- **   [CreateQueue](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateQueue.html)  **
+  - **Description:** Grants permission to create a queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
+  - **Access level:** Write
 
 - **   [CreateStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html)  **
   - **Description:** Grants permission to create a Amazon Kinesis stream
@@ -338,9 +418,16 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteQueue](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteQueue.html)  **
+  - **Description:** Grants permission to delete the specified queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteResourcePolicy](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteResourcePolicy.html)  **
-  - **Description:** Grants permission to delete a resource policy associated with a specified stream or consumer
+  - **Description:** Grants permission to delete a resource policy associated with a specified stream, consumer, or queue
   - **Resource types (\*required):** [consumer\*](#list_kinesis-resource-consumer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -372,6 +459,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to describe the shard limits and usage for the account
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeQueue](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeQueue.html)  **
+  - **Description:** Grants permission to describe the specified queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribeStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html)  **
@@ -411,8 +504,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [GetResourcePolicy](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetResourcePolicy.html)  **
-  - **Description:** Grants permission to get a resource policy associated with a specified stream or consumer
+  - **Description:** Grants permission to get a resource policy associated with a specified stream, consumer, or queue
   - **Resource types (\*required):** [consumer\*](#list_kinesis-resource-consumer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -430,6 +524,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListChannels](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListChannels.html)  **
   - **Description:** Grants permission to list the channels in the account, optionally filtered by stream
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListQueues](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListQueues.html)  **
+  - **Description:** Grants permission to list the queues in the account, optionally filtered by stream
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -456,6 +556,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list the tags for the specified Amazon Kinesis resource
   - **Resource types (\*required):** [channel\*](#list_kinesis-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [consumer\*](#list_kinesis-resource-consumer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -484,10 +585,23 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [PutResourcePolicy](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutResourcePolicy.html)  **
-  - **Description:** Grants permission to attach a resource policy to a specified stream or consumer
+  - **Description:** Grants permission to attach a resource policy to a specified stream, consumer, or queue
   - **Resource types (\*required):** [consumer\*](#list_kinesis-resource-consumer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Write
+
+- **   [ReceiveDeadLetterQueueRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ReceiveDeadLetterQueueRecords.html)  **
+  - **Description:** Grants permission to receive one or more dead-letter records from the specified queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ReceiveQueueRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ReceiveQueueRecords.html)  **
+  - **Description:** Grants permission to receive one or more data records from the specified queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [RegisterStreamConsumer](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_RegisterStreamConsumer.html)  **
   - **Description:** Grants permission to register a stream consumer with a Kinesis data stream
@@ -500,6 +614,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Access level:** Tagging, Write
+
+- **   [RestoreDeadLetterQueueRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_RestoreDeadLetterQueueRecords.html)  **
+  - **Description:** Grants permission to restore one or more dead-letter records in the specified queue to the normal receive path
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [SplitShard](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html)  **
   - **Description:** Grants permission to split a shard into two new shards in the Kinesis data stream, to increase the stream's capacity to ingest and transport data
@@ -529,6 +649,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to add or update tags for the specified Amazon Kinesis resource. Each resource can have up to 50 tags
   - **Resource types (\*required):** [channel\*](#list_kinesis-resource-channel) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Resource types (\*required):** [consumer\*](#list_kinesis-resource-consumer) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -536,6 +657,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to remove tags from the specified Kinesis data resource. Removed tags are deleted and cannot be recovered after this operation successfully completes
   - **Resource types (\*required):** [channel\*](#list_kinesis-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Resource types (\*required):** [consumer\*](#list_kinesis-resource-consumer) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -551,9 +673,27 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateDeadLetterQueueRecordsVisibility](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateDeadLetterQueueRecordsVisibility.html)  **
+  - **Description:** Grants permission to change the visibility timeout of one or more dead-letter records received from the specified queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateMaxRecordSize](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateMaxRecordSize.html)  **
   - **Description:** Grants permission to update the maximum record size for a Kinesis data stream
   - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateQueue](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateQueue.html)  **
+  - **Description:** Grants permission to update the attributes of the specified queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateQueueRecordsVisibility](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateQueueRecordsVisibility.html)  **
+  - **Description:** Grants permission to change the visibility timeout of one or more data records received from the specified queue
+  - **Resource types (\*required):** [queue\*](#list_kinesis-resource-queue)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -590,9 +730,26 @@ The following actions are defined by Amazon Kinesis Data Streams but are not dir
 
 
 
-| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
-| --- | --- | --- | --- | --- | 
-|   [InjectApiError](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html)  | Grants permission to temporarily inject errors for target API requests |  | [kinesis:FisActionId](#list_kinesis-kinesis_FisActionId)<br />[kinesis:FisInjectPercentage](#list_kinesis-kinesis_FisInjectPercentage)<br />[kinesis:FisTargetArns](#list_kinesis-kinesis_FisTargetArns) | Write | 
+
+- **   [AssociateStreamsWithChannel](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateChannel.html)  **
+  - **Description:** Grants permission to associate a stream with a channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateStreamsWithQueue](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateQueue.html)  **
+  - **Description:** Grants permission to associate the specified stream with a queue when the queue is created
+  - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [InjectApiError](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html)  **
+  - **Description:** Grants permission to temporarily inject errors for target API requests
+  - **Resource types (\*required):** 
+  - **Condition keys:** [kinesis:FisActionId](#list_kinesis-kinesis_FisActionId)<br />[kinesis:FisInjectPercentage](#list_kinesis-kinesis_FisInjectPercentage)<br />[kinesis:FisTargetArns](#list_kinesis-kinesis_FisTargetArns)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Kinesis Data Streams
 <a name="list_kinesis-resources-for-iam-policies"></a>
@@ -606,6 +763,7 @@ The following resource types are defined by this service and can be used in the 
 |  [channel](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#data-delivery-concept)  | arn:${Partition}:kinesis:${Region}:${Account}:channel/${ChannelId} | [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_) | 
 |  [consumer](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#enabled-application)  | arn:${Partition}:kinesis:${Region}:${Account}:${StreamType}/${StreamName}/consumer/${ConsumerName}:${ConsumerCreationTimpstamp} | [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_) | 
 |  [kmsKey](https://docs.aws.amazon.com/streams/latest/dev/server-side-encryption.html)  | arn:${Partition}:kms:${Region}:${Account}:key/${KeyId} | [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_) | 
+|  [queue](https://docs.aws.amazon.com/streams/latest/dev/consuming-with-queues.html)  | arn:${Partition}:kinesis:${Region}:${Account}:queue/${QueueId} | [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_) | 
 |  [stream](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#stream)  | arn:${Partition}:kinesis:${Region}:${Account}:stream/${StreamName} | [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Kinesis Data Streams

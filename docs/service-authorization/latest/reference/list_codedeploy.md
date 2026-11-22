@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS CodeDeploy
-<a name="list_codedeploy"></a>
 
 AWS CodeDeploy (service prefix: `codedeploy`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

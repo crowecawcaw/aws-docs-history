@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Batch
-<a name="list_batch"></a>
 
 AWS Batch (service prefix: `batch`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

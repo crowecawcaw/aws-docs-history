@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Inspector
-<a name="list_inspector"></a>
 
 Amazon Inspector (service prefix: `inspector`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

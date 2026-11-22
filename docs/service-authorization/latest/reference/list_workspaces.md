@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon WorkSpaces
-<a name="list_workspaces"></a>
 
 Amazon WorkSpaces (service prefix: `workspaces`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -1147,6 +1146,12 @@ The following actions are defined by Amazon WorkSpaces but are not directly invo
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetWorkspaceProactiveRecommendation](https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-console-permissions-ref.html)  **
+  - **Description:** Grants permission to get a proactive fleet health recommendation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [InvokeOnboardingAgent](https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-console-permissions-ref.html)  **
   - **Description:** Grants permission to use WorkSpaces Advisor for WorkSpace onboarding
   - **Resource types (\*required):** 
@@ -1163,6 +1168,18 @@ The following actions are defined by Amazon WorkSpaces but are not directly invo
   - **Description:** Grants permission to list troubleshooting recommendations
   - **Resource types (\*required):** [workspaceid\*](#list_workspaces-resource-workspaceid)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListWorkspaceProactiveRecommendationResources](https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-console-permissions-ref.html)  **
+  - **Description:** Grants permission to list the WorkSpaces affected by a proactive fleet health recommendation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListWorkspaceProactiveRecommendations](https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-console-permissions-ref.html)  **
+  - **Description:** Grants permission to list proactive fleet health recommendations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Read
 
 - **   [Personalization](https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-console-permissions-ref.html)  **

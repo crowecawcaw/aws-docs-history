@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Marketplace Commerce Analytics Service
-<a name="list_marketplacecommerceanalytics"></a>
 
 AWS Marketplace Commerce Analytics Service (service prefix: `marketplacecommerceanalytics`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

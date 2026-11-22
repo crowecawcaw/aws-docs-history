@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Glue DataBrew
-<a name="list_databrew"></a>
 
 AWS Glue DataBrew (service prefix: `databrew`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

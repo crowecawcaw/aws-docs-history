@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Q in Connect
-<a name="list_q-in-connect"></a>
 
 Amazon Q in Connect (service prefix: `wisdom`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -498,6 +497,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   RegisterAssistantReplicaKey  **
   - **SDK client:** qconnect
   - **IAM action:**  [wisdom:RegisterAssistantReplicaKey](#list_q-in-connect-action-RegisterAssistantReplicaKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RegisterKnowledgeBaseReplicaKey  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:RegisterKnowledgeBaseReplicaKey](#list_q-in-connect-action-RegisterKnowledgeBaseReplicaKey) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write

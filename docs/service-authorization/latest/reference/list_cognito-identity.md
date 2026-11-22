@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Cognito Identity
-<a name="list_cognito-identity"></a>
 
 Amazon Cognito Identity (service prefix: `cognito-identity`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

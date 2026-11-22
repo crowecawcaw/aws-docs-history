@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon EC2 Instance Connect
-<a name="list_ec2-instance-connect"></a>
 
 Amazon EC2 Instance Connect (service prefix: `ec2-instance-connect`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Managed Blockchain
-<a name="list_managedblockchain"></a>
 
 Amazon Managed Blockchain (service prefix: `managedblockchain`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

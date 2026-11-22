@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Detective
-<a name="list_detective"></a>
 
 Amazon Detective (service prefix: `detective`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

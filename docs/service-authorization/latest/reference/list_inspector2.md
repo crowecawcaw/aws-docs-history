@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Inspector2
-<a name="list_inspector2"></a>
 
 Amazon Inspector2 (service prefix: `inspector2`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

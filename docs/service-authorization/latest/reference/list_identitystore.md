@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Identity Store
-<a name="list_identitystore"></a>
 
 AWS Identity Store (service prefix: `identitystore`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
@@ -127,6 +126,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdateUser  **
   - **IAM action:**  [identitystore:UpdateUser](#list_identitystore-action-UpdateUser)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sso-directory:DisableUser](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [sso-directory:EnableUser](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sso-directory:UpdateUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_UpdateUser.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sso-directory:UpdateUserName](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 

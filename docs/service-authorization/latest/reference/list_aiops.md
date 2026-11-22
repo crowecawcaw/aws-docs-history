@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon AI Operations
-<a name="list_aiops"></a>
 
 Amazon AI Operations (service prefix: `aiops`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon GroundTruth Labeling
-<a name="list_groundtruthlabeling"></a>
 
 Amazon GroundTruth Labeling (service prefix: `groundtruthlabeling`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Q Developer
-<a name="list_qdeveloper"></a>
 
 Amazon Q Developer (service prefix: `qdeveloper`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for AWS Account Management
-<a name="list_account"></a>
 
 AWS Account Management (service prefix: `account`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

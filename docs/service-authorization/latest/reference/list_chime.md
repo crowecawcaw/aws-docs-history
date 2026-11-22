@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Chime
-<a name="list_chime"></a>
 
 Amazon Chime (service prefix: `chime`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

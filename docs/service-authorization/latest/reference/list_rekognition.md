@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Rekognition
-<a name="list_rekognition"></a>
 
 Amazon Rekognition (service prefix: `rekognition`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon Location Service Places
-<a name="list_geo-places"></a>
 
 Amazon Location Service Places (service prefix: `geo-places`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 

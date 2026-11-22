@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for Amazon SageMaker data science assistant
-<a name="list_sagemaker-data-science-assistant"></a>
 
 Amazon SageMaker data science assistant (service prefix: `sagemaker-data-science-assistant`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
