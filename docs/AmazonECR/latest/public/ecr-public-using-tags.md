@@ -1,7 +1,6 @@
 
 
 # Tag an Amazon ECR Public repository
-<a name="ecr-public-using-tags"></a>
 
 To help you manage your Amazon ECR Public repositories, you can optionally assign your own metadata to each repository by using *tags*. This topic provides an overview about tags and how to create them.
 

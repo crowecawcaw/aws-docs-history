@@ -1,7 +1,6 @@
 
 
 # Amazon ECR public registries
-<a name="public-registries"></a>
 
 Amazon ECR public registries host your container images in a highly available and scalable architecture, allowing you to deploy containers reliably for your applications. You can use your public registry to manage public image repositories consisting of Docker and Open Container Initiative (OCI) images. Each AWS account is provided with a default public and private Amazon ECR registry. For information about private registries, see [Amazon ECR registries](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) in the *Amazon Elastic Container Registry User Guide.* 
 

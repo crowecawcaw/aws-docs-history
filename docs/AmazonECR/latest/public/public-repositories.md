@@ -1,7 +1,6 @@
 
 
 # Amazon ECR public repositories
-<a name="public-repositories"></a>
 
 Amazon Elastic Container Registry provides API operations to create, monitor, and delete public image repositories and set permissions that control who can push images to them. You can perform the same actions in the **Repositories** section of the Amazon ECR console. Amazon ECR integrates with the Docker CLI to push images from your development environments to your public repositories.
 

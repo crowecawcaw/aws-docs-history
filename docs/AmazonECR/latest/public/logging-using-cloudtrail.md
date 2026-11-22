@@ -1,7 +1,6 @@
 
 
 # Logging Amazon ECR Public actions with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon ECR Public is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, a role, or an AWS service in Amazon ECR Public. When activity occurs in Amazon ECR Public, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. Because Amazon ECR Public is a global service, events for the service are logged in **US East (N. Virginia)**.
 
@@ -54,7 +53,7 @@ These examples have been formatted for improved readability. In a CloudTrail log
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateRepository` action.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -108,7 +107,7 @@ The following example shows a CloudTrail log entry that demonstrates an image pu
 **Note**  
 When pushing an image, you will also see `InitiateLayerUpload`, `UploadLayerPart`, and `CompleteLayerUpload` references in the CloudTrail logs.
 
-```
+```JSON
 {
     "eventVersion": "1.04",
     "userIdentity": {

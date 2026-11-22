@@ -1,7 +1,6 @@
 
 
 # Making requests to Amazon ECR Public registries
-<a name="public-ecr-requests"></a>
 
 You can push, pull, delete, view, and manage OCI images, Docker images, and OCI-compatible artifacts in Amazon ECR Public registries using either IPv4-only endpoints or dual-stack (IPv4 and IPv6) endpoints. For making requests from IPv4 networks, you can use either dual-stack or IPv4 endpoints. For making requests from an IPv6 network, use a dual-stack endpoint. For more information about making requests to Amazon ECR private registries using IPv4 and dual-stack endpoints, see [Making requests to Amazon ECR registries](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ecr-requests.html). There are no additional charges for accessing Amazon ECR Public over IPv6. For more information about pricing, see [Amazon Elastic Container Registry pricing](https://aws.amazon.com/ecr/pricing/).
 
@@ -94,7 +93,7 @@ IAM policies that filter IP addresses use [IP Address Condition Operators](https
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

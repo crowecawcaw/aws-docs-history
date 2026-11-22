@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="public-doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon ECR Public. We also update the documentation frequently to address the feedback that you send us.
 

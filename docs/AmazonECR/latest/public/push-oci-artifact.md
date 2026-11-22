@@ -1,7 +1,6 @@
 
 
 # Pushing a Helm chart to a public repository in Amazon ECR public
-<a name="push-oci-artifact"></a>
 
 Amazon ECR Public supports pushing Open Container Initiative (OCI) artifacts to your public repositories. To display this functionality, use the following steps to push a Helm chart to Amazon ECR Public.
 
@@ -76,7 +75,7 @@ Amazon ECR Public supports pushing Open Container Initiative (OCI) artifacts to 
         --region us-east-1
    ```
 
-   ```
+   ```JSON
    {
        "imageDetails": [
            {

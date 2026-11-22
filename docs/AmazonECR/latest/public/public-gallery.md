@@ -1,7 +1,6 @@
 
 
 # Amazon ECR Public Gallery
-<a name="public-gallery"></a>
 
 The Amazon ECR Public Gallery is a public website to find and share container images hosted in Amazon ECR public repositories. There is no authentication required to browse the public repositories and pull the images. Visit the Amazon ECR Public Gallery at [https://gallery.ecr.aws](https://gallery.ecr.aws).
 

@@ -1,7 +1,6 @@
 
 
 # Deleting a public repository policy statement Amazon ECR public
-<a name="public-repository-delete"></a>
 
 If you're finished using a repository, you can delete it. When you delete a repository in the AWS Management Console, all of the images that are contained in the repository are also deleted. This action can't be undone.
 

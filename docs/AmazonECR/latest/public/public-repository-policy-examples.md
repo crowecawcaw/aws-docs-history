@@ -1,7 +1,6 @@
 
 
 # Public repository policy examples in Amazon ECR Public
-<a name="public-repository-policy-examples"></a>
 
 The following examples show policy statements that you use to control the permissions that users have to your public repositories.
 
@@ -21,7 +20,7 @@ The following repository policy allows users within your account to push images.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -59,7 +58,7 @@ The following repository policy allows a specific account to push images.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

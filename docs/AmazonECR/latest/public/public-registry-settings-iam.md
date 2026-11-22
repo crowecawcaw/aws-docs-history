@@ -1,7 +1,6 @@
 
 
 # Required IAM permissions for Amazon ECR public registries
-<a name="public-registry-settings-iam"></a>
 
 When editing your Amazon ECR public registry settings, the IAM principal must have permission to call the `ecr-public:PutRegistryPolicy` API for registry-level operations.
 
@@ -15,7 +14,7 @@ The following IAM policy can be added as an inline policy to the principal perfo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

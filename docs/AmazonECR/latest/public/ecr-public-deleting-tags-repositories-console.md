@@ -1,7 +1,6 @@
 
 
 # Deleting tags from a public repository in Amazon ECR public
-<a name="ecr-public-deleting-tags-repositories-console"></a>
 
 You can delete tags from an individual resource.
 

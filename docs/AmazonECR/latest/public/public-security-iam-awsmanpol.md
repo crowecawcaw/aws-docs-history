@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon ECR Public
-<a name="public-security-iam-awsmanpol"></a>
 
 Amazon ECR Public provides several managed policies that you can attach to users or Amazon EC2 instances. These policies allow for differing levels of control over Amazon ECR resources and API operations. You can apply these policies directly or use them as starting points for creating your own policies. For more information about each API operation that's mentioned in these policies, see [Actions](https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_Operations.html) in the *Amazon ECR Public API Reference*.
 

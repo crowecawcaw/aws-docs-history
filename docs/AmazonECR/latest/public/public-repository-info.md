@@ -1,7 +1,6 @@
 
 
 # Viewing the contents and details of a repository in Amazon ECR public
-<a name="public-repository-info"></a>
 
 After you create a public repository, you can view details about it in the AWS Management Console. For each image in the repository, you can view the image size, the URI for pulling the image, the SHA digest, the image tags, and the time when the image was last pushed. You can review the catalog data for the Amazon ECR Public Gallery. You can also see the repository permission policies that are associated with the repository.
 

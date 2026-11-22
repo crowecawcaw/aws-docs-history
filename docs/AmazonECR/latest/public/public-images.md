@@ -1,7 +1,6 @@
 
 
 # Amazon ECR Public images
-<a name="public-images"></a>
 
 Amazon ECR Public is a fully-managed service provided by AWS that allows you to store, manage, and deploy Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts in public repositories. You can use the Docker CLI and other compatible clients to push and pull images to and from your Amazon ECR public repositories. Once stored, you can easily deploy these container images to various environments like Amazon ECS, Amazon EKS, or on-premises infrastructure. 
 

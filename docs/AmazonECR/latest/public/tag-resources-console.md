@@ -1,7 +1,6 @@
 
 
 # Adding tags to a public repository in Amazon ECR public
-<a name="tag-resources-console"></a>
 
 You can add tags to a public repository.
 

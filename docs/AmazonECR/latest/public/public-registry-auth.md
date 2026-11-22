@@ -1,7 +1,6 @@
 
 
 # Registry authentication in Amazon ECR public
-<a name="public-registry-auth"></a>
 
 You can use the AWS Management Console, the AWS CLI, or the AWS SDKs to create and manage public repositories. You can also use those methods to perform some actions on images, such as listing or deleting them. These clients use standard AWS authentication methods. Although technically you can use the Amazon ECR Public API to push and pull images, you are much more likely to use the Docker CLI or a language-specific Docker library.
 
