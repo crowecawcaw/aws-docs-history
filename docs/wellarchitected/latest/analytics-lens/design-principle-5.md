@@ -1,7 +1,6 @@
 
 
 # 5 – Control the access to workload infrastructure
-<a name="design-principle-5"></a>
 
  **How do you protect the infrastructure of the analytics workload?** Analytics environments change based on the evolving requirements of data processing and data distribution. Ensuring the environment is accessible with the least permissions necessary is essential in delivering a secure platform. Automate the auditing of environment changes and generate alerts in case of abnormal environment access. 
 

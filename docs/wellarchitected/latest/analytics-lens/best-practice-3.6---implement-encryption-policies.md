@@ -1,7 +1,6 @@
 
 
 # Best practice 3.6 – Implement encryption policies
-<a name="best-practice-3.6---implement-encryption-policies"></a>
 
  Data encryption is a way of translating data from plaintext (unencrypted) to ciphertext (encrypted). Encryption is a critical component of a *defense in depth* strategy. Therefore, it is highly recommended that your organization implement a well-designed encryption and key management system by separating access to the decryption key from access to your data to provide data security. 
 

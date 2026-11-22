@@ -1,7 +1,6 @@
 
 
 # 10 – Choose the best-performing file format and partitioning
-<a name="design-principle-10"></a>
 
  **How do you select the best-performing file formats and partitioning?** Selecting the best-performing file format and data partitioning for data-at-rest can have a large impact on the overall analytics workload efficiency. 
 

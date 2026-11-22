@@ -1,7 +1,6 @@
 
 
 # Best practice 7.1 – Build a central Data Catalog to store, share, and track metadata changes
-<a name="best-practice-7.1---build-a-central-data-catalog-to-store-share-and-track-metadata-changes."></a>
 
  Building a central Data Catalog to store, share, and manage metadata across the organization is an integral part of data governance. This will promote standardization and reuse. Tracing metadata change history in the central Data Catalog helps you manage and control version changes in the metadata. A Data Catalog is often required for auditing and compliance but by incorporating business context to a Data Catalog, it allows users in the organization to discover data assets using business terms rather than technical naming conventions. 
 

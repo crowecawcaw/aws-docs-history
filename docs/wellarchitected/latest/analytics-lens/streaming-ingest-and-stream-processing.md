@@ -1,7 +1,6 @@
 
 
 # Streaming ingest and stream processing
-<a name="streaming-ingest-and-stream-processing"></a>
 
  Processing real time streaming data requires throughput scalability, reliability, high availability, and low latency to support a variety of applications and workloads. Some examples include: streaming ETL, real-time analytics, fraud detection, API microservices integration, fraud detection activity tracking, real-time inventory and recommendations, and click-stream, log file, and IoT device analysis. 
 

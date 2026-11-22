@@ -1,7 +1,6 @@
 
 
 # 13 – Manage cost over time
-<a name="design-principle-13"></a>
 
  **How do you manage the cost of your workload over time?** To ensure that you always have the most cost-efficient workload, periodically review your workload to discover opportunities to implement new services, features, and components. It is common for analytics workloads to have an ever-growing number of users and exponential growth of data volume. Implement a standardized process across your organization to identify and remove unused resources, such as unused data, infrastructure, and ETL jobs. 
 

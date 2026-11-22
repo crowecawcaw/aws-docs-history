@@ -1,7 +1,6 @@
 
 
 # Best practice 2.1 – Use version control for job and application changes
-<a name="best-practice-2.1---use-version-control-for-job-and-application-changes."></a>
 
  Version control systems support tracking changes and the ability to revert to previous versions of an analytics system should changes cause unintended consequences. Your team should version control code repositories for both analytics infrastructure as code (IaC) and analytics applications logic. 
 

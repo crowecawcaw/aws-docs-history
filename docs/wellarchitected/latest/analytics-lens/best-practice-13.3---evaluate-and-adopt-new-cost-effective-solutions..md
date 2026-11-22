@@ -1,7 +1,6 @@
 
 
 # Best practice 13.3 – Evaluate and adopt new cost-effective solutions
-<a name="best-practice-13.3---evaluate-and-adopt-new-cost-effective-solutions."></a>
 
  As AWS releases new services and features, it’s a best practice to review your existing architectural decisions to ensure that they remain cost effective. If a new or updated service can support the same workload but in a much cheaper way, consider implementing the change to reduce cost. 
 

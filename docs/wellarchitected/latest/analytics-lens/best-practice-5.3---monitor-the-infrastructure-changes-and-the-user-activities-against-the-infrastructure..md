@@ -1,7 +1,6 @@
 
 
 # Best practice 5.3 – Monitor the infrastructure changes and the user activities against the infrastructure
-<a name="best-practice-5.3---monitor-the-infrastructure-changes-and-the-user-activities-against-the-infrastructure."></a>
 
  As the infrastructure changes over time, you should monitor what has been changed by whom. This is to ensure that such changes are deliberate and the infrastructure is still protected. 
 

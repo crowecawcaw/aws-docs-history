@@ -1,7 +1,6 @@
 
 
 # 14 – Use optimal pricing models based on infrastructure usage patterns
-<a name="design-principle-14"></a>
 
  **How do you choose the financially-optimal pricing models of the infrastructure?** Consult with your finance team and choose optimal purchasing options, such as On-Demand Instances, Reserved Instances, or Spot Instances. Understand the infrastructure usage patterns of the analytics workload. You can optimize the cost by purchasing reserved capacity with upfront payment by using Spot Instances, or by paying Amazon EC2 usage via On-Demand Instance pricing models. Evaluate the available purchasing models of the analytics infrastructure of your choice and determine the optimal payment models. 
 

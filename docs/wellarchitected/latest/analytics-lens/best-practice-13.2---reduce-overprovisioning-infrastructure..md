@@ -1,7 +1,6 @@
 
 
 # Best practice 13.2 – Continuously evaluate your provisioned resources and identify overprovisioned workloads
-<a name="best-practice-13.2---reduce-overprovisioning-infrastructure."></a>
 
  Workload resource utilization can change over time, especially with the growth of data or after process optimization has occurred. Your organization should review resource usage patterns and determine if you require the same infrastructure footprint to meet your business goals. 
 

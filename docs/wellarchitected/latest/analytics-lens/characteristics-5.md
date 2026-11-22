@@ -1,7 +1,6 @@
 
 
 # Characteristics
-<a name="characteristics-5"></a>
 
  **Scalability:** Ensure that the underlying BI infrastructure is able to scale up vertically and horizontally both in terms of concurrent users as well as data volume. For example, Quick SPICE, and web applications automatically scale up server capacity to accommodate a large number of concurrent users without any manual intervention in terms of provisioning additional capacity for data, load balancing, and other services. 
 

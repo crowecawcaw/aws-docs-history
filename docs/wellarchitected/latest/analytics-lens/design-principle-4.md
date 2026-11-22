@@ -1,7 +1,6 @@
 
 
 # 4 – Implement data access control
-<a name="design-principle-4"></a>
 
  **How do you manage access to data within your organization’s source, analytics, and downstream systems?** 
 

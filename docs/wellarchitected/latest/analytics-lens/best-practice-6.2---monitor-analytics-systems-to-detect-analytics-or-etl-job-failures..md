@@ -1,7 +1,6 @@
 
 
 # Best practice 6.2 – Monitor analytics systems to detect analytics or extract, transform and load (ETL) job failures
-<a name="best-practice-6.2---monitor-analytics-systems-to-detect-analytics-or-etl-job-failures."></a>
 
  Detect extract, transform, and load (ETL) and analytics job failures as soon as possible. Pinpointing where and how the error occurred is critical for notiﬁcations and corrective actions. 
 

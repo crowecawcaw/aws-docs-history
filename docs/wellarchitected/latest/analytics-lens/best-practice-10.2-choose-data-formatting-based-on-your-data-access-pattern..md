@@ -1,7 +1,6 @@
 
 
 # Best practice 10.2 – Choose data formatting based on your data access pattern
-<a name="best-practice-10.2-choose-data-formatting-based-on-your-data-access-pattern."></a>
 
  Choosing the right data type for your workload is important. There are many different data types available to support your workload. Choosing the right format is a key step in the performance optimization of your analytics workloads. 
 

@@ -1,7 +1,6 @@
 
 
 # 1 – Monitor the health of the analytics application workload
-<a name="design-principle-1"></a>
 
  **How do you measure the health of your analytics workload?** Data analytics workloads often involve multiple systems and process steps working in coordination. It is imperative that you monitor not only individual components but also the interaction of dependent processes to ensure a healthy data analytics workload. 
 

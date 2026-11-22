@@ -1,7 +1,6 @@
 
 
 # 9 – Choose the best-performing storage solution
-<a name="design-principle-9"></a>
 
  **How do you select the best-performing storage options for your workload?** 
 

@@ -1,7 +1,6 @@
 
 
 # 12 – Build financial accountability models for data and workload usage
-<a name="design-principle-12"></a>
 
  **How do you measure and attribute the analytics workload financial accountability?** As your business continues to evolve, so will your analytics workload. Data analytics systems and the data generated from them will grow over time into a mix of both shared and isolated-team resources. Your organization should establish a financial attribution model for these resources. Teams will understand how their use of data analytics inﬂuences costs to the business and this promotes a culture of accountability and frugality. Creating a financial accountability model will allow departments to cross-charge departments for shared resources. 
 

@@ -1,7 +1,6 @@
 
 
 # Best practice 1.2 – Monitor operational metrics of data processing jobs and the availability of source data
-<a name="best-practice-1.2---monitor-operational-metrics-of-data-processing-jobs-and-the-availability-of-source-data."></a>
 
 Data processing pipelines often consist of multiple steps that all need to run in sequence to output the desired data sets and meet business deadlines. Monitoring each job in the pipeline is key to ensure operational excellence. The operational metrics of the jobs themselves should be monitored, as well as the availability of source data, and that results are produced. 
 

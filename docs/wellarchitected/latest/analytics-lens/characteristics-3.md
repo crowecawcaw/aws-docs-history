@@ -1,7 +1,6 @@
 
 
 # Characteristics
-<a name="characteristics-3"></a>
 
  **Scalable throughput:** For real-time analytics, you should plan a resilient stream storage infrastructure that can adapt to changes in the rate of data ﬂowing through the stream. Scaling is typically performed by an administrative application that monitors shard and partition data-handling metrics. 
 

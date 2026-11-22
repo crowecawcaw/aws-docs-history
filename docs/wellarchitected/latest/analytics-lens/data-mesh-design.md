@@ -1,7 +1,6 @@
 
 
 # Design
-<a name="data-mesh-design"></a>
 
  The following are data mesh design goals: 
 +  **Data as a product:** Each organizational domain owns their data end-to-end. They’re responsible for building, operating, serving, and resolving any issues arising from the use of their data. Data accuracy and accountability lies with the data owner within the domain. 

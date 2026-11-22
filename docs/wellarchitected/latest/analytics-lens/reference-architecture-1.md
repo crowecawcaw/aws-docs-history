@@ -1,9 +1,10 @@
 
 
 # Reference architecture
-<a name="reference-architecture-1"></a>
 
 ![Diagram showing a batch data processing reference architecture](https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/images/batch-data-processing-reference-architecture.png)
+
+*Figure 3: Batch data processing reference architecture *
 
 
  

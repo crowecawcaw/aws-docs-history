@@ -1,7 +1,6 @@
 
 
 # Best practice 3.7 – Implement data retention policies for each class of data in the analytics workload
-<a name="best-practice-3.7---implement-data-retention-policies-for-each-class-of-data-in-the-analytics-workload."></a>
 
  The business’s data classification policies determine how long the analytics workload should retain the data and how long backups should be kept. These policies help ensure that every system follows the data security rules and compliance requirements. The analytics workload should implement data retention and backup policies according to these data classification policies. For example, if the policy requires every system to retain the operational data for five years, the analytics systems should implement rules to keep the in-scoped data for five years. More information on data retention can be found in [Sustainability](sustainability.md). 
 

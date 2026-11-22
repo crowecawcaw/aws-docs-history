@@ -1,7 +1,6 @@
 
 
 # Best practice 12.1 – Measure data storage and processing costs per user of the workload
-<a name="best-practice-12.1---measure-data-storage-and-processing-costs-per-user-of-the-workload."></a>
 
  Data analytics workloads have recurring stable costs and per-use costs, for example, a weekly reporting job with relatively static data storage fees or periodic unpredictable processing runtime fees. Your organization should establish a financial attribution mechanism that captures data storage and workload usage when analytics systems are run. Using this approach, your end users (business unit, team, or individual) can be notified of their consumption at regular intervals. 
 

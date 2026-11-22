@@ -1,7 +1,6 @@
 
 
 # Best practice 10.3 – Utilize compression techniques to both decrease storage requirements and enhance I/O efficiency
-<a name="best-practice-10.3---use-file-compression-to-reduce-number-of-files-and-to-improve-file-io-efficiency."></a>
 
  Store data in a compressed format to reduce the burden on the underlying storage host and network. For example, for columnar data stored in Amazon S3, use a compatible compression algorithm that supports parallel reads. 
 

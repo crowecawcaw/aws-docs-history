@@ -1,7 +1,6 @@
 
 
 # Best practice 13.1 – Remove unused data and infrastructure
-<a name="best-practice-13.1-remove-unused-data-and-infrastructure."></a>
 
  Delete data that is out of its retention period, or not needed anymore. Delete intermediate-processed data that can be removed without business impacts. If the output of analytics jobs is not used by anyone, consider removing such jobs so that you don't waste resources. 
 

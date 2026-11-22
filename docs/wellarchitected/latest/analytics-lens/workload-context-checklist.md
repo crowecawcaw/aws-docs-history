@@ -1,7 +1,6 @@
 
 
 # Workload context checklist
-<a name="workload-context-checklist"></a>
 
  To understand your business’s context better, you must gather the following information. 
 

@@ -1,7 +1,6 @@
 
 
 # Best practice 3.8 – Enforce downstream systems to honor the data classifications
-<a name="best-practice-3.8---enforce-downstream-systems-to-honor-the-data-classifications."></a>
 
  Since other data-consuming systems will access the data that the analytics workload shares, the workload should require the downstream systems to implement the required data classification policies. For example, if the analytics workload shares the data that is required to be encrypted using customer managed private keys in AWS Key Management Service (AWS KMS), then the downstream systems should also acknowledge and implement such a data protection policy. 
 

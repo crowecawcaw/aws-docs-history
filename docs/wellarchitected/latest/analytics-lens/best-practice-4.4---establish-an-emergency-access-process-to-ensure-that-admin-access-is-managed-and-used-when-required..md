@@ -1,7 +1,6 @@
 
 
 # Best practice 4.4 – Establish an emergency access process to ensure that admin access is managed and used when required
-<a name="best-practice-4.4---establish-an-emergency-access-process-to-ensure-that-admin-access-is-managed-and-used-when-required."></a>
 
  Emergency access allows expedited access to your workload in the unlikely event of an automated process or pipeline issue. This will help you rely on least privilege access, but still provide users the right level of access when they require it. 
 

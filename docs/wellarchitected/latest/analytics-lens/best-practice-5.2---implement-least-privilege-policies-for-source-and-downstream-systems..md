@@ -1,7 +1,6 @@
 
 
 # Best practice 5.2 – Implement least privilege policies for source and downstream systems
-<a name="best-practice-5.2---implement-least-privilege-policies-for-source-and-downstream-systems."></a>
 
  The principle of least privilege works by giving only enough access for systems to do the job. Set an expiry on temporary permissions to ensure that re-authentication occurs periodically. The system actions on the data should determine the permission and granting permissions to other systems should not be permitted. 
 

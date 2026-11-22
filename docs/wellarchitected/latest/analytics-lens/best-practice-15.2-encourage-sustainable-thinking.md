@@ -1,7 +1,6 @@
 
 
 # Best practice 15.2 – Encourage sustainable thinking
-<a name="best-practice-15.2-encourage-sustainable-thinking"></a>
 
  Software architects are often encouraged to apply systems thinking to the problems they tackle. To zoom out and look at the bigger picture and how the different components interact and form a whole. To build sustainable cloud workloads also requires sustainability thinking – including environmental impact as a parameter in design and planning. 
 

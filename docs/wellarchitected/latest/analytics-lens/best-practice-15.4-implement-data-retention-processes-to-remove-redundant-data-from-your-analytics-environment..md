@@ -1,7 +1,6 @@
 
 
 # Best practice 15.4 – Implement data retention processes to remove unnecessary data from your analytics environment
-<a name="best-practice-15.4-implement-data-retention-processes-to-remove-redundant-data-from-your-analytics-environment."></a>
 
  The retention of data should be informed, relevant, and limited to what is necessary for the purposes for which the data is processed. Storing data indefinitely and without purpose can cause significant storage and processing overhead that can impact your organization’s analytics environmental impact. Ensure that the period for which the data should be stored is limited and reviewed on a regular basis. 
 

@@ -1,7 +1,6 @@
 
 
 # Best practice 7.2 – Monitor for data quality anomalies
-<a name="best-practice-7.2---monitor-for-data-quality-anomalies."></a>
 
  Data quality is critical for organizations to accurately measure important business metrices, bad data can impact the accuracy of analytics insights and ML predictions. Monitor data quality and detect data anomalies as early as possible. 
 

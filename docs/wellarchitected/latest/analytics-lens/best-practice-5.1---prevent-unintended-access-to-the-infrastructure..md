@@ -1,7 +1,6 @@
 
 
 # Best practice 5.1 – Prevent unintended access to the infrastructure
-<a name="best-practice-5.1---prevent-unintended-access-to-the-infrastructure."></a>
 
  Grant least privilege access to infrastructure to help prevent inadvertent or unintended access to the infrastructure. For example, make sure that anonymous users are not allowed to access to the systems, and that the systems are deployed into isolated network spaces. Network boundaries isolate analytics resources and restrict network access. Network access control lists (NACLs) act as a firewall for controlling traffic in and out. To reduce the risk of inadvertent access, define the network boundaries of the analytics systems and only allow intended access. 
 

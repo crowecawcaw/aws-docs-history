@@ -1,7 +1,6 @@
 
 
 # Best practice 15.1 – Define your organization’s current environmental impact
-<a name="best-practice-15.1-define-organization-current-environmental-impact"></a>
 
  As an organization, you should track your progress towards your sustainability goals. By determining your current environmental impact, you can track and report improvements as you make changes over time. Without knowing where you are you can’t know how far you’ve come. 
 

@@ -1,7 +1,6 @@
 
 
 # 11 – Choose cost-effective compute and storage solutions based on workload usage patterns
-<a name="design-principle-11"></a>
 
  **How do you select the compute and storage solution for your analytics workload?** Your initial design choice could have significant cost impact. Understand the resource requirements of your workload, including its steady-state and spikiness, and then select the solution and tools that meet your requirements. Avoid over-provisioning to allow more cost optimization opportunities. 
 

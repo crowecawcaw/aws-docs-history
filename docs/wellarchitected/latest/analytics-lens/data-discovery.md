@@ -1,7 +1,6 @@
 
 
 # Data discovery
-<a name="data-discovery"></a>
 
  Many organizations treat data like an organizational asset, meaning it is no longer the property of individual departments. You want to analyze all types of data to drive actionable insights, be prepared for the unexpected, create new revenue streams, improve customer experience, and increase operational efficiencies. 
 

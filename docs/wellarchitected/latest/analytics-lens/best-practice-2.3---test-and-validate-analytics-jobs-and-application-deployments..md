@@ -1,7 +1,6 @@
 
 
 # Best practice 2.3 – Test and validate analytics jobs and application deployments
-<a name="best-practice-2.3---test-and-validate-analytics-jobs-and-application-deployments."></a>
 
  Before making changes in production environments, use standard and repeatable automated tests to validate performance and accuracy of results. 
 

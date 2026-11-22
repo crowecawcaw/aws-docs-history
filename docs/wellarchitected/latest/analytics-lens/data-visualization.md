@@ -1,7 +1,6 @@
 
 
 # Data visualization
-<a name="data-visualization"></a>
 
  Every day, the people in your organization make decisions that affect your business. When they have the right information at the right time, they can make the choices that move your company in the right direction. This gives decision makers the opportunity to explore and interpret information in an interactive visual environment to democratize data and accelerates data-driven insights that are easy to understand and navigate. 
 

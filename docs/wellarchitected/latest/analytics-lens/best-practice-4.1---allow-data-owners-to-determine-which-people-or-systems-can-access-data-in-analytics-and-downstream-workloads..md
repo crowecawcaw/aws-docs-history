@@ -1,7 +1,6 @@
 
 
 # Best practice 4.1 – Allow data owners to determine which people or systems can access data in analytics and downstream workloads
-<a name="best-practice-4.1---allow-data-owners-to-determine-which-people-or-systems-can-access-data-in-analytics-and-downstream-workloads."></a>
 
  Data owners are the people that have direct responsibility for data protection. For instance, the data owners want to determine which data is publicly accessible, or which data is restricted access to whom or what systems. The data owners should be able to provide data access rules, so that the analytics workload can implement the rules. 
 

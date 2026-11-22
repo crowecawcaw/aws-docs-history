@@ -1,7 +1,6 @@
 
 
 # Best practice 11.1 – Decouple storage from compute
-<a name="best-practice-11.1---decouple-storage-from-compute."></a>
 
  It’s common for data assets to grow exponentially year over year. However, your compute needs might not grow at the same rate. Decoupling storage from compute allows you to manage the cost of storage and compute separately, and implement different cost optimization features to minimize cost. 
 

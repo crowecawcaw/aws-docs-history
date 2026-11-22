@@ -1,7 +1,6 @@
 
 
 # Best practice 4.2 – Build user identity solutions that uniquely identify people and systems
-<a name="best-practice-4.2---build-user-identity-solutions-that-uniquely-identify-people-and-systems."></a>
 
  To control data access effectively, the analytics workload should be able to uniquely identify the people or systems. For example, the workload should be able to tell who accessed to the data by looking at the user identifiers (such as user names, tags, or IAM role names) with confidence that the identifier represents only one person or system. 
 

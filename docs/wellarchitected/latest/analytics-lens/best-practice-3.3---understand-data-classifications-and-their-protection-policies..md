@@ -1,7 +1,6 @@
 
 
 # Best practice 3.3 – Understand data classifications and their protection policies
-<a name="best-practice-3.3---understand-data-classifications-and-their-protection-policies."></a>
 
  Data classification in your organization is key to determining how data must be protected while at rest and in transit. For example, since an analytics workload necessarily copies and shares data between operations and systems, we recommend that access be controlled to certain data classifications. Such a data protection strategy helps to prevent data loss, theft, and corruption, and helps to minimize the impact caused by malicious activities or unintended access. 
 

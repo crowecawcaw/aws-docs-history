@@ -1,7 +1,6 @@
 
 
 # Best practice 11.3 – Use on-demand instances or serverless capacity for unpredictable workload usage
-<a name="best-practice-11.3---use-on-demand-instance-capacity-for-unpredictable-workload-usage."></a>
 
  Serverless services typically only charge for the compute used, or the use of other measures like data processed, but only when there is a workload actively using the service. In contrast, allocating infrastructure yourself often means paying for idle resources. 
 

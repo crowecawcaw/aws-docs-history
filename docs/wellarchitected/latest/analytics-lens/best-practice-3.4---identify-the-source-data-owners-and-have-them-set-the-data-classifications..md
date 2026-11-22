@@ -1,7 +1,6 @@
 
 
 # Best practice 3.4 – Identify the source data owners and have them set the data classifications
-<a name="best-practice-3.4---identify-the-source-data-owners-and-have-them-set-the-data-classifications."></a>
 
  Identify the owners of the source data, like business data owners, and agree what level of protection is required for the data within the analytics platform. 
 

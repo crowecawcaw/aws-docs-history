@@ -1,7 +1,6 @@
 
 
 # 6 – Design resilience for analytics workload
-<a name="design-principle-6"></a>
 
  How do you design analytics workloads to withstand and mitigate failures? 
 

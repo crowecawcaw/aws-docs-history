@@ -1,7 +1,6 @@
 
 
 # Configuration notes
-<a name="configuration-notes-3"></a>
 
  As shared in the previous section, there are different options and a non-exhaustive list of tools that you can choose from to implement an operational analytics pipeline. A list of configuration parameters to take into consideration for a well-architected operational pipeline is provided. 
 

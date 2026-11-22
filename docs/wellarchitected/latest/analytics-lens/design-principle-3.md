@@ -1,7 +1,6 @@
 
 
 # 3 – Designing data platforms for governance and compliance
-<a name="design-principle-3"></a>
 
  **How do you protect data in your organization’s analytics workload?** Privacy by Design (PbD) is an approach in system engineering that takes privacy into account throughout the whole engineering process. PbD especially focuses on systems or applications that capture and process personal data. Many countries or political unions enforce data protection regulations. The main data protection regulations are: GDPR (General Data Protection Regulation), CCPA (California Consumer Privacy), LGPD (Lei geral da Protecao de Dados Pessoasis in Brazil), POPIA (South Africa), Australian Privacy Act and DPA (UK Data Protection Act). 
 

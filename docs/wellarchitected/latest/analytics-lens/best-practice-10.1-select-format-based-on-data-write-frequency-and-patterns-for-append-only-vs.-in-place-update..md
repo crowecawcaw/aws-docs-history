@@ -1,7 +1,6 @@
 
 
 # Best practice 10.1 – Select format based on data write frequency and patterns for append-only compared to in-place update
-<a name="best-practice-10.1-select-format-based-on-data-write-frequency-and-patterns-for-append-only-vs.-in-place-update."></a>
 
  Review your data storage write patterns and performance requirements for streaming and batch workloads. Streaming workloads may require you to write smaller files at a higher frequency compared to batch workloads. This enables your streaming applications to reduce latency but can impact read and write performance of the data. 
 

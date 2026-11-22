@@ -1,7 +1,6 @@
 
 
 # Best practice 6.3 – Notify stakeholders about analytics or ETL job failures
-<a name="best-practice-6.3---notify-stakeholders-about-analytics-or-etl-job-failures."></a>
 
  Analytics and ETL job failures can impact the SLAs for delivering the data on time for downstream analytics workloads. Failures might cause data quality or data integrity issues as well. Notifying all stakeholders about the job failure as soon as possible is important for remediation actions needed. Stakeholders may include IT operations, help desk, data sources, analytics, and downstream workloads. 
 

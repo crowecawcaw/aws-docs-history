@@ -1,7 +1,6 @@
 
 
 # Best practice 7.3 – Trace data lineage
-<a name="best-practice-7.3---trace-data-lineage."></a>
 
  Have a clear understanding about where your organization’s data is coming from, how the data is transformed, who and what systems have access to the data, and how the data is used, is critical to increasing the business value of data. To achieve this goal, data lineage should be tracked, managed, and visualized. 
 

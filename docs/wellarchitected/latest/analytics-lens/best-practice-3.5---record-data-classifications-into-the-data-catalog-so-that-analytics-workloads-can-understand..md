@@ -1,7 +1,6 @@
 
 
 # Best practice 3.5 – Record data classifications into the Data Catalog so that analytics workloads can understand
-<a name="best-practice-3.5---record-data-classifications-into-the-data-catalog-so-that-analytics-workloads-can-understand."></a>
 
  Allow processes to update the Data Catalog so it can provide a reliable record of where the data is located and its precise classification. To protect the data effectively, analytics systems should know the classifications of the source data so that the systems can govern the data according to business needs. For example, if the business requires that confidential data be encrypted using team-owned private keys, such as from AWS Key Management Service (AWS KMS), then the analytics workload should be able to determine which data is classified as confidential by referencing its data catalog. 
 

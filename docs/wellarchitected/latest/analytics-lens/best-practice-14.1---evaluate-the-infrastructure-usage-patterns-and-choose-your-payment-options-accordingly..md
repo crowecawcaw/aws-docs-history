@@ -1,7 +1,6 @@
 
 
 # Best practice 14.1 – Evaluate the infrastructure usage patterns and choose your payment options accordingly
-<a name="best-practice-14.1---evaluate-the-infrastructure-usage-patterns-and-choose-your-payment-options-accordingly."></a>
 
  On-demand resources provide immense ﬂexibility with pay-as-you-go payment models across multiple scenarios and scales. Alternately, Reserved Instances provide significant cost saving for workloads that have steady resource utilization and serverless options for unpredictable demand. Perform regular workload resource usage analysis. Choose the best pricing model to ensure that you don’t miss cost optimization opportunities and maximize your discounts. 
 

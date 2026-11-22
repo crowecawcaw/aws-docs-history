@@ -1,7 +1,6 @@
 
 
 # Best practice 8.2 – Provision the compute resources to the location of the data storage
-<a name="best-practice-8.2---provision-the-compute-resources-to-the-location-of-the-data-storage."></a>
 
  Data analytics workloads require moving data through a pipeline, either for ingesting data, processing intermediate results, or producing curated datasets. It is often more efficient to select the location of data processing services near where the data is stored. This approach is preferred instead of copying or streaming large amounts of data to the processing location. For example, if an Amazon Redshift cluster frequently ingests data from a data lake, ensure that the Amazon Redshift cluster is in the same Region as your data lake S3 buckets. 
 

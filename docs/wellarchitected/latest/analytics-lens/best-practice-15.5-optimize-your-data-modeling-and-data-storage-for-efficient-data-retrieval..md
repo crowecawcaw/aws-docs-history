@@ -1,7 +1,6 @@
 
 
 # Best practice 15.5 – Optimize your data modeling and data storage for efficient data retrieval
-<a name="best-practice-15.5-optimize-your-data-modeling-and-data-storage-for-efficient-data-retrieval."></a>
 
  How your data is organized in a data store, database, or ﬁle system can have an impact on the amount of resources that are required to store, process, and analyze the data. Using encoding, compression, indexes, partitioning, and similar tools we can make this more efficient and reduce the overall environmental impact of our analytics workloads. 
 

@@ -1,7 +1,6 @@
 
 
 # Best practice 10.4 – Partition your data to enable efficient data pruning and reduce unnecessary file reads
-<a name="best-practice-10.4---partition-your-data-to-avoid-unnecessary-file-reads."></a>
 
  Storing your data in structured partitions will allow compute to identify the location of only that portion of the data relevant to the query. Determine the most frequent query parameters and store this data in the appropriate location suited to your data retrieval needs. For example, if an analytics workload regularly generates daily, weekly, and monthly reports, then store your data using partitions with a year/month/day format. 
 

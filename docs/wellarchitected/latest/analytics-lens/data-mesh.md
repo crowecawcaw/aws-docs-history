@@ -1,7 +1,6 @@
 
 
 # Data mesh
-<a name="data-mesh"></a>
 
  A *data mesh* is an architectural framework that enables domain teams to perform cross-domain data analysis through distributed, decentralized ownership. 
 

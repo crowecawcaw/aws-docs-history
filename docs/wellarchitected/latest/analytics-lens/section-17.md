@@ -1,9 +1,10 @@
 
 
 # Reference architecture
-<a name="section-17"></a>
 
 ![Reference architecture diagram for operational analytics](https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/images/operational-analytics-reference-architecture.png)
+
+*Figure 5: Operational analytics reference architecture*
 
 
 

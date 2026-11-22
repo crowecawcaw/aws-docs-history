@@ -1,7 +1,6 @@
 
 
 # Best practice 8.3 – Define and measure the computing performance metrics
-<a name="best-practice-8.3---define-and-measure-the-computing-performance-metrics."></a>
 
  Define how you will measure performance of the analytics solutions for each step in the process. For example, if the computing solution is a transient Amazon EMR cluster, you can take the following approach. Define the performance as the Amazon EMR job runtime from the launch of the EMR cluster, process the job, then shut down the cluster. As another example, if the computing solution is an Amazon Redshift cluster that is shared by a business unit, you can define the performance as the runtime duration for each SQL query. 
 

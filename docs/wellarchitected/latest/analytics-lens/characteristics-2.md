@@ -1,7 +1,6 @@
 
 
 # Characteristics
-<a name="characteristics-2"></a>
 
  Following are the key characteristics that determine how you should plan when developing a batch processing architecture. 
 

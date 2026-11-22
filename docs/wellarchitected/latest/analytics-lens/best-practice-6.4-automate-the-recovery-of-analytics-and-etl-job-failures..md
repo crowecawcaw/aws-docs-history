@@ -1,7 +1,6 @@
 
 
 # Best practice 6.4 – Automate the recovery of analytics and ETL job failures
-<a name="best-practice-6.4-automate-the-recovery-of-analytics-and-etl-job-failures."></a>
 
  Many factors can cause analytics and ETL jobs to fail. Job failures can be recovered using automated recovery solutions, however, others might require manual intervention. Designing and implementing an automated recovery solution can help reduce the impact of the job failures and streamline IT operations. 
 

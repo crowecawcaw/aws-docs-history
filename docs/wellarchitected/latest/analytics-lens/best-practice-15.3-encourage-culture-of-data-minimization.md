@@ -1,7 +1,6 @@
 
 
 # Best practice 15.3 – Encourage a culture of data minimization
-<a name="best-practice-15.3-encourage-culture-of-data-minimization"></a>
 
  Analytics relies heavily on large volumes of data being stored and processed. Minimizing the amount of data stored and processed can have a positive impact on the environmental impact of your organization’s analytics platform. Encourage architects, data engineers, and other roles that work on the platform to think about ways to minimize the amount of data stored and processed at every point in the system. A just enough data mindset can reduce the overall amount of data processed and therefore reduce the amount of compute power and storage used, and lower the environmental impact. 
 

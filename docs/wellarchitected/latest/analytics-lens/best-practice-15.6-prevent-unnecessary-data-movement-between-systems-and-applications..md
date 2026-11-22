@@ -1,7 +1,6 @@
 
 
 # Best practice 15.6 – Prevent unnecessary data movement between systems and applications
-<a name="best-practice-15.6-prevent-unnecessary-data-movement-between-systems-and-applications."></a>
 
  
 

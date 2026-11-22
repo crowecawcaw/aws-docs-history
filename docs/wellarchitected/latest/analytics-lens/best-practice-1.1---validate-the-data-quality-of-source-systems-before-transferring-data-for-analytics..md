@@ -1,7 +1,6 @@
 
 
 # Best practice 1.1 – Validate the data quality of source systems before transferring data for analytics
-<a name="best-practice-1.1---validate-the-data-quality-of-source-systems-before-transferring-data-for-analytics."></a>
 
  Data quality can have an intrinsic impact on the success or failure of your organization’s data analytics projects. To avoid committing significant resources to process potentially poor-quality data, your organization should understand the quality of the source data, and monitor the changes to data quality throughout the data pipeline. 
 
