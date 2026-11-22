@@ -1,7 +1,6 @@
 
 
 # Using Nitro Enclaves with Amazon EKS
-<a name="kubernetes"></a>
 
 You can use Amazon Elastic Kubernetes Service to orchestrate, scale, and deploy Nitro Enclaves from a Kubernetes pod. Kubernetes is an open source platform for container orchestration. The following diagram provides a conceptual overview of how Nitro Enclaves integrates with Amazon EKS.
 
@@ -146,7 +145,7 @@ Create the cluster with node groups and worker nodes. In this tutorial, we use t
 
    For the purpose of this tutorial, the configuration file creates a cluster named `ne-cluster` in `us-east-1`, it creates `1` node in a node group named `ne-group` using version `1` of launch template `lt-01234567890abcdef`.
 
-   ```
+   ```yaml
    apiVersion: eksctl.io/v1alpha5
    kind: ClusterConfig
    
@@ -309,7 +308,7 @@ Finally, you need to deploy the application to your cluster.
 
 1. Create a deployment specification. Create a new file named `deployment_spec.yaml` and add the following content.
 
-   ```
+   ```yaml
    apiVersion: apps/v1
    kind: Deployment
    metadata:
@@ -384,7 +383,7 @@ Finally, you need to deploy the application to your cluster.
 
    The following is an example deployment specification for the Hello Enclaves application created in the previous steps.
 
-   ```
+   ```yaml
    apiVersion: apps/v1
    kind: Deployment
    metadata:

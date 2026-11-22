@@ -1,7 +1,6 @@
 
 
 # nitro-cli run-enclave
-<a name="cmd-nitro-run-enclave"></a>
 
 Launches a new enclave. This command partitions the specified number of vCPUs and the amount of memory from the Amazon EC2 parent instance to create the enclave. You also need to provide an enclave image file (`.eif`) that contains the operating system and the applications that you want to run inside the enclave.
 
@@ -31,7 +30,7 @@ nitro-cli run-enclave --config {{config_file.json}}
 
 The following is an example JSON file.
 
-```
+```json
 {
     "enclave_name": {{enclave_name}},
     "cpu_count": {{number_of_vcpus}},
@@ -148,7 +147,7 @@ nitro-cli run-enclave --enclave-name {{my-enclave}} --cpu-count {{2}} --memory {
 
 **Output**
 
-```
+```json
 Start allocating memory...
 Started enclave with enclave-cid: 10, memory: 1600 MiB, cpu-ids: [1, 3]
 {
@@ -178,7 +177,7 @@ nitro-cli run-enclave --config {{enclave_config.json}}
 
 The following is an example of the `enclave_config.json` file.
 
-```
+```json
 {
     "enclave_name": "my_enclave",
     "cpu_count": 2,
@@ -191,7 +190,7 @@ The following is an example of the `enclave_config.json` file.
 
 **Output**
 
-```
+```json
 Start allocating memory...
 Started enclave with enclave-cid: 10, memory: 1600 MiB, cpu-ids: [1, 3]
 {

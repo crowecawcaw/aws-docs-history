@@ -1,7 +1,6 @@
 
 
 # Nitro Enclaves Application development on Windows instances
-<a name="developing-applications-windows"></a>
 
 This section provides information for Nitro Enclaves application development on Windows instances.
 

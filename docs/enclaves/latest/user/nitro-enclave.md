@@ -1,7 +1,6 @@
 
 
 # What is Nitro Enclaves?
-<a name="nitro-enclave"></a>
 
 AWS Nitro Enclaves is an Amazon EC2 feature that allows you to create isolated execution environments, called *enclaves*, from Amazon EC2 instances. Enclaves are separate, hardened, and highly-constrained virtual machines. They provide only secure local socket connectivity with their parent instance. They have no persistent storage, interactive access, or external networking. Users cannot SSH into an enclave, and the data and applications inside the enclave cannot be accessed by the processes, applications, or users (root or admin) of the parent instance. Using Nitro Enclaves, you can secure your most sensitive data, such as personally identifiable information (PII), and your data processing applications.
 
@@ -215,6 +214,7 @@ Nitro Enclaves has the following requirements:
   <tr><td>F2</td><td>All instance types.</td></tr>
   <tr><td>G4dn</td><td>All instance types, <b>except</b>: <code>g4dn.metal</code></td></tr>
   <tr><td>G5</td><td>All instance types.</td></tr>
+  <tr><td>G5g</td><td>All instance types, <b>except</b>: <code>g5g.metal</code></td></tr>
   <tr><td>G6</td><td>All instance types.</td></tr>
   <tr><td>G6e</td><td>All instance types.</td></tr>
   <tr><td>G6f</td><td>All instance types, <b>except</b>: <code>g6f.large</code></td></tr>

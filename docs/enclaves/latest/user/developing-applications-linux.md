@@ -1,7 +1,6 @@
 
 
 # Nitro Enclaves application development on Linux instances
-<a name="developing-applications-linux"></a>
 
 This section provides information for Nitro Enclaves application development on Linux instances.
 
@@ -76,7 +75,7 @@ You must disconnect from the instance and then reconnect before running the foll
 
 1. Create a new file named `Dockerfile` and then add the following.
 
-   ```
+   ```yaml
    # start the Docker image from the Alpine Linux distribution
    FROM alpine:latest
    # copy the vsock-sample binary to the Docker file

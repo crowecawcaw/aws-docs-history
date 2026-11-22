@@ -1,7 +1,6 @@
 
 
 # Nitro Enclaves application development
-<a name="developing-applications"></a>
 
 An enclave application is an application that is designed and developed to run inside the isolated enclave environment. An enclave application typically consists of at least two components:
 + An application that runs on the parent instance

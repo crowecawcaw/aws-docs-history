@@ -1,7 +1,6 @@
 
 
 # Install the Nitro Enclaves CLI on Linux
-<a name="nitro-enclave-cli-install"></a>
 
 The following instructions are for installing or uninstalling the AWS Nitro Enclaves CLI on or from a parent instance running Amazon Linux 2023 or Amazon Linux 2. For instructions for installing the Nitro CLI on different Linux distributions, see the [Nitro CLI github repository](https://github.com/aws/aws-nitro-enclaves-cli).
 

@@ -1,7 +1,6 @@
 
 
 # Uninstall ACM for Nitro Enclaves
-<a name="uninstall-acm"></a>
 
 If you no longer want to use [AWS Certificate Manager for Nitro Enclaves](nitro-enclave-refapp.md), use the following procedure to uninstall it.
 

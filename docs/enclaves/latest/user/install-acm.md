@@ -1,7 +1,6 @@
 
 
 # Install ACM for Nitro Enclaves
-<a name="install-acm"></a>
 
 Use the following procedure to install and configure ACM for Nitro Enclaves.
 
@@ -23,7 +22,7 @@ The user performing this configuration must have permission to use the `ec2:Asso
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -130,7 +129,7 @@ Create a JSON file named `acm-role` and add the following policy statement.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -172,7 +171,7 @@ $ aws ec2 --region us-east-1 associate-enclave-certificate-iam-role --certificat
 
 Example output
 
-```
+```json
 {
 
 "CertificateS3BucketName": "aws-ec2-enclave-certificate-us-east-1-prod",
@@ -198,7 +197,7 @@ Create a JSON file named `acm-role-policies.json`, add the following policy stat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -249,7 +248,7 @@ $ aws iam create-instance-profile --instance-profile-name acm-instance-profile
 
 Example output
 
-```
+```json
 {
     "InstanceProfile": {
     "Path": "/",
@@ -276,7 +275,7 @@ $ aws ec2 --region {{region}} associate-iam-instance-profile --instance-id {{ins
 
 Example output
 
-```
+```json
 {
     "IamInstanceProfileAssociation": 
     {
@@ -334,7 +333,7 @@ Configure the NGINX or Apache HTTP web server to use the ACM certificate. Choose
 
    Example
 
-   ```
+   ```yaml
    # For more information on configuration, see:
    #   * Official English Documentation: http://nginx.org/en/docs/
    
@@ -373,7 +372,7 @@ Configure the NGINX or Apache HTTP web server to use the ACM certificate. Choose
 
    The completed section should appear as follows.
 
-   ```
+   ```yaml
    # Settings for a TLS enabled server.
    #
        server {
@@ -538,7 +537,7 @@ Then to add more PKCS\#11 tokens, open `/etc/nitro_enclaves/acm.yaml` with your 
 ------
 #### [ NGINX ]
 
-```
+```yaml
 tokens:
     # A label for this PKCS#11 token
   - label: nginx-acm-token
@@ -571,7 +570,7 @@ tokens:
 ------
 #### [ Apache ]
 
-```
+```yaml
 tokens:
   # A label for this PKCS#11 token
   - label: {{token_1_name}}

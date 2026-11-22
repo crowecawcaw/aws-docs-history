@@ -1,7 +1,6 @@
 
 
 # Creating an enclave
-<a name="create-enclave"></a>
 
 After your enclave applications have been packaged as an enclave image file (`.eif`), you are ready to create the enclave.
 
@@ -85,7 +84,7 @@ nitro-cli run-enclave \
 
 The following is example output.
 
-```
+```json
 Instance CPUs [1, 3] going offline
 Started enclave with enclave-cid: 10, memory: 1600 MiB, cpu-ids: [1, 3]
 Sending image to cid: 10 port: 7000

@@ -1,7 +1,6 @@
 
 
 # Uninstall the Nitro Enclaves CLI on Linux
-<a name="uninstall-cli"></a>
 
 If you no longer want to use AWS Nitro Enclaves on your Linux instance, use the following command to uninstall the AWS Nitro Enclaves CLI.
 

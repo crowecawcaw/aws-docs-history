@@ -1,7 +1,6 @@
 
 
 # Getting started: Hello Enclaves sample application
-<a name="getting-started"></a>
 
 The following tutorial walks you through the basics of using AWS Nitro Enclaves. It shows you how to launch an enclave-enabled parent instance, how to build an enclave image file, how to validate that an enclave is running, and how to terminate an enclave when it is no longer needed.
 
@@ -77,7 +76,7 @@ The Hello Enclave application is located in the `/usr/share/nitro_enclaves/examp
 
    Example output
 
-   ```
+   ```json
    Start building the Enclave Image...
    Enclave Image successfully created.
    "Measurements": {
@@ -107,7 +106,7 @@ $ nitro-cli run-enclave --cpu-count 2 --memory 512 --enclave-cid 16 --eif-path h
 
 Example output
 
-```
+```json
 Start allocating memory...
 Started enclave with enclave-cid: 16, memory: 512 MiB, cpu-ids: [1, 3]
 {
@@ -134,7 +133,7 @@ Now that you have created the enclave, you can use the [nitro-cli describe-encla
 $ nitro-cli describe-enclaves
 ```
 
-```
+```json
 {
     "EnclaveID": "i-05f6ed443aEXAMPLE-enc173dfe3eEXAMPLE",
     "ProcessID": 7077,
@@ -160,7 +159,7 @@ $ nitro-cli console --enclave-id {{i-05f6ed443aEXAMPLE-enc173dfe3eEXAMPLE}}
 
 Example output
 
-```
+```json
 Hello from the enclave side!
 Hello from the enclave side!
 Hello from the enclave side!
@@ -179,7 +178,7 @@ $ nitro-cli terminate-enclave --enclave-id {{i-05f6ed443aEXAMPLE-enc173dfe3eEXAM
 
 Example output
 
-```
+```json
 Successfully terminated enclave i-05f6ed443aEXAMPLE-enc173dfe3eEXAMPLE.
 {
     "EnclaveID": "i-05f6ed443aEXAMPLE-enc173dfe3eEXAMPLE",

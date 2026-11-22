@@ -1,7 +1,6 @@
 
 
 # Getting started with cryptographic attestation using the KMS Tool sample application
-<a name="hello-kms"></a>
 
 The AWS Nitro Enclaves SDK ships with a sample application, called **KMS Tool**, that demonstrates the cryptographic attestation process. The KMS Tool sample application is supported on both Windows and Linux parent instances.
 

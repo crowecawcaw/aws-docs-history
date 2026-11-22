@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="DocumentHistory"></a>
 
 The following table describes important additions to the AWS Nitro Enclaves documentation. We also update the documentation frequently to address the feedback that you send us.
 

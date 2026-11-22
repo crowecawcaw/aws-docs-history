@@ -1,7 +1,6 @@
 
 
 # Getting started with Nitro Enclaves
-<a name="getting-started-enclaves"></a>
 
 These tutorials help you get started with AWS Nitro Enclaves. An enclave has no external network connectivity, no persistent storage, and no interactive access. An enclave communicates only with its associated parent instance over a local channel called a *vsock*. Understanding how to launch, validate, and communicate with an enclave helps you design secure, isolated workloads that protect sensitive data.
 

@@ -1,7 +1,6 @@
 
 
 # Using cryptographic attestation with AWS KMS
-<a name="kms"></a>
 
 This section explains how to set up attestation to work with AWS Key Management Service. AWS KMS integrates with Nitro Enclaves to provide built-in attestation support.
 
@@ -38,7 +37,7 @@ For example, the following KMS key policy allows enclaves running on instances t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{

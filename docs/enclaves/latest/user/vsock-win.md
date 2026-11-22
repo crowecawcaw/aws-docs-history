@@ -1,7 +1,6 @@
 
 
 # Working with the vsock socket in Windows
-<a name="vsock-win"></a>
 
 This topic provides information that is specific to working with the vsock socket on Windows instances.
 

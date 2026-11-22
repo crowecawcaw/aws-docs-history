@@ -1,7 +1,6 @@
 
 
 # Install the Nitro Enclaves CLI on Windows
-<a name="nitro-enclave-cli-install-win"></a>
 
 The AWS Nitro Enclaves CLI is packaged together with all of the components that are required to run Nitro Enclaves on a Windows parent instance. The package includes kernel drivers for the Enclave and vsock devices, a service provider interface for Winsock to support vsock sockets, the vsock-proxy, and the AWS Nitro Enclaves CLI.
 

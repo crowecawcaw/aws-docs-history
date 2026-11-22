@@ -1,7 +1,6 @@
 
 
 # Verifying the root of trust
-<a name="verify-root"></a>
 
 **Note**  
 This topic is intended for users who are using a third-party key management service, and need to build their own attestation document validation processes.

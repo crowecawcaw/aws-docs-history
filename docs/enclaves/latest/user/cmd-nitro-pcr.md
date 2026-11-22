@@ -1,7 +1,6 @@
 
 
 # nitro-cli pcr
-<a name="cmd-nitro-pcr"></a>
 
 Returns the platform configuration register (PCR) value for a specified input file or PEM certificate. You can use this command to identify the files and signing certificate that were used to sign an enclave by comparing the command output with PCR values in the enclave's build measurements.
 
@@ -49,7 +48,7 @@ nitro-cli pcr --signing-certificate {{cert.pem}}
 
 **Output**
 
-```
+```json
 {
     "PCR8": "example39de75e8ed2939e95examplea96f2c79eaf5d5ac3bacf2cb76c75a31f9examplef55b29f0acd256b8example"
 }

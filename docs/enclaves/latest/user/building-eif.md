@@ -1,7 +1,6 @@
 
 
 # Building an enclave image file
-<a name="building-eif"></a>
 
 After you have developed an enclave application, you are ready to package it as an enclave image file (.eif). An enclave image file provides the information that is required to launch an enclave. It contains everything that is needed to run the application inside the enclave, including the application code, runtimes, dependencies, operating system, and file system.
 
@@ -32,7 +31,7 @@ $ nitro-cli build-enclave --docker-uri hello-world:latest  --output-file hello-w
 
 This command creates an enclave image file named `hello-world.eif`, along with the following output.
 
-```
+```json
 Start building the Enclave Image...
 Enclave Image successfully created.
 {

@@ -1,7 +1,6 @@
 
 
 # Cryptographic attestation
-<a name="set-up-attestation"></a>
 
 Attestation is a unique feature available to Nitro Enclaves. The enclave uses the attestation process to prove its identity and build trust with an external service.
 

@@ -1,7 +1,6 @@
 
 
 # nitro-cli terminate-enclave
-<a name="cmd-nitro-terminate-enclave"></a>
 
 Terminates a specific enclave or all enclaves owned by the current user.
 
@@ -50,7 +49,7 @@ nitro-cli terminate-enclave --enclave-id {{i-abc12345def67890a-enc9876abcd543210
 
 **Output**
 
-```
+```json
 Successfully terminated enclave i-abc12345def67890a-enc9876abcd543210ef12.
 {
   "EnclaveID": "i-abc12345def67890a-enc9876abcd543210ef12",
@@ -71,7 +70,7 @@ nitro-cli terminate-enclave --all
 
 **Output**
 
-```
+```json
 Successfully terminated enclave i-abc12345def67890a-enc9876abcd543210ef12.
 {
   "EnclaveID": "i-abc12345def67890a-enc9876abcd543210ef12",

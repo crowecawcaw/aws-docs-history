@@ -1,7 +1,6 @@
 
 
 # nitro-cli describe-enclaves
-<a name="cmd-nitro-describe-enclaves"></a>
 
 Describes an enclave.
 
@@ -71,7 +70,7 @@ nitro-cli describe-enclaves
 
 **Output**
 
-```
+```json
 [
     {
         "EnclaveName": "my_enclave",

@@ -1,7 +1,6 @@
 
 
 # Working with multiple enclaves
-<a name="multiple-enclaves"></a>
 
 You can create up to four separate enclaves from a single Amazon EC2 parent instance. Consider the following before using multiple enclaves.
 + When launching a parent instance, choose an instance type that has enough vCPUs and memory for both the parent instance and the additional enclaves. If multi-threading is enabled, you must leave at least 2 vCPUs for the parent instance. If multi-threading is not enabled, you must leave at least 1 vCPU for the parent instance. For example, if multi-threading is enabled and you intend to run 4 enclaves with 4 vCPUs each, you must select an instance type that has at least 18 vCPUs (2 for the parent instance and 16 for the enclaves).

@@ -1,7 +1,6 @@
 
 
 # AWS Certificate Manager for Nitro Enclaves
-<a name="nitro-enclave-refapp"></a>
 
 AWS Certificate Manager (ACM) for Nitro Enclaves allows you to use public and private SSL/TLS certificates with your web applications and web servers running on Amazon EC2 instances with AWS Nitro Enclaves. SSL/TLS certificates are used to secure network communications and to establish the identity of websites over the internet, as well as resources on private networks. 
 

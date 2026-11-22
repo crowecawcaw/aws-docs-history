@@ -1,7 +1,6 @@
 
 
 # Nitro Enclaves concepts
-<a name="nitro-enclave-concepts"></a>
 
 The following concepts are important to your understanding and use of AWS Nitro Enclaves.
 

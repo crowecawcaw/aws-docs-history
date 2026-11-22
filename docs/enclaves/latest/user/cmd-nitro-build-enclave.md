@@ -1,7 +1,6 @@
 
 
 # nitro-cli build-enclave
-<a name="cmd-nitro-build-enclave"></a>
 
 Converts a Docker image into an enclave image file (`.eif`). You can specify either a local directory containing a Dockerfile, or a Docker image in a Docker repository.
 
@@ -77,7 +76,7 @@ nitro-cli build-enclave --docker-uri {{sample:latest}} --output-file {{sample.ei
 
 **Output**
 
-```
+```json
 Enclave Image successfully created.
 {
   "Measurements": {
@@ -99,7 +98,7 @@ nitro-cli build-enclave --docker-uri {{sample:latest}} --output-file {{sample.ei
 
 **Output**
 
-```
+```json
 Enclave Image successfully created.{
 "Measurements": {
 "HashAlgorithm": "Sha384 { ... }",
