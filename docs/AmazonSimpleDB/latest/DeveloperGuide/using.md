@@ -1,7 +1,6 @@
 
 
 # Using Amazon SimpleDB
-<a name="using"></a>
 
 **Topics**
 + [Available Libraries](AWSLibraries.md)

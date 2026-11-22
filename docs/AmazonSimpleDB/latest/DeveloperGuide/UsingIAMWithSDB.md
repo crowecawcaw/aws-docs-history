@@ -1,7 +1,6 @@
 
 
 # Managing Users of Amazon SimpleDB
-<a name="UsingIAMWithSDB"></a>
 
 **Topics**
 + [Amazon Resource Names (ARNs) for Amazon SimpleDB](#SDB_ARN_Format)
@@ -73,7 +72,7 @@ In the future, Amazon SimpleDB might add new actions that should logically be in
 In this example, we create a policy that lets the group use any of the AWS Account's domains that start with the literal string `test`.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[{
@@ -89,7 +88,7 @@ In this example, we create a policy that lets the group use any of the AWS Accou
 In this example, we create a policy that lets the group use the `GetAttributes` and `Select` actions with any of the AWS Account's domains.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[{
@@ -111,7 +110,7 @@ In this example, we create a user for the partner, and create a policy for the u
 You might also want to prevent the partner from doing anything else with mySDBDomain, so we add a statement that denies permission to any Amazon SimpleDB actions besides `GetAttributes` and `Select`. This is only necessary if there's also a broad policy that gives the AWS Account's Users wide access to Amazon SimpleDB and all the AWS Account's domains.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[{

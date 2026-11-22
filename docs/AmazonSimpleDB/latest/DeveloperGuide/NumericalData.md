@@ -1,7 +1,6 @@
 
 
 # Working with Numerical Data
-<a name="NumericalData"></a>
 
 **Topics**
 + [Negative Numbers Offsets](NegativeNumbersOffsets.md)

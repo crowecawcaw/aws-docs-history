@@ -1,7 +1,6 @@
 
 
 # Simple Queries
-<a name="SimpleQueriesSelect"></a>
 
 This section shows simple queries and their results.
 

@@ -1,7 +1,6 @@
 
 
 # Request Authentication
-<a name="RequestAuthentication"></a>
 
 **Topics**
 + [What Is Authentication?](WhatIsAuthentication.md)

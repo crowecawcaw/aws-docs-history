@@ -1,7 +1,6 @@
 
 
 # Performing a Conditional Delete
-<a name="ConditionalDelete"></a>
 
  Conditional delete enables you to delete an item or one or more attributes of an item if the existing value of an attribute matches a value that you specify. If value does not match or is not present, the insert or update is rejected with a 409 (MultiValuedAttribute, ConditionalCheckFailed ) or 404 (AttributeDoesNotExist) error code. 
 

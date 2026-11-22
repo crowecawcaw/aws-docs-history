@@ -1,7 +1,6 @@
 
 
 # API Summary
-<a name="APISummary"></a>
 
 The Amazon SimpleDB service consists of a small group of API calls that provide the core functionality you need to build your application. See [Operations](SDB_API_Operations.md) in the API Reference chapter for detailed descriptions of each option.
 + **CreateDomain—**Create domains to contain your data; you can create up to 250 domains. If you require additional domains, go to [https://console.aws.amazon.com/support/home\#/case/create?issueType=service-limit-increase&limitType=service-code-simpledb-domains](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-simpledb-domains).

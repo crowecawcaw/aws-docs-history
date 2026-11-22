@@ -1,7 +1,6 @@
 
 
 # Creating a Domain
-<a name="WorkingWithDomainsCreate"></a>
 
 The following is an example of creating a domain using REST.
 

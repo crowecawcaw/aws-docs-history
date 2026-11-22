@@ -1,7 +1,6 @@
 
 
 # Exporting a Domain to Amazon Simple Storage Service
-<a name="WorkingWithDomainsExport"></a>
 
  Amazon SimpleDB allows you to export domain data to Amazon S3 for migration and archival. The export process runs asynchronously in the background and does not affect the performance of your active database operations. Exported data is stored in standard JSON format. 
 

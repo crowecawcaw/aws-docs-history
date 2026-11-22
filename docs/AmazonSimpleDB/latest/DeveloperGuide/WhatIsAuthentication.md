@@ -1,7 +1,6 @@
 
 
 # What Is Authentication?
-<a name="WhatIsAuthentication"></a>
 
 Authentication is a process for identifying and verifying who is sending a request. The following diagram shows a simplified version of an authentication process.
 

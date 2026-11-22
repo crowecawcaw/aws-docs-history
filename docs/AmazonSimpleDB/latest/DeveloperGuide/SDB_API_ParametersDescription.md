@@ -1,7 +1,6 @@
 
 
 # Common Parameters
-<a name="SDB_API_ParametersDescription"></a>
 
 This section describes parameters used by Amazon SimpleDB operations. 
 

@@ -1,7 +1,6 @@
 
 
 # StartDomainExport
-<a name="SDB_API_StartDomainExport"></a>
 
 ## Description
 <a name="SDB_API_StartDomainExport_Description"></a>
@@ -53,7 +52,7 @@ If the export fails mid-process, no automatic cleanup occurs. Partial data may r
 **Note**  
 The new Export APIs don't support sending requests using `query parameters`. This is shown in the following code example.
 
-```
+```java
 import software.amazon.awssdk.services.simpledbv2.SimpleDbV2Client;
 import software.amazon.awssdk.services.simpledbv2.model.StartDomainExportRequest;
 import software.amazon.awssdk.services.simpledbv2.model.StartDomainExportResponse;

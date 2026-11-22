@@ -1,7 +1,6 @@
 
 
 # PutAttributes
-<a name="SDB_API_PutAttributes"></a>
 
 ## Description
 <a name="SDB_API_PutAttributes_Description"></a>
@@ -17,7 +16,7 @@ Conditional updates are useful for ensuring multiple processes do not overwrite 
 **Note**  
 Using `PutAttributes` to replace attribute values that do not exist will *not* result in an error response.  
 You cannot specify an empty string as an attribute name.  
-When using eventually consistent reads, a [GetAttributes](SDB_API_GetAttributes.md) or [Select](SDB_API_Select.md) request (read) immediately after a [DeleteAttributes](SDB_API_DeleteAttributes.md) or [PutAttributes](#SDB_API_PutAttributes) request (write) might not return the updated data. A consistent read always reflects all writes that received a successful response prior to the read. For more information, see [Consistency](ConsistencySummary.md).  
+When using eventually consistent reads, a [GetAttributes](SDB_API_GetAttributes.md) or [Select](SDB_API_Select.md) request (read) immediately after a [DeleteAttributes](SDB_API_DeleteAttributes.md) or [PutAttributes](SDB_API_PutAttributes.md) request (write) might not return the updated data. A consistent read always reflects all writes that received a successful response prior to the read. For more information, see [Consistency](ConsistencySummary.md).  
 You can perform the expected conditional check on one attribute per operation.
 
 The following limitations are enforced for this operation:

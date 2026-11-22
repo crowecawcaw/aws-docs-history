@@ -1,7 +1,6 @@
 
 
 # Consistency
-<a name="ConsistencySummary"></a>
 
 Amazon SimpleDB keeps multiple copies of each domain. A successful write (using PutAttributes, BatchPutAttributes, DeleteAttributes, BatchDeleteAttributes, CreateDomain, or DeleteDomain) guarantees that all copies of the domain will durably persist.
 

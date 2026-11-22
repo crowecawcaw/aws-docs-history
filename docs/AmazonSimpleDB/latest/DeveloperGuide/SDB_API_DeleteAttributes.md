@@ -1,7 +1,6 @@
 
 
 # DeleteAttributes
-<a name="SDB_API_DeleteAttributes"></a>
 
 ## Description
 <a name="SDB_API_DeleteAttributes_Description"></a>
@@ -12,7 +11,7 @@ Deletes one or more attributes associated with the item. If all attributes of an
 If you specify `DeleteAttributes` without attributes or values, all the attributes for the item are deleted.   
 Unless you specify conditions, the `DeleteAttributes` is an idempotent operation; running it multiple times on the same item or attribute does *not* result in an error response.  
 Conditional deletes are useful for only deleting items and attributes if specific conditions are met. If the conditions are met, Amazon SimpleDB performs the delete. Otherwise, the data is not deleted.   
-When using eventually consistent reads, a [GetAttributes](SDB_API_GetAttributes.md) or [Select](SDB_API_Select.md) request (read) immediately after a [DeleteAttributes](#SDB_API_DeleteAttributes) or [PutAttributes](SDB_API_PutAttributes.md) request (write) might not return the updated data. A consistent read always reflects all writes that received a successful response prior to the read. For more information, see [Consistency](ConsistencySummary.md).  
+When using eventually consistent reads, a [GetAttributes](SDB_API_GetAttributes.md) or [Select](SDB_API_Select.md) request (read) immediately after a [DeleteAttributes](SDB_API_DeleteAttributes.md) or [PutAttributes](SDB_API_PutAttributes.md) request (write) might not return the updated data. A consistent read always reflects all writes that received a successful response prior to the read. For more information, see [Consistency](ConsistencySummary.md).  
 You can perform the expected conditional check on one attribute per operation.
 
 ## Request Parameters

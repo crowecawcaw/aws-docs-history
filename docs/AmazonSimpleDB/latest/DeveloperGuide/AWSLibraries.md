@@ -1,7 +1,6 @@
 
 
 # Available Libraries
-<a name="AWSLibraries"></a>
 
 AWS provides libraries (the AWS SDKs), which include sample code, tutorials, and other resources for software developers who prefer to build applications using language-specific APIs instead of writing their own HTTP requests. These SDKs provide basic functions (not included in the APIs), such as request authentication, request retries, and error handling so that it is easier to get started. AWS SDKs are available for the following languages:
 + [Java](http://aws.amazon.com/java)

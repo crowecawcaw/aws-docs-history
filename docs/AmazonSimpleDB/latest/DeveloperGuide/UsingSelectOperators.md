@@ -1,7 +1,6 @@
 
 
 # Comparison Operators
-<a name="UsingSelectOperators"></a>
 
 Comparison operators are applied to a single attribute and are lexicographical in nature. When designing an application, you should carefully think through storing data in its appropriate string representation. For more information, see [Working with Numerical Data](NumericalData.md).
 

@@ -1,7 +1,6 @@
 
 
 # Count
-<a name="CountingDataSelect"></a>
 
 If you want to count the number of items in a result set instead of returning the items, use `count(*)`. Instead of returning a list of items, Amazon SimpleDB returns a single item called `Domain` with a `Count` attribute.
 

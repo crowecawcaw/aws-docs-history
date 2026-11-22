@@ -1,7 +1,6 @@
 
 
 # ListDomains
-<a name="SDB_API_ListDomains"></a>
 
 ## Description
 <a name="SDB_API_ListDomains_Description"></a>

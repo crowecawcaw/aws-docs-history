@@ -1,7 +1,6 @@
 
 
 # Multiple Attribute Queries
-<a name="MultipleAttributeQueriesSelect"></a>
 
 The previous examples show how to create expressions for single predicates. The Amazon SimpleDB query language also supports constructing expressions across multiple predicates using the `intersection` operator.
 

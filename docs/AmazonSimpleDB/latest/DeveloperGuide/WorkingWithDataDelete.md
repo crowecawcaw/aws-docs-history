@@ -1,7 +1,6 @@
 
 
 # Deleting Data from a Domain
-<a name="WorkingWithDataDelete"></a>
 
 The following is an example of deleting data from an item using REST.
 

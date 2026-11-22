@@ -1,7 +1,6 @@
 
 
 # Deleting a Domain
-<a name="WorkingWithDomainsDelete"></a>
 
 The following is an example of deleting a domain using REST.
 

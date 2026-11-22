@@ -1,7 +1,6 @@
 
 
 # Tuning Queries
-<a name="TuningQueries"></a>
 
 **Topics**
 + [Tuning Your Queries Using Composite Attributes](BoxUsageTuning.md)

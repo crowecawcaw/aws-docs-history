@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="SDB_API_Operations"></a>
 
 **Topics**
 + [BatchDeleteAttributes](SDB_API_BatchDeleteAttributes.md)

@@ -1,7 +1,6 @@
 
 
 # Queries on Attributes with Multiple Values
-<a name="RangeValueQueriesSelect"></a>
 
 One of the unique features of Amazon SimpleDB is that it allows you to associate multiple values with a single attribute. Internet-related attributes such as *tag* or *keyword* often contain multiple values, which are easy to support through the Amazon SimpleDB data model and query language.
 

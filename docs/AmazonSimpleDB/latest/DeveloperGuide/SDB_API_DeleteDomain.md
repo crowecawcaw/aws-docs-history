@@ -1,7 +1,6 @@
 
 
 # DeleteDomain
-<a name="SDB_API_DeleteDomain"></a>
 
 ## Description
 <a name="SDB_API_DeleteDomain_Description"></a>

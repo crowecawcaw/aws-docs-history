@@ -1,7 +1,6 @@
 
 
 # Select
-<a name="SDB_API_Select"></a>
 
 ## Description
 <a name="SDB_API_Select_Description"></a>

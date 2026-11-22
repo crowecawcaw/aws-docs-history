@@ -1,7 +1,6 @@
 
 
 # Data Set Partitioning
-<a name="DataSetPartitioning"></a>
 
 Amazon SimpleDB allows up to 250 domains per subscriber. You can partition your data set among multiple domains to parallelize queries and operate on smaller data sets. Although you can only execute a single query against a single domain, you can aggregate result sets in the application layer. 
 

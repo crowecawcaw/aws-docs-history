@@ -1,7 +1,6 @@
 
 
 # BatchPutAttributes
-<a name="SDB_API_BatchPutAttributes"></a>
 
 ## Description
 <a name="SDB_API_BatchPutAttributes_Description"></a>

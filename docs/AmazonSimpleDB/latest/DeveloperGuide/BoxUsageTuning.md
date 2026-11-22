@@ -1,7 +1,6 @@
 
 
 # Tuning Your Queries Using Composite Attributes
-<a name="BoxUsageTuning"></a>
 
 Careful implementation of attributes can increase the efficiency of query operations in terms of duration and complexity. SimpleDB indexes attributes individually. In some cases, a query contains predicates on more than one attribute, and the combined selectivity of the predicates is significantly higher than the selectivity of each individual predicate. When this happens, the query retrieves a lot of data, and then removes most of the data to generate the result, which can degrade performance. If you find your queries using this pattern, you can implement composite attributes to improve your queries' performance. 
 

@@ -1,7 +1,6 @@
 
 
 # HMAC-SHA Signature
-<a name="HMACAuth"></a>
 
 **Topics**
 + [Required Authentication Information](#RequiredAuthInfo)

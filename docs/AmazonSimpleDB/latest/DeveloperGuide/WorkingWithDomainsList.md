@@ -1,7 +1,6 @@
 
 
 # Verifying the Domain
-<a name="WorkingWithDomainsList"></a>
 
 The following is an example of listing domains using REST.
 

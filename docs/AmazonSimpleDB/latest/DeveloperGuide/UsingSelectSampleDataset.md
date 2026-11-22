@@ -1,7 +1,6 @@
 
 
 # Sample Query Data Set
-<a name="UsingSelectSampleDataset"></a>
 
 The following table contains the data set used throughout this section.
 

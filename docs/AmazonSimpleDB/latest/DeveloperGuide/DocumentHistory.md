@@ -1,7 +1,6 @@
 
 
 # Document History
-<a name="DocumentHistory"></a>
 
  The following table describes the documentation for this release of *Amazon SimpleDB*. 
 

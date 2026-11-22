@@ -1,7 +1,6 @@
 
 
 # Welcome to Amazon SimpleDB
-<a name="Welcome"></a>
 
 This is the Developer Guide for *Amazon SimpleDB*. This guide provides a conceptual overview of Amazon SimpleDB, programming reference material, and a detailed API reference.
 

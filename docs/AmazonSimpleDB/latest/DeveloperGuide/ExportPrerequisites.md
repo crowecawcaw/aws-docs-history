@@ -1,7 +1,6 @@
 
 
 # Prerequisites and Permissions
-<a name="ExportPrerequisites"></a>
 
  Before exporting a domain, you need to prepare your Amazon S3 bucket and configure the necessary permissions. This section describes the prerequisites for exporting domain data. 
 

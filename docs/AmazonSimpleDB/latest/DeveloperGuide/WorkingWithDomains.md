@@ -1,7 +1,6 @@
 
 
 # Working with Domains
-<a name="WorkingWithDomains"></a>
 
 This section describes how to work create, list, export, and delete domains.
 

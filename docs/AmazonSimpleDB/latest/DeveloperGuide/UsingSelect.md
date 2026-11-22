@@ -1,7 +1,6 @@
 
 
 # Using Select to Create Amazon SimpleDB Queries
-<a name="UsingSelect"></a>
 
 This section describes `Select`, a function that takes query expressions similar to the standard SQL `SELECT` statement.
 

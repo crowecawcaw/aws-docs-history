@@ -1,7 +1,6 @@
 
 
 # Amazon SimpleDB Concepts
-<a name="concepts"></a>
 
 **Topics**
 + [Data Model](DataModel.md)

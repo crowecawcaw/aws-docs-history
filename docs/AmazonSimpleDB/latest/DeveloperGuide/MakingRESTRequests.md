@@ -1,7 +1,6 @@
 
 
 # Making REST Requests
-<a name="MakingRESTRequests"></a>
 
 **Topics**
 + [About REST Requests](#AboutRESTRequests)

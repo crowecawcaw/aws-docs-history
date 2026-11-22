@@ -1,7 +1,6 @@
 
 
 # Working with XML-Restricted Characters
-<a name="InvalidCharacters"></a>
 
 You can store data in Amazon SimpleDB through the REST interface. All results are returned in XML documents.
 

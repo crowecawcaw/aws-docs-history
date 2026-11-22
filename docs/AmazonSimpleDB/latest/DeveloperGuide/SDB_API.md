@@ -1,7 +1,6 @@
 
 
 # API Reference
-<a name="SDB_API"></a>
 
 **Topics**
 + [API Usage](APIUsage.md)

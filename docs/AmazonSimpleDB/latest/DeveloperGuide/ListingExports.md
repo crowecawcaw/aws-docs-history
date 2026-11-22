@@ -1,7 +1,6 @@
 
 
 # List Exports in an Account
-<a name="ListingExports"></a>
 
  You can list all exports in your AWS account using the `list-exports` command: 
 

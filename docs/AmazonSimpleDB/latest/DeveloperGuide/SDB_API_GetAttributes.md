@@ -1,7 +1,6 @@
 
 
 # GetAttributes
-<a name="SDB_API_GetAttributes"></a>
 
 ## Description
 <a name="SDB_API_GetAttributes_Description"></a>

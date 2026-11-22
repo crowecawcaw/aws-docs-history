@@ -1,7 +1,6 @@
 
 
 # Amazon SimpleDB Glossary
-<a name="Glossary"></a>
 
 **account**<a name="glossary_Account"></a>  
 AWS account associated with a particular developer.

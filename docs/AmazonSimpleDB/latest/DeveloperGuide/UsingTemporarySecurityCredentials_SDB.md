@@ -1,7 +1,6 @@
 
 
 # Using Temporary Security Credentials
-<a name="UsingTemporarySecurityCredentials_SDB"></a>
 
 In addition to creating users with their own security credentials, IAM also enables you to grant temporary security credentials to any user to allow the user to access your AWS services and resources. You can manage users for your system who do not have AWS accounts; these users are called federated users. Additionally, "users" can also be applications that you create to access your AWS resources. 
 

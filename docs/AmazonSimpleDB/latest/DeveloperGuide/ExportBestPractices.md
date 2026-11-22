@@ -1,7 +1,6 @@
 
 
 # Best Practices for Domain Exports
-<a name="ExportBestPractices"></a>
 
  Consider these best practices to ensure successful exports and efficient use of the export feature. 
 

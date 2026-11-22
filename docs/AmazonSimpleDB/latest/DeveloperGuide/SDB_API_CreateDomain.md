@@ -1,7 +1,6 @@
 
 
 # CreateDomain
-<a name="SDB_API_CreateDomain"></a>
 
 ## Description
 <a name="SDB_API_CreateDomain_Description"></a>

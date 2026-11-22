@@ -1,7 +1,6 @@
 
 
 # Working with Data
-<a name="WorkingWithData"></a>
 
 This section describes how to create, get, and delete attributes.
 

@@ -1,7 +1,6 @@
 
 
 # Limits
-<a name="SDBLimits"></a>
 
 Following is a table that describes current limits within Amazon SimpleDB.
 

@@ -1,7 +1,6 @@
 
 
 # Making API Requests
-<a name="APIRequests"></a>
 
 **Topics**
 + [Region Endpoints](Endpoints.md)

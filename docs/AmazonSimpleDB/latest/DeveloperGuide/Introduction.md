@@ -1,7 +1,6 @@
 
 
 # Introduction to Amazon SimpleDB
-<a name="Introduction"></a>
 
 **Topics**
 + [Features](#Features)

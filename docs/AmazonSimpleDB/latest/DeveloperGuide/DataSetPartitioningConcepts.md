@@ -1,7 +1,6 @@
 
 
 # Data Set Partitioning
-<a name="DataSetPartitioningConcepts"></a>
 
 Amazon SimpleDB is designed to support highly parallel applications. To improve performance, you can partition your dataset among multiple domains to parallelize queries and have them operate on smaller individual datasets. Although you can only execute a single query against a single domain, you can perform aggregation of the result sets in the application layer. The following is a list of applications that lend themselves to parallelized queries: 
 + **Natural Partitions—**The data set naturally partitions along some dimension. For example, a product catalog might be partitioned in the "Book", "CD" and "DVD" domains. Although you can store all the product data in a single domain, partitioning can improve overall performance.

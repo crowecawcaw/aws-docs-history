@@ -1,7 +1,6 @@
 
 
 # Select Quoting Rules
-<a name="QuotingRulesSelect"></a>
 
 Attribute values must be quoted with a single or double quote. If a quote appears within the attribute value, it must be escaped with the same quote symbol. These following two expressions are equivalent:
 

@@ -1,7 +1,6 @@
 
 
 # Getting Data from a Domain
-<a name="WorkingWithDataGet"></a>
 
 The following is an example of getting data from an item using REST.
 

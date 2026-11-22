@@ -1,7 +1,6 @@
 
 
 # API Error Codes
-<a name="APIError"></a>
 
 **Topics**
 + [About Response Code 503](#ErrorCode503)
