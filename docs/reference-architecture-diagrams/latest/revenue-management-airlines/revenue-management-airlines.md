@@ -1,7 +1,6 @@
 
 
 # Revenue Management Architecture for Airlines
-<a name="revenue-management-airlines"></a>
 
 Publication date: **April 5, 2023 ([Diagram history](#revenue-management-airlines-history))**
 
