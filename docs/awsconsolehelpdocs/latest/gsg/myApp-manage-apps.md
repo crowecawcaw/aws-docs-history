@@ -1,7 +1,6 @@
 
 
 # Applications in myApplications
-<a name="myApp-manage-apps"></a>
 
 Applications allow you to group your resources and metadata. You can manage your applications by creating, onboarding, viewing, editing, or deleting them. You can also create code snippets to automatically add new resources to an application.
 

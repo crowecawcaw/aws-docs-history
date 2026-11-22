@@ -1,7 +1,6 @@
 
 
 # Accessing Unified Settings in the AWS Management Console
-<a name="access-unified-settings"></a>
 
 The following procedure describes how to access Unified Settings.
 

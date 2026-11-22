@@ -1,7 +1,6 @@
 
 
 # Logging AWS User Experience Customization API calls using AWS CloudTrail
-<a name="log-using-cloudtrail"></a>
 
 AWS User Experience Customization is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for UXC as events, including management events and data events. The calls captured include calls from the UXC console and code calls to the UXC API operations. Using the information collected by CloudTrail, you can determine the request that was made to UXC, the IP address from which the request was made, when it was made, and additional details.
 
@@ -42,7 +41,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail event that demonstrates the `GetAccountCustomizations` operation.
 
-```
+```JSON
 {
   "eventVersion": "1.09",
   "userIdentity": {

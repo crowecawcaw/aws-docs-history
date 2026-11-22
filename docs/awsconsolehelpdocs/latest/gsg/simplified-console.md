@@ -1,7 +1,6 @@
 
 
 # Using the AWS Management Console with our new AWS experience
-<a name="simplified-console"></a>
 
 **Warning**  
 We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.

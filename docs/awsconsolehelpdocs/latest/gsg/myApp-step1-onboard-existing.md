@@ -1,7 +1,6 @@
 
 
 # Onboard existing AppRegistry Applications in myApplications
-<a name="myApp-step1-onboard-existing"></a>
 
 You can onboard an existing AppRegistry application created before November 8, 2023 to get started with myApplications.
 

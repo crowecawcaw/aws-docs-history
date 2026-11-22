@@ -1,7 +1,6 @@
 
 
 # AWS User Experience Customization (UXC)
-<a name="uxc"></a>
 
 AWS User Experience Customization (UXC) is a utility that lets account administrators customize the visual appearance of the AWS Management Console and manage these settings at the account level.
 

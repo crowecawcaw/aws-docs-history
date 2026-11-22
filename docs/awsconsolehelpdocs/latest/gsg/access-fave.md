@@ -1,7 +1,6 @@
 
 
 # Accessing favorites in the AWS Management Console
-<a name="access-fave"></a>
 
 You can access services and applications added to your favorites from the **Services** menu, the favorites quickbar, and the **Favorites** widget.
 

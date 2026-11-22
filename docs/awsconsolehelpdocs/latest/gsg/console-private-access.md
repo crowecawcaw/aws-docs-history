@@ -1,7 +1,6 @@
 
 
 # AWS Management Console Private Access
-<a name="console-private-access"></a>
 
 AWS Management Console Private Access is an advanced security feature that combines network isolation and access controls for the AWS Management Console. With AWS Management Console Private Access, you can limit the use of the AWS Management Console to a specified set of known AWS accounts when the traffic originates from within your Amazon Virtual Private Cloud (VPC). You can also use AWS Management Console Private Access to route console traffic through AWS PrivateLink, establish private connectivity to the AWS Management Console through VPC endpoints, and avoid need for public internet access.
 

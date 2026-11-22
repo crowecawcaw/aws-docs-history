@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS User Experience Customization
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to get or modify UXC resources. To grant users permission to perform actions on resources, an IAM administrator can create IAM policies. To learn how to create an IAM identity-based policy by using these example JSON policy documents, see [Create IAM policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*.
 

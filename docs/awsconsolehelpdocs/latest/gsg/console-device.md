@@ -1,7 +1,6 @@
 
 
 # Accessing the AWS Management Console with mobile devices
-<a name="console-device"></a>
 
 The [AWS Management Console](https://console.aws.amazon.com/) is designed to work on tablets as well as other kinds of mobile devices:
 + Horizontal and vertical space is maximized to show more on your screen.

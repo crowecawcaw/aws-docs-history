@@ -1,7 +1,6 @@
 
 
 # Configuring the AWS Management Console using Unified Settings
-<a name="working-with-console"></a>
 
 This topic describes how to configure your AWS Management Console using the Unified Settings page to set defaults that apply to all service consoles. 
 

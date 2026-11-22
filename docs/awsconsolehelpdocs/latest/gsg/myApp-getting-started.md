@@ -1,7 +1,6 @@
 
 
 # Creating applications in myApplications
-<a name="myApp-getting-started"></a>
 
 You can create a new application or [Onboard existing AppRegistry Applications in myApplications](myApp-step1-onboard-existing.md) created before November 8, 2023 to get started with myApplications. When you create a new application, you can add resources by searching for them and selecting them or by using existing tags.
 

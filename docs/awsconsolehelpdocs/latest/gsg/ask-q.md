@@ -1,7 +1,6 @@
 
 
 # Chatting with AWS assistant in AWS Console Home
-<a name="ask-q"></a>
 
 The AWS assistant is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, build, extend, and operate AWS applications. You can ask the AWS assistant any questions about AWS, including questions about AWS architecture, your AWS resources, best practices, documentation, and more. You can also create support cases and receive assistance from a live agent. For more information, see [What is AWS assistant?](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html) in the *AWS assistant User Guide*.
 

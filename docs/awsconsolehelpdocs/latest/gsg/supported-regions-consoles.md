@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions, service consoles, and features in Private Access
-<a name="supported-regions-consoles"></a>
 
 AWS Management Console Private Access is available in all commercial AWS Regions but supports only a subset of AWS service consoles. In addition, certain AWS Management Console features might be disabled when using AWS Management Console Private Access, for example, AWS CloudShell and the [Default Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/select-region.html) setting.
 

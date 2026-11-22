@@ -1,7 +1,6 @@
 
 
 # Viewing all AWS services in AWS Console Home
-<a name="view-services"></a>
 
 You can view a list of all AWS services and access their consoles from Console Home.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring DNS for accessing AWS Management Console
-<a name="dns-configuration-console-signin"></a>
 
 AWS Management Console Private Access uses VPC endpoints to route browser traffic to the AWS Management Console. When you create VPC endpoints with private DNS enabled, AWS automatically resolves the AWS Management Console and AWS Sign-In domain names to the private IP addresses of your VPC endpoints. In most cases, you do not need to manually configure DNS records.
 

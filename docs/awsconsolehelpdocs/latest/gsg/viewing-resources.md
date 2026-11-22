@@ -1,7 +1,6 @@
 
 
 # Viewing resources in myApplications
-<a name="viewing-resources"></a>
 
 You can view your application resources from myApplications and the **Services** menu.
 

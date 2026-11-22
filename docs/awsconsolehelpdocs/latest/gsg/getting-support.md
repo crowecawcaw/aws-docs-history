@@ -1,7 +1,6 @@
 
 
 # Getting support
-<a name="getting-support"></a>
 
 You can get support by choosing the question mark icon in the navigation bar. From the support menu, you can choose to:
 + Navigate to the Support Center service console

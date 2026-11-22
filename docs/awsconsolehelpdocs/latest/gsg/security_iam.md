@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS User Experience Customization
-<a name="security_iam"></a>
 
 AWS User Experience Customization (UXC) uses IAM policies to manage access to UXC API Operations.
 

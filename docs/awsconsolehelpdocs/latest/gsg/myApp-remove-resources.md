@@ -1,7 +1,6 @@
 
 
 # Removing resources in myApplications
-<a name="myApp-remove-resources"></a>
 
 You can remove resources to disassociate them from your application.
 

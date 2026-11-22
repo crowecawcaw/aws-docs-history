@@ -1,7 +1,6 @@
 
 
 # Accessing billing information in the AWS Management Console
-<a name="billinginfo"></a>
 
 If you have the necessary permissions, you can access information about your AWS charges from the console.
 

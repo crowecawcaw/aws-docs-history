@@ -1,7 +1,6 @@
 
 
 # Viewing features of a service in the AWS Management Console
-<a name="unified-search-top-result"></a>
 
 You can view features of a service from within your search results.
 

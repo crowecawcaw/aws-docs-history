@@ -1,7 +1,6 @@
 
 
 # Enabling AWS experimental preview
-<a name="experimental-preview"></a>
 
 AWS experimental preview is an opt-in experience in the AWS Management Console that gives you access to new AWS features that are still being evaluated. AWS uses your feedback to improve features and determine whether they're ready for general availability.
 

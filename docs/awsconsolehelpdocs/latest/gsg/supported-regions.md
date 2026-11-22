@@ -1,7 +1,6 @@
 
 
 # Supported Regions for myApplications
-<a name="supported-regions"></a>
 
 myApplications is available in the following AWS Regions:
 + US East (Ohio)

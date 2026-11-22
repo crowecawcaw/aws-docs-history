@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center users in the AWS Management Console
-<a name="idc-password"></a>
 
 AWS IAM Identity Center users must change their password from an AWS access portal. For more information, see [ Resetting your AWS IAM Identity Center user password](https://docs.aws.amazon.com/singlesignon/latest/userguide/resetpassword-accessportal.html) in the *AWS IAM Identity Center User Guide*.
 

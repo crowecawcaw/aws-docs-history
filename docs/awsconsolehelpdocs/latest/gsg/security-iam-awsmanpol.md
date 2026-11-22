@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for the AWS Management Console
-<a name="security-iam-awsmanpol"></a>
 
 
 

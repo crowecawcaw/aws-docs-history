@@ -1,7 +1,6 @@
 
 
 # Choosing your Region
-<a name="select-region"></a>
 
 For many services, you can choose an AWS Region that specifies where your resources are managed. Regions are sets of AWS resources located in the same geographical area. You don't need to choose a Region for the [AWS Management Console](https://console.aws.amazon.com/) or for some services, such as AWS Identity and Access Management. To learn more about AWS Regions, see [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*.
 

@@ -1,7 +1,6 @@
 
 
 # Changing your password in the AWS Management Console
-<a name="change-password"></a>
 
 You may be able to change your password from the [AWS Management Console](https://console.aws.amazon.com/) depending on your user type and your permissions. The following topic describes how to change your password for each user type.
 

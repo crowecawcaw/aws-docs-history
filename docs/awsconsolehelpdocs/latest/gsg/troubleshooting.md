@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 Consult this section to find solutions to common problems with the AWS Management Console.
 
@@ -51,7 +50,7 @@ You can also onboard to the AWS Management Console Private Access feature to acc
 ## My browser displays timeout errors when connecting to the AWS Management Console
 <a name="regional-outage"></a>
 
-If there's a service outage in your default AWS Region, your browser might display a 504 Gateway Timeout error when trying to connect to the AWS Management Console. To log in to the AWS Management Console from a different Region, specify an alternate Regional endpoint in the URL. For example, if there's an outage in the `us-west-1` (N. California) Region, to access the `us-west-2` (Oregon) Region use the following template: 
+If there's a service outage in your default AWS Region, your browser might display a `504 Gateway Timeout` error when trying to connect to the AWS Management Console. To log in to the AWS Management Console from a different Region, specify an alternate Regional endpoint in the URL. For example, if there's an outage in the `us-west-1` (N. California) Region, to access the `us-west-2` (Oregon) Region use the following template: 
 
 ```
 https://{{region}}.console.aws.amazon.com

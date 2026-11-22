@@ -1,7 +1,6 @@
 
 
 # Editing Unified Settings in the AWS Management Console
-<a name="edit-unified-settings"></a>
 
 The following procedure describes how to edit your preferred settings.
 

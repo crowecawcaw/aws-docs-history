@@ -1,7 +1,6 @@
 
 
 # Using Markdown in the Console
-<a name="aws-markdown"></a>
 
 Some services in the AWS Management Console, such as Amazon CloudWatch, support the use of [Markdown](https://en.wikipedia.org/wiki/Markdown) in certain fields. This topic explains the types of Markdown formatting supported in the console.
 

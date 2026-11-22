@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS User Experience Customization
-<a name="getting-started-uxc"></a>
 
 With UXC, account administrators can configure account customizations for the AWS Management Console.
 

@@ -1,7 +1,6 @@
 
 
 # Editing applications in myApplications
-<a name="myApp-edit-app"></a>
 
 Editing your application opens AppRegistry so you can update its description. You can also use AppRegistry to edit your application's tags and attribute groups.
 

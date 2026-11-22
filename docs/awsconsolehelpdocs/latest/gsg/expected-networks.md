@@ -1,7 +1,6 @@
 
 
 # Expected networks
-<a name="expected-networks"></a>
 
 With AWS Management Console Private Access, you can enforce that users access the AWS Management Console only from approved networks, such as your VPCs or on-premises data centers connected through Direct Connect or AWS Site-to-Site VPN. This prevents access from unexpected locations even when users have valid credentials.
 
@@ -26,7 +25,7 @@ You can restrict service access by network using the `aws:SourceVpc` condition k
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

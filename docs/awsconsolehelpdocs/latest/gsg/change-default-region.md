@@ -1,7 +1,6 @@
 
 
 # Setting the default Region in the AWS Management Console
-<a name="change-default-region"></a>
 
 The following procedure details how you can change your default Region from the Unified Settings page.
 

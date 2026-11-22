@@ -1,7 +1,6 @@
 
 
 # Test setup with Amazon EC2
-<a name="test-console-private-access-EC2"></a>
 
 This setup demonstrates a AWS Management Console Private Access connection to Amazon Simple Storage Service from an Amazon EC2 instance. The example uses CloudFormation to create the network configuration, and connects to the Amazon EC2 Windows instance through Fleet Manager (a capability of AWS Systems Manager) using the Remote Desktop Protocol (RDP).
 
@@ -15,7 +14,7 @@ Copy the following CloudFormation template and save it to a file that you will u
 ## AWS Management Console Private Access environment Amazon EC2 CloudFormation template
 <a name="private-access-environment-ec2-cloudformation-template"></a>
 
-```
+```yaml
 Description: |
   AWS Management Console Private Access.
 Parameters:

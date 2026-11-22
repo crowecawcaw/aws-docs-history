@@ -1,7 +1,6 @@
 
 
 # Searching for AWS products in the AWS Management Console
-<a name="unified-search-regular"></a>
 
 The following procedure details how to search for AWS products using the search tool.
 
