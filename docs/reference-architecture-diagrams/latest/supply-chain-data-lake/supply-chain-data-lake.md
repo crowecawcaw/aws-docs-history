@@ -1,7 +1,6 @@
 
 
 # Supply Chain Data Lake Solution
-<a name="supply-chain-data-lake"></a>
 
 Publication date: **May 18, 2022 ([Diagram history](#scdl-history))**
 
