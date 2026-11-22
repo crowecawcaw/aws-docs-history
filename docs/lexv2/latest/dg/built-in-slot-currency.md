@@ -1,7 +1,6 @@
 
 
 # AMAZON.Currency
-<a name="built-in-slot-currency"></a>
 
 Converts words that represent a currency into a standard ISO 4217 alphabetic currency code and a number. Amazon Lex V2 recognizes currencies but does not convert from one currency to another.
 

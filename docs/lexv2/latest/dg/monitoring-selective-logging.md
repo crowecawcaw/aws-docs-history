@@ -1,7 +1,6 @@
 
 
 # Selective conversation log capture in Lex V2
-<a name="monitoring-selective-logging"></a>
 
 The selective conversation log capture allows the user to select how conversation logs are captured with text and audio data from the live conversations.
 

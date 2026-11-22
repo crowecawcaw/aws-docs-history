@@ -1,7 +1,6 @@
 
 
 # AMAZON.Percentage
-<a name="built-in-slot-percent"></a>
 
 Converts words and symbols that represent a percentage into a numeric value with a percent sign (%).
 

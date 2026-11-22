@@ -1,7 +1,6 @@
 
 
 # Confirmation
-<a name="intent-confirm"></a>
 
 After the conversation with the user is complete and the slot values for the intent are filled, you can configure a confirmation prompt to ask the user if the slot values are correct. For example, a bot that schedules service appointments for cars might prompt the user with the following:
 

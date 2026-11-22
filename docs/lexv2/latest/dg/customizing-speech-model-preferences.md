@@ -1,7 +1,6 @@
 
 
 # Configuring speech recognition model preferences
-<a name="customizing-speech-model-preferences"></a>
 
 Amazon Lex V2 provides different speech recognition models that you can choose from to optimize the accuracy and performance of your bot's speech recognition capabilities. You can configure speech model preferences to select the most appropriate model for your use case.
 

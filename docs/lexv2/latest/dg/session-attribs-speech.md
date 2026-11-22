@@ -1,7 +1,6 @@
 
 
 # Configuring timeouts for capturing user input with a Lex V2 bot
-<a name="session-attribs-speech"></a>
 
 The Amazon Lex V2 streaming API enables a bot to automatically detect utterances in user input. When you create an intent or a slot, you can configure aspects of an utterance, such as maximum duration of an utterance, timeout while waiting for user input, or the end character for DTMF input. You can customize a bot's behavior for your use case. For example, you can limit the number of digits for a credit card number to 16.
 

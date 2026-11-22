@@ -1,7 +1,6 @@
 
 
 # Step 2: Integrate the Twilio message service endpoint with the Amazon Lex V2 bot
-<a name="twilio-step-2"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon Lex console at [https://console.aws.amazon.com/lex/](https://console.aws.amazon.com/lex/).
 

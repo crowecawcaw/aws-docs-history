@@ -1,7 +1,6 @@
 
 
 # Tips for creating a successful test set
-<a name="tips-create-test-set"></a>
 + You can create an IAM role for the Test Workbench in the console, or you can configure your IAM role step-by-step. For more information, see [ Create an IAM role for the Test Workbench](https://docs.aws.amazon.com/lexv2/latest/dg/create-iam-test-set.html). 
 + Before executing a test, validate the test set and the bot definition for any inconsistencies using the **Validate discrepancy** button. If the intent and slot naming conventions used in the test set are consistent with the bot, proceed to execute the test. If any anomalies are identified, revise the test set, update the test set, and choose **Validate discrepancy**. Repeat this sequence again until no inconsistencies are noted, then execute the test. 
 + The Test Workbench can test with different slot value formats in the **Expected Output Slot** column. For any built-in slot, you can choose the value provided in the user input (for example, Date = tomorrow), or provide its absolute resolved value (for example, Date = 2023-03-21). For more information around built-in slots and their absolute values, see [ Built-in slots](https://docs.aws.amazon.com/lexv2/latest/dg/howitworks-builtins-slots.html). 

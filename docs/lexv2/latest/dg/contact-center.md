@@ -1,7 +1,6 @@
 
 
 # Integrating an Amazon Lex V2 bot with a contact center
-<a name="contact-center"></a>
 
 You can integrate Amazon Lex V2 bots with your contact centers to enable self-service use-cases using the Amazon Lex V2 streaming API. Use these bots as interactive voice response (IVR) agents on telephony or as a text-based chatbot integrated into your contact center. For more information about the streaming APIs, see [Streaming conversations to an Amazon Lex V2 bot](streaming.md).
 

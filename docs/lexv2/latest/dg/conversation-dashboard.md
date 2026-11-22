@@ -1,7 +1,6 @@
 
 
 # Conversation dashboard: a summary of your bot conversations
-<a name="conversation-dashboard"></a>
 
 The conversation dashboard visualizes metrics for customers’ conversations (see [Conversations](analytics-key-definitions.md#analytics-key-definitions-conversations) for the definition of a *conversation*) with your bot.
 

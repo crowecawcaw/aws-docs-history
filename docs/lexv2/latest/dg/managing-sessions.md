@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon Lex V2 bot sessions
-<a name="managing-sessions"></a>
 
 When a user starts a conversation with your bot, Amazon Lex V2 creates a *session*. The information exchanged between your application and Amazon Lex V2 makes up the session state for the conversation. When you make a request, the session is identified by an identifier that you specify. For more information about the session identifier, see the `sessionId` field in the [RecognizeText](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html) or [RecognizeUtterance](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html) operation.
 

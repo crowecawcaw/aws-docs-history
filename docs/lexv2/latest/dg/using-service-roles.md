@@ -1,7 +1,6 @@
 
 
 # Using service roles for Amazon Lex V2
-<a name="using-service-roles"></a>
 
 Amazon Lex V2 uses an IAM [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) to access other AWS services on your behalf at runtime. The service role provides the permissions needed to build and run your bot. A service role is a standard customer-managed IAM role in your account. It respects the service control policies (SCPs) that you configure in AWS Organizations and gives you full control over the permissions that Amazon Lex V2 uses.
 

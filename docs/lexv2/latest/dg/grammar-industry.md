@@ -1,7 +1,6 @@
 
 
 # Industry grammars
-<a name="grammar-industry"></a>
 
 *Industry grammars* are a set of XML files to use with the [grammar slot type](https://docs.aws.amazon.com/lexv2/latest/dg/building-srgs.html). You can use these to quickly deliver a consistent end-user experience as you migrate interactive voice response work flows to Amazon Lex V2. You can select from a range of pre-built grammars across three domains: financial services, insurance, and telecom. There is also a generic set of grammars that you can use as a starting point for your own grammars. 
 

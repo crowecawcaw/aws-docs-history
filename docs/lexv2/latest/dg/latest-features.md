@@ -1,7 +1,6 @@
 
 
 # Latest features
-<a name="latest-features"></a>
 
 This topic provides information about the latest features that Amazon Lex V2 offers:
 

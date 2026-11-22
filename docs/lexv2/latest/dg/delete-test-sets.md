@@ -1,7 +1,6 @@
 
 
 # Delete a test set in Test Workbench
-<a name="delete-test-sets"></a>
 
 You can easily delete a test set from your list of test sets.
 

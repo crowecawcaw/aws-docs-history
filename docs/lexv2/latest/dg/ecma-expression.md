@@ -1,7 +1,6 @@
 
 
 # Expressions
-<a name="ecma-expression"></a>
 
 You can add expressions strings to perform functions in Amazon Lex V2. This table shows the syntax and examples that can be used in SRGS expressions.
 

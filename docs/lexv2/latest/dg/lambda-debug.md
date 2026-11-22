@@ -1,7 +1,6 @@
 
 
 # Debugging a Lambda function using CloudWatch Logs logs
-<a name="lambda-debug"></a>
 
 [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) is a tool for tracking API calls and metrics that you can use to help debug your Lambda functions. When you test your bot in the console or with API calls, CloudWatch logs each step of the conversation. If you use a print function in your Lambda code, CloudWatch displays it as well.
 

@@ -1,7 +1,6 @@
 
 
 # AMAZON.Number
-<a name="built-in-slot-number"></a>
 
 Converts words or numbers that express a number into digits, including decimal numbers. The following table shows how the `AMAZON.Number` slot type captures numeric words.
 

@@ -1,7 +1,6 @@
 
 
 # Setting request attributes for your Lex V2 bot
-<a name="context-mgmt-request-attribs"></a>
 
 *Request attributes* contain request-specific information and apply only to the current request. A client application sends this information to Amazon Lex V2. Use request attributes to pass information that doesn't need to persist for the entire session. You can create your own request attributes or you can use predefined attributes. To send request attributes, use the `x-amz-lex-request-attributes` header in a [RecognizeUtterance](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html) or the `requestAttributes` field in a [RecognizeText](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html) request. Because request attributes don't persist across requests like session attributes do, they are not returned in `RecognizeUtterance` or `RecognizeText` responses. 
 
@@ -15,7 +14,7 @@ A *user-defined request attribute* is data that you send to your bot in each req
 
 To send request attributes to Amazon Lex V2, you create a string-to-string map of the attributes. The following shows how to map request attributes: 
 
-```
+```json
 {
    "attributeName": "attributeValue",
    "attributeName": "attributeValue"
@@ -24,7 +23,7 @@ To send request attributes to Amazon Lex V2, you create a string-to-string map o
 
 For the `PostText` operation, you insert the map into the body of the request using the `requestAttributes` field, as follows:
 
-```
+```json
 "requestAttributes": {
    "attributeName": "attributeValue",
    "attributeName": "attributeValue"

@@ -1,7 +1,6 @@
 
 
 # Accessing audio logs in Amazon S3
-<a name="conversation-logs-s3"></a>
 
 Amazon Lex V2 stores audio logs for your conversations in an S3 bucket. 
 

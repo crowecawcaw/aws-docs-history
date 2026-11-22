@@ -1,7 +1,6 @@
 
 
 # Creating intents and slot types
-<a name="designing-create"></a>
 
 After the chatbot designer creates intents and slot types, you select the intents and slot types to add to your bot. You can review the details of each intent and slot type to help you decide which recommendations are the most relevant to your use case.
 

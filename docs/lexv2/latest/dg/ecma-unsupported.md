@@ -1,7 +1,6 @@
 
 
 # Unsupported statements
-<a name="ecma-unsupported"></a>
 
 Amazon Lex V2 doesn't support the following ECMAScript features.
 
@@ -21,7 +20,7 @@ Amazon Lex V2 doesn't support the following ECMAScript features.
 
 The empty statement is used to provide no statement. The following is the syntax for an empty statement:
 
-```
+```javascript
 ;
 ```
 
@@ -30,7 +29,7 @@ The empty statement is used to provide no statement. The following is the syntax
 
 The continue statement without a label is supported with the [Iteration statement](ecma-iteration.md). The continue statement with a label isn't supported.
 
-```
+```javascript
 // continue with label
 // this allows the program to jump to a
 // labelled statement (see labelled statement below)
@@ -42,7 +41,7 @@ continue <label>;
 
 The break statement without a label is supported with the [Iteration statement](ecma-iteration.md). The break statement with a label isn't supported.
 
-```
+```javascript
 // break with label
 // this allows the program to break out of a
 // labelled statement (see labelled statement below)
@@ -52,7 +51,7 @@ break <label>;
 ## Return statement
 <a name="ecma-unsupported-return"></a>
 
-```
+```javascript
 return expression;
 ```
 
@@ -61,14 +60,14 @@ return expression;
 
 The throw statement is used to throw a user-defined exception.
 
-```
+```javascript
 throw expression;
 ```
 
 ## Try statement
 <a name="ecma-unsupported-try"></a>
 
-```
+```javascript
 try {
   statements
 }
@@ -85,7 +84,7 @@ finally {
 
 The debugger statement is used to invoke debugging functionality provided by the environment.
 
-```
+```javascript
 debugger;
 ```
 
@@ -94,7 +93,7 @@ debugger;
 
 The labeled statement can be used with `break` or `continue` statements.
 
-```
+```javascript
 label:
    statements
 
@@ -116,7 +115,7 @@ console.log(str);
 ## Class declaration
 <a name="ecma-unsupported-class"></a>
 
-```
+```javascript
 class Rectangle {
   constructor(height, width) {
     this.height = height;

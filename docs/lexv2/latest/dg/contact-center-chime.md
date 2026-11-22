@@ -1,7 +1,6 @@
 
 
 # Amazon Chime SDK
-<a name="contact-center-chime"></a>
 
 Use the Amazon Chime SDK to add real-time audio, video, screen sharing, and messaging capabilities to your web or mobile applications. The Amazon Chime SDK provides public switched telephone network (PSTN) audio service so that you can build custom telephony applications with an AWS Lambda function.
 

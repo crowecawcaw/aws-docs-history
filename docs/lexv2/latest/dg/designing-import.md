@@ -1,7 +1,6 @@
 
 
 # Importing conversation transcripts
-<a name="designing-import"></a>
 
 Importing conversation transcripts is a three-step process: 
 

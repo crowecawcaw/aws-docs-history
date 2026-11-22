@@ -1,7 +1,6 @@
 
 
 # Weights
-<a name="grammar-weights"></a>
 
 You can add the *weight* attribute to an element. Weight is a positive floating point value that represents the degree to which the phrase in the item is boosted during speech recognition. For more information, see [Weights](https://www.w3.org/TR/speech-grammar/) in the Speech recognition grammar specification version 1 W3C recommendation.
 
@@ -16,7 +15,7 @@ Assigning appropriate weights to items for improving speech recognition performa
 
 For example, if you have a grammar for airports, and you observe that *New York* is frequently misidentified as *Newark*, you can positively boost New York by assigning it a weight of 5.
 
-```
+```javascript
 <rule> id="airport">
     <one-of>
         <item>
@@ -39,7 +38,7 @@ For example, if you have a grammar for airports, and you observe that *New York*
 
 For example, you have a grammar for the airline reservation code starting with an English alphabet followed by three digits. The reservation code most likely starts with B or D, but you observe that B is frequently misidentified as P, and D as T. You can positively boost B and D.
 
-```
+```javascript
 <rule> id="alphabet">
     <one-of>
         <item>A<tag>out.letters+='A';</tag></item>

@@ -1,7 +1,6 @@
 
 
 # Resolve ambiguous user inputs with Intent Disambiguation
-<a name="generative-intent-disambiguation"></a>
 
 Intent Disambiguation is an improvement to Assisted NLU that helps resolve ambiguous user inputs when multiple intents could match. When enabled, the system presents clarifying questions to users, helping them specify their exact intent for improved conversation accuracy. The system uses a large language model (LLM) that analyzes the intent names and descriptions as context, and based on the ambiguity of the user utterance, returns the most likely matching intents. The LLM evaluates whether the user input clearly matches a single intent or multiple intents and is ambiguous enough to require disambiguation, then provides the candidate intents.
 

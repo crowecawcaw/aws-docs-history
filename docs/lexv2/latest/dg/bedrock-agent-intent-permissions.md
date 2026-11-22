@@ -1,7 +1,6 @@
 
 
 # Permissions needed in Lex V2 for Bedrock Agent Intent
-<a name="bedrock-agent-intent-permissions"></a>
 + To access this feature on Amazon Lex V2 console, ensure your console role has `bedrock:ListFoundationModels` and `bedrock:ListInferenceProfiles` permissions.
 + The IAM role associated with the bot should have permissions required for `AMAZON.BedrockAgentIntent`.
 

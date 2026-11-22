@@ -1,7 +1,6 @@
 
 
 # Closing response
-<a name="intent-closing"></a>
 
 The closing response is sent to your user after their intent is fulfilled. You can use the closing response to end the conversation, or you can use it to let the user know that they can continue with another intent. For example, in a travel booking bot, you can set the closing response for the book hotel room intent to this:
 

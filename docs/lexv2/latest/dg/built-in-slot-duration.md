@@ -1,7 +1,6 @@
 
 
 # AMAZON.Duration
-<a name="built-in-slot-duration"></a>
 
 Converts words that indicate durations into a numeric duration.
 

@@ -1,7 +1,6 @@
 
 
 # Exporting a Lex V2 bot (console)
-<a name="export-console"></a>
 
 You can export a bot from the bot list, from the list of versions, or from the version details page. When you choose a version, Amazon Lex V2 exports that version. The following instructions assume that you start exporting the bot from the list of bots, but when you start with a version the steps are the same.
 

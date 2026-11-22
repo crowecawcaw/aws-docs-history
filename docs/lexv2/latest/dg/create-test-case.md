@@ -1,7 +1,6 @@
 
 
 # Creating a test case within a test set using Test Workbench
-<a name="create-test-case"></a>
 
 The Test Workbench results are dependent on the bot definition and its corresponding test set. You can generate a test set with the information from the bot definition to pinpoint areas that need improvement. Create a test dataset with examples that you suspect (or know) will be challenging for the bot to interpret correctly considering the current bot design and your knowledge of your customer conversations.
 

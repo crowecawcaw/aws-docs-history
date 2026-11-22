@@ -1,7 +1,6 @@
 
 
 # Languages and locales supported by Amazon Lex V2
-<a name="how-languages"></a>
 
 Amazon Lex V2 supports a variety of languages and locales. This topic lists the languages that are supported and the features that support these languages.
 
@@ -79,7 +78,11 @@ Amazon Lex V2 supports the following languages and locales.
 | zh\_HK | Cantonese (Hong Kong) | 
 | zu\_ZA\* | Zulu (South Africa) | 
 
+<a name="limited-feature-locales"></a>**Locales with limited feature support**
+
 Locales marked with an asterisk (\*) have limited feature support through generative AI, agentic voice, or third-party Automatic Speech Recognition (ASR) or Text-To-Speech (TTS). See the following table for a complete list of supported features.
+
+**Generative AI feature support**
 
 Generative AI feature support includes [Assisted NLU](https://docs.aws.amazon.com/lexv2/latest/dg/assisted-nlu.html) in Primary Mode, [Assisted Slot Resolution](https://docs.aws.amazon.com/lexv2/latest/dg/assisted-slot.html), and [Intent Disambiguation](https://docs.aws.amazon.com/lexv2/latest/dg/generative-intent-disambiguation.html).
 

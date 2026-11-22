@@ -1,7 +1,6 @@
 
 
 # Composite slot type
-<a name="composite-slots"></a>
 
 A composite slot is a combination of two or more slots that capture multiple pieces of information in a single user input. For example, you can configure the bot to elicit the location by requesting for the “city and state or zipcode”. In contrast, when the conversation is configured to use separate slot types resulting in a rigid conversational experience (“What is the city?” followed by “What is the zipcode?”). With a composite slot, you can capture all the information through a single slot. A composite slot is a combination of slots called subslots, such as city, state, and zip code.
 
@@ -43,7 +42,7 @@ The composite slot differs from a multi-valued slot. The composite slot is compr
 
 For a composite slot, Amazon Lex returns a value for each subslot in the response to the `RecognizeText` or `RecognizeUtterance` operation. The following is the slot information returned for the utterance: "I want to schedule a service for my “2021 White Toyota Camry" from the CarService bot.
 
-```
+```json
 "slots": {
     "CarType": {
         "value": {

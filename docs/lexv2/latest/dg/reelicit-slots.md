@@ -1,7 +1,6 @@
 
 
 # Re-eliciting slots
-<a name="reelicit-slots"></a>
 
  You can configure your bot to re-elicit a slot that has already been filled by setting that slot value to **null** and setting the next step in the conversation to loop back to eliciting that slot. For example, you may want to re-elicit a slot after your customer declines a confirmation of the slot elicitation based on extra information, as in the following conversation: 
 

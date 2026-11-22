@@ -1,7 +1,6 @@
 
 
 # Examples of assisted slot resolution used in Lex V2
-<a name="assisted-slot-examples"></a>
 
 Below are some examples where assisted slot resolution is able to intelligently resolve user utterances into a value.
 

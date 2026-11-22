@@ -1,7 +1,6 @@
 
 
 # Deploying Global Resiliency with your Lex V2 bot
-<a name="navigation-gr"></a>
 
 Global Resiliency lets you replicate a bot in a secondary region. The secondary region can be made active with the automatic replication of the user’s bot in both regions. You will have a backup region in case of a regional outage. Once Global Resiliency is active, new bots created are replicated in a second AWS region.
 

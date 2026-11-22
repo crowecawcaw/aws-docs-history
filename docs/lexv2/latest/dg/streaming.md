@@ -1,7 +1,6 @@
 
 
 # Streaming conversations to an Amazon Lex V2 bot
-<a name="streaming"></a>
 
 You can use the Amazon Lex V2 streaming API to start a bidirectional stream between an Amazon Lex V2 bot and your application. Starting a stream enables the bot to manage the conversation between the bot and the user. The bot responds to user input without you writing code to handle responses from the user. The bot can:
 + Handle interruptions from the user while it's playing a prompt. For more information, see [Enabling your Amazon Lex V2 bot to be interrupted by the user](interrupt-bot.md).

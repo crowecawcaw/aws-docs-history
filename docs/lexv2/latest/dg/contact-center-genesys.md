@@ -1,7 +1,6 @@
 
 
 # Genesys Cloud
-<a name="contact-center-genesys"></a>
 
 Genesys Cloud is a suite of cloud services for enterprise communication, collaboration, and contact center management. Genesys Cloud is built on top of AWS and uses a distributed cloud environment that provides secure access to organizations around the work.
 

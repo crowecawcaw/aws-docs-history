@@ -1,7 +1,6 @@
 
 
 # Built-in slot types
-<a name="built-in-slots"></a>
 
 Amazon Lex supports built-in slot types that define how data in the slot is recognized and handled. You can create slots of these types in your intents. This eliminates the need to create enumeration values for commonly used slot data such as date, time, and location. Built-in slot types do not have versions. 
 

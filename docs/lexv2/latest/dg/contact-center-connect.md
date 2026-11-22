@@ -1,7 +1,6 @@
 
 
 # Connect Customer
-<a name="contact-center-connect"></a>
 
 Connect Customer is an omnichannel cloud contact center. You can set up a contact center in a few steps, add agents located anywhere, and start engaging with your customers. For more information, see [ Get started with Connect Customer ](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) in the *Connect Customer administrator guide*.
 

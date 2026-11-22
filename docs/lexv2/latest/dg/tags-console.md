@@ -1,7 +1,6 @@
 
 
 # Tagging resources (console)
-<a name="tags-console"></a>
 
 You can use the console to manage tags on a bot or bot alias. You can add tags when you create the resource, or you can add, modify, or remove tags from existing resources.
 

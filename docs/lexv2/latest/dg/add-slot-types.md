@@ -1,7 +1,6 @@
 
 
 # Adding slot types
-<a name="add-slot-types"></a>
 
 Slot types define the values that users can supply for your intent variables. You define slot types for each language so that the values are specific to that language. For example, for a slot type that lists paint colors, you could include the value "red" in English, "rouge" in French, and "rojo" in Spanish.
 

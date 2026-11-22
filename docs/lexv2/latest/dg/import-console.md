@@ -1,7 +1,6 @@
 
 
 # Importing a Lex V2 bot (console)
-<a name="import-console"></a>
 
 **To import a bot using the console**
 

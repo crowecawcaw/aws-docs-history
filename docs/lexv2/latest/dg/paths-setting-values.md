@@ -1,7 +1,6 @@
 
 
 # Set values during the conversation
-<a name="paths-setting-values"></a>
 
 Amazon Lex V2 provides the ability to set slot values and session attribute values at every step of the conversation. You can then use these values during the conversation to evaluate conditions or use them during intent fulfillment.
 

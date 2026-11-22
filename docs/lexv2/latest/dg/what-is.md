@@ -1,7 +1,6 @@
 
 
 # What is Amazon Lex V2?
-<a name="what-is"></a>
 
 Amazon Lex V2 is an AWS service for building conversational interfaces for applications using voice and text. Amazon Lex V2 provides the deep functionality and flexibility of natural language understanding (NLU) and automatic speech recognition (ASR) so you can build highly engaging user experiences with lifelike, conversational interactions, and create new categories of products.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring fulfillment progress updates for your Lex V2 bot
-<a name="streaming-progress"></a>
 
 When the fulfillment Lambda function for an intent is called, the bot doesn't send a response until the function completes. If the Lambda function takes more than a few seconds to complete, the user may think that the bot is unresponsive. To address this, you can configure your bot to send updates to the user while the fulfillment Lambda function is running so that the user knows that the bot is still working on their request.
 

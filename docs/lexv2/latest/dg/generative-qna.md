@@ -1,7 +1,6 @@
 
 
 # AMAZON.QnAIntent
-<a name="generative-qna"></a>
 
 **Note**  
 Before you can take advantage of the generative AI features, you must fulfill the following prerequisites  

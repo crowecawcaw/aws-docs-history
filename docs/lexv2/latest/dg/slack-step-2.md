@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a Slack application
-<a name="slack-step-2"></a>
 
 In this section, you do the following: 
 

@@ -1,7 +1,6 @@
 
 
 # Conversation context with your Lex V2 bots
-<a name="conversation-contexts"></a>
 
 *Conversation context* is information that the user, your client application, or a Lambda function provides to a Amazon Lex V2 bot to fulfill an intent. Conversation context includes slot data that the user provides, request attributes set by the client application, and session attributes that the client application and Lambda functions create.
 

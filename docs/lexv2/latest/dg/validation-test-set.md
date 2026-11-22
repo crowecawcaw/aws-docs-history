@@ -1,7 +1,6 @@
 
 
 # Test set coverage in Test Workbench
-<a name="validation-test-set"></a>
 
 Limited coverage of intents and slots between the test set and the bot can result in expected performance measures. We recommend that you review the test set coverage ahead of running the test.
 

@@ -1,7 +1,6 @@
 
 
 # Repeats
-<a name="srgs-repeats"></a>
 
 The following table shows the supported repeated expansions for rules. For more information, see [Repeats](https://www.w3.org/TR/speech-grammar/#S2.5) in the *Speech recognition grammar specification version 1* W3C recommendation. 
 

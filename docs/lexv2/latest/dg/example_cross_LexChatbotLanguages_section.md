@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Lex V2 chatbot to engage your website visitors
-<a name="example_cross_LexChatbotLanguages_section"></a>
 
 The following code examples show how to create a chatbot to engage your website visitors.
 

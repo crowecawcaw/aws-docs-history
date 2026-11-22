@@ -1,7 +1,6 @@
 
 
 # Enable assisted slot resolution in the Generative AI configuration screen
-<a name="assisted-slot-genai"></a>
 
 You can enable assisted slot resolution for supported built-in slots by navigating to the Generative AI screen.
 

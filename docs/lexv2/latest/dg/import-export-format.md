@@ -1,7 +1,6 @@
 
 
 # JSON format for importing and exporting bots in Lex V2
-<a name="import-export-format"></a>
 
 You import and export bots, bot locales, or custom vocabularies from Amazon Lex V2 using a .zip file that contains JSON structures that describe the parts of the resource. When you export a resource, Amazon Lex V2 creates the .zip file and makes it available to you using an Amazon S3 pre-signed URL. When you import a resource, you must create a .zip file that contains the JSON structures and upload it to an S3 pre-signed URL. 
 
@@ -44,7 +43,7 @@ Amazon Lex creates the following directory structure in the .zip file when you e
 
 The manifest file contains metadata for the export file.
 
-```
+```json
 {
     "metadata": {
         "schemaVersion": "1.0",
@@ -59,7 +58,7 @@ The manifest file contains metadata for the export file.
 
 The bot file contains the configuration information for the bot.
 
-```
+```json
 {
     "name": "{{BotName}}",
     "identifier": "{{identifier}}",
@@ -77,7 +76,7 @@ The bot file contains the configuration information for the bot.
 
 The bot locale file contains a description of the locale or language of a bot. When you export a bot, there can be more than one bot locale file in the .zip file. When you export a bot locale, there is only one locale in the zip file.
 
-```
+```json
 {
     "name": "{{locale name}}",
     "identifier": "{{locale ID}}",
@@ -98,7 +97,7 @@ The intent file contains the configuration information for an intent. There is o
 
 The following is an example of a JSON structure for the BookCar intent in the sample BookTrip bot. For a complete example of the JSON structure for an intent, see the [CreateIntent](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html) operation.
 
-```
+```json
 {
     "name": "BookCar",
     "identifier": "891RWHHICO",
@@ -186,7 +185,7 @@ The slot file contains the configuration information for a slot in an intent. Th
 
 The following example is the JSON structure of a slot that enables the customer to choose the type of car they wish to rent in the BookCar intent in the BookTrip example bot. For a complete example of the JSON structure for an slot, see the [CreateSlot](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateSlot.html) operation.
 
-```
+```json
 {
     "name": "CarType",
     "identifier": "KDHJWNGZGC",
@@ -223,7 +222,7 @@ The following example is the JSON structure of a slot that enables the customer 
 
 The following example shows the JSON structure of a composite slot.
 
-```
+```json
 {
   "name": "CarType",
   "identifier": "KDHJWNGZGC",
@@ -333,7 +332,7 @@ The slot type file contains the configuration information for a custom slot type
 
 The following is the JSON structure for the slot type that lists the types of cars available in the BookTrip example bot. For a complete example of the JSON structure for a slot type, see the [CreateSlotType](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateSlotType.html) operation.
 
-```
+```json
 {
     "name": "CarTypeValues",
     "identifier": "T1YUHGD9ZR",
@@ -382,7 +381,7 @@ The following is the JSON structure for the slot type that lists the types of ca
 
 The following example shows the JSON structure for a composite slot type.
 
-```
+```json
 {
   "name": "CarCompositeType",
   "identifier": "TPA3CC9V",
@@ -418,7 +417,7 @@ The following example shows the JSON structure for a composite slot type.
 
 The following is a slot type that uses a custom grammar to understand the customer's utterances. For more information, see [Grammar slot type](building-srgs.md).
 
-```
+```json
 {
   "name": "custom_grammar",
   "identifier": "7KEAQIQKPX",
@@ -445,7 +444,7 @@ The custom vocabulary file contains the entries in a custom vocabulary for singl
 
 The following is a custom vocabulary file for a bot that takes restaurant orders. There is one file per locale in the bot.
 
-```
+```json
 {
     "customVocabularyItems": [
         {

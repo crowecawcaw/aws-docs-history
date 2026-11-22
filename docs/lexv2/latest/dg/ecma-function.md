@@ -1,11 +1,10 @@
 
 
 # Function declarations
-<a name="ecma-function"></a>
 
 You can add function declarations to perform functions in Amazon Lex V2. This example shows the syntax that can be used in SRGS expressions.
 
-```
+```javascript
 function functionIdentifier([parameterList, ...]) {
      <function body>
 }

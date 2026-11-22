@@ -1,7 +1,6 @@
 
 
 # Tagging resources in Lex V2
-<a name="tagging"></a>
 
 To help you manage your Amazon Lex V2 bots and bot aliases, you can assign metadata to each resource as *tags*. A tag is a label that you assign to an AWS resource. Each tag consists of a key and a value. 
 

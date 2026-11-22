@@ -1,7 +1,6 @@
 
 
 # Language
-<a name="srgs-language"></a>
 
 The following discussion applies to language identifiers applied to grammars. For more information, see [Language](https://www.w3.org/TR/speech-grammar/#S2.7) in the *Speech recognition grammar specification version 1* W3C recommendation. 
 
@@ -13,7 +12,7 @@ In the following example:
 
 1. Item-level language attachment (highlighted in {{red}}) **is not supported**. Amazon Lex V2 throws a validation error if a language attachment is different from the header declaration.
 
-```
+```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN"

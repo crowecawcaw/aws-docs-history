@@ -1,7 +1,6 @@
 
 
 # AMAZON.Confirmation
-<a name="built-in-slot-confirmation"></a>
 
 This slot type recognizes input phrases that corresponds to 'Yes', 'No', 'Maybe', and 'Don't know' phrases and words for Amazon Lex V2 and converts it one of the four values. It can be used to capture confirmation or acknowledgement from the user. Based on the final resolved value, you can create conditions to design multiple conversation paths.
 

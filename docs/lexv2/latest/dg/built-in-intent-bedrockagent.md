@@ -1,7 +1,6 @@
 
 
 # AMAZON.BedrockAgentIntent
-<a name="built-in-intent-bedrockagent"></a>
 
 **Note**  
 Before you can take advantage of the generative AI features, you must fulfill the following prerequisites  

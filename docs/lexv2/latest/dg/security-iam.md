@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon Lex V2
-<a name="security-iam"></a>
 
 
 

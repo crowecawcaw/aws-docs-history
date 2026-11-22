@@ -1,7 +1,6 @@
 
 
 # Different ways to create a bot with Amazon Lex V2
-<a name="create-bot"></a>
 
 You can create a bot with Amazon Lex V2 in the following ways:
 

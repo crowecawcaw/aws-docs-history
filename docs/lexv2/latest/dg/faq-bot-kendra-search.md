@@ -1,7 +1,6 @@
 
 
 # Example: Creating a FAQ Bot for an Amazon Kendra Index
-<a name="faq-bot-kendra-search"></a>
 
 This example creates an Amazon Lex V2 bot that uses an Amazon Kendra index to provide answers to users' questions. The FAQ bot manages the dialog for the user. It uses the `AMAZON.KendraSearchIntent` intent to query the index and to present the response to the user. Here is a summary of how you will create your FAQ bot using an Amazon Kendra index:
 

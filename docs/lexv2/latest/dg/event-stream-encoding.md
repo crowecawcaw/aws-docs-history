@@ -1,7 +1,6 @@
 
 
 # Event stream encoding
-<a name="event-stream-encoding"></a>
 
 Event stream encoding provides bidirectional communication using messages between a client and a server. Data frames sent to the Amazon Lex V2 streaming service are encoded in this format. The response from Amazon Lex V2 also uses this encoding.
 

@@ -1,7 +1,6 @@
 
 
 # Enabling the Amazon Lex V2 bot to wait for the user to provide more information during a pause
-<a name="wait-and-continue"></a>
 
 When you start a bidirectional stream from an Amazon Lex V2 bot to your application, you can configure the bot to wait for the user to provide additional information. There are circumstances when a user might not be ready to respond to a prompt. For example, a user might not be ready to provide their credit card information because their wallet is in another room.
 

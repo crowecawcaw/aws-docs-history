@@ -1,7 +1,6 @@
 
 
 # Create an IAM role for the Test Workbench - Advanced Features
-<a name="create-iam-test-set-features"></a>
 
 **Permission setup for Test workbench IAM role**
 
@@ -14,7 +13,7 @@ This section shows several example AWS Identity and Access Management (IAM) iden
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -42,7 +41,7 @@ This section shows several example AWS Identity and Access Management (IAM) iden
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

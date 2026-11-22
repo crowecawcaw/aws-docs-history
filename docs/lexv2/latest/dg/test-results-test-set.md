@@ -1,7 +1,6 @@
 
 
 # View test results
-<a name="test-results-test-set"></a>
 
 Interpret test results from the Test Workbench to determine where the conversation between your bot and the customer might be failing, or requiring the customer to make multiple attempts to fulfill the intent.
 

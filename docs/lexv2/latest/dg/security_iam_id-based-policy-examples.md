@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon Lex V2
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Lex V2 resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -60,7 +59,7 @@ This example shows a policy that allows IAM users to add Amazon Comprehend, sent
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -92,7 +91,7 @@ This example is a policy that allows IAM users to add a messaging channel to a b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -139,7 +138,7 @@ This example shows an example policy that allows IAM users to delete any bot. Th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -174,7 +173,7 @@ This example shows an example policy that allows IAM users have a conversation w
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -211,7 +210,7 @@ The following IAM permission policy enables a user to create, update, and get an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -252,7 +251,7 @@ The following IAM permission policy allows a user to export a custom vocabulary 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -284,7 +283,7 @@ The following IAM permission policy allows a user to import a bot or bot locale 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -335,7 +334,7 @@ The following IAM permission policy allows a user to import a custom vocabulary 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -369,7 +368,7 @@ The following IAM permission policy allows a user to start migrating a bot from 
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

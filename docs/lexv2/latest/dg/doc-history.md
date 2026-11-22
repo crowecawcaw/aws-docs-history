@@ -1,7 +1,6 @@
 
 
 # Document history for Amazon Lex V2
-<a name="doc-history"></a>
 + **Latest documentation update: **October 27th, 2025
 
 The following table describes important changes in each release of Amazon Lex V2. For notification about updates to this documentation, you can subscribe to an RSS feed.
@@ -79,4 +78,4 @@ The following table describes important changes in each release of Amazon Lex V2
 | [Region expansion (2021-05-17)](https://docs.aws.amazon.com/general/latest/gr/lex.html) | Amazon Lex V2 is now available in Canada (Central) (ca-central-1). | May 17, 2021 | 
 | [New feature (2021-04-01)](https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html) | Amazon Lex V2 now supports the Japanese (Japan) locale. For more information, see [Languages and locales supported by Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html). | April 1, 2021 | 
 | [New feature (2021-03-12)](https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slots.html) | Amazon Lex V2 now supports three new built-in slot types: `AMAZON.City`, `AMAZON.Country`, and `AMAZON.State`. | March 12, 2021 | 
-| [New guide](#doc-history) | This is the first release of the *Amazon Lex V2 user guide*. | January 21, 2021 | 
+| [New guide](doc-history.md) | This is the first release of the *Amazon Lex V2 user guide*. | January 21, 2021 | 

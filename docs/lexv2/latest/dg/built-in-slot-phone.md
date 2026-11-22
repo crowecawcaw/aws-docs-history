@@ -1,7 +1,6 @@
 
 
 # AMAZON.PhoneNumber
-<a name="built-in-slot-phone"></a>
 
 Converts the numbers or words that represent a phone number into a string format without punctuation as follows.
 

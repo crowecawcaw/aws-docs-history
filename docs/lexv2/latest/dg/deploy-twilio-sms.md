@@ -1,7 +1,6 @@
 
 
 # Integrating an Amazon Lex V2 bot with Twilio SMS
-<a name="deploy-twilio-sms"></a>
 
 This topic provides instructions for integrating an Amazon Lex V2 bot with the Twilio simple message service (SMS). You perform the following steps:
 

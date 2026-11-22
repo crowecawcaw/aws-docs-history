@@ -1,7 +1,6 @@
 
 
 # Using the API to start a streaming conversation
-<a name="using-streaming-api"></a>
 
 When you start a stream to an Amazon Lex V2 bot, you accomplish the following tasks:
 
@@ -17,7 +16,7 @@ The following code examples initialize a streaming conversation with an Amazon L
 
 The following code is an example request using the AWS SDK for Java to start the connection to a bot and configure the bot details and credentials.
 
-```
+```java
 package com.lex.streaming.sample;
 
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
@@ -132,7 +131,7 @@ public class LexBidirectionalStreamingExample {
 
 The following code is an example request using the AWS SDK for Java to send events to the bot. The code in this example uses the microphone on your computer to send audio events.
 
-```
+```java
 package com.lex.streaming.sample;
 
 import org.reactivestreams.Publisher;
@@ -182,7 +181,7 @@ public class EventsPublisher implements Publisher<StartConversationRequestEventS
 
 The following code is an example request using the AWS SDK for Java to handle responses from the bot. The code in this example configures Amazon Lex V2 to play an audio response back to you.
 
-```
+```java
 package com.lex.streaming.sample;
 
 import javazoom.jl.decoder.JavaLayerException;
@@ -335,7 +334,7 @@ To configure a bot to respond to input events with audio, you must first subscri
 
 The following code is an AWS SDK for Java example for subscribing to audio events from Amazon Lex V2.
 
-```
+```java
 package com.lex.streaming.sample;
 
 import org.reactivestreams.Subscriber;
@@ -565,7 +564,7 @@ public class AudioEventsSubscription implements Subscription {
 
 The following AWS SDK for Java example configures the Amazon Lex V2 bot to provide an audio response to the input events.
 
-```
+```java
 package com.lex.streaming.sample;
 
 import java.io.IOException;

@@ -1,7 +1,6 @@
 
 
 # Setting the session timeout
-<a name="context-mgmt-session-timeout"></a>
 
 Amazon Lex retains context information—slot data and session attributes—until a conversation session ends. To control how long a session lasts for a bot, set the session timeout. By default, session duration is 5 minutes, but you can specify any duration between 0 and 1,440 minutes (24 hours). 
 

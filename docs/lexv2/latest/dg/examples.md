@@ -1,7 +1,6 @@
 
 
 # Bot examples
-<a name="examples"></a>
 
 This section provides examples of Amazon Lex bots that you can use as a starting point for your own applications.
 

@@ -1,7 +1,6 @@
 
 
 # Step 3: Integrate the Slack application with the Amazon Lex V2 bot
-<a name="slack-step-3"></a>
 
  In this section, integrate the Slack application you created with the Amazon Lex V2 bot you created by using Channel integrations. 
 

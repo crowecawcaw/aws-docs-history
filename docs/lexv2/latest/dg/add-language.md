@@ -1,7 +1,6 @@
 
 
 # Adding a new language to an Amazon Lex V2 bot
-<a name="add-language"></a>
 
 You add one or more languages and locales to your bot to enable it to communicate with users in their languages. You define the intents, slots, and slot types separately for each language so that the utterances, prompts, and slot values are specific to the language.
 

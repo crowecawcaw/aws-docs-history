@@ -1,7 +1,6 @@
 
 
 # Intent structure
-<a name="intent-structure"></a>
 
 Intents are the goals that your users want to accomplish, such as ordering flowers or booking a hotel. Your bot must have at least one intent. An intent is made up of the following components
 + **Initial response** – The initial message sent to the user after the intent is invoked. You can set responses, initialize values, and define the next step that your bot takes to respond to the user at the beginning of the intent.

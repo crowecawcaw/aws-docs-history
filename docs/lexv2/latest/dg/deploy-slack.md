@@ -1,7 +1,6 @@
 
 
 # Integrating an Amazon Lex V2 bot with Slack
-<a name="deploy-slack"></a>
 
 This topic provides instructions for integrating an Amazon Lex V2 bot with the Slack messaging application. You perform the following steps:
 

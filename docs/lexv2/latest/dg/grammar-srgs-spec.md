@@ -1,7 +1,6 @@
 
 
 # Grammar definition
-<a name="grammar-srgs-spec"></a>
 
 This topic shows the parts of the SRGS specification that Amazon Lex V2 supports. All of the rules are defined in the SRGS specification. For more information, see the [ Speech recognition grammar specification version 1.0](https://www.w3.org/TR/speech-grammar/) W3C recommendation.
 

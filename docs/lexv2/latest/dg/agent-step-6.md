@@ -1,7 +1,6 @@
 
 
 # Step 6: Use the Bot
-<a name="agent-step-6"></a>
 
 For demo purposes, you provide input to the bot as the customer and as the agent. To differentiate between the two, questions asked by the customer begin with “Customer:” and answers provided by the agent begin with “Agent:”. You can choose from a menu of suggested inputs. 
 
@@ -12,7 +11,7 @@ Run your web application by opening `index.html` to engage in a conversation wit
 
 The `pushChat()` function in the index.html file is explained below.
 
-```
+```javascript
             
             var endConversationStatement = "Customer: I have no more questions. Thank you." 
             // If the agent has to send a message, start the message with 'Agent'

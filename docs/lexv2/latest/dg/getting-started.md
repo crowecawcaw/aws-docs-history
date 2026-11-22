@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Lex V2
-<a name="getting-started"></a>
 
 ## Overview
 <a name="getting-started-overview"></a>

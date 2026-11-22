@@ -1,7 +1,6 @@
 
 
 # Using assisted slot resolution to clarify slot values in Amazon Lex V2
-<a name="assisted-slot"></a>
 
 **Note**  
 Before you can take advantage of the generative AI features, you must fulfill the following prerequisites  

@@ -1,7 +1,6 @@
 
 
 # AMAZON.Date
-<a name="built-in-slot-date"></a>
 
 Converts words that represent dates into a date format.
 

@@ -1,7 +1,6 @@
 
 
 # Using speaker diarization to focus on the primary speaker
-<a name="customizing-speech-speaker-diarization"></a>
 
 Speaker diarization keeps your bot on the primary (loudest) speaker during a voice conversation. When other voices or background chatter reach the microphone, your bot stays focused on the primary speaker instead of reacting to the surrounding sound. Examples include a television in the next room, a side conversation in an open office, or someone talking near the caller. The result is smoother voice conversations, with fewer turns started by background voices and fewer prompts interrupted by them.
 

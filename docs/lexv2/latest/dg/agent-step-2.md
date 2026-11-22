@@ -1,7 +1,6 @@
 
 
 # Step 2: Create an Amazon Lex V2 Bot
-<a name="agent-step-2"></a>
 
 Amazon Lex V2 provides an interface between the call center agent and the Amazon Kendra index. It keeps track of the conversation between the agent and the customer and calls the `AMAZON.KendraSearchIntent` intent based on the questions the customer asks. An *intent* is an action that the user wants to perform.
 

@@ -1,7 +1,6 @@
 
 
 # Sharing information between intents with your Lex V2 bot
-<a name="context-mgmt-cross-intent"></a>
 
 Amazon Lex V2 supports sharing information between intents. To share between intents, use output contexts or session attributes. 
 

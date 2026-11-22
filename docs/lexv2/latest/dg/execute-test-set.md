@@ -1,7 +1,6 @@
 
 
 # Execute a test
-<a name="execute-test-set"></a>
 
 To execute a test set, you must choose the appropriate bot to run the test against the test set. You can choose a bot from your AWS account from the drop down menu under Test Set. This operation will test your selected bot against your validated test data to report performance metrics against the baseline data from the test set.
 

@@ -1,7 +1,6 @@
 
 
 # Integrating an Amazon Lex V2 bot with Facebook Messenger
-<a name="deploy-facebook-messenger"></a>
 
 You can host your Amazon Lex V2 bot in Facebook Messenger. When you do, Facebook users can interact with your bot to fulfill intents. 
 

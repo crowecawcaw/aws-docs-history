@@ -1,7 +1,6 @@
 
 
 # Using multiple values in a slot
-<a name="multi-valued-slots"></a>
 
 **Note**  
 Multiple value slots are only supported in the English (US) language.
@@ -20,7 +19,7 @@ You can only mark slots with custom slot types as multi-value slots.
 
 For a multi-value slot, Amazon Lex V2 returns a list of slot values in the response to the [RecognizeText](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html) or [RecognizeUtterance](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html) operation. The following is the slot information returned for the utterance "I want a pizza with pepperoni and pineapple" from the OrderPizza bot.
 
-```
+```json
     "slots": {
         "toppings": {
             "shape": "List",

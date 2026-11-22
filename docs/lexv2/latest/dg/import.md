@@ -1,7 +1,6 @@
 
 
 # Importing bots in Lex V2
-<a name="import"></a>
 
 To use the console to import a previously exported bot, bot locale or custom vocabulary, you provide the file location on your local computer and the optional password to unlock the file. For an example, see [Importing a Lex V2 bot (console)](import-console.md).
 

@@ -1,7 +1,6 @@
 
 
 # Example bot descriptions for descriptive bot builder
-<a name="nld-examples"></a>
 
 Here are some helpful example bot descriptions you can use with descriptive bot builder in Amazon Lex V2.
 

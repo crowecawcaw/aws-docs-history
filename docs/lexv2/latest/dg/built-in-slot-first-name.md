@@ -1,7 +1,6 @@
 
 
 # AMAZON.FirstName
-<a name="built-in-slot-first-name"></a>
 
 Commonly used first names. This slot type recognizes formal names, informal nicknames, and names consisting of more than one word. The name sent to your intent is the value sent by the user. Amazon Lex V2 doesn't convert from the nickname to the formal name.
 

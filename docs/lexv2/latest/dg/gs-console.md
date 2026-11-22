@@ -1,7 +1,6 @@
 
 
 # Step 2: Getting started (console)
-<a name="gs-console"></a>
 
 ## Console Overview
 <a name="console-overview"></a>

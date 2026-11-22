@@ -1,7 +1,6 @@
 
 
 # Step 5: Deploy Your Bot as a Web Application
-<a name="agent-step-5"></a>
 
 **To deploy your bot as a web application**
 

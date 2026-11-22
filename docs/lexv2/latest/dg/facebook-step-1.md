@@ -1,7 +1,6 @@
 
 
 # Step 1: Create a Facebook application
-<a name="facebook-step-1"></a>
 
 On the Facebook developer portal, create a Facebook application and a Facebook page. 
 

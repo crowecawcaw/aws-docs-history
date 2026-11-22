@@ -1,7 +1,6 @@
 
 
 # Working with Amazon Lex V2 bots
-<a name="building-bots"></a>
 
 You create an Amazon Lex V2 bot to interact with your users to elicit information to accomplish a task. For example, you can create a bot that gathers the information needed to order a bouquet of flowers or to book a hotel room.
 

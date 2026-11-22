@@ -1,7 +1,6 @@
 
 
 # Creating an AWS Lambda function for your Amazon Lex V2 bot
-<a name="lambda-attach"></a>
 
 To create a Lambda function for your Amazon Lex V2 bot, access AWS Lambda from your AWS Management Console and create a new function. You can refer to the [AWS Lambda developer guide](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) for more details about AWS Lambda.
 
@@ -35,7 +34,7 @@ The Lambda handler function differs depending on the language you use. It minima
 
 Remember that you can associate each bot alias with at most one Lambda function. However, you can define as many functions as you need for your bot within the Lambda code and call these functions in the Lambda handler function. For example, while all intents in the same bot alias must call the same Lambda function, you can create a router function that activates a separate function for each intent. The following is a sample router function that you can use or modify for your application:
 
-```
+```python
 import os
 import json
 import boto3

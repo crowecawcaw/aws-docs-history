@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Lex V2 using AWS SDKs
-<a name="service_code_examples"></a>
 
 The following code examples show how to use Amazon Lex V2 with an AWS software development kit (SDK). 
 

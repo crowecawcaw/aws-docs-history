@@ -1,7 +1,6 @@
 
 
 # Viewing text logs in Amazon CloudWatch Logs from Lex V2
-<a name="conversation-logs-cw"></a>
 
 Amazon Lex V2 stores text logs for your conversations in Amazon CloudWatch Logs. To view the logs, use the CloudWatch Logs console or API. For more information, see [ Search Log Data Using Filter Patterns](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SearchDataFilterPattern.html) and [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) in the *Amazon CloudWatch Logs User Guide*.
 

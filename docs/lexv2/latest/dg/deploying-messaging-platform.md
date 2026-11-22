@@ -1,7 +1,6 @@
 
 
 # Integrating an Amazon Lex V2 bot with a messaging platform
-<a name="deploying-messaging-platform"></a>
 
 This section explains how to integrate Amazon Lex V2 bots with the Facebook, Slack, and Twilio messaging platforms. If you don't already have an Amazon Lex V2 bot, create one. In this topic, we assume that you are using the bot that you created in [Exercise 1: Create a chatbot from a template](exercise-1.md). However, you can use any bot. 
 

@@ -1,7 +1,6 @@
 
 
 # Exercise 3: Build an advanced customer service chatbot
-<a name="exercise-3"></a>
 
 In this advanced exercise, you'll build a sophisticated customer service chatbot for an e-commerce company. This bot demonstrates enterprise-level capabilities including order management, intelligent upselling, lead generation, and revenue optimization. The chatbot uses AI-powered features to provide personalized customer experiences and drive business growth.
 

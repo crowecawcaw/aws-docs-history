@@ -1,7 +1,6 @@
 
 
 # Add conditions to branch conversations
-<a name="paths-branching"></a>
 
 You can use *conditional branching* to control the path that your customer takes through the conversation with your bot. You can branch the conversation based on slot values, session attributes, the contents of the input mode and input transcript fields, or a response from Amazon Kendra.
 

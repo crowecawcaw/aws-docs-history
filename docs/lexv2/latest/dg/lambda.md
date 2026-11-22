@@ -1,7 +1,6 @@
 
 
 # Integrating an AWS Lambda function into your Amazon Lex V2 bot
-<a name="lambda"></a>
 
 With [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) functions, you can extend and better control the behavior of your Amazon Lex V2 bot through custom functions that you define. Amazon Lex V2 uses one Lambda function per bot alias per language instead of one Lambda function for each intent. Before you begin, determine which fields in the [input event](https://docs.aws.amazon.com/lexv2/latest/dg/lambda-input-format) you want to draw information from and which fields in the [response](https://docs.aws.amazon.com/lexv2/latest/dg/lambda-response-format) you want to manipulate and return from your Lambda function
 

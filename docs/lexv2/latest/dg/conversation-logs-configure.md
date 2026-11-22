@@ -1,7 +1,6 @@
 
 
 # Configuring conversation logs for your Lex V2 bot
-<a name="conversation-logs-configure"></a>
 
 You enable and disable conversation logs using the console or the `conversationLogSettings` field of the `CreateBotAlias` or `UpdateBotAlias` operation. You can turn on or turn off audio logs, text logs, or both. Logging starts on new bot sessions. Changes to log settings aren't reflected for active sessions.
 
@@ -26,7 +25,7 @@ The IAM role that you use to enable conversation logs must have the `iam:PassRol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

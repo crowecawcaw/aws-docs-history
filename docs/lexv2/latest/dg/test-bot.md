@@ -1,7 +1,6 @@
 
 
 # Testing a bot using the console
-<a name="test-bot"></a>
 
 The Amazon Lex V2 console contains a test window that you can use to test the interaction with your bot. You use the test window to have a test conversation with your bot and to see the responses that your application receives from the bot.
 

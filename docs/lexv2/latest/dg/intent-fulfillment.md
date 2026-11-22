@@ -1,7 +1,6 @@
 
 
 # Fulfillment
-<a name="intent-fulfillment"></a>
 
 After all the slot values are provided by the user for the intent, Amazon Lex V2 fulfills the user’s request. You can configure the following options for fulfillment.
 + **Fulfillment code hook** – You can use this option to control the fulfillment Lambda invocation. If the option is disabled, the fulfillment succeeds without invoking the Lambda function.

@@ -1,7 +1,6 @@
 
 
 # Permissions for the AMAZON.QnAIntent
-<a name="qna-permissions"></a>
 
 To access this feature on Amazon Lex V2 console, ensure your console role has `bedrock:ListFoundationModels` and `bedrock:ListInferenceProfiles` permissions.
 

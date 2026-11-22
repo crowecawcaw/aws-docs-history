@@ -1,7 +1,6 @@
 
 
 # Creating Amazon Lex V2 bots using templates
-<a name="bot-templates"></a>
 
 Amazon Lex V2 offers pre-built solutions to create experiences at scale and drive digital engagement. The pre-built bot templates automates and standardizes client experiences. The bot templates provide ready-to-use conversation flows along with both training data and dialog prompts, for both voice and chat modalities. You can expedite the delivery of bot solutions while optimizing resources, so that you can focus on customer relationships.
 

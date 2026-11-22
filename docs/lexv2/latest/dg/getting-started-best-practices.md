@@ -1,7 +1,6 @@
 
 
 # Best Practices for Getting Started
-<a name="getting-started-best-practices"></a>
 
 ## Conversation Design Principles
 <a name="conversation-design-principles"></a>

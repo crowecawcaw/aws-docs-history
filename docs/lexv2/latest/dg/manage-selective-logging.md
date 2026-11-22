@@ -1,7 +1,6 @@
 
 
 # Manage selective conversation log capture
-<a name="manage-selective-logging"></a>
 
 Using the Lex console, you can enable the selective conversation log capture settings and choose which slots you want to enable selective conversation log capture capture for.
 

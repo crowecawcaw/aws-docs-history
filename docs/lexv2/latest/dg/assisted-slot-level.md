@@ -1,7 +1,6 @@
 
 
 # Enable assisted slot resolution in the slot settings in Lex V2
-<a name="assisted-slot-level"></a>
 
 You can enable assisted slot resolution for supported built-in slots by navigating to the slot level for each intent that has slots. The slots must be one of the supported built-in slots listed above to have the option of activating assisted slot resolution. If the slot does not have the option to activate assisted slot resolution, the option will be greyed out.
 

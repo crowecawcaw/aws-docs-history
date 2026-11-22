@@ -1,7 +1,6 @@
 
 
 # Quick Start: Create a chatbot in 5 minutes
-<a name="quick-start"></a>
 
 This quick start guide helps you create a working Amazon Lex V2 chatbot in just 5 minutes using pre-built templates. You'll have a functional chatbot that you can immediately test and customize for your needs.
 

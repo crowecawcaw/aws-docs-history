@@ -1,7 +1,6 @@
 
 
 # AMAZON.QnAIntent
-<a name="built-in-intent-qna"></a>
 
 **Note**  
 Before you can take advantage of the generative AI features, you must fulfill the following prerequisites  
@@ -62,7 +61,7 @@ You can engineer the prompt template with the following tools:
 
 **Default prompt** being used is:
 
-```
+```json
 $query_results$
 
 $additional_context$
@@ -81,7 +80,7 @@ $output_instruction$
 
 **$output\_instruction$** is replaced with:
 
-```
+```json
 Give your final response in the following form:
 <answer>
 <intent>FAQ_QUERY or OTHER_QUERY or GIBBERISH or GREETINGS or AFFIRMATION or CHITCHAT or MISC</intent>
@@ -101,7 +100,7 @@ You can pass additional context to the `AMAZON.QnAIntent` at runtime through the
 
 **Example:**
 
-```
+```json
 {"sessionAttributes": {"x-amz-lex:qna-additional-context":"Our support hours are Monday through Friday, 8AM-8PM EST"}}
 ```
 
@@ -109,7 +108,7 @@ You can pass additional context to the `AMAZON.QnAIntent` at runtime through the
 
 You can pass the Amazon Bedrock Knowledge Base metadata filters as part of session attribute `x-amz-lex:bkb-retrieval-filter`.
 
-```
+```json
              {"sessionAttributes":{"x-amz-lex:bkb-retrieval-filter":"{\"equals\":{\"key\":\"insurancetype\",\"value\":\"farmers\"}}      
 ```
 
@@ -125,7 +124,7 @@ You can define the inference configurations that will be used when making the ca
 
 **Example:**
 
-```
+```json
          {"sessionAttributes":{"x-amz-lex:llm-text-inference-config":"{\"temperature\":0,\"topP\":1,\"maxTokens\":200}"}}      
 ```
 

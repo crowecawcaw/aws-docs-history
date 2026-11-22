@@ -1,7 +1,6 @@
 
 
 # Adding intents
-<a name="add-intents"></a>
 
 Intents are the goals that your users want to accomplish, such as ordering flowers or booking a hotel. Your bot must have at least one intent.
 

@@ -1,7 +1,6 @@
 
 
 # Starting a conversation stream to an Amazon Lex V2 bot
-<a name="start-stream-conversation"></a>
 
 You use the [StartConversation](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_StartConversation.html) operation to start a stream between the user and the Amazon Lex V2 bot in your application. The `POST` request from the application establishes a connection between your application and the Amazon Lex V2 bot. This enables your application and the bot to start exchanging information with each other through events.
 

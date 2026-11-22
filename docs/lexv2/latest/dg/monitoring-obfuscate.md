@@ -1,7 +1,6 @@
 
 
 # Obscuring slot values in conversation logs from Lex V2
-<a name="monitoring-obfuscate"></a>
 
 Amazon Lex V2 enables you to obfuscate, or hide, the contents of slots so that the content is not visible. To protect sensitive data captured as slot values, you can enable slot obfuscation to mask those values for logging.
 

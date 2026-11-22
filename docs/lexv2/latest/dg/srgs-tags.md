@@ -1,7 +1,6 @@
 
 
 # Tags
-<a name="srgs-tags"></a>
 
 The following discussion applies to tags defined for grammars. For more information, see [Tags](https://www.w3.org/TR/speech-grammar/#S2.6) in the *Speech recognition grammar specification version 1* W3C recommendation. 
 
@@ -20,7 +19,7 @@ The following tag formats are not supported:
 
 **Example**
 
-```
+```xml
 <grammar xmlns="http://www.w3.org/2001/06/grammar"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xml:base="http://www.example.com/base-file-path"

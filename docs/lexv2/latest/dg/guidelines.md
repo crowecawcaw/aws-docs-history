@@ -1,7 +1,6 @@
 
 
 # Guidelines and best practices
-<a name="guidelines"></a>
 
 Refer to the following guidelines and best practices to optimize your bot's behavior and interactions with customers.
 

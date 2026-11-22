@@ -1,7 +1,6 @@
 
 
 # Measuring business performance with Analytics
-<a name="analytics"></a>
 
 With Analytics, you can evaluate the performance of your bot with metrics that are related to success and failure rates of your bots’ interactions with customers. You can also visualize patterns of conversation flows between your bot and customers. Analytics streamlines your experience by summarizing these metrics in graphs and charts. Analytics provides tools to help you filter results to identify issues and problems involving intents, slots, utterances, and conversations. You can use this data to iterate and improve upon your bot to create a better customer experience.
 

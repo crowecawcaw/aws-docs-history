@@ -1,7 +1,6 @@
 
 
 # Versioning and aliases with your Lex V2 bot
-<a name="versions-aliases"></a>
 
 Amazon Lex V2 supports creating versions and aliases of bots and bot networks so that you can control the implementation that your client applications use. A version acts as a numbered snapshot of your work. You can point an alias to the version of your bot that you want to be available to your customers. In between creating versions, you can continue to update the `Draft` version of your bot without affecting the user experience.
 

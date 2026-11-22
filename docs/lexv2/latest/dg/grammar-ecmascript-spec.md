@@ -1,13 +1,12 @@
 
 
 # Script format
-<a name="grammar-ecmascript-spec"></a>
 
 Amazon Lex V2 supports the following ECMAScript features for defining grammars.
 
 Amazon Lex V2 supports the following ECMAScript features when specifying tags in the grammar. `tag-format` must be sent to `semantics/1.0` when ECMAScript tags are used in the grammar. For more information, see the [ECMA-262 ECMAScript 2021 language specification ](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
 
-```
+```xml
 <grammar version="1.0"
 xmlns="http://www.w3.org/2001/06/grammar"
 xml:lang="en-US"

@@ -1,7 +1,6 @@
 
 
 # Importing and exporting bots in Lex V2
-<a name="importing-exporting"></a>
 
 You can export a bot definition, a bot locale or a custom vocabulary and then import it back to create a new resource or to overwrite an existing resource in an AWS account. For example, you can export a bot from a test account and then create a copy of the bot in your production account. You can also copy a bot from one AWS Region to another Region. 
 

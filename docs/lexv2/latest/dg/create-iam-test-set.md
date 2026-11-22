@@ -1,7 +1,6 @@
 
 
 # Create an IAM role for the Test Workbench
-<a name="create-iam-test-set"></a>
 
 **To create an IAM role for the Test Workbench**
 
@@ -20,7 +19,7 @@
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -47,7 +46,7 @@
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

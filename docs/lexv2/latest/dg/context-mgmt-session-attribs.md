@@ -1,7 +1,6 @@
 
 
 # Setting session attributes for your Lex V2 bot
-<a name="context-mgmt-session-attribs"></a>
 
 *Session attributes* contain application-specific information that is passed between a bot and a client application during a session. Amazon Lex V2 passes session attributes to all Lambda functions configured for a bot. If a Lambda function adds or updates session attributes, Amazon Lex V2 passes the new information back to the client application. 
 
@@ -17,7 +16,7 @@ If either the client application or a Lambda function passes session attributes,
 
 To send session attributes to Amazon Lex V2, you create a string-to-string map of the attributes. The following shows how to map session attributes: 
 
-```
+```json
 {
    "attributeName": "attributeValue",
    "attributeName": "attributeValue"
@@ -26,7 +25,7 @@ To send session attributes to Amazon Lex V2, you create a string-to-string map o
 
 For the `RecognizeText` operation, you insert the map into the body of the request using the `sessionAttributes` field of the `sessionState` structure, as follows:
 
-```
+```json
 "sessionState": {
     "sessionAttributes": {
         "attributeName": "attributeValue",

@@ -1,7 +1,6 @@
 
 
 # Test results details in Test Workbench
-<a name="test-results-details-test-set"></a>
 
 The test results show the test set details, intents used, and the slots used. It also provides the overall test set input breakdown includes the overall results, conversation results, intent, and slot results.
 

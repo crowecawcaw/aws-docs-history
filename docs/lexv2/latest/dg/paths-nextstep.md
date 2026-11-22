@@ -1,7 +1,6 @@
 
 
 # Configure next steps in the conversation
-<a name="paths-nextstep"></a>
 
 You can configure a next step at each stage of the conversation to design conversations. Typically, Amazon Lex V2 automatically configures the default next steps for each stage of the conversation as per the following order.
 

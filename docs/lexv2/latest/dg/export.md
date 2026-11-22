@@ -1,7 +1,6 @@
 
 
 # Exporting bots from Lex V2
-<a name="export"></a>
 
 You export a bot, bot locale, or custom vocabulary using the console or the `CreatExport` operation. You specify the resource to export, and you can provide an optional password to help protect the .zip file when you start an export. After you download the .zip file, you must use the password to access the file before you can use it. For more information, see [Using a password when importing or exporting](import-export-password.md).
 

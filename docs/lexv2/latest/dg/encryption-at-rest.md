@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="encryption-at-rest"></a>
 
 Amazon Lex V2 encrypts user utterances and other information that it stores. 
 

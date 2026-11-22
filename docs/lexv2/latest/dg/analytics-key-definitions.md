@@ -1,7 +1,6 @@
 
 
 # Key definitions
-<a name="analytics-key-definitions"></a>
 
 This topic provides key definitions that will help you interpret your bot analytics. These definitions are related to the performance of your bot in four contexts: **Intents**, **Slots**, **Conversations**, and **Utterances**. The following fields are relevant to many of the performance metrics:
 + The [`state` field of the `Intent`](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_Intent.html#lexv2-Type-runtime_Intent-state) object.

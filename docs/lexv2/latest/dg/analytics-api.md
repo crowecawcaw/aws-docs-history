@@ -1,7 +1,6 @@
 
 
 # Using APIs for analytics
-<a name="analytics-api"></a>
 
 This section describes the API operations that you use to retrieve analytics for a bot.
 
@@ -24,7 +23,7 @@ The Analytics API requests require you to specify the `startTime` and `endTime`.
 
 `filters` is an optional field in the Analytics API requests. It maps to a list of [AnalyticsSessionFilter](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsSessionFilter.html), [AnalyticsIntentFilter](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentFilter.html), [AnalyticsIntentStageFilter](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentStageFilter.html), or [AnalyticsUtteranceFilter](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceFilter.html) objects. In each object, use the fields to create an expression to filter by. For example, if you add the following filter to the list, the bot searches for conversations that are longer than 30 seconds.
 
-```
+```json
 {
     "name": "Duration",
     "operator": "GT",
@@ -137,7 +136,7 @@ To use the `ListAggregatedUtterances` and `ListUtteranceMetrics` APIs, apply the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Example of selective conversation log capture
-<a name="example-selective-logging"></a>
 
 Here is an example of a business use case for selective conversation log capture.
 

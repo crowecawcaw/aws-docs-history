@@ -1,7 +1,6 @@
 
 
 # AMAZON.UKPostalCode
-<a name="built-in-slot-uk-postal-code"></a>
 
 Converts words that represent a UK postal code to a standard format for postal codes in the United Kingdom. The `AMAZON.UKPostalCode` slot type validates and resolves the post code to a set of standardized formats, but it doesn't check to make sure that the post code is valid. Your application must validate the post code.
 

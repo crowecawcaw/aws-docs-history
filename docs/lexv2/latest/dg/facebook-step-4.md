@@ -1,7 +1,6 @@
 
 
 # Step 4: Test the integration with Facebook Messenger
-<a name="facebook-step-4"></a>
 
 You can now start a conversation from Facebook Messenger with your Amazon Lex V2 bot.
 

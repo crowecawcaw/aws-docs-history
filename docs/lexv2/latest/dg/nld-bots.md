@@ -1,7 +1,6 @@
 
 
 # Use a description to build a bot in Lex V2 with the descriptive bot builder
-<a name="nld-bots"></a>
 
 **Note**  
 Before you can take advantage of the generative AI features, you must fulfill the following prerequisites  

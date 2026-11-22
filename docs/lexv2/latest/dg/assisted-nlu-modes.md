@@ -1,7 +1,6 @@
 
 
 # Assisted NLU mode - Primary and Fallback
-<a name="assisted-nlu-modes"></a>
 
 Assisted NLU runs in one of the following modes. Choose the mode that matches how well your bot already performs and how much control you want the LLM to have over each turn.
 

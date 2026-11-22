@@ -1,7 +1,6 @@
 
 
 # Assisted NLU mode - Dialog Manager
-<a name="generative-llm-dialog-management"></a>
 
 The Dialog Manager is a mode of Assisted NLU that uses a large language model (LLM) to manage the dialog with your user. On each turn, the LLM takes the current conversation state and the NLU resolution as input and decides the next step in the conversation – what to elicit, how to respond, and how to move the conversation forward. This is an alternative to the deterministic dialog management that Amazon Lex V2 performs by default, in which the next step is driven by the configured slot priorities and conversation flow.
 

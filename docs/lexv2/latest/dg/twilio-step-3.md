@@ -1,7 +1,6 @@
 
 
 # Step 3: Complete Twilio integration between your Lex V2 bot and Twilio
-<a name="twilio-step-3"></a>
 
 Use the Twilio console to complete the integration of your Amazon Lex V2 bot with Twilio SMS.
 

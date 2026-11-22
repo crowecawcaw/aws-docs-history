@@ -1,7 +1,6 @@
 
 
 # Using audio filler to improve bot responsiveness
-<a name="customizing-speech-audio-filler"></a>
 
 Audio filler plays brief background audio, such as a light melody or soft keystrokes, during the pause between the end of a user's utterance and the start of the bot's response. This masks processing delays and keeps voice conversations feeling natural.
 

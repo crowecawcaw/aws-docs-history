@@ -1,7 +1,6 @@
 
 
 # Step 3: Add a Custom and Built-in Intent
-<a name="agent-step-3"></a>
 
 An *intent* represents an action that the call center agent wants the bot to perform. In this case, the agent wants the bot to suggest responses and helpful resources based on the agent's conversation with the customer. 
 

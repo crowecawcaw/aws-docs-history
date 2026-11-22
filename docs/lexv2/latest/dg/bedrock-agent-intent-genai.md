@@ -1,7 +1,6 @@
 
 
 # Enable Bedrock Agent Intent in the Generative AI configuration screen
-<a name="bedrock-agent-intent-genai"></a>
 
 You can enable Bedrock Agent Intent by navigating to the Generative AI screen.
 

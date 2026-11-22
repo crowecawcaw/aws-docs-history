@@ -1,7 +1,6 @@
 
 
 # Setting intent context for your Lex V2 bot
-<a name="context-mgmt-active-context"></a>
 
 You can have Amazon Lex V2 trigger intents based on *context*. A *context* is a state variable that can be associated with an intent when you define a bot. You configure the contexts for an intent when you create the intent using the console or using the [CreateIntent](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html) operation. You can only use context in the English (US) (en-US) locale.
 

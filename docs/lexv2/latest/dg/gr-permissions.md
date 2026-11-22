@@ -1,7 +1,6 @@
 
 
 # Permissions to replicate bots and manage bot replicas in Lex V2
-<a name="gr-permissions"></a>
 
 If an IAM role has the [AmazonLexFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexFullAccess) policy attached, it can create and manage bot replicas.
 

@@ -1,7 +1,6 @@
 
 
 # Using voice transcription confidence scores to improve conversations with your Lex V2 bot
-<a name="using-transcript-confidence-scores"></a>
 
  When a user makes a voice utterance, Amazon Lex V2 uses automatic speech recognition (ASR) to transcribe the user's request before it is interpreted. By default, Amazon Lex V2 uses the most likely transcription of the audio for interpretation. 
 
@@ -27,7 +26,7 @@ You can use confidence scores for multiple conversation design patterns:
 
 Amazon Lex V2 sends the following JSON structure with up to three transcriptions for the user's input to your Lambda code hook function:
 
-```
+```json
     "transcriptions": [
         {
             "transcription": "string",
@@ -126,7 +125,7 @@ To use the example code, you must have:
 + The intent should have two slots, "BirthMonth" and "Name," both of type `AMAZON.AlphaNumeric`.
 + An alias with the Lambda function defined. For more information, see [Creating an AWS Lambda function for your Amazon Lex V2 bot](lambda-attach.md).
 
-```
+```python
 import time
 import os
 import logging

@@ -1,7 +1,6 @@
 
 
 # AMAZON.AlphaNumeric
-<a name="built-in-slot-alphanumeric"></a>
 
 Recognizes strings made up of letters and numbers, such as **APQ123**.
 

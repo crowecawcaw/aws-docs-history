@@ -1,7 +1,6 @@
 
 
 # Logging conversations with conversation logs in Lex V2
-<a name="conversation-logs"></a>
 
 You enable *conversation logs* to store bot interactions. You can use these logs to review the performance of your bot and to troubleshoot issues with conversations. You can log text for the [RecognizeText](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html) operation. You can log both text and audio for the [RecognizeUtterance](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html) operation. By enabling conversation logs, you get a detailed view of conversations that users have with your bot.
 

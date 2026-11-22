@@ -1,7 +1,6 @@
 
 
 # Customizing bot interactions with users in Lex V2
-<a name="customizing-bot-interactions"></a>
 
 Learn about the following features that you can use to customize bot interactions with your users by expanding and adjusting their default behavior:
 

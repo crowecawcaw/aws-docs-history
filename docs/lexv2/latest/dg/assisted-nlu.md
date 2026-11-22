@@ -1,7 +1,6 @@
 
 
 # Improve intent classification and slot resolution in Lex V2 with Assisted NLU
-<a name="assisted-nlu"></a>
 
 With Amazon Lex V2 assisted natural language understanding (NLU), you can use large language models (LLMs) to improve intent classification and slot resolution in your bot. It enhances accuracy while staying within your bot's configured intents and slots. The feature doesn't generate or modify any bot content. It uses the names and descriptions of your intents and slots to interpret user input. This lets it handle typos, complex phrasing, and requests that combine multiple pieces of information in one sentence. You don't need to configure every utterance variation by hand. The result is a more seamless and effective conversational experience for your users.
 

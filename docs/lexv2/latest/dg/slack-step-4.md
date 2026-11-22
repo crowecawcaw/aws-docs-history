@@ -1,7 +1,6 @@
 
 
 # Step 4: Complete Slack integration with your Lex V2 bot
-<a name="slack-step-4"></a>
 
 In this section, use the Slack API console to complete integration with the Slack application.
 

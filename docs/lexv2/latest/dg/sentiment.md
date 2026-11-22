@@ -1,7 +1,6 @@
 
 
 # Analyzing the sentiment of user utterances in conversations with your bot
-<a name="sentiment"></a>
 
 You can use sentiment analysis to determine the sentiments expressed in a user utterance. With the sentiment information you can manage conversation flow or perform post-call analysis. For example, if the user sentiment is negative you can create a flow to hand over a conversation to a human agent.
 

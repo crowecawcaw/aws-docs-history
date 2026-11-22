@@ -1,7 +1,6 @@
 
 
 # Tokens
-<a name="srgs-tokens"></a>
 
 The following table shows the token specifications supported by the grammar slot type. For more information, see [ Tokens ](https://www.w3.org/TR/speech-grammar/#S2.1) in the *Speech recognition grammar specification version 1* W3C recommendation.
 
@@ -23,7 +22,7 @@ The following table shows the token specifications supported by the grammar slot
 
 **Example**
 
-```
+```xml
 <rule id="state" scope="public">
     <one-of>
         <item>FL</item>

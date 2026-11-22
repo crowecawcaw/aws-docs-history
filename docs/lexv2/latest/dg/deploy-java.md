@@ -1,7 +1,6 @@
 
 
 # Using a Java application to interact with an Amazon Lex V2 bot
-<a name="deploy-java"></a>
 
 The [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2) provides an interface that you can use from your Java applications to interact with your bots. Use the SDK for Java to build client applications for users. 
 
@@ -34,7 +33,7 @@ To run the application, you must provide the following information:
 
 The applications uses a function called `getRecognizeTextRequest` to create individual requests to the bot. The function builds a request with the required parameters to send to Amazon Lex V2.
 
-```
+```java
 package com.lex.recognizetext.sample;
 
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;

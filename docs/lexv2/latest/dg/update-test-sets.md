@@ -1,7 +1,6 @@
 
 
 # Update test set
-<a name="update-test-sets"></a>
 
 You can update, correct, modify, or delete items from the test set to optimize your baseline results, or to correct other errors that may have occurred in the test set
 

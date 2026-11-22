@@ -1,7 +1,6 @@
 
 
 # Enabling conversation logs for your Lex V2 bots
-<a name="enabling-logs"></a>
 
 Use conversation logs to store user conversations with your bot. Review these logs to identify issues with your bot's interactions with users and modify your bot's behavior with these insights. This section also describes how to obfuscate slot values to protect the privacy of users.
 
