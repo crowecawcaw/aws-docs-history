@@ -1,7 +1,6 @@
 
 
 # AWS Industrial IoT Predictive Quality
-<a name="industrial-iot-predictive-quality"></a>
 
 Publication date: **July 16, 2020 ([Diagram history](#pq-diagram-history))**
 
