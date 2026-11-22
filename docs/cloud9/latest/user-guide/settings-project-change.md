@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Customize your project settings
-<a name="settings-project-change"></a>
 
 These sections describe the kinds of project settings that you can change on the **Preferences** tab's **Project Settings** pane.
 +  [EC2 instance](#settings-project-change-ec2-instance) 
@@ -145,13 +144,13 @@ Valid values include the following:
 
   For example, this code is formatted as so:
 
-  ```
+  ```javascript
   for (var i = 0; i < 10; i++) { if (i == 5) { console.log("Halfway done.") }}
   ```
 
   Turns into this code when the file is saved:
 
-  ```
+  ```javascript
   for (var i = 0; i < 10; i++) {
      if (i == 5) {
         console.log("Halfway done.")
@@ -162,13 +161,13 @@ Valid values include the following:
 
   For example, this code is formatted as so:
 
-  ```
+  ```javascript
   for (var i = 0; i < 10; i++) { if (i == 5) { console.log("Halfway done.") }}
   ```
 
   Turns into this code when the file is saved:
 
-  ```
+  ```javascript
   for (var i = 0; i < 10; i++) {if (i == 5)
     {
        console.log("Halfway done.")
@@ -179,7 +178,7 @@ Valid values include the following:
 
   For example, this code is formatted as so:
 
-  ```
+  ```javascript
   for (var i = 0; i < 10; i++) {
     if (i == 5) { console.log("Halfway done.") }
   }
@@ -187,7 +186,7 @@ Valid values include the following:
 
   Turns into this code when the file is saved:
 
-  ```
+  ```javascript
   for (var i = 0; i < 10; i++) {
      if (i == 5) {
         console.log("Halfway done.")

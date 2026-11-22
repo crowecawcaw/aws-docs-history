@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # LAMP tutorial for AWS Cloud9
-<a name="sample-lamp"></a>
 
 This tutorial enables you to set up and run LAMP (Linux, Apache HTTP Server, MySQL, and PHP) within an AWS Cloud9 development environment.
 
@@ -37,13 +36,13 @@ You then finish this step by starting Apache HTTP Server and then MySQL.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y update
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt -y update
    ```
 
@@ -55,13 +54,13 @@ You then finish this step by starting Apache HTTP Server and then MySQL.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum install -y httpd24
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt install -y apache2
    ```
 
@@ -73,13 +72,13 @@ You then finish this step by starting Apache HTTP Server and then MySQL.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum install -y php56
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt install -y php libapache2-mod-php php-xml
    ```
 
@@ -91,13 +90,13 @@ You then finish this step by starting Apache HTTP Server and then MySQL.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum install -y mysql-server
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt install -y mysql-server
    ```
 
@@ -105,13 +104,13 @@ You then finish this step by starting Apache HTTP Server and then MySQL.
 
    For Amazon Linux (you might need to run this command twice):
 
-   ```
+   ```sh
    sudo service httpd start && sudo service httpd status
    ```
 
    For Ubuntu Server (to return to the command prompt, press `q`):
 
-   ```
+   ```sh
    sudo service apache2 start && sudo service apache2 status
    ```
 
@@ -119,13 +118,13 @@ You then finish this step by starting Apache HTTP Server and then MySQL.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo service mysqld start && sudo service mysqld status
    ```
 
    For Ubuntu Server (to return to the command prompt, press `q`):
 
-   ```
+   ```sh
    sudo service mysql start && sudo service mysql status
    ```
 
@@ -138,7 +137,7 @@ You then finish this step by practicing the starting and then exiting of the MyS
 
 1. Implement MySQL security best practices for the MySQL installation by running the following command in a terminal session in the AWS Cloud9 IDE.
 
-   ```
+   ```sh
    sudo mysql_secure_installation
    ```
 
@@ -184,13 +183,13 @@ You then finish this step by practicing the starting and then exiting of the MyS
 
 1. To interact directly with MySQL, start the MySQL command line client as the root user by running the following command. When prompted, type the root user's password that you set earlier, and then press `Enter`. The prompt changes to `mysql>` while you are in the MySQL command line client.
 
-   ```
+   ```sh
    sudo mysql -uroot -p
    ```
 
 1. To exit the MySQL command line client, run the following command. The prompt changes back to `$`.
 
-   ```
+   ```sh
    exit;
    ```
 
@@ -207,7 +206,7 @@ You then finish this step by successfully viewing the webpage from outside of th
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo groupadd web-content # Create a group named web-content.
    
    sudo usermod -G web-content -a ec2-user # Add the user ec2-user (your default user for this environment) to the group web-content.
@@ -223,7 +222,7 @@ You then finish this step by successfully viewing the webpage from outside of th
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo groupadd web-content # Create a group named web-content.
    
    sudo usermod -G web-content -a ubuntu # Add the user ubuntu (your default user for this environment) to the group web-content.
@@ -241,7 +240,7 @@ You then finish this step by successfully viewing the webpage from outside of th
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo touch /var/www/html/index.php && sudo chown -R ec2-user:web-content /var/www/html/index.php && sudo chmod u=rw,g=rx,o=rx /var/www/html/index.php && sudo printf '%s\n%s\n%s' '<?php' '  phpinfo();' '?>' >> /var/www/html/index.php
    ```
 
@@ -249,7 +248,7 @@ You then finish this step by successfully viewing the webpage from outside of th
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo touch /var/www/html/index.php && sudo chown -R ubuntu:web-content /var/www/html/index.php && sudo chmod u=rw,g=rx,o=rx /var/www/html/index.php && sudo printf '%s\n%s\n%s' '<?php' '  phpinfo();' '?>' >> /var/www/html/index.php
    ```
 
@@ -257,7 +256,7 @@ You then finish this step by successfully viewing the webpage from outside of th
 
    If successful, the preceding commands create the `index.php` file with the following contents.
 
-   ```
+   ```php
    <?php
      phpinfo();
    ?>
@@ -270,7 +269,7 @@ Running the following commands enables incoming web traffic over port 80 for **a
 The following second through fourth commands enable the security group to allow incoming web traffic over port 80. If you have a default security group, which only allows incoming SSH traffic over port 22, then you must run the first command followed by these second through fourth commands. However, if you have a custom security group already allows incoming web traffic over port 80, you can skip running those commands.  
 The following fifth through eighth commands enable the network ACL to allow incoming web traffic over port 80. If you have a default network ACL, which already allows all incoming traffic over all ports, then you can safely skip running those commands. However, suppose that you have a custom network ACL that doesn't allow incoming web traffic over port 80. Then, run the first command followed by these fifth through eighth commands. 
 
-   ```
+   ```sh
    MY_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id) # Get the ID of the instance for the environment, and store it temporarily.
               
    MY_SECURITY_GROUP_ID=$(aws ec2 describe-instances --instance-id $MY_INSTANCE_ID --query 'Reservations[].Instances[0].SecurityGroups[0].GroupId' --output text) # Get the ID of the security group associated with the instance, and store it temporarily.
@@ -290,7 +289,7 @@ The following fifth through eighth commands enable the network ACL to allow inco
 
 1. Get the URL to the `index.php` file within the web server root. To do this, run the following command, and use a new web browser tab or a different web browser separate from the AWS Cloud9 IDE to go to the URL that is displayed. If successful, the webpage displays information about Apache HTTP Server, MySQL, PHP, and other related settings.
 
-   ```
+   ```sh
    MY_PUBLIC_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4) && echo http://$MY_PUBLIC_IP/index.php # Get the URL to the index.php file within the web server root.
    ```
 
@@ -305,7 +304,7 @@ Running the following commands disables incoming web traffic over port 80 for **
 **Note**  
 The following fifth through eighth commands remove existing rules to block the network ACL from allowing incoming web traffic over port 80. If you have a default network ACL, which already allows all incoming traffic over all ports, then you can skip running those commands. However, suppose that you have a custom network ACL with existing rules that allow incoming web traffic over port 80 and you want to delete those rules. Then, you need to run the first command followed by these fifth through eighth commands. 
 
-```
+```sh
 MY_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id) # Get the ID of the instance for the environment, and store it temporarily.
            
 MY_SECURITY_GROUP_ID=$(aws ec2 describe-instances --instance-id $MY_INSTANCE_ID --query 'Reservations[].Instances[0].SecurityGroups[0].GroupId' --output text) # Get the ID of the security group associated with the instance, and store it temporarily.

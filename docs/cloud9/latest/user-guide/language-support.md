@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Language support in the AWS Cloud9 IDE
-<a name="language-support"></a>
 
 The AWS Cloud9 IDE supports many programming languages. The following table lists the languages that are supported and to what level.
 
@@ -69,6 +68,6 @@ The table below outlines which versions of programming languages are supported o
 
 \*You can run the following command to compile C\+\+ files using the version of the programming language you want to use: 
 
-```
+```bash
 g++ -std=c++[version-number] "$file" -o "$file.o"
 ```

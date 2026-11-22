@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Amazon DynamoDB tutorial for AWS Cloud9
-<a name="sample-dynamodb"></a>
 
 This tutorial enables you to set up an AWS Cloud9 development environment to work with Amazon DynamoDB.
 
@@ -37,7 +36,7 @@ In this step, you use the AWS Cloud9 IDE to install and configure the AWS CLI, t
 
 1. Test the installation and configuration of the AWS CLI, the aws-shell, or both by running the DynamoDB** `list-tables` ** command from a terminal session in your environment to list your existing DynamoDB tables, if there are any. To start a new terminal session, on the menu bar, choose **Windows**, **New Terminal**.
 
-   ```
+   ```sh
    aws dynamodb list-tables # For the AWS CLI.
    dynamodb list-tables     # For the aws-shell.
    ```
@@ -46,7 +45,7 @@ Throughout this sample, if you're using the aws-shell, omit `aws` from each comm
 
    If this command succeeds, it outputs a `TableNames` array containing a list of existing DynamoDB tables that you might already have. If you have no DynamoDB tables yet, the `TableNames` array will be empty.
 
-   ```
+   ```sh
    {
      "TableNames": []
    }
@@ -71,7 +70,7 @@ This sample table, named `Weather`, contains information about weather forecasts
 
 To create the table, in a terminal session in the AWS Cloud9 IDE, run the DynamoDB** `create-table` ** command.
 
-```
+```sh
 aws dynamodb create-table \
 --table-name Weather \
 --attribute-definitions \
@@ -92,7 +91,7 @@ For more information about this and other DynamoDB commands, see [dynamodb](http
 
 If this command succeeds, it displays summary information about the new table that is being created. To confirm the table is successfully created, run the DynamoDB** `describe-table` ** command, specifying the table's name (`--table-name`).
 
-```
+```sh
 aws dynamodb describe-table --table-name Weather
 ```
 
@@ -105,7 +104,7 @@ In this step, you add an item to the table you just created.
 
 1. Create a file named `weather-item.json` with the following content. To create a new file, on the menu bar, choose **File**, **New File**. To save the file, choose **File**, **Save**.
 
-   ```
+   ```json
    {
      "CityID": { "N": "1" },
      "Date": { "S": "2017-04-12" },
@@ -124,7 +123,7 @@ In this step, you add an item to the table you just created.
 
 1. Run the DynamoDB** `put-item` ** command, specifying the table's name (`--table-name`) and the path to the JSON-formatted item (`--item`).
 
-   ```
+   ```sh
    aws dynamodb put-item \
    --table-name Weather \
    --item file://weather-item.json
@@ -134,7 +133,7 @@ In this step, you add an item to the table you just created.
 
 1. To confirm the table's current contents, run the DynamoDB** `scan` ** command, specifying the table's name (`--table-name`).
 
-   ```
+   ```sh
    aws dynamodb scan --table-name Weather
    ```
 
@@ -147,7 +146,7 @@ In this step, you add several more items to the `Weather` table.
 
 1. Create a file named `more-weather-items.json` with the following content.
 
-   ```
+   ```json
    {
      "Weather": [
        {
@@ -286,14 +285,14 @@ In this step, you add several more items to the `Weather` table.
 
 1. Run the DynamoDB** `batch-write-item` ** command, specifying the path to the JSON-formatted items to add (`--request-items`).
 
-   ```
+   ```sh
    aws dynamodb batch-write-item \
    --request-items file://more-weather-items.json
    ```
 
    If the command succeeds, it displays the following message, confirming that the items were successfully added.
 
-   ```
+   ```sh
    {
      "UnprocessedItems": {}
    }
@@ -301,7 +300,7 @@ In this step, you add several more items to the `Weather` table.
 
 1. To confirm the table's current contents, run the DynamoDB** `scan` ** command again.
 
-   ```
+   ```sh
    aws dynamodb scan --table-name Weather
    ```
 
@@ -325,7 +324,7 @@ Creating secondary indexes might result in additional charges to your AWS accoun
 
 1. Create a file named `weather-global-index.json` with the following content.
 
-   ```
+   ```json
    [
      {
        "Create": {
@@ -366,7 +365,7 @@ Creating secondary indexes might result in additional charges to your AWS accoun
 
 1. Run the DynamoDB** `update-table` ** command.
 
-   ```
+   ```sh
    aws dynamodb update-table \
    --table-name Weather \
    --attribute-definitions \
@@ -381,7 +380,7 @@ Creating secondary indexes might result in additional charges to your AWS accoun
 
    If this command succeeds, it displays summary information about the new global secondary index that is being created. To confirm the global secondary index is successfully created, run the DynamoDB** `describe-table` ** command, specifying the table's name (`--table-name`).
 
-   ```
+   ```sh
    aws dynamodb describe-table --table-name Weather
    ```
 
@@ -404,7 +403,7 @@ In this sample, here's how to use each of these commands to get the item that co
 
 1. To run the DynamoDB** `get-item` ** command, specify the name of the table (`--table-name`), the primary key value (`--key`), and the attribute values for the item to display (`--projection-expression`). Because `Date` is a reserved keyword in DynamoDB, you must also provide an alias for the `Date` attribute value (`--expression-attribute-names`). (`State` is also a reserved keyword, and so you will see an alias provided for it in later steps.)
 
-   ```
+   ```sh
    aws dynamodb get-item \
    --table-name Weather \
    --key '{ "CityID": { "N": "1" }, "Date": { "S": "2017-04-12" } }' \
@@ -415,7 +414,7 @@ In this sample, here's how to use each of these commands to get the item that co
 
    In this and the other commands, to display all of the item's attributes, don't include `--projection-expression`. In this example, because you are not including `--projection-expression`, you also don't need to include `--expression-attribute-names`.
 
-   ```
+   ```sh
    aws dynamodb get-item \
    --table-name Weather \
    --key '{ "CityID": { "N": "1" }, "Date": { "S": "2017-04-12" } }'
@@ -429,7 +428,7 @@ In this sample, here's how to use each of these commands to get the item that co
    + The attribute values for the item to display (`--projection-expression`).
    + If any of your attributes are using reserved keywords in DynamoDB, aliases for those attributes (`--expression-attribute-names`).
 
-   ```
+   ```sh
    aws dynamodb scan \
    --table-name Weather \
    --filter-expression "(CityID = :cityID) and (#D = :date)" \
@@ -449,7 +448,7 @@ In this sample, here's how to use each of these commands to get the item that co
    + The attribute values for the item to display (`--projection-expression`).
    + If any of your attributes are using reserved keywords in DynamoDB, aliases for those attributes (`--expression-attribute-names`).
 
-   ```
+   ```sh
    aws dynamodb query \
    --table-name Weather \
    --key-condition-expression "(CityID = :cityID) and (#D = :date)" \
@@ -470,13 +469,13 @@ If you know the items' primary key values, you can get the matching items by run
 
 Run the DynamoDB** `batch-get-item` ** command, specifying the path to a file describing the items to get (`--request-items`).
 
-```
+```sh
 aws dynamodb batch-get-item --request-items file://batch-get-item.json
 ```
 
 For this sample, the code in the `batch-get-item.json` file specifies to search the `Weather` table for items with a `CityID` of `3` and a `Date` of `2017-04-13` or `2017-04-14`. For each item found, the attribute values for `City`, `State`, `Date`, and `HighF` (part of `Temperatures`) are displayed, if they exist.
 
-```
+```json
 {
   "Weather" : {
     "Keys": [
@@ -508,7 +507,7 @@ Run the DynamoDB** `scan` ** command, specifying:
 + The attribute values for the item to display (`--projection-expression`).
 + If any of your attributes are using reserved keywords in DynamoDB, aliases for those attributes (`--expression-attribute-names`).
 
-```
+```sh
 aws dynamodb scan \
 --table-name Weather \
 --filter-expression \
@@ -533,7 +532,7 @@ Run the DynamoDB** `query` ** command, specifying:
 + The kinds of attributes to display for the matching item (`--select`).
 + If any of your attributes are using reserved keywords in DynamoDB, aliases for those attributes (`--expression-attribute-names`).
 
-```
+```sh
 aws dynamodb query \
 --table-name Weather \
 --index-name weather-global-index \
@@ -552,7 +551,7 @@ To prevent ongoing charges to your AWS account after you're done using this samp
 
 To delete the table, run the DynamoDB** `delete-table` ** command, specifying the table's name (`--table-name`).
 
-```
+```sh
 aws dynamodb delete-table --table-name Weather
 ```
 
@@ -560,7 +559,7 @@ If the command succeeds, information about the table is displayed, including the
 
 To confirm the table is successfully deleted, run the DynamoDB** `describe-table` ** command, specifying the table's name (`--table-name`).
 
-```
+```sh
 aws dynamodb describe-table --table-name Weather
 ```
 

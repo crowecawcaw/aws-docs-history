@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Identity and Access Management for AWS Cloud9
-<a name="security-iam"></a>
 
 
 
@@ -322,7 +321,7 @@ To ensure that users and roles can still use the AWS Cloud9 console, also attach
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -438,19 +437,19 @@ In AWS Cloud9, the primary resource is an AWS Cloud9 development environment. In
 
 For example, you can indicate a specific environment in your statement using its Amazon Resource Name (ARN), as follows.
 
-```
+```text
 "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:70d899206236474f9590d93b7c41dfEX"
 ```
 
 To specify all resources, use the wildcard character (`*`) in the `Resource` element.
 
-```
+```text
 "Resource": "*"
 ```
 
 To specify multiple resources in a single statement, separate their Amazon Resource Names (ARNs) with commas.
 
-```
+```text
 "Resource": [
   "arn:aws:cloud9:us-east-2:123456789012:environment:70d899206236474f9590d93b7c41dfEX",
   "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
@@ -668,7 +667,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -696,7 +695,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -724,7 +723,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -757,7 +756,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -793,7 +792,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -826,7 +825,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -856,7 +855,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -881,7 +880,7 @@ The following example IAM policy statement, attached to an IAM entity, explicitl
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -906,7 +905,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -934,7 +933,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -969,7 +968,7 @@ The following example IAM policy statement, attached to an IAM entity, prevents 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -997,7 +996,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1022,7 +1021,7 @@ The following example IAM policy statement, attached to an IAM entity, explicitl
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1047,7 +1046,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1072,7 +1071,7 @@ The following example IAM policy statement, attached to an IAM entity, explicitl
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1097,7 +1096,7 @@ The following example IAM policy statement, attached to an IAM entity, allows th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1122,7 +1121,7 @@ The following example IAM policy statement, attached to an IAM entity, explicitl
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1147,7 +1146,7 @@ There is a current permissions issue that occurs when creating an SSM environmen
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1299,7 +1298,7 @@ The following example allows an IAM entity to get information about environments
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

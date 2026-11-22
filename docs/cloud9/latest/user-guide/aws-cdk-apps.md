@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with AWS CDK applications
-<a name="aws-cdk-apps"></a>
 
 Use the **AWS CDK Explorer** in the AWS Cloud9 integrated development environment (IDE) to visualize and work with AWS CDK applications.
 
@@ -32,7 +31,7 @@ You can run the commands that are provided in the tutorial, such as **`mkdir`** 
 
 1. In the AWS navigation pane, expand the **CDK ** heading. Your CDK applications and their associated resources are now displayed in the CDK Explorer tree view. You can also run the following commands in a terminal within AWS Cloud9 to confirm that the CDK feature is working:
 
-   ```
+   ```typescript
    mkdir mycdkapp
    cd mycdkapp
    cdk init app --language=typescript

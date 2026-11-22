@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Previewing running applications in the AWS Cloud9 IDE
-<a name="app-preview"></a>
 
 You can use the AWS Cloud9 Integrated Development Environment (IDE) to preview a running application from within the IDE.
 
@@ -32,7 +31,7 @@ To test this behavior, add the following JavaScript code to a file that's named 
 **Note**  
 In the following example, `text/html` is the `Content-Type` of the returned content. To return the content in a different format, specify a different `Content-Type`. For example, you can specify `text/css` for a CSS file format.
 
-```
+```javascript
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
@@ -58,7 +57,7 @@ http.createServer( function (request, response) {
 
 In the root of your environment, you can add the following Python code to a file with a name such as `server.py`. In the following example, a server is run using Python.
 
-```
+```python
 import os
 import http.server
 import socketserver
@@ -72,7 +71,7 @@ httpd.serve_forever()
 
 In the root of your environment, add the following HTML code to a file that's named `index.html`.
 
-```
+```html
 <html>
   <head>
     <title>Hello Home Page</title>

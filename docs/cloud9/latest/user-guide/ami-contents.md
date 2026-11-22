@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # AMI contents for an AWS Cloud9 EC2 Development Environment
-<a name="ami-contents"></a>
 
 Use the following information to get details about Amazon Machine Images (AMIs) that AWS Cloud9 uses for an EC2 environment.
 
@@ -23,7 +22,7 @@ We recommend that you choose the **Amazon Linux 2023** option when [creating an 
 
 To display the version of an Amazon Linux instance, run the following command from the AWS Cloud9 IDE for the connected environment or from an SSH utility such as the **ssh** command or PuTTY.
 
-```
+```sh
 cat /etc/system-release
 ```
 
@@ -31,25 +30,25 @@ To display a list of packages that are installed on an Amazon Linux instance, ru
 
 To display all installed packages as a single list:
 
-```
+```sh
 sudo yum list installed
 ```
 
 To display a list of installed packages with package names containing the specified text:
 
-```
+```sh
 sudo yum list installed | grep YOUR_SEARCH_TERM
 ```
 
 In the preceding command, replace `YOUR_SEARCH_TERM` with some portion of the package name. For example, to display a list of all installed packages with names containing `sql`:
 
-```
+```sh
 sudo yum list installed | grep sql
 ```
 
 To display a list of all installed packages, displayed one page at a time:
 
-```
+```sh
 sudo yum list installed | less
 ```
 
@@ -72,7 +71,7 @@ For additional options, run the **man yum** command. See also the following reso
 
 To display the version of an Ubuntu Server instance, run the following command from the AWS Cloud9 IDE for the connected environment or from an SSH utility such as the **ssh** command or PuTTY.
 
-```
+```sh
 lsb_release -a
 ```
 
@@ -82,25 +81,25 @@ To display a list of packages that are installed on an Ubuntu Server, run one or
 
 To display all installed packages as a single list:
 
-```
+```sh
 sudo apt list --installed
 ```
 
 To display a list of installed packages with package names containing the specified text:
 
-```
+```sh
 sudo apt list --installed | grep YOUR_SEARCH_TERM
 ```
 
 In the preceding command, replace `YOUR_SEARCH_TERM` with some portion of the package name. For example, to display a list of all installed packages with names containing `sql`:
 
-```
+```sh
 sudo apt list --installed grep sql
 ```
 
 To display a list of all installed packages, one page at a time:
 
-```
+```sh
 sudo apt list --installed | less
 ```
 

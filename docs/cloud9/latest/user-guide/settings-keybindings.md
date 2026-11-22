@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with Keybindings in the AWS Cloud9 IDE
-<a name="settings-keybindings"></a>
 
 *Keybindings* define your shortcut key combinations. Keybindings apply across each AWS Cloud9 development environment that is associated with your IAM user. As you make changes to your keybindings, AWS Cloud9 pushes those changes to the cloud, and associates them with your IAM user. AWS Cloud9 also continually scans the cloud for changes to keybindings that are associated with your IAM user, and applies those changes to your current environment.
 
@@ -99,7 +98,7 @@ To completely remove the current key combination, press `Backspace` for Windows 
 
 1. In the `keybindings.settings` file, define each keybinding to be changed. The following is example syntax.
 
-   ```
+   ```json
    [
      {
        "command": "addfavorite",

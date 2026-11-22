@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # SSH environment host requirements
-<a name="ssh-settings"></a>
 
 To instruct AWS Cloud9 to connect an environment to an existing cloud compute instance or your own server, you create an *AWS Cloud9 SSH development environment*. However, before you create an SSH environment, consider the benefits of creating EC2 environments instead. 
 
@@ -59,13 +58,13 @@ To connect to your own server to verify and meet requirements, search the intern
 
   For Amazon Linux:
 
-  ```
+  ```sh
   sudo yum install -y make glibc-devel gcc gcc-c++
   ```
 
   For Ubuntu Server:
 
-  ```
+  ```sh
   sudo apt install build-essential
   ```
 + It must have Node.js installed. We recommend installing the latest Node.js version supported by the host's operating system.
@@ -80,7 +79,7 @@ AWS Cloud9 installation problems might occur when creating an SSH environment if
 
   For example, if the directory's path is `~` (where `~` represents the home directory for the login name that you specify for **User** on the **Configure settings** page), you can set these permissions on the directory by running the **`chmod`** command on the instance or server using the following command and instructions that follow.
 
-  ```
+  ```sh
   sudo chmod u=rwx,g=rx,o=rx ~
   ```
 +  [Download and run the AWS Cloud9 Installer](installer.md#installer-download-run) on the existing instance or server.

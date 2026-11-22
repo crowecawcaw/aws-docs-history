@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with shared environment in AWS Cloud9
-<a name="share-environment"></a>
 
 A *shared environment* is an AWS Cloud9 development environment that multiple users were invited to participate in. This topic provides instructions for sharing an environment in AWS Cloud9 and how to participate in a shared environment.
 
@@ -89,7 +88,7 @@ If you're using [AWS managed temporary credentials](security-iam.md#auth-and-acc
 
 Run the IAM `attach-group-policy` command to attach the AWS managed policy for AWS Cloud9 to the group. Specify the group name and the Amazon Resource Name (ARN) of the policy:
 
-```
+```sh
 aws iam attach-group-policy --group-name MyGroup --policy-arn arn:aws:iam::aws:policy/POLICY_NAME
 ```
 
@@ -145,7 +144,7 @@ Suppose that the invited user *isn't* one of the preceding types of users. Make 
 
 To invite the user, use the AWS CLI or the AWS CloudShell to run the AWS Cloud9 `create-environment-membership` command.
 
-```
+```sh
 aws cloud9 create-environment-membership --environment-id 12a34567b8cd9012345ef67abcd890e1 --user-arn USER_ARN --permissions PERMISSION_LEVEL
 ```
 
@@ -156,7 +155,7 @@ In the preceding command, replace `12a34567b8cd9012345ef67abcd890e1` with the ID
 
 For example, to invite the AWS account root user for account ID `123456789012` to an environment with ID `12a34567b8cd9012345ef67abcd890e1` as a read/write member, run the following command.
 
-```
+```sh
 aws cloud9 create-environment-membership --environment-id 12a34567b8cd9012345ef67abcd890e1 --user-arn arn:aws:iam::123456789012:root --permissions read-write
 ```
 

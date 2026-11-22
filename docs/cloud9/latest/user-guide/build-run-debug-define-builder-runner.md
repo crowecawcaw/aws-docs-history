@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Define a Builder or Runner
-<a name="build-run-debug-define-builder-runner"></a>
 
 This topic shows how you can define a builder or runner. Before you define a builder or runner, make sure you have [created a builder or runner](build-run-debug.md#build-run-debug-create-builder-runner).
 
@@ -13,7 +12,7 @@ On the builder or runner tab that is displayed, use JSON to define the runner or
 
 For a builder, start with this code.
 
-```
+```json
 {
   "cmd": [],
   "info": "",
@@ -24,7 +23,7 @@ For a builder, start with this code.
 
 For a runner, start with this code.
 
-```
+```json
 {
   "cmd": [],
   "script": "",
@@ -46,7 +45,7 @@ In the preceding code:
 +  `info`: Represents any string of text you want to display to the user at the beginning of the run. This string can contain variables, for example `Running $project_path$file_name...`, where AWS Cloud9 will replace `$project_path` with the directory path of the current file and `$file_name` with the name portion of the current file. See the list of supported variables later in this section.
 +  `env`: Represents any array of command line arguments for AWS Cloud9 to use, for example:
 
-  ```
+  ```text
   "env": {
     "LANG": "en_US.UTF-8",
     "SHLVL": "1"
@@ -82,7 +81,7 @@ The following table shows the variables you can use.
 
 As an example, the following builder file named `G++.build` defines a builder for GCC that runs the ** `g++` ** command with the `-o` option to compile the current file (for example, `hello.cpp`) into an object module. Then it links the object module into a program with the same name as the current file (for example, `hello`). Here the equivalent command is `g++ -o hello hello.cpp`.
 
-```
+```json
 {
   "cmd": [ "g++", "-o", "$file_base_name", "$file_name" ],
   "info": "Compiling $file_name and linking to $file_base_name...",
@@ -92,7 +91,7 @@ As an example, the following builder file named `G++.build` defines a builder fo
 
 As another example, the following runner file named `Python.run` defines a runner that uses Python to run the current file with any arguments that were provided. For example, if the current file is named `hello.py` and the arguments `5` and `9` were provided, the equivalent command is `python hello.py 5 9`.
 
-```
+```json
 {
   "cmd": [ "python", "$file_name", "$args" ],
   "info": "Running $file_name...",
@@ -102,7 +101,7 @@ As another example, the following runner file named `Python.run` defines a runne
 
 Finally, the following runner file named `Print Run Variables.run` defines a runner that simply outputs the value of each available variable and then stops.
 
-```
+```json
 {
   "info": "file_path = $file_path, file = $file, args = $args, file_name = $file_name, file_extension = $file_extension, file_base_name = $file_base_name, packages = $packages, project = $project, project_path = $project_path, project_name = $project_name, project_extension = $project_extension, project_base_name = $project_base_name, hostname = $hostname, hostname_path = $hostname_path, url = $url, port = $port, ip = $ip"
 }

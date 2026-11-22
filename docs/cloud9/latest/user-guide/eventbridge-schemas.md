@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with Amazon EventBridge Schemas
-<a name="eventbridge-schemas"></a>
 
 You can use the AWS Toolkit for AWS Cloud9 to perform various operations on [Amazon EventBridge schemas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-schemas.html).
 

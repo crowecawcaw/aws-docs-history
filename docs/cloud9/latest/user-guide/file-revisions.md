@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with File Revisions in the AWS Cloud9 IDE
-<a name="file-revisions"></a>
 
 You can use the **File Revision History** pane in the AWS Cloud9 Integrated Development Environment (IDE) to view and manage changes to a file in an AWS Cloud9 EC2 development environment. The **File Revision History** pane is not available for files in an AWS Cloud9 SSH development environment.
 

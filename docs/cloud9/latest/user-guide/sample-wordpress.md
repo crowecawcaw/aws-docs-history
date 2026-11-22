@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # WordPress tutorial for AWS Cloud9
-<a name="sample-wordpress"></a>
 
 This tutorial enables you to install and run WordPress within an AWS Cloud9 development environment. WordPress is an open-source content management system (CMS) that's widely used for the delivery web content. 
 
@@ -40,7 +39,7 @@ Installing WordPress on your environment's EC2 instance involves the following s
 
 1. In the AWS Cloud9 IDE, choose **Window**, **New Terminal** and enter the following commands to install and start a MariaDB Server installation:
 
-   ```
+   ```sh
    sudo yum install -y mariadb-server
    sudo systemctl start mariadb
    ```
@@ -57,7 +56,7 @@ Installing WordPress on your environment's EC2 instance involves the following s
 
    (Press **Enter** when asked for your password.)
 
-   ```
+   ```sh
    sudo mysql -u root -p
    MariaDB [(none)]> create database wp_test;
    MariaDB [(none)]> grant all privileges on wp_test.* to root@localhost identified by ';'

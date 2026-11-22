@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # TypeScript tutorial for AWS Cloud9
-<a name="sample-typescript"></a>
 
 This tutorial shows you how to work with TypeScript in an AWS Cloud9 development environment.
 
@@ -33,13 +32,13 @@ In this step, you install TypeScript by using Node Package Manager (** `npm` **)
 
 1. In a terminal session in the AWS Cloud9 IDE, confirm whether TypeScript is already installed by running the command line TypeScript compiler with the ** `--version` ** option. (To start a new terminal session, on the menu bar, choose **Window**, **New Terminal**.) If successful, the output contains the TypeScript version number. If TypeScript is installed, skip ahead to [Step 2: Add code](#sample-typescript-code).
 
-   ```
+   ```sh
    tsc --version
    ```
 
 1. Confirm whether ** `npm` ** is already installed by running ** `npm` ** with the ** `--version` ** option. If successful, the output contains the ** `npm` ** version number. If ** `npm` ** is installed, skip ahead to step 10 in this procedure to use ** `npm` ** to install TypeScript.
 
-   ```
+   ```sh
    npm --version
    ```
 
@@ -47,61 +46,61 @@ In this step, you install TypeScript by using Node Package Manager (** `npm` **)
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y update
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt update
    ```
 
 1. To install ** `npm` **, begin by running the following command to download Node Version Manager (** `nvm` **). (** `nvm` ** is a simple Bash shell script that's useful for installing and managing Node.js versions. For more information, see [Node Version Manager](https://github.com/creationix/nvm/blob/master/README.md) on the GitHub website.)
 
-   ```
+   ```sh
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
    ```
 
 1. To start using ** `nvm` **, either close the terminal session and start it again, or source the `~/.bashrc` file that contains the commands to load ** `nvm` **.
 
-   ```
+   ```sh
    . ~/.bashrc
    ```
 
 1. Confirm that ** `nvm` ** is installed by running ** `nvm` ** with the ** `--version` ** option.
 
-   ```
+   ```sh
    nvm --version
    ```
 
 1. Install the latest version 16 of Node.js by running ** `nvm` **. (** `npm` ** is included in Node.js.)
 
-   ```
+   ```sh
    nvm install v16
    ```
 
 1. Confirm that Node.js is installed by running the command line version of Node.js with the ** `--version` ** option.
 
-   ```
+   ```sh
    node --version
    ```
 
 1. Confirm that ** `npm` ** is installed by running ** `npm` ** with the ** `--version` ** option.
 
-   ```
+   ```sh
    npm --version
    ```
 
 1. Install TypeScript by running ** `npm` ** with the ** `-g` ** option. This installs TypeScript as a global package in the environment.
 
-   ```
+   ```sh
    npm install -g typescript
    ```
 
 1. Confirm that TypeScript is installed by running the command line TypeScript compiler with the ** `--version` ** option.
 
-   ```
+   ```sh
    tsc --version
    ```
 
@@ -112,7 +111,7 @@ In this step, you install TypeScript by using Node Package Manager (** `npm` **)
 
 1. In a terminal in the IDE, from the same directory as the `hello.ts` file, run ** `npm` ** to install the `@types/node` library.
 
-   ```
+   ```sh
    npm install @types/node
    ```
 
@@ -120,7 +119,7 @@ In this step, you install TypeScript by using Node Package Manager (** `npm` **)
 
 1. Add the following code to the `hello.ts` file:
 
-   ```
+   ```typescript
    console.log('Hello, World!');
    
    console.log('The sum of 2 and 3 is 5.');
@@ -136,7 +135,7 @@ In this step, you install TypeScript by using Node Package Manager (** `npm` **)
 
 1. In the terminal, from the same directory as the `hello.ts` file, run the TypeScript compiler. Specify the `hello.ts` file and additional libraries to include.
 
-   ```
+   ```sh
    tsc hello.ts --lib es6
    ```
 
@@ -152,7 +151,7 @@ In this step, you install TypeScript by using Node Package Manager (** `npm` **)
 
 1. Choose **Run**, and compare your output. When you're done, choose **Stop**.
 
-   ```
+   ```text
    Hello, World!
    The sum of 2 and 3 is 5.
    The sum of 5 and 9 is 14.
@@ -176,7 +175,7 @@ In this step, you install and configure the AWS SDK for JavaScript in Node.js. T
 
 In a terminal session in the AWS Cloud9 IDE, from the same directory as the `hello.js` file from [Step 3: Run the code](#sample-typescript-run), run ** `npm` ** to install the AWS SDK for JavaScript in Node.js.
 
-```
+```sh
 npm install aws-sdk
 ```
 
@@ -200,14 +199,14 @@ In this step, you add some more code, this time to interact with Amazon S3 to cr
 
 1. From a terminal in the AWS Cloud9 IDE, in the same directory as the `s3.ts` file, enable the code to call Amazon S3 operations asynchronously by running ** `npm` ** twice to install the async library for TypeScript and again for JavaScript.
 
-   ```
+   ```sh
    npm install @types/async # For TypeScript.
    npm install async        # For JavaScript.
    ```
 
 1. Add the following code to the `s3.ts` file:
 
-   ```
+   ```typescript
    import * as async from 'async';
    import * as AWS from 'aws-sdk';
    
@@ -297,7 +296,7 @@ In this step, you add some more code, this time to interact with Amazon S3 to cr
 
 1. In the terminal, from the same directory as the `s3.ts` file, run the TypeScript compiler. Specify the `s3.ts` file and additional libraries to include.
 
-   ```
+   ```sh
    tsc s3.ts --lib es6
    ```
 
@@ -315,7 +314,7 @@ Amazon S3 bucket names must be unique across AWS—not just your AWS account.
 
 1. Choose **Run**, and compare your output. When you're done, choose **Stop**.
 
-   ```
+   ```text
    My buckets now are:
    
    Creating a new bucket named 'my-test-bucket'...

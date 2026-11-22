@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Go tutorial for AWS Cloud9
-<a name="sample-go"></a>
 
 This tutorial enables you to run some Go code in an AWS Cloud9 development environment.
 
@@ -37,19 +36,19 @@ In this step, you install and configure Go, which is required to run this sample
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y update
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt update
    ```
 
 1. To install Go, run these commands, one at a time.
 
-   ```
+   ```sh
    wget https://storage.googleapis.com/golang/go1.9.3.linux-amd64.tar.gz # Download the Go installer.
    sudo tar -C /usr/local -xzf ./go1.9.3.linux-amd64.tar.gz              # Install Go.
    rm ./go1.9.3.linux-amd64.tar.gz                                       # Delete the installer.
@@ -63,7 +62,7 @@ In this step, you install and configure Go, which is required to run this sample
 
    1. At the end of this line of code, type the following, so that the code now looks like this.
 
-      ```
+      ```sh
       PATH=$PATH:/usr/local/go/bin
       ```
 
@@ -71,7 +70,7 @@ In this step, you install and configure Go, which is required to run this sample
 
 1. Source the `~/.bashrc` file so that the terminal can now find the Go binary you just referenced.
 
-   ```
+   ```sh
    . ~/.bashrc
    ```
 
@@ -82,7 +81,7 @@ In this step, you install and configure Go, which is required to run this sample
 
 In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `hello.go`. (To create a file, on the menu bar, choose **File**, **New File**. To save the file, choose **File**, **Save**.)
 
-```
+```go
 package main
 
 import (
@@ -116,7 +115,7 @@ If **Go** is not available, you can create a custom runner for Go.
 On the **[New] - Idle** tab, choose **Runner: Auto**, and then choose **New Runner**.
 On the **My Runner.run** tab, replace the tab's contents with this code.  
 
-      ```
+      ```json
       {
         "cmd" : ["go", "run", "$file", "$args"],
         "info" : "Running $project_path$file_name...",
@@ -132,7 +131,7 @@ Choose the **hello.go** tab to make it active.
 
 1. Choose the **Run** button, and compare your output.
 
-   ```
+   ```text
    Hello, World!
    The sum of 2 and 3 is 5.
    The sum of 5 and 9 is 14.
@@ -152,7 +151,7 @@ In this step, you install and configure the AWS SDK for Go, which provides a con
 
 1. After the last line in the file, type this code.
 
-   ```
+   ```sh
    GOPATH=~/environment/go
       
    export GOPATH
@@ -162,7 +161,7 @@ In this step, you install and configure the AWS SDK for Go, which provides a con
 
 1. Source the `~/.bashrc` file so that the terminal can now find the `GOPATH` environment variable you just referenced.
 
-   ```
+   ```sh
    . ~/.bashrc
    ```
 
@@ -173,7 +172,7 @@ In this step, you install and configure the AWS SDK for Go, which provides a con
 
 Run the ** `go get` ** command, specifying the location of the AWS SDK for Go source.
 
-```
+```sh
 go get -u github.com/aws/aws-sdk-go/...
 ```
 
@@ -195,7 +194,7 @@ In this step, you add some more code, this time to interact with Amazon S3 to cr
 
 In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `s3.go`.
 
-```
+```go
 package main
 
 import (
@@ -309,7 +308,7 @@ Amazon S3 bucket names must be unique across AWS—not just your AWS account.
 
 1. Choose the **Run** button, and compare your output.
 
-   ```
+   ```text
    My buckets now are:
    
    Creating a new bucket named 'my-test-bucket'...

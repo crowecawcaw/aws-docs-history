@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with AWS Lambda functions using the AWS Toolkit
-<a name="lambda-toolkit"></a>
 
 The AWS Toolkit supports [AWS Lambda](https://aws.amazon.com/lambda/) functions. The AWS Toolkit replaces the functionality formerly provided by the Lambda plug-in in AWS Cloud9. Using the AWS Toolkit, you can author code for Lambda functions that are part of [serverless applications](https://aws.amazon.com/serverless/). In addition, you can invoke Lambda functions either locally or on AWS.
 

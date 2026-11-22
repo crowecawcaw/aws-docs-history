@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with AWS IoT in AWS Cloud9 IDE
-<a name="iot-start"></a>
 
 With AWS IoT in AWS Cloud9 IDE, you can interact with the AWS IoT service while minimizing interruptions to your work flow in AWS Cloud9. This guide covers how you can get started using the AWS IoT service features that are available in the AWS Cloud9 IDE. For more information, see [What is AWS IoT?](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html) in the *AWS IoT Developer Guide*.
 

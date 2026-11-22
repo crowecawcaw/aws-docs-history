@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Additional setup options for AWS Cloud9
-<a name="setup-teams"></a>
 
 This topic assumes you already completed the setup steps in [Team Setup](setup.md) or [Enterprise Setup](setup-enterprise.md).
 
@@ -60,7 +59,7 @@ You can also create your own customer managed policies. For more information, se
 
 1. Run the IAM `create-policy` command, specifying a name for the policy and the `policy.json` file.
 
-   ```
+   ```sh
    aws iam create-policy --policy-document file://policy.json --policy-name MyPolicy
    ```
 
@@ -97,7 +96,7 @@ If you're using [AWS managed temporary credentials](security-iam.md#auth-and-acc
 
 Run the IAM `attach-group-policy` command, specifying the group's name and the Amazon Resource Name (ARN) of the policy.
 
-```
+```sh
 aws iam attach-group-policy --group-name MyGroup --policy-arn arn:aws:iam::123456789012:policy/MyPolicy
 ```
 

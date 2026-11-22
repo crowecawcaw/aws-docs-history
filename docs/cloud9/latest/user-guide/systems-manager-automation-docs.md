@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with Systems Manager automation documents
-<a name="systems-manager-automation-docs"></a>
 
 With AWS Systems Manager, you have visibility and control of your infrastructure on AWS. Systems Manager provides a unified user interface that you can use to view operational data from multiple AWS services and automate operational tasks across your AWS resources.
 
@@ -37,7 +36,7 @@ To create, edit, publish, and delete Systems Manager automation documents, you m
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

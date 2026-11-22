@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with AWS Step Functions using the AWS Toolkit
-<a name="bulding-stepfunctions"></a>
 
 The AWS Toolkit provides support for [AWS Step Functions](https://aws.amazon.com/step-functions/). Step Functions allow you to create state machines that define workflows for AWS Lambda functions and other AWS services that support business-critical application.
 

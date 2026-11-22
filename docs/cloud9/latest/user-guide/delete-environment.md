@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Deleting an environment in AWS Cloud9
-<a name="delete-environment"></a>
 
 To prevent any ongoing charges to your AWS account related to an AWS Cloud9 development environment that you're no longer using, delete the environment.
 +  [Deleting an Environment with the Console](#delete-environment-console) 

@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Configuration options for debugging serverless applications
-<a name="sam-debug-config-ref"></a>
 
 With inline actions, you can easily find and define properties for invoking Lambda functions directly or with the SAM template. You can also define properties for `"lambda"` (how the function runs), `"sam"` (how the AWS SAM CLI builds the application), and `"aws"` (how AWS connection information is provided). 
 

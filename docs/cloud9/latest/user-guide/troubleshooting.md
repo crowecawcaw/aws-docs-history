@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Troubleshooting AWS Cloud9
-<a name="troubleshooting"></a>
 
 Use the following information to identify and address issues with AWS Cloud9.
 
@@ -103,7 +102,7 @@ The following section outlines troubleshooting issues related to the AWS Cloud9 
 
  **Recommended solutions:** Create an AWS Cloud9 service-linked role in your AWS account. You can do so by running the following command in the AWS Command Line Interface (AWS CLI) or the AWS CloudShell.
 
-```
+```sh
 aws iam create-service-linked-role --aws-service-name cloud9.amazonaws.com # For the AWS CLI.
 iam create-service-linked-role --aws-service-name cloud9.amazonaws.com     # For the aws-shell.
 ```
@@ -121,13 +120,13 @@ After you run this command, try creating the environment again.
 
  **Solution:** Ask an AWS account administrator to create the service-linked role for AWS Cloud9 either in the IAM console or by running this command with the AWS Command Line Interface (AWS CLI):
 
-```
+```sh
 aws iam create-service-linked-role --aws-service-name cloud9.amazonaws.com
 ```
 
 Or this command with the AWS-shell:
 
-```
+```sh
 iam create-service-linked-role --aws-service-name cloud9.amazonaws.com
 ```
 
@@ -272,7 +271,7 @@ docker image prune -a
 
 If you're repeatedly having issues with SAM CLI commands because of disk-space restrictions, switch to a development environment uses a different [instance type](create-environment-main.md#create-environment-console). 
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ### Can't load IDE using earlier versions of Microsoft Edge browser
 <a name="forbidden-edge-ide"></a>
@@ -283,7 +282,7 @@ If you're repeatedly having issues with SAM CLI commands because of disk-space r
 
 **Recommended solutions:** To update the browser, choose the ellipsis (...) button in the Microsoft Edge toolbar. From the menu, choose **Settings** and then choose **About Microsoft Edge**. If an update is required, it's automatically downloaded and installed.
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ### Can't create the sub-folder structure **/home/ec2-user/environment/home/ec2-user/environment** in the AWS Cloud9 IDE File Explorer.
 <a name="c9-folder-error"></a>
@@ -294,7 +293,7 @@ If you're repeatedly having issues with SAM CLI commands because of disk-space r
 
 **Recommended solutions**: Use a different file name and structure.
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ### Can't create the sub-folder structure **/projects/projects** within the File Explorer of the AWS Cloud9 IDE for CodeCatalyst.
 <a name="codecatalyst-folder-error"></a>
@@ -305,7 +304,7 @@ If you're repeatedly having issues with SAM CLI commands because of disk-space r
 
 **Recommended solutions**: Use a different file name and structure.
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ### Can't interact with the terminal window in AWS Cloud9 because of `tmux` session errors
 <a name="tmux-terminal-error"></a>
@@ -353,7 +352,7 @@ The following steps are for the new EC2 console.
    sudo rmdir /tmp/tmux-*
    ```
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ## Amazon EC2
 <a name="troubleshooting-ec2-group"></a>
@@ -434,7 +433,7 @@ Older versions of **AWSCloud9ServiceRolePolicy** for the AWSServiceRoleForAWSClo
 ### Error message reporting "Instance profile AWSCloud9SSMInstanceProfile does not exist in account" when creating EC2 environment using CloudFormation
 <a name="cfn-no-instanceprofile"></a>
 
-**Issue:** When using the [ AWS::Cloud9::EnvironmentEC2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html) CloudFormation resource to create an EC2 environment, users receive an error message that Instance profile AWSCloud9SSMInstanceProfile does not exist in account. 
+**Issue:** When using the [ AWS::Cloud9::EnvironmentEC2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html) CloudFormation resource to create an EC2 environment, users receive an error message that `Instance profile AWSCloud9SSMInstanceProfile does not exist in account.` 
 
 **Cause:** When creating a no-ingress EC2 environment, you must create the service role `AWSCloud9SSMAccessRole` and the instance profile `AWSCloud9SSMInstanceProfile`. These IAM resources enable Systems Manager to manage the EC2 instance that backs your development environment. 
 
@@ -480,11 +479,11 @@ If you accept the default VPC settings, the Amazon EC2 instance is launched into
 
 
 
- Environment Error
+ `Environment Error`
 
-Unable to access your environment
+`Unable to access your environment`
 
-The environment creation failed with the error: The following resource(s) failed to create: [Instance]. . Rollback requested by user..
+`The environment creation failed with the error: The following resource(s) failed to create: [Instance]. . Rollback requested by user..`
 
 You can confirm that the error is caused by the EC2 instance not being in the default VPC. Use CloudFormation to view the stack event history for the development environment.
 
@@ -496,9 +495,9 @@ You can confirm that the error is caused by the EC2 instance not being in the de
 
 1. On the **Stack details** page, choose the **Events** tab and check for the following entry:
 
-   Status: CREATE\_FAILED
+   `Status: CREATE_FAILED`
 
-   Status reason: The AssociatePublicIpAddress parameter is only supported by VPC launches. [...] 
+   `Status reason: The AssociatePublicIpAddress parameter is only supported by VPC launches. [...]` 
 
 **Cause:** An AWS Cloud9 development environment must be associated with an Amazon VPC that meets specific VPC requirements. For accounts with EC2-Classic enabled, accepting the default network settings when [creating an EC2 environment](create-environment.md) means that the required EC2 instance isn't launched into the VPC. Instead, the instance is launched into the EC2-Classic network.
 
@@ -598,7 +597,7 @@ To install SAM Local yourself, follow the instructions in [Installing the AWS SA
 
  For more information about this task, see [Create an AWS Cloud9 that uses Amazon EBS volumes with default encryption](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/create-an-aws-cloud9-ide-that-uses-amazon-ebs-volumes-with-default-encryption.html) in *AWS Prescriptive Guidance Patterns*. 
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ### Can't launch AWS Cloud9 from console when an AWS License Manager license configuration is associated with Amazon EC2 instances
 <a name="license-config-deny"></a>
@@ -611,7 +610,7 @@ Older versions of **AWSCloud9ServiceRolePolicy** for the AWSServiceRoleForAWSClo
 
 **Recommended solutions**: If you can't access an existing AWS Cloud9 environment and use License Manager, replace the old **AWSCloud9ServiceRolePolicy** service-linked role with the [version of the SLR](using-service-linked-roles.md#service-linked-role-permissions) that explicitly allows EC2 actions when a `license-configuration` applies to the instance. You can replace the old role simply by deleting it. The updated role is then created automatically.
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ## Application preview
 <a name="troubleshooting-preview-group"></a>
@@ -758,7 +757,7 @@ Choosing a larger Amazon EC2 instance might cause your AWS account to incur addi
 
   To create a swap file, run a command such as the following in the environment.
 
-  ```
+  ```sh
   sudo fallocate --length 512MB /var/swapfile && sudo chmod 600 /var/swapfile && sudo mkswap /var/swapfile && echo '/var/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab > /dev/null
   ```
 
@@ -774,7 +773,7 @@ Choosing a larger Amazon EC2 instance might cause your AWS account to incur addi
 
   After you run the preceding command, to make this swap file available immediately, run the following command.
 
-  ```
+  ```sh
   sudo swapon /var/swapfile
   ```
 + Move or resize the environment to an instance or server with more compute resources. To move or resize Amazon EC2 instances, see [Moving an AWS Cloud9 IDE from Amazon EBS volumes](move-environment.md). For other instance or server types, refer to your instance's or server's documentation.
@@ -806,7 +805,7 @@ Choosing a larger Amazon EC2 instance might cause your AWS account to incur addi
 
 **Recommended solutions**: Remove the insecure HTTP scripts or content from the web site that you're trying to preview in the IDE. Follow instructions for your web server or content management system for guidance on implementing HTTPS.
 
-([back to top](#troubleshooting))
+([back to top](troubleshooting.md))
 
 ## Third party applications and services
 <a name="troubleshooting-third-party-group"></a>
@@ -930,7 +929,7 @@ GDB server terminated with code 1
 
  **Issue:** Users are unable to run Node.js and are getting GLIBC errors. An example of these error messages is outlined below:
 
-```
+```sh
 node: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by node)
 node: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by node)
 ```

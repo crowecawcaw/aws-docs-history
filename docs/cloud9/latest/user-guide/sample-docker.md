@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Docker tutorial for AWS Cloud9
-<a name="sample-docker"></a>
 
 This tutorial shows you how to connect an AWS Cloud9 SSH development environment to a running Docker container inside of an Amazon Linux instance in Amazon EC2. This enables you to use the AWS Cloud9 IDE to work with code and files inside of a Docker container and to run commands on that container. For information about Docker, see [What is Docker](https://www.docker.com/what-docker) on the Docker website.
 
@@ -33,7 +32,7 @@ In this step, you check if Docker is installed on the Amazon EC2 instance, and i
 
 1. Check if Docker is installed on the instance. To do this, run the ** `docker` ** command on the instance with the ** `--version` ** option.
 
-   ```
+   ```sh
    docker --version
    ```
 
@@ -43,13 +42,13 @@ In this step, you check if Docker is installed on the Amazon EC2 instance, and i
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum install -y docker
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt install -y docker.io
    ```
 
@@ -57,13 +56,13 @@ In this step, you check if Docker is installed on the Amazon EC2 instance, and i
 
 1. Run Docker. To do this, run the ** `service` ** command with the ** `docker` ** service and the ** `start` ** action.
 
-   ```
+   ```sh
    sudo service docker start
    ```
 
 1. Confirm Docker is running. To do this, run the ** `docker` ** command with the ** `info` ** action.
 
-   ```
+   ```sh
    sudo docker info
    ```
 
@@ -76,13 +75,13 @@ In this step, you use a Dockerfile to build a Docker image onto the instance. Th
 
 1. On the instance, create the Dockerfile. To do this, with the SSH client still connected to the instance, in the `/tmp` directory on the instance, create a file named `Dockerfile`. For example, run the ** `touch` ** command as follows.
 
-   ```
+   ```sh
    sudo touch /tmp/Dockerfile
    ```
 
 1. Add the following contents to the `Dockerfile` file.
 
-   ```
+   ```text
    # Build a Docker image based on the Amazon Linux 2 Docker image.
    FROM amazonlinux:2
    
@@ -129,7 +128,7 @@ In this step, you use a Dockerfile to build a Docker image onto the instance. Th
 
    1. Use the AWS Cloud9 to open and edit the `/tmp/Dockerfile` file.
 
-      ```
+      ```sh
       sudo vi /tmp/Dockerfile
       ```
 
@@ -143,7 +142,7 @@ You can access a frequently updated list of Docker images from AWS CodeBuild. Fo
 
 1. On the instance, create a file that contains the AWS Cloud9 SSH public key for the Docker container to use. To do this, in the same directory as the `Dockerfile` file, create a file named `authorized_keys`, for example, by running the ** `touch` ** command.
 
-   ```
+   ```sh
    sudo touch /tmp/authorized_keys
    ```
 
@@ -171,7 +170,7 @@ You can access a frequently updated list of Docker images from AWS CodeBuild. Fo
 
 1. Build the image by running the ** `docker` ** command with the ** `build` ** action, adding the tag `cloud9-image:latest` to the image and specifying the path to the `Dockerfile` file to use.
 
-   ```
+   ```sh
    sudo docker build -t cloud9-image:latest /tmp
    ```
 
@@ -179,7 +178,7 @@ You can access a frequently updated list of Docker images from AWS CodeBuild. Fo
 
    To confirm that Docker successfully built the image, run the ** `docker` ** command with the `image ls` action.
 
-   ```
+   ```sh
    sudo docker image ls
    ```
 
@@ -187,7 +186,7 @@ You can access a frequently updated list of Docker images from AWS CodeBuild. Fo
 
 1. Make a note of the Amazon EC2 instance's public IP address. You'll need it for [Step 4: Create the environment](#sample-docker-env). If you're not sure what the public IP address of the instance is, you can run the following command on the instance to get it.
 
-   ```
+   ```sh
    curl http://169.254.169.254/latest/meta-data/public-ipv4
    ```
 
@@ -198,7 +197,7 @@ In this step, you run a Docker container on the instance. This container is base
 
 1. To run the Docker container, run the ** `docker` ** command on the instance with the ** `run` ** action and the following options.
 
-   ```
+   ```sh
    sudo docker run -d -it --expose 9090 -p 0.0.0.0:9090:22 --name cloud9 cloud9-image:latest
    ```
    +  `-d` runs the container in detached mode, exiting whenever the root process that is used to run the container (in this sample, the SSH client) exits.
@@ -210,7 +209,7 @@ In this step, you run a Docker container on the instance. This container is base
 
    To confirm that Docker is successfully running the container, run the ** `docker` ** command with the `container ls` action.
 
-   ```
+   ```sh
    sudo docker container ls
    ```
 
@@ -218,7 +217,7 @@ In this step, you run a Docker container on the instance. This container is base
 
 1. Log in to the running container. To do this, run the ** `docker` ** command with the ** `exec` ** action and the following options.
 
-   ```
+   ```sh
    sudo docker exec -it cloud9 bash
    ```
    +  `-it` runs the container with an allocated pseudo-TTY and keeps STDIN open, even if the container isn't attached.
@@ -231,13 +230,13 @@ If you ever want to log out of the running container, run the ** `exit` ** comma
 
 1. For the directory on the running container that you want AWS Cloud9 to start from after it logs in, set its access permissions to ** `rwxr-xr-x` **. This means read-write-execute permissions for the owner, read-execute permissions for the group, and read-execute permissions for others. For example, if the directory's path is `~`, you can set these permissions on the directory by running the ** `chmod` ** command in the running container as follows.
 
-   ```
+   ```sh
    sudo chmod u=rwx,g=rx,o=rx ~
    ```
 
 1. Make a note of the path to the directory on the running container that contains the Node.js binary, as you'll need it for [Step 4: Create the environment](#sample-docker-env). If you're not sure what this path is, run the following command on the running container to get it.
 
-   ```
+   ```sh
    which node
    ```
 
@@ -357,7 +356,7 @@ To delete the environment, see [Deleting an environment in AWS Cloud9](delete-en
 
 After you delete the environment, some AWS Cloud9 support files still remain in the container. If you want to keep using the container but no longer need these support files, delete the `.c9` folder from the directory on the container that you specified AWS Cloud9 to start from after it logs in. For example, if the directory is `~`, run the ** `rm` ** command with the ** `-r` ** option as follows.
 
-```
+```sh
 sudo rm -r ~/.c9
 ```
 
@@ -368,20 +367,20 @@ If you no longer want to keep the Docker container, the Docker image, and Docker
 
 1. Remove the Docker container from the instance. To do this, run the ** `docker` ** command on the instance with the ** `stop` ** and ** `rm` ** stop actions and the human-readable name of the container.
 
-   ```
+   ```sh
    sudo docker stop cloud9
    sudo docker rm cloud9
    ```
 
 1. Remove the Docker image from the instance. To do this, run the ** `docker` ** command on the instance with the ** `image rm` ** action and the image's tag.
 
-   ```
+   ```sh
    sudo docker image rm cloud9-image:latest
    ```
 
 1. Remove any additional Docker support files that might still exit. To do this, run the ** `docker` ** command on the instance with the ** `system prune` ** action.
 
-   ```
+   ```sh
    sudo docker system prune -a
    ```
 
@@ -389,19 +388,19 @@ If you no longer want to keep the Docker container, the Docker image, and Docker
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y remove docker
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt -y remove docker
    ```
 
    You can also remove the `Dockerfile` and `authorized_keys` files you created earlier. For example, run the ** `rm` ** command on the instance.
 
-   ```
+   ```sh
    sudo rm /tmp/Dockerfile
    sudo rm /tmp/authorized_keys
    ```

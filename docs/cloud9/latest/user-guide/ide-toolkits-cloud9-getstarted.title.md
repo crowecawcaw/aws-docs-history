@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Getting started with Amazon CodeCatalyst in AWS Cloud9
-<a name="ide-toolkits-cloud9-getstarted.title"></a>
 
 This section provides an overview of how to get started using CodeCatalyst. The topics in this section cover how to use AWS Cloud9 in Amazon CodeCatalyst and how to replicate your AWS Cloud9 environment in CodeCatalyst. Later topics also detail how to create a CodeCatalyst Dev Environment and how to access your Dev Environment using the AWS Cloud9 IDE.
 

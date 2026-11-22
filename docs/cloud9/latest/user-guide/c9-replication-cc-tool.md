@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Using the replication tool
-<a name="c9-replication-cc-tool"></a>
 
 AWS Cloud9 in CodeCatalyst provides a fully managed experience for interacting with AWS Cloud9. To enable customers to try using AWS Cloud9 in CodeCatalyst, we have created a replication tool. After you copy and run the script in your AWS Cloud9 environment, follow the prompts to run it and replicate your code resources from AWS Cloud9 to CodeCatalyst. For more information on the replication tool and process, see [FAQ's on the replication process](https://docs.aws.amazon.com/cloud9/latest/user-guide/faqs-replication-tool) outlined below.
 

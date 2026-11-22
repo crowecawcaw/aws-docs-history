@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Creating an EC2 Environment
-<a name="create-environment-main"></a>
 
 In this procedure, AWS Cloud9 creates an EC2 environment and a new Amazon EC2 instance, and connects the environment to this instance. AWS Cloud9 manages the lifecycle of this instance, including starting, stopping, and restarting the instance as needed. If you ever delete this environment, AWS Cloud9 automatically terminates this instance.
 

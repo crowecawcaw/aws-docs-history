@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # AWS CLI and aws-shell tutorial for AWS Cloud9
-<a name="sample-aws-cli"></a>
 
 The following tutorial enables you to set up the AWS Command Line Interface (AWS CLI), the aws-shell, or both in an AWS Cloud9 development environment. The AWS CLI and the aws-shell are unified tools that provide a consistent interface for interacting with all parts of AWS. You can use the AWS CLI instead of the AWS Management Console to quickly run commands to interact with AWS, and some of these commands can be run with the AWS CLI or alternatively using AWS CloudShell.
 
@@ -42,7 +41,7 @@ If you are not using an EC2 environment, do the following to install the AWS CLI
 
 1. To install the AWS CLI, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the *AWS Command Line Interface User Guide*. For example, for an EC2 environment running Amazon Linux, run these three commands, one at a time, in the terminal to install the AWS CLI.
 
-   ```
+   ```sh
    sudo yum -y update          # Install the latest system updates.
    sudo yum -y install aws-cli # Install the AWS CLI.
    aws --version               # Confirm the AWS CLI was installed.
@@ -50,7 +49,7 @@ If you are not using an EC2 environment, do the following to install the AWS CLI
 
    For an EC2 environment running Ubuntu Server, run these three commands instead, one at a time, in the terminal to install the AWS CLI.
 
-   ```
+   ```sh
    sudo apt update             # Install the latest system updates.
    sudo apt install -y awscli  # Install the AWS CLI.
    aws --version               # Confirm the AWS CLI was installed.
@@ -66,7 +65,7 @@ If you want to install the aws-shell, do the following:
 
    To check whether pip is already installed, in the terminal, run the ** `pip --version` ** command. If pip is installed, the version number is displayed. If pip is not installed, install it by run these three commands, one at a time, in the terminal.
 
-   ```
+   ```sh
    wget https://bootstrap.pypa.io/get-pip.py # Get the pip install file.
    sudo python get-pip.py                    # Install pip. (You might need to run 'sudo python2 get-pip.py' or 'sudo python3 get-pip.py' instead, depending on how Python is installed.)
    rm get-pip.py                             # Delete the pip install file, as it is no longer needed.
@@ -74,7 +73,7 @@ If you want to install the aws-shell, do the following:
 
 1. To use pip to install the aws-shell, run the following command.
 
-   ```
+   ```sh
    sudo pip install aws-shell
    ```
 
@@ -96,7 +95,7 @@ In this step, you use the AWS CLI or the aws-shell in your environment to create
 
 1. Create a bucket. Run the ** `aws s3 mb` ** command with the AWS CLI or ** `s3 mb` ** command with the aws-shell, supplying the name of the bucket to create. In this example, we use a bucket named `cloud9-123456789012-bucket`, where `123456789012` is your AWS account ID. If you use a different name, substitute it throughout this step.
 
-   ```
+   ```sh
    aws s3 mb s3://cloud9-123456789012-bucket # For the AWS CLI.
    s3 mb s3://cloud9-123456789012-bucket     # For the aws-shell.
    ```
@@ -107,7 +106,7 @@ Bucket names must be unique across all of AWS, not just your AWS account. The pr
 
 1. Delete the bucket. Run the ** `aws s3 rb` ** command with the AWS CLI or the ** `s3 rb` ** command with the aws-shell, supplying the name of the bucket to delete.
 
-   ```
+   ```sh
    aws s3 rb s3://cloud9-123456789012-bucket # For the AWS CLI.
    s3 rb s3://cloud9-123456789012-bucket     # For the aws-shell.
    ```

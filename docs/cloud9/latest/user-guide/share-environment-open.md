@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Open a shared Environment
-<a name="share-environment-open"></a>
 
 To open a shared environment, you can use your AWS Cloud9 dashboard. Use the AWS Cloud9 IDE to perform actions and complete work in a shared environment. Examples are working with files and chatting with other team members.
 

@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with Images Files in the AWS Cloud9 IDE
-<a name="images"></a>
 
 You can use the AWS Cloud9 Integrated Development Environment (IDE) to view and edit image files.
 +  [View or Edit an Image](#images-view-edit) 

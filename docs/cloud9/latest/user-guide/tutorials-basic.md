@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Getting started with AWS Cloud9
-<a name="tutorials-basic"></a>
 
 
 
@@ -112,7 +111,7 @@ If your environment is using a proxy to access the internet, you must provide pr
 
 1. In the following AWS Cloud9 command, provide a value for `--region` and `--subnet-id`. Then run the command and make a note of the `"environmentId"` value for later cleanup.
 
-   ```
+   ```sh
    aws cloud9 create-environment-ec2 --name my-demo-environment --description "This environment is for the AWS Cloud9 tutorial." --instance-type t2.micro --image-id resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64 --region MY-REGION --connection-type CONNECT_SSM --subnet-id subnet-12a3456b
    ```
 
@@ -156,13 +155,13 @@ Most of the tools that you need to run and debug JavaScript code are already ins
 
 1. In the terminal window, which is one of the tabs in the bottom portion of the IDE, enter the following.
 
-   ```
+   ```sh
    npm install readline-sync
    ```
 
    Verify that the result is similar to the following. If `npm WARN` messages are also displayed, you can ignore them.
 
-   ```
+   ```sh
    + readline-sync@1.4.10
    added 1 package from 1 contributor and audited 5 packages in 0.565s
    found 0 vulnerabilities
@@ -177,7 +176,7 @@ Begin by writing some code.
 
 1. Add the following JavaScript to the new file.
 
-   ```
+   ```js
    var readline = require('readline-sync');
    var i = 10;
    var input;
@@ -291,7 +290,7 @@ However, if you used an SSH environment instead of following the tutorial, and t
 
 1. Run the AWS Cloud9 `delete-environment` command, specifying the ID of the environment to delete.
 
-   ```
+   ```sh
    aws cloud9 delete-environment --region MY-REGION --environment-id 12a34567b8cd9012345ef67abcd890e1
    ```
 
@@ -306,7 +305,7 @@ However, if you used an SSH environment instead of following the tutorial, and t
 ## Related information
 <a name="tutorial-final-info"></a>
 
-The following is additional information for [Getting started with AWS Cloud9 Console](#tutorials-basic).
+The following is additional information for [Getting started with AWS Cloud9 Console](tutorials-basic.md).
 + When you create an EC2 environment, the environment doesn't contain any sample code by default. To create an environment with sample code, see the following topic:
   +  [Working with Amazon Lightsail instances in the AWS Cloud9 IDE](lightsail-instances.md) 
 + While the AWS Cloud9 development environment is being created, you're directed AWS Cloud9 to create an Amazon EC2 instance. AWS Cloud9 created the instance and then connected the environment to it. You can alternatively use an existing cloud compute instance or your own server, which is called an *SSH environment*. For more information, see [Creating an environment in AWS Cloud9](create-environment.md).

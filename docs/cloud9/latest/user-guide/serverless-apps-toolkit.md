@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with AWS SAM using the AWS Toolkit
-<a name="serverless-apps-toolkit"></a>
 
 The AWS Toolkit provides support for [serverless applications](https://aws.amazon.com/serverless/). Using the AWS Toolkit, you can create serverless applications that contain [AWS Lambda](https://aws.amazon.com/lambda/) functions, and then deploy the applications to an AWS CloudFormation stack.
 

@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Creating App Runner services
-<a name="creating-service-apprunner"></a>
 
 You can create an App Runner service in AWS Toolkit by using the **AWS Explorer**. After you choose to create a service in a specific AWS Region, the AWS Toolkit's command pane describe how to configure the service instance where your application runs. 
 

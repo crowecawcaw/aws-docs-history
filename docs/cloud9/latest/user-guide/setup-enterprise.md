@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Enterprise setup for AWS Cloud9
-<a name="setup-enterprise"></a>
 
 This topic explains how to use [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/) to enable one or more AWS accounts to use AWS Cloud9 within an enterprise. To set up to use AWS Cloud9 for any other usage pattern, see [Setting up AWS Cloud9](setting-up.md) for the correct instructions.
 

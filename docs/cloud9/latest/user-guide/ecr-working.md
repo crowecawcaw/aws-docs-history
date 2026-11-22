@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with Amazon ECR service in AWS Cloud9
-<a name="ecr-working"></a>
 
 You can access the Amazon Elastic Container Registry (Amazon ECR) service directly from the AWS Explorer in AWS Cloud9 IDE. You can use Amazon ECR to push a program image to an Amazon ECR repository. To get started, follow these steps:
 
@@ -51,7 +50,7 @@ After the file extension is removed from your Dockerfile:
 1. Copy the contents of the following example into your Dockerfile.  
 **Example Dockerfile image template**  
 
-   ```
+   ```text
    FROM ubuntu:22.04
    
    # Install dependencies

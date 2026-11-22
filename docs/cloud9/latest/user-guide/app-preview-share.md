@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Share a running application over the internet
-<a name="app-preview-share"></a>
 
 After you preview your running application, you can make it available to others over the internet.
 
@@ -23,7 +22,7 @@ In this step, you note the instance ID and public IP address for the Amazon EC2 
 1. Get the Amazon EC2 instance's ID. To get this, do one of the following:
    + In a terminal session in the AWS Cloud9 IDE for the environment, run the following command to get the Amazon EC2 instance's ID.
 
-     ```
+     ```sh
      curl http://169.254.169.254/latest/meta-data/instance-id
      ```
 
@@ -37,7 +36,7 @@ In this step, you note the instance ID and public IP address for the Amazon EC2 
    + In the IDE for the environment, on the menu bar, choose **Share**. In the **Share this environment** dialog box, make a note of the public IP address in the **Application** box. The public IP address is in this format: `192.0.2.0`.
    + In a terminal session in the IDE for the environment, run the following command to get the Amazon EC2 instance's public IP address.
 
-     ```
+     ```sh
      curl http://169.254.169.254/latest/meta-data/public-ipv4
      ```
 

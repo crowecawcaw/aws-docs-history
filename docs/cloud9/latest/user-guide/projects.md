@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Enhanced TypeScript support and features
-<a name="projects"></a>
 
 The AWS Cloud9 IDE allows you to use *language projects* to access enhanced productivity features for TypeScript. A language project is a collection of related files, folders, and settings in the IDE for an AWS Cloud9 development environment.
 
@@ -107,14 +106,14 @@ For example, you might use the IDE to search for references and definitions from
 
 1. From a terminal session in the IDE for the environment, switch to the directory where you want to create the project. If the directory doesn't exist, create it and then switch to it. For example, the following commands create a directory named `my-demo-project` at the root of the environment (in `~/environment`), and then switch to that directory.
 
-   ```
+   ```sh
    mkdir ~/environment/my-demo-project
    cd ~/environment/my-demo-project
    ```
 
 1. At the root of the directory where you want to create the project, run the TypeScript compiler with the ** `--init` ** option.
 
-   ```
+   ```sh
    tsc --init
    ```
 

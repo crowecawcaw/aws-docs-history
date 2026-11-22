@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Python tutorial for AWS Cloud9
-<a name="sample-python"></a>
 
 This tutorial shows you how to run Python code in an AWS Cloud9 development environment.
 
@@ -41,13 +40,13 @@ Before you use this tutorial, be sure to meet the following requirements.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y update
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt update
    ```
 
@@ -55,13 +54,13 @@ Before you use this tutorial, be sure to meet the following requirements.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y install python3
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt-get install python3
    ```
 
@@ -70,7 +69,7 @@ Before you use this tutorial, be sure to meet the following requirements.
 
 In the AWS Cloud9 IDE, create a file with the following content and save the file with the name `hello.py`. (To create a file, on the menu bar choose **File**, **New File**. To save the file, choose **File**, **Save**.)
 
-```
+```python
 import sys
 
 print('Hello, World!')
@@ -113,7 +112,7 @@ In the AWS Cloud9 IDE, confirm whether `pip` is already installed for the active
 
 To install `pip`, run the following commands. Because sudo is in a different environment from your user, you must specify the version of Python to use if it differs from the current aliased version.
 
-```
+```sh
 curl -O https://bootstrap.pypa.io/get-pip.py # Get the install script.
 sudo python3 get-pip.py                     # Install pip for Python 3.
 python -m pip --version                      # Verify pip is installed.
@@ -127,7 +126,7 @@ For more information, see [Installation](https://pip.pypa.io/en/stable/installin
 
 After you install `pip`, install the AWS SDK for Python (Boto3) by running the ** `pip install` ** command.
 
-```
+```sh
 sudo python3 -m pip install boto3  # Install boto3 for Python 3.
 python -m pip show boto3            # Verify boto3 is installed for the current version of Python.
 ```
@@ -150,7 +149,7 @@ Add code that uses Amazon S3 to create a bucket, list your available buckets, an
 
 In the AWS Cloud9 IDE, create a file with the following content and save the file with the name `s3.py`.
 
-```
+```python
 import sys
 import boto3
 from botocore.exceptions import ClientError

@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # PHP tutorial for AWS Cloud9
-<a name="sample-php"></a>
 
 This tutorial enables you to run some PHP scripts in an AWS Cloud9 development environment.
 
@@ -40,13 +39,13 @@ The following procedure installs PHP only. To install related tools such as an A
 
    For Amazon Linux 2 and Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y update
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt update
    ```
 
@@ -54,13 +53,13 @@ The following procedure installs PHP only. To install related tools such as an A
 
    For Amazon Linux 2:
 
-   ```
+   ```sh
    sudo amazon-linux-extras install -y php7.2
    ```
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y install php72
    ```
 **Note**  
@@ -72,7 +71,7 @@ You can view your version of Amazon Linux using the following command:
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt install -y php php-xml
    ```
 
@@ -83,7 +82,7 @@ You can view your version of Amazon Linux using the following command:
 
 In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `hello.php`. (To create a file, on the menu bar, choose **File**, **New File**. To save the file, choose **File**, **Save**, type `hello.php` for **Filename**, and then choose **Save**.)
 
-```
+```php
 <?php
   print('Hello, World!');
 
@@ -109,7 +108,7 @@ The preceding code doesn't rely on any external files. However, if you ever incl
 
 1. Choose the **Run** button, and compare your output.
 
-   ```
+   ```text
    Hello, World!
    The sum of 2 and 3 is 5.
    The sum of 5 and 9 is 14.
@@ -130,7 +129,7 @@ In this step, you install and configure the AWS SDK for PHP, which provides a co
 
 Run the ** `curl` ** command with the silent (`-s`) and show error (`-S`) options, piping the Composer installer into a PHP archive (PHAR) file, named `composer.phar` by convention.
 
-```
+```sh
 curl -sS https://getcomposer.org/installer | php
 ```
 
@@ -139,13 +138,13 @@ curl -sS https://getcomposer.org/installer | php
 
 For Ubuntu Server, install additional packages that Composer needs to install the AWS SDK for PHP.
 
-```
+```sh
 sudo apt install -y php-xml php-curl
 ```
 
 For Amazon Linux or Ubuntu Server, use the **php** command to run the Composer installer to install the AWS SDK for PHP.
 
-```
+```sh
 php composer.phar require aws/aws-sdk-php
 ```
 
@@ -154,7 +153,7 @@ This command creates several folders and files in your environment. The primary 
 **Note**  
 After installation, Composer might suggest that you install additional dependencies. You can do this with a command such as the following, specifying the list of dependencies to install. For example, the following command instructs Composer to install the following list of dependencies.  
 
-```
+```sh
 php composer.phar require psr/log ext-curl doctrine/cache aws/aws-php-sns-message-validator
 ```
 
@@ -176,7 +175,7 @@ In this step, you add some more code, this time to interact with Amazon S3 to cr
 
 In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `s3.php`.
 
-```
+```php
 <?php
 require './vendor/autoload.php';
 
@@ -264,7 +263,7 @@ Amazon S3 bucket names must be unique across AWS—not just your AWS account.
 
 1. Choose the **Run** button, and compare your output.
 
-   ```
+   ```text
    My buckets now are:
    
    Creating a new bucket named 'my-test-bucket'...

@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Java tutorial for AWS Cloud9
-<a name="sample-java"></a>
 
 **Important**  
 If you're using an AWS Cloud9 development environment that's backed by an EC2 instance with 2 GiB or more of memory, we recommend that you activate enhanced Java support. This provides access to productivity features such as code completion, linting for errors, context-specific actions, and debugging options such as breakpoints and stepping.  
@@ -38,7 +37,7 @@ In this step, you install a set of Java development tools in your AWS Cloud9 dev
 
 1. Confirm whether OpenJDK 8 is already installed. To do this, in a terminal session in the AWS Cloud9 IDE, run the command line version of the Java runner with the ** `-version` ** option. (To start a new terminal session, on the menu bar, choose **Window**, **New Terminal**.)
 
-   ```
+   ```sh
    java -version
    ```
 
@@ -52,13 +51,13 @@ In this step, you install a set of Java development tools in your AWS Cloud9 dev
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y update
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt update
    ```
 
@@ -66,13 +65,13 @@ In this step, you install a set of Java development tools in your AWS Cloud9 dev
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y install java-1.8.0-openjdk-devel
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt install -y openjdk-8-jdk
    ```
 
@@ -80,7 +79,7 @@ In this step, you install a set of Java development tools in your AWS Cloud9 dev
 
 1. Switch or upgrade the default Java development toolset to OpenJDK 8. To do this, run the ** `update-alternatives` ** command with the ** `--config` ** option. Run this command twice to switch or upgrade the command line versions of the Java runner and compiler.
 
-   ```
+   ```sh
    sudo update-alternatives --config java
    sudo update-alternatives --config javac
    ```
@@ -89,7 +88,7 @@ In this step, you install a set of Java development tools in your AWS Cloud9 dev
 
 1. Confirm that the command line versions of the Java runner and compiler are using OpenJDK 8. To do this, run the command line versions of the Java runner and compiler with the `-version` option.
 
-   ```
+   ```sh
    java -version
    javac -version
    ```
@@ -101,7 +100,7 @@ In this step, you install a set of Java development tools in your AWS Cloud9 dev
 
 In the AWS Cloud9 IDE, create a file with the following code, and save the file with the name `hello.java`. (To create a file, on the menu bar, choose **File**, **New File**. To save the file, choose **File**, **Save**.)
 
-```
+```java
 public class hello {
 
   public static void main(String []args) {
@@ -122,19 +121,19 @@ public class hello {
 
 1. Use the command line version of the Java compiler to compile the `hello.java` file into a `hello.class` file. To do this, using the terminal in the AWS Cloud9 IDE, from the same directory as the `hello.java` file, run the Java compiler, specifying the `hello.java` file.
 
-   ```
+   ```sh
    javac hello.java
    ```
 
 1. Use the command line version of the Java runner to run the `hello.class` file. To do this, from the same directory as the `hello.class` file, run the Java runner, specifying the name of the `hello` class that was declared in the `hello.java` file, with two integers to add (for example, `5` and `9`).
 
-   ```
+   ```sh
    java hello 5 9
    ```
 
 1. Compare your output.
 
-   ```
+   ```text
    Hello, World!
    The sum of 2 and 3 is 5.
    The sum of 5 and 9 is 14.
@@ -156,7 +155,7 @@ In this step, you install [Apache Maven](https://maven.apache.org/) or [Gradle](
 
 1. Install Maven in your environment. To see whether Maven is already installed, using the terminal in the AWS Cloud9 IDE, run Maven with the ** `-version` ** option.
 
-   ```
+   ```sh
    mvn -version
    ```
 
@@ -166,7 +165,7 @@ In this step, you install [Apache Maven](https://maven.apache.org/) or [Gradle](
 
    For Amazon Linux, the following commands get information about the package repository where Maven is stored, and then use this information to install Maven.
 
-   ```
+   ```sh
    sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
    sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
    sudo yum install -y apache-maven
@@ -176,25 +175,25 @@ In this step, you install [Apache Maven](https://maven.apache.org/) or [Gradle](
 
    For Ubuntu Server, run the following command instead.
 
-   ```
+   ```sh
    sudo apt install -y maven
    ```
 
 1. Confirm the installation by running Maven with the ** `-version` ** option.
 
-   ```
+   ```sh
    mvn -version
    ```
 
 1. Use Maven to generate a new Java project. To do this, use the terminal to run the following command from the directory where you want Maven to generate the project (for example, the root directory of your environment).
 
-   ```
+   ```sh
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
    The preceding command creates the following directory structure for the project in your environment.
 
-   ```
+   ```text
    my-app
      |- src
      |   `- main
@@ -216,7 +215,7 @@ In this step, you install [Apache Maven](https://maven.apache.org/) or [Gradle](
 
 1. Modify the Project Object Model (POM) file for the project. (A POM file defines a Maven project's settings.) To do this, from the **Environment** window, open the `my-app/pom.xml` file. In the editor, replace the file's current contents with the following code, and then save the `pom.xml` file.
 
-   ```
+   ```xml
    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
      <modelVersion>4.0.0</modelVersion>
@@ -280,7 +279,7 @@ Skip ahead to [Step 5: Set up AWS credentials management in your environment](#s
 
 1. Install Gradle in your environment. To see whether Gradle is already installed, using the terminal in the AWS Cloud9 IDE, run Gradle with the ** `-version` ** option.
 
-   ```
+   ```sh
    gradle -version
    ```
 
@@ -288,7 +287,7 @@ Skip ahead to [Step 5: Set up AWS credentials management in your environment](#s
 
 1. Install Gradle by using the terminal to run the following commands. These commands install and run the SDKMAN\! tool, and then use SDKMAN\! to install the latest version of Gradle.
 
-   ```
+   ```sh
    curl -s "https://get.sdkman.io" | bash
    source "$HOME/.sdkman/bin/sdkman-init.sh"
    sdk install gradle
@@ -298,26 +297,26 @@ Skip ahead to [Step 5: Set up AWS credentials management in your environment](#s
 
 1. Confirm the installation by running Gradle with the ** `-version` ** option.
 
-   ```
+   ```sh
    gradle -version
    ```
 
 1. Use Gradle to generate a new Java project in your environment. To do this, use the terminal to run the following commands to create a directory for the project, and then switch to that directory.
 
-   ```
+   ```sh
    mkdir my-app
    cd my-app
    ```
 
 1. Run the following command to have Gradle generate a new Java application project in the `my-app` directory in your environment.
 
-   ```
+   ```sh
    gradle init --type java-application
    ```
 
    The preceding command creates the following directory structure for the project in your environment.
 
-   ```
+   ```text
    my-app
      |- .gradle
      |   `- (various supporting project folders and files)
@@ -338,7 +337,7 @@ Skip ahead to [Step 5: Set up AWS credentials management in your environment](#s
 
 1. Modify the `AppTest.java` for the project. (If you do not do this, the project might not build or run as expected). To do this, from the **Environment** window, open the `my-app/src/test/java/AppTest.java` file. In the editor, replace the file's current contents with the following code, and then save the `AppTest.java` file.
 
-   ```
+   ```java
    import org.junit.Test;
    import static org.junit.Assert.*;
    
@@ -355,7 +354,7 @@ Skip ahead to [Step 5: Set up AWS credentials management in your environment](#s
 
 1. Modify the `build.gradle` file for the project. (A `build.gradle` file defines a Gradle project's settings.) To do this, from the **Environment** window, open the `my-app/build.gradle` file. In the editor, replace the file's current contents with the following code, and then save the `build.gradle` file.
 
-   ```
+   ```text
    apply plugin: 'java'
    apply plugin: 'application'
    
@@ -415,7 +414,7 @@ In this step, you add code to interact with Amazon S3 to create a bucket, list y
 
 From the **Environment** window, open the `my-app/src/main/java/com/mycompany/app/App.java` file for Maven or the `my-app/src/main/java/App.java` file for Gradle. In the editor, replace the file's current contents with the following code, and then save the `App.java` file.
 
-```
+```java
 package com.mycompany.app;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -498,7 +497,7 @@ To run the code from the previous step, run the following commands from the term
 
 For Maven, run the following commands.
 
-```
+```sh
 cd my-app
 mvn package
 java -cp target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.mycompany.app.App my-test-bucket us-east-2
@@ -506,14 +505,14 @@ java -cp target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.mycompany.app.
 
 For Gradle, run the following commands.
 
-```
+```sh
 gradle build
 gradle run -PappArgs="['my-test-bucket', 'us-east-2']"
 ```
 
 Compare your results to the following output.
 
-```
+```text
 My buckets now are:
 
 Creating a new bucket named 'my-test-bucket'...

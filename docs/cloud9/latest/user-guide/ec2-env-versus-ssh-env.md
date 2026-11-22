@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # EC2 environments compared with SSH environments in AWS Cloud9
-<a name="ec2-env-versus-ssh-env"></a>
 
 As discussed in the [introduction for environments and computing resources](welcome.md#env-intro) and [working with environments](environments.md), your AWS Cloud9 environments can be set up as either EC2 environments or SSH environments.
 

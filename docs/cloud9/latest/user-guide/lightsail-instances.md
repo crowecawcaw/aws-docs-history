@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Working with Amazon Lightsail instances in the AWS Cloud9 IDE
-<a name="lightsail-instances"></a>
 
 You can use the AWS Cloud9 IDE to work with code on Amazon Lightsail instances that are preconfigured with popular applications and frameworks. They include WordPress, LAMP (Linux, Apache, MySQL, and PHP), Node.js, NGINX, Drupal, and Joomla. Linux distributions are included such as Amazon Linux, Ubuntu, Debian, FreeBSD, and openSUSE.
 
@@ -82,7 +81,7 @@ The following instructions assume you chose **Apps \+ OS** in the previous step.
 
    To do this, run the following commands one at a time, in the following order, to update the instance, install Node Version Manager (nvm) on the instance, activate nvm on the instance, and then install the latest version of Node.js on the instance.
 
-   ```
+   ```sh
    sudo apt update
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
    . ~/.bashrc

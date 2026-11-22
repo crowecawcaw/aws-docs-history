@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Node.js tutorial for AWS Cloud9
-<a name="sample-nodejs"></a>
 
 This tutorial enables you to run some Node.js scripts in an AWS Cloud9 development environment.
 
@@ -37,31 +36,31 @@ In this step, you install Node.js, which is required to run this sample.
 
    For Amazon Linux:
 
-   ```
+   ```sh
    sudo yum -y update
    ```
 
    For Ubuntu Server:
 
-   ```
+   ```sh
    sudo apt update
    ```
 
 1. To install Node.js, begin by running this command to download Node Version Manager (nvm). (nvm is a simple Bash shell script that is useful for installing and managing Node.js versions. For more information, see [Node Version Manager](https://github.com/creationix/nvm/blob/master/README.md) on the GitHub website.)
 
-   ```
+   ```sh
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
    ```
 
 1. To start using nvm, either close the terminal session and start it again, or source the `~/.bashrc` file that contains the commands to load nvm.
 
-   ```
+   ```sh
    . ~/.bashrc
    ```
 
 1. Run this command to install Node.js 16 on Amazon Linux 2, Amazon Linux 1 and Ubuntu 18.04. Amazon Linux 1 and Ubuntu 18.04 instances only support Node.js up to v16.
 
-   ```
+   ```sh
    nvm install 16
    ```
 
@@ -73,7 +72,7 @@ In this step, you install Node.js, which is required to run this sample.
 **Note**  
 The latest AL2023 AWS Cloud9 image has Node.js 20 installed, and the latest Amazon Linux 2 AWS Cloud9 image has Node.js 18 installed. If you want to install Node.js 18 on Amazon Linux 2 AWS Cloud9 manually, run the following command in the AWS Cloud9 IDE terminal:  
 
-   ```
+   ```sh
    C9_NODE_INSTALL_DIR=~/.nvm/versions/node/v18.17.1
    C9_NODE_URL=https://d3kgj69l4ph6w4.cloudfront.net/static/node-amazon/node-v18.17.1-linux-x64.tar.gz
    mkdir -p $C9_NODE_INSTALL_DIR
@@ -88,7 +87,7 @@ The latest AL2023 AWS Cloud9 image has Node.js 20 installed, and the latest Amaz
 
 In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `hello.js`. (To create a file, on the menu bar, choose **File**, **New File**. To save the file, choose **File**, **Save**.)
 
-```
+```javascript
 console.log('Hello, World!');
 
 console.log('The sum of 2 and 3 is 5.');
@@ -110,7 +109,7 @@ console.log('The sum of ' + process.argv[2] + ' and ' +
 
 1. Choose the **Run** button, and compare your output.
 
-   ```
+   ```text
    Hello, World!
    The sum of 2 and 3 is 5.
    The sum of 5 and 9 is 14.
@@ -139,7 +138,7 @@ If you want to use other AWS services, you need to install them separately. For 
 
 Use npm to run the **`install`** command.
 
-```
+```sh
 npm install @aws-sdk/client-s3
 ```
 
@@ -164,7 +163,7 @@ In this step, you install and configure the AWS SDK for JavaScript in Node.js, w
 
 Use npm to run the **`install`** command.
 
-```
+```sh
 npm install aws-sdk
 ```
 
@@ -190,7 +189,7 @@ In this step, you add some more code, this time to interact with Amazon S3 to cr
 
 In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `s3.js`.
 
-```
+```javascript
 import {
   CreateBucketCommand,
   DeleteBucketCommand,
@@ -244,7 +243,7 @@ In this step, you add some more code, this time to interact with Amazon S3 to cr
 
 In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `s3.js`.
 
-```
+```javascript
 if (process.argv.length < 4) {
   console.log(
     "Usage: node s3.js <the bucket name> <the AWS Region to use>\n" +
@@ -332,7 +331,7 @@ async.series([
 
 1. Enable the code to call Amazon S3 operations asynchronously by using npm to run the ** `install` ** command.
 
-   ```
+   ```sh
    npm install async
    ```
 
@@ -346,7 +345,7 @@ Amazon S3 bucket names must be unique across AWS—not just your AWS account.
 
 1. Choose the **Run** button, and compare your output.
 
-   ```
+   ```text
    My buckets now are:
    
    Creating a new bucket named 'my-test-bucket'...

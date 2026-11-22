@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # C\+\+ tutorial for AWS Cloud9
-<a name="sample-cplusplus"></a>
 
 This tutorial enables you to run C\+\+ code in an AWS Cloud9 development environment. The code also uses resources provided by the [AWS SDK for C\+\+](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/welcome.html), a modularized, cross-platform, open-source library you can use to connect to Amazon Web Services.
 
@@ -164,7 +163,7 @@ You also create a `CMakeLists.txt` file that provides instructions that are used
 
 1. In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `s3-demo.cpp` at the root (`/`) of your environment.
 
-   ```
+   ```cpp
    #include <iostream>
    #include <aws/core/Aws.h>
    #include <aws/s3/S3Client.h>
@@ -312,7 +311,7 @@ You also create a `CMakeLists.txt` file that provides instructions that are used
 
 1. Create a second file with this content, and save the file with the name `CMakeLists.txt` at the root (`/`) of your environment. This file enables you to build your code into an executable file.
 
-   ```
+   ```text
    # A minimal CMakeLists.txt file for the AWS SDK for C++.
    
    # The minimum version of CMake that will work.

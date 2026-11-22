@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Logging AWS Cloud9 API calls with AWS CloudTrail
-<a name="cloudtrail"></a>
 
 AWS Cloud9 is integrated with CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Cloud9. CloudTrail captures all API calls for AWS Cloud9 as events. The calls captured include calls from the AWS Cloud9 console and from code calls to the AWS Cloud9 APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, including events for AWS Cloud9. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Cloud9, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -73,7 +72,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateEnvironmentEC2` action.
 
-```
+```json
 {
   "Records": [
     {
@@ -123,7 +122,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateEnvironmentSSH` action.
 
-```
+```json
 {
   "Records": [
     {
@@ -174,7 +173,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateEnvironmentMembership` action.
 
-```
+```json
 {
   "Records": [
     {
@@ -227,7 +226,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteEnvironment` action.
 
-```
+```json
 {
   "Records": [
     {
@@ -271,7 +270,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteEnvironmentMembership` action.
 
-```
+```json
 {
   "Records": [
     {
@@ -316,7 +315,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 
 The following example shows a CloudTrail log entry that demonstrates the `DescribeEnvironmentMemberships` action.
 
-```
+```json
 {
   "Records": [
     {
@@ -363,7 +362,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Descri
 
 The following example shows a CloudTrail log entry that demonstrates the `DescribeEnvironments` action.
 
-```
+```json
 {
    "Records": [
      {
@@ -410,7 +409,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Descri
 
 The following example shows a CloudTrail log entry that demonstrates the `DescribeEnvironmentStatus` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -459,7 +458,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Descri
 
 The following example shows a CloudTrail log entry that demonstrates the `ListEnvironments` action.
 
-```
+```json
 {
    "Records": [
      {
@@ -505,7 +504,7 @@ The following example shows a CloudTrail log entry that demonstrates the `ListEn
 
 The following example shows a CloudTrail log entry that demonstrates the `ListTagsForResource` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -556,7 +555,7 @@ The following example shows a CloudTrail log entry that demonstrates the `ListTa
 
 The following example shows a CloudTrail log entry that demonstrates the `TagResource` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -606,7 +605,7 @@ The following example shows a CloudTrail log entry that demonstrates the `TagRes
 
 The following example shows a CloudTrail log entry that demonstrates the `UntagResource` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -656,7 +655,7 @@ The following example shows a CloudTrail log entry that demonstrates the `UntagR
 
 The following example shows a CloudTrail log entry that demonstrates the `UpdateEnvironment` action.
 
-```
+```json
 {
   "Records": [
     {
@@ -702,7 +701,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Update
 
 The following example shows a CloudTrail log entry that demonstrates the `UpdateEnvironmentMembership` action.
 
-```
+```json
 {
   "Records": [
     {

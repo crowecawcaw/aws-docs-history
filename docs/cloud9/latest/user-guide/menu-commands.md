@@ -3,7 +3,6 @@
  AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Menu bar commands reference for the AWS Cloud9 IDE
-<a name="menu-commands"></a>
 
 The following lists describe the default menu bar commands in the AWS Cloud9 IDE. If the menu bar isn't visible, choose the thin bar along the top edge of the IDE to show it.
 +  [AWS Cloud9 menu](#menu-commands-cloud9) 
