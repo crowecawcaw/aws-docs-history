@@ -1,7 +1,6 @@
 
 
 # Overview
-<a name="overview"></a>
 
 ## What is the AWS Ground Station Agent?
 <a name="what-is-gs-agent"></a>

@@ -1,7 +1,6 @@
 
 
 # Agent requirements
-<a name="agent-requirements"></a>
 
 **Note**  
 This AWS Ground Station Agent guide assumes that you have onboarded to Ground Station using the [AWS Ground Station Getting started](https://docs.aws.amazon.com/ground-station/latest/ug/getting-started.html) guide.

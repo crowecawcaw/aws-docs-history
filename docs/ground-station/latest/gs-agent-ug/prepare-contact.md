@@ -1,7 +1,6 @@
 
 
 # Prepare to take a DigIF contact
-<a name="prepare-contact"></a>
 
 1.  Review CPU Core Planning for desired dataflows, and provide a list of cores the agent can use. See [CPU core planning](agent-instance-selection.md#cpu-core-planning). 
 
@@ -13,13 +12,13 @@
 
 1. Confirm that the AWS Ground Station Agent is started prior to the scheduled contact start time via:
 
-   ```
+   ```bash
    systemctl status aws-groundstation-agent
    ```
 
 1. Confirm that the AWS Ground Station Agent is healthy prior to the scheduled contact start time via:
 
-   ```
+   ```bash
    aws groundstation get-dataflow-endpoint-group --dataflow-endpoint-group-id ${DATAFLOW-ENDPOINT-GROUP-ID} --region ${REGION}
    ```
 

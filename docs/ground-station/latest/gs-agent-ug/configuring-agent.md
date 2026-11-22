@@ -1,7 +1,6 @@
 
 
 # Configure the agent
-<a name="configuring-agent"></a>
 
  After installing the agent you must update the agent configuration file at `/opt/aws/groundstation/etc/aws-gs-agent-config.json`. 
 

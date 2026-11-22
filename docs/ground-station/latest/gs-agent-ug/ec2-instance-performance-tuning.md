@@ -1,7 +1,6 @@
 
 
 # Tune your EC2 instance for performance
-<a name="ec2-instance-performance-tuning"></a>
 
 **Note**  
 If you provisioned your AWS resources using CloudFormation templates these tunings are automatically applied. If you used an AMI or manually created your EC2 instance then these performance tunings must be applied to achieve the most reliable performance.
@@ -24,7 +23,7 @@ This section configures CPU core usage of systemd, SMP IRQs, Receive Packet Stee
 **Important**  
  **Amazon Linux 2023 only:** Install and enable the cron daemon before continuing.   
 
-```
+```bash
 sudo dnf install -y cronie
 sudo systemctl enable --now crond
 ```
@@ -40,7 +39,7 @@ sudo systemctl enable --now crond
 
 The `set_irq_affinity.sh` script provided by the RPM configures all the above for you. Add to crontab, so it is applied on each boot:
 
-```
+```bash
 echo "@reboot sudo /opt/aws/groundstation/bin/set_irq_affinity.sh '${interrupt_core_list}' '${rps_core_mask}' >> /var/log/user-data.log 2>&1" >>/var/spool/cron/root
 ```
 + Replace `interrupt_core_list` with cores reserved for the kernel and OS - typically the first and second along with hyper-threaded core pairs. This should not overlap with the cores selected above. (Ex: ‘0,1,48,49’ for a hyper-threaded, 96-CPU instance).
@@ -48,7 +47,7 @@ echo "@reboot sudo /opt/aws/groundstation/bin/set_irq_affinity.sh '${interrupt_c
   + To see the list of recommended parameters for each instance type, refer to [Appendix: Recommended parameters for interrupt/RPS tune](#recommended-parameters).
 +  Example for 96-CPU instance: 
 
-  ```
+  ```bash
   echo "@reboot sudo /opt/aws/groundstation/bin/set_irq_affinity.sh '0,1,48,49' 'ffffffff,ffffffff,ffffffff' >> /var/log/user-data.log 2>&1" >>/var/spool/cron/root
   ```
 
@@ -57,7 +56,7 @@ echo "@reboot sudo /opt/aws/groundstation/bin/set_irq_affinity.sh '${interrupt_c
 
  Interrupt coalescing helps prevent flooding the host system with too many interrupts and helps increase network throughput. With this configuration, packets are collected and one single interrupt is generated every 128 microseconds. Add to crontab, so it is applied on each boot: 
 
-```
+```bash
 echo "@reboot sudo ethtool -C ${interface} rx-usecs 128 tx-usecs 128 >>/var/log/user-data.log 2>&1" >>/var/spool/cron/root
 ```
 + Replace `interface` with the network interface (ethernet adapter) configured to receive data. Typically, this is `eth0` as that's the default network interface assigned for an EC2 instance.
@@ -67,7 +66,7 @@ echo "@reboot sudo ethtool -C ${interface} rx-usecs 128 tx-usecs 128 >>/var/log/
 
  Increase the number of ring entries for the Rx ring buffer to prevent packet drops or overruns during bursty connections. Add to the crontab, so it is correctly set on each boot: 
 
-```
+```bash
 echo "@reboot sudo ethtool -G ${interface} rx 16384 >>/var/log/user-data.log 2>&1" >>/var/spool/cron/root
 ```
 + Replace `interface` with the network interface (ethernet adapter) configured to receive data. Typically, this is `eth0` as that's the default network interface assigned for an EC2 instance.
@@ -80,7 +79,7 @@ echo "@reboot sudo ethtool -G ${interface} rx 16384 >>/var/log/user-data.log 2>&
 
  Use `grubby` to set the kernel arguments. This works on both Amazon Linux 2023 (UEFI) and Amazon Linux 2 because `grubby` manages the bootloader configuration directly on both. 
 
-```
+```bash
 sudo grubby --update-kernel=ALL --args="console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 intel_idle.max_cstate=1 processor.max_cstate=1 max_cstate=1"
 ```
 
@@ -102,7 +101,7 @@ echo "net.ipv4.ip_local_reserved_ports=${port_range_min}-${port_range_max}" >> /
 
 After all tunings are applied successfully, reboot the instance for the tunings to take effect.
 
-```
+```bash
 sudo reboot
 ```
 

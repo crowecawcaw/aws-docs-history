@@ -1,7 +1,6 @@
 
 
 # Getting support
-<a name="getting-support"></a>
 
 Contact the Ground Station team through AWS Support.
 

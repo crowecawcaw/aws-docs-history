@@ -1,7 +1,6 @@
 
 
 # Select Amazon EC2 instance and reserve CPU cores for your architecture
-<a name="agent-instance-selection"></a>
 
 ## Supported Amazon EC2 instance types
 <a name="supported-ec2-instance-types"></a>
@@ -184,7 +183,7 @@ CPU,Core,Socket,Node,,L1d,L1i,L2,L3
 ## Appendix: `lscpu -p` output (full) for c5.24xlarge
 <a name="agent-cpu-planning-appendix-lscpu-full"></a>
 
-```
+```bash
 > lscpu -p
 # The following is the parsable format, which can be fed to other
 # programs. Each different item in every column has an unique ID

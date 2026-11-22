@@ -1,7 +1,6 @@
 
 
 # Receive data via the AWS Ground Station Agent
-<a name="digif-data-delivery-use-cases"></a>
 
 The diagrams below provide an overview of how data flows through AWS Ground Station during Wideband Digital Intermediate Frequency (DigIF) contacts.
 

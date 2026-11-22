@@ -1,7 +1,6 @@
 
 
 # Install the agent
-<a name="installing-the-agent"></a>
 
 The AWS Ground Station Agent can be installed in the following ways: 
 
@@ -45,9 +44,13 @@ The **AwsGroundStationAgentEndpoint** resource defines an endpoint for receiving
 
 The following AMIs are supported. Choose an AMI that matches the operating system you intend to run; the AWS Ground Station Agent AMIs come with the agent pre-installed (recommended).
 
+**Amazon Linux 2023 (recommended)**
+
 1. AWS Ground Station AMI - `groundstation-al2023-gs-agent-ami-*` where \* is the date the AMI was built - comes with agent installed (recommended).
 
 1. A stock Amazon Linux 2023 AMI - `al2023-ami-*-x86_64`.
+
+**Amazon Linux 2**
 
 1. AWS Ground Station AMI - `groundstation-al2-gs-agent-ami-*` where \* is the date the AMI was built - comes with agent installed (recommended).
 
@@ -77,30 +80,30 @@ If you are unsure which operating system your instance is running, run `cat /etc
 
 Amazon Linux 2023:
 
-```
+```bash
 aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/latest/amazon_linux_2023_x86_64/aws-groundstation-agent.rpm /tmp
 ```
 
 Amazon Linux 2:
 
-```
+```bash
 aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/latest/amazon_linux_2_x86_64/aws-groundstation-agent.rpm /tmp
 ```
 
  If you need to download a specific version of the AWS Ground Station Agent for troubleshooting or rollback purposes, you can download it from the version specific folder in the S3 bucket. This is not recommended for normal operations. 
 
- Example: Download version 1.0.5953.0 of the rpm from AWS region us-east-2 locally to the /tmp folder. 
+ Example: Download version 1.0.8022.0 of the rpm from AWS region us-east-2 locally to the /tmp folder. 
 
 Amazon Linux 2023:
 
-```
-aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/1.0.5953.0/amazon_linux_2023_x86_64/aws-groundstation-agent.rpm /tmp
+```bash
+aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/1.0.8022.0/amazon_linux_2023_x86_64/aws-groundstation-agent.rpm /tmp
 ```
 
 Amazon Linux 2:
 
-```
-aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/1.0.5953.0/amazon_linux_2_x86_64/aws-groundstation-agent.rpm /tmp
+```bash
+aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/1.0.8022.0/amazon_linux_2_x86_64/aws-groundstation-agent.rpm /tmp
 ```
 
 **Note**  
@@ -109,7 +112,7 @@ If you want to confirm the RPM you downloaded was vended by AWS Ground Station, 
 #### Install agent
 <a name="install-agent"></a>
 
-```
+```bash
 sudo yum install ${MY_RPM_FILE_PATH}
 
 Example: Assumes agent is in the "/tmp" directory
