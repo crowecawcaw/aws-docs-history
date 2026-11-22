@@ -1,7 +1,6 @@
 
 
 # TELCOCOST05-BP01 Explore open interface-based technology like O-RAN and vRAN to reduce network-related costs
-<a name="telcocost05-bp01"></a>
 
  To examine O-RAN in more detail and understand the best practices for O-RAN architectures on AWS, see [Open Radio Access Network Architecture on AWS](https://docs.aws.amazon.com/whitepapers/latest/open-radio-access-network-architecture-on-aws/open-radio-access-network-architecture-on-aws.html). 
 

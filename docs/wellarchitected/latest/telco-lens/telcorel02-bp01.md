@@ -1,7 +1,6 @@
 
 
 # TELCOREL02-BP01 Deploy user plane functions in a distributed architecture and highly available configuration
-<a name="telcorel02-bp01"></a>
 
  Follow a distributed architecture approach to deploy user plane nodes across multiple geographical locations with built-in redundancy. Such a design maintains service continuity through redundant instances and geographical distribution, minimizing the impact of localized failures or outages while optimizing network performance through efficient load distribution. 
 

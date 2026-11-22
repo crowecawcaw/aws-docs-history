@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
  This section describes the operational excellence pillar for the AWS Well-Architected Telco Lens. It provides AWS customers with a set of best practices and guidance on how telecommunications service providers can achieve operational excellence in their AWS cloud environments. 
 

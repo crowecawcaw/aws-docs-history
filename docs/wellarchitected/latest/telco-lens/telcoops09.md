@@ -1,7 +1,6 @@
 
 
 # Performance baselining
-<a name="telcoops09"></a>
 
 
 |  TELCOOPS09: How do you verify accurate performance baseline measurements for capacity planning?  | 

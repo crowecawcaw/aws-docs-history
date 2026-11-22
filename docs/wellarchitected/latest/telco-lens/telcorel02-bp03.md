@@ -1,7 +1,6 @@
 
 
 # TELCOREL02-BP03 Implement a flexible network function (NF) design to use available infrastructure resources for autoscaling
-<a name="telcorel02-bp03"></a>
 
  A flexible network function design enables the telecom network to dynamically scale its resources based on the availability of suitable instance types in the deployment region. This approach avoids issues like Insufficient Capacity Error that can occur when the required instance type isn't available, by using alternative instance types that can be provisioned. The architecture should be able to automatically adapt to the most suitable instance types that are present, allowing the network to scale up or down as needed without being constrained by the availability of a specific instance configuration. 
 

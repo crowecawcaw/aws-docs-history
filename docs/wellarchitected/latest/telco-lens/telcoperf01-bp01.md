@@ -1,7 +1,6 @@
 
 
 # TELCOPERF01-BP01 Deploy latency-sensitive RAN and user-plane workloads on Outposts colocated with radio infrastructure
-<a name="telcoperf01-bp01"></a>
 
  Radio Access Network (RAN) Distributed Unit (DU) and user-plane functions have latency budgets to the radio that no remote cloud location can meet over a transport network. These workloads must run on compute physically colocated with or adjacent to the radio infrastructure. This best practice places them on AWS Outposts at cell sites and aggregation points where the budgets are achievable. 
 

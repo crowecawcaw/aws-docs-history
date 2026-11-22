@@ -1,7 +1,6 @@
 
 
 # TELCOOPS03-BP01 Implement a cloud-based IPAM solution optimized for workloads requiring secondary network interfaces
-<a name="telcoops03-bp01"></a>
 
  Telco container network functions attach secondary interfaces for user-plane separation, DPDK, or SR-IOV. Each interface needs IP addresses that the cloud network can route. An IP address management (IPAM) solution that ignores Elastic Network Interface (ENI) limits or fails to reflect addresses on the ENI produces undetected packet loss. 
 

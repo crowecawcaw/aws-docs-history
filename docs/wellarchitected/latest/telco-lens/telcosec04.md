@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="telcosec04"></a>
 
 
 |  TELCOSEC04: How do you protect customer proprietary network information (CPNI) and personally identifiable information (PII)?  | 

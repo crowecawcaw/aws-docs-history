@@ -1,7 +1,6 @@
 
 
 # Manage demand and supply resources
-<a name="telcocost06"></a>
 
 
 |  TELCOCOST06: How do you prioritize traffic across your hybrid networking connections?  | 

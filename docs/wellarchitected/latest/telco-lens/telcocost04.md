@@ -1,7 +1,6 @@
 
 
 # Data storage
-<a name="telcocost04"></a>
 
 
 |  TELCOCOST04: How are you optimizing the data storage costs for your network infrastructure?  | 

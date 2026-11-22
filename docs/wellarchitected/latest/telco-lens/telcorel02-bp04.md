@@ -1,7 +1,6 @@
 
 
 # TELCOREL02-BP04 Introduce an SCTP load balancer designed for control plane network functions, carrier-grade performance, and high availability
-<a name="telcorel02-bp04"></a>
 
  The major public cloud service providers lack native support for load balancing of telecom services that rely on control plane signaling protocols like SCTP (Stream Control Transmission Protocol). It is recommended to introduce a cloud-based SCTP load balancer for control plane network functions, designed specifically for telco workloads in the public cloud. Such a solution will provide SCTP protocol awareness, including support for multi-homing and association management, along with carrier-grade performance. The load balancer should also deliver high availability through failover and health checks, maintaining reliable and scalable operation of critical telecommunications components deployed in the public cloud. 
 

@@ -1,7 +1,6 @@
 
 
 # TELCOREL04-BP01 Implement bypass mode on peripheral network devices such as firewalls and network probes while connecting to the cloud
-<a name="telcorel04-bp01"></a>
 
  Implementing bypass mode on network peripheral devices like firewalls and network probes is crucial for maintaining service continuity during device failures or power outages. This mechanism automatically creates a direct connection between incoming and outgoing network ports when a device fails, so critical network traffic continues to flow without interruption. By deploying bypass-capable devices while connecting to the cloud-based network infrastructure, telecom operators can reduce service disruptions that could occur during device failures, maintenance windows, or unexpected outages. This approach is particularly important for maintaining high availability in telecommunications networks where continuous service is essential for customer satisfaction and regulatory adherence. 
 

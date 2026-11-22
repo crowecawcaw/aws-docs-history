@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  Reliability in telecommunications networks refers to the ability of the network to provide services without interruption or failure under normal and peak network load conditions. The reliability pillar addresses the ability of a network to recover from infrastructure or service disruptions, dynamically acquire computing and networking resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues. 
 

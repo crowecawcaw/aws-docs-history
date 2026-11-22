@@ -1,7 +1,6 @@
 
 
 # TELCOSEC04-BP01 Enable encryption for CPNI and PII information at rest and in transit and access restriction
-<a name="telcosec04-bp01"></a>
 
  It is recommended that telecommunications organizations implement comprehensive encryption measures for both customer proprietary network information (CPNI) and personally identifiable information (PII) at rest and in transit to verify strong data protection and regulatory adherence. Organizations should use industry-standard encryption algorithms (such as AES-256) for data at rest, implement TLS/SSL protocols for data in transit, and establish secure key management practices. 
 

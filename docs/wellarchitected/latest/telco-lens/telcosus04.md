@@ -1,7 +1,6 @@
 
 
 # Climate change risk
-<a name="telcosus04"></a>
 
 
 |  TELCOSUS04: Is your telco network deployment resilient to climate change risks?  | 

@@ -1,7 +1,6 @@
 
 
 # Compute and hardware
-<a name="telcoperf02"></a>
 
 
 |  TELCOPERF02: How do you select the appropriate compute solution for your telco workloads?  | 

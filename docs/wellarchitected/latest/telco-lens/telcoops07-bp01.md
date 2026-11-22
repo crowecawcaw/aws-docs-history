@@ -1,7 +1,6 @@
 
 
 # TELCOOPS07-BP01 Design geo-redundant architectures using Outposts and multi-AZ deployments within data residency boundaries
-<a name="telcoops07-bp01"></a>
 
  Telco regulators in many jurisdictions require both geographical separation between redundant sites, often 200 km or more, and in-country data residency. These demands conflict where a country has only a single cloud region. This best practice places compute in operator-owned facilities to provide the separation without moving data across borders, and validates that failover helps you adhere to both technical and regulatory targets. 
 

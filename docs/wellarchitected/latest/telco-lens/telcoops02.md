@@ -1,7 +1,6 @@
 
 
 # Multi-account strategy
-<a name="telcoops02"></a>
 
 
 |  TELCOOPS02: What factors should be considered when implementing a multi-account strategy for telecommunication workloads?  | 

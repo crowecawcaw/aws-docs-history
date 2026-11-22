@@ -1,7 +1,6 @@
 
 
 # TELCOOPS05-BP01 Implement standardized provisioning and management of high-performance network interfaces
-<a name="telcoops05-bp01"></a>
 
  Telco and high-performance network workloads require specialized networking interfaces (like SR-IOV, DPDK, and Multus) for separating control, management, and data plane traffic. While other cloud and container solutions provide native support for these interfaces, AWS requires custom implementation. This creates challenges for standardization and automation in large-scale deployments. Until AWS support becomes available, organizations need to implement enterprise-grade solutions that provide consistent, supported, and maintainable approaches to interface provisioning and management. 
 

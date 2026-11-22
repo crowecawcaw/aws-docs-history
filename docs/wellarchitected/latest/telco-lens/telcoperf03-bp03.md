@@ -1,7 +1,6 @@
 
 
 # TELCOPERF03-BP03 Implement network timing synchronization using dedicated timing infrastructure alongside cloud compute
-<a name="telcoperf03-bp03"></a>
 
  RAN and transport functions require nanosecond-level frequency and phase synchronization from IEEE 1588 Precision Time Protocol (PTP) or Synchronous Ethernet (SyncE), delivered by dedicated timing infrastructure such as GNSS receivers and PTP grandmasters. Cloud compute consumes this timing; it doesn't provide it. This best practice plans the timing infrastructure as a separate layer that feeds the compute environment. **Desired outcome:** 
 +  RAN timing uses dedicated GNSS receivers and PTP grandmasters at cell sites or aggregation points, distributing timing through IEEE 1588 telecom profiles. 

@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="telcoops05"></a>
 
 
 |  TELCOOPS05: How do you automate the provisioning and assignment of a secondary network interface?  | 

@@ -1,7 +1,6 @@
 
 
 # TELCOOPS01-BP02 Evaluate your governance and regulatory requirements
-<a name="telcoops01-bp02"></a>
 
  Systematically assess and verify telco governance frameworks, regulatory mandates, and security requirements across network operations. This includes evaluating legal intercept capabilities, security controls, and industry-specific regulations while maintaining documentation of assessment activities and findings. Regular evaluation verifies continued alignment with evolving regulatory landscapes and identifies gaps that require remediation. 
 

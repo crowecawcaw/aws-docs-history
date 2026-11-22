@@ -1,7 +1,6 @@
 
 
 # TELCOSEC01-BP02 Implement encryption for control-plane signaling and classify data-plane traffic by regulatory encryption requirements
-<a name="telcosec01-bp02"></a>
 
  Not all telco traffic needs the same encryption treatment. Control-plane signaling often requires transport encryption by regulation, while data-plane subscriber traffic is usually already encrypted end to end by the application and 3GPP layers. Adding blanket VPN encryption on top of already-encrypted, high-bandwidth data-plane flows imposes packet-per-second limits and cost without a compliance benefit. 
 

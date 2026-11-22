@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="telcoperf05"></a>
 
 
 |  TELCOPERF05: How do you select the appropriate storage solution for your telco workloads?  | 

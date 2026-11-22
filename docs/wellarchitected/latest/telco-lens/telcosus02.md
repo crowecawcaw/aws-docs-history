@@ -1,7 +1,6 @@
 
 
 # Data processing and storage
-<a name="telcosus02"></a>
 
 
 |  TELCOSUS02: How do you optimize data processing and storage for sustainable telco operations?  | 

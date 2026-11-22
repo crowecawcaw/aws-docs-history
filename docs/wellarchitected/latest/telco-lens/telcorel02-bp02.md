@@ -1,7 +1,6 @@
 
 
 # TELCOREL02-BP02 Implement full mesh between control plane and user plane functions
-<a name="telcorel02-bp02"></a>
 
  Implement a resilient architecture design where each control plane node can manage user plane functions in a mesh configuration. For each user plane function, one control plane node will be active at a time. The control plane node should be designed to have enough capacity to control the user plane nodes, when needed. This verifies that if one or multiple control plane nodes fail, the remaining nodes can manage user plane functions without service interruption. The design incorporates high-capacity centralized control components with distributed user plane functions. 
 

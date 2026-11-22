@@ -1,7 +1,6 @@
 
 
 # TELCOSEC03-BP02 Provide cloud infrastructure to support signaling firewall deployments on roaming and interconnect interfaces
-<a name="telcosec03-bp02"></a>
 
  CSPs deploy signaling firewalls on roaming and interconnect interfaces following GSMA IR.77 and FS.11 guidelines. When those firewalls run on cloud infrastructure, the cloud must supply the connectivity, performance, and high availability they need, while the CSP keeps ownership of the firewall policy and rules. 
 

@@ -1,7 +1,6 @@
 
 
 # TELCOSUS01-BP01 Implement energy-efficient infrastructure for telco networks
-<a name="telcosus01-bp01"></a>
 
  When designing telco network infrastructure for sustainability, focus on optimizing compute resources, implementing intelligent scaling, and leveraging edge computing to reduce energy consumption. Start by analyzing your current network function deployment patterns, including virtual network functions (VNFs), cloud-based network functions (CNFs), and support systems like business support systems (BSS) and operations support systems (OSS). 
 

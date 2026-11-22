@@ -1,7 +1,6 @@
 
 
 # TELCOSUS03-BP01 Adopt circular economy principles for telco network assets
-<a name="telcosus03-bp01"></a>
 
  Implementing circular economy principles in telco networks requires comprehensive visibility into physical and virtual assets throughout their lifecycle. This includes tracking network equipment from procurement through decommissioning, optimizing hardware utilization to extend lifespan, and establishing processes for equipment refurbishment and responsible recycling. 
 

@@ -1,7 +1,6 @@
 
 
 # TELCOPERF03-BP02 Select and configure hardware acceleration appropriate to each network function's processing requirements
-<a name="telcoperf03-bp02"></a>
 
  Different telco network functions have different acceleration needs, and applying one approach to all of them wastes spend without improving performance. Radio Access Network (RAN) Layer 1 processing needs purpose-built acceleration, user-plane forwarding relies on high-PPS software packet processing, and control-plane functions require neither. This best practice matches acceleration to each function's actual bottleneck. 
 

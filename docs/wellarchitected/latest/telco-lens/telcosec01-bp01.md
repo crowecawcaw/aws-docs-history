@@ -1,7 +1,6 @@
 
 
 # TELCOSEC01-BP01 Follow the industry standards and local regulations to host telecom networks in the cloud, demonstrating a security commitment
-<a name="telcosec01-bp01"></a>
 
  When operating a telecommunications network in a cloud environment, it is crucial to comply with relevant industry specifications and local regulatory requirements. This includes adhering to standards set forth by leading telecom standardization bodies such as the 3rd Generation Partnership Project (3GPP), which develops technical specifications for mobile networks, and the European Telecommunications Standards Institute (ETSI), which produces globally applicable standards for information and communications technologies. 
 

@@ -1,7 +1,6 @@
 
 
 # Geographical redundancy
-<a name="telcoops07"></a>
 
 
 |  TELCOOPS07: How do you address geographical redundancy requirements within data residency constraints?  | 

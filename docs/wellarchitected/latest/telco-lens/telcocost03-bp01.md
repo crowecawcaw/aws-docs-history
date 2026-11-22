@@ -1,7 +1,6 @@
 
 
 # TELCOCOST03-BP01 Use edge zones and services to implement cloud workloads made up of containers and microservices
-<a name="telcocost03-bp01"></a>
 
  Edge services let telecom operators run containerized microservices closer to subscribers and to the network infrastructure. AWS Local Zones place compute, storage, and other AWS services near large population and industry centers. AWS Wavelength Zones embed AWS compute and storage within communication service providers' 5G networks. AWS Outposts extends AWS infrastructure and services to operator-owned facilities. Placing latency-sensitive or high-volume processing at the edge can reduce the volume of data carried back to an AWS Region and improve responsiveness for users. Each edge service has its own pricing, so evaluate the cost of edge placement against your traffic patterns before you commit to it. 
 

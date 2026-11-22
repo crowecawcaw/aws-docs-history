@@ -1,7 +1,6 @@
 
 
 # TELCOREL01-BP01 Conduct regular load and failure tests to validate resilience on node, interface, and infrastructure levels
-<a name="telcorel01-bp01"></a>
 
  Implement a comprehensive testing strategy that evaluates network resilience through simulated failures of nodes, interfaces, and infrastructure components. This includes testing in both lower environments and production during maintenance windows to identify potential weaknesses, validate redundancy measures, and verify recovery procedures. The testing should cover both individual component failures and complex failure scenarios that could impact network services. 
 

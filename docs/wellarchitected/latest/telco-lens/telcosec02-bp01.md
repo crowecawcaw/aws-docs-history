@@ -1,7 +1,6 @@
 
 
 # TELCOSEC02-BP01 Use secure control-plane protocols between the network functions (NF)
-<a name="telcosec02-bp01"></a>
 
  The 3rd Generation Partnership Project (3GPP) recommends that telco organizations use secure control-plane protocols between the various network functions (NF) within their 5G core network architecture. This best practice is crucial for maintaining the confidentiality, integrity, and availability of the control-plane communications, which are essential for the proper functioning and management of the network. 
 

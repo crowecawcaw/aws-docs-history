@@ -1,7 +1,6 @@
 
 
 # TELCOOPS02-BP01 Telecommunication resources, operations, and projects have identified owners
-<a name="telcoops02-bp01"></a>
 
  Establish clear ownership and accountability frameworks for telecommunications assets, operations, and projects through formal assignment of responsibilities to specific individuals or teams. This includes mapping ownership of applications, VNFs, solutions, and infrastructure components while documenting their business value proposition and justification for ownership allocation. Clear ownership structures enable efficient decision-making, streamlined problem resolution, and effective resource management across the telecommunications environment. 
 

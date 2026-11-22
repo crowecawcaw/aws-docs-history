@@ -1,7 +1,6 @@
 
 
 # TELCOREL04-BP03 Provide infrastructure mechanisms that enable network functions to implement graceful degradation during dependent-service failures
-<a name="telcorel04-bp03"></a>
 
  When billing, charging, or policy services fail, the network functions that depend on them must decide how to handle in-flight sessions. That decision is the CSP's and vendor's to make. The cloud infrastructure's job is to provide the detection, buffering, and recovery that make any chosen degradation strategy possible. 
 

@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="telcorel01"></a>
 
  The foundations section explores the key concepts, definitions, and underlying principles that form the basis of reliability in telecommunications networks. This includes an overview of critical reliability metrics, regulatory requirements, and industry standards that telecom organizations must adhere to to verify uninterrupted service delivery. 
 

@@ -1,7 +1,6 @@
 
 
 # External interface security
-<a name="telcosec03"></a>
 
 
 |  TELCOSEC03: How do you maintain security on the external interfaces of your telco network?  | 

@@ -1,7 +1,6 @@
 
 
 # Resource availability
-<a name="telcoops06"></a>
 
 
 |  TELCOOPS06: How do you plan for resource availability for scale-out scenarios in telecommunication workloads?  | 

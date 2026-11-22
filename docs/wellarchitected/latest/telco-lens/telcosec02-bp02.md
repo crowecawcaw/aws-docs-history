@@ -1,7 +1,6 @@
 
 
 # TELCOSEC02-BP02 Provide cloud infrastructure support for subscriber identity protection mechanisms defined by 3GPP
-<a name="telcosec02-bp02"></a>
 
  3GPP defines how subscriber identity is concealed (SUCI and SUPI concealment), and the CSP implements those mechanisms in its network functions. The cloud infrastructure supplies the cryptographic services, key management, and hardened compute the mechanisms depend on. 
 

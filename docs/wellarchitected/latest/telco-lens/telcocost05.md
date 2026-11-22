@@ -1,7 +1,6 @@
 
 
 # Interoperability
-<a name="telcocost05"></a>
 
 
 |  TELCOCOST05: How are you handling the interoperability of your radio access network?  | 

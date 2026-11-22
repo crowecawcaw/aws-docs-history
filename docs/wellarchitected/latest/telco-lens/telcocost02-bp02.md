@@ -1,7 +1,6 @@
 
 
 # TELCOCOST02-BP02 Choose the most efficient compute resource for your Network Function
-<a name="telcocost02-bp02"></a>
 
  When implementing cloud-based network functions (CNFs), it is important to benchmark your applications on different compute types to determine the optimal balance of performance and cost-efficiency. CNFs have diverse compute requirements, so gravitating to the lowest cost option may result in poor performance. Older compute architectures and hardware can hamper efficiency and drive up expenses over time. 
 

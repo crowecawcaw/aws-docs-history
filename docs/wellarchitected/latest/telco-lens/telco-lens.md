@@ -1,7 +1,6 @@
 
 
 # Telco Lens - AWS Well-Architected Framework
-<a name="telco-lens"></a>
 
  Publication date: **November 11, 2026** ([Document revisions](document-revisions.md)) 
 

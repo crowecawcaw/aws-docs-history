@@ -1,7 +1,6 @@
 
 
 # TELCOPERF04-BP02 Monitor deviations from nominal performance parameters using system alerts and automated responses
-<a name="telcoperf04-bp02"></a>
 
  Effective monitoring of telecom workloads requires establishing and tracking performance baselines to quickly identify anomalies and deviations from expected behavior. By leveraging observability solutions, operators can implement comprehensive monitoring and alerting systems that continuously track system performance against established baselines. This approach enables automated responses to specific events and early detection of potential issues, helping maintain optimal network performance and reduce the risk of service disruptions. Setting up these monitoring systems with appropriate thresholds and alert mechanisms verifies that operations teams can proactively address performance issues before they impact service quality. 
 

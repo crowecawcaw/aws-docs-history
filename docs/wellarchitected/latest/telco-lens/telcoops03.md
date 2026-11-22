@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="telcoops03"></a>
 
 
 |  TELCOOPS03: How do you effectively manage IP address allocation and assignment for telco and high-performance networking workloads?  | 

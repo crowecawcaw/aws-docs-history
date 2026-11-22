@@ -1,7 +1,6 @@
 
 
 # TELCOCOST02-BP01 Implement dynamic CNF sizing and scaling strategies based on actual subscriber demands and usage patterns
-<a name="telcocost02-bp01"></a>
 
  In traditional on-premises environments, CNF infrastructure is typically sized for peak capacity expected over the hardware lifetime. To optimize costs in cloud environments, organizations should implement dynamic sizing strategies that align infrastructure capacity with actual subscriber demands. This includes using cloud-based auto scaling capabilities, implementing right-sizing based on usage patterns, and designing CNF architectures that support horizontal scaling. The approach should balance performance requirements with cost efficiency while maintaining the ability to handle growth in subscriber demand through elastic infrastructure scaling. 
 

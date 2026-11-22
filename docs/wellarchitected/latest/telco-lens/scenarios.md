@@ -1,7 +1,6 @@
 
 
 # Scenarios
-<a name="scenarios"></a>
 
  Communication service providers (CSPs) use public cloud services to address key business goals across four areas: network transformation, customer experience management (including OSS and BSS), IT modernization, and innovative solutions for industry verticals. 
 

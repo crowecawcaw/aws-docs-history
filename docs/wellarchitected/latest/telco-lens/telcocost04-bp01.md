@@ -1,7 +1,6 @@
 
 
 # TELCOCOST04-BP01 Choose the appropriate type of storage for network function backups, metrics, KPIs, and event records to reduce costs
-<a name="telcocost04-bp01"></a>
 
  Telecom companies generate and store massive amounts of data to support their business and customer operations. However, data is accessed or needed at various frequencies. By aligning storage choices with data access needs and lifecycles, telecoms can significantly reduce their storage costs. For actively accessed data that needs high performance, flash storage or cache is a good option despite its higher costs. For medium-term data that is accessed occasionally, lower-cost options like object storage, SAN, or NAS storage are suitable. For long-term archive data with infrequent access, cold storage options like tape or cloud archival storage are the most cost-efficient. 
 

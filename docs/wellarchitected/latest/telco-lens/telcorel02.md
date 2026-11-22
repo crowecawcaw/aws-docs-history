@@ -1,7 +1,6 @@
 
 
 # Workload architecture
-<a name="telcorel02"></a>
 
  The workload architecture section focuses on the design patterns and architectural approaches required to build highly available, fault-tolerant, and scalable telecom networks in the cloud. This includes best practices for distributed user plane deployments, control plane redundancy, flexible network function scaling, and cloud-based load balancing solutions. 
 

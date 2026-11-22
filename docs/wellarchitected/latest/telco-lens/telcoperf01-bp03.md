@@ -1,7 +1,6 @@
 
 
 # TELCOPERF01-BP03 Deploy the control plane network functions in centralized locations to meet high scalability and agility requirements
-<a name="telcoperf01-bp03"></a>
 
  Running the control plane nodes in centralized geographical locations is a strategy used to meet the demands for high scalability and mobility. Centralizing the control plane components in strategically placed data centers enables efficient resource management, load balancing, and fault tolerance across the distributed system. This approach allows the system to better handle sudden traffic increases, support many client nodes, and provide reliable failover mechanisms in case of individual node failures. 
 

@@ -1,7 +1,6 @@
 
 
 # TELCOSEC03-BP03 Conduct signaling protocol security assessments using specialized telco security testing tools
-<a name="telcosec03-bp03"></a>
 
  Signaling protocol security testing for SS7, Diameter, SIP, and GTP needs purpose-built tools and expertise. General cloud security services don't parse telco signaling, so they can't find signaling-layer vulnerabilities. Deploy specialized signaling security tools in the operator's environment to assess the interfaces that face roaming and interconnect partners. 
 

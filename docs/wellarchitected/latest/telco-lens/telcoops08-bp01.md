@@ -1,7 +1,6 @@
 
 
 # TELCOOPS08-BP01 Develop and execute thorough failure testing programs that reflect cloud infrastructure characteristics
-<a name="telcoops08-bp01"></a>
 
  Many telco deployments inherit resilience assumptions from on-premises networks with redundant physical paths and binary failures. Cloud infrastructure fails differently, with a spectrum of degradation that aggressive on-premises timers misread. This best practice builds a failure testing program that reflects cloud failure modes and validates that network functions behave correctly under them. 
 

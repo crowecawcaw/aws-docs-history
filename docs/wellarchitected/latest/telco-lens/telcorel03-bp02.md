@@ -1,7 +1,6 @@
 
 
 # TELCOREL03-BP02 Design a stateful, session-aware load balancing solution for cloud network functions (CNFs) to enable scaling and resilience
-<a name="telcorel03-bp02"></a>
 
  Cloud network functions (CNFs) such as AMF, SMF, and UPF in 5G architectures are typically designed to be horizontally scalable. However, these components maintain subscriber session state, and scaling events (up and down) can disrupt session continuity, leading to call drops, session re-establishment delays, or degraded user experience. To address this challenge, it is recommended to design a stateful, session-aware load balancing solution for CNFs that enables seamless scaling and resilience. This can be achieved by collaborating with the CNF vendors and relevant CNF communities to explore how cloud-based services can be adapted to support seamless session handling. 
 

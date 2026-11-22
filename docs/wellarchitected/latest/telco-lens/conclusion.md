@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The goal of the Telco Lens for the Well-Architected Framework is to provide architectural best practices for designing and operating reliable, secure, efficient, and cost-effective telecommunications workloads on AWS. In operational excellence, we outline best practices around how people, process, and operating models need to be aligned so that workloads running on AWS can support mission-critical telecommunication services. Architectures for telecommunications workloads need to incorporate security, and customers need to continuously monitor, measure, and test failure and recovery in the cloud to achieve their desired resiliency and performance objectives. These objectives can be met with significant cost savings by rightsizing and establishing governance models around consumption and monitoring of AWS resources. 
 

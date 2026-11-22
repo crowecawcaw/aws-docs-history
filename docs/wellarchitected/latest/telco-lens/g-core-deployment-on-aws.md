@@ -1,7 +1,6 @@
 
 
 # 5G core deployment on AWS
-<a name="g-core-deployment-on-aws"></a>
 
  This scenario explores deploying 5G core networks in the AWS Cloud. The 5G core is the center of 5G networks, providing key functionalities such as session management, user authentication, and policy control. As telecommunications providers transition to 5G, migrating the 5G core to the cloud can offer significant benefits. This scenario covers topics such as virtualizing and containerizing 5G network functions and using AWS infrastructure services like AWS Outposts and AWS Local Zones to address performance and data residency requirements. 
 
@@ -12,10 +11,14 @@
 
 ![Figure 1. 5G core on globally available AWS infrastructure.](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/scenario1-5g-core.png)
 
+*Figure 1. 5G core on globally available AWS infrastructure.*
+
 
  This reference architecture shows a standard telecommunication architecture to deploy and manage virtual network functions (VNFs) or containerized network functions (CNFs). The set of AWS services can deliver the capabilities on the infrastructure and management layer. The part shown in green is provided by the ISV, which deploys these VNFs and CNFs using the listed AWS services. 
 
 ![Figure 2. Bringing the cloud where the network needs it.](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/scenario2-cloud-edge.png)
+
+*Figure 2. Bringing the cloud where the network needs it.*
 
 
  The network functions (NFs) in a telco core network can be split into control and user planes. The user plane NFs are throughput intensive and depend heavily on packet forwarding mechanisms. However, the control plane functions are compute intensive and require higher levels of resiliency and reliability. In a distributed architecture, these control plane NFs are deployed in AWS Regions to offer better scalability and resilience. On the other hand, the user plane NFs are moved closer to the end user for better experience and low latency, using the higher throughput capabilities of Local Zones or AWS Outposts racks. Outposts servers can be used to deploy the RAN part of the network as shown in the previous diagram. 

@@ -1,7 +1,6 @@
 
 
 # TELCOREL04-BP02 Implement dual network planes for signaling or control plane
-<a name="telcorel04-bp02"></a>
 
  Implement a resilient network architecture with two independent and redundant signaling networks that operate in parallel. Each signaling plane handles messages and controls network resources independently, with logical and physical separation to verify that failures in one plane don't impact the other plane's operations. 
 

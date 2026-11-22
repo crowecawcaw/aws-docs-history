@@ -1,7 +1,6 @@
 
 
 # Investment protection
-<a name="telcosus03"></a>
 
 
 |  TELCOSUS03: How are you protecting investments in the telco network assets?  | 

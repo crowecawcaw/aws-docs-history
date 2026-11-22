@@ -1,7 +1,6 @@
 
 
 # TELCOOPS09-BP01 Implement Prometheus-based observability with Nitro network metrics for telco workload performance baselining
-<a name="telcoops09-bp01"></a>
 
  Telco cloud-based network functions (CNFs) expose Prometheus-compatible metrics as their native observability interface, and accurate baselines depend on collecting those alongside Amazon EC2 instance and Nitro network metrics. A baseline drawn from short benchmarks on a fresh instance overstates real capacity because it misses multitenant contention and instance network limits. 
 

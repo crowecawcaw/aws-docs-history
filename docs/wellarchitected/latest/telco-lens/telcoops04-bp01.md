@@ -1,7 +1,6 @@
 
 
 # TELCOOPS04-BP01 Manage User Equipment (UE) IP address pools using cloud-based IPAM integrated with 5G core network functions
-<a name="telcoops04-bp01"></a>
 
  In a 5G network, the Session Management Function (SMF) allocates user equipment (UE) IP addresses during session establishment, not the cloud provider's networking layer. The cloud infrastructure routes traffic to and from those addresses without interfering with the pools the SMF owns. Confusing the two addressing domains causes routing conflicts and standards violations. 
 

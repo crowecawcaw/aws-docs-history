@@ -1,7 +1,6 @@
 
 
 # TELCOSUS05-BP01 Establish comprehensive carbon footprint monitoring for telco networks
-<a name="telcosus05-bp01"></a>
 
  Measuring carbon footprint across telco operations requires tracking emissions from multiple sources including data centers, network equipment, edge sites, and even supply chain activities. 
 

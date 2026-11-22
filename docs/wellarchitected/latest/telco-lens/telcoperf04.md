@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="telcoperf04"></a>
 
 
 |  TELCOPERF04: How do you select the appropriate monitoring solution for your telco workloads?  | 

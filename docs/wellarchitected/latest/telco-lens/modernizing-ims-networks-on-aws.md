@@ -1,7 +1,6 @@
 
 
 # Modernizing IMS networks on AWS
-<a name="modernizing-ims-networks-on-aws"></a>
 
  This scenario explores modernizing IP Multimedia Subsystem (IMS) networks on the AWS Cloud. IMS is a key component of 5G networks, providing IP-based multimedia services like voice, video, and messaging. As telecommunications providers modernize their infrastructure for 5G, migrating legacy IMS deployments to the cloud can offer significant benefits. 
 
@@ -13,6 +12,8 @@
 <a name="reference-architecture"></a>
 
 ![Reference architecture displaying Direct Connect interfacing with a CSP network, AWS Regions, and AWS Local Zones.](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/scenario3-ims.png)
+
+*Reference architecture displaying Direct Connect interfacing with a CSP network, AWS Regions, and AWS Local Zones.*
 
 
  The AWS global infrastructure of Regions and Availability Zones provides the foundation for deploying highly available and resilient IMS networks. Deploying IMS workloads across multiple AWS Regions offers benefits such as: 

@@ -1,7 +1,6 @@
 
 
 # Organize
-<a name="telcoops01"></a>
 
 
 |  TELCOOPS01: How do you create the optimal cross-functional team?  | 

@@ -1,7 +1,6 @@
 
 
 # Failure testing
-<a name="telcoops08"></a>
 
 
 |  TELCOOPS08: How do you implement comprehensive failure testing for telecommunication workloads in cloud environments?  | 
