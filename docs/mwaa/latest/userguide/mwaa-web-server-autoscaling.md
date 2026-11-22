@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon MWAA webserver automatic scaling
-<a name="mwaa-web-server-autoscaling"></a>
 
 For environments running Apache Airflow v2.2.2 and later, Amazon MWAA dynamically scales your webservers to handle fluctuating workloads, which in turn prevents performance issues during peak loads. By automatically scaling the number of webservers based on CPU utilization and active connection count, Amazon MWAA ensures that your Apache Airflow environment can seamlessly accommodate increased demand, whether from REST API requests, CLI usage, or more concurrent Apache Airflow user interface users.
 

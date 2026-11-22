@@ -1,7 +1,6 @@
 
 
 # Apache Airflow versions on Amazon Managed Workflows for Apache Airflow
-<a name="airflow-versions"></a>
 
 This topic describes the Apache Airflow versions Amazon Managed Workflows for Apache Airflow supports, and best-practices for upgrading to the latest version.
 

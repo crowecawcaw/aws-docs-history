@@ -1,7 +1,6 @@
 
 
 # Using Amazon MWAA with Amazon RDS for Microsoft SQL Server
-<a name="samples-sql-server"></a>
 
 You can use Amazon Managed Workflows for Apache Airflow to connect to an [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html). The following sample code uses DAGs on an Amazon Managed Workflows for Apache Airflow environment to connect to and execute queries on an Amazon RDS for Microsoft SQL Server.
 
@@ -72,7 +71,7 @@ If you're using a connection in Apache Airflow v2, ensure the Airflow connection
 
 1. Copy the contents of the following code sample and save locally as `sql-server.py`.
 
-   ```
+   ```python
    """
    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    Permission is hereby granted, free of charge, to any person obtaining a copy of

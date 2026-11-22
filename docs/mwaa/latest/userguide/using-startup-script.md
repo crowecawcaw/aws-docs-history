@@ -1,7 +1,6 @@
 
 
 # Using a startup script with Amazon MWAA
-<a name="using-startup-script"></a>
 
 A startup script is a shell (`.sh`) script you host in your environment's Amazon S3 bucket similar to your DAGs, requirements, and plugins. Amazon MWAA runs this script during startup on every individual Apache Airflow component (worker, scheduler, and web server) before installing requirements and initializing the Apache Airflow process. Use a startup script to do the following:
 + **Install runtimes** – Install Linux runtimes required by your workflows and connections.
@@ -26,7 +25,7 @@ To complete the steps in this section, use the following sample script. The scri
 
 Copy the code and save it locally as `startup.sh`.
 
-```
+```sh
 #!/bin/sh
 			​
 echo "Printing Apache Airflow component"
@@ -59,13 +58,13 @@ The script is listed in the list of **Objects**. Amazon S3 creates a new version
 
 1. Open a new command prompt, and run the Amazon S3 `ls` command to list and identify the bucket associated with your environment.
 
-   ```
+   ```sh
    aws s3 ls
    ```
 
 1. Navigate to the folder where you saved the shell script. Use `cp` in a new prompt window to upload the script to your bucket. Replace {{amzn-s3-demo-bucket}} with your information.
 
-   ```
+   ```sh
    aws s3 cp startup.sh s3://{{amzn-s3-demo-bucket}}/startup.sh
    ```
 
@@ -77,7 +76,7 @@ The script is listed in the list of **Objects**. Amazon S3 creates a new version
 
 1. Use the following command to retrieve the latest version ID for the script.
 
-   ```
+   ```sh
    aws s3api list-object-versions --bucket {{amzn-s3-demo-bucket}} --prefix startup --query 'Versions[?IsLatest].[VersionId]' --output text
    ```
 
@@ -116,7 +115,7 @@ Environment updates can take between 10 to 30 minutes. Amazon MWAA runs the star
 **To associate the script with an environment (CLI)**
 + Open a command prompt and use `update-environment` to specify the Amazon S3 URL and version ID for the script.
 
-  ```
+  ```sh
   aws mwaa update-environment \
   --name {{your-mwaa-environment}} \
   --startup-script-s3-path {{startup.sh}} \
@@ -169,7 +168,7 @@ Use a startup script to update the operating system of an Apache Airflow compone
 
 When running `yum update` in a startup script, you must exclude Python using `--exclude=python*` as listed in the example. For your environment to run, Amazon MWAA installs a specific version of Python compatible with your environment. Therefore, you can't update the environment's Python version using a startup script.
 
-```
+```sh
 #!/bin/sh
 			
 echo "Updating operating system"
@@ -182,7 +181,7 @@ To install runtimes on specific Apache Airflow component, use `MWAA_AIRFLOW_COMP
 If you have configured a [private webserver](configuring-networking.md#access-overview-private), you must either use the following condition or provide all installation files locally to avoid installation timeouts.
 Use `sudo` to run operations that require administrative privileges.
 
-```
+```sh
 #!/bin/sh
 			
 if [[ "${MWAA_AIRFLOW_COMPONENT}" != "webserver" ]]
@@ -194,7 +193,7 @@ fi
 
 You can use a startup script to get the Python version.
 
-```
+```sh
 #!/bin/sh
 			
 export PYTHON_VERSION_CHECK=`python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}.{2}".format(*version))'`
@@ -208,7 +207,7 @@ Amazon MWAA does not support overriding the default Python version, as this migh
 
 Use startup scripts to set environment variables and modify Apache Airflow configurations. The following defines a new variable, `ENVIRONMENT_STAGE`. You can reference this variable in a DAG or in your custom modules.
 
-```
+```sh
 #!/bin/sh
 			
 export ENVIRONMENT_STAGE="development"
@@ -217,7 +216,7 @@ echo "$ENVIRONMENT_STAGE"
 
 Use startup scripts to overwrite common Apache Airflow or system variables. For example, you set `LD_LIBRARY_PATH` to instruct Python to search for binaries in the path you specify. This lets you provide custom binaries for your workflows using [plugins](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/plugins.html):
 
-```
+```sh
 #!/bin/sh
 			
 export LD_LIBRARY_PATH=/usr/local/airflow/plugins/{{your-custom-binary}}

@@ -1,7 +1,6 @@
 
 
 # Refreshing a CodeArtifact token
-<a name="samples-code-artifact"></a>
 
 If you're using CodeArtifact to install Python dependencies, Amazon MWAA requires an active token. To allow Amazon MWAA to access an CodeArtifact repository at runtime, you can use a [startup script](using-startup-script.md) and set the [`PIP_EXTRA_INDEX_URL`](https://pip.pypa.io/en/stable/cli/pip_install/#cmdoption-extra-index-url) with the token.
 
@@ -32,7 +31,7 @@ To use the sample code on this page, you'll need the following:
 To refresh the CodeArtifact token and write the result to Amazon S3 Amazon MWAA must have the following permissions in the execution role.
 + The `codeartifact:GetAuthorizationToken` action allows Amazon MWAA to retrieve a new token from CodeArtifact. The following policy grants permission for every CodeArtifact domain you create. You can further restrict access to your domains by modifying the resource value in the statement, and specifying only the domains that you want your environment to access.
 
-  ```
+  ```json
   {
     "Effect": "Allow",
     "Action": "codeartifact:GetAuthorizationToken",
@@ -41,7 +40,7 @@ To refresh the CodeArtifact token and write the result to Amazon S3 Amazon MWAA 
   ```
 + The `sts:GetServiceBearerToken` action is required to call the CodeArtifact [`GetAuthorizationToken`](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_GetAuthorizationToken.html) API operation. This operation returns a token that must be used when using a package manager such as `pip` with CodeArtifact. To use a package manager with a CodeArtifact repository, your environment's execution role role must allow `sts:GetServiceBearerToken` as listed in the following policy statement.
 
-  ```
+  ```json
   {
     "Sid": "AllowServiceBearerToken",
     "Effect": "Allow",
@@ -57,7 +56,7 @@ The following steps describe how you can create a start up script that updates t
 
 1. Copy the contents of the following code sample and save locally as `code_artifact_startup_script.sh`.
 
-   ```
+   ```sh
    #!/bin/sh
    
    # Startup script for MWAA, refer to https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html
@@ -80,7 +79,7 @@ The following steps describe how you can create a start up script that updates t
 
 1. Navigate to the folder where you saved the script. Use `cp` in a new prompt window to upload the script to your bucket. Replace {{amzn-s3-demo-bucket}} with your information.
 
-   ```
+   ```sh
    aws s3 cp code_artifact_startup_script.sh s3://{{amzn-s3-demo-bucket}}/code_artifact_startup_script.sh
    ```
 

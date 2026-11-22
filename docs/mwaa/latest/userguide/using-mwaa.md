@@ -1,7 +1,6 @@
 
 
 # Managing Amazon MWAA environments
-<a name="using-mwaa"></a>
 
 The Amazon Managed Workflows for Apache Airflow console contains built-in options to configure private or public access to the Apache Airflow UI. It also contains built-in options to configure the environment size, when to scale workers, and Apache Airflow configuration options that you can use to override Apache Airflow configurations that are normally only accessible in `airflow.cfg`. This chapter describes how to use these configurations on the Amazon MWAA console.
 

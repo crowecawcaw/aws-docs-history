@@ -1,7 +1,6 @@
 
 
 # Creating an Apache Airflow CLI token
-<a name="call-mwaa-apis-cli"></a>
 
 **Tip**  
 REST API is more modern than the CLI and is designed for programmatic integration with external systems. REST is the preferred way of interacting with Apache Airflow.
@@ -80,7 +79,7 @@ After copying it to your clipboard, you might need to use **Edit > Paste** from 
 
    Your command prompt displays:
 
-   ```
+   ```JSON
    {
      "stderr":"<STDERR of the CLI execution (if any), base64 encoded>",
      "stdout":"<STDOUT of the CLI execution, base64 encoded>"
@@ -116,7 +115,7 @@ After copying it to your clipboard, you might need to use **Edit > Paste** from 
 
    Your command prompt displays:
 
-   ```
+   ```JSON
    {
      "stderr":"<STDERR of the CLI execution (if any), base64 encoded>",
      "stdout":"<STDOUT of the CLI execution, base64 encoded>"
@@ -206,7 +205,7 @@ The following example uses the [boto3 create\_cli\_token](https://boto3.amazonaw
 
 1. Copy the contents of the following code sample and save locally as `create-cli-token.py`.
 
-   ```
+   ```python
    """
    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
     
@@ -272,7 +271,7 @@ The following example uses the [boto3 create\_cli\_token](https://boto3.amazonaw
 
 1. Copy the contents of the following code sample and save locally as `create-cli-token.py`.
 
-   ```
+   ```python
    """
    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
     

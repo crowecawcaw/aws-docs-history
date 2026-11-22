@@ -1,7 +1,6 @@
 
 
 # Using Apache Airflow configuration options on Amazon MWAA
-<a name="configuring-env-variables"></a>
 
 Apache Airflow configuration options can be attached to your Amazon Managed Workflows for Apache Airflow environment as environment variables. You can choose from the suggested dropdown list or specify custom configuration options for your Apache Airflow version on the Amazon MWAA console. This topic describes the Apache Airflow configuration options available and how to use these options to override Apache Airflow configuration settings on your environment.
 
@@ -252,7 +251,7 @@ The following Apache Airflow configuration options are not available in Amazon M
 
 You can use the following DAG to print your `email_backend` Apache Airflow configuration options. To run in response to Amazon MWAA events, copy the code to your environment's DAGs folder on your Amazon S3 storage bucket.
 
-```
+```python
 from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
 from datetime import datetime

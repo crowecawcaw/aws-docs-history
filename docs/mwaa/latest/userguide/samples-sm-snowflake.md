@@ -1,7 +1,6 @@
 
 
 # Using a secret key in AWS Secrets Manager for an Apache Airflow Snowflake connection
-<a name="samples-sm-snowflake"></a>
 
 The following sample calls AWS Secrets Manager to get a secret key for an Apache Airflow Snowflake connection on Amazon Managed Workflows for Apache Airflow. It assumes you've completed the steps in [Configuring an Apache Airflow connection using a AWS Secrets Manager secret](connections-secrets-manager.md).
 

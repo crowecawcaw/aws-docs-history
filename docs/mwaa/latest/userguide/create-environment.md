@@ -1,7 +1,6 @@
 
 
 # Create an Amazon MWAA environment
-<a name="create-environment"></a>
 
 Amazon Managed Workflows for Apache Airflow sets up Apache Airflow on an environment in your chosen version using the same open-source Apache Airflow and user interface available from Apache. This guide describes the steps to create an Amazon MWAA environment.
 
@@ -172,7 +171,7 @@ You must have permissions to the key to select it on the Amazon MWAA console. Yo
 
    1. **Optional**. Choose **Enter role ARN** to enter the Amazon Resource Name (ARN) of an existing execution role.
 
-1. **Optional**. Under **Identity Center configuration** (visible only for Apache Airflow 3.3.1 or later), configure IAM Identity Center integration:
+1. **Optional**. Under **Identity Center configuration** (visible only for Apache Airflow 3.3.1 or later, in AWS Regions where IAM Identity Center integration is available), configure IAM Identity Center integration:
 
    1. Select **Enable IAM Identity Center integration**.
 
@@ -180,7 +179,7 @@ You must have permissions to the key to select it on the Amazon MWAA console. Yo
 
    1. Enter the **Identity Store ID**, found in the IAM Identity Center console under **Settings**. Example: `d-xxxxxxxxxx`.
 **Optional configuration**  
-This section is optional. Environments without IAM Identity Center integration continue to use the existing IAM token-based access model. IAM Identity Center integration requires an organization-level IAM Identity Center instance. For more information, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).
+This section is optional. Environments without IAM Identity Center integration continue to use the existing IAM token-based access model. IAM Identity Center integration requires an organization-level IAM Identity Center instance in the same AWS Region as the environment. For more information, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).
 **Irreversible action**  
 Once IAM Identity Center integration is enabled on an environment, it cannot be disabled. Use the parallel-environment approach in [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md) for a safe migration path.
 

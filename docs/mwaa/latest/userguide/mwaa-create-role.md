@@ -1,7 +1,6 @@
 
 
 # Amazon MWAA execution role
-<a name="mwaa-create-role"></a>
 
 An execution role is an AWS Identity and Access Management (IAM) role with a permissions policy that grants Amazon Managed Workflows for Apache Airflow permission to invoke the resources of other AWS services on your behalf. This can include resources such as your Amazon S3 bucket, [AWS-owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk), and CloudWatch Logs. Amazon MWAA environments need one execution role per environment. This topic describes how to use and configure the execution role for your environment to allow Amazon MWAA to access other AWS resources used by your environment.
 
@@ -107,7 +106,7 @@ You can create a JSON policy for an AWS service and attach it to your execution 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -163,7 +162,7 @@ The following example demonstrates the policy you must attach to your execution 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -202,7 +201,7 @@ The following example presents an execution role policy you can use for an [Cust
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
  "Statement": [
@@ -313,7 +312,7 @@ Next, you need to allow Amazon MWAA to assume this role to perform actions on yo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -335,7 +334,7 @@ Then attach the following JSON policy to your [Customer-managed key](https://doc
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "Sid": "Allow logs access",
   "Effect": "Allow",
@@ -370,7 +369,7 @@ The following example presents an execution role policy you can use for an [AWS-
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

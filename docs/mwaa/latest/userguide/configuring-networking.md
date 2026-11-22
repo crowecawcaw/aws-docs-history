@@ -1,7 +1,6 @@
 
 
 # Apache Airflow access modes
-<a name="configuring-networking"></a>
 
 The Amazon Managed Workflows for Apache Airflow console contains built-in options to configure private, public, or both public and private routing to the Apache Airflow webserver on your environment. This guide describes the access modes available for the Apache Airflow webserver on your Amazon Managed Workflows for Apache Airflow environment, and the additional resources you'll need to configure in your Amazon VPC if you choose the private network option.
 

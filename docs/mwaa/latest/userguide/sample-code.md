@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Managed Workflows for Apache Airflow
-<a name="sample-code"></a>
 
 This guide contains code samples, including DAGs and custom plugins, that you can use on an Amazon Managed Workflows for Apache Airflow environment. For more examples of using Apache Airflow with AWS services, refer to the [`dags`](https://github.com/aws-samples/amazon-mwaa-examples/tree/main/dags) directory in the Apache Airflow GitHub repository.
 

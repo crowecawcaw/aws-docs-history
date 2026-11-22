@@ -1,7 +1,6 @@
 
 
 # Encryption on Amazon MWAA
-<a name="encryption"></a>
 
 The following topics describe how Amazon MWAA protects your data at rest, and in transit. Use this information to learn how Amazon MWAA integrates with AWS KMS to encrypt data at rest, and how data is encrypted using Transport Layer Security (TLS) protocol in transit.
 

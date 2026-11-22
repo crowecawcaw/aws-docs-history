@@ -1,7 +1,6 @@
 
 
 # Creating a custom plugin with Apache Hive and Hadoop
-<a name="samples-hive"></a>
 
 Amazon MWAA extracts the contents of a `plugins.zip` to `/usr/local/airflow/plugins`. This can be used to add binaries to your containers. In addition, Apache Airflow executes the contents of Python files in the `plugins` folder at *startup*—enabling you to set and modify environment variables. The following sample walks you through the steps to create a custom plugin using Apache Hive and Hadoop on an Amazon Managed Workflows for Apache Airflow environment and can be combined with other custom plugins and binaries.
 
@@ -112,7 +111,7 @@ Apache Airflow will execute the contents of Python files in the plugins folder a
 
 1. Cope the content of the following text and save locally as `.airflowignore` in the `hive_plugin` directory.
 
-   ```
+   ```text
    hadoop-3.3.0
    apache-hive-3.1.2-bin
    ```

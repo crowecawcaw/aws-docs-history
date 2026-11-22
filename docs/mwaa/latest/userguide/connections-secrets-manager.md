@@ -1,7 +1,6 @@
 
 
 # Configuring an Apache Airflow connection using a AWS Secrets Manager secret
-<a name="connections-secrets-manager"></a>
 
 AWS Secrets Manager is a supported alternative Apache Airflow backend on an Amazon Managed Workflows for Apache Airflow environment. This topic explains how to use AWS Secrets Manager to securely store secrets for Apache Airflow variables and an Apache Airflow connection on Amazon Managed Workflows for Apache Airflow.
 
@@ -42,7 +41,7 @@ If you do not want to use an AWS-managed permission policy, you can directly upd
 
 **Example – IAM policy for Secrets Manager read access**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -91,7 +90,7 @@ The following section describes how to create an Apache Airflow configuration op
 
       To specify a lookup pattern, specify the `connections_lookup_pattern` and `variables_lookup_pattern` parameters. These parameters accept a RegEx string as input. For example, to search for secrets that start with `test`, enter the following for `secrets.backend_kwargs`:
 
-      ```
+      ```json
       {
         "connections_prefix": "airflow/connections",
         "connections_lookup_pattern": "^test",
@@ -122,25 +121,25 @@ The following shell session uses your local Airflow CLI to generate a connection
 
 1. Enter the following command:
 
-   ```
+   ```python
    >>> import json
    ```
 
 1. Enter the following command:
 
-   ```
+   ```python
    >>> from airflow.models.connection import Connection
    ```
 
 1. Create a variable in your shell session for the `extra` object. Substitute the sample values in {{YOUR\_EXECUTION\_ROLE\_ARN}} with the execution role ARN, and the region in {{us-east-1}} (such as `us-east-1`).
 
-   ```
+   ```python
    >>> extra=json.dumps({'role_arn': '{{YOUR_EXECUTION_ROLE_ARN}}', 'region_name': '{{us-east-1}}'})
    ```
 
 1. Create the connection object. Substitute the sample value in `myconn` with the name of the Apache Airflow connection.
 
-   ```
+   ```python
    >>> {{myconn}} = Connection(
    ```
 
@@ -148,49 +147,49 @@ The following shell session uses your local Airflow CLI to generate a connection
 
    1. Specify the AWS connection type:
 
-      ```
+      ```python
       ... conn_id='{{aws}}',
       ```
 
    1. Specify the Apache Airflow database option:
 
-      ```
+      ```python
       ... conn_type='{{mysql}}',
       ```
 
    1. Specify the Apache Airflow UI URL on Amazon MWAA:
 
-      ```
+      ```python
       ... host='{{288888a0-50a0-888-9a88-1a111aaa0000.a1.us-east-1.airflow.amazonaws.com/home}}',
       ```
 
    1. Specify the AWS access key ID (username) to log in to Amazon MWAA:
 
-      ```
+      ```python
       ... login='{{YOUR_AWS_ACCESS_KEY_ID}}',
       ```
 
    1. Specify the AWS secret access key (password) to log in to Amazon MWAA:
 
-      ```
+      ```python
       ... password='{{YOUR_AWS_SECRET_ACCESS_KEY}}',
       ```
 
    1. Specify the `extra` shell session variable:
 
-      ```
+      ```python
       ... extra=extra
       ```
 
    1. Close the connection object.
 
-      ```
+      ```python
       ... )
       ```
 
 1. Print the connection URI string:
 
-   ```
+   ```python
    >>> {{myconn.get_uri()}}
    ```
 
@@ -207,7 +206,7 @@ The following Python script does not require the Apache Airflow CLI.
 
 1. Copy the contents of the following code sample and save locally as `mwaa_connection.py`.
 
-   ```
+   ```python
    import urllib.parse
    								
    								conn_type = '{{YOUR_DB_OPTION}}'

@@ -1,7 +1,6 @@
 
 
 # Using a DAG to write custom metrics in CloudWatch
-<a name="samples-custom-metrics"></a>
 
 You can use the following code example to write a directed acyclic graph (DAG) that runs a `PythonOperator` to retrieve OS-level metrics for an Amazon MWAA environment. The DAG then publishes the data as custom metrics to Amazon CloudWatch.
 
@@ -116,7 +115,7 @@ No additional permissions are required to use the code example on this page.
 
 1.  Run the following AWS CLI command to copy the DAG to your environment's bucket, then trigger the DAG using the Apache Airflow UI. 
 
-   ```
+   ```bash
    aws s3 cp {{your-dag}}.py s3://{{your-environment-bucket}}/dags/
    ```
 

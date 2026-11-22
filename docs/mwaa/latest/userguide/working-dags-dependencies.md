@@ -1,7 +1,6 @@
 
 
 # Installing Python dependencies
-<a name="working-dags-dependencies"></a>
 
 A Python dependency is any package or distribution not included in the Apache Airflow base install for your Apache Airflow version on your Amazon Managed Workflows for Apache Airflow environment. This topic describes the steps to install Apache Airflow Python dependencies on your Amazon MWAA environment using a `requirements.txt` file in your Amazon S3 bucket.
 
@@ -86,7 +85,7 @@ The following section describes how to specify Python dependencies from the [Pyt
 
    For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official). 
 
-   ```
+   ```bash
    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-{{{Airflow-version}}}/constraints-{{{Python-version}}}.txt"
    ```
 
@@ -132,7 +131,7 @@ If you need to update the versions in the constraint file, refer to [Constraints
 
    For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official).
 
-   ```
+   ```bash
    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-{{{Airflow-version}}}/constraints-{{{Python-version}}}.txt"
    ```
 
@@ -277,7 +276,7 @@ You can view Apache Airflow logs for the scheduler scheduling your workflows and
 
 1. Refer to the list of packages that were installed on the environment at `/usr/local/airflow/.local/bin`. For example:
 
-   ```
+   ```bash
    Collecting appdirs==1.4.4 (from -r /usr/local/airflow/.local/bin (line 1))
    Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb28kjdsfiuyweb47389789vxbmnbjhsdgf5463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl  
    Collecting astroid==2.4.2 (from -r /usr/local/airflow/.local/bin (line 2))
@@ -285,7 +284,7 @@ You can view Apache Airflow logs for the scheduler scheduling your workflows and
 
 1. Review the list of packages and whether any of these encountered an error during installation. If something went wrong, you get an error similar to the following:
 
-   ```
+   ```bash
    2021-03-05T14:34:42.731-07:00
    No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4))
    No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4))

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting: Creating and updating an Amazon MWAA environment
-<a name="t-create-update-environment"></a>
 
 The topics on this page contain errors you can encounter when creating and updating an Amazon Managed Workflows for Apache Airflow environment and how to resolve these errors.
 
@@ -236,7 +235,7 @@ Amazon MWAA containers have a finite amount of storage for the OS, DAGs, runtime
 
 To reduce the storage requirement, you might be able to use `--no-cache-dir` by installing the libraries with a startup script. For example:
 
-```
+```bash
 #!/bin/sh
 
 if [[ "${MWAA_AIRFLOW_COMPONENT}" != "webserver" ]]

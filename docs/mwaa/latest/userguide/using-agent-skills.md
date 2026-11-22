@@ -1,7 +1,6 @@
 
 
 # Using agent skills with Amazon MWAA
-<a name="using-agent-skills"></a>
 
 Agent skills are instruction packages that guide an AI coding assistant through Amazon Managed Workflows for Apache Airflow operations. The AWS Data Analytics plugin (`aws-data-analytics`) in the open-source Agent Toolkit for AWS provides a set of skills that follow the open Agent Skills standard. After you install the skills, you describe what you want to do in natural language, and your assistant uses the matching skill to do the work. This guide describes the Amazon MWAA skills, how to install them for several assistants, and example prompts that you can use.
 
@@ -43,13 +42,13 @@ Complete the prerequisites in Getting started. In addition, grant your AWS Ident
 
 Install the `aws-data-analytics` plugin for your assistant. For example, in Claude Code, run the following command:
 
-```
+```bash
 /plugin install aws-data-analytics@claude-plugins-official
 ```
 
 For Kiro, Codex, Cursor, and other assistants, install the `aws-data-analytics` plugin or its skills as described in Getting started. To install the skills directly from the repository, run the following command:
 
-```
+```bash
 npx skills add aws/agent-toolkit-for-aws/skills
 ```
 

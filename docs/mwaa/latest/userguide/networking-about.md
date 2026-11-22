@@ -1,7 +1,6 @@
 
 
 # About networking on Amazon MWAA
-<a name="networking-about"></a>
 
 A Amazon VPC is a virtual network linked to your AWS account. It gives you cloud security and the ability to scale dynamically by providing fine-grained control over your virtual infrastructure and network traffic segmentation. This page describes the Amazon VPC infrastructure with *public routing*, *private routing*, or *both public and private routing* needed to support an Amazon Managed Workflows for Apache Airflow environment.
 

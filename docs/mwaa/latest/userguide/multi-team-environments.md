@@ -1,12 +1,14 @@
 
 
 # Multi-team environments
-<a name="multi-team-environments"></a>
 
 In a multi-team environment, several teams share a single Amazon Managed Workflows for Apache Airflow environment. Each team has its own DAG folder in Amazon S3, and IAM Identity Center groups control which teams a user can access. Amazon MWAA multi-team environments are based on the Apache Airflow multi-team feature. For more information, see [Multi-Team](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/multi-team.html) on the Apache Airflow website.
 
 **Important**  
 Amazon MWAA multi-team support is based on the Apache Airflow multi-team feature. This Apache Airflow feature is experimental and in preview as of Apache Airflow version 3.3.1. The feature is not complete, and its behavior and APIs can change in breaking ways, or be removed, between releases without notice. We recommend that you use multi-team environments with caution and that you don't rely on them for production-critical workloads. For more information, see [Experimental features](https://airflow.apache.org/docs/apache-airflow/stable/installation/supported-versions.html#experimental-features) on the Apache Airflow website.
+
+**Regional availability**  
+Amazon MWAA is gradually releasing IAM Identity Center integration and multi-team environments to AWS Regions. If these features aren't available in your Region yet, the Amazon MWAA console doesn't show the **Identity Center configuration** and **Teams** settings, and you can't configure teams from the console.
 
 **Contents**
 + [Prerequisites](#multi-team-prerequisites)
@@ -15,6 +17,7 @@ Amazon MWAA multi-team support is based on the Apache Airflow multi-team feature
   + [Global and team DAG folders](#multi-team-concepts-dag-folders)
   + [DAG visibility](#multi-team-concepts-dag-visibility)
   + [Team isolation and the `airflow:TeamNames` condition key](#multi-team-concepts-access-control)
+  + [Security considerations for DAG authors](#multi-team-concepts-security)
 + [Choosing a multi-team environment or separate environments](#multi-team-choosing)
 + [Limitations](#multi-team-limitations)
 + [Next steps](#multi-team-next-steps)
@@ -76,6 +79,23 @@ Apache Airflow multi-team mode is off, and resources don't belong to teams. The 
 
 For how Apache Airflow associates resources with teams, see [Multi-Team](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/multi-team.html) on the Apache Airflow website. For policy examples, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md) and [Accessing an Amazon MWAA environment](access-policies.md).
 
+### Security considerations for DAG authors
+<a name="multi-team-concepts-security"></a>
+
+Team isolation controls what users can see and do in the Apache Airflow UI and Apache Airflow REST API. It isn't a security boundary between the people who write DAG code. All teams in an environment share the following resources:
++ The environment's execution role
++ The DAG processor, schedulers, and workers that parse and run DAG code
++ The Apache Airflow metadata database
++ Plugins and Python dependencies
+
+DAG code from every team runs with the same IAM permissions. DAG code that any team writes can access anything that the execution role can access, including other teams' DAG folders. It can also affect the DAGs, connections, variables, and data of other teams.
+
+**Important**  
+Write access to DAG folders is administrator-equivalent. Anyone who can write to the global DAG folder, to any team DAG folder, or to the plugins or `requirements.txt` file in Amazon S3 can run code in the environment with the execution role's permissions. Treat write access to these Amazon S3 prefixes as administrator access to the whole environment and to all of its teams, not only to one team.  
+Grant write access to these prefixes only to people and pipelines that you trust with every team's resources. For example, use a CI/CD pipeline with a review step to publish DAGs instead of giving users direct write access to Amazon S3. If teams don't trust each other's DAG authors, use separate environments.
+
+For more recommendations, see [Security best practices for multi-team environments](security-best-practices.md#security-bp-multi-team).
+
 ## Choosing a multi-team environment or separate environments
 <a name="multi-team-choosing"></a>
 
@@ -83,7 +103,7 @@ A multi-team environment is a good fit when teams can share the same Apache Airf
 + **Lower cost** – Teams share one environment's infrastructure instead of each paying for their own.
 + **Simpler management** – You configure environment settings, networking, and the Apache Airflow version once for all teams.
 + **Central governance** – The same security policies, monitoring, and compliance settings apply to all teams.
-+ **DAG isolation** – Each team manages its own DAGs and can't see the DAGs of other teams.
++ **DAG isolation** – Each team manages its own DAGs, and users can't see the DAGs of other teams in the Apache Airflow UI. This isolation doesn't protect teams from each other's DAG code. For more information, see [Security considerations for DAG authors](#multi-team-concepts-security).
 
 Use separate Amazon MWAA environments when teams need any of the following:
 + Different Apache Airflow versions.
@@ -99,6 +119,7 @@ Use separate Amazon MWAA environments when teams need any of the following:
 Multi-team environments have the following limitations:
 + **Experimental feature** – Multi-team support is based on an Apache Airflow experimental feature that is in preview and still evolving. Some functionality is incomplete, and behavior can change without notice in future releases. Use multi-team environments with caution.
 + **Shared compute** – All teams share the same DAG processor and workers. Teams are isolated only by DAG folder and access control. A team's workload can affect the performance of other teams.
++ **Shared execution role** – All teams use the environment's execution role. DAG code from any team runs with the same IAM permissions, and you can't assign a different execution role to a team.
 + **Shared metadata database** – All teams share the same SQL database instance containing Airflow metadata. A team's workload disproportionally loading the database can affect the performance of other teams.
 + **Shared plugins and Python dependencies** – All teams use the same plugins and the same `requirements.txt` file.
 + **IAM Identity Center dependency** – Teams require IAM Identity Center integration. After you enable IAM Identity Center integration on an environment, you can't disable it, even if you remove all teams.

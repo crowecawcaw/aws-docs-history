@@ -1,7 +1,6 @@
 
 
 # Managing Python dependencies in requirements.txt
-<a name="best-practices-dependencies"></a>
 
 This topic describes how to install and manage Python dependencies in a `requirements.txt` file for an Amazon Managed Workflows for Apache Airflow environment.
 
@@ -49,7 +48,7 @@ The following section describes how to specify Python dependencies from the [Pyt
 
     For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official). 
 
-   ```
+   ```bash
    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-{{{Airflow-version}}}/constraints-{{{Python-version}}}.txt"
    ```
 
@@ -93,7 +92,7 @@ The following section describes how to specify Python dependencies from the [Pyt
 
    For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official).
 
-   ```
+   ```bash
    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-{{{Airflow-version}}}/constraints-{{{Python-version}}}.txt"
    ```
 
@@ -149,7 +148,7 @@ The following section describes how to install a wheel that's in the `plugins.zi
 
 1. **Download the necessary WHL files** You can use [`pip download`](https://pip.pypa.io/en/stable/cli/pip_download/) with your existing `requirements.txt` on the Amazon MWAA [aws-mwaa-docker-images](https://github.com/aws/amazon-mwaa-docker-images) or another [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2) container to resolve and download the necessary Python wheel files.
 
-   ```
+   ```bash
    pip3 download -r "$AIRFLOW_HOME/dags/requirements.txt" -d "$AIRFLOW_HOME/plugins"
    cd "{{$AIRFLOW_HOME}}/plugins"
    zip "{{$AIRFLOW_HOME}}/plugins.zip" *
@@ -197,7 +196,7 @@ URLs are not accessible from private webservers installing requirements in Amazo
 
 If you have a **Private network** environment using Apache Airflow v2.2.2 or later and you're unable to install requirements because your environment does not have access to external repositories, you can use the following DAG to take your existing Amazon MWAA requirements and package them on Amazon S3:
 
-```
+```python
 from airflow import DAG
  from airflow.operators.bash_operator import BashOperator
  from airflow.utils.dates import days_ago
@@ -265,7 +264,7 @@ You can access Apache Airflow logs for the scheduler scheduling your workflows a
 
 1. Refer to the list of packages that were installed on the environment at `/usr/local/airflow/.local/bin`. For example:
 
-   ```
+   ```bash
    Collecting appdirs==1.4.4 (from -r /usr/local/airflow/.local/bin (line 1))
    Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb28kjdsfiuyweb47389789vxbmnbjhsdgf5463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl  
    Collecting astroid==2.4.2 (from -r /usr/local/airflow/.local/bin (line 2))
@@ -273,7 +272,7 @@ You can access Apache Airflow logs for the scheduler scheduling your workflows a
 
 1. Review the list of packages and whether any of these encountered an error during installation. If something went wrong, you can get an error similar to the following:
 
-   ```
+   ```bash
    2021-03-05T14:34:42.731-07:00
    No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4))
    No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4))

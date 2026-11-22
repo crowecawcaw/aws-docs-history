@@ -1,7 +1,6 @@
 
 
 # Amazon MWAA frequently asked questions
-<a name="mwaa-faqs"></a>
 
 This page describes common questions you can encounter when using Amazon Managed Workflows for Apache Airflow.
 
@@ -130,7 +129,7 @@ To be able to use a custom domain for your Amazon MWAA hostname, do one of the f
 
 While SSH is not supported on a Amazon MWAA environment, it's possible to use a DAG to run bash commands using the `BashOperator`. For example:
 
-```
+```python
 from airflow import DAG
 				from airflow.operators.bash_operator import BashOperator
 				from airflow.utils.dates import days_ago

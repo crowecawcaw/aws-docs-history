@@ -1,7 +1,6 @@
 
 
 # Deleting files on Amazon S3
-<a name="working-dags-delete"></a>
 
 This page describes how versioning works in an Amazon S3 bucket for an Amazon Managed Workflows for Apache Airflow environment, and the steps to delete a DAG, `plugins.zip`, or `requirements.txt` file.
 

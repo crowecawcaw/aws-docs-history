@@ -1,7 +1,6 @@
 
 
 # Quick start tutorial for Amazon Managed Workflows for Apache Airflow
-<a name="quick-start"></a>
 
 This quick start tutorial uses an AWS CloudFormation template that creates the Amazon VPC infrastructure, an Amazon S3 bucket with a `dags` folder, and an Amazon Managed Workflows for Apache Airflow environment together.
 
@@ -47,7 +46,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
 <a name="quick-start-template"></a>
 + Copy the contents of the following template and save locally as `mwaa-public-network.yml`. You can also [download the template](./samples/mwaa-public-network.zip).
 
-  ```
+  ```yaml
   AWSTemplateFormatVersion: "2010-09-09"
   
   Parameters:
@@ -482,7 +481,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
 
 1. Use the [create-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create the stack using the AWS CLI. Replace {{availability-zone-1}} and {{availability-zone-2}} with two different, supported Availability Zones in your Region.
 
-   ```
+   ```bash
    aws cloudformation create-stack --stack-name mwaa-environment-public-network --template-body file://mwaa-public-network.yml --parameters ParameterKey=AvailabilityZone1,ParameterValue={{availability-zone-1}} ParameterKey=AvailabilityZone2,ParameterValue={{availability-zone-2}} --capabilities CAPABILITY_IAM
    ```
 **Note**  

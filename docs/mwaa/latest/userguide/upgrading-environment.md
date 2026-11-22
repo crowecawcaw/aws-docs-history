@@ -1,7 +1,6 @@
 
 
 # Changing the Apache Airflow version
-<a name="upgrading-environment"></a>
 
  Amazon MWAA supports minor and major version upgrades and downgrades. 
 

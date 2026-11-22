@@ -1,7 +1,6 @@
 
 
 # Performance tuning for Apache Airflow on Amazon MWAA
-<a name="best-practices-tuning"></a>
 
 This topic describes how to tune the performance of an Amazon Managed Workflows for Apache Airflow environment using [Using Apache Airflow configuration options on Amazon MWAA](configuring-env-variables.md).
 

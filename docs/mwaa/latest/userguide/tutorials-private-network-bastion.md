@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configuring private network access using a Linux Bastion Host
-<a name="tutorials-private-network-bastion"></a>
 
 This tutorial walks you through the steps to create an SSH tunnel from your computer to the Apache Airflow webserver for your Amazon Managed Workflows for Apache Airflow environment. It assumes you've already created an Amazon MWAA environment. Once set up, a Linux Bastion Host acts as a jump server allowing a secure connection from your computer to the resources in your VPC. You then use a SOCKS proxy management add-on to control the proxy settings in your browser to access your Apache Airflow UI.
 
@@ -219,7 +218,7 @@ The following example demonstrates a FoxyProxy Standard (version 7.5.1) configur
 
 1. Copy the following code and save locally as `mwaa-proxy.json`. Substitute the sample value in {{YOUR\_HOST\_NAME}} with your **Apache Airflow URL**.
 
-   ```
+   ```json
    {
      "e0b7kh1606694837384": {
        "type": 3,

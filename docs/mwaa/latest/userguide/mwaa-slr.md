@@ -1,7 +1,6 @@
 
 
 # Service-linked role for Amazon MWAA
-<a name="mwaa-slr"></a>
 
 Amazon Managed Workflows for Apache Airflow uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon MWAA. Service-linked roles are predefined by Amazon MWAA and include all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -31,7 +30,7 @@ The following trust policy allows the service principal to assume the service-li
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -55,7 +54,7 @@ The role permissions policy named `AmazonMWAAServiceRolePolicy` allows Amazon MW
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -156,7 +155,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 
 We recommend scoping the `ec2:CreateVpcEndpoint` permission using the `aws:CalledVia` condition key to restrict the permission to calls made through the Amazon MWAA service:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "ec2:CreateVpcEndpoint",

@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon ECS using the `ECSOperator`
-<a name="samples-ecs-operator"></a>
 
 This topic describes how you can use the `ECSOperator` to connect to an Amazon Elastic Container Service (Amazon ECS) container from Amazon MWAA. In the following steps, you'll add the required permissions to your environment's execution role, use a CloudFormation template to create an Amazon ECS Fargate cluster, and finally create and upload a DAG that connects to your new cluster.
 
@@ -32,7 +31,7 @@ To use the sample code on this page, you'll need the following:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -64,7 +63,7 @@ To use the sample code on this page, you'll need the following:
 ------
 + In addition to adding the required premissions to run tasks in Amazon ECS, you must also modify the CloudWatch Logs policy statement in your Amazon MWAA execution role to allow access to the Amazon ECS task log group as listed in the following. The Amazon ECS log group is created by the CloudFormation template in [Create an Amazon ECS cluster](#create-cfn-template).
 
-  ```
+  ```json
   {
     "Effect": "Allow",
     "Action": [
@@ -92,7 +91,7 @@ Using the following CloudFormation template, you will build an Amazon ECS Fargat
 
 1. Create a JSON file with the following code and save it as `ecs-mwaa-cfn.json`.
 
-   ```
+   ```json
    {
        "AWSTemplateFormatVersion": "2010-09-09",
        "Description": "This template deploys an ECS Fargate cluster with an Amazon Linux image as a test for MWAA.",
@@ -225,7 +224,7 @@ Using the following CloudFormation template, you will build an Amazon ECS Fargat
 
 1. In your command prompt, use the following AWS CLI command to create a new stack. You must replace the values `SecurityGroups` and `SubnetIds` with values for your Amazon MWAA environment's security groups and subnets.
 
-   ```
+   ```bash
    aws cloudformation create-stack \
    --stack-name {{my-ecs-stack}} --template-body file://ecs-mwaa-cfn.json \
    --parameters ParameterKey=SecurityGroups,ParameterValue={{your-mwaa-security-group}} \
@@ -237,7 +236,7 @@ Using the following CloudFormation template, you will build an Amazon ECS Fargat
 
    1. Copy, and save the script as `ecs-stack-helper.sh` in the same directory as your CloudFormation template.
 
-      ```
+      ```sh
       #!/bin/bash
       
       joinByString() {
@@ -261,7 +260,7 @@ Using the following CloudFormation template, you will build an Amazon ECS Fargat
 
    1. Run the script using the following commands. Replace `environment-name` and `stack-name` with your information.
 
-      ```
+      ```bash
       chmod +x ecs-stack-helper.sh
       ./ecs-stack-helper.bash {{environment-name}} {{stack-name}}
       ```
@@ -290,7 +289,7 @@ After your CloudFormation stack is completed and AWS has provisioned your Amazon
 ------
 #### [ Apache Airflow v3 ]
 
-   ```
+   ```python
    import boto3
    import pendulum
    
@@ -347,7 +346,7 @@ After your CloudFormation stack is completed and AWS has provisioned your Amazon
 ------
 #### [ Apache Airflow v2 ]
 
-   ```
+   ```python
    from http import client
    from airflow import DAG
    from airflow.providers.amazon.aws.operators.ecs import EcsRunTaskOperator
@@ -394,7 +393,7 @@ In the example DAG, for `awslogs_group`, you might need to modify the log group 
 
 1.  Run the following AWS CLI command to copy the DAG to your environment's bucket, then trigger the DAG using the Apache Airflow UI. 
 
-   ```
+   ```bash
    aws s3 cp {{your-dag}}.py s3://{{your-environment-bucket}}/dags/
    ```
 

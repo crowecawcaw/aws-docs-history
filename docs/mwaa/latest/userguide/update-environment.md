@@ -1,7 +1,6 @@
 
 
 # Update an Amazon MWAA environment
-<a name="update-environment"></a>
 
 **Note**  
 Amazon MWAA graceful updates are not yet supported in the Canada West (Calgary) and Asia Pacific (Malaysia) regions.

@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon MWAA worker automatic scaling
-<a name="mwaa-autoscaling"></a>
 
 The auto scaling mechanism automatically increases the number of Apache Airflow workers in response to running and queued tasks on your Amazon Managed Workflows for Apache Airflow environment and disposes of extra workers when there are no more tasks queued or executing. This topic describes how you can configure auto scaling by specifying the maximum number of Apache Airflow workers that run on your environment using the Amazon MWAA console.
 

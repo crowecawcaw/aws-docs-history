@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Managed Workflows for Apache Airflow
-<a name="get-started"></a>
 
 Amazon Managed Workflows for Apache Airflow uses the Amazon VPC, DAG files and supporting files in your Amazon S3 storage bucket to create an environment. This chapter describes the prerequisites and AWS resources needed to get started with Amazon MWAA.
 

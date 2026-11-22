@@ -1,7 +1,6 @@
 
 
 # Exporting environment metadata to CSV files on Amazon S3
-<a name="samples-dag-run-info-to-csv"></a>
 
 Use the following code example to create a directed acyclic graph (DAG) that queries the database for a range of DAG run information, and writes the data to `.csv` files stored on Amazon S3.
 
@@ -33,7 +32,7 @@ To use the sample code on this page, you'll need the following:
 
 Amazon MWAA needs permission for the Amazon S3 action `s3:PutObject` to write the queried metadata information to Amazon S3. Add the following policy statement to your environment's execution role.
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "s3:PutObject*",
@@ -61,7 +60,7 @@ The following steps describe how you can create a DAG that queries the Aurora Po
 
 1. Copy the contents of the following code example and save it locally as `metadata_to_csv.py`. You can change the value assigned to `MAX_AGE_IN_DAYS` to control the age of the oldest records your DAG queries from the metadata database.
 
-   ```
+   ```python
    from airflow.decorators import dag, task
    from airflow import settings
    import os
@@ -124,7 +123,7 @@ The following steps describe how you can create a DAG that queries the Aurora Po
 
 1.  Run the following AWS CLI command to copy the DAG to your environment's bucket, then trigger the DAG using the Apache Airflow UI. 
 
-   ```
+   ```bash
    aws s3 cp {{your-dag}}.py s3://{{your-environment-bucket}}/dags/
    ```
 

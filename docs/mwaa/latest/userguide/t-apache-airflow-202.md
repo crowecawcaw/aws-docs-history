@@ -1,7 +1,6 @@
 
 
 # Troubleshooting: DAGs, Operators, Connections, and other issues
-<a name="t-apache-airflow-202"></a>
 
 The topics on this page describe resolutions to Apache Airflow v2 and v3 Python dependencies, custom plugins, DAGs, Operators, Connections, tasks, and webserver issues you can encounter on an Amazon Managed Workflows for Apache Airflow environment.
 
@@ -84,7 +83,7 @@ Ensure the Apache Airflow connection object includes the following key-value pai
 
 1. **Extra: **
 
-   ```
+   ```json
    {
        "account": "<my account>",
        "warehouse": "<my warehouse>",
@@ -95,7 +94,7 @@ Ensure the Apache Airflow connection object includes the following key-value pai
 
 For example:
 
-```
+```python
 >>> import json
 >>> from airflow.models.connection import Connection
 >>> myconn = Connection(
@@ -229,7 +228,7 @@ The `backfill` command, like other Apache Airflow CLI commands, parses all DAGs 
 
 To be able to run the `backfill` CLI command, we recommend invoking it in a bash operator. In a bash operator, `backfill` is initiated from the worker, allowing the DAGs to parse successfully as all necessary requirements and plugins are available and installed. Use the following example to create a DAG with a `BashOperator` to run `backfill`.
 
-```
+```python
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
@@ -278,7 +277,7 @@ We recommend the following steps if you're trying to run a shell script with the
 
 1. Create the following DAG.
 
-   ```
+   ```python
    from airflow import DAG
    from airflow.providers.amazon.aws.operators.s3_file_transform import S3FileTransformOperator
    from airflow.utils.dates import days_ago

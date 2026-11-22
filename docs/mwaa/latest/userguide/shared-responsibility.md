@@ -1,7 +1,6 @@
 
 
 # AWS shared responsibility model for Amazon MWAA
-<a name="shared-responsibility"></a>
 
 This guidance applies to Amazon MWAA Provisioned environments. In a Provisioned environment, you select the environment class and configure the worker and web server scaling limits.
 

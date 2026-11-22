@@ -1,7 +1,6 @@
 
 
 # Monitoring and metrics for Amazon Managed Workflows for Apache Airflow
-<a name="cw-metrics"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Managed Workflows for Apache Airflow and your AWS solution. We recommend collecting monitoring data from all parts of your AWS solution so you can more easily debug a multi-point failure if one occurs. This topic describes what resources AWS provides for monitoring your Amazon MWAA environment and responding to potential events.
 

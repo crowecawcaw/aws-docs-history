@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for Amazon MWAA
-<a name="security-privatelink"></a>
 
 With AWS PrivateLink, you can access Amazon MWAA from within your VPC without crossing the public internet. Interface VPC endpoints are elastic network interfaces with private IP addresses in your subnets. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon VPC User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # How Amazon MWAA works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Amazon MWAA uses IAM identity-based policies to grant permissions to Amazon MWAA actions and resources. For recommended examples of custom IAM policies you can use to control access to your Amazon MWAA resources, refer to [Accessing an Amazon MWAA environment](access-policies.md).
 
@@ -35,10 +34,14 @@ The following steps present how you can create a new JSON policy using the IAM c
        {
          "Effect": "Allow",
          "Action": [
-           "airflow:ListEnvironments",
            "airflow:GetEnvironment",
            "airflow:ListTagsForResource"
          ],
+         "Resource": "arn:aws:airflow:us-east-1:123456789012:environment/my-env"
+       },
+       {
+         "Effect": "Allow",
+         "Action": "airflow:ListEnvironments",
          "Resource": "*"
        }
      ]

@@ -1,7 +1,6 @@
 
 
 # Apache Airflow provider packages installed on Amazon MWAA environments
-<a name="connections-packages"></a>
 
 This page lists the Apache Airflow provider packages installed by Amazon MWAA for all supported Apache Airflow environments. For more information about these packages, refer to the [Apache Airflow reference for package extras](https://airflow.apache.org/docs/apache-airflow/stable/extra-packages-ref.html).
 
@@ -25,7 +24,7 @@ Apache Airflow constraints files specify the provider versions available at the 
 
 1. Specify your requirements as listed in the following.
 
-   ```
+   ```bash
    --constraint "/usr/local/airflow/dags/constraints-3.11-updated.txt"
    apache-airflow-providers-amazon=={{version-number}}
    ```

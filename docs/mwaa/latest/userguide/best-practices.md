@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon Managed Workflows for Apache Airflow
-<a name="best-practices"></a>
 
 This guide describes the best practices we recommend when using Amazon Managed Workflows for Apache Airflow.
 

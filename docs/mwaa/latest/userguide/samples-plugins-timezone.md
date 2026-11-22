@@ -1,7 +1,6 @@
 
 
 # Changing a DAG's timezone on Amazon MWAA
-<a name="samples-plugins-timezone"></a>
 
 Apache Airflow schedules your directed acyclic graph (DAG) in UTC\+0 by default. The following steps present how you can change the timezone in which Amazon MWAA runs your DAGs with [Pendulum](https://pypi.org/project/pendulum/). Optionally, this topic demonstrates how you can create a custom plugin to change the timezone for your environment's Apache Airflow logs.
 
@@ -44,7 +43,7 @@ Apache Airflow run the Python files in the `plugins` directory at start-up. With
 
 1. Copy the contents of the following code sample and save locally as `dag-timezone-plugin.py` in the `plugins` folder.
 
-   ```
+   ```python
    import time
    import os
    
@@ -54,7 +53,7 @@ Apache Airflow run the Python files in the `plugins` directory at start-up. With
 
 1. In the `plugins` directory, create an empty Python file named `__init__.py`. Your `plugins` directory should be similar to the following:
 
-   ```
+   ```bash
    plugins/
     |-- __init__.py
     |-- dag-timezone-plugin.py
@@ -79,7 +78,7 @@ The following steps explain how to create `plugins.zip`. The content of this exa
 
 1. Upload `plugins.zip` to your S3 bucket
 
-   ```
+   ```bash
    aws s3 cp plugins.zip s3://{{your-mwaa-bucket}}/
    ```
 
@@ -90,13 +89,13 @@ To change the default timezone (UTC\+0) in which the DAG runs, we'll use a libra
 
 1. In your command prompt, navigate to the directory where your DAGs are stored. For example:
 
-   ```
+   ```bash
    cd dags
    ```
 
 1. Copy the content of the following example and save as `tz-aware-dag.py`.
 
-   ```
+   ```python
    from airflow import DAG
    from airflow.operators.bash_operator import BashOperator
    from datetime import datetime, timedelta
@@ -121,7 +120,7 @@ To change the default timezone (UTC\+0) in which the DAG runs, we'll use a libra
 
 1.  Run the following AWS CLI command to copy the DAG to your environment's bucket, then trigger the DAG using the Apache Airflow UI. 
 
-   ```
+   ```bash
    aws s3 cp {{your-dag}}.py s3://{{your-environment-bucket}}/dags/
    ```
 

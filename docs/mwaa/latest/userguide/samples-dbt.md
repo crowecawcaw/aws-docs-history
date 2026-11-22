@@ -1,7 +1,6 @@
 
 
 # Using dbt with Amazon MWAA
-<a name="samples-dbt"></a>
 
 With Amazon MWAA, you can use dbt (data build tool) and PostgreSQL to build and run data transformation workflows. In the following steps, add the required dependencies using a startup script, and upload a sample dbt project to your environment's Amazon S3 bucket. Then, use a sample DAG to verify that Amazon MWAA has installed the dependencies. Finally, use the `BashOperator` to run the dbt project.
 
@@ -31,7 +30,7 @@ Before you can complete the following steps, you need the following:
 
 To use Amazon MWAA with dbt, add the following startup script to your environment. To learn more, refer to [Using a startup script with Amazon MWAA](using-startup-script.md).
 
-```
+```bash
 #!/bin/bash
 
 if [[ "${MWAA_AIRFLOW_COMPONENT}" != "worker" ]]
@@ -99,7 +98,7 @@ To be able to use a dbt project with your Amazon MWAA environment, you can uploa
 
 1. Run the following Amazon S3 AWS CLI command to recursively copy the content of the project to your environment's `dags` folder using the `--recursive` parameter. The command creates a sub-directory called `dbt` that you can use for all of your dbt projects. If the sub-directory already exists, the project files are copied into the existing directory, and a new directory is not created. The command also creates a sub-directory within the `dbt` directory for this specific starter project.
 
-   ```
+   ```bash
    aws s3 cp {{dbt-starter-project}} s3://{{amzn-s3-demo-bucket}}/dags/dbt/{{dbt-starter-project}} --recursive
    ```
 
@@ -110,7 +109,7 @@ To be able to use a dbt project with your Amazon MWAA environment, you can uploa
 
 The following DAG uses a `BashOperator` and a bash command to verify whether Amazon MWAA has successfully installed the dbt dependencies specified in the startup script.
 
-```
+```python
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
@@ -143,7 +142,7 @@ The profile name in `profiles.yml` must match the `profile:` value defined in th
 
 1. In the directory where you cloned the starter project, create a file named `profiles.yml` with your database connection details.
 
-   ```
+   ```yaml
    default:
      target: dev
      outputs:
@@ -160,7 +159,7 @@ The profile name in `profiles.yml` must match the `profile:` value defined in th
 
 1. Upload the file to the `dbt` sub-directory in your environment's DAGs folder.
 
-   ```
+   ```bash
    aws s3 cp profiles.yml s3://{{amzn-s3-demo-bucket}}/dags/dbt/profiles.yml
    ```
 
@@ -172,7 +171,7 @@ To avoid storing plaintext credentials, reference secrets using the dbt `env_var
 
 The following DAG uses a `BashOperator` to copy the dbt projects you uploaded to Amazon S3 from the local `usr/local/airflow/dags/` directory to the write-accessible `/tmp` directory, then runs the dbt project. The bash commands assume a starter dbt project titled `dbt-starter-project`. Modify the directory name according to the name of your project directory.
 
-```
+```bash
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago

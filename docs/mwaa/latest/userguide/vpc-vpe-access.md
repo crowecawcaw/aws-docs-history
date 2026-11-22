@@ -1,7 +1,6 @@
 
 
 # Managing access to service-specific Amazon VPC endpoints on Amazon MWAA
-<a name="vpc-vpe-access"></a>
 
 A VPC endpoint (AWS PrivateLink) lets you privately connect your VPC to services hosted on AWS without requiring an internet gateway, a NAT device, VPN, or firewall proxies. These endpoints are horizontally scalable and highly available virtual devices that allow communication between instances in your VPC and AWS services. This page describes the VPC endpoints created by Amazon MWAA, and how to access the VPC endpoint for your Apache Airflow webserver if you've chosen the **Private network** access mode on Amazon Managed Workflows for Apache Airflow.
 

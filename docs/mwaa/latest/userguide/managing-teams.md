@@ -1,12 +1,14 @@
 
 
 # Managing teams
-<a name="managing-teams"></a>
 
 You can add, update, and remove teams by using the Amazon MWAA console or the AWS CLI. Before you start, review the prerequisites and the team name and DAG folder rules in [Multi-team environments](multi-team-environments.md).
 
 **Important**  
 Amazon MWAA multi-team support is based on the Apache Airflow multi-team feature. This Apache Airflow feature is experimental and in preview as of Apache Airflow version 3.3.1. The feature is not complete, and its behavior and APIs can change in breaking ways, or be removed, between releases without notice. We recommend that you use multi-team environments with caution and that you don't rely on them for production-critical workloads. For more information, see [Experimental features](https://airflow.apache.org/docs/apache-airflow/stable/installation/supported-versions.html#experimental-features) on the Apache Airflow website.
+
+**Regional availability**  
+Amazon MWAA is gradually releasing IAM Identity Center integration and multi-team environments to AWS Regions. If these features aren't available in your Region yet, the Amazon MWAA console doesn't show the **Identity Center configuration** and **Teams** settings, and you can't configure teams from the console.
 
 **Contents**
 + [Adding teams (console)](#managing-teams-console-create)
@@ -85,7 +87,7 @@ Use the `--teams` parameter of the `create-environment` and `update-environment`
 
 **Example Create an environment with two teams**  <a name="managing-teams-api-create-example"></a>
 
-```
+```bash
 aws mwaa create-environment \
   --name {{my-multi-team-environment}} \
   --airflow-version 3.3.1 \
@@ -111,7 +113,7 @@ aws mwaa create-environment \
 
 **Example Add a team to an existing environment**  <a name="managing-teams-api-update-example"></a>
 
-```
+```bash
 aws mwaa update-environment \
   --name {{my-multi-team-environment}} \
   --teams '{
@@ -155,7 +157,7 @@ Use the `Remove` field of the `--teams` parameter.
 
 **Example Remove two teams**  <a name="managing-teams-api-remove-example"></a>
 
-```
+```bash
 aws mwaa update-environment \
   --name {{my-multi-team-environment}} \
   --teams '{

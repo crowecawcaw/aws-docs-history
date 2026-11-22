@@ -1,7 +1,6 @@
 
 
 # Installing custom plugins
-<a name="configuring-dag-import-plugins"></a>
 
 Amazon Managed Workflows for Apache Airflow supports Apache Airflow's built-in plugin manager, allowing you to use custom Apache Airflow operators, hooks, sensors, or interfaces. This page describes the steps to install [Apache Airflow custom plugins](https://airflow.incubator.apache.org/plugins.html) on your Amazon MWAA environment using a `plugins.zip` file.
 
@@ -98,7 +97,7 @@ The following example displays the main-level tree of a plugins.zip file for the
 **Example plugins/virtual\_python\_plugin.py**  
 The following example displays the `PythonVirtualenvOperator` custom plugin.  
 
-```
+```python
 """
 Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  
@@ -148,7 +147,7 @@ The following example displays the main-level tree of a plugins.zip file for the
 **Example plugins/virtual\_python\_plugin.py**  
 The following example displays the `PythonVirtualenvOperator` custom plugin.  
 
-```
+```python
 """
 Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  

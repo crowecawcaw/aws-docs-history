@@ -1,7 +1,6 @@
 
 
 # Tutorial: Restricting an Amazon MWAA user's access to a subset of DAGs
-<a name="limit-access-to-dags"></a>
 
 Amazon MWAA manages access to your environment by mapping your IAM principals to one or more of Apache Airflow's [default roles](https://airflow.apache.org/docs/apache-airflow/stable/security/access-control.html#default-roles). Use the following tutorial to restrict individual Amazon MWAA users to only access and interact with a specific DAG or a set of DAGs.
 
@@ -46,7 +45,7 @@ Don't attach permission policies directly to your IAM users. We recommend settin
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -91,7 +90,7 @@ Copy the **Ops** or **Viewer** roles to grant more or less access, respectively.
 
 1. Using access credentials for `MWAAUser`, run the following CLI command to retrieve your environment's webserver URL.
 
-   ```
+   ```bash
    aws mwaa get-environment --name {{YOUR_ENVIRONMENT_NAME}} | jq '.Environment.WebserverUrl'
    ```
 
@@ -103,7 +102,7 @@ Copy the **Ops** or **Viewer** roles to grant more or less access, respectively.
 
 1. With `MWAAUser` signed in to the AWS Management Console, open a new browser window and access the following URl. Replace `Webserver-URL` with your information.
 
-   ```
+   ```http
    https://{{<Webserver-URL>}}/home
    ```
 

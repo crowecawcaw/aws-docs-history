@@ -1,7 +1,6 @@
 
 
 # Security in your VPC on Amazon MWAA
-<a name="vpc-security"></a>
 
 This page describes the Amazon VPC components used to secure your Amazon Managed Workflows for Apache Airflow environment and the configurations needed for these components.
 

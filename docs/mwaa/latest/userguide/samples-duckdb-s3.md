@@ -1,7 +1,6 @@
 
 
 # Using a DAG to read and write Amazon S3 data with DuckDB
-<a name="samples-duckdb-s3"></a>
 
 You can use the following code example to write a directed acyclic graph (DAG) that uses DuckDB to generate, check, and summarize sample order data in Amazon S3. The DAG runs on your Amazon MWAA environment's workers and reads and writes files in Amazon S3 as your environment's execution role. The DAG has three tasks:
 + `write_orders` generates a day of sample orders and writes them to Amazon S3 as a gzip-compressed CSV file, in a folder for the run's logical date.
@@ -44,7 +43,7 @@ DuckDB uses your environment's execution role to access Amazon S3. To use the co
 
 1. Choose your environment's execution role, and add the following permissions policy to it. Replace {{amzn-s3-demo-bucket}} with the name of the bucket that stores your data. For more information about the execution role, see [Amazon MWAA execution role](mwaa-create-role.md).
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -84,7 +83,7 @@ This example stores sample data in Amazon S3, so you incur charges for Amazon S3
 
 1. Copy the following Python code example, and save it locally as `duckdb_s3.py`. Replace {{amzn-s3-demo-bucket}} with the name of your bucket.
 
-   ```
+   ```python
    import pendulum
    
    from airflow.providers.duckdb.operators.duckdb import DuckDBExecuteQueryOperator

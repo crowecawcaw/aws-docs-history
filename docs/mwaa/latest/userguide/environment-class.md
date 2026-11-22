@@ -1,7 +1,6 @@
 
 
 # Configuring the Amazon MWAA environment class
-<a name="environment-class"></a>
 
 The environment class you choose for your Amazon MWAA environment determines the size of the AWS-managed AWS Fargate containers where the [Celery Executor](https://airflow.apache.org/docs/apache-airflow-providers-celery/stable/celery_executor.html) runs, and the AWS-managed Amazon Aurora PostgreSQL metadata database where the Apache Airflow schedulers creates task instances. This topic describes each Amazon MWAA environment class, and how to update the environment class on the Amazon MWAA console.
 

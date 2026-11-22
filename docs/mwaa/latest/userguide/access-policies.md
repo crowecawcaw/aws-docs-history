@@ -1,7 +1,6 @@
 
 
 # Accessing an Amazon MWAA environment
-<a name="access-policies"></a>
 
 To use Amazon Managed Workflows for Apache Airflow, you must use an account and IAM entities with the necessary permissions. This topic describes the access policies you can attach to your Apache Airflow development team and Apache Airflow users for your Amazon Managed Workflows for Apache Airflow environment.
 
@@ -73,7 +72,7 @@ Use the following policy if you want to create, and manage, your Amazon MWAA env
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -203,7 +202,7 @@ Use the following policy if you want to create, and manage, your Amazon MWAA env
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -356,7 +355,7 @@ Use the following policy if you want to create, and manage, your Amazon MWAA env
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -437,7 +436,7 @@ Use the following policy if you want to create, and manage, your Amazon MWAA env
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -532,7 +531,7 @@ A user might need access to the `AmazonMWAAReadOnlyAccess` permissions policy if
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -561,7 +560,7 @@ You might need access to the `AmazonMWAAWebServerAccess` permissions policy to a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -593,7 +592,7 @@ To access the Apache Airflow REST API, you must grant the `airflow:InvokeRestApi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -626,7 +625,7 @@ A user might need access to the `AmazonMWAAAirflowCliAccess` permissions policy 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -778,7 +777,7 @@ When IAM Identity Center integration is enabled on an Amazon MWAA environment, y
 
 **Example Grant full Apache Airflow access**  <a name="iic-pse-full-access"></a>
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "airflow:AccessAirflowResource",
@@ -789,7 +788,7 @@ When IAM Identity Center integration is enabled on an Amazon MWAA environment, y
 **Example Restrict to DAG read access**  <a name="iic-pse-dag-read"></a>
 Always include both `GET` and `LIST`. The DAG list page uses `ResourceAction=LIST`; home page dashboard widgets use `ResourceAction=GET` with no DAG ID. A policy that grants only `GET` or only `LIST` causes 403 errors on the home page or shows zero DAGs on the list page respectively.  
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "airflow:AccessAirflowResource",
@@ -806,7 +805,7 @@ Always include both `GET` and `LIST`. The DAG list page uses `ResourceAction=LIS
 **Example Restrict to a specific DAG**  <a name="iic-pse-specific-dag"></a>
 Use two separate statements. The first allows `GET` and `LIST` without a `ResourceId` — this is required for the DAG list page (`LIST`) and for home page dashboard widgets (`GET` with no DAG ID). The second allows all actions on the specific DAG. Do not combine `ResourceId` with `LIST` in the same `StringEquals` block — `LIST` calls do not supply a `ResourceId`, so the condition never matches.  
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "airflow:AccessAirflowResource",
@@ -834,7 +833,7 @@ Use two separate statements. The first allows `GET` and `LIST` without a `Resour
 **Example Restrict by team using `airflow:TeamNames`**  <a name="iic-pse-team-names"></a>
 Use `ForAnyValue:StringEquals` for `airflow:TeamNames`. The single-value `StringEquals` operator does not match when a user belongs to more than one team.  
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "airflow:AccessAirflowResource",
@@ -853,7 +852,7 @@ If the environment has teams, Apache Airflow isolates each team's resources auto
 **Example Restrict access to members of an IAM Identity Center group**  <a name="access-policies-multi-team-single"></a>
 With this policy, a user can access resources only when they belong to the `analytics` IAM Identity Center group. Use this approach for finer-grained control in an environment without teams.  
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "airflow:AccessAirflowResource",

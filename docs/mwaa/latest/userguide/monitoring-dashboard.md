@@ -1,7 +1,6 @@
 
 
 # Monitoring dashboards and alarms on Amazon MWAA
-<a name="monitoring-dashboard"></a>
 
 The environment details page for an Amazon Managed Workflows for Apache Airflow environment includes a built-in CloudWatch metrics dashboard and an **Environment alarms** table. You can use these features to monitor the health of your environment directly in the Amazon MWAA console, without any additional setup.
 
@@ -193,7 +192,7 @@ You can use the following AWS tutorial to automatically create a health status d
 
 You can use the CloudFormation template definition in this section to create a monitoring dashboard in CloudWatch, then add alarms on the CloudWatch console to receive notifications when a metric surpasses a particular threshold. To create the stack using this template definition, refer to [Creating a stack on the CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html). To add an alarm to the dashboard, refer to [Using alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html).
 
-```
+```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Description: Creates MWAA Cloudwatch Dashboard
 Parameters:

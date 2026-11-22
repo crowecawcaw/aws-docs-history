@@ -1,7 +1,6 @@
 
 
 # Accessing Apache Airflow
-<a name="access-airflow-ui"></a>
 
 Amazon MWAA lets you access your Apache Airflow environment using multiple methods: the Apache Airflow user interface (UI) console, the Apache Airflow CLI, and the Apache Airflow REST API. You can use the Amazon MWAA console to access and invoke a DAG in your Apache Airflow UI, or use Amazon MWAA APIs to get a token and invoke a DAG. This section describes the permissions needed to access the Apache Airflow UI, how to generate a token to make Amazon MWAA API calls directly in your command shell, and the supported commands in the Apache Airflow CLI.
 
@@ -57,6 +56,6 @@ You need [Apache Airflow UI access policy: AmazonMWAAWebServerAccess](access-pol
 ## Log in using IAM Identity Center
 <a name="airflow-access-idc-login"></a>
 
-If your environment has IAM Identity Center integration enabled on Apache Airflow 3.3.1 or later, use the IAM Identity Center device code flow to log in. Amazon MWAA redirects you to a device authorization page where you authenticate with your corporate identity provider in a separate browser tab, then enter a one-time code to complete sign-in.
+If your environment has IAM Identity Center integration enabled on Apache Airflow 3.3.1 or later, use the IAM Identity Center device code flow to log in. Amazon MWAA displays a sign-in page with a one-time code. You open the IAM Identity Center access portal in a separate browser tab, authenticate with your corporate identity provider if prompted, and confirm that the code matches to complete sign-in.
 
 For instructions on signing in using IAM Identity Center, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).
