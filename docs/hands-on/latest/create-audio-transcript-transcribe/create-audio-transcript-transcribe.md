@@ -1,7 +1,6 @@
 
 
 # Create an Audio Transcript with Amazon Transcribe
-<a name="create-audio-transcript-transcribe"></a>
 
 
 |  |  | 
