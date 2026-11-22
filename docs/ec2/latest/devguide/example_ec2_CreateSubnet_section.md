@@ -1,7 +1,6 @@
 
 
 # Use `CreateSubnet` with an AWS SDK or CLI
-<a name="example_ec2_CreateSubnet_section"></a>
 
 The following code examples show how to use `CreateSubnet`.
 
@@ -150,7 +149,7 @@ For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/lat
 **Tools for PowerShell V4**  
 **Example 1: This example creates a subnet with the specified CIDR.**  
 
-```
+```powershell
 New-EC2Subnet -VpcId vpc-12345678 -CidrBlock 10.0.0.0/24
 ```
 **Output:**  
@@ -171,7 +170,7 @@ VpcId                   : vpc-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example creates a subnet with the specified CIDR.**  
 
-```
+```powershell
 New-EC2Subnet -VpcId vpc-12345678 -CidrBlock 10.0.0.0/24
 ```
 **Output:**  
@@ -195,7 +194,7 @@ VpcId                   : vpc-12345678
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-ec2'
 
 # Creates a subnet within a virtual private cloud (VPC) in

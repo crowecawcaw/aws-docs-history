@@ -1,7 +1,6 @@
 
 
 # Cross-origin resource sharing support and Amazon EC2
-<a name="cors-support"></a>
 
 The Amazon EC2 API supports cross-origin resource sharing (CORS). CORS defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. For more information, go to the [Cross-Origin Resource Sharing W3C Recommendation](http://www.w3.org/TR/cors/). With CORS support for Amazon EC2, you can build rich client-side web applications that use the Amazon EC2 API. For example, suppose you are hosting a web site, `mywebsite.example.com`, and you want to use JavaScript on your web pages to make requests to the Amazon EC2 API. Normally, a browser blocks JavaScript from allowing these requests, but with CORS, you are able to make cross-origin Amazon EC2 API calls from `mywebsite.example.com`.
 

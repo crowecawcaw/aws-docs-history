@@ -1,7 +1,6 @@
 
 
 # Use `DetachVolume` with a CLI
-<a name="example_ec2_DetachVolume_section"></a>
 
 The following code examples show how to use `DetachVolume`.
 
@@ -40,7 +39,7 @@ For more information, see [Detach an Amazon EBS volume from an Amazon EC2 instan
 **Tools for PowerShell V4**  
 **Example 1: This example detaches the specified volume.**  
 
-```
+```powershell
 Dismount-EC2Volume -VolumeId vol-12345678
 ```
 **Output:**  
@@ -55,7 +54,7 @@ VolumeId            : vol-12345678
 ```
 **Example 2: You can also specify the instance ID and device name to ensure that you are detaching the correct volume.**  
 
-```
+```powershell
 Dismount-EC2Volume -VolumeId vol-12345678 -InstanceId i-1a2b3c4d -Device /dev/sdh
 ```
 +  For API details, see [DetachVolume](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -63,7 +62,7 @@ Dismount-EC2Volume -VolumeId vol-12345678 -InstanceId i-1a2b3c4d -Device /dev/sd
 **Tools for PowerShell V5**  
 **Example 1: This example detaches the specified volume.**  
 
-```
+```powershell
 Dismount-EC2Volume -VolumeId vol-12345678
 ```
 **Output:**  
@@ -78,7 +77,7 @@ VolumeId            : vol-12345678
 ```
 **Example 2: You can also specify the instance ID and device name to ensure that you are detaching the correct volume.**  
 
-```
+```powershell
 Dismount-EC2Volume -VolumeId vol-12345678 -InstanceId i-1a2b3c4d -Device /dev/sdh
 ```
 +  For API details, see [DetachVolume](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Amazon VPC actions
-<a name="OperationList-query-vpc"></a>
 
 The following API actions are available for Amazon VPC. To learn more about Amazon VPC, see the [Amazon VPC product page](https://aws.amazon.com/vpc/) and the [Amazon VPC documentation](https://docs.aws.amazon.com/vpc/).
 
@@ -73,6 +72,16 @@ The following API actions are available for Amazon VPC. To learn more about Amaz
 + [DescribeNetworkAcls](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html)
 + [ReplaceNetworkAclAssociation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReplaceNetworkAclAssociation.html)
 + [ReplaceNetworkAclEntry](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReplaceNetworkAclEntry.html)
+
+**Networking Flexible Cost Allocation**
++ [AssociateNetworkingFlexCostAllocationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateNetworkingFlexCostAllocationPolicy.html)
++ [CreateNetworkingFlexCostAllocationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkingFlexCostAllocationPolicy.html)
++ [DeleteNetworkingFlexCostAllocationPolicies](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkingFlexCostAllocationPolicies.html)
++ [DescribeNetworkingFlexCostAllocationPolicies](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkingFlexCostAllocationPolicies.html)
++ [DescribeNetworkingFlexCostAllocationPolicyAssociations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkingFlexCostAllocationPolicyAssociations.html)
++ [DisassociateNetworkingFlexCostAllocationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateNetworkingFlexCostAllocationPolicy.html)
++ [GetNetworkingFlexCostAllocationPolicyVersions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetNetworkingFlexCostAllocationPolicyVersions.html)
++ [ModifyNetworkingFlexCostAllocationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkingFlexCostAllocationPolicy.html)
 
 **Route servers**
 + [AssociateRouteServer](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateRouteServer.html)

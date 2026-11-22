@@ -1,7 +1,6 @@
 
 
 # Getting started with load balancing
-<a name="example_elastic_load_balancing_v2_GettingStarted_058_section"></a>
 
 The following code example shows how to:
 + Create an Application Load Balancer
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/058-elastic-load-balancing-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Elastic Load Balancing Getting Started Script - v2

@@ -1,7 +1,6 @@
 
 
 # Use `AttachNetworkInterface` with a CLI
-<a name="example_ec2_AttachNetworkInterface_section"></a>
 
 The following code examples show how to use `AttachNetworkInterface`.
 
@@ -52,7 +51,7 @@ For more information, see [Elastic network interfaces](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example attaches the specified network interface to the specified instance.**  
 
-```
+```powershell
 Add-EC2NetworkInterface -NetworkInterfaceId eni-12345678 -InstanceId i-1a2b3c4d -DeviceIndex 1
 ```
 **Output:**  
@@ -65,7 +64,7 @@ eni-attach-1a2b3c4d
 **Tools for PowerShell V5**  
 **Example 1: This example attaches the specified network interface to the specified instance.**  
 
-```
+```powershell
 Add-EC2NetworkInterface -NetworkInterfaceId eni-12345678 -InstanceId i-1a2b3c4d -DeviceIndex 1
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Use `CreateRoute` with a CLI
-<a name="example_ec2_CreateRoute_section"></a>
 
 The following code examples show how to use `CreateRoute`.
 
@@ -73,7 +72,7 @@ For more information, see [Enable outbound IPv6 traffic using an egress-only int
 **Tools for PowerShell V4**  
 **Example 1: This example creates the specified route for the specified route table. The route matches all traffic and sends it to the specified Internet gateway.**  
 
-```
+```powershell
 New-EC2Route -RouteTableId rtb-1a2b3c4d -DestinationCidrBlock 0.0.0.0/0 -GatewayId igw-1a2b3c4d
 ```
 **Output:**  
@@ -86,7 +85,7 @@ True
 **Tools for PowerShell V5**  
 **Example 1: This example creates the specified route for the specified route table. The route matches all traffic and sends it to the specified Internet gateway.**  
 
-```
+```powershell
 New-EC2Route -RouteTableId rtb-1a2b3c4d -DestinationCidrBlock 0.0.0.0/0 -GatewayId igw-1a2b3c4d
 ```
 **Output:**  

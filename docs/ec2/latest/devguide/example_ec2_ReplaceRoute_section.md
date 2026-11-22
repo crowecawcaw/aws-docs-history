@@ -1,7 +1,6 @@
 
 
 # Use `ReplaceRoute` with a CLI
-<a name="example_ec2_ReplaceRoute_section"></a>
 
 The following code examples show how to use `ReplaceRoute`.
 
@@ -28,7 +27,7 @@ For more information, see [Manage subnet route tables](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example replaces the specified route for the specified route table. The new route sends the specified traffic to the specified virtual private gateway.**  
 
-```
+```powershell
 Set-EC2Route -RouteTableId rtb-1a2b3c4d -DestinationCidrBlock 10.0.0.0/24 -GatewayId vgw-1a2b3c4d
 ```
 +  For API details, see [ReplaceRoute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -36,7 +35,7 @@ Set-EC2Route -RouteTableId rtb-1a2b3c4d -DestinationCidrBlock 10.0.0.0/24 -Gatew
 **Tools for PowerShell V5**  
 **Example 1: This example replaces the specified route for the specified route table. The new route sends the specified traffic to the specified virtual private gateway.**  
 
-```
+```powershell
 Set-EC2Route -RouteTableId rtb-1a2b3c4d -DestinationCidrBlock 10.0.0.0/24 -GatewayId vgw-1a2b3c4d
 ```
 +  For API details, see [ReplaceRoute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

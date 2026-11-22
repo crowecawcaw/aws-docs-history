@@ -1,7 +1,6 @@
 
 
 # Use `DetachNetworkInterface` with a CLI
-<a name="example_ec2_DetachNetworkInterface_section"></a>
 
 The following code examples show how to use `DetachNetworkInterface`.
 
@@ -26,7 +25,7 @@ For more information, see [Elastic network interfaces](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example removes the specified attachment between a network interface and an instance.**  
 
-```
+```powershell
 Dismount-EC2NetworkInterface -AttachmentId eni-attach-1a2b3c4d -Force
 ```
 +  For API details, see [DetachNetworkInterface](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Dismount-EC2NetworkInterface -AttachmentId eni-attach-1a2b3c4d -Force
 **Tools for PowerShell V5**  
 **Example 1: This example removes the specified attachment between a network interface and an instance.**  
 
-```
+```powershell
 Dismount-EC2NetworkInterface -AttachmentId eni-attach-1a2b3c4d -Force
 ```
 +  For API details, see [DetachNetworkInterface](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

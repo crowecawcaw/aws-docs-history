@@ -1,7 +1,6 @@
 
 
 # Use `ModifyImageAttribute` with a CLI
-<a name="example_ec2_ModifyImageAttribute_section"></a>
 
 The following code examples show how to use `ModifyImageAttribute`.
 
@@ -57,27 +56,27 @@ For more information, see [Share an AMI with specific AWS accounts](https://docs
 **Tools for PowerShell V4**  
 **Example 1: This example updates the description for the specified AMI.**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Description "New description"
 ```
 **Example 2: This example makes the AMI public (for example, so any AWS account can use it).**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType add -UserGroup all
 ```
 **Example 3: This example makes the AMI private (for example, so that only you as the owner can use it).**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType remove -UserGroup all
 ```
 **Example 4: This example grants launch permission to the specified AWS account.**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType add -UserId 111122223333
 ```
 **Example 5: This example removes launch permission from the specified AWS account.**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType remove -UserId 111122223333
 ```
 +  For API details, see [ModifyImageAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -85,27 +84,27 @@ Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -Operat
 **Tools for PowerShell V5**  
 **Example 1: This example updates the description for the specified AMI.**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Description "New description"
 ```
 **Example 2: This example makes the AMI public (for example, so any AWS account can use it).**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType add -UserGroup all
 ```
 **Example 3: This example makes the AMI private (for example, so that only you as the owner can use it).**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType remove -UserGroup all
 ```
 **Example 4: This example grants launch permission to the specified AWS account.**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType add -UserId 111122223333
 ```
 **Example 5: This example removes launch permission from the specified AWS account.**  
 
-```
+```powershell
 Edit-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission -OperationType remove -UserId 111122223333
 ```
 +  For API details, see [ModifyImageAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

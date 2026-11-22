@@ -1,7 +1,6 @@
 
 
 # Use `CopyImage` with a CLI
-<a name="example_ec2_CopyImage_section"></a>
 
 The following code examples show how to use `CopyImage`.
 
@@ -75,7 +74,7 @@ For more information, see [Copy an AMI](https://docs.aws.amazon.com/AWSEC2/lates
 **Tools for PowerShell V4**  
 **Example 1: This example copies the specified AMI in the 'EU (Ireland)' region to the 'US West (Oregon)' region. If -Region is not specified, the current default region is used as the destination region.**  
 
-```
+```powershell
 Copy-EC2Image -SourceRegion eu-west-1 -SourceImageId ami-12345678 -Region us-west-2 -Name "Copy of ami-12345678"
 ```
 **Output:**  
@@ -88,7 +87,7 @@ ami-87654321
 **Tools for PowerShell V5**  
 **Example 1: This example copies the specified AMI in the 'EU (Ireland)' region to the 'US West (Oregon)' region. If -Region is not specified, the current default region is used as the destination region.**  
 
-```
+```powershell
 Copy-EC2Image -SourceRegion eu-west-1 -SourceImageId ami-12345678 -Region us-west-2 -Name "Copy of ami-12345678"
 ```
 **Output:**  

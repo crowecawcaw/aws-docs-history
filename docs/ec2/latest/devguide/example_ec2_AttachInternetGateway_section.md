@@ -1,7 +1,6 @@
 
 
 # Use `AttachInternetGateway` with a CLI
-<a name="example_ec2_AttachInternetGateway_section"></a>
 
 The following code examples show how to use `AttachInternetGateway`.
 
@@ -32,12 +31,12 @@ For more information, see [Internet gateways](https://docs.aws.amazon.com/vpc/la
 **Tools for PowerShell V4**  
 **Example 1: This example attaches the specified Internet gateway to the specified VPC.**  
 
-```
+```powershell
 Add-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d -VpcId vpc-12345678
 ```
 **Example 2: This example creates a VPC and an Internet gateway, and then attaches the Internet gateway to the VPC.**  
 
-```
+```powershell
 $vpc = New-EC2Vpc -CidrBlock 10.0.0.0/16
 New-EC2InternetGateway | Add-EC2InternetGateway -VpcId $vpc.VpcId
 ```
@@ -46,12 +45,12 @@ New-EC2InternetGateway | Add-EC2InternetGateway -VpcId $vpc.VpcId
 **Tools for PowerShell V5**  
 **Example 1: This example attaches the specified Internet gateway to the specified VPC.**  
 
-```
+```powershell
 Add-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d -VpcId vpc-12345678
 ```
 **Example 2: This example creates a VPC and an Internet gateway, and then attaches the Internet gateway to the VPC.**  
 
-```
+```powershell
 $vpc = New-EC2Vpc -CidrBlock 10.0.0.0/16
 New-EC2InternetGateway | Add-EC2InternetGateway -VpcId $vpc.VpcId
 ```

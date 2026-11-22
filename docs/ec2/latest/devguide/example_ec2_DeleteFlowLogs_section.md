@@ -1,7 +1,6 @@
 
 
 # Use `DeleteFlowLogs` with a CLI
-<a name="example_ec2_DeleteFlowLogs_section"></a>
 
 The following code examples show how to use `DeleteFlowLogs`.
 
@@ -32,7 +31,7 @@ For more information, see [Work with flow logs](https://docs.aws.amazon.com/vpc/
 **Tools for PowerShell V4**  
 **Example 1: This example removes the given FlowLogId fl-01a2b3456a789c01**  
 
-```
+```powershell
 Remove-EC2FlowLog -FlowLogId fl-01a2b3456a789c01
 ```
 **Output:**  
@@ -48,7 +47,7 @@ Performing the operation "Remove-EC2FlowLog (DeleteFlowLogs)" on target "fl-01a2
 **Tools for PowerShell V5**  
 **Example 1: This example removes the given FlowLogId fl-01a2b3456a789c01**  
 
-```
+```powershell
 Remove-EC2FlowLog -FlowLogId fl-01a2b3456a789c01
 ```
 **Output:**  

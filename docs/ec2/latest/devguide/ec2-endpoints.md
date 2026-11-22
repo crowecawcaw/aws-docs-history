@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 service endpoints
-<a name="ec2-endpoints"></a>
 
 An endpoint is a URL that serves as an entry point for an AWS web service. Amazon EC2 supports the following endpoint types:
 + [IPv4 endpoints](#ipv4)

@@ -1,7 +1,6 @@
 
 
 # Use `DescribeCapacityReservations` with a CLI
-<a name="example_ec2_DescribeCapacityReservations_section"></a>
 
 The following code examples show how to use `DescribeCapacityReservations`.
 
@@ -111,7 +110,7 @@ For more information, see [View the state of a Capacity Reservation](https://doc
 **Tools for PowerShell V4**  
 **Example 1: This example describes one or more of your Capacity Reservations for the region**  
 
-```
+```powershell
 Get-EC2CapacityReservation -Region eu-west-1
 ```
 **Output:**  
@@ -138,7 +137,7 @@ TotalInstanceCount     : 2
 **Tools for PowerShell V5**  
 **Example 1: This example describes one or more of your Capacity Reservations for the region**  
 
-```
+```powershell
 Get-EC2CapacityReservation -Region eu-west-1
 ```
 **Output:**  

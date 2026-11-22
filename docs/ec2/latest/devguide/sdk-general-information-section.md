@@ -1,7 +1,6 @@
 
 
 # Create Amazon EC2 resources using an AWS SDK
-<a name="sdk-general-information-section"></a>
 
 AWS provides software development kits (SDK) for many popular programming languages. An SDK makes development more efficient by providing the following:
 + Pre-built components and libraries that you can incorporate into your applications

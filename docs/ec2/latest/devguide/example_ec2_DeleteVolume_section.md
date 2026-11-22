@@ -1,7 +1,6 @@
 
 
 # Use `DeleteVolume` with a CLI
-<a name="example_ec2_DeleteVolume_section"></a>
 
 The following code examples show how to use `DeleteVolume`.
 
@@ -30,7 +29,7 @@ For more information, see [Delete an Amazon EBS volume](https://docs.aws.amazon.
 **Tools for PowerShell V4**  
 **Example 1: This example detaches the specified volume. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2Volume -VolumeId vol-12345678
 ```
 **Output:**  
@@ -46,7 +45,7 @@ Performing the operation "Remove-EC2Volume (DeleteVolume)" on target "vol-123456
 **Tools for PowerShell V5**  
 **Example 1: This example detaches the specified volume. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2Volume -VolumeId vol-12345678
 ```
 **Output:**  

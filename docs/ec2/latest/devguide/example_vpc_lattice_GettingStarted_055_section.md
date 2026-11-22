@@ -1,7 +1,6 @@
 
 
 # Creating and managing a service networking mesh
-<a name="example_vpc_lattice_GettingStarted_055_section"></a>
 
 The following code example shows how to:
 + Create a service network
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/055-amazon-vpc-lattice-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # VPC Lattice Service Network Tutorial Script

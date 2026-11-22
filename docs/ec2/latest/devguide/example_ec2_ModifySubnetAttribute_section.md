@@ -1,7 +1,6 @@
 
 
 # Use `ModifySubnetAttribute` with a CLI
-<a name="example_ec2_ModifySubnetAttribute_section"></a>
 
 The following code examples show how to use `ModifySubnetAttribute`.
 
@@ -40,12 +39,12 @@ For more information, see [IP addressing for your VPCs and subnets](https://docs
 **Tools for PowerShell V4**  
 **Example 1: This example enables public IP addressing for the specified subnet.**  
 
-```
+```powershell
 Edit-EC2SubnetAttribute -SubnetId subnet-1a2b3c4d -MapPublicIpOnLaunch $true
 ```
 **Example 2: This example disables public IP addressing for the specified subnet.**  
 
-```
+```powershell
 Edit-EC2SubnetAttribute -SubnetId subnet-1a2b3c4d -MapPublicIpOnLaunch $false
 ```
 +  For API details, see [ModifySubnetAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -53,12 +52,12 @@ Edit-EC2SubnetAttribute -SubnetId subnet-1a2b3c4d -MapPublicIpOnLaunch $false
 **Tools for PowerShell V5**  
 **Example 1: This example enables public IP addressing for the specified subnet.**  
 
-```
+```powershell
 Edit-EC2SubnetAttribute -SubnetId subnet-1a2b3c4d -MapPublicIpOnLaunch $true
 ```
 **Example 2: This example disables public IP addressing for the specified subnet.**  
 
-```
+```powershell
 Edit-EC2SubnetAttribute -SubnetId subnet-1a2b3c4d -MapPublicIpOnLaunch $false
 ```
 +  For API details, see [ModifySubnetAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

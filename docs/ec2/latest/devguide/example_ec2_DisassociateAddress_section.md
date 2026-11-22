@@ -1,7 +1,6 @@
 
 
 # Use `DisassociateAddress` with an AWS SDK or CLI
-<a name="example_ec2_DisassociateAddress_section"></a>
 
 The following code examples show how to use `DisassociateAddress`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Disassociate an Elastic IP address from an EC2 instance.
     /// </summary>
@@ -55,7 +54,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_disassociate_address
 #
@@ -116,7 +115,7 @@ function ec2_disassociate_address() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -192,7 +191,7 @@ For more information, see [Elastic IP addresses](https://docs.aws.amazon.com/AWS
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Disassociates an Elastic IP address from an instance asynchronously.
      *
@@ -227,7 +226,7 @@ For more information, see [Elastic IP addresses](https://docs.aws.amazon.com/AWS
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { DisassociateAddressCommand, EC2Client } from "@aws-sdk/client-ec2";
 
 /**
@@ -264,7 +263,7 @@ export const main = async ({ associationId }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 suspend fun disassociateAddressSc(associationIdVal: String?) {
     val addressRequest =
         DisassociateAddressRequest {
@@ -284,12 +283,12 @@ suspend fun disassociateAddressSc(associationIdVal: String?) {
 **Tools for PowerShell V4**  
 **Example 1: This example disassociates the specified Elastic IP address from the specified instance in a VPC.**  
 
-```
+```powershell
 Unregister-EC2Address -AssociationId eipassoc-12345678
 ```
 **Example 2: This example disassociates the specified Elastic IP address from the specified instance in EC2-Classic.**  
 
-```
+```powershell
 Unregister-EC2Address -PublicIp 203.0.113.17
 ```
 +  For API details, see [DisassociateAddress](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -297,12 +296,12 @@ Unregister-EC2Address -PublicIp 203.0.113.17
 **Tools for PowerShell V5**  
 **Example 1: This example disassociates the specified Elastic IP address from the specified instance in a VPC.**  
 
-```
+```powershell
 Unregister-EC2Address -AssociationId eipassoc-12345678
 ```
 **Example 2: This example disassociates the specified Elastic IP address from the specified instance in EC2-Classic.**  
 
-```
+```powershell
 Unregister-EC2Address -PublicIp 203.0.113.17
 ```
 +  For API details, see [DisassociateAddress](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -313,7 +312,7 @@ Unregister-EC2Address -PublicIp 203.0.113.17
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class ElasticIpWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) Elastic IP address actions using the client interface."""
 
@@ -401,7 +400,7 @@ class ElasticIpWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn disassociate_ip_address(&self, association_id: &str) -> Result<(), EC2Error> {
         self.client
             .disassociate_address()
@@ -419,7 +418,7 @@ class ElasticIpWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Disassociate an Elastic IP.

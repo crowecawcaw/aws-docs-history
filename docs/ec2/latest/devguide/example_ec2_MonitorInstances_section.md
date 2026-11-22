@@ -1,7 +1,6 @@
 
 
 # Use `MonitorInstances` with an AWS SDK or CLI
-<a name="example_ec2_MonitorInstances_section"></a>
 
 The following code examples show how to use `MonitorInstances`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Enable detailed monitoring for an Amazon Elastic Compute Cloud (Amazon EC2) instance.
 /*!
   \param instanceId: An EC2 instance ID.
@@ -93,7 +92,7 @@ For more information, see [Manage detailed monitoring for your EC2 instances](ht
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { EC2Client, MonitorInstancesCommand } from "@aws-sdk/client-ec2";
 
 /**
@@ -133,7 +132,7 @@ export const main = async ({ instanceIds }) => {
 **Tools for PowerShell V4**  
 **Example 1: This example enables detailed monitoring for the specified instance.**  
 
-```
+```powershell
 Start-EC2InstanceMonitoring -InstanceId i-12345678
 ```
 **Output:**  
@@ -148,7 +147,7 @@ i-12345678    Amazon.EC2.Model.Monitoring
 **Tools for PowerShell V5**  
 **Example 1: This example enables detailed monitoring for the specified instance.**  
 
-```
+```powershell
 Start-EC2InstanceMonitoring -InstanceId i-12345678
 ```
 **Output:**  
@@ -166,7 +165,7 @@ i-12345678    Amazon.EC2.Model.Monitoring
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     DATA lt_instance_ids TYPE /aws1/cl_ec2instidstringlist_w=>tt_instanceidstringlist.
     APPEND NEW /aws1/cl_ec2instidstringlist_w( iv_value = iv_instance_id ) TO lt_instance_ids.
 

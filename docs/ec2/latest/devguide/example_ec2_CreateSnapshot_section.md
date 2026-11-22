@@ -1,7 +1,6 @@
 
 
 # Use `CreateSnapshot` with a CLI
-<a name="example_ec2_CreateSnapshot_section"></a>
 
 The following code examples show how to use `CreateSnapshot`.
 
@@ -80,7 +79,7 @@ For more information, see [Create Amazon EBS snapshots](https://docs.aws.amazon.
 **Tools for PowerShell V4**  
 **Example 1: This example creates a snapshot of the specified volume.**  
 
-```
+```powershell
 New-EC2Snapshot -VolumeId vol-12345678 -Description "This is a test"
 ```
 **Output:**  
@@ -106,7 +105,7 @@ VolumeSize          : 20
 **Tools for PowerShell V5**  
 **Example 1: This example creates a snapshot of the specified volume.**  
 
-```
+```powershell
 New-EC2Snapshot -VolumeId vol-12345678 -Description "This is a test"
 ```
 **Output:**  

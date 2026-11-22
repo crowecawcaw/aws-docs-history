@@ -1,7 +1,6 @@
 
 
 # Use `DescribeVpcs` with an AWS SDK or CLI
-<a name="example_ec2_DescribeVpcs_section"></a>
 
 The following code examples show how to use `DescribeVpcs`.
 
@@ -27,7 +26,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get the default VPC for the account.
     /// </summary>
@@ -179,7 +178,7 @@ For more information, see [Configure a virtual private cloud](https://docs.aws.a
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
-```
+```javascript
     const client = new EC2Client({});
     const { Vpcs } = await client.send(
       new DescribeVpcsCommand({
@@ -195,7 +194,7 @@ For more information, see [Configure a virtual private cloud](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified VPC.**  
 
-```
+```powershell
 Get-EC2Vpc -VpcId vpc-12345678
 ```
 **Output:**  
@@ -211,7 +210,7 @@ VpcId           : vpc-12345678
 ```
 **Example 2: This example describes the default VPC (there can be only one per region). If your account supports EC2-Classic in this region, there is no default VPC.**  
 
-```
+```powershell
 Get-EC2Vpc -Filter @{Name="isDefault"; Values="true"}
 ```
 **Output:**  
@@ -227,12 +226,12 @@ VpcId           : vpc-45678901
 ```
 **Example 3: This example describes the VPCs that match the specified filter (that is, have a CIDR that matches the value '10.0.0.0/16' and are in the state 'available').**  
 
-```
+```powershell
 Get-EC2Vpc -Filter @{Name="cidr"; Values="10.0.0.0/16"},@{Name="state";Values="available"}
 ```
 **Example 4: This example describes all your VPCs.**  
 
-```
+```powershell
 Get-EC2Vpc
 ```
 +  For API details, see [DescribeVpcs](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -240,7 +239,7 @@ Get-EC2Vpc
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified VPC.**  
 
-```
+```powershell
 Get-EC2Vpc -VpcId vpc-12345678
 ```
 **Output:**  
@@ -256,7 +255,7 @@ VpcId           : vpc-12345678
 ```
 **Example 2: This example describes the default VPC (there can be only one per region). If your account supports EC2-Classic in this region, there is no default VPC.**  
 
-```
+```powershell
 Get-EC2Vpc -Filter @{Name="isDefault"; Values="true"}
 ```
 **Output:**  
@@ -272,12 +271,12 @@ VpcId           : vpc-45678901
 ```
 **Example 3: This example describes the VPCs that match the specified filter (that is, have a CIDR that matches the value '10.0.0.0/16' and are in the state 'available').**  
 
-```
+```powershell
 Get-EC2Vpc -Filter @{Name="cidr"; Values="10.0.0.0/16"},@{Name="state";Values="available"}
 ```
 **Example 4: This example describes all your VPCs.**  
 
-```
+```powershell
 Get-EC2Vpc
 ```
 +  For API details, see [DescribeVpcs](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -288,7 +287,7 @@ Get-EC2Vpc
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class AutoScalingWrapper:
     """
     Encapsulates Amazon EC2 Auto Scaling and EC2 management actions.

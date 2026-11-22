@@ -1,7 +1,6 @@
 
 
 # Creating a container service for virtual machine instances
-<a name="example_ecs_GettingStarted_018_section"></a>
 
 The following code example shows how to:
 + Create an ECS cluster
@@ -14,7 +13,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/018-ecs-ec2) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # ECS EC2 Launch Type Tutorial Script - UPDATED VERSION

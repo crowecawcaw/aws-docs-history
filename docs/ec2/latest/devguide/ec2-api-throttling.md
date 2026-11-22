@@ -1,7 +1,6 @@
 
 
 # Request throttling for the Amazon EC2 API
-<a name="ec2-api-throttling"></a>
 
 Amazon EC2 throttles EC2 API requests for each AWS account on a per-Region basis. We do this to help the performance of the service, and to ensure fair usage for all Amazon EC2 customers. Throttling ensures that requests to the Amazon EC2 API do not exceed the maximum allowed API request limits. API requests are subject to the request limits whether they originate from:
 + A third-party application

@@ -1,7 +1,6 @@
 
 
 # Use `DescribeSpotFleetRequestHistory` with a CLI
-<a name="example_ec2_DescribeSpotFleetRequestHistory_section"></a>
 
 The following code examples show how to use `DescribeSpotFleetRequestHistory`.
 
@@ -68,7 +67,7 @@ For more information, see [Describe a Spot Fleet request, its instances, and eve
 **Tools for PowerShell V4**  
 **Example 1: This example describes the history of the specified Spot fleet request.**  
 
-```
+```powershell
 Get-EC2SpotFleetRequestHistory -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -StartTime 2015-12-26T00:00:00Z
 ```
 **Output:**  
@@ -81,7 +80,7 @@ SpotFleetRequestId : sfr-088bc5f1-7e7b-451a-bd13-757f10672b93
 StartTime          : 12/25/2015 8:00:00 AM
 ```
 
-```
+```powershell
 (Get-EC2SpotFleetRequestHistory -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -StartTime 2015-12-26T00:00:00Z).HistoryRecords
 ```
 **Output:**  
@@ -100,7 +99,7 @@ Amazon.EC2.Model.EventInformation    launched              12/26/2015 8:25:05 AM
 **Tools for PowerShell V5**  
 **Example 1: This example describes the history of the specified Spot fleet request.**  
 
-```
+```powershell
 Get-EC2SpotFleetRequestHistory -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -StartTime 2015-12-26T00:00:00Z
 ```
 **Output:**  
@@ -113,7 +112,7 @@ SpotFleetRequestId : sfr-088bc5f1-7e7b-451a-bd13-757f10672b93
 StartTime          : 12/25/2015 8:00:00 AM
 ```
 
-```
+```powershell
 (Get-EC2SpotFleetRequestHistory -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -StartTime 2015-12-26T00:00:00Z).HistoryRecords
 ```
 **Output:**  

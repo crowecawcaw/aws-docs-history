@@ -1,7 +1,6 @@
 
 
 # Error codes for the Amazon EC2 API
-<a name="errors-overview"></a>
 
 Amazon EC2 has two types of error codes:
 + **Client errors**. These errors are usually caused by something the client did. Common causes include specifying an incorrect or invalid parameter in the request, or using an action or resource on behalf of a user that doesn't have permission to use the action or resource. These errors are accompanied by a 400-series HTTP response code.
@@ -178,6 +177,8 @@ This section lists client errors that are specific to certain Amazon EC2 API act
 | <a name="InvalidExportTaskID.Malformed"></a>InvalidExportTaskID.Malformed | The specified export task ID cannot be found. | 
 | <a name="InvalidExportTaskID.NotFound"></a>InvalidExportTaskID.NotFound | The specified export task ID is malformed. Ensure that you specify the ID in the form export-ami-xxxxxxxxxxxxxxxxx. | 
 | <a name="InvalidFilter"></a> InvalidFilter  | The specified filter is not valid. | 
+| <a name="InvalidFlexCostAllocationPolicyID.Malformed"></a> InvalidFlexCostAllocationPolicyID.Malformed  | The specified Flex Cost Allocation policy ID is malformed. Make sure that you specify the ID in the form fcap-xxxxxxxxxxxxxxxxx. | 
+| <a name="InvalidFlexCostAllocationPolicyID.NotFound"></a> InvalidFlexCostAllocationPolicyID.NotFound  | The specified Flex Cost Allocation policy does not exist. Verify that the policy ID is correct and that the policy exists in the current Region. | 
 | <a name="InvalidFlowLogId.NotFound"></a> InvalidFlowLogId.NotFound  | The specified flow log does not exist. | 
 | <a name="InvalidFormat"></a> InvalidFormat | The specified disk format (for the instance or volume import) is not valid. | 
 | InvalidFpgaImageID.Malformed | The specified Amazon FPGA image (AFI) ID is malformed. Ensure that you provide the full AFI ID in the request, in the form afi-xxxxxxxxxxxxxxxxx. | 

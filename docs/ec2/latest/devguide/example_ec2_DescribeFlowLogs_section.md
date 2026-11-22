@@ -1,7 +1,6 @@
 
 
 # Use `DescribeFlowLogs` with a CLI
-<a name="example_ec2_DescribeFlowLogs_section"></a>
 
 The following code examples show how to use `DescribeFlowLogs`.
 
@@ -86,7 +85,7 @@ For more information, see [Work with flow logs](https://docs.aws.amazon.com/vpc/
 **Tools for PowerShell V4**  
 **Example 1: This example describes one or more flow logs with log destination type 's3'**  
 
-```
+```powershell
 Get-EC2FlowLog -Filter @{Name="log-destination-type";Values="s3"}
 ```
 **Output:**  
@@ -109,7 +108,7 @@ TrafficType              : ALL
 **Tools for PowerShell V5**  
 **Example 1: This example describes one or more flow logs with log destination type 's3'**  
 
-```
+```powershell
 Get-EC2FlowLog -Filter @{Name="log-destination-type";Values="s3"}
 ```
 **Output:**  

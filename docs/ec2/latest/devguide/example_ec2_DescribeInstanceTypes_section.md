@@ -1,7 +1,6 @@
 
 
 # Use `DescribeInstanceTypes` with an AWS SDK or CLI
-<a name="example_ec2_DescribeInstanceTypes_section"></a>
 
 The following code examples show how to use `DescribeInstanceTypes`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Describe the instance types available.
     /// </summary>
@@ -68,7 +67,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # ec2_describe_instance_types
 #
@@ -179,7 +178,7 @@ function ec2_describe_instance_types() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -341,7 +340,7 @@ For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.co
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Asynchronously retrieves the instance types available in the current AWS region.
      * <p>
@@ -394,7 +393,7 @@ For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.co
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { EC2Client, paginateDescribeInstanceTypes } from "@aws-sdk/client-ec2";
 
 /**
@@ -458,7 +457,7 @@ export const main = async ({ pageSize, supportedArch, freeTier }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 // Get a list of instance types.
 suspend fun getInstanceTypesSc(): String {
     var instanceType = ""
@@ -494,7 +493,7 @@ suspend fun getInstanceTypesSc(): String {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class EC2InstanceWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) instance actions using the client interface."""
 
@@ -570,7 +569,7 @@ class EC2InstanceWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     /// List instance types that match an image's architecture and are free tier eligible.
     pub async fn list_instance_types(&self, image: &Image) -> Result<Vec<InstanceType>, EC2Error> {
         let architecture = format!(
@@ -612,7 +611,7 @@ class EC2InstanceWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     " Create filters for architecture and instance type patterns
     " iv_architecture = 'x86_64'
     DATA lt_filters TYPE /aws1/cl_ec2filter=>tt_filterlist.
@@ -648,7 +647,7 @@ class EC2InstanceWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Return a list of instance types matching the specified architecture

@@ -1,7 +1,6 @@
 
 
 # Use `DeleteDhcpOptions` with a CLI
-<a name="example_ec2_DeleteDhcpOptions_section"></a>
 
 The following code examples show how to use `DeleteDhcpOptions`.
 
@@ -26,7 +25,7 @@ For more information, see [Work with DHCP option sets](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the specified DHCP options set. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d
 ```
 **Output:**  
@@ -42,7 +41,7 @@ Performing operation "Remove-EC2DhcpOption (DeleteDhcpOptions)" on Target "dopt-
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the specified DHCP options set. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d
 ```
 **Output:**  

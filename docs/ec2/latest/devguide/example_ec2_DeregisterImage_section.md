@@ -1,7 +1,6 @@
 
 
 # Use `DeregisterImage` with a CLI
-<a name="example_ec2_DeregisterImage_section"></a>
 
 The following code examples show how to use `DeregisterImage`.
 
@@ -32,7 +31,7 @@ For more information, see [Deregister an Amazon EC2 AMI](https://docs.aws.amazon
 **Tools for PowerShell V4**  
 **Example 1: This example deregisters the specified AMI.**  
 
-```
+```powershell
 Unregister-EC2Image -ImageId ami-12345678
 ```
 +  For API details, see [DeregisterImage](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,7 +39,7 @@ Unregister-EC2Image -ImageId ami-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example deregisters the specified AMI.**  
 
-```
+```powershell
 Unregister-EC2Image -ImageId ami-12345678
 ```
 +  For API details, see [DeregisterImage](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

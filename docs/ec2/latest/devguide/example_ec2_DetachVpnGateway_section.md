@@ -1,7 +1,6 @@
 
 
 # Use `DetachVpnGateway` with a CLI
-<a name="example_ec2_DetachVpnGateway_section"></a>
 
 The following code examples show how to use `DetachVpnGateway`.
 
@@ -27,7 +26,7 @@ For more information, see [How AWS Site-to-Site VPN works](https://docs.aws.amaz
 **Tools for PowerShell V4**  
 **Example 1: This example detaches the specified virtual private gateway from the specified VPC.**  
 
-```
+```powershell
 Dismount-EC2VpnGateway -VpnGatewayId vgw-1a2b3c4d -VpcId vpc-12345678
 ```
 +  For API details, see [DetachVpnGateway](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Dismount-EC2VpnGateway -VpnGatewayId vgw-1a2b3c4d -VpcId vpc-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example detaches the specified virtual private gateway from the specified VPC.**  
 
-```
+```powershell
 Dismount-EC2VpnGateway -VpnGatewayId vgw-1a2b3c4d -VpcId vpc-12345678
 ```
 +  For API details, see [DetachVpnGateway](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

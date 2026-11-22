@@ -1,7 +1,6 @@
 
 
 # Use `CreateInstanceExportTask` with a CLI
-<a name="example_ec2_CreateInstanceExportTask_section"></a>
 
 The following code examples show how to use `CreateInstanceExportTask`.
 
@@ -49,7 +48,7 @@ For more information, see [Export an EC2 instance as a VM using VM Import/Export
 **Tools for PowerShell V4**  
 **Example 1: This example exports a stopped instance, `i-0800b00a00EXAMPLE`, as a virtual hard disk (VHD) to the S3 bucket `testbucket-export-instances-2019`. The target environment is `Microsoft`, and the region parameter is added because the instance is in the `us-east-1` region, while the user's default AWS Region is not us-east-1. To get the status of the export task, copy the `ExportTaskId` value from the results of this command, then run `Get-EC2ExportTask -ExportTaskId export_task_ID_from_results.`**  
 
-```
+```powershell
 New-EC2InstanceExportTask -InstanceId i-0800b00a00EXAMPLE -ExportToS3Task_DiskImageFormat VHD -ExportToS3Task_S3Bucket "amzn-s3-demo-bucket" -TargetEnvironment Microsoft -Region us-east-1
 ```
 **Output:**  
@@ -67,7 +66,7 @@ StatusMessage         :
 **Tools for PowerShell V5**  
 **Example 1: This example exports a stopped instance, `i-0800b00a00EXAMPLE`, as a virtual hard disk (VHD) to the S3 bucket `testbucket-export-instances-2019`. The target environment is `Microsoft`, and the region parameter is added because the instance is in the `us-east-1` region, while the user's default AWS Region is not us-east-1. To get the status of the export task, copy the `ExportTaskId` value from the results of this command, then run `Get-EC2ExportTask -ExportTaskId export_task_ID_from_results.`**  
 
-```
+```powershell
 New-EC2InstanceExportTask -InstanceId i-0800b00a00EXAMPLE -ExportToS3Task_DiskImageFormat VHD -ExportToS3Task_S3Bucket "amzn-s3-demo-bucket" -TargetEnvironment Microsoft -Region us-east-1
 ```
 **Output:**  

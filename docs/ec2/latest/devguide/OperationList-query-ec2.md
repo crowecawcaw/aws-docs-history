@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 actions
-<a name="OperationList-query-ec2"></a>
 
 The following API actions are available for Amazon EC2. To learn more about Amazon EC2, see the [Amazon EC2 product page](https://aws.amazon.com/ec2) and the [Amazon EC2 documentation](https://docs.aws.amazon.com/ec2/).
 

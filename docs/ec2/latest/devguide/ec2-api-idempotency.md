@@ -1,7 +1,6 @@
 
 
 # Ensuring idempotency in Amazon EC2 API requests
-<a name="ec2-api-idempotency"></a>
 
 When you make a mutating API request, the request typically returns a result before the operation's asynchronous workflows have completed. Operations might also time out or encounter other server issues before they complete, even though the request has already returned a result. This could make it difficult to determine whether the request succeeded or not, and could lead to multiple retries to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the operation is completed multiple times. This means that you might create more resources than you intended.
 

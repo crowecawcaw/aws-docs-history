@@ -1,7 +1,6 @@
 
 
 # AWS Outposts actions
-<a name="operation-list-outposts"></a>
 
 The following Amazon EC2 API actions are available for AWS Outposts. There is also an API for AWS Outposts. For more information, see the [AWS Outposts API Reference](https://docs.aws.amazon.com/outposts/latest/APIReference/API_Operations.html).
 

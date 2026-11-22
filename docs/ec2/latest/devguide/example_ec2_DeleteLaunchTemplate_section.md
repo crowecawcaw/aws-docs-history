@@ -1,7 +1,6 @@
 
 
 # Use `DeleteLaunchTemplate` with an AWS SDK or CLI
-<a name="example_ec2_DeleteLaunchTemplate_section"></a>
 
 The following code examples show how to use `DeleteLaunchTemplate`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete a launch template by name.
     /// </summary>
@@ -84,7 +83,7 @@ For more information, see [Delete a launch template or a launch template version
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
-```
+```javascript
       await client.send(
         new DeleteLaunchTemplateCommand({
           LaunchTemplateName: NAMES.launchTemplateName,
@@ -99,7 +98,7 @@ For more information, see [Delete a launch template or a launch template version
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class AutoScalingWrapper:
     """
     Encapsulates Amazon EC2 Auto Scaling and EC2 management actions.

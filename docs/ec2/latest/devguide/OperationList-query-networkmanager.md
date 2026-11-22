@@ -1,7 +1,6 @@
 
 
 # AWS Network Manager actions
-<a name="OperationList-query-networkmanager"></a>
 
 The following API actions are available for AWS Network Manager.<a name="operation-list-infrastructure-performance"></a>
 

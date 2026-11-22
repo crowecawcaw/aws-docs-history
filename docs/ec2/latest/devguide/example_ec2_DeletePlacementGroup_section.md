@@ -1,7 +1,6 @@
 
 
 # Use `DeletePlacementGroup` with a CLI
-<a name="example_ec2_DeletePlacementGroup_section"></a>
 
 The following code examples show how to use `DeletePlacementGroup`.
 
@@ -26,7 +25,7 @@ For more information, see [Delete a placement group](https://docs.aws.amazon.com
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the specified placement group. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2PlacementGroup -GroupName my-placement-group
 ```
 **Output:**  
@@ -42,7 +41,7 @@ Performing operation "Remove-EC2PlacementGroup (DeletePlacementGroup)" on Target
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the specified placement group. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2PlacementGroup -GroupName my-placement-group
 ```
 **Output:**  

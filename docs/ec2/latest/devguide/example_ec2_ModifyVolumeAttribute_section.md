@@ -1,7 +1,6 @@
 
 
 # Use `ModifyVolumeAttribute` with a CLI
-<a name="example_ec2_ModifyVolumeAttribute_section"></a>
 
 The following code examples show how to use `ModifyVolumeAttribute`.
 
@@ -27,7 +26,7 @@ For more information, see [Amazon EBS volume status checks](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example modifies the specified attribute of the specified volume. I/O operations for the volume are automatically resumed after being suspended due to potentially inconsistent data.**  
 
-```
+```powershell
 Edit-EC2VolumeAttribute -VolumeId vol-12345678 -AutoEnableIO $true
 ```
 +  For API details, see [ModifyVolumeAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Edit-EC2VolumeAttribute -VolumeId vol-12345678 -AutoEnableIO $true
 **Tools for PowerShell V5**  
 **Example 1: This example modifies the specified attribute of the specified volume. I/O operations for the volume are automatically resumed after being suspended due to potentially inconsistent data.**  
 
-```
+```powershell
 Edit-EC2VolumeAttribute -VolumeId vol-12345678 -AutoEnableIO $true
 ```
 +  For API details, see [ModifyVolumeAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

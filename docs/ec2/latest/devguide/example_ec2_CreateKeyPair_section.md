@@ -1,7 +1,6 @@
 
 
 # Use `CreateKeyPair` with an AWS SDK or CLI
-<a name="example_ec2_CreateKeyPair_section"></a>
 
 The following code examples show how to use `CreateKeyPair`.
 
@@ -20,7 +19,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create an Amazon EC2 key pair with a specified name.
     /// </summary>
@@ -99,7 +98,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_create_keypair
 #
@@ -176,7 +175,7 @@ function ec2_create_keypair() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -228,7 +227,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Create an Amazon Elastic Compute Cloud (Amazon EC2) instance key pair.
 /*!
   \param keyPairName: A name for a key pair.
@@ -296,7 +295,7 @@ For more information, see [Creating, displaying, and deleting Amazon EC2 key pai
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Creates a new key pair asynchronously.
      *
@@ -336,7 +335,7 @@ For more information, see [Creating, displaying, and deleting Amazon EC2 key pai
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { CreateKeyPairCommand, EC2Client } from "@aws-sdk/client-ec2";
 
 /**
@@ -371,7 +370,7 @@ export const main = async ({ keyName }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 suspend fun createEC2KeyPair(keyNameVal: String) {
     val request =
         CreateKeyPairRequest {
@@ -392,7 +391,7 @@ suspend fun createEC2KeyPair(keyNameVal: String) {
 **Tools for PowerShell V4**  
 **Example 1: This example creates a key pair and captures the PEM-encoded RSA private key in a file with the specified name. When you are using PowerShell, the encoding must be set to ascii to generate a valid key. For more information, see Create, Display, and Delete Amazon EC2 Key Pairs (https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html) in the AWS Command Line Interface User Guide.**  
 
-```
+```powershell
 (New-EC2KeyPair -KeyName "my-key-pair").KeyMaterial | Out-File -Encoding ascii -FilePath C:\path\my-key-pair.pem
 ```
 +  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -400,7 +399,7 @@ suspend fun createEC2KeyPair(keyNameVal: String) {
 **Tools for PowerShell V5**  
 **Example 1: This example creates a key pair and captures the PEM-encoded RSA private key in a file with the specified name. When you are using PowerShell, the encoding must be set to ascii to generate a valid key. For more information, see Create, Display, and Delete Amazon EC2 Key Pairs (https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html) in the AWS Command Line Interface User Guide.**  
 
-```
+```powershell
 (New-EC2KeyPair -KeyName "my-key-pair").KeyMaterial | Out-File -Encoding ascii -FilePath C:\path\my-key-pair.pem
 ```
 +  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -411,7 +410,7 @@ suspend fun createEC2KeyPair(keyNameVal: String) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class KeyPairWrapper:
     """
     Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) key pair actions.
@@ -489,7 +488,7 @@ class KeyPairWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
-```
+```ruby
 # This code example does the following:
 # 1. Creates a key pair in Amazon Elastic Compute Cloud (Amazon EC2).
 # 2. Displays information about available key pairs.
@@ -637,7 +636,7 @@ run_me if $PROGRAM_NAME == __FILE__
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 Rust implementation that calls the EC2 Client's create\_key\_pair and extracts the returned material.  
 
-```
+```rust
     pub async fn create_key_pair(&self, name: String) -> Result<(KeyPairInfo, String), EC2Error> {
         tracing::info!("Creating key pair {name}");
         let output = self.client.create_key_pair().key_name(name).send().await?;
@@ -654,7 +653,7 @@ Rust implementation that calls the EC2 Client's create\_key\_pair and extracts t
 ```
 A function that calls the create\_key impl and securely saves the PEM private key.  
 
-```
+```rust
     /// Creates a key pair that can be used to securely connect to an EC2 instance.
     /// The returned key pair contains private key information that cannot be retrieved
     /// again. The private key data is stored as a .pem file.
@@ -690,7 +689,7 @@ A function that calls the create\_key impl and securely saves the PEM private ke
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ec2->createkeypair( iv_keyname = iv_key_name ).                            " oo_result is returned for testing purposes. "
         MESSAGE 'Amazon EC2 key pair created.' TYPE 'I'.
@@ -707,7 +706,7 @@ A function that calls the create\_key impl and securely saves the PEM private ke
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Create a new RSA key pair and save the private key to a randomly-named

@@ -1,7 +1,6 @@
 
 
 # Use `CreateVpnConnection` with a CLI
-<a name="example_ec2_CreateVpnConnection_section"></a>
 
 The following code examples show how to use `CreateVpnConnection`.
 
@@ -188,7 +187,7 @@ For more information, see [How AWS Site-to-Site VPN works](https://docs.aws.amaz
 **Tools for PowerShell V4**  
 **Example 1: This example creates a VPN connection between the specified virtual private gateway and the specified customer gateway. The output includes the configuration information that your network administrator needs, in XML format.**  
 
-```
+```powershell
 New-EC2VpnConnection -Type ipsec.1 -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d
 ```
 **Output:**  
@@ -207,12 +206,12 @@ VpnGatewayId                 : vgw-1a2b3c4d
 ```
 **Example 2: This example creates the VPN connection and captures the configuration in a file with the specified name.**  
 
-```
+```powershell
 (New-EC2VpnConnection -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d).CustomerGatewayConfiguration | Out-File C:\path\vpn-configuration.xml
 ```
 **Example 3: This example creates a VPN connection, with static routing, between the specified virtual private gateway and the specified customer gateway.**  
 
-```
+```powershell
 New-EC2VpnConnection -Type ipsec.1 -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d -Options_StaticRoutesOnly $true
 ```
 +  For API details, see [CreateVpnConnection](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -220,7 +219,7 @@ New-EC2VpnConnection -Type ipsec.1 -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId
 **Tools for PowerShell V5**  
 **Example 1: This example creates a VPN connection between the specified virtual private gateway and the specified customer gateway. The output includes the configuration information that your network administrator needs, in XML format.**  
 
-```
+```powershell
 New-EC2VpnConnection -Type ipsec.1 -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d
 ```
 **Output:**  
@@ -239,12 +238,12 @@ VpnGatewayId                 : vgw-1a2b3c4d
 ```
 **Example 2: This example creates the VPN connection and captures the configuration in a file with the specified name.**  
 
-```
+```powershell
 (New-EC2VpnConnection -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d).CustomerGatewayConfiguration | Out-File C:\path\vpn-configuration.xml
 ```
 **Example 3: This example creates a VPN connection, with static routing, between the specified virtual private gateway and the specified customer gateway.**  
 
-```
+```powershell
 New-EC2VpnConnection -Type ipsec.1 -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d -Options_StaticRoutesOnly $true
 ```
 +  For API details, see [CreateVpnConnection](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

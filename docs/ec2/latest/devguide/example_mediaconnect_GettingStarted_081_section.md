@@ -1,7 +1,6 @@
 
 
 # Getting started with video transport streaming
-<a name="example_mediaconnect_GettingStarted_081_section"></a>
 
 The following code example shows how to:
 + Verify access to Elemental MediaConnect
@@ -15,7 +14,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/081-aws-elemental-mediaconnect-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS Elemental MediaConnect Getting Started Tutorial Script

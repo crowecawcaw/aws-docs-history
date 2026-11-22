@@ -1,7 +1,6 @@
 
 
 # Use `DescribeVolumeAttribute` with a CLI
-<a name="example_ec2_DescribeVolumeAttribute_section"></a>
 
 The following code examples show how to use `DescribeVolumeAttribute`.
 
@@ -36,7 +35,7 @@ For more information, see [Amazon EBS volume status checks](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified attribute of the specified volume.**  
 
-```
+```powershell
 Get-EC2VolumeAttribute -VolumeId vol-12345678 -Attribute AutoEnableIO
 ```
 **Output:**  
@@ -51,7 +50,7 @@ False           {}              vol-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified attribute of the specified volume.**  
 
-```
+```powershell
 Get-EC2VolumeAttribute -VolumeId vol-12345678 -Attribute AutoEnableIO
 ```
 **Output:**  

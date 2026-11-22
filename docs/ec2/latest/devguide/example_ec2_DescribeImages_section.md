@@ -1,7 +1,6 @@
 
 
 # Use `DescribeImages` with an AWS SDK or CLI
-<a name="example_ec2_DescribeImages_section"></a>
 
 The following code examples show how to use `DescribeImages`.
 
@@ -21,7 +20,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_describe_images
 #
@@ -88,7 +87,7 @@ function ec2_describe_images() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -266,7 +265,7 @@ For additional examples using tag filters, see [Working with tags](https://docs.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { EC2Client, paginateDescribeImages } from "@aws-sdk/client-ec2";
 
 /**
@@ -336,7 +335,7 @@ export const main = async ({ architecture, pageSize }) => {
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified AMI.**  
 
-```
+```powershell
 Get-EC2Image -ImageId ami-12345678
 ```
 **Output:**  
@@ -368,17 +367,17 @@ VirtualizationType  : hvm
 ```
 **Example 2: This example describes the AMIs that you own.**  
 
-```
+```powershell
 Get-EC2Image -owner self
 ```
 **Example 3: This example describes the public AMIs that run Microsoft Windows Server.**  
 
-```
+```powershell
 Get-EC2Image -Filter @{ Name="platform"; Values="windows" }
 ```
 **Example 4: This example describes all public AMIs in the 'us-west-2' region.**  
 
-```
+```powershell
 Get-EC2Image -Region us-west-2
 ```
 +  For API details, see [DescribeImages](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -386,7 +385,7 @@ Get-EC2Image -Region us-west-2
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified AMI.**  
 
-```
+```powershell
 Get-EC2Image -ImageId ami-12345678
 ```
 **Output:**  
@@ -418,17 +417,17 @@ VirtualizationType  : hvm
 ```
 **Example 2: This example describes the AMIs that you own.**  
 
-```
+```powershell
 Get-EC2Image -owner self
 ```
 **Example 3: This example describes the public AMIs that run Microsoft Windows Server.**  
 
-```
+```powershell
 Get-EC2Image -Filter @{ Name="platform"; Values="windows" }
 ```
 **Example 4: This example describes all public AMIs in the 'us-west-2' region.**  
 
-```
+```powershell
 Get-EC2Image -Region us-west-2
 ```
 +  For API details, see [DescribeImages](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -439,7 +438,7 @@ Get-EC2Image -Region us-west-2
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class EC2InstanceWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) instance actions using the client interface."""
 
@@ -494,7 +493,7 @@ class EC2InstanceWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn list_images(&self, ids: Vec<Parameter>) -> Result<Vec<Image>, EC2Error> {
         let image_ids = ids.into_iter().filter_map(|p| p.value).collect();
         let output = self
@@ -514,7 +513,7 @@ class EC2InstanceWrapper:
 ```
 Using the list\_images function with SSM to limit based on your environment. For more details on SSM, see https://docs.aws.amazon.com/systems-manager/latest/userguide/example\_ssm\_GetParameters\_section.html.  
 
-```
+```rust
     async fn find_image(&mut self) -> Result<ScenarioImage, EC2Error> {
         let params: Vec<Parameter> = self
             .ssm
@@ -545,7 +544,7 @@ Using the list\_images function with SSM to limit based on your environment. For
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ec2->describeimages( it_imageids = it_image_ids ).             " oo_result is returned for testing purposes. "
         DATA(lt_images) = oo_result->get_images( ).
@@ -563,7 +562,7 @@ Using the list\_images function with SSM to limit based on your environment. For
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Return an array of `EC2ClientTypes.Image` objects describing all of

@@ -1,7 +1,6 @@
 
 
 # Use `DescribeVpcClassicLink` with a CLI
-<a name="example_ec2_DescribeVpcClassicLink_section"></a>
 
 The following code examples show how to use `DescribeVpcClassicLink`.
 
@@ -48,7 +47,7 @@ aws ec2 describe-vpc-classic-link \
 **Tools for PowerShell V4**  
 **Example 1: Above example returns all the VPCs with their ClassicLinkEnabled state for the region**  
 
-```
+```powershell
 Get-EC2VpcClassicLink -Region eu-west-1
 ```
 **Output:**  
@@ -67,7 +66,7 @@ False              {Name} vpc-0b12d3456a7e8901d
 **Tools for PowerShell V5**  
 **Example 1: Above example returns all the VPCs with their ClassicLinkEnabled state for the region**  
 
-```
+```powershell
 Get-EC2VpcClassicLink -Region eu-west-1
 ```
 **Output:**  

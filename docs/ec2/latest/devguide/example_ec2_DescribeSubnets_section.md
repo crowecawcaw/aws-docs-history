@@ -1,7 +1,6 @@
 
 
 # Use `DescribeSubnets` with an AWS SDK or CLI
-<a name="example_ec2_DescribeSubnets_section"></a>
 
 The following code examples show how to use `DescribeSubnets`.
 
@@ -24,7 +23,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get all the subnets for a Vpc in a set of availability zones.
     /// </summary>
@@ -216,7 +215,7 @@ For more information, see [Working with VPCs and Subnets](https://docs.aws.amazo
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
-```
+```javascript
     const client = new EC2Client({});
     const { Subnets } = await client.send(
       new DescribeSubnetsCommand({
@@ -236,7 +235,7 @@ For more information, see [Working with VPCs and Subnets](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified subnet.**  
 
-```
+```powershell
 Get-EC2Subnet -SubnetId subnet-1a2b3c4d
 ```
 **Output:**  
@@ -254,7 +253,7 @@ VpcId                   : vpc-12345678
 ```
 **Example 2: This example describes all your subnets.**  
 
-```
+```powershell
 Get-EC2Subnet
 ```
 +  For API details, see [DescribeSubnets](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -262,7 +261,7 @@ Get-EC2Subnet
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified subnet.**  
 
-```
+```powershell
 Get-EC2Subnet -SubnetId subnet-1a2b3c4d
 ```
 **Output:**  
@@ -280,7 +279,7 @@ VpcId                   : vpc-12345678
 ```
 **Example 2: This example describes all your subnets.**  
 
-```
+```powershell
 Get-EC2Subnet
 ```
 +  For API details, see [DescribeSubnets](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -291,7 +290,7 @@ Get-EC2Subnet
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class AutoScalingWrapper:
     """
     Encapsulates Amazon EC2 Auto Scaling and EC2 management actions.

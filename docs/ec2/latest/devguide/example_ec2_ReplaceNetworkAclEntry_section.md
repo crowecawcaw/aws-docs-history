@@ -1,7 +1,6 @@
 
 
 # Use `ReplaceNetworkAclEntry` with a CLI
-<a name="example_ec2_ReplaceNetworkAclEntry_section"></a>
 
 The following code examples show how to use `ReplaceNetworkAclEntry`.
 
@@ -32,7 +31,7 @@ For more information, see [Network ACL rules](https://docs.aws.amazon.com/vpc/la
 **Tools for PowerShell V4**  
 **Example 1: This example replaces the specified entry for the specified network ACL. The new rule allows inbound traffic from the specified address to any associated subnet.**  
 
-```
+```powershell
 Set-EC2NetworkAclEntry -NetworkAclId acl-12345678 -Egress $false -RuleNumber 100 -Protocol 17 -PortRange_From 53 -PortRange_To 53 -CidrBlock 203.0.113.12/24 -RuleAction allow
 ```
 +  For API details, see [ReplaceNetworkAclEntry](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,7 +39,7 @@ Set-EC2NetworkAclEntry -NetworkAclId acl-12345678 -Egress $false -RuleNumber 100
 **Tools for PowerShell V5**  
 **Example 1: This example replaces the specified entry for the specified network ACL. The new rule allows inbound traffic from the specified address to any associated subnet.**  
 
-```
+```powershell
 Set-EC2NetworkAclEntry -NetworkAclId acl-12345678 -Egress $false -RuleNumber 100 -Protocol 17 -PortRange_From 53 -PortRange_To 53 -CidrBlock 203.0.113.12/24 -RuleAction allow
 ```
 +  For API details, see [ReplaceNetworkAclEntry](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

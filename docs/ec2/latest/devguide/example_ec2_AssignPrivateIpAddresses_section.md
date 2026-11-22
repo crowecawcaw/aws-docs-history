@@ -1,7 +1,6 @@
 
 
 # Use `AssignPrivateIpAddresses` with a CLI
-<a name="example_ec2_AssignPrivateIpAddresses_section"></a>
 
 The following code examples show how to use `AssignPrivateIpAddresses`.
 
@@ -62,12 +61,12 @@ For more information, see [Secondary IP addresses for your EC2 instances](https:
 **Tools for PowerShell V4**  
 **Example 1: This example assigns the specified secondary private IP address to the specified network interface.**  
 
-```
+```powershell
 Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 10.0.0.82
 ```
 **Example 2: This example creates two secondary private IP addresses and assigns them to the specified network interface.**  
 
-```
+```powershell
 Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -SecondaryPrivateIpAddressCount 2
 ```
 +  For API details, see [AssignPrivateIpAddresses](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -75,12 +74,12 @@ Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -SecondaryPrivateI
 **Tools for PowerShell V5**  
 **Example 1: This example assigns the specified secondary private IP address to the specified network interface.**  
 
-```
+```powershell
 Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 10.0.0.82
 ```
 **Example 2: This example creates two secondary private IP addresses and assigns them to the specified network interface.**  
 
-```
+```powershell
 Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -SecondaryPrivateIpAddressCount 2
 ```
 +  For API details, see [AssignPrivateIpAddresses](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Use `ResetInstanceAttribute` with a CLI
-<a name="example_ec2_ResetInstanceAttribute_section"></a>
 
 The following code examples show how to use `ResetInstanceAttribute`.
 
@@ -47,27 +46,27 @@ For more information, see [User provided kernels](https://docs.aws.amazon.com/li
 **Tools for PowerShell V4**  
 **Example 1: This example resets the 'sriovNetSupport' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sriovNetSupport
 ```
 **Example 2: This example resets the 'ebsOptimized' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute ebsOptimized
 ```
 **Example 3: This example resets the 'sourceDestCheck' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sourceDestCheck
 ```
 **Example 4: This example resets the 'disableApiTermination' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute disableApiTermination
 ```
 **Example 5: This example resets the 'instanceInitiatedShutdownBehavior' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedShutdownBehavior
 ```
 +  For API details, see [ResetInstanceAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -75,27 +74,27 @@ Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedSh
 **Tools for PowerShell V5**  
 **Example 1: This example resets the 'sriovNetSupport' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sriovNetSupport
 ```
 **Example 2: This example resets the 'ebsOptimized' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute ebsOptimized
 ```
 **Example 3: This example resets the 'sourceDestCheck' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sourceDestCheck
 ```
 **Example 4: This example resets the 'disableApiTermination' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute disableApiTermination
 ```
 **Example 5: This example resets the 'instanceInitiatedShutdownBehavior' attribute for the specified instance.**  
 
-```
+```powershell
 Reset-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedShutdownBehavior
 ```
 +  For API details, see [ResetInstanceAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

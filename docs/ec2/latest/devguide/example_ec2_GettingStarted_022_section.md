@@ -1,7 +1,6 @@
 
 
 # Working with block storage encryption, snapshots, and volume initialization
-<a name="example_ec2_GettingStarted_022_section"></a>
 
 The following code example shows how to:
 + Enable Amazon EBS encryption by default
@@ -15,7 +14,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/022-ebs-intermediate) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Script for EBS operations: encryption, snapshots, and volume initialization

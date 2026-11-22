@@ -1,7 +1,6 @@
 
 
 # Use `CreatePlacementGroup` with a CLI
-<a name="example_ec2_CreatePlacementGroup_section"></a>
 
 The following code examples show how to use `CreatePlacementGroup`.
 
@@ -63,7 +62,7 @@ For more information, see [Placement strategies for your placement groups](https
 **Tools for PowerShell V4**  
 **Example 1: This example creates a placement group with the specified name.**  
 
-```
+```powershell
 New-EC2PlacementGroup -GroupName my-placement-group -Strategy cluster
 ```
 +  For API details, see [CreatePlacementGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -71,7 +70,7 @@ New-EC2PlacementGroup -GroupName my-placement-group -Strategy cluster
 **Tools for PowerShell V5**  
 **Example 1: This example creates a placement group with the specified name.**  
 
-```
+```powershell
 New-EC2PlacementGroup -GroupName my-placement-group -Strategy cluster
 ```
 +  For API details, see [CreatePlacementGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

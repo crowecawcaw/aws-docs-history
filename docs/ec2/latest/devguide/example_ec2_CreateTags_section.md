@@ -1,7 +1,6 @@
 
 
 # Use `CreateTags` with an AWS SDK or CLI
-<a name="example_ec2_CreateTags_section"></a>
 
 The following code examples show how to use `CreateTags`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `CreateTags`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Add or overwrite only the specified tags for the specified Amazon Elastic Compute Cloud (Amazon EC2) resource or resources.
 /*!
   \param resources: The resources for the tags.
@@ -98,17 +97,17 @@ For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: This example adds a single tag to the specified resource. The tag key is 'myTag' and the tag value is 'myTagValue'. The syntax used by this example requires PowerShell version 3 or higher.**  
 
-```
+```powershell
 New-EC2Tag -Resource i-12345678 -Tag @{ Key="myTag"; Value="myTagValue" }
 ```
 **Example 2: This example updates or adds the specified tags to the specified resource. The syntax used by this example requires PowerShell version 3 or higher.**  
 
-```
+```powershell
 New-EC2Tag -Resource i-12345678 -Tag @( @{ Key="myTag"; Value="newTagValue" }, @{ Key="test"; Value="anotherTagValue" } )
 ```
 **Example 3: With PowerShell version 2, you must use New-Object to create the tag for the Tag parameter.**  
 
-```
+```powershell
 $tag = New-Object Amazon.EC2.Model.Tag
 $tag.Key = "myTag"
 $tag.Value = "myTagValue"
@@ -120,17 +119,17 @@ New-EC2Tag -Resource i-12345678 -Tag $tag
 **Tools for PowerShell V5**  
 **Example 1: This example adds a single tag to the specified resource. The tag key is 'myTag' and the tag value is 'myTagValue'. The syntax used by this example requires PowerShell version 3 or higher.**  
 
-```
+```powershell
 New-EC2Tag -Resource i-12345678 -Tag @{ Key="myTag"; Value="myTagValue" }
 ```
 **Example 2: This example updates or adds the specified tags to the specified resource. The syntax used by this example requires PowerShell version 3 or higher.**  
 
-```
+```powershell
 New-EC2Tag -Resource i-12345678 -Tag @( @{ Key="myTag"; Value="newTagValue" }, @{ Key="test"; Value="anotherTagValue" } )
 ```
 **Example 3: With PowerShell version 2, you must use New-Object to create the tag for the Tag parameter.**  
 
-```
+```powershell
 $tag = New-Object Amazon.EC2.Model.Tag
 $tag.Key = "myTag"
 $tag.Value = "myTagValue"
@@ -146,7 +145,7 @@ New-EC2Tag -Resource i-12345678 -Tag $tag
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 This example applies the Name tag After creating an instance.  
 
-```
+```rust
     pub async fn create_instance<'a>(
         &self,
         image_id: &'a str,

@@ -1,7 +1,6 @@
 
 
 # Use `ModifyInstanceCreditSpecification` with a CLI
-<a name="example_ec2_ModifyInstanceCreditSpecification_section"></a>
 
 The following code examples show how to use `ModifyInstanceCreditSpecification`.
 
@@ -37,7 +36,7 @@ For more information, see [Configure burstable performance instances](https://do
 **Tools for PowerShell V4**  
 **Example 1: This enables T2 unlimited credits for instance i-01234567890abcdef.**  
 
-```
+```powershell
 $Credit = New-Object -TypeName Amazon.EC2.Model.InstanceCreditSpecificationRequest
 $Credit.InstanceId = "i-01234567890abcdef"
 $Credit.CpuCredits = "unlimited"
@@ -48,7 +47,7 @@ Edit-EC2InstanceCreditSpecification -InstanceCreditSpecification $Credit
 **Tools for PowerShell V5**  
 **Example 1: This enables T2 unlimited credits for instance i-01234567890abcdef.**  
 
-```
+```powershell
 $Credit = New-Object -TypeName Amazon.EC2.Model.InstanceCreditSpecificationRequest
 $Credit.InstanceId = "i-01234567890abcdef"
 $Credit.CpuCredits = "unlimited"

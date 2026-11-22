@@ -1,7 +1,6 @@
 
 
 # Use `GetHostReservationPurchasePreview` with a CLI
-<a name="example_ec2_GetHostReservationPurchasePreview_section"></a>
 
 The following code examples show how to use `GetHostReservationPurchasePreview`.
 
@@ -46,7 +45,7 @@ For more information, see [Amazon EC2 Dedicated Host pricing and billing](https:
 **Tools for PowerShell V4**  
 **Example 1: This example previews a reservation purchase with configurations that match those of your Dedicated Host h-01e23f4cd567890f1**  
 
-```
+```powershell
 Get-EC2HostReservationPurchasePreview -OfferingId hro-0c1f23456789d0ab -HostIdSet h-01e23f4cd567890f1
 ```
 **Output:**  
@@ -61,7 +60,7 @@ CurrencyCode Purchase TotalHourlyPrice TotalUpfrontPrice
 **Tools for PowerShell V5**  
 **Example 1: This example previews a reservation purchase with configurations that match those of your Dedicated Host h-01e23f4cd567890f1**  
 
-```
+```powershell
 Get-EC2HostReservationPurchasePreview -OfferingId hro-0c1f23456789d0ab -HostIdSet h-01e23f4cd567890f1
 ```
 **Output:**  

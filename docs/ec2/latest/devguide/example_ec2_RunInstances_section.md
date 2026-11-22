@@ -1,7 +1,6 @@
 
 
 # Use `RunInstances` with an AWS SDK or CLI
-<a name="example_ec2_RunInstances_section"></a>
 
 The following code examples show how to use `RunInstances`.
 
@@ -21,7 +20,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create and run an EC2 instance.
     /// </summary>
@@ -80,7 +79,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_run_instances
 #
@@ -184,7 +183,7 @@ function ec2_run_instances() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -236,7 +235,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Launch an Amazon Elastic Compute Cloud (Amazon EC2) instance.
 /*!
   \param instanceName: A name for the EC2 instance.
@@ -1042,7 +1041,7 @@ For more information about burstable performance instances, see [Burstable perfo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Runs an EC2 instance asynchronously.
      *
@@ -1086,7 +1085,7 @@ For more information about burstable performance instances, see [Burstable perfo
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { EC2Client, RunInstancesCommand } from "@aws-sdk/client-ec2";
 
 /**
@@ -1155,7 +1154,7 @@ export const main = async ({
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 suspend fun createEC2Instance(
     name: String,
     amiId: String,
@@ -1196,17 +1195,17 @@ suspend fun createEC2Instance(
 **Tools for PowerShell V4**  
 **Example 1: This example launches a single instance of the specified AMI in EC2-Classic or a default VPC.**  
 
-```
+```powershell
 New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -InstanceType m3.medium -KeyName my-key-pair -SecurityGroup my-security-group
 ```
 **Example 2: This example launches a single instance of the specified AMI in a VPC.**  
 
-```
+```powershell
 New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -SubnetId subnet-12345678 -InstanceType t2.micro -KeyName my-key-pair -SecurityGroupId sg-12345678
 ```
 **Example 3: To add an EBS volume or an instance store volume, define a block device mapping and add it to the command. This example adds an instance store volume.**  
 
-```
+```powershell
 $bdm = New-Object Amazon.EC2.Model.BlockDeviceMapping
 $bdm.VirtualName = "ephemeral0"
 $bdm.DeviceName = "/dev/sdf"
@@ -1215,19 +1214,19 @@ New-EC2Instance -ImageId ami-12345678 -BlockDeviceMapping $bdm ...
 ```
 **Example 4: To specify one of the current Windows AMIs, get its AMI ID using Get-EC2ImageByName. This example launches an instance from the current base AMI for Windows Server 2016.**  
 
-```
+```powershell
 $ami = Get-EC2ImageByName WINDOWS_2016_BASE
 
 New-EC2Instance -ImageId $ami.ImageId ...
 ```
 **Example 5: Launches an instance into the specified dedicated host environment.**  
 
-```
+```powershell
 New-EC2Instance -ImageId ami-1a2b3c4d -InstanceType m4.large -KeyName my-key-pair -SecurityGroupId sg-1a2b3c4d  -AvailabilityZone us-west-1a -Tenancy host -HostID h-1a2b3c4d5e6f1a2b3
 ```
 **Example 6: This request launches two instances and applies a tag with a key of webserver and a value of production to the instances. The request also applies a tag with a key of cost-center and a value of cc123 to the volumes that are created (in this case, the root volume for each instance).**  
 
-```
+```powershell
 $tag1 = @{ Key="webserver"; Value="production" }
 $tag2 = @{ Key="cost-center"; Value="cc123" }
 
@@ -1246,17 +1245,17 @@ New-EC2Instance -ImageId "ami-1a2b3c4d" -KeyName "my-key-pair" -MaxCount 2 -Inst
 **Tools for PowerShell V5**  
 **Example 1: This example launches a single instance of the specified AMI in EC2-Classic or a default VPC.**  
 
-```
+```powershell
 New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -InstanceType m3.medium -KeyName my-key-pair -SecurityGroup my-security-group
 ```
 **Example 2: This example launches a single instance of the specified AMI in a VPC.**  
 
-```
+```powershell
 New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -SubnetId subnet-12345678 -InstanceType t2.micro -KeyName my-key-pair -SecurityGroupId sg-12345678
 ```
 **Example 3: To add an EBS volume or an instance store volume, define a block device mapping and add it to the command. This example adds an instance store volume.**  
 
-```
+```powershell
 $bdm = New-Object Amazon.EC2.Model.BlockDeviceMapping
 $bdm.VirtualName = "ephemeral0"
 $bdm.DeviceName = "/dev/sdf"
@@ -1265,19 +1264,19 @@ New-EC2Instance -ImageId ami-12345678 -BlockDeviceMapping $bdm ...
 ```
 **Example 4: To specify one of the current Windows AMIs, get its AMI ID using Get-SSMLatestEC2Image. This example launches an instance from the current base AMI for Windows Server 2016.**  
 
-```
+```powershell
 $ami = (Get-SSMLatestEC2Image -Path 'ami-windows-latest' -ImageName 'WINDOWS*2016*English*Core*BASE').Value
 
 New-EC2Instance -ImageId $ami ...
 ```
 **Example 5: Launches an instance into the specified dedicated host environment.**  
 
-```
+```powershell
 New-EC2Instance -ImageId ami-1a2b3c4d -InstanceType m4.large -KeyName my-key-pair -SecurityGroupId sg-1a2b3c4d  -AvailabilityZone us-west-1a -Tenancy host -HostID h-1a2b3c4d5e6f1a2b3
 ```
 **Example 6: This request launches two instances and applies a tag with a key of webserver and a value of production to the instances. The request also applies a tag with a key of cost-center and a value of cc123 to the volumes that are created (in this case, the root volume for each instance).**  
 
-```
+```powershell
 $tag1 = @{ Key="webserver"; Value="production" }
 $tag2 = @{ Key="cost-center"; Value="cc123" }
 
@@ -1293,7 +1292,7 @@ New-EC2Instance -ImageId "ami-1a2b3c4d" -KeyName "my-key-pair" -MaxCount 2 -Inst
 ```
 **Example 7: This example validates permissions for launching an EC2 instance using the DryRun parameter without actually creating the instance. Note: This throws an exception if succeeded which is the expected behavior. **  
 
-```
+```powershell
 New-EC2Instance -ImageId 'ami-12345678' -InstanceType 't2.micro' -KeyName 'my-key-pair' -Region 'us-west-2' -DryRun $true
 ```
 +  For API details, see [RunInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -1304,7 +1303,7 @@ New-EC2Instance -ImageId 'ami-12345678' -InstanceType 't2.micro' -KeyName 'my-ke
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class EC2InstanceWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) instance actions using the client interface."""
 
@@ -1401,7 +1400,7 @@ class EC2InstanceWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn create_instance<'a>(
         &self,
         image_id: &'a str,
@@ -1469,7 +1468,7 @@ class EC2InstanceWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     " Create tags for resource created during instance launch. "
     DATA lt_tagspecifications TYPE /aws1/cl_ec2tagspecification=>tt_tagspecificationlist.
     DATA ls_tagspecifications LIKE LINE OF lt_tagspecifications.
@@ -1503,7 +1502,7 @@ class EC2InstanceWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Create and return a new EC2 instance.

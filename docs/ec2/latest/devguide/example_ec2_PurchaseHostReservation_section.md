@@ -1,7 +1,6 @@
 
 
 # Use `PurchaseHostReservation` with a CLI
-<a name="example_ec2_PurchaseHostReservation_section"></a>
 
 The following code examples show how to use `PurchaseHostReservation`.
 
@@ -47,7 +46,7 @@ For more information, see [Amazon EC2 Dedicated Host pricing and billing](https:
 **Tools for PowerShell V4**  
 **Example 1: This example purchases the reservation offering hro-0c1f23456789d0ab with configurations that match those of your Dedicated Host h-01e23f4cd567890f1**  
 
-```
+```powershell
 New-EC2HostReservation -OfferingId hro-0c1f23456789d0ab HostIdSet h-01e23f4cd567890f1
 ```
 **Output:**  
@@ -64,7 +63,7 @@ TotalUpfrontPrice : 0.000
 **Tools for PowerShell V5**  
 **Example 1: This example purchases the reservation offering hro-0c1f23456789d0ab with configurations that match those of your Dedicated Host h-01e23f4cd567890f1**  
 
-```
+```powershell
 New-EC2HostReservation -OfferingId hro-0c1f23456789d0ab HostIdSet h-01e23f4cd567890f1
 ```
 **Output:**  

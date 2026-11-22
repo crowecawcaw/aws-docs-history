@@ -1,7 +1,6 @@
 
 
 # Using the API for Amazon EC2
-<a name="ec2-low-level-api"></a>
 
 **Important**  
 As of **October 14, 2022**, HTTP responses from the Amazon EC2 APIs no longer include a reason-phrase element. As recommended by [RFC7230](https://datatracker.ietf.org/doc/html/rfc7230#section-3.1.2), you should ensure that your applications do not make use of the reason-phrase content. Ensure that your applications use the 3-digit status-code element included in the HTTP response instead.

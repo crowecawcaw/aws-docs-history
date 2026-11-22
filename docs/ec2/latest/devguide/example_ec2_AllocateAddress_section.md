@@ -1,7 +1,6 @@
 
 
 # Use `AllocateAddress` with an AWS SDK or CLI
-<a name="example_ec2_AllocateAddress_section"></a>
 
 The following code examples show how to use `AllocateAddress`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Allocates an Elastic IP address that can be associated with an Amazon EC2
     // instance. By using an Elastic IP address, you can keep the public IP address
@@ -60,7 +59,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_allocate_address
 #
@@ -132,7 +131,7 @@ function ec2_allocate_address() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -184,7 +183,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Allocate an Elastic IP address and associate it with an Amazon Elastic Compute Cloud
 //! (Amazon EC2) instance.
 /*!
@@ -307,7 +306,7 @@ For more information, see [Allocate sequential Elastic IP addresses from an IPAM
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Allocates an Elastic IP address asynchronously in the VPC domain.
      *
@@ -334,7 +333,7 @@ For more information, see [Allocate sequential Elastic IP addresses from an IPAM
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { AllocateAddressCommand, EC2Client } from "@aws-sdk/client-ec2";
 
 /**
@@ -373,7 +372,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 suspend fun getAllocateAddress(instanceIdVal: String?): String? {
     val allocateRequest =
         AllocateAddressRequest {
@@ -403,7 +402,7 @@ suspend fun getAllocateAddress(instanceIdVal: String?): String? {
 **Tools for PowerShell V4**  
 **Example 1: This example allocates an Elastic IP address to use with an instance in a VPC.**  
 
-```
+```powershell
 New-EC2Address -Domain Vpc
 ```
 **Output:**  
@@ -415,7 +414,7 @@ eipalloc-12345678    vpc         198.51.100.2
 ```
 **Example 2: This example allocates an Elastic IP address to use with an instance in EC2-Classic.**  
 
-```
+```powershell
 New-EC2Address
 ```
 **Output:**  
@@ -430,7 +429,7 @@ AllocationId         Domain      PublicIp
 **Tools for PowerShell V5**  
 **Example 1: This example allocates an Elastic IP address to use with an instance in a VPC.**  
 
-```
+```powershell
 New-EC2Address -Domain Vpc
 ```
 **Output:**  
@@ -442,7 +441,7 @@ eipalloc-12345678    vpc         198.51.100.2
 ```
 **Example 2: This example allocates an Elastic IP address to use with an instance in EC2-Classic.**  
 
-```
+```powershell
 New-EC2Address
 ```
 **Output:**  
@@ -460,7 +459,7 @@ AllocationId         Domain      PublicIp
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class ElasticIpWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) Elastic IP address actions using the client interface."""
 
@@ -533,7 +532,7 @@ class ElasticIpWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
-```
+```ruby
 # Creates an Elastic IP address in Amazon Virtual Private Cloud (Amazon VPC).
 #
 # @param ec2_client [Aws::EC2::Client] An initialized EC2 client.
@@ -556,7 +555,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn allocate_ip_address(&self) -> Result<AllocateAddressOutput, EC2Error> {
         self.client
             .allocate_address()
@@ -574,7 +573,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ec2->allocateaddress( iv_domain = 'vpc' ).   " oo_result is returned for testing purposes. "
         MESSAGE 'Allocated an Elastic IP address.' TYPE 'I'.
@@ -591,7 +590,7 @@ end
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Allocate an Elastic IP address.

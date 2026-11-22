@@ -1,7 +1,6 @@
 
 
 # Use `AssociateDhcpOptions` with a CLI
-<a name="example_ec2_AssociateDhcpOptions_section"></a>
 
 The following code examples show how to use `AssociateDhcpOptions`.
 
@@ -37,12 +36,12 @@ For more information, see [Work with DHCP option sets](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example associates the specified DHCP options set with the specified VPC.**  
 
-```
+```powershell
 Register-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d -VpcId vpc-12345678
 ```
 **Example 2: This example associates the default DHCP options set with the specified VPC.**  
 
-```
+```powershell
 Register-EC2DhcpOption -DhcpOptionsId default -VpcId vpc-12345678
 ```
 +  For API details, see [AssociateDhcpOptions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -50,12 +49,12 @@ Register-EC2DhcpOption -DhcpOptionsId default -VpcId vpc-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example associates the specified DHCP options set with the specified VPC.**  
 
-```
+```powershell
 Register-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d -VpcId vpc-12345678
 ```
 **Example 2: This example associates the default DHCP options set with the specified VPC.**  
 
-```
+```powershell
 Register-EC2DhcpOption -DhcpOptionsId default -VpcId vpc-12345678
 ```
 +  For API details, see [AssociateDhcpOptions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

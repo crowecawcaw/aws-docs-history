@@ -1,7 +1,6 @@
 
 
 # Create a virtual private network with private subnets and network address translation gateways using the CLI
-<a name="example_vpc_GettingStartedPrivate_section"></a>
 
 The following code example shows how to:
 + Create a VPC with private subnets and NAT gateways using the CLI.
@@ -15,7 +14,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/008-vpc-private-servers-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # VPC with Private Subnets and NAT Gateways (IMDSv2 Compliant Version)

@@ -1,7 +1,6 @@
 
 
 # Get started with software marketplace purchasing using the CLI
-<a name="example_ec2_GettingStarted_030_section"></a>
 
 The following code example shows how to:
 + Use ec2 AuthorizeSecurityGroupIngress
@@ -14,7 +13,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/030-marketplace-buyer-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS Marketplace Buyer Getting Started Script

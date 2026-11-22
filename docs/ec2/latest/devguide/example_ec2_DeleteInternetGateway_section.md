@@ -1,7 +1,6 @@
 
 
 # Use `DeleteInternetGateway` with a CLI
-<a name="example_ec2_DeleteInternetGateway_section"></a>
 
 The following code examples show how to use `DeleteInternetGateway`.
 
@@ -31,7 +30,7 @@ For more information, see [Internet gateways](https://docs.aws.amazon.com/vpc/la
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the specified Internet gateway. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d
 ```
 **Output:**  
@@ -47,7 +46,7 @@ Performing operation "Remove-EC2InternetGateway (DeleteInternetGateway)" on Targ
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the specified Internet gateway. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d
 ```
 **Output:**  

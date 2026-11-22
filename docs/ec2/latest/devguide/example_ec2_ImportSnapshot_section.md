@@ -1,7 +1,6 @@
 
 
 # Use `ImportSnapshot` with a CLI
-<a name="example_ec2_ImportSnapshot_section"></a>
 
 The following code examples show how to use `ImportSnapshot`.
 
@@ -46,7 +45,7 @@ For more information, see [Import a disk as an EBS snapshot using VM Import/Expo
 **Tools for PowerShell V4**  
 **Example 1: This example imports a VM disk image of format 'VMDK' to an Amazon EBS snapshot. The example requires a VM Import Service Role with the default name 'vmimport', with a policy allowing Amazon EC2 access to the specified bucket, as explained in the `VM Import Prequisites` topic in http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/VMImportPrerequisites.html. To use a custom role, specify the role name using the `-RoleName` parameter.**  
 
-```
+```powershell
 $parms = @{
     "ClientToken"="idempotencyToken"
     "Description"="Disk Image Import"
@@ -70,7 +69,7 @@ Disk Image Import      import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTaskD
 **Tools for PowerShell V5**  
 **Example 1: This example imports a VM disk image of format 'VMDK' to an Amazon EBS snapshot. The example requires a VM Import Service Role with the default name 'vmimport', with a policy allowing Amazon EC2 access to the specified bucket, as explained in the `VM Import Prequisites` topic in http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/VMImportPrerequisites.html. To use a custom role, specify the role name using the `-RoleName` parameter.**  
 
-```
+```powershell
 $parms = @{
     "ClientToken"="idempotencyToken"
     "Description"="Disk Image Import"

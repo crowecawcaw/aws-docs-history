@@ -1,7 +1,6 @@
 
 
 # Actions by service
-<a name="OperationList-query"></a>
 
 The Amazon EC2 API consists of actions and data types for multiple services. To view the actions for each service, see the following pages.
 

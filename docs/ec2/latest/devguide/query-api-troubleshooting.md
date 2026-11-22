@@ -1,7 +1,6 @@
 
 
 # Troubleshooting API request errors
-<a name="query-api-troubleshooting"></a>
 
 In the Amazon EC2 Query API, errors codes are indicated as being either client or server. Client errors usually occur because there is a problem with the structure, content, or validity of the request. Server errors usually indicate a server-side issue. 
 

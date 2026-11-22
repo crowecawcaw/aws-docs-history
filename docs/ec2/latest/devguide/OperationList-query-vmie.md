@@ -1,7 +1,6 @@
 
 
 # VM Import/Export actions
-<a name="OperationList-query-vmie"></a>
 
 The following API actions are available for VM Import/Export. For more information, see the [VM Import/Export documentation](https://docs.aws.amazon.com/vm-import/latest/userguide/).
 

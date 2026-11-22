@@ -1,7 +1,6 @@
 
 
 # Use `CreateNetworkInterface` with a CLI
-<a name="example_ec2_CreateNetworkInterface_section"></a>
 
 The following code examples show how to use `CreateNetworkInterface`.
 
@@ -215,7 +214,7 @@ For more information, see [Elastic network interfaces](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example creates the specified network interface.**  
 
-```
+```powershell
 New-EC2NetworkInterface -SubnetId subnet-1a2b3c4d -Description "my network interface" -Group sg-12345678 -PrivateIpAddress 10.0.0.17
 ```
 **Output:**  
@@ -245,7 +244,7 @@ VpcId              : vpc-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example creates the specified network interface.**  
 
-```
+```powershell
 New-EC2NetworkInterface -SubnetId subnet-1a2b3c4d -Description "my network interface" -Group sg-12345678 -PrivateIpAddress 10.0.0.17
 ```
 **Output:**  

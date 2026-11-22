@@ -1,7 +1,6 @@
 
 
 # Use `RequestSpotInstances` with a CLI
-<a name="example_ec2_RequestSpotInstances_section"></a>
 
 The following code examples show how to use `RequestSpotInstances`.
 
@@ -185,7 +184,7 @@ For more information, see [Create a Spot Instance request](https://docs.aws.amaz
 **Tools for PowerShell V4**  
 **Example 1: This example requests a one-time Spot instance in the specified subnet. Note that the security group must be created for the VPC that contains the specified subnet, and it must be specified by ID using the network interface. When you specify a network interface, you must include the subnet ID using the network interface.**  
 
-```
+```powershell
 $n = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
 $n.DeviceIndex = 0
 $n.SubnetId = "subnet-12345678"
@@ -221,7 +220,7 @@ Type                     : one-time
 **Tools for PowerShell V5**  
 **Example 1: This example requests a one-time Spot instance in the specified subnet. Note that the security group must be created for the VPC that contains the specified subnet, and it must be specified by ID using the network interface. When you specify a network interface, you must include the subnet ID using the network interface.**  
 
-```
+```powershell
 $n = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
 $n.DeviceIndex = 0
 $n.SubnetId = "subnet-12345678"

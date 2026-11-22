@@ -1,7 +1,6 @@
 
 
 # Use `UnassignPrivateIpAddresses` with a CLI
-<a name="example_ec2_UnassignPrivateIpAddresses_section"></a>
 
 The following code examples show how to use `UnassignPrivateIpAddresses`.
 
@@ -27,7 +26,7 @@ For more information, see [Secondary IP addresses for your EC2 instances](https:
 **Tools for PowerShell V4**  
 **Example 1: This example unassigns the specified private IP address from the specified network interface.**  
 
-```
+```powershell
 Unregister-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 10.0.0.82
 ```
 +  For API details, see [UnassignPrivateIpAddresses](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Unregister-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddres
 **Tools for PowerShell V5**  
 **Example 1: This example unassigns the specified private IP address from the specified network interface.**  
 
-```
+```powershell
 Unregister-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 10.0.0.82
 ```
 +  For API details, see [UnassignPrivateIpAddresses](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

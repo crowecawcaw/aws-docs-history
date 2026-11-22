@@ -1,7 +1,6 @@
 
 
 # Use `ImportKeyPair` with a CLI
-<a name="example_ec2_ImportKeyPair_section"></a>
 
 The following code examples show how to use `ImportKeyPair`.
 
@@ -49,7 +48,7 @@ For more information, see [Create a key pair for your Amazon EC2 instance](https
 **Tools for PowerShell V4**  
 **Example 1: This example imports a public key to EC2. The first line stores the contents of the public key file (\*.pub) in the variable `$publickey`. Next, the example converts the UTF8 format of the public key file to a Base64-encoded string, and stores the converted string in the variable `$pkbase64`. In the last line, the converted public key is imported to EC2. The cmdlet returns the key fingerprint and name as results.**  
 
-```
+```powershell
 $publickey=[Io.File]::ReadAllText("C:\Users\TestUser\.ssh\id_rsa.pub")
 $pkbase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($publickey))
 Import-EC2KeyPair -KeyName Example-user-key -PublicKey $pkbase64
@@ -66,7 +65,7 @@ do:d0:15:8f:79:97:12:be:00:fd:df:31:z3:b1:42:z1 Example-user-key
 **Tools for PowerShell V5**  
 **Example 1: This example imports a public key to EC2. The first line stores the contents of the public key file (\*.pub) in the variable `$publickey`. Next, the example converts the UTF8 format of the public key file to a Base64-encoded string, and stores the converted string in the variable `$pkbase64`. In the last line, the converted public key is imported to EC2. The cmdlet returns the key fingerprint and name as results.**  
 
-```
+```powershell
 $publickey=[Io.File]::ReadAllText("C:\Users\TestUser\.ssh\id_rsa.pub")
 $pkbase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($publickey))
 Import-EC2KeyPair -KeyName Example-user-key -PublicKey $pkbase64

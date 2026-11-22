@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink actions
-<a name="operation-list-privatelink"></a>
 
 The following API actions are available for AWS PrivateLink. To learn more about AWS PrivateLink, see the [AWS PrivateLink product page](https://aws.amazon.com/privatelink/) and the [AWS PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
 

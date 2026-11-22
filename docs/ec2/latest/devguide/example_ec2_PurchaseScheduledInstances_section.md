@@ -1,7 +1,6 @@
 
 
 # Use `PurchaseScheduledInstances` with a CLI
-<a name="example_ec2_PurchaseScheduledInstances_section"></a>
 
 The following code examples show how to use `PurchaseScheduledInstances`.
 
@@ -67,7 +66,7 @@ For more information, see [Amazon EC2 billing and purchasing options](https://do
 **Tools for PowerShell V4**  
 **Example 1: This example purchases a Scheduled Instance.**  
 
-```
+```powershell
 $request = New-Object Amazon.EC2.Model.PurchaseRequest
 $request.InstanceCount = 1
 $request.PurchaseToken = "eyJ2IjoiMSIsInMiOjEsImMiOi..."
@@ -97,7 +96,7 @@ TotalScheduledInstanceHours : 1696
 **Tools for PowerShell V5**  
 **Example 1: This example purchases a Scheduled Instance.**  
 
-```
+```powershell
 $request = New-Object Amazon.EC2.Model.PurchaseRequest
 $request.InstanceCount = 1
 $request.PurchaseToken = "eyJ2IjoiMSIsInMiOjEsImMiOi..."

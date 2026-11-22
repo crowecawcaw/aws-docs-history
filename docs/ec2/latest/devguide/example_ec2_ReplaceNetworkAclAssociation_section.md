@@ -1,7 +1,6 @@
 
 
 # Use `ReplaceNetworkAclAssociation` with a CLI
-<a name="example_ec2_ReplaceNetworkAclAssociation_section"></a>
 
 The following code examples show how to use `ReplaceNetworkAclAssociation`.
 
@@ -33,7 +32,7 @@ For more information, see [Control subnet traffic with network access control li
 **Tools for PowerShell V4**  
 **Example 1: This example associates the specified network ACL with the subnet for the specified network ACL association.**  
 
-```
+```powershell
 Set-EC2NetworkAclAssociation -NetworkAclId acl-12345678 -AssociationId aclassoc-1a2b3c4d
 ```
 **Output:**  
@@ -46,7 +45,7 @@ aclassoc-87654321
 **Tools for PowerShell V5**  
 **Example 1: This example associates the specified network ACL with the subnet for the specified network ACL association.**  
 
-```
+```powershell
 Set-EC2NetworkAclAssociation -NetworkAclId acl-12345678 -AssociationId aclassoc-1a2b3c4d
 ```
 **Output:**  

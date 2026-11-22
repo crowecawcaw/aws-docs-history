@@ -1,7 +1,6 @@
 
 
 # Use `CreateImage` with a CLI
-<a name="example_ec2_CreateImage_section"></a>
 
 The following code examples show how to use `CreateImage`.
 
@@ -68,17 +67,17 @@ For more information about tagging your resources on creation, see [Add tags on 
 **Tools for PowerShell V4**  
 **Example 1: This example creates an AMI with the specified name and description, from the specified instance. Amazon EC2 attempts to cleanly shut down the instance before creating the image, and restarts the instance on completion.**  
 
-```
+```powershell
 New-EC2Image -InstanceId i-12345678 -Name "my-web-server" -Description "My web server AMI"
 ```
 **Example 2: This example creates an AMI with the specified name and description, from the specified instance. Amazon EC2 creates the image without shutting down and restarting the instance; therefore, file system integrity on the created image can't be guaranteed.**  
 
-```
+```powershell
 New-EC2Image -InstanceId i-12345678 -Name "my-web-server" -Description "My web server AMI" -NoReboot $true
 ```
 **Example 3: This example creates an AMI with three volumes. The first volume is based on an Amazon EBS snapshot. The second volume is an empty 100 GiB Amazon EBS volume. The third volume is an instance store volume. The syntax used by this example requires PowerShell version 3 or higher.**  
 
-```
+```powershell
 $ebsBlock1 = @{SnapshotId="snap-1a2b3c4d"}
 $ebsBlock2 = @{VolumeSize=100}
 
@@ -89,17 +88,17 @@ New-EC2Image -InstanceId i-12345678 -Name "my-web-server" -Description "My web s
 **Tools for PowerShell V5**  
 **Example 1: This example creates an AMI with the specified name and description, from the specified instance. Amazon EC2 attempts to cleanly shut down the instance before creating the image, and restarts the instance on completion.**  
 
-```
+```powershell
 New-EC2Image -InstanceId i-12345678 -Name "my-web-server" -Description "My web server AMI"
 ```
 **Example 2: This example creates an AMI with the specified name and description, from the specified instance. Amazon EC2 creates the image without shutting down and restarting the instance; therefore, file system integrity on the created image can't be guaranteed.**  
 
-```
+```powershell
 New-EC2Image -InstanceId i-12345678 -Name "my-web-server" -Description "My web server AMI" -NoReboot $true
 ```
 **Example 3: This example creates an AMI with three volumes. The first volume is based on an Amazon EBS snapshot. The second volume is an empty 100 GiB Amazon EBS volume. The third volume is an instance store volume. The syntax used by this example requires PowerShell version 3 or higher.**  
 
-```
+```powershell
 $ebsBlock1 = @{SnapshotId="snap-1a2b3c4d"}
 $ebsBlock2 = @{VolumeSize=100}
 

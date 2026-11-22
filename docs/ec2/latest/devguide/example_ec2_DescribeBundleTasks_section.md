@@ -1,7 +1,6 @@
 
 
 # Use `DescribeBundleTasks` with a CLI
-<a name="example_ec2_DescribeBundleTasks_section"></a>
 
 The following code examples show how to use `DescribeBundleTasks`.
 
@@ -46,12 +45,12 @@ For more information, see [Create an Amazon S3-backed AMI](https://docs.aws.amaz
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified bundle task.**  
 
-```
+```powershell
 Get-EC2BundleTask -BundleId bun-12345678
 ```
 **Example 2: This example describes the bundle tasks whose state is either 'complete' or 'failed'.**  
 
-```
+```powershell
 $filter = New-Object Amazon.EC2.Model.Filter
 $filter.Name = "state"
 $filter.Values = @( "complete", "failed" )
@@ -63,12 +62,12 @@ Get-EC2BundleTask -Filter $filter
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified bundle task.**  
 
-```
+```powershell
 Get-EC2BundleTask -BundleId bun-12345678
 ```
 **Example 2: This example describes the bundle tasks whose state is either 'complete' or 'failed'.**  
 
-```
+```powershell
 $filter = New-Object Amazon.EC2.Model.Filter
 $filter.Name = "state"
 $filter.Values = @( "complete", "failed" )

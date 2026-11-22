@@ -1,7 +1,6 @@
 
 
 # Use `ModifyNetworkInterfaceAttribute` with a CLI
-<a name="example_ec2_ModifyNetworkInterfaceAttribute_section"></a>
 
 The following code examples show how to use `ModifyNetworkInterfaceAttribute`.
 
@@ -54,22 +53,22 @@ For more information, see [Modify network interface attributes](https://docs.aws
 **Tools for PowerShell V4**  
 **Example 1: This example modifies the specified network interface so that the specified attachment is deleted on termination.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -Attachment_AttachmentId eni-attach-1a2b3c4d -Attachment_DeleteOnTermination $true
 ```
 **Example 2: This example modifies the description of the specified network interface.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -Description "my description"
 ```
 **Example 3: This example modifies the security group for the specified network interface.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -Groups sg-1a2b3c4d
 ```
 **Example 4: This example disables source/destination checking for the specified network interface.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -SourceDestCheck $false
 ```
 +  For API details, see [ModifyNetworkInterfaceAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -77,22 +76,22 @@ Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -SourceDestCh
 **Tools for PowerShell V5**  
 **Example 1: This example modifies the specified network interface so that the specified attachment is deleted on termination.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -Attachment_AttachmentId eni-attach-1a2b3c4d -Attachment_DeleteOnTermination $true
 ```
 **Example 2: This example modifies the description of the specified network interface.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -Description "my description"
 ```
 **Example 3: This example modifies the security group for the specified network interface.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -Groups sg-1a2b3c4d
 ```
 **Example 4: This example disables source/destination checking for the specified network interface.**  
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -SourceDestCheck $false
 ```
 +  For API details, see [ModifyNetworkInterfaceAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

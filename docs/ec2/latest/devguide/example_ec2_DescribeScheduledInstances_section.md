@@ -1,7 +1,6 @@
 
 
 # Use `DescribeScheduledInstances` with a CLI
-<a name="example_ec2_DescribeScheduledInstances_section"></a>
 
 The following code examples show how to use `DescribeScheduledInstances`.
 
@@ -62,7 +61,7 @@ For more information, see [Amazon EC2 billing and purchasing options](https://do
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified Scheduled Instance.**  
 
-```
+```powershell
 Get-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012
 ```
 **Output:**  
@@ -86,7 +85,7 @@ TotalScheduledInstanceHours : 1696
 ```
 **Example 2: This example describes all your Scheduled Instances.**  
 
-```
+```powershell
 Get-EC2ScheduledInstance
 ```
 +  For API details, see [DescribeScheduledInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -94,7 +93,7 @@ Get-EC2ScheduledInstance
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified Scheduled Instance.**  
 
-```
+```powershell
 Get-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012
 ```
 **Output:**  
@@ -118,7 +117,7 @@ TotalScheduledInstanceHours : 1696
 ```
 **Example 2: This example describes all your Scheduled Instances.**  
 
-```
+```powershell
 Get-EC2ScheduledInstance
 ```
 +  For API details, see [DescribeScheduledInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Use `DisableVpcClassicLinkDnsSupport` with a CLI
-<a name="example_ec2_DisableVpcClassicLinkDnsSupport_section"></a>
 
 The following code examples show how to use `DisableVpcClassicLinkDnsSupport`.
 
@@ -31,7 +30,7 @@ Output:
 **Tools for PowerShell V4**  
 **Example 1: This example disables ClassicLink DNS support for the vpc-0b12d3456a7e8910d**  
 
-```
+```powershell
 Disable-EC2VpcClassicLinkDnsSupport -VpcId vpc-0b12d3456a7e8910d
 ```
 +  For API details, see [DisableVpcClassicLinkDnsSupport](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -39,7 +38,7 @@ Disable-EC2VpcClassicLinkDnsSupport -VpcId vpc-0b12d3456a7e8910d
 **Tools for PowerShell V5**  
 **Example 1: This example disables ClassicLink DNS support for the vpc-0b12d3456a7e8910d**  
 
-```
+```powershell
 Disable-EC2VpcClassicLinkDnsSupport -VpcId vpc-0b12d3456a7e8910d
 ```
 +  For API details, see [DisableVpcClassicLinkDnsSupport](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Use `RebootInstances` with an AWS SDK or CLI
-<a name="example_ec2_RebootInstances_section"></a>
 
 The following code examples show how to use `RebootInstances`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 Reboot an instance by its Id.  
 
-```
+```csharp
     /// <summary>
     /// Reboot a specific EC2 instance.
     /// </summary>
@@ -87,7 +86,7 @@ Reboot an instance by its Id.
 ```
 Replace the profile for an instance, reboot, and restart a web server.  
 
-```
+```csharp
     /// <summary>
     /// Replace the profile associated with a running instance. After the profile is replaced, the instance
     /// is rebooted to ensure that it uses the new profile. When the instance is ready, Systems Manager is
@@ -176,7 +175,7 @@ Replace the profile for an instance, reboot, and restart a web server.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Reboot an Amazon Elastic Compute Cloud (Amazon EC2) instance.
 /*!
   \param instanceID: An EC2 instance ID.
@@ -241,7 +240,7 @@ For more information, see [Reboot your Amazon EC2 instance](https://docs.aws.ama
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { EC2Client, RebootInstancesCommand } from "@aws-sdk/client-ec2";
 
 /**
@@ -280,7 +279,7 @@ export const main = async ({ instanceIds }) => {
 **Tools for PowerShell V4**  
 **Example 1: This example reboots the specified instance.**  
 
-```
+```powershell
 Restart-EC2Instance -InstanceId i-12345678
 ```
 +  For API details, see [RebootInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -288,7 +287,7 @@ Restart-EC2Instance -InstanceId i-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example reboots the specified instance.**  
 
-```
+```powershell
 Restart-EC2Instance -InstanceId i-12345678
 ```
 +  For API details, see [RebootInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -299,7 +298,7 @@ Restart-EC2Instance -InstanceId i-12345678
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class AutoScalingWrapper:
     """
     Encapsulates Amazon EC2 Auto Scaling and EC2 management actions.
@@ -415,7 +414,7 @@ class AutoScalingWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn reboot(&self, ec2: &EC2) -> Result<(), EC2Error> {
         if self.instance.is_some() {
             ec2.reboot_instance(self.instance_id()).await?;
@@ -428,7 +427,7 @@ class AutoScalingWrapper:
     }
 ```
 
-```
+```rust
     pub async fn reboot_instance(&self, instance_id: &str) -> Result<(), EC2Error> {
         tracing::info!("Rebooting instance {instance_id}");
 
@@ -443,7 +442,7 @@ class AutoScalingWrapper:
 ```
 Waiters for instance to be in the stopped and ready states, using the Waiters API. Using the Waiters API requires `use aws\_sdk\_ec2::client::Waiters` in the rust file.  
 
-```
+```rust
     /// Wait for an instance to be ready and status ok (default wait 60 seconds)
     pub async fn wait_for_instance_ready(
         &self,
@@ -493,7 +492,7 @@ Waiters for instance to be in the stopped and ready states, using the Waiters AP
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     DATA lt_instance_ids TYPE /aws1/cl_ec2instidstringlist_w=>tt_instanceidstringlist.
     APPEND NEW /aws1/cl_ec2instidstringlist_w( iv_value = iv_instance_id ) TO lt_instance_ids.
 

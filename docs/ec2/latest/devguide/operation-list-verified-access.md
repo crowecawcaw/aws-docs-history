@@ -1,7 +1,6 @@
 
 
 # AWS Verified Access actions
-<a name="operation-list-verified-access"></a>
 
 The following API actions are available for AWS Verified Access. To learn more about Verified Access, see the [Verified Access product page](https://aws.amazon.com/verified-access/) and the [Verified Access documentation](https://docs.aws.amazon.com/verified-access/).
 

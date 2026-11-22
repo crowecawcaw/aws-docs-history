@@ -1,7 +1,6 @@
 
 
 # AWS Transit Gateway actions
-<a name="operation-list-tgw"></a>
 
 The following API actions are available for AWS Transit Gateway. For more information, see the [Amazon VPC Transit Gateways](https://docs.aws.amazon.com/vpc/latest/tgw/).
 

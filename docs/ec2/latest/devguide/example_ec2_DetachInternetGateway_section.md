@@ -1,7 +1,6 @@
 
 
 # Use `DetachInternetGateway` with a CLI
-<a name="example_ec2_DetachInternetGateway_section"></a>
 
 The following code examples show how to use `DetachInternetGateway`.
 
@@ -32,7 +31,7 @@ For more information, see [Internet gateways](https://docs.aws.amazon.com/vpc/la
 **Tools for PowerShell V4**  
 **Example 1: This example detaches the specified Internet gateway from the specified VPC.**  
 
-```
+```powershell
 Dismount-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d -VpcId vpc-12345678
 ```
 +  For API details, see [DetachInternetGateway](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,7 +39,7 @@ Dismount-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d -VpcId vpc-12345678
 **Tools for PowerShell V5**  
 **Example 1: This example detaches the specified Internet gateway from the specified VPC.**  
 
-```
+```powershell
 Dismount-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d -VpcId vpc-12345678
 ```
 +  For API details, see [DetachInternetGateway](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Use `DisableVpcClassicLink` with a CLI
-<a name="example_ec2_DisableVpcClassicLink_section"></a>
 
 The following code examples show how to use `DisableVpcClassicLink`.
 
@@ -31,7 +30,7 @@ Output:
 **Tools for PowerShell V4**  
 **Example 1: This example disables EC2VpcClassicLink for the vpc-01e23c4a5d6db78e9. It returns either True or False**  
 
-```
+```powershell
 Disable-EC2VpcClassicLink -VpcId vpc-01e23c4a5d6db78e9
 ```
 +  For API details, see [DisableVpcClassicLink](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -39,7 +38,7 @@ Disable-EC2VpcClassicLink -VpcId vpc-01e23c4a5d6db78e9
 **Tools for PowerShell V5**  
 **Example 1: This example disables EC2VpcClassicLink for the vpc-01e23c4a5d6db78e9. It returns either True or False**  
 
-```
+```powershell
 Disable-EC2VpcClassicLink -VpcId vpc-01e23c4a5d6db78e9
 ```
 +  For API details, see [DisableVpcClassicLink](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

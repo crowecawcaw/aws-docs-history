@@ -1,7 +1,6 @@
 
 
 # Use `ReplaceIamInstanceProfileAssociation` with an AWS SDK or CLI
-<a name="example_ec2_ReplaceIamInstanceProfileAssociation_section"></a>
 
 The following code examples show how to use `ReplaceIamInstanceProfileAssociation`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Replace the profile associated with a running instance. After the profile is replaced, the instance
     /// is rebooted to ensure that it uses the new profile. When the instance is ready, Systems Manager is
@@ -133,7 +132,7 @@ For more information, see [IAM roles for Amazon EC2](https://docs.aws.amazon.com
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
-```
+```javascript
       await retry({ intervalInMs: 1000, maxRetries: 30 }, () =>
         ec2Client.send(
           new ReplaceIamInstanceProfileAssociationCommand({
@@ -152,7 +151,7 @@ For more information, see [IAM roles for Amazon EC2](https://docs.aws.amazon.com
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 This example replaces the instance profile of a running instance, reboots the instance, and sends a command to the instance after it starts.  
 
-```
+```python
 class AutoScalingWrapper:
     """
     Encapsulates Amazon EC2 Auto Scaling and EC2 management actions.

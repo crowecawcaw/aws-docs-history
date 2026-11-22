@@ -1,7 +1,6 @@
 
 
 # Create Amazon EC2 resources using AWS CloudFormation
-<a name="ec2-cloudformation"></a>
 
 Amazon EC2 is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes the AWS resources that you need (such as instances and subnets), and CloudFormation provisions and configures those resources for you.
 

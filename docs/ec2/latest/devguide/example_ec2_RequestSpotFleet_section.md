@@ -1,7 +1,6 @@
 
 
 # Use `RequestSpotFleet` with a CLI
-<a name="example_ec2_RequestSpotFleet_section"></a>
 
 The following code examples show how to use `RequestSpotFleet`.
 
@@ -186,7 +185,7 @@ For more information, see [Create a Spot Fleet](https://docs.aws.amazon.com/AWSE
 **Tools for PowerShell V4**  
 **Example 1: This example creates a Spot fleet request in the Availability Zone with the lowest price for the specified instance type. If your account supports EC2-VPC only, the Spot fleet launches the instances in the lowest-priced Availability Zone that has a default subnet. If your account supports EC2-Classic, the Spot fleet launches the instances in EC2-Classic in the lowest-priced Availability Zone. Note that the price you pay will not exceed the specified Spot price for the request.**  
 
-```
+```powershell
 $sg = New-Object Amazon.EC2.Model.GroupIdentifier
 $sg.GroupId = "sg-12345678"
 $lc = New-Object Amazon.EC2.Model.SpotFleetLaunchSpecification
@@ -203,7 +202,7 @@ Request-EC2SpotFleet -SpotFleetRequestConfig_SpotPrice 0.04 `
 **Tools for PowerShell V5**  
 **Example 1: This example creates a Spot fleet request in the Availability Zone with the lowest price for the specified instance type. If your account supports EC2-VPC only, the Spot fleet launches the instances in the lowest-priced Availability Zone that has a default subnet. If your account supports EC2-Classic, the Spot fleet launches the instances in EC2-Classic in the lowest-priced Availability Zone. Note that the price you pay will not exceed the specified Spot price for the request.**  
 
-```
+```powershell
 $sg = New-Object Amazon.EC2.Model.GroupIdentifier
 $sg.GroupId = "sg-12345678"
 $lc = New-Object Amazon.EC2.Model.SpotFleetLaunchSpecification

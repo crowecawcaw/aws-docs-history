@@ -1,7 +1,6 @@
 
 
 # VM Import Manifest
-<a name="manifest"></a>
 
 The import manifest is an XML file created and consumed by the Amazon EC2 API operations [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) and [ImportVolume](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportVolume.html). Note that these operations are not supported by the AWS CLI.
 
@@ -19,7 +18,7 @@ Direct manipulation of the manifest departs from the standard workflow of the Am
 
 The schema below describes the format of the manifest. Documentation for the schema elements is presented inline. 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="manifest">
@@ -182,7 +181,7 @@ The schema below describes the format of the manifest. Documentation for the sch
 
 This first example of a manifest describes a volume image with two parts. The files containing the parts are on a local system and must be uploaded to Amazon S3. 
 
-```
+```xml
 <manifest>
     <version>2010-11-15</version>
     <file-format>VMDK</file-format>
@@ -217,7 +216,7 @@ This first example of a manifest describes a volume image with two parts. The fi
 
 The second example describes a volume image with a single part that has already been uploaded to Amazon S3. 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <manifest>
     <version>2010-11-15</version>

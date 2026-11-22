@@ -1,7 +1,6 @@
 
 
 # Use `DisableVgwRoutePropagation` with a CLI
-<a name="example_ec2_DisableVgwRoutePropagation_section"></a>
 
 The following code examples show how to use `DisableVgwRoutePropagation`.
 
@@ -27,7 +26,7 @@ For more information, see [Enable or disable route propagation](https://docs.aws
 **Tools for PowerShell V4**  
 **Example 1: This example disables the VGW from automatically propagating routes to the specified routing table.**  
 
-```
+```powershell
 Disable-EC2VgwRoutePropagation -RouteTableId rtb-12345678 -GatewayId vgw-1a2b3c4d
 ```
 +  For API details, see [DisableVgwRoutePropagation](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Disable-EC2VgwRoutePropagation -RouteTableId rtb-12345678 -GatewayId vgw-1a2b3c4
 **Tools for PowerShell V5**  
 **Example 1: This example disables the VGW from automatically propagating routes to the specified routing table.**  
 
-```
+```powershell
 Disable-EC2VgwRoutePropagation -RouteTableId rtb-12345678 -GatewayId vgw-1a2b3c4d
 ```
 +  For API details, see [DisableVgwRoutePropagation](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

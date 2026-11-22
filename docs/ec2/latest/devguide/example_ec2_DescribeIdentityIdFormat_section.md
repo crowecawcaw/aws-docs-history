@@ -1,7 +1,6 @@
 
 
 # Use `DescribeIdentityIdFormat` with a CLI
-<a name="example_ec2_DescribeIdentityIdFormat_section"></a>
 
 The following code examples show how to use `DescribeIdentityIdFormat`.
 
@@ -63,7 +62,7 @@ For more information, see [Manage your Amazon EC2 resources](https://docs.aws.am
 **Tools for PowerShell V4**  
 **Example 1: This example returns the ID format for the resouce 'image' for the role given**  
 
-```
+```powershell
 Get-EC2IdentityIdFormat -PrincipalArn arn:aws:iam::123456789511:role/JDBC -Resource image
 ```
 **Output:**  
@@ -78,7 +77,7 @@ Deadline             Resource UseLongIds
 **Tools for PowerShell V5**  
 **Example 1: This example returns the ID format for the resouce 'image' for the role given**  
 
-```
+```powershell
 Get-EC2IdentityIdFormat -PrincipalArn arn:aws:iam::123456789511:role/JDBC -Resource image
 ```
 **Output:**  

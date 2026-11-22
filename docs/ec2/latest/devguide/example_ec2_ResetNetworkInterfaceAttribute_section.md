@@ -1,7 +1,6 @@
 
 
 # Use `ResetNetworkInterfaceAttribute` with a CLI
-<a name="example_ec2_ResetNetworkInterfaceAttribute_section"></a>
 
 The following code examples show how to use `ResetNetworkInterfaceAttribute`.
 
@@ -27,7 +26,7 @@ For more information, see [Modify network interface attributes](https://docs.aws
 **Tools for PowerShell V4**  
 **Example 1: This example resets source/destination checking for the specified network interface.**  
 
-```
+```powershell
 Reset-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -SourceDestCheck
 ```
 +  For API details, see [ResetNetworkInterfaceAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Reset-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -SourceDestC
 **Tools for PowerShell V5**  
 **Example 1: This example resets source/destination checking for the specified network interface.**  
 
-```
+```powershell
 Reset-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-1a2b3c4d -SourceDestCheck
 ```
 +  For API details, see [ResetNetworkInterfaceAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

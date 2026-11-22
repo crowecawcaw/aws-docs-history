@@ -1,7 +1,6 @@
 
 
 # Use `DeleteNetworkAcl` with a CLI
-<a name="example_ec2_DeleteNetworkAcl_section"></a>
 
 The following code examples show how to use `DeleteNetworkAcl`.
 
@@ -26,7 +25,7 @@ For more information, see [Delete a network ACL for your VPC](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the specified network ACL. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2NetworkAcl -NetworkAclId acl-12345678
 ```
 **Output:**  
@@ -42,7 +41,7 @@ Performing operation "Remove-EC2NetworkAcl (DeleteNetworkAcl)" on Target "acl-12
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the specified network ACL. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2NetworkAcl -NetworkAclId acl-12345678
 ```
 **Output:**  

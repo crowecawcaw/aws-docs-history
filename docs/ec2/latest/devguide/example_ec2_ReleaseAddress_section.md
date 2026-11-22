@@ -1,7 +1,6 @@
 
 
 # Use `ReleaseAddress` with an AWS SDK or CLI
-<a name="example_ec2_ReleaseAddress_section"></a>
 
 The following code examples show how to use `ReleaseAddress`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Release an Elastic IP address. After the Elastic IP address is released,
     /// it can no longer be used.
@@ -59,7 +58,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_release_address
 #
@@ -120,7 +119,7 @@ function ec2_release_address() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -172,7 +171,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Release an Elastic IP address.
 /*!
   \param clientConfiguration: AWS client configuration.
@@ -230,7 +229,7 @@ For more information, see [Release an Elastic IP address](https://docs.aws.amazo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Releases an Elastic IP address asynchronously.
      *
@@ -260,7 +259,7 @@ For more information, see [Release an Elastic IP address](https://docs.aws.amazo
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { ReleaseAddressCommand, EC2Client } from "@aws-sdk/client-ec2";
 
 /**
@@ -297,7 +296,7 @@ export const main = async ({ allocationId }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 suspend fun releaseEC2AddressSc(allocId: String?) {
     val request =
         ReleaseAddressRequest {
@@ -318,12 +317,12 @@ suspend fun releaseEC2AddressSc(allocId: String?) {
 **Tools for PowerShell V4**  
 **Example 1: This example releases the specified Elastic IP address for instances in a VPC.**  
 
-```
+```powershell
 Remove-EC2Address -AllocationId eipalloc-12345678 -Force
 ```
 **Example 2: This example releases the specified Elastic IP address for instances in EC2-Classic.**  
 
-```
+```powershell
 Remove-EC2Address -PublicIp 198.51.100.2 -Force
 ```
 +  For API details, see [ReleaseAddress](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -331,12 +330,12 @@ Remove-EC2Address -PublicIp 198.51.100.2 -Force
 **Tools for PowerShell V5**  
 **Example 1: This example releases the specified Elastic IP address for instances in a VPC.**  
 
-```
+```powershell
 Remove-EC2Address -AllocationId eipalloc-12345678 -Force
 ```
 **Example 2: This example releases the specified Elastic IP address for instances in EC2-Classic.**  
 
-```
+```powershell
 Remove-EC2Address -PublicIp 198.51.100.2 -Force
 ```
 +  For API details, see [ReleaseAddress](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -347,7 +346,7 @@ Remove-EC2Address -PublicIp 198.51.100.2 -Force
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class ElasticIpWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) Elastic IP address actions using the client interface."""
 
@@ -423,7 +422,7 @@ class ElasticIpWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
-```
+```ruby
 # Releases an Elastic IP address from an
 # Amazon Elastic Compute Cloud (Amazon EC2) instance.
 #
@@ -457,7 +456,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn deallocate_ip_address(&self, allocation_id: &str) -> Result<(), EC2Error> {
         self.client
             .release_address()
@@ -475,7 +474,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ec2->releaseaddress( iv_allocationid = iv_allocation_id ).
         MESSAGE 'Elastic IP address released.' TYPE 'I'.
@@ -492,7 +491,7 @@ end
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Release an allocated Elastic IP.

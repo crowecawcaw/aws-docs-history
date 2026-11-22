@@ -1,7 +1,6 @@
 
 
 # Granting required permissions for Amazon EC2 resources
-<a name="ec2-api-permissions"></a>
 
 By default, users, groups, and roles don't have permission to create or modify Amazon EC2 resources, or perform tasks using the Amazon EC2 API. To create or modify EC2 resources and perform tasks, see [Identity and access management for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-iam.html) in the *Amazon EC2 User Guide*.
 

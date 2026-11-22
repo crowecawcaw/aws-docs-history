@@ -1,7 +1,6 @@
 
 
 # Use `CreateVpnConnectionRoute` with a CLI
-<a name="example_ec2_CreateVpnConnectionRoute_section"></a>
 
 The following code examples show how to use `CreateVpnConnectionRoute`.
 
@@ -27,7 +26,7 @@ For more information, see [AWS Site-to-Site VPN routing options](https://docs.aw
 **Tools for PowerShell V4**  
 **Example 1: This example creates the specified static route for the specified VPN connection.**  
 
-```
+```powershell
 New-EC2VpnConnectionRoute -VpnConnectionId vpn-12345678 -DestinationCidrBlock 11.12.0.0/16
 ```
 +  For API details, see [CreateVpnConnectionRoute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ New-EC2VpnConnectionRoute -VpnConnectionId vpn-12345678 -DestinationCidrBlock 11
 **Tools for PowerShell V5**  
 **Example 1: This example creates the specified static route for the specified VPN connection.**  
 
-```
+```powershell
 New-EC2VpnConnectionRoute -VpnConnectionId vpn-12345678 -DestinationCidrBlock 11.12.0.0/16
 ```
 +  For API details, see [CreateVpnConnectionRoute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

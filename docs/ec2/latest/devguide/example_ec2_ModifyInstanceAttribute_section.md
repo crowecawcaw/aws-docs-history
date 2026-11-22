@@ -1,7 +1,6 @@
 
 
 # Use `ModifyInstanceAttribute` with a CLI
-<a name="example_ec2_ModifyInstanceAttribute_section"></a>
 
 The following code examples show how to use `ModifyInstanceAttribute`.
 
@@ -96,37 +95,37 @@ For more information, see [User Data and the AWS CLI](https://docs.aws.amazon.co
 **Tools for PowerShell V4**  
 **Example 1: This example modifies the instance type of the specified instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceType m3.medium
 ```
 **Example 2: This example enables enhanced networking for the specified instance, by specifying "simple" as the value of the single root I/O virtualization (SR-IOV) network support parameter, -SriovNetSupport..**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -SriovNetSupport "simple"
 ```
 **Example 3: This example modifies the security groups for the specified instance. The instance must be in a VPC. You must specify the ID of each security group, not the name.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -Group @( "sg-12345678", "sg-45678901" )
 ```
 **Example 4: This example enables EBS I/O optimization for the specified instance. This feature isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -EbsOptimized $true
 ```
 **Example 5: This example enables source/destination checking for the specified instance. For a NAT instance to perform NAT, the value must be 'false'.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -SourceDestCheck $true
 ```
 **Example 6: This example disables termination for the specified instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -DisableApiTermination $true
 ```
 **Example 7: This example changes the specified instance so that it terminates when shutdown is initiated from the instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceInitiatedShutdownBehavior terminate
 ```
 +  For API details, see [ModifyInstanceAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -134,37 +133,37 @@ Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceInitiatedShutdownBehav
 **Tools for PowerShell V5**  
 **Example 1: This example modifies the instance type of the specified instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceType m3.medium
 ```
 **Example 2: This example enables enhanced networking for the specified instance, by specifying "simple" as the value of the single root I/O virtualization (SR-IOV) network support parameter, -SriovNetSupport..**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -SriovNetSupport "simple"
 ```
 **Example 3: This example modifies the security groups for the specified instance. The instance must be in a VPC. You must specify the ID of each security group, not the name.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -Group @( "sg-12345678", "sg-45678901" )
 ```
 **Example 4: This example enables EBS I/O optimization for the specified instance. This feature isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -EbsOptimized $true
 ```
 **Example 5: This example enables source/destination checking for the specified instance. For a NAT instance to perform NAT, the value must be 'false'.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -SourceDestCheck $true
 ```
 **Example 6: This example disables termination for the specified instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -DisableApiTermination $true
 ```
 **Example 7: This example changes the specified instance so that it terminates when shutdown is initiated from the instance.**  
 
-```
+```powershell
 Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceInitiatedShutdownBehavior terminate
 ```
 +  For API details, see [ModifyInstanceAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

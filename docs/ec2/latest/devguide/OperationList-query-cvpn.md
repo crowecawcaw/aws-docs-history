@@ -1,7 +1,6 @@
 
 
 # AWS Client VPN actions
-<a name="OperationList-query-cvpn"></a>
 
 The following API actions are available for AWS Client VPN. To learn more about Client VPN, see the [Site-to-Site VPN product page](https://aws.amazon.com/vpn/) and the [Site-to-Site VPN documentation](https://docs.aws.amazon.com/vpn/).
 

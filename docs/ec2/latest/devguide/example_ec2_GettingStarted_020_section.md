@@ -1,7 +1,6 @@
 
 
 # Creating and managing block storage volumes
-<a name="example_ec2_GettingStarted_020_section"></a>
 
 The following code example shows how to:
 + Create an EBS volume
@@ -16,7 +15,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/020-ebs-gs-volumes) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Script to create and manage Amazon EBS volumes

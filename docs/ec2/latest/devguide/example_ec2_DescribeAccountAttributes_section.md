@@ -1,7 +1,6 @@
 
 
 # Use `DescribeAccountAttributes` with a CLI
-<a name="example_ec2_DescribeAccountAttributes_section"></a>
 
 The following code examples show how to use `DescribeAccountAttributes`.
 
@@ -110,7 +109,7 @@ For more information, see [Amazon EC2 service quotas](https://docs.aws.amazon.co
 **Tools for PowerShell V4**  
 **Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.**  
 
-```
+```powershell
 (Get-EC2AccountAttribute -AttributeName supported-platforms).AttributeValues
 ```
 **Output:**  
@@ -123,7 +122,7 @@ VPC
 ```
 **Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.**  
 
-```
+```powershell
 (Get-EC2AccountAttribute -AttributeName default-vpc).AttributeValues
 ```
 **Output:**  
@@ -135,7 +134,7 @@ vpc-12345678
 ```
 **Example 3: This example describes the maximum number of On-Demand instances that you can run.**  
 
-```
+```powershell
 (Get-EC2AccountAttribute -AttributeName max-instances).AttributeValues
 ```
 **Output:**  
@@ -150,7 +149,7 @@ AttributeValue
 **Tools for PowerShell V5**  
 **Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.**  
 
-```
+```powershell
 (Get-EC2AccountAttribute -AttributeName supported-platforms).AttributeValues
 ```
 **Output:**  
@@ -163,7 +162,7 @@ VPC
 ```
 **Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.**  
 
-```
+```powershell
 (Get-EC2AccountAttribute -AttributeName default-vpc).AttributeValues
 ```
 **Output:**  
@@ -175,7 +174,7 @@ vpc-12345678
 ```
 **Example 3: This example describes the maximum number of On-Demand instances that you can run.**  
 
-```
+```powershell
 (Get-EC2AccountAttribute -AttributeName max-instances).AttributeValues
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Eventual consistency in the Amazon EC2 API
-<a name="eventual-consistency"></a>
 
 The Amazon EC2 API follows an eventual consistency model, due to the distributed nature of the system supporting the API. This means that the result of an API command you run that affects your Amazon EC2 resources might not be immediately visible to all subsequent commands you run. You should keep this in mind when you carry out an API command that immediately follows a previous API command.
 

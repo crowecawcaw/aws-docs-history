@@ -1,7 +1,6 @@
 
 
 # Use `StopInstances` with an AWS SDK or CLI
-<a name="example_ec2_StopInstances_section"></a>
 
 The following code examples show how to use `StopInstances`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Stop an EC2 instance.
     /// </summary>
@@ -93,7 +92,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_stop_instances
 #
@@ -155,7 +154,7 @@ function ec2_stop_instances() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -207,7 +206,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Stop an EC2 instance.
 /*!
   \param instanceID: An EC2 instance ID.
@@ -321,7 +320,7 @@ For more information, see [Hibernate your On-Demand Linux instance](https://docs
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Stops the EC2 instance with the specified ID asynchronously and waits for the instance to stop.
      *
@@ -371,7 +370,7 @@ For more information, see [Hibernate your On-Demand Linux instance](https://docs
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { EC2Client, StopInstancesCommand } from "@aws-sdk/client-ec2";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
@@ -413,7 +412,7 @@ export const main = async ({ instanceIds }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 suspend fun stopInstanceSc(instanceId: String) {
     val request =
         StopInstancesRequest {
@@ -439,7 +438,7 @@ suspend fun stopInstanceSc(instanceId: String) {
 **Tools for PowerShell V4**  
 **Example 1: This example stops the specified instance.**  
 
-```
+```powershell
 Stop-EC2Instance -InstanceId i-12345678
 ```
 **Output:**  
@@ -454,7 +453,7 @@ Amazon.EC2.Model.InstanceState    i-12345678    Amazon.EC2.Model.InstanceState
 **Tools for PowerShell V5**  
 **Example 1: This example stops the specified instance.**  
 
-```
+```powershell
 Stop-EC2Instance -InstanceId i-12345678
 ```
 **Output:**  
@@ -472,7 +471,7 @@ Amazon.EC2.Model.InstanceState    i-12345678    Amazon.EC2.Model.InstanceState
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class EC2InstanceWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) instance actions using the client interface."""
 
@@ -538,7 +537,7 @@ class EC2InstanceWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-ec2'
 
 # Prerequisites:
@@ -623,7 +622,7 @@ run_me if $PROGRAM_NAME == __FILE__
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn stop_instance(&self, instance_id: &str) -> Result<(), EC2Error> {
         tracing::info!("Stopping instance {instance_id}");
 
@@ -642,7 +641,7 @@ run_me if $PROGRAM_NAME == __FILE__
 ```
 Wait for an instance to be in the stopped state, using the Waiters API. Using the Waiters API requires `use aws\_sdk\_ec2::client::Waiters` in the rust file.  
 
-```
+```rust
     pub async fn stop_instance(&self, instance_id: &str) -> Result<(), EC2Error> {
         tracing::info!("Stopping instance {instance_id}");
 
@@ -667,7 +666,7 @@ Wait for an instance to be in the stopped state, using the Waiters API. Using th
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     DATA lt_instance_ids TYPE /aws1/cl_ec2instidstringlist_w=>tt_instanceidstringlist.
     APPEND NEW /aws1/cl_ec2instidstringlist_w( iv_value = iv_instance_id ) TO lt_instance_ids.
 
@@ -703,7 +702,7 @@ Wait for an instance to be in the stopped state, using the Waiters API. Using th
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Stop the specified instance.

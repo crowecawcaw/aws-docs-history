@@ -1,7 +1,6 @@
 
 
 # Use `DescribeTags` with a CLI
-<a name="example_ec2_DescribeTags_section"></a>
 
 The following code examples show how to use `DescribeTags`.
 
@@ -188,7 +187,7 @@ For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: This example fetches the tags for resource-type 'image'**  
 
-```
+```powershell
 Get-EC2Tag -Filter @{Name="resource-type";Values="image"}
 ```
 **Output:**  
@@ -201,7 +200,7 @@ auto-delete ami-0a123b4ccb567a8ea image        never
 ```
 **Example 2: This example fetches all the tags for all the resources and groups them by resource type**  
 
-```
+```powershell
 Get-EC2Tag | Group-Object resourcetype
 ```
 **Output:**  
@@ -223,7 +222,7 @@ Count Name                      Group
 ```
 **Example 3: This example displays all the resources with tag 'auto-delete' with value 'no' for the given region**  
 
-```
+```powershell
 Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Values="no"}
 ```
 **Output:**  
@@ -238,12 +237,12 @@ auto-delete vol-01ccb23f4c5e67890 volume       no
 ```
 **Example 4: This example obtains all the resources with tag 'auto-delete' with 'no' value and further filters in the next pipe to parse only 'instance' resource types and eventually creates 'ThisInstance' tag for each instance resources with value being the instance id itself **  
 
-```
+```powershell
 Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Values="no"} | Where-Object ResourceType -eq "instance" | ForEach-Object {New-EC2Tag -ResourceId $_.ResourceId -Tag @{Key="ThisInstance";Value=$_.ResourceId}}
 ```
 **Example 5: This example fetches tags for all the instance resources as well as 'Name' keys and displays them in a table format**  
 
-```
+```powershell
 Get-EC2Tag -Filter @{Name="resource-type";Values="instance"},@{Name="key";Values="Name"} | Select-Object ResourceId, @{Name="Name-Tag";Expression={$PSItem.Value}} | Format-Table -AutoSize
 ```
 **Output:**  
@@ -259,7 +258,7 @@ i-01c23a45d6fc7a89f repro-3
 **Tools for PowerShell V5**  
 **Example 1: This example fetches the tags for resource-type 'image'**  
 
-```
+```powershell
 Get-EC2Tag -Filter @{Name="resource-type";Values="image"}
 ```
 **Output:**  
@@ -272,7 +271,7 @@ auto-delete ami-0a123b4ccb567a8ea image        never
 ```
 **Example 2: This example fetches all the tags for all the resources and groups them by resource type**  
 
-```
+```powershell
 Get-EC2Tag | Group-Object resourcetype
 ```
 **Output:**  
@@ -294,7 +293,7 @@ Count Name                      Group
 ```
 **Example 3: This example displays all the resources with tag 'auto-delete' with value 'no' for the given region**  
 
-```
+```powershell
 Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Values="no"}
 ```
 **Output:**  
@@ -309,12 +308,12 @@ auto-delete vol-01ccb23f4c5e67890 volume       no
 ```
 **Example 4: This example obtains all the resources with tag 'auto-delete' with 'no' value and further filters in the next pipe to parse only 'instance' resource types and eventually creates 'ThisInstance' tag for each instance resources with value being the instance id itself **  
 
-```
+```powershell
 Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Values="no"} | Where-Object ResourceType -eq "instance" | ForEach-Object {New-EC2Tag -ResourceId $_.ResourceId -Tag @{Key="ThisInstance";Value=$_.ResourceId}}
 ```
 **Example 5: This example fetches tags for all the instance resources as well as 'Name' keys and displays them in a table format**  
 
-```
+```powershell
 Get-EC2Tag -Filter @{Name="resource-type";Values="instance"},@{Name="key";Values="Name"} | Select-Object ResourceId, @{Name="Name-Tag";Expression={$PSItem.Value}} | Format-Table -AutoSize
 ```
 **Output:**  
@@ -327,7 +326,7 @@ i-01c23a45d6fc7a89f repro-3
 ```
 **Example 6: This example validates permissions for getting EC2 Tags using the DryRun parameter without actually fetching them. Note: This throws an exception if succeeded which is the expected behavior.**  
 
-```
+```powershell
 Get-EC2Tag -DryRun $true
 ```
 **Output:**  

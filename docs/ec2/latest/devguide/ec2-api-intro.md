@@ -1,7 +1,6 @@
 
 
 # Programmatic access to Amazon EC2
-<a name="ec2-api-intro"></a>
 
 You can create and manage your Amazon EC2 resources using the AWS Management Console or a programmatic interface. For information about using the Amazon EC2 console, see the [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/).
 

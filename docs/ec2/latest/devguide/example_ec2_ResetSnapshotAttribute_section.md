@@ -1,7 +1,6 @@
 
 
 # Use `ResetSnapshotAttribute` with a CLI
-<a name="example_ec2_ResetSnapshotAttribute_section"></a>
 
 The following code examples show how to use `ResetSnapshotAttribute`.
 
@@ -27,7 +26,7 @@ For more information, see [Share an Amazon EBS snapshot with other AWS accounts]
 **Tools for PowerShell V4**  
 **Example 1: This example resets the specified attribute of the specified snapshot.**  
 
-```
+```powershell
 Reset-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePermission
 ```
 +  For API details, see [ResetSnapshotAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Reset-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePerm
 **Tools for PowerShell V5**  
 **Example 1: This example resets the specified attribute of the specified snapshot.**  
 
-```
+```powershell
 Reset-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePermission
 ```
 +  For API details, see [ResetSnapshotAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Amazon EC2 with an AWS SDK
-<a name="example_ec2_Scenario_GetStartedInstances_section"></a>
 
 The following code examples show how to:
 + Create a key pair and security group.
@@ -17,7 +16,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 Run a scenario at a command prompt.  
 
-```
+```csharp
 /// <summary>
 /// Show Amazon Elastic Compute Cloud (Amazon EC2) Basics actions.
 /// </summary>
@@ -336,7 +335,7 @@ public class EC2Basics
 ```
 Define a class that wraps EC2 actions.  
 
-```
+```csharp
 /// <summary>
 /// Methods of this class perform Amazon Elastic Compute Cloud (Amazon EC2).
 /// </summary>
@@ -1343,7 +1342,7 @@ public class EC2Wrapper
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```bash
 ###############################################################################
 # function get_started_with_ec2_instances
 #
@@ -2088,7 +2087,7 @@ function echo_repeat() {
 ```
 The DynamoDB functions used in this scenario.  
 
-```
+```bash
 ###############################################################################
 # function ec2_create_keypair
 #
@@ -3350,7 +3349,7 @@ function ec2_delete_keypair() {
 ```
 The utility functions used in this scenario.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -3422,7 +3421,7 @@ function aws_cli_error_log() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 Run a scenario at a command prompt.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.services.ec2.model.CreateKeyPairResponse;
@@ -4020,7 +4019,7 @@ public class EC2Scenario {
 ```
 Define a class that wraps EC2 actions.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
@@ -4739,7 +4738,7 @@ public class EC2Actions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 This file contains a list of common actions used with EC2. The steps are constructed with a Scenario framework that simplifies running an interactive example. For the full context, visit the GitHub repository.   
 
-```
+```javascript
 import { tmpdir } from "node:os";
 import { writeFile, mkdtemp, rm } from "node:fs/promises";
 import { join } from "node:path";
@@ -5586,7 +5585,7 @@ export const logErrors = new ScenarioOutput(
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 /**
  Before running this Kotlin code example, set up your development environment,
  including your credentials.
@@ -6145,7 +6144,7 @@ suspend fun createKeyPairSc(
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```python
 class EC2InstanceScenario:
     """
     A scenario that demonstrates how to use Boto3 to manage Amazon EC2 resources.
@@ -6538,7 +6537,7 @@ if __name__ == "__main__":
 ```
 Define a class that wraps key pair actions.  
 
-```
+```python
 class KeyPairWrapper:
     """
     Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) key pair actions.
@@ -6662,7 +6661,7 @@ class KeyPairWrapper:
 ```
 Define a class that wraps security group actions.  
 
-```
+```python
 class SecurityGroupWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) security group actions."""
 
@@ -6822,7 +6821,7 @@ class SecurityGroupWrapper:
 ```
 Define a class that wraps instance actions.  
 
-```
+```python
 class EC2InstanceWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) instance actions using the client interface."""
 
@@ -7111,7 +7110,7 @@ class EC2InstanceWrapper:
 ```
 Define a class that wraps Elastic IP actions.  
 
-```
+```python
 class ElasticIpWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) Elastic IP address actions using the client interface."""
 
@@ -7323,7 +7322,7 @@ class ElasticIpWrapper:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 The EC2InstanceScenario implementation contains logic to run the example as a whole.  
 
-```
+```rust
 //! Scenario that uses the AWS SDK for Rust (the SDK) with Amazon Elastic Compute Cloud
 //! (Amazon EC2) to do the following:
 //!
@@ -7678,7 +7677,7 @@ pub async fn run(mut scenario: Ec2InstanceScenario) {
 ```
 The EC2Impl struct serves as a an automock point for testing, and its functions wrap the EC2 SDK calls.  
 
-```
+```rust
 use std::{net::Ipv4Addr, time::Duration};
 
 use aws_sdk_ec2::{
@@ -8163,7 +8162,7 @@ impl std::fmt::Display for EC2Error {
 ```
 The SSM struct serves as a an automock point for testing, and its functions wraps SSM SDK calls.  
 
-```
+```rust
 use aws_sdk_ssm::{types::Parameter, Client};
 use aws_smithy_async::future::pagination_stream::TryFlatMap;
 
@@ -8209,7 +8208,7 @@ impl SSMImpl {
 ```
 The scenario uses several "Manager"-style structs to handle access to resources that are created and deleted throughout the scenario.  
 
-```
+```rust
 use aws_sdk_ec2::operation::{
     allocate_address::AllocateAddressOutput, associate_address::AssociateAddressOutput,
 };
@@ -8606,7 +8605,7 @@ impl std::fmt::Display for SecurityGroupManager {
 ```
 The main entry point for the scenario.  
 
-```
+```rust
 use ec2_code_examples::{
     ec2::EC2,
     getting_started::{
@@ -8655,7 +8654,7 @@ async fn main() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 The `Package.swift` file.  
 
-```
+```swift
 // swift-tools-version: 5.9
 //
 // The swift-tools-version declares the minimum version of Swift required to
@@ -8698,7 +8697,7 @@ let package = Package(
 ```
 The `entry.swift` file.  
 
-```
+```swift
 // An example that shows how to use the AWS SDK for Swift to perform a variety
 // of operations using Amazon Elastic Compute Cloud (EC2).
 //

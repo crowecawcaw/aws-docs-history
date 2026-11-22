@@ -1,7 +1,6 @@
 
 
 # Get started using IP address management using the CLI
-<a name="example_vpc_GettingStartedIpam_section"></a>
 
 The following code example shows how to:
 + Set up and configure Amazon VPC IP Address Manager (IPAM) using the CLI.
@@ -21,7 +20,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/009-vpc-ipam-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # IPAM Getting Started CLI Script - Version 7

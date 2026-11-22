@@ -1,7 +1,6 @@
 
 
 # Use `DeleteSecurityGroup` with an AWS SDK or CLI
-<a name="example_ec2_DeleteSecurityGroup_section"></a>
 
 The following code examples show how to use `DeleteSecurityGroup`.
 
@@ -26,7 +25,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an Amazon EC2 security group.
     /// </summary>
@@ -66,7 +65,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function ec2_delete_security_group
 #
@@ -125,7 +124,7 @@ function ec2_delete_security_group() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -177,7 +176,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
-```
+```cpp
 //! Delete a security group.
 /*!
   \param securityGroupID: A security group ID.
@@ -249,7 +248,7 @@ For more information, see [Delete an Amazon EC2 security group](https://docs.aws
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
-```
+```java
     /**
      * Deletes an EC2 security group asynchronously.
      *
@@ -279,7 +278,7 @@ For more information, see [Delete an Amazon EC2 security group](https://docs.aws
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
-```
+```javascript
 import { DeleteSecurityGroupCommand, EC2Client } from "@aws-sdk/client-ec2";
 
 /**
@@ -312,7 +311,7 @@ export const main = async ({ groupId }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
-```
+```kotlin
 suspend fun deleteEC2SecGroup(groupIdVal: String) {
     val request =
         DeleteSecurityGroupRequest {
@@ -333,7 +332,7 @@ suspend fun deleteEC2SecGroup(groupIdVal: String) {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the specified security group for EC2-VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2SecurityGroup -GroupId sg-12345678
 ```
 **Output:**  
@@ -346,7 +345,7 @@ Performing operation "Remove-EC2SecurityGroup (DeleteSecurityGroup)" on Target "
 ```
 **Example 2: This example deletes the specified security group for EC2-Classic.**  
 
-```
+```powershell
 Remove-EC2SecurityGroup -GroupName my-security-group -Force
 ```
 +  For API details, see [DeleteSecurityGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -354,7 +353,7 @@ Remove-EC2SecurityGroup -GroupName my-security-group -Force
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the specified security group for EC2-VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
-```
+```powershell
 Remove-EC2SecurityGroup -GroupId sg-12345678
 ```
 **Output:**  
@@ -367,7 +366,7 @@ Performing operation "Remove-EC2SecurityGroup (DeleteSecurityGroup)" on Target "
 ```
 **Example 2: This example deletes the specified security group for EC2-Classic.**  
 
-```
+```powershell
 Remove-EC2SecurityGroup -GroupName my-security-group -Force
 ```
 +  For API details, see [DeleteSecurityGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -378,7 +377,7 @@ Remove-EC2SecurityGroup -GroupName my-security-group -Force
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class SecurityGroupWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) security group actions."""
 
@@ -444,7 +443,7 @@ class SecurityGroupWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
     pub async fn delete_security_group(&self, group_id: &str) -> Result<(), EC2Error> {
         tracing::info!("Deleting security group {group_id}");
         self.client
@@ -463,7 +462,7 @@ class SecurityGroupWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ec2->deletesecuritygroup( iv_groupid = iv_security_group_id ).
         MESSAGE 'Security group deleted.' TYPE 'I'.
@@ -480,7 +479,7 @@ class SecurityGroupWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
-```
+```swift
 import AWSEC2
 
     /// Delete a security group.

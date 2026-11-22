@@ -1,7 +1,6 @@
 
 
 # Use `RejectVpcPeeringConnection` with a CLI
-<a name="example_ec2_RejectVpcPeeringConnection_section"></a>
 
 The following code examples show how to use `RejectVpcPeeringConnection`.
 
@@ -32,7 +31,7 @@ For more information, see [Accept or reject a VPC peering connection](https://do
 **Tools for PowerShell V4**  
 **Example 1: The above example denies the request for VpcPeering request id pcx-01a2b3ce45fe67eb8**  
 
-```
+```powershell
 Deny-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-01a2b3ce45fe67eb8
 ```
 +  For API details, see [RejectVpcPeeringConnection](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,7 +39,7 @@ Deny-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-01a2b3ce45fe67eb8
 **Tools for PowerShell V5**  
 **Example 1: The above example denies the request for VpcPeering request id pcx-01a2b3ce45fe67eb8**  
 
-```
+```powershell
 Deny-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-01a2b3ce45fe67eb8
 ```
 +  For API details, see [RejectVpcPeeringConnection](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

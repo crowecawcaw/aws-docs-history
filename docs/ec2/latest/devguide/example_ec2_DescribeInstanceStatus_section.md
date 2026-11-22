@@ -1,7 +1,6 @@
 
 
 # Use `DescribeInstanceStatus` with an AWS SDK or CLI
-<a name="example_ec2_DescribeInstanceStatus_section"></a>
 
 The following code examples show how to use `DescribeInstanceStatus`.
 
@@ -59,7 +58,7 @@ For more information, see [Monitor the status of your instances](https://docs.aw
 **Tools for PowerShell V4**  
 **Example 1: This example describes the status of the specified instance.**  
 
-```
+```powershell
 Get-EC2InstanceStatus -InstanceId i-12345678
 ```
 **Output:**  
@@ -73,7 +72,7 @@ Status           : Amazon.EC2.Model.InstanceStatusSummary
 SystemStatus     : Amazon.EC2.Model.InstanceStatusSummary
 ```
 
-```
+```powershell
 $status = Get-EC2InstanceStatus -InstanceId i-12345678
 $status.InstanceState
 ```
@@ -85,7 +84,7 @@ Code    Name
 16      running
 ```
 
-```
+```powershell
 $status.Status
 ```
 **Output:**  
@@ -96,7 +95,7 @@ Details           Status
 {reachability}    ok
 ```
 
-```
+```powershell
 $status.SystemStatus
 ```
 **Output:**  
@@ -111,7 +110,7 @@ Details           Status
 **Tools for PowerShell V5**  
 **Example 1: This example describes the status of the specified instance.**  
 
-```
+```powershell
 Get-EC2InstanceStatus -InstanceId i-12345678
 ```
 **Output:**  
@@ -125,7 +124,7 @@ Status           : Amazon.EC2.Model.InstanceStatusSummary
 SystemStatus     : Amazon.EC2.Model.InstanceStatusSummary
 ```
 
-```
+```powershell
 $status = Get-EC2InstanceStatus -InstanceId i-12345678
 $status.InstanceState
 ```
@@ -137,7 +136,7 @@ Code    Name
 16      running
 ```
 
-```
+```powershell
 $status.Status
 ```
 **Output:**  
@@ -148,7 +147,7 @@ Details           Status
 {reachability}    ok
 ```
 
-```
+```powershell
 $status.SystemStatus
 ```
 **Output:**  
@@ -166,7 +165,7 @@ Details           Status
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
-```
+```rust
 async fn show_all_events(client: &Client) -> Result<(), Error> {
     let resp = client.describe_regions().send().await.unwrap();
 

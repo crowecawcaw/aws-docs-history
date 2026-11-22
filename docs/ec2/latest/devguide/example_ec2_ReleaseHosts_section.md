@@ -1,7 +1,6 @@
 
 
 # Use `ReleaseHosts` with a CLI
-<a name="example_ec2_ReleaseHosts_section"></a>
 
 The following code examples show how to use `ReleaseHosts`.
 
@@ -35,7 +34,7 @@ For more information, see [Release an Amazon EC2 Dedicated Host](https://docs.aw
 **Tools for PowerShell V4**  
 **Example 1: This example releases the given host ID h-0badafd1dcb2f3456**  
 
-```
+```powershell
 Remove-EC2Host -HostId h-0badafd1dcb2f3456
 ```
 **Output:**  
@@ -55,7 +54,7 @@ Successful            Unsuccessful
 **Tools for PowerShell V5**  
 **Example 1: This example releases the given host ID h-0badafd1dcb2f3456**  
 
-```
+```powershell
 Remove-EC2Host -HostId h-0badafd1dcb2f3456
 ```
 **Output:**  

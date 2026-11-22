@@ -1,7 +1,6 @@
 
 
 # Use `ModifyCapacityReservation` with a CLI
-<a name="example_ec2_ModifyCapacityReservation_section"></a>
 
 The following code examples show how to use `ModifyCapacityReservation`.
 
@@ -50,7 +49,7 @@ For more information, see [Modify a Capacity Reservation](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: This example modifies the CapacityReservationId cr-0c1f2345db6f7cdba by changing the instane count to 1**  
 
-```
+```powershell
 Edit-EC2CapacityReservation -CapacityReservationId cr-0c1f2345db6f7cdba -InstanceCount 1
 ```
 **Output:**  
@@ -63,7 +62,7 @@ True
 **Tools for PowerShell V5**  
 **Example 1: This example modifies the CapacityReservationId cr-0c1f2345db6f7cdba by changing the instane count to 1**  
 
-```
+```powershell
 Edit-EC2CapacityReservation -CapacityReservationId cr-0c1f2345db6f7cdba -InstanceCount 1
 ```
 **Output:**  

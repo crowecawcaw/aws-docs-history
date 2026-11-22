@@ -1,7 +1,6 @@
 
 
 # Use `CreateDhcpOptions` with a CLI
-<a name="example_ec2_CreateDhcpOptions_section"></a>
 
 The following code examples show how to use `CreateDhcpOptions`.
 
@@ -63,7 +62,7 @@ For more information, see [DHCP option sets in Amazon VPC](https://docs.aws.amaz
 **Tools for PowerShell V4**  
 **Example 1: This example creates the specified set of DHCP options. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $options = @( @{Key="domain-name";Values=@("abc.local")}, @{Key="domain-name-servers";Values=@("10.0.0.101","10.0.0.102")})
 New-EC2DhcpOption -DhcpConfiguration $options
 ```
@@ -76,7 +75,7 @@ DhcpConfigurations                    DhcpOptionsId    Tags
 ```
 **Example 2: With PowerShell version 2, you must use New-Object to create each DHCP option.**  
 
-```
+```powershell
 $option1 = New-Object Amazon.EC2.Model.DhcpConfiguration
 $option1.Key = "domain-name"
 $option1.Values = "abc.local"
@@ -99,7 +98,7 @@ DhcpConfigurations                    DhcpOptionsId    Tags
 **Tools for PowerShell V5**  
 **Example 1: This example creates the specified set of DHCP options. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $options = @( @{Key="domain-name";Values=@("abc.local")}, @{Key="domain-name-servers";Values=@("10.0.0.101","10.0.0.102")})
 New-EC2DhcpOption -DhcpConfiguration $options
 ```
@@ -112,7 +111,7 @@ DhcpConfigurations                    DhcpOptionsId    Tags
 ```
 **Example 2: With PowerShell version 2, you must use New-Object to create each DHCP option.**  
 
-```
+```powershell
 $option1 = New-Object Amazon.EC2.Model.DhcpConfiguration
 $option1.Key = "domain-name"
 $option1.Values = "abc.local"

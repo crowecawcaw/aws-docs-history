@@ -1,7 +1,6 @@
 
 
 # Recycle Bin
-<a name="operation-list-rbin"></a>
 
 The following API actions are available for Recycle Bin. For more information, see the [Recycle Bin documentation](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin.html).
 

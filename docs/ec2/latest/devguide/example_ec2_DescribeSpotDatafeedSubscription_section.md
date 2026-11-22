@@ -1,7 +1,6 @@
 
 
 # Use `DescribeSpotDatafeedSubscription` with a CLI
-<a name="example_ec2_DescribeSpotDatafeedSubscription_section"></a>
 
 The following code examples show how to use `DescribeSpotDatafeedSubscription`.
 
@@ -36,7 +35,7 @@ For more information, see [Track your Spot Instance costs using the Spot Instanc
 **Tools for PowerShell V4**  
 **Example 1: This example describes your Spot instance data feed.**  
 
-```
+```powershell
 Get-EC2SpotDatafeedSubscription
 ```
 **Output:**  
@@ -53,7 +52,7 @@ State   : Active
 **Tools for PowerShell V5**  
 **Example 1: This example describes your Spot instance data feed.**  
 
-```
+```powershell
 Get-EC2SpotDatafeedSubscription
 ```
 **Output:**  

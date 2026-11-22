@@ -1,7 +1,6 @@
 
 
 # Use `CreateLaunchTemplate` with an AWS SDK or CLI
-<a name="example_ec2_CreateLaunchTemplate_section"></a>
 
 The following code examples show how to use `CreateLaunchTemplate`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Creates an Amazon EC2 launch template to use with Amazon EC2 Auto Scaling.
     /// The launch template specifies a Bash script in its user data field that runs after
@@ -192,7 +191,7 @@ For more information, see [Create an Amazon EBS volume](https://docs.aws.amazon.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
-```
+```javascript
     const ssmClient = new SSMClient({});
     const { Parameter } = await ssmClient.send(
       new GetParameterCommand({
@@ -223,7 +222,7 @@ For more information, see [Create an Amazon EBS volume](https://docs.aws.amazon.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 This example creates a launch template that includes an instance profile that grants specific permissions to the instance, and a user data Bash script that runs on the instance after it starts.  
 
-```
+```python
 class AutoScalingWrapper:
     """
     Encapsulates Amazon EC2 Auto Scaling and EC2 management actions.

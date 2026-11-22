@@ -1,7 +1,6 @@
 
 
 # Use `AcceptVpcPeeringConnection` with a CLI
-<a name="example_ec2_AcceptVpcPeeringConnection_section"></a>
 
 The following code examples show how to use `AcceptVpcPeeringConnection`.
 
@@ -52,7 +51,7 @@ For more information, see [Accept or reject a VPC peering connection](https://do
 **Tools for PowerShell V4**  
 **Example 1: This example approves the requested VpcPeeringConnectionId pcx-1dfad234b56ff78be**  
 
-```
+```powershell
 Approve-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-1dfad234b56ff78be
 ```
 **Output:**  
@@ -70,7 +69,7 @@ VpcPeeringConnectionId : pcx-1dfad234b56ff78be
 **Tools for PowerShell V5**  
 **Example 1: This example approves the requested VpcPeeringConnectionId pcx-1dfad234b56ff78be**  
 
-```
+```powershell
 Approve-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-1dfad234b56ff78be
 ```
 **Output:**  

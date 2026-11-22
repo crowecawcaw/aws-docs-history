@@ -1,7 +1,6 @@
 
 
 # Use `ModifyVpcAttribute` with a CLI
-<a name="example_ec2_ModifyVpcAttribute_section"></a>
 
 The following code examples show how to use `ModifyVpcAttribute`.
 
@@ -41,22 +40,22 @@ For more information, see [View and update DNS attributes for your VPC](https://
 **Tools for PowerShell V4**  
 **Example 1: This example enables support for DNS hostnames for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $true
 ```
 **Example 2: This example disables support for DNS hostnames for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $false
 ```
 **Example 3: This example enables support for DNS resolution for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $true
 ```
 **Example 4: This example disables support for DNS resolution for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $false
 ```
 +  For API details, see [ModifyVpcAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -64,22 +63,22 @@ Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $false
 **Tools for PowerShell V5**  
 **Example 1: This example enables support for DNS hostnames for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $true
 ```
 **Example 2: This example disables support for DNS hostnames for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $false
 ```
 **Example 3: This example enables support for DNS resolution for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $true
 ```
 **Example 4: This example disables support for DNS resolution for the specified VPC.**  
 
-```
+```powershell
 Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $false
 ```
 +  For API details, see [ModifyVpcAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

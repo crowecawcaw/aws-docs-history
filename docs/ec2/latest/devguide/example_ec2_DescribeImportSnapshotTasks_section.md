@@ -1,7 +1,6 @@
 
 
 # Use `DescribeImportSnapshotTasks` with a CLI
-<a name="example_ec2_DescribeImportSnapshotTasks_section"></a>
 
 The following code examples show how to use `DescribeImportSnapshotTasks`.
 
@@ -74,7 +73,7 @@ For more information, see [Import a disk as an EBS snapshot using VM Import/Expo
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified snapshot import task.**  
 
-```
+```powershell
 Get-EC2ImportSnapshotTask -ImportTaskId import-snap-abcdefgh
 ```
 **Output:**  
@@ -86,7 +85,7 @@ Disk Image Import 1     import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTask
 ```
 **Example 2: This example describes all your snapshot import tasks.**  
 
-```
+```powershell
 Get-EC2ImportSnapshotTask
 ```
 **Output:**  
@@ -102,7 +101,7 @@ Disk Image Import 2     import-snap-hgfedcba       Amazon.EC2.Model.SnapshotTask
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified snapshot import task.**  
 
-```
+```powershell
 Get-EC2ImportSnapshotTask -ImportTaskId import-snap-abcdefgh
 ```
 **Output:**  
@@ -114,7 +113,7 @@ Disk Image Import 1     import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTask
 ```
 **Example 2: This example describes all your snapshot import tasks.**  
 
-```
+```powershell
 Get-EC2ImportSnapshotTask
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Use `DescribeVpcClassicLinkDnsSupport` with a CLI
-<a name="example_ec2_DescribeVpcClassicLinkDnsSupport_section"></a>
 
 The following code examples show how to use `DescribeVpcClassicLinkDnsSupport`.
 
@@ -39,7 +38,7 @@ Output:
 **Tools for PowerShell V4**  
 **Example 1: This example describes the ClassicLink DNS support status of VPCs for the region eu-west-1**  
 
-```
+```powershell
 Get-EC2VpcClassicLinkDnsSupport -VpcId vpc-0b12d3456a7e8910d -Region eu-west-1
 ```
 **Output:**  
@@ -55,7 +54,7 @@ False                   vpc-12cf3b4f
 **Tools for PowerShell V5**  
 **Example 1: This example describes the ClassicLink DNS support status of VPCs for the region eu-west-1**  
 
-```
+```powershell
 Get-EC2VpcClassicLinkDnsSupport -VpcId vpc-0b12d3456a7e8910d -Region eu-west-1
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Getting started with virtual private networks
-<a name="example_vpc_GettingStartedCLI_section"></a>
 
 The following code example shows how to:
 + Create a VPC
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/002-vpc-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # VPC Creation Script

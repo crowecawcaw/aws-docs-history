@@ -1,7 +1,6 @@
 
 
 # Use `DeleteVpcEndpoints` with an AWS SDK or CLI
-<a name="example_ec2_DeleteVpcEndpoints_section"></a>
 
 The following code examples show how to use `DeleteVpcEndpoints`.
 
@@ -35,7 +34,7 @@ For more information, see [Delete an interface endpoint](https://docs.aws.amazon
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples). 
 
-```
+```php
     /**
      * @param string $vpcEndpointId
      * @return void
@@ -60,7 +59,7 @@ For more information, see [Delete an interface endpoint](https://docs.aws.amazon
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
-```
+```python
 class VpcWrapper:
     """Encapsulates Amazon Elastic Compute Cloud (Amazon EC2) Amazon Virtual Private Cloud actions."""
 
@@ -109,7 +108,7 @@ class VpcWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ec2->deletevpcendpoints( it_vpcendpointids = it_vpc_endpoint_ids ).
         MESSAGE 'Deleted VPC endpoint(s).' TYPE 'I'.

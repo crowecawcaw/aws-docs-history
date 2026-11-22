@@ -1,7 +1,6 @@
 
 
 # Use `CreateCustomerGateway` with a CLI
-<a name="example_ec2_CreateCustomerGateway_section"></a>
 
 The following code examples show how to use `CreateCustomerGateway`.
 
@@ -40,7 +39,7 @@ For more information, see [AWS Site-to-Site VPN customer gateway devices](https:
 **Tools for PowerShell V4**  
 **Example 1: This example creates the specified customer gateway.**  
 
-```
+```powershell
 New-EC2CustomerGateway -Type ipsec.1 -PublicIp 203.0.113.12 -BgpAsn 65534
 ```
 **Output:**  
@@ -58,7 +57,7 @@ Type              : ipsec.1
 **Tools for PowerShell V5**  
 **Example 1: This example creates the specified customer gateway.**  
 
-```
+```powershell
 New-EC2CustomerGateway -Type ipsec.1 -PublicIp 203.0.113.12 -BgpAsn 65534
 ```
 **Output:**  

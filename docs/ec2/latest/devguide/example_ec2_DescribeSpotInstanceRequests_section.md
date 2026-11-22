@@ -1,7 +1,6 @@
 
 
 # Use `DescribeSpotInstanceRequests` with a CLI
-<a name="example_ec2_DescribeSpotInstanceRequests_section"></a>
 
 The following code examples show how to use `DescribeSpotInstanceRequests`.
 
@@ -168,7 +167,7 @@ For additional examples using tag filters, see [Working with tags](https://docs.
 **Tools for PowerShell V4**  
 **Example 1: This example describes the specified Spot instance request.**  
 
-```
+```powershell
 Get-EC2SpotInstanceRequest -SpotInstanceRequestId sir-12345678
 ```
 **Output:**  
@@ -193,7 +192,7 @@ Type                     : one-time
 ```
 **Example 2: This example describes all your Spot instance requests.**  
 
-```
+```powershell
 Get-EC2SpotInstanceRequest
 ```
 +  For API details, see [DescribeSpotInstanceRequests](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -201,7 +200,7 @@ Get-EC2SpotInstanceRequest
 **Tools for PowerShell V5**  
 **Example 1: This example describes the specified Spot instance request.**  
 
-```
+```powershell
 Get-EC2SpotInstanceRequest -SpotInstanceRequestId sir-12345678
 ```
 **Output:**  
@@ -226,7 +225,7 @@ Type                     : one-time
 ```
 **Example 2: This example describes all your Spot instance requests.**  
 
-```
+```powershell
 Get-EC2SpotInstanceRequest
 ```
 +  For API details, see [DescribeSpotInstanceRequests](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Use `ModifySpotFleetRequest` with a CLI
-<a name="example_ec2_ModifySpotFleetRequest_section"></a>
 
 The following code examples show how to use `ModifySpotFleetRequest`.
 
@@ -48,7 +47,7 @@ For more information, see [Modify a Spot Fleet request](https://docs.aws.amazon.
 **Tools for PowerShell V4**  
 **Example 1: This example updates the target capacity of the specified Spot fleet request.**  
 
-```
+```powershell
 Edit-EC2SpotFleetRequest -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -TargetCapacity 10
 ```
 **Output:**  
@@ -61,7 +60,7 @@ True
 **Tools for PowerShell V5**  
 **Example 1: This example updates the target capacity of the specified Spot fleet request.**  
 
-```
+```powershell
 Edit-EC2SpotFleetRequest -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -TargetCapacity 10
 ```
 **Output:**  
