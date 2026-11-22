@@ -1,7 +1,6 @@
 
 
 # Guidance for AdTech PrivateLink Network on AWS
-<a name="adtech-privatelink-chapter"></a>
 
 Publication date: **May 13, 2022 ([Diagram history](#adtech-diagram-history))**
 
