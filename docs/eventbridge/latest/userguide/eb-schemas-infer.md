@@ -1,7 +1,6 @@
 
 
 # Inferring schemas from event bus events in EventBridge
-<a name="eb-schemas-infer"></a>
 
 Amazon EventBridge can infer schemas by discovering events. To infer schemas, you turn on event discovery on an event bus and every unique schema is added to the schema registry, including those for cross-account events. Schemas discovered by EventBridge appear in **Discovered schemas registry** on the **Schemas** page.
 

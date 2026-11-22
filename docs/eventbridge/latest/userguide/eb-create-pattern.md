@@ -1,13 +1,12 @@
 
 
 # Event pattern syntax
-<a name="eb-create-pattern"></a>
 
 To create an event pattern, you specify the fields of an event that you want the event pattern to match. Only specify the fields that you use for matching. 
 
 For example, the following event pattern example only provides values for three fields: the top-level fields `"source"` and `"detail-type"`, and the `"state"` field inside the `"detail"` object field. EventBridge ignores all the other fields in the event when applying the rule.
 
-```
+```json
 {
   "source": ["aws.ec2"],
   "detail-type": ["EC2 Instance State-change Notification"],
@@ -26,7 +25,7 @@ When you write event patterns to match events, you can use the `TestEventPattern
 
 In an event pattern, the value to match is in a JSON array, surrounded by square brackets ("[", "]") so that you can provide multiple values. For example, to match events from Amazon EC2 or AWS Fargate, you could use the following pattern, which matches events where the value for the `"source"` field is either `"aws.ec2"` or `"aws.fargate"`.
 
-```
+```json
 {
     "source": ["aws.ec2", "aws.fargate"]
 }

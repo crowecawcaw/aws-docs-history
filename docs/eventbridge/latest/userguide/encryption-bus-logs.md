@@ -1,7 +1,6 @@
 
 
 # Encrypting event bus logs with AWS KMS in EventBridge
-<a name="encryption-bus-logs"></a>
 
 When sending logs, EventBridge encrypts the `detail` and `error` sections of each log record with the KMS key specified for the event bus. If you have specified a customer managed key for the event bus, EventBridge uses that key for encryption in transit. Once delivered, the record is decrypted and then re-encrypted with the KMS key specified for the log destination. 
 

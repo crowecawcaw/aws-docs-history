@@ -1,7 +1,6 @@
 
 
 # Sending events to an AWS service in another account in EventBridge
-<a name="eb-service-cross-account"></a>
 
 EventBridge can send events from an event bus in one AWS account to supported AWS services in another account, thereby simplifying the architecture of your event-driven solutions and reducing latency.
 
@@ -44,7 +43,7 @@ For example, the following policy allows the EventBridge service to assume the e
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -68,7 +67,7 @@ And the following policy allows the role to send messages to Amazon SQS queues:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -90,7 +89,7 @@ For accounts using AWS Organizations, you can apply an SCP to prevent invoking r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -127,7 +126,7 @@ Building on our earlier example, the following policy allows the event bus accou
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

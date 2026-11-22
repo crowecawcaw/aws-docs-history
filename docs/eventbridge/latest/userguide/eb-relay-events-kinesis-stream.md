@@ -1,7 +1,6 @@
 
 
 # Tutorial: Send events to Amazon Kinesis using EventBridge schemas
-<a name="eb-relay-events-kinesis-stream"></a>
 
 You can send AWS API call [events](eb-events.md) in EventBridge to an [Amazon Kinesis stream](https://docs.aws.amazon.com/streams/latest/dev/introduction.html), create Kinesis Data Streams applications, and process large amounts of data. In this tutorial, you create a Kinesis stream, and then create a [rule](eb-rules.md) in the EventBridge console that sends events to that stream when an [Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) instance stops.
 

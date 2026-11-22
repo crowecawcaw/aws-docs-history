@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Pipes batching and concurrency
-<a name="eb-pipes-batching-concurrency"></a>
 
 ## Batching behavior
 <a name="pipes-batching"></a>

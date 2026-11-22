@@ -1,7 +1,6 @@
 
 
 # Schema registries in Amazon EventBridge
-<a name="eb-schema-registry"></a>
 
 Schema registries are containers for schemas. Schema registries collect and organize schemas so that your schemas are in logical groups. The default schema registries are: 
 + **All schemas** – All the schemas from the AWS event, discovered, and custom schema registries.

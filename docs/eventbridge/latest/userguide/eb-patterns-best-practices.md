@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon EventBridge event patterns
-<a name="eb-patterns-best-practices"></a>
 
 Below are some best practices to consider when defining event patterns in your event bus rules.
 
@@ -87,7 +86,7 @@ When creating event patterns, you should take into account that event schemas an
 
 For example, suppose you are matching against events from a new micro-service that publishes payment-related events. Initially, the service uses the domain `acme.payments`, and publishes a single event, `Payment accepted`:
 
-```
+```json
 {
   "detail-type": "Payment accepted",
   "source": "acme.payments",
@@ -103,13 +102,13 @@ For example, suppose you are matching against events from a new micro-service th
 
 At this point, you could create a simple event pattern that matches Payment accepted events:
 
-```
+```json
 { “source” : “acme.payments” }
 ```
 
 However, suppose the service later introduces a new event for rejected payments:
 
-```
+```json
 {
   "detail-type": "Payment rejected",
   "source": "acme.payments",
@@ -122,7 +121,7 @@ In this case, the simple event pattern you created will now match against both `
 
 To scope your event pattern to only `Payment accepted` events, you'd want to specify both `source` and `detail-type`, at a minimum:
 
-```
+```json
 {
   "detail-type": "Payment accepted",
   "source": "acme.payments"
@@ -132,7 +131,7 @@ To scope your event pattern to only `Payment accepted` events, you'd want to spe
 
 You can also specify account and Region in your event pattern, to further limit when cross-account or cross-Region events match this rule.
 
-```
+```json
 {
   "account": "{{012345678910}}",
   "source": "acme.payments",

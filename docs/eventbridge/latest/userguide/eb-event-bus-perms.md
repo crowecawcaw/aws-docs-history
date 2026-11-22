@@ -1,7 +1,6 @@
 
 
 # Permissions for event buses in Amazon EventBridge
-<a name="eb-event-bus-perms"></a>
 
 The default [event bus](eb-event-bus.md) in your AWS account only allows [events](eb-events.md) from one account. You can grant additional permissions to an event bus by attaching a [resource-based policy](eb-use-resource-based.md) to it. With a resource-based policy, you can allow `PutEvents`, `PutRule`, and `PutTargets` API calls from another account. You can also use [IAM conditions](eb-use-conditions.md) in the policy to grant permissions to an organization, apply [tags](eb-tagging.md), or filter events to only those from a specific rule or account. You can set a resource-based policy for an event bus when you create it or afterward.
 

@@ -1,7 +1,6 @@
 
 
 # Publishing events to a Custom Event Bus
-<a name="eb-custom-bus-publish"></a>
 
 You publish events to a Custom Event Bus with one of two API operations, `PutEvents` or `PutRawEvents`. The operation that you choose fixes the shape of the delivered event, and that shape determines how you write every filter, transformer, and target parameter for the bus. Choose before you write your first subscriber. For the two shapes, see [Event structure: data, metadata, and system metadata](eb-custom-bus-addressing.md).
 
@@ -22,10 +21,13 @@ The two operations produce one kind of event, and EventBridge treats them identi
 
 Both operations take a batch of 1 to 100 entries per request and return one result per entry, in request order. EventBridge accepts or rejects each entry on its own: a rejected entry carries an `ErrorCode` and `ErrorMessage` in place of a `SuccessCode`, and the other entries in the same request are unaffected. Batch entries that belong together, and read every result rather than the HTTP status alone; see [Reading the response](#eb-custom-bus-publish-results). Both calls draw from one publish rate budget for your account, and the bus itself has a per-second ingestion quota that counts every publisher and event source; see [Custom Event Bus quotas](eb-quota.md#eb-custom-bus-quotas).
 
+**Important**  
+Per-entry acceptance has one exception. A request can exceed the total size limit for its entries. When it does, EventBridge rejects the whole request with `InvalidInputException`. It publishes none of the entries, even entries that are valid on their own. For information about the size limit and how EventBridge counts it, see [Custom Event Bus quotas](eb-quota.md#eb-custom-bus-quotas).
+
 ### Publish a JSON event with PutEvents
 <a name="eb-custom-bus-publish-putevents"></a>
 
-```
+```bash
 aws eventsv2 put-events \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
     --entries '[
@@ -42,7 +44,7 @@ aws eventsv2 put-events \
 
 `Data` is a binary field. In the AWS CLI, supply it as base64 text. The following example publishes the same JSON payload as raw bytes with a content type of `application/json`, and adds a metadata key.
 
-```
+```bash
 aws eventsv2 put-raw-events \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
     --entries '[
@@ -68,9 +70,13 @@ Both operations return one result for each entry, in the same order as the reque
 
 `SuccessCode` is `PUBLISHED` or `DEDUPLICATED`. `DEDUPLICATED` means that EventBridge recognized the entry as a duplicate of an event that it already accepted and did not store a second copy. It is a success, not an error. For more information, see [Ordering and deduplicating events on a Custom Event Bus](eb-custom-bus-ordering.md).
 
+**Important**  
+A throttled entry fails on its own and does not fail the request. When an event group is over its ingestion quota, its entries fail individually while the response stays otherwise successful and the rest of the request publishes. A client that checks only the HTTP status code treats the call as a full success and loses those records. Read every result entry and resend the throttled entries with backoff.
+
 A publish response reports that EventBridge accepted the event. It does not report delivery. To confirm that an event arrived, check the target.
 
 This section contains the following topics:
 + [Supported content types: JSON, Avro, Protobuf, and raw bytes](eb-custom-bus-open-formats.md)
 + [Event sources for a Custom Event Bus](eb-custom-bus-event-sources.md)
++ [Webhook Events for a Custom Event Bus](eb-custom-bus-webhook-sources.md)
 + [Event structure: data, metadata, and system metadata](eb-custom-bus-addressing.md)

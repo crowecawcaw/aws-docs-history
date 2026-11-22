@@ -1,7 +1,6 @@
 
 
 # Updating an event bus in Amazon EventBridge
-<a name="event-bus-update"></a>
 
 You can update the configuration of event buses after you create them. This includes the default event bus, which EventBridge creates in your account automatically.
 

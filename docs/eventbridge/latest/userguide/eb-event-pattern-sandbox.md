@@ -1,7 +1,6 @@
 
 
 # Testing event patterns using the EventBridge Sandbox
-<a name="eb-event-pattern-sandbox"></a>
 
 Defining an event pattern is typically part of the larger process of [creating a new rule](eb-create-rule-visual.md) or editing an existing one. Using the Sandbox in EventBridge, however, you can quickly define an event pattern and use a sample event to confirm the pattern matches the desired events, without having to create or edit a rule. Once you've got your event pattern tested, EventBridge give you the option of creating a new rule using that event pattern directly from the sandbox.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring logs for Amazon EventBridge event buses
-<a name="eb-event-bus-logs"></a>
 
 You can configure EventBridge to send logs detailing how an event bus is processing events, to help with troubleshooting and debugging.
 
@@ -72,7 +71,7 @@ To enable logging from an event bus, attach the following identity-based policy 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

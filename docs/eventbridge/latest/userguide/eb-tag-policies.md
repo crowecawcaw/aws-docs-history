@@ -1,7 +1,6 @@
 
 
 # Tag-based policies in Amazon EventBridge
-<a name="eb-tag-policies"></a>
 
 In Amazon EventBridge, you can use policies based on tags to control access to resources. 
 
@@ -12,7 +11,7 @@ For example, you could restrict access to resources that include a tag with the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

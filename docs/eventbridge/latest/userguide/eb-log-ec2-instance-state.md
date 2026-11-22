@@ -1,7 +1,6 @@
 
 
 # Tutorial: Log the state of an Amazon EC2 instance using EventBridge
-<a name="eb-log-ec2-instance-state"></a>
 
 You can create an [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) function that logs a state change for an [Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) instance. Then you can create a [rule](eb-rules.md) that runs your Lambda function whenever there is a state transition or a transition to one or more states that are of interest. In this tutorial, you log the launch of any new instance.
 

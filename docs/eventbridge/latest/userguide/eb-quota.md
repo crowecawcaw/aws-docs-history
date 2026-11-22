@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge quotas
-<a name="eb-quota"></a>
 
 The following quotas apply to the Custom Event Bus, to Custom Event Bus - Classic, to the API destinations and connections that both buses deliver to, to the schema registry, and to EventBridge Pipes.
 
@@ -59,13 +58,14 @@ The following values are set by the API and cannot be raised. Where a setting ta
 | BatchConfiguration.MaxBatchWindowInSeconds | 0 to 300, default 0 | 300 seconds | 
 | InvocationTimeoutSeconds on Lambda, Step Functions, and API Gateway targets | 1 to 30, default 30 | 30 seconds | 
 | Entries per PutEvents or PutRawEvents request | 1 to 100 | 100 | 
+| Total size of all entries in a PutEvents or PutRawEvents request. For PutRawEvents, this counts each entry's Data payload and the keys and values of its customer Metadata. It does not count SystemMetadata. For an Avro or Protobuf entry, EventBridge counts the decoded size. A compressed batch that is under the limit on the wire can still exceed it. A request over the limit fails with InvalidInputException and publishes none of its entries | Not configurable | 1 MB (1,048,576 bytes) | 
 | Deduplication window | Not configurable | 300 seconds | 
 | JSONata expression in a Transformer or a target parameter | Not configurable | 8,192 characters | 
 | JSONata expression in a universal target's Input | Not configurable | 262,144 characters | 
 | Filters in one FilterConfiguration | Up to 3, one per scope | 4,096 bytes across all filters; 1,000 $or combinations | 
 | Filter changes per subscriber | Not configurable | 24 in any rolling 24 hours; see [Updating, pausing, and resuming a subscriber](eb-custom-bus-update.md) | 
 | Subscriber creates or deletes in progress on one bus | Not configurable | 1 across all accounts; a second call fails with ConcurrentModificationException | 
-| Subscribers replaying from a past position at the same time | Not configurable | Limited per bus; CreateSubscriber fails with LimitExceededException when reached | 
+| Subscribers replaying from a past position at the same time | Not configurable | 5 per bus; CreateSubscriber fails with LimitExceededException when this limit is reached | 
 | errorMessage in a dead-letter record | Not configurable | 1,024 characters | 
 
 ## Custom Event Bus - Classic quotas

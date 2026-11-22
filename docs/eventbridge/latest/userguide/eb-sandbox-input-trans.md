@@ -1,7 +1,6 @@
 
 
 # Testing a target input transformer using the EventBridge Sandbox
-<a name="eb-sandbox-input-trans"></a>
 
 You can use input transformers to customize the text from an [event](eb-events.md) before EventBridge passes the information to the [target](eb-targets.md) of a [rule](eb-rules.md).
 

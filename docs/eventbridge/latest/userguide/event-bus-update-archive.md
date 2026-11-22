@@ -1,7 +1,6 @@
 
 
 # Updating archives on Amazon EventBridge event buses
-<a name="event-bus-update-archive"></a>
 
 You can update the following: 
 + Archive description

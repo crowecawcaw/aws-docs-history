@@ -1,7 +1,6 @@
 
 
 # Migrating from Custom Event Bus - Classic to the Custom Event Bus
-<a name="eb-custom-bus-migrate"></a>
 
 Custom Event Bus - Classic remains available, and you can run both products side by side. Your identity policies and delivery roles carry over, because the Custom Event Bus keeps the `events:` IAM namespace and the `events.amazonaws.com` service principal. The routing model changes.
 

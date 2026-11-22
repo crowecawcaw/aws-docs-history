@@ -1,7 +1,6 @@
 
 
 # Using resource-based policies for Amazon EventBridge
-<a name="eb-use-resource-based"></a>
 
 When a [rule](eb-rules.md) runs in EventBridge, all of the [targets](eb-targets.md) associated with the rule are invoked. Rules can invoke AWS Lambda functions, publish to Amazon SNS topics, or relay the event to Kinesis streams. To make API calls against the resources you own, EventBridge needs the appropriate permissions. For Amazon CloudWatch Logs resources, EventBridge uses resource-based policies. For Lambda, Amazon SNS, and Amazon SQS resources, EventBridge can use either an IAM execution role or a resource-based policy. For Kinesis streams, EventBridge uses [identity-based](eb-use-identity-based.md) policies.
 
@@ -28,7 +27,7 @@ To invoke your Amazon API Gateway endpoint by using a EventBridge rule, add the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

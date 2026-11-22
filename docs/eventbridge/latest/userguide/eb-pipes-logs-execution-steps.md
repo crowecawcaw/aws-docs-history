@@ -1,7 +1,6 @@
 
 
 # EventBridge Pipes execution steps
-<a name="eb-pipes-logs-execution-steps"></a>
 
 Understanding the flow of pipe execution steps can aid you in troubleshooting or debugging your pipe's performance using logs.
 

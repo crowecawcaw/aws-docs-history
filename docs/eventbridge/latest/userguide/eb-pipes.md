@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Pipes
-<a name="eb-pipes"></a>
 
 Amazon EventBridge Pipes connects sources to targets. Pipes are intended for point-to-point integrations between supported [sources](eb-pipes-event-source.md) and [targets](eb-pipes-event-target.md), with support for advanced transformations and [enrichment](pipes-enrichment.md). It reduces the need for specialized knowledge and integration code when developing event-driven architectures, fostering consistency across your company’s applications. To set up a pipe, you choose the source, add optional filtering, define optional enrichment, and choose the target for the event data.
 

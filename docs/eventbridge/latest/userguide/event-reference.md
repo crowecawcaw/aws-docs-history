@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge events detail reference
-<a name="event-reference"></a>
 
 EventBridge itself emits the following events. These events are automatically sent to the default event bus as with any other AWS service.
 
@@ -28,7 +27,7 @@ Represents a scheduled event.
 
 The `source` and `detail-type` fields are included because they contain specific values for EventBridge events. For definitions of the other metadata fields that are included in all events, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Events Reference*.
 
-```
+```json
 {
   . . .,
   "detail-type": "Scheduled Event",
@@ -54,7 +53,7 @@ There are no required fields in this object for `Scheduled Event` events.
 
 **Example Scheduled Event event**  <a name="event-detail-scheduled-event.example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "89d1a02d-5ec7-412e-82f5-13505f849b41",
@@ -82,7 +81,7 @@ When a schema is created, EventBridge sends both a `Schema Created` and a `Schem
 
 The `source` and `detail-type` fields are included because they contain specific values for EventBridge events. For definitions of the other metadata fields that are included in all events, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Events Reference*.
 
-```
+```json
 {
   . . .,
   "detail-type": "Schema Created",
@@ -131,7 +130,7 @@ Required: Yes
 
 **Example Schema Created event**  <a name="event-detail-schema-created.example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-012345678901",
@@ -160,7 +159,7 @@ When a schema is created, EventBridge sends both a `Schema Created` and a `Schem
 
 The `source` and `detail-type` fields are included because they contain specific values for EventBridge events. For definitions of the other metadata fields that are included in all events, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Events Reference*.
 
-```
+```json
 {
   . . .,
   "detail-type": "Schema Version Created",
@@ -208,7 +207,7 @@ Required: Yes
 
 **Example Schema Version Created event**  <a name="event-detail-schema-version-created.example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-012345678901",
@@ -240,7 +239,7 @@ These events each represent a change in the state of a new or existing connectio
 
 The `source` and `detail-type` fields are included because they contain specific values for EventBridge events. For definitions of the other metadata fields that are included in all events, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Events Reference*.
 
-```
+```json
 {
   . . .,
   "detail-type": "Connection {{status}}",
@@ -288,7 +287,7 @@ Required: Yes
 
 **Example Connection state event**  <a name="event-detail-connection-state.example"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "1d7a4ac6-a50a-745f-a331-a0d802f7badb",
@@ -319,7 +318,7 @@ These events each represents a change in the state of an API destination.
 
 The `source` and `detail-type` fields are included because they contain specific values for EventBridge events. For definitions of the other metadata fields that are included in all events, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Events Reference*.
 
-```
+```json
 {
   . . .,
   "detail-type": "API Destination {{status}}",
@@ -356,7 +355,7 @@ Required: Yes
 
 **Example API destination state event**  <a name="event-detail-api-destination-state.example"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "1d7a4ac6-a50a-745f-a331-a0d802f7badb",

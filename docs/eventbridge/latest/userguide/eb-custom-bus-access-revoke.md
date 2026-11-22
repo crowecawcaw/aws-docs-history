@@ -1,7 +1,6 @@
 
 
 # Revoking a subscriber or an event source
-<a name="eb-custom-bus-access-revoke"></a>
 
 `RevokeResource` withdraws one subscriber or one event source from a bus. It is the only control a bus owner has over a resource that another account owns, and it needs no cooperation from that account. It is authorized against the bus, and only the account that owns the bus can call it. The account that owns the subscriber cannot revoke its own subscriber.
 

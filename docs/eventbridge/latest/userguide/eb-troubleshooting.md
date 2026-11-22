@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon EventBridge
-<a name="eb-troubleshooting"></a>
 
 You can use the topics in this section to troubleshoot Amazon EventBridge issues.
 
@@ -46,7 +45,7 @@ One reason your Lambda function might not run is if you don't have the right per
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -231,7 +230,7 @@ To have the correct permission, your policy attributes similar to the following.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "__default_policy_ID",

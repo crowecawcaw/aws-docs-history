@@ -1,7 +1,6 @@
 
 
 # Including Amazon EventBridge resources in AWS CloudFormation stacks
-<a name="related-services-cfn"></a>
 
 CloudFormation enables you to configure and manage your AWS resources across accounts and regions in a centralized and repeatable manner by treating infrastructure as code. CloudFormation does this by letting you create *templates*, which define the resources you want to provision and manage. These resources can include EventBridge artifacts such as event buses and rules, pipes, schemas, and schedules, among others. Use these resources to include EventBridge functionality in the technology stacks you provision and manage through CloudFormation.
 

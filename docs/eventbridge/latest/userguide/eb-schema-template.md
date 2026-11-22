@@ -1,7 +1,6 @@
 
 
 # Creating a schema by using a template in Amazon EventBridge
-<a name="eb-schema-template"></a>
 
 You can create a schema from a template file you download, or by editing a template directly in the EventBridge console. 
 
@@ -20,7 +19,7 @@ To get the template, you download it from the console. You can edit the template
 
 Alternatively, you can copy the JSON template from the following code example.
 
-```
+```json
 {
     "openapi": "3.0.0",
     "info": {

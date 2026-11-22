@@ -1,7 +1,6 @@
 
 
 # Connections for API targets in Amazon EventBridge
-<a name="eb-target-connection"></a>
 
 To enable event buses and pipes to target custom resources, such as HTTPS APIs, you create connections. A *connection* defines the authorization method and credentials for EventBridge to use in connecting to a given resource. If you are connecting to a private API, such as a private API in an Amazon Virtual Private Cloud (Amazon VPC), you can also use the connection to define secure point-to-point network connectivity. 
 

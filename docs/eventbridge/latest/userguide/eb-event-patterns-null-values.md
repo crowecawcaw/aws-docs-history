@@ -1,7 +1,6 @@
 
 
 # Matching events on null values and empty strings in Amazon EventBridge
-<a name="eb-event-patterns-null-values"></a>
 
 **Important**  
 In EventBridge, it is possible to create rules that can lead to higher-than-expected charges and throttling. For example, you can inadvertently create a rule that leads to an infinite loop, where a rule is fired recursively without end. Suppose you created a rule to detect that ACLs have changed on an Amazon S3 bucket, and trigger software to change them to the desired state. If the rule is not written carefully, the subsequent change to the ACLs fires the rule again, creating an infinite loop.  
@@ -11,7 +10,7 @@ You can create an [event pattern](eb-event-patterns.md) that matches a field in 
 
 See best practices to avoid higher than expected charges and throttling
 
-```
+```json
 {
   "version": "0",
   "id": "3e3c153a-8339-4e30-8c35-687ebef853fe",
@@ -31,7 +30,7 @@ See best practices to avoid higher than expected charges and throttling
 
 To match events where the value of `eventVersion` is an empty string, use the following event pattern, which matches the preceding event.
 
-```
+```json
 {
   "detail": {
      "eventVersion": [""]
@@ -41,7 +40,7 @@ To match events where the value of `eventVersion` is an empty string, use the fo
 
 To match events where the value of `responseElements` is null, use the following event pattern, which matches the preceding event.
 
-```
+```json
 {
   "detail": {
      "responseElements": [null]
@@ -59,7 +58,7 @@ AWS CloudFormation does not allow `null` values in templates. If you define an e
 
 To work around this limitation, specify the `EventPattern` property as a JSON string instead of a YAML or JSON object. The following example shows how to match on null values in a AWS CloudFormation template:
 
-```
+```yaml
 MyRule:
   Type: AWS::Events::Rule
   Properties:

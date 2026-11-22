@@ -1,7 +1,6 @@
 
 
 # Best practices when defining rules in Amazon EventBridge
-<a name="eb-rules-best-practices"></a>
 
 Below are some best practices to consider when you create rules for your event buses.
 

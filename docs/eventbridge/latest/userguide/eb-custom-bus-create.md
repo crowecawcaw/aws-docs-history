@@ -1,7 +1,6 @@
 
 
 # Creating a bus
-<a name="eb-custom-bus-create"></a>
 
 You create a bus with `CreateEventBus`, for example `aws eventsv2 create-event-bus --name orders`. The name is the only required parameter. At creation you can also set a description, the number of days the bus retains events, the AWS KMS key that encrypts them, and tags. The call returns at once with the bus in the `CREATING` state; publish to the bus or create a subscriber on it once `DescribeEventBus` reports `ACTIVE`.
 
@@ -10,7 +9,7 @@ You create a bus with `CreateEventBus`, for example `aws eventsv2 create-event-b
 
 The following command creates a bus named `orders` that retains events for 30 days, encrypts them with your AWS KMS key, and carries one tag.
 
-```
+```bash
 aws eventsv2 create-event-bus \
     --name orders \
     --description "Order events from the checkout service" \
@@ -32,7 +31,7 @@ The following table lists what each parameter accepts.
 
 The response returns the bus ARN, which every later call on the bus uses. The ARN ends in an identifier that EventBridge generates, so you cannot construct it from the name.
 
-```
+```json
 {
     "EventBusArn": "arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef",
     "Name": "orders",
@@ -51,7 +50,7 @@ The response returns the bus ARN, which every later call on the bus uses. The AR
 
 Describe the bus by its ARN until `State` is `ACTIVE`.
 
-```
+```bash
 aws eventsv2 describe-event-bus \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef
 ```
@@ -63,7 +62,7 @@ To create a bus with CloudFormation instead, see [Creating Custom Event Bus reso
 
 A bus retains every event that it accepts for the number of days in `StorageConfiguration.RetentionPeriodInDays`, from 1 to 365; omit it and the bus retains events for 1 day. Retention is what lets a subscriber start from a point in the past, pause and resume without losing events, and read events again after a failure. A longer period costs more storage. You can change the period later with `UpdateEventBus`.
 
-```
+```bash
 aws eventsv2 create-event-bus \
     --name orders \
     --storage-configuration RetentionPeriodInDays=30

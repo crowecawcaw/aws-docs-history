@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge and AWS Identity and Access Management
-<a name="eb-iam"></a>
 
 To access Amazon EventBridge, you need credentials that AWS can use to authenticate your requests. Your credentials must have permissions to access AWS resources, such as retrieving event data from other AWS resources. The following sections provide details on how you can use [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and EventBridge to help secure your resources by controlling who can access them.
 

@@ -1,7 +1,6 @@
 
 
 # Receiving read-only management events from AWS services
-<a name="eb-service-event-cloudtrail-management"></a>
 
 You can set up rules on your default event bus to receive read-only *management events* from AWS services via CloudTrail. Management events provide visibility into management operations that are performed on resources in your AWS account. These are also known as control plane operations. For more information, see [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) in the *CloudTrail User Guide*.
 

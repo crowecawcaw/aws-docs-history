@@ -1,7 +1,6 @@
 
 
 # Using roles for schema discovery in Amazon EventBridge
-<a name="using-service-linked-roles-service-action-2"></a>
 
 The following topic details usage of the ****AWSServiceRoleForSchemas**** service-linked role.
 

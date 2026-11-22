@@ -1,7 +1,6 @@
 
 
 # Step Functions state machine target
-<a name="eb-custom-bus-target-sfn"></a>
 
 To start a state machine, set `TargetArn` to the state machine ARN and add `StepFunctionsParameters`. EventBridge starts one execution per batch, and the execution input is a JSON array of the batch's events, so a `Name` expression must not depend on a single event's fields.
 

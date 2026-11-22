@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a sample Amazon EventBridge application
-<a name="eb-tutorial-get-started"></a>
 
 You can use EventBridge to route [events](eb-events.md) to specific Lambda functions using [rules](eb-rules.md).
 

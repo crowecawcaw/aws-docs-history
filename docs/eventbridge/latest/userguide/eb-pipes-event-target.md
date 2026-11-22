@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Pipes targets
-<a name="eb-pipes-event-target"></a>
 
 You can send data in your pipe to a specific target. You can configure the following targets when setting up a pipe in EventBridge:
 + [API destination](eb-api-destinations.md)

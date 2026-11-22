@@ -1,7 +1,6 @@
 
 
 # Configuring encryption on archives
-<a name="encryption-archive-configure"></a>
 
 You can specify the KMS key for EventBridge to use when you create or update an archive.
 

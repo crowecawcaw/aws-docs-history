@@ -1,7 +1,6 @@
 
 
 # Event enrichment in Amazon EventBridge Pipes
-<a name="pipes-enrichment"></a>
 
 With the enrichment step of EventBridge Pipes, you can enhance the data from the source before sending it to the target. For example, you might receive *Ticket created* events that don’t include the full ticket data. Using enrichment, you can have a Lambda function call the `get-ticket` API for the full ticket details. Pipes can then send that information to a [target](eb-pipes-event-target.md).
 

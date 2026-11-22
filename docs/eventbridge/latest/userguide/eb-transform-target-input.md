@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge input transformation
-<a name="eb-transform-target-input"></a>
 
 You can customize the text from an [event](eb-events.md) before EventBridge passes the information to the [target](eb-targets.md) of a [rule](eb-rules.md). Using the input transformer in the console or the API, you define variables that use JSON path to reference values in the original event source. The transformed event is sent to a target instead of the original event. However, [dynamic path parameters](eb-targets.md#dynamic-path-parameters) must reference the original event, not the transformed event. You can define up to 100 variables, assigning each a value from the input. Then you can use those variables in the *Input Template* as <{{variable-name}}>. 
 
@@ -41,7 +40,7 @@ There are pre-defined variables you can use without defining a JSON path. These 
 
 The following is an example Amazon EC2 event.
 
-```
+```json
 {
   "version": "0",
   "id": "7bf73129-1428-4cd3-a780-95db273d1602",
@@ -70,7 +69,7 @@ When defining a rule in the console, select the **Input Transformer** option und
 **Note**  
 EventBridge replaces input transformers at runtime to ensure a valid JSON output. Because of this, put quotes around variables that refer to JSON path parameters, but do not put quotes around variables that refer to JSON objects or arrays.
 
-```
+```json
 {
   "timestamp" : "$.time",
   "instance" : "$.detail.instance-id", 

@@ -1,13 +1,12 @@
 
 
 # Decrypting events in EventBridge dead-letter queues
-<a name="eb-encryption-event-bus-dlq-decrypt"></a>
 
 Once you've resolved the underlying issue that is causing a non-retriable error, you can process the events sent to the event bus or target DLQs. For encrypted events, you must first decrypt the event in order to process it. 
 
 The following example demonstrates how to decrypt an event that EventBridge has delivered to an event bus or target DLQ.
 
-```
+```java
 // You will receive an encrypted event in the following json format.
         // ```
         //   {

@@ -1,7 +1,6 @@
 
 
 # API destinations as targets in Amazon EventBridge
-<a name="eb-api-destinations"></a>
 
 EventBridge *API destinations* are HTTPS endpoints. You can invoke one as the target of an event bus rule or pipe, just as you invoke an AWS service or resource. With API destinations, you route [events](eb-events.md) between AWS services, SaaS applications, and public or private applications. The events travel as API calls. 
 
@@ -30,7 +29,7 @@ After the maximum number of retries, events are sent to your [dead-letter queue]
 
  The following video demonstrates the use of API destinations:
 
-
+[![AWS Videos](https://img.youtube.com/vi/2ayxa3AdiK0/0.jpg)](https://www.youtube.com/watch?v=2ayxa3AdiK0)
 
 
 ## Service-linked role for API destinations

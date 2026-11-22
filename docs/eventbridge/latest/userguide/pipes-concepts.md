@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Pipes concepts
-<a name="pipes-concepts"></a>
 
 Here's a closer look at the basic components of EventBridge Pipes.
 

@@ -1,7 +1,6 @@
 
 
 # Observability for the Custom Event Bus: metrics, logs, and CloudTrail
-<a name="eb-custom-bus-observability"></a>
 
 Three sources tell you what a bus and its subscribers are doing. Amazon CloudWatch metrics in the `AWS/EventsV2` namespace are on for every subscriber; to alarm when deliveries fail, alarm on `OnFailureDestinationDelivered` or `EventsDropped`, or on `EventDeliveryAttempts` minus `EventsDelivered` with metric math. Subscriber logs record each delivery attempt as a JSON record; they are off until you set `LogConfiguration.Level` on the subscriber. AWS CloudTrail records the API calls that create and change buses, subscribers, and event sources.
 
@@ -72,7 +71,7 @@ Two independent settings must both exist before you can read a single record.
 
 1. **A CloudWatch Logs delivery.** Records reach you through the Amazon CloudWatch Logs vended log delivery mechanism, which pairs the subscriber with a destination you own. Without it, records have nowhere to land and no log group appears on its own.
 
-Make both settings before you start diagnosing a delivery problem rather than after. Only subscribers have a log configuration. Buses and event sources have none, so you turn logging on one subscriber at a time. `LogConfiguration` has two members.
+Make both settings before you start diagnosing a delivery problem rather than after. You turn subscriber logging on one subscriber at a time. A webhook event source has its own log configuration; see [Webhook event source logs](#eb-custom-bus-observability-webhook-logs). Other event sources and buses have none. `LogConfiguration` has two members.
 
 `Level`  
 The minimum level of a record. Records below it are not emitted. `OFF`, the default, emits nothing. `ERROR` emits failed delivery attempts only. `INFO` emits every delivery attempt, including the ones that succeeded.
@@ -87,7 +86,7 @@ You can set `LogConfiguration` when you create a subscriber, or later with `Upda
 
 The following steps record every delivery attempt for one existing subscriber and deliver the records to a CloudWatch Logs log group in the same account. The first command is an EventBridge call, and the rest are CloudWatch Logs calls. Start by raising the subscriber's log level. `INFO` records successes as well as failures, which is what tells you whether an event was delivered at all.
 
-```
+```bash
 aws eventsv2 update-subscriber \
     --subscriber-arn arn:aws:events:us-east-1:111122223333:subscriber/large-orders/EXAMPLE1234567890abcdef \
     --log-configuration '{ "Level": "INFO", "IncludePayload": "FULL" }'
@@ -95,14 +94,14 @@ aws eventsv2 update-subscriber \
 
 Next, create the destination log group. The name must begin with `/aws/vendedlogs/`. CloudWatch Logs manages the delivery resource policy for you only under that prefix; for a log group outside it you must manage that policy yourself.
 
-```
+```bash
 aws logs create-log-group \
     --log-group-name /aws/vendedlogs/large-orders-delivery
 ```
 
 Create a delivery source. Its `--resource-arn` is the subscriber ARN, which is what makes the source produce that subscriber's records. Set `--log-type` to match the level you configured: `INFO_LOGS` for `Level` `INFO`, or `ERROR_LOGS` for `Level` `ERROR`.
 
-```
+```bash
 aws logs put-delivery-source \
     --name large-orders-source \
     --resource-arn arn:aws:events:us-east-1:111122223333:subscriber/large-orders/EXAMPLE1234567890abcdef \
@@ -111,7 +110,7 @@ aws logs put-delivery-source \
 
 Create a delivery destination naming the log group. The response contains the destination ARN, which the next command needs.
 
-```
+```bash
 aws logs put-delivery-destination \
     --name large-orders-destination \
     --delivery-destination-configuration destinationResourceArn=arn:aws:logs:us-east-1:111122223333:log-group:/aws/vendedlogs/large-orders-delivery
@@ -119,7 +118,7 @@ aws logs put-delivery-destination \
 
 Finally, pair the source with the destination. Use the destination ARN from the previous response.
 
-```
+```bash
 aws logs create-delivery \
     --delivery-source-name large-orders-source \
     --delivery-destination-arn {{destination-arn}}
@@ -159,6 +158,25 @@ To diagnose a delivery that never arrived, read the subscriber's records in this
 
 **Important**  
 A log record that carries a payload carries your data. With `FULL`, the log group holds a copy of every event body the subscriber delivered, and anyone who can read the log group can read those bodies. Use `FULL` while you are debugging a subscriber, then return it to `ON_ERROR_ONLY`. That limits both the exposure and the volume you store.
+
+## Webhook event source logs
+<a name="eb-custom-bus-observability-webhook-logs"></a>
+
+A webhook event source delivers vended logs for the webhook requests it receives, so you can see why a request was accepted or rejected before any event reached the bus. Among event sources, only a webhook event source produces these logs; an AWS service or partner event source has no log configuration. The configuration is the same `LogConfiguration` a subscriber uses, so `Level` and `IncludePayload` mean what they do for a subscriber. See [The two settings that produce a record](#eb-custom-bus-observability-configuration).
+
+Set `LogConfiguration` in the webhook configuration when you call `CreateEventSource`, or later with `UpdateEventSource`, and pair the event source with a Amazon CloudWatch Logs vended log delivery the same way you do for a subscriber. Without both, no records are delivered. `Level` defaults to `OFF` and `IncludePayload` to `ON_ERROR_ONLY`.
+
+Each record is a JSON document keyed by `message_type`:
++ `WEBHOOK_INGEST_SUCCESS`: a request that EventBridge accepted and published to the bus. Emitted when `Level` is `INFO`.
++ `WEBHOOK_INGEST_FAILURE`: a request that EventBridge rejected. Emitted when `Level` is `ERROR` or `INFO`.
+
+A record carries `resource_arn` (the webhook event source), `event_id` (the id of the published event, empty when the request was rejected before it reached the bus), `message_type`, and `log_level`. A failure also carries an `error` object, whose `error_code` and `error_message` name why the request was rejected, such as `AUTHENTICATION_FAILED`, `ACCESS_DENIED`, or `INVALID_EVENT`. The `details` object carries `http_status`, `payload_size_bytes`, and, subject to `IncludePayload`, `request_body`.
+
+`request_body`  
+The webhook request body as EventBridge received it. This is the payload field that `IncludePayload` controls: under the default `ON_ERROR_ONLY` it appears on a failure record, and under `FULL` on a success record as well. EventBridge logs the body only for an authenticated request, so a request that failed authentication or targeted a revoked event source never carries it, whatever the mode. An empty body is kept as `""`. If a record would exceed the maximum record size, EventBridge drops `request_body` and names it in `dropped_fields` rather than fail to deliver the record.
+
+**Important**  
+With `FULL`, a success record carries the body of every webhook request the event source accepted, and anyone who can read the log group can read those bodies. Use `FULL` while you are debugging, then return the event source to `ON_ERROR_ONLY`.
 
 ## API calls in AWS CloudTrail
 <a name="eb-custom-bus-observability-cloudtrail"></a>

@@ -1,7 +1,6 @@
 
 
 # Authorization methods for connections in EventBridge
-<a name="eb-target-connection-auth"></a>
 
 EventBridge connections support the following authorization methods:
 + Basic

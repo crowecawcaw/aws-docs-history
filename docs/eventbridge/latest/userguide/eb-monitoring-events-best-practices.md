@@ -1,7 +1,6 @@
 
 
 # Best practices for monitoring event delivery in Amazon EventBridge
-<a name="eb-monitoring-events-best-practices"></a>
 
 To ensure that the business logic in your event-driven applications executes reliably, it is essential to monitor your event delivery behavior. EventBridge provides metrics that enable you to monitor, detect, and mitigate issues early to ensure reliable event delivery. These metrics include:
 + Counter-based metrics, such as `InvocationAttempts`, `SuccessfulInvocationAttempts`, `RetryInvocationAttempts` and `FailedInvocations`, to enable you to observe target throttling, and calculate error rates.

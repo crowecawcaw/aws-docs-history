@@ -1,7 +1,6 @@
 
 
 # Amazon SQS queue target
-<a name="eb-custom-bus-target-sqs"></a>
 
 To deliver to an Amazon SQS queue, set `TargetArn` to the queue ARN, for example `arn:aws:sqs:us-east-1:111122223333:large-orders`, and add `SqsParameters`. For a FIFO queue, set `MessageGroupId`; the usual value is the event's group, `{% $events.SystemMetadata.EventGroupId %}`.
 

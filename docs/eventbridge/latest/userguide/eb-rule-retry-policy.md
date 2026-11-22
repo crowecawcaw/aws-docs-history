@@ -1,7 +1,6 @@
 
 
 # How EventBridge retries delivering events
-<a name="eb-rule-retry-policy"></a>
 
 Sometimes an [event](eb-events.md) isn't successfully delivered to the [target](eb-targets.md) specified in a [rule](eb-rules.md). This can happen, for example:
 + If the target resource is unavailable

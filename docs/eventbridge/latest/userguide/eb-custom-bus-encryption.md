@@ -1,7 +1,6 @@
 
 
 # Encryption at Rest for Amazon EventBridge Custom Event Bus
-<a name="eb-custom-bus-encryption"></a>
 
 ## Options for Encryption at Rest
 <a name="eb-custom-bus-encryption-at-rest"></a>

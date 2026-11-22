@@ -1,7 +1,6 @@
 
 
 # Use `DescribeRule` with an AWS SDK or CLI
-<a name="example_eventbridge_DescribeRule_section"></a>
 
 The following code examples show how to use `DescribeRule`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
 Get the state of a rule using the rule description.  
 
-```
+```csharp
     /// <summary>
     /// Get the state for a rule by the rule name.
     /// </summary>
@@ -67,7 +66,7 @@ For more information, see [Rules in Amazon EventBridge](https://docs.aws.amazon.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 
-```
+```java
     public static void checkRule(EventBridgeClient eventBrClient, String eventRuleName) {
         try {
             DescribeRuleRequest ruleRequest = DescribeRuleRequest.builder()
@@ -91,7 +90,7 @@ For more information, see [Rules in Amazon EventBridge](https://docs.aws.amazon.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
-```
+```kotlin
 suspend fun checkRule(eventRuleName: String?) {
     val ruleRequest =
         DescribeRuleRequest {

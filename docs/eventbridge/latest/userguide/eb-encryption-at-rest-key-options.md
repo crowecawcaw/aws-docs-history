@@ -1,7 +1,6 @@
 
 
 # KMS key options for data encryption in Amazon EventBridge
-<a name="eb-encryption-at-rest-key-options"></a>
 
 EventBridge uses an AWS owned key to encrypt data stored in resources. For each resource, you can choose the type of KMS key EventBridge uses to encrypt the data:
 + **AWS owned key**

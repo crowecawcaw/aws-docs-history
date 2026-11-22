@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Pipes input transformation
-<a name="eb-pipes-input-transformation"></a>
 
 Amazon EventBridge Pipes support optional input transformers when passing data to the enrichment and the target. You can use Input transformers to reshape the JSON event input payload to serve the needs of the enrichment or target service. For Amazon API Gateway and API destinations, this is how you shape the input event to the RESTful model of your API. Input transformers are modeled as an `InputTemplate` parameter. They can be free text, a JSON path to the event payload, or a JSON object that includes inline JSON paths to the event payload. For enrichment, the event payload is coming from the source. For targets, the event payload is what is returned from the enrichment, if one is configured on the pipe. In addition to the service-specific data in the event payload, you can use [reserved variables](#input-transform-reserved) in your `InputTemplate` to reference data for your pipe.
 
@@ -95,7 +94,7 @@ Input templates can use the following reserved variables:
 
 The following is an example Amazon EC2 event that we can use as our *sample event*.
 
-```
+```json
 {
   "version": "0",
   "id": "7bf73129-1428-4cd3-a780-95db273d1602",
@@ -116,7 +115,7 @@ The following is an example Amazon EC2 event that we can use as our *sample even
 
 Let's use the following JSON as our *Transformer*.
 
-```
+```json
 {
   "instance" : <$.detail.instance-id>,
   "state": <$.detail.state>,
@@ -128,7 +127,7 @@ Let's use the following JSON as our *Transformer*.
 
 The following will be the resulting *Output*:
 
-```
+```json
 {
   "instance" : "i-0123456789",
   "state": "RUNNING",

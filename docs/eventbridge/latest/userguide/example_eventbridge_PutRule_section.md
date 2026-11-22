@@ -1,7 +1,6 @@
 
 
 # Use `PutRule` with an AWS SDK or CLI
-<a name="example_eventbridge_PutRule_section"></a>
 
 The following code examples show how to use `PutRule`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
 Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.  
 
-```
+```csharp
     /// <summary>
     /// Create a new event rule that triggers when an Amazon S3 object is created in a bucket.
     /// </summary>
@@ -51,7 +50,7 @@ Create a rule that triggers when an object is added to an Amazon Simple Storage 
 ```
 Create a rule that uses a custom pattern.  
 
-```
+```csharp
     /// <summary>
     /// Update a rule to use a custom defined event pattern.
     /// </summary>
@@ -84,7 +83,7 @@ Create a rule that uses a custom pattern.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/events/EventBridgeClient.h>
 #include <aws/events/model/PutRuleRequest.h>
@@ -94,7 +93,7 @@ Include the required files.
 ```
 Create the rule.  
 
-```
+```cpp
         Aws::CloudWatchEvents::EventBridgeClient cwe;
         Aws::CloudWatchEvents::Model::PutRuleRequest request;
         request.SetName(rule_name);
@@ -177,7 +176,7 @@ For more information, see [Rules in Amazon EventBridge](https://docs.aws.amazon.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 Create a scheduled rule.  
 
-```
+```java
     public static void createEBRule(EventBridgeClient eventBrClient, String ruleName, String cronExpression) {
         try {
             PutRuleRequest ruleRequest = PutRuleRequest.builder()
@@ -199,7 +198,7 @@ Create a scheduled rule.
 ```
 Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.  
 
-```
+```java
     // Create a new event rule that triggers when an Amazon S3 object is created in
     // a bucket.
     public static void addEventRule(EventBridgeClient eventBrClient, String roleArn, String bucketName,
@@ -240,7 +239,7 @@ Create a rule that triggers when an object is added to an Amazon Simple Storage 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { EventBridgeClient, PutRuleCommand } from "@aws-sdk/client-eventbridge";
 
 export const putRule = async (
@@ -280,7 +279,7 @@ export const putRule = async (
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -313,7 +312,7 @@ ebevents.putRule(params, function (err, data) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 Create a scheduled rule.  
 
-```
+```kotlin
 suspend fun createScRule(
     ruleName: String?,
     cronExpression: String?,
@@ -335,7 +334,7 @@ suspend fun createScRule(
 ```
 Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.  
 
-```
+```kotlin
 // Create a new event rule that triggers when an Amazon S3 object is created in a bucket.
 suspend fun addEventRule(
     roleArnVal: String?,

@@ -1,7 +1,6 @@
 
 
 # Creating connections for API targets in EventBridge
-<a name="eb-target-connection-create"></a>
 
 The following steps walk you through how to create a connection to an HTTPS endpoint.
 

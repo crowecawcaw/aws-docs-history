@@ -1,7 +1,6 @@
 
 
 # Sending events between event buses in the same account and Region in Amazon EventBridge
-<a name="eb-bus-to-bus"></a>
 
 You can configure EventBridge to send and receive [events](eb-events.md) between [event buses](eb-event-bus.md) in the same AWS account and Region. 
 

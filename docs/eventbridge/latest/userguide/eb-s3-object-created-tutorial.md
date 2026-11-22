@@ -1,7 +1,6 @@
 
 
 # Tutorial: Send an email when events happen using Amazon EventBridge
-<a name="eb-s3-object-created-tutorial"></a>
 
 You can send email notifications when [Amazon Simple Storage Service (Amazon S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) objects are created using Amazon EventBridge and [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html). In this tutorial, you will create an SNS topic and subscription. Then, you will create a [rule](eb-rules.md) in the EventBridge console that sends [events](eb-events.md) to that topic when Amazon S3 `Object Created` events are received.
 

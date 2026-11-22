@@ -1,7 +1,6 @@
 
 
 # Matching events on event field values
-<a name="eb-filtering-data-types"></a>
 
 You can use all of the JSON data types and values to match events. The following examples show events and the event patterns that match them.
 
@@ -10,7 +9,7 @@ You can use all of the JSON data types and values to match events. The following
 
 You can match on the value of a field. Consider the following Amazon EC2 Auto Scaling event.
 
-```
+```json
 {
   "version": "0",
   "id": "3e3c153a-8339-4e30-8c35-687ebef853fe",
@@ -29,7 +28,7 @@ You can match on the value of a field. Consider the following Amazon EC2 Auto Sc
 
 For the preceding event, you can use the `"responseElements"` field to match.
 
-```
+```json
 {
   "source": ["aws.autoscaling"],
   "detail-type": ["EC2 Instance Launch Successful"],
@@ -44,7 +43,7 @@ For the preceding event, you can use the `"responseElements"` field to match.
 
 Consider the following Amazon Macie event, which is truncated.
 
-```
+```json
 {
   "version": "0",
   "id": "0948ba87-d3b8-c6d4-f2da-732a1example",
@@ -80,7 +79,7 @@ Consider the following Amazon Macie event, which is truncated.
 
 The following event pattern matches any event that has a severity score of 1 and a count of 2.
 
-```
+```json
 {
   "source": ["aws.macie"],
   "detail-type": ["Macie Finding"],

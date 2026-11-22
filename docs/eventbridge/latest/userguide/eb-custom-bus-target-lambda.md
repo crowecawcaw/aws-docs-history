@@ -1,7 +1,6 @@
 
 
 # Lambda function target
-<a name="eb-custom-bus-target-lambda"></a>
 
 To deliver to a Lambda function, set `TargetArn` to the function ARN, optionally with an alias or version, and add `LambdaParameters`. The shape of the payload depends on `BatchConfiguration.MaxBatchSize`. With `MaxBatchSize` set to 1, the function receives the event as a single JSON object. With any other value, or with no `BatchConfiguration`, the function receives a JSON array holding the events in the batch, one element per event, even when the batch holds one event.
 

@@ -1,7 +1,6 @@
 
 
 # Updating a default event bus using AWS CloudFormation in EventBridge
-<a name="event-bus-update-default-cfn"></a>
 
 CloudFormation enables you to configure and manage your AWS resources across accounts and regions in a centralized and repeatable manner by treating infrastructure as code. CloudFormation does this by letting you create *templates*, which define the resources you want to provision and manage.
 

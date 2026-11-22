@@ -1,7 +1,6 @@
 
 
 # Example policy: Send events to an event bus in the same account in Amazon EventBridge
-<a name="eb-event-bus-example-policy-same-account"></a>
 
 The following example policy attached to an event bus named `CustomBus1` allows the event bus to receive events from the same account and Region.
 
@@ -10,7 +9,7 @@ The following example policy attached to an event bus named `CustomBus1` allows 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

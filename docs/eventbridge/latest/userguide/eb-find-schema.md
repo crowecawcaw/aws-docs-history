@@ -1,7 +1,6 @@
 
 
 # Finding an AWS service event schema in Amazon EventBridge
-<a name="eb-find-schema"></a>
 
 EventBridge includes [schemas](eb-schema.md) for all AWS services that generate events. You can find these schemas in the EventBridge console, or you can find them by using the API action [`SearchSchemas`](https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-search.html).
 

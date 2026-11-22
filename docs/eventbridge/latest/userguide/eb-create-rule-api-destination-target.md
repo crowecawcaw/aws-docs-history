@@ -1,7 +1,6 @@
 
 
 # Creating rules that send events to an API destination in EventBridge
-<a name="eb-create-rule-api-destination-target"></a>
 
 You can use an API destination as the target of a [rule](eb-rules.md). First, create the API destination. Then choose it as the target when you create the rule. You also need an IAM role with the correct permissions. For more information, see [Permissions to access targets](eb-events-iam-roles.md#eb-target-permissions).
 

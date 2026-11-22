@@ -1,7 +1,6 @@
 
 
 # Amazon DynamoDB stream as a source for EventBridge Pipes
-<a name="eb-pipes-dynamodb"></a>
 
 You can use EventBridge Pipes to receive records in a DynamoDB stream. You can then optionally filter or enhance these records before sending them to a target for processing. There are settings specific to Amazon DynamoDB Streams that you can choose when setting up the pipe. EventBridge Pipes maintains the order of records from the data stream when sending that data to the destination.
 

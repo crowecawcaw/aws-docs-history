@@ -1,7 +1,6 @@
 
 
 # Provider considerations for cross-account connections in EventBridge
-<a name="connection-private-rc-provider"></a>
 
 To create a connection to a private API in another AWS account, the owner of that account must share a VPC Lattice resource configuration for the private API with you. A resource configuration is a logical object that identifies the API and specifies how and who can access it. The *provider* account--that is, the account sharing the VPC Lattice resource configuration for the private API with another account--shares the VPC Lattice resource configuration using AWS RAM. 
 

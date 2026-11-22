@@ -1,7 +1,6 @@
 
 
 # Use `RemoveTargets` with an AWS SDK or CLI
-<a name="example_eventbridge_RemoveTargets_section"></a>
 
 The following code examples show how to use `RemoveTargets`.
 
@@ -12,7 +11,7 @@ The following code examples show how to use `RemoveTargets`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
 Remove all of the targets for a rule using the rule name.  
 
-```
+```csharp
     /// <summary>
     /// Delete an event rule by name.
     /// </summary>
@@ -85,7 +84,7 @@ For more information, see [Event bus targets in Amazon EventBridge](https://docs
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 Remove all of the targets for a rule by using the rule name.  
 
-```
+```java
     public static void deleteTargetsFromRule(EventBridgeClient eventBrClient, String eventRuleName) {
         // First, get all targets that will be deleted.
         ListTargetsByRuleRequest request = ListTargetsByRuleRequest.builder()
@@ -115,7 +114,7 @@ Remove all of the targets for a rule by using the rule name.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
-```
+```kotlin
 suspend fun deleteTargetsFromRule(eventRuleName: String?) {
     // First, get all targets that will be deleted.
     val request =

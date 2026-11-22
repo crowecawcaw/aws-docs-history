@@ -1,7 +1,6 @@
 
 
 # Event bus concepts in Amazon EventBridge
-<a name="eb-what-is-how-it-works-concepts"></a>
 
 Here's a closer look at the main components of an event driven architecture built on event buses.
 

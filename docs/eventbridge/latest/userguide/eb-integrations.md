@@ -1,7 +1,6 @@
 
 
 # Third-party integrations with Amazon EventBridge
-<a name="eb-integrations"></a>
 
 In addition to AWS services, Amazon EventBridge supports integration with custom and third-party systems and applications, both as event sources and targets.
 

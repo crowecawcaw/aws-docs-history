@@ -1,7 +1,6 @@
 
 
 # Use `PutTargets` with an AWS SDK or CLI
-<a name="example_eventbridge_PutTargets_section"></a>
 
 The following code examples show how to use `PutTargets`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
 Add an Amazon SNS topic as a target for a rule.  
 
-```
+```csharp
     /// <summary>
     /// Add an Amazon SNS target topic to a rule.
     /// </summary>
@@ -61,7 +60,7 @@ Add an Amazon SNS topic as a target for a rule.
 ```
 Add an input transformer to a target for a rule.  
 
-```
+```csharp
     /// <summary>
     /// Update an Amazon S3 object created rule with a transform on the target.
     /// </summary>
@@ -117,7 +116,7 @@ Add an input transformer to a target for a rule.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/events/EventBridgeClient.h>
 #include <aws/events/model/PutTargetsRequest.h>
@@ -127,7 +126,7 @@ Include the required files.
 ```
 Add the target.  
 
-```
+```cpp
         Aws::CloudWatchEvents::EventBridgeClient cwe;
 
         Aws::CloudWatchEvents::Model::Target target;
@@ -214,7 +213,7 @@ For more information, see [Event bus targets in Amazon EventBridge](https://docs
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 Add an Amazon SNS topic as a target for a rule.  
 
-```
+```java
     // Add a rule which triggers an SNS target when a file is uploaded to an S3
     // bucket.
     public static void addSnsEventRule(EventBridgeClient eventBrClient, String ruleName, String topicArn,
@@ -240,7 +239,7 @@ Add an Amazon SNS topic as a target for a rule.
 ```
 Add an input transformer to a target for a rule.  
 
-```
+```java
     public static void updateCustomRuleTargetWithTransform(EventBridgeClient eventBrClient, String topicArn,
             String ruleName) {
         String targetId = java.util.UUID.randomUUID().toString();
@@ -277,7 +276,7 @@ Add an input transformer to a target for a rule.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import {
   EventBridgeClient,
   PutTargetsCommand,
@@ -325,7 +324,7 @@ export const putTarget = async (
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -360,7 +359,7 @@ ebevents.putTargets(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
-```
+```kotlin
 // Add a rule that triggers an SNS target when a file is uploaded to an S3 bucket.
 suspend fun addSnsEventRule(
     ruleName: String?,
@@ -394,7 +393,7 @@ suspend fun addSnsEventRule(
 ```
 Add an input transformer to a target for a rule.  
 
-```
+```kotlin
 suspend fun updateCustomRuleTargetWithTransform(
     topicArn: String?,
     ruleName: String?,

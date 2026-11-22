@@ -1,7 +1,6 @@
 
 
 # EventBridge Pipes log schema reference
-<a name="eb-pipes-logs-schema"></a>
 
 The following reference details the schema for EventBridge Pipes log records.
 

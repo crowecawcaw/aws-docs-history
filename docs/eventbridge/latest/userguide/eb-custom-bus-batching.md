@@ -1,7 +1,6 @@
 
 
 # Batching deliveries to a target
-<a name="eb-custom-bus-batching"></a>
 
 EventBridge groups events into one target call when it can, so a queue receives up to 10 events per `SendMessageBatch` and a function receives an array per `Invoke`. To bound a batch, set `BatchConfiguration` on the subscriber: `MaxBatchSize` from 1 to 500, and `MaxBatchWindowInSeconds` from 0 to 300 to wait for more events before calling. For one event per call, set `MaxBatchSize` to 1.
 

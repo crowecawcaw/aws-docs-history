@@ -1,7 +1,6 @@
 
 
 # Receiving SaaS events from AWS Lambda function URLs in Amazon EventBridge
-<a name="eb-saas-furls"></a>
 
 **Note**  
 In order for the Inbound Webhook to be accessible by our partners, we're creating an Open Lambda in your AWS account that is secured at the Lambda application level by verifying the authentication signature sent by the third-party partner. Please review this configuration with your security team. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html#urls-auth-none).

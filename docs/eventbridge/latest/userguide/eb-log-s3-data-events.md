@@ -1,7 +1,6 @@
 
 
 # Tutorial: Log Amazon S3 object-level operations using EventBridge
-<a name="eb-log-s3-data-events"></a>
 
 You can log the object-level API operations on your [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) buckets. Before Amazon EventBridge can match these [events](eb-events.md), you must use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to set up and configure a trail to receive these events.
 

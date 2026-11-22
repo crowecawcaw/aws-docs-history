@@ -1,7 +1,6 @@
 
 
 # Managing access permissions to your Amazon EventBridge resources
-<a name="eb-manage-iam-access"></a>
 
 You manage access to EventBridge resources such as [rules](eb-rules.md) or [events](eb-events.md) by using [identity-based](eb-use-identity-based.md) or [resource-based](eb-use-resource-based.md) policies.
 
@@ -38,25 +37,25 @@ For API responses that include an API destination or connection ARN, EventBridge
 
 The following example shows how to indicate a specific rule ({{myRule}}) in your statement using its ARN.
 
-```
+```json
 "Resource": "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{myRule}}"
 ```
 
 To specify all rules that belong to a specific account, use the asterisk (\*) wildcard as follows:
 
-```
+```json
 "Resource": "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{*}}"
 ```
 
 To specify all resources, or if a specific API action doesn't support ARNs, use the asterisk (\*) wildcard in the `Resource` element as follows.
 
-```
+```json
 "Resource": "{{*}}"
 ```
 
 To specify multiple resources or `PutTargets` in a single statement, separate their ARNs with commas as follows.
 
-```
+```json
 "Resource": ["arn1", "arn2"]
 ```
 
@@ -97,7 +96,7 @@ You can attach policies to IAM identities. For example, you can do the following
 
   For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
 
-You can create specific IAM policies to restrict the calls and resources that users in your account have access to and then attach those policies to users. For more information about how to create IAM roles and to explore example IAM policy statements for EventBridge, see [Managing access permissions to your Amazon EventBridge resources](#eb-manage-iam-access). 
+You can create specific IAM policies to restrict the calls and resources that users in your account have access to and then attach those policies to users. For more information about how to create IAM roles and to explore example IAM policy statements for EventBridge, see [Managing access permissions to your Amazon EventBridge resources](eb-manage-iam-access.md). 
 
 ### Resource-based policies (IAM policies)
 <a name="eb-resource-based-policies-overview"></a>

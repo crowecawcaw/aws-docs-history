@@ -1,7 +1,6 @@
 
 
 # HTTP targets: API Gateway and API destinations
-<a name="eb-custom-bus-target-http"></a>
 
 To call an HTTP endpoint, set `TargetArn` either to an API Gateway execute-api ARN, such as `arn:aws:execute-api:us-east-1:111122223333:a1b2c3d4e5/prod/POST/orders`, or to an EventBridge API destination ARN for any other HTTPS endpoint with its connection's credentials, and add `HttpParameters`. The request body is the transformed event.
 

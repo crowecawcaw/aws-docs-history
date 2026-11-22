@@ -1,7 +1,6 @@
 
 
 # Learn the basics of EventBridge with an AWS SDK
-<a name="example_eventbridge_Scenario_GettingStarted_section"></a>
 
 The following code examples show how to:
 + Create a rule and add a target to it.
@@ -16,7 +15,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```csharp
 public class EventBridgeScenario
 {
     /*
@@ -614,7 +613,7 @@ public class EventBridgeScenario
 ```
 Create a class that wraps EventBridge operations.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper for Amazon EventBridge operations.
 /// </summary>
@@ -1043,7 +1042,7 @@ public class EventBridgeWrapper
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 
-```
+```java
 /**
  * Before running this Java V2 code example, set up your development
  * environment, including your credentials.
@@ -1782,7 +1781,7 @@ public class EventbridgeMVP {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
-```
+```kotlin
 /*
  Before running this Kotlin code example, set up your development environment,
  including your credentials.

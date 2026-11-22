@@ -1,7 +1,6 @@
 
 
 # Generating an CloudFormation template from an existing EventBridge event bus
-<a name="eb-generate-event-bus-template"></a>
 
 AWS CloudFormation enables you to configure and manage your AWS resources across accounts and regions in a centralized and repeatable manner by treating infrastructure as code. CloudFormation does this by letting you create *templates*, which define the resources you want to provision and manage.
 

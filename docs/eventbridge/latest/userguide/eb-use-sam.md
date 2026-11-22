@@ -1,7 +1,6 @@
 
 
 # Using AWS Serverless Application Model templates to deploy Amazon EventBridge resources
-<a name="eb-use-sam"></a>
 
 You can build and test [rules](eb-rules.md) manually in the EventBridge console, which can help in the development process as you refine [event patterns](eb-event-patterns.md). However, once you are ready to deploy your application, it’s easier to use a framework like [AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) to launch all your serverless resources consistently.
 

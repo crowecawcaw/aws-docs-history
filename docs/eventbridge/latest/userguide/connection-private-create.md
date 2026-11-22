@@ -1,7 +1,6 @@
 
 
 # Creating connections to private APIs
-<a name="connection-private-create"></a>
 
 The following steps walk you through how to create a connection to a private API. For detailed instructions that include all configuration options for connections, including creating connections to public APIs, see [Creating connections](eb-target-connection-create.md).
 

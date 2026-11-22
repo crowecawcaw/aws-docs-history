@@ -1,7 +1,6 @@
 
 
 # Creating rules using the Advanced Builder
-<a name="eb-create-rule-wizard"></a>
 
 To take action on events received by Amazon EventBridge, you can create [rules](eb-rules.md). When an event matches the [event pattern](eb-event-patterns.md) defined in your rule, EventBridge sends the event to the specified [target](eb-targets.md) and triggers the action defined in the rule.
 

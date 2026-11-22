@@ -1,7 +1,6 @@
 
 
 # Updating connections in EventBridge
-<a name="eb-target-connection-edit"></a>
 
 You can update existing connections.
 

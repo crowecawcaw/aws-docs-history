@@ -1,7 +1,6 @@
 
 
 # Comparison operators for use in event patterns in Amazon EventBridge
-<a name="eb-create-pattern-operators"></a>
 
 Below a summary of all the comparison operators available in EventBridge. 
 
@@ -40,7 +39,7 @@ You can match an event depending on the prefix of a value in the event source. Y
 
 For example, the following event pattern would match any event where the `"time"` field started with `"2017-10-02"` such as `"time": "2017-10-02T18:43:48Z"`. 
 
-```
+```json
 {
   "time": [ { "prefix": "2017-10-02" } ]
 }
@@ -53,7 +52,7 @@ You can also match a prefix value regardless of the casing of the characters a v
 
 For example, the following event pattern would match any event where the `service` field started with the character string `EventB`, but also `EVENTB`, `eventb`, or any other capitalization of those characters.
 
-```
+```json
 {
   "detail": {"service" : [{ "prefix": { "equals-ignore-case": "EventB" }}]}
 }
@@ -66,7 +65,7 @@ You can match an event depending on the suffix of a value in the event source. Y
 
 For example, the following event pattern would match any event where the `"FileName"` field ends with the `.png` file extension. 
 
-```
+```json
 {
   "FileName": [ { "suffix": ".png" } ]
 }
@@ -79,7 +78,7 @@ You can also match a suffix value regardless of the casing of the characters a v
 
 For example, the following event pattern would match any event where the `FileName` field ended with the character string `.png`, but also `.PNG` or any other capitalization of those characters.
 
-```
+```json
 {
   "detail": {"FileName" : [{ "suffix": { "equals-ignore-case": ".png" }}]}
 }
@@ -94,7 +93,7 @@ You can use anything-but matching with strings and numeric values, including lis
 
 The following event pattern shows anything-but matching with strings and numbers.
 
-```
+```json
 {
   "detail": {
     "state": [ { "anything-but": "initializing" } ]
@@ -110,7 +109,7 @@ The following event pattern shows anything-but matching with strings and numbers
 
 The following event pattern shows anything-but matching with a list of strings.
 
-```
+```json
 {
   "detail": {
     "state": [ { "anything-but": [ "stopped", "overloaded" ] } ]
@@ -120,7 +119,7 @@ The following event pattern shows anything-but matching with a list of strings.
 
 The following event pattern shows anything-but matching with a list of numbers.
 
-```
+```json
 {
   "detail": {
     "x-limit": [ { "anything-but": [ 100, 200, 300 ] } ]
@@ -135,7 +134,7 @@ You can also use `equals-ignore-case` in conjunction with `anything-but`, to mat
 
 The following event pattern matches `state` fields that do not contain the string "initializing", "INITIALIZING", "Initializing", or any other capitalization of those characters. 
 
-```
+```json
 {
   "detail": {"state" : [{ "anything-but": { "equals-ignore-case": "initializing" }}]}
 }
@@ -143,7 +142,7 @@ The following event pattern matches `state` fields that do not contain the strin
 
 You can use `equals-ignore-case` in conjunction with `anything-but` to match against a list of values as well:
 
-```
+```json
 {
   "detail": {"state" : [{ "anything-but": { "equals-ignore-case": ["initializing", "stopped"] }}]}
 }
@@ -156,7 +155,7 @@ You can use `prefix` in conjunction with `anything-but` to match string values t
 
 The following event pattern shows anything-but matching that matches any event that does not have the prefix `"init"` in the `"state"` field.
 
-```
+```json
 {
   "detail": {
     "state": [ { "anything-but": { "prefix": "init" } } ]
@@ -166,7 +165,7 @@ The following event pattern shows anything-but matching that matches any event t
 
 The following event pattern shows anything-but matching used with a list of prefix values. This event pattern matches any event that does not have either the prefix `"init"` or `"stop"` in the `"state"` field.
 
-```
+```json
 {
 "detail": {
   "state" : [{ "anything-but": { "prefix": ["init", "stop"] } } ] }
@@ -181,7 +180,7 @@ You can use `suffix` in conjunction with `anything-but` to match string values t
 
 The following event pattern matches any values for the `FileName` field that do not end with `.txt`.
 
-```
+```json
 {
   "detail": {
     "FileName": [ { "anything-but": { "suffix": ".txt" } } ]
@@ -191,7 +190,7 @@ The following event pattern matches any values for the `FileName` field that do 
 
 The following event pattern shows anything-but matching used with a list of suffix values. This event pattern matches any values for the `FileName` field that do not end with either `.txt` or `.rtf`.
 
-```
+```json
 {
   "detail": {
     "FileName": [ { "anything-but": { "suffix": [".txt", ".rtf"] } } ]
@@ -206,7 +205,7 @@ You can use the wildcard character (\*) within the values you specify for anythi
 
 The following event pattern matches any values for the `FileName` field that do not contain `/lib/`.
 
-```
+```json
 {
 "detail": {
   "FilePath" : [{ "anything-but": { "wildcard": "*/lib/*" }}]
@@ -216,7 +215,7 @@ The following event pattern matches any values for the `FileName` field that do 
 
 The following event pattern shows anything-but matching used with a list of values including wildcards. This event pattern matches any values for the `FileName` field that do not contain either `/lib/` or `/bin/`.
 
-```
+```json
 {
 "detail": {
   "FilePath" : [{ "anything-but": { "wildcard": ["*/lib/*", "*/bin/*"] }}]
@@ -233,7 +232,7 @@ Numeric matching compares values as 64-bit double-precision floating-point numbe
 
 The following shows numeric matching for an event pattern that only matches events that are true for all fields. 
 
-```
+```json
 {
   "detail": {
     "c-count": [ { "numeric": [ ">", 0, "<=", 5 ] } ],
@@ -248,7 +247,7 @@ The following shows numeric matching for an event pattern that only matches even
 
 You can use IP address matching for IPv4 and IPv6 addresses. The following event pattern shows IP address matching to IP addresses that start with 10.0.0 and end with a number between 0 and 255.
 
-```
+```json
 {
   "detail": {
     "sourceIPAddress": [ { "cidr": "10.0.0.0/24" } ]
@@ -265,7 +264,7 @@ Exists matching only works on leaf nodes. It does not work on intermediate nodes
 
 The following event pattern matches any event that has a `detail.state` field.
 
-```
+```json
 {
   "detail": {
     "state": [ { "exists": true  } ]
@@ -275,7 +274,7 @@ The following event pattern matches any event that has a `detail.state` field.
 
 The preceding event pattern matches the following event.
 
-```
+```json
 {
   "version": "0",
   "id": "7bf73129-1428-4cd3-a780-95db273d1602",
@@ -294,7 +293,7 @@ The preceding event pattern matches the following event.
 
 The preceding event pattern does NOT match the following event because it doesn't have a `detail.state` field.
 
-```
+```json
 {
   "detail-type": [ "EC2 Instance State-change Notification" ],
   "resources": [ "arn:aws:ec2:us-east-1:123456789012:instance/i-02ebd4584a2ebd341" ],
@@ -313,7 +312,7 @@ The preceding event pattern does NOT match the following event because it doesn'
 
 The following event pattern matches any event that has a `detail-type` field that matches the specified string, regardless of case.
 
-```
+```json
 {
   "detail-type": [ { "equals-ignore-case": "ec2 instance state-change notification" } ]
 }
@@ -321,7 +320,7 @@ The following event pattern matches any event that has a `detail-type` field tha
 
 The preceding event pattern matches the following event.
 
-```
+```json
 {
   "detail-type": [ "EC2 Instance State-change Notification" ],
   "resources": [ "arn:aws:ec2:us-east-1:123456789012:instance/i-02ebd4584a2ebd341" ],
@@ -357,7 +356,7 @@ There is a limit to how complex a rule using wildcards can be. If a rule is too 
 
   Only use wildcard characters where you truly need to match against multiple possible values. For example, consider the following event pattern, where you want to match against event buses in the same Region:
 
-  ```
+  ```json
   {
   "EventBusArn": [ { "wildcard": "*:*:*:*:*:event-bus/*" } ]
   }
@@ -365,7 +364,7 @@ There is a limit to how complex a rule using wildcards can be. If a rule is too 
 
   In the above case, many of the sections of the ARN will be directly based on the Region in which your event buses reside. So if you are using the `us-east-1` Region, a less complex pattern that still matches the desired values might be the following example:
 
-  ```
+  ```json
   {
   "EventBusArn": [ { "wildcard": "arn:aws:events:us-east-1:*:event-bus/*" } ]
   }
@@ -374,7 +373,7 @@ There is a limit to how complex a rule using wildcards can be. If a rule is too 
 
   Having the same character sequence appear multiple times after the use of a wildcard increases the complexity of processing the event pattern. Recast your event pattern to minimize repeated sequences. For example, consider the following example, that matches on the file name `doc.txt` file for any user:
 
-  ```
+  ```json
   {
   "FileName": [ { "wildcard": "/Users/*/dir/dir/dir/dir/dir/doc.txt" } ]
   }
@@ -382,7 +381,7 @@ There is a limit to how complex a rule using wildcards can be. If a rule is too 
 
   If you knew that the `doc.txt` file would only occur in the specified path, you could reduce the repeated character sequence in this way:
 
-  ```
+  ```json
   {
   "FileName": [ { "wildcard": "/Users/*/doc.txt" } ]
   }
@@ -393,7 +392,7 @@ There is a limit to how complex a rule using wildcards can be. If a rule is too 
 
 You can combine multiple matching criteria into a more complex event pattern. For example, the following event pattern combines `anything-but` and `numeric`.
 
-```
+```json
 {
   "time": [ { "prefix": "2017-10-02" } ],
   "detail": {
@@ -430,7 +429,7 @@ The following event pattern matches if any of the following conditions are met:
 + The `d-count` field is less than 10.
 + The `x-limit` field equals 3.018e2.
 
-```
+```json
 {
   "detail": {
     "$or": [

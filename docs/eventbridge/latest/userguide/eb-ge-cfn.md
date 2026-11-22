@@ -1,7 +1,6 @@
 
 
 # Setting up the Route 53 health check for EventBridge global endpoints
-<a name="eb-ge-cfn"></a>
 
 When using global endpoints you have to have a Route 53 health check to monitor the status of your Regions. The following template defines a [Amazon CloudWatch alarm](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html) and uses it to define a [Route 53 health check](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html).
 
@@ -15,7 +14,7 @@ When using global endpoints you have to have a Route 53 health check to monitor
 
 Use the following template to define your Route 53 health check.
 
-```
+```yaml
 Description: |-
   Global endpoints health check that will fail when the average Amazon EventBridge 
   latency is above 30 seconds for a duration of 5 minutes. Note, missing data will 

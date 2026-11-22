@@ -1,7 +1,6 @@
 
 
 # Deleting an event bus in Amazon EventBridge
-<a name="event-bus-delete"></a>
 
 You can delete a custom or partner event bus. You cannot delete the default event bus. Deleting an event bus deletes the rules associated with that event bus.
 

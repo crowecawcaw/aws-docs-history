@@ -1,7 +1,6 @@
 
 
 # API destination partners in Amazon EventBridge
-<a name="eb-api-destination-partners"></a>
 
 Use the information provided by the following AWS Partners to configure an API destination and connection for their service or application.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge feature availability by AWS Region
-<a name="feature-availability"></a>
 
 The following table shows which Amazon EventBridge features are available in each AWS Region. *Yes* means that the feature is available in that Region. *No* means that it is not.
 

@@ -1,7 +1,6 @@
 
 
 # De-authorizing connections in EventBridge
-<a name="eb-target-connection-deauthorize"></a>
 
 You can de-authorize a connection. De-authorizing a connection removes all authorization parameters. Removing authorization parameters removes the secret from the connection, so you can reuse it without having to create a new connection.
 

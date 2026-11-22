@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies (IAM policies) for Amazon EventBridge
-<a name="eb-use-identity-based"></a>
 
 Identity-based policies are permissions policies that you can attach to IAM identities. 
 
@@ -20,7 +19,7 @@ The following AWS managed policies that you can attach to users in your account 
 The AmazonEventBridgeFullAccess policy grants permissions to use all EventBridge actions, as well as the following permissions:
 + `iam:CreateServiceLinkedRole` – EventBridge requires this permission to create the service role in your account for API destinations. This permission grants only the IAM service permissions to create a role in your account specifically for API destinations.
 + `iam:PassRole` – EventBridge requires this permission to pass an invocation role to EventBridge to invoke the target of a rule.
-+ **Secrets Manager permissions** – EventBridge requires these permissions to manage secrets in your account when you provide credentials through the connection resource to authorize API Destinations.
++ **Secrets Manager permissions** – EventBridge requires these permissions to manage secrets in your account when you provide credentials through a connection resource to authorize API destinations, and the signing secrets for your webhook event sources.
 
 To view the permissions for this policy, see [ AmazonEventBridgeFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeFullAccess.html) in the *AWS Managed Policy Reference*.
 
@@ -99,6 +98,7 @@ View details about updates to AWS managed policies for EventBridge since this se
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AmazonEventBridgeFullAccess](#eb-full-access-policy) – Update to an existing policy | EventBridge added AWS Secrets Manager permissions that let the service manage the signing secrets for your webhook event sources. These are the same actions the policy already grants for API destinations, scoped to a separate set of service-managed secrets. | November 19, 2026 | 
 | [CloudWatchEventsReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | Updated to match AmazonEventBridgeReadOnlyAccess.<br />The following actions were added:+ `events:DescribeSubscriber`<br />+ `events:ListSubscribers`<br />+ `events:GetResourcePolicy`<br />+ `events:ListResourcePolicies`<br />+ `events:ListTagsForResource` | November 12, 2026 | 
 | [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | EventBridge added permissions to view Custom Event Bus subscribers and event bus resource policies, and to list the tags on EventBridge resources. The policy already granted permission to list tags on EventBridge Pipes, EventBridge Schemas, and EventBridge Scheduler resources.<br />The following actions were added:+ `events:DescribeSubscriber`<br />+ `events:ListSubscribers`<br />+ `events:GetResourcePolicy`<br />+ `events:ListResourcePolicies`<br />+ `events:ListTagsForResource` | September 24, 2026 | 
 | [AmazonEventBridgeApiDestinationsServiceRolePolicy](#api-destination-slr-policy) – Updated policy | EventBridge updated policy to restrict the scope of permissions for Secrets Manager operations to the same account. | May 29, 2025 | 

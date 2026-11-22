@@ -1,7 +1,6 @@
 
 
 # Tutorial: Schedule a AWS Lambda function
-<a name="eb-run-lambda-schedule"></a>
 
 **Note**  
 Scheduled rules are a legacy feature of EventBridge.  

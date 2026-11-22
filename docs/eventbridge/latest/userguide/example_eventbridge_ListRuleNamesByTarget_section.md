@@ -1,7 +1,6 @@
 
 
 # Use `ListRuleNamesByTarget` with an AWS SDK or CLI
-<a name="example_eventbridge_ListRuleNamesByTarget_section"></a>
 
 The following code examples show how to use `ListRuleNamesByTarget`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
 List all of the rule names using the target.  
 
-```
+```csharp
     /// <summary>
     /// List names of all rules matching a target.
     /// </summary>
@@ -72,7 +71,7 @@ For more information, see [Event bus targets in Amazon EventBridge](https://docs
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 List all of the rule names by using the target.  
 
-```
+```java
     public static void listTargetRules(EventBridgeClient eventBrClient, String topicArn) {
         ListRuleNamesByTargetRequest ruleNamesByTargetRequest = ListRuleNamesByTargetRequest.builder()
                 .targetArn(topicArn)
@@ -93,7 +92,7 @@ List all of the rule names by using the target.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
-```
+```kotlin
 suspend fun listTargetRules(topicArnVal: String?) {
     val ruleNamesByTargetRequest =
         ListRuleNamesByTargetRequest {

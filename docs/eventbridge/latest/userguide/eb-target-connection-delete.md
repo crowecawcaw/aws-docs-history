@@ -1,7 +1,6 @@
 
 
 # Deleting connections in EventBridge
-<a name="eb-target-connection-delete"></a>
 
 You can delete a connection if you are no longer using it.
 

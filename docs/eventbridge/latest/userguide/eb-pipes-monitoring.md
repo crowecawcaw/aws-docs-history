@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring Amazon EventBridge Pipes using Amazon CloudWatch Logs
-<a name="eb-pipes-monitoring"></a>
 
 You can log EventBridge Pipes invocations using CloudTrail and monitor the health of your pipes using CloudWatch metrics.
 

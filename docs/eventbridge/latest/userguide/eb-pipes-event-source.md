@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Pipes sources
-<a name="eb-pipes-event-source"></a>
 
 EventBridge Pipes receives event data from a variety of sources, applies optional filters and enrichments to that data, and sends it to a destination.
 

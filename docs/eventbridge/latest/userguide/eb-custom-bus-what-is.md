@@ -1,7 +1,6 @@
 
 
 # What is the EventBridge Custom Event Bus?
-<a name="eb-custom-bus-what-is"></a>
 
 The EventBridge Custom Event Bus is a serverless event bus that one team runs and many teams and accounts use. You publish events to it with `PutEvents` or `PutRawEvents`. It routes each event to the subscribers whose filters match it, and it keeps a copy of every event for a retention period that you set on the bus. You share the bus with other accounts through AWS Resource Access Manager (AWS RAM), and each of those accounts attaches its own subscribers. The bus owner writes no routing on their behalf.
 
@@ -16,6 +15,7 @@ In the EventBridge console, the bus type is shown as **Custom Event Bus** for th
 + Deduplication at publish time, by content or by a key that you supply, within a 5-minute window.
 + `PutRawEvents` for JSON, Avro, Protobuf, or raw bytes, with schema registry deserialization for filtering.
 + Universal targets that call any state-changing AWS API action directly, alongside the bespoke targets.
++ Webhook Events, to receive events from an external system over HTTPS without running or operating an endpoint.
 
 ## Resources
 <a name="eb-custom-bus-what-is-resources"></a>
@@ -29,7 +29,7 @@ Subscriber
 A subscriber names the events you want, with filters, and the one target that receives them. You create it with `CreateSubscriber`. It watches one bus, keeps the events that match its filters, optionally transforms each one, and delivers it to exactly one target. To send an event to several targets, create one subscriber for each target.
 
 Event source  
-An event source ingests events onto a bus from an AWS service or from a software as a service (SaaS) partner. You create it with `CreateEventSource`, naming the origin and the destination bus, and EventBridge moves the events for you.
+An event source ingests events onto a bus from an origin you do not produce yourself: an AWS service, a software-as-a-service (SaaS) partner, or an external system that sends events over HTTPS (a webhook event source). You create it with `CreateEventSource`, naming the destination bus (and, for an AWS service or partner source, the origin), and EventBridge moves the events for you.
 
 Bus and subscriber Amazon Resource Names (ARNs) end in an identifier that EventBridge generates, for example `arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef`. Store the full ARN rather than the name. If you delete a bus and create another with the same name, the new bus has a different identifier.
 

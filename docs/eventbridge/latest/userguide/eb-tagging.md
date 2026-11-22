@@ -1,7 +1,6 @@
 
 
 # Tagging resources in Amazon EventBridge
-<a name="eb-tagging"></a>
 
 A *tag* is a custom attribute label that you or AWS assigns to an AWS resource. In EventBridge, you can assign tags to [rule](eb-rules.md) and [event buses](eb-event-bus.md). Each resource can have a maximum of 50 tags.
 

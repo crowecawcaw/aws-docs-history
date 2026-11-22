@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge event bus (Custom)
-<a name="eb-custom-bus"></a>
 
 The EventBridge Custom Event Bus is an event bus that routes events to subscribers and retains them for a period that you choose. Producers publish events to the bus. Consumers create *subscribers* on the bus. Each subscriber filters the events, optionally transforms them, and delivers each matching event to one target. Because the bus retains events, a subscriber can deliver events in order, start from a point in the past, and pause and resume without losing events.
 

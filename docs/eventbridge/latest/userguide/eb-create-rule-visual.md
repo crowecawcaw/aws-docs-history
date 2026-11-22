@@ -1,7 +1,6 @@
 
 
 # Creating rules using the Enhanced Builder
-<a name="eb-create-rule-visual"></a>
 
 ## Prerequisites
 <a name="eb-create-rule-prerequisites"></a>

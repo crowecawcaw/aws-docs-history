@@ -1,7 +1,6 @@
 
 
 # Archiving and replaying events in Amazon EventBridge
-<a name="eb-archive"></a>
 
 In EventBridge, you can create an archive of events so that you can easily *replay*, or resend them to the event bus that originally received them, at a later time. For example, you might want to replay events to recover from errors, or to validate new functionality in your application.
 
@@ -85,4 +84,4 @@ Keep the following considerations in mind when replaying events from an archive:
 
  The following video demonstrates the use of archive and replay:
 
-
+[![AWS Videos](https://img.youtube.com/vi/s37BMCIGLC0/0.jpg)](https://www.youtube.com/watch?v=s37BMCIGLC0)

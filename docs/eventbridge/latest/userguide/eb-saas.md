@@ -1,7 +1,6 @@
 
 
 # Receiving events from a SaaS partner with Amazon EventBridge
-<a name="eb-saas"></a>
 
 To receive events from SaaS partner applications and services, you need a *partner event source* from the partner. A partner event source is a resource created by a partner that you can then accept as an event source. To accept the partner event source, you create a Custom Event Bus - Classic and match it to the partner event source.
 
@@ -13,7 +12,7 @@ To receive partner events on a Custom Event Bus, create an event source that nam
 
  The following video covers SaaS integrations with EventBridge:
 
-
+[![AWS Videos](https://img.youtube.com/vi/zxFrM6z8Wdg/0.jpg)](https://www.youtube.com/watch?v=zxFrM6z8Wdg)
 
 
 **Topics**

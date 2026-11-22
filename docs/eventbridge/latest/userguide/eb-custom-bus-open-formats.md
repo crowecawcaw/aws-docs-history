@@ -1,7 +1,6 @@
 
 
 # Supported content types: JSON, Avro, Protobuf, and raw bytes
-<a name="eb-custom-bus-open-formats"></a>
 
 `PutRawEvents` accepts any bytes. Each entry's `SystemMetadata.ContentType` tells EventBridge what the bytes are. That value decides whether EventBridge deserializes the payload before it filters and delivers the event. For Avro and Protobuf, EventBridge deserializes the payload against a schema registry that you name on the request. Subscribers then filter, transform, and receive the event as JSON. For opaque bytes, EventBridge delivers the payload untouched.
 
@@ -47,7 +46,7 @@ Set `RegistryUri` to the registry ARN, of the form `arn:aws:glue:{{region}}:{{ac
 
 EventBridge reads the schema as the publishing caller, so grant the publishing identity read access to the registry and its schemas. The following policy grants the minimum permission, scoped to one registry.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -65,7 +64,7 @@ EventBridge reads the schema as the publishing caller, so grant the publishing i
 
 Publish the schema-encoded bytes with the Glue registry ARN in `RegistryUri`.
 
-```
+```bash
 aws eventsv2 put-raw-events \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
     --schema-registry-configuration RegistryUri=arn:aws:glue:us-east-1:111122223333:registry/orders \
@@ -79,7 +78,7 @@ aws eventsv2 put-raw-events \
 
 A subscriber then filters on the deserialized record. If the Avro schema has a field named `orderId`, the following filter matches one order.
 
-```
+```json
 { "Scope": "DATA", "Pattern": "{\"orderId\":[\"1001\"]}" }
 ```
 
@@ -90,7 +89,7 @@ Set `RegistryUri` to the registry's HTTPS URL. An HTTPS registry also requires `
 
 EventBridge reads the registry credentials through the connection you name. Grant the publishing identity permission to read that connection's credentials.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -113,7 +112,7 @@ If the connection secret is encrypted with a customer managed AWS KMS key, also 
 
 Publish the schema-encoded bytes with the Confluent URL and connection ARN.
 
-```
+```bash
 aws eventsv2 put-raw-events \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
     --schema-registry-configuration '{
@@ -137,7 +136,7 @@ Configure the connection with the authentication type the Confluent registry exp
 
 **API key.** Confluent Schema Registry typically uses HTTP Basic authentication with the schema registry API key as the user name and the API secret as the password.
 
-```
+```bash
 aws events create-connection \
     --name confluent-registry \
     --authorization-type API_KEY \
@@ -151,7 +150,7 @@ aws events create-connection \
 
 **OAuth client credentials.** EventBridge fetches and refreshes the token. You must include `grant_type=client_credentials` as a body parameter; EventBridge does not add it for you.
 
-```
+```bash
 aws events create-connection \
     --name confluent-registry-oauth \
     --authorization-type OAUTH_CLIENT_CREDENTIALS \

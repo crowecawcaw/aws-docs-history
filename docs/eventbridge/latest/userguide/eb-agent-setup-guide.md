@@ -1,7 +1,6 @@
 
 
 # Agent setup guide
-<a name="eb-agent-setup-guide"></a>
 
 AI coding agents can accelerate serverless development by providing intelligent assistance for application scaffolding, deployment configuration, debugging, and infrastructure-as-code generation. Configure your agent with the right combination of plugins and skills. This equips it with the expertise it needs to build and manage serverless applications.
 
@@ -27,14 +26,14 @@ Install the aws-core plugin, part of the [Agent Toolkit for AWS](https://docs.aw
 
 Run the following command to install the plugin:
 
-```
+```bash
 /plugin marketplace add aws/agent-toolkit-for-aws
 /plugin install aws-core@agent-toolkit-for-aws
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```
 
@@ -48,13 +47,13 @@ Codex supports the open-source agent skills format. Install the AWS serverless s
 ### Install AWS serverless skill
 <a name="eb-agent-setup-codex-skill"></a>
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```
 
@@ -66,13 +65,13 @@ Cursor supports the open-source agent skills format. Install the AWS serverless 
 ### Install AWS serverless skill
 <a name="eb-agent-setup-cursor-skill"></a>
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```
 
@@ -84,13 +83,13 @@ Kiro supports the open-source agent skills format. Install the AWS serverless sk
 ### Install AWS serverless skill in Kiro CLI
 <a name="eb-agent-setup-kiro-skill"></a>
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```
 
@@ -108,13 +107,13 @@ GitHub Copilot supports the open-source agent skills format. Install the AWS ser
 ### Install AWS serverless skill
 <a name="eb-agent-setup-github-copilot-skill"></a>
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```
 
@@ -126,13 +125,13 @@ Devin Desktop supports the open-source agent skills format. Install the AWS serv
 ### Install AWS serverless skill
 <a name="eb-agent-setup-windsurf-skill"></a>
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```
 
@@ -144,13 +143,13 @@ OpenCode supports the open-source agent skills format. Install the AWS serverles
 ### Install AWS serverless skill
 <a name="eb-agent-setup-opencode-skill"></a>
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```
 
@@ -162,12 +161,12 @@ For any other agent that supports the open-source [agent skills](https://agentsk
 ### Install AWS serverless skill
 <a name="eb-agent-setup-other-agents-skill"></a>
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 Then install the Amazon EventBridge skill:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/amazon-eventbridge-event-bus --yes --global
 ```

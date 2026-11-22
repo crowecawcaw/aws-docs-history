@@ -1,23 +1,24 @@
 
 
 # Event sources for a Custom Event Bus
-<a name="eb-custom-bus-event-sources"></a>
 
-An event source ingests events from an AWS service or a SaaS partner onto a Custom Event Bus. You create it with `CreateEventSource`, naming a destination bus and one origin, for example `aws.s3`, and EventBridge delivers events from the origin to the bus. Your own applications publish to the bus directly, so you need an event source only for events you do not produce yourself.
+An event source ingests events onto a Custom Event Bus from an origin you do not produce yourself: an AWS service, a SaaS partner, or an external system that sends events over HTTPS. You create it with `CreateEventSource`, naming a destination bus. For an AWS service or partner source, you name an origin, such as `aws.s3`, and EventBridge delivers events from that origin to the bus. Your own applications publish to the bus directly, so you need an event source only for events you do not produce yourself.
 
-Ingested events arrive on the destination bus in the EventBridge envelope, with content type `application/eventbridge+json`. The event data holds the envelope fields: `source`, `detail-type`, `account`, `time`, `region`, `resources`, and `detail`. EventBridge also sets the `aws:Source` and `aws:DetailType` system metadata fields from the envelope's `source` and `detail-type`. See [Event structure: data, metadata, and system metadata](eb-custom-bus-addressing.md).
+Ingested events from an AWS service or partner event source arrive on the destination bus in the EventBridge envelope, with content type `application/eventbridge+json`. The event data holds the envelope fields: `source`, `detail-type`, `account`, `time`, `region`, `resources`, and `detail`. EventBridge also sets the `aws:Source` and `aws:DetailType` system metadata fields from the envelope's `source` and `detail-type`. See [Event structure: data, metadata, and system metadata](eb-custom-bus-addressing.md).
+
+A webhook event source delivers differently: the request body arrives as the event's `Data`, and EventBridge does not set the `aws:Source` or `aws:DetailType` system metadata fields. See [Webhook Events for a Custom Event Bus](eb-custom-bus-webhook-sources.md).
 
 ## How the events are moved
 <a name="eb-custom-bus-event-sources-how"></a>
 
-When you create an event source, EventBridge creates a managed rule and a target in your account, on your Custom Event Bus - Classic, and they carry events from the origin to your Custom Event Bus. Both appear in your account with `ManagedBy` set to `events.amazonaws.com`. You do not manage them; deleting or revoking the event source removes them. The events therefore still appear in the Custom Event Bus - Classic's metrics.
+When you create an AWS service or partner event source, EventBridge creates a managed rule and a target in your account, on your Custom Event Bus - Classic, and they carry events from the origin to your Custom Event Bus. Both appear in your account with `ManagedBy` set to `events.amazonaws.com`. You do not manage them; deleting or revoking the event source removes them. The events therefore still appear in the Custom Event Bus - Classic's metrics.
 
 ## AWS service event sources
 <a name="eb-custom-bus-event-sources-aws"></a>
 
 An AWS service event source ingests the events that one AWS service, such as `aws.s3` or `aws.ec2`, emits for your account. By default every event from that service arrives on the bus; to narrow that down, add a `Pattern`. The following example creates an event source that admits only Amazon S3 Object Created events.
 
-```
+```bash
 aws eventsv2 create-event-source \
     --name s3-object-created \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
@@ -31,7 +32,7 @@ The event source's pattern decides what crosses onto the bus. A subscriber's fil
 
 A partner event source ingests the events a SaaS partner sends to your account. Before you create one, the partner must offer a partner event source to your account (see [Receiving events from a SaaS partner with Amazon EventBridge](eb-saas.md)), and that source must be in the `PENDING` state. The following example creates an event source for it.
 
-```
+```bash
 aws eventsv2 create-event-source \
     --name example-partner-events \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
@@ -40,12 +41,17 @@ aws eventsv2 create-event-source \
 
 When you create the event source, EventBridge creates a managed partner event bus (a Custom Event Bus - Classic) in your account to activate the partner source. When you delete the event source, EventBridge deletes that bus and returns the partner source to `PENDING`. To encrypt that bus with a customer managed key, set `PartnerBusKmsKeyIdentifier` to a key in your account and Region; otherwise EventBridge uses an AWS owned key.
 
+## Webhook event sources
+<a name="eb-custom-bus-event-sources-webhook"></a>
+
+A webhook event source ingests events that an external system, such as a SaaS provider or your own application, sends over HTTPS. Instead of a managed rule, EventBridge gives you a generated webhook URL and a secret, verifies each incoming request, and publishes the request body to the bus. For how to create and secure one, see [Webhook Events for a Custom Event Bus](eb-custom-bus-webhook-sources.md).
+
 ## Dead-letter queue
 <a name="eb-custom-bus-event-sources-dlq"></a>
 
 To capture events that fail to reach the bus, set `OnFailureConfiguration.Arn` to a standard Amazon SQS queue in your account and Region; a FIFO queue is rejected. Messages arrive on the queue from the `events.amazonaws.com` service principal, not from a role you supply, so grant that principal `sqs:SendMessage` in the queue's resource policy.
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": { "Service": "events.amazonaws.com" },
@@ -64,7 +70,7 @@ To create an event source on a bus in another account, the bus owner must grant 
 
 To encrypt the managed partner event bus, your identity needs `kms:DescribeKey` and `kms:Decrypt` on the key you name in `PartnerBusKmsKeyIdentifier`; without them, `CreateEventSource` fails with `AccessDeniedException`.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": ["kms:DescribeKey", "kms:Decrypt"],
@@ -79,7 +85,7 @@ If another account owns the destination bus and encrypts it with a customer mana
 
 To match AWS service or partner events on a subscriber, filter on the `aws:Source` system metadata field. EventBridge writes this field and no publish call can set a value that begins with `aws.`, so a match on its value is the only match that proves the origin of an event. For AWS service events, match the service name; for partner events, match the partner event source name.
 
-```
+```json
 { "Scope": "SYSTEM_METADATA", "Pattern": "{\"aws:Source\":[\"aws.s3\"]}" }
 
 { "Scope": "SYSTEM_METADATA", "Pattern": "{\"aws:Source\":[{\"prefix\":\"aws.partner/example.com\"}]}" }
@@ -87,7 +93,7 @@ To match AWS service or partner events on a subscriber, filter on the `aws:Sourc
 
 To filter on the event content, add a `DATA` filter. The envelope carries the content under `detail`.
 
-```
+```json
 { "Scope": "DATA", "Pattern": "{\"detail\":{\"bucket\":{\"name\":[\"amzn-s3-demo-bucket\"]}}}" }
 ```
 
@@ -98,7 +104,7 @@ The event data also carries `source` and `detail-type`, and any publisher can wr
 
 The bus owner can permanently stop an event source from ingesting by calling `RevokeResource` with its ARN; see [Revoking a subscriber or an event source](eb-custom-bus-access-revoke.md). A revoked event source cannot be restored. Revocation covers the one resource you name, so pair it with a bus resource policy that stops the same account from creating another. To block the account from creating any event source on the bus:
 
-```
+```json
 {
     "Effect": "Deny",
     "Principal": { "AWS": "arn:aws:iam::444455556666:root" },
@@ -109,7 +115,7 @@ The bus owner can permanently stop an event source from ingesting by calling `Re
 
 To block one origin while allowing others, condition the deny on `events:source`.
 
-```
+```json
 {
     "Effect": "Deny",
     "Principal": { "AWS": "arn:aws:iam::444455556666:root" },

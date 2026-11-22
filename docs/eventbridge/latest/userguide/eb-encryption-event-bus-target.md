@@ -1,7 +1,6 @@
 
 
 # Encryption in EventBridge when an event bus is the rule target
-<a name="eb-encryption-event-bus-target"></a>
 
 When a custom or partner event is sent to an event bus, EventBridge encrypts that event according to the encryption at rest KMS key configuration for that event bus - either the default AWS owned key or a customer managed key, if one has been specified. If an event matches a rule, EventBridge encrypts the event with the KMS key configuration for that event bus until the event is sent to the rule target, *unless the rule target is another event bus*.
 + If the target of a rule is another event bus in the same AWS Region:

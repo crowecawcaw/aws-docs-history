@@ -1,7 +1,6 @@
 
 
 # Resource-based policies for Amazon EventBridge schemas
-<a name="eb-resource-based-schemas"></a>
 
 The EventBridge [schema registry](eb-schema-registry.md) supports [resource-based policies](eb-use-resource-based.md). A *resource-based policy* is a policy that is attached to a resource rather than to an IAM identity. For example, in Amazon Simple Storage Service (Amazon S3), a resource policy is attached to an Amazon S3 bucket. 
 
@@ -40,7 +39,7 @@ To grant a user access to all available APIs for EventBridge Schemas, use a poli
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ The following example grants access to an account for only the read-only APIs fo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ You can use resource-based policies with the EventBridge schema registry to gran
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

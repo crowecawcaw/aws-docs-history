@@ -1,7 +1,6 @@
 
 
 # Setting a schedule pattern for scheduled rules (legacy) in Amazon EventBridge
-<a name="eb-scheduled-rule-pattern"></a>
 
 **Note**  
 Scheduled rules are a legacy feature of EventBridge.  
@@ -73,19 +72,19 @@ You can use the following sample cron strings when creating a rule with schedule
 
 The following example creates a rule that runs every day at 12:00pm UTC\+0.
 
-```
+```bash
 aws events put-rule --schedule-expression "cron(0 12 * * ? *)" --name {{MyRule1}}
 ```
 
 The following example creates a rule that runs every day, at 2:05pm and 2:35pm UTC\+0.
 
-```
+```bash
 aws events put-rule --schedule-expression "cron(5,35 14 * * ? *)" --name {{MyRule2}}
 ```
 
 The following example creates a rule that runs at 10:15am UTC\+0 on the last Friday of each month during the years 2019 to 2022.
 
-```
+```bash
 aws events put-rule --schedule-expression "cron(15 10 ? * 6L 2019-2022)" --name {{MyRule3}}
 ```
 
@@ -115,18 +114,18 @@ If the value is equal to 1, then the unit must be singular. If the value is grea
 **Examples**  
 The following examples show how to use rate expressions with the AWS CLI `put-rule` command. The first example triggers the rule every minute, the next triggers it every five minutes, the third example triggers it once an hour, and the final example triggers it once per day.
 
-```
+```bash
 aws events put-rule --schedule-expression "rate(1 minute)" --name {{MyRule2}}
 ```
 
-```
+```bash
 aws events put-rule --schedule-expression "rate(5 minutes)" --name {{MyRule3}}
 ```
 
-```
+```bash
 aws events put-rule --schedule-expression "rate(1 hour)" --name {{MyRule4}}
 ```
 
-```
+```bash
 aws events put-rule --schedule-expression "rate(1 day)" --name {{MyRule5}}
 ```

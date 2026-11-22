@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge event patterns
-<a name="eb-event-patterns"></a>
 
 Chances are you won't want to process every single event that gets delivered to a given event bus or pipe. Rather, you'll likely want to select a subset of all the events delivered, based on the source of the event, the event type, and/or attributes of those events. 
 
@@ -12,7 +11,7 @@ You can use the EventBridge Sandbox to test event patterns against sample events
 
 For example, consider the following event from Amazon EC2:
 
-```
+```json
 {
   "version": "0",
   "id": "6a7e8feb-b491-4cf7-a9f1-bf3703467718",
@@ -39,7 +38,7 @@ The following event pattern selects all Amazon EC2 `instance-termination` events
 
 1. The state of the Amazon EC2 instance must be `terminated`.
 
-```
+```json
 {
   "source": ["aws.ec2"],
   "detail-type": ["EC2 Instance State-change Notification"],
@@ -65,7 +64,7 @@ For event buses, you can specify an event pattern for each rule you create for t
 
  The following video discusses the basics of event patterns for event buses:
 
-
+[![AWS Videos](https://img.youtube.com/vi/69Z394rGclk/0.jpg)](https://www.youtube.com/watch?v=69Z394rGclk)
 
 
 ## Event patterns for EventBridge Pipes

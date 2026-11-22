@@ -1,7 +1,6 @@
 
 
 # Dual-stack service endpoints in Amazon EventBridge
-<a name="dual-stack"></a>
 
 In addition to the IPv4 service endpoints, EventBridge also provides dual-stack endpoints for the following resources. You can access these endpoints using either IPv4 or IPv6 requests.
 

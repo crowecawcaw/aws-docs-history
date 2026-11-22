@@ -1,7 +1,6 @@
 
 
 # Creating an event schema in Amazon EventBridge
-<a name="eb-schema-create"></a>
 
 You create schemas by using JSON files with either the [OpenAPI Specification](https://swagger.io/specification/) or the [JSONSchema Draft4 specification](https://json-schema.org/specification-links.html#draft-4). You can create or upload your own schemas in EventBridge by using a template or generating a schema based on the JSON of an [event](eb-events.md). You can also infer the schema from events on an [event bus](eb-event-bus.md). To create a schema by using the EventBridge Schema Registry API, use the [`CreateSchema`](https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.html#v1-registries-nam) API action.
 

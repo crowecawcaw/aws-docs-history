@@ -1,7 +1,6 @@
 
 
 # Transforming events with JSONata
-<a name="eb-custom-bus-transform"></a>
 
 To change what a target receives, set `Transformer` on `CreateSubscriber` or `UpdateSubscriber`. `Transformer.Type` `RAW`, the default, delivers the published data alone; `WITH_METADATA` delivers the data with its metadata; and `JSONATA` delivers the result of an expression, for example `{% { "orderId": $events.Data.orderId, "priority": $events.Data.priority } %}`. A subscriber whose target is a Custom Event Bus - Classic supports only `RAW`. A universal target does not use `Transformer`; it shapes its request in `UniversalTargetParameters.Input`, which takes the same expressions.
 
@@ -17,7 +16,7 @@ To change what a target receives, set `Transformer` on `CreateSubscriber` or `Up
 
 `WITH_METADATA`, `JSONATA`, and every target parameter expression read the same input object, which a JSONata expression sees as `$events`. It has three parts.
 
-```
+```json
 {
     "Data": { "orderId": "12345", "priority": "high" },
     "Metadata": { "tenant": "acme" },
@@ -40,7 +39,7 @@ Quote a field name that contains a colon, as in `$events.SystemMetadata."aws:Eve
 
 Set `Transformer.Type` to `JSONATA` and put one complete expression, enclosed in `{%` and `%}`, in `JsonataConfiguration.Expression`. For a `PutRawEvents` entry whose data is `{"orderId": "12345", "priority": "high", "items": [...]}`, the following transformer delivers only the two named fields.
 
-```
+```json
 {
     "Transformer": {
         "Type": "JSONATA",
@@ -89,7 +88,7 @@ A transformer cannot set `ContentType`. When the target is another Custom Event 
 
 A target parameter in `InvokeConfiguration`, such as `SqsParameters.MessageGroupId`, holds either a literal value or one complete JSONata expression enclosed in `{%` and `%}`. EventBridge does not evaluate an expression embedded inside a longer string. Target parameter expressions read the original input object, not the payload that `Transformer` produced. The following Amazon SQS parameters take the FIFO values from each event.
 
-```
+```json
 {
     "InvokeConfiguration": {
         "TargetArn": "arn:aws:sqs:us-east-1:111122223333:orders.fifo",

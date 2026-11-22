@@ -1,7 +1,6 @@
 
 
 # Subscribing to events on a Custom Event Bus
-<a name="eb-custom-bus-subscribers"></a>
 
 A subscriber is one resource that says which events you want and where to send them. You create it with `CreateSubscriber`, naming the bus, the filters, and one target. It watches that bus, keeps the events that match its filters, optionally transforms each one, and delivers it to exactly one target. To fan an event out to several targets, create one subscriber for each target on the same bus.
 
@@ -42,6 +41,7 @@ EventBridge checks the syntax of an expression when you create the subscriber an
 | Amazon SNS topic | SnsParameters | 
 | HTTP endpoint or API destination | HttpParameters | 
 | Firehose stream | None | 
+| Amazon MSK cluster | MskParameters | 
 
 An Custom Event Bus or a Custom Event Bus - Classic can also be the target: set the bus ARN as `TargetArn`. For a FIFO target such as an Amazon SQS FIFO queue, set the target's own deduplication identifier in the parameter block, for example `SqsParameters.MessageDeduplicationId`, to a per-message value derived from the event with a JSONata expression. A constant makes the target discard every message after the first.
 
@@ -63,7 +63,7 @@ The role in `RoleArn` must belong to your account and trust the `events.amazonaw
 
 The following trust policy allows EventBridge to assume the role.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -78,7 +78,7 @@ The following trust policy allows EventBridge to assume the role.
 
 The following permissions policy delivers to an Amazon SQS queue and dead-letters to a second queue.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -103,7 +103,7 @@ The following permissions policy delivers to an Amazon SQS queue and dead-letter
 
 The following command creates a subscriber that delivers orders over 500 to an Amazon SQS queue, for events published with `PutEvents`, and sends failures to a dead-letter queue.
 
-```
+```bash
 aws eventsv2 create-subscriber \
     --name large-orders \
     --event-bus-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
@@ -134,7 +134,7 @@ Solution
 
 1. Read the subscriber. `State` must be `RUNNING` and `Revoked` must be absent; it appears only when true. Note `StartingPosition` and the filters.
 
-   ```
+   ```bash
    aws eventsv2 describe-subscriber \
        --subscriber-arn arn:aws:events:us-east-1:111122223333:subscriber/large-orders/EXAMPLE1234567890abcdef
    ```

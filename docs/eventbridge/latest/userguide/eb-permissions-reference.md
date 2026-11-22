@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge permissions reference
-<a name="eb-permissions-reference"></a>
 
 
 

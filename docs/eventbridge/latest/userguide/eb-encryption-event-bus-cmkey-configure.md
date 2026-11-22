@@ -1,7 +1,6 @@
 
 
 # Configuring encryption on EventBridge event buses
-<a name="eb-encryption-event-bus-cmkey-configure"></a>
 
 You can specify the KMS key for EventBridge to use when you create or update an event bus. You can also update the default event bus to use a customer managed key as well. 
 

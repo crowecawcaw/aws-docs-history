@@ -1,7 +1,6 @@
 
 
 # Creating Custom Event Bus resources with CloudFormation
-<a name="eb-custom-bus-cloudformation"></a>
 
 You can create a bus, its subscribers, its event sources, and its resource policy from a CloudFormation template. The resource types are in the `AWS::EventsV2` namespace. The `AWS::Events` types belong to Custom Event Bus - Classic and cannot configure a Custom Event Bus.
 
@@ -9,7 +8,7 @@ You can create a bus, its subscribers, its event sources, and its resource polic
 <a name="eb-custom-bus-cloudformation-types"></a>
 + `AWS::EventsV2::EventBus` is one bus, including its retention period and its encryption key. It requires `Name`.
 + `AWS::EventsV2::Subscriber` is one subscriber on a bus: its filters, its transform, its retry policy, and its single target. It requires `Name`, `EventBusArn`, and `InvokeConfiguration`, which itself requires `TargetArn` and `RoleArn`.
-+ `AWS::EventsV2::EventSource` is one managed feed of AWS service events or partner events into a bus. It requires `Name`, `EventBusArn`, and `Configuration`. See [Event sources for a Custom Event Bus](eb-custom-bus-event-sources.md).
++ `AWS::EventsV2::EventSource` ingests events onto a bus from an origin you do not produce yourself: an AWS service, a SaaS partner, or an external system that sends events over HTTPS (a webhook). It requires `Name`, `EventBusArn`, and `Configuration`. See [Event sources for a Custom Event Bus](eb-custom-bus-event-sources.md).
 + `AWS::EventsV2::ResourcePolicy` is the resource policy of a bus that already exists. It requires `EventBusArn` and `PolicyDocument`. See [Access control for the Custom Event Bus](eb-custom-bus-access.md).
 
 A subscriber's `RoleArn` must name a role in the same account as the subscriber. So a bus shared across accounts is more than one stack: the bus in the owner's account, and the target, the delivery role, and the subscriber in each consuming account.
@@ -19,7 +18,7 @@ A subscriber's `RoleArn` must name a role in the same account as the subscriber.
 
 The following template creates a bus that retains events for seven days, an Amazon SQS queue, a dead-letter queue, a delivery role, and a subscriber that delivers orders over 500 to the queue. CloudFormation creates the role and the queues before the subscriber, because the subscriber refers to them with `Fn::GetAtt`. The retention period decides how far back a subscriber can start reading; see [Replaying retained events to a subscriber](eb-custom-bus-replay.md).
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 
 Resources:

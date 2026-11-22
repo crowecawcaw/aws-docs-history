@@ -1,7 +1,6 @@
 
 
 # IAM roles for sending events to targets in Amazon EventBridge
-<a name="eb-events-iam-roles"></a>
 
 To relay events to targets, EventBridge needs an IAM role.
 
@@ -70,7 +69,7 @@ If the target is Systems Manager run command and you specify one or more tags to
   + `arn:aws:ssm:{{region}}:{{accountId}}:managed-instance/*`
 + **Condition**:
 
-  ```
+  ```json
   "StringEquals": {
     "aws:ResourceTag/{{tagKey}}": ["{{tagValues}}"]
   }
@@ -101,7 +100,7 @@ If the target is an Amazon ECS task, the role you specify must include the follo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -144,7 +143,7 @@ The following policy allows built-in targets in EventBridge to perform Amazon EC
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -173,7 +172,7 @@ The following policy allows EventBridge to relay events to the Kinesis streams i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -200,7 +199,7 @@ You can attach an IAM policy to a user to allow access to only the rules with a 
 
 The following example shows a user policy that grants permissions for EventBridge actions. This policy works when you use the EventBridge API, AWS SDKs, or the AWS CLI.
 
-```
+```json
 {
     "Statement": [
         {

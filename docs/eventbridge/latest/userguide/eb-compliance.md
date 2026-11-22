@@ -1,7 +1,6 @@
 
 
 # Compliance validation in Amazon EventBridge
-<a name="eb-compliance"></a>
 
 Third-party auditors such as SOC, PCI, FedRAMP, and HIPAA assess the security and compliance of AWS services as part of multiple AWS compliance programs. 
 

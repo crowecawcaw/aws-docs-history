@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon EventBridge pipe
-<a name="eb-pipes-create"></a>
 
 EventBridge Pipes enables you to create point-to-point integrations between sources and targets, including advanced event transformations and enrichment. 
 

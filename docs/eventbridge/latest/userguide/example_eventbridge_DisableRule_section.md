@@ -1,7 +1,6 @@
 
 
 # Use `DisableRule` with an AWS SDK or CLI
-<a name="example_eventbridge_DisableRule_section"></a>
 
 The following code examples show how to use `DisableRule`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
 Disable a rule by its rule name.  
 
-```
+```csharp
     /// <summary>
     /// Disable a particular rule on an event bus.
     /// </summary
@@ -55,7 +54,7 @@ For more information, see [Disabling or deleting a rule in Amazon EventBridge](h
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 Disable a rule by using its rule name.  
 
-```
+```java
     public static void changeRuleState(EventBridgeClient eventBrClient, String eventRuleName, Boolean isEnabled) {
         try {
             if (!isEnabled) {
@@ -87,7 +86,7 @@ Disable a rule by using its rule name.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
-```
+```kotlin
 suspend fun changeRuleState(
     eventRuleName: String,
     isEnabled: Boolean?,

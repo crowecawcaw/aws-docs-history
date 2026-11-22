@@ -1,7 +1,6 @@
 
 
 # Actions, resources, and condition keys for the Custom Event Bus
-<a name="eb-custom-bus-access-actions"></a>
 
 Use this page when you write an IAM policy. It lists every `events:` action for the Custom Event Bus, the resource ARN each one is checked against, whether another account can be granted it, and the condition keys you can add. For example, you can limit a role to subscribers whose `METADATA` filter matches `tenant` to `acme` alone. To do so, grant `events:CreateSubscriber` and `events:UpdateSubscriber` on the bus with `Null` and `ForAllValues:StringEquals` conditions on `events:Metadata/tenant`.
 
@@ -18,12 +17,13 @@ The following table lists the condition keys for the custom event bus.
 | Condition key | Value | Supplied on | 
 | --- | --- | --- | 
 | events:source | The event's source, or the source being forwarded | PutEvents, CreateEventSource, UpdateEventSource | 
+| events:EventSourceType | The type of event source, as it appears in its ARN: aws.service, aws.partner, or webhook | CreateEventSource, UpdateEventSource | 
 | events:detail-type | The event's detail type | PutEvents | 
 | events:eventBusInvocation | true for a forwarded event, false for a direct publish | PutEvents, PutRawEvents | 
-| events:SystemMetadata/ContentType | The content type in the event's system metadata | PutRawEvents, and PutEvents for a forwarded event | 
+| events:SystemMetadata/ContentType | The content type in the event's system metadata | PutRawEvents, PutWebhookEvents, and PutEvents for a forwarded event | 
 | events:SystemMetadata/AwsSource | The source of a forwarded event | PutEvents, PutRawEvents, for a forwarded event only | 
 | events:SystemMetadata/AwsDetailType | The detail type of a forwarded event | PutEvents, PutRawEvents, for a forwarded event only | 
-| events:Metadata/{{key}} | On PutRawEvents, the value of that metadata key on the event. On the subscriber actions, the values a METADATA filter matches on that key | PutRawEvents, CreateSubscriber, UpdateSubscriber | 
+| events:Metadata/{{key}} | On PutRawEvents and PutWebhookEvents, the value of that metadata key on the event. On the subscriber actions, the values a METADATA filter matches on that key | PutRawEvents, PutWebhookEvents, CreateSubscriber, UpdateSubscriber | 
 | events:Metadata/{{key}}/Matcher | exact | CreateSubscriber, UpdateSubscriber | 
 | events:ContentFilterPresent | true when the filter configuration declares a DATA filter, otherwise false | CreateSubscriber, UpdateSubscriber | 
 | events:PolicyName | The resource policy that the request acts on, default or AWS\_RAM | PutResourcePolicy, GetResourcePolicy, DeleteResourcePolicy | 
@@ -43,7 +43,7 @@ Use `events:PolicyName` to limit a principal to one of the bus's two resource po
 
 The following resource policy lets account `444455556666` create subscribers on the `orders` bus and change their filters. It allows both only when the subscriber's `METADATA` filter matches `tenant` exactly to `acme`. A subscriber with no `METADATA` filter, or with a filter that names any tenant other than `acme`, is denied. EventBridge supplies a metadata condition key only for the fields a filter declares. So the `Null` condition is what denies a filter that omits `tenant`. The conditions restrict only this statement's grant. If another statement, or an AWS RAM share, also allows `events:CreateSubscriber` for that account, the conditions do not restrict that grant.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -74,7 +74,7 @@ The following `default` policy has two `Deny` statements for account `4444555566
 
 The conditions in one statement must all match, so each case needs its own statement.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -137,6 +137,8 @@ The following table lists every action, the resource ARN to put in the policy's 
 | events:DescribeEventSource | The event source | The event source's owner authorizes it | 
 | events:UpdateEventSource | The event source, and the bus when the request includes a Configuration | Yes, for the bus check | 
 | events:DeleteEventSource | The event source | The event source's owner authorizes it | 
+| events:PutWebhookEvents | The destination bus, for each webhook event delivered. It authorizes webhook delivery and is not an operation you call directly | Yes. The event source's role allows this action in its identity policy, and the bus resource policy is also evaluated, so a Deny there stops delivery | 
+| events:RotateWebhookCredentials | The webhook event source | The event source's owner authorizes it | 
 | events:ListEventSources | Nothing. Account-wide | No. Lists the caller's own event sources | 
 | events:PutResourcePolicy | The bus | No. Bus owner only | 
 | events:GetResourcePolicy | The bus | No. Bus owner only | 
@@ -146,7 +148,7 @@ The following table lists every action, the resource ARN to put in the policy's 
 | events:UntagResource | The bus, subscriber, or event source named in the request | No. The resource's owner only | 
 | events:ListTagsForResource | The bus, subscriber, or event source named in the request | No. The resource's owner only | 
 
-To create a subscriber or an event source on a bus, the caller needs the action on the bus as well as on the new resource. That is what lets a bus owner decide, in the bus's own policy, which accounts may attach anything to it. `CreateSubscriber` makes four separate authorization checks, and all four must allow: `events:CreateSubscriber` on the bus, `events:CreateSubscriber` on the subscriber, `iam:PassRole` on the role in `InvokeConfiguration.RoleArn`, and `events:TagResource` on the subscriber when the request carries tags. `CreateEventSource` runs the same checks without `iam:PassRole`, because an event source has no role. `UpdateSubscriber` also checks `events:UpdateSubscriber` on the bus when the request includes a `FilterConfiguration`. It also checks `iam:PassRole` on the role in `InvokeConfiguration.RoleArn` when the request includes one. So another account needs `events:CreateSubscriber` and `events:UpdateSubscriber` on your bus to attach subscribers and to update their filters. The AWS RAM managed permissions for attaching subscribers include both.
+To create a subscriber or an event source on a bus, the caller needs the action on the bus as well as on the new resource. That is what lets a bus owner decide, in the bus's own policy, which accounts may attach anything to it. `CreateSubscriber` makes four separate authorization checks, and all four must allow: `events:CreateSubscriber` on the bus, `events:CreateSubscriber` on the subscriber, `iam:PassRole` on the role in `InvokeConfiguration.RoleArn`, and `events:TagResource` on the subscriber when the request carries tags. `CreateEventSource` runs the same checks. A webhook event source carries a role, so creating one also requires `iam:PassRole` on the role in its `RoleArn`; an AWS service or partner event source has no role, so `iam:PassRole` does not apply. `UpdateSubscriber` also checks `events:UpdateSubscriber` on the bus when the request includes a `FilterConfiguration`. It also checks `iam:PassRole` on the role in `InvokeConfiguration.RoleArn` when the request includes one. So another account needs `events:CreateSubscriber` and `events:UpdateSubscriber` on your bus to attach subscribers and to update their filters. The AWS RAM managed permissions for attaching subscribers include both.
 
 **Note**  
 A resource that does not exist yet has no complete ARN, so a create check uses an ARN ending in a wildcard, such as `arn:aws:events:us-east-1:111122223333:subscriber/{{name}}/*`. A policy scoped to one subscriber therefore matches by name prefix, not exactly. An untagged create supplies no `aws:ResourceTag` for the new resource, so a `StringEquals` condition on that key denies it.
@@ -158,7 +160,7 @@ A **producer** needs `events:PutEvents`, `events:PutRawEvents`, or both, on the 
 
 The following policy lets a producer publish to one bus with either publish API, and read the bus so that it can confirm the bus is `ACTIVE` first. Publishing is authorized once for every entry in the request, and there is no partial authorization: if one entry fails a condition check, EventBridge denies the whole request, including the entries that would have passed.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -181,7 +183,7 @@ The following policy lets a producer publish to one bus with either publish API,
 
 You can tag a bus, a subscriber, or an event source. Set `Tags` on the create call, or use `TagResource`, `UntagResource`, and `ListTagsForResource` afterward. Each resource carries its own tag set, so tagging a bus does not tag the subscribers or event sources attached to it.
 
-```
+```bash
 aws eventsv2 tag-resource \
     --resource-arn arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef \
     --tags team=payments,environment=production

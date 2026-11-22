@@ -1,7 +1,6 @@
 
 
 # Generating code bindings for event schemas in Amazon EventBridge
-<a name="eb-schema-code-bindings"></a>
 
 You can generate code bindings for event [schemas](eb-schema.md) to speed up development in Golang, Java, Python, and TypeScript. Code bindings are available for AWS service events, schemas you [create](eb-schema-create.md), and for schemas you [generate](eb-schemas-infer.md) based on [events](eb-events.md) on an [event bus](eb-event-bus.md). You can generate code bindings for a schema by using the EventBridge console, the EventBridge [ Schema Registry API](https://docs.aws.amazon.com/eventbridge/latest/schema-reference/index.html), or in your IDE with an AWS toolkit.
 

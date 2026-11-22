@@ -1,7 +1,6 @@
 
 
 # Tutorial: Send events to Zendesk from Amazon EventBridge
-<a name="eb-tutorial-zendesk"></a>
 
 You can use EventBridge to route [events](eb-events.md) to third-party services like [Zendesk](https://www.zendesk.com/).
 

@@ -1,7 +1,6 @@
 
 
 # Disabling or deleting a rule in Amazon EventBridge
-<a name="eb-delete-rule"></a>
 
 To stop a [rule](eb-rules.md) from processing [events](eb-events.md) or running on a schedule, you can delete or disable the rule. The following steps walk you through how to delete or disable an EventBridge rule.
 
