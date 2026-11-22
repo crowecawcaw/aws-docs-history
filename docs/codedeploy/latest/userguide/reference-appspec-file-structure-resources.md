@@ -1,7 +1,6 @@
 
 
 # AppSpec 'resources' section (Amazon ECS and AWS Lambda deployments only)
-<a name="reference-appspec-file-structure-resources"></a>
 
  The content in the `'resources'` section of the AppSpec file varies, depending on the compute platform of your deployment. The `'resources'` section for an Amazon ECS deployment contains your Amazon ECS task definition, container and port for routing traffic to your updated Amazon ECS task set, and other optional information. The `'resources'` section for an AWS Lambda deployment contains the name, alias, current version, and target version of a Lambda function. 
 
@@ -16,7 +15,7 @@ The `'resources'` section specifies the Lambda function to deploy and has the fo
 
 YAML:
 
-```
+```yaml
 resources:
   - {{name-of-function-to-deploy}}:
       type: "AWS::Lambda::Function"
@@ -29,7 +28,7 @@ resources:
 
 JSON:
 
-```
+```json
 "resources": [
     {
         "{{name-of-function-to-deploy}}" {
@@ -58,7 +57,7 @@ Each property is specified with a string.
 
 YAML:
 
-```
+```yaml
 Resources:
   - TargetService:
       Type: AWS::ECS::Service
@@ -85,7 +84,7 @@ Resources:
 
 JSON:
 
-```
+```json
 "Resources": [
     {
         "TargetService": {

@@ -1,7 +1,6 @@
 
 
 # Create an Amazon ECS Compute Platform deployment (console)
-<a name="deployments-create-console-ecs"></a>
 
 This topic shows you how to deploy an Amazon ECS service using the console. For more information, see [Tutorial: Deploy an application into Amazon ECS](tutorial-ecs-deployment.md) and [Tutorial: Deploy an Amazon ECS service with a validation test](tutorial-ecs-deployment-with-hooks.md).
 

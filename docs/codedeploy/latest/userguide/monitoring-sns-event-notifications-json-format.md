@@ -1,7 +1,6 @@
 
 
 # JSON data formats for CodeDeploy triggers
-<a name="monitoring-sns-event-notifications-json-format"></a>
 
 You can use the JSON output that is created when a trigger for a deployment or instance is activated in a custom notification workflow, such as sending messages to Amazon SQS queues or invoking a function in AWS Lambda. 
 
@@ -12,7 +11,7 @@ The following examples show the structure of the JSON output available with Code
 
 **Sample JSON Output for Instance-Based Triggers**
 
-```
+```json
 {
     "region": "us-east-2",
     "accountId": "111222333444",
@@ -41,7 +40,7 @@ The following examples show the structure of the JSON output available with Code
 
 **Sample JSON Output for Deployment-Based Triggers**
 
-```
+```json
 {
     "region": "us-west-1",
     "accountId": "111222333444",

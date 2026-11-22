@@ -1,7 +1,6 @@
 
 
 # Prerequisites for configuring an on-premises instance
-<a name="instances-on-premises-prerequisites"></a>
 
 The following prerequisites must be met before you can register an on-premises instance.
 
@@ -35,7 +34,7 @@ In addition to the policy described in [Step 3: Limit the CodeDeploy user's perm
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

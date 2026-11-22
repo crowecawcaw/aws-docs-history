@@ -1,7 +1,6 @@
 
 
 # Step 3: Limit the CodeDeploy user's permissions
-<a name="getting-started-policy"></a>
 
 For security reasons, we recommend that you limit the permissions of the administrative user that you created in [Step 1: Setting up](getting-started-setting-up.md) to just those required to create and manage deployments in CodeDeploy.
 
@@ -33,7 +32,7 @@ You'll assign this permission set to the CodeDeploy administrative user later.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -92,7 +91,7 @@ You'll assign this permission set to the CodeDeploy administrative user later.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

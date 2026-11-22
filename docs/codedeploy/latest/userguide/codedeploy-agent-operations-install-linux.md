@@ -1,29 +1,28 @@
 
 
 # Install the CodeDeploy agent for Amazon Linux or RHEL
-<a name="codedeploy-agent-operations-install-linux"></a>
 
 Sign in to the instance, and run the following commands, one at a time. Running the command `sudo yum update` first is considered best practice when using `yum` to install packages, but you can skip it if you do not wish to update all of your packages.
 
-```
+```sh
 sudo yum update
 ```
 
 For version 2.0.x and later:
 
-```
+```sh
 sudo yum install wget
 ```
 
 For version 1.8.x and earlier:
 
-```
+```sh
 sudo yum install ruby wget
 ```
 
 (Optional) To clean the AMI of any previous agent caching information, run the following script:
 
-```
+```sh
 #!/bin/bash
 CODEDEPLOY_BIN="/opt/codedeploy-agent/bin/codedeploy-agent"
 $CODEDEPLOY_BIN stop
@@ -32,7 +31,7 @@ yum erase codedeploy-agent -y
 
 Change to your home directory:
 
-```
+```sh
 cd /home/ec2-user
 ```
 
@@ -81,14 +80,14 @@ To install the latest version of the CodeDeploy agent:
 To install a specific version of the CodeDeploy agent:
 + List the available versions in your Region:
 
-  ```
+  ```sh
   aws s3 ls s3://aws-codedeploy-{{region-identifier}}/releases/ --region {{region-identifier}} | grep '\.rpm$'
   ```
 + Install one of the versions:
 
   For version 2.0.x and later, packages are architecture-specific:
 
-  ```
+  ```sh
   sudo ./install auto -v releases/codedeploy-agent-{{version}}.{{arch}}.rpm
   ```
 
@@ -96,7 +95,7 @@ To install a specific version of the CodeDeploy agent:
 
   For version 1.8.x and earlier, packages use `noarch`:
 
-  ```
+  ```sh
   sudo ./install auto -v releases/codedeploy-agent-{{version}}.noarch.rpm
   ```
 
@@ -104,7 +103,7 @@ To install a specific version of the CodeDeploy agent:
 
 To check that the service is running, run the following command:
 
-```
+```sh
 systemctl status codedeploy-agent
 ```
 
@@ -114,10 +113,10 @@ For version 1.8.x and earlier, if the agent is running, you should see a message
 
 If the agent is not running, start the service and check the status:
 
-```
+```sh
 systemctl start codedeploy-agent
 ```
 
-```
+```sh
 systemctl status codedeploy-agent
 ```

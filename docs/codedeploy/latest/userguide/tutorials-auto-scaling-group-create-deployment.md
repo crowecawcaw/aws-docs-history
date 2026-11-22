@@ -1,7 +1,6 @@
 
 
 # Step 2: Deploy the application to the Auto Scaling group
-<a name="tutorials-auto-scaling-group-create-deployment"></a>
 
 In this step, you'll deploy the revision to the single Amazon EC2 instance in the Auto Scaling group.
 

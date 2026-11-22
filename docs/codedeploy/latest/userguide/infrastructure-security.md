@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS CodeDeploy
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS CodeDeploy is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of security processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper.
 

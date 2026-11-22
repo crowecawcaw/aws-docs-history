@@ -1,7 +1,6 @@
 
 
 # Suspending Amazon EC2 Auto Scaling processes during deployments
-<a name="integrations-aws-auto-scaling-suspend-processes"></a>
 
 Amazon EC2 Auto Scaling can remove or replace instances during an in-place deployment, including instances that CodeDeploy is updating. For example, a scale-in event can terminate an instance in the middle of its update, or rebalancing can move instances between Availability Zones. To prevent this, you can choose Amazon EC2 Auto Scaling processes for CodeDeploy to suspend while the deployment runs. CodeDeploy suspends these processes before it deploys to instances in your Auto Scaling groups. It resumes them when the deployment succeeds, fails, or is stopped.
 
@@ -136,7 +135,7 @@ The examples are formatted for Linux, macOS, or Unix.
 
 To set the processes on a deployment group, use the [create-deployment-group](https://docs.aws.amazon.com/cli/latest/reference/deploy/create-deployment-group.html) or [update-deployment-group](https://docs.aws.amazon.com/cli/latest/reference/deploy/update-deployment-group.html) command with the `--ec2-deployment-options` option. In the following examples, replace {{my-application}} and {{my-deployment-group}} with your application and deployment group names. The following AWS CLI command suspends `Terminate` and `AZRebalance` for every deployment in the deployment group:
 
-```
+```bash
 aws deploy update-deployment-group \
     --application-name {{my-application}} \
     --current-deployment-group-name {{my-deployment-group}} \
@@ -145,7 +144,7 @@ aws deploy update-deployment-group \
 
 The following AWS CLI command stops suspending processes for the deployment group:
 
-```
+```bash
 aws deploy update-deployment-group \
     --application-name {{my-application}} \
     --current-deployment-group-name {{my-deployment-group}} \
@@ -154,7 +153,7 @@ aws deploy update-deployment-group \
 
 To override the setting for a single deployment, use the [create-deployment](https://docs.aws.amazon.com/cli/latest/reference/deploy/create-deployment.html) command with the `--ec2-deployment-options` option. If you don't specify the option, the deployment uses the deployment group setting. If you specify an empty list, the deployment doesn't suspend any processes. The following AWS CLI command suspends only `Terminate` for this deployment:
 
-```
+```bash
 aws deploy create-deployment \
     --application-name {{my-application}} \
     --deployment-group-name {{my-deployment-group}} \
@@ -167,7 +166,7 @@ aws deploy create-deployment \
 
 Use the following AWS CLI command to list the suspended processes on an Auto Scaling group:
 
-```
+```bash
 aws autoscaling describe-auto-scaling-groups \
     --auto-scaling-group-names {{my-asg}} \
     --query 'AutoScalingGroups[0].SuspendedProcesses'
@@ -175,7 +174,7 @@ aws autoscaling describe-auto-scaling-groups \
 
 If successful, the command returns output similar to the following:
 
-```
+```json
 [
     {
         "ProcessName": "Terminate",
@@ -190,7 +189,7 @@ If successful, the command returns output similar to the following:
 
 Use the following AWS CLI command to resume the processes:
 
-```
+```bash
 aws autoscaling resume-processes \
     --auto-scaling-group-name {{my-asg}} \
     --scaling-processes Terminate AZRebalance

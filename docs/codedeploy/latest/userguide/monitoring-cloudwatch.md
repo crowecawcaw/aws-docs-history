@@ -1,7 +1,6 @@
 
 
 # Monitoring deployments with Amazon CloudWatch tools
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor CodeDeploy deployments using the following CloudWatch tools: Amazon CloudWatch Events, CloudWatch alarms, and Amazon CloudWatch Logs. 
 

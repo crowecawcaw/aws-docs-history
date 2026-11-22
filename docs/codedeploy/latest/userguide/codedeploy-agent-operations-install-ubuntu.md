@@ -1,7 +1,6 @@
 
 
 # Install the CodeDeploy agent for Ubuntu Server
-<a name="codedeploy-agent-operations-install-ubuntu"></a>
 
 **To install the CodeDeploy agent on Ubuntu Server**
 
@@ -9,25 +8,25 @@
 
 1. Enter the following commands, one after the other:
 
-   ```
+   ```sh
    sudo apt update
    ```
 
    For version 2.0.x and later:
 
-   ```
+   ```sh
    sudo apt install wget
    ```
 
    For version 1.8.x and earlier:
 
-   ```
+   ```sh
    sudo apt install ruby-full wget
    ```
 
 1. Enter the following command:
 
-   ```
+   ```sh
    cd {{/home/ubuntu}}
    ```
 
@@ -37,13 +36,13 @@
 
    For version 2.0.x and later:
 
-   ```
+   ```sh
    wget https://{{bucket-name}}.s3.{{region-identifier}}.amazonaws.com/latestv2/install
    ```
 
    For version 1.8.x and earlier:
 
-   ```
+   ```sh
    wget https://{{bucket-name}}.s3.{{region-identifier}}.amazonaws.com/latest/install
    ```
 
@@ -61,7 +60,7 @@
 
 1. Enter the following command:
 
-   ```
+   ```sh
    chmod +x ./install
    ```
 
@@ -74,14 +73,14 @@
    + To install a specific version of the CodeDeploy agent:
      + List the available versions in your Region:
 
-       ```
+       ```sh
        aws s3 ls s3://aws-codedeploy-{{region-identifier}}/releases/ --region {{region-identifier}} | grep '\.deb$'
        ```
      + Install one of the versions:
 
        For version 2.0.x and later, packages are architecture-specific:
 
-       ```
+       ```sh
        sudo ./install auto -v releases/codedeploy-agent_{{version}}_{{arch}}.deb
        ```
 
@@ -89,7 +88,7 @@
 
        For version 1.8.x and earlier, packages use a different naming convention:
 
-       ```
+       ```sh
        sudo ./install auto -v releases/codedeploy-agent_{{version}}_all.deb
        ```
 
@@ -99,7 +98,7 @@
 
 1. Enter the following command:
 
-   ```
+   ```sh
    systemctl status codedeploy-agent
    ```
 
@@ -111,10 +110,10 @@
 
 1. If the agent is not running, start the service and check the status:
 
-   ```
+   ```sh
    systemctl start codedeploy-agent
    ```
 
-   ```
+   ```sh
    systemctl status codedeploy-agent
    ```

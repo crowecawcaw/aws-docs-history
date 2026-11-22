@@ -1,7 +1,6 @@
 
 
 # AppSpec File structure
-<a name="reference-appspec-file-structure"></a>
 
 The following is the high-level structure for an AppSpec file used for deployments to AWS Lambda and EC2/On-Premises compute platforms.
 

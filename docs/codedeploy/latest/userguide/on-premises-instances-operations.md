@@ -1,7 +1,6 @@
 
 
 # Managing on-premises instances operations in CodeDeploy
-<a name="on-premises-instances-operations"></a>
 
 Follow the instructions in this section to manage operations on your on-premises instances after you have registered them with CodeDeploy, such as getting more information about, removing tags from, and uninstalling and deregistering on-premises instances.
 

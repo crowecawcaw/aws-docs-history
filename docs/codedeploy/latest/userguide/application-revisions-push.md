@@ -1,7 +1,6 @@
 
 
 # Push a revision for CodeDeploy to Amazon S3 (EC2/On-Premises deployments only)
-<a name="application-revisions-push"></a>
 
 After you plan your revision as described in [Plan a revision for CodeDeploy](application-revisions-plan.md) and add an AppSpec file to the revision as described in [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md), you are ready to bundle the component files and push the revision to Amazon S3. For deployments to Amazon EC2 instances, after you push the revision, you can use CodeDeploy to deploy the revision from Amazon S3 to the instances.
 
@@ -16,7 +15,7 @@ If your deployment is to Amazon EC2 instances, then the target Amazon S3 bucket 
 
 You must have permissions to upload to the Amazon S3 bucket. You can specify these permissions through an Amazon S3 bucket policy. For example, in the following Amazon S3 bucket policy, using the wildcard character (\*) allows AWS account `111122223333` to upload files to any directory in the Amazon S3 bucket named `amzn-s3-demo-bucket`:
 
-```
+```json
 {
     "Statement": [
         {
@@ -46,7 +45,7 @@ The user who is calling the **push** command must have, at minimum, permissions 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

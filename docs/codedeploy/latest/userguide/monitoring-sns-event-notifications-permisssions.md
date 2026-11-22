@@ -1,7 +1,6 @@
 
 
 # Grant Amazon SNS permissions to a CodeDeploy service role
-<a name="monitoring-sns-event-notifications-permisssions"></a>
 
 Before your triggers can generate notifications, the service role you use in your CodeDeploy operations must be granted permission to access the Amazon SNS resources. 
 
@@ -30,7 +29,7 @@ Before your triggers can generate notifications, the service role you use in you
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

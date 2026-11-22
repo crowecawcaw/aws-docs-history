@@ -1,7 +1,6 @@
 
 
 # Step 8: Clean up
-<a name="tutorials-github-clean-up"></a>
 
 To avoid further charges for resources you used during this tutorial, you must terminate the Amazon EC2 instance and its associated resources. Optionally, you can delete the CodeDeploy deployment component records associated with this tutorial. If you were using a GitHub repository just for this tutorial, you can delete it now, too.
 

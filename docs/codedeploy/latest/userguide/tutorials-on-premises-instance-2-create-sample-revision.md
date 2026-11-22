@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a sample application revision
-<a name="tutorials-on-premises-instance-2-create-sample-revision"></a>
 
 In this step, you create a sample application revision to deploy to your on-premises instance. 
 
@@ -29,7 +28,7 @@ Currently, there is no alternative sample for Ubuntu Server.
 
    For Linux, macOS, or Unix:
 
-   ```
+   ```sh
    mkdir /tmp/CodeDeployDemo-OnPrem
    cd /tmp/CodeDeployDemo-OnPrem
    ```
@@ -38,7 +37,7 @@ Currently, there is no alternative sample for Ubuntu Server.
 
    `appspec.yml` for Windows Server:
 
-   ```
+   ```yaml
    version: 0.0
    os: windows
    files:
@@ -61,7 +60,7 @@ Currently, there is no alternative sample for Ubuntu Server.
 
    `appspec.yml` for Ubuntu Server and RHEL:
 
-   ```
+   ```yaml
    version: 0.0
    os: linux
    files:
@@ -101,7 +100,7 @@ Currently, there is no alternative sample for Ubuntu Server.
 
    For Linux, macOS, or Unix:
 
-   ```
+   ```sh
    mkdir -p /tmp/CodeDeployDemo-OnPrem/scripts
    cd /tmp/CodeDeployDemo-OnPrem/scripts
    ```

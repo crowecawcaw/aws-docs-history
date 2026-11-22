@@ -1,7 +1,6 @@
 
 
 # Add an application specification file to a revision for CodeDeploy
-<a name="application-revisions-appspec-file"></a>
 
 This topic shows how to add an AppSpec file to your deployment. It also includes templates to create an AppSpec file for an AWS Lambda and EC2/On-Premises deployment.
 
@@ -34,7 +33,7 @@ For a deployment to an Amazon ECS compute platform:
 
 The following is a YAML template of an AppSpec file for an Amazon ECS deployment with all available options. For information about lifecycle events to use in the `hooks` section, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs).
 
-```
+```yaml
 # This is an appspec.yml template file for use with an Amazon ECS deployment in CodeDeploy.
 # The lines in this template that start with the hashtag are 
 #   comments that can be safely left in the file or 
@@ -77,7 +76,7 @@ Hooks:
 
 The following is a JSON template for an AppSpec file for an Amazon ECS deployment with all available options. For template instructions, refer to comments in the YAML version in the previous section. For information about lifecycle events to use in the `hooks` section, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs).
 
-```
+```json
 {
 	"version": 0.0,
 	"Resources": [
@@ -154,7 +153,7 @@ To create an AppSpec file:
 
 For information about lifecycle events to use in the hooks section, see [AppSpec 'hooks' section for an AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda).
 
-```
+```yaml
 # This is an appspec.yml template file for use with an AWS Lambda deployment in CodeDeploy.
 # The lines in this template starting with the hashtag symbol are 
 #   instructional comments and can be safely left in the file or 
@@ -187,7 +186,7 @@ In the following template, replace "MyFunction" with the name of your AWS Lambda
 
 For information about lifecycle events to use in the Hooks section, see [AppSpec 'hooks' section for an AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda).
 
-```
+```yaml
 {
  	"version": 0.0,
  	"Resources": [{
@@ -251,7 +250,7 @@ To add an AppSpec file to a revision:
 **Note**  
  Deployments to Windows Server instances do not support the `runas` element. If you are deploying to Windows Server instances, do not include it in your AppSpec file. 
 
-```
+```yaml
 # This is an appspec.yml template file for use with an EC2/On-Premises deployment in CodeDeploy.
 # The lines in this template starting with the hashtag symbol are 
 #   instructional comments and can be safely left in the file or 

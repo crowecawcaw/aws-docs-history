@@ -1,7 +1,6 @@
 
 
 # Step 3: Upload your WordPress application to Amazon S3
-<a name="tutorials-wordpress-upload-application"></a>
 
 Now you will prepare and upload your source content to a location from which CodeDeploy can deploy it. The following instructions show you how to provision an Amazon S3 bucket, prepare the application revision's files for the bucket, bundle the revision's files, and then push the revision to the bucket.
 
@@ -54,7 +53,7 @@ aws s3 mb s3://amzn-s3-demo-bucket --region {{region}}
 
 You must have permissions to upload to the Amazon S3 bucket. You can specify these permissions through an Amazon S3 bucket policy. For example, in the following Amazon S3 bucket policy, using the wildcard character (\*) allows AWS account `111122223333` to upload files to any directory in the Amazon S3 bucket named `amzn-s3-demo-bucket`:
 
-```
+```json
 {
     "Statement": [
         {
@@ -77,7 +76,7 @@ To view your AWS account ID, see [Finding Your AWS account ID](https://docs.aws.
 
 Now is a good time to verify the Amazon S3 bucket will allow download requests from each participating Amazon EC2 instance. You can specify this through an Amazon S3 bucket policy. For example, in the following Amazon S3 bucket policy, using the wildcard character (\*) allows any Amazon EC2 instance with an attached IAM instance profile containing the ARN `arn:aws:iam::444455556666:role/CodeDeployDemo` to download files from any directory in the Amazon S3 bucket named `amzn-s3-demo-bucket`:
 
-```
+```json
 {
     "Statement": [
         {

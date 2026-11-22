@@ -1,7 +1,6 @@
 
 
 # Edit a trigger in a CodeDeploy deployment group
-<a name="monitoring-sns-event-notifications-edit-trigger"></a>
 
 If your notification requirements change, you can modify your trigger rather than create a new one.
 
@@ -26,7 +25,7 @@ The simplest way to create the JSON file is to run the **get-deployment-group** 
 
    The contents of your text file should now look similar to the following:
 
-   ```
+   ```yaml
    {
        "applicationName": "TestApp-us-east-2",
        "deploymentConfigName": "CodeDeployDefault.OneAtATime",

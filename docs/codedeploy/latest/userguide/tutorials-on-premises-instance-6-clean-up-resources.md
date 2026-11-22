@@ -1,7 +1,6 @@
 
 
 # Step 6: Clean up resources
-<a name="tutorials-on-premises-instance-6-clean-up-resources"></a>
 
 To avoid ongoing charges for resources you created for this tutorial, delete the Amazon S3 bucket if you'll no longer be using it. You can also clean up associated resources, such as the application and deployment group records in CodeDeploy and the on-premises instance.
 

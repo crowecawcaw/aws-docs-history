@@ -1,7 +1,6 @@
 
 
 # Automatically uninstall the CodeDeploy agent and remove the configuration file from an on-premises instance
-<a name="on-premises-instances-operations-uninstall-agent"></a>
 
 Typically, you uninstall the CodeDeploy agent and remove the configuration file from an on-premises instance after you're no longer planning to deploy to it.
 

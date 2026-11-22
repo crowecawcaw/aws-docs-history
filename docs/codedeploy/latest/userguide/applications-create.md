@@ -1,7 +1,6 @@
 
 
 # Create an application with CodeDeploy
-<a name="applications-create"></a>
 
 An *application* is simply a name or container used by CodeDeploy to ensure that the correct revision, deployment configuration, and deployment group are referenced during a deployment. You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or a CloudFormation template to create applications.
 

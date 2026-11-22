@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure your source content to be deployed to the Amazon Linux or Red Hat Enterprise Linux Amazon EC2 instance
-<a name="tutorials-wordpress-configure-content"></a>
 
 Now it's time to configure your application's source content so you have something to deploy to the instance.
 
@@ -28,7 +27,7 @@ Choose one of the following two options to copy the WordPress source files to yo
 
 1. Call the **wget** command to download a copy of the WordPress source code, as a .zip file, to the current directory:
 
-   ```
+   ```sh
    wget https://github.com/WordPress/WordPress/archive/master.zip
    ```
 
@@ -39,23 +38,23 @@ Choose one of the following two options to copy the WordPress source files to yo
 
    Run the commands one at a time:
 
-   ```
+   ```sh
    unzip master -d /tmp/WordPress_Temp
    ```
 
-   ```
+   ```sh
    mkdir -p /tmp/WordPress
    ```
 
-   ```
+   ```sh
    cp -paf /tmp/WordPress_Temp/WordPress-master/* /tmp/WordPress
    ```
 
-   ```
+   ```sh
    rm -rf /tmp/WordPress_Temp
    ```
 
-   ```
+   ```sh
    rm -f master
    ```
 
@@ -83,13 +82,13 @@ Next, create a folder and scripts in the directory. CodeDeploy uses these script
 
 1. Create a scripts directory in your copy of the WordPress source code:
 
-   ```
+   ```sh
    mkdir -p /tmp/WordPress/scripts
    ```
 
 1. Create an `install_dependencies.sh` file in `/tmp/WordPress/scripts`. Add the following lines to the file. This `install_dependencies.sh` script installs Apache, MySQL, and PHP. It also adds MySQL support to PHP.
 
-   ```
+   ```sh
    #!/bin/bash
    sudo amazon-linux-extras install php7.4
    sudo yum install -y httpd mariadb-server php
@@ -97,7 +96,7 @@ Next, create a folder and scripts in the directory. CodeDeploy uses these script
 
 1. Create a `start_server.sh` file in `/tmp/WordPress/scripts`. Add the following lines to the file. This `start_server.sh` script starts Apache and MySQL.
 
-   ```
+   ```sh
    #!/bin/bash
    systemctl start mariadb.service
    systemctl start httpd.service
@@ -106,7 +105,7 @@ Next, create a folder and scripts in the directory. CodeDeploy uses these script
 
 1. Create a `stop_server.sh` file in `/tmp/WordPress/scripts`. Add the following lines to the file. This `stop_server.sh` script stops Apache and MySQL.
 
-   ```
+   ```sh
    #!/bin/bash
    isExistApp="pgrep httpd"
    if [[ -n $isExistApp ]]; then
@@ -125,7 +124,7 @@ Next, create a folder and scripts in the directory. CodeDeploy uses these script
 
 1. Create a `create_test_db.sh` file in `/tmp/WordPress/scripts`. Add the following lines to the file. This `create_test_db.sh` script uses MySQL to create a **test** database for WordPress to use.
 
-   ```
+   ```sh
    #!/bin/bash
    mysql -uroot <<CREATE_TEST_DB
    CREATE DATABASE IF NOT EXISTS test;
@@ -136,18 +135,18 @@ Next, create a folder and scripts in the directory. CodeDeploy uses these script
 **Important**  
  This script updated permissions on the `/tmp/WordPress` folder so that anyone can write to it. This is required so that WordPress can write to its database during [Step 5: Update and redeploy your WordPress application](tutorials-wordpress-update-and-redeploy-application.md). After the WordPress application is set up, run the following command to update permissions to a more secure setting:  
 
-   ```
+   ```sh
    chmod -R 755 /var/www/html/WordPress
    ```
 
-   ```
+   ```sh
    #!/bin/bash
    chmod -R 777 /var/www/html/WordPress
    ```
 
 1. Give all of the scripts executable permissions. On the command line, type:
 
-   ```
+   ```sh
    chmod +x /tmp/WordPress/scripts/*
    ```
 
@@ -163,7 +162,7 @@ The AppSpec file must be named `appspec.yml`. It must be placed in the root dire
 
 With your text editor, create a file named `appspec.yml`. Add the following lines to the file:
 
-```
+```yaml
 version: 0.0
 os: linux
 files:

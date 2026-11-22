@@ -1,7 +1,6 @@
 
 
 # Use the register command (IAM user ARN) to register an on-premises instance
-<a name="instances-on-premises-register-instance"></a>
 
 **Important**  
 Registering an instance using an IAM user is not recommended because it uses static (permanent) credentials for authentication. For improved security, we recommend registering an instance using temporary credentials for authentication. For more information, see [Use the register-on-premises-instance command (IAM Session ARN) to register an on-premises instance](register-on-premises-instance-iam-session-arn.md).
@@ -40,7 +39,7 @@ As you configure the AWS CLI (for example, by calling the **aws configure** comm
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement" : [
@@ -81,7 +80,7 @@ If you see access denied errors when trying to access one of the Amazon S3 bucke
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement" : [

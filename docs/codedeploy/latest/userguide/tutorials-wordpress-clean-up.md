@@ -1,7 +1,6 @@
 
 
 # Step 6: Clean up your WordPress application and related resources
-<a name="tutorials-wordpress-clean-up"></a>
 
 You've now successfully made an update to the WordPress code and redeployed the site. To avoid ongoing charges for resources you created for this tutorial, you should delete:
 + Any CloudFormation stacks (or terminate any Amazon EC2 instances, if you created them outside of CloudFormation).

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot instance issues
-<a name="troubleshooting-ec2-instances"></a>
 
 **Topics**
 + [Tags must be set correctly](#troubleshooting-EC2-tags)
@@ -47,11 +46,11 @@ If you accidentally delete the deployment log file on an instance, CodeDeploy do
 
 **For an Amazon Linux, Ubuntu Server, or RHEL instance**, run these commands in this order, one at a time:
 
-```
+```sh
 systemctl stop codedeploy-agent
 ```
 
-```
+```sh
 systemctl start codedeploy-agent
 ```
 

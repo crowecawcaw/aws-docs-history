@@ -1,7 +1,6 @@
 
 
 # Create an EC2/On-Premises Compute Platform deployment (console)
-<a name="deployments-create-console"></a>
 
 This topic shows you how to deploy an application to an Amazon EC2 or on-premises server using the console.
 

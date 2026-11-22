@@ -1,7 +1,6 @@
 
 
 # Create an EC2/On-Premises Compute Platform deployment (CLI)
-<a name="deployments-create-cli"></a>
 
 To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
 
@@ -52,7 +51,7 @@ To track the status of your deployment, see [View CodeDeploy deployment details]
 
 The following command structure and options are available for the `create-deployment` command. For more information, see the [create-deployment](https://docs.aws.amazon.com/cli/latest/reference/deploy/create-deployment.html) reference in the *AWS CLI Command Reference*.
 
-```
+```asciidoc perl powershell json bash xml gemspec
 create-deployment
 --application-name <value>
 [--deployment-group-name <value>]

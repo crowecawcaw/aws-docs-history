@@ -1,7 +1,6 @@
 
 
 # AWS CodeDeploy identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users don't have permission to create or modify CodeDeploy resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. You must create IAM policies that grant IAM roles permission to perform API operations on the specified resources they need. You must then attach those IAM roles to users or groups who require those permissions.
 
@@ -33,7 +32,7 @@ The following example shows a permissions policy that allows a user to delete th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -83,7 +82,7 @@ The following example grants permissions to perform CodeDeploy operations in the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -112,7 +111,7 @@ The following example grants permissions to register application revisions for a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -141,7 +140,7 @@ The following example allows permission to create deployments for the deployment
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -212,7 +211,7 @@ You don't need to allow minimum console permissions for users who are making cal
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

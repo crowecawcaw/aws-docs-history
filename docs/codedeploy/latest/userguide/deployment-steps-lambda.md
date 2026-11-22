@@ -1,7 +1,6 @@
 
 
 # Deployments on an AWS Lambda Compute Platform
-<a name="deployment-steps-lambda"></a>
 
 This topic provides information about the components and workflow of CodeDeploy deployments that use the AWS Lambda compute platform. 
 

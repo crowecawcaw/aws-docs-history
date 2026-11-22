@@ -1,7 +1,6 @@
 
 
 # Step 5: Check your results again
-<a name="tutorials-auto-scaling-group-reverify"></a>
 
 In this step, you'll check to see if CodeDeploy installed the SimpleDemoApp revision on the new instance in the Auto Scaling group.
 

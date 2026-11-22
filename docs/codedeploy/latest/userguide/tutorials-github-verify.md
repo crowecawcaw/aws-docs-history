@@ -1,7 +1,6 @@
 
 
 # Step 7: Monitor and verify the deployment
-<a name="tutorials-github-verify"></a>
 
 In this step, you will use the CodeDeploy console or the AWS CLI to verify the success of the deployment. You will use your web browser to view the web page that was deployed to the instance you created or configured.
 

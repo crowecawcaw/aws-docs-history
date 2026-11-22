@@ -1,7 +1,6 @@
 
 
 # Monitoring deployments with Amazon SNS event notifications
-<a name="monitoring-sns-event-notifications"></a>
 
 You can add triggers to a CodeDeploy deployment group to receive notifications about events related to deployments or instances in that deployment group. These notifications are sent to recipients who are subscribed to an Amazon SNS topic you have made part of the trigger's action. 
 

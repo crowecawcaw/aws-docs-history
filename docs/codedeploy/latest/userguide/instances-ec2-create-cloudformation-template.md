@@ -1,7 +1,6 @@
 
 
 # Create an Amazon EC2 instance for CodeDeploy (CloudFormation template)
-<a name="instances-ec2-create-cloudformation-template"></a>
 
 You can use our CloudFormation template to quickly launch an Amazon EC2 instance running Amazon Linux or Windows Server. You can use the AWS CLI, the CodeDeploy console, or the AWS APIs to launch the instance with the template. In addition to launching the instance, the template does the following:
 + Instructs CloudFormation to give the instance permission to participate in CodeDeploy deployments.

@@ -1,7 +1,6 @@
 
 
 # Use the CodeDeploy agent to validate a deployment package on a local machine
-<a name="deployments-local"></a>
 
 Using the CodeDeploy agent, you can deploy content on an instance you are logged in to. This allows you to test the integrity of an application specification file (AppSpec file) that you intend to use in a deployment and the content you intend to deploy. 
 
@@ -26,7 +25,7 @@ Before you start a local deployment, complete the following steps:
 
   For example, the following Amazon S3 bucket policy allows any Amazon EC2 instance with an attached IAM instance profile containing the ARN `arn:aws:iam::444455556666:role/CodeDeployDemo` to download from anywhere in the Amazon S3 bucket named `amzn-s3-demo-bucket`:
 
-  ```
+  ```json
   {
       "Statement": [
           {
@@ -48,7 +47,7 @@ Before you start a local deployment, complete the following steps:
 
   The following Amazon S3 bucket policy allows any on-premises instance with an associated IAM user containing the ARN `arn:aws:iam::444455556666:user/CodeDeployUser` to download from anywhere in the Amazon S3 bucket named `amzn-s3-demo-bucket`:
 
-  ```
+  ```json
   {
       "Statement": [
           {

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot EC2/On-Premises deployment issues
-<a name="troubleshooting-deployments"></a>
 
 **Topics**
 + [CodeDeploy plugin CommandPoller missing credentials error](#troubleshooting-agent-commandpoller-error)
@@ -116,7 +115,7 @@ For deployments to Amazon Linux, Ubuntu Server, and RHEL instances, if you have 
 
 For example, an application revision contains two files in its root, `after-install.sh` and `sleep.sh`. Its AppSpec file contains the following instructions:
 
-```
+```yaml
 version: 0.0
 os: linux
 files:
@@ -229,12 +228,12 @@ For information about how to find the wire logging file and enable and disable w
 + The CodeDeploy agent might not be installed or running on the instance. To determine if the CodeDeploy agent is running:
   + For Amazon Linux RHEL or Ubuntu server, run the following:
 
-    ```
+    ```asciidoc perl powershell json bash xml gemspec
     systemctl status codedeploy-agent
     ```
   + For Windows, run the following:
 
-    ```
+    ```asciidoc perl powershell json bash xml gemspec
     powershell.exe -Command Get-Service -Name CodeDeployagent
     ```
 
@@ -260,7 +259,7 @@ If a Windows PowerShell script running as part of a deployment relies on 64-bit 
 
 Add code like the following to the beginning of any script that must run with the 64-bit version of Windows PowerShell:
 
-```
+```ps
 # Are you running in 32-bit mode?
 #   (\SysWOW64\ = 32-bit mode)
 

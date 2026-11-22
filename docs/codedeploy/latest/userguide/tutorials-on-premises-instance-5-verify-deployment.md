@@ -1,7 +1,6 @@
 
 
 # Step 5: Verify your deployment
-<a name="tutorials-on-premises-instance-5-verify-deployment"></a>
 
 To verify the deployment was successful, follow the instructions in [View CodeDeploy deployment details](deployments-view-details.md), and then return to this page.
 

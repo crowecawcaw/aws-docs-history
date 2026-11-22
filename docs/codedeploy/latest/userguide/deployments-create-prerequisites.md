@@ -1,7 +1,6 @@
 
 
 # Deployment prerequisites
-<a name="deployments-create-prerequisites"></a>
 
 Make sure the following steps are complete before you start a deployment.
 
@@ -22,7 +21,7 @@ Make sure the following steps are complete before you start a deployment.
 
   For example, the following Amazon S3 bucket policy allows any Amazon EC2 instance with an attached IAM instance profile containing the ARN `arn:aws:iam::444455556666:role/CodeDeployDemo` to download from anywhere in the Amazon S3 bucket named `amzn-s3-demo-bucket`:
 
-  ```
+  ```json
   {
       "Statement": [
           {
@@ -44,7 +43,7 @@ Make sure the following steps are complete before you start a deployment.
 
   The following Amazon S3 bucket policy allows any on-premises instance with an associated IAM user containing the ARN `arn:aws:iam::444455556666:user/CodeDeployUser` to download from anywhere in the Amazon S3 bucket named `amzn-s3-demo-bucket`:
 
-  ```
+  ```json
   {
       "Statement": [
           {

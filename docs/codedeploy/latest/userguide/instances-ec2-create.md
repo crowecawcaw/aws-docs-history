@@ -1,7 +1,6 @@
 
 
 # Create an Amazon EC2 instance for CodeDeploy (AWS CLI or Amazon EC2 console)
-<a name="instances-ec2-create"></a>
 
 These instructions show you how to launch a new Amazon EC2 instance that is configured for use in CodeDeploy deployments.
 

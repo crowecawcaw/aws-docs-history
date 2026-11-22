@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon ECS deployment issues
-<a name="troubleshooting-ecs"></a>
 
 **Topics**
 + [A timeout occurs while waiting for replacement task set](#troubleshooting-ecs-timeout)

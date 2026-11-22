@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure your source content to deploy to the Windows Server Amazon EC2 instance
-<a name="tutorials-windows-configure-content"></a>
 
 Now it's time to configure your application's source content so you have something you can deploy to the Amazon EC2 instance. For this tutorial, you'll deploy a single web page to the Amazon EC2 instance running Windows Server, which will run Internet Information Services (IIS) as its web server. This web page will display a simple "Hello, World\!" message.
 
@@ -90,7 +89,7 @@ The AppSpec file must be named `appspec.yml`. It must be placed in the applicati
 
 1. Add the following YAML code to the file, and then save the file.
 
-   ```
+   ```yaml
    version: 0.0
    os: windows
    files:

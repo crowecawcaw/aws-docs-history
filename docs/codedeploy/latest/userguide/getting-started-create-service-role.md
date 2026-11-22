@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a service role for CodeDeploy
-<a name="getting-started-create-service-role"></a>
 
 In AWS, service roles are used to grant permissions to an AWS service so it can access AWS resources. The policies that you attach to the service role determine which resources the service can access and what it can do with those resources. 
 
@@ -18,7 +17,7 @@ For EC2/On-Premises deployments, attach the **AWSCodeDeployRole** policy. It pro
  `ec2:RunInstances` 
  `ec2:CreateTags` 
  `iam:PassRole` 
-For more information, see [Step 2: Create a service role](#getting-started-create-service-role), [Creating a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html), and [Launch template support](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.html) in the *Amazon EC2 Auto Scaling User Guide*. 
+For more information, see [Step 2: Create a service role](getting-started-create-service-role.md), [Creating a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html), and [Launch template support](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.html) in the *Amazon EC2 Auto Scaling User Guide*. 
 
 For Amazon ECS deployments, if you want full access to support services, attach the **AWSCodeDeployRoleForECS** policy. It provides the permissions for your service role to:
 +  Read, update, and delete Amazon ECS task sets. 
@@ -88,7 +87,7 @@ You can create a service role with the IAM console, the AWS CLI, or the IAM APIs
 
    You should see the following policy, which provides the service role permission to access all supported endpoints:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -108,7 +107,7 @@ You can create a service role with the IAM console, the AWS CLI, or the IAM APIs
 
    To grant the service role access to only some supported endpoints, replace the contents of the trust policy text box with the following policy. Remove the lines for the endpoints you want to prevent access to, and then choose **Update policy**.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -164,7 +163,7 @@ For more information about creating service roles, see [Creating a role to deleg
    Do one of the following: 
    + To grant access to all supported AWS Regions, save the following content in the file:
 
-     ```
+     ```json
      {
          "Version": "2012-10-17",		 	 	 
          "Statement": [
@@ -183,7 +182,7 @@ For more information about creating service roles, see [Creating a role to deleg
      ```
    + To grant access to only some supported Regions, type the following content into the file, and remove the lines for the Regions to which you want to exclude access:
 
-     ```
+     ```json
      {
          "Version": "2012-10-17",		 	 	 
          "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Getting started with CodeDeploy
-<a name="getting-started-codedeploy"></a>
 
 **Topics**
 + [Step 1: Setting up](getting-started-setting-up.md)

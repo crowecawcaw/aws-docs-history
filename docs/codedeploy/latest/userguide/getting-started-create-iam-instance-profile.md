@@ -1,7 +1,6 @@
 
 
 # Step 4: Create an IAM instance profile for your Amazon EC2 instances
-<a name="getting-started-create-iam-instance-profile"></a>
 
 **Note**  
  If you are using the Amazon ECS or AWS Lambda compute platform , skip this step.
@@ -29,7 +28,7 @@ In these steps, we assume you have already followed the instructions in the firs
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -52,7 +51,7 @@ In these steps, we assume you have already followed the instructions in the firs
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -75,7 +74,7 @@ In these steps, we assume you have already followed the instructions in the firs
 
 1. In the same directory, create a text file named `CodeDeployDemo-EC2-Permissions.json`. Paste the following content:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -93,7 +92,7 @@ In these steps, we assume you have already followed the instructions in the firs
 **Note**  
 We recommend that you restrict this policy to only those Amazon S3 buckets your Amazon EC2 instances must access. Make sure to give access to the Amazon S3 buckets that contain the CodeDeploy agent. Otherwise, an error might occur when the CodeDeploy agent is installed or updated on the instances. To grant the IAM instance profile access to only some CodeDeploy resource kit buckets in Amazon S3, use the following policy, but remove the lines for buckets you want to prevent access to:  
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -158,7 +157,7 @@ Be sure to include `file://` before the file name. It is required in this comman
 
 1. Call the **attach-role-policy** to give the role Amazon EC2 Systems Manager permissions so that SSM can install the CodeDeploy agent. This policy is not needed if you plan to install the agent from the public Amazon S3 bucket with the command line. Learn more about [ installing the CodeDeploy agent](https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install.html). 
 
-   ```
+   ```asciidoc perl powershell json bash xml gemspec
    aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore --role-name CodeDeployDemo-EC2-Instance-Profile
    ```
 
@@ -186,7 +185,7 @@ You've now created an IAM instance profile to attach to your Amazon EC2 instance
 
 1. Paste the following code:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -204,7 +203,7 @@ You've now created an IAM instance profile to attach to your Amazon EC2 instance
 **Note**  
 We recommend that you restrict this policy to only those Amazon S3 buckets your Amazon EC2 instances must access. Make sure to give access to the Amazon S3 buckets that contain the CodeDeploy agent. Otherwise, an error might occur when the CodeDeploy agent is installed or updated on the instances. To grant the IAM instance profile access to only some CodeDeploy resource kit buckets in Amazon S3, use the following policy, but remove the lines for buckets you want to prevent access to:  
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [

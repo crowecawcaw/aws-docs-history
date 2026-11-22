@@ -1,7 +1,6 @@
 
 
 # Tagging instances for deployment groups in CodeDeploy
-<a name="instances-tagging"></a>
 
 To help manage your Amazon EC2 instances and on-premises instances, you can use tags to assign your own metadata to each resource. Tags enable you to categorize your instances in different ways (for example, by purpose, owner, or environment). This is useful when you have many instances. You can quickly identify an instance or group of instances based on the tags you've assigned to them. Each tag consists of a key and an optional value, both of which you define. For more information, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html).
 
@@ -43,7 +42,7 @@ CodeDeploy console setup view:
 
 JSON structure:
 
-```
+```json
 "ec2TagSet": { 
          "ec2TagSetList": [ 
             [ 
@@ -80,7 +79,7 @@ CodeDeploy console setup view:
 
 JSON structure:
 
-```
+```json
 "ec2TagSet": { 
          "ec2TagSetList": [ 
             [ 
@@ -139,7 +138,7 @@ CodeDeploy console setup view:
 
 JSON structure:
 
-```
+```json
 "ec2TagSet": { 
          "ec2TagSetList": [ 
             [ 
@@ -216,7 +215,7 @@ CodeDeploy console setup view:
 
 JSON structure:
 
-```
+```json
 "ec2TagSet": { 
          "ec2TagSetList": [ 
             [ 

@@ -1,7 +1,6 @@
 
 
 # CodeDeploy quotas
-<a name="limits"></a>
 
 The following tables describe quotas in CodeDeploy.
 

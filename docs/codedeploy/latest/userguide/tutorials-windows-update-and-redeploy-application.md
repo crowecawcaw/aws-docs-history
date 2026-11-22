@@ -1,7 +1,6 @@
 
 
 # Step 5: Update and redeploy your "hello, world\!" application
-<a name="tutorials-windows-update-and-redeploy-application"></a>
 
 Now that you've successfully deployed your application revision, on the development machine, make an update to the webpage's code, and then use CodeDeploy to redeploy the site. After redeployment, you should be able to see the changes on the Amazon EC2 instance.
 
@@ -21,7 +20,7 @@ Now that you've successfully deployed your application revision, on the developm
 
 1. Revise the contents of the `index.html` file to change the background color and some of the text on the webpage, and then save the file:
 
-   ```
+   ```html
    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
    <html>
    <head>

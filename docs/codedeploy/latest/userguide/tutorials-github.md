@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use CodeDeploy to deploy an application from GitHub
-<a name="tutorials-github"></a>
 
 In this tutorial, you use CodeDeploy to deploy a sample application revision from GitHub to a single Amazon EC2 instance running Amazon Linux, a single Red Hat Enterprise Linux (RHEL) instance, or a single Windows Server instance. For information about GitHub integration with CodeDeploy, see [Integrating CodeDeploy with GitHub](integrations-partners-github.md).
 

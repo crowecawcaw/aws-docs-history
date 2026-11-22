@@ -1,13 +1,12 @@
 
 
 # Update the CodeDeploy agent on macOS
-<a name="codedeploy-agent-operations-update-macos"></a>
 
 To configure automatic, scheduled updates of the CodeDeploy agent using AWS Systems Manager, follow the steps in [Install the CodeDeploy agent using AWS Systems Manager](codedeploy-agent-operations-install-ssm.md) and choose the `AWSCodeDeployAgentV2` package.
 
 For version 2.1.3 and later, to force an update, run:
 
-```
+```sh
 sudo /opt/codedeploy-agent/bin/codedeploy-agent update
 ```
 

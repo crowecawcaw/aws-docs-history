@@ -1,7 +1,6 @@
 
 
 # Create an AWS Lambda Compute Platform deployment (CLI)
-<a name="deployments-create-lambda-cli"></a>
 
 
 

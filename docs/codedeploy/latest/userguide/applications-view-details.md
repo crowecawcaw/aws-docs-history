@@ -1,7 +1,6 @@
 
 
 # View application details with CodeDeploy
-<a name="applications-view-details"></a>
 
 You can use the CodeDeploy console, the AWS CLI, or the CodeDeploy APIs to view details about all applications associated with your AWS account.
 

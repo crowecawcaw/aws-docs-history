@@ -1,7 +1,6 @@
 
 
 # Tutorial: Deploy an application into Amazon ECS
-<a name="tutorial-ecs-deployment"></a>
 
  In this tutorial, you learn how to deploy an application into Amazon ECS using CodeDeploy. You start with an application you already created and deployed into Amazon ECS. The first step is to update your application by modifying its task definition file with a new tag. Next, you use CodeDeploy to deploy the update. During deployment, CodeDeploy installs your update into a new, replacement task set. Then, it shifts production traffic from the original version of your Amazon ECS application, which is in its original task set, to the updated version in the replacement task set.
 

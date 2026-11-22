@@ -1,7 +1,6 @@
 
 
 # Tutorial: Deploy an Amazon ECS service with a validation test
-<a name="tutorial-ecs-deployment-with-hooks"></a>
 
  In this tutorial, you learn how to use a Lambda function to validate part of the deployment of an updated Amazon ECS application. This tutorial uses the CodeDeploy application, CodeDeploy deployment group, and the Amazon ECS application you used in [Tutorial: Deploy an application into Amazon ECS](tutorial-ecs-deployment.md). Complete that tutorial before starting this one.
 

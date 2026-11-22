@@ -1,7 +1,6 @@
 
 
 # Configure advanced options for a deployment group
-<a name="deployment-groups-configure-advanced-options"></a>
 
 When you create or update a deployment group, you can configure a number of options to provide more control and oversight over the deployments for that deployment group.
 

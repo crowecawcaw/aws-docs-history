@@ -1,7 +1,6 @@
 
 
 # CodeDeploy tutorials
-<a name="tutorials"></a>
 
 This section includes some tutorials to help you learn how to use CodeDeploy.
 

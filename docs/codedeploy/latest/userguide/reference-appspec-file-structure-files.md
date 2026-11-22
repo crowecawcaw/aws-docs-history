@@ -1,7 +1,6 @@
 
 
 # AppSpec 'files' section (EC2/On-Premises deployments only)
-<a name="reference-appspec-file-structure-files"></a>
 
 Provides information to CodeDeploy about which files from your application revision should be installed on the instance during the deployment's **Install** event. This section is required only if you are copying files from your revision to locations on the instance during deployment. 
 
@@ -66,7 +65,7 @@ For the following examples, we assume these files appear in the bundle in the ro
 + `my-file-2.txt`
 + `my-file-3.txt`
 
-```
+```yaml
 # 1) Copy only my-file.txt to the destination folder c:\temp.
 #
 files:
@@ -111,7 +110,7 @@ For the following examples, we assume the `appspec.yml` appears in the bundle in
 + `my-folder\my-file-2.txt`
 + `my-folder\my-file-3.txt`
 
-```
+```yaml
 # 4) Copy the 3 files in my-folder (but do not copy my-folder itself) to the destination folder c:\temp. 
 #
 files:

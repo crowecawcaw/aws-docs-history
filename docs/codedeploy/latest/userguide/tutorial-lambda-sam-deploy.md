@@ -1,7 +1,6 @@
 
 
 # Deploy the AWS SAM application
-<a name="tutorial-lambda-sam-deploy"></a>
 
  Use the AWS SAM **sam deploy** command with the `package.yml` file to create your Lambda functions and CodeDeploy application and deployment group using CloudFormation. 
 

@@ -1,25 +1,24 @@
 
 
 # Install the CodeDeploy agent for macOS
-<a name="codedeploy-agent-operations-install-macos"></a>
 
 Sign in to the instance, and run the following commands, one at a time.
 
 Change to your home directory:
 
-```
+```sh
 cd ~
 ```
 
 Download the CodeDeploy agent installer package:
 
-```
+```sh
 curl -O https://{{bucket-name}}.s3.{{region-identifier}}.amazonaws.com/latestv2/codedeploy-agent.aarch64.pkg
 ```
 
 {{bucket-name}} is the name of the Amazon S3 bucket that contains the CodeDeploy Resource Kit files for your region, and {{region-identifier}} is the identifier for your region.
 
-For example:
+The following is an example of a complete URL:
 
 `https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latestv2/codedeploy-agent.aarch64.pkg`
 
@@ -28,23 +27,23 @@ For a list of bucket names and region identifiers, see [Resource kit bucket name
 To install the latest version of the CodeDeploy agent:
 + 
 
-  ```
+  ```sh
   sudo installer -pkg codedeploy-agent.aarch64.pkg -target /
   ```
 
 To install a specific version of the CodeDeploy agent:
 + List the available versions in your Region:
 
-  ```
+  ```sh
   aws s3 ls s3://aws-codedeploy-{{region-identifier}}/releases/ --region {{region-identifier}} | grep '\.pkg$'
   ```
 + Download and install one of the versions:
 
-  ```
+  ```sh
   aws s3 cp s3://aws-codedeploy-{{region-identifier}}/releases/codedeploy-agent-{{version}}.aarch64.pkg codedeploy-agent.aarch64.pkg --region {{region-identifier}}
   ```
 
-  ```
+  ```sh
   sudo installer -pkg codedeploy-agent.aarch64.pkg -target /
   ```
 
@@ -52,7 +51,7 @@ To install a specific version of the CodeDeploy agent:
 
 To check that the service is running, run the following command:
 
-```
+```sh
 sudo /opt/codedeploy-agent/bin/codedeploy-agent status
 ```
 
@@ -60,10 +59,10 @@ If the agent is running, you should see a message like `The AWS CodeDeploy agent
 
 If the agent is not running, start the service and check the status:
 
-```
+```sh
 sudo launchctl kickstart system/com.amazon.aws.codedeploy-agent
 ```
 
-```
+```sh
 sudo /opt/codedeploy-agent/bin/codedeploy-agent status
 ```

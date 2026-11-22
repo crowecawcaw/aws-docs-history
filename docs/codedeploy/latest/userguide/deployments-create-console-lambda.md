@@ -1,7 +1,6 @@
 
 
 # Create an AWS Lambda Compute Platform deployment (console)
-<a name="deployments-create-console-lambda"></a>
 
 This topic shows you how to deploy a Lambda function using the console.
 

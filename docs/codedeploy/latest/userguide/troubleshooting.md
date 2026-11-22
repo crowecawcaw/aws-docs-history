@@ -1,7 +1,6 @@
 
 
 # Troubleshooting CodeDeploy
-<a name="troubleshooting"></a>
 
 Use the topics in this section to help solve problems and errors you might encounter when using CodeDeploy.
 

@@ -1,7 +1,6 @@
 
 
 # Step 3: Upload a sample application to your GitHub repository
-<a name="tutorials-github-upload-sample-revision"></a>
 
 In this step, you will copy a sample revision from a public Amazon S3 bucket to your GitHub repository. (For simplicity, the sample revisions provided for this tutorial are single web pages.)
 

@@ -1,7 +1,6 @@
 
 
 # Install the CodeDeploy agent using AWS Systems Manager
-<a name="codedeploy-agent-operations-install-ssm"></a>
 
 You can use the AWS Management Console or the AWS CLI to install the CodeDeploy agent to your Amazon EC2 or on-premises instances by using AWS Systems Manager. You can choose to install a specific version or choose to always install the latest version of the agent. For more information about AWS Systems Manager, see [What is AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html). 
 

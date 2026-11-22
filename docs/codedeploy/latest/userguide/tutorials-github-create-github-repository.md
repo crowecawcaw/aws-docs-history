@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a GitHub repository
-<a name="tutorials-github-create-github-repository"></a>
 
 You will need a GitHub repository to store the revision.
 

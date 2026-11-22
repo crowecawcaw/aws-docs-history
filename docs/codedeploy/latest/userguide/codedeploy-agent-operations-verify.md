@@ -1,7 +1,6 @@
 
 
 # Verify the CodeDeploy agent is running
-<a name="codedeploy-agent-operations-verify"></a>
 
 This section describes commands to run if you suspect the CodeDeploy agent has stopped running on an instance.
 
@@ -16,7 +15,7 @@ This section describes commands to run if you suspect the CodeDeploy agent has s
 
 To see if the CodeDeploy agent is installed and running, sign in to the instance, and run the following command:
 
-```
+```sh
 systemctl status codedeploy-agent
 ```
 
@@ -26,11 +25,11 @@ If the CodeDeploy agent is installed and running, you should see a message like 
 
 If you see a message like `The AWS CodeDeploy agent is not running.` (exit code 3), start the service and run the following two commands, one at a time:
 
-```
+```sh
 systemctl start codedeploy-agent
 ```
 
-```
+```sh
 systemctl status codedeploy-agent
 ```
 
@@ -41,7 +40,7 @@ For version 2.0.x and later, the `codedeploy-agent status` command returns LSB-c
 
 To see if the CodeDeploy agent is installed and running, sign in to the instance, and run the following command:
 
-```
+```sh
 systemctl status codedeploy-agent
 ```
 
@@ -51,11 +50,11 @@ If the CodeDeploy agent is installed and running, you should see a message like 
 
 If you see a message like `The AWS CodeDeploy agent is not running.` (exit code 3), start the service and run the following two commands, one at a time:
 
-```
+```sh
 systemctl start codedeploy-agent
 ```
 
-```
+```sh
 systemctl status codedeploy-agent
 ```
 
@@ -101,7 +100,7 @@ powershell.exe -Command Stop-Service -Name codedeployagent
 
 To see if the CodeDeploy agent is installed and running, sign in to the instance, and run the following command:
 
-```
+```sh
 sudo /opt/codedeploy-agent/bin/codedeploy-agent status
 ```
 
@@ -111,18 +110,18 @@ If the CodeDeploy agent is installed and running, you should see a message like 
 
 If you see a message like `The AWS CodeDeploy agent is not running.` (exit code 3), start the agent with the following command:
 
-```
+```sh
 sudo launchctl kickstart system/com.amazon.aws.codedeploy-agent
 ```
 
 If that command reports that the service could not be found, the launchd daemon is not loaded. Load and start it with the following command:
 
-```
+```sh
 sudo launchctl bootstrap system /Library/LaunchDaemons/com.amazon.aws.codedeploy-agent.plist
 ```
 
 To see the state of the launchd daemon, run:
 
-```
+```sh
 sudo launchctl print system/com.amazon.aws.codedeploy-agent
 ```

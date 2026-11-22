@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in CodeDeploy
-<a name="incident-response"></a>
 
 This section provides an overview of monitoring, logging, and incident response in CodeDeploy.
 

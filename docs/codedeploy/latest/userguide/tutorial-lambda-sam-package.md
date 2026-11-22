@@ -1,7 +1,6 @@
 
 
 # Package the AWS SAM application
-<a name="tutorial-lambda-sam-package"></a>
 
  You should now have four files in your `SAM-Tutorial` directory: 
 + `beforeAllowTraffic.js`

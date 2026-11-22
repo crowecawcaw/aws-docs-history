@@ -1,7 +1,6 @@
 
 
 # Create a deployment configuration with CodeDeploy
-<a name="deployment-configurations-create"></a>
 
 If you don't want to use one of the default deployment configurations provided with CodeDeploy, you can create your own using the following instructions.
 

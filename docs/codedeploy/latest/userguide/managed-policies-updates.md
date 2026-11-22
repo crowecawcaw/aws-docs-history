@@ -1,7 +1,6 @@
 
 
 # CodeDeploy updates to AWS managed policies
-<a name="managed-policies-updates"></a>
 
 View details about updates to AWS managed policies for CodeDeploy since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the CodeDeploy [Document history](document-history.md). 
 

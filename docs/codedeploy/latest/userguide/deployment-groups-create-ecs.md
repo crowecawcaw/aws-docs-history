@@ -1,7 +1,6 @@
 
 
 # Create a deployment group for an Amazon ECS deployment (console)
-<a name="deployment-groups-create-ecs"></a>
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy).
 **Note**  

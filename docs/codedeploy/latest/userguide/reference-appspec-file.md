@@ -1,7 +1,6 @@
 
 
 # CodeDeploy AppSpec file reference
-<a name="reference-appspec-file"></a>
 
 This section is a reference only. For a conceptual overview of the AppSpec file, see [CodeDeploy application specification (AppSpec) files](application-specification-files.md).
 
@@ -88,7 +87,7 @@ hooks:
 
 Here is an example of a correctly spaced AppSpec file:
 
-```
+```yaml
 version: 0.0
 os: linux
 files:

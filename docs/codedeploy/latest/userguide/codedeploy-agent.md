@@ -1,7 +1,6 @@
 
 
 # Working with the CodeDeploy agent
-<a name="codedeploy-agent"></a>
 
  The AWS CodeDeploy agent is a software package that, when installed and configured on an instance, makes it possible for that instance to be used in CodeDeploy deployments.
 
@@ -92,6 +91,7 @@ The following table lists all releases of the CodeDeploy agent and the features 
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 2.1.4 | November 16, 2026 | **Fixed**: The agent now trusts the certificate authorities in the host trust store, in addition to its bundled public certificate authorities, when it connects to the CodeDeploy service endpoint. Previously, the agent couldn't connect if the endpoint's certificate chained to a certificate authority that only the host trust store contains.<br />**Changed (security)**: Improved file system permissions on the agent installation folder on Windows Server when you upgrade from an earlier version.<br />**Changed (security)**: Improved how the agent loads system libraries on Windows Server. | 
 | 2.1.3 | November 1, 2026 | **Added**: Agent self-update on macOS. The `UpdateDeploymentAgent` command and the `codedeploy-agent update` command now install the latest `.pkg` file, as they do on Linux. For more information, see [Update the CodeDeploy agent on macOS](codedeploy-agent-operations-update-macos.md).<br />**Added**: The `:preserve_directory_symlinks:` setting, which installs a symbolic link to a directory as a symbolic link instead of copying the directory's contents. Turned off by default. Linux and macOS only. For more information, see [CodeDeploy agent configuration reference](reference-agent-configuration.md).<br />**Fixed**: Concurrent deployments that create the same missing parent directory no longer fail the `Install` lifecycle event.<br />**Fixed**: A symbolic link in the revision now replaces an existing file or symbolic link at the destination. Dangling symbolic links are removed during cleanup.<br />**Fixed**: File names that are not valid UTF-8 no longer cause the `Install` lifecycle event to stop responding. A destination path that contains a line break now fails the deployment before any files are copied.<br />**Fixed**: Deployments of an application revision from GitHub that use a GitHub access token no longer fail with an HTTP 401 (Unauthorized) error. This issue affected agent versions 2.0.0 through 2.1.2.<br />**Fixed**: The agent now retries reporting the result of a lifecycle event to CodeDeploy when the request fails with a server error (HTTP 5xx) or a network error. Retries use exponential backoff and continue for up to 65 minutes after the agent receives the lifecycle event. If the agent is stopped while it is retrying, the stop can take as long as the retry period, bounded by `:kill_agent_max_wait_time_seconds:`.<br />**Changed (security)**: Improved file system permissions on the agent installation folder on Windows Server.<br />**Changed (security)**: The agent binaries (`codedeploy-agent.exe` and `codedeploy-local.exe`) are now Authenticode-signed, in addition to the MSI installer. | 
 | 2.1.2 | October 13, 2026 | **Added**: Support for macOS 15, 26, 27 with Apple silicon. For instructions, see [Install the CodeDeploy agent for macOS](codedeploy-agent-operations-install-macos.md).<br />**Added**: Parallel range downloads of application revisions from Amazon S3, turned off by default. For more information, see [CodeDeploy agent configuration reference](reference-agent-configuration.md).<br />**Fixed**: Lifecycle event script output is written to `codedeploy-agent-deployments.log` line by line, prefixed with the deployment ID. | 
 | 2.1.1 | October 2, 2026 | **Fixed**: The agent now connects to the correct CodeDeploy endpoint in the AWS European Sovereign Cloud. | 
@@ -147,7 +147,7 @@ For version 1.8.x and earlier, both the rpm and deb distributions ship with star
 
 To manage the CodeDeploy agent, use the `systemctl` utility:
 
-```
+```sh
 sudo systemctl start codedeploy-agent
 sudo systemctl stop codedeploy-agent
 sudo systemctl restart codedeploy-agent
@@ -156,7 +156,7 @@ sudo systemctl status codedeploy-agent
 
 On macOS, the agent runs as the launchd daemon `com.amazon.aws.codedeploy-agent`, defined in `/Library/LaunchDaemons/com.amazon.aws.codedeploy-agent.plist`. launchd starts the agent at boot and restarts it if it crashes. To manage the agent on macOS, use the `launchctl` utility:
 
-```
+```sh
 sudo launchctl bootstrap system /Library/LaunchDaemons/com.amazon.aws.codedeploy-agent.plist
 sudo launchctl bootout system/com.amazon.aws.codedeploy-agent
 sudo launchctl kickstart -k system/com.amazon.aws.codedeploy-agent

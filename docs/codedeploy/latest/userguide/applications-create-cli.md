@@ -1,7 +1,6 @@
 
 
 # Create an application (CLI)
-<a name="applications-create-cli"></a>
 
 To use the AWS CLI to create an application, call the [create-application](https://docs.aws.amazon.com/cli/latest/reference/deploy/create-application.html) command, specifying a name that uniquely represents the application. (In an AWS account, a CodeDeploy application name can be used only once per Region. You can reuse an application name in different Regions.)
 

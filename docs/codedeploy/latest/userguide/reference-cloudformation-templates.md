@@ -1,7 +1,6 @@
 
 
 # CloudFormation templates for CodeDeploy reference
-<a name="reference-cloudformation-templates"></a>
 
 This section introduces the CloudFormation resources, transform, and hook designed to work with CodeDeploy deployments. For a walkthrough of creating a stack update managed by the CloudFormation hook for CodeDeploy, see [Create an Amazon ECS blue/green deployment through CloudFormation](deployments-create-ecs-cfn.md)
 
@@ -25,7 +24,7 @@ If you plan to use CloudFormation templates that are compatible with CodeDeploy 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Choose a CodeDeploy repository type
-<a name="application-revisions-repository-type"></a>
 
 The storage location for files required by CodeDeploy is called a *repository*. Use of a repository depends on which compute platform your deployment uses.
 + **EC2/On-Premises**: To deploy your application code to one or more instances, your code must be bundled into an archive file and placed in a repository where CodeDeploy can access it during the deployment process. You bundle your deployable content and an AppSpec file into an archive file, and then upload it to one of the repository types supported by CodeDeploy.

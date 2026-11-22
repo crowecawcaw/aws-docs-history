@@ -1,7 +1,6 @@
 
 
 # General troubleshooting issues
-<a name="troubleshooting-general"></a>
 
 **Topics**
 + [General troubleshooting checklist](#troubleshooting-checklist)

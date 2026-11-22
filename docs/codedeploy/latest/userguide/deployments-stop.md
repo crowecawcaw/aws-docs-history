@@ -1,7 +1,6 @@
 
 
 # Stop a deployment with CodeDeploy
-<a name="deployments-stop"></a>
 
 You can use the CodeDeploy console, the AWS CLI, or the CodeDeploy APIs to stop deployments associated with your AWS account.
 

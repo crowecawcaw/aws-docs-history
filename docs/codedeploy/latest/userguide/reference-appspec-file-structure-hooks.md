@@ -1,7 +1,6 @@
 
 
 # AppSpec 'hooks' section
-<a name="reference-appspec-file-structure-hooks"></a>
 
 The content in the `'hooks'` section of the AppSpec file varies, depending on the compute platform for your deployment. The `'hooks'` section for an EC2/On-Premises deployment contains mappings that link deployment lifecycle event hooks to one or more scripts. The `'hooks'` section for a Lambda or an Amazon ECS deployment specifies Lambda validation functions to run during a deployment lifecycle event. If an event hook is not present, no operation is executed for that event. This section is required only if you are running scripts or Lambda validation functions as part of the deployment.
 
@@ -49,7 +48,7 @@ The following are examples of the structure of the `'hooks'` section.
 
 Using YAML:
 
-```
+```yaml
 Hooks:
   - BeforeInstall: "{{BeforeInstallHookFunctionName}}"
   - AfterInstall: "{{AfterInstallHookFunctionName}}"
@@ -60,7 +59,7 @@ Hooks:
 
 Using JSON:
 
-```
+```json
 "Hooks": [
 		{
 			"BeforeInstall": "{{BeforeInstallHookFunctionName}}"
@@ -93,7 +92,7 @@ The deployment is considered to have failed if CodeDeploy is not notified by the
 
  The following is a sample Lambda hook function written in Node.js. 
 
-```
+```js
 'use strict';
 
 const aws = require('aws-sdk');
@@ -165,7 +164,7 @@ The following are examples of the structure of the 'hooks' section.
 
 Using YAML:
 
-```
+```yaml
 hooks:
    - BeforeAllowTraffic: {{BeforeAllowTrafficHookFunctionName}}
    - AfterAllowTraffic: {{AfterAllowTrafficHookFunctionName}}
@@ -173,7 +172,7 @@ hooks:
 
 Using JSON:
 
-```
+```json
 "hooks": [{
     "BeforeAllowTraffic": "{{BeforeAllowTrafficHookFunctionName}}"
     },
@@ -194,7 +193,7 @@ The deployment is considered to have failed if CodeDeploy is not notified by the
 
  The following is a sample Lambda hook function written in Node.js. 
 
-```
+```js
 'use strict';
 
 const aws = require('aws-sdk');
@@ -370,7 +369,7 @@ The **Start**, **DownloadBundle**, **Install**, **BlockTraffic**, **AllowTraffic
 
 The `'hooks'` section has the following structure:
 
-```
+```yaml
 hooks:
    {{deployment-lifecycle-event-name}}:
      - location: {{script-location}}
@@ -393,7 +392,7 @@ Optional. The user to impersonate when running the script. By default, this is t
 ### Referencing files in your hook scripts
 <a name="codedeploy-agent-working-directory"></a>
 
-If you are hooking up a script to a CodeDeploy lifecycle event as described in [AppSpec 'hooks' section](#reference-appspec-file-structure-hooks), and you want to reference a file (for example, `helper.sh`) in your script, then you will need to specify `helper.sh` using:
+If you are hooking up a script to a CodeDeploy lifecycle event as described in [AppSpec 'hooks' section](reference-appspec-file-structure-hooks.md), and you want to reference a file (for example, `helper.sh`) in your script, then you will need to specify `helper.sh` using:
 + (Recommended) An absolute path. See [Using absolute paths](#codedeploy-agent-working-dir-absolute).
 + A relative path. See [Using relative paths](#codedeploy-agent-working-dir-relative).
 
@@ -423,7 +422,7 @@ From your hook scripts, you could access the current deployment archive using th
 
 For example, here is how you could access a `data.json` file that resides at the root of your revision on Linux:
 
-```
+```bash
 #!/bin/bash
 
 rootDirectory="/opt/codedeploy-agent/deployment-root" # note: this will be different if you
@@ -434,7 +433,7 @@ data=$(cat dataFile)
 
 As another example, here is how you could access a `data.json` file that resides at the root of your revision using Powershell on Windows:
 
-```
+```powershell
 $rootDirectory="$env:ProgramData\Amazon\CodeDeploy" # note: this will be different if you
                                                     # customize the :root_dir configuration
 $dataFile="$rootDirectory\$env:DEPLOYMENT_GROUP_ID\$env:DEPLOYMENT_ID\deployment-archive\data.json"
@@ -527,7 +526,7 @@ fi
 
 The following script example replaces the text in the specified webpage with text that displays the value of these environment variables. This script must be invoked during the `AfterInstall` deployment lifecycle event:
 
-```
+```js
 #!/usr/bin/python
 
 import os
@@ -549,7 +548,7 @@ fp.close()
 
 Here is an example of a **hooks** entry that specifies two hooks for the `AfterInstall` lifecycle event:
 
-```
+```yaml
 hooks:
    AfterInstall:
      - location: Scripts/RunResourceTests.sh

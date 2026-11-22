@@ -1,7 +1,6 @@
 
 
 # CodeDeploy primary components
-<a name="primary-components"></a>
 
 Before you start working with the service, you should familiarize yourself with the major components of the CodeDeploy deployment process.
 

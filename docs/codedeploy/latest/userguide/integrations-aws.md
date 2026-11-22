@@ -1,7 +1,6 @@
 
 
 # Integration with other AWS services
-<a name="integrations-aws"></a>
 
 CodeDeploy is integrated with the following AWS services:
 

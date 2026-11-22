@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="tutorials-auto-scaling-group-prerequisites"></a>
 
 To follow along in this tutorial:
 + Complete all of the steps in [Getting started with CodeDeploy](getting-started-codedeploy.md), including setting up and configuring the AWS CLI and creating an IAM instance profile (**CodeDeployDemo-EC2-Instance-Profile**) and a service role (**CodeDeployDemo**). A *service role* is a special type of IAM role that gives a service permission to act on your behalf.

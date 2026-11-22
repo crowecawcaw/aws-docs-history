@@ -1,7 +1,6 @@
 
 
 # Create a deployment group (CLI)
-<a name="deployment-groups-create-cli"></a>
 
 To use the AWS CLI to create a deployment group, call the [create-deployment-group](https://docs.aws.amazon.com/cli/latest/reference/deploy/create-deployment-group.html) command, specifying:
 + The application name. To view a list of application names, call the [list-applications](https://docs.aws.amazon.com/cli/latest/reference/deploy/list-applications.html) command.

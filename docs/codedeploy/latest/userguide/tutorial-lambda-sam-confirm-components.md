@@ -1,7 +1,6 @@
 
 
 # (Optional) inspect and test your infrastructure
-<a name="tutorial-lambda-sam-confirm-components"></a>
 
  This topic shows how to view your infrastructure components and test your Lambda function. 
 

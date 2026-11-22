@@ -1,7 +1,6 @@
 
 
 # Create a notification rule
-<a name="notification-rule-create"></a>
 
 You can use notification rules to notify users when there are changes to deployment applications, such as deployment successes and failures. Notification rules specify both the events and the Amazon SNS topic that is used to send notifications. For more information, see [What are notifications?](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/welcome.html)
 

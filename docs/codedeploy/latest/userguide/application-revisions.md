@@ -1,7 +1,6 @@
 
 
 # Working with application revisions for CodeDeploy
-<a name="application-revisions"></a>
 
 In CodeDeploy, a revision contains a version of the source files CodeDeploy will deploy to your instances or scripts CodeDeploy will run on your instances. 
 
