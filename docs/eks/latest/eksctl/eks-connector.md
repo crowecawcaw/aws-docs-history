@@ -1,7 +1,6 @@
 
 
 # Registering non-EKS clusters with EKS Connector
-<a name="eks-connector"></a>
 
 You can use the [EKS Connector](https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html) to view clusters outside of AWS in the EKS Console. This process requires registering the cluster with EKS and running the EKS Connector agent on the external Kubernetes cluster.
 
@@ -12,7 +11,7 @@ You can use the [EKS Connector](https://docs.aws.amazon.com/eks/latest/userguide
 
 To register or connect a non-EKS Kubernetes cluster, run
 
-```
+```shell
 eksctl register cluster --name <name> --provider <provider>
 2021-08-19 13:47:26 [ℹ]  creating IAM role "eksctl-20210819194112186040"
 2021-08-19 13:47:26 [ℹ]  registered cluster "<name>" successfully
@@ -30,7 +29,7 @@ This command will register the cluster and write three files that contain the Ku
 
 To provide an existing IAM role to use for EKS Connector, pass it via `--role-arn` as in:
 
-```
+```shell
 eksctl register cluster --name <name> --provider <provider> --role-arn=<role-arn>
 ```
 
@@ -41,7 +40,7 @@ If the cluster already exists, eksctl will return an error.
 
 To deregister or disconnect a registered cluster, run
 
-```
+```shell
 eksctl deregister cluster --name <name>
 2021-08-19 16:04:09 [ℹ]  unregistered cluster "<name>" successfully
 2021-08-19 16:04:09 [ℹ]  run `kubectl delete namespace eks-connector` and `kubectl delete -f eks-connector-binding.yaml` on your cluster to remove EKS Connector resources

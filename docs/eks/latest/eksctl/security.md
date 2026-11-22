@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  `eksctl` provides some options that can improve the security of your EKS cluster.
 

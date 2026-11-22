@@ -1,7 +1,6 @@
 
 
 # Support Node Repair Configuration for EKS Managed Nodegroups
-<a name="nodegroup-node-repair-config"></a>
 
 EKS Managed Nodegroups supports Node Repair, where the health of managed nodes are monitored, and unhealthy worker nodes are replaced or rebooted in response. eksctl now provides comprehensive configuration options for fine-grained control over node repair behavior.
 
@@ -13,20 +12,20 @@ EKS Managed Nodegroups supports Node Repair, where the health of managed nodes a
 
 To create a cluster with a managed nodegroup using basic node repair, pass the `--enable-node-repair` flag:
 
-```
+```shell
 eksctl create cluster --enable-node-repair
 ```
 
 To create a managed nodegroup with node repair on an existing cluster:
 
-```
+```shell
 eksctl create nodegroup --cluster=<clusterName> --enable-node-repair
 ```
 
 ### Using configuration files
 <a name="_using_configuration_files"></a>
 
-```
+```yaml
 # basic-node-repair.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -41,7 +40,7 @@ managedNodeGroups:
     enabled: true
 ```
 
-```
+```shell
 eksctl create cluster -f basic-node-repair.yaml
 ```
 
@@ -56,7 +55,7 @@ You can configure when node repair actions will stop using either percentage or 
 #### CLI flags for thresholds
 <a name="_cli_flags_for_thresholds"></a>
 
-```
+```shell
 # Percentage-based threshold - repair stops when 20% of nodes are unhealthy
 eksctl create cluster --enable-node-repair \
   --node-repair-max-unhealthy-percentage=20
@@ -69,7 +68,7 @@ eksctl create cluster --enable-node-repair \
 #### Configuration file for thresholds
 <a name="_configuration_file_for_thresholds"></a>
 
-```
+```yaml
 managedNodeGroups:
 - name: threshold-ng
   nodeRepairConfig:
@@ -89,7 +88,7 @@ Control the maximum number of nodes that can be repaired concurrently or in para
 #### CLI flags for parallel limits
 <a name="_cli_flags_for_parallel_limits"></a>
 
-```
+```shell
 # Percentage-based parallel limits - repair at most 15% of unhealthy nodes in parallel
 eksctl create cluster --enable-node-repair \
   --node-repair-max-parallel-percentage=15
@@ -102,7 +101,7 @@ eksctl create cluster --enable-node-repair \
 #### Configuration file for parallel limits
 <a name="_configuration_file_for_parallel_limits"></a>
 
-```
+```yaml
 managedNodeGroups:
 - name: parallel-ng
   nodeRepairConfig:
@@ -119,7 +118,7 @@ managedNodeGroups:
 
 Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. **If you use this, you must specify all the values for each override.** 
 
-```
+```yaml
 managedNodeGroups:
 - name: custom-repair-ng
   instanceType: g4dn.xlarge  # GPU instances
@@ -148,7 +147,7 @@ For a comprehensive example with all configuration options, see [examples/44-nod
 ### Example 1: Basic repair with percentage thresholds
 <a name="_example_1_basic_repair_with_percentage_thresholds"></a>
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -169,7 +168,7 @@ managedNodeGroups:
 ### Example 2: Conservative repair for critical workloads
 <a name="_example_2_conservative_repair_for_critical_workloads"></a>
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -197,7 +196,7 @@ managedNodeGroups:
 ### Example 3: GPU workload with specialized repair
 <a name="_example_3_gpu_workload_with_specialized_repair"></a>
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 

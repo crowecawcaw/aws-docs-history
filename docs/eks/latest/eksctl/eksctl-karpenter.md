@@ -1,13 +1,12 @@
 
 
 # Karpenter Support
-<a name="eksctl-karpenter"></a>
 
  `eksctl` provides support for adding [Karpenter](https://karpenter.sh/) to a newly created cluster. It will create all the necessary prerequisites outlined in Karpenter’s [Getting Started](https://karpenter.sh/docs/getting-started/) section including installing Karpenter itself using Helm. We currently support installing versions `0.28.0+`. See the [Karpenter compatibility](https://karpenter.sh/docs/upgrading/compatibility/) section for further details.
 
 The following cluster configuration outlines a typical Karpenter installation:
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -32,7 +31,7 @@ managedNodeGroups:
 
 The version is Karpenter’s version as it can be found in their Helm Repository. The following options are also available to be set:
 
-```
+```yaml
 karpenter:
   version: '1.2.1'
   createServiceAccount: true # default is false
@@ -46,7 +45,7 @@ Once Karpenter is successfully installed, add [NodePool(s)](https://karpenter.sh
 
 The NodePool’s `nodeClassRef` section must match the name of an `EC2NodeClass`. For example:
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -78,7 +77,7 @@ spec:
         name: example # must match the name of an EC2NodeClass
 ```
 
-```
+```yaml
 apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
 metadata:

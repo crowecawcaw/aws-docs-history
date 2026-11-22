@@ -1,7 +1,6 @@
 
 
 # Nodegroups
-<a name="nodegroups"></a>
 
 This chapter includes information about how you create and configure Nodegroups with Eksctl. Nodegroups are groups of EC2 instances attached to an EKS cluster.
 

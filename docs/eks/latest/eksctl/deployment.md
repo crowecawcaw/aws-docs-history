@@ -1,7 +1,6 @@
 
 
 # Deployment options
-<a name="deployment"></a>
 
 This chapter covers using eksctl to manage EKS clusters deployed to alternate environments.
 

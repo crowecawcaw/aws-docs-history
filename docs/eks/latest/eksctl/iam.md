@@ -1,7 +1,6 @@
 
 
 # IAM
-<a name="iam"></a>
 
 This chapter includes information about working with AWS IAM.
 

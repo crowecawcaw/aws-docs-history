@@ -1,7 +1,6 @@
 
 
 # VPC Configuration
-<a name="vpc-configuration"></a>
 
 ## Dedicated VPC for Cluster
 <a name="_dedicated_vpc_for_cluster"></a>
@@ -84,7 +83,7 @@ eksctl create cluster \
 
 or use the following equivalent config file:
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -120,7 +119,7 @@ eksctl create cluster \
 
 or use the following equivalent config file:
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -151,7 +150,7 @@ eksctl create cluster \
   --vpc-public-subnets=subnet-0153e560b3129a696,subnet-0cc9c5aebe75083fd,subnet-009fa0199ec203c37,subnet-018fa0176ba320e45
 ```
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -187,7 +186,7 @@ More examples can be found in the repo’s `examples` folder:
 
 If you wish to provide your own custom security group instead, you may override the `sharedNodeSecurityGroup` field in the config file:
 
-```
+```yaml
 vpc:
   sharedNodeSecurityGroup: sg-0123456789
 ```
@@ -196,7 +195,7 @@ By default, when creating the cluster, `eksctl` will add rules to this security 
 
 If you wish to manage the security group rules yourself, you may prevent `eksctl` from creating the rules by setting `manageSharedNodeSecurityGroupRules` to `false` in the config file:
 
-```
+```yaml
 vpc:
   sharedNodeSecurityGroup: sg-0123456789
   manageSharedNodeSecurityGroupRules: false
@@ -209,7 +208,7 @@ The NAT Gateway for a cluster can be configured to be `Disable`, `Single` (defau
 
 It can be specified through the `--vpc-nat-mode` CLI flag or in the cluster config file like the example below:
 
-```
+```yaml
 vpc:
   nat:
     gateway: HighlyAvailable # other options: Disable, Single (default)

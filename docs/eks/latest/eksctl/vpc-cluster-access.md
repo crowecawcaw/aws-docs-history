@@ -1,7 +1,6 @@
 
 
 # Cluster Access
-<a name="vpc-cluster-access"></a>
 
 ## Managing Access to the Kubernetes API Server Endpoints
 <a name="_managing_access_to_the_kubernetes_api_server_endpoints"></a>
@@ -10,7 +9,7 @@ By default, an EKS cluster exposes the Kubernetes API server publicly but not di
 
 The Kubernetes API server endpoint access for a cluster can be configured for public and private access when creating the cluster using the cluster config file. Example below:
 
-```
+```yaml
 vpc:
   clusterEndpoints:
     publicAccess:  <true|false>
@@ -29,13 +28,13 @@ There are some additional caveats when configuring Kubernetes API endpoint acces
 
 The following is an example of how one could configure the Kubernetes API endpoint access using the `utils` sub-command:
 
-```
+```console
 eksctl utils update-cluster-vpc-config --cluster=<clustername> --private-access=true --public-access=false
 ```
 
  **To update the setting using a `ClusterConfig` file, use:** 
 
-```
+```console
 eksctl utils update-cluster-vpc-config -f config.yaml --approve
 ```
 
@@ -50,20 +49,20 @@ This feature only applies to the public endpoint. The [API server endpoint acces
 
  **To restrict access to the public API endpoint to a set of CIDRs when creating a cluster, set the `publicAccessCIDRs` field:** 
 
-```
+```yaml
 vpc:
   publicAccessCIDRs: ["1.1.1.1/32", "2.2.2.0/24"]
 ```
 
  **To update the restrictions on an existing cluster, use:** 
 
-```
+```console
 eksctl utils update-cluster-vpc-config --cluster=<cluster> 1.1.1.1/32,2.2.2.0/24
 ```
 
  **To update the restrictions using a `ClusterConfig` file, set the new CIDRs in `vpc.publicAccessCIDRs` and run:** 
 
-```
+```console
 eksctl utils update-cluster-vpc-config -f config.yaml
 ```
 
@@ -74,13 +73,13 @@ If nodes cannot access the cluster API endpoint due to restricted access, cluste
 
  **To update both API server endpoint access and public access CIDRs for a cluster in a single command, run:** 
 
-```
+```console
 eksctl utils update-cluster-vpc-config --cluster=<cluster> --public-access=true --private-access=true --public-access-cidrs=1.1.1.1/32,2.2.2.0/24
 ```
 
  **To update the setting using a config file:** 
 
-```
+```yaml
 vpc:
   clusterEndpoints:
     publicAccess:  <true|false>
@@ -88,6 +87,6 @@ vpc:
   publicAccessCIDRs: ["1.1.1.1/32"]
 ```
 
-```
+```console
 eksctl utils update-cluster-vpc-config --cluster=<cluster> -f config.yaml
 ```

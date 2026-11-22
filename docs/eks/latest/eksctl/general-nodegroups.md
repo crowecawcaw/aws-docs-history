@@ -1,7 +1,6 @@
 
 
 # Work with node groups
-<a name="general-nodegroups"></a>
 
 ## Creating nodegroups
 <a name="_creating_nodegroups"></a>
@@ -30,7 +29,7 @@ eksctl create nodegroup --config-file=<path>
 
 Nodegroups can also be created through a cluster definition or config file. Given the following example config file and an existing cluster called `dev-cluster`:
 
-```
+```yaml
 # dev-cluster.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -56,7 +55,7 @@ managedNodeGroups:
 
 The nodegroups `ng-1-workers` and `ng-2-builders` can be created with this command:
 
-```
+```bash
 eksctl create nodegroup --config-file=dev-cluster.yaml
 ```
 
@@ -65,7 +64,7 @@ eksctl create nodegroup --config-file=dev-cluster.yaml
 
 If you have already prepared for attaching existing classic load balancers or/and target groups to the nodegroups, you can specify these in the config file. The classic load balancers or/and target groups are automatically associated with the ASG when creating nodegroups. This is only supported for self-managed nodegroups defined via the `nodeGroups` field.
 
-```
+```yaml
 # dev-cluster-with-lb.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -114,13 +113,13 @@ eksctl create nodegroup --config-file=<path> --include='ng-prod-*-??' --exclude=
 
 Using the example config file above, one can create all the workers nodegroup except the workers one with the following command:
 
-```
+```bash
 eksctl create nodegroup --config-file=dev-cluster.yaml --exclude=ng-1-workers
 ```
 
 Or one could delete the builders nodegroup with:
 
-```
+```bash
 eksctl delete nodegroup --config-file=dev-cluster.yaml --include=ng-2-builders --approve
 ```
 
@@ -138,13 +137,13 @@ In this case, we also need to supply the `--approve` command to actually delete 
 
 To list the details about a nodegroup or all of the nodegroups, use:
 
-```
+```bash
 eksctl get nodegroup --cluster=<clusterName> [--name=<nodegroupName>]
 ```
 
 To list one or more nodegroups in YAML or JSON format, which outputs more info than the default log table, use:
 
-```
+```bash
 # YAML format
 eksctl get nodegroup --cluster=<clusterName> [--name=<nodegroupName>] --output=yaml
 
@@ -247,7 +246,7 @@ eksctl create nodegroup --cluster=cluster-1 --node-labels="autoscaling=enabled,p
 
 There are no specific commands in `eksctl` to update the labels of a nodegroup, but it can easily be achieved using `kubectl`, e.g.:
 
-```
+```bash
 kubectl label nodes -l alpha.eksctl.io/nodegroup-name=ng-1 new-label=foo
 ```
 
@@ -256,7 +255,7 @@ kubectl label nodes -l alpha.eksctl.io/nodegroup-name=ng-1 new-label=foo
 
 You can enable SSH access for nodegroups by configuring one of `publicKey`, `publicKeyName` and `publicKeyPath` in your nodegroup configuration. Alternatively you can use [AWS Systems Manager (SSM)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli) to SSH onto nodes, by configuring the nodegroup with `enableSsm`:
 
-```
+```yaml
 managedNodeGroups:
   - name: ng-1
     instanceType: m5.large

@@ -1,7 +1,6 @@
 
 
 # IPv6 Support
-<a name="vpc-ip-family"></a>
 
 ## Define IP Family
 <a name="_define_ip_family"></a>
@@ -14,7 +13,7 @@ The default value is `IPv4`.
 
 To define it, use the following example:
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 

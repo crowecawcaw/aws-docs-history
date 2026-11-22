@@ -1,13 +1,12 @@
 
 
 # Custom DNS
-<a name="nodegroup-customize-dns"></a>
 
 There are two ways of overwriting the DNS server IP address used for all the internal and external DNS lookups. This is the equivalent of the `--cluster-dns` flag for the `kubelet`.
 
 The first, is through the `clusterDNS` field. Config files accepts a `string` field called `clusterDNS` with the IP address of the DNS server to use. This will be passed to the `kubelet` that in turn will pass it to the pods through the `/etc/resolv.conf` file. For more information, see the [schema](https://geoffcline.github.io/eksctl-schema-demo/) of the config file.
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -22,7 +21,7 @@ nodeGroups:
 
 Note that this configuration only accepts one IP address. To specify more than one address, use the [`kubeletExtraConfig` parameter](customizing-the-kubelet.md):
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 

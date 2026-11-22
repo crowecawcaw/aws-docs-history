@@ -1,7 +1,6 @@
 
 
 # Windows Worker Nodes
-<a name="windows-worker-nodes"></a>
 
 From version 1.14, Amazon EKS supports [Windows Nodes](https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html) that allow running Windows containers. In addition to having Windows nodes, a Linux node in the cluster is required to run CoreDNS, as Microsoft doesn’t support host-networking mode yet. Thus, a Windows EKS cluster will be a mixture of Windows nodes and at least one Linux node. The Linux nodes are critical to the functioning of the cluster, and thus, for a production-grade cluster, it’s recommended to have at least two `t2.large` Linux nodes for HA.
 
@@ -42,13 +41,13 @@ managedNodeGroups:
     maxSize: 3
 ```
 
-```
+```console
 eksctl create cluster -f cluster.yaml
 ```
 
 To create a new cluster with Windows un-managed nodegroup without using a config file, issue the following commands:
 
-```
+```console
 eksctl create cluster --managed=false --name=windows-cluster --node-ami-family=WindowsServer2019CoreContainer
 ```
 
@@ -59,21 +58,21 @@ To enable running Windows workloads on an existing cluster with Linux nodes (`Am
 
  **NEW** Support for Windows managed nodegroup has been added (--managed=true or omit the flag).
 
-```
+```console
 eksctl create nodegroup --managed=false --cluster=existing-cluster --node-ami-family=WindowsServer2019CoreContainer
 eksctl create nodegroup --cluster=existing-cluster --node-ami-family=WindowsServer2019CoreContainer
 ```
 
 To ensure workloads are scheduled on the right OS, they must have a `nodeSelector` targeting the OS it must run on:
 
-```
+```yaml
 # Targeting Windows
   nodeSelector:
     kubernetes.io/os: windows
     kubernetes.io/arch: amd64
 ```
 
-```
+```yaml
 # Targeting Linux
   nodeSelector:
     kubernetes.io/os: linux

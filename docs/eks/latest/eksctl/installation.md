@@ -1,7 +1,6 @@
 
 
 # Installation options for Eksctl
-<a name="installation"></a>
 
  `eksctl` is available to install from official releases as described below. We recommend that you install `eksctl` from only the official GitHub releases. You may opt to use a third-party installer, but please be advised that AWS does not maintain nor support these methods of installation. Use them at your own discretion.
 
@@ -32,7 +31,7 @@ The IAM account used for EKS cluster creation should have these minimal access l
 
 To download the latest release, run:
 
-```
+```sh
 # for ARM systems, set ARCH to: `arm64`
 ARCH=amd64
 PLATFORM=$(uname -s)_$ARCH
@@ -62,14 +61,14 @@ Optionally, verify the checksum:
 
 1. Use Command Prompt to manually compare `CertUtil`'s output to the checksum file downloaded.
 
-   ```
+   ```cmd
      REM Replace amd64 with arm64
      CertUtil -hashfile eksctl_Windows_amd64.zip SHA256
    ```
 
 1. Using PowerShell to automate the verification using the `-eq` operator to get a `True` or `False` result:
 
-   ```
+   ```pwsh
    # Replace amd64 with arm64
     (Get-FileHash -Algorithm SHA256 .\eksctl_Windows_amd64.zip).Hash -eq ((Get-Content .\eksctl_checksums.txt) -match 'eksctl_Windows_amd64.zip' -split ' ')[0]
    ```
@@ -77,7 +76,7 @@ Optionally, verify the checksum:
 ### Using Git Bash:
 <a name="_using_git_bash"></a>
 
-```
+```sh
 # for ARM systems, set ARCH to: `arm64`
 ARCH=amd64
 PLATFORM=windows_$ARCH
@@ -124,7 +123,7 @@ For more information about the Homebrew tap, see the [project on Github](https:/
 
 For every release and RC a container image is pushed to ECR repository `public.ecr.aws/eksctl/eksctl`. Learn more about the usage on [ECR Public Gallery - eksctl](https://gallery.ecr.aws/eksctl/eksctl). For example,
 
-```
+```bash
 docker run --rm -it public.ecr.aws/eksctl/eksctl version
 ```
 

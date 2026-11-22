@@ -1,7 +1,6 @@
 
 
 # ARM Support
-<a name="arm-support"></a>
 
 This topic covers how to create a cluster with an ARM node group, and how to add an ARM node group to an existing cluster.
 

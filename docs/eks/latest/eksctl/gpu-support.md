@@ -1,7 +1,6 @@
 
 
 # GPU Support
-<a name="gpu-support"></a>
 
 Eksctl supports selecting GPU instance types for nodegroups. Simply supply a compatible instance type to the create command, or via the config file.
 

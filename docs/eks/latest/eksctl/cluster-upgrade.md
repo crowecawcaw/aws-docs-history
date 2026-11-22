@@ -1,7 +1,6 @@
 
 
 # Cluster upgrades
-<a name="cluster-upgrade"></a>
 
 An *`eksctl`-managed* cluster can be upgraded in 3 easy steps:
 

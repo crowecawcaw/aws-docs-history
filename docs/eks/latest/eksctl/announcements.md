@@ -1,7 +1,6 @@
 
 
 # Announcements
-<a name="announcements"></a>
 
 This topic covers past annoucements of new Eksctl features.
 
@@ -19,7 +18,7 @@ We still provide a helper\! Migrating hopefully is not that painful. `eksctl` st
 
 The following environment properties will be at your disposal:
 
-```
+```bash
 API_SERVER_URL
 B64_CLUSTER_CA
 INSTANCE_ID
@@ -35,7 +34,7 @@ KUBELET_EXTRA_ARGS # for details, look at the script
 
 The minimum that needs to be used when overriding so `eksctl` doesn’t fail, is labels\! `eksctl` relies on a specific set of labels to be on the node, so it can find them. When defining the override, please provide this **bare minimum** override command:
 
-```
+```yaml
     overrideBootstrapCommand: |
       #!/bin/bash
 
@@ -47,7 +46,7 @@ The minimum that needs to be used when overriding so `eksctl` doesn’t fail, is
 
 For nodegroups that have no outbound internet access, you’ll need to supply `--apiserver-endpoint` and `--b64-cluster-ca` to the bootstrap script as follows:
 
-```
+```yaml
     overrideBootstrapCommand: |
       #!/bin/bash
 

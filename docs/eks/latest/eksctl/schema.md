@@ -1,7 +1,6 @@
 
 
 # Cluster Config Schema
-<a name="schema"></a>
 
 **Note**  
 The location of the schema is currently being migrated.

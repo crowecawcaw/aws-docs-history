@@ -1,7 +1,6 @@
 
 
 # KMS Envelope Encryption for EKS clusters
-<a name="kms-encryption"></a>
 
 **Note**  
 Amazon Elastic Kubernetes Service (Amazon EKS) provides default envelope encryption for all Kubernetes API data in EKS clusters running Kubernetes version 1.28 or higher. For more information, see [Default envelope encryption for all Kubernetes API Data](https://docs.aws.amazon.com/eks/latest/userguide/envelope-encryption.html) in the *EKS User Guide*.
@@ -15,7 +14,7 @@ Read more about Using EKS encryption provider support for defense-in-depth post 
 ## Creating a cluster with KMS encryption enabled
 <a name="_creating_a_cluster_with_kms_encryption_enabled"></a>
 
-```
+```yaml
 # kms-cluster.yaml
 # A cluster with KMS encryption enabled
 ---
@@ -35,7 +34,7 @@ secretsEncryption:
   keyARN: arn:aws:kms:us-west-2:<account>:key/<key>
 ```
 
-```
+```shell
 eksctl create cluster -f kms-cluster.yaml
 ```
 
@@ -44,19 +43,19 @@ eksctl create cluster -f kms-cluster.yaml
 
 To enable KMS encryption on a cluster that doesn’t already have it enabled, run
 
-```
+```shell
 eksctl utils enable-secrets-encryption -f kms-cluster.yaml
 ```
 
 or without a config file:
 
-```
+```shell
 eksctl utils enable-secrets-encryption --cluster=kms-cluster --key-arn=arn:aws:kms:us-west-2:<account>:key/<key> --region=<region>
 ```
 
 In addition to enabling KMS encryption on the EKS cluster, eksctl also re-encrypts all existing Kubernetes secrets using the new KMS key by updating them with the annotation `eksctl.io/kms-encryption-timestamp`. This behaviour can be disabled by passing `--encrypt-existing-secrets=false`, as in:
 
-```
+```shell
 eksctl utils enable-secrets-encryption --cluster=kms-cluster --key-arn=arn:aws:kms:us-west-2:<account>:key/<key> --encrypt-existing-secrets=false --region=<region>
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial
-<a name="tutorial"></a>
 
 This topic walks you through installing and configuring eksctl, then using it to create an Amazon EKS cluster.
 
@@ -61,7 +60,7 @@ Create a cluster configuration file using these steps:
 
 1. Add the following basic cluster configuration:
 
-   ```
+   ```yaml
    apiVersion: eksctl.io/v1alpha5
    kind: ClusterConfig
    

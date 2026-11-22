@@ -1,7 +1,6 @@
 
 
 # Minimum IAM policies
-<a name="minimum-iam-policies"></a>
 
 This document describes the minimum IAM policies needed to run the main use cases of eksctl. These are the ones used to run the integration tests.
 
@@ -21,7 +20,7 @@ An AWS Managed Policy is created and administered by AWS. You cannot change the 
 
  **EksAllAccess** 
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -62,7 +61,7 @@ An AWS Managed Policy is created and administered by AWS. You cannot change the 
 
  **IamLimitedAccess** 
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

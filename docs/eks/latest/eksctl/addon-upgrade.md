@@ -1,7 +1,6 @@
 
 
 # Default add-on updates
-<a name="addon-upgrade"></a>
 
 This topic explains how to update the default pre-installed add-ons that are included on EKS clusters.
 

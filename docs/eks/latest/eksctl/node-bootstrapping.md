@@ -1,7 +1,6 @@
 
 
 # Node bootstrapping
-<a name="node-bootstrapping"></a>
 
 ## AmazonLinux2023
 <a name="_amazonlinux2023"></a>
@@ -16,7 +15,7 @@ With Kubernetes versions 1.30 and above, Amazon Linux 2023 is the default OS.
 
 For self-managed nodes and EKS-managed nodes based on custom AMIs, `eksctl` creates a default, minimal, `NodeConfig` and automatically injects it into the nodegroups’s launch template userdata. i.e.
 
-```
+```yaml
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary=//
 
@@ -49,7 +48,7 @@ For EKS-managed nodes based on native AMIs, the default `NodeConfig` is being ad
 
 To set advanced properties of `NodeConfig`, or simply override the default values, eksctl allows you to specify a custom `NodeConfig` via `nodeGroup.overrideBootstrapCommand` or `managedNodeGroup.overrideBootstrapCommand` e.g.
 
-```
+```yaml
 managedNodeGroups:
   - name: mng-1
     amiFamily: AmazonLinux2023

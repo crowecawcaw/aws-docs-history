@@ -1,7 +1,6 @@
 
 
 # Custom AMI support
-<a name="custom-ami-support"></a>
 
 ## Setting the node AMI ID
 <a name="_setting_the_node_ami_id"></a>
@@ -23,7 +22,7 @@ When setting `--node-ami` to an ID string, `eksctl` will assume that a custom AM
 
 CLI flag examples:
 
-```
+```sh
 eksctl create cluster --node-ami=auto
 
 # with a custom ami id
@@ -32,7 +31,7 @@ eksctl create cluster --node-ami=ami-custom1234
 
 Config file example:
 
-```
+```yaml
 nodeGroups:
   - name: ng1
     instanceType: p2.xlarge
@@ -78,13 +77,13 @@ The `--node-ami-family` can take following keywords:
 
 CLI flag example:
 
-```
+```sh
 eksctl create cluster --node-ami-family=AmazonLinux2
 ```
 
 Config file example:
 
-```
+```yaml
 nodeGroups:
   - name: ng1
     instanceType: m5.large
@@ -121,7 +120,7 @@ $ContainerRuntime
 
 Config file example:
 
-```
+```yaml
 nodeGroups:
   - name: custom-windows
     amiFamily: WindowsServer2022FullContainer
@@ -135,7 +134,7 @@ nodeGroups:
 
 For Bottlerocket nodes, the `overrideBootstrapCommand` is not supported. Instead, to designate their own bootstrap container, one should use the `bottlerocket` field as part of the configuration file. E.g.
 
-```
+```yaml
   nodeGroups:
   - name: bottlerocket-ng
     ami: ami-custom1234

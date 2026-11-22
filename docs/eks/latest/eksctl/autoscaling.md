@@ -1,14 +1,13 @@
 
 
 # Auto Scaling
-<a name="autoscaling"></a>
 
 ## Enable Auto Scaling
 <a name="_enable_auto_scaling"></a>
 
 You can create a cluster (or nodegroup in an existing cluster) with IAM role that will allow use of [cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md):
 
-```
+```console
 eksctl create cluster --asg-access
 ```
 
@@ -18,7 +17,7 @@ Once the cluster is running, you will need to install [Cluster Autoscaler](https
 
 You should also add the following to your managed or unmanaged nodegroup definition(s) to add the tags required for the Cluster Autoscaler to scale the nodegroup:
 
-```
+```yaml
 nodeGroups:
   - name: ng1-public
     iam:
@@ -33,7 +32,7 @@ If you would like to be able to scale your node group up from 0 and you have lab
 
 One way to do this is by setting the ASG tags in the `tags` field of your nodegroup definitions. For example, given a nodegroup with the following labels and taints:
 
-```
+```yaml
 nodeGroups:
   - name: ng1-public
     ...
@@ -47,7 +46,7 @@ nodeGroups:
 
 You would need to add the following ASG tags:
 
-```
+```yaml
 nodeGroups:
   - name: ng1-public
     ...
@@ -62,7 +61,7 @@ nodeGroups:
 
 For both managed and unmanaged nodegroups, this can be done automatically by setting `propagateASGTags` to `true`, which will add the labels and taints as tags to the Auto Scaling group:
 
-```
+```yaml
 nodeGroups:
   - name: ng1-public
     ...
@@ -90,7 +89,7 @@ If you meet all of the above requirements (and possibly others) then you should 
 
 BEFORE:
 
-```
+```yaml
 nodeGroups:
   - name: ng1-public
     instanceType: m5.xlarge
@@ -99,7 +98,7 @@ nodeGroups:
 
 AFTER:
 
-```
+```yaml
 nodeGroups:
   - name: ng1-public-2a
     instanceType: m5.xlarge

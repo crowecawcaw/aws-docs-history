@@ -1,7 +1,6 @@
 
 
 # AWS Outposts Support
-<a name="outposts"></a>
 
 **Warning**  
 EKS Managed Nodegroups are not supported on Outposts.
@@ -11,7 +10,7 @@ EKS Managed Nodegroups are not supported on Outposts.
 
 You can extend an existing EKS cluster running in an AWS region to AWS Outposts by setting `nodeGroup.outpostARN` for new nodegroups to create nodegroups on Outposts, as in:
 
-```
+```yaml
 # extended-cluster.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -31,7 +30,7 @@ nodeGroups:
     outpostARN: "arn:aws:outposts:us-west-2:1234:outpost/op-1234"
 ```
 
-```
+```shell
 eksctl create nodegroup -f extended-cluster.yaml
 ```
 
@@ -39,7 +38,7 @@ In this setup, the EKS control plane runs in an AWS region while nodegroups with
 
 Customers with a pre-existing VPC are required to create the subnets on Outposts and pass them in `nodeGroup.subnets`, as in:
 
-```
+```yaml
 # extended-cluster-vpc.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -81,7 +80,7 @@ Only Amazon Linux 2 is supported for nodegroups when the control plane is on Out
 
 To create the EKS control plane and nodegroups on AWS Outposts, set `outpost.controlPlaneOutpostARN` to the Outpost ARN, as in:
 
-```
+```yaml
 # outpost.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -98,13 +97,13 @@ outpost:
   controlPlaneInstanceType: m5d.large
 ```
 
-```
+```shell
 eksctl create cluster -f outpost.yaml
 ```
 
 This instructs eksctl to create the EKS control plane and subnets on the specified Outpost. Since an Outposts rack exists in a single availability zone, eksctl creates only one public and private subnet. eksctl does not associate the created VPC with a [local gateway](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html) and, as such, eksctl will lack connectivity to the API server and will be unable to create nodegroups. Therefore, if the `ClusterConfig` contains any nodegroups during cluster creation, the command must be run with `--without-nodegroup`, as in:
 
-```
+```shell
 eksctl create cluster -f outpost.yaml --without-nodegroup
 ```
 
@@ -114,7 +113,7 @@ You can optionally specify the instance type for the control plane nodes in `out
 
 When the control plane is on Outposts, nodegroups are created on that Outpost. You can optionally specify the Outpost ARN for the nodegroup in `nodeGroup.outpostARN` but it must match the control plane’s Outpost ARN.
 
-```
+```yaml
 # outpost-fully-private.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -134,7 +133,7 @@ outpost:
   controlPlaneInstanceType: m5d.large
 ```
 
-```
+```yaml
 # outpost.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -159,7 +158,7 @@ outpost:
 
 Customers with an existing VPC can create local clusters on AWS Outposts by specifying the subnet configuration in `vpc.subnets`, as in:
 
-```
+```yaml
 # outpost-existing-vpc.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -187,7 +186,7 @@ outpost:
     controlPlaneInstanceType: m5d.large
 ```
 
-```
+```shell
 eksctl create cluster -f outpost-existing-vpc.yaml
 ```
 

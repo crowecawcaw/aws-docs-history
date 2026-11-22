@@ -1,7 +1,6 @@
 
 
 # Eksctl FAQ
-<a name="faq"></a>
 
 ## General
 <a name="_general"></a>
@@ -23,7 +22,7 @@ To change the instance type, create a new nodegroup with the desired instance ty
 
 First you’ll need the name of the Cloudformation stack that manages the nodegroup:
 
-```
+```console
 eksctl utils describe-stacks --region=us-west-2 --cluster NAME
 ```
 
@@ -31,7 +30,7 @@ You’ll see a name similar to `eksctl-CLUSTER_NAME-nodegroup-NODEGROUP_NAME`.
 
 You can execute the following to get the userdata. Note the final line which decodes from base64 and decompresses the gzipped data.
 
-```
+```bash
 NG_STACK=eksctl-scrumptious-monster-1595247364-nodegroup-ng-29b8862f # your stack here
 LAUNCH_TEMPLATE_ID=$(aws cloudformation describe-stack-resources --stack-name $NG_STACK \
 | jq -r '.StackResources | map(select(.LogicalResourceId == "NodeGroupLaunchTemplate") \

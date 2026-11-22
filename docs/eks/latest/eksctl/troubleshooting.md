@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This topic includes instructions on how to resolve common errors with Eksctl.
 
@@ -15,7 +14,7 @@ You can use the `--cfn-disable-rollback` flag to stop Cloudformation from rollin
 
 Given a config file specifying subnets for a VPC like the following:
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -39,7 +38,7 @@ An error `subnet ID "subnet-11111111" is not the same as "subnet-22222222"` mean
 
 In this example, the correct configuration for the VPC would be:
 
-```
+```yaml
 vpc:
   subnets:
     public:

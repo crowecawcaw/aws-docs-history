@@ -1,7 +1,6 @@
 
 
 # Custom subnets
-<a name="nodegroup-with-custom-subnet"></a>
 
 It’s possible to extend an existing VPC with a new subnet and add a Nodegroup to that subnet.
 
@@ -15,7 +14,7 @@ Should the cluster run out of pre-configured IPs, it’s possible to resize the 
 
 Go to the VPC’s configuration and add click on Actions->Edit CIDRs and add a new range. For example:
 
-```
+```diff
 192.168.0.0/19 -> existing CIDR
 + 192.169.0.0/19 -> new CIDR
 ```
@@ -33,7 +32,7 @@ When finished, copy the new subnet’s ID. Repeat as often as necessary.
 
 To create a nodegroup in the created subnet(s) run the following command:
 
-```
+```bash
 eksctl create nodegroup --cluster <cluster-name> --name my-new-subnet --subnet-ids subnet-0edeb3a04bec27141,subnet-0edeb3a04bec27142,subnet-0edeb3a04bec27143
 # or for a single subnet id
 eksctl create nodegroup --cluster <cluster-name> --name my-new-subnet --subnet-ids subnet-0edeb3a04bec27141
@@ -47,7 +46,7 @@ eksctl create nodegroup -f cluster-managed.yaml
 
 With a configuration like this:
 
-```
+```yaml
 # A simple example of ClusterConfig object with two nodegroups:
 ---
 apiVersion: eksctl.io/v1alpha5
