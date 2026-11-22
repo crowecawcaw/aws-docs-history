@@ -1,7 +1,6 @@
 
 
 # Guest 360 Data Platform for Lodging
-<a name="guest-360-data-platform-lodging"></a>
 
 Publication date: **November 16, 2020 ([Diagram history](#g360-history))**
 
