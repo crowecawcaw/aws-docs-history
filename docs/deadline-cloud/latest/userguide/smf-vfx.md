@@ -1,7 +1,6 @@
 
 
 # VFX Reference Platform compatibility
-<a name="smf-vfx"></a>
 
 The VFX Reference Platform is a common target platform for the VFX industry. To use the standard service-managed fleet Amazon EC2 instance running Amazon Linux 2023 with software that supports the VFX Reference Platform, review the following considerations when using a service-managed fleet.
 

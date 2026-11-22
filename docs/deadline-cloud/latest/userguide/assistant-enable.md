@@ -1,7 +1,6 @@
 
 
 # Enabling the Deadline Cloud assistant
-<a name="assistant-enable"></a>
 
 Only Deadline Cloud administrators can enable or disable the assistant. The assistant is disabled by default.
 

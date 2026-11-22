@@ -1,7 +1,6 @@
 
 
 # Explore the Deadline Cloud monitor in demo mode
-<a name="monitor-demo-mode"></a>
 
 The AWS Deadline Cloud monitor (Deadline Cloud monitor) has a demo mode that fills the web monitor with sample data, so you can explore the monitor without signing in or creating any AWS resources. To start, open the [Deadline Cloud monitor demo](https://_demo.us-east-1.deadlinecloud.amazonaws.com/?demo=moonrise).
 

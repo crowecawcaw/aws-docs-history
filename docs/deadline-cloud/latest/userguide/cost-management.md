@@ -1,7 +1,6 @@
 
 
 # Understand estimated and actual costs for Deadline Cloud
-<a name="cost-management"></a>
 
 AWS Deadline Cloud budgets and the usage explorer estimate costs for your jobs. The estimates don't guarantee the amount that you owe for Deadline Cloud or other AWS services. Your actual bill can differ because of calculation limitations and charges from connected AWS services.
 
@@ -66,6 +65,7 @@ The following table maps each cost to when you incur it and where it appears on 
 | Cost | When you incur it | Appears on your bill as | 
 | --- | --- | --- | 
 | [Storage costs](#costs-storage) | When you submit jobs that upload job attachments, and for as long as assets, job attachments, output, and exported logs stay stored. | [Amazon Simple Storage Service](https://aws.amazon.com/s3/pricing/) | 
+| [Data transfer costs](#costs-data-transfer) | When you download job output, when workers outside the farm's AWS Region download input files, and when data moves between Regions. | Data transfer for [Amazon Simple Storage Service](https://aws.amazon.com/s3/pricing/) and [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/pricing/on-demand/) | 
 | [Compute costs](#costs-compute) | While workers in an EC2-backed customer-managed fleet run on instances that you own. | [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/pricing/) | 
 | [Logging costs](#costs-logging) | When workers send task and worker logs, and for as long as those logs stay stored. | [Amazon CloudWatch Logs](https://aws.amazon.com/cloudwatch/pricing/) | 
 | [PrivateLink costs](#costs-endpoints) | Per hour, for each PrivateLink interface endpoint or usage-based licensing endpoint, for as long as the endpoint exists—even when it's idle. | [AWS PrivateLink](https://aws.amazon.com/privatelink/pricing/) and [Amazon Virtual Private Cloud](https://aws.amazon.com/vpc/pricing/) | 
@@ -82,6 +82,34 @@ Job attachments use content-addressable storage. If an unchanged file is already
 To reduce storage costs, reduce the amount of data that you store:
 + Only store assets that are currently in use or that will be used shortly. 
 + Use an [S3 Lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html) to automatically delete unused files from an S3 bucket.
+
+### Data transfer costs
+<a name="costs-data-transfer"></a>
+
+Most data transfer charges come from data that leaves an AWS Region, to the internet or to another Region. Data that moves into AWS from the internet carries no data transfer charge. Data that moves between Amazon S3 and compute in the same Region also carries no charge. AWS does charge for data that customer-managed fleet workers on Amazon EC2 instances exchange with shared storage in a different Availability Zone of the same Region. The Deadline Cloud cost management tools don't track data transfer charges.
+
+The following table shows which Deadline Cloud transfers incur a data transfer charge.
+
+
+| Transfer | Data transfer charge | 
+| --- | --- | 
+| Job attachments upload from a workstation or an on-premises worker | None. AWS doesn't charge for data that moves into AWS from the internet. | 
+| Service-managed fleet workers | None. A service-managed fleet requires the job attachments bucket to be in the farm's Region, so the transfers stay in the Region. | 
+| Output download to a workstation, in the monitor or with the CLI | Charged as data transfer out to the internet, at the rate for the bucket's Region. | 
+| Customer-managed fleet workers outside AWS | Input file downloads are charged as data transfer out to the internet. AWS doesn't charge for output uploads. | 
+| Customer-managed fleet workers on Amazon EC2 instances in the farm's Region | None for the Amazon S3 transfers. A NAT gateway charges for the data that it processes, so give the workers' VPC a gateway endpoint for Amazon S3. | 
+| Customer-managed fleet workers on Amazon EC2 instances in a different Region | Charged as data transfer between Regions, in both directions. | 
+
+API calls for job submission, scheduling, and monitoring transfer little data, so they contribute little to data transfer costs.
+
+To reduce data transfer costs, consider the following guidelines:
++ Keep the job attachments bucket in the farm's Region for queues that only customer-managed fleets use, so that workers on Amazon EC2 instances in that Region transfer files without a charge.
++ Download only the job output that you need.
++ Run customer-managed fleet workers in the farm's Region, or have them read assets from shared storage on their own network.
++ For customer-managed fleet workers on Amazon EC2 instances, route Amazon S3 traffic through a gateway endpoint instead of a NAT gateway. For more information, see [Gateway endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html) in the *AWS PrivateLink Guide*.
++ If you move large volumes of data between your site and AWS, consider Direct Connect. It has lower data transfer out rates than the internet. It also has an hourly port charge. For more information, see [Direct Connect pricing](https://aws.amazon.com/directconnect/pricing/).
+
+For more information about choosing a Region with data transfer costs in mind, see [How Region choice affects data transfer costs](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/multi-region.html#multi-region-data-transfer) in the *Deadline Cloud Developer Guide*.
 
 ### Compute costs
 <a name="costs-compute"></a><a name="best-practice-ec2"></a>

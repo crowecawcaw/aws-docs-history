@@ -1,7 +1,6 @@
 
 
 # Maxon Cinema 4D
-<a name="maxon-cinema-4d"></a>
 
 Cinema 4D is a professional 3D animation, modeling, simulation, and rendering software solution from Maxon. Cinema 4D is supported by AWS Deadline Cloud (Deadline Cloud) including a submitter, conda packages, usage-based licensing, and an adaptor for improved performance. This guide walks you through using Deadline Cloud with Cinema 4D - from installation to your first successful render.
 
@@ -318,14 +317,14 @@ The Redshift logs are output in HTML format and include timestamps at the start 
 
 1. Run the cleanup script with the log file path:
 
-   ```
+   ```bash
    cd deadline-cloud-for-cinema-4d/scripts
    python clean_redshift_detailed_logs.py /path/to/detailed_logs.log
    ```
 
    Or run it without arguments and enter the path when prompted:
 
-   ```
+   ```bash
    python clean_redshift_detailed_logs.py
    ```
 

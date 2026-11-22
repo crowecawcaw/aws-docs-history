@@ -1,7 +1,6 @@
 
 
 # Service quotas and throttling for Deadline Cloud
-<a name="deadline-cloud-quotas"></a>
 
 AWS Deadline Cloud provides resources, such as farms, fleets, and queues, that you can use to process jobs. When you create your AWS account, we set default quotas on these resources for each AWS Region. Deadline Cloud also limits the rate of API requests. For more information, see [API request throttling](#deadline-cloud-throttling).
 

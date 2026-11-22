@@ -1,7 +1,6 @@
 
 
 # Autodesk VRED
-<a name="autodesk-vred"></a>
 
 Autodesk VRED is a professional 3D visualization and virtual prototyping software that brings complex 3D data to life in a realistic virtual environment. VRED is widely used by designers and engineers to create product presentations, design reviews, and virtual prototypes, particularly in the automotive industry. Use this guide to render with Deadline Cloud and Autodesk VRED by distributing tasks across multiple machines.
 
@@ -97,7 +96,7 @@ The Autodesk VRED submitter plugin allows you to submit jobs to Deadline Cloud d
 
 1. In the Script section, add the following text to the end of the section:
 
-   ```
+   ```python
    from DeadlineCloudForVRED import DeadlineCloudForVRED
    DeadlineCloudForVRED()
    ```

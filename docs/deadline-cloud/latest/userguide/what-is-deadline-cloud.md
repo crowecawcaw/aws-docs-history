@@ -1,7 +1,6 @@
 
 
 # What is AWS Deadline Cloud?
-<a name="what-is-deadline-cloud"></a>
 
 Deadline Cloud is an AWS service you can use to create and manage compute-intensive workloads on Amazon Elastic Compute Cloud (Amazon EC2) instances. Deadline Cloud orchestrates workloads ranging from 3D rendering and visual effects to scientific simulations, financial modeling, machine learning model training, and data processing—any task that benefits from distributing work across a fleet of workers.
 

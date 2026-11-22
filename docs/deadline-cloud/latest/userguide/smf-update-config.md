@@ -1,7 +1,6 @@
 
 
 # Update a fleet configuration
-<a name="smf-update-config"></a>
 
 You can change a fleet's configuration from the Deadline Cloud console. For example, you can change the fleet's instance types and worker capabilities. You can also use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) API operation.
 

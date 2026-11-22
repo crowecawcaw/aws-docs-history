@@ -1,7 +1,6 @@
 
 
 # Understand the cost model for service-managed fleets
-<a name="cost-model-smf"></a>
 
 AWS Deadline Cloud service-managed fleets (SMFs) with job attachments have a fundamentally different cost structure than traditional on-premises render farms or customer-managed fleets that use network file systems. Understanding this difference helps you plan budgets, optimize spending, and take advantage of elastic scaling without unexpected costs.
 

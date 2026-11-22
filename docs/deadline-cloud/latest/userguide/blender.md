@@ -1,7 +1,6 @@
 
 
 # Blender
-<a name="blender"></a>
 
 Blender is a free and open-source 3D computer graphics software toolset used for creating animated films, visual effects, art, 3D printed models, motion graphics, interactive 3D applications, virtual reality, and computer games. Blender is supported by AWS Deadline Cloud (Deadline Cloud) with comprehensive integration including submitters, conda packages, and an adaptor for increased rendering performance. This guide provides step-by-step instructions for using Deadline Cloud with Blender to render your projects faster by distributing rendering tasks across multiple machines.
 

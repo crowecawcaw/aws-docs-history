@@ -1,7 +1,6 @@
 
 
 # Deadline Cloud assistant
-<a name="deadline-cloud-assistant"></a>
 
 The Deadline Cloud assistant is an AI-powered troubleshooting tool built into the Deadline Cloud monitor. It uses generative AI through Amazon Bedrock to help you diagnose render job failures by analyzing job configurations, task statuses, session logs, and CloudWatch data. The assistant runs in your browser and provides intelligent root cause analysis with actionable recommendations.
 

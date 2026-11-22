@@ -1,7 +1,6 @@
 
 
 # Job attachments in Deadline Cloud
-<a name="storage-job-attachments"></a>
 
 With *job attachments* you can transfer files back and forth between your workstation and AWS Deadline Cloud. With job attachments, you don't need to manually set up an Amazon S3 bucket for your files. Instead, when you create a queue with the Deadline Cloud console, you choose the bucket for your job attachments. 
 
@@ -42,7 +41,7 @@ Next, complete the following procedure.
 
 1. Copy and paste the following policy into the editor. Change the {{`Region`}}``, {{`accountID`}}, and {{`keyID`}}`` to your own values.
 
-   ```
+   ```json
    {
       "Effect": "Allow",
       "Action": [

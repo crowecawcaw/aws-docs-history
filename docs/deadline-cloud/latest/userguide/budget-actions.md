@@ -1,7 +1,6 @@
 
 
 # How budget actions affect running and new work
-<a name="budget-actions"></a>
 
 When spending against a budget reaches a limit you set, Deadline Cloud applies the action that you chose for that limit. Both actions stop the queue from scheduling new tasks. They differ in what happens to tasks that are already running on workers:
 

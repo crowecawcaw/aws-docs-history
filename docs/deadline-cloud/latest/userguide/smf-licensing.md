@@ -1,7 +1,6 @@
 
 
 # Software licensing for service-managed fleets
-<a name="smf-licensing"></a>
 
 Deadline Cloud provides usage-based licensing (UBL) for commonly used software packages. Supported software packages are automatically licensed when they run on a service-managed fleet. You don't need to configure or maintain a software license server. Licenses scale so you won't run out for larger jobs. 
 

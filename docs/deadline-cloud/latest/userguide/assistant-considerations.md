@@ -1,7 +1,6 @@
 
 
 # Important considerations
-<a name="assistant-considerations"></a>
 
 Before you use the Deadline Cloud assistant, be aware of the following considerations about AI-generated content and data handling:
 + **AI-generated responses** – The assistant uses generative AI to produce responses. As with any generative AI, responses might be inaccurate, incomplete, or outdated. Always verify recommendations before making changes to your environment.

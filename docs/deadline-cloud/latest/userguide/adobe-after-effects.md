@@ -1,7 +1,6 @@
 
 
 # Adobe After Effects
-<a name="adobe-after-effects"></a>
 
 Adobe After Effects is a professional digital visual effects, motion graphics, and compositing application. After Effects is fully supported by Deadline Cloud with comprehensive integration including submitters and conda packages for increased rendering performance. This guide provides step-by-step instructions for using AWS Deadline Cloud with After Effects to render your projects faster by distributing rendering tasks across multiple machines.
 

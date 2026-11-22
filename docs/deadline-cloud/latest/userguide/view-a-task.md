@@ -1,7 +1,6 @@
 
 
 # View a task in Deadline Cloud
-<a name="view-a-task"></a>
 
 Use the AWS Deadline Cloud monitor to view the tasks in your processing jobs. In the **Job monitor**, the **Tasks** list shows the tasks that make up the step selected in the **Steps** list. 
 

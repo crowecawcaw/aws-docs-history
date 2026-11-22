@@ -1,7 +1,6 @@
 
 
 # Automatic downloads
-<a name="auto-downloads"></a>
 
 The Deadline CLI provides a command to download the output of all tasks in a queue that completed since the last time the same command ran. You can configure this as a cron job or scheduled task to run repeatedly. This configuration sets up automatic downloading of output on a continuous basis.
 
@@ -42,7 +41,7 @@ For more details, see [Best practices for managing AWS access keys in the *AWS G
 
 ****  
 
-   ```
+   ```json
    {
                       "Version":"2012-10-17",		 	 	 
                       "Statement": [

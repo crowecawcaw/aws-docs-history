@@ -1,7 +1,6 @@
 
 
 # Control costs with a budget
-<a name="using-budget-manager"></a>
 
 The Deadline Cloud budget manager helps you control spending on a queue. You can create budget amounts and limits, and set automated actions to help reduce or stop additional spending against the budget. Each budget tracks the estimated cost of one queue, so you can give each project, department, or vendor its own queue and its own spending cap.
 

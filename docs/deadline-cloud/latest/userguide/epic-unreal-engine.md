@@ -1,7 +1,6 @@
 
 
 # Epic Unreal Engine
-<a name="epic-unreal-engine"></a>
 
 Unreal Engine is a real-time 3D creation tool for photoreal visuals and immersive experiences. Unreal Engine is supported by Deadline Cloud with submitters, conda packages, and an adaptor for increased rendering performance. This guide provides step-by-step instructions for using Deadline Cloud with Unreal Engine to render your Movie Render Queue projects faster by distributing rendering tasks across multiple machines.
 
@@ -133,7 +132,7 @@ Deadline Cloud monitor is used to both manage your credentials for submitting jo
 
 Clone or download `deadline-cloud-for-unreal-engine` from either the release branch or mainline, depending on whether you want the most recent tested release or all of the most recent commits.
 
-```
+```bash
 git clone https://github.com/aws-deadline/deadline-cloud-for-unreal-engine.git
 cd deadline-cloud-for-unreal-engine
 git switch release
@@ -144,13 +143,13 @@ git switch release
 
 A helper script at `scripts/build_plugin.py` optionally automates the next two steps. It attempts to find the latest version of Unreal, builds your plugin and Python dependencies, and installs them in the correct locations. You can override settings such as the Unreal version. To see the full help list, run:
 
-```
+```bash
 python scripts/build_plugin.py -h
 ```
 
 To build and install your current copy of `deadline-cloud-for-unreal-engine` as a submitter with the latest Unreal Engine installation, run:
 
-```
+```bash
 python scripts/build_plugin.py --install
 ```
 
@@ -163,7 +162,7 @@ Adjust the first two paths below based on where your installation of Unreal live
 
 From the Unreal Install Batchfiles folder (the `package` parameter can be any new directory, however you'll want it to be called `UnrealDeadlineCloudService` later):
 
-```
+```bash
 cd C:\Program Files\Epic Games\UE_5.5\Engine\Build\BatchFiles
 runuat.bat BuildPlugin -plugin="C:\deadline\deadline-cloud-for-unreal-engine\src\unreal_plugin\UnrealDeadlineCloudService.uplugin" -package="C:\UnrealDeadlineCloudService"
 ```
@@ -183,7 +182,7 @@ There are 4 ways to install the required Python dependencies.
 
 2. Alternatively in your `.uplugin` file (in the above steps this would live at `C:\Program Files\Epic Games\UE_5.5\Engine\Plugins\UnrealDeadlineCloudService\UnrealDeadlineCloudService.uplugin`) you can add a `PythonRequirements` section which matches the latest release of `deadline-cloud-for-unreal-engine` in GitHub/PyPI, for example:
 
-```
+```json
 "PythonRequirements":
 [
     {
@@ -204,7 +203,7 @@ You may wish to deactivate the "strict hash" feature in Unreal's Python settings
 
 3. If you're pulling from mainline you may have Python dependencies which are not yet released to PyPI - you'll need to build and install your local copy which can be done with hatch. The `.whl` file will need to be changed to reflect the version which is output by hatch build:
 
-```
+```bash
 pip install hatch
 hatch build
 "C:\Program Files\Epic Games\UE_5.5\Engine\Binaries\ThirdParty\Python3\Win64\python" -m pip install "dist\deadline_cloud_for_unreal_engine-0.2.2.post21-py3-none-any.whl[console]" --target "C:\Program Files\Epic Games\UE_5.5\Engine\Plugins\UnrealDeadlineCloudService\Content\Python\libraries"
@@ -229,13 +228,13 @@ To deactivate update notifications, uncheck **Show submitter update notification
 
 Alternatively, you can use the CLI:
 
-```
+```bash
 deadline config set settings.submitter_update_notification false
 ```
 
 To re-enable:
 
-```
+```bash
 deadline config set settings.submitter_update_notification true
 ```
 
@@ -531,7 +530,7 @@ The Unreal plugin currently must be compiled locally.
 
 Clone or download `deadline-cloud-for-unreal-engine` from either the release branch or mainline. Ensure your worker version of the libraries is compatible with the version being used from your submitters.
 
-```
+```bash
 git clone https://github.com/aws-deadline/deadline-cloud-for-unreal-engine.git
 cd deadline-cloud-for-unreal-engine
 git switch release
@@ -541,13 +540,13 @@ Optional - Build and install plugin and dependencies with script:
 
 A helper script exists at `scripts/build_plugin.py` that can automate the remaining installation steps. It attempts to find the latest version of Unreal, build your plugin and python dependencies, and install them in the correct locations. Settings such as the Unreal version to use can be overridden. To see the full help list, run:
 
-```
+```bash
 python scripts/build_plugin.py -h
 ```
 
 To build and install your current copy of `deadline-cloud-for-unreal-engine` as a worker with the latest Unreal Engine installation, run:
 
-```
+```bash
 python scripts/build_plugin.py --install --worker
 ```
 
@@ -563,19 +562,19 @@ install-deadline-worker ^
 
 If you've installed with this script and configured the worker agent successfully, you can skip to [Starting the Deadline Cloud worker agent service](#unreal-engine-cmf-start-agent).
 
-```
+```bash
 python -m pip install deadline-cloud-worker-agent
 ```
 
 The correct version of the adaptor must be installed depending on the version of the submitter being used. If you are using the version of the submitter from the release branch in GitHub, you can simply install with pip:
 
-```
+```bash
 python -m pip install deadline-cloud-for-unreal-engine
 ```
 
 If you're using mainline or a custom in-development version of the submitter, to avoid compatibility issues we recommend that you build and install from the same version of code or transfer over the `.whl` file from your submitter build:
 
-```
+```bash
 pip install hatch
 hatch build
 python -m pip install dist\my-built-wheel.whl
@@ -588,7 +587,7 @@ Adjust the first two paths below based on where your installation of Unreal live
 
 From the Unreal Install Batchfiles folder (the `package` parameter can be any new directory, however you'll want it to be called `UnrealDeadlineCloudService` later):
 
-```
+```bash
 cd C:\Program Files\Epic Games\UE_5.5\Engine\Build\BatchFiles
 runuat.bat BuildPlugin -plugin="C:\deadline\deadline-cloud-for-unreal-engine\src\unreal_plugin\UnrealDeadlineCloudService.uplugin" -package="C:\UnrealDeadlineCloudService"
 ```
@@ -698,7 +697,7 @@ Key names must exactly match P4 connection parameters to work with `deadline-clo
 
 **Example secret**:
 
-```
+```json
 {
    "P4PORT": "ssl:your-perforce-server.com:1666",
    "P4USER": "your-perforce-username",
@@ -731,7 +730,7 @@ Workers need `secretsmanager:GetSecretValue` permission to access the secret. Th
 
 1. In the "Resource permissions" section, add this policy:
 
-   ```
+   ```json
    {
      "Statement": [
        {
@@ -763,7 +762,7 @@ This approach is not recommended for production as it exposes credentials in job
 
 You can pass connection credentials within the job environment where workspace creation happens. Examples on the GitHub website include [p4\_sync\_smf\_environment](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/p4/p4_sync_smf_environment.yml) and [ugs\_sync\_smf\_environment](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/ugs/ugs_sync_smf_environment.yml), or similar environments for CMF. Alternatively, create a new environment template and prepend it to your job.
 
-```
+```yaml
 name: P4Credentials
 variables:
   P4PORT: ssl:my-perforce.com:1666
@@ -798,7 +797,7 @@ Per the [Deadline Cloud user guide](https://docs.aws.amazon.com/deadline-cloud/l
 
 1. Add the following and save:
 
-   ```
+   ```yaml
    specificationVersion: environment-2023-09
    environment:
       name: P4Credentials
@@ -815,7 +814,7 @@ Per the [Deadline Cloud user guide](https://docs.aws.amazon.com/deadline-cloud/l
 
 1. Run the following CLI command:
 
-   ```
+   ```bash
    aws deadline create-queue-environment \
     --farm-id FARM_ID \
     --queue-id QUEUE_ID \
@@ -846,7 +845,7 @@ Create a dedicated P4 user for render nodes with a non-expiring connection to el
 
 Therefore, you only need to pass the port to connect to, if the default is not configured on workers. You can pass the port by adding the following in job environment or queue environment similar to the steps documented above:
 
-```
+```yaml
 name: P4Sync
 variables:
   P4PORT: ssl:my-perforce.com:1666

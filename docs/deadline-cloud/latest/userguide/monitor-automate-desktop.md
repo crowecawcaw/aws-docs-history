@@ -1,7 +1,6 @@
 
 
 # Automate Deadline Cloud monitor desktop deployment and workflows
-<a name="monitor-automate-desktop"></a>
 
 The AWS Deadline Cloud monitor desktop application includes a command-line interface (CLI) that administrators can use to set up profiles for users and that artists and developers can use to integrate the monitor into automated workflows on their workstations.
 

@@ -1,7 +1,6 @@
 
 
 # (Optional) Step 3: Define queue details
-<a name="define-queue"></a>
 
 The queue is responsible for tracking progress and scheduling work for your jobs.
 

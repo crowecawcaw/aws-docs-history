@@ -1,7 +1,6 @@
 
 
 # Customize the panels in the job monitor
-<a name="customize-job-monitor-panels"></a>
 
 The **Job monitor** page is built from panels. The **Jobs**, **Steps**, and **Tasks** panels are shown by default. Other panels are available to add when you need them, and you can move and resize any panel so that the information you use most is where you want it.
 

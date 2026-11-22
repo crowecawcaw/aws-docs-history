@@ -1,7 +1,6 @@
 
 
 # Choose between service-managed and customer-managed fleets
-<a name="fleet-types"></a>
 
 When you set up compute for your farm, the first decision is who manages the workers: Deadline Cloud or you. A *service-managed fleet* (SMF) is a fleet of Amazon Elastic Compute Cloud (Amazon EC2) workers that Deadline Cloud provisions, scales, and maintains for you. A *customer-managed fleet* (CMF) is a fleet of workers that you provision and operate yourself. Workers can be Amazon EC2 instances, on-premises machines, or hardware in a co-located data center.
 

@@ -1,7 +1,6 @@
 
 
 # View step dependencies as a graph
-<a name="view-step-dependency-graph"></a>
 
 The **Steps** list can show your steps as a table or as a dependency graph. The graph shows each step as a node and each dependency as an arrow that points from a step to the step that depends on it, so you can see the order in which your steps run. Each node shows the step's name and run status.
 

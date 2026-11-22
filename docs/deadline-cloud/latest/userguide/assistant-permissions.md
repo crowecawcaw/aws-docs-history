@@ -1,7 +1,6 @@
 
 
 # Required permissions
-<a name="assistant-permissions"></a>
 
 Monitor users need the `bedrock:InvokeModelWithResponseStream` permission to use the assistant. When an administrator enables the assistant, Deadline Cloud automatically attaches the required Amazon Bedrock IAM policy to the monitor user role.
 
@@ -12,7 +11,7 @@ For information about Deadline Cloud IAM permissions, see [Identity-based policy
 
 When an administrator enables the assistant, the following IAM policy is attached to the monitor user role. The policy grants permission to invoke Amazon Bedrock models through cross-region inference profiles scoped to your monitor's geographic Region.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

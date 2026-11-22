@@ -1,7 +1,6 @@
 
 
 # Submit a job bundle
-<a name="submit-job-bundle-monitor"></a>
 
 You can submit a job bundle directly from the AWS Deadline Cloud monitor desktop application. A job bundle is a directory that contains the files and information needed to submit a job to Deadline Cloud. For sample job bundles, see [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples) on the GitHub website.
 

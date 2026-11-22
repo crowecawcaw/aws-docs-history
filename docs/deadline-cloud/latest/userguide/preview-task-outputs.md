@@ -1,7 +1,6 @@
 
 
 # Preview task outputs in the job monitor
-<a name="preview-task-outputs"></a>
 
 The **Task outputs** panel shows the output files of the task that you select in the **Tasks** list. The panel previews images, text, tables, logs, video, audio, and 3D files, so you can check what a task produced without downloading its files or leaving the job monitor.
 

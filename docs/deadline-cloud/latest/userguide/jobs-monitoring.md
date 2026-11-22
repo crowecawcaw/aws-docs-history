@@ -1,7 +1,6 @@
 
 
 # Monitoring Deadline Cloud jobs
-<a name="jobs-monitoring"></a>
 
 Use the AWS Deadline Cloud monitor to get an overall view of your jobs, including:
 + Monitor and manage jobs

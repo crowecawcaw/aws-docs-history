@@ -1,7 +1,6 @@
 
 
 # Data flow, ports, and encryption in Deadline Cloud
-<a name="security-data-flow"></a>
 
 Content security reviews, such as studio security audits and vendor onboarding questionnaires, ask for a data flow diagram. The diagram covers the components of the render farm, where each component runs, how data moves between them, and how connections and stored data are encrypted. The diagram and tables on this page answer those questions for a typical AWS Deadline Cloud deployment. For information about access, logging, and data retention, including controls in your identity provider and your AWS account, see [Access, logging, and data retention in Deadline Cloud](access-logging-retention.md). For information about the security controls that you can configure for each part of the farm, see [Security controls in Deadline Cloud](security-controls.md).
 

@@ -1,7 +1,6 @@
 
 
 # Storage profiles for shared file systems
-<a name="storage-profile-shared-file"></a>
 
 You can configure your Deadline Cloud fleets to mount shared file systems by using [VPC resource endpoints on service-managed fleets](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-vpc.html), or by configuring the hosts of a customer-managed fleet on AWS or on-premises. When workstations have the same shared file systems mounted as your fleets, you can create file system locations of the shared type in your storage profiles to configure where each shared file system appears as a local path.
 

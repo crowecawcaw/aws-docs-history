@@ -1,7 +1,6 @@
 
 
 # Plan quota increases as you scale your farm
-<a name="quota-planning"></a>
 
 Scaling up a farm can require increases to several related quotas. Review these quotas as a set and request any needed increases together. Quota limits fall into two groups: limits that block fleet creation or updates, and limits that appear only when jobs run. The second group includes license session limits, which are easy to miss because fleet setup can succeed even when a job can't get a license.
 
@@ -28,7 +27,7 @@ The compute and storage quotas grow with the same maximum worker count, so a fle
 
 The Deadline Cloud console helps you catch these limits early. When a fleet configuration exceeds a quota, the create and edit fleet pages show a warning that names the quota, explains the calculation, and links to the request page.
 
-Quotas apply for each AWS Region, so a farm in a new Region starts from the default values. Increase requests can take time to process, so request them ahead of a deadline rather than during one. To view your applied values and request increases, see [Service quotas and throttling for Deadline Cloud](deadline-cloud-quotas.md).
+Quotas apply for each AWS Region, so a farm in a new Region starts from the default values. Increase requests can take time to process, so request them ahead of a deadline rather than during one. To view your applied values and request increases, see [Service quotas and throttling for Deadline Cloud](deadline-cloud-quotas.md). For guidance about deployments with farms in more than one Region, see [Global rendering across AWS Regions](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/multi-region.html) in the *Deadline Cloud Developer Guide*.
 
 ## How Deadline Cloud sizes a fleet against quotas
 <a name="quota-planning-sizing"></a>

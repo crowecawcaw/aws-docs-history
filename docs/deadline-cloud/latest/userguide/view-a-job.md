@@ -1,7 +1,6 @@
 
 
 # View and manage job details in Deadline Cloud
-<a name="view-a-job"></a>
 
 The **Job monitor** page in the Deadline Cloud monitor provides you with the following: 
 + An overall view of the progress of a job.

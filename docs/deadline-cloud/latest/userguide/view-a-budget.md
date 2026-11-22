@@ -1,7 +1,6 @@
 
 
 # View a Deadline Cloud queue budget
-<a name="view-a-budget"></a>
 
 After you create a budget, you can view the budget on the **Budget manager** page. From there, you can view the budget's total amount and the overall cost allocated to the specific budget.
 

@@ -1,7 +1,6 @@
 
 
 # Monitor a budget with EventBridge events
-<a name="budget-threshold-events"></a>
 
 Deadline Cloud sends budget-related events, using Amazon EventBridge, to your default EventBridge event bus. You can create custom functions that receive the events and act on them to send notifications to automatically notify users via email, Slack, or other channels when a budget reaches predefined levels. For example, you can send SMS messages when a budget reaches a certain threshold. These notifications help you stay on top of your spending and make informed decisions before your budget is exhausted.
 

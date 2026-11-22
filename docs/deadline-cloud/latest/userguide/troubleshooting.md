@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 The following procedures and tips can help you troubleshoot issues with your AWS Deadline Cloud farms and resources.
 
@@ -121,7 +120,7 @@ The CHUNK[INT] task parameter requires the TASK_CHUNKING extension.
 
 To resolve this issue, add the following to your job template:
 
-```
+```yaml
 extensions:
   - TASK_CHUNKING
 ```

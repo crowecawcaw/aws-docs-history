@@ -1,7 +1,6 @@
 
 
 # Associate a queue and fleet
-<a name="associate-a-queue-and-fleet"></a>
 
 To process jobs, you must associate a queue with a fleet. You can associate a single fleet with multiple queues and a single queue with multiple fleets. When you associate a fleet with multiple queues, it divides its workers evenly among them. Similarly, when you associate a queue with multiple fleets, it distributes jobs evenly across those fleets.
 

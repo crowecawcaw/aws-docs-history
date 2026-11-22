@@ -1,7 +1,6 @@
 
 
 # How permissions work in Deadline Cloud
-<a name="permissions-overview"></a>
 
 AWS Deadline Cloud (Deadline Cloud) controls access with two systems. *Access levels* control what you can see and do when you sign in to the Deadline Cloud monitor or submit jobs from your workstation. *AWS Identity and Access Management (IAM) policies* control what AWS credentials can do, such as administering farms in the Deadline Cloud console or calling the API from a pipeline script.
 
@@ -11,6 +10,7 @@ When you sign in to the monitor, AWS IAM Identity Center (IAM Identity Center) a
 | Who | Signs in with | Access controlled by | Where you grant it | 
 | --- | --- | --- | --- | 
 | People using the monitor or the integrated submitters, such as artists and researchers | The monitor URL, through IAM Identity Center | Access levels on farms, queues, and fleets | The Deadline Cloud console, on each resource's **Access management** tab | 
+| People using the desktop monitor, the CLI, or the submitters without IAM Identity Center, such as artists on virtual workstations | A local AWS profile, for example one that uses an Amazon EC2 instance profile, or a console sign-in profile | IAM policies | IAM. See [Using Deadline Cloud without IAM Identity Center](using-without-identity-center.md). | 
 | Administrators working in the Deadline Cloud console | The AWS Management Console | IAM policies | IAM | 
 | Pipeline scripts and automation that call the Deadline Cloud API or CLI with AWS credentials | An IAM role or user | IAM policies | IAM | 
 | Worker hosts in your fleets | The fleet's IAM role | Service roles on the fleet and queue | IAM, when you create the fleet or queue | 

@@ -1,7 +1,6 @@
 
 
 # Key management
-<a name="key-management"></a>
 
 When creating a new farm, you can choose one of the following keys to encrypt your farm data:
 + **AWS owned KMS key** – Default encryption type if you don't specify a key when you create the farm. The KMS key is owned by AWS Deadline Cloud. You can't view, manage, or use AWS owned keys. However, you don't need to take any action to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service developer guide*.
@@ -48,7 +47,7 @@ The following policy statement grants the necessary permissions for the `CreateF
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -88,7 +87,7 @@ The following policy statement grants the necessary permissions for read-only op
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -127,7 +126,7 @@ The following policy statement grants the necessary permissions for the `CreateF
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -164,7 +163,7 @@ Deadline Cloud generates a `CreateGrant` event when it sets up access to your ke
 
 The following example CloudTrail event occurs when grants are created, typically when you call the `CreateFarm`, `CreateMonitor`, or `CreateFleet` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

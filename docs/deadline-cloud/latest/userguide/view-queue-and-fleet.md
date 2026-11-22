@@ -1,7 +1,6 @@
 
 
 # View queue and fleet details in Deadline Cloud
-<a name="view-queue-and-fleet"></a>
 
 You can use the Deadline Cloud monitor to view the configuration of the queues and fleets in your farm. You can also use the monitor to see a list of the jobs in a queue or the workers in a fleet.
 

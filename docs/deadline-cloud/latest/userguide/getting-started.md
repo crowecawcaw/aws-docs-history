@@ -1,7 +1,6 @@
 
 
 # Getting started with Deadline Cloud
-<a name="getting-started"></a>
 
 To create a farm in AWS Deadline Cloud, you can use either the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home) or the AWS Command Line Interface (AWS CLI). Use the console for a guided experience creating the farm, including queues and fleets. Use the AWS CLI to work directly with the service, or for developing your own tools that work with Deadline Cloud.
 

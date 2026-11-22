@@ -1,7 +1,6 @@
 
 
 # Auto scaling configuration
-<a name="auto-scaling-configuration"></a>
 
 Deadline Cloud provides auto scaling configuration options that allow you to customize how your fleet scales workers up and down. These settings help you balance job processing speed with cost efficiency based on your workflow requirements.
 

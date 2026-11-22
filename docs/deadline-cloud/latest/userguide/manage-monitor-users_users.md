@@ -1,7 +1,6 @@
 
 
 # Create and manage users with IAM Identity Center directory
-<a name="manage-monitor-users_users"></a>
 
 If your identity source is set to IAM Identity Center directory, you can create and manage users and groups directly through the Deadline Cloud console. Users created in the console will receive email invitations from IAM Identity Center. After accepting the invitation, users can access the Deadline Cloud monitor.
 

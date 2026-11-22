@@ -1,7 +1,6 @@
 
 
 # Storage profiles in Deadline Cloud
-<a name="storage-profile"></a>
 
 When you use workstations and fleet worker hosts from multiple operating systems or with different file system mounts, you can create storage profiles in your farm to indicate where the same file systems are mounted on different systems. When Deadline Cloud runs a job on a different storage profile than on the workstation it was submitted from, it will transform file system paths that are in directories configured in the storage profiles.
 

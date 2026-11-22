@@ -1,7 +1,6 @@
 
 
 # Using a Deadline Cloud submitter
-<a name="jobs-using-submitter"></a>
 
 A *submitter* is a tool that integrates with your digital content creation (DCC) application so that you can send render jobs directly to Deadline Cloud without switching between applications or manually transferring files.
 

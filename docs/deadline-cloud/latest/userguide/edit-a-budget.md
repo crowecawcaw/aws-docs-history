@@ -1,7 +1,6 @@
 
 
 # Edit a budget for a Deadline Cloud queue
-<a name="edit-a-budget"></a>
 
 You can edit any active budget. To edit an active budget, use the following procedure.
 

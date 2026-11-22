@@ -1,7 +1,6 @@
 
 
 # Browsing job attachments in Deadline Cloud
-<a name="browse-job-attachments"></a>
 
 Use the job attachments browser in the Deadline Cloud monitor to see the file structure of your job's input and output attachments. You can selectively download files, navigate the folder hierarchy, and filter by input or output. For supported file types, you can also preview content inline without downloading.
 

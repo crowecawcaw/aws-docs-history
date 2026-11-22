@@ -1,7 +1,6 @@
 
 
 # Integrate Deadline Cloud into your pipeline
-<a name="pipeline-integration"></a>
 
 You can integrate your existing rendering pipelines with AWS Deadline Cloud to streamline your workflow management and job submission processes.
 

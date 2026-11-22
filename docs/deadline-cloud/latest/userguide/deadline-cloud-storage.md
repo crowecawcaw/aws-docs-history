@@ -1,7 +1,6 @@
 
 
 # File storage for Deadline Cloud
-<a name="deadline-cloud-storage"></a>
 
 Workers must have access to the storage locations that contain the input files necessary to process a job, and to the locations that store the output. AWS Deadline Cloud provides the following options for storage:
 + With *persistent storage*, service-managed fleet workers use dedicated Amazon Elastic Block Store (Amazon EBS) volumes that preserve data across worker lifecycle events. Application caches, conda package installations, and workspaces persist when workers are recycled, eliminating cold-start delays. For more information, see [Persistent storage for service-managed fleets](volumes.md).

@@ -1,7 +1,6 @@
 
 
 # View and change resource access for a user or group
-<a name="view-member-resource-access"></a>
 
 Use the **Resource access** tab to check what one user or group can reach, for example when someone changes teams or leaves your organization. You find the tab on the details page for each user and group. On the tab, you can see every farm, queue, and fleet that the user or group can access, in every AWS Region. You can also change or revoke that access. For information about assigning access starting from a farm, queue, or fleet, see [Assign permissions to users and groups](assign-permissions-procedure.md).
 

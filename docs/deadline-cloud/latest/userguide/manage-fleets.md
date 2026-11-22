@@ -1,7 +1,6 @@
 
 
 # Deadline Cloud fleets
-<a name="manage-fleets"></a>
 
 This section explains how to manage service-managed fleets and customer-managed fleets (CMF) for Deadline Cloud.
 

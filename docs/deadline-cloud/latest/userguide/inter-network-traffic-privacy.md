@@ -1,7 +1,6 @@
 
 
 # Inter-network traffic privacy
-<a name="inter-network-traffic-privacy"></a>
 
 AWS Deadline Cloud supports Amazon Virtual Private Cloud (Amazon VPC) to secure connections. Amazon VPC provides features that you can use to increase and monitor the security for your virtual private cloud (VPC).
 

@@ -1,7 +1,6 @@
 
 
 # Deadline Cloud queues
-<a name="queues"></a>
 
 A queue is a farm resource that manages and processes jobs.
 

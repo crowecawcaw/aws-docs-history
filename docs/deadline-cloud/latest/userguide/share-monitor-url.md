@@ -1,7 +1,6 @@
 
 
 # Share the Deadline Cloud monitor URL
-<a name="share-monitor-url"></a>
 
 When you set up the Deadline Cloud service, by default you create a URL that opens the Deadline Cloud monitor for your account. Use this URL to open the monitor in your browser or on your desktop. Share the URL with other users so that they can access the Deadline Cloud monitor. 
 

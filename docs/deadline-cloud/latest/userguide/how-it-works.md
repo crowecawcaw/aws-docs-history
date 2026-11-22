@@ -1,7 +1,6 @@
 
 
 # How Deadline Cloud works
-<a name="how-it-works"></a>
 
 With Deadline Cloud, you can create and manage rendering projects and jobs directly from digital content creation (DCC) pipelines and workstations.
 

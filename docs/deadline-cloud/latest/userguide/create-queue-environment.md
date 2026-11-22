@@ -1,7 +1,6 @@
 
 
 # Create a queue environment
-<a name="create-queue-environment"></a>
 
 
 

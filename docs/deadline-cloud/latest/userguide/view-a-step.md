@@ -1,7 +1,6 @@
 
 
 # View a step in Deadline Cloud
-<a name="view-a-step"></a>
 
 Use the AWS Deadline Cloud monitor to view the steps in your processing jobs. In the **Job monitor**, the **Steps** list shows the list of steps that make up the selected job. When you select a step, the **Tasks** list shows the tasks in the step.
 

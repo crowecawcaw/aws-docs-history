@@ -1,7 +1,6 @@
 
 
 # View worker details in the worker dashboard
-<a name="view-worker-dashboard"></a>
 
 The *worker dashboard* provides details for the worker that processes a task. You can see:
 + Metadata, such as the instance type, for the worker.
@@ -9,9 +8,18 @@ The *worker dashboard* provides details for the worker that processes a task. Yo
 + Worker performance, including CPU, memory, and disk usage. The dashboard also shows GPU utilization for GPU-accelerated instances.
 + A graph of the CPU, memory, and disk usage over time. The graph also includes GPU utilization for GPU-accelerated instances.
 + A graph of the disk speed over time.
++ A graph of the memory in use over time, in gibibytes (GiB) rather than as a percentage, showing the RAM used, the total RAM, and the swap or page file used. For workers that report GPU memory, it also shows the GPU memory (VRAM) used and the total VRAM that the worker reports.
 + The worker log for the task.
 
-To see the dashboard with sample data, open the [demo worker dashboard](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/fleets/fleet-afc07d45402990ec316ba3ef6303b87e/worker-ae78d60a474f13d12952b21419b63ac3?demo=moonrise).
+![The worker dashboard showing the worker metadata, the worker performance, the session actions, the machine usage, disk speed, and memory usage graphs, and the worker log.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/worker-dashboard.png)
+
+
+If a worker reports a value as unavailable, the graphs draw no point for that value.
+
+![The Memory usage graph with lines for the RAM used, the total RAM, the swap or page file used, the GPU memory (VRAM) used, and the total VRAM, in gibibytes over time.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/worker-dashboard-memory-usage.png)
+
+
+To see the dashboard with sample data, open the [demo worker dashboard](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/fleets/fleet-afc07d45402990ec316ba3ef6303b87e/worker-ae78d60a474f13d12952b21419b63ac3?demo=moonrise&lgn=%2Faws%2Fdeadline%2Fworker-agent&lsn=worker-metrics%23worker-ae78d60a474f13d12952b21419b63ac3).
 
 **To view the worker dashboard from a task**
 

@@ -1,7 +1,6 @@
 
 
 # How the assistant works
-<a name="assistant-how-it-works"></a>
 
 When you interact with the assistant, it uses Amazon Bedrock foundation models to reason about your render job issues. The assistant has read-only access to your Deadline Cloud resources and CloudWatch logs, and follows a structured troubleshooting workflow:
 

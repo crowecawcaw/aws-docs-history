@@ -1,7 +1,6 @@
 
 
 # Using an IAM Identity Center instance in another AWS account
-<a name="identity-center-other-account"></a>
 
 Your monitor and farms can be in a different AWS account from your IAM Identity Center instance. Both accounts must be in the same organization in AWS Organizations (Organizations), and you must use the organization instance of IAM Identity Center. You enable the organization instance in your organization's management account, and then you can create a monitor that connects to it from any member account in the organization. For example, you can keep IAM Identity Center in your management account and run each project's farms in that project's own account.
 

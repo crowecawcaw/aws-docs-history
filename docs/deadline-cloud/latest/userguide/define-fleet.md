@@ -1,7 +1,6 @@
 
 
 # (Optional) Step 4: Define fleet details
-<a name="define-fleet"></a>
 
 A fleet allocates workers to execute your rendering tasks. If you need a fleet for your rendering tasks, check the box for **Create fleet**.
 

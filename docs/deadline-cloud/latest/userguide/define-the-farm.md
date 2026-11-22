@@ -1,7 +1,6 @@
 
 
 # Step 2: Define farm details
-<a name="define-the-farm"></a>
 
 Back on the Deadline Cloud console, complete the following steps to define the farm details.
 

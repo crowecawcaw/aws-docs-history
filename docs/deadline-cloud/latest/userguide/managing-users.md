@@ -1,11 +1,10 @@
 
 
 # Managing users in Deadline Cloud
-<a name="managing-users"></a>
 
 AWS Deadline Cloud uses AWS IAM Identity Center to manage users and groups. IAM Identity Center is a cloud-based single sign-on service that can be integrated with your enterprise single-sign on (SSO) provider. With integration, users can sign in with their company account.
 
-Deadline Cloud enables IAM Identity Center by default, and signing in to the Deadline Cloud monitor requires it. You can also use Deadline Cloud without IAM Identity Center by calling the API or CLI with IAM credentials; see [How permissions work in Deadline Cloud](permissions-overview.md). An organization owner for your AWS Organizations is responsible for managing the users and groups that have access to your Deadline Cloud monitor. For more information, see [What is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
+By default, Deadline Cloud uses IAM Identity Center. You need IAM Identity Center to sign in to the Deadline Cloud monitor with a monitor URL. You can also use Deadline Cloud without IAM Identity Center by using IAM credentials with the API, the CLI, the submitters, and the desktop monitor. For more information, see [Using Deadline Cloud without IAM Identity Center](using-without-identity-center.md). An organization owner for your AWS Organizations is responsible for managing the users and groups that have access to your Deadline Cloud monitor. For more information, see [What is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
 
 Where you create and manage users depends on your IAM Identity Center identity source: with the default IAM Identity Center directory, you create users in the Deadline Cloud console, and with an external identity provider such as Okta or Microsoft Entra ID, you create them in that system. For more information, see [Understanding your identity source](understanding-identity-source.md).
 
@@ -13,6 +12,7 @@ To bring a new artist, team, or vendor onto your farm, start with [Onboard users
 
 **Topics**
 + [How permissions work in Deadline Cloud](permissions-overview.md)
++ [Using Deadline Cloud without IAM Identity Center](using-without-identity-center.md)
 + [Onboard users to your farm](onboarding.md)
 + [Understanding your identity source](understanding-identity-source.md)
 + [Using an IAM Identity Center instance in another AWS account](identity-center-other-account.md)

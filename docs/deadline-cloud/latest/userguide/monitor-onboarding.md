@@ -1,7 +1,6 @@
 
 
 # Set up the Deadline Cloud monitor
-<a name="monitor-onboarding"></a>
 
 To get started, you'll need to create your Deadline Cloud farm infrastructure, including a monitor, queue, and fleet. You can also perform additional, optional steps including adding groups and users, choosing a service role, and adding tags to your resources.
 

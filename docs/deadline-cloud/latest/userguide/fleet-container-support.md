@@ -1,7 +1,6 @@
 
 
 # Container support for service-managed fleets
-<a name="fleet-container-support"></a>
 
 Container support lets a Linux service-managed fleet run job actions inside Docker images. The default Docker queue environment pulls images from Amazon ECR. You can customize the queue environment to authenticate to and pull from another container registry provider. For details, see [Customize a Docker queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/containers-queue-environment.html#containers-queue-customize) in the *Deadline Cloud Developer Guide*.
 

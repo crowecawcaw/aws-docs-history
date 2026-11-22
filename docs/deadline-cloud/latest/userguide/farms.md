@@ -1,9 +1,10 @@
 
 
 # Deadline Cloud farms
-<a name="farms"></a>
 
 With a Deadline Cloud farm, you can manage users and project resources. A *farm* is a where your project resources are located. Your farm consists of queues and fleets. A *queue* is where submitted jobs are located and scheduled to be rendered. A * fleet* is a group of worker nodes that run tasks to complete jobs. After you create a farm, you can create queues and fleets to meet your project's needs.
+
+A farm is a regional resource. Its queues, fleets, and jobs are all in one AWS Region, and a farm can't span Regions. To render in more than one Region, create a farm in each Region. For more information, see [Global rendering across AWS Regions](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/multi-region.html) in the *Deadline Cloud Developer Guide*.
 
 ## Create a farm
 <a name="create-farm"></a>

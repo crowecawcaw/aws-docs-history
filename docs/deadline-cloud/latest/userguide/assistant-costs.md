@@ -1,7 +1,6 @@
 
 
 # Costs
-<a name="assistant-costs"></a>
 
 The Deadline Cloud assistant incurs Amazon Bedrock usage costs in your AWS account. Costs are based on the number of input and output tokens processed during each interaction. Because the assistant uses cross-region inference, pricing is calculated based on your monitor's source Region.
 
@@ -21,7 +20,7 @@ To complete this procedure, you need IAM permissions to tag roles and access to 
 
 1. Tag the IAM role that your monitor users assume. You can add tags in the IAM console or by using the AWS CLI. The following example uses the AWS CLI:
 
-   ```
+   ```bash
    aws iam tag-role \
        --role-name {{YourMonitorUserRole}} \
        --tags Key=team,Value={{YourTeam}} Key=project,Value={{YourProject}}

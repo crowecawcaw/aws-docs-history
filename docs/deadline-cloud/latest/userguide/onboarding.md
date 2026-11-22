@@ -1,7 +1,6 @@
 
 
 # Onboard users to your farm
-<a name="onboarding"></a>
 
 Onboarding gives a new group of users access to a farm: members of your own team, an outside vendor or contractor, or another team at your organization. Every setup differs in the details, but the common steps are the same. The answers to three questions decide how the checklist applies:
 + **Who manages their identity?** You create users in the Deadline Cloud console, or they already exist in your organization's identity provider.

@@ -1,7 +1,6 @@
 
 
 # Service roles
-<a name="security-iam-service-roles"></a>
 
 ## How Deadline Cloud uses IAM service roles
 <a name="how-deadline-cloud-manages-credentials"></a>
