@@ -1,7 +1,6 @@
 
 
 # What is Amazon SageMaker Unified Studio?
-<a name="what-is-sagemaker-unified-studio"></a>
 
 As a part of the next generation of Amazon SageMaker, the Amazon SageMaker Unified Studio is a unified development experience that brings together AWS data, analytics, artificial intelligence (AI), and machine learning (ML) services. It provides a place to build, deploy, execute, and monitor workflows from a single interface. This helps drive collaboration across teams and facilitate agile development.
 
