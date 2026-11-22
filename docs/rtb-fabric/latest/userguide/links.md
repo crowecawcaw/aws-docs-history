@@ -1,7 +1,6 @@
 
 
 # Links
-<a name="links"></a>
 
 RTB Fabric links provide secure, performant one-to-one connections between requesters and responders for real-time bidding. Links can be established between two RTB Fabric users (such as between your application and one of your real-time bidding partners that also uses RTB Fabric), or between an RTB Fabric user and an entity outside RTB Fabric, known as external links. These connections form the foundation of your real-time bidding network infrastructure, enabling secure and efficient data exchange between all participants.
 

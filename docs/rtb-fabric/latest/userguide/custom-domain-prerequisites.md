@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="custom-domain-prerequisites"></a>
 
 Before you configure inbound external links with custom domains, verify that you meet the following prerequisites. For general setup requirements, see Setting up AWS RTB Fabric.
 
@@ -42,7 +41,7 @@ If you serve traffic in multiple regions, you need an external gateway in each r
 
 When you associate an ACM certificate with your gateway using the `AssociateCertificate` API, RTB Fabric calls ACM on your behalf using forward access sessions (FAS) to establish a certificate relation. To enable this, you must add the following ACM permissions to the IAM identity (user or role) that you use to call `AssociateCertificate` API:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

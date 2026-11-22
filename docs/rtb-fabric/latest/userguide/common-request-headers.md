@@ -1,7 +1,6 @@
 
 
 # Common request headers
-<a name="common-request-headers"></a>
 
 The following table describes request headers that are common to most RTB Fabric requests.
 

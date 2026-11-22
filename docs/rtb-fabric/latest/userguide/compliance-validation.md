@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS RTB Fabric
-<a name="compliance-validation"></a>
 
 RTB Fabric inherits compliance certifications from the AWS platform and follows AWS security best practices. The service is built on AWS infrastructure that has been designed and verified in accordance with industry standards and best practices.
 

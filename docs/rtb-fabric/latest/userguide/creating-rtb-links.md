@@ -1,7 +1,6 @@
 
 
 # Creating links between RTB Fabric users
-<a name="creating-rtb-links"></a>
 
 Links between RTB Fabric users can be created through the AWS Management Console, the AWS CLI, or AWS CloudFormation. Only requester gateways can initiate links to responder gateways.
 

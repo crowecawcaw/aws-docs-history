@@ -1,7 +1,6 @@
 
 
 # Accepting or declining a link request
-<a name="accepting-declining-link-request"></a>
 
 When another RTB Fabric user sends you a link request, you can accept or reject it from your gateway's **Associated links** tab. Link requests allow other RTB Fabric users to connect and send bid requests to your gateway.
 

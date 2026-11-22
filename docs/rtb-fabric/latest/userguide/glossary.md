@@ -1,7 +1,6 @@
 
 
 # AWS RTB Fabric Glossary
-<a name="glossary"></a>
 
 ## Application
 <a name="application-definition"></a>

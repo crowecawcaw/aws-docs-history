@@ -1,7 +1,6 @@
 
 
 # What is AWS RTB Fabric?
-<a name="what-is-rtb-fabric"></a>
 
 RTB Fabric is an AWS service that provides secure, low-latency infrastructure for connecting real-time bidding (RTB) applications. Rather than hosting applications directly, RTB Fabric acts as the connecting fabric that enables your applications to communicate efficiently over private networks instead of the public internet. You maintain complete control over your applications, data, and bidding decisions, while RTB Fabric provides the underlying infrastructure for secure, reliable connectivity. RTB Fabric is available in multiple AWS Regions. For a complete list of supported Regions, see [RTB Fabric endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/rtb-fabric.html) in the *AWS General Reference*.
 

@@ -1,7 +1,6 @@
 
 
 # Testing and using links
-<a name="testing-and-using-links"></a>
 
 **Note**  
  Link addresses will only be visible and accessible from within your VPC. 
@@ -26,7 +25,7 @@
 
  When a request does not succeed, the gateway returns an HTTP error response with a JSON body in the following shape. 
 
-```
+```json
 {"error":"true","reason":"{{message}}"}
 ```
 

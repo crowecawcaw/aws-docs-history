@@ -1,7 +1,6 @@
 
 
 # Setting up AWS RTB Fabric
-<a name="setting-up-aws-rtb-service"></a>
 
 Before you can use RTB Fabric, you must complete several setup tasks including account configuration, IAM permissions, and VPC networking. This chapter walks you through the prerequisites and configuration steps needed to get started with RTB Fabric.
 

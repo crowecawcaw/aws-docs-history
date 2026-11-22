@@ -1,7 +1,6 @@
 
 
 # Responder gateways
-<a name="working-with-responder-gateways"></a>
 
 Responder gateways are RTB Fabric infrastructure components that serve as connection points for customer gateways. Responder gateways receive requests from requester gateways and forward them to responder gateways, then return responses through the same pathway. Gateways operate colocated with your VPC and provide routing, load balancing, and processing capabilities. You maintain complete control over your bidding algorithms, response logic, and data processing, while RTB Fabric provides the secure infrastructure for connectivity.
 
@@ -329,7 +328,7 @@ To change the client routing policy of a responder gateway that already exists, 
 
 Use the following command to change the client routing policy with the AWS Command Line Interface (AWS CLI).
 
-```
+```bash
 $ aws rtbfabric update-responder-gateway \
 --gateway-id {{"rtb-gw-kasoi29asfdhn"}} \
 --client-routing-policy {{ANY_AVAILABILITY_ZONE}} \

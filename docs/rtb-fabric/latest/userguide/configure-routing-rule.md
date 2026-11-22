@@ -1,7 +1,6 @@
 
 
 # Configuring routing rules
-<a name="configure-routing-rule"></a>
 
 Routing rules determine how RTB Fabric maps incoming HTTP requests to links. Each rule specifies conditions that a request must satisfy. When a request arrives at the gateway, RTB Fabric evaluates rules across all links and forwards the request to the link whose highest-priority matching rule wins.
 

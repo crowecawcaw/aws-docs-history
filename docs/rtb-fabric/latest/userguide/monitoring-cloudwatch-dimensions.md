@@ -1,7 +1,6 @@
 
 
 # RTB Fabric dimensions
-<a name="monitoring-cloudwatch-dimensions"></a>
 
 The following dimensions are supported for RTB Fabric metrics.
 

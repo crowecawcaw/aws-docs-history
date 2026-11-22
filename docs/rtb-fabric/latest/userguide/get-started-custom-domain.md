@@ -1,7 +1,6 @@
 
 
 # Getting started with inbound external links with custom domains
-<a name="get-started-custom-domain"></a>
 
 This section walks you through configuring inbound external links with custom domains end-to-end. After completing these steps, traffic arriving at your existing public endpoint routes through RTB Fabric to the correct link.
 

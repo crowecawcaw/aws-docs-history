@@ -1,7 +1,6 @@
 
 
 # Requester gateways
-<a name="working-with-requester-gateways"></a>
 
 Requester gateways are RTB Fabric infrastructure components that serve as connection points for customer gateways. Requester gateways receive requests from requester gateways and forward them through links to responder gateways. Gateways operate colocated with your VPC and provide routing, load balancing, and processing capabilities. You maintain full control over your bidding logic, data, and auction decisions, while RTB Fabric provides the secure infrastructure for connectivity. Requester gateways are typically used by supply-side platforms (SSPs).
 

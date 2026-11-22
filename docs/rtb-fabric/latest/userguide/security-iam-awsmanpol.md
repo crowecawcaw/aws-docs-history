@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS RTB Fabric
-<a name="security-iam-awsmanpol"></a>
 
 AWS RTB Fabric uses AWS managed policies and service-linked roles to securely access AWS services on your behalf. AWS managed policies are standalone policies created and maintained by AWS that provide permissions for common use cases. A service-linked role is a unique type of IAM role that is linked directly to RTB Fabric and uses these managed policies to include all the permissions that the service requires to call other AWS services on your behalf.
 

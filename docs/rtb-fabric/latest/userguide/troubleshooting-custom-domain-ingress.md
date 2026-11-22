@@ -1,7 +1,6 @@
 
 
 # Troubleshooting inbound external links with custom domains
-<a name="troubleshooting-custom-domain-ingress"></a>
 
 Use this section to diagnose common issues with inbound external links with custom domains. Each entry describes the observed symptom, its likely cause, and the recommended resolution.
 

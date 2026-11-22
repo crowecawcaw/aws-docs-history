@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for RTB Fabric
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify RTB Fabric resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -53,10 +52,28 @@ Users who need console access require the following permissions:
                 "rtbfabric:ListResponderGateways",
                 "rtbfabric:GetLink",
                 "rtbfabric:ListLinks",
+                "rtbfabric:ListAvailableModules",
+                "rtbfabric:GetAvailableModule",
+                "rtbfabric:ListAvailableModuleVersions",
+                "rtbfabric:GetAvailableModuleVersion",
+                "rtbfabric:GetUpdate",
+                "rtbfabric:ListUpdates",
                 "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeSubnets",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeVpcs"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "aws-marketplace:GetListing",
+                "aws-marketplace:GetProduct",
+                "aws-marketplace:GetListingView",
+                "aws-marketplace:SearchAgreements",
+                "aws-marketplace:DescribeAgreement",
+                "license-manager:ListReceivedLicenses"
             ],
             "Resource": "*"
         }
@@ -64,12 +81,20 @@ Users who need console access require the following permissions:
 }
 ```
 
+The `ListAvailableModules`, `GetAvailableModule`, `ListAvailableModuleVersions`, `GetAvailableModuleVersion`, `GetUpdate`, and `ListUpdates` permissions let users view the modules that they can attach and the updates to a link's flow. To change a link's flow in the console, users also need `rtbfabric:PutLinkFlows` on the link.
+
+The AWS Marketplace and AWS License Manager permissions let users browse, subscribe to, and view modules sold through AWS Marketplace in the RTB Fabric console. All of these actions are read-only. Purchases go through the AWS Marketplace procurement flow.
++ `aws-marketplace:GetListing` and `aws-marketplace:GetProduct` – Load product details, seller, and pricing information for module search, product detail, and procurement pages.
++ `aws-marketplace:GetListingView` – Loads usage instructions for a module product.
++ `aws-marketplace:SearchAgreements` and `aws-marketplace:DescribeAgreement` – Find and read your agreement for the offer that you select.
++ `license-manager:ListReceivedLicenses` – Lists your active AWS Marketplace licenses so that the console can show which modules you're subscribed to.
+
 ## Allow users to view their own permissions
 <a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -107,7 +132,7 @@ This example shows how you might create a policy that allows IAM users to view t
 ## Basic RTB Fabric permissions
 <a name="security_iam_id-based-policy-examples-rtb-basic"></a>
 
-This example shows a policy that allows basic RTB Fabric operations including creating, viewing, and managing RTB applications and links.
+This example shows a policy that allows basic RTB Fabric operations including creating, viewing, and managing gateways and links, and attaching modules to links. The create, list, module discovery, and update operations don't support resource-level permissions, so they need `"Resource": "*"`. The other operations are scoped to gateways and the links on them.
 
 ```
 {
@@ -118,23 +143,33 @@ This example shows a policy that allows basic RTB Fabric operations including cr
             "Action": [
                 "rtbfabric:CreateRequesterGateway",
                 "rtbfabric:CreateResponderGateway",
-                "rtbfabric:DeleteRequesterGateway",
-                "rtbfabric:DeleteResponderGateway",
-                "rtbfabric:GetRequesterGateway",
-                "rtbfabric:GetResponderGateway", 
                 "rtbfabric:ListRequesterGateways",
                 "rtbfabric:ListResponderGateways",
                 "rtbfabric:CreateLink",
+                "rtbfabric:ListLinks",
+                "rtbfabric:ListAvailableModules",
+                "rtbfabric:GetAvailableModule",
+                "rtbfabric:ListAvailableModuleVersions",
+                "rtbfabric:GetAvailableModuleVersion",
+                "rtbfabric:GetUpdate",
+                "rtbfabric:ListUpdates"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "rtbfabric:DeleteRequesterGateway",
+                "rtbfabric:DeleteResponderGateway",
+                "rtbfabric:GetRequesterGateway",
+                "rtbfabric:GetResponderGateway",
                 "rtbfabric:DeleteLink",
                 "rtbfabric:GetLink",
-                "rtbfabric:ListLinks",
                 "rtbfabric:AcceptLink",
-                "rtbfabric:RejectLink"
+                "rtbfabric:RejectLink",
+                "rtbfabric:PutLinkFlows"
             ],
-            "Resource": [
-                "arn:aws:rtbfabric:*:*:gateway/*",
-                "arn:aws:rtbfabric:*:*:link/*"
-            ]
+            "Resource": "arn:aws:rtbfabric:*:*:gateway/*"
         }
     ]
 }
@@ -195,7 +230,7 @@ This policy grants full RTB Fabric permissions and allows viewing of related AWS
 ## RTB Fabric read-only permissions
 <a name="security_iam_id-based-policy-examples-rtb-readonly"></a>
 
-This example shows a policy that allows read-only access to RTB Fabric resources and related AWS resources.
+This example shows a policy that allows read-only access to RTB Fabric resources, the modules that you can attach, and updates, and to related AWS resources.
 
 ```
 {
@@ -209,7 +244,13 @@ This example shows a policy that allows read-only access to RTB Fabric resources
                 "rtbfabric:ListRequesterGateways",
                 "rtbfabric:ListResponderGateways",
                 "rtbfabric:GetLink",
-                "rtbfabric:ListLinks"
+                "rtbfabric:ListLinks",
+                "rtbfabric:ListAvailableModules",
+                "rtbfabric:GetAvailableModule",
+                "rtbfabric:ListAvailableModuleVersions",
+                "rtbfabric:GetAvailableModuleVersion",
+                "rtbfabric:GetUpdate",
+                "rtbfabric:ListUpdates"
             ],
             "Resource": "*"
         },

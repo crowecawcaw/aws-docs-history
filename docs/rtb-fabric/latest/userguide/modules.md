@@ -1,17 +1,17 @@
 
 
 # Modules
-<a name="modules"></a>
 
 Modules are configurable components that process RTB traffic flowing through your links. You can use modules to implement rate limiting, filtering, error handling, and other traffic management capabilities. RTB Fabric provides built-in modules that are available at no additional charge, and you can configure them using the RTB Fabric API.
 
-On a link details page, choose the **Modules** tab to view information about modules that have been configured for the current link. RTB Fabric only supports viewing modules in the console. You can configure modules with the RTB Fabric API using the `UpdateLinkModuleFlow` operation.
+On a link details page, choose the **Flow** tab to view the link's flow. To change it, choose **Configure flow**. To find modules from vendors, choose **Discover modules**. With the RTB Fabric API, use `ListAvailableModules` to find built-in and vendor modules, and `PutLinkFlows` to attach them to a link. For more information, see [Discovering and attaching modules](discovering-attaching-modules.md). You can also configure built-in modules with the `UpdateLinkModuleFlow` operation.
 
 **Important**  
 Modules can only be configured on **active** links. Ensure both gateways are in `ACTIVE` status and the link is `ACTIVE` before attempting module configuration.
 
 **Topics**
 + [Built-in modules](#built-in-modules)
++ [Discovering and attaching modules](discovering-attaching-modules.md)
 + [Configuring modules](#configuring-modules)
 + [Troubleshooting](#troubleshooting-modules)
 
@@ -21,13 +21,14 @@ Modules can only be configured on **active** links. Ensure both gateways are in 
 RTB Fabric provides the following built-in modules that you can configure for your links:
 + **Rate Limiter Module** – Controls the rate of requests flowing through the link by limiting transactions per second (TPS). This module helps protect downstream systems from traffic spikes and ensures consistent performance under varying load conditions. Configure using the `rateLimiterModule` name.
 + **OpenRTB Attribute Module** – Filters RTB requests based on OpenRTB protocol attributes with configurable actions and holdback percentages. This module enables traffic filtering, A/B testing, and custom response handling. Configure using the `openRtbAttributeModule` name.
++ **No-bid module** – Returns a no-bid response for a share of bid requests on the link without forwarding them. Available with `PutLinkFlows` and `UpdateLinkModuleFlow`.
 
-All built-in modules are available at no additional charge. You can configure multiple modules on a single link, and they will be applied in the order you specify during configuration.
+Built-in modules are available at no additional charge. Vendor modules are billed per invocation. For more information, see [RTB Fabric Pricing](https://aws.amazon.com/rtb-fabric/pricing/). You can configure multiple modules on a single link, and they will be applied in the order you specify during configuration.
 
 ## Configuring modules
 <a name="configuring-modules"></a>
 
-You can configure modules using the RTB Fabric API, the AWS Command Line Interface (AWS CLI), or CloudFormation. The RTB Fabric console does not support module configuration. To add, modify, or remove modules from your links, use the [UpdateLinkModuleFlow](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_UpdateLinkModuleFlow.html) API operation or its equivalent in the AWS CLI or CloudFormation.
+You can configure modules using the RTB Fabric console, the RTB Fabric API, the AWS Command Line Interface (AWS CLI), or CloudFormation. To add, modify, or remove modules from your links with the API, the AWS CLI, or CloudFormation, use the [UpdateLinkModuleFlow](https://docs.aws.amazon.com/rtb-fabric/latest/api/API_UpdateLinkModuleFlow.html) API operation or its equivalent in the AWS CLI or CloudFormation. To attach modules from vendors, or to run modules in phases or on a share of requests, use `PutLinkFlows` instead, with the RTB Fabric API or the AWS CLI, or configure the link's flow in the console. CloudFormation doesn't support flows that you set with `PutLinkFlows`, and a stack update to a link's modules replaces them. For more information, see [Discovering and attaching modules](discovering-attaching-modules.md).
 
 ### Rate Limiter Module
 <a name="rate-limiter-module-example"></a>
@@ -44,7 +45,6 @@ $ aws rtbfabric update-link-module-flow \
 --modules {{'[
     {
         "name": "rate-limiter-module",
-        "version": "1.0.0",
         "dependsOn": [],
         "moduleParameters": {
             "rateLimiter": {
@@ -219,7 +219,6 @@ $ aws rtbfabric update-link-module-flow \
 --modules {{'[
     {
         "name": "openRtbAttributeModule",
-        "version": "20251204-105817",
         "dependsOn": [],
         "moduleParameters": {
             "openRtbAttribute": {
@@ -262,7 +261,6 @@ $ aws rtbfabric update-link-module-flow \
 --modules {{'[
     {
         "name": "openRtbAttributeModule",
-        "version": "20251204-105817",
         "dependsOn": [],
         "moduleParameters": {
             "openRtbAttribute": {
@@ -313,7 +311,6 @@ $ aws rtbfabric update-link-module-flow \
 --modules {{'[
     {
         "name": "openRtbAttributeModule",
-        "version": "20251204-105817",
         "dependsOn": [],
         "moduleParameters": {
             "openRtbAttribute": {
@@ -353,7 +350,6 @@ $ aws rtbfabric update-link-module-flow \
 --modules {{'[
     {
         "name": "openRtbAttributeModule",
-        "version": "20251204-105817",
         "dependsOn": [],
         "moduleParameters": {
             "openRtbAttribute": {
@@ -395,7 +391,6 @@ $ aws rtbfabric update-link-module-flow \
 --modules {{'[
     {
         "name": "rateLimiterModule",
-        "version": "20251204-105817",
         "dependsOn": [],
         "moduleParameters": {
             "rateLimiter": {
@@ -405,7 +400,6 @@ $ aws rtbfabric update-link-module-flow \
     },
     {
         "name": "openRtbAttributeModule",
-        "version": "20251204-105817",
         "dependsOn": ["rateLimiterModule"],
         "moduleParameters": {
             "openRtbAttribute": {

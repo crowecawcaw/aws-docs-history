@@ -1,7 +1,6 @@
 
 
 # Creating outbound external links
-<a name="creating-outbound-external-links"></a>
 
 Outbound external links enable connectivity between your requester gateway and external partner endpoints (such as DSPs), extending your RTB infrastructure beyond private VPC connections. Traffic is routed over the AWS Global Network where possible, falling back to public internet routing when required. You must provide the public HTTP or HTTPS endpoint URL of the external responder.
 

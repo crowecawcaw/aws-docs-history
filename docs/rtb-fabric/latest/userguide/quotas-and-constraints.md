@@ -1,7 +1,6 @@
 
 
 # Quotas and constraints
-<a name="quotas-and-constraints"></a>
 
 ## Supported and unsupported features
 <a name="supported-unsupported-features"></a>

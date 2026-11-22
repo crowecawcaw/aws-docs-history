@@ -1,7 +1,6 @@
 
 
 # RTB Fabric metrics
-<a name="monitoring-cloudwatch-metrics"></a>
 
 RTB Fabric publishes the following metrics to CloudWatch.
 

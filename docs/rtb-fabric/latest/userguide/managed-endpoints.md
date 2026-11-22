@@ -1,7 +1,6 @@
 
 
 # Managed endpoints
-<a name="managed-endpoints"></a>
 
 Managed endpoints is an optional feature for responder gateways that allows RTB Fabric to distribute load directly across bidder hosts in your fleet. This feature bypasses the need for a separate load balancer by using RTB Fabric to send traffic directly to your responder application hosts.
 
@@ -33,7 +32,7 @@ For Auto Scaling group managed endpoints, the IAM role must include the followin
 
 The role must also include a trust relationship that allows RTB Fabric to assume it:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -65,7 +64,7 @@ For Auto Scaling group managed endpoints, you must provide the following configu
 
 The IAM role must allow the services `rtbfabric.amazonaws.com` and `rtbfabric-endpoints.amazonaws.com` in its trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -85,7 +84,7 @@ The IAM role must allow the services `rtbfabric.amazonaws.com` and `rtbfabric-en
 
 The role must also allow the following permissions in its permissions policies:
 
-```
+```json
 {
    "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -116,7 +115,7 @@ For EKS managed endpoints, you must provide the following configuration:
 
 The IAM role must allow the services `rtbfabric.amazonaws.com` and `rtbfabric-endpoints.amazonaws.com` in its trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -136,7 +135,7 @@ The IAM role must allow the services `rtbfabric.amazonaws.com` and `rtbfabric-en
 
 The role does not need to have any IAM policies attached to it, but must be associated with your EKS cluster's RBAC to authorize RTB Fabric to discover IP targets in the cluster. First, create the Kubernetes Role and RoleBinding:
 
-```
+```yaml
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -170,7 +169,7 @@ Then, map the IAM role to the Kubernetes user using one of the following methods
 
 For EKS clusters running Kubernetes 1.23 or later, use the EKS access entry API to map the IAM role. This is the recommended approach and is the default authentication mode for new EKS clusters.
 
-```
+```bash
 $ aws eks create-access-entry \
 --cluster-name {{my-cluster}} \
 --principal-arn arn:aws:iam::{{242201309515}}:role/{{RtbFabricRoleForEksEndpointsManagedEndpoint}} \
@@ -182,7 +181,7 @@ $ aws eks create-access-entry \
 **Note**  
 The `aws-auth` ConfigMap method is deprecated for EKS clusters that use the EKS API authentication mode (which is the default for new clusters). If your cluster uses the `CONFIG_MAP` or `API_AND_CONFIG_MAP` authentication mode, you can still use this method. For more information, see [EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html) in the *Amazon EKS User Guide*.
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: ConfigMap
