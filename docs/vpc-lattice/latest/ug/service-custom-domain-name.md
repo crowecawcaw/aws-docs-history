@@ -1,7 +1,6 @@
 
 
 # Configure a custom domain name for your VPC Lattice service
-<a name="service-custom-domain-name"></a>
 
 When you create a new service, VPC Lattice generates a unique Fully Qualified Domain Name (FQDN) for the service with the following syntax.
 
@@ -92,7 +91,7 @@ Use the VPC Lattice generated domain name for your service, for instance `my-ser
 
    For the `change-set.json` file, create a JSON file with the content in the following JSON example, and save it on your local machine. Replace {{file://\~/Desktop/change-set.json}} in the above command with the path of the JSON file saved in your local machine. Note that "Type" in the following JSON can be an A or AAAA record type.
 
-   ```
+   ```json
    {
        "Comment": "my-custom-domain-name.com alias",
        "Changes": [

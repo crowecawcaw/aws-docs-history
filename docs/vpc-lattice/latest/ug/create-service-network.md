@@ -1,7 +1,6 @@
 
 
 # Create a VPC Lattice service network
-<a name="create-service-network"></a>
 
 Use the console to create a service network and optionally configure it with services, associations, access settings, and access logs.
 
@@ -27,7 +26,7 @@ Use the console to create a service network and optionally configure it with ser
 
    Alternatively, you can skip this step and connect a VPC to the service network using a VPC endpoint (powered by AWS PrivateLink). For more information, see [Access service networks](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-service-networks.html) in the *AWS PrivateLink user guide*.
 
-1. When creating a service network, you have to decide if you intend sharing the service network with other accounts or not. Your selection is immutable and cannot be changed after you create the service network. If you choose to allow sharing, the service network can be shared with other accounts through AWS Resource Access Manager.
+1. When creating a service network, you have to decide if you intend to share the service network with other accounts or not. Your selection is immutable and cannot be changed after you create the service network. If you choose to allow sharing, the service network can be shared with other accounts through AWS Resource Access Manager.
 
    To [ share your service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/sharing.html) with other accounts, choose the AWS RAM resource shares from **Resource shares**.
 

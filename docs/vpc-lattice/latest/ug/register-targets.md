@@ -1,7 +1,6 @@
 
 
 # Register targets with a VPC Lattice target group
-<a name="register-targets"></a>
 
 Your service serves as a single point of contact for clients and distributes incoming traffic across its healthy registered targets. You can register each target with one or more target groups.
 

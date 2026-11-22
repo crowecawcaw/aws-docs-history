@@ -1,7 +1,6 @@
 
 
 # Create a resource gateway in VPC Lattice
-<a name="create-resource-gateway"></a>
 
 Use the console to create a resource gateway.
 
@@ -27,7 +26,7 @@ Use the console to create a resource gateway.
 
 1. For **Resource Config DNS Resolution**, choose how you want DNS to be resolved for domain-name targets.
 
-   1.  If you are using a private DNS server or your domain-name targets are in a Route53 private hosted zone, set to IN\_VPC
+   1.  If you are using a private DNS server or your domain-name targets are in a Route 53 private hosted zone, set to IN\_VPC
 
 1. (Optional) To add a tag, choose **Add new tag** and enter the tag key and the tag value.
 

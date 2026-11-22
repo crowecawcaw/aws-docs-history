@@ -1,7 +1,6 @@
 
 
 # Amazon S3 access
-<a name="vpc-lattice-oci-s3-access"></a>
 
 In addition to the OCI Managed Backup to Amazon S3, you can create a managed integration that enables access to Amazon S3 from the ODB network. When you modify the Oracle Database@AWS network to enable the Amazon S3 Access managed integration, VPC Lattice provisions a resource configuration called `odb-s3-access` in the default service network. You can use this integration to access Amazon S3 for your own needs including self-managed backups or restores. You can establish perimeter control by providing an auth policy.
 
@@ -34,7 +33,7 @@ You can secure access to S3 buckets by defining an auth policy using the ODB API
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "Policy1515115909152",

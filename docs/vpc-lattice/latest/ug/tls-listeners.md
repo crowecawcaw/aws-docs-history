@@ -1,7 +1,6 @@
 
 
 # TLS listeners for VPC Lattice services
-<a name="tls-listeners"></a>
 
 A listener is a process that checks for connection requests. You can define a listener when you create your VPC Lattice service. You can add listeners to your service at any time.
 

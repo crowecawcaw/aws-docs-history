@@ -1,7 +1,6 @@
 
 
 # How Amazon VPC Lattice works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to VPC Lattice, learn what IAM features are available to use with VPC Lattice.
 
@@ -52,13 +51,13 @@ In an IAM policy statement, you can specify any API action from any service that
 
 To specify multiple actions in a single statement, separate them with commas, as follows:
 
-```
+```json
 "Action": [ "vpc-lattice:{{action1}}", "vpc-lattice:{{action2}}" ]
 ```
 
 You can also specify multiple actions using wildcards. For example, you can specify all actions whose names begin with the word `Get`, as follows:
 
-```
+```json
 "Action": "vpc-lattice:Get*"
 ```
 
@@ -74,57 +73,57 @@ In an IAM policy statement, the `Resource` element specifies the object or objec
 The specific Amazon Resource Name (ARN) format depends on the resource. When you provide an ARN, replace the {{italicized}} text with your resource-specific information. 
 + **Access log subscriptions:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:accesslogsubscription/{{access-log-subscription-id}}"
   ```
 + **Listeners:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:service/{{service-id}}/listener/{{listener-id}}"
   ```
 + **Resource gateways**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:resourcegateway/{{resource-gateway-id}}"
   ```
 + **Resource configuration**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:resourceconfiguration/{{resource-configuration-id}}"
   ```
 + **Rules:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:service/{{service-id}}/listener/{{listener-id}}/rule/{{rule-id}}"
   ```
 + **Services:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:service/{{service-id}}"
   ```
 + **Service networks:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:servicenetwork/{{service-network-id}}"
   ```
 + **Service network service associations:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:servicenetworkserviceassociation/{{service-network-service-association-id}}"
   ```
 + **Service network resource configuration associations**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:servicenetworkresourceassociation/{{service-network-resource-association-id}}"
   ```
 + **Service network VPC associations:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:servicenetworkvpcassociation/{{service-network-vpc-association-id}}"
   ```
 + **Target groups:**
 
-  ```
+  ```json
   "Resource": "arn:aws:vpc-lattice:{{region}}:{{account-id}}:targetgroup/{{target-group-id}}"
   ```
 

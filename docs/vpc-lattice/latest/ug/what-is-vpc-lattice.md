@@ -1,7 +1,6 @@
 
 
 # What is Amazon VPC Lattice?
-<a name="what-is-vpc-lattice"></a>
 
 Amazon VPC Lattice is a fully managed application networking service that you use to connect, secure, and monitor the services and resources for your application. You can use VPC Lattice with a single virtual private cloud (VPC) or across multiple VPCs from one or more accounts.
 
@@ -83,7 +82,7 @@ A role determines who is responsible for the setup and flow of information withi
 The following are the core features that VPC Lattice provides.
 
 **Service discovery**  
-All clients and services in VPCs associated with the service network can communicate with other services within the same service network. DNS directs client-to-service and service-to-service traffic through the VPC Lattice endpoint. When a client wants to send a request to a service, it uses the service’s DNS name. The Route 53 Resolver sends the traffic to VPC Lattice, which then identifies the destination service.
+All clients and services in VPCs associated with the service network can communicate with other services within the same service network. DNS directs client-to-service and service-to-service traffic through the VPC Lattice endpoint. When a client wants to send a request to a service, it uses the service's DNS name. The Route 53 Resolver sends the traffic to VPC Lattice, which then identifies the destination service.
 
 **Connectivity**  
 Client-to-service and client-to-resource connectivity is established within the AWS network infrastructure. When you associate a VPC with the service network, any client within the VPC can connect with services and resources (through resource configurations) in the service network, if they have the required access. VPC Lattice supports overlapping CIDR technology. 
@@ -92,7 +91,7 @@ Client-to-service and client-to-resource connectivity is established within the 
 You can enable connectivity to a service network from a VPC using a VPC endpoint (powered by AWS PrivateLink). A VPC endpoint of type *service network* lets you enable access to services and resources in the service network from on premises networks over Direct Connect and VPN. Traffic that traverses VPC peering or AWS Transit Gateway can also access resources and services over a VPC endpoint.
 
 **Observability**  
-VPC Lattice generates metrics and logs for each request and response traversing the service network, to help you monitor and troubleshoot applications. By default, metrics are published to the service owner account. Service owners and resource owners have the option to turn on logging, and receive logs for all client access/requests to their services and resources. Service network owners can also turn on logging on the service network, to log all access/requests to the services and resources from clients in VPCs that are connected to the service network.  
+VPC Lattice generates metrics and logs for each request and response traversing the service network, to help you monitor and troubleshoot applications. By default, metrics for services are published to the service owner account. Metrics for VPC resources are published to the account that owns the resource gateway (provider metrics) and to the account that owns the resource VPC endpoint, service-network VPC endpoint, or service network VPC association (consumer metrics). Service network owners don't receive metrics for VPC resources. Service owners and resource owners have the option to turn on logging, and receive logs for all client access/requests to their services and resources. Service network owners can also turn on logging on the service network, to log all access/requests to the services and resources from clients in VPCs that are connected to the service network.  
 VPC Lattice works with the following tools to help you monitor and troubleshoot your services: Amazon CloudWatch log groups, Firehose delivery streams, and Amazon S3 buckets.
 
 **Security**  

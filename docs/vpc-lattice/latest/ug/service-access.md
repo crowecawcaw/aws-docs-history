@@ -1,7 +1,6 @@
 
 
 # Edit access settings for a VPC Lattice service
-<a name="service-access"></a>
 
 Access settings enable you to configure and manage client access to a service. Access settings include *auth type* and *auth policies*. Auth policies help you authenticate and authorize traffic flowing to services within VPC Lattice.
 

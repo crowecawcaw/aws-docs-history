@@ -1,7 +1,6 @@
 
 
 # Control traffic in VPC Lattice using security groups
-<a name="security-groups"></a>
 
 AWS security groups act as virtual firewalls, controlling the network traffic to and from the entities that they are associated with. With VPC Lattice, you can create security groups and assign them to the VPC association that connects a VPC to a service network to enforce additional network-level security protections for your service network. If you connect a VPC to a service network using a VPC endpoint, you can assign security groups to the VPC endpoint too. Similarly you can assign security groups to resource gateways that you create to enable access to resources in your VPC.
 
@@ -122,7 +121,7 @@ Before you begin, confirm that you have created the security group in the same V
 **To add a security group when you create a VPC association using the AWS CLI**  
 Use the [create-service-network-vpc-association](https://docs.aws.amazon.com/cli/latest/reference/vpc-lattice/create-service-network-vpc-association.html) command, specifying the ID of the VPC for the VPC association and the ID of the security groups to add.
 
-```
+```shell
 aws vpc-lattice create-service-network-vpc-association \
     --service-network-identifier {{sn-0123456789abcdef0}} \
     --vpc-identifier {{vpc-1a2b3c4d}} \
@@ -131,7 +130,7 @@ aws vpc-lattice create-service-network-vpc-association \
 
 If successful, the command returns output similar to the following.
 
-```
+```json
 {
   "arn": "{{arn}}",
   "createdBy": "464296918874",
@@ -144,7 +143,7 @@ If successful, the command returns output similar to the following.
 **To add or update security groups for an existing VPC association using the AWS CLI**  
 Use the [update-service-network-vpc-association](https://docs.aws.amazon.com/cli/latest/reference/vpc-lattice/update-service-network-vpc-association.html) command, specifying the ID of the service network and the IDs of the security groups. These security groups override any previously associated security groups. Define at least one security group when updating the list.
 
-```
+```shell
 aws vpc-lattice update-service-network-vpc-association 
     --service-network-vpc-association-identifier {{sn-903004f88example}} \
     --security-group-ids {{sg-7c2270198example}} {{sg-903004f88example}}

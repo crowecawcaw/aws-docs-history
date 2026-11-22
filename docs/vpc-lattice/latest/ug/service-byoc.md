@@ -1,7 +1,6 @@
 
 
 # Bring Your Own Certificate (BYOC) for VPC Lattice
-<a name="service-byoc"></a>
 
 To serve HTTPS requests, you must have your own SSL/TLS certificate ready in AWS Certificate Manager (ACM) before you set up a custom domain name. These certificates must have a Subject Alternate Name (SAN) or Common Name (CN) that matches the custom domain name for your service. If the SAN is present, we check for a match only in the SAN list. If the SAN is absent, we check for a match in the CN.
 

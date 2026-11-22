@@ -1,7 +1,6 @@
 
 
 # Service networks in VPC Lattice
-<a name="service-networks"></a>
 
 A *service network* is a logical boundary for a collection of services and resource configurations. Services and resource configurations associated with the network can be authorized for discovery, connectivity, accessibility, and observability. To make requests to services and resource configurations in the network, your service or client must be in a VPC that is connected to the service network either through an association or through a VPC endpoint.
 
@@ -12,7 +11,7 @@ The following diagram shows the key components of a typical service network with
 
 You can associate one or more services and resource configurations with multiple service networks. You can also connect multiple VPCs with one service network. You can connect a VPC to only one service network through an association. To connect a VPC to multiple service networks, you can use VPC endpoints of type service network. For more information on VPC endpoints of type service network, see the [*AWS PrivateLink user guide*](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html).
 
-In the following diagram, the arrows represent the associations between services and service networks, as well as associations between the VPCs and service networks. You can see that multiple services are associated to multiple service networks, and multiple VPCs are associated to each service network. Each VPC has exactly one association to a service network. VPC 3 and VPC 4 however connect to two service-networks. VPC 3 connects to service-network 1 through a VPC endpoint. Similarly, VPC 4 connects to service-network 2 through a VPC endpoint.
+In the following diagram, the arrows represent the associations between services and service networks, as well as associations between the VPCs and service networks. You can see that multiple services are associated to multiple service networks, and multiple VPCs are associated to each service network. Each VPC has exactly one association to a service network. VPC 3 and VPC 4, however, connect to two service networks. VPC 3 connects to service network 1 through a VPC endpoint. Similarly, VPC 4 connects to service network 2 through a VPC endpoint.
 
 ![A service network with associated services, resource configurations, and VPCs.](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service-network-vpc-associations.png)
 

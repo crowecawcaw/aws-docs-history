@@ -1,7 +1,6 @@
 
 
 # Share your VPC Lattice entities
-<a name="sharing"></a>
 
 Amazon VPC Lattice integrates with AWS Resource Access Manager (AWS RAM) to enable sharing of services, resource configurations, and service networks. AWS RAM is a service that enables you to share some VPC Lattice entities with other AWS accounts or through AWS Organizations. With AWS RAM, you share entities that you own by creating a *resource share*. A resource share specifies the entities to share, and the consumers with whom to share them. Consumers can include:
 + Specific AWS accounts inside or outside of its organization in AWS Organizations.
@@ -170,7 +169,7 @@ Sent to the entity owner when an entity consumer calls [GetServiceNetworkVpcAsso
 
 The following is an example entry for the `CreateServiceNetworkServiceAssociationBySharee` event.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

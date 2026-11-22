@@ -1,7 +1,6 @@
 
 
 # Control traffic to VPC Lattice using network ACLs
-<a name="network-acls"></a>
 
 A network access control list (ACL) allows or denies specific inbound or outbound traffic at the subnet level. The default network ACL allows all inbound and outbound traffic. You can create custom network ACLs for your subnets to provide an additional layer of security. For more information, see [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon VPC User Guide*.
 

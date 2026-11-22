@@ -1,7 +1,6 @@
 
 
 # Manage associations for a VPC Lattice service
-<a name="service-associations"></a>
 
 When you associate a service with the service network, it enables clients (resources in a VPC associated with the service network), to make requests to this service. You can associate services that are in your account or services that are shared with you from different accounts. This step is optional when creating the service. However, after creation, the service can't communicate with other services until you associate it with a service network. Service owners can associate their services to the service network if their account has the required access. For more information, see [How VPC Lattice works](how-it-works.md).
 

@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon VPC Lattice
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon VPC Lattice. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. This content includes the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/). For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*.
 
@@ -56,7 +55,7 @@ To decrypt data, the same encryption context is included in the request. VPC Lat
 
 The following example shows the encryption context in the output of an operation such as `CreateGrant`.
 
-```
+```json
 "encryptionContextEquals": {
     "aws:acm:arn": "arn:aws:acm:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
     "aws:vpc-lattice:arn": "arn:aws:vpc-lattice:us-west-2:111122223333:service/svc-0b23c1234567890ab"
@@ -75,7 +74,7 @@ You can view the `CreateGrant` operation as an event in **CloudTrail**, **Event 
 
 The following is an example event record in the CloudTrail event history for the `CreateGrant` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -154,7 +153,7 @@ aws kms list-grants —key-id {{your-kms-key-id}}
 
 The following is example output.
 
-```
+```json
 {
     "Grants": [
         {
@@ -186,7 +185,7 @@ VPC Lattice uses TLS Connection Manager to call the `Decrypt` operation to decry
 
 The following is an example event record in the CloudTrail event history for the `Decrypt` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

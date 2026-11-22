@@ -1,7 +1,6 @@
 
 
 # Listener rules for your VPC Lattice service
-<a name="listener-rules"></a>
 
 Each listener has a default rule and additional rules that you can define. Each rule consists of a priority, one or more actions, and one or more conditions. You can add or edit rules at any time.
 
@@ -42,7 +41,7 @@ You can use `fixed-response` actions to drop client requests and return a custom
 **Example fixed response action for the AWS CLI**  
 You can specify an action when you create or update a rule. The following action sends a fixed response with the specified status code.  
 
-```
+```json
 "action": { 
     "fixedResponse": { 
         "statusCode": 404

@@ -1,7 +1,6 @@
 
 
 # Access logs for Amazon VPC Lattice
-<a name="monitoring-access-logs"></a>
 
 Access logs capture detailed information about your VPC Lattice services and resource configurations. You can use these access logs to analyze traffic patterns and audit all of the services in the network. For VPC Lattice services, we publish `VpcLatticeAccessLogs` and for resource configurations, we publish `VpcLatticeResourceAccessLogs` which needs to be configured separately.
 
@@ -29,7 +28,7 @@ To enable access logs and send the logs to their destinations, you must have the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

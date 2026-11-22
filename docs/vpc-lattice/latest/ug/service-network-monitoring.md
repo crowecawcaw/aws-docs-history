@@ -1,7 +1,6 @@
 
 
 # Edit monitoring details for a VPC Lattice service network
-<a name="service-network-monitoring"></a>
 
 VPC Lattice generates metrics and logs for every request and response, making it more efficient to monitor and troubleshoot applications.
 

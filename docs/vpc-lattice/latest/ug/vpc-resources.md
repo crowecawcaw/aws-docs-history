@@ -1,7 +1,6 @@
 
 
 # VPC resources in Amazon VPC Lattice
-<a name="vpc-resources"></a>
 
 You can share resources and network segments with other teams in your organization or with external independent software vendor (ISV) partners. A resource can be an AWS-native resource such as an Amazon RDS database, a domain name, or an IP address. A network segment can be a list of CIDR ranges in your network. Resources or network segments can be in your VPC or on-premises network. To share resources or network segments, you create a resource gateway in your VPC through which your resource or network segment can be accessed. You create a resource configuration to represent the resource, group of resources, or network segment that you want to share. Then, you use AWS RAM to specify the principals who can access the resource or network segment.
 

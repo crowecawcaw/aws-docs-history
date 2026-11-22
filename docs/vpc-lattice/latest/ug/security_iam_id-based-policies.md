@@ -1,7 +1,6 @@
 
 
 # Identity-based policies for Amazon VPC Lattice
-<a name="security_iam_id-based-policies"></a>
 
 By default, users and roles don't have permission to create or modify VPC Lattice resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -38,7 +37,7 @@ You must attach the following policy to your role and use it along with the `VPC
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -112,7 +111,7 @@ The following example demonstrates a policy that gives users with this policy th
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -151,7 +150,7 @@ The following example demonstrates a policy that limits the service associations
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -182,7 +181,7 @@ The following example demonstrates a policy that gives users with this policy pe
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -206,7 +205,7 @@ VPC Lattice requires permissions to create a service-linked role the first time 
 
 For automatic role creation to succeed, users must have permissions for the `iam:CreateServiceLinkedRole` action.
 
-```
+```json
 "Action": "iam:CreateServiceLinkedRole"
 ```
 
@@ -217,7 +216,7 @@ The following example demonstrates a policy that gives users with this policy pe
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

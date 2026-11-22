@@ -1,7 +1,6 @@
 
 
 # Access and share VPC Lattice entities
-<a name="vpc-lattice-oci-entities"></a>
 
 You can also connect your ODB network to services, resources, and other clients in VPCs using VPC Lattice. These connectivity options are powered through the default service network, resource gateway, and service-network endpoint provisioned by VPC Lattice.
 

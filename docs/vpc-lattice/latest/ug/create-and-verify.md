@@ -1,9 +1,8 @@
 
 
 # Create and verify a domain
-<a name="create-and-verify"></a>
 
-A domain name verification is an entity that allows you to prove your ownership of a given domain. As a resource provider you can use the domain and it’s subdomains as custom domain names for your resource configurations. Resource consumers can see the verification status of your custom domain name when they describe the resource configuration.
+A domain name verification is an entity that you use to prove your ownership of a given domain. As a resource provider, you can use the domain and its subdomains as custom domain names for your resource configurations. Resource consumers can see the verification status of your custom domain name when they describe the resource configuration.
 
 ## Start the domain verification
 <a name="start-domain-verification"></a>
@@ -107,4 +106,4 @@ To create a TXT record using the AWS Management Console, see [Creating records b
 
 To check the verification status of your domain name, you can use the VPC Lattice console or the `get-domain-verification` command.
 
- Once you verify your domain name, it stays verified until you delete it. If you delete the TXT record from your DNS zone, VPC Lattice deletes the `verification-id` and you need to reverify the domain name. If you delete the TXT record in your DNS zone, VPC Lattice sets your domain name verification status to `UNVERIFIED`. This doesn’t impact any existing resource endpoints, service network endpoints, or service network VPC associations to your resource configurations. To reverify your domain name, start the domain name verification process over.
+ Once you verify your domain name, it stays verified until you delete it. If you delete the TXT record from your DNS zone, VPC Lattice deletes the `verification-id` and you need to reverify the domain name. If you delete the TXT record in your DNS zone, VPC Lattice sets your domain name verification status to `UNVERIFIED`. This doesn't impact any existing resource endpoints, service network endpoints, or service network VPC associations to your resource configurations. To reverify your domain name, start the domain name verification process over.

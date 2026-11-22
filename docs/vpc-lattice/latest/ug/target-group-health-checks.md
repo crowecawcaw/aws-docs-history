@@ -1,7 +1,6 @@
 
 
 # Health checks for your VPC Lattice target groups
-<a name="target-group-health-checks"></a>
 
 Your service periodically sends requests to its registered targets to test their status. These tests are called *health checks*.
 

@@ -1,7 +1,6 @@
 
 
 # VPC Lattice for Oracle Database@AWS
-<a name="vpc-lattice-oci"></a>
 
 VPC Lattice powers AWS managed service integrations for [Oracle Database@AWS](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html) (ODB) and provides you with simplified connectivity between the ODB network, AWS VPCs and on premise. To support this connectivity, VPC Lattice provisions the following entities on your behalf:
 
@@ -40,7 +39,7 @@ The following considerations apply to VPC Lattice for Oracle Database@AWS:
 
 ****  
 
-  ```
+  ```json
   {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

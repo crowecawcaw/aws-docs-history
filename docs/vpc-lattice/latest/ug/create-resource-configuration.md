@@ -1,7 +1,6 @@
 
 
 # Create a resource configuration in VPC Lattice
-<a name="create-resource-configuration"></a>
 
 Create a resource configuration.
 

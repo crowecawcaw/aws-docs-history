@@ -1,7 +1,6 @@
 
 
 # Resource gateways in VPC Lattice
-<a name="resource-gateway"></a>
 
 A *resource gateway* is the point that receives traffic into the VPC where a resource resides. It spans multiple Availability Zones.
 
@@ -18,7 +17,9 @@ The following diagram shows how a client accesses a resource through the resourc
 + [IP address types](#resource-gateway-ip-address-type)
 + [IPv4 addresses per ENI](#ipv4-address-type-per-eni)
 + [Resource Config DNS Resolution](#resource-config-dns-resolution)
++ [Monitor your resource gateway](#resource-gateway-monitoring)
 + [Create a resource gateway](create-resource-gateway.md)
++ [Update a resource gateway](update-resource-gateway.md)
 + [Delete a resource gateway](delete-resource-gateway.md)
 
 ## Considerations
@@ -58,7 +59,7 @@ For traffic to flow from a resource gateway to a resource, you must create outbo
 ## IP address types
 <a name="resource-gateway-ip-address-type"></a>
 
-A resource gateway can have IPv4, IPv6 or dual-stack addresses. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource, as described here:
+A resource gateway can have IPv4, IPv6, or dual-stack addresses. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource, as described here:
 + **IPv4** – Assign IPv4 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have IPv4 address ranges, and the resource also has an IPv4 address. When you use this option, you can configure the number of IPv4 addresses per resource gateway ENI.
 + **IPv6** – Assign IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets are IPv6-only subnets, and the resource also has an IPv6 address. When you use this option, IPv6 addresses are assigned automatically and don't need to be managed. 
 + **Dualstack** – Assign both IPv4 and IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges, and the resource either has an IPv4 or IPv6 address. When you use this option, you can configure the number of IPv4 addresses per resource gateway ENI.
@@ -70,16 +71,16 @@ The IP address type of the resource gateway is independent of the IP address typ
 
 If your resource gateway has an IPv4 or a dual-stack IP address type, you can configure the number of IPv4 addresses assigned to each ENI of your resource gateway. When you create a resource gateway, you choose from 1 to 62 IPv4 addresses. Once you set the number of IPv4 addresses, the value can't be changed.
 
-The IPv4 addresses are used for network address translation and determine the maximum number of concurrent IPv4 connections to a resource. Each IPv4 address can support up to 55,000 simultaneous connections per destination IP. By default, all resource gateways are assigned 16 IPv4 addresses per ENI.
+The IPv4 addresses are used for network address translation and determine the maximum number of concurrent IPv4 connections to a resource. Each IPv4 address can support up to 55,000 simultaneous connections per destination IP. By default, all resource gateways are assigned 16 IPv4 addresses per ENI. If the `PortAllocationErrors` metric for your resource gateway increases, consider creating a resource gateway with more IPv4 addresses per ENI. You can't change this value on an existing resource gateway. For more information, see [Resource gateway and resource configuration metrics](monitoring-cloudwatch.md#resource-gateway-resource-configuration-metrics).
 
 If your resource gateway uses the IPv6 address type, the resource gateway automatically receives a /80 CIDR per ENI. This value can't be changed. The maximum transmission unit (MTU) per connection is 8500 bytes.
 
 ## Resource Config DNS Resolution
 <a name="resource-config-dns-resolution"></a>
 
-You can specify how a resource gateway does DNS resolution for resource configurations that are domain-name targets. This property is immutable. You can choose: 
+You can specify how a resource gateway performs DNS resolution for resource configurations that are domain-name targets. You can change this setting after you create the resource gateway. For more information, see [Update a resource gateway in VPC Lattice](update-resource-gateway.md). You can choose: 
 + ** PUBLIC (default)** - Domain names are resolved using public DNS resolvers. 
-+ ** IN\_VPC ** - Domain names are resolved using the DNS server configured in the DHCP option set of the VPC which the resource gateway is in. You should use this if you are using a private DNS server or your domain-name targets are in a Route53 private hosted zone. 
++ ** IN\_VPC ** - Domain names are resolved using the DNS server configured in the DHCP option set of the VPC which the resource gateway is in. You should use this if you are using a private DNS server or your domain-name targets are in a Route 53 private hosted zone. 
 
 The following table lists the constraints that apply when Domain Name System (DNS) resolution is set to `IN_VPC`.
 
@@ -92,6 +93,13 @@ The following table lists the constraints that apply when Domain Name System (DN
 | Maximum DNS payload size | VPC Lattice advertises a maximum DNS payload size of 8,400 bytes. Because TCP fallback isn't supported, DNS resolution fails for responses larger than this size. | 
 | Recursive DNS resolver | The DNS resolver must be recursive. If a response contains a CNAME record, the response must also contain the records that the CNAME resolves to. | 
 
+The constraints in the table also apply when you change an existing resource gateway to `IN_VPC`. You can't change a resource gateway to `IN_VPC` if it has ARN resource configurations or uses the IPv6 address type. You can't change a resource gateway to `PUBLIC` if it has CIDR resource configurations. Before you change the setting, check that your domain-name targets resolve with the new setting. The change applies to all resource configurations on the resource gateway. Associations stay attached, existing connections aren't affected, and consumers don't need to do anything. VPC Lattice applies the new setting asynchronously. After it's applied, new connections use the new DNS resolution setting.
+
 To attach a CIDR resource configuration to a resource gateway, it must have `IN_VPC` enabled.
 
 Dynamic Host Configuration Protocol (DHCP) option set DNS server changes take 24 hours to propagate to a resource gateway that uses `IN_VPC` DNS resolution.
+
+## Monitor your resource gateway
+<a name="resource-gateway-monitoring"></a>
+
+VPC Lattice publishes Amazon CloudWatch metrics for your resource gateway to the `AWS/VpcLattice` namespace, including bytes processed, packets dropped, new and active flows, and port allocation errors. You can view metrics for the resource gateway overall or per Availability Zone. For more information, see [Resource gateway and resource configuration metrics](monitoring-cloudwatch.md#resource-gateway-resource-configuration-metrics).

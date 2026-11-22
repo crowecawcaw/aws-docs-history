@@ -1,7 +1,6 @@
 
 
 # HTTP targets in VPC Lattice
-<a name="http-targets"></a>
 
 HTTP requests and HTTP responses use header fields to send information about the HTTP messages. HTTP headers are added automatically. Header fields are colon-separated name-value pairs that are separated by a carriage return (CR) and a line feed (LF). A standard set of HTTP header fields is defined in RFC 2616, [Message Headers](https://datatracker.ietf.org/doc/html/rfc2616). There are also non-standard HTTP headers available that are automatically added and widely used by the applications. For example, there are non-standard HTTP headers with the `x-forwarded` prefix.
 
