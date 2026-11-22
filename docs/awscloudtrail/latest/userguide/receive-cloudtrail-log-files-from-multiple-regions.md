@@ -1,7 +1,6 @@
 
 
 # Receiving CloudTrail log files from multiple Regions
-<a name="receive-cloudtrail-log-files-from-multiple-regions"></a>
 
 
 
@@ -23,7 +22,7 @@ aws cloudtrail update-trail --name {{my-trail}} --is-multi-region-trail
 
 To confirm that the trail is now a multi-Region trail, verify that the `IsMultiRegionTrail` element in the output shows `true`.
 
-```
+```JSON
 {
     "IncludeGlobalServiceEvents": true, 
     "Name": "{{my-trail}}", 

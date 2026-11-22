@@ -1,7 +1,6 @@
 
 
 # Validate CloudTrail Lake saved query results
-<a name="cloudtrail-query-results-validation"></a>
 
 To determine whether the query results were modified, deleted, or unchanged after CloudTrail delivered the query results, you can use CloudTrail query results integrity validation. This feature is built using industry standard algorithms: SHA-256 for hashing and SHA-256 with RSA for digital signing. This makes it computationally infeasible to modify, delete or forge CloudTrail query result files without detection. You can use the command line to validate the query result files. 
 
@@ -350,7 +349,7 @@ The sample snippet shows:
 + How to verify the sign file's signature.
 + How to calculate the hash value for the query result file and compare it with the `fileHashValue` listed in the sign file to verify the authenticity of the query result file.
 
-```
+```java
 import org.apache.commons.codec.binary.Hex;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.RSAPublicKey;

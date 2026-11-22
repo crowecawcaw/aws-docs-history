@@ -1,7 +1,6 @@
 
 
 # Using AWS CloudTrail with interface VPC endpoints
-<a name="cloudtrail-and-interface-VPC"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC and AWS CloudTrail. You can use this connection to enable CloudTrail to communicate with your resources on your VPC without going through the public internet.
 
@@ -65,7 +64,7 @@ The following example VPC endpoint policy grants access to all CloudTrail action
 
 ****  
 
-```
+```json
 {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -91,7 +90,7 @@ The following example VPC endpoint policy grants access to perform the `cloudtra
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ The following example VPC endpoint policy denies access to all CloudTrail action
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -143,7 +142,7 @@ The following example VPC endpoint policy denies the `cloudtrail:CreateTrail` an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -169,7 +168,7 @@ The following example VPC endpoint policy grants access to perform all CloudTrai
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -200,7 +199,7 @@ The following example VPC endpoint policy grants access to perform all CloudTrai
 
 ****  
 
-```
+```json
 {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

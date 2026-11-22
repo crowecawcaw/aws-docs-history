@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS CloudTrail tutorials
-<a name="cloudtrail-tutorial"></a>
 
 If you're new to AWS CloudTrail, these tutorials can help you learn how to use its features. To use CloudTrail features, you need to have adequate permissions. This page describes the managed policies available for CloudTrail and provides information about how you can grant permissions.
 

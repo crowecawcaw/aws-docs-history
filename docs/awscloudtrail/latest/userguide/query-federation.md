@@ -1,7 +1,6 @@
 
 
 # Federate an event data store
-<a name="query-federation"></a>
 
 **Note**  
 AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md).
@@ -16,7 +15,7 @@ You can disable federation by using the CloudTrail console, AWS CLI, or [Disable
 
 There are no CloudTrail charges for federating a CloudTrail Lake event data store. There are costs for running queries in Amazon Athena. For more information about Athena pricing, see [Amazon Athena Pricing](https://aws.amazon.com/athena/pricing/).
 
-[![AWS Videos](https://img.youtube.com/vi/cOeZaJt_k-w?si=4LsEgq23NNHSJAAg/0.jpg)](https://www.youtube.com/watch?v=cOeZaJt_k-w?si=4LsEgq23NNHSJAAg)
+[![AWS Videos](https://img.youtube.com/vi/cOeZaJt_k-w/0.jpg)](https://www.youtube.com/watch?v=cOeZaJt_k-w)
 
 
 **Topics**
@@ -66,7 +65,7 @@ The second statement in this policy allows Lake Formation to decrypt data for an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -98,7 +97,7 @@ The following example provides the IAM trust policy, which allows AWS Lake Forma
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -125,7 +124,7 @@ The following example policy provides the minimum required permissions to enable
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -184,7 +183,7 @@ The following example policy provides the minimum required resources to disable 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

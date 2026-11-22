@@ -1,7 +1,6 @@
 
 
 # Update an event data store with the AWS CLI
-<a name="lake-cli-update-eds"></a>
 
 This section provides examples that show how to update an event data store's settings by running the AWS CLI `update-event-data-store` command.
 
@@ -20,7 +19,7 @@ You cannot change the `--billing-mode` value from `EXTENDABLE_RETENTION_PRICING`
 
 The following example AWS CLI **update-event-data-store** command changes the `--billing-mode` for the event data store from `FIXED_RETENTION_PRICING` to `EXTENDABLE_RETENTION_PRICING`. The required `--event-data-store` parameter value is an ARN (or the ID suffix of the ARN) and is required; other parameters are optional. 
 
-```
+```JSON
 aws cloudtrail update-event-data-store \
 --region us-east-1 \
 --event-data-store arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE \
@@ -29,7 +28,7 @@ aws cloudtrail update-event-data-store \
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "event-data-store arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "management-events-eds",
@@ -67,7 +66,7 @@ An event data store that logs events from outside AWS cannot be updated to log A
 **Note**  
 If you decrease the retention period of an event data store, CloudTrail will remove any events with an `eventTime` older than the new retention period. For example, if the previous retention period was 365 days and you decrease it to 100 days, CloudTrail will remove events with an `eventTime` older than 100 days.
 
-```
+```JSON
 aws cloudtrail update-event-data-store \
 --event-data-store arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE \
 --retention-period 100 \
@@ -77,7 +76,7 @@ aws cloudtrail update-event-data-store \
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-ee54-4813-92d5-999aeEXAMPLE",
     "Name": "my-event-data-store",
@@ -125,7 +124,7 @@ By default, termination protection is enabled on an event data store to protect 
 
 The following example AWS CLI **update-event-data-store** command disables termination protection by passing the `--no-termination-protection-enabled` parameter.
 
-```
+```JSON
 aws cloudtrail update-event-data-store \
 --region us-east-1 \
 --no-termination-protection-enabled \
@@ -134,7 +133,7 @@ aws cloudtrail update-event-data-store \
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "management-events-eds",

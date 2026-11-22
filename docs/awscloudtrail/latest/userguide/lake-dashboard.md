@@ -1,7 +1,6 @@
 
 
 # CloudTrail Lake dashboards
-<a name="lake-dashboard"></a>
 
 **Note**  
 AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md).
@@ -95,7 +94,7 @@ The following sample policy provides the required minimum permissions for creati
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -131,7 +130,7 @@ The following sample policy provides the required minimum permissions for updati
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -166,7 +165,7 @@ The following sample policy provides the required minimum permissions for refres
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -204,7 +203,7 @@ You can attach a resource-based policy using the CloudTrail console, the [AWS CL
 
 If an event data store being queried is encrypted with a KMS key, ensure the KMS key policy allows CloudTrail to decrypt the data in the event data store. The following example policy statement allows the CloudTrail service principal to decrypt the event data store.
 
-```
+```JSON
 {
       "Sid": "AllowCloudTrailDecryptAccess",
       "Effect": "Allow",

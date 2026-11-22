@@ -1,7 +1,6 @@
 
 
 # Default KMS key policy created in CloudTrail console
-<a name="default-kms-key-policy"></a>
 
 If you create an AWS KMS key in the CloudTrail console, the following policies are automatically created for you. The policy allows these permissions:
 + Allows AWS account (root) permissions for the KMS key.
@@ -27,7 +26,7 @@ The policy includes a statement to allow cross accounts to decrypt log files and
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "Key policy created by CloudTrail",
@@ -126,7 +125,7 @@ The following is the default policy created for a AWS KMS key that you use with 
 
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Id": "Key policy created by CloudTrail",

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS CloudTrail
-<a name="CloudTrail-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS CloudTrail as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

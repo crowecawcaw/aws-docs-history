@@ -1,7 +1,6 @@
 
 
 # CloudTrail concepts
-<a name="cloudtrail-concepts"></a>
 
 This section summarizes basic concepts related to CloudTrail.
 
@@ -68,7 +67,7 @@ For trails, you can use basic or advanced event selectors to log data events for
 For event data stores, you can use only advanced event selectors to include data events.
 
 #### Data events supported by AWS CloudTrail
-<a name="w2aab5c25b7c19c17"></a>
+<a name="w2aab5c27b7c19c17"></a>
 
 
 
@@ -84,6 +83,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon AIDevOps | AIDevOps API activity on pipeline metadata. | AIDevOps Pipelines Metadata | `AWS::AIDevOps::PipelineMetadata` | 
 | Amazon AIDevOps | AIDevOps API activity on services. | AIDevOps service | `AWS::AIDevOps::Service` | 
 | Amazon Q Developer | Amazon Q Developer API activity on operational investigations. For more information, see [Amazon Q Developer](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html#Q-Developer-Investigations-Cloudtrail). | AIOps Investigation Group | `AWS::AIOps::InvestigationGroup` | 
+| AWS Amplify | Amplify Gen 3 Backend Branch. | Amplify Gen 3 Backend Branch | `AWS::AmplifyGen3::Branch` | 
 | Amazon OpenSearch Serverless | API activity on `AWS::AOSS::Collection` resources. | AWS::AOSS::Collection | `AWS::AOSS::Collection` | 
 | AWS AppConfig | AWS AppConfig API activity for configuration operations such as calls to StartConfigurationSession and GetLatestConfiguration. For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/logging-using-cloudtrail.html#appconfig-data-events-cloudtrail). | AWS AppConfig | `AWS::AppConfig::Configuration` | 
 | CloudWatch Application Signals | API activity on `AWS::ApplicationSignals::InstrumentationConfig` resources. | AWS::ApplicationSignals::InstrumentationConfig | `AWS::ApplicationSignals::InstrumentationConfig` | 
@@ -109,6 +109,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Bedrock | Amazon Bedrock API activity on inline agents. | Bedrock Invoke Inline-Agent | `AWS::Bedrock::InlineAgent` | 
 | Amazon Bedrock | Amazon Bedrock API activity on a knowledge base. For more information, see [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail). | Bedrock knowledge base | `AWS::Bedrock::KnowledgeBase` | 
 | Amazon Bedrock | Amazon Bedrock API activity on models. | Bedrock model | `AWS::Bedrock::Model` | 
+| Amazon Bedrock | Amazon Bedrock API activity on projects. | Bedrock project | `AWS::Bedrock::Project` | 
 | Amazon Bedrock | Amazon Bedrock API activity on prompts. | Bedrock prompt | `AWS::Bedrock::PromptVersion` | 
 | Amazon Bedrock | Amazon Bedrock API activity on sessions. | Bedrock session | `AWS::Bedrock::Session` | 
 | Amazon Bedrock | Amazon Bedrock Tool API activity. | Bedrock Tool | `AWS::Bedrock::Tool` | 
@@ -150,6 +151,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Clinical Trials Tech mapping | API activity on `AWS::ClinicalTrialsTech::Mapping` resources. | Clinical Trials Tech mapping | `AWS::ClinicalTrialsTech::Mapping` | 
 | Clinical Trials Tech schedule | API activity on `AWS::ClinicalTrialsTech::Schedule` resources. | Clinical Trials Tech schedule | `AWS::ClinicalTrialsTech::Schedule` | 
 | Clinical Trials Tech study | API activity on `AWS::ClinicalTrialsTech::Study` resources. | Clinical Trials Tech study | `AWS::ClinicalTrialsTech::Study` | 
+| AWS Cloud Extensions | Profile-level data events for AWS Cloud Extensions. | Cloud Extensions profile level events | `AWS::CloudExtensions::Profile` | 
 | Amazon CloudFront | CloudFront API activity on a KeyValueStore. For more information, see [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_KeyValueStore.html). | CloudFront KeyValueStore | `AWS::CloudFront::KeyValueStore` | 
 | Amazon Cost Optimization | CloudOptimization API activity on profiles. | AWS::CloudOptimization::Profile | `AWS::CloudOptimization::Profile` | 
 | Amazon Cost Optimization | CloudOptimization API activity on recommendations. | AWS::CloudOptimization::Recommendation | `AWS::CloudOptimization::Recommendation` | 
@@ -161,6 +163,11 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a customization. | CodeWhisperer customization | `AWS::CodeWhisperer::Customization` | 
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a profile. | CodeWhisperer | `AWS::CodeWhisperer::Profile` | 
 | Amazon Cognito | Amazon Cognito API activity on Amazon Cognito identity pools. For more information, see [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-info-in-cloudtrail.html#identity-pools-cloudtrail-events). | Cognito Identity Pools | `AWS::Cognito::IdentityPool` | 
+| AWS Context | Agent-context-level Data events for AWS Context. | AWS agent context | `AWS::Context::AgentContext` | 
+| AWS Context | Task-level Data events for AWS Context. | AWS Context Task | `AWS::Context::Task` | 
+| AWS Context | MCP tool-level data events for AWS Context. | AWS Context MCP Tools | `AWS::ContextMCP::Tools` | 
+| AWS Continuum | Package decision data events for AWS Continuum for software supply chain. | Continuum Supply Chain package decision | `AWS::Continuum::SupplyChainPackageDecision` | 
+| AWS Continuum | Package vulnerability data events for AWS Continuum for software supply chain. | Continuum Supply Chain Vulnerability | `AWS::Continuum::SupplyChainPackageVulnerability` | 
 | AWS IAM Credential Broker | Credential provider level events for AWS IAM Credential Broker. | AWS IAM Credential Broker Credential Provider | `AWS::CredentialBroker::CredentialProvider` | 
 | AWS Data Exchange | AWS Data Exchange API activity on assets. | Data Exchange asset | `AWS::DataExchange::Asset` | 
 | AWS Deadline Cloud | Deadline Cloud API activity on fleets. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud fleet | `AWS::Deadline::Fleet` | 
@@ -325,6 +332,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Support | SupportAccess API activity on trusting accounts. | SupportAccess trusting account | `AWS::SupportAccess::TrustingAccount` | 
 | Amazon Support | SupportAccess API activity on trusting roles. | SupportAccess trusting role | `AWS::SupportAccess::TrustingRole` | 
 | Amazon SWF | Amazon SWF API activity on domains. For more information, see [Amazon SWF](https://docs.aws.amazon.com/amazonswf/latest/developerguide/ct-logging.html#cloudtrail-data-events). | SWF domain | `AWS::SWF::Domain` | 
+| Amazon Textract | An Amazon Textract intelligent document analysis job, created by StartDocumentInsights and retrieved with GetDocumentInsights. Identified by its job ARN (arn:aws:textract:<region>:<account>:job/<job-id>). | Textract Job | `AWS::Textract::Job` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on a Device. | Thin Client Device | `AWS::ThinClient::Device` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on an Environment. | Thin Client Environment | `AWS::ThinClient::Environment` | 
 | Timestamp token | API activity on `AWS::Timestamp::TimestampToken` resources. | Timestamp token | `AWS::Timestamp::TimestampToken` | 
@@ -378,6 +386,7 @@ You can log network activity events for the following services:
 + AWS BCM Pricing Calculator
 + AWS Billing
 + AWS Cloud Map
++ AWS Context
 + AWS Diode Alerting
 + AWS Glue
 + AWS IAM Credential Broker
@@ -387,6 +396,7 @@ You can log network activity events for the following services:
 + AWS IoT Secured Tunneling
 + AWS IoT SiteWise
 + AWS License Manager
++ AWS Partner Central Demand Generator
 + AWS Partner Central Revenue Measurement
 + AWS Secrets Manager
 + AWS SSO

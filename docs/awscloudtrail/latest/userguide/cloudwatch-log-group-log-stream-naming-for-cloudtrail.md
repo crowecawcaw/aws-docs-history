@@ -1,7 +1,6 @@
 
 
 # CloudWatch log group and log stream naming for CloudTrail
-<a name="cloudwatch-log-group-log-stream-naming-for-cloudtrail"></a>
 
 Amazon CloudWatch will display the log group that you created for CloudTrail events alongside any other log groups you have in a Region. We recommend that you use a log group name that helps you easily distinguish the log group from others. For example, **CloudTrail/logs**.
 

@@ -1,7 +1,6 @@
 
 
 # Create trails in additional accounts
-<a name="turn-on-cloudtrail-in-additional-accounts"></a>
 
 You can use the console or the AWS CLI to create trails in additional AWS accounts and aggregate their log files to one Amazon S3 bucket. Alternatively, you could create an organization trail to log all AWS accounts that are part of an organization in AWS Organizations. For more information, see [Creating a trail for an organization](creating-trail-organization.md).
 

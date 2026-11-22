@@ -1,7 +1,6 @@
 
 
 # Validating CloudTrail log file integrity with the AWS CLI
-<a name="cloudtrail-log-file-validation-cli"></a>
 
 To validate logs with the AWS Command Line Interface, use the CloudTrail `validate-logs` command. The command uses the digest files delivered to your Amazon S3 bucket to perform the validation. For information about digest files, see [CloudTrail digest file structure](cloudtrail-log-file-validation-digest-file-structure.md). 
 

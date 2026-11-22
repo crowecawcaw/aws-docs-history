@@ -1,7 +1,6 @@
 
 
 # Prepare for creating a trail for your organization
-<a name="creating-an-organizational-trail-prepare"></a>
 
 Before you create a trail for your organization, be sure that your organization management account or delegated administrator account is set up correctly for trail creation.
 + Your organization must have all features enabled before you can create a trail for it. For more information, see [Enabling All Features in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
@@ -15,7 +14,7 @@ You shouldn't share the **AWSCloudTrail\_FullAccess** policy broadly across your
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -48,7 +47,7 @@ You must use an IAM role and CloudWatch Logs log group that exists in your own a
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

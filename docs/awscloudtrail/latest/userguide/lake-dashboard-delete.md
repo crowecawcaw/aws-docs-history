@@ -1,7 +1,6 @@
 
 
 # Delete a custom dashboard with the CloudTrail console
-<a name="lake-dashboard-delete"></a>
 
 This section describes how to delete a dashboard using the CloudTrail. 
 

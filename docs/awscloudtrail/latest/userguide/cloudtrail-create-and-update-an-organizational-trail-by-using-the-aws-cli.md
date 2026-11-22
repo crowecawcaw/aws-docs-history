@@ -1,7 +1,6 @@
 
 
 # Creating a trail for an organization with the AWS CLI
-<a name="cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli"></a>
 
 You can create an organization trail by using the AWS CLI. The AWS CLI is regularly updated with additional functionality and commands. To help ensure success, be sure that you have installed or updated to a recent AWS CLI version before you begin.
 
@@ -28,7 +27,7 @@ The example policy includes an `aws:SourceArn` condition key for the Amazon S3 b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -177,7 +176,7 @@ Run the `start-logging` command to start logging for your trail.
 You can run the `update-trail` command to change the configuration settings for an organization trail, or to apply an existing trail for a single AWS account to an entire organization. Remember that you can run the `update-trail` command only from the Region in which the trail was created.
 
 **Note**  
-If you use the AWS CLI or one of the AWS SDKs to update a trail, be sure that the trail's bucket policy is up-to-date. For more information, see [Creating a trail for an organization with the AWS CLI](#cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli).  
+If you use the AWS CLI or one of the AWS SDKs to update a trail, be sure that the trail's bucket policy is up-to-date. For more information, see [Creating a trail for an organization with the AWS CLI](cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.md).  
 When you update an organization trail with the AWS CLI, you must use an AWS CLI profile in the management account or delegated administrator account with sufficient permissions. If you want to convert an organization trail to a non-organization trail, you must use the management account for the organization, because the management account is the owner of all organization resources.  
 CloudTrail updates organization trails in member accounts even if a resource validation fails. Examples of validation failures include:  
 an incorrect Amazon S3 bucket policy

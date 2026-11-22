@@ -1,7 +1,6 @@
 
 
 # Working with CloudTrail log files
-<a name="cloudtrail-working-with-log-files"></a>
 
 You can perform more advanced tasks with your CloudTrail files.
 + Monitor CloudTrail log files by sending them to CloudWatch Logs.

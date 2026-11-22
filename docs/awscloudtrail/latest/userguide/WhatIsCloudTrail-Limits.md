@@ -1,7 +1,6 @@
 
 
 # Quotas in AWS CloudTrail
-<a name="WhatIsCloudTrail-Limits"></a>
 
 This section describes the resource quotas (formerly referred to as limits) in CloudTrail. For information about all quotas in CloudTrail, see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail) in the *AWS General Reference*.
 

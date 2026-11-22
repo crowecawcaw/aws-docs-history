@@ -1,7 +1,6 @@
 
 
 # Costs for Insights events
-<a name="insights-events-costs"></a>
 
 **Note**  
 Insights events on data events are only supported on trails.

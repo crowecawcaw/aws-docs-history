@@ -1,7 +1,10 @@
 
 
 # What Is AWS CloudTrail?
-<a name="cloudtrail-user-guide"></a>
+
+**Upcoming: new Amazon S3 data event types**  
+Starting December 21, 2026, AWS CloudTrail will deliver two new types of Amazon S3 data events to trails that already log S3 data events: S3 Lifecycle events and S3 authentication failure events. These event types are not available yet, and CloudTrail will not deliver them before December 21, 2026.  
+When these events become available, they are billed at standard CloudTrail data event rates (see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/)), which can increase your CloudTrail charges. To avoid the charges, [exclude the new events](logging-s3-data-events-governance.md#logging-s3-lifecycle-authn-events) before December 21, 2026. These events provide near real-time delivery of S3 activity that was previously available only through S3 Server Access Logs.
 
 **Tip**  
 If you use CloudTrail data events, you can learn advanced monitoring techniques through the [Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement), and [Using CloudTrail for Security and AI Best Practices](https://aws-samples.github.io/cloud-operations-best-practices/docs/recipes/AWS%20CloudTrail/).

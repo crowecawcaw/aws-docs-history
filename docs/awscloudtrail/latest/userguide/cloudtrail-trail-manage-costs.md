@@ -1,7 +1,6 @@
 
 
 # Managing CloudTrail trail costs
-<a name="cloudtrail-trail-manage-costs"></a>
 
 You can configure and manage CloudTrail trails in ways that capture the data you need while remaining cost-effective. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 

@@ -1,7 +1,6 @@
 
 
 # CloudTrail digest file structure
-<a name="cloudtrail-log-file-validation-digest-file-structure"></a>
 
 Each digest file contains the names of the log files that were delivered to your Amazon S3 bucket during the last hour, the hash values for those log files, and the digital signature of the previous digest file. The signature for the current digest file is stored in the metadata properties of the digest file object. The digital signatures and hashes are used for validating the integrity of the log files and of the digest file itself. 
 

@@ -1,7 +1,6 @@
 
 
 # Create CloudTrail Lake queries from natural language prompts
-<a name="lake-query-generator"></a>
 
 You can use the CloudTrail Lake query generator to produce a query from an English language prompt that you provide. The query generator uses generative artificial intelligence (generative AI) to produce a ready-to-use SQL query from your prompt, which you can then choose to run in Lake's query editor, or further fine tune. You don't need to have extensive knowledge of SQL or CloudTrail event fields to use the query generator.
 
@@ -72,7 +71,7 @@ aws cloudtrail generate-query
 
 If successful, the command outputs a SQL statement and provides a `QueryAlias` that you will use with the `start-query` command to run the query against your event data store.
 
-```
+```JSON
 {
   "QueryStatement": "SELECT * FROM $EDS_ID WHERE eventname = 'ConsoleLogin' AND eventtime >= timestamp '2024-09-16 00:00:00' AND eventtime <= timestamp '2024-09-23 00:00:00' AND eventSource = 'signin.amazonaws.com'",
   "QueryAlias": "AWSCloudTrail-UUID"
@@ -89,7 +88,7 @@ aws cloudtrail start-query --query-alias {{AWSCloudTrail-UUID}}
 
 The response is a `QueryId` string. To get the status of a query, run `describe-query` using the `QueryId` value returned by `start-query`. If the query is successful, you can run `get-query-results` to get results.
 
-```
+```JSON
 {
     "QueryId": "EXAMPLE2-0add-4207-8135-2d8a4EXAMPLE"
 }
@@ -139,7 +138,7 @@ If you choose to run the example queries in this section, replace {{eds-id}} wit
 
 **SQL query:**
 
-```
+```SQL
 SELECT
     errorMessage,
     COUNT(*) as eventCount
@@ -158,7 +157,7 @@ LIMIT 2;
 
 **SQL query:**
 
-```
+```SQL
 SELECT
     DISTINCT userIdentity.arn AS user
 FROM
@@ -171,7 +170,7 @@ WHERE
 
 **SQL query:**
 
-```
+```SQL
 SELECT date(eventTime) AS event_date,
     SUM(
         CASE
@@ -198,7 +197,7 @@ ORDER BY 1 ASC;
 
 **SQL query:**
 
-```
+```SQL
 SELECT *
 FROM 
   {{eds-id}}
@@ -212,7 +211,7 @@ AND eventTime <= timestamp '{{2024-06-06 01:00:00}}'
 
 **SQL query:**
 
-```
+```SQL
 SELECT element_at(
         eventContext.tagContext.principalTags,
         'operator'
@@ -230,7 +229,7 @@ ORDER BY 2 DESC;
 
 **SQL query:**
 
-```
+```SQL
 SELECT eventID
 FROM
     {{eds-id}}
@@ -246,7 +245,7 @@ WHERE any_match(
 
 **SQL query:**
 
-```
+```SQL
 SELECT element_at(rt.tags, 'solution'),
     count(*) as event_count
 FROM
@@ -261,7 +260,7 @@ ORDER BY 2 DESC;
 
 **SQL query:**
 
-```
+```SQL
 SELECT *
 FROM
     {{eds-id}}

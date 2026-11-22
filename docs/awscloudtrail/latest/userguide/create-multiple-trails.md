@@ -1,7 +1,6 @@
 
 
 # Creating multiple trails
-<a name="create-multiple-trails"></a>
 
 You can use CloudTrail log files to troubleshoot operational or security issues in your AWS account. You can create trails for different users, who can create and manage their own trails. You can configure trails to deliver log files to separate S3 buckets or shared S3 buckets.
 

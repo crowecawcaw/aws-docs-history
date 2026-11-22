@@ -1,7 +1,6 @@
 
 
 # Creating and updating a trail with the console
-<a name="cloudtrail-create-and-update-a-trail-by-using-the-console"></a>
 
 You can use the CloudTrail console to create, update, or delete your trails. Trails created using the console are multi-Region. To create a trail that logs events in only one AWS Region, [use the AWS CLI](cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-create-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-single).
 

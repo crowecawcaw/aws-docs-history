@@ -1,7 +1,6 @@
 
 
 # Updating a trail with the CloudTrail console
-<a name="cloudtrail-update-a-trail-console"></a>
 
 This section describes how to change trail settings.
 
@@ -235,4 +234,4 @@ If you have more than 15,000 Lambda functions in your account, you cannot view o
 
       To add another table, choose **Add row**, and browse for a table or paste in the ARN of a table to which you have access.
 
-1. To configure Insights events and other settings for your trail, go back to the preceding procedure in this topic, [Updating a trail with the CloudTrail console](#cloudtrail-update-a-trail-console).
+1. To configure Insights events and other settings for your trail, go back to the preceding procedure in this topic, [Updating a trail with the CloudTrail console](cloudtrail-update-a-trail-console.md).

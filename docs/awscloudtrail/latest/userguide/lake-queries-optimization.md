@@ -1,7 +1,6 @@
 
 
 # Optimize CloudTrail Lake queries
-<a name="lake-queries-optimization"></a>
 
 This page provides guidance about how to optimize CloudTrail Lake queries to improve performance and reliability. It covers specific optimization techniques as well as workarounds for common query failures.
 
@@ -28,7 +27,7 @@ Follow the recommendations in this section to optimize your queries.
 
 Excluding redundant columns in `GROUP BY` clauses can improve performance as fewer columns require less memory. For example, in the following query, we can use the `arbitrary` function on a redundant column like `eventType` to improve the performance. The `arbitrary` function on `eventType` is used to pick the field value randomly from the group as the value is the same and doesn't need to be included in the `GROUP BY` clause.
 
-```
+```SQL
 SELECT eventName, eventSource, arbitrary(eventType), count(*) 
 FROM $EDS_ID 
 GROUP BY eventName, eventSource
@@ -36,7 +35,7 @@ GROUP BY eventName, eventSource
 
 It's possible to improve the performance of the `GROUP BY` function by ordering the list of fields within the `GROUP BY` in decreasing order of their unique value count (cardinality). For example, while getting the number of events of a type in each AWS Region, performance can be improved by using the `eventName`, `awsRegion` order in the `GROUP BY` function instead of `awsRegion`, `eventName` as there are more unique values of `eventName` than there are of `awsRegion`.
 
-```
+```SQL
 SELECT eventName, awsRegion, count(*) 
 FROM $EDS_ID 
 GROUP BY eventName, awsRegion
@@ -54,7 +53,7 @@ If only a sample response is needed for a query, restrict the results to a small
 
 Using `LIMIT` along with `ORDER BY` can provide results for the top or bottom N records faster as it reduces the amount of memory needed and time taken to sort.
 
-```
+```SQL
 SELECT * FROM $EDS_ID
 ORDER BY eventTime 
 LIMIT 100;
@@ -88,7 +87,7 @@ Sometimes queries with window functions can be rewritten without window function
 
 The following query finds the alias most recently assigned to each KMS key using `max_by`.
 
-```
+```SQL
 SELECT element_at(requestParameters, 'targetKeyId') as keyId, 
 max_by(element_at(requestParameters, 'aliasName'), eventTime) as mostRecentAlias 
 FROM $EDS_ID 

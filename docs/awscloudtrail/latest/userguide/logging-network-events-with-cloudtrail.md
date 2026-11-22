@@ -1,7 +1,6 @@
 
 
 # Logging network activity events
-<a name="logging-network-events-with-cloudtrail"></a>
 
 CloudTrail network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service. Network activity events provide visibility into the resource operations performed within a VPC. For example, logging network activity events can help VPC endpoint owners detect when credentials from outside their organization attempt to access their VPC endpoints. 
 
@@ -31,6 +30,7 @@ You can log network activity events for the following services:
 + AWS BCM Pricing Calculator
 + AWS Billing
 + AWS Cloud Map
++ AWS Context
 + AWS Diode Alerting
 + AWS Glue
 + AWS IAM Credential Broker
@@ -40,6 +40,7 @@ You can log network activity events for the following services:
 + AWS IoT Secured Tunneling
 + AWS IoT SiteWise
 + AWS License Manager
++ AWS Partner Central Demand Generator
 + AWS Partner Central Revenue Measurement
 + AWS Secrets Manager
 + AWS SSO
@@ -141,6 +142,8 @@ The following advanced event selector fields are required to log network activit
   + `comprehend.amazonaws.com`
   + `comprehendmedical.amazonaws.com`
   + `config.amazonaws.com`
+  + `context-mcp.amazonaws.com`
+  + `context.amazonaws.com`
   + `credentialbroker.amazonaws.com`
   + `diode-alerting.amazonaws.com`
   + `ds.amazonaws.com`
@@ -174,6 +177,7 @@ The following advanced event selector fields are required to log network activit
   + `lookoutequipment.amazonaws.com`
   + `lookoutvision.amazonaws.com`
   + `monitoring.amazonaws.com`
+  + `partnercentral-marketing.amazonaws.com`
   + `partnercentral-prm.amazonaws.com`
   + `personalize.amazonaws.com`
   + `pricelist.amazonaws.com`
@@ -378,7 +382,7 @@ aws cloudtrail put-event-selectors /
 
  The command returns the following example output. 
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/TrailName",
     "AdvancedEventSelectors": [
@@ -435,7 +439,7 @@ aws cloudtrail put-event-selectors \
 
 The command returns the following example output. 
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/TrailName",
     "AdvancedEventSelectors": [
@@ -498,7 +502,7 @@ aws cloudtrail put-event-selectors \
 
 The command returns the following example output. 
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/TrailName",
     "AdvancedEventSelectors": [
@@ -565,7 +569,7 @@ aws cloudtrail put-event-selectors \
 
 The command returns the following example output. 
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/TrailName",
     "AdvancedEventSelectors": [
@@ -691,7 +695,7 @@ aws cloudtrail put-event-selectors \
 
 The command returns the following example output. 
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:123456789012:trail/TrailName",
     "AdvancedEventSelectors": [
@@ -840,7 +844,7 @@ aws cloudtrail create-event-data-store \
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLE492-301f-4053-ac5e-EXAMPLE441aa",
     "Name": "EventDataStoreName",
@@ -904,7 +908,7 @@ aws cloudtrail create-event-data-store \
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEb4a8-99b1-4ec2-9258-EXAMPLEc890",
     "Name": "EventDataStoreName",
@@ -978,7 +982,7 @@ aws cloudtrail create-event-data-store \
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEb4a8-99b1-4ec2-9258-EXAMPLEc890",
     "Name": "EventDataStoreName",
@@ -1054,7 +1058,7 @@ aws cloudtrail create-event-data-store \
 
 The command returns the following example output. 
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEb4a8-99b1-4ec2-9258-EXAMPLEc890",
     "Name": "EventDataStoreName",
@@ -1180,7 +1184,7 @@ aws cloudtrail update-event-data-store \
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEb4a8-99b1-4ec2-9258-EXAMPLEc890",
     "Name": "EventDataStoreName",

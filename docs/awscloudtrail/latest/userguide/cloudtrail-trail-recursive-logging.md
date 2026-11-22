@@ -1,7 +1,6 @@
 
 
 # Suppressing recursive events with recursive logging
-<a name="cloudtrail-trail-recursive-logging"></a>
 
 ## What is recursive logging?
 <a name="cloudtrail-recursive-logging-overview"></a>
@@ -29,7 +28,7 @@ You can configure the `RecursiveLogging` setting when you create or update a tra
 
 To suppress recursive events when creating a trail, use the `--no-recursive-logging` option:
 
-```
+```bash
 aws cloudtrail create-trail \
     --name {{my-trail}} \
     --s3-bucket-name {{amzn-s3-demo-bucket}} \
@@ -38,7 +37,7 @@ aws cloudtrail create-trail \
 
 To suppress recursive events on an existing trail:
 
-```
+```bash
 aws cloudtrail update-trail \
     --name {{my-trail}} \
     --no-recursive-logging
@@ -49,7 +48,7 @@ aws cloudtrail update-trail \
 
 To re-enable recursive logging (deliver recursive events):
 
-```
+```bash
 aws cloudtrail update-trail \
     --name {{my-trail}} \
     --recursive-logging

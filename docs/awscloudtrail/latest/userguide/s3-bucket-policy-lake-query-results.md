@@ -1,7 +1,6 @@
 
 
 # Amazon S3 bucket policy for CloudTrail Lake query results
-<a name="s3-bucket-policy-lake-query-results"></a>
 
 By default, Amazon S3 buckets and objects are private. Only the resource owner (the AWS account that created the bucket) can access the bucket and objects it contains. The resource owner can grant access permissions to other resources and users by writing an access policy.
 
@@ -27,7 +26,7 @@ If this is an organization event data store, the event data store ARN must inclu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

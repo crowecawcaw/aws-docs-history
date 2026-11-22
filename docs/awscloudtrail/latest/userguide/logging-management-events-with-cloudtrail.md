@@ -1,7 +1,6 @@
 
 
 # Logging management events
-<a name="logging-management-events-with-cloudtrail"></a>
 
 By default, trails and event data stores log management events and don't include data or Insights events.
 
@@ -176,7 +175,7 @@ aws cloudtrail get-event-selectors --trail-name {{TrailName}}
 
 The following example returns the default settings for a trail. By default, trails log all management events, log events from all event sources, and don't log data events.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/{{TrailName}}",
     "AdvancedEventSelectors": [
@@ -210,7 +209,7 @@ If you choose not to log management events, AWS KMS events are not logged, and y
 
 To start logging AWS KMS events to a trail again, remove the `eventSource` selector, and run the command again.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -226,7 +225,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 
 The example returns the advanced event selectors that are configured for the trail.
 
-```
+```JSON
 {
   "AdvancedEventSelectors": [
     {
@@ -249,7 +248,7 @@ The example returns the advanced event selectors that are configured for the tra
 
 To start logging excluded events to a trail again, remove the `eventSource` selector, as shown in the following command.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -268,7 +267,7 @@ If you choose not to log management events, Amazon RDS Data API management event
 
 To start logging Amazon RDS Data API management events to a trail again, remove the `eventSource` selector, and run the command again.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -284,7 +283,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 
 The example returns the advanced event selectors that are configured for the trail.
 
-```
+```JSON
 {
   "AdvancedEventSelectors": [
     {
@@ -307,7 +306,7 @@ The example returns the advanced event selectors that are configured for the tra
 
 To start logging excluded events to a trail again, remove the `eventSource` selector, as shown in the following command.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -334,7 +333,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --event-selectors 
 
 The following example returns the event selector configured for the trail.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/{{TrailName}}",
     "EventSelectors": [
@@ -364,7 +363,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --event-selectors 
 
 The example returns the event selector configured for the trail.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/{{TrailName}}",
     "EventSelectors": [
@@ -382,7 +381,7 @@ The example returns the event selector configured for the trail.
 
 To exclude Amazon RDS Data API management events from a trail's logs, run the `put-event-selectors` command and add the attribute `ExcludeManagementEventSources` with a value of `rdsdata.amazonaws.com`. The following example creates an event selector for a trail named {{TrailName}} to include read-only and write-only management events, but exclude Amazon RDS Data API management events. Because Amazon RDS Data API can generate a high volume of management events, the user in this example might want to limit events to manage the cost of a trail.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:111122223333:trail/{{TrailName}}",
     "EventSelectors": [
@@ -433,7 +432,7 @@ aws cloudtrail get-event-data-store
 
 The following is an example response. Creation and last updated times are in `timestamp` format.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "myManagementEvents",
@@ -471,7 +470,7 @@ aws cloudtrail create-event-data-store
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "my-event-data-store",
@@ -510,7 +509,7 @@ The following is an example response.
 
 To create an event data store that excludes AWS Key Management Service (AWS KMS) events, run the `create-event-data-store` command and specify that `eventSource` does not equal `kms.amazonaws.com`. The following example creates an event data store that includes read-only and write-only management events, but excludes AWS KMS events.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name event-data-store-name --retention-period 90 --advanced-event-selectors '[
     {
         "Name": "Management events selector",
@@ -524,7 +523,7 @@ aws cloudtrail create-event-data-store --name event-data-store-name --retention-
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "event-data-store-name",
@@ -577,7 +576,7 @@ aws cloudtrail create-event-data-store --name event-data-store-name --retention-
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "my-event-data-store",
@@ -616,7 +615,7 @@ The following is an example response.
 
 The following example creates an event data store that logs management events but excludes AWS service events and events originating from AWS Management Console sessions.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name event-data-store-name --advanced-event-selectors '[
     {
         "Name": "Exclude AWS service and console events",
@@ -631,7 +630,7 @@ aws cloudtrail create-event-data-store --name event-data-store-name --advanced-e
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "event-data-store-name",
@@ -676,7 +675,7 @@ The following is an example response.
 
 The following example creates an event data store that logs management events but excludes events generated by the `bucket-scanner-role` `userIdentity`.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name event-data-store-name --advanced-event-selectors '[
     {
         "Name": "Exclude events generated by bucket-scanner-role userIdentity",
@@ -690,7 +689,7 @@ aws cloudtrail create-event-data-store --name event-data-store-name --advanced-e
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE",
     "Name": "event-data-store-name",

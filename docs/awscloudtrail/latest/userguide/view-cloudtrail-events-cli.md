@@ -1,7 +1,6 @@
 
 
 # Viewing recent management events with the AWS CLI
-<a name="view-cloudtrail-events-cli"></a>
 
 You can look up CloudTrail management events for the last 90 days for the current AWS Region using the **aws cloudtrail lookup-events** command. The **aws cloudtrail lookup-events** command shows events in the AWS Region where they occurred.
 

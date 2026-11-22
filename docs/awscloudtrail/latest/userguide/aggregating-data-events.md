@@ -1,7 +1,6 @@
 
 
 # Aggregating data events
-<a name="aggregating-data-events"></a>
 
 Data events provide information about the resource operations performed on or in a resource. These are also known as data plane operations. Data events are often high-volume activities.
 
@@ -57,7 +56,7 @@ aws cloudtrail put-event-configuration --region us-east-1 --trail {{TrailName}} 
 
 The following shows an example of an aggregated event for the `API_ACTIVITY` template:
 
-```
+```JSON
 {
     "eventVersion": "1.0",
     "accountId": "111122223333",
@@ -117,7 +116,7 @@ The following shows an example of an aggregated event for the `API_ACTIVITY` tem
 
 The following shows an example of an aggregated event for the `RESOURCE_ACCESS` template:
 
-```
+```JSON
 {
     "eventVersion": "1.0",
     "accountId": "111122223333",

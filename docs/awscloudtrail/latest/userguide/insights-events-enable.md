@@ -1,7 +1,6 @@
 
 
 # Logging Insights events with the CloudTrail console
-<a name="insights-events-enable"></a>
 
 This section describes how you can enable Insights events on an existing trail or event data store using the CloudTrail console.
 

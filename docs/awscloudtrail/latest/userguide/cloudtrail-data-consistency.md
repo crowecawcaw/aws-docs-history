@@ -1,7 +1,6 @@
 
 
 # Managing data consistency in CloudTrail
-<a name="cloudtrail-data-consistency"></a>
 
 CloudTrail uses a distributed computing model called [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). Any change that you make to your CloudTrail configuration (or other AWS services), including tags used in [attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html), takes time to become visible from all possible endpoints. Some of the delay results from the time it takes to send the data from server to server, and from Region to Region around the world. CloudTrail also uses caching to improve performance, but in some cases this can add time. The change might not be visible until the previously cached data times out. 
 

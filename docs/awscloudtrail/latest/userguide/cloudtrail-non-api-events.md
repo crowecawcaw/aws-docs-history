@@ -1,7 +1,6 @@
 
 
 # Non-API events captured by CloudTrail
-<a name="cloudtrail-non-api-events"></a>
 
 In addition to logging AWS API calls, CloudTrail captures other related events that might have a security or compliance impact on your AWS account or that might help you troubleshoot operational problems. 
 + [AWS service events](non-api-aws-service-events.md) – CloudTrail supports logging non-API service events. These events are created by AWS services but are not directly triggered by a request to a public AWS API. For these events, the `eventType` field is `AwsServiceEvent`.

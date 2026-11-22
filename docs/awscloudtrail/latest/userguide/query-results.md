@@ -1,7 +1,6 @@
 
 
 # View query results with the console
-<a name="query-results"></a>
 
 After your query finishes, you can view its results. The results of a query are available for seven days after the query finishes. You can view results for the active query on the **Query results** tab, or you can access results for all recent queries on the **Results history** tab on the **Lake** home page.
 

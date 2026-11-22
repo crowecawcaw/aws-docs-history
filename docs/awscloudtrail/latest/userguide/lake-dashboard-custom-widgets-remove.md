@@ -1,7 +1,6 @@
 
 
 # Remove a widget from a dashboard with the CloudTrail console
-<a name="lake-dashboard-custom-widgets-remove"></a>
 
 This section describes to remove a widget from a custom dashboard.
 

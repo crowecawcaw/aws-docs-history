@@ -1,7 +1,6 @@
 
 
 # CloudTrail record contents for management, data, and network activity events
-<a name="cloudtrail-event-reference-record-contents"></a>
 
 This page describes the record contents of a management, data, or network activity event.
 

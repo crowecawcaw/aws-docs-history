@@ -1,13 +1,18 @@
 
 
 # CloudTrail userIdentity element
-<a name="cloudtrail-event-reference-user-identity"></a>
 
 AWS Identity and Access Management (IAM) provides different types of identities. The `userIdentity` element contains details about the type of IAM identity that made the request, and which credentials were used. If temporary credentials were used, the element shows how the credentials were obtained. 
 
 **Contents**
 + [Examples](#cloudtrail-event-reference-user-identity-examples)
 + [Fields](#cloudtrail-event-reference-user-identity-fields)
++ [Trusted identity propagation](#cloudtrail-event-reference-user-identity-tip)
+  + [`onBehalfOf` fields](#cloudtrail-event-reference-user-identity-tip-onbehalfof)
+  + [`transactionContext` fields](#cloudtrail-event-reference-user-identity-tip-transactioncontext)
+  + [Which account receives these events](#cloudtrail-event-reference-user-identity-tip-accounts)
+  + [Where to view trusted identity propagation data](#cloudtrail-event-reference-user-identity-tip-view)
+  + [Examples](#cloudtrail-event-reference-user-identity-tip-examples)
 + [Values for AWS STS APIs with SAML and web identity federation](#STS-API-SAML-WIF)
 + [AWS STS source identity](#STS-API-source-identity)
 
@@ -18,7 +23,7 @@ AWS Identity and Access Management (IAM) provides different types of identities.
 
 The following example shows the `userIdentity` element of a simple request made with the credentials of the IAM user named `Alice`. 
 
-```
+```JSON
 "userIdentity": {
     "type": "IAMUser",
     "principalId": "AIDAJ45Q7YFFAREXAMPLE",
@@ -33,7 +38,7 @@ The following example shows the `userIdentity` element of a simple request made 
 
 The following example shows a `userIdentity` element for a request made with temporary security credentials obtained by assuming an IAM role. The element contains additional details about the role that was assumed to get credentials. 
 
-```
+```JSON
 "userIdentity": {
     "type": "AssumedRole",
     "principalId": "AROAIDPPEZS35WEXAMPLE:AssumedRoleSessionName",
@@ -61,7 +66,7 @@ The following example shows a `userIdentity` element for a request made with tem
 
 The following example shows a `userIdentity` element for a request made on behalf of an IAM Identity Center user. 
 
-```
+```JSON
 "userIdentity": {
     "type": "IdentityCenterUser",
     "accountId": "123456789012",
@@ -75,9 +80,11 @@ The following example shows a `userIdentity` element for a request made on behal
 
 To learn more about how you can use `userId`, `identityStoreArn`, and `credentialId`, see [Identifying the user and session in IAM Identity Center user-initiated CloudTrail events](https://docs.aws.amazon.com/singlesignon/latest/userguide/sso-cloudtrail-use-cases.html#user-session-iam-identity-center) in the *IAM Identity Center User Guide*.
 
+**`userIdentity` for a request made by an AWS Builder ID user**
+
 The following example shows a `userIdentity` element for a request made by an [AWS Builder ID](https://docs.aws.amazon.com/signin/latest/userguide/sign-in-aws_builder_id.html) user. AWS Builder ID is a personal profile that provides access to select tools and services including AWS Builder Center, Amazon Q Developer, and AWS Training and Certification. The `BuilderIdUser` type appears in CloudTrail events when an API request is authorized using an IAM Identity Center OAuth-issued access token (bearer authentication). This token is associated with an AWS Builder ID.
 
-```
+```JSON
 "userIdentity": {
     "type": "BuilderIdUser",
     "onBehalfOf": {
@@ -100,7 +107,7 @@ To help you distinguish between actions taken by your own IAM principals and tho
 
 The following example shows a `userIdentity` element for an action performed by a product provider using temporary delegated access.
 
-```
+```JSON
 "userIdentity": {
     "type": "AssumedRole",
     "principalId": "AROAI...",
@@ -127,6 +134,150 @@ The following example shows a `userIdentity` element for an action performed by 
 
 The `invokedByDelegate` field contains the AWS account ID of the product provider who performed the action using delegated access. In this example, account 999999999999 (the product provider) performed an action in account 123456789012 (the customer account).
 
+**`userIdentity` for a request made with an IAM federation session that carries trusted identity propagation context**
+
+The following example shows a `userIdentity` element for a request made with a role session that carries trusted identity propagation (TIP) context. The session was created with `AssumeRoleWithWebIdentity` through an IAM OIDC identity provider. The `onBehalfOf` element identifies the propagated user and the identity provider. The `transactionContext` element contains the runtime claims that the identity provider supplied. These fields appear only if trusted identity propagation is configured for the IAM identity provider, and only for requests to AWS services that support TIP. For descriptions of these fields, see [Trusted identity propagation](#cloudtrail-event-reference-user-identity-tip).
+
+```JSON
+"userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROA123456789EXAMPLE:MySessionName",
+    "arn": "arn:aws:sts::123456789012:assumed-role/RoleToBeAssumed/MySessionName",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+        "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA123456789EXAMPLE",
+            "arn": "arn:aws:iam::123456789012:role/RoleToBeAssumed",
+            "accountId": "123456789012",
+            "userName": "RoleToBeAssumed"
+        },
+        "webIdFederationData": {
+            "federatedProvider": "arn:aws:iam::123456789012:oidc-provider/idp.example.com",
+            "attributes": {}
+        },
+        "attributes": {
+            "mfaAuthenticated": "false",
+            "creationDate": "2026-10-10T06:50:23Z"
+        }
+    },
+    "onBehalfOf": {
+        "subject": "mary_major@example.com",
+        "subjectType": "user",
+        "issuer": "idp.example.com",
+        "federatedProviderArn": "arn:aws:iam::123456789012:oidc-provider/idp.example.com"
+    },
+    "transactionContext": {
+        "IdentityProvider": {
+            "department": "Engineering",
+            "costCenter": "CC-1234"
+        }
+    }
+}
+```
+
+**`userIdentity` for an `AssumeRoleWithWebIdentity` request that carries trusted identity propagation context**
+
+The following example shows the `userIdentity` element of the `AssumeRoleWithWebIdentity` event that creates a role session with trusted identity propagation (TIP) context. The `type` is `WebIdentityUser`, and `userName` is the `sub` claim of the OIDC token. The `subject` attribute in `onBehalfOf` comes from the token claim that your identity provider configuration maps to the subject, so it can differ from `userName`. In this example, the subject is the user's email address.
+
+```JSON
+"userIdentity": {
+    "type": "WebIdentityUser",
+    "principalId": "arn:aws:iam::123456789012:oidc-provider/idp.example.com:my-client-id:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "userName": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "identityProvider": "arn:aws:iam::123456789012:oidc-provider/idp.example.com",
+    "onBehalfOf": {
+        "subject": "mary_major@example.com",
+        "subjectType": "user",
+        "issuer": "idp.example.com",
+        "federatedProviderArn": "arn:aws:iam::123456789012:oidc-provider/idp.example.com"
+    },
+    "transactionContext": {
+        "IdentityProvider": {
+            "department": "Engineering",
+            "costCenter": "CC-1234"
+        }
+    }
+}
+```
+
+**`userIdentity` for an `AssumeRoleWithSAML` request that carries trusted identity propagation context**
+
+The following example shows the `userIdentity` element of the `AssumeRoleWithSAML` event that creates a role session with trusted identity propagation (TIP) context. The `type` is `SAMLUser`, and `userName` is the `NameID` from the SAML assertion. The `subject` attribute in `onBehalfOf` comes from the assertion attribute that your identity provider configuration maps to the subject. For SAML federation, `issuer` is a lowercase hexadecimal SHA-384 hash that identifies the key that signed the SAML assertion.
+
+```JSON
+"userIdentity": {
+    "type": "SAMLUser",
+    "principalId": "EXAMPLE/4PXo6ZyN725NFgZfIYs=:_a1b2c3d4e5f6EXAMPLE",
+    "userName": "_a1b2c3d4e5f6EXAMPLE",
+    "identityProvider": "EXAMPLE/4PXo6ZyN725NFgZfIYs=",
+    "onBehalfOf": {
+        "subject": "mary_major@example.com",
+        "subjectType": "user",
+        "issuer": "9b52a9e427b4aa878afa064a80879049eca6a141b6e2c413802ac22f3f74489de8cba9b356c7a257d39e8a27b61f3c96",
+        "federatedProviderArn": "arn:aws:iam::123456789012:saml-provider/ExampleProvider"
+    },
+    "transactionContext": {
+        "IdentityProvider": {
+            "department": "Engineering",
+            "costCenter": "CC-1234"
+        }
+    }
+}
+```
+
+**`userIdentity` for the `AssumeRole` request that IAM Roles Anywhere makes to create a role session with trusted identity propagation context**
+
+The following example shows the `userIdentity` element of the `AssumeRole` event that IAM Roles Anywhere records when it creates a role session for a workload. The `type` is `AWSService`, and `invokedBy` is `service.rolesanywhere.amazonaws.com`. The `onBehalfOf` element identifies the workload from its X.509 certificate. `subject` is the value from the certificate field that the profile uses as the subject source. `federatedProviderArn` is the ARN of the trust anchor that authenticated the certificate, and `issuer` is the SHA-384 hash of the trust anchor's CA certificate. IAM Roles Anywhere sessions don't include `transactionContext`.
+
+```JSON
+"userIdentity": {
+    "type": "AWSService",
+    "invokedBy": "service.rolesanywhere.amazonaws.com",
+    "onBehalfOf": {
+        "federatedProviderArn": "arn:aws:rolesanywhere:ca-central-1:111122223333:trust-anchor/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "subject": "spiffe://example.com/workload-a",
+        "subjectType": "workload",
+        "issuer": "38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b"
+    }
+}
+```
+
+**`userIdentity` for a request made with an IAM Roles Anywhere role session that carries trusted identity propagation context**
+
+The following example shows a `userIdentity` element for a request made with the role session that IAM Roles Anywhere created in the previous example. The `onBehalfOf` element carries the same workload identity into requests made with the role session.
+
+```JSON
+"userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROA123456789EXAMPLE:a1b2c3d4e5f6a7b8c9",
+    "arn": "arn:aws:sts::111122223333:assumed-role/ExampleRole/a1b2c3d4e5f6a7b8c9",
+    "accountId": "111122223333",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+        "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA123456789EXAMPLE",
+            "arn": "arn:aws:iam::111122223333:role/ExampleRole",
+            "accountId": "111122223333",
+            "userName": "ExampleRole"
+        },
+        "attributes": {
+            "creationDate": "2026-11-18T15:37:28Z",
+            "mfaAuthenticated": "false"
+        },
+        "sourceIdentity": "CN=workload-a"
+    },
+    "onBehalfOf": {
+        "federatedProviderArn": "arn:aws:rolesanywhere:ca-central-1:111122223333:trust-anchor/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "subject": "spiffe://example.com/workload-a",
+        "subjectType": "workload",
+        "issuer": "38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b"
+    }
+}
+```
+
 ## Fields
 <a name="cloudtrail-event-reference-user-identity-fields"></a>
 
@@ -136,7 +287,6 @@ The following fields can appear in a `userIdentity` element.
 The type of the identity. The following values are possible:  
 + `Root` – The request was made with your AWS account credentials. If the `userIdentity` type is `Root`, and you set an alias for your account, the `userName` field contains your account alias. For more information, see [Your AWS account ID and its alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html). 
 + `IAMUser` – The request was made with the credentials of an IAM user.
-+ `AssumedRole` – The request was made with temporary security credentials that were obtained with a role by making a call to the AWS Security Token Service (AWS STS) [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API. This can include [roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) and cross-account API access. 
 + `Role` – The request was made with a persistent IAM identity that has specific permissions. The issuer of the role sessions is always the role. For more information about roles, see [Roles terms and concepts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) in the *IAM User Guide*.
 + `FederatedUser` – The request was made with temporary security credentials obtained from a call to the AWS STS [`GetFederationToken`](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html) API. The `sessionIssuer` element indicates if the API was called with root or IAM user credentials.
 
@@ -178,7 +328,6 @@ The friendly name of the identity that made the call. The value that appears in 
   <tr><td><code>Root</code> (no alias set)</td><td>Not present</td><td>If you haven't set up an alias for your AWS account, the <code>userName</code> field doesn't appear. For more information about account aliases, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">Your AWS account ID and its alias</a>. Note that the <code>userName</code> field can't contain <code>Root</code>, because <code>Root</code> is an identity type and not a user name.</td></tr>
   <tr><td><code>Root</code> (alias set)</td><td>The account alias</td><td>For more information about AWS account aliases, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">Your AWS account ID and its alias</a>.</td></tr>
   <tr><td><code>IAMUser</code></td><td>The user name of the IAM user</td><td></td></tr>
-  <tr><td><code>AssumedRole</code></td><td>Not present</td><td>For the <code>AssumedRole</code> type, you can find the <code>userName</code> field in <code>sessionContext</code> as part of the <a href="#sessionissuer">sessionIssuer</a> element. For an example entry, see <a href="#cloudtrail-event-reference-user-identity-examples">Examples</a>.</td></tr>
   <tr><td><code>Role</code></td><td>User-defined</td><td>The <code>sessionContext</code> and <code>sessionIssuer</code> section contains information about the identity that issued the session for the role.</td></tr>
   <tr><td><code>FederatedUser</code></td><td>Not present</td><td>The <code>sessionContext</code> and <code>sessionIssuer</code> section contains information about the identity that issued the session for the federated user.</td></tr>
   <tr><td><code>Directory</code></td><td>Can be present</td><td>For example, the value can be the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">account alias</a> or email address of the associated <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">AWS account ID</a>.</td></tr>
@@ -267,9 +416,14 @@ For more information and a JSON example of delegated access in CloudTrail events
 **Optional:** True
 
 **`onBehalfOf`**  
-If the request was made by an IAM Identity Center caller or an AWS Builder ID user, `onBehalfOf` provides information about the user on whose behalf the call was made. This element has the following attributes:  
+If the request was made on behalf of another identity, `onBehalfOf` provides information about the human user or workload on whose behalf the call was made. This includes requests made by an IAM Identity Center caller or an AWS Builder ID user. It also includes requests made with credentials that carry trusted identity propagation (TIP) context. This element has the following attributes:  
 + `userId` – The ID of the IAM Identity Center user or AWS Builder ID user on whose behalf the call was made.
 + `identityStoreArn` – The ARN of the identity store. For IAM Identity Center users, this is the ARN of the organization's identity store. For AWS Builder ID users, the value is `arn:aws:identitystore::aws:identitystore/builderid`.
+For requests made with trusted identity propagation (TIP) context, `onBehalfOf` can contain additional attributes. For more information, see [Trusted identity propagation](#cloudtrail-event-reference-user-identity-tip).
+**Optional:** True
+
+**`transactionContext`**  
+If the request includes a trusted identity propagation context, `transactionContext` contains the runtime claims attached to the request. Each key identifies the source that supplied the claims. For example, `IdentityProvider` contains the claims that your identity provider supplied during IAM federation. Each value is an object that contains claim-name and value pairs from that source.  
 **Optional:** True
 
 **`inScopeOf`**  
@@ -283,6 +437,49 @@ If the request was made in scope of an AWS service, such as Lambda or Amazon ECS
 **`credentialId`**  
 The credential ID for the request. This is only set when the caller uses a bearer token, such as an IAM Identity Center authorized access token.  
 **Optional:** True
+
+## Trusted identity propagation
+<a name="cloudtrail-event-reference-user-identity-tip"></a>
+
+When a request is made with credentials that carry trusted identity propagation (TIP) context, the `userIdentity` element can contain additional information about the human user or workload on whose behalf the call was made. TIP context comes from one of two paths:
++ **IAM federation** – Sessions created through an IAM SAML or OIDC identity provider when trusted identity propagation is configured for that identity provider. For more information, see [Logging TIP activity with AWS CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_tip_cloudtrail.html) in the *IAM User Guide*.
++ **IAM Roles Anywhere** – Sessions created through IAM Roles Anywhere, where the TIP context comes from an external X.509 certificate. For more information, see [Trusted identity propagation with IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trusted-identity-propagation.html) in the *IAM User Guide*.
+
+### `onBehalfOf` fields
+<a name="cloudtrail-event-reference-user-identity-tip-onbehalfof"></a>
+
+When a request is made with credentials that carry trusted identity propagation (TIP) context, the `onBehalfOf` element can contain additional attributes. These attributes identify the human user or workload on whose behalf the call was made. The `subject`, `subjectType`, `issuer`, and `federatedProviderArn` attributes appear for IAM federation sessions only if trusted identity propagation is configured for the IAM identity provider. For IAM Roles Anywhere sessions, the `subject`, `issuer`, and `federatedProviderArn` attributes appear only if trusted identity propagation is turned on for the profile. `subjectType` appears only if the profile also declares a subject type. These attributes also appear only for requests to AWS services that support TIP. `onBehalfOf` can appear with any `userIdentity` type.
+
+The `onBehalfOf` element can contain the following additional attributes:
++ `subject` – The identifier of the human user or workload on whose behalf the call was made, as asserted by the trusted identity source, such as an identity provider for IAM federation, or an X.509 certificate for IAM Roles Anywhere.
++ `subjectType` – The type of the subject. Valid values are `user` and `workload`.
++ `issuer` – The issuer from which the TIP context originated. For OIDC federation, the issuer is the `iss` claim of the OIDC token without the `https://` prefix, for example `idp.example.com`. For SAML federation, the issuer is a lowercase hexadecimal SHA-384 hash. AWS computes the hash from the DER-encoded public key that verified the signature of the SAML assertion. The hash identifies the signing key, not the `Issuer` element of the SAML assertion. For IAM Roles Anywhere, the issuer is a lowercase hexadecimal SHA-384 hash of the DER-encoded CA certificate of the trust anchor that the certificate chain validated to.
++ `federatedProviderArn` – The ARN of the provider resource that established the TIP identity. For IAM federation, this is the IAM SAML or OIDC provider ARN. For IAM Roles Anywhere, this is the ARN of the trust anchor that authenticated the session's certificate.
+
+### `transactionContext` fields
+<a name="cloudtrail-event-reference-user-identity-tip-transactioncontext"></a>
+
+`transactionContext` appears only if trusted identity propagation is configured for the IAM identity provider in your account, and only for requests to AWS services that support TIP. It appears only for sessions created through IAM federation (`AssumeRoleWithSAML` or `AssumeRoleWithWebIdentity`) and role sessions chained from them. IAM Roles Anywhere sessions don't include `transactionContext`. When the originator is a human user, `transactionContext` can contain personal information, depending on the runtime mappings that are configured.
+
+### Which account receives these events
+<a name="cloudtrail-event-reference-user-identity-tip-accounts"></a>
+
+For information about which account receives events that contain these attributes, including role chains and cross-account requests, see the following:
++ IAM federation: [Logging TIP activity with AWS CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_tip_cloudtrail.html) in the *IAM User Guide*.
++ IAM Roles Anywhere: [Trusted identity propagation with IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trusted-identity-propagation.html) in the *IAM User Guide*.
+
+### Where to view trusted identity propagation data
+<a name="cloudtrail-event-reference-user-identity-tip-view"></a>
+
+If trusted identity propagation is configured for your IAM identity provider, you can view CloudTrail events that contain these fields in the following locations:
++ CloudTrail Event history. For more information about how to view events in Event history, see [Working with CloudTrail event history](view-cloudtrail-events.md).
++ The Amazon S3 bucket associated with a CloudTrail trail. For more information about how to set up a trail to receive events, see [Working with CloudTrail trails](cloudtrail-trails.md).
++ CloudTrail Lake. For more information about how to retrieve events from CloudTrail Lake, see [Working with AWS CloudTrail Lake](cloudtrail-lake.md).
+
+### Examples
+<a name="cloudtrail-event-reference-user-identity-tip-examples"></a>
+
+For examples of `userIdentity` elements for requests that carry trusted identity propagation context, see [Examples](#cloudtrail-event-reference-user-identity-examples).
 
 ## Values for AWS STS APIs with SAML and web identity federation
 <a name="STS-API-SAML-WIF"></a>
@@ -299,7 +496,7 @@ The identity type.
 **`principalId`**  
 A unique identifier for the entity that made the call.  
 + For `SAMLUser`, this is a combination of the `saml:namequalifier` and `saml:sub` keys. 
-+ For `WebIdentityUser`, this is a combination of the issuer, application ID, and user ID.
++ For `WebIdentityUser`, this is a combination of the issuer, application ID, and user ID. If the role trusts an IAM OIDC identity provider, the issuer part is the ARN of that provider.
 
 **`userName`**  
 The name of the identity that made the call.  
@@ -309,7 +506,7 @@ The name of the identity that made the call.
 **`identityProvider`**  
 The principal name of the external identity provider. This field appears only for `SAMLUser` or `WebIdentityUser` types.  
 + For `SAMLUser`, this is the `saml:namequalifier` key for the SAML assertion. 
-+ For `WebIdentityUser`, this is the issuer name of the web identity federation provider. This can be a provider that you configured, such as the following:
++ For `WebIdentityUser`, if the role trusts an IAM OIDC identity provider, this is the ARN of that provider. Otherwise, this is the issuer name of the web identity federation provider. This can be a provider that you configured, such as the following:
   + `cognito-identity.amazon.com` for Amazon Cognito
   + `www.amazon.com` for Login with Amazon
   + `accounts.google.com` for Google
@@ -317,7 +514,7 @@ The principal name of the external identity provider. This field appears only fo
 
 The following is an example `userIdentity` element for the `AssumeRoleWithWebIdentity` action.
 
-```
+```JSON
 "userIdentity": {
     "type": "WebIdentityUser",
     "principalId": "accounts.google.com:{{application-id}}.apps.googleusercontent.com:{{user-id}}",
@@ -346,7 +543,7 @@ The following are example snippets of events that show the `sourceIdentity` fiel
 
 In the following example event snippet, a user makes an AWS STS `AssumeRole` request, and sets a source identity, represented here by `{{source-identity-value-set}}`. The user assumes a role represented by the role ARN `arn:aws:iam::123456789012:role/Assumed_Role`. The `sourceIdentity` field is in the `requestParameters` block of the event.
 
-```
+```JSON
 "eventVersion": "1.05",
     "userIdentity": {
         "type": "AWSAccount",
@@ -370,7 +567,7 @@ In the following example event snippet, a user makes an AWS STS `AssumeRole` req
 
 In the following example event snippet, a user makes an AWS STS `AssumeRole` request to assume a role named `Developer_Role`, and sets a source identity, `Admin`. The user assumes a role represented by the role ARN `arn:aws:iam::111122223333:role/Developer_Role`. The `sourceIdentity` field is shown in both the `requestParameters` and `responseElements` blocks of the event. The temporary credentials used to assume the role, the session token string, and the assumed role ID, session name, and session ARN are shown in the `responseElements` block, along with the source identity.
 
-```
+```JSON
     "requestParameters": {
         "roleArn": "arn:aws:iam::111122223333:role/Developer_Role",
         "roleSessionName": "Session_Name",
@@ -397,7 +594,7 @@ In the following example event snippet, a user makes an AWS STS `AssumeRole` req
 
 In the following example event snippet, a user is assuming a role named `DevRole` to call an AWS service API. The user sets a source identity, represented here by {{source-identity-value-set}}. The `sourceIdentity` field is in the `sessionContext` block, within the `userIdentity` block of the event.
 
-```
+```JSON
 {
   "eventVersion": "1.08",
   "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Turning off logging for a trail
-<a name="cloudtrail-turning-off-logging"></a>
 
 When you create a trail, logging is turned on automatically. You can turn off logging for a trail from the trail's details page.
 

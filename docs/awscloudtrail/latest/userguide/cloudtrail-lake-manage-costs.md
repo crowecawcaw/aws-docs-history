@@ -1,7 +1,6 @@
 
 
 # Managing CloudTrail Lake costs
-<a name="cloudtrail-lake-manage-costs"></a>
 
 AWS CloudTrail Lake event data stores and queries incur charges. You can configure event data stores in ways that capture the data you need while remaining cost-effective. For information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 

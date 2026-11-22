@@ -1,7 +1,6 @@
 
 
 # Run a query and save query results with the console
-<a name="query-run-query"></a>
 
 After you choose or save a query, you can run a query on an event data store. 
 

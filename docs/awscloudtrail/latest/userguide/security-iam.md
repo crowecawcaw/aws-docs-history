@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS CloudTrail
-<a name="security-iam"></a>
 
 
 

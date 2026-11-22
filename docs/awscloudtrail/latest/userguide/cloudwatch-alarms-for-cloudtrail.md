@@ -1,7 +1,6 @@
 
 
 # Creating CloudWatch alarms for CloudTrail events: examples
-<a name="cloudwatch-alarms-for-cloudtrail"></a>
 
 This topic describes how to configure alarms for CloudTrail events, and includes examples.
 

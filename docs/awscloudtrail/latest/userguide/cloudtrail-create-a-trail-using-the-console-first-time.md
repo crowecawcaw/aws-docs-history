@@ -1,7 +1,6 @@
 
 
 # Creating a trail with the CloudTrail console
-<a name="cloudtrail-create-a-trail-using-the-console-first-time"></a>
 
 A trail can be applied to all AWS Regions that are [enabled](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#manage-acct-regions-enable-standalone) in your AWS account, or can be applied to a single Region. A trail that applies to all AWS Regions that are enabled in your AWS account is referred to as a *multi-Region trail*. As a best practice, we recommend creating a multi-Region trail because it captures activity in all enabled Regions. All trails created using the CloudTrail console are multi-Region trails. You can only create a single-Region trail using the AWS CLI or [`CreateTrail`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html) API operation.
 

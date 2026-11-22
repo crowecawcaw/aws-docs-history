@@ -1,7 +1,6 @@
 
 
 # Viewing recent management events with the console
-<a name="view-cloudtrail-events-console"></a>
 
 You can use the **Event history** page in the CloudTrail console to view the last 90 days of management events in an AWS Region. You can also download a file with that information, or a subset of information based on the filter and time range you choose. You can customize your view of **Event history** by selecting how many events to display on each page and choosing which columns to display on the console. You can also look up and filter events by the resource types available for a particular service. You can select up to five events in **Event history** and compare their details side-by-side.
 

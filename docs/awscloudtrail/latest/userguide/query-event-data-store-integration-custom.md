@@ -1,7 +1,6 @@
 
 
 # Create a custom integration with the console
-<a name="query-event-data-store-integration-custom"></a>
 
 You can use CloudTrail to log and store user activity data from any source in your hybrid environments, such as in-house or SaaS applications hosted on-premises or in the cloud, virtual machines, or containers. Perform the first half of this procedure in the CloudTrail Lake console, then call the [`PutAuditEvents`](https://docs.aws.amazon.com/awscloudtraildata/latest/APIReference/API_PutAuditEvents.html) API to ingest events, providing your channel ARN and event payload. After you use the `PutAuditEvents` API to ingest your application activity into CloudTrail, you can use CloudTrail Lake to search, query, and analyze the data that is logged from your applications.
 

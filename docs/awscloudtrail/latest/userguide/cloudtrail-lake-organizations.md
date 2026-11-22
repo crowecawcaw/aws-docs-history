@@ -1,7 +1,6 @@
 
 
 # Understanding organization event data stores
-<a name="cloudtrail-lake-organizations"></a>
 
 **Note**  
 AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md).
@@ -65,13 +64,13 @@ To create an organization event data store run the [create-event-data-store](htt
 
 The following example AWS CLI `create-event-data-store` command creates an organization event data store that collects all management events. Because CloudTrail logs management events by default, you don't need to specify advanced event selectors if your event data store is logging all management events and is not collecting any data events.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name org-management-eds --organization-enabled
 ```
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE6-d493-4914-9182-e52a7934b207",
     "Name": "org-management-eds",
@@ -101,7 +100,7 @@ The following is an example response.
 
 The next example AWS CLI `create-event-data-store` command creates an organization event data store named `config-items-org-eds` that collects AWS Config configuration items. To collect configuration items, specify that the `eventCategory` field equals `ConfigurationItem` in the advanced event selectors.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name config-items-org-eds \
 --organization-enabled \
 --advanced-event-selectors '[
@@ -156,7 +155,7 @@ aws cloudtrail update-event-data-store --region us-east-1 \
 ## Default resource policy for delegated administrators
 <a name="cloudtrail-lake-organizations-eds-rbp"></a>
 
-CloudTrail automatically generates a resource policy named `DelegatedAdminResourcePolicy` for [organization event data stores](#cloudtrail-lake-organizations) that lists the actions that the delegated administrator accounts are allowed to perform on organization event data stores. The permissions in `DelegatedAdminResourcePolicy` are derived from the delegated administrator permissions in AWS Organizations.
+CloudTrail automatically generates a resource policy named `DelegatedAdminResourcePolicy` for [organization event data stores](cloudtrail-lake-organizations.md) that lists the actions that the delegated administrator accounts are allowed to perform on organization event data stores. The permissions in `DelegatedAdminResourcePolicy` are derived from the delegated administrator permissions in AWS Organizations.
 
 The purpose of `DelegatedAdminResourcePolicy` is to ensure that the delegated administrator accounts can manage the organization event data store on the behalf of the organization and are not unintentionally denied access to the organization event data store when a resource-based policy is attached to the organization event data store that allows or denies principals from performing an action on the organization event data store.
 

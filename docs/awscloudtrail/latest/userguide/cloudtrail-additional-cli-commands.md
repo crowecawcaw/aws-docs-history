@@ -1,7 +1,6 @@
 
 
 # Managing trails with the AWS CLI
-<a name="cloudtrail-additional-cli-commands"></a>
 
 The AWS CLI includes several other commands that help you manage your trails. These commands add tags to trails, get trail status, start and stop logging for trails, and delete a trail. You must run these commands from the same AWS Region where the trail was created (its Home Region). When using the AWS CLI, remember that your commands run in the AWS Region configured for your profile. If you want to run the commands in a different Region, either change the default Region for your profile, or use the **--region** parameter with the command.
 
@@ -42,7 +41,7 @@ aws cloudtrail list-tags --resource-id-list arn:aws:cloudtrail:{{us-east-2}}:{{1
 
 If successful, this command returns output similar to the following.
 
-```
+```JSON
 {
  "ResourceTagList": [
      {
@@ -95,7 +94,7 @@ aws cloudtrail describe-trails --region us-east-2
 
 If the command succeeds, you see output similar to the following. 
 
-```
+```JSON
 {
   "trailList": [
     {
@@ -148,7 +147,7 @@ aws cloudtrail get-trail - -name {{my-trail}}
 
 If successful, this command returns output similar to the following.
 
-```
+```JSON
 {
    "Trail": {
       "Name": "{{my-trail}}",
@@ -177,7 +176,7 @@ aws cloudtrail get-trail-status --name {{my-trail}}
 
 If the command succeeds, you see output similar to the following. 
 
-```
+```JSON
 {
     "LatestDeliveryTime": 1441139757.497,
     "LatestDeliveryAttemptTime": "2015-09-01T20:35:57Z",
@@ -215,7 +214,7 @@ aws cloudtrail put-insight-selectors --trail-name {{TrailName3}} --insight-selec
 
 The example returns the Insights event selector that is configured for the trail.
 
-```
+```JSON
 {
    "InsightSelectors":
       [
@@ -241,7 +240,7 @@ aws cloudtrail put-insight-selectors --trail-name {{TrailName3}} --insight-selec
 
 The example returns the now-empty Insights event selector that is configured for the trail.
 
-```
+```JSON
 {
    "InsightSelectors": [ ],
    "TrailARN": "arn:aws:cloudtrail:us-east-2:123456789012:trail/{{TrailName3}}"
@@ -266,7 +265,7 @@ If the trail is an organization trail, and you are signed in with a member accou
 
 The following example shows the settings for a trail that is using advanced event selectors to log management events. By default, a trail is configured to log all management events and no data events or network activity events.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:123456789012:trail/management-events-trail",
     "AdvancedEventSelectors": [
@@ -299,7 +298,7 @@ To create an advanced event selector, run the `put-event-selectors` command. Whe
 
 The following example creates custom advanced event selectors for a trail named {{TrailName}} to include read and write management events (by omitting the `readOnly` selector), `PutObject` and `DeleteObject` data events for all Amazon S3 bucket/prefix combinations except for a bucket named `amzn-s3-demo-bucket`, data events for an AWS Lambda function named `MyLambdaFunction`, and network activity events for AWS KMS access denied events over a VPC endpoint. Because these are custom advanced event selectors, each set of selectors has a descriptive name. Note that a trailing slash is part of the ARN value for S3 buckets.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} --advanced-event-selectors
 '[
   {
@@ -338,7 +337,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --advanced-event-s
 
 The example returns the advanced event selectors that are configured for the trail.
 
-```
+```JSON
 {
   "AdvancedEventSelectors": [
     {
@@ -415,7 +414,7 @@ The example returns the advanced event selectors that are configured for the tra
 
 The following example shows how to configure your trail to include all data events for all Amazon S3 on AWS Outposts objects in your outpost. In this release, the supported value for S3 on AWS Outposts events for the `resources.type` field is `AWS::S3Outposts::Object`.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} --region {{region}} \
 --advanced-event-selectors \
 '[
@@ -431,7 +430,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --region {{region}
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "AdvancedEventSelectors": [
         {
@@ -465,7 +464,7 @@ If you choose not to log management events, AWS KMS events are not logged, and y
 
 To start logging AWS KMS events to a trail again, remove the `eventSource` selector, and run the command again.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -481,7 +480,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 
 The example returns the advanced event selectors that are configured for the trail.
 
-```
+```JSON
 {
   "AdvancedEventSelectors": [
     {
@@ -504,7 +503,7 @@ The example returns the advanced event selectors that are configured for the tra
 
 To start logging excluded events to a trail again, remove the `eventSource` selector, as shown in the following command.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -526,7 +525,7 @@ If you choose not to log management events, Amazon RDS Data API management event
 
 To start logging Amazon RDS Data API management events to a trail again, remove the `eventSource` selector, and run the command again.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -542,7 +541,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 
 The example returns the advanced event selectors that are configured for the trail.
 
-```
+```JSON
 {
   "AdvancedEventSelectors": [
     {
@@ -565,7 +564,7 @@ The example returns the advanced event selectors that are configured for the tra
 
 To start logging excluded events to a trail again, remove the `eventSource` selector, as shown in the following command.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} \
 --advanced-event-selectors '
 [
@@ -596,7 +595,7 @@ If the trail is an organization trail and you are a member account in the organi
 
 The following example shows the settings for a trail that is using basic event selectors to log management events.
 
-```
+```JSON
 {
     "EventSelectors": [
         {
@@ -632,7 +631,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --event-selectors 
 
 The example returns the event selector configured for the trail.
 
-```
+```JSON
 {
     "EventSelectors": [
         {
@@ -674,7 +673,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName2}} --event-selectors
 
 The example returns the event selectors configured for the trail.
 
-```
+```JSON
 {
     "EventSelectors": [
         {
@@ -722,7 +721,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --event-selectors 
 
 The example returns the event selector that is configured for the trail.
 
-```
+```JSON
 {
     "EventSelectors": [
         {
@@ -753,7 +752,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --event-selectors 
 
 The example returns the event selector that is configured for the trail. This logs write-only management events, including AWS KMS events.
 
-```
+```JSON
 {
     "EventSelectors": [
         {
@@ -782,7 +781,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --event-selectors 
 
 The example returns the event selector that is configured for the trail.
 
-```
+```JSON
 {
     "EventSelectors": [
         {

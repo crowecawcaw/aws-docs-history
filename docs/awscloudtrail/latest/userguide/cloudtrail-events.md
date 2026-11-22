@@ -1,7 +1,10 @@
 
 
 # Understanding CloudTrail events
-<a name="cloudtrail-events"></a>
+
+**Upcoming: new Amazon S3 data event types**  
+Starting December 21, 2026, AWS CloudTrail will deliver two new types of Amazon S3 data events to trails that already log S3 data events: S3 Lifecycle events and S3 authentication failure events. These event types are not available yet, and CloudTrail will not deliver them before December 21, 2026.  
+When these events become available, they are billed at standard CloudTrail data event rates (see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/)), which can increase your CloudTrail charges. To avoid the charges, [exclude the new events](logging-s3-data-events-governance.md#logging-s3-lifecycle-authn-events) before December 21, 2026. These events provide near real-time delivery of S3 activity that was previously available only through S3 Server Access Logs.
 
 An event in CloudTrail is the record of an activity in an AWS account. This activity can be an action taken by an IAM identity, or service that is monitorable by CloudTrail. CloudTrail events provide a history of both API and non-API account activity made through the AWS Management Console, AWS SDKs, command line tools, and other AWS services.
 
@@ -40,7 +43,7 @@ By default, CloudTrail trails and CloudTrail Lake event data stores log manageme
 
 The following example shows a single log record of a management event. In this event, an IAM user named `Mary_Major` ran the **aws cloudtrail start-logging** command to call the CloudTrail [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) action to start the logging process on a trail named `myTrail`.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -85,7 +88,7 @@ The following example shows a single log record of a management event. In this e
 
 In this next example, an IAM user user named `Paulo_Santos` ran the **aws cloudtrail start-event-data-store-ingestion** command to call the [`StartEventDataStoreIngestion`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartEventDataStoreIngestion.html) action to start ingestion on an event data store.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -146,7 +149,7 @@ For trails, you can use basic or advanced event selectors to log data events for
 For event data stores, you can use only advanced event selectors to include data events.
 
 ### Data events supported by AWS CloudTrail
-<a name="w2aac21c23c17"></a>
+<a name="w2aac21c25c17"></a>
 
 
 
@@ -162,6 +165,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon AIDevOps | AIDevOps API activity on pipeline metadata. | AIDevOps Pipelines Metadata | `AWS::AIDevOps::PipelineMetadata` | 
 | Amazon AIDevOps | AIDevOps API activity on services. | AIDevOps service | `AWS::AIDevOps::Service` | 
 | Amazon Q Developer | Amazon Q Developer API activity on operational investigations. For more information, see [Amazon Q Developer](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html#Q-Developer-Investigations-Cloudtrail). | AIOps Investigation Group | `AWS::AIOps::InvestigationGroup` | 
+| AWS Amplify | Amplify Gen 3 Backend Branch. | Amplify Gen 3 Backend Branch | `AWS::AmplifyGen3::Branch` | 
 | Amazon OpenSearch Serverless | API activity on `AWS::AOSS::Collection` resources. | AWS::AOSS::Collection | `AWS::AOSS::Collection` | 
 | AWS AppConfig | AWS AppConfig API activity for configuration operations such as calls to StartConfigurationSession and GetLatestConfiguration. For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/logging-using-cloudtrail.html#appconfig-data-events-cloudtrail). | AWS AppConfig | `AWS::AppConfig::Configuration` | 
 | CloudWatch Application Signals | API activity on `AWS::ApplicationSignals::InstrumentationConfig` resources. | AWS::ApplicationSignals::InstrumentationConfig | `AWS::ApplicationSignals::InstrumentationConfig` | 
@@ -187,6 +191,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Bedrock | Amazon Bedrock API activity on inline agents. | Bedrock Invoke Inline-Agent | `AWS::Bedrock::InlineAgent` | 
 | Amazon Bedrock | Amazon Bedrock API activity on a knowledge base. For more information, see [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail). | Bedrock knowledge base | `AWS::Bedrock::KnowledgeBase` | 
 | Amazon Bedrock | Amazon Bedrock API activity on models. | Bedrock model | `AWS::Bedrock::Model` | 
+| Amazon Bedrock | Amazon Bedrock API activity on projects. | Bedrock project | `AWS::Bedrock::Project` | 
 | Amazon Bedrock | Amazon Bedrock API activity on prompts. | Bedrock prompt | `AWS::Bedrock::PromptVersion` | 
 | Amazon Bedrock | Amazon Bedrock API activity on sessions. | Bedrock session | `AWS::Bedrock::Session` | 
 | Amazon Bedrock | Amazon Bedrock Tool API activity. | Bedrock Tool | `AWS::Bedrock::Tool` | 
@@ -228,6 +233,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Clinical Trials Tech mapping | API activity on `AWS::ClinicalTrialsTech::Mapping` resources. | Clinical Trials Tech mapping | `AWS::ClinicalTrialsTech::Mapping` | 
 | Clinical Trials Tech schedule | API activity on `AWS::ClinicalTrialsTech::Schedule` resources. | Clinical Trials Tech schedule | `AWS::ClinicalTrialsTech::Schedule` | 
 | Clinical Trials Tech study | API activity on `AWS::ClinicalTrialsTech::Study` resources. | Clinical Trials Tech study | `AWS::ClinicalTrialsTech::Study` | 
+| AWS Cloud Extensions | Profile-level data events for AWS Cloud Extensions. | Cloud Extensions profile level events | `AWS::CloudExtensions::Profile` | 
 | Amazon CloudFront | CloudFront API activity on a KeyValueStore. For more information, see [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_KeyValueStore.html). | CloudFront KeyValueStore | `AWS::CloudFront::KeyValueStore` | 
 | Amazon Cost Optimization | CloudOptimization API activity on profiles. | AWS::CloudOptimization::Profile | `AWS::CloudOptimization::Profile` | 
 | Amazon Cost Optimization | CloudOptimization API activity on recommendations. | AWS::CloudOptimization::Recommendation | `AWS::CloudOptimization::Recommendation` | 
@@ -239,6 +245,11 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a customization. | CodeWhisperer customization | `AWS::CodeWhisperer::Customization` | 
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a profile. | CodeWhisperer | `AWS::CodeWhisperer::Profile` | 
 | Amazon Cognito | Amazon Cognito API activity on Amazon Cognito identity pools. For more information, see [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-info-in-cloudtrail.html#identity-pools-cloudtrail-events). | Cognito Identity Pools | `AWS::Cognito::IdentityPool` | 
+| AWS Context | Agent-context-level Data events for AWS Context. | AWS agent context | `AWS::Context::AgentContext` | 
+| AWS Context | Task-level Data events for AWS Context. | AWS Context Task | `AWS::Context::Task` | 
+| AWS Context | MCP tool-level data events for AWS Context. | AWS Context MCP Tools | `AWS::ContextMCP::Tools` | 
+| AWS Continuum | Package decision data events for AWS Continuum for software supply chain. | Continuum Supply Chain package decision | `AWS::Continuum::SupplyChainPackageDecision` | 
+| AWS Continuum | Package vulnerability data events for AWS Continuum for software supply chain. | Continuum Supply Chain Vulnerability | `AWS::Continuum::SupplyChainPackageVulnerability` | 
 | AWS IAM Credential Broker | Credential provider level events for AWS IAM Credential Broker. | AWS IAM Credential Broker Credential Provider | `AWS::CredentialBroker::CredentialProvider` | 
 | AWS Data Exchange | AWS Data Exchange API activity on assets. | Data Exchange asset | `AWS::DataExchange::Asset` | 
 | AWS Deadline Cloud | Deadline Cloud API activity on fleets. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud fleet | `AWS::Deadline::Fleet` | 
@@ -403,6 +414,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Support | SupportAccess API activity on trusting accounts. | SupportAccess trusting account | `AWS::SupportAccess::TrustingAccount` | 
 | Amazon Support | SupportAccess API activity on trusting roles. | SupportAccess trusting role | `AWS::SupportAccess::TrustingRole` | 
 | Amazon SWF | Amazon SWF API activity on domains. For more information, see [Amazon SWF](https://docs.aws.amazon.com/amazonswf/latest/developerguide/ct-logging.html#cloudtrail-data-events). | SWF domain | `AWS::SWF::Domain` | 
+| Amazon Textract | An Amazon Textract intelligent document analysis job, created by StartDocumentInsights and retrieved with GetDocumentInsights. Identified by its job ARN (arn:aws:textract:<region>:<account>:job/<job-id>). | Textract Job | `AWS::Textract::Job` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on a Device. | Thin Client Device | `AWS::ThinClient::Device` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on an Environment. | Thin Client Environment | `AWS::ThinClient::Environment` | 
 | Timestamp token | API activity on `AWS::Timestamp::TimestampToken` resources. | Timestamp token | `AWS::Timestamp::TimestampToken` | 
@@ -427,7 +439,7 @@ Additional charges apply for logging data events. For CloudTrail pricing, see [A
 
 The following example shows a single log record of a data event for the Amazon SNS `Publish` action.
 
-```
+```JSON
 {
    "eventVersion": "1.09",
    "userIdentity": {
@@ -488,7 +500,7 @@ The following example shows a single log record of a data event for the Amazon S
 
 The next example shows a single log record of a data event for the Amazon Cognito `GetCredentialsForIdentity` action.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -560,6 +572,7 @@ You can log network activity events for the following services:
 + AWS BCM Pricing Calculator
 + AWS Billing
 + AWS Cloud Map
++ AWS Context
 + AWS Diode Alerting
 + AWS Glue
 + AWS IAM Credential Broker
@@ -569,6 +582,7 @@ You can log network activity events for the following services:
 + AWS IoT Secured Tunneling
 + AWS IoT SiteWise
 + AWS License Manager
++ AWS Partner Central Demand Generator
 + AWS Partner Central Revenue Measurement
 + AWS Secrets Manager
 + AWS SSO
@@ -614,7 +628,7 @@ Additional charges apply for logging network activity events. For CloudTrail pri
 
 The following example shows a successful AWS KMS `ListKeys` event that traversed a VPC endpoint. The `vpcEndpointId` field shows the ID of the VPC endpoint. The `vpcEndpointAccountId` field shows the account ID of the VPC endpoint owner. In this example, the request was made by the VPC endpoint owner.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -655,7 +669,7 @@ The following example shows a successful AWS KMS `ListKeys` event that traversed
 
 The next example shows an unsuccessful AWS KMS `ListKeys` event with a VPC endpoint policy violation. Because a VPC policy violation occurred, both the `errorCode` and `errorMessage` fields are present. The account ID in the `recipientAccountId` and `vpcEndpointAccountId` fields is the same, which indicates the event was sent to the VPC endpoint owner. The `accountId` in the `userIdentity` element is not the `vpcEndpointAccountId`, which indicates that the user making the request is not the VPC endpoint owner.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -699,7 +713,7 @@ Additional charges apply for Insights events. You will be charged separately if 
 
 There are two events logged to show unusual activity in CloudTrail Insights: a start event and an end event. The following example shows a single log record of a starting Insights event that occurred when the Application Auto Scaling API `CompleteLifecycleAction` was called an unusual number of times. For Insights events, the value of `eventCategory` is `Insight`. An `insightDetails` block identifies the event state, source, name, Insights type, and context, including statistics and attributions. For more information about the `insightDetails` block, see [CloudTrail record contents for Insights events for trails](cloudtrail-insights-fields-trails.md).
 
-```
+```JSON
 {
         "eventVersion": "1.08",
         "eventTime": "2023-07-10T01:42:00Z",

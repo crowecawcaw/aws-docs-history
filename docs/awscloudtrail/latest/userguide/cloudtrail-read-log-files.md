@@ -1,7 +1,6 @@
 
 
 # Downloading your CloudTrail log files
-<a name="cloudtrail-read-log-files"></a>
 
 Log files are in JSON format. If you have a JSON viewer add-on installed, you can view the files directly in your browser. Double-click the log file name in the bucket to open a new browser window or tab. The JSON displays in a readable format. 
 

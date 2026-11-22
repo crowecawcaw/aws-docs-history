@@ -1,7 +1,6 @@
 
 
 # Granting permissions to create a KMS key
-<a name="granting-kms-permissions"></a>
 
 You can grant users permission to create an AWS KMS key with the [`AWSKeyManagementServicePowerUser`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSKeyManagementServicePowerUser.html) policy.
 

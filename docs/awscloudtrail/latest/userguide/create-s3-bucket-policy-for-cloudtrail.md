@@ -1,7 +1,6 @@
 
 
 # Amazon S3 bucket policy for CloudTrail
-<a name="create-s3-bucket-policy-for-cloudtrail"></a>
 
 By default, Amazon S3 buckets and objects are private. Only the resource owner (the AWS account that created the bucket) can access the bucket and objects it contains. The resource owner can grant access permissions to other resources and users by writing an access policy.
 
@@ -29,7 +28,7 @@ The following policy allows CloudTrail to write log files to the bucket from sup
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -119,7 +118,7 @@ The example policy includes an `aws:SourceArn` condition key for the Amazon S3 b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -201,7 +200,7 @@ As a best practice, update the policy to use a permission with the CloudTrail se
 **Example bucket policy with service principal name**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

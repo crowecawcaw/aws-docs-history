@@ -1,7 +1,10 @@
 
 
 # Logging data events
-<a name="logging-data-events-with-cloudtrail"></a>
+
+**Upcoming: new Amazon S3 data event types**  
+Starting December 21, 2026, AWS CloudTrail will deliver two new types of Amazon S3 data events to trails that already log S3 data events: S3 Lifecycle events and S3 authentication failure events. These event types are not available yet, and CloudTrail will not deliver them before December 21, 2026.  
+When these events become available, they are billed at standard CloudTrail data event rates (see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/)), which can increase your CloudTrail charges. To avoid the charges, [exclude the new events](logging-s3-data-events-governance.md#logging-s3-lifecycle-authn-events) before December 21, 2026. These events provide near real-time delivery of S3 activity that was previously available only through S3 Server Access Logs.
 
 This section describes how to log data events using the [CloudTrail console](#logging-data-events-console) and [AWS CLI](#creating-data-event-selectors-with-the-AWS-CLI).
 
@@ -22,7 +25,7 @@ The events that are logged by your trails are available in Amazon EventBridge. F
 
 **Contents**
 + [Data events](#logging-data-events)
-  + [Data events supported by AWS CloudTrail](#w2aac21c31c19c11)
+  + [Data events supported by AWS CloudTrail](#w2aac21c33c21c11)
   + [Examples: Logging data events for Amazon S3 objects](#logging-data-events-examples)
   + [Logging data events for S3 objects in other AWS accounts](#logging-data-events-for-s3-resources-in-other-accounts)
 + [Read-only and write-only events](#read-write-events-data)
@@ -61,7 +64,7 @@ The events that are logged by your trails are available in Amazon EventBridge. F
     + [Determine whether a person or a lifecycle rule deleted an object](logging-s3-data-events-governance.md#logging-s3-data-events-who-deleted-object)
   + [Compliance: prove your controls work](logging-s3-data-events-governance.md#logging-s3-data-events-compliance)
     + [Verify that CloudTrail S3 data event logging is turned on](logging-s3-data-events-governance.md#logging-s3-data-events-verify-logging)
-  + [Logging and excluding Amazon S3 lifecycle and authentication failure events](logging-s3-data-events-governance.md#logging-s3-lifecycle-authn-events)
+  + [Logging and excluding Amazon S3 lifecycle and authentication failure events (upcoming)](logging-s3-data-events-governance.md#logging-s3-lifecycle-authn-events)
     + [Amazon S3 lifecycle events](logging-s3-data-events-governance.md#logging-s3-lifecycle-events)
     + [Considerations](logging-s3-data-events-governance.md#logging-s3-lifecycle-authn-considerations)
     + [Examples: Log Amazon S3 lifecycle and authentication failure events](logging-s3-data-events-governance.md#logging-s3-lifecycle-authn-examples-log)
@@ -93,7 +96,7 @@ For trails, you can use basic or advanced event selectors to log data events for
 For event data stores, you can use only advanced event selectors to include data events.
 
 ### Data events supported by AWS CloudTrail
-<a name="w2aac21c31c19c11"></a>
+<a name="w2aac21c33c21c11"></a>
 
 
 
@@ -109,6 +112,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon AIDevOps | AIDevOps API activity on pipeline metadata. | AIDevOps Pipelines Metadata | `AWS::AIDevOps::PipelineMetadata` | 
 | Amazon AIDevOps | AIDevOps API activity on services. | AIDevOps service | `AWS::AIDevOps::Service` | 
 | Amazon Q Developer | Amazon Q Developer API activity on operational investigations. For more information, see [Amazon Q Developer](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html#Q-Developer-Investigations-Cloudtrail). | AIOps Investigation Group | `AWS::AIOps::InvestigationGroup` | 
+| AWS Amplify | Amplify Gen 3 Backend Branch. | Amplify Gen 3 Backend Branch | `AWS::AmplifyGen3::Branch` | 
 | Amazon OpenSearch Serverless | API activity on `AWS::AOSS::Collection` resources. | AWS::AOSS::Collection | `AWS::AOSS::Collection` | 
 | AWS AppConfig | AWS AppConfig API activity for configuration operations such as calls to StartConfigurationSession and GetLatestConfiguration. For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/logging-using-cloudtrail.html#appconfig-data-events-cloudtrail). | AWS AppConfig | `AWS::AppConfig::Configuration` | 
 | CloudWatch Application Signals | API activity on `AWS::ApplicationSignals::InstrumentationConfig` resources. | AWS::ApplicationSignals::InstrumentationConfig | `AWS::ApplicationSignals::InstrumentationConfig` | 
@@ -134,6 +138,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Bedrock | Amazon Bedrock API activity on inline agents. | Bedrock Invoke Inline-Agent | `AWS::Bedrock::InlineAgent` | 
 | Amazon Bedrock | Amazon Bedrock API activity on a knowledge base. For more information, see [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail). | Bedrock knowledge base | `AWS::Bedrock::KnowledgeBase` | 
 | Amazon Bedrock | Amazon Bedrock API activity on models. | Bedrock model | `AWS::Bedrock::Model` | 
+| Amazon Bedrock | Amazon Bedrock API activity on projects. | Bedrock project | `AWS::Bedrock::Project` | 
 | Amazon Bedrock | Amazon Bedrock API activity on prompts. | Bedrock prompt | `AWS::Bedrock::PromptVersion` | 
 | Amazon Bedrock | Amazon Bedrock API activity on sessions. | Bedrock session | `AWS::Bedrock::Session` | 
 | Amazon Bedrock | Amazon Bedrock Tool API activity. | Bedrock Tool | `AWS::Bedrock::Tool` | 
@@ -175,6 +180,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Clinical Trials Tech mapping | API activity on `AWS::ClinicalTrialsTech::Mapping` resources. | Clinical Trials Tech mapping | `AWS::ClinicalTrialsTech::Mapping` | 
 | Clinical Trials Tech schedule | API activity on `AWS::ClinicalTrialsTech::Schedule` resources. | Clinical Trials Tech schedule | `AWS::ClinicalTrialsTech::Schedule` | 
 | Clinical Trials Tech study | API activity on `AWS::ClinicalTrialsTech::Study` resources. | Clinical Trials Tech study | `AWS::ClinicalTrialsTech::Study` | 
+| AWS Cloud Extensions | Profile-level data events for AWS Cloud Extensions. | Cloud Extensions profile level events | `AWS::CloudExtensions::Profile` | 
 | Amazon CloudFront | CloudFront API activity on a KeyValueStore. For more information, see [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_KeyValueStore.html). | CloudFront KeyValueStore | `AWS::CloudFront::KeyValueStore` | 
 | Amazon Cost Optimization | CloudOptimization API activity on profiles. | AWS::CloudOptimization::Profile | `AWS::CloudOptimization::Profile` | 
 | Amazon Cost Optimization | CloudOptimization API activity on recommendations. | AWS::CloudOptimization::Recommendation | `AWS::CloudOptimization::Recommendation` | 
@@ -186,6 +192,11 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a customization. | CodeWhisperer customization | `AWS::CodeWhisperer::Customization` | 
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a profile. | CodeWhisperer | `AWS::CodeWhisperer::Profile` | 
 | Amazon Cognito | Amazon Cognito API activity on Amazon Cognito identity pools. For more information, see [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-info-in-cloudtrail.html#identity-pools-cloudtrail-events). | Cognito Identity Pools | `AWS::Cognito::IdentityPool` | 
+| AWS Context | Agent-context-level Data events for AWS Context. | AWS agent context | `AWS::Context::AgentContext` | 
+| AWS Context | Task-level Data events for AWS Context. | AWS Context Task | `AWS::Context::Task` | 
+| AWS Context | MCP tool-level data events for AWS Context. | AWS Context MCP Tools | `AWS::ContextMCP::Tools` | 
+| AWS Continuum | Package decision data events for AWS Continuum for software supply chain. | Continuum Supply Chain package decision | `AWS::Continuum::SupplyChainPackageDecision` | 
+| AWS Continuum | Package vulnerability data events for AWS Continuum for software supply chain. | Continuum Supply Chain Vulnerability | `AWS::Continuum::SupplyChainPackageVulnerability` | 
 | AWS IAM Credential Broker | Credential provider level events for AWS IAM Credential Broker. | AWS IAM Credential Broker Credential Provider | `AWS::CredentialBroker::CredentialProvider` | 
 | AWS Data Exchange | AWS Data Exchange API activity on assets. | Data Exchange asset | `AWS::DataExchange::Asset` | 
 | AWS Deadline Cloud | Deadline Cloud API activity on fleets. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud fleet | `AWS::Deadline::Fleet` | 
@@ -350,6 +361,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Support | SupportAccess API activity on trusting accounts. | SupportAccess trusting account | `AWS::SupportAccess::TrustingAccount` | 
 | Amazon Support | SupportAccess API activity on trusting roles. | SupportAccess trusting role | `AWS::SupportAccess::TrustingRole` | 
 | Amazon SWF | Amazon SWF API activity on domains. For more information, see [Amazon SWF](https://docs.aws.amazon.com/amazonswf/latest/developerguide/ct-logging.html#cloudtrail-data-events). | SWF domain | `AWS::SWF::Domain` | 
+| Amazon Textract | An Amazon Textract intelligent document analysis job, created by StartDocumentInsights and retrieved with GetDocumentInsights. Identified by its job ARN (arn:aws:textract:<region>:<account>:job/<job-id>). | Textract Job | `AWS::Textract::Job` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on a Device. | Thin Client Device | `AWS::ThinClient::Device` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on an Environment. | Thin Client Environment | `AWS::ThinClient::Environment` | 
 | Timestamp token | API activity on `AWS::Timestamp::TimestampToken` resources. | Timestamp token | `AWS::Timestamp::TimestampToken` | 
@@ -724,7 +736,7 @@ If you apply advanced event selectors to a trail, any existing basic event selec
 
 The following example creates custom advanced event selectors for a trail named {{TrailName}} to include read and write management events (by omitting the `readOnly` selector), `PutObject` and `DeleteObject` data events for all Amazon S3 bucket/prefix combinations except for a bucket named `amzn-s3-demo-bucket` and data events for an AWS Lambda function named `MyLambdaFunction`. Because these are custom advanced event selectors, each set of selectors has a descriptive name. Note that a trailing slash is part of the ARN value for S3 buckets.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} --advanced-event-selectors
 '[
   {
@@ -755,7 +767,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --advanced-event-s
 
 The example returns the advanced event selectors that are configured for the trail.
 
-```
+```JSON
 {
   "AdvancedEventSelectors": [
     {
@@ -818,7 +830,7 @@ If you apply advanced event selectors to a trail, any existing basic event selec
 
 The following example shows how to configure your trail to include all data events for all Amazon S3 objects in a specific S3 bucket. The value for S3 events for the `resources.type` field is `AWS::S3::Object`. Because the ARN values for S3 objects and S3 buckets are slightly different, you must add the `StartsWith` operator for `resources.ARN` to capture all events.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} --region {{region}} \
 --advanced-event-selectors \
 '[
@@ -835,7 +847,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --region {{region}
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:{{region}}:{{account_ID}}:trail/{{TrailName}}",
     "AdvancedEventSelectors": [
@@ -874,7 +886,7 @@ If you apply advanced event selectors to a trail, any existing basic event selec
 
 The following example shows how to configure your trail to include all data events for all Amazon S3 on Outposts objects in your outpost.
 
-```
+```JSON
 aws cloudtrail put-event-selectors --trail-name {{TrailName}} --region {{region}} \
 --advanced-event-selectors \
 '[
@@ -890,7 +902,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --region {{region}
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:{{region}}:{{account_ID}}:trail/{{TrailName}}",
     "AdvancedEventSelectors": [
@@ -920,7 +932,7 @@ The command returns the following example output.
 
 The following is an example result of the **get-event-selectors** command showing basic event selectors. By default, when you create a trail by using the AWS CLI, a trail logs all management events. By default, trails do not log data events.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-2:123456789012:trail/TrailName",
     "EventSelectors": [
@@ -946,7 +958,7 @@ aws cloudtrail put-event-selectors --trail-name {{TrailName}} --event-selectors 
 
 The command returns the event selectors that are configured for the trail.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-2:123456789012:trail/{{TrailName}}",
     "EventSelectors": [
@@ -976,13 +988,13 @@ You configure advanced event selectors to log data events on an event data store
 
 To see whether your event data store includes data events, run the [`get-event-data-store`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/get-event-data-store.html) command. 
 
-```
+```JSON
 aws cloudtrail get-event-data-store --event-data-store {{EventDataStoreARN}}
 ```
 
 The command returns the settings for the event data store.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLE492-301f-4053-ac5e-EXAMPLE6441aa",
     "Name": "ebs-data-events",
@@ -1025,7 +1037,7 @@ The command returns the settings for the event data store.
 
 The following example shows how to create an event data store to include all data events for all Amazon S3 objects in a specific general purpose S3 bucket and exclude AWS service events and events generated by the `bucket-scanner-role` `userIdentity`. The value for S3 events for the `resources.type` field is `AWS::S3::Object`. Because the ARN values for S3 objects and S3 buckets are slightly different, you must add the `StartsWith` operator for `resources.ARN` to capture all events.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name "{{EventDataStoreName}}" --multi-region-enabled \
 --advanced-event-selectors \
 '[
@@ -1044,7 +1056,7 @@ aws cloudtrail create-event-data-store --name "{{EventDataStoreName}}" --multi-r
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLE492-301f-4053-ac5e-EXAMPLE441aa",
     "Name": "EventDataStoreName",
@@ -1101,7 +1113,7 @@ The command returns the following example output.
 
 The following example shows how to create an event data store that includes all data events for all Amazon S3 on Outposts objects in your outpost.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name {{EventDataStoreName}} \
 --advanced-event-selectors \
 '[
@@ -1117,7 +1129,7 @@ aws cloudtrail create-event-data-store --name {{EventDataStoreName}} \
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEb4a8-99b1-4ec2-9258-EXAMPLEc890",
     "Name": "EventDataStoreName",

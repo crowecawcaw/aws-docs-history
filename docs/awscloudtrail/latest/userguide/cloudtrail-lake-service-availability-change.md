@@ -1,7 +1,6 @@
 
 
 # CloudTrail Lake availability change
-<a name="cloudtrail-lake-service-availability-change"></a>
 
 **Note**  
 AWS CloudTrail Lake will no longer be open to new customers starting on May 31, 2026. For capabilities similar to CloudTrail Lake, explore CloudWatch.
@@ -117,7 +116,7 @@ You will need the Amazon Resource Name (ARN) of your CloudTrail Lake Event Data 
 
 Use the `logs` service to create the task. You must specify the source ARN of the Event Data Store.
 
-```
+```bash
 aws logs create-import-task \
     --import-source-arn "arn:aws:cloudtrail:{{region}}:{{account-id}}:eventdatastore/{{eds-id}}" \
     --import-role-arn "arn:aws:iam::{{account-id}}:role/{{role-name}}" \
@@ -133,7 +132,7 @@ Parameters:
 
 Because the import is asynchronous, you can check the progress of the migration using the `describe-import-tasks` command:
 
-```
+```bash
 aws logs describe-import-tasks \
     --import-id "{{import-id}}"
 ```

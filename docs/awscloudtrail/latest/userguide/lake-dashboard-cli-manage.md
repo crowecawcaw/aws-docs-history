@@ -1,7 +1,6 @@
 
 
 # Manage dashboards with the AWS CLI
-<a name="lake-dashboard-cli-manage"></a>
 
 This section describes several other commands that you can run to manage your dashboards, including getting a dashboard, listing your dashboards, refreshing a dashboard, and updating a dashboard.
 

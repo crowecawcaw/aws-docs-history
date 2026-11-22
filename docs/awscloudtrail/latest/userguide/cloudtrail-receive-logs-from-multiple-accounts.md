@@ -1,7 +1,6 @@
 
 
 # Receiving CloudTrail log files from multiple accounts
-<a name="cloudtrail-receive-logs-from-multiple-accounts"></a>
 
 You can have CloudTrail deliver log files from multiple AWS accounts into a single Amazon S3 bucket. For example, you have four AWS accounts with account IDs 111111111111, 222222222222, 333333333333, and 444444444444, and you want to configure CloudTrail to deliver log files from all four of these accounts to a bucket belonging to account 111111111111. To accomplish this, complete the following steps in order:
 

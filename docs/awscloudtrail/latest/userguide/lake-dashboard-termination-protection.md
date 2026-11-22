@@ -1,7 +1,6 @@
 
 
 # Change termination protection with the CloudTrail console
-<a name="lake-dashboard-termination-protection"></a>
 
 Termination protection prevents a dashboard from accidental deletion. If you want to delete a custom dashboard, or disable the Highlights dashboard, you must disable termination protection.
 

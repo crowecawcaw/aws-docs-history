@@ -1,7 +1,6 @@
 
 
 # Working with CloudTrail trails
-<a name="cloudtrail-trails"></a>
 
 *Trails* capture a record of AWS activities, delivering and storing these events in an Amazon S3 bucket, with optional delivery to [CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md) and [Amazon EventBridge](cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-eventbridge).
 

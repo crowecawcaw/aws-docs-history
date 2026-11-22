@@ -1,7 +1,6 @@
 
 
 # AWS Management Console sign-in events
-<a name="cloudtrail-event-reference-aws-console-sign-in-events"></a>
 
 CloudTrail logs attempts to sign in to the AWS Management Console, the AWS Discussion Forums, and the AWS Support Center. All IAM user and root user sign-in events, as well as all federated user sign-in events, generate records in CloudTrail log files. For information about finding and viewing logs, see [Finding your CloudTrail log files](get-and-view-cloudtrail-log-files.md#cloudtrail-find-log-files) and [Downloading your CloudTrail log files](cloudtrail-read-log-files.md). 
 
@@ -37,7 +36,7 @@ The following examples show event records for several IAM user sign-in scenarios
 
 The following record shows that a user named `Anaya` successfully signed in to the AWS Management Console without using multi-factor authentication (MFA). 
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -81,7 +80,7 @@ The following record shows that a user named `Anaya` successfully signed in to t
 
 The following record shows that an IAM user named `Anaya` successfully signed in to the AWS Management Console using multi-factor authentication (MFA).
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -126,7 +125,7 @@ The following record shows that an IAM user named `Anaya` successfully signed in
 
 The following record shows an unsuccessful sign-in attempt from an IAM user named `Paulo`.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -171,7 +170,7 @@ The following record shows an unsuccessful sign-in attempt from an IAM user name
 
 The following shows that the sign-process checked whether multi-factor authentication (MFA) is required for an IAM user during sign-in. In this example, the `mfaType` value is `U2F MFA`, which indicates that the IAM user enabled either a single MFA device or multiple MFA devices of the same type (`U2F MFA`).
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -213,7 +212,7 @@ The following shows that the sign-process checked whether multi-factor authentic
 
 The following shows that the sign-process checked whether multi-factor authentication (MFA) is required for an IAM user during sign-in. In this example, the `mfaType` value is `Multiple MFA Devices`, which indicates that the IAM user enabled multiple MFA device types.
 
-```
+```JSON
  {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -267,7 +266,7 @@ The following examples show event records for several `root` user sign-in scenar
 
 The following shows a successful sign-in event for a root user not using multi-factor authentication (MFA).
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -311,7 +310,7 @@ The following shows a successful sign-in event for a root user not using multi-f
 
 The following shows a successful sign-in event for a root user using multi-factor authentication (MFA).
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -356,7 +355,7 @@ The following shows a successful sign-in event for a root user using multi-facto
 
 The following shows an unsuccessful sign-in event for a root user not using MFA.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -401,7 +400,7 @@ The following shows an unsuccessful sign-in event for a root user not using MFA.
 
 The following shows an example event for a root user changing multi-factor authentication (MFA) settings.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -447,7 +446,7 @@ The following shows an example event for a root user changing multi-factor authe
 
 The following shows an example event for a root user changing their password.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -493,7 +492,7 @@ The following shows an example event for a federation encryption request. The or
 **Note**  
 In this example, the `mfaAuthenticated` value is `false` and the `MFAUsed` value is `No` because the request was made by a federated user. These fields will only be set to true if the request was made by an IAM user or root user using MFA.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -550,7 +549,7 @@ In this example, the `mfaAuthenticated` value is `false` and the `MFAUsed` value
 
 The following shows a successful sign-in event for a federated user; not using multi-factor authentication (MFA).
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {

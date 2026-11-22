@@ -1,7 +1,6 @@
 
 
 # Custom implementations of CloudTrail log file integrity validation
-<a name="cloudtrail-log-file-custom-validation"></a>
 
 Because CloudTrail uses industry standard, openly available cryptographic algorithms and hash functions, you can create your own tools to validate the integrity of CloudTrail log files. When log file integrity validation is enabled, CloudTrail delivers digest files to your Amazon S3 bucket. You can use these files to implement your own validation solution. For more information about digest files, see [CloudTrail digest file structure](cloudtrail-log-file-validation-digest-file-structure.md). 
 
@@ -267,7 +266,7 @@ The sample snippet shows:
 + How to verify the log file hashes.
 + A code structure for validating a chain of digest files.
 
-```
+```java
 import java.util.Arrays;
 import java.security.MessageDigest;
 import java.security.KeyFactory;

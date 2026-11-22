@@ -1,7 +1,6 @@
 
 
 # Using the `create-trail` command to create a trail
-<a name="cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-create-trail"></a>
 
 You can run the `create-trail` command to create trails that are specifically configured to meet your business needs. When using the AWS CLI, remember that your commands run in the AWS Region configured for your profile. If you want to run the commands in a different Region, either change the default Region for your profile, or use the **--region** parameter with the command.
 
@@ -23,7 +22,7 @@ aws cloudtrail create-trail --name {{my-trail}} --s3-bucket-name {{amzn-s3-demo-
 
 To confirm that your trail is a multi-Region trail, verify that the `IsMultiRegionTrail` element in the output shows `true`.
 
-```
+```JSON
 {
     "IncludeGlobalServiceEvents": true,
     "Name": "{{my-trail}}",
@@ -60,7 +59,7 @@ aws cloudtrail get-trail-status --name {{my-trail}}
 
 To confirm that the trail is logging, the `IsLogging` element in the output shows `true`.
 
-```
+```JSON
 {
     "LatestDeliveryTime": 1441139757.497,
     "LatestDeliveryAttemptTime": "2015-09-01T20:35:57Z",
@@ -86,7 +85,7 @@ aws cloudtrail create-trail --name {{my-trail}} --s3-bucket-name {{amzn-s3-demo-
 
 The following is example output.
 
-```
+```JSON
 {
     "IncludeGlobalServiceEvents": true,
     "Name": "{{my-trail}}",
@@ -113,7 +112,7 @@ aws cloudtrail create-trail --name {{my-trail}} --s3-bucket-name {{amzn-s3-demo-
 
 To confirm that log file validation is enabled, the `LogFileValidationEnabled` element in the output shows `true`.
 
-```
+```JSON
 {
     "IncludeGlobalServiceEvents": true,
     "Name": "{{my-trail}}",

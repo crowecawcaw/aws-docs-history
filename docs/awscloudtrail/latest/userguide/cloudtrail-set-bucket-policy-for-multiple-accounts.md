@@ -1,7 +1,6 @@
 
 
 # Setting bucket policy for multiple accounts
-<a name="cloudtrail-set-bucket-policy-for-multiple-accounts"></a>
 
 For a bucket to receive log files from multiple accounts, its bucket policy must grant CloudTrail permission to write log files from all the accounts you specify. This means that you must modify the bucket policy on your destination bucket to grant CloudTrail permission to write log files from each specified account.
 
@@ -25,7 +24,7 @@ An AWS account ID is a twelve-digit number, including leading zeros.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

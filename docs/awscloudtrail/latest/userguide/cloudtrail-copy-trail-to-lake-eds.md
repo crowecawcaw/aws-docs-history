@@ -1,7 +1,6 @@
 
 
 # Copy trail events to an event data store
-<a name="cloudtrail-copy-trail-to-lake-eds"></a>
 
 **Note**  
 AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md).
@@ -76,7 +75,7 @@ The following example provides the permissions policy, which allows CloudTrail t
 
 Replace {{key-region}}, {{keyAccountID}}, and {{keyID}} with the values for the KMS key used to encrypt the source S3 bucket. You can omit the `AWSCloudTrailImportKeyAccess` statement if the source S3 bucket does not use a KMS key for encryption.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -123,7 +122,7 @@ Replace {{key-region}}, {{keyAccountID}}, and {{keyID}} with the values for the 
 
 The following example provides the IAM trust policy, which allows CloudTrail to assume an IAM role to copy trail events from the source S3 bucket. Replace {{myAccountID}}, {{region}}, and {{eventDataStoreArn}} with the appropriate values for your configuration. The {{myAccountID}} is the AWS account ID used for CloudTrail Lake, which may not be the same as the AWS account ID for the S3 bucket.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -155,7 +154,7 @@ You can add the following statement to the S3 bucket policy to grant these permi
 
 ****
 
-```
+```JSON
 {
   "Sid": "AWSCloudTrailImportBucketAccess",
   "Effect": "Allow",
@@ -181,7 +180,7 @@ If the source S3 bucket uses a KMS key for data encryption, ensure the KMS key p
 
 The following example provides the KMS key policy, which allows CloudTrail to decrypt the data in the source S3 bucket. Replace {{roleArn}}, {{amzn-s3-demo-bucket}}, {{myAccountID}}, {{region}}, and {{eventDataStoreId}} with the appropriate values for your configuration. The {{myAccountID}} is the AWS account ID used for CloudTrail Lake, which may not be the same as the AWS account ID for the S3 bucket.
 
-```
+```JSON
 {
   "Sid": "AWSCloudTrailImportDecrypt",
   "Effect": "Allow",

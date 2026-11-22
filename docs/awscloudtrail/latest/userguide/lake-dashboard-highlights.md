@@ -1,7 +1,6 @@
 
 
 # Enable the Highlights dashboard with the CloudTrail console
-<a name="lake-dashboard-highlights"></a>
 
 Enable the Highlights dashboard to view an at-a-glance overview of the AWS activity collected by the event data stores in your account. The Highlights dashboard is managed by CloudTrail and includes widgets that are relevant to your account. The widgets shown on the Highlights dashboard are unique to each account. These widgets could surface detected abnormal activity or anomalies. For example, your Highlights dashboard could include the **Total cross-account access widget**, which shows if there is an increase in abnormal cross-account activity.
 

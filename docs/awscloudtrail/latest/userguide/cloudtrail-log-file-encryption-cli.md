@@ -1,7 +1,6 @@
 
 
 # Enabling and disabling encryption for CloudTrail log files, digest files and event data stores with the AWS CLI
-<a name="cloudtrail-log-file-encryption-cli"></a>
 
 This topic describes how to enable and disable SSE-KMS encryption for CloudTrail log files, digest files, and event data stores by using the AWS CLI. For background information, see [Encrypting CloudTrail log files, digest files, and event data stores with AWS KMS keys (SSE-KMS)](encrypting-cloudtrail-log-files-with-aws-kms.md).
 

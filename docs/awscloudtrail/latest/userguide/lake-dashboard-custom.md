@@ -1,7 +1,6 @@
 
 
 # Create a custom dashboard with the CloudTrail console
-<a name="lake-dashboard-custom"></a>
 
 You can create custom dashboards and add up to 10 widgets to each custom dashboard. You can choose to add sample widgets or create new widgets from SQL queries.
 

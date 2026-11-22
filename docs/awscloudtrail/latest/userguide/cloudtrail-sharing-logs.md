@@ -1,7 +1,6 @@
 
 
 # Sharing CloudTrail log files between AWS accounts
-<a name="cloudtrail-sharing-logs"></a>
 
 This section explains how to share CloudTrail log files between multiple AWS accounts. The approach you use to share logs between AWS accounts depends on the configuration of your S3 bucket. These are the options for sharing log files:
 + **[Bucket owner enforced](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-ownership-existing-bucket.html)** – [S3 Object Ownership](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) is an Amazon S3 bucket-level setting that you can use to control ownership of objects uploaded to your bucket and to disable or enable access control lists (ACLs). By default, Object Ownership is set to the **Bucket owner enforced** setting and all ACLs are disabled. When ACLs are disabled, the bucket owner owns all the objects in the bucket and manages access to data exclusively using access management policies. When the **Bucket owner enforced** option is set, access is managed through the bucket policy, eliminating the need for users to assume a role.
@@ -71,7 +70,7 @@ For example, to share account B's log files with account B but not with account 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -99,7 +98,7 @@ You must ensure that the prefix in the access policy is exactly the same as the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -143,7 +142,7 @@ For example, the trust relationship created by AWS specifies that the third-part
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -170,7 +169,7 @@ For more information, see [How to use an external ID when granting access to you
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -192,7 +191,7 @@ You must also create an access policy for your account to specify that the third
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -246,7 +245,7 @@ To perform the actions permitted by a role, the IAM user must have permission to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -302,7 +301,7 @@ The AssumeRole API returns temporary credentials to use to access resources in o
 
 The following Python example (using the [AWS SDK for Python (Boto)](https://aws.amazon.com/developer/tools/)) shows how to call `AssumeRole` and how to use the temporary security credentials returned to list all Amazon S3 buckets controlled by Account A.
 
-```
+```python
 def list_buckets_from_assumed_role(user_key, assume_role_arn, session_name):
     """
     Assumes a role that grants permission to list the Amazon S3 buckets in the account.

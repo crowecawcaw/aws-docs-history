@@ -1,7 +1,6 @@
 
 
 # Disable Lake query federation
-<a name="query-disable-federation"></a>
 
 **Note**  
 AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md).
@@ -30,7 +29,7 @@ The following procedure shows you how to disable Lake query federation on an exi
 
 To disable federation on the event data store, run the **aws cloudtrail disable-federation** command. The event data store is specified by `--event-data-store`, which accepts an event data store ARN or the ID suffix of the ARN.
 
-```
+```JSON
 aws cloudtrail disable-federation
 --event-data-store arn:aws:cloudtrail:{{region}}:{{account-id}}:eventdatastore/{{eds-id}}
 ```

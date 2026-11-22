@@ -1,7 +1,6 @@
 
 
 # View sample queries with the CloudTrail console
-<a name="lake-console-queries"></a>
 
 The CloudTrail console provides a number of sample queries that can help you get started writing your own queries.
 

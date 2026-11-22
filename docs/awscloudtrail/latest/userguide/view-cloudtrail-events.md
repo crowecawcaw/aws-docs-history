@@ -1,7 +1,6 @@
 
 
 # Working with CloudTrail event history
-<a name="view-cloudtrail-events"></a>
 
 CloudTrail is enabled by default for your AWS account and you automatically have access to the CloudTrail event history. The event history provides a viewable, searchable, downloadable, and immutable record of the past 90 days of management events in an AWS Region. These events capture activity made through the AWS Management Console, AWS Command Line Interface, and AWS SDKs and APIs. The event history records events in the AWS Region where the event happened. There are no CloudTrail charges for viewing the event history.
 

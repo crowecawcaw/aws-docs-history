@@ -1,7 +1,6 @@
 
 
 # CloudTrail record contents for Insights events for event data stores
-<a name="cloudtrail-insights-fields-lake"></a>
 
 AWS CloudTrail Insights event records for event data stores include fields that are different from other CloudTrail events in their JSON structure, sometimes called *payload*. A CloudTrail Insights event record for an event data store includes the following fields:
 

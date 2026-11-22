@@ -1,7 +1,6 @@
 
 
 # CloudTrail record contents for Insights events for trails
-<a name="cloudtrail-insights-fields-trails"></a>
 
 AWS CloudTrail Insights event records for trails include fields that are different from other CloudTrail events in their JSON structure, sometimes called *payload*. CloudTrail Insights events for trails contain the following fields:
 + **`eventVersion`** – The version of the event.

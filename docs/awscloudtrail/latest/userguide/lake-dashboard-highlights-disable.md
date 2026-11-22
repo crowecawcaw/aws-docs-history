@@ -1,7 +1,6 @@
 
 
 # Disable the Highlights dashboard with the CloudTrail console
-<a name="lake-dashboard-highlights-disable"></a>
 
 This section describes how to disable the Highlights dashboard. Because termination protection is automatically enabled for the Highlights dashboard, you'll need to first disable termination protection and then disable the Highlights dashboard.
 

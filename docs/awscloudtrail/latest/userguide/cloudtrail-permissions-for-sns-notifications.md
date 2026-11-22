@@ -1,7 +1,6 @@
 
 
 # Amazon SNS topic policy for CloudTrail
-<a name="cloudtrail-permissions-for-sns-notifications"></a>
 
 To send notifications to an SNS topic, CloudTrail must have the required permissions. CloudTrail automatically attaches the required permissions to the topic when you create an Amazon SNS topic as part of creating or updating a trail in the CloudTrail console.
 
@@ -22,7 +21,7 @@ The following policy allows CloudTrail to send notifications about log file deli
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -50,7 +49,7 @@ To use an AWS KMS-encrypted Amazon SNS topic to send notifications, you must als
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -100,7 +99,7 @@ The `aws:SourceAccount` condition key is also supported, but is not recommended.
 
 1. In the **Access policy** JSON editor, look for a block that resembles the following example.
 
-   ```
+   ```JSON
        {
          "Sid": "AWSCloudTrailSNSPolicy20150319",
          "Effect": "Allow",
@@ -114,7 +113,7 @@ The `aws:SourceAccount` condition key is also supported, but is not recommended.
 
 1. Add a new block for a condition, `aws:SourceArn`, as shown in the following example. The value of `aws:SourceArn` is the ARN of the trail about which you are sending notifications to SNS.
 
-   ```
+   ```JSON
        {
          "Sid": "AWSCloudTrailSNSPolicy20150319",
          "Effect": "Allow",
@@ -145,7 +144,7 @@ The `aws:SourceAccount` condition key is also supported, but is not recommended.
 
 1. In the **Access policy** JSON editor, look for a block that resembles the following example.
 
-   ```
+   ```JSON
        {
          "Sid": "AWSCloudTrailSNSPolicy20150319",
          "Effect": "Allow",
@@ -159,7 +158,7 @@ The `aws:SourceAccount` condition key is also supported, but is not recommended.
 
 1. Add a new block for a condition, `aws:SourceAccount`, as shown in the following example. The value of `aws:SourceAccount` is the ID of the account that owns the CloudTrail trail. This example restricts access to the SNS topic to only those users who can sign in to the AWS account 123456789012.
 
-   ```
+   ```JSON
        {
          "Sid": "AWSCloudTrailSNSPolicy20150319",
          "Effect": "Allow",
@@ -222,7 +221,7 @@ The following example policy gives CloudTrail permission to send notifications f
 **Example topic policy with service principal name**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

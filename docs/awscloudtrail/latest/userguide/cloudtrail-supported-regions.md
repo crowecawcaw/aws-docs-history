@@ -1,7 +1,6 @@
 
 
 # CloudTrail supported Regions
-<a name="cloudtrail-supported-regions"></a>
 
 **Note**  
 For information about Regions supported by CloudTrail Lake, see [CloudTrail Lake supported Regions](cloudtrail-lake-supported-regions.md).  

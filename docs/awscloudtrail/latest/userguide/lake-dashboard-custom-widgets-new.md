@@ -1,7 +1,6 @@
 
 
 # Create a new widget from a SQL query with the CloudTrail console
-<a name="lake-dashboard-custom-widgets-new"></a>
 
 This section describes how to create a new widget by writing or pasting a SQL query and choosing a chart type. You can add a maximum of 10 widgets to a custom dashboard.
 

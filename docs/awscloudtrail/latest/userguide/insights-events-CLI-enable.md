@@ -1,7 +1,6 @@
 
 
 # Logging Insights events with the AWS CLI
-<a name="insights-events-CLI-enable"></a>
 
 You can configure your trails and event data stores to log Insights events using the AWS CLI.
 
@@ -24,7 +23,7 @@ aws cloudtrail get-insight-selectors --trail-name {{TrailName}}
 
 The following example response shows the Insights selectors for a trail named `insights-trail`.
 
-```
+```JSON
 {
     "TrailARN": "arn:aws:cloudtrail:us-east-1:123456789012:trail/insights-trail",
     "InsightSelectors": [
@@ -56,7 +55,7 @@ aws cloudtrail put-insight-selectors --trail-name {{TrailName}} --insight-select
 
 The following result shows the Insights event selector that is configured for the trail.
 
-```
+```JSON
 {
   "TrailARN": "arn:aws:cloudtrail:us-east-1:123456789012:trail/{{TrailName}}",
   "InsightSelectors":
@@ -120,7 +119,7 @@ The following procedure shows you how to create the destination and source event
 
    The following is an example response.
 
-   ```
+   ```JSON
    {
        "Name": "insights-event-data-store",
        "ARN": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEf852-4e8f-8bd1-bcf6cEXAMPLE",
@@ -157,7 +156,7 @@ The following procedure shows you how to create the destination and source event
 
    The following is an example response.
 
-   ```
+   ```JSON
    {
        "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLE9952-4ab9-49c0-b788-f4f3EXAMPLE",
        "Name": "source-event-data-store",
@@ -195,7 +194,7 @@ The following procedure shows you how to create the destination and source event
 
    The following result shows the Insights event selector that is configured for the event data store.
 
-   ```
+   ```JSON
    {
      "EventDataStoreARN": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLE9952-4ab9-49c0-b788-f4f3EXAMPLE",
      "InsightsDestination": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEf852-4e8f-8bd1-bcf6cEXAMPLE",

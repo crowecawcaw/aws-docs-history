@@ -1,7 +1,6 @@
 
 
 # Create an event data store with the AWS CLI
-<a name="lake-cli-create-eds"></a>
 
 This section describes how to use the [`create-event-data-store`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/create-event-data-store.html) command to create an event data store and provides examples of different types of event data stores that you can create.
 
@@ -36,7 +35,7 @@ The following examples show how to create different types of event data stores.
 
 The following example AWS Command Line Interface (AWS CLI) **create-event-data-store** command creates an event data store named `my-event-data-store` that selects all Amazon S3 data events and is encrypted using a KMS key.
 
-```
+```JSON
 aws cloudtrail create-event-data-store \
 --name my-event-data-store \
 --kms-key-id "arn:aws:kms:us-east-1:123456789012:alias/{{KMS_key_alias}}" \
@@ -54,7 +53,7 @@ aws cloudtrail create-event-data-store \
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-ee54-4813-92d5-999aeEXAMPLE",
     "Name": "my-event-data-store",
@@ -100,7 +99,7 @@ The following is an example response.
 
 The following example shows how to create an event data store to include `VpceAccessDenied` network activity events for AWS KMS. This example sets the `errorCode` field equal to `VpceAccessDenied` events and the `eventSource` field equal to `kms.amazonaws.com`.
 
-```
+```JSON
 aws cloudtrail create-event-data-store \
 --name {{EventDataStoreName}} \
 --advanced-event-selectors '[
@@ -126,7 +125,7 @@ aws cloudtrail create-event-data-store \
 
 The command returns the following example output.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEb4a8-99b1-4ec2-9258-EXAMPLEc890",
     "Name": "EventDataStoreName",
@@ -172,7 +171,7 @@ For more information about network activity events, see [Logging network activit
 
 The following example AWS CLI **create-event-data-store** command creates an event data store named `config-items-eds` that selects AWS Config configuration items. To collect configuration items, specify that the `eventCategory` field Equals `ConfigurationItem` in the advanced event selectors.
 
-```
+```JSON
 aws cloudtrail create-event-data-store \
 --name config-items-eds \
 --advanced-event-selectors '[
@@ -187,7 +186,7 @@ aws cloudtrail create-event-data-store \
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-ee54-4813-92d5-999aeEXAMPLE",
     "Name": "config-items-eds",
@@ -220,13 +219,13 @@ The following is an example response.
 
 The following example AWS CLI **create-event-data-store** command creates an organization event data store that collects all management events and sets the `--billing-mode` parameter to `FIXED_RETENTION_PRICING`.
 
-```
+```JSON
 aws cloudtrail create-event-data-store --name org-management-eds --organization-enabled --billing-mode FIXED_RETENTION_PRICING
 ```
 
 The following is an example response.
 
-```
+```JSON
 {
     "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE6-d493-4914-9182-e52a7934b207",
     "Name": "org-management-eds",
@@ -282,7 +281,7 @@ This procedure shows you how to create the destination and source event data sto
 
    The following is an example response.
 
-   ```
+   ```JSON
    {
        "Name": "insights-event-data-store",
        "ARN": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEf852-4e8f-8bd1-bcf6cEXAMPLE",
@@ -319,7 +318,7 @@ This procedure shows you how to create the destination and source event data sto
 
    The following is an example response.
 
-   ```
+   ```JSON
    {
        "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLE9952-4ab9-49c0-b788-f4f3EXAMPLE",
        "Name": "source-event-data-store",
@@ -357,7 +356,7 @@ This procedure shows you how to create the destination and source event data sto
 
    The following result shows the Insights event selector that is configured for the event data store.
 
-   ```
+   ```JSON
    {
      "EventDataStoreARN": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLE9952-4ab9-49c0-b788-f4f3EXAMPLE",
      "InsightsDestination": "arn:aws:cloudtrail:us-east-1:111122223333:eventdatastore/EXAMPLEf852-4e8f-8bd1-bcf6cEXAMPLE",

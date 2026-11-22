@@ -1,7 +1,6 @@
 
 
 # Create a trail to log management events
-<a name="tutorial-trail"></a>
 
 For your first trail, we recommend creating a trail that logs all [management events](cloudtrail-concepts.md#cloudtrail-concepts-management-events) and does not log any [data events](cloudtrail-concepts.md#cloudtrail-concepts-data-events) or Insights events. Examples of management events include security events such as IAM `CreateUser` and `AttachRolePolicy` events, resource events such as `RunInstances` and `CreateBucket`, and many more. You will create an Amazon S3 bucket where you will store the log files for the trail as part of creating the trail in the CloudTrail console.
 

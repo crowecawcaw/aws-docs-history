@@ -1,7 +1,6 @@
 
 
 # Create a dashboard with the AWS CLI
-<a name="lake-dashboard-cli-create"></a>
 
 This section describes how to use the `create-dashboard` command to create a create a custom dashboard or the Highlights dashboard.
 

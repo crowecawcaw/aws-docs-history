@@ -1,7 +1,6 @@
 
 
 # Creating a trail for your AWS account
-<a name="cloudtrail-create-and-update-a-trail"></a>
 
 When you create a trail, you enable ongoing delivery of events as log files to an Amazon S3 bucket that you specify. Creating a trail has many benefits, including:
 + A record of events that extends past 90 days.

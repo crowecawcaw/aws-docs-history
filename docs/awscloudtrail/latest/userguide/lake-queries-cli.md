@@ -1,7 +1,6 @@
 
 
 # Run and manage CloudTrail Lake queries with the AWS CLI
-<a name="lake-queries-cli"></a>
 
 You can use the AWS CLI to run and manage your CloudTrail Lake queries. When using the AWS CLI, remember that your commands run in the AWS Region configured for your profile. If you want to run the commands in a different Region, either change the default Region for your profile, or use the **--region** parameter with the command.
 
@@ -35,7 +34,7 @@ aws cloudtrail generate-query
 
 If successful, the command outputs a SQL statement and provides a `QueryAlias` that you will use with the `start-query` command to run the query against your event data store.
 
-```
+```JSON
 {
   "QueryStatement": "SELECT * FROM $EDS_ID WHERE eventname = 'ConsoleLogin' AND eventtime >= timestamp '2024-09-16 00:00:00' AND eventtime <= timestamp '2024-09-23 00:00:00' AND eventSource = 'signin.amazonaws.com'",
   "QueryAlias": "AWSCloudTrail-UUID"
@@ -47,7 +46,7 @@ If successful, the command outputs a SQL statement and provides a `QueryAlias` t
 
 The following example AWS CLI **start-query** command runs a query on the event data store specified as an ID in the query statement and delivers the query results to a specified S3 bucket. The `--query-statement` parameter provides a SQL query, enclosed in single quotation marks. Optional parameters include `--delivery-s3-uri`, to deliver the query results to a specified S3 bucket. For more information about the query language you can use in CloudTrail Lake, see [CloudTrail Lake SQL constraints](query-limitations.md).
 
-```
+```JSON
 aws cloudtrail start-query
 --query-statement 'SELECT eventID, eventTime FROM EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE LIMIT 10'
 --delivery-s3-uri "s3://aws-cloudtrail-lake-query-results-123456789012-us-east-1"
@@ -57,7 +56,7 @@ The response is a `QueryId` string. To get the status of a query, run **describe
 
 **Output**
 
-```
+```JSON
 {
     "QueryId": "EXAMPLE2-0add-4207-8135-2d8a4EXAMPLE"
 }
@@ -74,13 +73,13 @@ The following example AWS CLI **describe-query** command gets metadata about a q
 
 You must specify a value for either the `--query-id` or the `--query-alias` parameter. Specifying the `--query-alias` parameter returns information about the last query run for the alias. 
 
-```
+```JSON
 aws cloudtrail describe-query --query-id EXAMPLEd-17a7-47c3-a9a1-eccf7EXAMPLE
 ```
 
 The following is an example response.
 
-```
+```JSON
 {
     "QueryId": "EXAMPLE2-0add-4207-8135-2d8a4EXAMPLE", 
     "QueryString": "SELECT eventID, eventTime FROM EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE LIMIT 10", 
@@ -100,14 +99,14 @@ The following is an example response.
 
 The following example AWS CLI **get-query-results** command gets event data results of a query. You must specify the `--query-id` returned by the **start-query** command. The `BytesScanned` value matches the number of bytes for which your account is billed for the query, unless the query is still running. Optional parameters include `--max-query-results`, to specify a maximum number of results that you want the command to return on a single page. If there are more results than your specified `--max-query-results` value, run the command again adding the returned `NextToken` value to get the next page of results.
 
-```
+```JSON
 aws cloudtrail get-query-results
 --query-id EXAMPLEd-17a7-47c3-a9a1-eccf7EXAMPLE
 ```
 
 **Output**
 
-```
+```JSON
 {
     "QueryStatus": "RUNNING",
     "QueryStatistics": {
@@ -134,7 +133,7 @@ The following example AWS CLI **list-queries** command returns a list of queries
 
 **list-queries** also has optional pagination parameters. Use `--max-results` to specify a maximum number of results that you want the command to return on a single page. If there are more results than your specified `--max-results` value, run the command again adding the returned `NextToken` value to get the next page of results.
 
-```
+```JSON
 aws cloudtrail list-queries
 --event-data-store EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE
 --query-status CANCELLED
@@ -145,7 +144,7 @@ aws cloudtrail list-queries
 
 **Output**
 
-```
+```JSON
 {
     "Queries": [
         {
@@ -173,14 +172,14 @@ A canceled query can incur charges. Your account is still charged for the amount
 
 The following is a CLI example.
 
-```
+```JSON
 aws cloudtrail cancel-query
 --query-id EXAMPLEd-17a7-47c3-a9a1-eccf7EXAMPLE
 ```
 
 **Output**
 
-```
+```JSON
 QueryId -> (string)
 QueryStatus -> (string)
 ```

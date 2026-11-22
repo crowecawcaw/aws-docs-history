@@ -1,7 +1,6 @@
 
 
 # CloudTrail Lake integrations event schema
-<a name="query-integration-event-schema"></a>
 
 The following table describes the required and optional schema elements that match those in CloudTrail event records. The contents of `eventData` are provided by your events; other fields are provided by CloudTrail after ingestion.
 
@@ -56,7 +55,7 @@ The following fields are provided by customer events:
 
 The following example shows the hierarchy of schema elements that match those in CloudTrail event records.
 
-```
+```JSON
 {
     "eventVersion": String,
     "eventCategory": String,

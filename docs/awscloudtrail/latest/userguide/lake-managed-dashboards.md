@@ -1,7 +1,6 @@
 
 
 # Available managed dashboards
-<a name="lake-managed-dashboards"></a>
 
 The section provides information about the available managed dashboards and provides information about the widgets featured on each dashboard.
 

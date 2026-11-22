@@ -1,7 +1,6 @@
 
 
 # Create an integration with a CloudTrail partner with the console
-<a name="query-event-data-store-integration-partner"></a>
 
 When you create an integration with an event source outside AWS, you can choose one of these partners as your event source. When you create an integration in CloudTrail with a partner application, the partner needs the Amazon Resource Name (ARN) of the channel that you create in this workflow to send events to CloudTrail. After you create the integration, you finish configuring the integration by following the partner's instructions to provide the required channel ARN to the partner. The integration starts ingesting partner events into CloudTrail after the partner calls `PutAuditEvents` on the integration's channel.
 

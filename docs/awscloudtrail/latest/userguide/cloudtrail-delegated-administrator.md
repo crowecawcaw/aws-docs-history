@@ -1,7 +1,6 @@
 
 
 # Organization delegated administrator
-<a name="cloudtrail-delegated-administrator"></a>
 
 When you use CloudTrail with an AWS Organizations organization, you can assign any account within the organization to act as a CloudTrail delegated administrator to manage the organization's trails and event data stores on behalf of the organization. A delegated administrator is a member account in an organization that can perform the same administrative tasks (except as [noted](#cloudtrail-org-tasks)) in CloudTrail as the management account.
 

@@ -1,7 +1,6 @@
 
 
 # Create an event data store for S3 data events
-<a name="tutorial-lake-S3"></a>
 
 You can create an event data store to log CloudTrail events (management events, data events), [CloudTrail Insights events](query-event-data-store-insights.md), [AWS Audit Manager evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder.html#understanding-evidence-finder), [AWS Config configuration items](query-event-data-store-config.md), or [non-AWS events](event-data-store-integration-events.md). 
 

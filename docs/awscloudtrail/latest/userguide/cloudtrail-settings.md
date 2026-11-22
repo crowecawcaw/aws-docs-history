@@ -1,7 +1,6 @@
 
 
 # Configure CloudTrail settings
-<a name="cloudtrail-settings"></a>
 
 You can use the **Settings** page on the CloudTrail console to configure and review CloudTrail settings, such as managing delegated administrators for an AWS Organizations organization and viewing any service-linked channels created for your account.
 

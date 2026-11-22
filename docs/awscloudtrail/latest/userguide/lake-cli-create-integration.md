@@ -1,7 +1,6 @@
 
 
 # Create an integration to log events from outside AWS with the AWS CLI
-<a name="lake-cli-create-integration"></a>
 
 This section describes how you can use the AWS CLI to create a CloudTrail Lake integration to log events from outside of AWS.
 
@@ -11,7 +10,7 @@ In the AWS CLI, you create an integration in four commands (three if you already
 
    The following example AWS CLI command creates an event data store that logs events from outside AWS. For activity events, the `eventCategory` field selector value is `ActivityAuditLog`. The event data store has a retention period of 90 days set. By default, the event data store collects events from all Regions, but because this is collecting non-AWS events, set it to a single Region by adding the `--no-multi-region-enabled` option. Termination protection is enabled by default, and the event data store does not collect events for accounts in an organization.
 
-   ```
+   ```JSON
    aws cloudtrail create-event-data-store \
    --name my-event-data-store \
    --no-multi-region-enabled \
@@ -28,7 +27,7 @@ In the AWS CLI, you create an integration in four commands (three if you already
 
    The following is an example response.
 
-   ```
+   ```JSON
    {
        "EventDataStoreArn": "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLEf852-4e8f-8bd1-bcf6cEXAMPLE",
        "Name": "my-event-data-store",
@@ -72,7 +71,7 @@ The destinations are the CloudTrail Lake event data stores that are receiving ev
 
    You need the ID of at least one destination event data store to run this command. The valid type of destination is `EVENT_DATA_STORE`. You can send ingested events to more than one event data store. The following example command creates a channel that sends events to two event data stores, represented by their IDs in the `Location` attribute of the `--destinations` parameter. The `--destinations`, `--name`, and `--source` parameters are required. To ingest events from a CloudTrail partner, specify the name of the partner as the value of `--source`. To ingest events from your own applications outside AWS, specify `Custom` as the value of `--source`.
 
-   ```
+   ```JSON
    aws cloudtrail create-channel \
        --region us-east-1 \
        --destinations '[{"Type": "EVENT_DATA_STORE", "Location": "EXAMPLEf852-4e8f-8bd1-bcf6cEXAMPLE"}, {"Type": "EVENT_DATA_STORE", "Location": "EXAMPLEg922-5n2l-3vz1- apqw8EXAMPLE"}]'
@@ -96,7 +95,7 @@ If you do not create a resource policy for the channel, only the channel owner c
    +  The policy contains at least one statement. The policy can have a maximum of 20 statements. 
    +  Each statement contains at least one principal. A statement can have a maximum of 50 principals. 
 
-   ```
+   ```JSON
    aws cloudtrail put-resource-policy \
        --resource-arn "channelARN" \
        --policy "{
@@ -135,7 +134,7 @@ If you do not create a resource policy for the channel, only the channel owner c
 
    The following examples show how to use the **put-audit-events** CLI command. The **--audit-events** and **--channel-arn** parameters are required. The **--external-id** parameter is required if an external ID is defined in the resource policy. You need the ARN of the channel that you created in the preceding step. The value of **--audit-events** is a JSON array of event objects. `--audit-events` includes a required ID from the event, the required payload of the event as the value of `EventData`, and an [optional checksum](#lake-cli-integration-checksum.title) to help validate the integrity of the event after ingestion into CloudTrail.
 
-   ```
+   ```JSON
    aws cloudtrail-data put-audit-events \
    --channel-arn $ChannelArn \
    --external-id $UniqueExternalIDFromPartner \
@@ -165,7 +164,7 @@ If you do not create a resource policy for the channel, only the channel owner c
 
    The following are the sample contents of the example JSON file, `custom-events.json`.
 
-   ```
+   ```JSON
    {
        "auditEvents": [
          {
@@ -193,7 +192,7 @@ aws cloudtrail get-channel --channel arn:aws:cloudtrail:us-east-1:01234567890:ch
 
 The checksum that you specify as the value of `EventDataChecksum` in a `PutAuditEvents` request helps you verify that CloudTrail receives the event that matches with the checksum; it helps verify the integrity of events. The checksum value is a base64-SHA256 algorithm that you calculate by running the following command.
 
-```
+```JSON
 printf %s "{"eventData": "{\"version\":\"eventData.version\",\"UID\":\"UID\",
         \"userIdentity\":{\"type\":\"CustomUserIdentity\",\"principalId\":\"principalId\",
         \"details\":{\"key\":\"value\"}},\"eventTime\":\"2021-10-27T12:13:14Z\",\"eventName\":\"eventName\",

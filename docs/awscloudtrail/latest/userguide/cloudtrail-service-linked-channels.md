@@ -1,7 +1,6 @@
 
 
 # Viewing service-linked channels
-<a name="cloudtrail-service-linked-channels"></a>
 
 AWS services can create a service-linked channel to receive CloudTrail events on your behalf. The AWS service creating the service-linked channel configures advanced event selectors for the channel and specifies whether the channel applies to all AWS Regions, or a single AWS Region.
 
@@ -53,7 +52,7 @@ aws cloudtrail get-channel --channel EXAMPLE-ee54-4813-92d5-999aeEXAMPLE
 
 The following is an example response. In this example, `AWS_service_name` represents the name of the AWS service that created the channel.
 
-```
+```JSON
 {
     "ChannelArn": "arn:aws:cloudtrail:us-east-1:111122223333:channel/EXAMPLE-ee54-4813-92d5-999aeEXAMPLE",
     "Name": "aws-service-channel/AWS_service_name/slc",
@@ -94,7 +93,7 @@ aws cloudtrail list-channels
 
 The following is an example response. In this example, `AWS_service_name` represents the name of the AWS service that created the channel.
 
-```
+```JSON
 {
     "Channels": [
         {
@@ -112,7 +111,7 @@ The AWS service managing the service-linked channel can initiate actions on the 
 
 The following is an example log file entry of an AWS service event for creation of a service-linked channel. 
 
-```
+```JSON
 {
    "eventVersion":"1.08",
    "userIdentity":{

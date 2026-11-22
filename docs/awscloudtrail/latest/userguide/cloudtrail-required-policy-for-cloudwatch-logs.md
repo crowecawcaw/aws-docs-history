@@ -1,7 +1,6 @@
 
 
 # Role policy document for CloudTrail to use CloudWatch Logs for monitoring
-<a name="cloudtrail-required-policy-for-cloudwatch-logs"></a>
 
 This section describes the permissions policy required for the CloudTrail role to send log events to CloudWatch Logs. You can attach a policy document to a role when you configure CloudTrail to send events, as described in [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md). You can also create a role using IAM. For more information, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) or [Creating an IAM role (AWS CLI)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-cli).
 
@@ -12,7 +11,7 @@ The following example policy document contains the permissions required to creat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -49,7 +48,7 @@ If you're creating a policy that might be used for organization trails as well, 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

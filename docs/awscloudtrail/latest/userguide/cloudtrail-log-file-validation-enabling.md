@@ -1,7 +1,6 @@
 
 
 # Enabling log file integrity validation for CloudTrail
-<a name="cloudtrail-log-file-validation-enabling"></a>
 
 You can enable log file integrity validation by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or CloudTrail API. CloudTrail starts delivering digest files in about an hour.
 

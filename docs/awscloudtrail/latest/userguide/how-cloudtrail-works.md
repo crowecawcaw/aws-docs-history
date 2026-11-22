@@ -1,7 +1,6 @@
 
 
 # How CloudTrail works
-<a name="how-cloudtrail-works"></a>
 
 You automatically have access to the CloudTrail **Event history** when you create your AWS account. The **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region.
 
