@@ -1,7 +1,6 @@
 
 
 # Example IAM policies for AWS RAM
-<a name="security-iam-policies-examples"></a>
 
 This topic includes examples of IAM policies for AWS RAM that demonstrate sharing specific resources and resource types, restricting sharing, and controlling the use of managed permissions.
 
@@ -28,7 +27,7 @@ For the list of condition keys, see [Condition](security-iam-policies.md#iam-pol
 
 In the following policy, principals can create resource shares and add to them, but AWS RAM denies the request if it adds any resource other than the specified Amazon Route 53 resolver rule. A request that adds only principals has no resources, so the `Deny` statement doesn't apply to it.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -62,7 +61,7 @@ In the following policy, principals can create resource shares and add to them, 
 
 The following policy denies a request that adds any resource that isn't a Amazon Route 53 resolver rule. Requests that add only principals are still allowed.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -100,7 +99,7 @@ The following policy keeps resource shares inside your organization in AWS Organ
 + It denies `CreateResourceShare` unless the request sets `allowExternalPrincipals` to `false`. If the request omits the parameter, it defaults to `true`, so the policy uses `BoolIfExists`.
 + It denies `UpdateResourceShare` requests that set `allowExternalPrincipals` to `true`.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -141,7 +140,7 @@ The following policy keeps resource shares inside your organization in AWS Organ
 
 The following policy denies a request that adds any principal other than the two specified AWS accounts. `ram:RequestedPrincipals` contains the principals exactly as the request specifies them, so list each principal in the form that your users pass it, such as an account ID or an organizational unit ARN.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -178,7 +177,7 @@ The following policy denies a request that adds any principal other than the two
 
 You can use the multivalued `ram:RequestedPermissionArns` condition key to control which managed permissions principals can associate with resource shares. For example, a central team in account `444455556666` shares approved customer managed permissions with the accounts in your organization. The following policy denies associating any managed permission other than those customer managed permissions and AWS managed permissions. The `ForAnyValue` operator makes the statement apply if any managed permission in the request doesn't match one of the ARN patterns. Use it together with the policies that grant these actions.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -221,7 +220,7 @@ When you add a customer managed permission to a resource share or remove it, AWS
 
 The following policy lets principals share the customer managed permissions in account `123456789012`. The first statement grants the actions that create and update resource shares. The second statement grants the two actions on the account's customer managed permissions.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

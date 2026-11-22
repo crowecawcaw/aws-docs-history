@@ -1,7 +1,6 @@
 
 
 # Using shared AWS resources
-<a name="getting-started-shared"></a>
 
 To start using resources that were shared with your account using AWS Resource Access Manager, complete the following tasks.
 
@@ -38,7 +37,7 @@ A resource share is visible in only the AWS Region in which it was created. If a
 
 To start, get a list of the resource share invitations that are available to you. The following example command was run in the `us-west-2` Region, and shows one resource share is available in the `PENDING` state.
 
-```
+```bash
 $ aws ram get-resource-share-invitations
 {
     "resourceShareInvitations": [
@@ -57,7 +56,7 @@ $ aws ram get-resource-share-invitations
 
 You can use the Amazon Resource Name (ARN) of the invitation from the previous command as a parameter in the next command to accept that invitation.
 
-```
+```bash
 $ aws ram accept-resource-share-invitation \
     --resource-share-invitation-arn arn:aws:ram:us-west-2:111122223333:resource-share-invitation/1234abcd-ef12-9876-5432-aaaaaa111111
 {

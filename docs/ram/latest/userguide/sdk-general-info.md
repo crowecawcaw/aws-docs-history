@@ -1,7 +1,6 @@
 
 
 # Using AWS RAM with an AWS SDK
-<a name="sdk-general-info"></a>
 
 AWS software development kits (SDKs) are available for many popular programming languages. Each SDK provides an API, code examples, and documentation that help developers to build applications in their preferred language.
 

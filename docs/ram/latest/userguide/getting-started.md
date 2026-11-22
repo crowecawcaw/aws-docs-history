@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS RAM
-<a name="getting-started"></a>
 
 With AWS Resource Access Manager, you can share resources that you own with other individual AWS accounts. If your account is managed by AWS Organizations, you can also share resources with the other accounts in your organization. You can also use resources that were shared with you by other AWS accounts. 
 

@@ -1,16 +1,15 @@
 
 
 # Errors when trying to share with accounts outside of my organization
-<a name="tshoot-sharing-outside-org"></a>
 
 ## Scenario
 <a name="tshoot-sharing-outside-org-scenario"></a>
 
 You get one of the following errors when you try to share resources with accounts that are outside of your organization:
-+ "You cannot share the resource outside your organization."
-+ "The resource you are attempting to share can only be shared within your AWS Organization."
-+ "InvalidParameterException: Principal Account-ID is not in your AWS organization. You do not have permission to add external AWS accounts to a resource share."
-+ "OperationNotPermittedException: The resource you are attempting to share can only be shared within your AWS Organization."
++ "`You cannot share the resource outside your organization.`"
++ "`The resource you are attempting to share can only be shared within your AWS Organization.`"
++ "`InvalidParameterException: Principal Account-ID is not in your AWS organization. You do not have permission to add external AWS accounts to a resource share.`"
++ "`OperationNotPermittedException: The resource you are attempting to share can only be shared within your AWS Organization.`"
 
 ## Possible causes and solutions
 <a name="tshoot-sharing-outside-org-causes-and-solutions"></a>

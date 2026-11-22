@@ -1,7 +1,6 @@
 
 
 # Service quotas for AWS RAM
-<a name="service-quotas"></a>
 
 Your AWS account has the following limits related to AWS Resource Access Manager (AWS RAM). You can request an increase for some of these limits. To request a limit increase, contact [Support](https://console.aws.amazon.com/support/home#/).
 

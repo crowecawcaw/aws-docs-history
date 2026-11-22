@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues with AWS RAM
-<a name="troubleshooting"></a>
 
 Use the information in this section of the guide to help you diagnose and fix common issues when you work with AWS Resource Access Manager (AWS RAM).
 

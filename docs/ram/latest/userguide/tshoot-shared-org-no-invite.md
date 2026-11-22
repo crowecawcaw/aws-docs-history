@@ -1,7 +1,6 @@
 
 
 # The other account in my organization never receives an invitation
-<a name="tshoot-shared-org-no-invite"></a>
 
 ## Scenario
 <a name="tshoot-shared-org-no-invite-scenario"></a>

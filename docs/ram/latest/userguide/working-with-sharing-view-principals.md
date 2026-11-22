@@ -1,7 +1,6 @@
 
 
 # Viewing the principals you share resources with in AWS RAM
-<a name="working-with-sharing-view-principals"></a>
 
 You can view the principals you share your resources with, across all resource shares. Viewing this list of principals helps you determine who has access to your shared resources.
 
@@ -29,7 +28,7 @@ You can use the [list-principals](https://docs.aws.amazon.com/cli/latest/referen
 
 The following example lists the principals that have access to shares created in the default Region for the calling account. In this example, the principals are the calling account's organization and a separate AWS account, as part of two different resource shares. You must use the service endpoint for the AWS Region that contains the resource share.
 
-```
+```bash
 $ aws ram list-principals \
     --region us-east-1 \
     --resource-owner SELF

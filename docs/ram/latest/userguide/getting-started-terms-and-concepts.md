@@ -1,7 +1,6 @@
 
 
 # Terms and concepts for AWS RAM
-<a name="getting-started-terms-and-concepts"></a>
 
 The following concepts help explain how you can use AWS Resource Access Manager (AWS RAM) to share your resources.
 
@@ -93,7 +92,7 @@ If you share an EC2 Image Builder image resource with an individual ***account**
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -121,7 +120,7 @@ If you share an EC2 Image Builder image resource with an ***IAM role or user*** 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ This policy uses `"Principal": "*"` and then uses the `"Condition"` element to r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

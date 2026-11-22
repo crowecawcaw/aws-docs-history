@@ -1,7 +1,6 @@
 
 
 # You can't share a VPC subnet
-<a name="tshoot-subnet-limits"></a>
 
 ## Scenario
 <a name="tshoot-subnet-limits-scenario"></a>

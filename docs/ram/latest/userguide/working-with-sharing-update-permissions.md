@@ -1,7 +1,6 @@
 
 
 # Updating AWS managed permissions to a newer version
-<a name="working-with-sharing-update-permissions"></a>
 
 Occasionally, AWS updates the AWS managed permissions available to attach to a resource share for a specific resource type. When AWS does this, it creates a new version of the AWS managed permission. Resource shares that include the specified resource type aren't automatically updated to use the latest version of the managed permission. You must explicitly update the managed permission for each resource share. This extra step is required so that you can evaluate the changes before you apply them to your resource shares.
 
@@ -31,7 +30,7 @@ For customer managed permissions, after you update the permissions to the defaul
 
    For example, the following sample command returns details for every resource share that uses the default AWS managed permission for Amazon EC2 capacity reservations.
 
-   ```
+   ```bash
    $ aws ram get-resource-shares \
        --resource-owner SELF \
        --permission-arn arn:aws:ram::aws:permission/AWSRAMDefaultPermissionCapacityReservation
@@ -41,7 +40,7 @@ For customer managed permissions, after you update the permissions to the defaul
 
 1. For each resource share specified in the previous command, run the command [associate-resource-share-permission](https://docs.aws.amazon.com/cli/latest/reference/ram/associate-resource-share-permission.html). Include the `--resource-share-arn` to specify the resource share to update, the `--permission-arn` to specify which AWS managed permission you're updating, and the `--replace` parameter to specify that you want to update the share to use the latest version of that managed permission. You don't need to specify the version number; the default version is automatically used.
 
-   ```
+   ```bash
    $ aws ram associate-resource-share-permission \
        --resource-share-arn {{< ARN of one of the shares from the output of the previous command >}} \
        --permission-arn arn:aws:ram::aws:permission/AWSRAMDefaultPermissionCapacityReservation \

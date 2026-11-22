@@ -1,7 +1,6 @@
 
 
 # Sharing and using customer managed permissions across accounts in AWS RAM
-<a name="sharing-customer-managed-permissions"></a>
 
 You can share a customer managed permission that you own the same way that you share other resources: add it to a resource share as a resource of type `ram:Permission`. You can share it with other AWS accounts, organizational units (OUs), your entire organization, or IAM roles and users in other accounts. Each account can then use your customer managed permission in its own resource shares instead of creating its own copy.
 
@@ -52,7 +51,7 @@ When you add a customer managed permission to a resource share, AWS RAM updates 
 
   The following example shares a customer managed permission with another AWS account.
 
-  ```
+  ```bash
   $ aws ram create-resource-share \
       --name SharedParameterPermissions \
       --resource-arns arn:aws:ram:us-east-1:123456789012:permission/ParameterReadByTeam \
@@ -98,7 +97,7 @@ You can find and use a shared customer managed permission after you accept the r
 
 1. Run the [list-permissions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permissions.html) command with `--permission-type CUSTOMER_MANAGED` and `--resource-owner OTHER-ACCOUNTS`. The response lists the customer managed permissions that other accounts share with you, with `resourceOwner` set to `OTHER-ACCOUNTS`. The owner's account ID is part of the permission ARN.
 
-   ```
+   ```bash
    $ aws ram list-permissions \
        --permission-type CUSTOMER_MANAGED \
        --resource-owner OTHER-ACCOUNTS
@@ -126,7 +125,7 @@ You can find and use a shared customer managed permission after you accept the r
    + If the customer managed permission declares template parameters, include `--permission-template-parameters`.
    + If the resource share already has a managed permission for that resource type, include `--replace`.
 
-   ```
+   ```bash
    $ aws ram associate-resource-share-permission \
        --resource-share-arn arn:aws:ram:us-east-1:111122223333:resource-share/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333 \
        --permission-arn arn:aws:ram:us-east-1:123456789012:permission/ParameterReadByTeam \
@@ -164,7 +163,7 @@ To stop sharing a customer managed permission, remove it or the principals from 
 **To stop sharing a customer managed permission**
 + Run the [disassociate-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/disassociate-resource-share.html) command to remove the customer managed permission or the principals from the resource share.
 
-  ```
+  ```bash
   $ aws ram disassociate-resource-share \
       --resource-share-arn arn:aws:ram:us-east-1:123456789012:resource-share/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222 \
       --resource-arns arn:aws:ram:us-east-1:123456789012:permission/ParameterReadByTeam
@@ -189,7 +188,7 @@ To stop sharing a customer managed permission, remove it or the principals from 
 **See which resource shares use your customer managed permission**  
 To list the resource shares in other AWS accounts that use your customer managed permission, run the [list-permission-associations](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permission-associations.html) command with `--permission-arn` and `--resource-owner OTHER-ACCOUNTS`. Without `--resource-owner OTHER-ACCOUNTS`, the command lists only your own resource shares. In the console, the permission details page shows the same information under **Cross-account usage**.  
 
-```
+```bash
 $ aws ram list-permission-associations \
     --permission-arn arn:aws:ram:us-east-1:123456789012:permission/ParameterReadByTeam \
     --resource-owner OTHER-ACCOUNTS

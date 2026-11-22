@@ -1,7 +1,6 @@
 
 
 # Working with shared AWS resources
-<a name="working-with"></a>
 
 You can use AWS Resource Access Manager (AWS RAM) to share AWS resources that you own and access AWS resources that are shared with you.
 

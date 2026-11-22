@@ -1,7 +1,6 @@
 
 
 # Viewing resource shares shared with you
-<a name="working-with-shared-view-rs"></a>
 
 You can view the resource shares to which you have access. You can see which principals are sharing resources with you and which resources they're sharing.
 
@@ -33,7 +32,7 @@ Use the [get-resource-shares](https://docs.aws.amazon.com/cli/latest/reference/r
 
 The following example shows the list of resource shares shared in the specified AWS Region with the calling account by other AWS accounts.
 
-```
+```bash
 $ aws ram get-resource-shares \
     --region us-east-1 \
     --resource-owner OTHER-ACCOUNTS

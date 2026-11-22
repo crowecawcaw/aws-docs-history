@@ -1,7 +1,6 @@
 
 
 # Logging AWS RAM API calls with AWS CloudTrail
-<a name="cloudtrail-logging"></a>
 
 AWS RAM is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS RAM. CloudTrail captures all API calls for AWS RAM as events. The calls captured include calls from the AWS RAM console and code calls to the AWS RAM API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket that you specify, including events for AWS RAM. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Use the information collected by CloudTrail to determine the request that was made to AWS RAM, the requesting IP address, the requester, when it was made, and additional details.
 
@@ -18,7 +17,7 @@ For an ongoing record of events in your AWS account, including events for AWS RA
 + [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
 + [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-All AWS RAM actions are logged by CloudTrail and are documented in the [AWS RAM API Reference](https://docs.aws.amazon.com/ram/latest/APIReference/). For example, calls to the `CreateResourceShare`, `AssociateResourceShare`, and `EnableSharingWithAwsOrganization` actions generate entries in the CloudTrail log files.
+All AWS RAM actions are logged by CloudTrail and are documented in the [AWS RAM API Reference](https://docs.aws.amazon.com/ram/latest/APIReference/). For example, calls to the `CreateResourceShare`, `AssociateResourceShare`, and `EnableSharingWithAwsOrganization` actions generate entries in the CloudTrail log files. AWS RAM also logs management events when associations of principals, resources, permissions, or sources with resource shares are successfully completed or removed.
 
 Every event or log entry contains information that helps you determine who made the request.
 + AWS account root credentials
@@ -33,23 +32,35 @@ For more information, see the [CloudTrail userIdentity element](https://docs.aws
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry for the `CreateResourceShare` action.
+The following example shows a CloudTrail log entry for the `CreateResourceShare` action. In this example, the caller uses temporary credentials from a role session. We recommend temporary credentials over long-term access keys.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
-        "type": "IAMUser",
-        "principalId": "NOPIOSFODNN7EXAMPLE",
-        "arn": "arn:aws:iam::111122223333:user/admin",
+        "type": "AssumedRole",
+        "principalId": "AROA123456789EXAMPLE:ResourceShareManager-session",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ResourceShareManager/ResourceShareManager-session",
         "accountId": "111122223333",
-        "accessKeyId": "BCDIOSFODNN7EXAMPLE",
-        "userName": "admin"
+        "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROA123456789EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/ResourceShareManager",
+                "accountId": "111122223333",
+                "userName": "ResourceShareManager"
+            },
+            "attributes": {
+                "creationDate": "2018-11-03T04:10:05Z",
+                "mfaAuthenticated": "false"
+            }
+        }
     },
     "eventTime": "2018-11-03T04:23:19Z",
     "eventSource": "ram.amazonaws.com",
     "eventName": "CreateResourceShare",
-    "awsRegion": "us-east-1",
+    "awsRegion": "aa-example-1",
     "sourceIPAddress": "192.0.1.0",
     "userAgent": "aws-cli/1.16.2 Python/2.7.10 Darwin/16.7.0 botocore/1.11.2",
     "requestParameters": {
@@ -60,7 +71,7 @@ The following example shows a CloudTrail log entry for the `CreateResourceShare`
             "allowExternalPrincipals": true,
             "name": "foo",
             "owningAccountId": "111122223333",
-            "resourceShareArn": "arn:aws:ram:us-east-1:111122223333:resource-share/EXAMPLE0-1234-abcd-1212-987656789098",
+            "resourceShareArn": "arn:aws:ram:aa-example-1:111122223333:resource-share/EXAMPLE0-1234-abcd-1212-987656789098",
             "status": "ACTIVE"
         }
     },
@@ -69,5 +80,85 @@ The following example shows a CloudTrail log entry for the `CreateResourceShare`
     "readOnly": false,
     "eventType": "AwsApiCall",
     "recipientAccountId": "111122223333"
+}
+```
+
+The following example shows a CloudTrail log entry for the `CreateResourceShareAssociation` management event. AWS RAM emits this event when an association of a principal, resource, permission, or source with a resource share is successfully completed.
+
+```json
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "111122223333",
+        "invokedBy": "ram.amazonaws.com"
+    },
+    "eventTime": "2026-06-10T15:25:55Z",
+    "eventSource": "ram.amazonaws.com",
+    "eventName": "CreateResourceShareAssociation",
+    "awsRegion": "aa-example-1",
+    "sourceIPAddress": "ram.amazonaws.com",
+    "userAgent": "ram.amazonaws.com",
+    "requestParameters": null,
+    "responseElements": null,
+    "additionalEventData": {
+        "AssociatedPrincipal": "444455556666",
+        "AssociationMetadata": {
+            "AssociationType": "AWS::RAM::PrincipalAssociation",
+            "AssociationId": "arn:aws:ram:aa-example-1:111122223333:resource-share/EXAMPLE0-1234-abcd-1212-987656789098|444455556666"
+        }
+    },
+    "eventID": "EXAMPLE2-1234-abcd-hijk-543234565434",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::RAM::ResourceShare",
+            "ARN": "arn:aws:ram:aa-example-1:111122223333:resource-share/EXAMPLE0-1234-abcd-1212-987656789098"
+        }
+    ],
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
+
+The following example shows a CloudTrail log entry for the `RemoveResourceShareAssociation` management event. AWS RAM emits this event when an association of a principal, resource, permission, or source with a resource share is successfully removed.
+
+```json
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "111122223333",
+        "invokedBy": "ram.amazonaws.com"
+    },
+    "eventTime": "2026-06-18T19:54:24Z",
+    "eventSource": "ram.amazonaws.com",
+    "eventName": "RemoveResourceShareAssociation",
+    "awsRegion": "aa-example-1",
+    "sourceIPAddress": "ram.amazonaws.com",
+    "userAgent": "ram.amazonaws.com",
+    "requestParameters": null,
+    "responseElements": null,
+    "additionalEventData": {
+        "DisassociatedPrincipal": "444455556666",
+        "AssociationMetadata": {
+            "AssociationId": "arn:aws:ram:aa-example-1:111122223333:resource-share/EXAMPLE0-1234-abcd-1212-987656789098|444455556666",
+            "AssociationType": "AWS::RAM::PrincipalAssociation"
+        }
+    },
+    "eventID": "EXAMPLE1-abcd-1234-hijk-543234565434",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::RAM::ResourceShare",
+            "ARN": "arn:aws:ram:aa-example-1:111122223333:resource-share/EXAMPLE0-1234-abcd-1212-987656789098"
+        }
+    ],
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
 }
 ```

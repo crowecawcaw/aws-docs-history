@@ -1,7 +1,6 @@
 
 
 # Deleting a resource share in AWS RAM
-<a name="working-with-sharing-delete"></a>
 
 You can delete a resource share at any time. When you delete a resource share, all principals that were associated with the resource share lose access to the shared resources. Deleting a resource share doesn't delete the shared resources.
 
@@ -35,7 +34,7 @@ You can use the [delete-resource-share](https://docs.aws.amazon.com/cli/latest/r
 
 The following example first uses the [get-resource-shares](https://docs.aws.amazon.com/cli/latest/reference/ram/get-resource-shares.html) command to get the Amazon Resource Name (ARN) of the resource share that you want to delete. Then it uses [delete-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/delete-resource-share.html) to delete the specified resource share.
 
-```
+```bash
 $  aws ram get-resource-shares \
     --region us-east-1 \
     --resource-owner SELF

@@ -1,7 +1,6 @@
 
 
 # How AWS RAM works with IAM
-<a name="security-iam-policies"></a>
 
 By default, IAM principals don't have permission to create or modify AWS RAM resources. To allow IAM principals to create or modify resources and perform tasks, you perform one of the following steps. These actions grant permission to use specific resources and API actions. 
 
@@ -34,7 +33,7 @@ The following sections provide the AWS RAM specific details for building an IAM 
 
 An IAM permission policy is a JSON document that includes the following statements: Effect, Action, Resource, and Condition. An IAM policy typically takes the following form.
 
-```
+```json
 {
     "Statement":[{
         "Effect":"<effect>",

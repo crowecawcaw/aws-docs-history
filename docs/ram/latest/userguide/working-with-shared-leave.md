@@ -1,7 +1,6 @@
 
 
 # Leaving a resource share
-<a name="working-with-shared-leave"></a>
 
 If you no longer need access to resources that are shared with you, you can leave a resource share at any time. When you leave a resource share, you lose access to the shared resources.
 
@@ -54,7 +53,7 @@ The following example commands causes the AWS account that calls the command to 
 
 1. First, retrieve the list of resource shares to retrieve the ARN of the resource share that you want to leave.
 
-   ```
+   ```bash
    $ aws ram get-resource-shares \
        --region us-east-1 \
        --resource-owner OTHER-ACCOUNTS
@@ -76,7 +75,7 @@ The following example commands causes the AWS account that calls the command to 
 
 1. Then, you can run the command to leave that resource share. Note that you must also specify your account ID, `123456789012`, as the principal to disassociate from the specified resource share, which is shared by account `111111111111`.
 
-   ```
+   ```bash
    $ aws ram disassociate-resource-share \
        --region us-east-1 \
        --resource-share-arn arn:aws:ram:us-east-1:111111111111:resource-share/8b831ba0-63df-4608-be3c-19096b1ee16e \

@@ -1,12 +1,11 @@
 
 
 # Error: "Your account ID does not exist in an AWS organization"
-<a name="tshoot-no-slr"></a>
 
 ## Scenario
 <a name="tshoot-no-slr-scenario"></a>
 
-You get the error "Your account ID does not exist in an AWS organization" when trying to share a resource with accounts or organizational units (OUs) in your organization.
+You get the error "`Your account ID does not exist in an AWS organization`" when trying to share a resource with accounts or organizational units (OUs) in your organization.
 
 ## Cause
 <a name="tshoot-no-slr-cause"></a>

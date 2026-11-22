@@ -1,7 +1,6 @@
 
 
 # Viewing resource shares you created in AWS RAM
-<a name="working-with-sharing-view-rs"></a>
 
 You can view a list of the resource shares that you have created. You can see which resources you're sharing and the principals with whom they're shared.
 
@@ -35,7 +34,7 @@ You can use the [get-resource-shares](https://docs.aws.amazon.com/cli/latest/ref
 
 The following example shows the resource shares that are shared in the current AWS Region (`us-east-1`) for the calling AWS account. To get the resource shares created in a different Region, use the `--region <region-code>` parameter. To include resource shares that contain global resources, you must specify the Region US East (N. Virginia), `us-east-1`.
 
-```
+```bash
 $  aws ram get-resource-shares \
     --resource-owner SELF
 {

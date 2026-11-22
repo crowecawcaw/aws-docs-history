@@ -1,14 +1,13 @@
 
 
 # Error: "UnknownResourceException"
-<a name="tshoot-unknown-resource"></a>
 
 ## Scenario
 <a name="tshoot-unknown-resource-scenario"></a>
 
 You get one of the following errors: 
-+ "CannotCreateResourceShare: UnknownResourceException: OrganizationalUnit ou-{{xxxx}} could not be found"
-+ "CannotUpdateResourceShare: UnknownResourceException: OrganizationalUnit ou-{{xxxx}} could not be found".
++ "`CannotCreateResourceShare: UnknownResourceException: OrganizationalUnit ou-{{xxxx}} could not be found`"
++ "`CannotUpdateResourceShare: UnknownResourceException: OrganizationalUnit ou-{{xxxx}} could not be found`".
 
 ## Cause
 <a name="tshoot-unknown-resource-cause"></a>

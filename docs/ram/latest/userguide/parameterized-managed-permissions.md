@@ -1,7 +1,6 @@
 
 
 # Using parameterized managed permissions in AWS RAM
-<a name="parameterized-managed-permissions"></a>
 
 A parameterized managed permission is a managed permission with placeholders in its policy conditions that you fill in with your own values. These placeholders are template parameters. They don't create a new kind of managed permission. They add variability to the policy template of an existing one.
 
@@ -85,7 +84,7 @@ You create a parameterized managed permission the same way that you create any o
 
   The following example creates a customer managed permission for the `ssm:Parameter` resource type. In this policy, principals can read parameters only if the principal has a `team` tag whose value is in the `teams` list.
 
-  ```
+  ```bash
   $ aws ram create-permission \
       --name ParameterReadByTeam \
       --resource-type ssm:Parameter \
@@ -121,7 +120,7 @@ Parameterized managed permissions are versioned the same way as any other custom
 
 To create a new version, run the [create-permission-version](https://docs.aws.amazon.com/cli/latest/reference/ram/create-permission-version.html) command with the `--policy-template` and `--permission-template-parameters` parameters. The following example adds a second condition with a `STRING` parameter named `environment`.
 
-```
+```bash
 $ aws ram create-permission-version \
     --permission-arn arn:aws:ram:us-east-1:123456789012:permission/ParameterReadByTeam \
     --permission-template-parameters '[{"name":"teams","type":"STRING_LIST","description":"Values of the team principal tag that can read the shared parameters"},{"name":"environment","type":"STRING","description":"Value of the environment principal tag that can read the shared parameters"}]' \
@@ -141,7 +140,7 @@ In the AWS RAM console, when you create or update a resource share, enter the va
 
 In the AWS CLI, run the [get-permission](https://docs.aws.amazon.com/cli/latest/reference/ram/get-permission.html) command with the `--permission-template-parameters` parameter. The `permission` field of the response contains the policy with your values in place of the placeholders.
 
-```
+```bash
 $ aws ram get-permission \
     --permission-arn arn:aws:ram:us-east-1:123456789012:permission/ParameterReadByTeam \
     --permission-template-parameters '[{"name":"teams","values":["payments","analytics"]},{"name":"environment","values":["prod"]}]'
@@ -204,7 +203,7 @@ When you associate a parameterized managed permission with a resource share, you
 
    For `create-resource-share`, the parameter is a list. Each entry contains a `permissionArn` and the `permissionTemplateParameters` values for that permission. The following example creates a resource share that shares a Parameter Store parameter with another AWS account. Principals with the `team` tag `payments` or `analytics` and the `environment` tag `prod` can read it.
 
-   ```
+   ```bash
    $ aws ram create-resource-share \
        --name PaymentsConfig \
        --resource-arns arn:aws:ssm:us-east-1:123456789012:parameter/payments/endpoint \
@@ -229,7 +228,7 @@ When you associate a parameterized managed permission with a resource share, you
 
 1. To change the parameter values on an existing resource share, or to move it to the default version of the permission, run [associate-resource-share-permission](https://docs.aws.amazon.com/cli/latest/reference/ram/associate-resource-share-permission.html) with the `--replace` parameter. For this command, `--permission-template-parameters` takes the parameter values directly.
 
-   ```
+   ```bash
    $ aws ram associate-resource-share-permission \
        --resource-share-arn arn:aws:ram:us-east-1:123456789012:resource-share/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
        --permission-arn arn:aws:ram:us-east-1:123456789012:permission/ParameterReadByTeam \
@@ -255,7 +254,7 @@ Run the [get-permission](https://docs.aws.amazon.com/cli/latest/reference/ram/ge
 **View the values that a resource share supplies**  
 Run the [list-resource-share-permissions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-resource-share-permissions.html) command. For each associated parameterized managed permission, the `permissionTemplateParameters` field includes the values that the resource share supplies.  
 
-```
+```bash
 $ aws ram list-resource-share-permissions \
     --resource-share-arn arn:aws:ram:us-east-1:123456789012:resource-share/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111
 {
@@ -302,7 +301,7 @@ You can use the `ram:PermissionTemplateParameter/{{parameter-name}}` condition k
 
 In the following example policy, the first statement grants the actions on the `ParameterReadByTeam` customer managed permission. The second statement denies them if any value supplied for `teams` is something other than `payments` or `analytics`. Because the key is multivalued, the policy uses the `ForAnyValue` set operator. AWS RAM requires a value for every declared parameter, so a request that uses this customer managed permission always includes the key.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -346,7 +345,7 @@ The following examples show how AWS RAM renders `STRING_LIST` parameters.
 **Example A `STRING_LIST` parameter alone in a condition value**  
 Template:  
 
-```
+```json
 "Condition": {
     "StringEquals": {
         "aws:PrincipalTag/team": "@{teams}"
@@ -356,7 +355,7 @@ Template:
 Values: `["payments", "analytics"]`  
 Rendered policy:  
 
-```
+```json
 "Condition": {
     "StringEquals": {
         "aws:PrincipalTag/team": ["payments", "analytics"]
@@ -369,7 +368,7 @@ With the single value `["payments"]`, the rendered value is the string `"payment
 AWS RAM combines each value with the text before and after the parameter.  
 Template:  
 
-```
+```json
 "Condition": {
     "ArnLike": {
         "aws:PrincipalArn": "arn:aws:iam::@{accountIds}:role/ParameterReader"
@@ -379,7 +378,7 @@ Template:
 Values: `["111122223333", "444455556666"]`  
 Rendered policy:  
 
-```
+```json
 "Condition": {
     "ArnLike": {
         "aws:PrincipalArn": [
@@ -394,7 +393,7 @@ Rendered policy:
 AWS RAM renders each entry in the array for each value, and removes duplicate results.  
 Template:  
 
-```
+```json
 "Condition": {
     "ArnLike": {
         "aws:PrincipalArn": [
@@ -407,7 +406,7 @@ Template:
 Values: `["111122223333", "444455556666"]`  
 Rendered policy:  
 
-```
+```json
 "Condition": {
     "ArnLike": {
         "aws:PrincipalArn": [

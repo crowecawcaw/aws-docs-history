@@ -1,7 +1,6 @@
 
 
 # Sharing Regional resources compared to global resources
-<a name="working-with-regional-vs-global"></a>
 
 This topic discusses the differences in how AWS Resource Access Manager (AWS RAM) works with Regional and global resources.
 

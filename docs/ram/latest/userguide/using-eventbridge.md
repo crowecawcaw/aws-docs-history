@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS RAM using EventBridge
-<a name="using-eventbridge"></a>
 
 Using Amazon EventBridge, you can set up automatic notifications for specific events in AWS RAM. Events from AWS RAM are delivered to EventBridge in near-real time. You can configure EventBridge to monitor events and invoke targets in response to events that indicate changes to your resource shares. Changes to a resource share trigger events for both the owner of the resource share and the principals that were granted access to the resource share.
 

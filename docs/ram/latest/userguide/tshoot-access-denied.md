@@ -1,12 +1,11 @@
 
 
 # Error: "AccessDeniedException"
-<a name="tshoot-access-denied"></a>
 
 ## Scenario
 <a name="tshoot-access-denied-scenario"></a>
 
-You get an Access Denied exception when trying to share a resource or view a resource share.
+You get an `Access Denied` exception when trying to share a resource or view a resource share.
 
 ## Cause
 <a name="tshoot-access-denied-cause"></a>
@@ -43,7 +42,7 @@ To **attach permissions** to a resource share, you need the following permission
 
 The following example shows what such an IAM permission policy might look like.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Viewing managed permissions
-<a name="working-with-sharing-view-permissions"></a>
 
 You can view details about managed permissions that are available to assign to resource types in your resource shares. You can identify the managed permissions that are assigned to resource shares. To see these details, use the **Managed permissions library** in the AWS RAM console.
 
@@ -61,7 +60,7 @@ You can view details about managed permissions that are available to assign to r
 **To view details about managed permissions available in AWS RAM**  
 You can use the [list-permissions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permissions.html) command to get a list of the managed permissions available to use on resource shares in the current AWS Region for the calling account.
 
-```
+```bash
 $ aws ram list-permissions
 {
     "permissions": [
@@ -121,7 +120,7 @@ $ aws ram list-permissions
 
 You can also find the ARN of a specific managed permission by its name in the `--query` parameter of the `list-permissions` AWS CLI command. The following example filters the output to include only elements in the `permissions` array results that match the specified name. We also specify that we want to see only the ARN field in the results, and in plain text format instead of the default JSON.
 
-```
+```bash
 $ aws ram list-permissions \
     --query "permissions[?name == 'My-Test-CMP'].arn \
     --output text
@@ -130,7 +129,7 @@ arn:aws:ram:us-east-1:123456789012:permission/My-Test-CMP
 
 After you find the ARN of the specific managed permission you're interested in, you can retrieve its details, including its JSON policy text, by running the command [get-permission](https://docs.aws.amazon.com/cli/latest/reference/ram/get-permission.html).
 
-```
+```bash
 $ aws ram get-permission \
     --permission-arn arn:aws:ram:us-east-1:123456789012:permission/My-Test-CMP
 {
