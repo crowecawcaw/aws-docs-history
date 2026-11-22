@@ -1,7 +1,6 @@
 
 
 # With IAM Identity Center and Device Trust Provider - Initial Request
-<a name="verified-access-device-initial"></a>
 
 Publication date: **February 22, 2023 ([Diagram history](#vdi-diagram-history))**
 

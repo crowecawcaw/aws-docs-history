@@ -1,7 +1,6 @@
 
 
 # With IAM Identity Center and Device Trust Provider - After Initial Request
-<a name="verified-access-device-subsequent"></a>
 
 Publication date: **February 22, 2023 ([Diagram history](#vds-diagram-history))**
 
