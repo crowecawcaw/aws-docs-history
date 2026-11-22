@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Step B: Assign the Devices
-<a name="config-wrkr-cf-cg-ethernet-bond-assign"></a>
 
 Next, add the Ethernet devices to the bond that you created in [Step A: Create the Bond](config-wrkr-cf-cg-ethernet-bond-create.md).
 

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Simple Network Management Protocol (SNMP) Traps
-<a name="notification-trap"></a>
 
 You can configure AWS Elemental Server to generate Simple Network Management Protocol (SNMPv2) traps for activity on the node. For information about the management information bases (MIBs) in AWS Elemental Server, go to the **Settings** page in the AWS Elemental Server web interface and choose **SNMP Interface**.
 

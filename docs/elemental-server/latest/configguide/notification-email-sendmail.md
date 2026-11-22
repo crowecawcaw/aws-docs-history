@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Configure Sendmail Relay Server
-<a name="notification-email-sendmail"></a>
 
 Use this procedure to set up a Sendmail relay server if your network doesn't accept open relay messages.
 

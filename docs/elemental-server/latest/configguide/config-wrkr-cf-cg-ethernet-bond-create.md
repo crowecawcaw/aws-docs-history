@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Step A: Create the Bond
-<a name="config-wrkr-cf-cg-ethernet-bond-create"></a>
 
 First, create the bond for the network devices. In the next step, you will add the devices to the bond.
 

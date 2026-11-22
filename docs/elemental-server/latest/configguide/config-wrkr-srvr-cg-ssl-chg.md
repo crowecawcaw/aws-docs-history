@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Disable SSL
-<a name="config-wrkr-srvr-cg-ssl-chg"></a>
 
 This section describes how to disable HTTPS (SSL) access to the node. If possible, we recommend that you always keep HTTPS enabled.
 

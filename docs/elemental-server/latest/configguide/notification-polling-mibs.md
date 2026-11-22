@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Management Information Bases (MIBs) in AWS Elemental Server
-<a name="notification-polling-mibs"></a>
 
 AWS Elemental provides the following management information bases (MIBs) for use with AWS Elemental Server:
 

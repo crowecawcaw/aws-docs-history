@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Configure Database Backups for AWS Elemental Server
-<a name="config-wrkr-srvr-cg-bkup"></a>
 
 During a database backup, AWS Elemental Server copies the data that's related to your framework (channels, profiles, nodes, MPTS outputs, and redundancy groups) from the AWS Elemental Server node to another server. You can use this backup to restore the data to the node in case of a major hardware failure or if you have to re-install the software for any reason.
 

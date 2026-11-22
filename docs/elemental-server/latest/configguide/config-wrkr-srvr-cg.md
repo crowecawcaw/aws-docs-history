@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Initial Configuration of the AWS Elemental Server Node
-<a name="config-wrkr-srvr-cg"></a>
 
 This section describes how to finish the setup of your AWS Elemental Server node. You might have completed some of this setup through the install script during the first phase of installation.
 

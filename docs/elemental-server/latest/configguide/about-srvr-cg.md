@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # About This Guide
-<a name="about-srvr-cg"></a>
 
 This guide is intended for engineers who are performing the initial configuration on one or more AWS Elemental Server nodes that are each working in a stand-alone mode. The nodes aren't being controlled by AWS Elemental Conductor File. 
 

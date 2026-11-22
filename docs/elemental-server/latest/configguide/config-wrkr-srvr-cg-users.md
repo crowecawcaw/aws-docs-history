@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Add Users
-<a name="config-wrkr-srvr-cg-users"></a>
 
 When you enable local authentication on the node, users must enter valid credentials to access the node. This section describes how to create users. For information about user authentication, see [User Authentication Reference](config-wrkr-srvr-cg-auth-ref.md).
 
