@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ListDatasetImportJobs
-<a name="API_ListDatasetImportJobs"></a>
 
 Returns a list of dataset import jobs created using the [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html) operation. For each import job, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the ARN with the [DescribeDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html) operation. You can filter the list by providing an array of [Filter](https://docs.aws.amazon.com/forecast/latest/dg/API_Filter.html) objects.
 

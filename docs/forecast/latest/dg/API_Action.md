@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Action
-<a name="API_Action"></a>
 
 Defines the modifications that you are making to an attribute for a what-if forecast. For example, you can use this operation to create a what-if forecast that investigates a 10% off sale on all shoes. To do this, you specify `"AttributeName": "shoes"`, `"Operation": "MULTIPLY"`, and `"Value": "0.90"`. Pair this operation with the [TimeSeriesCondition](API_TimeSeriesCondition.md) operation within the [CreateWhatIfForecast:TimeSeriesTransformations](API_CreateWhatIfForecast.md#forecast-CreateWhatIfForecast-request-TimeSeriesTransformations) operation to define a subset of attribute items that are modified.
 

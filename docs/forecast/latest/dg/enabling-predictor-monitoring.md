@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Enabling Predictor Monitoring
-<a name="enabling-predictor-monitoring"></a>
 
 You can enable predictor monitoring when you create the predictor, or you can enable it for an existing predictor. 
 
@@ -50,7 +49,7 @@ The following code creates an auto predictor that makes predictions for 24 (`For
 
  For information on required and optional parameters for creating a predictor see [CreateAutoPredictor](API_CreateAutoPredictor.md).
 
-```
+```python
 import boto3
                             
 forecast = boto3.client('forecast')
@@ -101,7 +100,7 @@ To enable predictor monitoring for an existing predictor with the SDK for Python
 
 For information on required and optional parameters, see the [CreateMonitor](API_CreateMonitor.md) and [DescribeMonitor](API_DescribeMonitor.md). 
 
-```
+```python
 import boto3
                             
 forecast = boto3.client('forecast')

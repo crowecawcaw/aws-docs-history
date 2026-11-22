@@ -3,14 +3,13 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # CreateAutoPredictor
-<a name="API_CreateAutoPredictor"></a>
 
 Creates an Amazon Forecast predictor.
 
 **Important**  
 Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](http://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/) 
 
-Amazon Forecast creates predictors with AutoPredictor, which involves applying the optimal combination of algorithms to each time series in your datasets. You can use [CreateAutoPredictor](#API_CreateAutoPredictor) to create new predictors or upgrade/retrain existing predictors.
+Amazon Forecast creates predictors with AutoPredictor, which involves applying the optimal combination of algorithms to each time series in your datasets. You can use [CreateAutoPredictor](API_CreateAutoPredictor.md) to create new predictors or upgrade/retrain existing predictors.
 
  **Creating new predictors** 
 

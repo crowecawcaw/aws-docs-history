@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # PredictorEvent
-<a name="API_PredictorEvent"></a>
 
 Provides details about a predictor event, such as a retraining.
 

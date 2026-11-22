@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # TimeSeriesIdentifiers
-<a name="API_TimeSeriesIdentifiers"></a>
 
 Details about the import file that contains the time series for which you want to create forecasts.
 

@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Training Predictors
-<a name="howitworks-predictor"></a>
 
 A predictor is an Amazon Forecast model that is trained using your target time series, related time series, item metadata, and any additional datasets you include. You can use predictors to generate forecasts based on your time-series data. 
 
@@ -91,7 +90,7 @@ Provide a name for the predictor and the Amazon Resource Name (ARN) of the datas
 
 For information on required and optional parameters see [CreateAutoPredictor](API_CreateAutoPredictor.md).
 
-```
+```cmd
 aws forecast create-predictor \
 --predictor-name {{predictor_name}} \
 --data-config DatasetGroupArn="arn:aws:forecast:{{region}}:{{account}}:dataset-group/{{datasetGroupName}}" \
@@ -111,7 +110,7 @@ Provide a name for the predictor and the Amazon Resource Name (ARN) of the datas
 
 For information on required and optional parameters see [CreateAutoPredictor](API_CreateAutoPredictor.md). 
 
-```
+```python
 import boto3
             
 forecast = boto3.client('forecast')
@@ -173,7 +172,7 @@ You can upgrade a predictor using the Software Development Kit (SDK) or the Amaz
 
 To upgrade a predictor with the AWS CLI, use the `create-predictor` method, but specify *only* the predictor name and the value of `reference-predictor-arn` (the ARN of the predictor you want to upgrade). 
 
-```
+```cmd
 aws forecast create-predictor \
 --predictor-name {{predictor_name}} \
 --reference-predictor-arn arn:aws:forecast:{{region}}:{{account}}:predictor/{{predictorName}}
@@ -184,7 +183,7 @@ aws forecast create-predictor \
 
 To upgrade a predictor with the SDK for Python (Boto3), use the `create_auto_predictor` method, but specify *only* the predictor name and the value of `ReferencePredictorArn` (the ARN of the predictor you want to upgrade). 
 
-```
+```python
 import boto3
             
 forecast = boto3.client('forecast')

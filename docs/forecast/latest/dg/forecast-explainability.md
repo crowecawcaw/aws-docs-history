@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Forecast Explainability
-<a name="forecast-explainability"></a>
 
 Forecast Explainability helps you better understand how the attributes in your datasets impact forecasts for specific time series (item and dimension combinations) and time points. Forecast uses a metric called Impact scores to quantify the relative impact of each attribute and determine whether they increase or decrease forecast values.
 
@@ -78,7 +77,7 @@ The following CSV file selects the following five time series:
 
 1. Item\_id: 003, store\_location: Denver
 
-```
+```csv
 001, Seattle
 001, New York
 002, Seattle
@@ -127,7 +126,7 @@ Configure the following datatypes:
 
 The example below shows a schema for time series using a combination of “item\_id” and the “store\_location” dimension. 
 
-```
+```json
 {
     "ExplainabilityName" : [unique_name],
     "ResourceArn" : [forecast_arn],
@@ -209,7 +208,7 @@ Configure the following datatypes:
 
 The example below shows a schema for time series using a combination of “item\_id” and the “store\_location” dimension. 
 
-```
+```json
 {
     "ExplainabilityName" : [unique_name],
     "ResourceArn" : [forecast_arn],
@@ -296,7 +295,7 @@ Using the [CreateExplainabilityExport](API_CreateExplainabilityExport.md) operat
 
 For example:
 
-```
+```json
 {
    "Destination": {
       "S3Config": {

@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ExplainabilityExportSummary
-<a name="API_ExplainabilityExportSummary"></a>
 
 Provides a summary of the Explainability export properties used in the [ListExplainabilityExports](API_ListExplainabilityExports.md) operation. To get a complete set of properties, call the [DescribeExplainabilityExport](API_DescribeExplainabilityExport.md) operation, and provide the `ExplainabilityExportArn`.
 

@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ListWhatIfForecastExports
-<a name="API_ListWhatIfForecastExports"></a>
 
 Returns a list of what-if forecast exports created using the [CreateWhatIfForecastExport](API_CreateWhatIfForecastExport.md) operation. For each what-if forecast export, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast export ARN with the [DescribeWhatIfForecastExport](API_DescribeWhatIfForecastExport.md) operation.
 

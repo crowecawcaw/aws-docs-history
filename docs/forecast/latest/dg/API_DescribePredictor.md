@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # DescribePredictor
-<a name="API_DescribePredictor"></a>
 
 **Note**  
  This operation is only valid for legacy predictors created with CreatePredictor. If you are not using a legacy predictor, use [DescribeAutoPredictor](API_DescribeAutoPredictor.md).

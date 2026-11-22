@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ListPredictors
-<a name="API_ListPredictors"></a>
 
 Returns a list of predictors created using the [CreateAutoPredictor](API_CreateAutoPredictor.md) or [CreatePredictor](API_CreatePredictor.md) operations. For each predictor, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). 
 

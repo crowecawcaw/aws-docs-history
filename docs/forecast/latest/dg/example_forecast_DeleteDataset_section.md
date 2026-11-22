@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Use `DeleteDataset` with an AWS SDK
-<a name="example_forecast_DeleteDataset_section"></a>
 
 The following code example shows how to use `DeleteDataset`.
 
@@ -13,7 +12,7 @@ The following code example shows how to use `DeleteDataset`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/forecast#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.forecast.ForecastClient;
 import software.amazon.awssdk.services.forecast.model.DeleteDatasetRequest;

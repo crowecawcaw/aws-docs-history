@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Set Up Permissions for Amazon Forecast
-<a name="aws-forecast-iam-roles"></a>
 
 Amazon Forecast uses Amazon Simple Storage Service (Amazon S3) to store the target time-series data that are used to train predictors that can generate forecasts. To access Amazon S3 on your behalf, Amazon Forecast needs your permission. 
 
@@ -44,7 +43,7 @@ You can use the AWS IAM console to do the following:
 
 ****  
 
-      ```
+      ```json
       {
          "Version":"2012-10-17",		 	 	 
          "Statement":[
@@ -106,7 +105,7 @@ You can use the AWS CLI to do the following:
 
 1.  Create an IAM role with Amazon Forecast as a trusted entity that can assume the role for you:
 
-   ```
+   ```json
    aws iam create-role \
     --role-name {{ForecastRole}} \
     --assume-role-policy-document '{
@@ -136,7 +135,7 @@ You can use the AWS CLI to do the following:
 
    If the command successfully creates the role, it returns it as output, which should look similar to the following:
 
-   ```
+   ```json
    {
        "Role": {
            "Path": "/",
@@ -173,7 +172,7 @@ You can use the AWS CLI to do the following:
 
 1. Create an IAM policy with permissions to list, read, and write data in Amazon S3, and attach it to the IAM role that you created in Step 1:
 
-   ```
+   ```json
    aws iam put-role-policy \
      --role-name {{ForecastRole}} \
      --policy-name {{ForecastBucketAccessPolicy}} \
@@ -200,7 +199,7 @@ You can use the AWS CLI to do the following:
 
 1. **[OPTIONAL]** When using a KMS key to enable encryption, attach the KMS key and ARN:
 
-   ```
+   ```json
    aws iam put-role-policy \
      --role-name {{ForecastRole}} \
      --policy-name {{ForecastBucketAccessPolicy}} \

@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # SupplementaryFeature
-<a name="API_SupplementaryFeature"></a>
 
 **Note**  
 This object belongs to the [CreatePredictor](API_CreatePredictor.md) operation. If you created your predictor with [CreateAutoPredictor](API_CreateAutoPredictor.md), see [AdditionalDataset](API_AdditionalDataset.md).

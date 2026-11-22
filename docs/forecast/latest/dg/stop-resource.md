@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Stopping Resources
-<a name="stop-resource"></a>
 
  The Amazon Forecast `Stop Resource` ([`StopResource`](API_StopResource.md)) operation stops a resource job that is in progress. You can stop the following resource jobs: 
 + Dataset group import (`CreateDatasetImportJob`)
@@ -46,7 +45,7 @@ You can stop a resource job using the Forecast console or the AWS Software Devel
 
 Using the [StopResource](API_StopResource.md) operation, set the value of `ResourceArn` to the Amazon Resource Name (ARN) that identifies the resource job that you want to stop.
 
-```
+```json
         { 
             "ResourceArn": "arn:{{partition:service:region:account-id:resource-id}}"
         }

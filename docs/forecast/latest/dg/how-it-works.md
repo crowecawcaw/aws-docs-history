@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # How Amazon Forecast Works
-<a name="how-it-works"></a>
 
 When creating forecasting projects in Amazon Forecast, you work with the following resources:
 + ** [Importing Datasets](howitworks-datasets-groups.md) ** – *Datasets* are collections of your input data. Dataset groups are collections of datasets that contain complimentary information. Forecast algorithms use your dataset groups to train custom forecasting models, called predictors.

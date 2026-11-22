@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Importing Datasets
-<a name="howitworks-datasets-groups"></a>
 
 *Datasets* contain the data used to train a [predictor](howitworks-predictor.md). You create one or more Amazon Forecast datasets and import your training data into them. A *dataset group* is a collection of complementary datasets that detail a set of changing parameters over a series of time. After creating a dataset group, you use it to train a predictor. 
 
@@ -96,7 +95,7 @@ Some domains have optional dimensions that we recommend including. Optional dime
 
 A schema is required for every dataset. The following is the accompanying schema for the example target time series dataset above.
 
-```
+```json
 {
      "attributes": [
         {

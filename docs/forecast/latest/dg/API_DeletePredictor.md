@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # DeletePredictor
-<a name="API_DeletePredictor"></a>
 
 Deletes a predictor created using the [DescribePredictor](API_DescribePredictor.md) or [CreatePredictor](API_CreatePredictor.md) operations. You can delete only predictor that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the [DescribePredictor](API_DescribePredictor.md) operation.
 

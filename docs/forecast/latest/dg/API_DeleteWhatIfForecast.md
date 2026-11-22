@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # DeleteWhatIfForecast
-<a name="API_DeleteWhatIfForecast"></a>
 
 Deletes a what-if forecast created using the [CreateWhatIfForecast](API_CreateWhatIfForecast.md) operation. You can delete only what-if forecasts that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the [DescribeWhatIfForecast](API_DescribeWhatIfForecast.md) operation. 
 

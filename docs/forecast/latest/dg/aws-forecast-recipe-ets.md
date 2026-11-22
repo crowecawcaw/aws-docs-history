@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Exponential Smoothing (ETS) Algorithm
-<a name="aws-forecast-recipe-ets"></a>
 
 Exponential Smoothing [(ETS)](https://en.wikipedia.org/wiki/Exponential_smoothing) is a commonly-used local statistical algorithm for time-series forecasting. The Amazon Forecast ETS algorithm calls the [ets function](https://cran.r-project.org/web/packages/forecast/forecast.pdf#Rfn.ets.1) in the `Package 'forecast'` of the Comprehensive R Archive Network (CRAN).
 

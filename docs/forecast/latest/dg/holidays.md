@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Holidays Featurization
-<a name="holidays"></a>
 
 Holidays is a built-in featurization that incorporates a feature-engineered dataset of national holiday information into your model. It provides native support for the holiday calendars of over 250 countries. Amazon Forecast incorporates both the [Holiday API library](https://holidayapi.com/countries) and [Jollyday API](https://jollyday.sourceforge.net/data.html) to generate holiday calendars. 
 
@@ -30,7 +29,7 @@ Using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, enable 
 
 For example, to include the USA holiday calendar, use the following code.
 
-```
+```json
       "DataConfig": {          
         "AdditionalDatasets": [          
             {             

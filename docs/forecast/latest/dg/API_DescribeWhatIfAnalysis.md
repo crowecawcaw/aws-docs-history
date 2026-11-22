@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # DescribeWhatIfAnalysis
-<a name="API_DescribeWhatIfAnalysis"></a>
 
 Describes the what-if analysis created using the [CreateWhatIfAnalysis](API_CreateWhatIfAnalysis.md) operation.
 

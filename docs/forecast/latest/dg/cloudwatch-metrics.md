@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # CloudWatch Metrics for Amazon Forecast
-<a name="cloudwatch-metrics"></a>
 
 This section contains information about the Amazon CloudWatch metrics available for Amazon Forecast. 
 

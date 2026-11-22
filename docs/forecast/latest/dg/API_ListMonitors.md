@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ListMonitors
-<a name="API_ListMonitors"></a>
 
 Returns a list of monitors created with the [CreateMonitor](API_CreateMonitor.md) operation and [CreateAutoPredictor](API_CreateAutoPredictor.md) operation. For each monitor resource, this operation returns of a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve a complete set of properties of a monitor resource by specify the monitor's ARN in the [DescribeMonitor](API_DescribeMonitor.md) operation.
 

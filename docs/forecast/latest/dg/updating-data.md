@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Updating Data
-<a name="updating-data"></a>
 
 As you collect new data, you will want to import that data into Forecast. To do so, you have two options, replacement and incremental updates. A replacement dataset import job will overwrite all existing data with the newly imported data. An incremental update will append the newly imported data to the dataset.
 
@@ -43,7 +42,7 @@ To update a dataset, use the `create-dataset-import-job` command. For the `impor
 
 The following code shows how to create a dataset import job that incrementally imports new data into a dataset.
 
-```
+```bash
 aws forecast create-dataset-import-job \
                         --dataset-import-job-name {{dataset import job name}} \
                         --dataset-arn {{dataset arn}} \
@@ -56,7 +55,7 @@ aws forecast create-dataset-import-job \
 
 To update a dataset, use the `create_dataset_import_job` method. For the `import-mode`, specify `FULL`, to replace existing data or `INCREMENTAL` to add to it. For more information, see [Import modes](#idsi).
 
-```
+```python
 import boto3
 
 forecast = boto3.client('forecast')

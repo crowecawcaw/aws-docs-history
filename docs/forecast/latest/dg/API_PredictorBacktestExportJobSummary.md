@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # PredictorBacktestExportJobSummary
-<a name="API_PredictorBacktestExportJobSummary"></a>
 
 Provides a summary of the predictor backtest export job properties used in the [ListPredictorBacktestExportJobs](API_ListPredictorBacktestExportJobs.md) operation. To get a complete set of properties, call the [DescribePredictorBacktestExportJob](API_DescribePredictorBacktestExportJob.md) operation, and provide the listed `PredictorBacktestExportJobArn`.
 

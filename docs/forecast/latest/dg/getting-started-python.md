@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Getting Started (Python Notebooks)
-<a name="getting-started-python"></a>
 
 **Note**  
 For a complete list of tutorials using Python notebooks, see the Amazon Forecast [Github Samples](https://github.com/aws-samples/amazon-forecast-samples/tree/master/notebooks) page.

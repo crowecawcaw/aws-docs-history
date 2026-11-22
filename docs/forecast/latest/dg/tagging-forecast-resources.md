@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Tagging Amazon Forecast Resources
-<a name="tagging-forecast-resources"></a>
 
 A *tag* is a label that you optionally define and associate with AWS resources, including certain types of Amazon Forecast resources. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. For example, you can use tags to apply policies or automation, or to identify resources that are subject to certain compliance requirements. You can add tags to the following types of Forecast resources: 
 + Dataset groups
@@ -45,7 +44,7 @@ For example, you can create a policy that allows a user to have full access to a
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -73,7 +72,7 @@ The following example shows how to create a policy to allow creating and deletin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ The following examples show how to add a tag to Forecast resources by using the 
 
 To add a tag when creating a new Forecast resource with the AWS CLI, use the appropriate `create` command for the resource and include the `tags` parameter and values. For example, the following command from the creates a new dataset group named `myDatasetGroup` for a CUSTOM domain, and adds the following tags: An `Environment` tag key with a `Test` tag value, and a `Owner` tag key and a `xyzCorp` value. 
 
-```
+```cmd
 aws forecast create-dataset-group \
 --dataset-group-name myDatasetGroup \
 --dataset-arns arn:aws:forecast:{{region}}:{{acct-id}}:dataset/{{dataset_name}} \
@@ -123,7 +122,7 @@ For information about the commands that you can use to create a Forecast resourc
 
 To add a tag to an existing resource, use the `tag-resource` command and specify the ARN of the resource and provide the tag key and value in the `tags-model` parameter.
 
-```
+```cmd
 aws forecast tag-resource \
 --resource-arn {{resource ARN}} \
 --tags Key={{key}},Value={{value}}

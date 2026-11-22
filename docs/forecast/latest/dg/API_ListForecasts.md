@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ListForecasts
-<a name="API_ListForecasts"></a>
 
 Returns a list of forecasts created using the [CreateForecast](API_CreateForecast.md) operation. For each forecast, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the [DescribeForecast](API_DescribeForecast.md) operation. You can filter the list using an array of [Filter](API_Filter.md) objects.
 

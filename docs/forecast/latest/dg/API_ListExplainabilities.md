@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ListExplainabilities
-<a name="API_ListExplainabilities"></a>
 
 Returns a list of Explainability resources created using the [CreateExplainability](API_CreateExplainability.md) operation. This operation returns a summary for each Explainability. You can filter the list using an array of [Filter](API_Filter.md) objects.
 

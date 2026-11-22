@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # WeightedQuantileLoss
-<a name="API_WeightedQuantileLoss"></a>
 
 The weighted loss value for a quantile. This object is part of the [Metrics](API_Metrics.md) object.
 

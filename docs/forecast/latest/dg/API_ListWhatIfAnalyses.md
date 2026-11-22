@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # ListWhatIfAnalyses
-<a name="API_ListWhatIfAnalyses"></a>
 
 Returns a list of what-if analyses created using the [CreateWhatIfAnalysis](API_CreateWhatIfAnalysis.md) operation. For each what-if analysis, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if analysis ARN with the [DescribeWhatIfAnalysis](API_DescribeWhatIfAnalysis.md) operation.
 

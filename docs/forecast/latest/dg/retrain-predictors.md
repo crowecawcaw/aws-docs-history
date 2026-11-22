@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Retraining Predictors
-<a name="retrain-predictors"></a>
 
 **Note**  
 Retraining is only available for predictors created with AutoPredictor ([`CreateAutoPredictor`](API_CreateAutoPredictor.md)). You can upgrade existing legacy predictors to AutoPredictor. See [Upgrading to AutoPredictor](howitworks-predictor.md#upgrading-autopredictor).
@@ -47,7 +46,7 @@ You can retrain a predictor using the Software Development Kit (SDK) or the Amaz
 
 Using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, assign the predictor a unique name and set the value of `ReferencePredictorArn` to the predictor you wish to retrain.
 
-```
+```json
 {
   "PredictorName": "RetrainedPredictor",
   "ReferencePredictorArn": "arn:aws:forecast:us-west-2:938097332257:predictor/OriginalPredictor"

@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Prophet Algorithm
-<a name="aws-forecast-recipe-prophet"></a>
 
 [Prophet](https://facebook.github.io/prophet/) is a popular local Bayesian structural time series model. The Amazon Forecast Prophet algorithm uses the [Prophet class](https://facebook.github.io/prophet/docs/quick_start.html#python-ap) of the Python implementation of Prophet.
 

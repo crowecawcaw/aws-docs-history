@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # MonitorSummary
-<a name="API_MonitorSummary"></a>
 
 Provides a summary of the monitor properties used in the [ListMonitors](API_ListMonitors.md) operation. To get a complete set of properties, call the [DescribeMonitor](API_DescribeMonitor.md) operation, and provide the listed `MonitorArn`.
 

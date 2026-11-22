@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Predictor Explainability
-<a name="predictor-explainability"></a>
 
 Predictor Explainability helps you better understand how the attributes in your datasets impact your target variable. Forecast uses a metric called Impact scores to quantify the relative impact of each attribute and determine whether they increase or decrease forecast values.
 
@@ -75,7 +74,7 @@ To enable explainability for a new predictor with the AWS SDK for Python (Boto3)
 
 The following code creates an auto predictor that makes predictions for 24 (`ForecastHorizon`) days (`ForecastFrequency`) in the future, and has `ExplainPredictor` set to true. For information on required and optional parameters see [CreateAutoPredictor](API_CreateAutoPredictor.md).
 
-```
+```python
 import boto3
                             
 forecast = boto3.client('forecast')
@@ -126,7 +125,7 @@ To enable Predictor Explainability for an existing predictor with the SDK for Py
 
 For information on required and optional parameters see [CreateExplainability](API_CreateExplainability.md). 
 
-```
+```python
 import boto3
                             
 forecast = boto3.client('forecast')
@@ -185,7 +184,7 @@ To export a Predictor Explainability with the SDK for Python (Boto3), use the `c
 
 For information on required and optional parameters see [CreateExplainabilityExport](API_CreateExplainabilityExport.md). 
 
-```
+```python
 import boto3
                         
 forecast = boto3.client('forecast')

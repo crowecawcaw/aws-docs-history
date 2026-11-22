@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Predefined Dataset Domains and Dataset Types
-<a name="howitworks-domains-ds-types"></a>
 
 To train a predictor, you create one or more datasets, add them to a dataset group, and provide the dataset group for training.
 

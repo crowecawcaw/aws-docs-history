@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # IntegerParameterRange
-<a name="API_IntegerParameterRange"></a>
 
 Specifies an integer hyperparameter and it's range of tunable values. This object is part of the [ParameterRanges](API_ParameterRanges.md) object.
 

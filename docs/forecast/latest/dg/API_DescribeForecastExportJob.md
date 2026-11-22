@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # DescribeForecastExportJob
-<a name="API_DescribeForecastExportJob"></a>
 
 Describes a forecast export job created using the [CreateForecastExportJob](API_CreateForecastExportJob.md) operation.
 

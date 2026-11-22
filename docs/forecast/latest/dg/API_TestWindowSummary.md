@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # TestWindowSummary
-<a name="API_TestWindowSummary"></a>
 
 The status, start time, and end time of a backtest, as well as a failure reason if applicable.
 

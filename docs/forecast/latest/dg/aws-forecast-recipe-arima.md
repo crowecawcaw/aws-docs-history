@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Autoregressive Integrated Moving Average (ARIMA) Algorithm
-<a name="aws-forecast-recipe-arima"></a>
 
 Autoregressive Integrated Moving Average ([ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)) is a commonly-used local statistical algorithm for time-series forecasting. ARIMA captures standard temporal structures (patterned organizations of time) in the input dataset. The Amazon Forecast ARIMA algorithm calls the [Arima function](https://cran.r-project.org/web/packages/forecast/forecast.pdf#Rfn.Arima.1) in the `Package 'forecast'` of the Comprehensive R Archive Network (CRAN).
 

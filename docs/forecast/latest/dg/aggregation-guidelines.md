@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Data Aggregation Assumptions
-<a name="aggregation-guidelines"></a>
 
 Forecast doesn't assume that your data is from any specific time zone. However, it makes the following assumptions when aggregating time series data:
 + All data is from the same time zone.

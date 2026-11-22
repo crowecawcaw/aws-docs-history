@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Generating Forecasts
-<a name="howitworks-forecast"></a>
 
 After you create an Amazon Forecast predictor, you are ready to create a forecast. By default, a forecast includes predictions for every item (`item_id`) in the dataset group that was used to train the predictor. However, you can specify a subset of items that are used to generate a forecast.
 
@@ -53,7 +52,7 @@ To create a forecast with the AWS CLI, use the `create-forecast` command. Provid
 
 For information on required and optional parameters see [CreateForecast](API_CreateForecast.md).
 
-```
+```cmd
 aws forecast create-forecast \
 --forecast-name {{forecast_name}} \
 --forecast-types 0.1 0.5 0.9 \
@@ -68,7 +67,7 @@ To create a forecast with the AWS SDK for Python (Boto3), use the `create_foreca
 
 For information on required and optional parameters see [CreateForecast](API_CreateForecast.md).
 
-```
+```python
 import boto3
                 
 forecast = boto3.client('forecast')
@@ -116,7 +115,7 @@ The following CSV file selects the following five time series:
 
 1. Item\_id: 003, store\_location: Denver
 
-```
+```csv
 001, Seattle
 001, New York
 002, Seattle
@@ -183,7 +182,7 @@ To export a forecast with the SDK for Python (Boto3) you use the `export_forecas
 
 For more information about required and optional parameters, see [CreateForecastExportJob](API_CreateForecastExportJob.md) operation.
 
-```
+```python
 import boto3
            
 forecast = boto3.client('forecast')

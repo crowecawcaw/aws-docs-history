@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Weather Index
-<a name="weather"></a>
 
 The Amazon Forecast Weather Index is a built-in featurization that incorporates historical and projected weather information into your model. It is especially useful for retail use cases, where temperature and precipitation can significantly affect product demand.
 
@@ -51,7 +50,7 @@ You can enable the Weather Index using the Forecast console or the Forecast Soft
 
 Using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, enable the Weather Index by adding `"Name": "weather"` and `"Value": "true"` in the [AdditionalDataset](API_AdditionalDataset.md) data type.
 
-```
+```json
     "DataConfig": { 
         ...
         "AdditionalDatasets": [
@@ -151,7 +150,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 Using the console or [CreateDataset](API_CreateDataset.md) operation, define the location attribute type as 'geolocation' within the JSON schema for the target time series and any related time series. The attributes in the schema must be ordered as they appear in the datasets.
 
-```
+```json
  { 
   "Attributes":[
     {
@@ -208,7 +207,7 @@ Using the [ CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, se
 
 For example, to specify the latitude & longitude format, include the following in `CreateDatasetImportJob` request:
 
-```
+```json
 {
     ...
     "GeolocationFormat": "LAT_LONG"
@@ -254,7 +253,7 @@ You can automatically sync your timestamps with your geolocation attribute using
 
 Using the [ CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, set `"UseGeolocationForTimeZone"` to `"true"`.
 
-```
+```json
 {
     ...
     "UseGeolocationForTimeZone": "true"
@@ -366,7 +365,7 @@ Using the [ CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, se
 
 For example, use the following to apply Los Angeles time (Pacific Standard Time) to your datasets. 
 
-```
+```json
 {
     ...
     "TimeZone": "America/Los_Angeles"

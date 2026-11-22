@@ -3,7 +3,6 @@
  Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Identity-based policy examples for Amazon Forecast
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Forecast resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -17,7 +16,7 @@ Whenever an operation is invoked, Amazon Forecast performs a set of authenticati
 + If a KMS key is provided in the encryption configuration, then kms:Decrypt and kms:GenerateDataKey validation is performed on the caller's permissions. This key can differ for each operation performed in Amazon Forecast. You will receive an AccessDeniedException in the event that you do not have the relevant permissions. The key policy should resemble the following code:  
 **Example**  
 
-  ```
+  ```JSON
   "Effect": "Allow",
   "Principal": {
       "AWS": “{{AWS Invoking Identity}}”
@@ -69,7 +68,7 @@ The following policy grants full access to all Amazon Forecast actions when usin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ The following policy grants full access to all Amazon Forecast actions when usin
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -179,7 +178,7 @@ You might choose to create a user who has permissions for all Amazon Forecast ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -218,7 +217,7 @@ You might choose to create a user who has permissions for all Amazon Forecast ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
