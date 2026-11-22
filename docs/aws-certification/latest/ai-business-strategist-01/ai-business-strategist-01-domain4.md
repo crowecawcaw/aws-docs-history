@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Business Readiness, Leadership, and AI Transformation
-<a name="ai-business-strategist-01-domain4"></a>
 
 **Topics**
 + [Task 4.1: Assess AI business readiness and maturity.](#ai-business-strategist-01-domain4-task1)

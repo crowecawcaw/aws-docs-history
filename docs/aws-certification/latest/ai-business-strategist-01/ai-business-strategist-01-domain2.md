@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: AI Strategy and Business Value Creation
-<a name="ai-business-strategist-01-domain2"></a>
 
 **Topics**
 + [Task 2.1: Develop AI strategies that align with business objectives.](#ai-business-strategist-01-domain2-task1)

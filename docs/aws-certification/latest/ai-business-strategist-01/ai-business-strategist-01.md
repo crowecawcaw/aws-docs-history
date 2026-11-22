@@ -1,7 +1,6 @@
 
 
 # AWS Certified AI Business Strategist (AIB-C01)
-<a name="ai-business-strategist-01"></a>
 
 The AWS Certified AI Business Strategist (AIB-C01) exam is intended for individuals who evaluate, champion, or scale AI initiatives in their organizations or for their clients. The exam validates a candidate's ability to translate AI capabilities into business outcomes, establish responsible AI practices, and drive AI adoption at scale.
 

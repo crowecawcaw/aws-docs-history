@@ -1,7 +1,6 @@
 
 
 # Out-of-scope AWS services and features
-<a name="aib-01-out-of-scope-services"></a>
 
 This exam focuses on AI strategy, governance, and business transformation rather than technical implementation. AWS services and features outside the in-scope list are out of scope, including but not limited to the following categories and services:
 + Infrastructure and compute (for example, Amazon EC2, AWS Lambda)
