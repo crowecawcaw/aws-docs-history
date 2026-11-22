@@ -1,7 +1,6 @@
 
 
 # Send Fanout Event Notifications
-<a name="send-fanout-event-notifications"></a>
 
 
 |  |  | 
