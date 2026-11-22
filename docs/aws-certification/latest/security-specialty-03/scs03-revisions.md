@@ -1,7 +1,6 @@
 
 
 # Revisions
-<a name="scs03-revisions"></a>
 
 AWS exam guides are periodically reviewed and updated to ensure that our certification exams test skills and AWS services and features that are relevant for the job role(s) that a certification is designed to target. Exam guide updates will be published approximately one month before updates will be reflected on your exam.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Certified Security - Specialty (SCS-C03)
-<a name="security-specialty-03"></a>
 
 The AWS Certified Security - Specialty exam is intended for individuals who have a responsibility to secure cloud solutions. The exam validates a candidate's ability to effectively demonstrate knowledge about securing AWS products and services.
 

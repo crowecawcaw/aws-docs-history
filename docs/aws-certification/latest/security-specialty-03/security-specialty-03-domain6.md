@@ -1,7 +1,6 @@
 
 
 # Content Domain 6: Security Foundations and Governance
-<a name="security-specialty-03-domain6"></a>
 
 **Topics**
 + [Task 6.1: Develop a strategy to centrally deploy and manage AWS accounts](#security-specialty-03-domain6-task1)

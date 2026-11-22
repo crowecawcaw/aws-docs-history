@@ -1,7 +1,6 @@
 
 
 # In-Scope AWS Services
-<a name="scs-02-in-scope-services"></a>
 
 **Note:** Security affects all AWS services. Many services do not appear in this list because the overall service is out of scope, but the security aspects of the service are in scope. For example, a candidate for this exam would not be asked about the steps to set up replication for an S3 bucket. However, the candidate might be asked about configuring an S3 bucket policy.
 

@@ -1,7 +1,6 @@
 
 
 # Appendix: Comparison of SCS-C02 and SCS-C03
-<a name="security-specialty-03-appendix-b"></a>
 
 ## Side-by-side comparison
 <a name="security-specialty-03-side-by-side"></a>

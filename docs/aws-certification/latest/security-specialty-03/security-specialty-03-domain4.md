@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Identity and Access Management
-<a name="security-specialty-03-domain4"></a>
 
 **Topics**
 + [Task 4.1: Design, implement, and troubleshoot authentication strategies](#security-specialty-03-domain4-task1)
