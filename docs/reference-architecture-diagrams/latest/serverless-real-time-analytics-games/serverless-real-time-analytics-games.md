@@ -1,7 +1,6 @@
 
 
 # Serverless Real-Time Analytics for Games
-<a name="serverless-real-time-analytics-games"></a>
 
 Publication date: **August 9, 2021 ([Diagram history](#analytics-history))**
 
