@@ -1,7 +1,6 @@
 
 
 # Viewing AWS managed notifications in AWS User Notifications
-<a name="viewing-managed-notifications"></a>
 
 You can view AWS managed notifications in the Console Notification Center, using the AWS Console Mobile Application, and from your chosen delivery channels. By default, these notifications are sent to your primary contact and alternate contact email addresses.
 

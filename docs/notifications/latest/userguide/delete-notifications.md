@@ -1,7 +1,6 @@
 
 
 # Deleting notification configurations in AWS User Notifications
-<a name="delete-notifications"></a>
 
 You can stop receiving notifications by deleting notification configurations.
 

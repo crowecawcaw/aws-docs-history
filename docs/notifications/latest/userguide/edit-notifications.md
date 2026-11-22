@@ -1,7 +1,6 @@
 
 
 # Editing notification configurations in AWS User Notifications
-<a name="edit-notifications"></a>
 
 You can change which configurations create notifications by editing your notification configurations.
 

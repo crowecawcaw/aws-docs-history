@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling opt-in Regions in AWS User Notifications
-<a name="nhr-optin-out"></a>
 
 Although most AWS Regions are active by default for your AWS account, certain Regions are activated only when you manually select them. This document refers to those Regions as *opt-in Regions*. In contrast, Regions that are active by default, as soon as your AWS account is created, are referred to as *commercial Regions*, or simply, *Regions*.
 

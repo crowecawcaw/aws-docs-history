@@ -1,7 +1,6 @@
 
 
 # Resource-level permissions in AWS User Notifications
-<a name="resource-level-permissions"></a>
 
 *Resource-level permissions* define the AWS resources that you allow assigned entities (users, groups, and roles) to perform actions on. You specify the Amazon Resource Name (ARN) of one or more resources as part of an IAM policy. You can then attach this policy to IAM entities. When the action doesn't act on a named resource or you grant permission to perform the action on all resources, the value for the resource in the policy is a wildcard (\*). 
 
@@ -86,7 +85,7 @@ This policy allows a user to call all available API actions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -114,7 +113,7 @@ This policy allows a user to call all get and list API actions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -145,7 +144,7 @@ This policy denies a user the ability to update a notification configuration.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -172,7 +171,7 @@ This policy allows users to create notification configurations and associate ema
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -206,7 +205,7 @@ This policy allows users full create, read, update, and delete (CRUD) access.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -235,7 +234,7 @@ This policy grants a user full read-write access to AWS User Notifications by li
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -306,7 +305,7 @@ This policy grants a user full read-write access to AWS User Notifications by li
 
 This policy demonstrates least-privilege access by scoping managed notification permissions to a specific category (and optionally a specific sub-category) using resource-level ARNs. Replace the category (and optionally the sub-category) in the ARN to match your use case. This example uses AWS Health managed notifications.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

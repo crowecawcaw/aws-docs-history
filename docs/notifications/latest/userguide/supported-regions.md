@@ -1,7 +1,6 @@
 
 
 # Supported Regions for User Notifications
-<a name="supported-regions"></a>
 
 User Notifications is available in the following AWS Regions:
 + US East (Ohio)

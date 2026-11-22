@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS User Notifications
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS User Notifications and your other AWS solutions. AWS provides the following monitoring tools to watch User Notifications, report problems, and take automatic actions when appropriate:
 + *Amazon CloudWatch* monitors your AWS resources and the applications that you run on AWS in real time. You can collect and track metrics, and create customized dashboards. You can also set alarms that notify you or act automatically when a specified metric reaches a threshold that you specify. For example, you can have CloudWatch track CPU usage or other metrics of your Amazon EC2 instances. When demand on your instances reaches a set threshold, CloudWatch can automatically launch new instances as needed. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).

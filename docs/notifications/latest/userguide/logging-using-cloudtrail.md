@@ -1,7 +1,6 @@
 
 
 # Logging AWS User Notifications API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS User Notifications integrates with AWS CloudTrail, a service that records actions taken by users, roles, or AWS services in User Notifications. CloudTrail captures all API calls for User Notifications as events. The calls captured include calls from the User Notifications console and code calls to User Notifications API operations. If you create a trail, you can receive continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for User Notifications. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. With the information collected by CloudTrail, you can identify the following details:
 + The request made to User Notifications.
@@ -43,7 +42,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `AssociateChannel` action.
 
-```
+```json
 {
   "eventVersion" : "1.08",
   "userIdentity" : {

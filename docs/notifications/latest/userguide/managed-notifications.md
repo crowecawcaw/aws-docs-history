@@ -1,7 +1,6 @@
 
 
 # AWS managed notifications in AWS User Notifications
-<a name="managed-notifications"></a>
 
  Select AWS services generate AWS managed notifications by default. The following services are supported in User Notifications: 
 + **AWS Health** – Events that affect your AWS accounts and services

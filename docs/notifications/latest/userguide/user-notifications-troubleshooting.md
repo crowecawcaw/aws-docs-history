@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS User Notifications
-<a name="user-notifications-troubleshooting"></a>
 
 In this section, you can find answers to some common questions and concerns.
 

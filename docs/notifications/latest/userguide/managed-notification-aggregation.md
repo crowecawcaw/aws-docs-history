@@ -1,7 +1,6 @@
 
 
 # Aggregating and deduplicating AWS managed notifications in User Notifications
-<a name="managed-notification-aggregation"></a>
 
 You can aggregate AWS Health managed notifications across accounts within the same organization. To use aggregation, your management account or delegated administrator must [enable trusted access](uno-orgs.md) with AWS Organizations. User Notifications then combines related events from multiple member accounts into a single notification, reducing the total number of notifications you receive.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing delivery channel details in AWS User Notifications
-<a name="detail-delivery-channels"></a>
 
 You can view delivery channel details from the User Notifications console. Viewable details vary by delivery channel type, but generally include the delivery channel name, endpoint, and status.
 

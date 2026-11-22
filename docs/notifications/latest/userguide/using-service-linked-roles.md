@@ -1,7 +1,6 @@
 
 
 # Using Service-Linked Roles for User Notifications
-<a name="using-service-linked-roles"></a>
 
 AWS User Notifications uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to User Notifications. Service-linked roles are predefined by User Notifications and include all the permissions that the service requires to call other AWS services on your behalf. 
 

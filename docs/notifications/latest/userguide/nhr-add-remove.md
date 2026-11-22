@@ -1,7 +1,6 @@
 
 
 # Adding or removing a notification hub in AWS User Notifications
-<a name="nhr-add-remove"></a>
 
 You can add or remove a notification hub using the AWS Management Console. When you add a new notification hub, User Notifications replicates new notifications into that Region. User Notifications doesn’t backfill earlier notifications. When you remove a notification hub, User Notifications stops replicating new notifications into that Region. User Notifications doesn’t remove previous notifications from that Region. However, notifications expire 90 days after they are generated.
 

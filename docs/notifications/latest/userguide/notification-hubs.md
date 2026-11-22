@@ -1,7 +1,6 @@
 
 
 # Storing, processing, and replicating notifications using notification hubs in AWS User Notifications
-<a name="notification-hubs"></a>
 
 Notification hubs are an account-level setting that identify the AWS Regions where you store, process, and replicate notifications. You must select at least one notification hub before you create any notification configurations. If you have no notification hubs, the console prompts you to choose at least one before you create a notification configuration. You can also edit notification hubs from **Notification hubs** in the navigation pane. Currently, you can select up to three Regions. 
 

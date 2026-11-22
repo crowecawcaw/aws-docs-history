@@ -1,7 +1,6 @@
 
 
 # Creating your first notification configuration in AWS User Notifications
-<a name="getting-started"></a>
 
 To get started using User Notifications to help manage your notifications, use the following steps to create a notification configuration.
 

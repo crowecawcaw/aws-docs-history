@@ -1,7 +1,6 @@
 
 
 # Removing delivery channels in AWS User Notifications
-<a name="remove-delivery-channels"></a>
 
 You can remove delivery channels from notification configurations and toggle off AWS managed notification subscription categories from a delivery channel's detail view. When you remove a delivery channel, notifications are no longer sent to that location.
 

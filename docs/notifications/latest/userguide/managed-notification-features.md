@@ -1,7 +1,6 @@
 
 
 # Features
-<a name="managed-notification-features"></a>
 
 AWS User Notifications provides the following features for managing your AWS managed notifications.
 

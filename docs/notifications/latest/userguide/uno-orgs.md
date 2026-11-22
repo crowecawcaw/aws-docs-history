@@ -1,7 +1,6 @@
 
 
 # Enabling AWS Organizations in AWS User Notifications
-<a name="uno-orgs"></a>
 
 **Note**  
 If you previously enabled trusted access for User Notifications using the AWS Organizations API, you might be missing User Notifications configurations that allow the service to function properly. Use the AWS Organizations API or AWS CLI to disable trusted access, then use the following procedure to [enable trusted access](#enable-ta).

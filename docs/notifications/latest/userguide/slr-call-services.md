@@ -1,7 +1,6 @@
 
 
 # AWS User Notifications service-Linked Role for calling AWS services, publishing metrics, and using AWS Organizations
-<a name="slr-call-services"></a>
 
 User Notifications uses the service-linked role named **AWSServiceRoleForAWSUserNotifications**. This role allows User Notifications to call AWS services on your behalf and use AWS Organizations to manage your notification configurations across your organizations. It also allows the role to publish metrics in the `AWS/Notifications` namespace.
 

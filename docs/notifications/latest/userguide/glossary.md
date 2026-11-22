@@ -1,7 +1,6 @@
 
 
 # Glossary for AWS User Notifications
-<a name="glossary"></a>
 
 
 | Term | Definition | 

@@ -1,7 +1,6 @@
 
 
 # Adding delivery channels in AWS User Notifications
-<a name="manage-delivery-channels"></a>
 
 You can add delivery channels for both user-configured notifications and AWS managed notifications from the User Notifications console to have your notifications sent to other locations.
 

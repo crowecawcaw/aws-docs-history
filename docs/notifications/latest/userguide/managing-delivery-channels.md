@@ -1,7 +1,6 @@
 
 
 # Delivery channels in AWS User Notifications
-<a name="managing-delivery-channels"></a>
 
 Delivery channels are locations where you can send notifications. You can send notifications to multiple channels, including email addresses, chat channels, and mobile devices.
 

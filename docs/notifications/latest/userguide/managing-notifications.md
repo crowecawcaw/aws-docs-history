@@ -1,7 +1,6 @@
 
 
 # Notification configurations in AWS User Notifications
-<a name="managing-notifications"></a>
 
 Notification configurations are containers for the services and event rules you want to be notified about. Event rules match incoming changes in your AWS environment and generate notifications based on those changes. You can manage notification configurations using the AWS User Notifications Console. Get started by [creating a notification configuration](getting-started.md).
 

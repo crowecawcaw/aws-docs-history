@@ -1,7 +1,6 @@
 
 
 # Tagging your AWS User Notifications resources
-<a name="tagging-resources"></a>
 
 A tag is a label that you assign to an AWS resource. Each tag consists of a key and an optional value, both of which you define. Tags help you manage, search for, and filter resources.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Billing and Cost Management notifications
-<a name="managed-notifications-bcm"></a>
 
 Billing and Cost Management sends managed notifications about your billing, payment, and account activity through AWS User Notifications. You receive these notifications in the Console Notification Center, by email (your account's root user email address, plus additional addresses that you add), in the AWS Console Mobile Application, and in Amazon Q Developer in chat applications (such as Slack and Microsoft Teams).
 

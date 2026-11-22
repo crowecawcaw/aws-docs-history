@@ -1,7 +1,6 @@
 
 
 # Deleting email addresses for user-configured notifications in AWS User Notifications
-<a name="delete-delivery-channels"></a>
 
 You can delete emails used as delivery channels. When you delete an email address, it's removed from all associated notification configurations. If you delete an email address, you must verify it again if you add it back.
 

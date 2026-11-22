@@ -1,7 +1,6 @@
 
 
 # AWS Health notifications in AWS User Notifications
-<a name="managed-notifications-health"></a>
 
 AWS Health sends managed notifications about events that affect your AWS accounts and services. You receive these notifications in the Console Notification Center and through the delivery channels that you configure.
 

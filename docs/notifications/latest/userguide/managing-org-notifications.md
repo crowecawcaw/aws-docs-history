@@ -1,7 +1,6 @@
 
 
 # Managing notifications across your organization with AWS User Notifications
-<a name="managing-org-notifications"></a>
 
 By default, you can use User Notifications to configure and view notifications for a single AWS account. If you use AWS Organizations, you can also configure and view notifications centrally across your organization. This provides access to the same information as single account operations. You can configure and view notifications about accounts included in specific organizational units (OUs) or all accounts in an organization.
 

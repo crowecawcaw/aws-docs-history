@@ -1,7 +1,6 @@
 
 
 # Adding and removing account contacts for AWS managed notifications in AWS User Notifications
-<a name="Add-remove-account-contacts"></a>
 
 You can determine which contacts receive AWS managed notifications by adding or removing them.
 
