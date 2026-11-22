@@ -1,7 +1,6 @@
 
 
 # Built-in tests in AWS Device Farm
-<a name="test-types-built-in-tests"></a>
 
 Device Farm provides support for built-in test types for Android and iOS devices. 
 

@@ -1,7 +1,6 @@
 
 
 # Skipping app re-signing on private devices in AWS Device Farm
-<a name="skip-app-re-signing-on-private-devices"></a>
 
 App signing is a process that involves digitally signing an app package (e.g., [APK](https://developer.android.com/studio/publish/app-signing), [IPA](https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web)) with a private key before it can be installed on a device or published to an app store like the Google Play Store or the Apple App Store. To streamline testing by reducing the number of signatures and profiles needed and increase data security on remote devices, AWS Device Farm re-signs your app after it has been uploaded to the service, except for Android test runs on the `amazon_linux_2023` test host.
 

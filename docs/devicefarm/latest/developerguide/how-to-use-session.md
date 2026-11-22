@@ -1,7 +1,6 @@
 
 
 # Using a remote access session in AWS Device Farm
-<a name="how-to-use-session"></a>
 
 For information about performing interactive testing of Android and iOS apps through remote access sessions, see [Sessions](sessions.md).
 + [Prerequisites](#how-to-use-session-prerequisites)
@@ -46,6 +45,25 @@ You can switch between portrait (vertical) and landscape (horizontal) view on th
 
 ![Change orientation](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/change_orientation_remote_access.gif)
 
+
+## Popping out the device screen
+<a name="how-to-use-session-pop-out"></a>
+
+You can move the device screen and the menu of actions from the session page to a separate browser window. Use the pop-out window to keep the device in view while you work in another app, such as your code editor. The session keeps running. You control the device in the pop-out window as you do on the session page.
+
+**To pop out the device screen**
+
+1. In the menu on the left-hand side of the device, choose **Pop out**. If the pop-out window doesn't open, allow pop-ups for the console in your browser, and try again.
+
+1. Place the pop-out window where you want it. In some browsers, such as Google Chrome and Microsoft Edge, the window stays on top of other windows. In other browsers, it is a regular window, and other windows can cover it.
+
+1. To move the device screen back to the session page, choose **Return to page** in either window, or close the pop-out window.
+
+While the pop-out window is open, the following apply:
++ Keep the session page open. You can switch to another tab or app. If you close or reload the session page, or go to another console page, the pop-out window closes.
++ **Network settings**, **Set location**, **Appium session**, and **Show Appium logs** work only on the session page. To use one of them, choose **Return to page** first.
++ The remaining session time, messages such as the result of an app installation, and **Stop session** stay on the session page.
++ When the session ends, the pop-out window closes.
 
 ## Changing network
 <a name="how-to-use-network-shaping"></a>

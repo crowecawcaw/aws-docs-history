@@ -1,7 +1,6 @@
 
 
 # Extending custom test environments in Device Farm
-<a name="custom-test-environments-extending"></a>
 
 AWS Device Farm enables configuring a custom environment for automated testing (custom mode), which is the recommended approach for all Device Farm users. The Device Farm custom mode enables you to run more than just your test suite. In this section, you learn how to extend your test suite and optimize your tests.
 

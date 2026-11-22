@@ -1,12 +1,11 @@
 
 
 # What is AWS Device Farm?
-<a name="welcome"></a>
 
 Device Farm is an app testing service that you can use to test and interact with your Android, iOS, and web apps on real, physical phones and tablets that are hosted by Amazon Web Services (AWS).
 
 There are two main ways to use Device Farm:
-+ Remotely access a device from your local computer, either interactively in your web browser or automatically testing it using Appium from a local client.
++ Remotely access a device from your local computer, either interactively in your web browser or automatically testing it using Appium from a local client. For Android devices, you can also use your local Android Debug Bridge (adb) tools.
 + Automatically execute app tests using Device Farm's managed test execution environment.
 
 **Note**  
@@ -20,6 +19,8 @@ Remote access allows you to interact with a device through your web browser in r
 Real-time interaction with a device can be useful for a number of scenarios, such as manual app testing, reproducing bugs on a specific device, checking the visual rendering of your app on different screen types, and app install and upgrade sequences. Device Farm's fully managed Appium endpoint enables you to develop, test, and debug your Appium tests, giving fast feedback.
 
 The Appium endpoint supports any language of your choice, any local IDE, live debugging with breakpoints, live video and logs, and tools like [Appium Inspector](https://github.com/appium/appium-inspector). You can execute tests as many times as you like on the same device during your remote access session with a [150-minute limit](limits.md#service-limits).
+
+For Android devices, [Device Connect for AWS Device Farm](device-connect.md) makes the remote access device appear to your adb tools, such as Android Studio, as a local device.
 
 During a remote access session, Device Farm logs details about actions that take place as you interact with the device. Logs with these details and a video capture of the session are produced at the end of the session.
 

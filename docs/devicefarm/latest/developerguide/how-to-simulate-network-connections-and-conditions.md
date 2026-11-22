@@ -1,7 +1,6 @@
 
 
 # Simulating network connections and conditions for your AWS Device Farm runs
-<a name="how-to-simulate-network-connections-and-conditions"></a>
 
 You can use network shaping to simulate network connections and conditions while testing your Android, iOS and web apps in Device Farm. For example, you can simulate lossy or intermittent internet connectivity.
 

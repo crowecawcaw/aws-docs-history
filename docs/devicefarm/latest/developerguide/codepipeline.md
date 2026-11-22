@@ -1,7 +1,6 @@
 
 
 # Integrating AWS Device Farm in a CodePipeline test stage
-<a name="codepipeline"></a>
 
  You can use [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/) to incorporate mobile app tests configured in Device Farm into an AWS-managed automated release pipeline. You can configure your pipeline to run tests on demand, on a schedule, or as part of a continuous integration flow.
 

@@ -1,7 +1,6 @@
 
 
 # Test spec reference and syntax
-<a name="custom-test-environment-test-spec"></a>
 
  The test spec (test specification) is a file that you use to define custom test environments in Device Farm. 
 
@@ -23,7 +22,7 @@
 
 The following is the YAML schema for a test spec file
 
-```
+```yaml
 version: 0.1
 
 android_test_host: "string"
@@ -92,7 +91,7 @@ A test spec must be formatted as a valid YAML file. If the indenting or spacing 
 
  The following is an example test spec file that simply logs `Hello world!` as a test run artifact. 
 
-```
+```yaml
 version: 0.1
 
 # The following field(s) allow you to select which Device Farm test host is used for your test run.
@@ -135,7 +134,7 @@ artifacts:
 
  The following is an example test spec file that configures an Appium Java TestNG test run on Android.. 
 
-```
+```yaml
 version: 0.1
 
 # The following fields(s) allow you to select which Device Farm test host is used for your test run. 
@@ -265,7 +264,7 @@ artifacts:
 
  The following is an example test spec file that configures an Appium Java TestNG test run on iOS. 
 
-```
+```yaml
 version: 0.1
 
 # The following fields(s) allow you to select which Device Farm test host is used for your test run. 
@@ -422,7 +421,7 @@ artifacts:
 
  The following is an example test spec file that configures an Appium Java TestNG test run on both Android and iOS. 
 
-```
+```yaml
 version: 0.1
 
 # The following fields(s) allow you to select which Device Farm test host is used for your test run. 

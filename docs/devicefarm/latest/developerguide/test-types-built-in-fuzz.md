@@ -1,7 +1,6 @@
 
 
 # Running Device Farm's built-in fuzz test (Android and iOS)
-<a name="test-types-built-in-fuzz"></a>
 
 Device Farm's built-in fuzz test randomly sends user interface events to devices and then reports results.
 

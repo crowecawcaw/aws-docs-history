@@ -1,7 +1,6 @@
 
 
 # Test environment for iOS devices
-<a name="custom-test-environments-hosts-ios"></a>
 
  For the full list of available test hosts and how to select one, see [Hosts for custom test environments](custom-test-environments-hosts.md). 
 
@@ -33,3 +32,32 @@
 <a name="ios-host-software-support"></a>
 
  In order to support iOS device testing, Device Farm test hosts for iOS devices come pre-configured with Xcode and its associated command line tooling. For other available software, please review the topic regarding [Supported software within custom test environments](custom-test-environments-hosts-software.md). 
+
+## Testing on iOS simulators
+<a name="ios-simulator-testing"></a>
+
+ iOS simulators on Device Farm run only on the `macos_tahoe` test host. To run on simulators, set `ios_test_host` to `macos_tahoe`. 
+
+### Required Appium capabilities for simulators
+<a name="ios-simulator-appium-capabilities"></a>
+
+ For an Appium test run on a simulator, set the `appium:isHeadless` capability to `true`. Without it, session creation fails with the error `Simulator.app does not exist`. 
+
+ You can keep `appium:isHeadless` set to `true` in a test spec that also runs on physical iOS devices. 
+
+ Set the WebDriverAgent capabilities as you do for physical iOS devices. To resolve `$DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH`, see [Selecting a WebDriverAgent version for iOS tests](test-types-appium.md#test-types-appium-select-wda). 
+
+ The following YAML test spec example sets the Appium default capabilities, including `appium:isHeadless`, for a simulator test run: 
+
+```yaml
+phases:
+  pre_test:
+    commands:
+      - |-
+        appium --base-path=$APPIUM_BASE_PATH --default-capabilities \
+          "{\"appium:udid\": \"$DEVICEFARM_DEVICE_UDID\", \
+          \"appium:usePrebuiltWDA\": true, \
+          \"appium:derivedDataPath\": \"$DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH\", \
+          \"appium:isHeadless\": true, \
+          \"appium:automationName\": \"XCUITest\"}"
+```

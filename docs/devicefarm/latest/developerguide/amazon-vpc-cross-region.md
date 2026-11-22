@@ -1,7 +1,6 @@
 
 
 # Amazon VPC across AWS Regions in AWS Device Farm
-<a name="amazon-vpc-cross-region"></a>
 
 Device Farm services are located only in the US West (Oregon) (`us-west-2`) Region. You can use Amazon Virtual Private Cloud (Amazon VPC) to reach a service in your Amazon Virtual Private Cloud in another AWS Region using Device Farm. If Device Farm and your service are in the same Region, see [Using Amazon VPC endpoint services with Device Farm - Legacy (not recommended)](amazon-vpc-endpoints.md).
 

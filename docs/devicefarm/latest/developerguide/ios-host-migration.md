@@ -1,7 +1,6 @@
 
 
 # Migrating your custom test environments to the new iOS test hosts
-<a name="ios-host-migration"></a>
 
  For the full list of available test hosts and how to select one, see [Hosts for custom test environments](custom-test-environments-hosts.md). 
 
@@ -45,7 +44,7 @@
 
    1.  Set `ios_test_host` to the test host that fits your test requirements. For example: 
 
-      ```
+      ```yaml
       ios_test_host: macos_tahoe
       ```
 
@@ -66,7 +65,7 @@
 
  For example, add the following line to use JDK 25 in your test environment: 
 
-```
+```yaml
 - devicefarm-cli use java 25
 ```
 
@@ -77,7 +76,7 @@
 
  Explicitly select the Appium version using the `devicefarm-cli`. On the `macos_tahoe` test host, Appium 3 is the default version: 
 
-```
+```yaml
 - devicefarm-cli use appium 3 # Selects the version
 - appium --version            # Prints the version
 ```

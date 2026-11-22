@@ -1,7 +1,6 @@
 
 
 # Setting a device PIN when running tests in Device Farm
-<a name="custom-test-environments-extending-set-pin"></a>
 
  Some applications require that you set a PIN on the device. Device Farm does not support setting a PIN on devices natively. However, this is possible with the following caveats: 
 + The device must be running Android 8 or above.
@@ -9,7 +8,7 @@
 
  To set the PIN in your tests, use the `pre_test` and `post_test` phases to set and remove the PIN, as shown following: 
 
-```
+```yaml
 phases:
     pre_test:
       - # ... among your pre_test commands

@@ -1,7 +1,6 @@
 
 
 # Reviewing your Appium server logs
-<a name="appium-endpoint-server-logs"></a>
 
 Once you've [started an Appium session](appium-endpoint-interaction.md), you can view the Appium server logs live in the Device Farm console, or download them after the remote access session ends. Here are the instructions for doing so:
 

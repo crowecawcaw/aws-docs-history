@@ -1,11 +1,10 @@
 
 
 # Using Webhooks and other APIs after your tests run in Device Farm
-<a name="custom-test-environments-extending-webhooks"></a>
 
 You can have Device Farm call a webhook after every test suite finishes using **curl**. The process to do this varies with the destination and formatting. For your specific webhook, see the documentation for that webhook. The following example posts a message each time a test suite has finished to a Slack webhook:
 
-```
+```yaml
 phases:
   post_test:
     - curl -X POST -H 'Content-type: application/json' --data '{"text":"Tests on '$DEVICEFARM_DEVICE_NAME' have finished!"}' {{https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX}}
@@ -17,7 +16,7 @@ For more ways to extend your test suite and optimize your tests, see [Extending 
 
 You are not limited to using **curl** to call webhooks. Test packages can include extra scripts and tools, as long as they are compatible with the Device Farm execution environment. For example, your test package may include auxiliary scripts that make requests to other APIs. Make sure that any required packages are installed alongside your test suite's requirements. To add a script that runs after your test suite is complete, include the script in your test package and add the following to your test spec:
 
-```
+```yaml
 phases:
   post_test:
     - {{python post_test.py}}

@@ -1,7 +1,6 @@
 
 
 # Adding extra files to your test package in Device Farm
-<a name="custom-test-environments-extending-files"></a>
 
 You may want to use additional files as a part of your tests either as extra configuration files or additional test data. You can add these additional files to your test package before uploading it to AWS Device Farm, then access them from the custom environment mode. Fundamentally, all test package upload formats (ZIP, IPA, APK, JAR, etc.) are package archive formats that support standard ZIP operations.
 

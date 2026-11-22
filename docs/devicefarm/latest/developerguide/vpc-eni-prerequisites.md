@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="vpc-eni-prerequisites"></a>
 
 The following list describes some requirements and suggestions to review when creating VPC-ENI configurations:
 + Private devices must be assigned to your AWS Account.

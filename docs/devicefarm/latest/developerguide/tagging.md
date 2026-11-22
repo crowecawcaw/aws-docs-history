@@ -1,7 +1,6 @@
 
 
 # Tagging AWS Device Farm resources
-<a name="tagging"></a>
 
 AWS Device Farm works with the AWS Resource Groups Tagging API. This API allows you to manage resources in your AWS account with *tags*. You can add tags to resources, such as projects and test runs. 
 

@@ -1,7 +1,6 @@
 
 
 # Limits
-<a name="vpc-eni-limits"></a>
 
 The following limitations are applicable to the VPC-ENI feature:
 + You can provide up to five security groups in the VPC configuration of a Device Farm project. 

@@ -1,7 +1,6 @@
 
 
 # Test environments in AWS Device Farm
-<a name="test-environments"></a>
 
 AWS Device Farm provides both custom and standard test environments for running your automated tests. You can choose a custom test environment for complete control over your automated tests. Or, you can choose the Device Farm default standard test environment, which offers granular reporting of each test in your automated test suite.
 

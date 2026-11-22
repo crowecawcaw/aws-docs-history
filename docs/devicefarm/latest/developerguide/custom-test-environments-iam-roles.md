@@ -1,7 +1,6 @@
 
 
 # Access AWS resources using an IAM Execution Role
-<a name="custom-test-environments-iam-roles"></a>
 
  Device Farm supports specifying an IAM role that will be assumed by the custom test runtime environment during test execution. This feature allows your tests to securely access AWS resources in your account, such as Amazon S3 buckets, DynamoDB tables, or other AWS services on which your application depends. 
 
@@ -42,7 +41,7 @@
 
 **Example**  
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -64,7 +63,7 @@
 
 **Example**  
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

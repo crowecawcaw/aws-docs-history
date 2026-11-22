@@ -1,11 +1,10 @@
 
 
 # Speeding up Appium-based tests in Device Farm through desired capabilities
-<a name="custom-test-environments-extending-speed"></a>
 
 When using Appium, you might find that the standard mode test suite is very slow. This is because Device Farm applies the default settings and doesn't make any assumptions about how you want to use the Appium environment. While these defaults are built around industry best practices, they might not apply to your situation. To fine-tune the parameters of the Appium server, you can adjust the default Appium capabilities in your test spec. For example, the following sets the `usePrebuildWDA` capability to `true` in an iOS test suite to speed up initial start time: 
 
-```
+```yaml
 phases:
   pre_test:
     - # ... Start up Appium

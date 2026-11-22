@@ -1,7 +1,6 @@
 
 
 # Integrating Device Farm with a Jenkins CI server
-<a name="continuous-integration-jenkins-plugin"></a>
 
 The Jenkins CI plugin provides AWS Device Farm functionality from your own Jenkins continuous integration (CI) server. For more information, see [Jenkins (software)](https://en.wikipedia.org/wiki/Jenkins_%28software%29).
 
@@ -102,7 +101,7 @@ The AWS root account or IAM user that you use to complete the following steps mu
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

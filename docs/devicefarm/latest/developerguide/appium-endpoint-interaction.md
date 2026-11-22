@@ -1,7 +1,6 @@
 
 
 # Interacting with the device using Appium
-<a name="appium-endpoint-interaction"></a>
 
 After you [create a remote access session](how-to-create-session.md), the device will be available for Appium testing. For the duration of the remote access session, you can run as many Appium sessions as you want on the device, with no limits on what clients you use. For example, you can start by running a test using your local Appium code from your IDE, then switch to using Appium Inspector to troubleshoot any issues you encounter. The session can last up to [150 minutes](limits.md#service-limits). However, if there is no activity for more than 5 minutes (through either the interactive console or the Appium endpoint), the session times out.
 
@@ -133,7 +132,7 @@ The following is an example of an IAM permissions policy that grants the recomme
 
 **Example**  
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

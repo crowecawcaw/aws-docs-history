@@ -1,7 +1,6 @@
 
 
 # Custom test environments in AWS Device Farm
-<a name="custom-test-environments"></a>
 
 AWS Device Farm enables configuring a custom environment for automated testing (custom mode), which is the recommended approach for all Device Farm users. To learn more about environments in Device Farm, see [Test environments](https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-environments.html). 
 

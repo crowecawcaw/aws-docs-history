@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Device Farm
-<a name="ATP-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Device Farm as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others. AWS Device Farm is not in scope of any AWS compliance programs.
 

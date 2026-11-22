@@ -1,13 +1,15 @@
 
 
 # AWS Device Farm document history
-<a name="history"></a>
 
 The following table describes the important changes to the documentation since the last release of this guide.
 
 
 | Change | Description | Date Changed | 
 | --- | --- | --- | 
+| Per-test video |  When a run records video, Test Insights now include per-test video. On the console, you can play the video from any test in the test report. For more information, see [Per-test video](reports.md#reports-test-insights-video).  | November 20, 2026 | 
+| Device Connect for adb access |  For Android devices, Device Connect for AWS Device Farm now makes a remote access device appear to your Android Debug Bridge (adb) tools, such as Android Studio, as a local device. For more information, see [Device Connect](device-connect.md).  | November 19, 2026 | 
+| Test Insights on by default |  Device Farm now generates Test Insights by default for runs in a custom test environment with a supported framework. Test Insights also cover Appium Java (JUnit), Appium Python, and Appium web app tests. See [Test Insights](reports.md#reports-test-insights) to learn more.  | October 28, 2026 | 
 | Test Insights for Appium Node.js |  Test Insights reports are now available for Appium Node.js tests. Device Farm builds the report from the WebdriverIO JSON or JUnit reporter output. See [View a test report](test-types-appium-integrate.md#test-types-appium-view-insights) to learn more.  | October 7, 2026 | 
 | Xcode 27 support |  Device Farm now offers Xcode 27 on the `macos_tahoe` test host, supporting iOS 18 to 27. See [Supported software within custom test environments](custom-test-environments-hosts-software.md) to learn more.  | September 14, 2026 | 
 | Test Insights reports |  Test Insights reports are now available for supported frameworks in custom test environments. Test Insights include passed, failed, skipped, and errored test counts for each job and run; detailed test output with timestamps and stack traces; and test and job execution times. See [Test Insights](reports.md#reports-test-insights) to learn more.  | August 6, 2026 | 

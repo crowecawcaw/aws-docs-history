@@ -1,7 +1,6 @@
 
 
 # Best practices for custom test environment execution
-<a name="custom-test-environments-best-practices"></a>
 
  The following topics cover recommended best practices for using custom test execution with Device Farm. 
 

@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Device Farm
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Device Farm (Device Farm). As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -19,6 +18,8 @@ We strongly recommend that you never put confidential or sensitive information, 
 <a name="data-protection-encryption-transit"></a>
 
  The Device Farm endpoints only support signed HTTPS (SSL/TLS) requests except where otherwise noted. All content retrieved from or placed in Amazon S3 through upload URLs is encrypted using SSL/TLS. For more information on how HTTPS requests are signed in AWS, see [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the AWS General Reference.
+
+Device Connect for AWS Device Farm connects to your remote access session only over TLS.
 
 It is your responsibility to encrypt and secure any communications that your tested applications make and any applications installed in the process of running on-device tests.
 

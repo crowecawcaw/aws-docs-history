@@ -1,7 +1,6 @@
 
 
 # AWS access control and IAM
-<a name="vpc-eni-access-control"></a>
 
 AWS Device Farm allows you to use [AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) (IAM) to create policies granting or restricting access to Device Farm's features. To use the VPC Connectivity feature with AWS Device Farm, the following IAM Policy is required for the user account or role that you are using to access AWS Device Farm:
 
@@ -10,7 +9,7 @@ AWS Device Farm allows you to use [AWS Identity and Access Management](https://d
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{

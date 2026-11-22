@@ -1,7 +1,6 @@
 
 
 # Automating AWS Device Farm
-<a name="api-ref"></a>
 
  Programmatic access to Device Farm is a powerful way to automate the common tasks that you need to accomplish, such as scheduling a run or downloading the artifacts for a run, suite, or test. The AWS SDK and AWS CLI provide means to do so. 
 
@@ -110,7 +109,7 @@ This will show output such as the following:
 
 First, create a project if you haven't already done so.
 
-```
+```python
 import boto3
 
 client = boto3.client("devicefarm", region_name="us-west-2")
@@ -129,7 +128,7 @@ print(resp)
 
 Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
-```
+```python
 import os
 import time
 import datetime
@@ -198,7 +197,7 @@ upload_device_farm_file()
 
 First, create a project if you haven't already done so.
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.devicefarm.DeviceFarmClient;
 import software.amazon.awssdk.services.devicefarm.model.CreateProjectRequest;
@@ -217,7 +216,7 @@ try (DeviceFarmClient client = DeviceFarmClient.builder()
 
 Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
-```
+```java
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -325,7 +324,7 @@ public class DeviceFarmUploader {
 
 First, create a project if you haven't already done so.
 
-```
+```javascript
 import { DeviceFarmClient, CreateProjectCommand } from "@aws-sdk/client-device-farm";
 
 const df = new DeviceFarmClient({ region: "us-west-2" });
@@ -337,7 +336,7 @@ console.log(resp);
 
 Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
-```
+```javascript
 import { DeviceFarmClient, CreateUploadCommand, GetUploadCommand } from "@aws-sdk/client-device-farm";
 import { createReadStream } from "fs";
 import { basename } from "path";
@@ -397,7 +396,7 @@ while (true) {
 
 First, create a project if you haven't already done so.
 
-```
+```csharp
 using System;
 using Amazon;
 using Amazon.DeviceFarm;
@@ -412,7 +411,7 @@ Console.WriteLine(resp.Project);
 
 Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -489,7 +488,7 @@ class DeviceFarmUploader
 
 First, create a project if you haven't already done so.
 
-```
+```ruby
 require "aws-sdk-devicefarm"
 
 client = Aws::DeviceFarm::Client.new(region: "us-west-2")
@@ -501,7 +500,7 @@ puts resp.project.inspect
 
 Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
-```
+```ruby
 require "aws-sdk-devicefarm"
 require "net/http"
 require "uri"
@@ -566,7 +565,7 @@ end
 
 This example depends on the third-party `requests` package to interact with HTTP.
 
-```
+```python
 import boto3
 import os
 import requests

@@ -1,7 +1,6 @@
 
 
 # Instrumentation for Android and AWS Device Farm
-<a name="test-types-android-instrumentation"></a>
 
 Device Farm provides support for Instrumentation (JUnit, Espresso, Robotium, or any Instrumentation-based tests) for Android.
 

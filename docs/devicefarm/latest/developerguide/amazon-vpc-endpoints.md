@@ -1,7 +1,6 @@
 
 
 # Using Amazon VPC endpoint services with Device Farm - Legacy (not recommended)
-<a name="amazon-vpc-endpoints"></a>
 
 **Warning**  
 We strongly recommend using the VPC-ENI connectivity described on [this](https://docs.aws.amazon.com/devicefarm/latest/developerguide/vpc-eni.html) page for private endpoint connectivity as VPCE is now considered a legacy feature. VPC-ENI provides more flexibility, simpler configurations, is more cost efficient, and requires significantly less maintenance overhead when compared to the VPCE connectivity method.  

@@ -1,7 +1,6 @@
 
 
 # Creating a test run or starting a remote access session in AWS Device Farm
-<a name="create-test-run-using-private-devices"></a>
 
 In AWS Device Farm, after you set up a private device fleet, you can create test runs or start remote access sessions with one or more private devices in your fleet. For more information about private devices, see [Private devices in AWS Device Farm](working-with-private-devices.md).
 

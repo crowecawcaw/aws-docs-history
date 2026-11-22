@@ -1,7 +1,6 @@
 
 
 # Creating a remote access session in AWS Device Farm
-<a name="how-to-create-session"></a>
 
 For information about remote access sessions, see [Sessions](sessions.md).
 + [Prerequisites](#how-to-create-session-prerequisites)
@@ -585,10 +584,10 @@ Device Farm starts the session as soon as the requested device and infrastructur
 
 If the selected device is unavailable or busy, the session status shows as **Pending Device**, indicating that you may need to wait for some time before the device is available for testing.
 
-If your account has reached its concurrency limit for public metered or unmetered devices, the session status shows as **Pending concurrency**. For unmetered device slots, you can increase concurrency by [purchasing more device slots](how-to-purchase-device-slots.md). For metered pay-as-you-go devices, please contact AWS via a support ticket to request [a service quota increase](limits.md).
+If your account has reached its concurrency limit for public metered or unmetered devices, the session status shows as **Pending concurrency**. For unmetered device slots, you can increase concurrency by [purchasing more device slots](how-to-purchase-device-slots.md). For metered pay-as-you-go devices, including iOS simulators, you can request [a service quota increase](limits.md) in the Service Quotas console.
 
 When the session setup begins, it first shows a status of **In-Progress**, then a status of **Connecting** while your local web browser attempts to open a remote connection to the device.
 
 After a session starts, if you should close the browser or browser tab without stopping the session or if the connection between the browser and the internet is lost, the session remains active for five minutes. After that, Device Farm ends the session. Your account is charged for the idle time. 
 
-After the session starts, you can interact with the device in the web browser, or test the device using [Appium](appium-endpoint.md).
+After the session starts, you can interact with the device in the web browser, or test the device using [Appium](appium-endpoint.md). For Android devices, [Device Connect for AWS Device Farm](device-connect.md) makes the device appear to your Android Debug Bridge (adb) tools as a local device.

@@ -1,23 +1,16 @@
 
 
 # Troubleshooting Device Farm errors
-<a name="troubleshooting"></a>
 
 In this section, you will find error messages and procedures to help you fix common problems with Device Farm.
 
 **Note**  
 To troubleshoot Appium tests that unexpectedly fail on Device Farm, please see our guide for [client-side Appium testing](appium-endpoint.md)
 
+**Note**  
+To troubleshoot problems with Device Connect for AWS Device Farm, see [Troubleshooting Device Connect](device-connect-troubleshooting.md).
+
 **Topics**
-+ [Troubleshooting Android application tests in AWS Device Farm](troubleshooting-android-applications.md)
-+ [Troubleshooting Appium Java JUnit tests in AWS Device Farm](troubleshooting-appium-java-junit.md)
-+ [Troubleshooting Appium Java JUnit web application tests in AWS Device Farm](troubleshooting-appium-web-java-junit-tests.md)
-+ [Troubleshooting Appium Java TestNG tests in AWS Device Farm](troubleshooting-appium-java-testng.md)
-+ [Troubleshooting Appium Java TestNG web applications in AWS Device Farm](troubleshooting-appium-web-java-testng.md)
-+ [Troubleshooting Appium Python tests in AWS Device Farm](troubleshooting-appium-python.md)
-+ [Troubleshooting Appium Python web application tests in AWS Device Farm](troubleshooting-appium-web-python.md)
-+ [Troubleshooting Appium Node.js tests in AWS Device Farm](troubleshooting-appium-node.md)
-+ [Troubleshooting instrumentation tests in AWS Device Farm](troubleshooting-instrumentation-tests.md)
-+ [Troubleshooting iOS application tests in AWS Device Farm](troubleshooting-ios-applications.md)
-+ [Troubleshooting XCTest tests in AWS Device Farm](troubleshooting-xctest.md)
-+ [Troubleshooting XCTest UI tests in AWS Device Farm](troubleshooting-xctest-ui.md)
++ [Troubleshooting Android and iOS applications in AWS Device Farm](troubleshooting-applications.md)
++ [Troubleshooting test and application packaging for use in AWS Device Farm](troubleshooting-packaging.md)
++ [Troubleshooting test reports and insights in AWS Device Farm](troubleshooting-test-insights.md)

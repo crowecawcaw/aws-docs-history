@@ -1,7 +1,6 @@
 
 
 # Getting started with Appium testing
-<a name="appium-endpoint-getting-started"></a>
 
 For most Appium users, using Device Farm for Appium testing requires only minor changes to your existing test configuration.
 

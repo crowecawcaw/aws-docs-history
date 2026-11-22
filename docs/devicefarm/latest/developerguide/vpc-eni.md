@@ -1,7 +1,6 @@
 
 
 # VPC-ENI in AWS Device Farm
-<a name="vpc-eni"></a>
 
 **Warning**  
 This feature is only available on [private devices](https://docs.aws.amazon.com/devicefarm/latest/developerguide/working-with-private-devices.html). To request private device use on your AWS account, please [contact us](mailto:aws-devicefarm-support@amazon.com). If you already have private devices added to your AWS account, we strongly recommend using this method of VPC connectivity.

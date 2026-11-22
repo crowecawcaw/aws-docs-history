@@ -1,7 +1,6 @@
 
 
 # Creating a device pool in AWS Device Farm
-<a name="how-to-create-device-pool"></a>
 
 You can use the Device Farm console, AWS CLI, or API to create a device pool.
 

@@ -1,7 +1,6 @@
 
 
 # Device support in AWS Device Farm
-<a name="devices"></a>
 
 The following sections provide information about device support in Device Farm.
 
@@ -18,6 +17,14 @@ The following sections provide information about device support in Device Farm.
 <a name="devices-supported"></a>
 
 Device Farm provides support for hundreds of unique, popular Android and iOS devices and operating system combinations. The list of available devices grows as new devices enter the market. For the full list of devices, see the [interactive device list in your AWS console](https://us-west-2.console.aws.amazon.com/devicefarm/home?region=us-west-2#/mobile/publicdevices).
+
+Device Farm also supports virtual devices, which are Android emulators and iOS simulators. To test on virtual devices:
+
+1. Upload your app. For iOS, upload a simulator build of your app. For more information, see [Apps in AWS Device Farm](apps.md).
+
+1. Select virtual devices. Filter on the `DEVICE_TYPE` attribute with a value of `VIRTUAL`, either in a [device pool](how-to-create-device-pool.md) or in the device selection of your run. A device pool or a run cannot contain both virtual and physical devices.
+
+For more information, see [Testing on virtual devices in Device Farm](virtual-devices.md).
 
 ## Device pools
 <a name="devices-pools"></a>
@@ -47,7 +54,7 @@ There are two types of device slots:
 
   If you have one automated testing device slot, you can only run tests on one device at a time. If you purchase additional automated testing device slots, you can run multiple tests concurrently, on multiple devices, to get test results faster.
 
- You can purchase device slots based on the device family (Android or iOS devices for automated testing and Android or iOS devices for remote access). For more information, see [Device Farm Pricing](https://aws.amazon.com/device-farm/pricing/).
+ You can purchase device slots based on the device family (Android or iOS devices for automated testing and Android or iOS devices for remote access). Android device slots also cover Android emulators, and iOS device slots cover physical iOS devices only. For iOS simulators, see [Device slots for Android emulators and iOS simulators](how-to-purchase-device-slots.md#how-to-purchase-device-slots-simulators). For more information, see [Device Farm Pricing](https://aws.amazon.com/device-farm/pricing/).
 
 ## Preinstalled device apps
 <a name="devices-apps"></a>

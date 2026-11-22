@@ -1,7 +1,6 @@
 
 
 # Device Farm test result statuses
-<a name="how-to-use-reports-displaying-results"></a>
 
 The Device Farm console displays icons that help you quickly assess the state of your completed test run. For more information about tests in Device Farm, see [Reports in AWS Device Farm](reports.md).
 

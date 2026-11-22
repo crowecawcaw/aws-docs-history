@@ -1,7 +1,6 @@
 
 
 # Identity and access management in AWS Device Farm
-<a name="security-iam"></a>
 
 ## Audience
 <a name="security_iam_audience"></a>

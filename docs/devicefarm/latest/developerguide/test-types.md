@@ -1,7 +1,6 @@
 
 
 # Test frameworks and built-in tests in AWS Device Farm
-<a name="test-types"></a>
 
 This section describes Device Farm support for testing frameworks and built-in test types.
 
@@ -41,7 +40,7 @@ Device Farm does not provide support for customizing the test environment for th
 ### Appium version support
 <a name="test-types-framework-appium"></a>
 
-For tests running in a custom environment, Device Farm supports Appium version 1. For more information, see [Test environments in AWS Device Farm](test-environments.md).
+For tests running in a custom environment, Device Farm supports Appium versions 1, 2, and 3. The available versions depend on the test host. For the list, see [Supported software within custom test environments](custom-test-environments-hosts-software.md).
 
 ## Built-in test types
 <a name="test-types-built-in"></a>

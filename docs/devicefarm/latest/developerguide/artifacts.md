@@ -1,7 +1,6 @@
 
 
 # Downloading artifacts in Device Farm
-<a name="artifacts"></a>
 
 Device Farm gathers artifacts such as reports, log files, and images for each test in the run.
 

@@ -1,7 +1,6 @@
 
 
 # Selecting private devices in a device pool in AWS Device Farm
-<a name="selecting-private-devices"></a>
 
 To use private devices in your test run, you can create a device pool that selects your private devices. Device pools enable you to select private devices primarily through three types of device pool rules: 
 

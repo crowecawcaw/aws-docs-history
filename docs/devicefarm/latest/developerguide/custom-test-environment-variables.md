@@ -1,7 +1,6 @@
 
 
 # Environment variables for custom test environments
-<a name="custom-test-environment-variables"></a>
 
  Device Farm dynamically configures several environment variables for use as part of your custom test environment run. 
 
@@ -32,6 +31,9 @@
 
 ** `$DEVICEFARM_DEVICE_PLATFORM_NAME` **  
  The device's platform name. It is either `Android` or `iOS`. 
+
+** `$DEVICEFARM_DEVICE_TYPE` **  
+ The type of the device under test. It is either `VIRTUAL` for a simulator or emulator, or `PHYSICAL` for a physical device. 
 
 ** `$DEVICEFARM_DEVICE_OS_VERSION` **  
  The device's OS version. 

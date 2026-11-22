@@ -1,7 +1,6 @@
 
 
 # Integrating XCTest UI for iOS with Device Farm
-<a name="test-types-ios-xctest-ui"></a>
 
 Device Farm provides support for the XCTest UI testing framework. Specifically, Device Farm supports XCTest UI tests written in both Objective-C and [Swift](https://developer.apple.com/swift/). 
 
@@ -23,13 +22,17 @@ Use the following instructions to integrate Device Farm with the XCTest UI testi
 ## Configure XCTest UI test reports using a custom test environment
 <a name="test-types-ios-xctest-ui-generate-reports"></a>
 
-Any test report that your tests write to `$DEVICEFARM_LOG_DIR` in your test spec YAML file is available in your test output artifacts after the run completes. Device Farm can also generate a test report of its own, called test insights, which gives you a per-test breakdown of results, durations, and stack traces for failures. You can view test insights in the console, and through the AWS CLI and APIs. Test insights are in addition to the artifacts that your tests produce, not a replacement for them.
+Any test report that your tests write to `$DEVICEFARM_LOG_DIR` in your test spec YAML file is available in your test output artifacts after the run completes. By default, Device Farm also generates its own test report, called test insights. Test insights give you a per-test breakdown of results, durations, and stack traces for failures. You can view test insights in the console, and through the AWS CLI and APIs. Test insights are in addition to the artifacts that your tests produce, not a replacement for them.
 
-Device Farm generates test insights for XCTest UI tests only when you run them in a custom test environment. For more information, see [Test environments in AWS Device Farm](test-environments.md).
+Before you begin, make sure that your run meets the following requirements:
++ Your run uses a custom test environment. Device Farm does not generate test insights in the standard test environment. For more information, see [Test environments in AWS Device Farm](test-environments.md).
++ Your run uses the `macos_sequoia` test host or a newer host, such as `macos_tahoe`. Device Farm does not generate test insights on older test hosts. To choose the test host, set `ios_test_host` in your test spec file. For more information, see [Selecting a test host for custom test environments](custom-test-environments-hosts.md#test-host-selection).
+
+To configure test reports for your XCTest UI tests:
 
 1. Run **xcodebuild** with `-derivedDataPath` set to `$DEVICEFARM_DERIVED_DATA_PATH`, so that Xcode writes the `.xcresult` bundle to that directory. Device Farm collects your test output artifacts from `$DEVICEFARM_DERIVED_DATA_PATH` and reads the bundle from there to build the report. The default XCTest UI test spec already does this:
 
-   ```
+   ```bash
    xcodebuild test-without-building \
      -destination id=$DEVICEFARM_DEVICE_UDID \
      -xctestrun $DEVICEFARM_XCUITESTRUN_FILE \
@@ -38,45 +41,27 @@ Device Farm generates test insights for XCTest UI tests only when you run them i
 
    If you point `-derivedDataPath` at a different directory, Device Farm does not collect the bundle, so it cannot build a report. You also do not receive screenshots.
 
-1. Opt in to test insights when you schedule the run. You can do this in the console or with the AWS CLI and APIs:
-   + In the console, in the **Run settings** section, under **Test Insights**, choose **Generate test report**. For more information, see [Run iOS XCTest UI tests (console)](#test-types-ios-xctest-ui-upload).
-   + With the AWS CLI or the API, set the `insightsTypes` field of the `configuration` parameter of **ScheduleRun** to `TEST_REPORT`:
+1. Schedule the run in a custom test environment. Test insights are on by default. If you don't set the `insightsTypes` field of the `configuration` parameter of your `ScheduleRun` request, Device Farm sets it to `TEST_REPORT`. To turn off test insights for a run, see [Creating a test run in Device Farm](how-to-create-test-run.md).
 
-     ```
-     aws devicefarm schedule-run \
-       --project-arn {{projectArn}} \
-       --device-pool-arn {{devicePoolArn}} \
-       --test type=XCTEST_UI,testPackageArn={{testPackageArn}},testSpecArn={{testSpecArn}} \
-       --configuration '{"insightsTypes":["TEST_REPORT"]}'
-     ```
+The result bundle records a start time for each test. When the run records video, you also get per-test video. For more information, see [Per-test video](reports.md#reports-test-insights-video).
 
-     Device Farm rejects `insightsTypes` if the run does not use a test spec, because test insights require a custom test environment.
-
-     For more information, see [ScheduleRun](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html) and [insightsTypes](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRunConfiguration.html#devicefarm-Type-ScheduleRunConfiguration-insightsTypes) in the *Device Farm API Reference*.
-
-To view the report after the run completes, see [View a test report (console)](#test-types-ios-xctest-ui-view-insights-console). If Device Farm does not generate a report, see [Test insights](troubleshooting-xctest-ui.md#troubleshooting-xctest-ui-insights).
+To view the report after the run completes, see [View a test report (console)](#test-types-ios-xctest-ui-view-insights-console). If Device Farm does not generate a report, see [Troubleshooting test reports and insights in AWS Device Farm](troubleshooting-test-insights.md).
 
 ## Prepare your iOS XCTest UI tests
 <a name="test-types-ios-xctest-ui-prepare"></a>
 
-You can either upload an `.ipa` file or a `.zip` file for your XCTEST\_UI test package.
+You can either upload an `.ipa` file or a `.zip` file for your XCTEST\_UI test package, for a runner built for physical devices or for iOS simulators alike.
 
 An `.ipa` file is an application archive containing the iOS Runner app in bundle format. *Additional files cannot be included inside the `.ipa` file.*
 
-If you upload a `.zip` file, it can contain either the iOS Runner app directly or an `.ipa` file. You can also include other files within the `.zip` file if you want to use them during the tests. For example you can include files like `.xctestrun`, `.xcworkspace` or `.xcodeproj` inside `.zip` file to run XCUI Test Plans on device farm. Detailed instructions on how to run Test Plans are available in the default test specification file for the XCUI Test type. 
+If you upload a `.zip` file, it can contain either the iOS Runner app directly or an `.ipa` file. You can also include other files within the `.zip` file if you want to use them during the tests. For example, you can include files like `.xctestrun`, `.xcworkspace`, or `.xcodeproj` inside the `.zip` file. Use these files to run XCUI Test Plans on Device Farm. Detailed instructions on how to run Test Plans are available in the default test specification file for the XCUI Test type. 
+
+Build the runner for the type of device that you test on. Each option that follows has steps for physical devices and steps for simulators.
 
 ## Option 1: Creating an XCTest UI .ipa package
 <a name="how-to-use-create-XCTestUI-ipa-package"></a>
 
-The *yourAppName*UITest-Runner.app bundle is produced by Xcode when you build your project for testing. It can be found in the Products directory for your project.
-
-To create an .ipa file:
-
-1. Create a directory called {{Payload}}.
-
-1. Add your app directory to the Payload directory.
-
-1. Archive the Payload directory into a `.zip` file and then change the file extension to `.ipa`.
+This is the recommended package format. Xcode produces the `{{app-project-name}}UITest-Runner.app` bundle when you build your project for testing, in the Products directory for your project.
 
  The following folder structure shows how an example app named {{my-project-nameUITest-Runner.app}} would be packaged as an `.ipa` file: 
 
@@ -87,10 +72,43 @@ To create an .ipa file:
         └── my-project-nameUITest-Runner.app
 ```
 
+### Physical devices
+<a name="how-to-use-create-XCTestUI-ipa-package-device"></a>
+
+Build the UI test target for a physical device. In Xcode, choose **Generic iOS Device** as the destination. Then, on the **Product** menu, choose **Build For**, and then choose **Testing**. Xcode writes the runner to `Build/Products/Debug-iphoneos/{{name}}-Runner.app` under the derived data path. Alternatively, run the following command from the directory that contains your project file:
+
+```bash
+xcodebuild build-for-testing -project {{MyApp}}.xcodeproj -scheme {{MyApp}} \
+    -sdk iphoneos -destination "generic/platform=iOS" -derivedDataPath build
+```
+
+Package the runner the same way as a device build of your app, with `{{name}}-Runner.app` inside the `Payload` directory. For the steps, see the [Physical devices](apps.md#test-runs-ios-app-package-device) steps in [Package your app](apps.md#test-runs-ios-app-package).
+
+### Simulators
+<a name="how-to-use-create-XCTestUI-ipa-package-simulator"></a>
+
+Build the UI test target for a simulator. In Xcode, choose an iOS Simulator destination. Then, on the **Product** menu, choose **Build For**, and then choose **Testing**. Xcode writes the runner to `Build/Products/Debug-iphonesimulator/{{name}}-Runner.app` under the derived data path. Alternatively, run the following command from the directory that contains your project file:
+
+```bash
+xcodebuild build-for-testing -project {{MyApp}}.xcodeproj -scheme {{MyApp}} \
+    -sdk iphonesimulator -destination "generic/platform=iOS Simulator" \
+    -derivedDataPath build
+```
+
+Package the runner the same way as a simulator build of your app, with `{{name}}-Runner.app` inside the `Payload` directory. For the steps, see the [Simulators](apps.md#test-runs-ios-app-package-simulator) steps in [Package your app](apps.md#test-runs-ios-app-package).
+
 ## Option 2: Creating an XCTest UI .zip package
 <a name="how-to-use-create-XCTestUI-zip-package"></a>
 
-Device Farm automatically generates a `.xctestrun` file for you for running your full XCTest UI test suite. If you want to use your own `.xctestrun` file on Device Farm, you can compress your `.xctestrun` files and app directory into a `.zip` file. If you already have a `.ipa` file for your test package you can include that here instead of {{\*-Runner.app}}.
+A `.zip` package holds the runner, and can hold other files that your tests use. What the `.zip` file can contain depends on the type of device that you test on.
+
+**Note**  
+Make sure that your XCTest UI `.zip` package does not contain a `Payload` directory.
+
+### Physical devices
+<a name="how-to-use-create-XCTestUI-zip-package-device"></a>
+
+Device Farm automatically generates a `.xctestrun` file for you for running your full XCTest UI test suite. If you want to use your own `.xctestrun` file on Device Farm, you can compress one or more `.xctestrun` files and your app directory into a `.zip` file. If you already have an `.ipa` file for your test package, you can include it instead of the runner.
 
 ```
 .
@@ -101,7 +119,7 @@ Device Farm automatically generates a `.xctestrun` file for you for running your
    └── (any other files)
 ```
 
- If you want to run an Xcode test plan for your XCUI tests on Device Farm, you can create a zip containing your *my-project-nameUITest-Runner.app* **or** *my-project-nameUITest.ipa* file and xcode source code files required to run XCTEST\_UI with test plans, including either a `.xcworkspace` or `.xcodeproj` file.
+You can also run an Xcode test plan for your XCTest UI tests on Device Farm. Create a `.zip` file that contains your `my-project-nameUITest-Runner.app` or `my-project-nameUITest.ipa` file and the Xcode source files that the test plan needs, including either a `.xcworkspace` or `.xcodeproj` file.
 
 Here is a sample zip using a `.xcodeproj` file: 
 
@@ -131,8 +149,22 @@ Here is a sample zip using a `.xcworkspace` file:
        └── contents.xcworkspacedata
 ```
 
-**Note**  
-Please ensure that you do not have a directory named "Payload" inside your XCTest UI .zip package. 
+### Simulators
+<a name="how-to-use-create-XCTestUI-zip-package-simulator"></a>
+
+Build the UI test target for a simulator as described in [Simulators](#how-to-use-create-XCTestUI-ipa-package-simulator) under Option 1, and then zip the runner. The runner must sit at the root of the `.zip` file. Do not nest the runner in a folder, and do not place an `.ipa` file inside the `.zip` file. The following command, run in the `Debug-iphonesimulator` folder, creates the archive with the runner at its root. Replace {{MyAppUITests}} with the name of your UI test target.
+
+```bash
+ditto -c -k --sequesterRsrc --keepParent {{MyAppUITests}}-Runner.app {{MyAppUITests}}-Runner.zip
+```
+
+The archive has the following layout:
+
+```
+.
+└── MyAppUITests-Runner.zip
+    └── MyAppUITests-Runner.app
+```
 
 ## Run iOS XCTest UI tests (console)
 <a name="test-types-ios-xctest-ui-upload"></a>
@@ -154,17 +186,13 @@ To create a project, follow the instructions in [Creating a project in AWS Devic
 
 1. In the **Select app** section, in **App selection options**, select **Upload own app**. Then, select **Choose file** under **Upload app**.
 
-1. Browse to and choose your iOS app file. The file must be an .ipa file.
-**Note**  
-Make sure that your .ipa file is built for an iOS device and not for a simulator.
+1. Browse to and choose your iOS app file. For the build that your devices need, see [Packaging an iOS app](apps.md#test-runs-ios-app-packaging).
 
 1. Under **Configure test**, in the **Select test framework** section, choose **XCTest UI**. Then, select **Choose file** under **Upload app**.
 
 1. Browse to and choose the .ipa or .zip file that contains your iOS XCTest UI test runner. 
 
-1. (Optional) To configure run-level properties, update the **Run settings** section:
-
-   To have Device Farm generate a test report after your run completes, in the **Run settings** section, under **Test Insights**, choose **Generate test report**. This option is available in a custom test environment only. For the prerequisites, see [Configure XCTest UI test reports using a custom test environment](#test-types-ios-xctest-ui-generate-reports).
+1. To configure run-level properties, update the **Run settings** section.
 
 1. Complete the remaining steps in the run creation process. Select the devices that you want to test on and optionally specify additional configuration.
 
@@ -194,6 +222,13 @@ The job results include a **Test report** tab. Choose it to see a summary of the
 ![The remaining columns on the Test report tab for a completed XCTest UI job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-column-end.png)
 
 
+When the run records a video, the **Video** column has a play button for each test that plays the test in the job video. For more information, see [Watch a test in the job video](reports.md#reports-test-insights-video-console).
+
+The following screenshot shows the **Test report** tab with the **Test video** panel open.
+
+![The Test report tab for a completed XCTest UI job, with the Test video panel open on the selected test.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-video-panel.png)
+
+
 Each row in the **Tests** table includes the following columns:
 + **Result** – whether the test passed, failed, or was skipped.
 + **Test class** – the class that the test belongs to.
@@ -215,7 +250,7 @@ To download the full test report as a JSON file, choose **Download full summary*
 ### Without test insights enabled
 <a name="test-types-ios-xctest-ui-view-insights-console-without"></a>
 
-The job results show the standard test output and artifacts, such as the **Suites**, **Logs**, and **Screenshots** tabs, but no **Test report** tab. To generate a test report, schedule a new run with test insights enabled.
+If the run used the standard test environment, or if you turned off test insights for the run, the job results show the standard test output and artifacts, such as the **Suites**, **Logs**, and **Screenshots** tabs, but no **Test report** tab. To get a test report, schedule a new run in a custom test environment with **Generate test report** selected.
 
 ![The job results for a completed XCTest UI job without test insights enabled, showing the standard tabs and no Test report tab.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/passing.png)
 
@@ -232,9 +267,9 @@ aws devicefarm get-job --arn {{arn:aws:devicefarm:us-west-2:123456789012:job:PRO
 ### Without test insights enabled
 <a name="test-types-ios-xctest-ui-view-insights-cli-without"></a>
 
-If you did not enable test insights, the response contains the standard job fields, such as the job status, result, counters, and device:
+If the run did not generate test insights, for example because it used the standard test environment or you turned off test insights, the response contains the standard job fields, such as the job status, result, counters, and device:
 
-```
+```json
 {
     "job": {
         "arn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
@@ -273,9 +308,9 @@ If you did not enable test insights, the response contains the standard job fiel
 ### With test insights enabled
 <a name="test-types-ios-xctest-ui-view-insights-cli-with"></a>
 
-If you enabled test insights, the response also includes an `insights` object that contains the test report status, high-level metrics, and a presigned URL to the detailed report:
+If the run generated test insights, the response also includes an `insights` object that contains the test report status, high-level metrics, and a presigned URL to the detailed report:
 
-```
+```json
 {
     "job": {
         "arn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
@@ -313,7 +348,7 @@ curl -o test-report.json "{{PRESIGNED_URL}}"
 
 The following is an example test report for an XCTest UI job:
 
-```
+```json
 {
   "version": "1.0",
   "jobArn": "arn:aws:devicefarm:us-west-2:123456789012:job:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE/a1b2c3d4-e5f6-4a7b-8c9d-67890EXAMPLE/00000",
@@ -399,3 +434,9 @@ For a parameterized test invocation, the argument label for the invocation.
 
 `stackTrace`  
 For a failed test, the stack trace of the failure.
+
+`videoStartSeconds`  
+Where the test started in the job video, in seconds. See [Per-test video](reports.md#reports-test-insights-video).
+
+`videoEndSeconds`  
+Where the test ended in the job video, in seconds.

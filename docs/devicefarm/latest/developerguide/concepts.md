@@ -1,7 +1,6 @@
 
 
 # AWS Device Farm concepts
-<a name="concepts"></a>
 
 Device Farm is an app testing service that you can use to test and interact with your Android, iOS, and web apps on real, physical phones and tablets that are hosted by Amazon Web Services (AWS).
 

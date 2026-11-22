@@ -1,7 +1,6 @@
 
 
 # Creating a project in AWS Device Farm
-<a name="how-to-create-project"></a>
 
 You can create a project by using the AWS Device Farm console, AWS CLI, or AWS Device Farm API.
 

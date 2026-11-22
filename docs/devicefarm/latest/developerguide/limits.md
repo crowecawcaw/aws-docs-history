@@ -1,13 +1,13 @@
 
 
 # Limits in AWS Device Farm
-<a name="limits"></a>
 
 **Topics**
 + [Service limits](#service-limits)
 + [File limits](#file-limits)
 + [API limits](#api-limits)
 + [Appium endpoint limits](#appium-endpoint-limits)
++ [Device Connect limits](#device-connect-limits)
 + [Custom environment variable limits](#custom-environment-variable-limits)
 
 ## Service limits
@@ -18,7 +18,7 @@
 +  There is a 150-minute hard limit to the duration of an automated test run 
 +  The maximum number of in-flight jobs, including pending queued jobs across your account, is 250. This is a soft limit. 
 +  There's no limit to the number of devices you can include in a test run. The number of devices (jobs) that can execute your tests in parallel at any given time is equal to your account-level concurrency. The default account-level concurrency for metered use in Device Farm is five. 
-+ The metered concurrency limit may be increased upon request up to a certain threshold depending on the use case. The default account-level concurrency for unmetered use is equal to the number of slots you are subscribed to for that platform. 
++ The metered concurrency limit might be increased upon request up to a certain threshold depending on the use case. The default account-level concurrency for unmetered use is equal to the number of slots you are subscribed to for that platform. Jobs on iOS simulators always use metered billing, so they count against your metered concurrency. 
 
    For more information concerning the default metered concurrency limits or quotas in general, see the [Quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) page. 
 + An automation run that doesn't use a [custom test environment](custom-test-environments.md) can only have up to 250 individual test cases in it. Otherwise, the run may be skipped. 
@@ -55,6 +55,27 @@ The following limits apply to all Appium endpoint sessions. For questions and gu
 + The endpoint does not support the [WebDriver BiDi protocol](https://appium.io/docs/en/2.19/guides/caps/#bidi-protocol-support) at this time.
 + The endpoint does not support Appium Plugins or drivers other than the XCUITest and UIAutomator2 drivers.
 + A maximum of 3 apps can be used as auxiliary apps with a remote access session creation request. That said, there is no limit on how many apps can be installed during a session using the [`InstallToRemoteAccessSession`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_InstallToRemoteAccessSession.html) API.
+
+## Device Connect limits
+<a name="device-connect-limits"></a>
+
+The following limits apply to Device Connect for AWS Device Farm. For questions and guidance on how to best handle limits, open a support case.
+
+You can't change these limits unless an item says so. They might change in later releases. When you reach a limit, the error message shows it, for example `(limit 8)`. For the features that Device Connect doesn't support, see [Unsupported features](device-connect-support.md#device-connect-unsupported).
++ A bridge holds one device at a time.
++ Each user on a computer can run one bridge.
++ The attached device needs a remote access session. The session counts against your account's concurrency and has a maximum duration. For these limits, see [Service limits](#service-limits).
++ When no device is attached, Device Farm ends a remote access session after about 5 minutes with no activity. While a device is attached, the bridge keeps the session active.
++ The device can have up to 8 `adb forward` rules and up to 8 `adb reverse` rules.
++ At this time, `adb forward` and `adb reverse` rules use `tcp:{{port}}` on both ends.
++ The bridge allows up to 24 open Android Debug Bridge (adb) connections to the attached device. This limit counts local, forwarded, and reverse connections together.
++ Only one bridge at a time can use `adb reverse` on a device.
++ The bridge listens on port 5037 by default. To use another port from 1 to 65535, start the bridge with the `--port` option. For more information, see [Using a different port](device-connect-interaction.md#device-connect-custom-port).
++ Device ports 5555 to 5585 belong to the device's own adb. Connections through a forward rule to one of these ports close with no data. Device Farm doesn't permit a reverse rule to one of these ports.
++ Device Connect works only in the US West (Oregon) Region (`us-west-2`).
++ At this time, Device Connect works only with metered public devices. It doesn't work with private devices or unmetered public slots.
++ Devices must run Android 9 or later. Device Connect doesn't support iOS devices.
++ Timeouts: When you attach a device, Device Connect waits up to 8 seconds to look up the session and check the device. A network drop of about 20 seconds closes an open adb connection.
 
 ## Custom environment variable limits
 <a name="custom-environment-variable-limits"></a>

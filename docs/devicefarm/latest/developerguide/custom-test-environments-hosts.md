@@ -1,7 +1,6 @@
 
 
 # Hosts for custom test environments
-<a name="custom-test-environments-hosts"></a>
 
  Device Farm supports a set of operating systems with pre-configured software through the use of a test host environment. During test execution, Device Farm utilizes Amazon-managed instances (hosts) that dynamically connect to the selected device under test. This instance is fully cleaned up and not re-used between runs, and is terminated with its generated artifacts after the test run concludes. 
 
@@ -59,7 +58,7 @@ When you create your test spec file, provide the exact test host value in the co
 
 **Example**  
 
-```
+```yaml
 version: 0.1
 android_test_host: {{amazon_linux_2023}}
 ios_test_host: {{macos_tahoe}}
@@ -85,7 +84,7 @@ The following table shows the default host mapping by device OS version.
 
 **Example**  
 
-```
+```yaml
 version: 0.1
 android_test_host: default
 ios_test_host: default
@@ -103,7 +102,7 @@ phases:
 
 **Example**  
 
-```
+```yaml
 phases:
   install:
     commands:

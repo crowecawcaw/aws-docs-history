@@ -1,7 +1,6 @@
 
 
 # Creating an instance profile in AWS Device Farm
-<a name="set-up-private-devices-account-settings"></a>
 
 You can set up a fleet that contains one or more private devices. These devices are dedicated to your AWS account. After you set up the devices, you can optionally create one or more instance profiles for them. Instance profiles can help you automate test runs and consistently apply the same settings to device instances. Instances profiles can also help you control the behavior of remote access session. For more information about private devices in Device Farm, see [Private devices in AWS Device Farm](working-with-private-devices.md).
 

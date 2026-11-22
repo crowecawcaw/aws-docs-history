@@ -1,11 +1,35 @@
 
 
 # Purchasing a device slot in Device Farm
-<a name="how-to-purchase-device-slots"></a>
 
 Device farm has two billing methods for testing on public mobile devices: metered and unmetered. With metered billing, you pay-as-you-go based on device minutes. To learn more about metered, pay-as-you-go pricing, visit here: [https://aws.amazon.com/device-farm/pricing/](https://aws.amazon.com/device-farm/pricing/). With unmetered billing, you reserve device concurrency through Device slots, which are billed at a flat monthly rate. This page covers unmetered, device slot billing.
 
 Device slots correspond to your concurrency in Device Farm, determining how many test jobs (devices) or remote access sessions you can run simultaneously with unmetered billing. Device slots are specific to testing type (automated testing or remote access) and device platform (android or ios). Slots are not tied to any specific device make or model. You can use the Device Farm console, AWS Command Line Interface (AWS CLI), or Device Farm API to purchase device slots.
+
+## Device slots for Android emulators and iOS simulators
+<a name="how-to-purchase-device-slots-simulators"></a>
+
+Tests and remote access sessions on iOS simulators always use metered billing.
+
+
+| Device slot | Devices it covers | 
+| --- | --- | 
+| Android automated testing slot | Physical Android devices and Android emulators | 
+| Android remote access slot | Physical Android devices and Android emulators | 
+| iOS automated testing slot | Physical iOS devices only | 
+| iOS remote access slot | Physical iOS devices only | 
+
+If you set `billingMethod` to `UNMETERED` for an iOS simulator, `ScheduleRun` and `CreateRemoteAccessSession` fail with the following error:
+
+```
+Unable to schedule run. Unmetered billing (billingMethod="UNMETERED") is not supported for iOS simulators. To solve this, use billingMethod = "METERED" or select a physical iOS device.
+```
+
+If you omit `billingMethod` for an iOS simulator, the run or session uses metered billing.
+
+In the console, if your device selection or device pool includes an iOS simulator, the **Billing method** field selects **Metered** and you cannot choose **Unmetered**. The remote access session wizard does not show the **Use my unmetered iOS device slot** check box for an iOS simulator.
+
+Jobs on iOS simulators count against your metered concurrency. For more information, see [Service limits](limits.md#service-limits).
 
 ## Purchase device slots
 <a name="how-to-purchase-device-slots-methods"></a>

@@ -1,7 +1,6 @@
 
 
 # Supported software within custom test environments
-<a name="custom-test-environments-hosts-software"></a>
 
  Device Farm uses host machines that are pre-installed with many of the necessary software libraries to run test frameworks supported on our service, providing a ready testing environment on launch. Device Farm supports multiple languages through the use of our software selection mechanism, and will periodically update the versions of the languages included in the environment. 
 

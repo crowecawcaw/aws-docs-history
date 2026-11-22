@@ -1,7 +1,6 @@
 
 
 # Appium testing in AWS Device Farm
-<a name="appium-endpoint"></a>
 
 During a remote access session, you can run Appium tests from your local environment, targeting the session's device using a managed Appium endpoint. With an Appium endpoint, you're able to develop, test, and execute Appium code with fast feedback and rapid iteration. This **client-side** approach to testing offers the flexibility to connect to a Device Farm device from any Appium client environment of your choice.
 

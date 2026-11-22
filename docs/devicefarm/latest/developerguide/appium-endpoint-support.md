@@ -1,7 +1,6 @@
 
 
 # Supported features and versions
-<a name="appium-endpoint-support"></a>
 
 During a remote access session, you can select the major version of the Appium server that runs on your device. Choose the version that supports the Appium features that your tests require.
 
@@ -63,7 +62,7 @@ The following example creates a remote access session with a selected Appium ser
 
 This example uses the AWS CLI v2.
 
-```
+```bash
 $ aws devicefarm create-remote-access-session \
     --project-arn "{{arn:aws:devicefarm:us-west-2:111122223333:project:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}" \
     --device-arn "{{arn:aws:devicefarm:us-west-2::device:EXAMPLE123DEVICE456}}" \
@@ -77,7 +76,7 @@ The following example creates a remote access session with a selected Appium ser
 
 This example uses the AWS SDK for JavaScript v3 with Node.js 18 or later.
 
-```
+```javascript
 import { DeviceFarmClient, CreateRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm";
 
 const client = new DeviceFarmClient({ region: "us-west-2" });
@@ -96,7 +95,7 @@ const resp = await client.send(command);
 
 The following example creates a remote access session with a selected Appium server version.
 
-```
+```python
 import boto3
 
 client = boto3.client("devicefarm", region_name="us-west-2")
@@ -115,7 +114,7 @@ The following example creates a remote access session with a selected Appium ser
 
 This example uses the AWS SDK for Java v2.
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.devicefarm.DeviceFarmClient;
 import software.amazon.awssdk.services.devicefarm.model.CreateRemoteAccessSessionConfiguration;
@@ -150,7 +149,7 @@ public class SelectAppiumVersionExample {
 
 The following example creates a remote access session with a selected Appium server version.
 
-```
+```ruby
 require 'aws-sdk-devicefarm'
 
 client = Aws::DeviceFarm::Client.new(region: 'us-west-2')
@@ -172,7 +171,12 @@ When creating an Appium session on Device Farm, we recommend having a distinct s
 ## Supported commands
 <a name="appium-endpoint-unsupported-commands"></a>
 
-Most Appium commands that run properly on real Android and iOS devices will run as-expected on Device Farm, with the following exclusions: 
+Most Appium commands that run properly on real Android and iOS devices will run as-expected on Device Farm. The following exclusions apply to all supported Appium server versions: 
+
+### Appium commands (`/appium`)
+<a name="appium-endpoint-unsupported-appium-commands"></a>
++ `start_recording_screen`
++ `stop_recording_screen`
 
 ### Appium device commands (`/appium/device`)
 <a name="appium-endpoint-unsupported-device-commands"></a>
@@ -190,13 +194,14 @@ Most Appium commands that run properly on real Android and iOS devices will run 
 ### Appium execute methods and scripts (`/execute`)
 <a name="appium-endpoint-unsupported-execute-methods"></a>
 + `installApp`
++ `installMultipleApks`
 + `execEmuConsoleCommand`
 + `fingerprint`
 + `gsmCall`
 + `gsmSignal`
 + `sendSms`
 + `gsmVoice`
-+ `powerAC`
++ `powerAc`
 + `powerCapacity`
 + `networkSpeed`
 + `sensorSet`
@@ -217,12 +222,18 @@ Most Appium commands that run properly on real Android and iOS devices will run 
 + `setPermission`
 + `startAudioRecording`
 + `startLogsBroadcast`
-+ `startRecordingScreen`
++ `startMediaProjectionRecording`
++ `startNetworkMonitor`
++ `startScreenRecording`
 + `startScreenStreaming`
++ `startSystemMonitor`
 + `startXCTestScreenRecording`
 + `stopAudioRecording`
 + `stopLogsBroadcast`
-+ `stopRecordingScreen`
++ `stopMediaProjectionRecording`
++ `stopNetworkMonitor`
++ `stopScreenRecording`
 + `stopScreenStreaming`
++ `stopSystemMonitor`
 + `stopXCTestScreenRecording`
 + `updateSafariPreferences`

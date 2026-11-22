@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon VPC
-<a name="connecting-to-amazon-vpc"></a>
 
 You can configure and update your project to use Amazon VPC endpoints. The VPC-ENI configuration is configured on a per-project basis. A project can have only one VPC-ENI endpoint at any given time. To configure VPC access for a project, you must know the following details:
 + The VPC ID in `us-west-2` if your app is hosted there or the `us-west-2` VPC ID that connects to some other VPC in a different Region. 

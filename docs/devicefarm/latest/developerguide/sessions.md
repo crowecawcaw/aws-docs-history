@@ -1,9 +1,8 @@
 
 
 # Sessions in AWS Device Farm
-<a name="sessions"></a>
 
-You can use Device Farm to perform interactive testing of Android and iOS apps through remote access sessions. This includes both manual interaction in a web browser and running Appium tests from a local client against the remote device. Developers can reproduce issues with their app or with their Appium tests on a specific device to isolate and resolve problems.
+You can use Device Farm to perform interactive testing of Android and iOS apps through remote access sessions. This includes both manual interaction in a web browser and running Appium tests from a local client against the remote device. For Android devices, [Device Connect for AWS Device Farm](device-connect.md) makes the device appear to your Android Debug Bridge (adb) tools as a local device. Developers can reproduce issues with their app or with their Appium tests on a specific device to isolate and resolve problems.
 
 **Topics**
 + [Supported devices for remote access](#session-devices-supported)

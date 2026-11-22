@@ -1,7 +1,6 @@
 
 
 # Test environment for Android devices
-<a name="custom-test-environments-hosts-android"></a>
 
 For the full list of available test hosts and how to select one, see [Hosts for custom test environments](custom-test-environments-hosts.md). 
 
@@ -11,9 +10,18 @@ For Android devices, use the `android_test_host` field of your test spec file to
 
 **Topics**
 + [Supported software for Android devices](#android-host-software-support)
++ [Testing on Android emulators](#android-emulator-testing)
 + [Upgrading to the latest Android test host](android-host-upgrade.md)
 
 ## Supported software for Android devices
 <a name="android-host-software-support"></a>
 
 To support Android device testing, Device Farm test hosts for Android devices come pre-configured with the Android SDK Build-Tools and Platform-Tools, which include the Android Debug Bridge (`adb`). For other available software, see [Supported software within custom test environments](custom-test-environments-hosts-software.md).
+
+## Testing on Android emulators
+<a name="android-emulator-testing"></a>
+
+Android emulators on Device Farm run only on the `amazon_linux_2023` test host. To run on Android emulators, set `android_test_host` to `amazon_linux_2023`.
+
+**Note**  
+You can't set Android system properties on emulators.

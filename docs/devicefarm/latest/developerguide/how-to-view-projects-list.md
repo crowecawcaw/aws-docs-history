@@ -1,7 +1,6 @@
 
 
 # Viewing the projects list in AWS Device Farm
-<a name="how-to-view-projects-list"></a>
 
 You can use the AWS Device Farm console, AWS CLI, or AWS Device Farm API to view the list of projects.
 

@@ -1,7 +1,6 @@
 
 
 # Tools and plugins for AWS Device Farm
-<a name="aws-device-farm-tools-plugins"></a>
 
 This section contains links and information about working with AWS Device Farm tools and plugins. You can find Device Farm plugins on [AWS Labs on GitHub](https://github.com/awslabs/).
 

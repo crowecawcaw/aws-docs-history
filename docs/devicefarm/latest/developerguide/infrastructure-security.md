@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Device Farm
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS Device Farm is protected by the AWS global network security. For information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/). To design your AWS environment using the best practices for infrastructure security, see [Infrastructure Protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html) in *Security Pillar AWS Well‐Architected Framework*.
 
@@ -21,6 +20,13 @@ Public devices are shared, and Device Farm makes a best-effort attempt at keepin
 Private devices are accessible only by AWS accounts explicitly authorized to do so. Device Farm physically isolates these devices from other devices and keeps them on a separate network.
 
 On privately managed devices, tests can be configured to use an Amazon VPC endpoint to secure connections in and out of your AWS account.
+
+## Infrastructure security for Device Connect
+<a name="infrastructure-security-device-connect"></a>
+
+Device Connect for AWS Device Farm runs a bridge on your computer in place of the local Android Debug Bridge (adb) server. By default, the bridge listens only on the loopback address, `127.0.0.1`, so only programs on your computer can connect to it. Forward rules also listen on `127.0.0.1` only. The bridge asks for no password or token, so any program or computer that can reach the bridge can control the attached device. Only your user account can attach or detach a device or stop the bridge. We recommend that you keep the bridge on the loopback address, and don't set another address with the `--listen-addr` option of `devicefarm-connect bridge start`.
+
+By default, `adb reverse` is off, so the device can't connect to your computer. While `adb reverse` is on, the device can connect to each port on your computer that a reverse rule names. Public devices are shared, so other customers use the same device before and after you. We recommend that you turn on `adb reverse` only when you need it, and open only the ports that your app needs. For more information, see [Reaching your computer from the device with `adb reverse`](device-connect-interaction.md#device-connect-reverse).
 
 ## Infrastructure security for desktop browser testing
 <a name="infrastructure-security-desktop-browser-testing"></a>

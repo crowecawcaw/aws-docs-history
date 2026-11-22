@@ -1,7 +1,6 @@
 
 
 # Getting started with Device Farm
-<a name="getting-started"></a>
 
 This walkthrough shows you how to use Device Farm to test a native Android or iOS app. You use the Device Farm console to create a project, upload an .apk or .ipa file, run a suite of standard tests, and then view the results.
 
@@ -21,9 +20,7 @@ Device Farm is available only in the `us-west-2` (Oregon) AWS Region.
 
 Before you begin, make sure you have completed the following requirements:
 + Complete the steps in [Setting up](setting-up.md). You need an AWS account and an AWS Identity and Access Management (IAM) user with permission to access Device Farm.
-+ For Android, you can bring an .apk (Android app package) file, or use the sample application we provide. For iOS, you need an .ipa (iOS app archive) file. You upload the file to Device Farm later in this walkthrough.
-**Note**  
-Make sure that your .ipa file is built for an iOS device and not for a simulator.
++ For Android, you can bring an .apk (Android app package) file, or use the sample application we provide. The same .apk runs on physical devices and emulators. For more information, see [Preparing an Android app for emulators](apps.md#test-runs-android-emulator-app). For iOS, you need an `.ipa` (iOS app archive) file built for the type of device that you test on: a device build for physical devices, or a simulator build for simulators. You upload the file to Device Farm later in this walkthrough. For more information, see [Packaging an iOS app](apps.md#test-runs-ios-app-packaging).
 + (Optional) You need a test from one of the testing frameworks that Device Farm supports. You upload this test package to Device Farm, and then run the test later in this walkthrough. If you don't have a test package available, you can specify and run a standard built-in test suite. For more information, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md).
 
 ## Step 1: Sign in to the console
@@ -54,9 +51,9 @@ Now that you have a project, you can create and then start a run. For more infor
 
 1. On the **Automated tests** tab, choose **Create run**. Alternatively, you can follow the in-console tutorial by selecting **Create run with tutorial**.
 
-1. Under **Select app and run type**, in the **Run type** section, select your run type. Select **Android app** if you do not have an app ready for testing, or if you are testing an android (.apk) app. Select **iOS app** if you are testing an iOS (.ipa) app.
+1. Under **Select app and run type**, in the **Run type** section, select your run type. Select **Android app** if you do not have an app ready for testing, or if you are testing an android (.apk) app. Select **iOS app** if you are testing an iOS app.
 
-1. Under **Select app**, in the **App selection options** section, choose **Select sample app provided by Device Farm** if you do not have an app available for testing. If you are bringing your own app, select **Upload own app**, and choose your application file. If you're uploading an iOS app, be sure to choose **iOS device**, as opposed to a simulator.
+1. Under **Select app**, in the **App selection options** section, choose **Select sample app provided by Device Farm** if you do not have an app available for testing. If you are bringing your own app, select **Upload own app**, and choose your application file.
 
 1. Under **Configure test**, in the **Select test framework** section, choose one of the testing frameworks or built-in test suites. For information about each option, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md).
    + If you have not yet packaged your tests for Device Farm, choose **Built-in: Fuzz** to run a standard, built-in test suite. You can keep the default values for **Event count**, **Event throttle**, and **Randomizer seed**. For more information, see [Running Device Farm's built-in fuzz test (Android and iOS)](test-types-built-in-fuzz.md).
@@ -66,7 +63,7 @@ Now that you have a project, you can create and then start a run. For more infor
 
 1. (Optional) To add additional configuration, open the **Additional configuration** dropdown. In this section, you can do any of the following:
    + To provide other data for Device Farm to use during the run, next to **Add extra data**, choose **Choose File**, and then browse to and choose the .zip file that contains the data.
-   + To install an additional app for Device Farm to use during the run, next to **Install other apps**, choose **Choose File**, and then browse to and choose the .apk or .ipa file that contains the app. Repeat this for other apps you want to install. You can change the installation order by dragging and dropping the apps after you upload them. 
+   + To install an additional app for Device Farm to use during the run, next to **Install other apps**, choose **Choose File**, and then browse to and select the `.apk` or `.ipa` file that contains the app. Repeat this for other apps you want to install. You can change the installation order by dragging and dropping the apps after you upload them. 
    + To specify whether Wi-Fi, Bluetooth, GPS, or NFC is enabled during the run, next to **Set radio states**, select the appropriate boxes.
    + To preset the device latitude and longitude for the run, next to **Device location**, enter the coordinates.
    + To preset the device locale for the run, in **Device locale**, choose the locale.
@@ -78,9 +75,9 @@ If you have private devices, configuration specific to private devices is also d
 
 1. (Optional) To configure run-level properties, update the **Run Settings** section. Here you can do the following:
    + Assign your run with a custom **Run name**. If no name is provided, the Device Farm console will name your run 'My Device Farm run' by default.
-   + Choose **Generate test report** under **Test Insights** to get a detailed structured test report for each job and an aggregated summary at the run level. This insight is generated in addition to any test report that you might generate as part of your test execution.
+   + Test Insights is selected by default for runs in a custom test environment. Clear **Generate test report** if you want to turn off Test Insights for the run. For more information, see [Test Insights](reports.md#reports-test-insights).
    + Assign a **Job timeout**, which is the maximum number of minutes a job can run on a device. If your tests are complete before the job timeout, the job completes, and you are not charged for the remainder of the job timeout. The default is 150 minutes.
-   + Choose a **Billing method**. By default, if you do not have slots purchased on your account, the Device Farm console selects Metered. If you have slots, the console defaults to Unmetered.
+   + Choose a **Billing method**. By default, if you do not have slots purchased on your account, the Device Farm console selects Metered. If you have slots, the console defaults to Unmetered. If your device selection includes an iOS simulator, the console selects **Metered** and you cannot choose **Unmetered**. For more information, see [Device slots for Android emulators and iOS simulators](how-to-purchase-device-slots.md#how-to-purchase-device-slots-simulators).
 
 1. At the bottom of the page, choose **Confirm and start run** to schedule the run.
 
