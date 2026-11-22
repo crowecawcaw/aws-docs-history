@@ -1,7 +1,6 @@
 
 
 # Iteration
-<a name="iteration"></a>
 
 It’s unlikely that a mechanism will operate as designed from day one. It takes time to experiment with various tools and find one that works. Adoption can also take significant effort to push out to a large population. Inspection starts when the tool starts to become broadly adopted, but at each stage you may find that alterations need to be made to the mechanism. Here are few examples of how AWS iterates on the ORR mechanism. 
 

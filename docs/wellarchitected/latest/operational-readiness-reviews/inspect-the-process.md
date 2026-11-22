@@ -1,7 +1,6 @@
 
 
 # Inspect the process
-<a name="inspect-the-process"></a>
 
 AWS uses several different inspection processes for the ORR. First, AWS holds a weekly operational metrics meeting attended by thousands of engineers and leadership up to the Senior Vice President (SVP) level. Each week, different service teams present their metrics and dashboards to the group. One of the metrics that is inspected is when their last ORR was performed and the number of outstanding action items they have. 
 

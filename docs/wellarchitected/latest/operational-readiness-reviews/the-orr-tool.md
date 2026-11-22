@@ -1,7 +1,6 @@
 
 
 # The ORR tool
-<a name="the-orr-tool"></a>
 
 The main tool for ORR is the checklist of questions itself. AWS has built a web service around this checklist to create templates, provide a consistent user interface (UI), links to cautionary tales, and set up integrations with the AWS ticketing system. This allows teams to perform a self-service review of their workload, record the results, understand their residual risk, and track action items that result from the review, which can be directly added to their backlog. 
 

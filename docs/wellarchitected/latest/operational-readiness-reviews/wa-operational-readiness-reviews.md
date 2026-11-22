@@ -1,7 +1,6 @@
 
 
 # Operational Readiness Reviews (ORR)
-<a name="wa-operational-readiness-reviews"></a>
 
 Publication date: **June 30, 2022** ([Document history](document-revisions.md))
 

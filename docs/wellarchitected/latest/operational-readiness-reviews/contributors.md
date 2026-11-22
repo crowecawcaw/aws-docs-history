@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
 Contributors to this document include: 
 + Michael Haken, Principal Solutions Architect, Amazon Web Services 
