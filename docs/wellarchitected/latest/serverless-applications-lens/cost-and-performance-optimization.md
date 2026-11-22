@@ -1,7 +1,6 @@
 
 
 # Lambda cost and performance optimization
-<a name="cost-and-performance-optimization"></a>
 
 With Lambda, there are no servers to manage, it scales automatically, and you only pay for what you use. However, choosing the right memory size settings for a Lambda function is still an important task. [*AWS Compute Optimizer*](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html) supports Lambda functions and uses machine-learning to provide memory size recommendations for Lambda functions. 
 

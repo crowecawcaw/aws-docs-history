@@ -1,7 +1,6 @@
 
 
 # Serverless Applications Lens - AWS Well-Architected Framework
-<a name="welcome"></a>
 
 Publication date: **July 14, 2022** ([Document revisions](document-revisions.md))
 

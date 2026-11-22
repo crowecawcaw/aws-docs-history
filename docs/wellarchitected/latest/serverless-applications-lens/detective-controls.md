@@ -1,7 +1,6 @@
 
 
 # Detective controls
-<a name="detective-controls"></a>
 
 Log management is an important part of a well-architected design for reasons ranging from security and forensics to regulatory or legal requirements. 
 

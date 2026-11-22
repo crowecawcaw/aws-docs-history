@@ -1,7 +1,6 @@
 
 
 # RESTful microservices
-<a name="restful-microservices"></a>
 
 When building a microservice, think about how a business context can be delivered as a reusable service for your consumers. The specific implementation will be tailored to individual use cases, but there are several common themes across microservices to ensure that your implementation is secure, resilient, and constructed to give the best experience for your customers. 
 
@@ -17,6 +16,8 @@ Building serverless microservices on AWS enables you to not only take advantage 
 <a name="restful-ref-arch"></a>
 
 ![Reference architecture diagram for RESTful microservices](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-restful-microservices.png)
+
+*Figure 1: Reference architecture for RESTful microservices*
 
 
  

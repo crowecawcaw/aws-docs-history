@@ -1,13 +1,14 @@
 
 
 # Alexa skills
-<a name="alexa-skills"></a>
 
 The Alexa Skills Kit gives developers the ability to extend Alexa's capabilities by building natural and engaging voice and visual experiences. Successful skills are habit-forming, where users routinely come back because it offers something unique, it provides value in new, novel, and frictionless ways. 
 
 The biggest cause of frustration from users is when the skill doesn’t behave as expected. It’s essential to start by designing a voice interaction model and working backwards since some users may say too little, too much, or possibly something unexpected. The voice design process involves creating, scripting, and planning for expected as well as unexpected utterances.
 
 ![Screenshot showing an example Alexa Skill design script](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/alexa-skill-example-design-script.png)
+
+*Figure 2: Alexa Skill example design script*
 
 
  With a basic script in mind, you can use the following techniques before start building a skill: 
@@ -33,6 +34,8 @@ The biggest cause of frustration from users is when the skill doesn’t behave a
 <a name="alexa-ref-arch"></a>
 
 ![Reference architecture diagram for an Alexa Skill](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-alexa-skill.png)
+
+*Figure 3: Reference architecture for an Alexa Skill*
 
 
  

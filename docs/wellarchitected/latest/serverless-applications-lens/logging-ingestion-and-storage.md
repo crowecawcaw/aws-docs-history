@@ -1,7 +1,6 @@
 
 
 # Logging ingestion and storage
-<a name="logging-ingestion-and-storage"></a>
 
 AWS Lambda uses CloudWatch Logs to store the output of the executions to identify and troubleshoot problems on executions as well as monitoring the serverless application. These will impact the cost in the CloudWatch Logs service in two dimensions: ingestion and storage. 
 

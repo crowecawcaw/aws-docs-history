@@ -1,7 +1,6 @@
 
 
 # Messaging and streaming layer
-<a name="messaging-and-streaming-layer"></a>
 
  The messaging layer of your workload manages communications between components. The streaming layer manages real-time analysis and processing of streaming data. 
 

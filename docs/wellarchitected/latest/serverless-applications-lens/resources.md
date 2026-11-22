@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources"></a>
 
 Refer to the following resources to learn more about our best practices for operational excellence. 
 

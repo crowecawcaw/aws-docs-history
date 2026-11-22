@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="rel-foundations"></a>
 
 
 | REL 1: How are you regulating inbound request rates? | 
@@ -29,6 +28,8 @@ Lambda invocations that exceed the concurrency set of an individual function wil
 
 ![Diagram showing AWS Lambda concurrency controls](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-lambda-concurrency-controls.png)
 
+*Figure 18: AWS Lambda concurrency controls*
+
 
 Controlling concurrency is particularly useful for the following scenarios:
 + Sensitive backend or integrated systems that may have scaling limitations: In situations when your Lambda functions call some legacy or sensitive backend, they may put too much pressure on the downstream services since functions may scale too fast and produce many concurrent requests. It is a good idea to limit the concurrency of your functions so that you can control the amount of requests they produce. 
@@ -41,6 +42,8 @@ Controlling concurrency is particularly useful for the following scenarios:
 Concurrency controls for Lambda functions also limit its ability to scale beyond the concurrency set and draws from your account reserved concurrency pool. For asynchronous processing, use Kinesis Data Streams to effectively control concurrency with a single shard as opposed to Lambda function concurrency control. This gives you the flexibility to increase the number of shards or the parallelization factor to increase concurrency of your Lambda function. 
 
 ![Diagram showing concurrency controls for synchronous and asynchronous requests](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/concurrency-controls-synchronous-and-asynchronous-requests.png)
+
+*Figure 19: Concurrency controls for synchronous and asynchronous requests*
 
 
 

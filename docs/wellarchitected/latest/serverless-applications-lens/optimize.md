@@ -1,7 +1,6 @@
 
 
 # Optimize
-<a name="optimize"></a>
 
 As a serverless architecture grows organically, there are certain mechanisms that are commonly used across a variety of workload profiles. Despite performance testing, design tradeoffs should be considered to increase your application’s performance, always keeping your SLA and requirements in mind.
 

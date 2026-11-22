@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this document: 
 + Heitor Lessa, Principal Serverless Lead Well-Architected, Amazon Web Services 

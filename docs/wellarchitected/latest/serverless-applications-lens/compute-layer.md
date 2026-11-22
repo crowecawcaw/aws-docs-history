@@ -1,7 +1,6 @@
 
 
 # Compute layer
-<a name="compute-layer"></a>
 
  The compute layer of your workload manages requests from external systems, controlling access and verifying that requests are appropriately authorized. Your business logic will be deployed and started by the runtime environment that it contains. 
 

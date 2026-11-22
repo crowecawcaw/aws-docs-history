@@ -1,7 +1,6 @@
 
 
 # Deploying
-<a name="opex-deploying"></a>
 
  Use infrastructure as code and version control to enable tracking of changes and releases. Isolate development and production stages in separate environments. This reduces errors caused by manual processes and helps increase levels of control to help you gain confidence that your workload operates as intended. 
 
@@ -13,9 +12,13 @@
 
 ![Diagram showing a CI/CD pipeline for multiple accounts](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/ci-cd-pipeline-for-multiple-accounts.png)
 
+*Figure 11: CI/CD pipeline for multiple accounts *
+
 
 When deploying to production, favor safe deployments over all-at-once systems as new changes will gradually shift over time towards the end user in a canary or linear deployment. Use CodeDeploy hooks (`BeforeAllowTraffic`, `AfterAllowTraffic`) and alarms to gain more control over deployment validation, rollback, and any customization you may need for your application. 
 
  You can also combine the use of synthetic traffic, custom metrics, and alerts as part of a rollout deployment. These help you proactively detect errors with new changes that otherwise would have impacted your customer experience.
 
 ![Diagram showing AWS CodeDeploy Lambda deployment and hooks](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-codedeploy-lambda-deployment-and-hooks.png)
+
+*Figure 12: AWS CodeDeploy Lambda deployment and hooks*

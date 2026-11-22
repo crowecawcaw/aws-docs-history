@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="data-protection"></a>
 
 Consider enabling [API Gateway Access Logs](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html) and selectively choose only what you need, since the logs might contain sensitive data, depending on your serverless application design. For this reason, we recommend that you encrypt any sensitive data traversing your serverless application. 
 

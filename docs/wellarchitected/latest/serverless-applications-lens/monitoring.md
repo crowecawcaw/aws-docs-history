@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="monitoring"></a>
 
 Monitor the Amazon CloudWatch AWS Lambda performance and concurrency metrics to understand performance details about a single invocation and the number of instances processing events across a function. 
 

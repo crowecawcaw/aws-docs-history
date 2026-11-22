@@ -1,7 +1,6 @@
 
 
 # Lambda version control
-<a name="lambda-version-control"></a>
 
 Like all software, maintaining versioning enables the quick visibility of previously functioning code as well as the ability to revert back to a previous version if a new deployment is unsuccessful. AWS Lambda allows you to [publish one or more immutable versions for individual Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html) such that previous versions cannot be changed. Each Lambda function version has a unique Amazon Resource Name (ARN) and new version changes are auditable as they are recorded in [AWS CloudTrail](https://aws.amazon.com/cloudtrail/). As a best practice in production, customers should enable versioning to use a reliable architecture. 
 

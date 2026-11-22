@@ -1,7 +1,6 @@
 
 
 # Prototyping
-<a name="opex-prototyping"></a>
 
 
 | OPS 2: How do you approach application lifecycle management? | 

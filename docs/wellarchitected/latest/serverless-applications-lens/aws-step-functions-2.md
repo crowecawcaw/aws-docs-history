@@ -1,7 +1,6 @@
 
 
 # AWS Step Functions
-<a name="aws-step-functions-2"></a>
 
 AWS Step Functions monitor the Amazon CloudWatch metric [ExecutionThrottled](https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cw-metrics.html#cloudwatch-step-functions-execution-metrics) which reports throttling on state transition, the number of `StateEntered` events, and retries that have been throttled. Use this metric to determine if a quota increase for a Standard Workflow is required.
 
@@ -28,6 +27,8 @@ New objects kick off a Lambda function that is automatically executed. This func
  As you may have different transformations for different data types, we recommend granularly splitting the transformations into different Lambda functions for optimal performance. With this approach, you have the flexibility to run data transformation in parallel and gain speed as well as cost. 
 
 ![Diagram of Asynchronous data ingestion](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-data-ingestion.png)
+
+*Figure 28: Asynchronous data ingestion*
 
 
 Firehose offers native [data transformations](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) that can be used as an alternative to Lambda, where no additional logic is necessary for transforming records in Apache Log or System logs to CSV, JSON, JSON to Parquet, or ORC.
@@ -57,10 +58,14 @@ For legacy systems, you can use the execution ID to poll Step Functions for the 
 
 ![Diagram of asynchronous workflow with Step Functions state machines](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-workflow-with-step-functions-state-machines.png)
 
+*Figure 29: Asynchronous workflow with Step Functions state machines*
+
 
 Another common scenario is integrating API Gateway directly with Amazon SQS or Kinesis as a scaling layer. A Lambda function would only be necessary if additional business information or a custom request ID format is expected from the caller. 
 
 ![Diagram of asynchronous workflow using a queue as a scaling layer](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-workflow-using-queue-as-scaling-layer.png)
+
+*Figure 30: Asynchronous workflow using a queue as a scaling layer*
 
 
  In this second example, Amazon SQS serves multiple purposes:
@@ -77,15 +82,21 @@ With AWS AppSync, as status updates change in DynamoDB, clients can automaticall
 
 ![Diagram of Asynchronous updates via WebSockets with AWS AppSync and GraphQL](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-updates-via-websockets-with-aws-appsync-and-graphql.png)
 
+*Figure 31: Asynchronous updates via WebSockets with AWS AppSync and GraphQL*
+
 
 Web Hooks can be implemented with Amazon SNS Topic HTTP subscriptions. Consumers can host an HTTP endpoint that Amazon SNS will call back through a POST method upon an event (for example, a data file arriving in Amazon S3). This pattern is ideal when the clients are configurable, such as another microservice, which could host an endpoint. Alternatively, [Step Functions supports callbacks](https://docs.aws.amazon.com/step-functions/latest/dg/callback-task-sample-sqs.html) where a state machine will block until it receives a response for a given task. 
 
 ![Diagram of asynchronous notification via Webhook with Amazon SNS](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-notification-via-webhook-with-sns.png)
 
+*Figure 32: Asynchronous notification via Webhook with Amazon SNS*
+
 
 Lastly, polling could be costly from both a cost- and resource-perspective due to multiple clients constantly polling an API for status. If polling is the only option due to environment constraints, it’s a best practice to establish SLAs with the clients to limit the number of empty polls.
 
 ![Diagram of Client polling for updates on transaction recently made](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/client-polling-for-updates-on-transaction-recently-made.png)
+
+*Figure 33: Client polling for updates on transaction recently made*
 
 
 For example, if a large data warehouse query takes an average of two minutes for a response, the client should poll the API after two minutes with exponential backoff if the data is not available. There are two common patterns to ensure that clients aren’t polling more frequently than expected: Throttling and Timestamp, for when is safe to poll again.

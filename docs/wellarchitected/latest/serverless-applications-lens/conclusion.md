@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  While serverless applications take the undifferentiated heavy-lifting off developers, there are still important principles to apply. 
 

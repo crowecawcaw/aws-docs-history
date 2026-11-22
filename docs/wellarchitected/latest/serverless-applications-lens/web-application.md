@@ -1,7 +1,6 @@
 
 
 # Web application
-<a name="web-application"></a>
 
 Web applications often have demanding requirements to ensure a consistent, secure, and reliable user experience. Workloads which need to scale to thousands or millions of users require provisioning infrastructure for peak loads or sophisticated auto-scaling mechanisms, when available. On-premises workloads require significant capital expenditures and long lead times for capacity provisioning. 
 
@@ -18,6 +17,8 @@ Web applications often have demanding requirements to ensure a consistent, secur
 <a name="webapp-ref-arch"></a>
 
 ![Reference architecture diagram for a web application](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-web-application.png)
+
+*Figure 6: Reference architecture for a web application *
 
 
  

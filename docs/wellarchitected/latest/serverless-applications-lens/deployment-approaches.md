@@ -1,7 +1,6 @@
 
 
 # Deployment approaches
-<a name="deployment-approaches"></a>
 
  A best practice for deployments in a microservice architecture is to ensure that a change does not break the service contract of the consumer. If the API owner makes a change that breaks the service contract and the consumer is not prepared for it, failures can occur. 
 

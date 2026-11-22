@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="general-design-principles"></a>
 
  The Well-Architected Framework identifies a set of general design principles to facilitate good design in the cloud for serverless applications: 
 +  **Speedy, simple, singular**: Functions are concise, short, single-purpose, and their environment may live up to their request lifecycle. Transactions are efficiently cost-aware, and thus faster initiations are preferred. 

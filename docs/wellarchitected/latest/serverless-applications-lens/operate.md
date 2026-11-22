@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 | OPS 1: How do you understand the health of your serverless application? | 

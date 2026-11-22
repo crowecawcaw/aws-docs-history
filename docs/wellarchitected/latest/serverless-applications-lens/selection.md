@@ -1,7 +1,6 @@
 
 
 # Selection
-<a name="selection"></a>
 
 
 | PER 1: How have you optimized the performance of your serverless application? | 

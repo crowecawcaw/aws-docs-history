@@ -1,7 +1,6 @@
 
 
 # AWS Lambda
-<a name="aws-lambda-2"></a>
 
 Set your AWS Lambda function timeout a few seconds higher than the average execution to account for any transient issues in downstream services used in the communication path. This also applies when working with Step Functions activities, tasks, and Amazon SQS message visibility. Choosing a default memory setting and timeout in AWS Lambda may have an undesired effect in performance, cost, and operational procedures.
 
@@ -17,9 +16,13 @@ Take advantage of Amazon API Gateway native routing functionality instead of usi
 
 ![Amazon API Gateway simplified routing architecture](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-api-gateway-simplified-routing-architecture.png)
 
+*Figure 26: Amazon API Gateway simplified routing architecture*
+
 
  After a Lambda function has executed, AWS Lambda maintains the execution context for some arbitrary time in anticipation of another Lambda function invocation. That allows you to use the global scope for one-off expensive operations, for example establishing a database connection or any initialization logic. In subsequent invocations, you can verify whether it’s still valid and reuse the existing connection.
 
 Consider connection pooling with [Amazon RDS Proxy](https://aws.amazon.com/rds/proxy/) for your Lambda functions that interact using SQL calls with your database instance. Amazon RDS Proxy handles the connection pooling necessary for scaling simultaneous connections created by concurrent AWS Lambda functions. This allows for reuse of existing connections, rather than creating new connections for every function invocation. 
 
 ![Diagram of Amazon API Gateway with Amazon RDS Proxy](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-rds-proxy-scaling-connections-from-serverless-application.png)
+
+*Figure 27: Amazon RDS Proxy allows you to efficiently scale to many more connections from your serverless application*

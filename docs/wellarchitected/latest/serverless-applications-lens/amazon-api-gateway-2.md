@@ -1,7 +1,6 @@
 
 
 # Amazon API Gateway
-<a name="amazon-api-gateway-2"></a>
 
  Amazon API Gateway and AWS AppSync caching can be enabled to improve performance for applicable operations. DAX can improve read responses significantly as well as Global and Local Secondary Indexes to prevent DynamoDB full table scan operations. These details and resources were described in the Mobile Backend scenario.
 

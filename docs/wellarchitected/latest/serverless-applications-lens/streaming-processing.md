@@ -1,7 +1,6 @@
 
 
 # Streaming processing
-<a name="streaming-processing"></a>
 
 Ingesting and processing real-time streaming data requires scalability and low latency to support a variety of applications such as activity tracking, transaction order processing, click-stream analysis, data cleansing, metrics generation, log filtering, indexing, social media analysis, and IoT device data telemetry and metering. These applications are often spiky and process thousands of events per second. 
 
@@ -18,6 +17,8 @@ Ingesting and processing real-time streaming data requires scalability and low l
  Here we are presenting a scenario for common stream processing, which is a reference architecture for analyzing social media data: 
 
 ![Reference architecture diagram showing stream processing](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-stream-processing.png)
+
+*Figure 5: Reference architecture for stream processing*
 
 
  
