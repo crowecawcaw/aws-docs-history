@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting-rosa"></a>
 
 The following page details some common issues encountered while creating or managing ROSA clusters.
 
@@ -20,7 +19,7 @@ To begin to troubleshoot issues with your application, first review the debug lo
 
 To display cluster debug information, run the following ROSA CLI command. In the command, replace `<cluster_name>` with the name of your cluster.
 
-```
+```highlight.js
 rosa describe cluster -c <cluster_name> --debug
 ```
 
@@ -31,7 +30,7 @@ To use ROSA, the service quotas for your account may need increased. For more in
 
 1. Run the following command to identify your account’s quotas.
 
-   ```
+   ```highlight.js
    rosa verify quota
    ```
 **Note**  
@@ -56,7 +55,7 @@ If you use the ROSA CLI and your [api.openshift.com](https://api.openshift.com/)
 
 1. Copy and paste the following authentication command in the terminal.
 
-   ```
+   ```highlight.js
    rosa login --token="<api_token>"
    ```
 
@@ -68,19 +67,19 @@ This error occurs only when you use the non-STS method of provisioning ROSA clus
 
 If your cluster fails to create, you might receive the following error message:
 
-```
+```highlight.js
 Failed to create cluster: Unable to create cluster spec: Failed to get access keys for user 'osdCcsAdmin': NoSuchEntity: The user with name osdCcsAdmin cannot be found.
 ```
 
 1. Delete the stack.
 
-   ```
+   ```highlight.js
    rosa init --delete-stack
    ```
 
 1. Reinitialize your account.
 
-   ```
+   ```highlight.js
    rosa init
    ```
 

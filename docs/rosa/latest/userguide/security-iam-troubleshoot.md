@@ -1,7 +1,6 @@
 
 
 # Troubleshooting ROSA identity and access
-<a name="security-iam-troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with ROSA and IAM.
 
@@ -67,7 +66,7 @@ To resolve this issue, follow these steps:
 
 1. Check if your account has the `AWSServiceRoleForElasticLoadBalancing` role.
 
-   ```
+   ```highlight.js
    aws iam get-role --role-name "AWSServiceRoleForElasticLoadBalancing"
    ```
 

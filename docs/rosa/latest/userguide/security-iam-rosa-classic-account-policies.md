@@ -1,7 +1,6 @@
 
 
 # ROSA classic account policies
-<a name="security-iam-rosa-classic-account-policies"></a>
 
 This section provides details about the account policies that are required for ROSA classic. These permissions are needed for ROSA classic to manage the AWS resources that clusters run on and enable Red Hat site reliability engineer support for clusters. You can assign a custom prefix to the policy names, but these policies should otherwise be named as defined on this page (for example, `ManagedOpenShift-Installer-Role-Policy`).
 
@@ -17,7 +16,7 @@ You can attach `[Prefix]-Installer-Role-Policy` to your IAM entities. Before you
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -240,7 +239,7 @@ You can attach `[Prefix]-ControlPlane-Role-Policy` to your IAM entities. Before 
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -302,7 +301,7 @@ You can attach `[Prefix]-Worker-Role-Policy` to your IAM entities. Before you ca
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -328,7 +327,7 @@ You can attach `[Prefix]-Support-Role-Policy` to your IAM entities. Before you c
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

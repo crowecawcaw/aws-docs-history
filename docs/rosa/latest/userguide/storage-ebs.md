@@ -1,7 +1,6 @@
 
 
 # Block storage with Amazon Elastic Block Store
-<a name="storage-ebs"></a>
 
  Amazon Elastic Block Store (Amazon EBS) provides block storage volumes for use with your ROSA workloads. Amazon EBS is the default storage backend for ROSA. Your cluster includes the Amazon EBS CSI driver and the Amazon EBS CSI Driver Operator. Unless you configure another backend, Amazon EBS provisions all persistent volumes.
 

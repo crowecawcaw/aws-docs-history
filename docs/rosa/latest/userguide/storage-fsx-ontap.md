@@ -1,7 +1,6 @@
 
 
 # Multi-protocol storage with Amazon FSx for NetApp ONTAP
-<a name="storage-fsx-ontap"></a>
 
 With Amazon FSx for NetApp ONTAP, you can provision high-performance file and block storage built on the NetApp ONTAP file system. On ROSA, you provision FSx for ONTAP storage through **NetApp Trident** (also known as Astra Trident), the open-source CSI driver from NetApp for Kubernetes.
 

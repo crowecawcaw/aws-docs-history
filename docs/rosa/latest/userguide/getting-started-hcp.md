@@ -1,7 +1,6 @@
 
 
 # Create a ROSA with HCP cluster using the ROSA CLI
-<a name="getting-started-hcp"></a>
 
 The following sections describe how to get started with ROSA with hosted control planes (ROSA with HCP) using AWS STS and the ROSA CLI. For steps to create a ROSA with HCP cluster using Terraform, see [the Red Hat documentation](https://docs.openshift.com/rosa/rosa_hcp/terraform/rosa-hcp-creating-a-cluster-quickly-terraform.html). To learn more about the Terraform provider for creating ROSA clusters, see [the Terraform documentation](https://registry.terraform.io/providers/terraform-redhat/rhcs/latest/docs).
 
@@ -44,19 +43,19 @@ If Amazon VPC requirements are not met, cluster creation fails.
 
 1. Open a terminal session and clone the Terraform VPC repository.
 
-   ```
+   ```bash
    git clone https://github.com/openshift-cs/terraform-vpc-example
    ```
 
 1. Navigate to the created directory.
 
-   ```
+   ```bash
    cd terraform-vpc-example
    ```
 
 1. Initiate the Terraform file.
 
-   ```
+   ```bash
    terraform init
    ```
 
@@ -64,7 +63,7 @@ If Amazon VPC requirements are not met, cluster creation fails.
 
 1. To build a Terraform plan based on the existing template, run the following command. The AWS Region must be specified. Optionally, you can choose to specify a cluster name.
 
-   ```
+   ```bash
    terraform plan -out rosa.tfplan -var region=<region>
    ```
 
@@ -72,7 +71,7 @@ If Amazon VPC requirements are not met, cluster creation fails.
 
 1. Apply the plan file to build the VPC.
 
-   ```
+   ```bash
    terraform apply rosa.tfplan
    ```
 
@@ -80,13 +79,13 @@ If Amazon VPC requirements are not met, cluster creation fails.
 
    1. (Optional) Create environment variables for the Terraform-provisioned private, public, and machinepool subnet IDs to use when creating your ROSA with HCP cluster.
 
-      ```
+      ```bash
       export SUBNET_IDS=$(terraform output -raw cluster-subnets-string)
       ```
 
    1. (Optional) Verify that the environment variables were correctly set.
 
-      ```
+      ```bash
       echo $SUBNET_IDS
       ```
 
@@ -126,7 +125,7 @@ ROSA with HCP requires that customers configure at least one public and private 
 
 1. Create a VPC with a `10.0.0.0/16` CIDR block.
 
-   ```
+   ```bash
     aws ec2 create-vpc \
         --cidr-block 10.0.0.0/16 \
         --query Vpc.VpcId \
@@ -135,25 +134,25 @@ ROSA with HCP requires that customers configure at least one public and private 
 
    The preceding command returns the VPC ID. The following is an example output.
 
-   ```
+   ```bash
    vpc-1234567890abcdef0
    ```
 
 1. Store the VPC ID in an environment variable.
 
-   ```
+   ```bash
    export VPC_ID=vpc-1234567890abcdef0
    ```
 
 1. Create a `Name` tag for the VPC, using the `VPC_ID` environment variable.
 
-   ```
+   ```bash
    aws ec2 create-tags --resources $VPC_ID --tags Key=Name,Value=MyVPC
    ```
 
 1. Enable DNS hostname support on the VPC.
 
-   ```
+   ```bash
    aws ec2 modify-vpc-attribute \
        --vpc-id $VPC_ID \
        --enable-dns-hostnames
@@ -165,7 +164,7 @@ ROSA with HCP requires that customers configure at least one public and private 
 **Note**  
 Some ROSA instance types are only available in select Availability Zones. You can use the ROSA CLI command `rosa list instance-types` command to list all ROSA instance types available. To check if an instance type is available for a given Availability Zone, use the AWS CLI command `aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=location,Values=<availability_zone> --region <region> --output text | egrep "<instance_type>"`.
 
-   ```
+   ```bash
    aws ec2 create-subnet \
        --vpc-id $VPC_ID \
        --cidr-block 10.0.1.0/24 \
@@ -182,7 +181,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Store the public and private subnet IDs in environment variables.
 
-   ```
+   ```bash
    export PUBLIC_SUB=subnet-1234567890abcdef0
    export PRIVATE_SUB=subnet-0987654321fedcba0
    ```
@@ -191,14 +190,14 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 **Note**  
 You must tag at least one private subnet and, if applicable, one public subnet.
 
-   ```
+   ```bash
    aws ec2 create-tags --resources $PUBLIC_SUB --tags Key=kubernetes.io/role/elb,Value=1
    aws ec2 create-tags --resources $PRIVATE_SUB --tags Key=kubernetes.io/role/internal-elb,Value=1
    ```
 
 1. Create an internet gateway and a route table for outbound traffic. Create a route table and elastic IP address for private traffic.
 
-   ```
+   ```bash
    aws ec2 create-internet-gateway \
        --query InternetGateway.InternetGatewayId \
        --output text
@@ -218,7 +217,7 @@ You must tag at least one private subnet and, if applicable, one public subnet.
 
 1. Store the IDs in environment variables.
 
-   ```
+   ```bash
    export IGW=igw-1234567890abcdef0
    export PUBLIC_RT=rtb-0987654321fedcba0
    export EIP=eipalloc-0be6ecac95EXAMPLE
@@ -227,7 +226,7 @@ You must tag at least one private subnet and, if applicable, one public subnet.
 
 1. Attach the internet gateway to the VPC.
 
-   ```
+   ```bash
    aws ec2 attach-internet-gateway \
        --vpc-id $VPC_ID \
        --internet-gateway-id $IGW
@@ -235,7 +234,7 @@ You must tag at least one private subnet and, if applicable, one public subnet.
 
 1. Associate the public route table to the public subnet, and configure traffic to route to the internet gateway.
 
-   ```
+   ```bash
    aws ec2 associate-route-table \
        --subnet-id $PUBLIC_SUB \
        --route-table-id $PUBLIC_RT
@@ -247,7 +246,7 @@ You must tag at least one private subnet and, if applicable, one public subnet.
 
 1. Create the NAT gateway and associate it with the elastic IP address to enable traffic to the private subnet.
 
-   ```
+   ```bash
    aws ec2 create-nat-gateway \
        --subnet-id $PUBLIC_SUB \
        --allocation-id $EIP \
@@ -257,7 +256,7 @@ You must tag at least one private subnet and, if applicable, one public subnet.
 
 1. Associate the private route table to the private subnet, and configure traffic to route to the NAT gateway.
 
-   ```
+   ```bash
    aws ec2 associate-route-table \
        --subnet-id $PRIVATE_SUB \
        --route-table-id $PRIVATE_RT
@@ -278,7 +277,7 @@ This procedure uses the `auto` mode of the ROSA CLI to automatically create the 
 
 1. Create the required IAM account roles and policies. The `--force-policy-creation` parameter updates any existing roles and policies that are present. If no roles and policies are present, the command creates these resources instead.
 
-   ```
+   ```bash
    rosa create account-roles --force-policy-creation
    ```
 **Note**  
@@ -286,7 +285,7 @@ If your offline access token has expired, the ROSA CLI outputs an error message 
 
 1. Create the OpenID Connect (OIDC) configuration that enables user authentication to the cluster. This configuration is registered to be used with OpenShift Cluster Manager (OCM).
 
-   ```
+   ```bash
    rosa create oidc-config --mode=auto
    ```
 
@@ -294,7 +293,7 @@ If your offline access token has expired, the ROSA CLI outputs an error message 
 
 1. To verify the OIDC configurations available for clusters associated with your user organization, run the following command.
 
-   ```
+   ```bash
    rosa list oidc-config
    ```
 
@@ -303,13 +302,13 @@ If your offline access token has expired, the ROSA CLI outputs an error message 
 **Important**  
 You must supply a prefix in `<PREFIX_NAME>` when creating the Operator roles. Failing to do so produces an error.
 
-   ```
+   ```bash
    rosa create operator-roles --prefix <PREFIX_NAME> --oidc-config-id <OIDC_CONFIG_ID> --hosted-cp
    ```
 
 1. To verify the IAM operator roles were created, run the following command:
 
-   ```
+   ```bash
    rosa list operator-roles
    ```
 
@@ -336,7 +335,7 @@ The following procedure uses the `rosa create cluster --hosted-cp` command to cr
 
 1. Check the status of your cluster.
 
-   ```
+   ```bash
    rosa describe cluster -c <CLUSTER_NAME>
    ```
 **Note**  
@@ -345,7 +344,7 @@ To contact Support or Red Hat support for assistance, see [Getting ROSA support]
 
 1. Track the progress of the cluster creation by watching the OpenShift installer logs.
 
-   ```
+   ```bash
    rosa logs install -c <CLUSTER_NAME> --watch
    ```
 
@@ -367,13 +366,13 @@ The following procedure configures a GitHub identity provider as an example. For
 
 1. Using the ROSA CLI’s interactive mode, configure an identity provider for your cluster.
 
-   ```
+   ```bash
    rosa create idp --cluster=<CLUSTER_NAME> --interactive
    ```
 
 1. Follow the configuration prompts in the output to restrict cluster access to members of your GitHub organization.
 
-   ```
+   ```bash
    I: Interactive mode enabled.
    Any optional fields can be left empty and a default will be selected.
    ? Type of identity provider: github
@@ -393,7 +392,7 @@ The following procedure configures a GitHub identity provider as an example. For
 
 1. Use the information from the GitHub OAuth page to populate the remaining `rosa create idp` interactive prompts by running the following command. Replace `<GITHUB_CLIENT_ID>` and `<GITHUB_CLIENT_SECRET>` with the credentials from your GitHub OAuth application.
 
-   ```
+   ```bash
    ...
    ? Client ID: <GITHUB_CLIENT_ID>
    ? Client Secret: [? for help] <GITHUB_CLIENT_SECRET>
@@ -410,7 +409,7 @@ It might take approximately two minutes for the identity provider configuration 
 
 1. Verify that the identity provider is configured correctly.
 
-   ```
+   ```bash
    rosa list idps --cluster=<CLUSTER_NAME>
    ```
 
@@ -430,13 +429,13 @@ The following procedure adds a user to a GitHub organization that’s configured
 
 1. Grant the `cluster-admin` permissions by running the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
-   ```
+   ```bash
    rosa grant user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify that the user is listed as a member of the `cluster-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -445,13 +444,13 @@ The following procedure adds a user to a GitHub organization that’s configured
 
 1. Grant the `dedicated-admin` permissions by using the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name by running the following command.
 
-   ```
+   ```bash
    rosa grant user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify that the user is listed as a member of the `cluster-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -462,7 +461,7 @@ Log in to your cluster through the Red Hat Hybrid Cloud Console.
 
 1. Obtain the console URL for your cluster using the following command. Replace `<CLUSTER_NAME>` with the name of your cluster.
 
-   ```
+   ```bash
    rosa describe cluster -c <CLUSTER_NAME> | grep Console
    ```
 
@@ -507,7 +506,7 @@ The new application takes several minutes to deploy.
 
    A new tab in the browser opens with a message that’s similar to the following.
 
-   ```
+   ```bash
    Welcome to your Node.js application on OpenShift
    ```
 
@@ -522,13 +521,13 @@ The new application takes several minutes to deploy.
 
 1. Revoke the `cluster-admin` permissions using the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
-   ```
+   ```bash
    rosa revoke user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify that the user isn’t listed as a member of the `cluster-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -537,13 +536,13 @@ The new application takes several minutes to deploy.
 
 1. Revoke the `dedicated-admin` permissions by using the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
-   ```
+   ```bash
    rosa revoke user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify that the user isn’t listed as a member of the `dedicated-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -568,7 +567,7 @@ You can use the ROSA CLI to delete a cluster that uses AWS Security Token Servic
 
 1. Delete the cluster and watch the logs. Replace `<CLUSTER_NAME>` with the name or ID of your cluster.
 
-   ```
+   ```bash
    rosa delete cluster --cluster=<CLUSTER_NAME> --watch
    ```
 **Important**  
@@ -576,19 +575,19 @@ You must wait for the cluster to delete completely before you remove the IAM rol
 
 1. Delete the OIDC provider that the cluster operators use to authenticate by running the following command.
 
-   ```
+   ```bash
    rosa delete oidc-provider -c <CLUSTER_ID> --mode auto
    ```
 
 1. Delete the cluster-specific operator IAM roles.
 
-   ```
+   ```bash
    rosa delete operator-roles -c <CLUSTER_ID> --mode auto
    ```
 
 1. Delete the account IAM roles using the following command. Replace `<PREFIX>` with the prefix of the account IAM roles to delete. If you specified a custom prefix when creating the account IAM roles, specify the default `ManagedOpenShift` prefix.
 
-   ```
+   ```bash
    rosa delete account-roles --prefix <PREFIX> --mode auto
    ```
 

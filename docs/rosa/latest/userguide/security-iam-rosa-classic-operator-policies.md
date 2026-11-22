@@ -1,7 +1,6 @@
 
 
 # ROSA classic operator policies
-<a name="security-iam-rosa-classic-operator-policies"></a>
 
 This section provides details about the operator policies that are required for ROSA classic. Before you can create a ROSA classic cluster, you must first attach these policies to the relevant operator roles. A unique set of operator roles is required for each cluster.
 
@@ -17,7 +16,7 @@ You can attach `[Prefix]-openshift-ingress-operator-cloud-credentials` to your I
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -46,7 +45,7 @@ You can attach `[Prefix]-openshift-cluster-csi-drivers-ebs-cloud-credentials` to
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ You can attach `[Prefix]-openshift-machine-api-aws-cloud-credentials` to your IA
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -155,7 +154,7 @@ You can attach `[Prefix]-openshift-cloud-credential-operator-cloud-credentials` 
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -182,7 +181,7 @@ You can attach `[Prefix]-openshift-image-registry-installer-cloud-credentials` t
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -224,7 +223,7 @@ You can attach `[Prefix]-openshift-cloud-network-config-controller-cloud-cr` to 
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

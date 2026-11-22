@@ -1,7 +1,6 @@
 
 
 # Create a ROSA classic cluster that uses AWS PrivateLink
-<a name="getting-started-classic-private-link"></a>
 
 ROSA classic clusters can be deployed in a few different ways: public, private, or private with AWS PrivateLink. For more information about ROSA classic, see [ROSA architecture](rosa-architecture-models.md). For both public and private cluster configurations, the OpenShift cluster has access to the internet, and privacy is set on the application workloads at the application layer.
 
@@ -72,7 +71,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Create a VPC with a `10.0.0.0/16` CIDR block.
 
-   ```
+   ```bash
     aws ec2 create-vpc \
         --cidr-block 10.0.0.0/16 \
         --query Vpc.VpcId \
@@ -81,25 +80,25 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
    The preceding command returns the VPC ID. The following is an example output.
 
-   ```
+   ```bash
    vpc-1234567890abcdef0
    ```
 
 1. Store the VPC ID in an environment variable.
 
-   ```
+   ```bash
    export VPC_ID=vpc-1234567890abcdef0
    ```
 
 1. Create a `Name` tag for the VPC, using the `VPC_ID` environment variable.
 
-   ```
+   ```bash
    aws ec2 create-tags --resources $VPC_ID --tags Key=Name,Value=MyVPC
    ```
 
 1. Enable DNS hostname support on the VPC.
 
-   ```
+   ```bash
    aws ec2 modify-vpc-attribute \
        --vpc-id $VPC_ID \
        --enable-dns-hostnames
@@ -111,7 +110,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 **Note**  
 Some ROSA instance types are only available in select Availability Zones. You can use the ROSA CLI command `rosa list instance-types` command to list all ROSA instance types available. To check if an instance type is available for a given Availability Zone, use the AWS CLI command `aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=location,Values=<availability_zone> --region <region> --output text | egrep "<instance_type>"`.
 
-   ```
+   ```bash
    aws ec2 create-subnet \
        --vpc-id $VPC_ID \
        --cidr-block 10.0.1.0/24 \
@@ -128,14 +127,14 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Store the public and private subnet IDs in environment variables.
 
-   ```
+   ```bash
    export PUBLIC_SUB=subnet-1234567890abcdef0
    export PRIVATE_SUB=subnet-0987654321fedcba0
    ```
 
 1. Create an internet gateway and a route table for outbound traffic. Create a route table and elastic IP address for private traffic.
 
-   ```
+   ```bash
    aws ec2 create-internet-gateway \
        --query InternetGateway.InternetGatewayId \
        --output text
@@ -155,7 +154,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Store the IDs in environment variables.
 
-   ```
+   ```bash
    export IGW=igw-1234567890abcdef0
    export PUBLIC_RT=rtb-0987654321fedcba0
    export EIP=eipalloc-0be6ecac95EXAMPLE
@@ -164,7 +163,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Attach the internet gateway to the VPC.
 
-   ```
+   ```bash
    aws ec2 attach-internet-gateway \
        --vpc-id $VPC_ID \
        --internet-gateway-id $IGW
@@ -172,7 +171,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Associate the public route table to the public subnet, and configure traffic to route to the internet gateway.
 
-   ```
+   ```bash
    aws ec2 associate-route-table \
        --subnet-id $PUBLIC_SUB \
        --route-table-id $PUBLIC_RT
@@ -184,7 +183,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Create the NAT gateway and associate it with the elastic IP address to enable traffic to the private subnet.
 
-   ```
+   ```bash
    aws ec2 create-nat-gateway \
        --subnet-id $PUBLIC_SUB \
        --allocation-id $EIP \
@@ -194,7 +193,7 @@ Some ROSA instance types are only available in select Availability Zones. You ca
 
 1. Associate the private route table to the private subnet, and configure traffic to route to the NAT gateway.
 
-   ```
+   ```bash
    aws ec2 associate-route-table \
        --subnet-id $PRIVATE_SUB \
        --route-table-id $PRIVATE_RT
@@ -220,12 +219,12 @@ For more information, see [Requirements for using AWS PrivateLink clusters](http
 1. Create the required IAM account roles and policies using `--mode auto` or `--mode manual`.
    + 
 
-     ```
+     ```bash
      rosa create account-roles --classic --mode auto
      ```
    + 
 
-     ```
+     ```bash
      rosa create account-roles --classic --mode manual
      ```
 **Note**  
@@ -234,12 +233,12 @@ If your offline access token has expired, the ROSA CLI outputs an error message 
 1. Create a cluster by running one of the following commands.
    + Single-AZ
 
-     ```
+     ```bash
      rosa create cluster --private-link --cluster-name=<CLUSTER_NAME> --machine-cidr=10.0.0.0/16 --subnet-ids=<PRIVATE_SUBNET_ID>
      ```
    + Multi-AZ
 
-     ```
+     ```bash
      rosa create cluster --private-link --multi-az --cluster-name=<CLUSTER_NAME> --machine-cidr=10.0.0.0/16
      ```
 **Note**  
@@ -247,19 +246,19 @@ To create a cluster that uses AWS PrivateLink with AWS Security Token Service (A
 
 1. Create the cluster operator IAM roles by following the interactive prompts.
 
-   ```
+   ```bash
    rosa create operator-roles --interactive -c <CLUSTER_NAME>
    ```
 
 1. Create the OpenID Connect (OIDC) provider the cluster operators use to authenticate.
 
-   ```
+   ```bash
    rosa create oidc-provider --interactive -c <CLUSTER_NAME>
    ```
 
 1. Check the status of your cluster.
 
-   ```
+   ```bash
    rosa describe cluster -c <CLUSTER_NAME>
    ```
 **Note**  
@@ -267,7 +266,7 @@ It may take up to 40 minutes for the cluster `State` field to show the `ready` s
 
 1. Track the progress of the cluster creation by watching the OpenShift installer logs.
 
-   ```
+   ```bash
    rosa logs install -c <CLUSTER_NAME> --watch
    ```
 
@@ -318,13 +317,13 @@ The following procedure configures a GitHub identity provider as an example. For
 
 1. Using the ROSA CLI’s interactive mode, configure an identity provider for your cluster by running the following command.
 
-   ```
+   ```bash
    rosa create idp --cluster=<CLUSTER_NAME> --interactive
    ```
 
 1. Follow the configuration prompts in the output to restrict cluster access to members of your GitHub organization.
 
-   ```
+   ```bash
    I: Interactive mode enabled.
    Any optional fields can be left empty and a default will be selected.
    ? Type of identity provider: github
@@ -344,7 +343,7 @@ The following procedure configures a GitHub identity provider as an example. For
 
 1. Use the information from the GitHub OAuth page to populate the remaining `rosa create idp` interactive prompts, replacing `<GITHUB_CLIENT_ID>` and `<GITHUB_CLIENT_SECRET>` with the credentials from your GitHub OAuth application.
 
-   ```
+   ```bash
    ...
    ? Client ID: <GITHUB_CLIENT_ID>
    ? Client Secret: [? for help] <GITHUB_CLIENT_SECRET>
@@ -361,7 +360,7 @@ It might take around two minutes for the identity provider configuration to beco
 
 1. Verify the identity provider has been configured correctly.
 
-   ```
+   ```bash
    rosa list idps --cluster=<CLUSTER_NAME>
    ```
 
@@ -381,13 +380,13 @@ The following procedure adds a user to a GitHub organization that’s configured
 
 1. Grant the `cluster-admin` permissions using the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
-   ```
+   ```bash
    rosa grant user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify the user is listed as a member of the `cluster-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -396,13 +395,13 @@ The following procedure adds a user to a GitHub organization that’s configured
 
 1. Grant the `dedicated-admin` permissions with the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
-   ```
+   ```bash
    rosa grant user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify the user is listed as a member of the `cluster-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -413,7 +412,7 @@ After you created a cluster administrator user or added a user to your configure
 
 1. Obtain the console URL for your cluster using the following command. Replace `<CLUSTER_NAME>` with the name of your cluster.
 
-   ```
+   ```bash
    rosa describe cluster -c <CLUSTER_NAME> | grep Console
    ```
 
@@ -458,7 +457,7 @@ The new application takes several minutes to deploy.
 
    A new tab in the browser opens with a message that’s similar to the following.
 
-   ```
+   ```bash
    Welcome to your Node.js application on OpenShift
    ```
 
@@ -473,13 +472,13 @@ The new application takes several minutes to deploy.
 
 1. Revoke the `cluster-admin` permissions using the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
-   ```
+   ```bash
    rosa revoke user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify that the user isn’t listed as a member of the `cluster-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -488,13 +487,13 @@ The new application takes several minutes to deploy.
 
 1. Revoke the `dedicated-admin` permissions using the following command. Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
-   ```
+   ```bash
    rosa revoke user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
    ```
 
 1. Verify that the user isn’t listed as a member of the `dedicated-admins` group.
 
-   ```
+   ```bash
    rosa list users --cluster=<CLUSTER_NAME>
    ```
 
@@ -519,7 +518,7 @@ You can use the ROSA CLI to delete a cluster that uses AWS Security Token Servic
 
 1. Delete the cluster and watch the logs. Replace `<CLUSTER_NAME>` with the name or ID of your cluster.
 
-   ```
+   ```bash
    rosa delete cluster --cluster=<CLUSTER_NAME> --watch
    ```
 **Important**  
@@ -527,19 +526,19 @@ You must wait for the cluster to delete completely before you remove the IAM rol
 
 1. Delete the OIDC provider that the cluster operators use to authenticate by running the following command.
 
-   ```
+   ```bash
    rosa delete oidc-provider -c <CLUSTER_ID> --mode auto
    ```
 
 1. Delete the cluster-specific operator IAM roles.
 
-   ```
+   ```bash
    rosa delete operator-roles -c <CLUSTER_ID> --mode auto
    ```
 
 1. Delete the account IAM roles using the following command. Replace `<PREFIX>` with the prefix of the account IAM roles to delete. If you specified a custom prefix when creating the account IAM roles, specify the default `ManagedOpenShift` prefix.
 
-   ```
+   ```bash
    rosa delete account-roles --prefix <PREFIX> --mode auto
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Overview of responsibilities for ROSA
-<a name="rosa-responsibilities"></a>
 
 This documentation outlines the responsibilities of Amazon Web Services (AWS), Red Hat, and customers for the Red Hat OpenShift Service on AWS (ROSA) managed service. For more information about ROSA and its components, see [Policies and service definition](https://access.redhat.com/documentation/en-us/red_hat_openshift_service_on_aws/4/html/introduction_to_rosa/policies-and-service-definition) in the Red Hat documentation.
 

@@ -1,7 +1,6 @@
 
 
 # How ROSA works with AWS Marketplace
-<a name="integration-marketplace"></a>
 
  AWS Marketplace is a curated digital catalog that you can use to find, buy, deploy, and manage third-party software, data, and services that you need to build solutions and run your business. AWS Marketplace simplifies software licensing and procurement with flexible pricing options and multiple deployment methods.
 

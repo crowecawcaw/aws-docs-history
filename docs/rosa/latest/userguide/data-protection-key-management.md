@@ -1,7 +1,6 @@
 
 
 # Data encryption using KMS
-<a name="data-protection-key-management"></a>
 
  ROSA uses AWS KMS to securely manage keys for encrypted data. Control plane, infrastructure, and worker node volumes are encrypted by default using the AWS managed KMS key provided by Amazon EBS. This KMS key has the alias `aws/ebs`. Persistent volumes that use the default gp3 storage class are also encrypted by default using this KMS key.
 

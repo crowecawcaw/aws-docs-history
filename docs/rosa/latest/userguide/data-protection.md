@@ -1,7 +1,6 @@
 
 
 # Data protection in ROSA
-<a name="data-protection"></a>
 
 The [Overview of responsibilities for ROSA](rosa-responsibilities.md) documentation and [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) define data protection in ROSA. AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. Red Hat is responsible for protecting the cluster infrastructure and underlying service platform. The customer is responsible for maintaining control over content that is hosted on this infrastructure. This content includes the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see the [Data Privacy FAQ](http://aws.amazon.com/compliance/data-privacy-faq). For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr) blog post on the * AWS Security Blog*.
 

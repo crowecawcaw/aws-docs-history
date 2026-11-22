@@ -1,7 +1,6 @@
 
 
 # Set up to use ROSA
-<a name="set-up"></a>
 
 To prepare your environment for creating a ROSA cluster, you need to complete the following actions.
 
@@ -16,7 +15,7 @@ The following prerequisites must be met to enable ROSA cluster creation.
 + If you’re using AWS Organizations to manage the AWS accounts that host the ROSA service, the organization’s service control policy (SCP) must be configured to allow Red Hat to perform policy actions that’s listed in the SCP without restriction. For more information, see the [AWS Organizations service control policy denies required AWS Marketplace permissions](security-iam-troubleshoot.md#error-aws-orgs-scp-denies-permissions). For more information about SCPs, see [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html).
 + If deploying a ROSA cluster with AWS STS into an enabled AWS Region that’s disabled by default, you must update the security token to version 2 for all the Regions in the AWS account with the following command.
 
-  ```
+  ```highlight.js
   aws iam set-security-token-service-preferences --global-endpoint-token-version v2Token
   ```
 

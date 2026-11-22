@@ -1,7 +1,6 @@
 
 
 # Resilience in ROSA
-<a name="disaster-recovery-resiliency"></a>
 
 ## AWS global infrastructure resilience
 <a name="disaster-recovery-resiliency-infra"></a>
