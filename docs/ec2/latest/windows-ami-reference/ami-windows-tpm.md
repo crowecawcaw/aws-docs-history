@@ -1,7 +1,6 @@
 
 
 # AWS Windows Server NitroTPM enabled AMIs
-<a name="ami-windows-tpm"></a>
 
 Amazon creates a set of AMIs that are pre-configured with NitroTPM and UEFI Secure Boot requirements, as follows:
 + The TPM 2.0 Command Response Buffer (CRB) driver is installed
@@ -23,7 +22,7 @@ You can run the following commands from [AWS CloudShell](https://docs.aws.amazon
 **Find the latest NitroTPM and UEFI Secure Boot AMIs**  
 Use the [get-parameters-by-path](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters-by-path.html) command to retrieve a list of the latest Windows Server AMIs that are configured for NitroTPM and UEFI Secure Boot.
 
-```
+```bash
 aws ssm get-parameters-by-path \
     --path "/aws/service/ami-windows-latest" \
     --recursive \
@@ -34,7 +33,7 @@ aws ssm get-parameters-by-path \
 **Find a specific AMI**  
 Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command to retrieve Windows Server AMIs that are configured for NitroTPM and UEFI Secure Boot by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
 
-```
+```bash
 aws ec2 describe-images \
     --owners amazon \
     --filters \
@@ -51,7 +50,7 @@ aws ec2 describe-images \
 **Find the latest NitroTPM and UEFI Secure Boot AMIs**  
 Use the [Get-SSMLatestEC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMLatestEC2Image.html) cmdlet to retrieve a list of the latest Windows Server AMIs that are configured for NitroTPM and UEFI Secure Boot.
 
-```
+```ps
 Get-SSMLatestEC2Image `
     -Path ami-windows-latest `
     -ImageName TPM-Windows* |
@@ -63,7 +62,7 @@ Sort-Object Name
 
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet to retrieve Windows Server AMIs that are configured for NitroTPM and UEFI Secure Boot by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
 
-```
+```ps
 Get-EC2Image `
     -Owner amazon `
     -Filter @(
@@ -93,7 +92,7 @@ To update to the latest Secure Boot certificates (Microsoft Corporation KEK 2K C
 
 1. Open a PowerShell command prompt as an Administrator, and run the downloaded PowerShell script.
 
-   ```
+   ```ps
    .\Update-EC2SecureBootCertificate.ps1
    ```
 

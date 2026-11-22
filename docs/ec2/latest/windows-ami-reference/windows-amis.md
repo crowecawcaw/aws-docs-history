@@ -1,7 +1,6 @@
 
 
 # AWS Windows AMI reference
-<a name="windows-amis"></a>
 
 AWS provides a set of publicly available Amazon Machine Images (AMIs) that contain software configurations specific to the Windows platform. 
 

@@ -1,7 +1,6 @@
 
 
 # STIG Hardened AWS Windows Server AMIs
-<a name="ami-windows-stig"></a>
 
 Security Technical Implementation Guides (STIGs) are the configuration standards created by the Defense Information Systems Agency (DISA) to secure information systems and software. DISA documents three levels of compliance risk, known as categories:
 + **Category I** — The highest level of risk. It covers the most severe risks, and includes any vulnerability that can result in a loss of confidentiality, availability, or integrity.
@@ -78,7 +77,7 @@ The date suffix for the AMI ({{YYYY.MM.DD}}) is the date when the latest version
 **Find the latest STIG AMIs**  
 Use the [get-parameters-by-path](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters-by-path.html) command to retrieve a list of the latest STIG Hardened Windows Server AMIs.
 
-```
+```bash
 aws ssm get-parameters-by-path \
     --path "/aws/service/ami-windows-latest" \
     --recursive \
@@ -89,7 +88,7 @@ aws ssm get-parameters-by-path \
 **Find a specific AMI**  
 Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command to retrieve STIG Hardened Windows Server AMIs by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
 
-```
+```bash
 aws ec2 describe-images \
     --owners amazon \
     --filters \
@@ -106,7 +105,7 @@ aws ec2 describe-images \
 **Find the latest STIG AMIs**  
 Use the [Get-SSMLatestEC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMLatestEC2Image.html) cmdlet to retrieve a list of the latest STIG Hardened Windows Server AMIs.
 
-```
+```ps
 Get-SSMLatestEC2Image `
     -Path ami-windows-latest `
     -ImageName *Windows_Server-*STIG* |
@@ -118,7 +117,7 @@ Sort-Object Name
 
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet to retrieve STIG Hardened Windows Server AMIs by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
 
-```
+```ps
 Get-EC2Image `
     -Owner amazon `
     -Filter @(
