@@ -1,11 +1,10 @@
 
 
 # Change field names in arrays using `CAST`
-<a name="changing-row-arrays-with-cast"></a>
 
 To change the field name in an array that contains `ROW` values, you can `CAST` the `ROW` declaration:
 
-```
+```sql
 WITH dataset AS (
   SELECT
     CAST(

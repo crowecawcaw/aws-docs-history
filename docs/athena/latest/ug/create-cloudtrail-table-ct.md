@@ -1,7 +1,6 @@
 
 
 # Use the CloudTrail console to create an Athena table for CloudTrail logs
-<a name="create-cloudtrail-table-ct"></a>
 
 You can create a non-partitioned Athena table for querying CloudTrail logs directly from the CloudTrail console. Creating an Athena table from the CloudTrail console requires that you be logged in with a role that has sufficient permissions to create tables in Athena.
 

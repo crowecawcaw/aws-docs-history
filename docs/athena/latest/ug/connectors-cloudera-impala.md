@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Cloudera Impala connector
-<a name="connectors-cloudera-impala"></a>
 
 The Amazon Athena Cloudera Impala connector enables Athena to run SQL queries on the [Cloudera Impala](https://docs.cloudera.com/cdw-runtime/cloud/impala-overview/topics/impala-overview.html) distribution. The connector transforms your Athena SQL queries to the equivalent Impala syntax.
 
@@ -245,7 +244,7 @@ The following Athena Cloudera Impala connector operators support predicate pushd
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -261,7 +260,7 @@ The Cloudera Impala connector supports [passthrough queries](federated-query-pas
 
 To use passthrough queries with Cloudera Impala, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -270,7 +269,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Cloudera Impala. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

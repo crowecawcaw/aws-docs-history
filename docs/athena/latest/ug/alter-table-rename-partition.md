@@ -1,7 +1,6 @@
 
 
 # ALTER TABLE RENAME PARTITION
-<a name="alter-table-rename-partition"></a>
 
 Renames a partition value.
 
@@ -13,7 +12,7 @@ ALTER TABLE RENAME PARTITION does not rename partition columns. To change a part
 
 For the table named `table_name`, renames the partition value specified by `partition_spec` to the value specified by `new_partition_spec`.
 
-```
+```sql
 ALTER TABLE table_name PARTITION (partition_spec) RENAME TO PARTITION (new_partition_spec)
 ```
 
@@ -26,7 +25,7 @@ Each `partition_spec` specifies a column name/value combination in the form `par
 ## Examples
 <a name="examples"></a>
 
-```
+```sql
 ALTER TABLE orders 
 PARTITION (dt = '2014-05-14', country = 'IN') RENAME TO PARTITION (dt = '2014-05-15', country = 'IN');
 ```

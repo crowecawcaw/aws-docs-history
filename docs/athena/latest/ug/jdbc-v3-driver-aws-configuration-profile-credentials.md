@@ -1,7 +1,6 @@
 
 
 # AWS configuration profile credentials
-<a name="jdbc-v3-driver-aws-configuration-profile-credentials"></a>
 
 You can use credentials stored in an AWS configuration profile by setting the following connection parameters. AWS configuration profiles are typically stored in files in the `~/.aws` directory). For information about AWS configuration profiles, see [Use profiles](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-profiles.html) in the *AWS SDK for Java Developer Guide*.
 

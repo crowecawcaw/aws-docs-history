@@ -1,7 +1,6 @@
 
 
 # Manage Data Catalog views
-<a name="views-glue-managing"></a>
 
 You can use DDL commands to update and manage your Data Catalog views.
 
@@ -10,7 +9,7 @@ You can use DDL commands to update and manage your Data Catalog views.
 
 The `Lake Formation` admin or definer can use the `ALTER VIEW UPDATE DIALECT` syntax to update the view definition. The following example modifies the view definition to select columns from the `returns` table instead of the `orders` table.
 
-```
+```sql
 ALTER VIEW orders_by_date UPDATE DIALECT
 AS
 SELECT return_date, sum(totalprice) AS price

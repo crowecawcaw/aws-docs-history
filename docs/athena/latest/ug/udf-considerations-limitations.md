@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="udf-considerations-limitations"></a>
 
 Consider the following points when you use user defined function (UDFs) in Athena.
 + **Built-in Athena functions** – Built-in functions in Athena are designed to be highly performant. We recommend that you use built-in functions over UDFs when possible. For more information about built-in functions, see [Functions in Amazon Athena](functions.md).

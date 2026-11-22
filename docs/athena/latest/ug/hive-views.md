@@ -1,13 +1,12 @@
 
 
 # Work with Hive views
-<a name="hive-views"></a>
 
 You can use Athena to query existing views in your external Apache Hive metastores. Athena translates your views for you on-the-fly at runtime without changing the original view or storing the translation.
 
 For example, suppose you have a Hive view like the following that uses a syntax not supported in Athena like `LATERAL VIEW explode()`:
 
-```
+```sql
 CREATE VIEW team_view AS 
 SELECT team, score 
 FROM matches 
@@ -16,7 +15,7 @@ LATERAL VIEW explode(scores) m AS score
 
 Athena translates the Hive view query string into a statement like the following that Athena can run:
 
-```
+```sql
 SELECT team, score
 FROM matches
 CROSS JOIN UNNEST(scores) AS m (score)
@@ -107,7 +106,7 @@ The following miscellaneous functions for Hive views require special handling.
 
   In the `(pos, val)` output, Athena treats the `pos` column as `BIGINT`. Because of this, you may need to cast the `pos` column to `BIGINT` to avoid a stale view. The following example illustrates this technique.
 
-  ```
+  ```sql
   SELECT CAST(c AS BIGINT) AS c_bigint, d 
   FROM table LATERAL VIEW POSEXPLODE({{<argument>}}) t AS c, d
   ```
@@ -138,7 +137,7 @@ version
 <a name="hive-views-operators-special-handling"></a>
 
 The following operators for Hive views require special handling.
-+ **Mod operator (%)** – Because the `DOUBLE` type implicitly casts to `DECIMAL(x,y)`, the following syntax can cause a View is stale error message:
++ **Mod operator (%)** – Because the `DOUBLE` type implicitly casts to `DECIMAL(x,y)`, the following syntax can cause a `View is stale` error message:
 
   ```
   a_double % 1.0 AS column

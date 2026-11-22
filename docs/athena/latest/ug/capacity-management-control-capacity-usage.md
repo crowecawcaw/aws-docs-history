@@ -1,7 +1,6 @@
 
 
 # Control capacity usage
-<a name="capacity-management-control-capacity-usage"></a>
 
 You can control the number of DPU that Athena allocates to your queries by setting maximum or minimum DPU controls. You can configure these at the workgroup level to establish baseline controls for all queries, or at the individual query level for fine-grained control. This gives you direct control over query performance, workload concurrency, and cost.
 + When you set a maximum number of DPU, queries are prevented from consuming more capacity than you specify. This makes it simple to control cost and workload concurrency. For example, if your capacity reservation has 200 DPU, setting the maximum DPU per query to 8 allows you to run 25 queries concurrently. If you increase your reservation to 400 DPU, you can run 50 queries concurrently.

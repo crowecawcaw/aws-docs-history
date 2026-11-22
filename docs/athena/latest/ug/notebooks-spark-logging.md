@@ -1,7 +1,6 @@
 
 
 # Log Spark application events in Athena
-<a name="notebooks-spark-logging"></a>
 
 The Athena notebook editor allows for standard Jupyter, Spark, and Python logging. You can use `df.show()` to display PySpark DataFrame contents or use `print("Output")` to display values in the cell output. The `stdout`, `stderr`, and `results` outputs for your calculations are written to your query results bucket location in Amazon S3.
 
@@ -48,7 +47,7 @@ In an Athena for Spark session, you can use the following two global standard lo
   ```
 + **athena\_shared\_logger** – Sends the same log both to CloudWatch and to AWS for support purposes. You can use this object to share logs with AWS service teams for troubleshooting, as in the following example.
 
-  ```
+  ```py
   athena_shared_logger.info("Customer debug line.")
   var = [...some variable holding customer data...]
   athena_shared_logger.info(var)
@@ -76,7 +75,7 @@ The following procedure shows how to log Athena notebook events to Amazon CloudW
 
 1. In the Athena notebook editor, in a new notebook cell, enter the following command:
 
-   ```
+   ```py
    athena_user_logger.info("Hello world.")         
    ```
 
@@ -120,7 +119,7 @@ The following procedure shows how to log Athena notebook events to Amazon CloudW
 
 1. In a new cell, enter the following code. The code logs a variable to CloudWatch:
 
-   ```
+   ```py
    x = 6
    athena_user_logger.warn(x)
    ```

@@ -1,11 +1,10 @@
 
 
 # Create a named query
-<a name="create-a-named-query"></a>
 
 The `CreateNamedQueryExample` shows how to create a named query.
 
-```
+```java
 package aws.example.athena;
 
 import software.amazon.awssdk.regions.Region;

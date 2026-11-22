@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Timestream connector
-<a name="connectors-timestream"></a>
 
 The Amazon Athena Timestream connector enables Amazon Athena to communicate with [Amazon Timestream](https://aws.amazon.com/timestream/), making your time series data accessible through Amazon Athena. You can optionally use AWS Glue Data Catalog as a source of supplemental metadata.
 
@@ -114,7 +113,7 @@ The Timestream connector supports [passthrough queries](federated-query-passthro
 
 To use passthrough queries with Timestream, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -123,7 +122,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Timestream. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

@@ -1,19 +1,18 @@
 
 
 # DESCRIBE
-<a name="describe-table"></a>
 
 Shows one or more columns, including partition columns, for the specified table. This command is useful for examining the attributes of complex columns.
 
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 DESCRIBE [EXTENDED | FORMATTED] [db_name.]table_name [PARTITION partition_spec] [col_name ( [.field_name] | [.'$elem$'] | [.'$key$'] | [.'$value$'] )]
 ```
 
 **Important**  
-The syntax for this statement is `DESCRIBE {{table_name}}`, not `DESCRIBE TABLE {{table_name}}`. Using the latter syntax results in the error message FAILED: SemanticException [Error 10001]: Table not found table. 
+The syntax for this statement is `DESCRIBE {{table_name}}`, not `DESCRIBE TABLE {{table_name}}`. Using the latter syntax results in the error message `FAILED: SemanticException [Error 10001]: Table not found table`. 
 
 ## Parameters
 <a name="parameters"></a>
@@ -30,17 +29,17 @@ Specifies the column and attributes to examine. You can specify `.field_name` fo
 ### Examples
 <a name="examples"></a>
 
-```
+```sql
 DESCRIBE orders
 ```
 
-```
+```sql
 DESCRIBE FORMATTED mydatabase.mytable PARTITION (part_col = 100) columnA;
 ```
 
 The following query and output shows column and data type information from an `impressions` table based on Amazon EMR sample data.
 
-```
+```sql
 DESCRIBE impressions
 ```
 
@@ -70,7 +69,7 @@ dt                        string
 
 The following example query and output show the result for the same table when the `FORMATTED` option is used.
 
-```
+```sql
 DESCRIBE FORMATTED impressions
 ```
 
@@ -125,7 +124,7 @@ Storage Desc Params:
 
 The following example query and output show the result for the same table when the `EXTENDED` option is used. The detailed table information is output on a single line, but is formatted here for readability.
 
-```
+```sql
 DESCRIBE EXTENDED impressions
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Query AWS Glue Data Catalog materialized views
-<a name="querying-iceberg-gdc-mv"></a>
 
 Athena allows you to query AWS Glue Data Catalog materialized views. Glue Data Catalog materialized views store pre-computed results of SQL queries as Apache Iceberg tables.
 

@@ -1,7 +1,6 @@
 
 
 # Configure per-query and per-workgroup data usage controls
-<a name="workgroups-setting-control-limits-cloudwatch"></a>
 
  Athena allows you to set two types of cost controls: per-query limit and per-workgroup limit. For each workgroup, you can set only one per-query limit and multiple per-workgroup limits.
 + The **per-query control limit** specifies the total amount of data scanned per query. If any query that runs in the workgroup exceeds the limit, it is canceled. You can create only one per-query control limit in a workgroup and it applies to each query that runs in it. Edit the limit if you need to change it. For detailed steps, see [To create a per-query data usage control](#configure-control-limit-per-query).

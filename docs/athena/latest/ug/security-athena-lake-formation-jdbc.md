@@ -1,7 +1,6 @@
 
 
 # Use Lake Formation and JDBC or ODBC drivers for federated access to Athena
-<a name="security-athena-lake-formation-jdbc"></a>
 
 The Athena JDBC and ODBC drivers support SAML 2.0-based federation with Athena using Okta and Microsoft Active Directory Federation Services (AD FS) identity providers. By integrating Amazon Athena with AWS Lake Formation, you enable SAML-based authentication to Athena with corporate credentials. With Lake Formation and AWS Identity and Access Management (IAM), you can maintain fine-grained, column-level access control over the data available to the SAML user. With the Athena JDBC and ODBC drivers, federated access is available for tool or programmatic access.
 

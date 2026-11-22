@@ -1,7 +1,6 @@
 
 
 # JSON SerDe libraries
-<a name="json-serde"></a>
 
 In Athena, you can use SerDe libraries to deserialize JSON data. Deserialization converts the JSON data so that it can be serialized (written out) into a different format like Parquet or ORC.
 + [Hive JSON SerDe](hive-json-serde.md)

@@ -1,7 +1,6 @@
 
 
 # Use multiple data sources with a crawler
-<a name="schema-crawlers-data-sources"></a>
 
 When an AWS Glue crawler scans Amazon S3 and detects multiple directories, it uses a heuristic to determine where the root for a table is in the directory structure, and which directories are partitions for the table. In some cases, where the schema detected in two or more directories is similar, the crawler may treat them as partitions instead of separate tables. One way to help the crawler discover individual tables is to add each table's root directory as a data store for the crawler.
 

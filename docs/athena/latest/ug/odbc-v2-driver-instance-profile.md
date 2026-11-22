@@ -1,7 +1,6 @@
 
 
 # Instance profile
-<a name="odbc-v2-driver-instance-profile"></a>
 
 This authentication type is used on EC2 instances and is delivered through the Amazon EC2 metadata service.
 

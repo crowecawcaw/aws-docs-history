@@ -1,7 +1,6 @@
 
 
 # Query Apache Hudi datasets
-<a name="querying-hudi"></a>
 
 [*Apache Hudi*](https://hudi.incubator.apache.org/) is an open-source data management framework that simplifies incremental data processing. Record-level insert, update, upsert, and delete actions are processed much more granularly, reducing overhead. `Upsert` refers to the ability to insert records into an existing dataset if they do not already exist or to update them if they do.
 

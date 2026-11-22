@@ -1,7 +1,6 @@
 
 
 # View statistics and execution details for completed queries
-<a name="query-stats"></a>
 
 After you run a query, you can get statistics on the input and output data processed, see a graphical representation of the time taken for each phase of the query, and interactively explore execution details.
 
@@ -49,3 +48,5 @@ For more information, see the following resources.
 [Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md)
 
 [![AWS Videos](https://img.youtube.com/vi/7JUyTqglmNU/0.jpg)](https://www.youtube.com/watch?v=7JUyTqglmNU)
+
+Visual query execution analysis in Amazon Athena (AWS YouTube channel)

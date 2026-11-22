@@ -1,7 +1,6 @@
 
 
 # Keep your query history longer than 45 days
-<a name="querying-keeping-query-history"></a>
 
 If you want to keep the query history longer than 45 days, you can retrieve the query history and save it to a data store such as Amazon S3. To automate this process, you can use Athena and Amazon S3 API actions and CLI commands. The following procedure summarizes these steps.
 

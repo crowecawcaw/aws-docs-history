@@ -1,7 +1,6 @@
 
 
 # Browser SSO OIDC
-<a name="odbc-v2-driver-browser-sso-oidc"></a>
 
 Browser SSO OIDC is an authentication plugin that works with AWS IAM Identity Center. For information on enabling and using IAM Identity Center, see [Step 1: Enable IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-started-enable-identity-center.html) in the *AWS IAM Identity Center User Guide*.
 

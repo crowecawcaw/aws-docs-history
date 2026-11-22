@@ -1,7 +1,6 @@
 
 
 # Edit capacity reservations
-<a name="capacity-management-editing-capacity-reservations"></a>
 
 After you create a capacity reservation, you can adjust its number of DPUs and add or remove its custom tags.
 

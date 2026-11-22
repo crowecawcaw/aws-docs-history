@@ -1,7 +1,6 @@
 
 
 # Delete a workgroup
-<a name="deleting-workgroups"></a>
 
 You can delete a workgroup if you have permissions to do so. The primary workgroup cannot be deleted. 
 

@@ -1,7 +1,6 @@
 
 
 # Create a table for Amazon VPC flow logs and query it
-<a name="vpc-flow-logs-create-table-statement"></a>
 
 The following procedure creates an Amazon VPC table for Amazon VPC flow logs. When you create a flow log with a custom format, you create a table with fields that match the fields that you specified when you created the flow log in the same order that you specified them.
 
@@ -9,7 +8,7 @@ The following procedure creates an Amazon VPC table for Amazon VPC flow logs. Wh
 
 1. Enter a DDL statement like the following into the Athena console query editor, following the guidelines in the [Considerations and limitations](vpc-flow-logs.md#vpc-flow-logs-common-considerations) section. The sample statement creates a table that has the columns for Amazon VPC flow logs versions 2 through 5 as documented in [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records). If you use a different set of columns or order of columns, modify the statement accordingly.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS `vpc_flow_logs` (
      version int,
      account_id string,
@@ -63,7 +62,7 @@ Because `date` is a reserved keyword in DDL statements, it is escaped by back ti
 **Note**  
 This query creates a single partition only, for a date that you specify. To automate the process, use a script that runs this query and creates partitions this way for the `year/month/day`, or use a `CREATE TABLE` statement that specifies [partition projection](vpc-flow-logs-partition-projection.md).
 
-   ```
+   ```sql
    ALTER TABLE vpc_flow_logs
    ADD PARTITION (`date`='{{YYYY-MM-dd}}')
    LOCATION 's3://amzn-s3-demo-bucket/{{prefix}}/AWSLogs/{{{account_id}}}/vpcflowlogs/{{{region_code}}}/{{YYYY}}/{{MM}}/{{dd}}';
@@ -76,7 +75,7 @@ Use the query editor in the Athena console to run SQL statements on the table th
 
 The following example query lists a maximum of 100 flow logs for the date specified.
 
-```
+```sql
 SELECT * 
 FROM vpc_flow_logs 
 WHERE date = DATE('2020-05-04') 
@@ -85,7 +84,7 @@ LIMIT 100;
 
 The following query lists all of the rejected TCP connections and uses the newly created date partition column, `date`, to extract from it the day of the week for which these events occurred.
 
-```
+```sql
 SELECT day_of_week(date) AS
   day,
   date,
@@ -100,7 +99,7 @@ LIMIT 100;
 
 To see which one of your servers is receiving the highest number of HTTPS requests, use the following query. It counts the number of packets received on HTTPS port 443, groups them by destination IP address, and returns the top 10 from the last week.
 
-```
+```sql
 SELECT SUM(packets) AS
   packetcount,
   dstaddr

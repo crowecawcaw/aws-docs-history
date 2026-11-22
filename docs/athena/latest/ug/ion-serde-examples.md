@@ -1,7 +1,6 @@
 
 
 # Path extractor examples
-<a name="ion-serde-examples"></a>
 
 The following path extractor examples show how to flatten and rename fields or extract data as Amazon Ion text.
 
@@ -28,7 +27,7 @@ Following is the example Amazon Ion document.
 
 The following is the example `CREATE TABLE` statement that defines the path extractors.
 
-```
+```sql
 -- Example DDL Query
 CREATE EXTERNAL TABLE example_schema2 (
     name STRING,
@@ -60,7 +59,7 @@ For more information about search paths and additional search path examples, see
 
 The following example `CREATE TABLE` query uses `WITH SERDEPROPERTIES` to add path extractors to extract flight data and specify the output encoding as Amazon Ion text. The example uses the `STORED AS ION` syntax.
 
-```
+```sql
 CREATE EXTERNAL TABLE flights_ion (
     yr INT,
     quarter INT,

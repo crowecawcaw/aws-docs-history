@@ -1,7 +1,6 @@
 
 
 # Athena error catalog
-<a name="error-reference"></a>
 
 Athena provides standardized error information to help you understand failed queries and take steps after a query failure occurs. The `AthenaError` feature includes an `ErrorCategory` field and an `ErrorType` field. `ErrorCategory` specifies whether the cause of the failed query is due to system error, user error, or other error. `ErrorType` provides more granular information regarding the source of the failure. By combining the two fields, you can get a better understanding of the circumstances surrounding and causes for the specific error that occurred.
 

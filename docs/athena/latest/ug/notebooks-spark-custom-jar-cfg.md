@@ -1,7 +1,6 @@
 
 
 # Use Spark properties to specify custom configuration
-<a name="notebooks-spark-custom-jar-cfg"></a>
 
 When you create or edit a session in Amazon Athena for Apache Spark, you can use [Spark properties](https://spark.apache.org/docs/latest/configuration.html#spark-properties) to specify `.jar` files, packages, or another custom configuration for the session. To specify your Spark properties, you can use the Athena console, the AWS CLI, or the Athena API.
 

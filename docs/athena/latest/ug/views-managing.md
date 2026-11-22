@@ -1,7 +1,6 @@
 
 
 # Manage Athena views
-<a name="views-managing"></a>
 
 In the Athena console, you can:
 + Locate all views in the left pane, where tables are listed.

@@ -1,7 +1,6 @@
 
 
 # Additional resources
-<a name="cloudfront-logs-additional-resources"></a>
 
 For more information about using Athena to query CloudFront logs, see the following posts from the [AWS big data blog](https://aws.amazon.com/blogs/big-data/).
 

@@ -1,7 +1,6 @@
 
 
 # Use ML with Athena syntax
-<a name="ml-syntax"></a>
 
 The `USING EXTERNAL FUNCTION` clause specifies an ML with Athena function or multiple functions that can be referenced by a subsequent `SELECT` statement in the query. You define the function name, variable names, and data types for the variables and return values.
 
@@ -10,7 +9,7 @@ The `USING EXTERNAL FUNCTION` clause specifies an ML with Athena function or mul
 
 The following syntax shows a `USING EXTERNAL FUNCTION` clause that specifies an ML with Athena function.
 
-```
+```sql
 USING EXTERNAL FUNCTION {{ml_function_name}} ({{variable1}} {{data_type}}[, {{variable2}} {{data_type}}][,...])
 RETURNS {{data_type}} 
 SAGEMAKER '{{sagemaker_endpoint}}'
@@ -39,7 +38,7 @@ The following example demonstrates a query using ML with Athena.
 
 **Example**  
 
-```
+```sql
 USING EXTERNAL FUNCTION predict_customer_registration(age INTEGER) 
     RETURNS DOUBLE
     SAGEMAKER 'xgboost-2019-09-20-04-49-29-303' 

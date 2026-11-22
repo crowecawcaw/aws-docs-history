@@ -1,7 +1,6 @@
 
 
 # Create a VPC for a data source connector or AWS Glue connection
-<a name="athena-connectors-vpc-creation"></a>
 
 Some Athena data source connectors and AWS Glue connections require a VPC and a security group. This topic shows you how to create a VPC with a subnet and a security group for the VPC. As part of this process, you retrieve the IDs for the VPC, subnet, and security group that you create. These IDs are required when you configure your AWS Glue connection or data source connector for use with Athena.
 

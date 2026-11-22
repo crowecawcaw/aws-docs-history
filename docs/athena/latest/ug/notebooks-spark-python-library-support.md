@@ -1,7 +1,6 @@
 
 
 # Use Python libraries in Athena for Spark
-<a name="notebooks-spark-python-library-support"></a>
 
 **Note**  
 This page refers to using Python libraries in the release version Pyspark engine version 3. The release version Apache Spark version 3.5 is based on [Amazon EMR 7.12](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-7120-release.html). Refer to EMR 7.12 for libraries included in this version.

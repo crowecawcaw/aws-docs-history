@@ -1,7 +1,6 @@
 
 
 # JWT with identity center integration
-<a name="jdbc-v3-driver-jwt-tip-credentials"></a>
 
 This authentication type allows you to use a JSON web token (JWT) obtained from an external identity provider as a connection parameter to authenticate with Athena. You can use this plugin, to enable support for corporate identities via trusted identity propagation. For more information on how to use trusted identity propagation with drivers, see [Use Trusted identity propagation with Amazon Athena drivers](using-trusted-identity-propagation.md). You can also [configure and deploy resources using CloudFormation](using-trusted-identity-propagation-cloudformation.md).
 

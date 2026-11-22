@@ -1,7 +1,6 @@
 
 
 # Query across regions
-<a name="querying-across-regions"></a>
 
 Athena supports the ability to query Amazon S3 data in an AWS Region that is different from the Region in which you are using Athena. Querying across Regions can be an option when moving the data is not practical or permissible, or if you want to query data across multiple regions. Even if Athena is not available in a particular Region, data from that Region can be queried from another Region in which Athena is available.
 

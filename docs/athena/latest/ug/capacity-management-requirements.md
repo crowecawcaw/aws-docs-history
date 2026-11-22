@@ -1,7 +1,6 @@
 
 
 # Determine capacity requirements
-<a name="capacity-management-requirements"></a>
 
 Before you create a capacity reservation, you can estimate the capacity required so that you can assign it the correct number of DPUs. And, after a reservation is in use, you might want to check the reservation for insufficient or excess capacity. This topic describes techniques that you can use to make these estimates and also describes some AWS tools for assessing usage and cost.
 

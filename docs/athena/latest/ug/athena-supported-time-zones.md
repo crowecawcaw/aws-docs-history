@@ -1,17 +1,16 @@
 
 
 # Use supported time zones
-<a name="athena-supported-time-zones"></a>
 
 You can use the `AT TIME ZONE` operator in a `SELECT timestamp` statement to specify the timezone for the timestamp that is returned, as in the following example:
 
-```
+```sql
 SELECT timestamp '2012-10-31 01:00 UTC' AT TIME ZONE 'America/Los_Angeles' AS la_time;
 ```
 
 **Results**
 
-```
+```sql
 la_time
 
 2012-10-30 18:00:00.000 America/Los_Angeles
@@ -27,7 +26,7 @@ Following are some additional timezone related functions and examples.
 
   **Example**
 
-  ```
+  ```sql
   SELECT at_timezone(timestamp '2021-08-22 00:00 UTC', 'Canada/Newfoundland')
   ```
 
@@ -40,7 +39,7 @@ Following are some additional timezone related functions and examples.
 
   **Example**
 
-  ```
+  ```sql
   SELECT timezone_hour(timestamp '2021-08-22 04:00 UTC' AT TIME ZONE 'Canada/Newfoundland')
   ```
 
@@ -53,7 +52,7 @@ Following are some additional timezone related functions and examples.
 
   **Example**
 
-  ```
+  ```sql
   SELECT timezone_minute(timestamp '2021-08-22 04:00 UTC' AT TIME ZONE 'Canada/Newfoundland')
   ```
 
@@ -66,7 +65,7 @@ Following are some additional timezone related functions and examples.
 
   **Example**
 
-  ```
+  ```sql
   SELECT with_timezone(timestamp '2021-08-22 04:00', 'Canada/Newfoundland')
   ```
 

@@ -1,7 +1,6 @@
 
 
 # Create a table from query results (CTAS)
-<a name="ctas"></a>
 
 A `CREATE TABLE AS SELECT` (CTAS) query creates a new table in Athena from the results of a `SELECT` statement from another query. Athena stores data files created by the CTAS statement in a specified location in Amazon S3. For syntax, see [CREATE TABLE AS](create-table-as.md).
 

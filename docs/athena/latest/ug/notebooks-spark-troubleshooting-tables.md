@@ -1,14 +1,13 @@
 
 
 # Troubleshoot table errors
-<a name="notebooks-spark-troubleshooting-tables"></a>
 
 Use the information in this section to troubleshoot Athena for Spark table errors.
 
 ## Cannot create a path error when creating a table
 <a name="notebooks-spark-troubleshooting-tables-illegal-argument-exception"></a>
 
-**Error message**: IllegalArgumentException: Cannot create a path from an empty string.
+**Error message**: `IllegalArgumentException: Cannot create a path from an empty string.`
 
 **Cause**: This error can occur when you use Apache Spark in Athena to create a table in an AWS Glue database, and the database has an empty `LOCATION` property. 
 
@@ -17,7 +16,7 @@ Use the information in this section to troubleshoot Athena for Spark table error
 ## AccessDeniedException when querying AWS Glue tables
 <a name="notebooks-spark-troubleshooting-tables-glue-access-denied"></a>
 
-**Error message**: pyspark.sql.utils.AnalysisException: Unable to verify existence of default database: com.amazonaws.services.glue.model.AccessDeniedException: User: arn:aws:sts::{{aws-account-id}}:assumed-role/AWSAthenaSparkExecutionRole-{{unique-identifier}}/AthenaExecutor-{{unique-identifier}} is not authorized to perform: glue:GetDatabase on resource: arn:aws:glue:{{aws-region}}:{{aws-account-id}}:catalog because no identity-based policy allows the glue:GetDatabase action (Service: AWSGlue; Status Code: 400; Error Code: AccessDeniedException; Request ID: {{request-id}}; Proxy: null)
+**Error message**: `pyspark.sql.utils.AnalysisException: Unable to verify existence of default database: com.amazonaws.services.glue.model.AccessDeniedException: User: arn:aws:sts::{{aws-account-id}}:assumed-role/AWSAthenaSparkExecutionRole-{{unique-identifier}}/AthenaExecutor-{{unique-identifier}} is not authorized to perform: glue:GetDatabase on resource: arn:aws:glue:{{aws-region}}:{{aws-account-id}}:catalog because no identity-based policy allows the glue:GetDatabase action (Service: AWSGlue; Status Code: 400; Error Code: AccessDeniedException; Request ID: {{request-id}}; Proxy: null)`
 
 **Cause**: The execution role for your Spark-enabled workgroup is missing permissions to access AWS Glue resources.
 

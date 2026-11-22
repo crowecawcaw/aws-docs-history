@@ -1,7 +1,6 @@
 
 
 # DELETE
-<a name="delete-statement"></a>
 
 Deletes rows in an Apache Iceberg table. `DELETE` is transactional and is supported only for Apache Iceberg tables.
 
@@ -10,7 +9,7 @@ Deletes rows in an Apache Iceberg table. `DELETE` is transactional and is suppor
 
 To delete the rows from an Iceberg table, use the following syntax.
 
-```
+```sql
 DELETE FROM [{{db_name}}.]{{table_name}} [WHERE {{predicate}}]
 ```
 

@@ -1,7 +1,6 @@
 
 
 # ALTER TABLE SET TBLPROPERTIES
-<a name="querying-iceberg-alter-table-set-properties"></a>
 
 Adds properties to an Iceberg table and sets their assigned values.
 
@@ -10,14 +9,14 @@ In accordance with [Iceberg specifications](https://iceberg.apache.org/#spec/#ta
 ## Synopsis
 <a name="querying-iceberg-alter-table-set-properties-synopsis"></a>
 
-```
+```sql
 ALTER TABLE [{{db_name}}.]{{table_name}} SET TBLPROPERTIES ('{{property_name}}' = '{{property_value}}' [ , ... ])
 ```
 
 ## Example
 <a name="querying-iceberg-alter-table-set-properties-example"></a>
 
-```
+```sql
 ALTER TABLE iceberg_table SET TBLPROPERTIES (
   'format'='parquet',
   'write_compression'='snappy',
@@ -27,7 +26,7 @@ ALTER TABLE iceberg_table SET TBLPROPERTIES (
 
 The following example sets the `write.data.path` property on an existing Iceberg table.
 
-```
+```sql
 ALTER TABLE iceberg_table SET TBLPROPERTIES (
   'write.data.path'='s3://amzn-s3-demo-bucket/{{your-folder}}/data'
 )

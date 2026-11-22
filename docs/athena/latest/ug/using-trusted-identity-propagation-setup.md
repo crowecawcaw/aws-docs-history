@@ -1,7 +1,6 @@
 
 
 # Connect Athena to IAM Identity Center
-<a name="using-trusted-identity-propagation-setup"></a>
 
 The following section lists the process of connecting Athena to IAM Identity Center.
 
@@ -39,7 +38,7 @@ Copy the Application Resource Name (ARN) for AWS IAM Identity provider. For more
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -81,7 +80,7 @@ Copy the Application Resource Name (ARN) for AWS IAM Identity provider. For more
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

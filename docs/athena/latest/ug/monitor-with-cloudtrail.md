@@ -1,7 +1,6 @@
 
 
 # Log Amazon Athena API calls with AWS CloudTrail
-<a name="monitor-with-cloudtrail"></a>
 
 Athena is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Athena. 
 
@@ -49,7 +48,7 @@ The following examples demonstrate CloudTrail log entries for:
 ### StartQueryExecution (successful)
 <a name="startqueryexecution-successful"></a>
 
-```
+```json
 {
  "eventVersion":"1.05",
  "userIdentity":{
@@ -86,7 +85,7 @@ The following examples demonstrate CloudTrail log entries for:
 ### StartQueryExecution (failed)
 <a name="startqueryexecution-failed"></a>
 
-```
+```json
 {
  "eventVersion":"1.05",
  "userIdentity":{
@@ -120,7 +119,7 @@ The following examples demonstrate CloudTrail log entries for:
 ### CreateNamedQuery
 <a name="createnamedquery"></a>
 
-```
+```json
 {
   "eventVersion":"1.05",
   "userIdentity":{

@@ -1,7 +1,6 @@
 
 
 # Configure access to workgroups and tags
-<a name="workgroups-access"></a>
 
 A workgroup is a resource managed by Athena. Therefore, if your workgroup policy uses actions that take `workgroup` as an input, you must specify the workgroup's ARN as follows, where `{{workgroup-name}}` is the name of your workgroup:
 

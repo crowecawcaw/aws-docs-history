@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Workday Live Data Query connector
-<a name="connectors-workday-ldq"></a>
 
 With the Amazon Athena connector for Workday Live Data Query, you can run SQL queries on the current data in your Workday tenant, without copying or moving that data. This connector can be registered with AWS Glue Data Catalog as a federated catalog. It supports data access controls defined in Lake Formation at the catalog, database, table, column, and row levels. This connector uses Glue connections to centralize configuration properties in AWS Glue. AWS manages the connector for you, so you don't need to deploy an AWS Lambda function in your account.
 
@@ -44,7 +43,7 @@ You configure the connector by using a Glue connection of type `WORKDAYLDQ`.
 
 Use the following command to get the schema for the connection type. This schema contains the properties that you can use to control your connection.
 
-```
+```bash
 aws glue describe-connection-type --connection-type WORKDAYLDQ
 ```
 
@@ -100,7 +99,7 @@ To create a connection for Athena with Workday Live Data Query as a data source,
 
 Create a file named `secret.json` that contains your Workday OAuth 2.0 credentials.
 
-```
+```json
 {
   "wd.authn.isu": "{{isu}}",
   "wd.authn.clientId": "{{clientId}}",
@@ -111,7 +110,7 @@ Create a file named `secret.json` that contains your Workday OAuth 2.0 credentia
 
 Create the secret with the following command.
 
-```
+```bash
 aws secretsmanager create-secret --region {{region}} --name {{name}} --secret-string file://secret.json
 ```
 
@@ -122,7 +121,7 @@ Create an IAM role for the connector. AWS Glue uses the role to retrieve the sec
 
 Create a file named `trust-policy.json` that allows AWS Glue and Lake Formation to assume the role.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -147,7 +146,7 @@ Create a file named `trust-policy.json` that allows AWS Glue and Lake Formation 
 
 Create a file named `permissions-policy.json` that grants the role access to the secret, the Glue connection, Lake Formation, the managed connector, and the spill bucket.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -199,7 +198,7 @@ Create a file named `permissions-policy.json` that grants the role access to the
 
 Create the role and attach the permissions policy with the following commands.
 
-```
+```bash
 aws iam create-role --role-name {{role}} --assume-role-policy-document file://trust-policy.json
 
 aws iam put-role-policy --role-name {{role}} --policy-name WorkdayLDQConnectorAccess --policy-document file://permissions-policy.json
@@ -213,7 +212,7 @@ The `glue:ManagedConnector` permission and the spill bucket permissions are requ
 
 Create the Glue connection of type `WORKDAYLDQ`. In `AthenaProperties`, set `MANAGED_CONNECTION` to `true` and specify a spill bucket. When `ValidateCredentials` is `true`, AWS Glue gets an access token from Workday and runs a test query before it creates the connection.
 
-```
+```bash
 aws glue create-connection --region {{region}} --cli-input-json '{"ConnectionInput":{"Name":"{{name}}","ConnectionType":"WORKDAYLDQ","ConnectionProperties":{"HOST":"{{host}}","PORT":"443","ROLE_ARN":"arn:aws:iam::{{account}}:role/{{role}}"},"AthenaProperties":{"MANAGED_CONNECTION":"true","spill_bucket":"{{bucket}}","spill_prefix":"workday-ldq-spill"},"AuthenticationConfiguration":{"AuthenticationType":"CUSTOM","SecretArn":"{{secret-arn}}"},"ValidateCredentials":true,"ValidateForComputeEnvironments":["SPARK","ATHENA"]}}'
 ```
 
@@ -224,7 +223,7 @@ On success, the command returns `"CreateConnectionStatus":"READY"`.
 
 Register the connection with Lake Formation. The connection ARN has the format `arn:aws:glue:{{region}}:{{account}}:connection/{{name}}`.
 
-```
+```bash
 aws lakeformation register-resource --region {{region}} --resource-arn arn:aws:glue:{{region}}:{{account}}:connection/{{name}} --role-arn arn:aws:iam::{{account}}:role/{{role}} --with-federation --with-privileged-access
 ```
 
@@ -233,13 +232,13 @@ aws lakeformation register-resource --region {{region}} --resource-arn arn:aws:g
 
 Create the federated catalog that points to the connection with the identifier `workday`. The catalog name that you choose is the name that you use in Athena.
 
-```
+```bash
 aws glue create-catalog --region {{region}} --cli-input-json '{"Name":"{{catalog}}","CatalogInput":{"FederatedCatalog":{"Identifier":"workday","ConnectionName":"{{name}}"},"CreateDatabaseDefaultPermissions":[],"CreateTableDefaultPermissions":[]}}'
 ```
 
 Verify the catalog with the following command. The `public` database contains your Workday tables.
 
-```
+```bash
 aws glue get-databases --region {{region}} --catalog-id {{account}}:{{catalog}}
 ```
 
@@ -248,7 +247,7 @@ aws glue get-databases --region {{region}} --catalog-id {{account}}:{{catalog}}
 
 Grant Lake Formation permissions to each IAM principal that queries Workday from Athena. Grant `DESCRIBE` on the `public` database and `SELECT` and `DESCRIBE` on all tables.
 
-```
+```bash
 aws lakeformation grant-permissions --region {{region}} --principal DataLakePrincipalIdentifier={{principal}} --permissions DESCRIBE --resource '{"Database":{"CatalogId":"{{account}}:{{catalog}}","Name":"public"}}'
 
 aws lakeformation grant-permissions --region {{region}} --principal DataLakePrincipalIdentifier={{principal}} --permissions SELECT DESCRIBE --resource '{"Table":{"CatalogId":"{{account}}:{{catalog}}","DatabaseName":"public","TableWildcard":{}}}'
@@ -268,13 +267,13 @@ In the Athena query editor, for **Data source**, choose your federated catalog, 
 
 The following example query returns the columns and data types of a table.
 
-```
+```sql
 SELECT column_name, data_type FROM "{{catalog}}".information_schema.columns WHERE table_schema = 'public' AND table_name = 'procurement_supplier';
 ```
 
 The following example query returns rows from a table.
 
-```
+```sql
 SELECT id, workday_id, display_id FROM "{{catalog}}"."public"."procurement_supplier" LIMIT 10;
 ```
 
@@ -322,7 +321,7 @@ Athena evaluates other expressions, such as `LIKE` patterns, after it reads data
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example.
 
-```
+```sql
 SELECT id, display_id FROM "{{catalog}}"."public"."procurement_supplier" WHERE (id BETWEEN 1000 AND 2000 OR id IN (3000, 3001)) AND basic_worktag_only = false LIMIT 10;
 ```
 

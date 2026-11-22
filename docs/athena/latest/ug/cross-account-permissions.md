@@ -1,7 +1,6 @@
 
 
 # Configure cross-account access in Athena to Amazon S3 buckets
-<a name="cross-account-permissions"></a>
 
 A common Amazon Athena scenario is granting access to users in an account different from the bucket owner so that they can perform queries. In this case, use a bucket policy to grant access.
 
@@ -15,7 +14,7 @@ The following example bucket policy, created and applied to bucket `s3://amzn-s3
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "MyPolicyID",
@@ -69,7 +68,7 @@ The following procedures describe how to grant each of these permissions.
 
 ****  
 
-  ```
+  ```json
   {
     "Id": "ExamplePolicy1",
     "Version":"2012-10-17",		 	 	 
@@ -109,7 +108,7 @@ The following procedures describe how to grant each of these permissions.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -138,7 +137,7 @@ The following procedures describe how to grant each of these permissions.
 
 1. In the key policy, verify that the following statement lists Account B as a principal.
 
-   ```
+   ```json
    "Sid": "Allow use of the key" 
    ```
 
@@ -165,7 +164,7 @@ The following procedures describe how to grant each of these permissions.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -195,7 +194,7 @@ If the IAM role assumed by Account B already has [administrator access](https://
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

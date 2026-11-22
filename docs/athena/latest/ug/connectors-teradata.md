@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Teradata connector
-<a name="connectors-teradata"></a>
 
  The Amazon Athena connector for Teradata enables Athena to run SQL queries on data stored in your Teradata databases. 
 
@@ -242,7 +241,7 @@ The following Athena Teradata connector operators support predicate pushdown:
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -257,7 +256,7 @@ The Teradata connector supports [passthrough queries](federated-query-passthroug
 
 To use passthrough queries with Teradata, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -266,7 +265,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Teradata. The query selects all columns in the `customer` table.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer'

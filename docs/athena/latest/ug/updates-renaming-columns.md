@@ -1,7 +1,6 @@
 
 
 # Rename columns
-<a name="updates-renaming-columns"></a>
 
 You may want to rename columns in your tables to correct spelling, make column names more descriptive, or to reuse an existing column to avoid column reordering.
 
@@ -11,7 +10,7 @@ Athena reads data in CSV and TSV in the order of the columns in the schema and r
 
 One strategy for renaming columns is to create a new table based on the same underlying data, but using new column names. The following example creates a new `orders_parquet` table called `orders_parquet_column_renamed`. The example changes the column ``o_totalprice`` name to ``o_total_price`` and then runs a query in Athena: 
 
-```
+```sql
 CREATE EXTERNAL TABLE orders_parquet_column_renamed (
    `o_orderkey` int, 
    `o_custkey` int, 
@@ -29,14 +28,14 @@ LOCATION 's3://amzn-s3-demo-bucket/orders_parquet/';
 
 In the Parquet table case, the following query runs, but the renamed column does not show data because the column was being accessed by name (a default in Parquet) rather than by index:
 
-```
+```sql
 SELECT * 
 FROM orders_parquet_column_renamed;
 ```
 
 A query with a table in CSV looks similar:
 
-```
+```sql
 CREATE EXTERNAL TABLE orders_csv_column_renamed (
    `o_orderkey` int, 
    `o_custkey` int, 
@@ -54,7 +53,7 @@ LOCATION 's3://amzn-s3-demo-bucket/orders_csv/';
 
 In the CSV table case, the following query runs and the data displays in all columns, including the one that was renamed:
 
-```
+```sql
 SELECT * 
 FROM orders_csv_column_renamed;
 ```

@@ -1,7 +1,6 @@
 
 
 # Additional resources
-<a name="querying-with-prepared-statements-additional-resources"></a>
 
 See the following related posts in the AWS Big Data Blog.
 + [Improve reusability and security using Amazon Athena parameterized queries](https://aws.amazon.com/blogs/big-data/improve-reusability-and-security-using-amazon-athena-parameterized-queries/) 

@@ -1,7 +1,6 @@
 
 
 # Avro SerDe
-<a name="avro-serde"></a>
 
 Use the Avro SerDe to create Athena tables from Avro data.
 
@@ -28,7 +27,7 @@ After you obtain the schema, use a `CREATE TABLE` statement to create an Athena 
 **Note**  
 Replace {{myregion}} in `s3://athena-examples-{{myregion}}/path/to/data/` with the region identifier where you run Athena, for example, `s3://athena-examples-us-west-1/path/to/data/`.
 
-```
+```sql
 CREATE EXTERNAL TABLE flights_avro_example (
    yr INT,
    flightdate STRING,
@@ -102,13 +101,13 @@ LOCATION 's3://athena-examples-{{myregion}}/flight/avro/';
 
 Run the `MSCK REPAIR TABLE` statement on the table to refresh partition metadata.
 
-```
+```sql
 MSCK REPAIR TABLE flights_avro_example;
 ```
 
 Query the top 10 departure cities by number of total departures.
 
-```
+```sql
 SELECT origin, count(*) AS total_departures
 FROM flights_avro_example
 WHERE year >= '2000'

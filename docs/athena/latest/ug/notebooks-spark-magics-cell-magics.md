@@ -1,7 +1,6 @@
 
 
 # Use cell magics
-<a name="notebooks-spark-magics-cell-magics"></a>
 
 Magics that are written on several lines are preceded by a double percent sign (`%%`) and are called cell magic functions or cell magics.
 
@@ -15,7 +14,7 @@ This cell magic allows to run SQL statements directly without having to decorate
 
 The `%%sql` command auto truncates column outputs to a width of 20 characters. Currently, this setting is not configurable. To work around this limitation, use the following full syntax and modify the parameters of the `show` method accordingly. 
 
-```
+```py
 spark.sql("""{{YOUR_SQL}}""").show(n={{number}}, truncate={{number}}, vertical={{bool}})
 ```
 + **n** `int`, optional. The number of rows to show.

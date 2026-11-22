@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues in Athena
-<a name="troubleshooting-athena"></a>
 
 The Athena team has gathered the following troubleshooting information from customer issues. Although not comprehensive, it includes advice regarding some common performance, timeout, and out of memory issues.
 
@@ -35,7 +34,7 @@ Athena does not maintain concurrent validation for CTAS. Make sure that there is
 ### HIVE\_TOO\_MANY\_OPEN\_PARTITIONS
 <a name="troubleshooting-athena-ctas-hive-too-many-open-partitions"></a>
 
-When you use a CTAS statement to create a table with more than 100 partitions, you may receive the error HIVE\_TOO\_MANY\_OPEN\_PARTITIONS: Exceeded limit of 100 open writers for partitions/buckets. To work around this limitation, you can use a CTAS statement and a series of `INSERT INTO` statements that create or insert up to 100 partitions each. For more information, see [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md).
+When you use a CTAS statement to create a table with more than 100 partitions, you may receive the error `HIVE_TOO_MANY_OPEN_PARTITIONS: Exceeded limit of 100 open writers for partitions/buckets`. To work around this limitation, you can use a CTAS statement and a series of `INSERT INTO` statements that create or insert up to 100 partitions each. For more information, see [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md).
 
 ## Data file issues
 <a name="troubleshooting-athena-data-file-issues"></a>
@@ -128,7 +127,7 @@ A call to the [ListTableMetadata](https://docs.aws.amazon.com/athena/latest/APIR
 
   First, run a query that gets all the tables, as in the following example.
 
-  ```
+  ```shell
   aws athena start-query-execution --region us-east-1 \
   --query-string "SELECT table_name FROM information_schema.tables LIMIT 50" \
   --work-group "{{your-work-group-name}}"
@@ -136,7 +135,7 @@ A call to the [ListTableMetadata](https://docs.aws.amazon.com/athena/latest/APIR
 
   Next, retrieve the metadata of an individual table, as in the following example.
 
-  ```
+  ```shell
   aws athena start-query-execution --region us-east-1 \
   --query-string "SELECT * FROM information_schema.columns \
   WHERE table_name = '{{your-table-name}}' AND \
@@ -169,7 +168,7 @@ This error occurs when you use Athena to query AWS Config resources that have mu
 ### HIVE\_CURSOR\_ERROR messages with pretty-printed JSON
 <a name="troubleshooting-athena-json-serde-hive-cursor-error"></a>
 
-The [Hive JSON SerDe](hive-json-serde.md) and [OpenX JSON SerDe](openx-json-serde.md) libraries expect each JSON document to be on a single line of text with no line termination characters separating the fields in the record. If the JSON text is in pretty print format, you may receive an error message like HIVE\_CURSOR\_ERROR: Row is not a valid JSON Object or HIVE\_CURSOR\_ERROR: JsonParseException: Unexpected end-of-input: expected close marker for OBJECT when you attempt to query the table after you create it. For more information, see [JSON data files](https://github.com/rcongiu/Hive-JSON-Serde#json-data-files) in the OpenX SerDe documentation on GitHub.
+The [Hive JSON SerDe](hive-json-serde.md) and [OpenX JSON SerDe](openx-json-serde.md) libraries expect each JSON document to be on a single line of text with no line termination characters separating the fields in the record. If the JSON text is in pretty print format, you may receive an error message like `HIVE_CURSOR_ERROR: Row is not a valid JSON Object` or `HIVE_CURSOR_ERROR: JsonParseException: Unexpected end-of-input: expected close marker for OBJECT` when you attempt to query the table after you create it. For more information, see [JSON data files](https://github.com/rcongiu/Hive-JSON-Serde#json-data-files) in the OpenX SerDe documentation on GitHub.
 
 ### Multiple JSON records return a SELECT COUNT of 1
 <a name="troubleshooting-athena-multiple-json-records-return-a-select-count-of-1"></a>
@@ -234,7 +233,7 @@ To workaround this issue, use the [CREATE TABLE](create-table.md) or [ALTER TABL
 
 CREATE TABLE example
 
-```
+```sql
 ...
 ROW FORMAT SERDE  
 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
@@ -245,7 +244,7 @@ STORED AS PARQUET
 
 ALTER TABLE example
 
-```
+```sql
 ALTER TABLE ... SET TBLPROPERTIES ('parquet.ignore.statistics'='true')
 ```
 
@@ -257,7 +256,7 @@ For more information about the Parquet Hive SerDe, see [Parquet SerDe](parquet-s
 ### MSCK REPAIR TABLE does not remove stale partitions
 <a name="troubleshooting-athena-msck-repair-table-does-not-remove-stale-partitions"></a>
 
-If you delete a partition manually in Amazon S3 and then run MSCK REPAIR TABLE, you may receive the error message Partitions missing from filesystem. This occurs because MSCK REPAIR TABLE doesn't remove stale partitions from table metadata. Use [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md) to remove the stale partitions manually. For more information, see the "Troubleshooting" section of the [MSCK REPAIR TABLE](msck-repair-table.md) topic.
+If you delete a partition manually in Amazon S3 and then run MSCK REPAIR TABLE, you may receive the error message `Partitions missing from filesystem`. This occurs because MSCK REPAIR TABLE doesn't remove stale partitions from table metadata. Use [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md) to remove the stale partitions manually. For more information, see the "Troubleshooting" section of the [MSCK REPAIR TABLE](msck-repair-table.md) topic.
 
 ### MSCK REPAIR TABLE failure
 <a name="troubleshooting-athena-msck-repair-table-failure"></a>
@@ -292,7 +291,7 @@ Check that the time range unit [projection.{{<columnName>}}.interval.unit](parti
 ### Partition projection error when range specified by hyphen
 <a name="troubleshooting-athena-partition-projection-range-issue-with-hyphen"></a>
 
-Specifying the `range` table property with a hyphen instead of a comma produces an error like INVALID\_TABLE\_PROPERTY: For input string: "{{number}}-{{number}}". Ensure that the range values are separated by a comma, not a hyphen. For more information, see [Integer type](partition-projection-supported-types.md#partition-projection-integer-type).
+Specifying the `range` table property with a hyphen instead of a comma produces an error like `INVALID_TABLE_PROPERTY: For input string: "{{number}}-{{number}}"`. Ensure that the range values are separated by a comma, not a hyphen. For more information, see [Integer type](partition-projection-supported-types.md#partition-projection-integer-type).
 
 ### HIVE\_UNKNOWN\_ERROR: Unable to create input format
 <a name="troubleshooting-athena-hive_unknown_error-unable-to-create-input-format-1"></a>
@@ -302,7 +301,7 @@ One or more of the glue partitions are declared in a different format as each gl
 ### HIVE\_PARTITION\_SCHEMA\_MISMATCH
 <a name="troubleshooting-athena-hive_partition_schema_mismatch"></a>
 
-If the schema of a partition differs from the schema of the table, a query can fail with the error message HIVE\_PARTITION\_SCHEMA\_MISMATCH.
+If the schema of a partition differs from the schema of the table, a query can fail with the error message `HIVE_PARTITION_SCHEMA_MISMATCH`.
 
 For each table within the AWS Glue Data Catalog that has partition columns, the schema is stored at the table level and for each individual partition within the table. The schema for partitions are populated by an AWS Glue crawler based on the sample of data that it reads within the partition.
 
@@ -322,7 +321,7 @@ If you run an `ALTER TABLE ADD PARTITION` statement and mistakenly specify a par
 
 To prevent this from happening, use the `ADD IF NOT EXISTS` syntax in your `ALTER TABLE ADD PARTITION` statement, like this:
 
-```
+```sql
 ALTER TABLE table_name ADD IF NOT EXISTS PARTITIION […]
 ```
 
@@ -344,7 +343,7 @@ This can occur when you don't have permission to read the data in the bucket, pe
 ### Access denied with status code: 403 error when running DDL queries on encrypted data in Amazon S3
 <a name="troubleshooting-athena-access-denied-error-when-querying-amazon-s3-encrypted"></a>
 
-When you may receive the error message Access Denied (Service: Amazon S3; Status Code: 403; Error Code: AccessDenied; Request ID: {{<request\_id>}}) if the following conditions are true:
+When you may receive the error message `Access Denied (Service: Amazon S3; Status Code: 403; Error Code: AccessDenied; Request ID: {{<request_id>}})` if the following conditions are true:
 
 1. You run a DDL query like `ALTER TABLE ADD PARTITION` or `MSCK REPAIR TABLE`.
 
@@ -357,7 +356,7 @@ When you may receive the error message Access Denied (Service: Amazon S3; Status
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -412,7 +411,7 @@ This can occur when you try to query or view a table that you don’t have permi
 ### FAILED: NullPointerException name is null
 <a name="troubleshooting-athena-nullpointerexception-name-is-null"></a>
 
-If you use the AWS Glue [CreateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_CreateTable.html) API operation or the CloudFormation [`AWS::Glue::Table`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html) template to create a table for use in Athena without specifying the `TableType` property and then run a DDL query like `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can receive the error message FAILED: NullPointerException Name is null. 
+If you use the AWS Glue [CreateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_CreateTable.html) API operation or the CloudFormation [`AWS::Glue::Table`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html) template to create a table for use in Athena without specifying the `TableType` property and then run a DDL query like `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can receive the error message `FAILED: NullPointerException Name is null`. 
 
 To resolve the error, specify a value for the [TableInput](https://docs.aws.amazon.com/glue/latest/webapi/API_TableInput.html) `TableType` attribute as part of the AWS Glue `CreateTable` API call or [CloudFormation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html). Possible values for `TableType` include `EXTERNAL_TABLE` or `VIRTUAL_VIEW`.
 
@@ -459,7 +458,7 @@ This error can occur when you query a table created by an AWS Glue crawler from 
 
 In Athena engine version 3, functions cannot take more than 127 arguments. This limitation is by design. If you use a function with more than 127 parameters, an error message like the following occurs:
 
-TOO\_MANY\_ARGUMENTS: line {{nnn}}:{{nn}}: Too many arguments for function call {{function\_name}}().
+`TOO_MANY_ARGUMENTS: line {{nnn}}:{{nn}}: Too many arguments for function call {{function_name}}()`.
 
 To resolve this issue, use fewer parameters per function call.
 
@@ -481,7 +480,7 @@ If your queries exceed the limits of dependent services such as Amazon S3, AWS K
 | --- | --- | 
 | AWS Glue | AWSGlueException: Rate exceeded. | 
 | AWS KMS | You have exceeded the rate at which you may call KMS. Reduce the frequency of your calls. | 
-| AWS Lambda | Rate exceeded<br />TooManyRequestsException | 
+| AWS Lambda | `Rate exceeded`<br />`TooManyRequestsException` | 
 | Amazon S3 | AmazonS3Exception: Please reduce your request rate. | 
 
 For information about ways to prevent Amazon S3 throttling when you use Athena, see [Prevent Amazon S3 throttling](performance-tuning-s3-throttling.md).

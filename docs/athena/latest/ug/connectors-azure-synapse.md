@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Azure Synapse connector
-<a name="connectors-azure-synapse"></a>
 
 The Amazon Athena connector for [Azure Synapse analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is) enables Amazon Athena to run SQL queries on your Azure Synapse databases using JDBC.
 
@@ -303,7 +302,7 @@ The following Athena Synapse connector operators support predicate pushdown:
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -318,7 +317,7 @@ The Synapse connector supports [passthrough queries](federated-query-passthrough
 
 To use passthrough queries with Synapse, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -327,7 +326,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Synapse. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

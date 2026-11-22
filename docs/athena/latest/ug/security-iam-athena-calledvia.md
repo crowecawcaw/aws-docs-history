@@ -1,7 +1,6 @@
 
 
 # Use CalledVia context keys for Athena
-<a name="security-iam-athena-calledvia"></a>
 
 When a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) makes a [request](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request) to AWS, AWS gathers the request information into a *request context* that evaluates and authorizes the request. You can use the `Condition` element of a JSON policy to compare keys in the request context with key values that you specify in your policy. *Global condition context keys* are condition keys with an `aws:` prefix.
 
@@ -12,7 +11,7 @@ You can use the [aws:CalledVia](https://docs.aws.amazon.com/IAM/latest/UserGuide
 
 By specifying a service principal name for the `aws:CalledVia` context key, you can make the context key AWS service-specific. For example, you can use the `aws:CalledVia` condition key to limit requests to only those made from Athena. To use the `aws:CalledVia` condition key in a policy with Athena, you specify the Athena service principal name `athena.amazonaws.com`, as in the following example.
 
-```
+```json
  ...
     "Condition": {
         "ForAnyValue:StringEquals": { 
@@ -37,7 +36,7 @@ Athena requires the caller to have `lambda:InvokeFunction` permissions in order 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -65,7 +64,7 @@ The following example shows the addition of the previous statement to a policy t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

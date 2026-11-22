@@ -1,7 +1,6 @@
 
 
 # Register S3 table bucket catalogs and query Tables from Athena
-<a name="gdc-register-s3-table-bucket-cat"></a>
 
 Amazon S3 table buckets are a bucket type in Amazon S3 that is purpose-built to store tabular data in Apache Iceberg tables. Table buckets automate table management tasks such as compaction, snapshot management, and garbage collection to continuously optimize query performance and minimize cost. Whether you're just starting out, or have thousands of tables in your Iceberg environment, table buckets simplify data lakes at any scale. For more information, see [Table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html).
 
@@ -319,7 +318,7 @@ If your CTAS query fails, you might have to delete your table using the [S3 Tabl
 
 **Example**
 
-```
+```sql
 CREATE TABLE "s3tablescatalog/{{amzn-s3-demo-bucket}}"."{{namespace}}"."{{s3-table-name}}"
 WITH (
     format = 'PARQUET'

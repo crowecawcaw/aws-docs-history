@@ -1,13 +1,12 @@
 
 
 # Create a table for AWS WAF S3 logs in Athena using partition projection
-<a name="create-waf-table-partition-projection"></a>
 
 Because AWS WAF logs have a known structure whose partition scheme you can specify in advance, you can reduce query runtime and automate partition management by using the Athena [partition projection](partition-projection.md) feature. Partition projection automatically adds new partitions as new data is added. This removes the need for you to manually add partitions by using `ALTER TABLE ADD PARTITION`. 
 
 The following example `CREATE TABLE` statement automatically uses partition projection on AWS WAF logs from a specified date until the present for four different AWS regions. The `PARTITION BY` clause in this example partitions by region and by date, but you can modify this according to your requirements. Modify the fields as necessary to match your log output. In the `LOCATION` and `storage.location.template` clauses, replace the {{amzn-s3-demo-bucket}} and {{AWS\_ACCOUNT\_NUMBER}} placeholders with values that identify the Amazon S3 bucket location of your AWS WAF logs. For `projection.day.range`, replace {{2021}}/{{01}}/{{01}} with the starting date that you want to use. After you run the query successfully, you can query the table. You do not have to run `ALTER TABLE ADD PARTITION` to load the partitions. 
 
-```
+```sql
 CREATE EXTERNAL TABLE `{{waf_logs_partition_projection}}`(
   `timestamp` bigint, 
   `formatversion` int, 

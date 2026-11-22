@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="notebooks-spark-considerations-and-limitations"></a>
 
 ## Apache Spark version 3.5
 <a name="notebooks-spark-considerations-spark-35"></a>

@@ -1,7 +1,6 @@
 
 
 # Other JDBC 3.x configuration
-<a name="jdbc-v3-driver-other-configuration"></a>
 
 The following sections describe some additional configuration settings for the JDBC 3.x driver.
 

@@ -1,7 +1,6 @@
 
 
 # Enable federated access to the Athena API
-<a name="access-federation-saml"></a>
 
 This section discusses federated access that allows a user or client application in your organization to call Amazon Athena API operations. In this case, your organization's users don't have direct access to Athena. Instead, you manage user credentials outside of AWS in Microsoft Active Directory. Active Directory supports [SAML 2.0](https://wiki.oasis-open.org/security) (Security Assertion Markup Language 2.0).
 

@@ -1,7 +1,6 @@
 
 
 # Use Hive table compression
-<a name="compression-support-hive"></a>
 
 The compression options for Hive tables in Athena vary by engine version and file format.
 

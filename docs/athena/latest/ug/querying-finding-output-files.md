@@ -1,7 +1,6 @@
 
 
 # Find query output files in Amazon S3
-<a name="querying-finding-output-files"></a>
 
 Query output files are stored in sub-folders on Amazon S3 in the following path pattern unless the query occurs in a workgroup whose configuration overrides client-side settings. When workgroup configuration overrides client-side settings, the query uses the results path specified by the workgroup.
 
@@ -34,13 +33,13 @@ The following file types are saved:
 
 To use the AWS CLI to identify the query output location and result files, run the `aws athena get-query-execution` command, as in the following example. Replace {{abc1234d-5efg-67hi-jklm-89n0op12qr34}} with the query ID.
 
-```
+```bash
 aws athena get-query-execution --query-execution-id {{abc1234d-5efg-67hi-jklm-89n0op12qr34}}
 ```
 
 The command returns output similar to the following. For descriptions of each output parameter, see [get-query-execution](https://docs.aws.amazon.com/cli/latest/reference/athena/get-query-execution.html) in the *AWS CLI Command Reference*.
 
-```
+```bash
 {
     "QueryExecution": {
         "Status": {

@@ -1,7 +1,6 @@
 
 
 # Understand Athena EXPLAIN statement results
-<a name="athena-explain-statement-understanding"></a>
 
 This topic provides a brief guide to the operational terms used in Athena `EXPLAIN` statement results.
 

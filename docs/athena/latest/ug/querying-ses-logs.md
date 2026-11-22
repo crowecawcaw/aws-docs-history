@@ -1,7 +1,6 @@
 
 
 # Query Amazon SES event logs
-<a name="querying-ses-logs"></a>
 
 You can use Amazon Athena to query [Amazon Simple Email Service](https://aws.amazon.com/ses/) (Amazon SES) event logs.
 

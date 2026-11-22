@@ -1,7 +1,6 @@
 
 
 # Azure AD credentials
-<a name="jdbc-v3-driver-azure-ad-credentials"></a>
 
 A SAML-based authentication mechanism that enables authentication to Athena using the Azure AD identity provider. This method assumes that a federation has already been set up between Athena and Azure AD.
 

@@ -1,7 +1,6 @@
 
 
 # Add columns at the beginning or in the middle of the table
-<a name="updates-add-columns-beginning-middle-of-table"></a>
 
 Adding columns is one of the most frequent schema changes. For example, you may add a new column to enrich the table with new data. Or, you may add a new column if the source for an existing column has changed, and keep the previous version of this column, to adjust applications that depend on them.
 
@@ -11,7 +10,7 @@ Do not add columns at the beginning or in the middle of the table in CSV and TSV
 
  The following example creates a new table that adds an `o_comment` column in the middle of a table based on JSON data.
 
-```
+```sql
 CREATE EXTERNAL TABLE orders_json_column_addition (
    `o_orderkey` int, 
    `o_custkey` int, 

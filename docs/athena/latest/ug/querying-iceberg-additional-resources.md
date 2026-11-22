@@ -1,7 +1,6 @@
 
 
 # Additional resources
-<a name="querying-iceberg-additional-resources"></a>
 
 The following article is in the AWS Prescriptive Guidance documentation.
 + [Working with Apache Iceberg tables by using Amazon Athena SQL](https://docs.aws.amazon.com/prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-athena.html) 

@@ -1,7 +1,6 @@
 
 
 # Data type examples
-<a name="data-types-examples"></a>
 
 The following table shows example literals for DML data types.
 

@@ -1,7 +1,6 @@
 
 
 # Perform time travel and version travel queries
-<a name="querying-iceberg-time-travel-and-version-travel-queries"></a>
 
 Each Apache Iceberg table maintains a versioned manifest of the Amazon S3 objects that it contains. Previous versions of the manifest can be used for time travel and version travel queries.
 
@@ -12,7 +11,7 @@ Time travel queries in Athena query Amazon S3 for historical data from a consist
 
 To run a time travel query, use `FOR TIMESTAMP AS OF {{timestamp}}` after the table name in the `SELECT` statement, as in the following example.
 
-```
+```sql
 SELECT * FROM iceberg_table FOR TIMESTAMP AS OF {{timestamp}}
 ```
 
@@ -20,11 +19,11 @@ The system time to be specified for traveling is either a timestamp or timestamp
 
 The following example time travel queries select CloudTrail data for the specified date and time.
 
-```
+```sql
 SELECT * FROM iceberg_table FOR TIMESTAMP AS OF TIMESTAMP '2020-01-01 10:00:00 UTC'
 ```
 
-```
+```sql
 SELECT * FROM iceberg_table FOR TIMESTAMP AS OF (current_timestamp - interval '1' day)
 ```
 
@@ -33,7 +32,7 @@ SELECT * FROM iceberg_table FOR TIMESTAMP AS OF (current_timestamp - interval '1
 
 To execute a version travel query (that is, view a consistent snapshot as of a specified version), use `FOR VERSION AS OF {{version}}` after the table name in the `SELECT` statement, as in the following example.
 
-```
+```sql
 SELECT * FROM [{{db_name}}.]{{table_name}} FOR VERSION AS OF {{version}}         
 ```
 
@@ -41,7 +40,7 @@ The {{version}} parameter is the `bigint` snapshot ID associated with an Iceberg
 
 The following example version travel query selects data for the specified version.
 
-```
+```sql
 SELECT * FROM iceberg_table FOR VERSION AS OF 949530903748831860
 ```
 
@@ -53,7 +52,7 @@ The `FOR SYSTEM_TIME AS OF` and `FOR SYSTEM_VERSION AS OF` clauses in Athena eng
 
 You can use the Java [SnapshotUtil](https://iceberg.apache.org/javadoc/1.6.0/org/apache/iceberg/util/SnapshotUtil.html) class provided by Iceberg to retrieve the Iceberg snapshot ID, as in the following example.
 
-```
+```java
 import org.apache.iceberg.Table;
 import org.apache.iceberg.aws.glue.GlueCatalog;
 import org.apache.iceberg.catalog.TableIdentifier;
@@ -81,7 +80,7 @@ long oldestSnapshotIdAfter2022 = SnapshotUtil.oldestAncestorAfter(table, millis)
 
 You can use time travel and version travel syntax in the same query to specify different timing and versioning conditions, as in the following example.
 
-```
+```sql
 SELECT table1.*, table2.* FROM 
   [{{db_name}}.]{{table_name}} FOR TIMESTAMP AS OF (current_timestamp - interval '1' day) AS table1 
   FULL JOIN 

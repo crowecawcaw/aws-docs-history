@@ -1,11 +1,10 @@
 
 
 # Start query execution
-<a name="start-query-execution"></a>
 
 The `StartQueryExample` shows how to submit a query to Athena, wait until the results become available, and then process the results.
 
-```
+```java
 package aws.example.athena;
 
 import software.amazon.awssdk.regions.Region;

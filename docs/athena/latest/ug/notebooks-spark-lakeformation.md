@@ -1,7 +1,6 @@
 
 
 # Using Lake Formation with Athena Spark workgroups
-<a name="notebooks-spark-lakeformation"></a>
 
 With the release version Apache Spark version 3.5, you can leverage AWS Lake Formation with AWS Glue Data Catalog where the session execution role has full table permissions. This capability allows you to read and write to tables that are protected by Lake Formation from your Athena Spark interactive sessions. See the following sections to learn more about Lake Formation and how to use it with Athena Spark.
 

@@ -1,7 +1,6 @@
 
 
 # Work with CSV data in AWS Glue
-<a name="schema-csv"></a>
 
 This page describes how to use AWS Glue to create schema from CSV files that have quotes around the data values for each column or from CSV files that include header values.
 
@@ -36,7 +35,7 @@ For more information, see [Viewing and editing table details](https://docs.aws.a
 
 You can also update AWS Glue table properties programmatically. Use the AWS Glue [UpdateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_UpdateTable.html) API operation or the [update-table](https://docs.aws.amazon.com/cli/latest/reference/glue/update-table.html) AWS CLI command to modify the `SerDeInfo` block in the table definition, as in the following JSON example.
 
-```
+```json
 "SerDeInfo": {
    "name": "",
    "serializationLib": "org.apache.hadoop.hive.serde2.OpenCSVSerde",
@@ -53,7 +52,7 @@ You can also update AWS Glue table properties programmatically. Use the AWS Glue
 
 When you define a table in Athena with a `CREATE TABLE` statement, you can use the `skip.header.line.count` table property to ignore headers in your CSV data, as in the following example.
 
-```
+```sql
 ...
 STORED AS TEXTFILE
 LOCATION 's3://amzn-s3-demo-bucket/{{csvdata_folder}}/';

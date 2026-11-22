@@ -1,7 +1,6 @@
 
 
 # Athena ODBC 2.x connection parameters
-<a name="odbc-v2-driver-connection-parameters"></a>
 
 The **Amazon Athena ODBC Configuration** dialog box options include **Authentication Options**, **Advanced Options**, **Logging Options**, **Endpoint Overrides** and **Proxy Options**. For detailed information about each, visit the corresponding links.
 + [Main ODBC 2.x connection parameters](odbc-v2-driver-main-connection-parameters.md)

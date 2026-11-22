@@ -1,13 +1,12 @@
 
 
 # Create a table for AWS WAF S3 logs in Athena using manual partition
-<a name="create-waf-table-manual-partition"></a>
 
 This section describes how to create a table for AWS WAF logs using manual partition.
 
 In the `LOCATION` and `storage.location.template` clauses, replace the {{amzn-s3-demo-bucket}} and {{AWS\_ACCOUNT\_NUMBER}} placeholders with values that identify the Amazon S3 bucket location of your AWS WAF logs.
 
-```
+```sql
 CREATE EXTERNAL TABLE `{{waf_logs_manual_partition}}`(
   `timestamp` bigint, 
   `formatversion` int, 

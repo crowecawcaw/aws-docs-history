@@ -1,7 +1,6 @@
 
 
 # Reduce throttling at the service level
-<a name="performance-tuning-s3-throttling-reduce-throttling-at-the-service-level"></a>
 
 To avoid Amazon S3 throttling at the service level, you can monitor your usage and adjust your [service quotas](https://docs.aws.amazon.com/general/latest/gr/s3.html#limits_s3), or you use certain techniques like partitioning. The following are some of the conditions that can lead to throttling:
 + **Exceeding your account's API request limits** – Amazon S3 has default API request limits that are based on account type and usage. If you exceed the maximum number of requests per second for a single prefix, your requests may be throttled to prevent overload of the Amazon S3 service.

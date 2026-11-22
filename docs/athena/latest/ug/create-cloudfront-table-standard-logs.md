@@ -1,7 +1,6 @@
 
 
 # Create a table for CloudFront standard logs (legacy)
-<a name="create-cloudfront-table-standard-logs"></a>
 
 **Note**  
 The following procedure works for the Web distribution access logs in CloudFront. It does not apply to streaming logs from RTMP distributions.
@@ -12,7 +11,7 @@ The following procedure works for the Web distribution access logs in CloudFront
 
    This query specifies `ROW FORMAT DELIMITED` and `FIELDS TERMINATED BY '\t'` to indicate that the fields are delimited by tab characters. For `ROW FORMAT DELIMITED`, Athena uses the [LazySimpleSerDe](lazy-simple-serde.md) by default. The column `date` is escaped using backticks (`) because it is a reserved word in Athena. For information, see [Escape reserved keywords in queries](reserved-words.md).
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS cloudfront_standard_logs (
      `date` DATE,
      time STRING,
@@ -61,7 +60,7 @@ The following procedure works for the Web distribution access logs in CloudFront
 
 The following query adds up the number of bytes served by CloudFront between June 9 and June 11, 2018. Surround the date column name with double quotes because it is a reserved word.
 
-```
+```sql
 SELECT SUM(bytes) AS total_bytes
 FROM cloudfront_standard_logs
 WHERE "date" BETWEEN DATE '2018-06-09' AND DATE '2018-06-11'

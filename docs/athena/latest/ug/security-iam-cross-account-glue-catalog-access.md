@@ -1,7 +1,6 @@
 
 
 # Configure cross-account access to AWS Glue data catalogs
-<a name="security-iam-cross-account-glue-catalog-access"></a>
 
 You can use Athena's cross-account AWS Glue catalog feature to register an AWS Glue catalog from an account other than your own. After you configure the required IAM permissions for AWS Glue and register the catalog as an Athena [DataCatalog](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html) resource, you can use Athena to run cross-account queries. For information about using the Athena console to register a catalog from another account, see [Register a Data Catalog from another account](data-sources-glue-cross-account.md).
 
@@ -29,7 +28,7 @@ Currently, Athena cross-account AWS Glue catalog access has the following limita
 
 In the following scenario, the "borrower" account (666666666666) wants to run a `SELECT` query that refers to the AWS Glue catalog that belongs to the "owner" account (999999999999), as in the following example:
 
-```
+```sql
 SELECT * FROM ownerCatalog.tpch1000.customer
 ```
 
@@ -57,7 +56,7 @@ To create borrower account role with a policy to access to the owner account's A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -114,7 +113,7 @@ To grant AWS Glue access from the owner account (999999999999) to the borrower's
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -183,7 +182,7 @@ The following procedure shows you how to use the Athena console to configure the
 
 The borrower submits a query that references the catalog using the {{catalog}}.{{database}}.{{table}} syntax, as in the following example:
 
-```
+```sql
 SELECT * FROM ownerCatalog.tpch1000.customer
 ```
 
@@ -203,7 +202,7 @@ In some cases you might want to quickly perform testing against a cross-account 
 
 To explicitly reference a catalog without registration, use the syntax in the following example:
 
-```
+```sql
 SELECT * FROM "glue:arn:aws:glue:us-east-1:999999999999:catalog".tpch1000.customer
 ```
 
@@ -226,7 +225,7 @@ The creator of the Athena [DataCatalog](https://docs.aws.amazon.com/athena/lates
 
 The following `CreateDataCatalog` request body registers an AWS Glue catalog for cross-account access:
 
-```
+```json
 # Example CreateDataCatalog request to register a cross-account Glue catalog:
 {
     "Description": "Cross-account Glue catalog",
@@ -239,7 +238,7 @@ The following `CreateDataCatalog` request body registers an AWS Glue catalog for
 
 The following sample code uses a Java client to create the `DataCatalog` object.
 
-```
+```java
 # Sample code to create the DataCatalog through Java client
 CreateDataCatalogRequest request = new CreateDataCatalogRequest()
     .withName("ownerCatalog")

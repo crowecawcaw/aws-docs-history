@@ -1,7 +1,6 @@
 
 
 # Additional resources
-<a name="query-examples-vpc-logs-additional-resources"></a>
 
 For more information about using Athena to analyze VPC flow logs, see the following AWS Big Data blog posts:
 + [Analyze VPC Flow Logs with point-and-click Amazon Athena integration](https://aws.amazon.com/blogs/networking-and-content-delivery/analyze-vpc-flow-logs-with-point-and-click-amazon-athena-integration/) 

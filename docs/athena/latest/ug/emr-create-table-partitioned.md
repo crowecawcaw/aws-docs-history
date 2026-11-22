@@ -1,13 +1,12 @@
 
 
 # Create and query a partitioned table based on Amazon EMR logs
-<a name="emr-create-table-partitioned"></a>
 
 These examples use the same log location to create an Athena table, but the table is partitioned, and a partition is then created for each log location. For more information, see [Partition your data](partitions.md).
 
 The following query creates the partitioned table named `mypartitionedemrlogs`:
 
-```
+```sql
 CREATE EXTERNAL TABLE `{{mypartitionedemrlogs}}`(
   `data` string COMMENT 'from deserializer')
  partitioned by (logtype string)
@@ -23,31 +22,31 @@ LOCATION 's3://aws-logs-{{123456789012}}-us-west-2/elasticmapreduce/{{j-2ABCDE34
 
 The following query statements then create table partitions based on sub-directories for different log types that Amazon EMR creates in Amazon S3:
 
-```
+```sql
 ALTER TABLE mypartitionedemrlogs ADD
      PARTITION (logtype='containers')
      LOCATION 's3://aws-logs-{{123456789012}}-us-west-2/elasticmapreduce/{{j-2ABCDE34F5GH6}}/containers/'
 ```
 
-```
+```sql
 ALTER TABLE mypartitionedemrlogs ADD
      PARTITION (logtype='hadoop-mapreduce')
      LOCATION 's3://aws-logs-{{123456789012}}-us-west-2/elasticmapreduce/{{j-2ABCDE34F5GH6}}/hadoop-mapreduce/'
 ```
 
-```
+```sql
 ALTER TABLE mypartitionedemrlogs ADD
      PARTITION (logtype='hadoop-state-pusher')
      LOCATION 's3://aws-logs-{{123456789012}}-us-west-2/elasticmapreduce/{{j-2ABCDE34F5GH6}}/hadoop-state-pusher/'
 ```
 
-```
+```sql
 ALTER TABLE mypartitionedemrlogs ADD
      PARTITION (logtype='node')
      LOCATION 's3://aws-logs-{{123456789012}}-us-west-2/elasticmapreduce/{{j-2ABCDE34F5GH6}}/node/'
 ```
 
-```
+```sql
 ALTER TABLE mypartitionedemrlogs ADD
      PARTITION (logtype='steps')
      LOCATION 's3://aws-logs-{{123456789012}}-us-west-2/elasticmapreduce/{{j-2ABCDE34F5GH6}}/steps/'
@@ -55,7 +54,7 @@ ALTER TABLE mypartitionedemrlogs ADD
 
 After you create the partitions, you can run a `SHOW PARTITIONS` query on the table to confirm:
 
-```
+```sql
 SHOW PARTITIONS mypartitionedemrlogs;
 ```
 
@@ -66,7 +65,7 @@ The following examples demonstrate queries for specific log entries use the tabl
 
 **Example – Querying application application\_1561661818238\_0002 logs in the containers partition for ERROR or WARN**  
 
-```
+```sql
 SELECT data,
         "$PATH"
 FROM "default"."mypartitionedemrlogs"
@@ -77,7 +76,7 @@ WHERE logtype='containers'
 
 **Example – Querying the hadoop-Mapreduce partition for job job\_1561661818238\_0004 and failed reduces**  
 
-```
+```sql
 SELECT data,
         "$PATH"
 FROM "default"."mypartitionedemrlogs"
@@ -87,7 +86,7 @@ WHERE logtype='hadoop-mapreduce'
 
 **Example – Querying Hive logs in the node partition for query ID 056e0609-33e1-4611-956c-7a31b42d2663**  
 
-```
+```sql
 SELECT data,
         "$PATH"
 FROM "default"."mypartitionedemrlogs"
@@ -98,7 +97,7 @@ WHERE logtype='node'
 
 **Example – Querying resourcemanager logs in the node partition for application 1567660019320\_0001\_01\_000001**  
 
-```
+```sql
 SELECT data,
         "$PATH"
 FROM "default"."mypartitionedemrlogs"

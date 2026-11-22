@@ -1,7 +1,6 @@
 
 
 # Use prepared statements
-<a name="querying-with-prepared-statements-querying"></a>
 
 You can use a prepared statement for repeated execution of the same query with different query parameters. A prepared statement contains parameter placeholders whose values are supplied at execution time.
 

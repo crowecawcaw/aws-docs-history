@@ -1,7 +1,6 @@
 
 
 # Use API and AWS CLI tag operations
-<a name="tags-operations"></a>
 
 Use the following tag operations to add, remove, or list tags on a resource.
 
@@ -26,7 +25,7 @@ The following examples show how to use tag API actions to manage tags on workgro
 
 The following example adds two tags to the workgroup `workgroupA`:
 
-```
+```java
 List<Tag> tags = new ArrayList<>();
 tags.add(new Tag().withKey({{"tagKey1"}}).withValue({{"tagValue1"}}));
 tags.add(new Tag().withKey({{"tagKey2"}}).withValue({{"tagValue2"}}));
@@ -40,7 +39,7 @@ client.tagResource(request);
 
 The following example adds two tags to the data catalog `datacatalogA`:
 
-```
+```java
 List<Tag> tags = new ArrayList<>();
 tags.add(new Tag().withKey("{{tagKey1}}").withValue("{{tagValue1}}"));
 tags.add(new Tag().withKey("{{tagKey2}}").withValue("{{tagValue2}}"));
@@ -60,7 +59,7 @@ Do not add duplicate tag keys to the same resource. If you do, Athena issues an 
 
 The following example removes `tagKey2` from the workgroup `workgroupA`:
 
-```
+```java
 List<String> tagKeys = new ArrayList<>();
 tagKeys.add("{{tagKey2}}");
 
@@ -73,7 +72,7 @@ client.untagResource(request);
 
 The following example removes `tagKey2` from the data catalog `datacatalogA`:
 
-```
+```java
 List<String> tagKeys = new ArrayList<>();
 tagKeys.add("{{tagKey2}}");
 
@@ -89,7 +88,7 @@ client.untagResource(request);
 
 The following example lists tags for the workgroup `workgroupA`:
 
-```
+```java
 ListTagsForResourceRequest request = new ListTagsForResourceRequest()
     .withResourceARN({{"arn:aws:athena:us-east-1:123456789012:workgroup/workgroupA"}});
 
@@ -100,7 +99,7 @@ List<Tag> resultTags = result.getTags();
 
 The following example lists tags for the data catalog `datacatalogA`:
 
-```
+```java
 ListTagsForResourceRequest request = new ListTagsForResourceRequest()
     .withResourceARN("{{arn:aws:athena:us-east-1:123456789012:datacatalog/datacatalogA}}");
 
@@ -151,7 +150,7 @@ aws athena list-tags-for-resource --resource-arn arn:aws:athena:us-east-1:111122
 
 The following sample result is in JSON format.
 
-```
+```json
 {
     "Tags": [
         {

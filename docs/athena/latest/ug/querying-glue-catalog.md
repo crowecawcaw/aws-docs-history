@@ -1,7 +1,6 @@
 
 
 # Query the AWS Glue Data Catalog
-<a name="querying-glue-catalog"></a>
 
 Because AWS Glue Data Catalog is used by many AWS services as their central metadata repository, you might want to query Data Catalog metadata. To do so, you can use SQL queries in Athena. You can use Athena to query AWS Glue catalog metadata like databases, tables, partitions, and columns.
 

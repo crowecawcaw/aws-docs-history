@@ -1,7 +1,6 @@
 
 
 # Step 1: Create a database
-<a name="step-1-create-a-database"></a>
 
 You first need to create a database in Athena.
 
@@ -28,7 +27,7 @@ You first need to create a database in Athena.
 
 1. To create a database named `mydatabase`, enter the following CREATE DATABASE statement.
 
-   ```
+   ```sql
    CREATE DATABASE mydatabase
    ```
 

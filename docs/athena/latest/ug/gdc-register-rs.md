@@ -1,7 +1,6 @@
 
 
 # Register Redshift data catalogs in Athena
-<a name="gdc-register-rs"></a>
 
 Athena can read and write data stored in Redshift clusters or serverless namespaces that have been registered in the AWS Glue Data Catalog. This works in tandem with AWS Lake Formation, which provides centralized security and governance, ensuring that data access is managed consistently across different query engines and maintaining fine-grained access controls for the shared Redshift data.
 

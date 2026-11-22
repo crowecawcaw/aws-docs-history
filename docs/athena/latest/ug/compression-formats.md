@@ -1,7 +1,6 @@
 
 
 # Use compression in Athena
-<a name="compression-formats"></a>
 
 Athena supports a variety of compression formats for reading and writing data, including reading from a table that uses multiple compression formats. For example, Athena can successfully read the data in a table that uses Parquet file format when some Parquet files are compressed with Snappy and other Parquet files are compressed with GZIP. The same principle applies for ORC, text file, and JSON storage formats.
 

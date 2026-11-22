@@ -1,7 +1,6 @@
 
 
 # Connect to data sources
-<a name="work-with-data-stores"></a>
 
 You can use Amazon Athena to query data stored in different locations and formats in a *dataset*. This dataset might be in CSV, JSON, Avro, Parquet, or some other format.
 

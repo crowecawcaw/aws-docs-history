@@ -1,7 +1,6 @@
 
 
 # Previous versions of the Athena JDBC 3.x driver
-<a name="jdbc-v3-driver-previous-versions"></a>
 
 We highly recommended that you use the [latest version](jdbc-v3-driver.md) of the JDBC 3.x driver. The latest version of the driver contains the most recent improvements and fixes. Use an older version only if your application experiences incompatibilities with the latest version.
 

@@ -1,7 +1,6 @@
 
 
 # Query NCSA log file format
-<a name="querying-iis-logs-ncsa-log-file-format"></a>
 
 IIS also uses the [NCSA logging](https://docs.microsoft.com/en-us/windows/win32/http/ncsa-logging) format, which has a fixed number of fields in ASCII text format separated by spaces. The structure is similar to the common log format used for Apache access logs. Fields in the NCSA common log data format include the client IP address, client ID (not typically used), domain\\user ID, request received timestamp, text of the client request, server status code, and size of the object returned to the client.
 
@@ -59,7 +58,7 @@ For your `CREATE TABLE` statement, you can use the [Grok SerDe](grok-serde.md) a
 **Example – Filtering for 404 errors**  
 The following example query selects the request received time, text of the client request, and server status code from the `iis_ncsa_logs` table. The `WHERE` clause filters for HTTP status code `404` (page not found).  
 
-```
+```sql
 SELECT request_received_time, client_request, server_status
 FROM iis_ncsa_logs
 WHERE server_status = '404'
@@ -72,7 +71,7 @@ The following image shows the results of the query in the Athena Query Editor.
 **Example – Filtering for successful requests from a particular domain**  
 The following example query selects the user ID, request received time, text of the client request, and server status code from the `iis_ncsa_logs` table. The `WHERE` clause filters for requests with HTTP status code `200` (successful) from users in the `AnyCompany` domain.  
 
-```
+```sql
 SELECT user_id, request_received_time, client_request, server_status
 FROM iis_ncsa_logs
 WHERE server_status = '200' AND user_id LIKE 'AnyCompany%'

@@ -1,7 +1,6 @@
 
 
 # Create tables in Athena
-<a name="creating-tables"></a>
 
 To create tables, you can run DDL statements in the Athena console, use the Athena [**Create table** form](creating-tables-how-to.md#to-create-a-table-using-the-wizard), or use a JDBC or an ODBC driver. Athena uses Apache Hive to define tables and create databases, which are essentially a logical namespace of tables. Athena supports a variety of serializer-deserializer (SerDe) libraries for creating tables for specific data formats. For a list of supported SerDe libraries, see [Choose a SerDe for your data](supported-serdes.md).
 
@@ -35,7 +34,7 @@ For more information about specifying a location for your data in Amazon S3, see
 + **Operations on tables are ACID** – When you create, update, or delete tables, those operations are guaranteed ACID-compliant. For example, if multiple users or clients attempt to create or alter an existing table at the same time, only one will be successful.
 + **Tables are EXTERNAL** – Except when creating [Iceberg](querying-iceberg-creating-tables.md) tables, always use the `EXTERNAL` keyword. If you use `CREATE TABLE` without the `EXTERNAL` keyword for non-Iceberg tables, Athena issues an error. When you drop a table in Athena, only the table metadata is removed; the data remains in Amazon S3.
 + **Maximum query string length** – The maximum query string length is 256 KB.
-+ If you use the AWS Glue [CreateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_CreateTable.html) API operation or the CloudFormation [`AWS::Glue::Table`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html) template to create a table for use in Athena without specifying the `TableType` property and then run a DDL query like `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can receive the error message FAILED: NullPointerException Name is null. 
++ If you use the AWS Glue [CreateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_CreateTable.html) API operation or the CloudFormation [`AWS::Glue::Table`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html) template to create a table for use in Athena without specifying the `TableType` property and then run a DDL query like `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can receive the error message `FAILED: NullPointerException Name is null`. 
 
   To resolve the error, specify a value for the [TableInput](https://docs.aws.amazon.com/glue/latest/webapi/API_TableInput.html) `TableType` attribute as part of the AWS Glue `CreateTable` API call or [CloudFormation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html). Possible values for `TableType` include `EXTERNAL_TABLE` or `VIRTUAL_VIEW`.
 

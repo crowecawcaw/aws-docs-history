@@ -1,7 +1,6 @@
 
 
 # SELECT
-<a name="select"></a>
 
 Retrieves rows of data from zero or more tables.
 
@@ -11,7 +10,7 @@ This topic provides summary information for reference. Comprehensive information
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 [ WITH with_query [, ...] ]
 SELECT [ ALL | DISTINCT ] {{select_expression}} [, ...]
 [ FROM from_item [, ...] ]
@@ -48,19 +47,19 @@ Where:
 **[ ALL \| DISTINCT ] select\_expression**  
  `select_expression` determines the rows to be selected. A `select_expression` can use one of the following formats:  
 
-```
+```sql
 expression [ [ AS ] column_alias ] [, ...]
 ```
 
-```
+```sql
 row_expression.* [ AS ( column_alias [, ...] ) ]
 ```
 
-```
+```sql
 relation.*
 ```
 
-```
+```sql
 *
 ```
 + The `expression [ [ AS ] column_alias ]` syntax specifies an output column. The optional `[AS] column_alias` syntax specifies a custom heading name to be used for the column in the output.
@@ -99,20 +98,20 @@ The {{operator}} can be one of the comparators `=`, `>`, `<`, `>=`, `<=`, `<>`, 
 The following subquery expressions can also be used in the `WHERE` clause.  
 + `[NOT] BETWEEN {{integer_A}} AND {{integer_B}}` – Specifies a range between two integers, as in the following example. If the column data type is `varchar`, the column must be cast to integer first.
 
-  ```
+  ```sql
   SELECT DISTINCT processid FROM "webdata"."impressions"
   WHERE cast(processid as int) BETWEEN 1500 and 1800
   ORDER BY processid
   ```
 + `[NOT] LIKE {{value}}` – Searches for the pattern specified. Use the percent sign (`%`) as a wildcard character, as in the following example.
 
-  ```
+  ```sql
   SELECT * FROM "webdata"."impressions"
   WHERE referrer LIKE '%.org'
   ```
 + `[NOT] IN ({{value}}[, {{value}}[, ...])` – Specifies a list of possible values for a column, as in the following example.
 
-  ```
+  ```sql
   SELECT * FROM "webdata"."impressions"
   WHERE referrer IN ('example.com','example.net','example.org')
   ```
@@ -169,7 +168,7 @@ The `WITH ORDINALITY` clause adds an ordinality column to the end.
 
 To see the Amazon S3 file location for the data in a table row, you can use `"$path"` in a `SELECT` query, as in the following example:
 
-```
+```sql
 SELECT "$path" FROM "my_database"."my_table" WHERE year=2019;
 ```
 
@@ -181,7 +180,7 @@ s3://amzn-s3-demo-bucket/datasets_mytable/year=2019/data_file1.json
 
 To return a sorted, unique list of the S3 filename paths for the data in a table, you can use `SELECT DISTINCT` and `ORDER BY`, as in the following example.
 
-```
+```sql
 SELECT DISTINCT "$path" AS data_source_file
 FROM sampledb.elb_logs
 ORDER By data_source_file ASC
@@ -189,7 +188,7 @@ ORDER By data_source_file ASC
 
 To return only the filenames without the path, you can pass `"$path"` as a parameter to an `regexp_extract` function, as in the following example.
 
-```
+```sql
 SELECT DISTINCT regexp_extract("$path", '[^/]+$') AS data_source_file
 FROM sampledb.elb_logs
 ORDER By data_source_file ASC
@@ -197,7 +196,7 @@ ORDER By data_source_file ASC
 
 To return the data from a specific file, specify the file in the `WHERE` clause, as in the following example.
 
-```
+```sql
 SELECT *,"$path" FROM my_database.my_table WHERE "$path" = 's3://amzn-s3-demo-bucket/my_table/my_partition/file-01.csv'
 ```
 

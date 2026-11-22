@@ -1,11 +1,10 @@
 
 
 # Specify your own path extractors
-<a name="ion-serde-specifying-your-own-path-extractors"></a>
 
 If your Amazon Ion fields do not map neatly to Hive columns, you can specify your own path extractors. In the `WITH SERDEPROPERTIES` clause of your `CREATE TABLE` statement, use the following syntax.
 
-```
+```sql
 WITH SERDEPROPERTIES (
    "ion.path_extractor.case_sensitive" = "{{<Boolean>}}", 
    "ion.{{<column_name>}}.path_extractor" = "{{<path_extractor_expression>}}"

@@ -1,7 +1,6 @@
 
 
 # Use Iceberg table compression
-<a name="compression-support-iceberg"></a>
 
 The compression options for Iceberg tables in Athena vary by engine version and file format.
 

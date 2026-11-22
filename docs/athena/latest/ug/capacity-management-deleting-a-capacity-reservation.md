@@ -1,7 +1,6 @@
 
 
 # Delete a capacity reservation
-<a name="capacity-management-deleting-a-capacity-reservation"></a>
 
 If you want to remove all references to a cancelled capacity reservation, you can delete the reservation. A reservation must be cancelled before it can be deleted. A deleted reservation is immediately removed from your account and can no longer be referenced, including by its ARN.
 

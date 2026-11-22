@@ -1,7 +1,6 @@
 
 
 # IAM credentials
-<a name="odbc-v2-driver-iam-credentials"></a>
 
 You can use your IAM credentials to connect to Amazon Athena with the ODBC driver using the connection string parameters described in this section.
 

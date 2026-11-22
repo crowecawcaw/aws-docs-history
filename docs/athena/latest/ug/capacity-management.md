@@ -1,7 +1,6 @@
 
 
 # Manage query processing capacity
-<a name="capacity-management"></a>
 
 You can use capacity reservations to get dedicated serverless processing capacity for the queries you run in Athena. With capacity reservations, you can take advantage of workload management capabilities that help you prioritize, control, and scale your most important workloads. For example, you can add capacity to control the number of queries you can run at the same time, choose which workloads can use the capacity, and share capacity among workloads. Capacity is serverless and fully-managed by Athena and held for you as long as you need it. Setup is easy and no changes to your SQL queries are required.
 

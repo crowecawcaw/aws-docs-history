@@ -1,7 +1,6 @@
 
 
 # When should I use Athena?
-<a name="when-should-i-use-ate"></a>
 
 Query services like Amazon Athena, data warehouses like Amazon Redshift, and sophisticated data processing frameworks like Amazon EMR all address different needs and use cases. The following guidance can help you choose one or more services based on your requirements.
 

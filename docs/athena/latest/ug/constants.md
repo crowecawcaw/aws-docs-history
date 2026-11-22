@@ -1,11 +1,10 @@
 
 
 # Constants
-<a name="constants"></a>
 
 The `ExampleConstants.java` class demonstrates how to query a table created by the [Get started](getting-started.md) tutorial in Athena.
 
-```
+```java
 package aws.example.athena;
 
 public class ExampleConstants {

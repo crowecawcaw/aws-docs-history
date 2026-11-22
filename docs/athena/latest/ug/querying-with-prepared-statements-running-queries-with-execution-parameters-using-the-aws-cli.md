@@ -1,7 +1,6 @@
 
 
 # Run queries with execution parameters using the AWS CLI
-<a name="querying-with-prepared-statements-running-queries-with-execution-parameters-using-the-aws-cli"></a>
 
 To use the AWS CLI to run queries with execution parameters, use the `start-query-execution` command and provide a parameterized query in the `query-string` argument. Then, in the `execution-parameters` argument, provide the values for the execution parameters. The following example illustrates this technique.
 

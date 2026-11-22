@@ -1,7 +1,6 @@
 
 
 # Work with timestamp data
-<a name="data-types-timestamps"></a>
 
 This section describes some considerations for working with timestamp data in Athena.
 
@@ -40,7 +39,7 @@ With the Hive tables most commonly used in Athena, the query engine has no knowl
 
 For example, suppose you have an `event_time` column and an `event_date` partition key and want to query events between 23:00 and 03:00. In this case, you must include predicates in your query for both the column and the partition key, as in the following example.
 
-```
+```sql
 WHERE event_time BETWEEN {{start_time}} AND {{end_time}} 
   AND event_date BETWEEN {{start_time_date}} AND {{end_time_date}}
 ```
@@ -50,13 +49,13 @@ WHERE event_time BETWEEN {{start_time}} AND {{end_time}}
 
 With Iceberg tables, you can use computed partition values, which simplifies your queries. For example, suppose your Iceberg table was created with a `PARTITIONED BY` clause like the following:
 
-```
+```sql
 PARTITIONED BY (event_date month(event_time))
 ```
 
 In this case, the query engine automatically prunes partitions based on the values of the `event_time` predicates. Because of this, your query only needs to specify a predicate for `event_time`, as in the following example.
 
-```
+```sql
 WHERE event_time BETWEEN {{start_time}} AND {{end_time}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Use CloudTrail to troubleshoot Athena notebook API calls
-<a name="notebooks-spark-troubleshooting-cloudtrail"></a>
 
 To troubleshoot notebook API calls, you can examine Athena CloudTrail logs to investigate anomalies or discover actions initiated by users. For detailed information about using CloudTrail with Athena, see [Log Amazon Athena API calls with AWS CloudTrail](monitor-with-cloudtrail.md).
 
@@ -12,7 +11,7 @@ The following examples demonstrate CloudTrail log entries for Athena notebook AP
 
 The following example shows the CloudTrail log for a notebook [StartSession](https://docs.aws.amazon.com/athena/latest/APIReference/API_StartSession.html) event.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -82,7 +81,7 @@ The following example shows the CloudTrail log for a notebook [StartSession](htt
 
 The following example shows the CloudTrail log for a notebook [TerminateSession](https://docs.aws.amazon.com/athena/latest/APIReference/API_TerminateSession.html) event.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -139,7 +138,7 @@ The following example shows the CloudTrail log for a notebook [TerminateSession]
 
 The following example shows the CloudTrail log for a notebook [ImportNotebook](https://docs.aws.amazon.com/athena/latest/APIReference/API_ImportNotebook.html) event. For security, some content is hidden.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -200,7 +199,7 @@ The following example shows the CloudTrail log for a notebook [ImportNotebook](h
 
 The following example shows the CloudTrail log for a notebook [UpdateNotebook](https://docs.aws.amazon.com/athena/latest/APIReference/API_UpdateNotebook.html) event. For security, some content is hidden.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -258,7 +257,7 @@ The following example shows the CloudTrail log for a notebook [UpdateNotebook](h
 
 The following example shows the CloudTrail log for a notebook [StartCalculationExecution](https://docs.aws.amazon.com/athena/latest/APIReference/API_StartCalculationExecution.html) event. For security, some content is hidden.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

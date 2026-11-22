@@ -1,7 +1,6 @@
 
 
 # Query AWS WAF logs
-<a name="waf-logs"></a>
 
 AWS WAF is a web application firewall that lets you monitor and control the HTTP and HTTPS requests that your protected web applications receive from clients. You define how to handle the web requests by configuring rules inside an AWS WAF web access control list (ACL). You then protect a web application by associating a web ACL to it. Examples of web application resources that you can protect with AWS WAF include Amazon CloudFront distributions, Amazon API Gateway REST APIs, and Application Load Balancers. For more information about AWS WAF, see [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) in the *AWS WAF developer guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Athena HBase connector
-<a name="connectors-hbase"></a>
 
 The Amazon Athena HBase connector enables Amazon Athena to communicate with your Apache HBase instances so that you can query your HBase data with SQL.
 
@@ -70,11 +69,11 @@ The HBase connector created using a AWS Glue Data Catalog federated connection o
 
 You can provide one or more properties that define the HBase connection details for the HBase instances that you use with the connector. To do this, set a Lambda environment variable that corresponds to the catalog name that you want to use in Athena. For example, suppose you want to use the following queries to query two different HBase instances from Athena:
 
-```
+```sql
 SELECT * FROM "hbase_instance_1".database.table
 ```
 
-```
+```sql
 SELECT * FROM "hbase_instance_2".database.table
 ```
 
@@ -178,7 +177,7 @@ The HBase connector supports [passthrough queries](federated-query-passthrough.m
 
 To use passthrough queries with HBase, use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             database => '{{database_name}}',
@@ -189,7 +188,7 @@ SELECT * FROM TABLE(
 
 The following example HBase passthrough query filters for employees aged 24 or 30 within the `employee` collection of the `default` database.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             DATABASE => 'default',

@@ -1,7 +1,6 @@
 
 
 # Manage reservations
-<a name="capacity-management-managing-reservations"></a>
 
 You can view and manage your capacity reservations on the **Capacity reservations** page. You can perform management tasks like adding or reducing DPUs, modifying workgroup assignments, and tagging or cancelling reservations.
 

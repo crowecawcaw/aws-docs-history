@@ -1,7 +1,6 @@
 
 
 # DDL statements
-<a name="ddl-reference"></a>
 
 Use the supported data definition language (DDL) statements presented here directly in Athena. The Athena query engine is based in part on [HiveQL DDL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL). Athena does not support all DDL statements, and there are some differences between HiveQL DDL and Athena DDL. For more information, see the reference topics in this section and [Unsupported DDL](unsupported-ddl.md).
 

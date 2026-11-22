@@ -1,7 +1,6 @@
 
 
 # Download query results files using the Athena console
-<a name="saving-query-results"></a>
 
 You can download the query results CSV file from the query pane immediately after you run a query. You can also download query results from recent queries from the **Recent queries** tab.
 

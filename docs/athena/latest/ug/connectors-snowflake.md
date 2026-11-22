@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Snowflake connector
-<a name="connectors-snowflake"></a>
 
 The Amazon Athena connector for [Snowflake](https://www.snowflake.com/) enables Amazon Athena to run SQL queries on data stored in your Snowflake SQL database or RDS instances using JDBC.
 
@@ -287,7 +286,7 @@ The following Athena Snowflake connector operators support predicate pushdown:
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -303,7 +302,7 @@ The Snowflake connector supports [passthrough queries](federated-query-passthrou
 
 To use passthrough queries with Snowflake, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -312,7 +311,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Snowflake. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

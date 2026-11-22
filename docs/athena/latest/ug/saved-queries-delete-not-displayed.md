@@ -1,7 +1,6 @@
 
 
 # Delete an undisplayed saved query
-<a name="saved-queries-delete-not-displayed"></a>
 
 **To delete a saved query not displayed in the query editor**
 

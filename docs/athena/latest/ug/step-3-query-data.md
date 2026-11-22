@@ -1,7 +1,6 @@
 
 
 # Step 3: Query data
-<a name="step-3-query-data"></a>
 
 Now that you have the `cloudfront_logs` table created in Athena based on the data in Amazon S3, you can run SQL queries on the table and see the results in Athena. For more information about using SQL in Athena, see [SQL reference for Athena](ddl-sql-reference.md).
 
@@ -9,7 +8,7 @@ Now that you have the `cloudfront_logs` table created in Athena based on the dat
 
 1. Choose the plus (**\+**) sign to open a new query tab and enter the following SQL statement in the query pane.
 
-   ```
+   ```sql
    SELECT os, COUNT(*) count 
    FROM cloudfront_logs 
    WHERE date BETWEEN date '2014-07-05' AND date '2014-08-05' 

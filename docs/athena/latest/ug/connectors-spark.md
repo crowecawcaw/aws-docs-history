@@ -1,7 +1,6 @@
 
 
 # Work with data source connectors for Apache Spark
-<a name="connectors-spark"></a>
 
 Some Athena data source connectors are available as Spark DSV2 connectors. The Spark DSV2 connector names have a `-dsv2` suffix (for example, `athena-dynamodb-dsv2`).
 
@@ -32,7 +31,7 @@ For information on adding custom `.jar` files and custom configuration to Amazon
 
 To pass in the connector `.jar` file to Spark, use the `spark-submit` command and specify the `.jar` file in the `--jars` option, as in the following example:
 
-```
+```py
 spark-submit \ 
   --deploy-mode cluster \ 
   --jars https://github.com/awslabs/aws-athena-query-federation-dsv2/releases/download/{{some_version}}/athena-dynamodb-dsv2-{{some_version}}.jar
@@ -53,7 +52,7 @@ For AWS Glue ETL, you can pass in the `.jar` file's GitHub.com URL to the `--ext
 
 To submit the equivalent of your existing Athena federated query on Apache Spark, use the `spark.sql()` function. For example, suppose you have the following Athena query that you want to use on Apache Spark.
 
-```
+```sql
 SELECT somecola, somecolb, somecolc 
 FROM ddb_datasource.some_schema_or_glue_database.some_ddb_or_glue_table 
 WHERE somecola > 1
@@ -61,7 +60,7 @@ WHERE somecola > 1
 
 To perform the same query on Spark using the Amazon Athena DynamoDB DSV2 connector, use the following code:
 
-```
+```py
 dynamoDf = (spark.read 
     .option("athena.connectors.schema", "some_schema_or_glue_database") 
     .option("athena.connectors.table", "some_ddb_or_glue_table") 
@@ -84,13 +83,13 @@ The DSV2 versions of the Athena data source connectors use the same parameters a
 
 In your PySpark code, use the following syntax to configure your parameters.
 
-```
+```py
 spark.read.option("athena.connectors.conf.{{parameter}}", "{{value}}")
 ```
 
 For example, the following code sets the Amazon Athena DynamoDB connector `disable_projection_and_casing` parameter to `always`.
 
-```
+```py
 dynamoDf = (spark.read 
     .option("athena.connectors.schema", "some_schema_or_glue_database") 
     .option("athena.connectors.table", "some_ddb_or_glue_table") 

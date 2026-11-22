@@ -1,14 +1,13 @@
 
 
 # DESCRIBE
-<a name="querying-iceberg-describe-table"></a>
 
 Describes table information.
 
 ## Synopsis
 <a name="querying-iceberg-describe-table-synopsis"></a>
 
-```
+```sql
 DESCRIBE [FORMATTED] [{{db_name}}.]{{table_name}}
 ```
 
@@ -17,6 +16,6 @@ When the `FORMATTED` option is specified, the output displays additional informa
 ## Example
 <a name="querying-iceberg-describe-table-example"></a>
 
-```
+```sql
 DESCRIBE iceberg_table
 ```

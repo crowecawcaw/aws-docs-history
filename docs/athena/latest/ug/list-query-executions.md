@@ -1,11 +1,10 @@
 
 
 # List query executions
-<a name="list-query-executions"></a>
 
 The `ListQueryExecutionsExample` shows how to obtain a list of query execution IDs.
 
-```
+```java
 package aws.example.athena;
 
 import software.amazon.awssdk.regions.Region;

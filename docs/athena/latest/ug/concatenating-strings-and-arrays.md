@@ -1,7 +1,6 @@
 
 
 # Concatenate strings and arrays
-<a name="concatenating-strings-and-arrays"></a>
 
 Concatenating strings and concatenating arrays use similar techniques.
 
@@ -10,7 +9,7 @@ Concatenating strings and concatenating arrays use similar techniques.
 
 To concatenate two strings, you can use the double pipe `||` operator, as in the following example.
 
-```
+```sql
 SELECT 'This' || ' is' || ' a' || ' test.' AS Concatenated_String
 ```
 
@@ -24,7 +23,7 @@ This query returns:
 
 You can use the `concat()` function to achieve the same result.
 
-```
+```sql
 SELECT concat('This', ' is', ' a', ' test.') AS Concatenated_String
 ```
 
@@ -38,7 +37,7 @@ This query returns:
 
 You can use the `concat_ws()` function to concatenate strings with the separator specified in the first argument.
 
-```
+```sql
 SELECT concat_ws(' ', 'This', 'is', 'a', 'test.') as Concatenated_String
 ```
 
@@ -52,7 +51,7 @@ This query returns:
 
 To concatenate two columns of the string data type using a dot, reference the two columns using double quotes, and enclose the dot in single quotes as a hard-coded string. If a column is not of the string data type, you can use `CAST("{{column_name}}" as VARCHAR)` to cast the column first.
 
-```
+```sql
 SELECT "col1" || '.' || "col2" as Concatenated_String
 FROM {{my_table}}
 ```
@@ -72,7 +71,7 @@ You can use the same techniques to concatenate arrays.
 
 To concatenate multiple arrays, use the double pipe `||` operator.
 
-```
+```sql
 SELECT ARRAY [4,5] || ARRAY[ ARRAY[1,2], ARRAY[3,4] ] AS items
 ```
 
@@ -86,7 +85,7 @@ This query returns:
 
 To combine multiple arrays into a single array, use the double pipe operator or the `concat()` function.
 
-```
+```sql
 WITH
 dataset AS (
   SELECT

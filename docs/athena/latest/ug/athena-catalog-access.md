@@ -1,7 +1,6 @@
 
 
 # Permissions required to create connector and Athena catalog
-<a name="athena-catalog-access"></a>
 
 To invoke Athena `CreateDataCatalog` you must create a role that has the following permissions:
 
@@ -10,7 +9,7 @@ To invoke Athena `CreateDataCatalog` you must create a role that has the followi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

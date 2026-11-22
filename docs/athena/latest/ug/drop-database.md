@@ -1,14 +1,13 @@
 
 
 # DROP DATABASE
-<a name="drop-database"></a>
 
 Removes the named database from the catalog. If the database contains tables, you must either drop the tables before running `DROP DATABASE` or use the `CASCADE` clause. The use of `DATABASE` and `SCHEMA` are interchangeable. They mean the same thing.
 
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 DROP {DATABASE | SCHEMA} [IF EXISTS] database_name [RESTRICT | CASCADE]
 ```
 
@@ -24,11 +23,11 @@ Determines how tables within `database_name` are regarded during the `DROP` oper
 ## Examples
 <a name="examples"></a>
 
-```
+```sql
 DROP DATABASE clickstreams;
 ```
 
-```
+```sql
 DROP SCHEMA IF EXISTS clickstreams CASCADE;
 ```
 

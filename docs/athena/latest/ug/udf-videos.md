@@ -1,7 +1,6 @@
 
 
 # Videos on UDFs in Athena
-<a name="udf-videos"></a>
 
 Watch the following videos to learn more about using UDFs in Athena.
 

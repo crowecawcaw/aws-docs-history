@@ -1,7 +1,6 @@
 
 
 # List the columns that specific tables have in common
-<a name="querying-glue-catalog-listing-columns-in-common"></a>
 
 You can list the columns that specific tables in a database have in common.
 + Use the syntax `SELECT column_name FROM information_schema.columns`.
@@ -10,7 +9,7 @@ You can list the columns that specific tables in a database have in common.
 **Example – Listing common columns for two tables in the same database**  
 The following example query lists the columns that the tables `table1` and `table2` have in common.  
 
-```
+```sql
 SELECT column_name
 FROM information_schema.columns
 WHERE table_name IN ('table1', 'table2')

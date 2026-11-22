@@ -1,7 +1,6 @@
 
 
 # Use non-Hive table formats in Athena for Spark
-<a name="notebooks-spark-table-formats"></a>
 
 **Note**  
 This page refers to using Python libraries in the release version Pyspark engine version 3. Refer to [Amazon EMR 7.12](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-7120-release.html) for supported open table format versions.

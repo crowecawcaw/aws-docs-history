@@ -1,7 +1,6 @@
 
 
 # Create capacity reservations
-<a name="capacity-management-creating-capacity-reservations"></a>
 
 To get started, you create a capacity reservation that has the number of DPUs that you require, and then assign one or more workgroups that will use that capacity for their queries. You can adjust your capacity later as needed to provide more consistent performance or better manage costs. For information about estimating your capacity requirements, see [Determine capacity requirements](capacity-management-requirements.md).
 

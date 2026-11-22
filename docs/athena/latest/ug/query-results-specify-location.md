@@ -1,7 +1,6 @@
 
 
 # Specify a query result location
-<a name="query-results-specify-location"></a>
 
 The query result location that Athena uses is determined by a combination of workgroup settings and *client-side settings*. Client-side settings are based on how you run the query. 
 +  If you run the query using the Athena console, the **Query result location** entered under **Settings** in the navigation bar determines the client-side setting. 

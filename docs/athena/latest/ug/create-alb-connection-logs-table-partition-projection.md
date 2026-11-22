@@ -1,13 +1,12 @@
 
 
 # Create the table for ALB connection logs in Athena using partition projection
-<a name="create-alb-connection-logs-table-partition-projection"></a>
 
 Because ALB connection logs have a known structure whose partition scheme you can specify in advance, you can reduce query runtime and automate partition management by using the Athena partition projection feature. Partition projection automatically adds new partitions as new data is added. This removes the need for you to manually add partitions by using `ALTER TABLE ADD PARTITION`. 
 
 The following example `CREATE TABLE` statement automatically uses partition projection on ALB connection logs from a specified date until the present for a single AWS region. The statement is based on the example in the previous section but adds `PARTITIONED BY` and `TBLPROPERTIES` clauses to enable partition projection. In the `LOCATION` and `storage.location.template` clauses, replace the placeholders with values that identify the Amazon S3 bucket location of your ALB connection logs. For more information about connection log file location, see [Connection log files](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-connection-logs.html#connection-log-file-format) in the *User Guide for Application Load Balancers*. For `projection.day.range`, replace {{2023}}/{{01}}/{{01}} with the starting date that you want to use. After you run the query successfully, you can query the table. You do not have to run `ALTER TABLE ADD PARTITION` to load the partitions. For information about each log file field, see [Connection log entries](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-connection-logs.html#connection-log-entry-format).
 
-```
+```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS alb_connection_logs (
          time string,
          client_ip string,

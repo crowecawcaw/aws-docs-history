@@ -1,7 +1,6 @@
 
 
 # Switch workgroups
-<a name="switching-workgroups"></a>
 
 You can switch from one workgroup to another if you have permissions to both of them.
 

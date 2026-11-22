@@ -1,7 +1,6 @@
 
 
 # Use a form in the Athena console to add an AWS Glue table
-<a name="data-sources-glue-manual-table"></a>
 
 The following procedure shows you how to use the Athena console to add a table using the **Create Table From S3 bucket data** form.
 

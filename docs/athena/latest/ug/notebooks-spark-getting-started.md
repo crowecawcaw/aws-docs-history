@@ -1,7 +1,6 @@
 
 
 # Get started with Apache Spark on Amazon Athena
-<a name="notebooks-spark-getting-started"></a>
 
 **Note**  
 For the release version Apache Spark version 3.5, following the Getting Started guide in [SageMaker Notebooks](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.html). Use this guide for the release version Pyspark engine version 3.

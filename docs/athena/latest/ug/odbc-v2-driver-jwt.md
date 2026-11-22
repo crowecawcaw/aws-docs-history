@@ -1,7 +1,6 @@
 
 
 # JWT
-<a name="odbc-v2-driver-jwt"></a>
 
 The JWT (JSON Web Token) plugin provides an interface that uses JSON Web Tokens to assume an Amazon IAM role. The configuration depends on the identity provider. For information about configuring federation for Google Cloud and AWS, see [Configure workload identity federation with AWS or Azure](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-clouds) in the Google Cloud documentation.
 

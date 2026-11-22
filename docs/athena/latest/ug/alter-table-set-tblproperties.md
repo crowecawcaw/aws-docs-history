@@ -1,7 +1,6 @@
 
 
 # ALTER TABLE SET TBLPROPERTIES
-<a name="alter-table-set-tblproperties"></a>
 
 Adds custom or predefined metadata properties to a table and sets their assigned values. To see the properties in a table, use the [SHOW TBLPROPERTIES](show-tblproperties.md) command.
 
@@ -10,7 +9,7 @@ Apache Hive [Managed tables](https://cwiki.apache.org/confluence/display/Hive/Ma
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 ALTER TABLE table_name SET TBLPROPERTIES ('property_name' = 'property_value' [ , ... ])
 ```
 
@@ -48,14 +47,14 @@ The following predefined table properties have special uses.
 
 The following example adds a comment note to table properties.
 
-```
+```sql
 ALTER TABLE orders 
 SET TBLPROPERTIES ('notes'="Please don't drop this table.");
 ```
 
 The following example modifies the table `existing_table` to use Parquet file format with ZSTD compression and ZSTD compression level 4.
 
-```
+```sql
 ALTER TABLE existing_table 
 SET TBLPROPERTIES ('parquet.compression' = 'ZSTD', 'compression_level' = 4)
 ```

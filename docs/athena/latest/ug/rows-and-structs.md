@@ -1,7 +1,6 @@
 
 
 # Query arrays with complex types and nested structures
-<a name="rows-and-structs"></a>
 
 Your source data often contains arrays with complex data types and nested structures. Examples in this section show how to change element's data type, locate elements within arrays, and find keywords using Athena queries.
 

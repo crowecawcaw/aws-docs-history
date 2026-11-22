@@ -1,7 +1,6 @@
 
 
 # Create tables for flow logs in Apache Parquet format
-<a name="vpc-flow-logs-parquet"></a>
 
 The following procedure creates an Amazon VPC table for Amazon VPC flow logs in Apache Parquet format.
 
@@ -9,7 +8,7 @@ The following procedure creates an Amazon VPC table for Amazon VPC flow logs in 
 
 1. Enter a DDL statement like the following into the Athena console query editor, following the guidelines in the [Considerations and limitations](vpc-flow-logs.md#vpc-flow-logs-common-considerations) section. The sample statement creates a table that has the columns for Amazon VPC flow logs versions 2 through 5 as documented in [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) in Parquet format, Hive partitioned hourly. If you do not have hourly partitions, remove `hour` from the `PARTITIONED BY` clause.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS vpc_flow_logs_parquet (
      version int,
      account_id string,
@@ -70,7 +69,7 @@ The following procedure creates an Amazon VPC table for Amazon VPC flow logs in 
 
 1. If your data is in Hive-compatible format, run the following command in the Athena console to update and load the Hive partitions in the metastore. After the query completes, you can query the data in the `vpc_flow_logs_parquet` table.
 
-   ```
+   ```sql
    MSCK REPAIR TABLE vpc_flow_logs_parquet
    ```
 

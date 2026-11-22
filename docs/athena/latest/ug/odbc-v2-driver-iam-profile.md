@@ -1,7 +1,6 @@
 
 
 # IAM profile
-<a name="odbc-v2-driver-iam-profile"></a>
 
 You can configure a named profile to connect to Amazon Athena using the ODBC driver. You can use a named profile with one of the following credential sources:
 + `Ec2InstanceMetadata` – Retrieves credentials from the Amazon EC2 Instance Metadata Service (IMDS). Use this when running on an Amazon EC2 instance.

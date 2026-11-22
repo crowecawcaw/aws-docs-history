@@ -1,7 +1,6 @@
 
 
 # Workload management
-<a name="workload-management"></a>
 
 You can use Athena's workgroup, capacity management, performance tuning, compression support, tags, and service quotas features to manage your workload.
 

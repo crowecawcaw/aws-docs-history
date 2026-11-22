@@ -1,11 +1,10 @@
 
 
 # List named queries
-<a name="list-named-queries"></a>
 
 The `ListNamedQueryExample` shows how to obtain a list of named query IDs.
 
-```
+```java
 package aws.example.athena;
 
 import software.amazon.awssdk.regions.Region;

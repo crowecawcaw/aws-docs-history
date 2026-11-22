@@ -1,7 +1,6 @@
 
 
 # Browser SSO OIDC credentials
-<a name="jdbc-v3-driver-browser-sso-oidc"></a>
 
 Browser SSO OIDC is an authentication plugin that works with [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html). The plugin performs dynamic client registration with SSO OIDC, opens your default browser to the SSO authorization URL, receives the authorization code through a local callback server, exchanges it for an SSO access token, and uses that token to obtain temporary AWS credentials. The plugin uses the Authorization Code with PKCE flow.
 

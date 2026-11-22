@@ -1,7 +1,6 @@
 
 
 # Query AWS Glue data catalogs in Athena
-<a name="gdc-register-query-the-data-source"></a>
 
 To query data catalogs from Athena, do one of the following.
 + Register the catalog in Athena as a data source, then use the data source name to query the catalog. In this usage, the following queries are equivalent.

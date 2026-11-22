@@ -1,7 +1,6 @@
 
 
 # Use saved queries
-<a name="saved-queries"></a>
 
 You can use the Athena console to save, edit, run, rename, and delete the queries that you create in the query editor.
 

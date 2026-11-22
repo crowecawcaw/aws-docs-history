@@ -1,7 +1,6 @@
 
 
 # Use SerDes
-<a name="serde-reference"></a>
 
 Athena supports several SerDe (Serializer/Deserializer) libraries that parse data from a variety of data formats. When you create a table in Athena, you can specify a SerDe that corresponds to the format that your data is in. Athena does not support custom SerDes. 
 

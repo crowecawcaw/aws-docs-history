@@ -1,14 +1,13 @@
 
 
 # SHOW PARTITIONS
-<a name="show-partitions"></a>
 
 Lists all the partitions in an Athena table in unsorted order.
 
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 SHOW PARTITIONS table_name
 ```
 + To show the partitions in a table and list them in a specific order, see the [List partitions for a specific table](querying-glue-catalog-listing-partitions.md) section on the [Query the AWS Glue Data Catalog](querying-glue-catalog.md) page.
@@ -21,7 +20,7 @@ SHOW PARTITIONS table_name
 
 The following example query shows the partitions for the `flight_delays_csv` table, which shows flight table data from the US Department of Transportation. For more information about the example `flight_delays_csv` table, see [Lazy Simple SerDe for CSV, TSV, and custom-delimited files](lazy-simple-serde.md). The table is partitioned by year.
 
-```
+```sql
 SHOW PARTITIONS flight_delays_csv
 ```
 
@@ -43,7 +42,7 @@ year=2011
 
 The following example query shows the partitions for the `impressions` table, which contains sample web browsing data. For more information about the example `impressions` table, see [Partition your data](partitions.md). The table is partitioned by the `dt` (datetime) column.
 
-```
+```sql
 SHOW PARTITIONS impressions
 ```
 
@@ -67,13 +66,13 @@ dt=2009-04-13-22-15
 
 To order the partitions in the results list, use the following `SELECT` syntax instead of `SHOW PARTITIONS`.
 
-```
+```sql
 SELECT * FROM {{database_name}}."{{table_name}}$partitions" ORDER BY {{column_name}}
 ```
 
 The following query shows the list of partitions for the `flight_delays_csv` example, but in sorted order.
 
-```
+```sql
 SELECT * FROM "flight_delays_csv$partitions" ORDER BY year
 ```
 

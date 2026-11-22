@@ -1,7 +1,6 @@
 
 
 # Change Athena engine versions
-<a name="engine-versions-changing"></a>
 
 Athena occasionally releases a new engine version to provide improved performance, functionality, and code fixes. When a new engine version is available, Athena notifies you in the console. You can choose to let Athena decide when to upgrade, or manually specify an Athena engine version per workgroup.
 

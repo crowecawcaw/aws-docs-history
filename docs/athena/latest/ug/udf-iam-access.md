@@ -1,7 +1,6 @@
 
 
 # Allow access to Athena UDFs: Example policies
-<a name="udf-iam-access"></a>
 
 The permission policy examples in this topic demonstrate required allowed actions and the resources for which they are allowed. Examine these policies carefully and modify them according to your requirements before you attach similar permissions policies to IAM identities.
 +  [Example Policy to Allow an IAM Principal to Run and Return Queries that Contain an Athena UDF Statement](#udf-using-iam) 
@@ -10,7 +9,7 @@ The permission policy examples in this topic demonstrate required allowed action
 **Example – Allow an IAM principal to run and return queries that contain an Athena UDF statement**  
 The following identity-based permissions policy allows actions that a user or other IAM principal requires to run queries that use Athena UDF statements.  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -58,7 +57,7 @@ The following identity-based permissions policy allows actions that a user or ot
 
 **Example – Allow an IAM principal to create an Athena UDF**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

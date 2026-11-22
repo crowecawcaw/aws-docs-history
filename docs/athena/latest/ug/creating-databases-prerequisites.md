@@ -1,7 +1,6 @@
 
 
 # Create a query output location
-<a name="creating-databases-prerequisites"></a>
 
 If you do not already have a query output location set up in Amazon S3, perform the following prerequisite steps to do so.
 

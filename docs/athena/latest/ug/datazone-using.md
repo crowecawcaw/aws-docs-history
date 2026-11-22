@@ -1,7 +1,6 @@
 
 
 # Use Amazon DataZone in Athena
-<a name="datazone-using"></a>
 
 You can use [Amazon DataZone](https://aws.amazon.com/datazone) to share, search, and discover data at scale across organizational boundaries. DataZone simplifies your experience across AWS analytics services like Athena, AWS Glue, and AWS Lake Formation. For example, if you have petabytes of data in different data sources, you can use Amazon DataZone to build business use case based groupings of people, data and tools. For more information, see [What is Amazon DataZone?](https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html).
 

@@ -1,7 +1,6 @@
 
 
 # macOS
-<a name="odbc-v2-driver-getting-started-macos"></a>
 
 If you want to use a macOS client computer to access Amazon Athena, the Amazon Athena ODBC driver is required.
 

@@ -1,7 +1,6 @@
 
 
 # Best practices for reading JSON data
-<a name="parsing-json-data"></a>
 
 JavaScript Object Notation (JSON) is a common method for encoding data structures as text. Many applications and tools output data that is JSON-encoded.
 
@@ -11,11 +10,11 @@ Use the following tips to read JSON-encoded data:
 + Choose the right SerDe, a native JSON SerDe, `org.apache.hive.hcatalog.data.JsonSerDe`, or an OpenX SerDe, `org.openx.data.jsonserde.JsonSerDe`. For more information, see [JSON SerDe libraries](json-serde.md).
 + Make sure that each JSON-encoded record is represented on a separate line, not pretty-printed.
 **Note**  
-The SerDe expects each JSON document to be on a single line of text with no line termination characters separating the fields in the record. If the JSON text is in pretty print format, you may receive an error message like HIVE\_CURSOR\_ERROR: Row is not a valid JSON Object or HIVE\_CURSOR\_ERROR: JsonParseException: Unexpected end-of-input: expected close marker for OBJECT when you attempt to query the table after you create it. For more information, see [JSON Data Files](https://github.com/rcongiu/Hive-JSON-Serde#json-data-files) in the OpenX SerDe documentation on GitHub. 
+The SerDe expects each JSON document to be on a single line of text with no line termination characters separating the fields in the record. If the JSON text is in pretty print format, you may receive an error message like `HIVE_CURSOR_ERROR: Row is not a valid JSON Object` or `HIVE_CURSOR_ERROR: JsonParseException: Unexpected end-of-input: expected close marker for OBJECT` when you attempt to query the table after you create it. For more information, see [JSON Data Files](https://github.com/rcongiu/Hive-JSON-Serde#json-data-files) in the OpenX SerDe documentation on GitHub. 
 + Generate your JSON-encoded data in case-insensitive columns.
 + Provide an option to ignore malformed records, as in this example.
 
-  ```
+  ```sql
   CREATE EXTERNAL TABLE json_table (
     column_a string,
     column_b int

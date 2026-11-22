@@ -1,7 +1,6 @@
 
 
 # VACUUM
-<a name="vacuum-statement"></a>
 
 The `VACUUM` statement performs table maintenance on Apache Iceberg tables by performing [snapshot expiration](https://iceberg.apache.org/docs/latest/spark-procedures/#expire_snapshots) and [orphan file removal](https://iceberg.apache.org/docs/latest/spark-procedures/#remove_orphan_files).
 
@@ -18,16 +17,16 @@ If you run a snapshot expiration operation, you can no longer time travel to exp
 
 To remove data files no longer needed for an Iceberg table, use the following syntax.
 
-```
+```sql
 VACUUM [{{database_name}}.]{{target_table}}
 ```
-+ `VACUUM` expects the Iceberg data to be in an Amazon S3 folder rather than an Amazon S3 bucket. For example, if your Iceberg data is at `s3://amzn-s3-demo-bucket`/ instead of `s3://amzn-s3-demo-bucket/myicebergfolder/`, the `VACUUM` statement fails with the error message GENERIC\_INTERNAL\_ERROR: Path missing in file system location: `s3://amzn-s3-demo-bucket`.
++ `VACUUM` expects the Iceberg data to be in an Amazon S3 folder rather than an Amazon S3 bucket. For example, if your Iceberg data is at `s3://amzn-s3-demo-bucket`/ instead of `s3://amzn-s3-demo-bucket/myicebergfolder/`, the `VACUUM` statement fails with the error message `GENERIC_INTERNAL_ERROR: Path missing in file system location: s3://amzn-s3-demo-bucket`.
 + For `VACUUM` to be able to delete data files, your query execution role must have `s3:DeleteObject` permissions on the bucket where your Iceberg tables, metadata, snapshots, and data files are located. If the permission is not present, the `VACUUM` query will succeed, but the files will not be deleted. 
 + To run `VACUUM` on a table with a name that begins with an underscore (for example, `_mytable`), enclose the table name in backticks, as in the following example. If you prefix the table name with a database name, do not enclose the database name in backticks. Note that double quotes will not work in place of backticks. 
 
   This behavior is particular to `VACUUM`. The `CREATE` and `INSERT INTO` statements do not require backticks for table names that begin with underscores.
 
-  ```
+  ```sql
   VACUUM `_mytable`
   VACUUM my_database.`_mytable`
   ```

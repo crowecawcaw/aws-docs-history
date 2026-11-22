@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure federated access for Okta users to Athena using Lake Formation and JDBC
-<a name="security-athena-lake-formation-jdbc-okta-tutorial"></a>
 
 This tutorial shows you how to configure Okta, AWS Lake Formation, AWS Identity and Access Management permissions, and the Athena JDBC driver to enable SAML-based federated use of Athena. Lake Formation provides fine-grained access control over the data that is available in Athena to the SAML-based user. To set up this configuration, the tutorial uses the Okta developer console, the AWS IAM and Lake Formation consoles, and the SQL Workbench/J tool.
 <a name="security-athena-lake-formation-jdbc-okta-tutorial-prerequisites"></a>
@@ -254,7 +253,7 @@ Whenever you use IAM policies, make sure that you follow IAM best practices. For
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -295,7 +294,7 @@ Whenever you use IAM policies, make sure that you follow IAM best practices. For
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

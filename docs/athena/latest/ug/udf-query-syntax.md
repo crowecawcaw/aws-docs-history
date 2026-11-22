@@ -1,14 +1,13 @@
 
 
 # Query using UDF query syntax
-<a name="udf-query-syntax"></a>
 
 The `USING EXTERNAL FUNCTION` clause specifies a UDF or multiple UDFs that can be referenced by a subsequent `SELECT` statement in the query. You need the method name for the UDF and the name of the Lambda function that hosts the UDF. In place of the Lambda function name, you can use the Lambda ARN. In cross-account scenarios, the Lambda ARN is required.
 
 ## Synopsis
 <a name="udf-synopsis"></a>
 
-```
+```sql
 USING EXTERNAL FUNCTION {{UDF_name}}({{variable1}} {{data_type}}[, {{variable2}} {{data_type}}][,...])
 RETURNS {{data_type}}
 LAMBDA '{{lambda_function_name_or_ARN}}'

@@ -1,7 +1,6 @@
 
 
 # Grok SerDe
-<a name="grok-serde"></a>
 
 The Logstash Grok SerDe is a library with a set of specialized patterns for deserialization of unstructured text data, usually logs. Each Grok pattern is a named regular expression. You can identify and re-use these deserialization patterns as needed. This makes it easier to use Grok compared with using regular expressions. Grok provides a set of [pre-defined patterns](https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns). You can also create custom patterns.
 
@@ -37,7 +36,7 @@ Feb  9 07:15:03 m4eastmail postfix/cleanup[22835]: BDC22A77854: message-id=<3122
 
 The following statement creates a table in Athena called `mygroktable` from the source data, using a custom pattern and the predefined patterns that you specify:
 
-```
+```sql
 CREATE EXTERNAL TABLE `mygroktable`(
    syslogbase string,
    queue_id string,
@@ -76,7 +75,7 @@ To query this log data:
 + Add the Grok pattern to the `input.format` for each column. For example, for `timestamp`, add `%{TIMESTAMP_ISO8601:timestamp}`. For `loglevel`, add `%{LOGLEVEL:loglevel}`.
 + Make sure the pattern in `input.format` matches the format of the log exactly, by mapping the dashes (`-`) and the commas that separate the entries in the log format.
 
-  ```
+  ```sql
   CREATE EXTERNAL TABLE bltest (
    timestamp STRING,
    loglevel STRING,

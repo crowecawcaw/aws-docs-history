@@ -1,7 +1,6 @@
 
 
 # Enable requester pays Amazon S3 buckets in Athena for Spark
-<a name="notebooks-spark-requester-pays"></a>
 
 When an Amazon S3 bucket is configured as requester pays, the account of the user running the query is charged for data access and data transfer fees associated with the query. For more information, see [Using Requester Pays buckets for storage transfers and usage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html) in the *Amazon S3 User Guide*.
 
@@ -39,7 +38,7 @@ In Athena for Spark, requester pays buckets are enabled per session, not per wor
 
 ****  
 
-   ```
+   ```json
    { "Version":"2012-10-17",		 	 	  "Statement": [ { "Sid": "Statement1", "Effect": "Allow",
        "Principal": { "AWS": "arn:aws:iam::{{111122223333}}:root" },
        "Action": "s3:*", "Resource": [
@@ -72,7 +71,7 @@ Next, you create an IAM policy to allow access to the bucket. Then you attach th
 
 ****  
 
-   ```
+   ```json
    { "Version":"2012-10-17",		 	 	  "Statement": [ { "Action": [ "s3:*" ], "Effect": "Allow",
        "Resource": [
            "arn:aws:s3:::{{111122223333}}-{{us-east-1}}-{{amzn-s3-demo-bucket}}",
@@ -109,7 +108,7 @@ After you have configured the Amazon S3 bucket and associated permissions for re
 
 1. In the JSON text editor, enter the following:
 
-   ```
+   ```json
    {
      "spark.hadoop.fs.s3.useRequesterPaysHeader":"true"
    }

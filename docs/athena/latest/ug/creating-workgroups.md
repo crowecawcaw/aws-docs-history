@@ -1,7 +1,6 @@
 
 
 # Create a workgroup
-<a name="creating-workgroups"></a>
 
 Creating a workgroup requires permissions to `CreateWorkgroup` API actions. See [Configure access to workgroups and tags](workgroups-access.md) and [Use IAM policies to control workgroup access](workgroups-iam-policy.md). If you are adding tags, you also need to add permissions to `TagResource`. See [Tag policy examples for workgroups](tags-access-control.md#tag-policy-examples-workgroups).
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Athena SAP HANA connector
-<a name="connectors-sap-hana"></a>
 
 This connector can be registered with Glue Data Catalog as a federated catalog. It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
 
@@ -18,12 +17,12 @@ This connector can be registered with Glue Data Catalog as a federated catalog. 
 
   In Athena Federated Query, schema table names are provided to the Lambda function in lower case. To work around this issue, you can provide `@schemaCase` query hints to retrieve the data from the tables that have case sensitive names. Following are two sample queries with query hints.
 
-  ```
+  ```sql
   SELECT * 
   FROM "lambda:saphanaconnector".SYSTEM."MY_TABLE@schemaCase=upper&tableCase=upper"
   ```
 
-  ```
+  ```sql
   SELECT * 
   FROM "lambda:saphanaconnector".SYSTEM."MY_TABLE@schemaCase=upper&tableCase=lower"
   ```
@@ -278,7 +277,7 @@ The following Athena SAP HANA connector operators support predicate pushdown:
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -294,7 +293,7 @@ The SAP HANA connector supports [passthrough queries](federated-query-passthroug
 
 To use passthrough queries with SAP HANA, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -303,7 +302,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in SAP HANA. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

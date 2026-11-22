@@ -1,7 +1,6 @@
 
 
 # Configure federated access to Amazon Athena for Microsoft AD FS users using an ODBC client
-<a name="odbc-adfs-saml"></a>
 
 To set up federated access to Amazon Athena for Microsoft Active Directory Federation Services (AD FS) users using an ODBC client, you first establish trust between AD FS and your AWS account. With this trust in place, your AD users can [federate](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html#CreatingSAML-configuring-IdP) into AWS using their AD credentials and assume permissions of an [AWS Identity and Access Management](https://aws.amazon.com/iam/) (IAM) role to access AWS resources such as the Athena API.
 

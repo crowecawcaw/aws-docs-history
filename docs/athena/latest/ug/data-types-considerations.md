@@ -1,7 +1,6 @@
 
 
 # Considerations for data types
-<a name="data-types-considerations"></a>
 
 ## Size limits
 <a name="data-types-considerations-size"></a>
@@ -23,7 +22,7 @@ To cast a non-string data type to a string in a DML query, cast to the `VARCHAR`
 
 To use the `substr` function to return a substring of specified length from a `CHAR` data type, you must first cast the `CHAR` value as a `VARCHAR`. In the following example, `col1` uses the `CHAR` data type.
 
-```
+```sql
 substr(CAST(col1 AS VARCHAR), 1, 4)
 ```
 
@@ -32,11 +31,11 @@ substr(CAST(col1 AS VARCHAR), 1, 4)
 
 To specify decimal values as literals in `SELECT` queries, such as when selecting rows with a specific decimal value, you can specify the `DECIMAL` type and list the decimal value as a literal in single quotes in your query, as in the following examples.
 
-```
+```sql
 SELECT * FROM my_table
 WHERE decimal_value = DECIMAL '0.12'
 ```
 
-```
+```sql
 SELECT DECIMAL '44.6' + DECIMAL '77.2'
 ```

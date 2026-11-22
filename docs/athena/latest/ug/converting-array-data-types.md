@@ -1,11 +1,10 @@
 
 
 # Convert array data types
-<a name="converting-array-data-types"></a>
 
 To convert data in arrays to supported data types, use the `CAST` operator, as `CAST(value AS type)`. Athena supports all of the native Presto data types.
 
-```
+```sql
 SELECT
    ARRAY [CAST(4 AS VARCHAR), CAST(5 AS VARCHAR)]
 AS items
@@ -23,7 +22,7 @@ This query returns:
 
 Create two arrays with key-value pair elements, convert them to JSON, and concatenate, as in this example:
 
-```
+```sql
 SELECT
    ARRAY[CAST(MAP(ARRAY['a1', 'a2', 'a3'], ARRAY[1, 2, 3]) AS JSON)] ||
    ARRAY[CAST(MAP(ARRAY['b1', 'b2', 'b3'], ARRAY[4, 5, 6]) AS JSON)]

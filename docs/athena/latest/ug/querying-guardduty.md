@@ -1,7 +1,6 @@
 
 
 # Query Amazon GuardDuty findings
-<a name="querying-guardduty"></a>
 
 [Amazon GuardDuty](https://aws.amazon.com/guardduty/) is a security monitoring service for helping to identify unexpected and potentially unauthorized or malicious activity in your AWS environment. When it detects unexpected and potentially malicious activity, GuardDuty generates security [findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html) that you can export to Amazon S3 for storage and analysis. After you export your findings to Amazon S3, you can use Athena to query them. This article shows how to create a table in Athena for your GuardDuty findings and query them.
 
@@ -22,7 +21,7 @@ To query your GuardDuty findings from Athena, you must create a table for them.
 
 1. Paste the following DDL statement into the Athena console. Modify the values in `LOCATION 's3://amzn-s3-demo-bucket/AWSLogs/{{account-id}}/GuardDuty/'` to point to your GuardDuty findings in Amazon S3.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE `gd_logs` (
      `schemaversion` string,
      `accountid` string,
@@ -43,7 +42,7 @@ To query your GuardDuty findings from Athena, you must create a table for them.
     TBLPROPERTIES ('has_encrypted_data'='true')
    ```
 **Note**  
-The SerDe expects each JSON document to be on a single line of text with no line termination characters separating the fields in the record. If the JSON text is in pretty print format, you may receive an error message like HIVE\_CURSOR\_ERROR: Row is not a valid JSON Object or HIVE\_CURSOR\_ERROR: JsonParseException: Unexpected end-of-input: expected close marker for OBJECT when you attempt to query the table after you create it. For more information, see [JSON Data Files](https://github.com/rcongiu/Hive-JSON-Serde#json-data-files) in the OpenX SerDe documentation on GitHub. 
+The SerDe expects each JSON document to be on a single line of text with no line termination characters separating the fields in the record. If the JSON text is in pretty print format, you may receive an error message like `HIVE_CURSOR_ERROR: Row is not a valid JSON Object` or `HIVE_CURSOR_ERROR: JsonParseException: Unexpected end-of-input: expected close marker for OBJECT` when you attempt to query the table after you create it. For more information, see [JSON Data Files](https://github.com/rcongiu/Hive-JSON-Serde#json-data-files) in the OpenX SerDe documentation on GitHub. 
 
 1. Run the query in the Athena console to register the `gd_logs` table. When the query completes, the findings are ready for you to query from Athena.
 
@@ -55,7 +54,7 @@ The following examples show how to query GuardDuty findings from Athena.
 **Example – DNS data exfiltration**  
 The following query returns information about Amazon EC2 instances that might be exfiltrating data through DNS queries.  
 
-```
+```sql
 SELECT
     title,
     severity,
@@ -79,7 +78,7 @@ ORDER BY severity DESC
 **Example – Unauthorized IAM user access**  
 The following query returns all `UnauthorizedAccess:IAMUser` finding types for an IAM Principal from all regions.   
 
-```
+```sql
 SELECT title,
          severity,
          type,

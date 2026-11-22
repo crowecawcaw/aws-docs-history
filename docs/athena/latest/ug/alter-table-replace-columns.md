@@ -1,14 +1,13 @@
 
 
 # ALTER TABLE REPLACE COLUMNS
-<a name="alter-table-replace-columns"></a>
 
 Removes all existing columns from a table created with the [LazySimpleSerDe](lazy-simple-serde.md) and replaces them with the set of columns specified. When the optional `PARTITION` syntax is used, updates partition metadata. You can also use `ALTER TABLE REPLACE COLUMNS` to drop columns by specifying only the columns that you want to keep.
 
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 ALTER TABLE table_name 
   [PARTITION 
    (partition_col1_name = partition_col1_value
@@ -36,7 +35,7 @@ Replaces existing columns with the column names and datatypes specified.
 
 In the following example, the table `names_cities`, which was created using the [LazySimpleSerDe](lazy-simple-serde.md), has three columns named `col1`, `col2`, and `col3`. All columns are of type `string`. To show the columns in the table, the following command uses the [SHOW COLUMNS](show-columns.md) statement.
 
-```
+```sql
 SHOW COLUMNS IN names_cities
 ```
 
@@ -50,14 +49,14 @@ col3
 
 The following `ALTER TABLE REPLACE COLUMNS` command replaces the column names with `first_name`, `last_name`, and `city`. The underlying source data is not affected.
 
-```
+```sql
 ALTER TABLE names_cities
 REPLACE COLUMNS (first_name string, last_name string, city string)
 ```
 
 To test the result, `SHOW COLUMNS` is run again.
 
-```
+```sql
 SHOW COLUMNS IN names_cities
 ```
 

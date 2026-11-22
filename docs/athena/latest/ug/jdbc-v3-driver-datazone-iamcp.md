@@ -1,7 +1,6 @@
 
 
 # SageMaker IAM Credentials Provider
-<a name="jdbc-v3-driver-datazone-iamcp"></a>
 
 An authentication plugin that uses IAM credentials to connect to Amazon Athena through SageMaker Unified Studio. This plugin authenticates using IAM credentials (static access key/secret key or the AWS default credential chain) and retrieves Athena connection credentials via the SageMaker connection service.
 

@@ -1,7 +1,6 @@
 
 
 # Functions in Amazon Athena
-<a name="functions"></a>
 
 For changes in functions between Athena engine versions, see [Athena engine versioning](engine-versions.md). For a list of the time zones that can be used with the `AT TIME ZONE` operator, see [Use supported time zones](athena-supported-time-zones.md).
 

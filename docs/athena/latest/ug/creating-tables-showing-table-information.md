@@ -1,7 +1,6 @@
 
 
 # Show table information after creation
-<a name="creating-tables-showing-table-information"></a>
 
 After you have created a table in Athena, its name displays in the **Tables** list on the left in the Athena console. To show information about the table and manage it, choose the vertical three dots next to the table name in the Athena console. 
 + **Preview table** – Shows the first 10 rows of all columns by running the `SELECT * FROM "{{database_name}}"."{{table_name}}" LIMIT 10` statement in the Athena query editor.

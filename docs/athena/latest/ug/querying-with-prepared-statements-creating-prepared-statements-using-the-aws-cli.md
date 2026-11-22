@@ -1,7 +1,6 @@
 
 
 # Create prepared statements using the AWS CLI
-<a name="querying-with-prepared-statements-creating-prepared-statements-using-the-aws-cli"></a>
 
 To use the AWS CLI to create a prepared statement, you can use one of the following `athena` commands:
 + Use the `create-prepared-statement` command and provide a query statement that has execution parameters.

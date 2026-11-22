@@ -1,7 +1,6 @@
 
 
 # Use columnar storage formats
-<a name="columnar-storage"></a>
 
 [Apache Parquet](https://parquet.apache.org) and [ORC](https://orc.apache.org/) are columnar storage formats that are optimized for fast retrieval of data and used in AWS analytical applications.
 

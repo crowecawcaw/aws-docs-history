@@ -1,7 +1,6 @@
 
 
 # Migrating to Amazon Athena Apache Spark version 3.5
-<a name="notebooks-spark-migration-v3-to-v35"></a>
 
 Amazon Athena for Apache Spark has two release versions: PySpark engine version 3 (the earlier version) and Apache Spark version 3.5 (the current version). This guide helps you migrate from PySpark engine version 3 to Apache Spark version 3.5.
 

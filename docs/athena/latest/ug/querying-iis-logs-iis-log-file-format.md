@@ -1,7 +1,6 @@
 
 
 # Query IIS log file format
-<a name="querying-iis-logs-iis-log-file-format"></a>
 
 Unlike the W3C extended format, the [IIS log file format](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc728311(v%3dws.10)) has a fixed set of fields and includes a comma as a delimiter. The LazySimpleSerDe treats the comma as the delimiter and the space after the comma as the beginning of the next field.
 
@@ -29,7 +28,7 @@ To query your IIS log file format logs in Amazon S3, you first create a table sc
 
    1. Modify the values in LOCATION 's3://amzn-s3-demo-bucket/{{iis-log-file-folder}}/' to point to your IIS log format log files in Amazon S3.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE `iis_format_logs`(
    client_ip_address string,
    user_name string,
@@ -64,7 +63,7 @@ To query your IIS log file format logs in Amazon S3, you first create a table sc
 
 The following example query selects the request date, request time, request target, and time taken in milliseconds from the table `iis_format_logs`. The `WHERE` clause filters for cases in which the request type is `GET` and the HTTP status code is `200` (successful). In the query, note that the leading spaces in `' GET'` and `' 200'` are required to make the query successful. 
 
-```
+```sql
 SELECT request_date, request_time, target_of_operation, time_taken_millisec
 FROM iis_format_logs
 WHERE request_type = ' GET' AND service_status_code = ' 200'

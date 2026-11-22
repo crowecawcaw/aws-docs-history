@@ -1,7 +1,6 @@
 
 
 # View execution plans for SQL queries
-<a name="query-plans"></a>
 
 You can use the Athena query editor to see graphical representations of how your query will be run. When you enter a query in the editor and choose the **Explain** option, Athena uses an [EXPLAIN](athena-explain-statement.md) SQL statement on your query to create two corresponding graphs: a distributed execution plan and a logical execution plan. You can use these graphs to analyze, troubleshoot, and improve the efficiency of your queries.
 
@@ -45,3 +44,5 @@ For more information, see the following resources.
 [View statistics and execution details for completed queries](query-stats.md)
 
 [![AWS Videos](https://img.youtube.com/vi/7JUyTqglmNU/0.jpg)](https://www.youtube.com/watch?v=7JUyTqglmNU)
+
+Visual query execution analysis in Amazon Athena (AWS YouTube channel)

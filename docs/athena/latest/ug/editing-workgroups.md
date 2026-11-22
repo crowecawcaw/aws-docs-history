@@ -1,7 +1,6 @@
 
 
 # Edit a workgroup
-<a name="editing-workgroups"></a>
 
 Editing a workgroup requires permissions to `UpdateWorkgroup` API operations. See [Configure access to workgroups and tags](workgroups-access.md) and [Use IAM policies to control workgroup access](workgroups-iam-policy.md). If you are adding or editing tags, you also need to have permissions to `TagResource`. See [Tag policy examples for workgroups](tags-access-control.md#tag-policy-examples-workgroups).
 

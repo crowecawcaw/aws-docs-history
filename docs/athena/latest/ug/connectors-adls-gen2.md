@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Azure Data Lake Storage (ADLS) Gen2 connector
-<a name="connectors-adls-gen2"></a>
 
 The Amazon Athena connector for [Azure Data Lake Storage (ADLS) Gen2](https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/azure/adls-gen2/) enables Amazon Athena to run SQL queries on data stored on ADLS. Athena cannot access stored files in the data lake directly. 
 
@@ -249,7 +248,7 @@ The following Athena Azure Data Lake Storage Gen2 connector operators support pr
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -264,7 +263,7 @@ The Azure Data Lake Storage Gen2 connector supports [passthrough queries](federa
 
 To use passthrough queries with Azure Data Lake Storage Gen2, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -273,7 +272,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Azure Data Lake Storage Gen2. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

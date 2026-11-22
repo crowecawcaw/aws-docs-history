@@ -1,7 +1,6 @@
 
 
 # Common authentication parameters
-<a name="odbc-v2-driver-common-authentication-parameters"></a>
 
 The parameters in this section are common to the authentication types as noted.
 

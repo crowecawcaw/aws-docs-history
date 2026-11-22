@@ -1,7 +1,6 @@
 
 
 # Learn about known issues in Athena for Spark
-<a name="notebooks-spark-known-issues"></a>
 
 This page documents some of the known issues in Athena for Apache Spark.
 
@@ -10,7 +9,7 @@ This page documents some of the known issues in Athena for Apache Spark.
 
 Although Spark does not allow databases to be created with an empty location property, databases in AWS Glue can have an empty `LOCATION` property if they are created outside of Spark.
 
-If you create a table and specify a AWS Glue database that has an empty `LOCATION` field, an exception like the following can occur: IllegalArgumentException: Cannot create a path from an empty string.
+If you create a table and specify a AWS Glue database that has an empty `LOCATION` field, an exception like the following can occur: `IllegalArgumentException: Cannot create a path from an empty string.`
 
 For example, the following command throws an exception if the default database in AWS Glue contains an empty `LOCATION` field:
 
@@ -92,7 +91,7 @@ Due to a known issue with open source Spark, when you create a table in Athena f
 For example, you might create a table in Athena for Spark in one of the following ways: 
 + With the following `USING csv` syntax: 
 
-  ```
+  ```sql
   spark.sql('''CREATE EXTERNAL TABLE $tableName ( 
   $colName1 $colType1, 
   $colName2 $colType2, 
@@ -103,7 +102,7 @@ For example, you might create a table in Athena for Spark in one of the followin
   ```
 +  With the following [DataFrame](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html) API syntax: 
 
-  ```
+  ```py
   df.write.format('csv').saveAsTable($table_name)
   ```
 

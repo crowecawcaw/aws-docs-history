@@ -1,11 +1,10 @@
 
 
 # Find array lengths
-<a name="finding-lengths"></a>
 
 The `cardinality` function returns the length of an array, as in this example:
 
-```
+```sql
 SELECT cardinality(ARRAY[1,2,3,4]) AS item_count
 ```
 

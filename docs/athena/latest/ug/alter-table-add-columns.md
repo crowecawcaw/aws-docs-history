@@ -1,14 +1,13 @@
 
 
 # ALTER TABLE ADD COLUMNS
-<a name="alter-table-add-columns"></a>
 
 Adds one or more columns to an existing table. When the optional `PARTITION` syntax is used, updates partition metadata. 
 
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 ALTER TABLE table_name 
   [PARTITION 
    (partition_col1_name = partition_col1_value
@@ -28,15 +27,15 @@ Adds columns after existing columns but before partition columns.
 ## Examples
 <a name="examples"></a>
 
-```
+```sql
 ALTER TABLE events ADD COLUMNS (eventowner string)
 ```
 
-```
+```sql
 ALTER TABLE events PARTITION (awsregion='us-west-2') ADD COLUMNS (event string)
 ```
 
-```
+```sql
 ALTER TABLE events PARTITION (awsregion='us-west-2') ADD COLUMNS (eventdescription string)
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations for Athena views
-<a name="considerations-limitations-views"></a>
 
 Athena views have the following considerations and limitations.
 

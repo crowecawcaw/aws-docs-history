@@ -1,7 +1,6 @@
 
 
 # Create and deploy a UDF using Lambda
-<a name="udf-creating-and-deploying"></a>
 
 To create a custom UDF, you create a new Java class by extending the `UserDefinedFunctionHandler` class. The source code for the [UserDefinedFunctionHandler.java](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-federation-sdk/src/main/java/com/amazonaws/athena/connector/lambda/handlers/UserDefinedFunctionHandler.java) in the SDK is available on GitHub in the awslabs/aws-athena-query-federation/athena-federation-sdk [repository](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-federation-sdk), along with [example UDF implementations](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-udfs) that you can examine and modify to create a custom UDF.
 
@@ -29,7 +28,7 @@ Before you begin, make sure that git is installed on your system using `sudo yum
 **To install the AWS query federation SDK**
 + Enter the following at the command line to clone the SDK repository. This repository includes the SDK, examples and a suite of data source connectors. For more information about data source connectors, see [Use Amazon Athena Federated Query](federated-queries.md).
 
-  ```
+  ```bash
   git clone https://github.com/awslabs/aws-athena-query-federation.git
   ```
 
@@ -52,7 +51,7 @@ If you skip this step, you will get errors later about the AWS CLI or AWS SAM bu
 
 Run the following command to create your Maven project. Replace {{groupId}} with the unique ID of your organization, and replace {{my-athena-udf}} with the name of your application For more information, see [How do I make my first Maven project?](https://maven.apache.org/guides/getting-started/index.html#How_do_I_make_my_first_Maven_project) in Apache Maven documentation.
 
-```
+```bash
 mvn -B archetype:generate \
 -DarchetypeGroupId=org.apache.maven.archetypes \
 -DgroupId={{groupId}} \
@@ -116,7 +115,7 @@ Create a new class by extending [UserDefinedFunctionHandler.java](https://github
 
 In the following example, two Java methods for UDFs, `compress()` and `decompress()`, are created inside the class `MyUserDefinedFunctions`.
 
-```
+```java
 *package *com.mycompany.athena.udfs;
 
 public class MyUserDefinedFunctions
@@ -231,7 +230,7 @@ For more information and requirements, see [Publishing applications](https://doc
 
 The following example demonstrates parameters in a YAML file. Add similar parameters to your YAML file and save it in your project directory. See [athena-udf.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-udfs/athena-udfs.yaml) in GitHub for a full example.
 
-```
+```yaml
 Transform: 'AWS::Serverless-2016-10-31'
 Metadata:
   'AWS::ServerlessRepo::Application':
@@ -268,13 +267,13 @@ Resources:
 
 Copy the `publish.sh` script to the project directory where you saved your YAML file, and run the following command:
 
-```
+```bash
 ./publish.sh {{MyS3Location}} {{MyYamlFile}}
 ```
 
 For example, if your bucket location is `s3://amzn-s3-demo-bucket/mysarapps/athenaudf` and your YAML file was saved as `my-athena-udfs.yaml`:
 
-```
+```bash
 ./publish.sh amzn-s3-demo-bucket/mysarapps/athenaudf my-athena-udfs
 ```
 
@@ -293,7 +292,7 @@ For example, if your bucket location is `s3://amzn-s3-demo-bucket/mysarapps/athe
 
 You can also create a Lambda function directly using the console or AWS CLI. The following example demonstrates using the Lambda `create-function` CLI command. 
 
-```
+```bash
 aws lambda create-function \
  --function-name {{MyLambdaFunctionName}} \
  --runtime java8 \

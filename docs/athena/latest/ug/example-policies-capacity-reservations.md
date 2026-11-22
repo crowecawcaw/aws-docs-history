@@ -1,7 +1,6 @@
 
 
 # Example capacity reservation policies
-<a name="example-policies-capacity-reservations"></a>
 
 This section includes example policies you can use to enable various actions on capacity reservations. Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
 
@@ -23,7 +22,7 @@ For a complete list of Amazon Athena actions, see the API action names in the [A
 The following policy allows all users to list all capacity reservations.    
 ****  
 
-```
+```json
 { 
     "Version":"2012-10-17",		 	 	  
     "Statement": [ 
@@ -42,7 +41,7 @@ The following policy allows all users to list all capacity reservations.
 The following policy allows a user to create, cancel, obtain details, and update the capacity reservation `test_capacity_reservation`. The policy also allows a user to assign `workgroupA` and `workgroupB` to `test_capacity_reservation`.    
 ****  
 
-```
+```json
 { 
    "Version":"2012-10-17",		 	 	  
    "Statement":[ 

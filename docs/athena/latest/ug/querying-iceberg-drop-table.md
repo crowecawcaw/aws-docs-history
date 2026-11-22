@@ -1,7 +1,6 @@
 
 
 # DROP TABLE
-<a name="querying-iceberg-drop-table"></a>
 
 Drops an Iceberg table.
 
@@ -11,13 +10,13 @@ Because Iceberg tables are considered managed tables in Athena, dropping an Iceb
 ## Synopsis
 <a name="querying-iceberg-drop-table-synopsis"></a>
 
-```
+```sql
 DROP TABLE [IF EXISTS] [{{db_name}}.]{{table_name}}
 ```
 
 ## Example
 <a name="querying-iceberg-drop-table-example"></a>
 
-```
+```sql
 DROP TABLE iceberg_table
 ```

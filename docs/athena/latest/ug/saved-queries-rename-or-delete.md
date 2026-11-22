@@ -1,7 +1,6 @@
 
 
 # Rename or delete a saved query
-<a name="saved-queries-rename-or-delete"></a>
 
 **To rename or delete a saved query already displayed in the query editor**
 

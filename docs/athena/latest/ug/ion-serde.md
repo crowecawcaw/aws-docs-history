@@ -1,7 +1,6 @@
 
 
 # Amazon Ion Hive SerDe
-<a name="ion-serde"></a>
 
 You can use the Amazon Ion Hive SerDe to query data stored in [Amazon Ion](https://amzn.github.io/ion-docs/guides/cookbook.html) format. Amazon Ion is a richly-typed, self-describing, open source data format. The Amazon Ion format is used in the open source SQL query language [PartiQL](https://partiql.org/).
 

@@ -1,7 +1,6 @@
 
 
 # Use Trusted identity propagation with Amazon Athena drivers
-<a name="using-trusted-identity-propagation"></a>
 
 Trusted identity propagation provides a new authentication option for organizations that want to centralize data permissions management and authorize requests based on their IdP identity across service boundaries. With IAM Identity Center, you can configure an existing IdP to manage users and groups and use AWS Lake Formation to define fine-grained access control permissions on catalog resources for these IdP identities. Athena supports identity propagation when querying data to audit data access by IdP identities to help your organization meet their regulatory and compliance requirements.
 

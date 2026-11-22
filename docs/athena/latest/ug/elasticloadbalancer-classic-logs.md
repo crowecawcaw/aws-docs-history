@@ -1,7 +1,6 @@
 
 
 # Query Classic Load Balancer logs
-<a name="elasticloadbalancer-classic-logs"></a>
 
 Use Classic Load Balancer logs to analyze and understand traffic patterns to and from Elastic Load Balancing instances and backend applications. You can see the source of traffic, latency, and bytes that have been transferred.
 
@@ -11,7 +10,7 @@ Before you analyze the Elastic Load Balancing logs, configure them for saving in
 
 1. Copy and paste the following DDL statement into the Athena console. Check the [syntax ](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html#access-log-entry-format) of the Elastic Load Balancing log records. You may need to update the following query to include the columns and the Regex syntax for latest version of the record. 
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS elb_logs (
     
     timestamp string,
@@ -51,7 +50,7 @@ Before you analyze the Elastic Load Balancing logs, configure them for saving in
 
 Use a query similar to the following example. It lists the backend application servers that returned a `4XX` or `5XX` error response code. Use the `LIMIT` operator to limit the number of logs to query at a time.
 
-```
+```sql
 SELECT
  timestamp,
  elb_name,
@@ -65,7 +64,7 @@ LIMIT 100;
 
 Use a subsequent query to sum up the response time of all the transactions grouped by the backend IP address and Elastic Load Balancing instance name.
 
-```
+```sql
 SELECT sum(backend_processing_time) AS
  total_ms,
  elb_name,

@@ -1,7 +1,6 @@
 
 
 # Create Iceberg tables
-<a name="querying-iceberg-creating-tables"></a>
 
 To create an Iceberg table for use in Athena, you can use a `CREATE TABLE` statement as documented on this page, or you can use an AWS Glue crawler.
 
@@ -13,11 +12,11 @@ Athena creates Iceberg v2 tables. For the difference between v1 and v2 tables, s
 Athena `CREATE TABLE` creates an Iceberg table with no data. You can query a table from external systems such as Apache Spark directly if the table uses the [Iceberg open source glue catalog](https://iceberg.apache.org/docs/latest/aws/#glue-catalog). You do not have to create an external table.
 
 **Warning**  
-Running `CREATE EXTERNAL TABLE` results in the error message External keyword not supported for table type ICEBERG. 
+Running `CREATE EXTERNAL TABLE` results in the error message `External keyword not supported for table type ICEBERG`. 
 
 To create an Iceberg table from Athena, set the `'table_type'` table property to `'ICEBERG'` in the `TBLPROPERTIES` clause, as in the following syntax summary.
 
-```
+```sql
 CREATE TABLE
   [db_name.]table_name (col_name data_type [COMMENT col_comment] [, ...] )
   [PARTITIONED BY (col_name | transform, ... )]
@@ -32,7 +31,7 @@ For information about the data types that you can query in Iceberg tables, see [
 
 To create Iceberg tables with partitions, use `PARTITIONED BY` syntax. Columns used for partitioning must be specified in the columns declarations first. Within the `PARTITIONED BY` clause, the column type must not be included. You can also define [partition transforms](https://iceberg.apache.org/spec/#partition-transforms) in `CREATE TABLE` syntax. To specify multiple columns for partitioning, separate the columns with the comma (`,`) character, as in the following example.
 
-```
+```sql
 CREATE TABLE iceberg_table (id bigint, data string, category string)
   PARTITIONED BY (category, bucket(16, id))
   LOCATION 's3://amzn-s3-demo-bucket/{{your-folder}}/'
@@ -144,7 +143,7 @@ This section describes table properties that you can specify as key-value pairs 
 
 The following example creates an Iceberg table that has three columns.
 
-```
+```sql
 CREATE TABLE iceberg_table (
   id int,
   data string,

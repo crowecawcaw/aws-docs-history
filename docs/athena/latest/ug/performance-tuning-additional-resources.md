@@ -1,7 +1,6 @@
 
 
 # Additional resources
-<a name="performance-tuning-additional-resources"></a>
 
 For additional information about performance tuning in Athena, consider the following resources:
 + AWS Big Data blog post: [Top 10 performance tuning tips for Amazon Athena](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/).

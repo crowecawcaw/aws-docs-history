@@ -1,7 +1,6 @@
 
 
 # Amazon Athena DynamoDB connector
-<a name="connectors-dynamodb"></a>
 
 The Amazon Athena DynamoDB connector enables Amazon Athena to communicate with DynamoDB so that you can query your tables with SQL. Write operations like [INSERT INTO](insert-into.md) are not supported.
 
@@ -162,7 +161,7 @@ The following Athena DynamoDB connector operators support predicate pushdown:
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT *
 FROM my_table
 WHERE col_a > 10 and col_b < 10
@@ -178,7 +177,7 @@ The DynamoDB connector supports [passthrough queries](federated-query-passthroug
 
 To use passthrough queries with DynamoDB, use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query_string}}'
@@ -187,7 +186,7 @@ SELECT * FROM TABLE(
 
 The following DynamoDB passthrough query example uses PartiQL to return a list of Fire TV Stick devices that have a `DateWatched` property later than 12/24/22.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
            query => 'SELECT Devices 
@@ -202,7 +201,7 @@ SELECT * FROM TABLE(
 ### Multiple filters on a sort key column
 <a name="connectors-dynamodb-troubleshooting-sort-key-filters"></a>
 
-**Error message**: KeyConditionExpressions must only contain one condition per key
+**Error message**: `KeyConditionExpressions must only contain one condition per key`
 
 **Cause**: This issue can occur in Athena engine version 3 in queries that have both a lower and upper bounded filter on a DynamoDB sort key column. Because DynamoDB does not support more than one filter condition on a sort key, an error is thrown when the connector attempts to push down a query that has both conditions applied.
 

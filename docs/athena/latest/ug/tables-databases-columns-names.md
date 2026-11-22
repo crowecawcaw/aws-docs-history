@@ -1,7 +1,6 @@
 
 
 # Name databases, tables, and columns
-<a name="tables-databases-columns-names"></a>
 
 Use these guidelines for naming databases, tables, and columns in Athena.
 
@@ -24,7 +23,7 @@ Database, table, and column names must be less than or equal to 255 characters l
 
 When creating tables, use backticks to enclose table, view, or column names that begin with an underscore. For example:
 
-```
+```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS `_myunderscoretable`(
   `_id` string, `_index` string)
 LOCATION 's3://amzn-s3-demo-bucket/'
@@ -35,7 +34,7 @@ LOCATION 's3://amzn-s3-demo-bucket/'
 
 When running `SELECT`, `CTAS`, or `VIEW` queries, put quotation marks around identifiers like table, view, or column names that start with a digit. For example:
 
-```
+```sql
 CREATE OR REPLACE VIEW "123view" AS
 SELECT "123columnone", "123columntwo"
 FROM "234table"

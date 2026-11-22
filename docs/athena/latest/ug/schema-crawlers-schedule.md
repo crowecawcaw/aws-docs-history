@@ -1,7 +1,6 @@
 
 
 # Schedule a crawler to keep the AWS Glue Data Catalog and Amazon S3 in sync
-<a name="schema-crawlers-schedule"></a>
 
 AWS Glue crawlers can be set up to run on a schedule or on demand. For more information, see [Time-based schedules for jobs and crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide*.
 

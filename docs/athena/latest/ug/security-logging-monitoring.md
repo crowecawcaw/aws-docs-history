@@ -1,7 +1,6 @@
 
 
 # Log and monitor Athena
-<a name="security-logging-monitoring"></a>
 
 To detect incidents, receive alerts when incidents occur, and respond to them, use these options with Amazon Athena: 
 + **Monitor Athena with AWS CloudTrail** – [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/) provides a record of actions taken by a user, role, or an AWS service in Athena. It captures calls from the Athena console and code calls to the Athena API operations as events. This allow you to determine the request that was made to Athena, the IP address from which the request was made, who made the request, when it was made, and additional details. For more information, see [Log Amazon Athena API calls with AWS CloudTrail](monitor-with-cloudtrail.md).

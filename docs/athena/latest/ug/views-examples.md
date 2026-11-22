@@ -1,7 +1,6 @@
 
 
 # Examples of Athena views
-<a name="views-examples"></a>
 
 To show the syntax of the view query, use [SHOW CREATE VIEW](show-create-view.md).
 
@@ -9,7 +8,7 @@ To show the syntax of the view query, use [SHOW CREATE VIEW](show-create-view.md
 Consider the following two tables: a table `employees` with two columns, `id` and `name`, and a table `salaries`, with two columns, `id` and `salary`.   
 In this example, we create a view named `name_salary` as a `SELECT` query that obtains a list of IDs mapped to salaries from the tables `employees` and `salaries`:  
 
-```
+```sql
 CREATE VIEW name_salary AS
 SELECT
  employees.name, 
@@ -22,7 +21,7 @@ WHERE employees.id = salaries.id
 In the following example, we create a view named `view1` that enables you to hide more complex query syntax.   
 This view runs on top of two tables, `table1` and `table2`, where each table is a different `SELECT` query. The view selects columns from `table1` and joins the results with `table2`. The join is based on column `a` that is present in both tables.  
 
-```
+```sql
 CREATE VIEW view1 AS
 WITH
   table1 AS (

@@ -1,7 +1,6 @@
 
 
 # Create a table for CloudFront logs in Athena using manual partitioning with JSON
-<a name="create-cloudfront-table-manual-json"></a>
 
 **To create a table for CloudFront standard log file fields using a JSON format**
 
@@ -9,7 +8,7 @@
 
    This query uses OpenX JSON SerDe with the following SerDe properties to read JSON fields correctly in Athena.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE `cf_logs_manual_partition_json`(
      `date` string , 
      `time` string , 
@@ -63,7 +62,7 @@
 
 The following query adds up the number of bytes served by CloudFront for January 15, 2025.
 
-```
+```sql
 SELECT sum(cast("sc-bytes" as BIGINT)) as sc
 FROM cf_logs_manual_partition_json
 WHERE "date"='2025-01-15'

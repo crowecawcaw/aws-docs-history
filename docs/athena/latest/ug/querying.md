@@ -1,7 +1,6 @@
 
 
 # Work with query results and recent queries
-<a name="querying"></a>
 
 Amazon Athena automatically stores query results and query execution result metadata for each query that runs in a *query result location* that you can specify in Amazon S3. If necessary, you can access the files in this location to work with them. You can also download query result files directly from the Athena console.
 

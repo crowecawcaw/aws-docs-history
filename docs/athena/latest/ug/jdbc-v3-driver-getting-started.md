@@ -1,7 +1,6 @@
 
 
 # Get started with the JDBC 3.x driver
-<a name="jdbc-v3-driver-getting-started"></a>
 
 Use the information in this section to get started with the Amazon Athena JDBC 3.x driver.
 
@@ -36,7 +35,7 @@ To run the driver, you can use a custom application or a third-party SQL client.
 
 Use the JDBC interface to interact with the JDBC driver from a program. The following code shows a sample custom Java application.
 
-```
+```java
 public static void main(String args[]) throws SQLException {
     Properties connectionParameters = new Properties();
     connectionParameters.setProperty("Workgroup", "primary");

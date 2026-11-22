@@ -1,7 +1,6 @@
 
 
 # Query AWS Network Firewall logs
-<a name="querying-network-firewall-logs"></a>
 
 AWS Network Firewall is a managed service that you can use to deploy essential network protections for your Amazon Virtual Private Cloud instances. AWS Network Firewall works together with AWS Firewall Manager so you can build policies based on AWS Network Firewall rules and then centrally apply those policies across your VPCs and accounts. For more information about AWS Network Firewall, see [AWS Network Firewall](https://aws.amazon.com/network-firewall/).
 

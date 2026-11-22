@@ -1,7 +1,6 @@
 
 
 # Supported data and storage formats
-<a name="notebooks-spark-data-and-storage-formats"></a>
 
 The following table shows formats that are supported natively in Athena for Apache Spark.
 

@@ -1,7 +1,6 @@
 
 
 # Parquet SerDe
-<a name="parquet-serde"></a>
 
 Use the Parquet SerDe to create Athena tables from Parquet data.
 
@@ -20,7 +19,7 @@ Replace {{myregion}} in `s3://athena-examples-{{myregion}}/path/to/data/` with t
 
 Use the following `CREATE TABLE` statement to create an Athena table from the underlying data stored in Parquet format in Amazon S3:
 
-```
+```sql
 CREATE EXTERNAL TABLE flight_delays_pq (
     yr INT,
     quarter INT,
@@ -140,13 +139,13 @@ tblproperties ("parquet.compression"="SNAPPY");
 
 Run the `MSCK REPAIR TABLE` statement on the table to refresh partition metadata:
 
-```
+```sql
 MSCK REPAIR TABLE flight_delays_pq;
 ```
 
 Query the top 10 routes delayed by more than 1 hour:
 
-```
+```sql
 SELECT origin, dest, count(*) as delays
 FROM flight_delays_pq
 WHERE depdelayminutes > 60
@@ -175,7 +174,7 @@ To workaround this issue, use the [CREATE TABLE](create-table.md) or [ALTER TABL
 
 CREATE TABLE example
 
-```
+```sql
 ...
 ROW FORMAT SERDE  
 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
@@ -187,6 +186,6 @@ STORED AS PARQUET
 
 ALTER TABLE example
 
-```
+```sql
 ALTER TABLE ... SET TBLPROPERTIES ('parquet.ignore.statistics'='true')
 ```

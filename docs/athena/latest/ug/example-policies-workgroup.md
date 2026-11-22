@@ -1,7 +1,6 @@
 
 
 # Example workgroup policies
-<a name="example-policies-workgroup"></a>
 
 This section includes example policies you can use to enable various actions on workgroups. Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
 
@@ -32,7 +31,7 @@ For a complete list of Amazon Athena actions, see the API action names in the [A
 The following policy allows full access to all workgroup resources that might exist in the account. We recommend that you use this policy for those users in your account that must administer and manage workgroups for all other users.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -53,7 +52,7 @@ The following policy allows full access to all workgroup resources that might ex
 The following policy allows full access to the single specific workgroup resource, named `workgroupA`. You could use this policy for users with full control over a particular workgroup.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -115,7 +114,7 @@ The following policy allows full access to the single specific workgroup resourc
 In the following policy, a user is allowed to run queries in the specified `workgroupA`, and view them. The user is not allowed to perform management tasks for the workgroup itself, such as updating or deleting it. Note that the example policy does not limit users to only this workgroup or deny access to other workgroups.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -167,7 +166,7 @@ You can modify the preceding example to allow a particular user to also run quer
 We recommend that you add the primary workgroup resource for all users who are otherwise configured to run queries in their designated workgroups. Adding this resource to their workgroup user policies is useful in case their designated workgroup is deleted or is disabled. In this case, they can continue running queries in the primary workgroup.
 To allow users in your account to run queries in the primary workgroup, add a line that contains the ARN of the primary workgroup to the resource section of the [Example policy for running queries in a specified workgroup](#example3-user-access), as in the following example.  
 
-```
+```json
 arn:aws:athena:{{us-east-1}}:{{123456789012}}:workgroup/primary"
 ```
 
@@ -175,7 +174,7 @@ arn:aws:athena:{{us-east-1}}:{{123456789012}}:workgroup/primary"
 In the following policy, a user is allowed to create, delete, obtain details, and update a workgroup `test_workgroup`.     
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -206,7 +205,7 @@ In the following policy, a user is allowed to create, delete, obtain details, an
 The following policy allows all users to list all workgroups:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -225,7 +224,7 @@ The following policy allows all users to list all workgroups:
 In this policy, a user is allowed to run queries in the workgroup:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -247,7 +246,7 @@ In this policy, a user is allowed to run queries in the workgroup:
 In the following policy, a user has permissions to create, delete, and obtain information about named queries in the specified workgroup:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -269,7 +268,7 @@ In the following policy, a user has permissions to create, delete, and obtain in
 Use a policy like the following to work with Spark notebooks in Athena.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

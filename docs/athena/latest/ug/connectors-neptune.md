@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Neptune connector
-<a name="connectors-neptune"></a>
 
 Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets. Neptune's purpose-built, high-performance graph database engine stores billions of relationships optimally and queries graphs with a latency of only milliseconds. For more information, see the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html).
 
@@ -74,7 +73,7 @@ The Neptune connector supports [passthrough queries](federated-query-passthrough
 
 To create passthrough queries with Neptune, use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             DATABASE => '{{database_name}}',
@@ -85,7 +84,7 @@ SELECT * FROM TABLE(
 
 The following example Neptune passthrough query filters for airports with the code `ATL`. The doubled single quotes are for escaping.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             DATABASE => 'graph-database',

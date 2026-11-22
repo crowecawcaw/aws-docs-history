@@ -1,7 +1,6 @@
 
 
 # Use the AWS CLI with Hive metastores
-<a name="datastores-hive-cli"></a>
 
 You can use `aws athena` CLI commands to manage the Hive metastore data catalogs that you use with Athena. After you have defined one or more catalogs to use with Athena, you can reference those catalogs in your `aws athena` DDL and DML commands.
 
@@ -15,7 +14,7 @@ To register a data catalog, you use the `create-data-catalog` command. Use the `
 
 The following example registers the Hive metastore catalog named `hms-catalog-1`. The command has been formatted for readability.
 
-```
+```shell
 $ aws athena create-data-catalog 
  --name "hms-catalog-1" 
  --type "HIVE"
@@ -30,13 +29,13 @@ $ aws athena create-data-catalog
 
 To show the details of a catalog, pass the name of the catalog to the `get-data-catalog` command, as in the following example.
 
-```
+```shell
 $ aws athena get-data-catalog --name "hms-catalog-1" --region us-east-1
 ```
 
 The following sample result is in JSON format.
 
-```
+```json
 {
     "DataCatalog": {
         "Name": "hms-catalog-1",
@@ -55,13 +54,13 @@ The following sample result is in JSON format.
 
 To list the registered catalogs, use the `list-data-catalogs` command and optionally specify a Region, as in the following example. The catalogs listed always include AWS Glue.
 
-```
+```shell
 $ aws athena list-data-catalogs --region us-east-1
 ```
 
 The following sample result is in JSON format.
 
-```
+```json
 {
     "DataCatalogs": [
         {
@@ -85,7 +84,7 @@ The following sample result is in JSON format.
 
 To update a data catalog, use the `update-data-catalog` command, as in the following example. The command has been formatted for readability.
 
-```
+```shell
 $ aws athena update-data-catalog 
  --name "hms-catalog-1" 
  --type "HIVE"
@@ -99,7 +98,7 @@ $ aws athena update-data-catalog
 
 To delete a data catalog, use the `delete-data-catalog` command, as in the following example.
 
-```
+```shell
 $ aws athena delete-data-catalog --name "hms-catalog-1" --region us-east-1
 ```
 
@@ -108,13 +107,13 @@ $ aws athena delete-data-catalog --name "hms-catalog-1" --region us-east-1
 
 To show the details of a database, pass the name of the catalog and the database to the `get-database` command, as in the following example.
 
-```
+```shell
 $ aws athena get-database --catalog-name hms-catalog-1 --database-name mydb
 ```
 
 The following sample result is in JSON format.
 
-```
+```json
 {
     "Database": {
         "Name": "mydb",
@@ -132,13 +131,13 @@ The following sample result is in JSON format.
 
 To list the databases in a catalog, use the `list-databases` command and optionally specify a Region, as in the following example.
 
-```
+```shell
 $ aws athena list-databases --catalog-name AwsDataCatalog --region us-west-2
 ```
 
 The following sample result is in JSON format.
 
-```
+```json
 {
     "DatabaseList": [
         {
@@ -170,13 +169,13 @@ The following sample result is in JSON format.
 
 To show the metadata for a table, including column names and datatypes, pass the name of the catalog, database, and table name to the `get-table-metadata` command, as in the following example.
 
-```
+```shell
 $ aws athena get-table-metadata --catalog-name AwsDataCatalog --database-name mydb --table-name cityuseragent
 ```
 
 The following sample result is in JSON format.
 
-```
+```json
 {
     "TableMetadata": {
         "Name": "cityuseragent",
@@ -218,13 +217,13 @@ The following sample result is in JSON format.
 
 To show the metadata for all tables in a database, pass the name of the catalog and database name to the `list-table-metadata` command. The `list-table-metadata` command is similar to the `get-table-metadata` command, except that you do not specify a table name. To limit the number of results, you can use the `--max-results` option, as in the following example. 
 
-```
+```shell
 $ aws athena list-table-metadata --catalog-name AwsDataCatalog --database-name sampledb --region us-east-1 --max-results 2
 ```
 
 The following sample result is in JSON format.
 
-```
+```json
 {
     "TableMetadataList": [
         {
@@ -306,7 +305,7 @@ When you use the AWS CLI to run DDL and DML statements, you can pass the name of
 
 The following example passes in the catalog name directly as part of the `show create table` DDL statement. The command has been formatted for readability.
 
-```
+```shell
 $ aws athena start-query-execution 
  --query-string "show create table hms-catalog-1.hms_tpch_partitioned.lineitem" 
  --result-configuration "OutputLocation=s3://amzn-s3-demo-bucket/lambda/results"
@@ -314,7 +313,7 @@ $ aws athena start-query-execution
 
 The following example DDL `show create table` statement uses the `Catalog` parameter of `--query-execution-context` to pass the Hive metastore catalog name `hms-catalog-1`. The command has been formatted for readability.
 
-```
+```shell
 $ aws athena start-query-execution 
  --query-string "show create table lineitem" 
  --query-execution-context "Catalog=hms-catalog-1,Database=hms_tpch_partitioned" 
@@ -326,7 +325,7 @@ $ aws athena start-query-execution
 
 The following example DML `select` statement passes the catalog name into the query directly. The command has been formatted for readability.
 
-```
+```shell
 $ aws athena start-query-execution
  --query-string "select * from hms-catalog-1.hms_tpch_partitioned.customer limit 100" 
  --result-configuration "OutputLocation=s3://amzn-s3-demo-bucket/lambda/results"
@@ -334,7 +333,7 @@ $ aws athena start-query-execution
 
 The following example DML `select` statement uses the `Catalog` parameter of `--query-execution-context` to pass in the Hive metastore catalog name `hms-catalog-1`. The command has been formatted for readability.
 
-```
+```shell
 $ aws athena start-query-execution 
  --query-string "select * from customer limit 100" 
  --query-execution-context "Catalog=hms-catalog-1,Database=hms_tpch_partitioned" 

@@ -1,7 +1,6 @@
 
 
 # Using EXPLAIN and EXPLAIN ANALYZE in Athena
-<a name="athena-explain-statement"></a>
 
 The `EXPLAIN` statement shows the logical or distributed execution plan of a specified SQL statement, or validates the SQL statement. You can output the results in text format or in a data format for rendering into a graph.
 
@@ -21,13 +20,13 @@ The `EXPLAIN` and `EXPLAIN ANALYZE` statements in Athena have the following limi
 ## EXPLAIN syntax
 <a name="athena-explain-statement-syntax-athena-engine-version-2"></a>
 
-```
+```sql
 EXPLAIN [ ( {{option}} [, ...]) ] {{statement}}
 ```
 
 {{option}} can be one of the following:
 
-```
+```sql
 FORMAT { TEXT | GRAPHVIZ | JSON }
 TYPE { LOGICAL | DISTRIBUTED | VALIDATE | IO }
 ```
@@ -39,13 +38,13 @@ If the `FORMAT` option is not specified, the output defaults to `TEXT` format. T
 
 In addition to the output included in `EXPLAIN`, `EXPLAIN ANALYZE` output also includes runtime statistics for the specified query such as CPU usage, the number of rows input, and the number of rows output.
 
-```
+```sql
 EXPLAIN ANALYZE [ ( {{option}} [, ...]) ] {{statement}}
 ```
 
 {{option}} can be one of the following:
 
-```
+```sql
 FORMAT { TEXT | JSON }
 ```
 
@@ -69,7 +68,7 @@ The following examples for `EXPLAIN` progress from the more straightforward to t
 
 In the following example, `EXPLAIN` shows the execution plan for a `SELECT` query on Elastic Load Balancing logs. The format defaults to text output.
 
-```
+```sql
 EXPLAIN 
 SELECT 
    request_timestamp, 
@@ -97,7 +96,7 @@ analyzePartitionValues=Optional.empty}] => [[request_timestamp, elb_name, reques
 
 You can use the Athena console to graph a query plan for you. Enter a `SELECT` statement like the following into the Athena query editor, and then choose **EXPLAIN**.
 
-```
+```sql
 SELECT 
       c.c_custkey,
       o.o_orderkey,
@@ -124,7 +123,7 @@ When you use a filtering predicate on a partitioned key to query a partitioned t
 
 The following example uses an `EXPLAIN` query to verify partition pruning for a `SELECT` query on a partitioned table. First, a `CREATE TABLE` statement creates the `tpch100.orders_partitioned` table. The table is partitioned on column `o_orderdate`.
 
-```
+```sql
 CREATE TABLE `tpch100.orders_partitioned`(
   `o_orderkey` int, 
   `o_custkey` int, 
@@ -148,7 +147,7 @@ LOCATION
 
 The `tpch100.orders_partitioned` table has several partitions on `o_orderdate`, as shown by the `SHOW PARTITIONS` command.
 
-```
+```sql
 SHOW PARTITIONS tpch100.orders_partitioned;
 
 o_orderdate=1994
@@ -163,7 +162,7 @@ o_orderdate=1996
 
 The following `EXPLAIN` query verifies partition pruning on the specified `SELECT` statement.
 
-```
+```sql
 EXPLAIN 
 SELECT 
    o_orderkey, 
@@ -196,7 +195,7 @@ The bold text in the result shows that the predicate `o_orderdate = '1995'` was 
 
 The following `EXPLAIN` query checks the `SELECT` statement's join order and join type. Use a query like this to examine query memory usage so that you can reduce the chances of getting an `EXCEEDED_LOCAL_MEMORY_LIMIT` error.
 
-```
+```sql
 EXPLAIN (TYPE DISTRIBUTED)
    SELECT 
       c.c_custkey, 
@@ -255,7 +254,7 @@ However, the `tpch100.customer` table is smaller than `tpch100.orders`. Because 
 
 The following example shows the rewritten query.
 
-```
+```sql
 SELECT 
     c.c_custkey,
     o.o_orderkey,
@@ -271,7 +270,7 @@ WHERE c.c_custkey = 123
 
 You can use an `EXPLAIN` query to check the effectiveness of filtering predicates. You can use the results to remove predicates that have no effect, as in the following example.
 
-```
+```sql
 EXPLAIN
    SELECT 
       c.c_name
@@ -318,7 +317,7 @@ The following examples show example `EXPLAIN ANALYZE` queries and outputs.
 
 In the following example, `EXPLAIN ANALYZE` shows the execution plan and computational costs for a `SELECT` query on CloudFront logs. The format defaults to text output.
 
-```
+```sql
 EXPLAIN ANALYZE SELECT FROM cloudfront_logs LIMIT 10
 ```
 
@@ -377,7 +376,7 @@ grouped = false] => [[date, time, location, bytes, requestip, method, host, uri,
 
 The following example shows the execution plan and computational costs for a `SELECT` query on CloudFront logs. The example specifies JSON as the output format.
 
-```
+```sql
 EXPLAIN ANALYZE (FORMAT JSON) SELECT * FROM cloudfront_logs LIMIT 10
 ```
 
@@ -524,3 +523,5 @@ For additional information, see the following resources.
 +  [Optimize Federated Query Performance using EXPLAIN and EXPLAIN ANALYZE in Amazon Athena](https://aws.amazon.com/blogs/big-data/optimize-federated-query-performance-using-explain-and-explain-analyze-in-amazon-athena/) in the *AWS Big Data Blog*. 
 
 [![AWS Videos](https://img.youtube.com/vi/7JUyTqglmNU/0.jpg)](https://www.youtube.com/watch?v=7JUyTqglmNU)
+
+Visual query execution analysis in Amazon Athena (AWS YouTube channel)

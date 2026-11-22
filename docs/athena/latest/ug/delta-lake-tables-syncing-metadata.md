@@ -1,7 +1,6 @@
 
 
 # Synchronize Delta Lake metadata
-<a name="delta-lake-tables-syncing-metadata"></a>
 
 Athena synchronizes table metadata, including schema, partition columns, and table properties, to AWS Glue if you use Athena to create your Delta Lake table. As time passes, this metadata can lose its synchronization with the underlying table metadata in the transaction log. To keep your table up to date, you can choose one of the following options:
 + Use the AWS Glue crawler for Delta Lake tables. For more information, see [Introducing native Delta Lake table support with AWS Glue crawlers](https://aws.amazon.com/blogs/big-data/introducing-native-delta-lake-table-support-with-aws-glue-crawlers/) in the *AWS Big Data Blog* and [Scheduling an AWS Glue crawler](https://docs.aws.amazon.com/glue/latest/dg/schedule-crawler.html) in the AWS Glue Developer Guide.
@@ -28,7 +27,7 @@ You can use the following procedure to create a Delta Lake table with the Athena
 
    Note that this same schema (with a single of column named `col` of type `array<string>`) is inserted when you use Apache Spark (Athena for Apache Spark) or most other engines to create your table.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE
       [db_name.]table_name(col array<string>)
       LOCATION 's3://amzn-s3-demo-bucket/{{your-folder}}/'
@@ -52,7 +51,7 @@ You can use the following procedure to create a Delta Lake table with the Athena
 
 To create a Delta Lake table using the AWS CLI, enter a command like the following.
 
-```
+```shell
 aws glue create-table --database-name dbname \
     --table-input '{"Name" : "tablename", "StorageDescriptor":{
             "Columns" : [

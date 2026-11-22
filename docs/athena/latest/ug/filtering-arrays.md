@@ -1,11 +1,10 @@
 
 
 # Filter arrays
-<a name="filtering-arrays"></a>
 
 Create an array from a collection of rows if they match the filter criteria.
 
-```
+```sql
 WITH
 dataset AS (
   SELECT ARRAY[1,2,3,4,5] AS items
@@ -28,7 +27,7 @@ This query returns:
 
 Filter an array based on whether one of its elements contain a specific value, such as 2, as in this example:
 
-```
+```sql
 WITH
 dataset AS (
   SELECT ARRAY
@@ -64,7 +63,7 @@ You can use the `filter` function on an `ARRAY` expression to create a new array
 
 The following example filters for values greater than zero in the array `[1,0,5,-1]`.
 
-```
+```sql
 SELECT filter(ARRAY [1,0,5,-1], x -> x>0)
 ```
 
@@ -73,7 +72,7 @@ SELECT filter(ARRAY [1,0,5,-1], x -> x>0)
 
 The following example filters for the non-null values in the array `[-1, NULL, 10, NULL]`.
 
-```
+```sql
 SELECT filter(ARRAY [-1, NULL, 10, NULL], q -> q IS NOT NULL)
 ```
 

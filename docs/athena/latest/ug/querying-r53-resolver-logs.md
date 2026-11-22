@@ -1,7 +1,6 @@
 
 
 # Query Amazon Route 53 resolver query logs
-<a name="querying-r53-resolver-logs"></a>
 
 You can create Athena tables for your Amazon Route 53 Resolver query logs and query them from Athena.
 

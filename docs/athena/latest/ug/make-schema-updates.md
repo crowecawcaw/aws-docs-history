@@ -1,7 +1,6 @@
 
 
 # Make schema updates
-<a name="make-schema-updates"></a>
 
 This topic describes some of the changes that you can make to the schema in `CREATE TABLE` statements without actually altering your data. To update a schema, you can in some cases use an `ALTER TABLE` command, but in other cases you do not actually modify an existing table. Instead, you create a table with a new name that modifies the schema that you used in your original `CREATE TABLE` statement.
 
@@ -11,7 +10,7 @@ Consider an application that reads orders information from an `orders` table tha
 
 The following example creates a table in Parquet:
 
-```
+```sql
 CREATE EXTERNAL TABLE orders_parquet (
    `orderkey` int, 
    `orderstatus` string, 
@@ -26,7 +25,7 @@ LOCATION 's3://amzn-s3-demo-bucket/orders_ parquet/';
 
 The following example creates the same table in CSV:
 
-```
+```sql
 CREATE EXTERNAL TABLE orders_csv (
    `orderkey` int, 
    `orderstatus` string, 

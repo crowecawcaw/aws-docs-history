@@ -1,7 +1,6 @@
 
 
 # SageMaker IAM
-<a name="odbc-v2-driver-sagemaker-iam"></a>
 
 An authentication plugin that uses IAM credentials to connect to Amazon Athena through SageMaker Unified Studio. This plugin authenticates using IAM credentials (static access key/secret key or the AWS default credential chain) and retrieves Athena environment credentials via the SageMaker connection service.
 
@@ -68,3 +67,14 @@ Your AWS secret access key. Required if `UID` is specified.
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
 | --- | --- | --- | --- | 
 | PWD | Optional | none | PWD=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY; | 
+
+## Credentials cache
+<a name="odbc-v2-driver-sagemaker-iam-credentials-cache"></a>
+
+When set to `1`, the driver saves the Athena connection credentials that Amazon DataZone returns in the driver's cache directory. The driver reuses them across connections and driver processes until two minutes before they expire. Only the value `1` enables the cache.
+
+
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
+| --- | --- | --- | --- | 
+| SageMakerCredentialsCache | Optional | 0 | SageMakerCredentialsCache=1; | 

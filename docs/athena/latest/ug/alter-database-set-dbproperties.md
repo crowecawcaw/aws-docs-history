@@ -1,14 +1,13 @@
 
 
 # ALTER DATABASE SET DBPROPERTIES
-<a name="alter-database-set-dbproperties"></a>
 
 Creates one or more properties for a database. The use of `DATABASE` and `SCHEMA` are interchangeable; they mean the same thing.
 
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 ALTER {DATABASE|SCHEMA} database_name
   SET DBPROPERTIES ('property_name'='property_value' [, ...] )
 ```
@@ -22,12 +21,12 @@ Specifies a property or properties for the database named `property_name` and es
 ## Examples
 <a name="examples"></a>
 
-```
+```sql
 ALTER DATABASE jd_datasets
   SET DBPROPERTIES ('creator'='John Doe', 'department'='applied mathematics');
 ```
 
-```
+```sql
 ALTER SCHEMA jd_datasets
   SET DBPROPERTIES ('creator'='Jane Doe');
 ```

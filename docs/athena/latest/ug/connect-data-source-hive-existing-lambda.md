@@ -1,7 +1,6 @@
 
 
 # Configure Athena to use a deployed Hive metastore connector
-<a name="connect-data-source-hive-existing-lambda"></a>
 
 After you have deployed a Lambda data source connector like `AthenaHiveMetastoreFunction` to your account, you can configure Athena to use it. To do so, you create a data source name that refers to your external Hive metastore to use in your Athena queries.
 

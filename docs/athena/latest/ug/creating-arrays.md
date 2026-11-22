@@ -1,7 +1,6 @@
 
 
 # Create arrays
-<a name="creating-arrays"></a>
 
 To build an array literal in Athena, use the `ARRAY` keyword, followed by brackets `[ ]`, and include the array elements separated by commas.
 
@@ -10,7 +9,7 @@ To build an array literal in Athena, use the `ARRAY` keyword, followed by bracke
 
 This query creates one array with four elements.
 
-```
+```sql
 SELECT ARRAY [1,2,3,4] AS items
 ```
 
@@ -26,7 +25,7 @@ It returns:
 
 This query creates two arrays.
 
-```
+```sql
 SELECT ARRAY[ ARRAY[1,2], ARRAY[3,4] ] AS items
 ```
 
@@ -42,7 +41,7 @@ It returns:
 
 To create an array from selected columns of compatible types, use a query, as in this example:
 
-```
+```sql
 WITH
 dataset AS (
   SELECT 1 AS x, 2 AS y, 3 AS z
@@ -62,7 +61,7 @@ This query returns:
 
 In the following example, two arrays are selected and returned as a welcome message.
 
-```
+```sql
 WITH
 dataset AS (
   SELECT
@@ -85,7 +84,7 @@ This query returns:
 
 To create an array of key-value pairs, use the `MAP` operator that takes an array of keys followed by an array of values, as in this example:
 
-```
+```sql
 SELECT ARRAY[
    MAP(ARRAY['first', 'last', 'age'],ARRAY['Bob', 'Smith', '40']),
    MAP(ARRAY['first', 'last', 'age'],ARRAY['Jane', 'Doe', '30']),

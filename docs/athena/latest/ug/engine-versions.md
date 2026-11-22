@@ -1,7 +1,6 @@
 
 
 # Athena engine versioning
-<a name="engine-versions"></a>
 
 Athena occasionally releases a new engine version to provide improved performance, functionality, and code fixes. When a new engine version is available, Athena notifies you through the Athena console and your [AWS Health Dashboard](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/). Your AWS Health Dashboard notifies you about events that can affect your AWS services or account. For more information about AWS Health Dashboard, see [Getting started with the AWS Health Dashboard](https://docs.aws.amazon.com/health/latest/ug/getting-started-phd.html).
 

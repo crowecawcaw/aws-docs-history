@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations for SQL queries in Amazon Athena
-<a name="other-notable-limitations"></a>
 
 When running queries in Athena, keep in mind the following considerations and limitations:
 + **Stored procedures** – Stored procedures are not supported.
@@ -17,10 +16,10 @@ When running queries in Athena, keep in mind the following considerations and li
 + **Amazon Glacier** support – For information about querying restored Amazon Glacier objects, see [Query restored Amazon Glacier objects](querying-glacier.md).
 + **Files treated as hidden** – Athena treats source files that start with an underscore (`_`) or a dot (`.`) as hidden. To work around this limitation, rename the files.
 + **Row or column size limitation** – The size of a single row or its columns cannot exceed 32 MB. This limit can be exceeded when, for example, a row contains a single column of 35 MB. This is a hard limit of the service and cannot be changed.
-+ **Max line length in a text file** – The size of single line in a text file has an upper limit of 200 MB. Exceeding this limit can produce the error message TextLineLengthLimitExceededException: Too many bytes before newline. To work around this limitation, make sure that you don't have a single line in a text file exceeding 200 MB.
++ **Max line length in a text file** – The size of single line in a text file has an upper limit of 200 MB. Exceeding this limit can produce the error message `TextLineLengthLimitExceededException: Too many bytes before newline`. To work around this limitation, make sure that you don't have a single line in a text file exceeding 200 MB.
 + **LIMIT clause maximum** – The maximum number of rows that can be specified for the `LIMIT` clause is 
 
-  9223372036854775807. When using `ORDER BY`, the maximum number of supported rows for the LIMIT clause is 2147483647. Exceeding this limit results in the error message NOT\_SUPPORTED: ORDER BY LIMIT > 2147483647 is not supported.
+  9223372036854775807. When using `ORDER BY`, the maximum number of supported rows for the LIMIT clause is 2147483647. Exceeding this limit results in the error message `NOT_SUPPORTED: ORDER BY LIMIT > 2147483647 is not supported`.
 + **information\_schema** – Querying `information_schema` is most performant if you have a small to moderate amount of AWS Glue metadata. If you have a large amount of metadata, errors can occur. For information about querying the `information_schema` database for AWS Glue metadata, see [Query the AWS Glue Data Catalog](querying-glue-catalog.md).
 +  **Array initializations** – Due to a limitation in Java, it is not possible to initialize an array in Athena that has more than 254 arguments. 
 + **Hidden metadata columns** – The Hive or Iceberg hidden metadata columns `$bucket`, `$file_modified_time`, `$file_size`, and `$partition` are not supported for views. For information about using the `$path` metadata column in Athena, see [Getting the file locations for source data in Amazon S3](select.md#select-path).

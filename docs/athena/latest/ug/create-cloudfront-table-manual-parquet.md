@@ -1,7 +1,6 @@
 
 
 # Create a table for CloudFront logs in Athena using manual partitioning with Parquet
-<a name="create-cloudfront-table-manual-parquet"></a>
 
 **To create a table for CloudFront standard log file fields using a Parquet format**
 
@@ -9,7 +8,7 @@
 
    This query uses ParquetHiveSerDe with the following SerDe properties to read Parquet fields correctly in Athena.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE `cf_logs_manual_partition_parquet`(
      `date` string, 
      `time` string, 
@@ -61,7 +60,7 @@
 
 The following query adds up the number of bytes served by CloudFront for January 19, 2025.
 
-```
+```sql
 SELECT sum(cast("sc_bytes" as BIGINT)) as sc
 FROM cf_logs_manual_partition_parquet
 WHERE "date"='2025-01-19'

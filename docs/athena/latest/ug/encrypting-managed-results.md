@@ -1,7 +1,6 @@
 
 
 # Encrypt managed query results
-<a name="encrypting-managed-results"></a>
 
 Athena offers the following options for encrypting [Managed query results](managed-results.md).
 

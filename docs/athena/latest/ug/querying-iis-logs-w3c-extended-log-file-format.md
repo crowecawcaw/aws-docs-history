@@ -1,7 +1,6 @@
 
 
 # Query W3C extended log file format
-<a name="querying-iis-logs-w3c-extended-log-file-format"></a>
 
 The [W3C extended](https://docs.microsoft.com/en-us/windows/win32/http/w3c-logging) log file data format has space-separated fields. The fields that appear in W3C extended logs are determined by a web server administrator who chooses which log fields to include. The following example log data has the fields `date, time`, `c-ip`, `s-ip`, `cs-method`, `cs-uri-stem`, `sc-status`, `sc-bytes`, `cs-bytes`, `time-taken`, and `cs-version`.
 
@@ -31,7 +30,7 @@ Before you can query your W3C extended logs, you must create a table schema so t
 
    1. Modify the values in `LOCATION 's3://amzn-s3-demo-bucket/{{w3c-log-folder}}/'` to point to your W3C extended logs in Amazon S3.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE `iis_w3c_logs`( 
      date_col string, 
      time_col string, 
@@ -61,7 +60,7 @@ Before you can query your W3C extended logs, you must create a table schema so t
 
 The following example query selects the date, time, request target, and time taken for the request from the table `iis_w3c_logs`. The `WHERE` clause filters for cases in which the HTTP method is `GET` and the HTTP status code is `200` (successful).
 
-```
+```sql
 SELECT date_col, time_col, cs_uri_stem, time_taken
 FROM iis_w3c_logs
 WHERE cs_method = 'GET' AND sc_status = '200'
@@ -77,7 +76,7 @@ The following image shows the results of the query in the Athena Query Editor.
 
 The space delimited `date` and `time` fields are separate entries in the log source data, but you can combine them into a timestamp if you want. Use the [concat()](https://prestodb.io/docs/current/functions/string.html#concat) and [date\_parse()](https://prestodb.io/docs/current/functions/datetime.html#date_parse) functions in a [SELECT](select.md) or [CREATE TABLE AS SELECT](create-table-as.md) query to concatenate and convert the date and time columns into timestamp format. The following example uses a CTAS query to create a new table with a `derived_timestamp` column.
 
-```
+```sql
 CREATE TABLE iis_w3c_logs_w_timestamp AS
 SELECT 
   date_parse(concat(date_col,' ', time_col),'%Y-%m-%d %H:%i:%s') as derived_timestamp, 
@@ -95,7 +94,7 @@ FROM iis_w3c_logs
 
 After the table is created, you can query the new timestamp column directly, as in the following example.
 
-```
+```sql
 SELECT derived_timestamp, cs_uri_stem, time_taken
 FROM iis_w3c_logs_w_timestamp
 WHERE cs_method = 'GET' AND sc_status = '200'

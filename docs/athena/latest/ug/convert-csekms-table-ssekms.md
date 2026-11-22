@@ -1,7 +1,6 @@
 
 
 # Convert CSE-KMS table data to SSE-KMS
-<a name="convert-csekms-table-ssekms"></a>
 
 If your workflows currently use CSE-KMS for table data encryption, transition to SSE-KMS with the following steps.
 
@@ -35,7 +34,7 @@ If you still write data using a CSE-KMS workgroup or client-side settings, follo
 
    Start Athena query that shows the value of the `has_encrypted_data` property on the table as shown in the following example.
 
-   ```
+   ```sql
    aws athena start-query-execution \
        --query-string "SHOW TBLPROPERTIES {{<table-name>}}('has_encrypted_data');" \
        --work-group "{{<my-workgroup>}}"
@@ -43,7 +42,7 @@ If you still write data using a CSE-KMS workgroup or client-side settings, follo
 
    Fetch query results to check the value of `has_encrypted_data` table property for the table as shown in the following example.
 
-   ```
+   ```sql
    aws athena get-query-results --query-execution-id {{<query-execution-id-from-previous-step>}}
    ```
 
@@ -129,7 +128,7 @@ After successfully re-encrypting all CSE-KMS files in the table, perform the fol
 
    1. In the Query editor, run the following query for your table.
 
-      ```
+      ```sql
       ALTER TABLE {{<database-name>}}.{{<table-name>}} UNSET TBLPROPERTIES ('has_encrypted_data')
       ```
 

@@ -1,7 +1,6 @@
 
 
 # Use the AWS Serverless Application Repository to deploy a Hive data source connector
-<a name="connect-data-source-sar-hive"></a>
 
 To deploy an Athena data source connector for Hive, you can use the [AWS Serverless Application Repository](https://aws.amazon.com/serverless/serverlessrepo/) instead of starting with the Athena console. Use the AWS Serverless Application Repository to find the connector that you want to use, provide the parameters that the connector requires, and then deploy the connector to your account. Then, after you deploy the connector, you use the Athena console to make the data source available to Athena.
 

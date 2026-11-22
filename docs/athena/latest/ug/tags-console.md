@@ -1,7 +1,6 @@
 
 
 # Work with tags for workgroups
-<a name="tags-console"></a>
 
 Using the Athena console, you can see which tags are in use by each workgroup in your account. You can view tags by workgroup only. You can also use the Athena console to apply, edit, or remove tags from one workgroup at a time.
 

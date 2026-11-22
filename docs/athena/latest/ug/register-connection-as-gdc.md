@@ -1,7 +1,6 @@
 
 
 # Register your connection as a Glue Data Catalog
-<a name="register-connection-as-gdc"></a>
 
 **Note**  
 **AWS Glue Data Catalog federated connectors without Lambda** are already registered as a Glue Data Catalog and work with fine-grained access control and can ignore this section. See [Connector type support by data source](federated-queries.md#federated-queries-connector-support) for a list of connectors.
@@ -48,7 +47,7 @@ Before you begin, you must complete the following prerequisites.
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

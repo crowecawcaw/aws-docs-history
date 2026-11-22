@@ -1,14 +1,13 @@
 
 
 # PREPARE
-<a name="sql-prepare"></a>
 
 Creates a SQL statement with the name `statement_name` to be run at a later time. The statement can include parameters represented by question marks. To supply values for the parameters and run the prepared statement, use [EXECUTE](sql-execute.md).
 
 ## Synopsis
 <a name="sql-prepare-synopsis"></a>
 
-```
+```sql
 PREPARE statement_name FROM statement
 ```
 
@@ -29,21 +28,21 @@ The maximum number of prepared statements in a workgroup is 1000.
 
 The following example prepares a select query without parameters.
 
-```
+```sql
 PREPARE my_select1 FROM 
 SELECT * FROM nation
 ```
 
 The following example prepares a select query that includes parameters. The values for `productid` and `quantity` will be supplied by the `USING` clause of an `EXECUTE` statement:
 
-```
+```sql
 PREPARE my_select2 FROM 
 SELECT order FROM orders WHERE productid = ? and quantity < ?
 ```
 
 The following example prepares an insert query.
 
-```
+```sql
 PREPARE my_insert FROM 
 INSERT INTO cities_usa (city, state) 
 SELECT city, state 

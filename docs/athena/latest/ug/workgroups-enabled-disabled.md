@@ -1,7 +1,6 @@
 
 
 # Enable or disable a workgroup
-<a name="workgroups-enabled-disabled"></a>
 
 If you have permissions to do so, you can enable or disable workgroups in the console, by using the API operations, or with the JDBC and ODBC drivers.
 

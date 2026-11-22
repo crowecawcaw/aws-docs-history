@@ -1,7 +1,6 @@
 
 
 # Configure access to databases and tables in the AWS Glue Data Catalog
-<a name="fine-grained-access-to-glue-resources"></a>
 
 If you use the AWS Glue Data Catalog with Amazon Athena, you can define resource-level policies for the database and table Data Catalog objects that are used in Athena.
 
@@ -46,7 +45,7 @@ From this list, resources that are common between Athena and the AWS Glue Data C
 
 For Athena to work with the AWS Glue, a policy that grants access to your database and to the AWS Glue Data Catalog in your account per AWS Region is required. To create databases, the `CreateDatabase` permission is also required. In the following example policy, replace the AWS Region, AWS account ID, and database name with those of your own.
 
-```
+```json
 {
    "Sid": "DatabasePermissions",
    "Effect": "Allow",

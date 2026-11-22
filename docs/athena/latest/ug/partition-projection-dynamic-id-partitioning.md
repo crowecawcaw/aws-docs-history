@@ -1,7 +1,6 @@
 
 
 # Use dynamic ID partitioning
-<a name="partition-projection-dynamic-id-partitioning"></a>
 
 When your data is partitioned by a property with high cardinality or when the values cannot be known in advance, you can use the `injected` projection type. Examples of such properties are user names, and IDs of devices or products. When you use the `injected` projection type to configure a partition key, Athena uses values from the query itself to compute the set of partitions that will be read.
 
@@ -11,7 +10,7 @@ For Athena to be able to run a query on a table that has a partition key configu
 
 If any of these criteria are not met, your query fails with the following error:
 
-CONSTRAINT\_VIOLATION: For the injected projected partition column {{column\_name}}, the WHERE clause must contain only static equality conditions, and at least one such condition must be present.
+`CONSTRAINT_VIOLATION: For the injected projected partition column {{column_name}}, the WHERE clause must contain only static equality conditions, and at least one such condition must be present.`
 
 ## When to use the `injected` projection type
 <a name="partition-projection-injection"></a>
@@ -25,7 +24,7 @@ This data set is difficult to manage using traditional metastores. It is difficu
 
 The following `CREATE TABLE` example creates a table for the device event data set just described. The table uses the injected projection type.
 
-```
+```sql
 CREATE EXTERNAL TABLE device_events (
   event_time TIMESTAMP,
   data STRING,
@@ -44,7 +43,7 @@ TBLPROPERTIES (
 
 The following example query looks up the number of events received from three specific devices over the course of 12 hours.
 
-```
+```sql
 SELECT device_id, COUNT(*) AS events
 FROM device_events
 WHERE device_id IN (

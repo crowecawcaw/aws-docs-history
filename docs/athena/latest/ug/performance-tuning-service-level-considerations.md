@@ -1,7 +1,6 @@
 
 
 # Optimize service use
-<a name="performance-tuning-service-level-considerations"></a>
 
 Service level considerations include the number of workloads you run per account, service quotas not only for Athena, but across services, and thinking about how to reduce 'out of resource' errors.
 
@@ -34,7 +33,7 @@ For more information about working around errors caused by Amazon S3 service quo
 
 Athena runs queries in a distributed query engine. When you submit a query, the Athena engine query planner estimates the compute capacity required to run the query and prepares a cluster of compute nodes accordingly. Some queries like DDL queries run on only one node. Complex queries over large data sets run on much bigger clusters. The nodes are uniform, with the same memory, CPU, and disk configurations. Athena scales out, not up, to process more demanding queries.
 
-Sometimes the demands of a query exceed the resources available to the cluster running the query. When this happens, the query fails with the error Query exhausted resources at this scale factor.
+Sometimes the demands of a query exceed the resources available to the cluster running the query. When this happens, the query fails with the error `Query exhausted resources at this scale factor`.
 
 The resource most commonly exhausted is memory, but in rare cases it can also be disk space. Memory errors commonly occur when the engine performs a join or a window function, but they can also occur in distinct counts and aggregations.
 

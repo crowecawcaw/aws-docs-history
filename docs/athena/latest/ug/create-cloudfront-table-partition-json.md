@@ -1,13 +1,12 @@
 
 
 # Create a table for CloudFront logs in Athena using partition projection with JSON
-<a name="create-cloudfront-table-partition-json"></a>
 
 You can reduce query runtime and automate partition management with Athena partition projection feature. Partition projection automatically adds new partitions as new data is added. This removes the need for you to manually add partitions by using `ALTER TABLE ADD PARTITION`.
 
 The following example CREATE TABLE statement automatically uses partition projection on CloudFront logs from a specified CloudFront distribution until present for a single AWS Region. After you run the query successfully, you can query the table.
 
-```
+```sql
 CREATE EXTERNAL TABLE `{{cloudfront_logs_pp}}`(
   `date` string, 
   `time` string, 

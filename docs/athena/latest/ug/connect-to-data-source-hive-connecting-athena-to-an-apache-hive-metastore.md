@@ -1,7 +1,6 @@
 
 
 # Connect Athena to an Apache Hive metastore
-<a name="connect-to-data-source-hive-connecting-athena-to-an-apache-hive-metastore"></a>
 
 To connect Athena to an Apache Hive metastore, you must create and configure a Lambda function. For a basic implementation, you can perform all required steps starting from the Athena management console.
 

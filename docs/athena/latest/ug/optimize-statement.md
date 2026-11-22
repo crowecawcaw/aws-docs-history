@@ -1,7 +1,6 @@
 
 
 # OPTIMIZE
-<a name="optimize-statement"></a>
 
 Optimizes rows in an Apache Iceberg table by rewriting data files into a more optimized layout based on their size and number of associated delete files.
 
@@ -13,7 +12,7 @@ Optimizes rows in an Apache Iceberg table by rewriting data files into a more op
 
 The following syntax summary shows how to optimize data layout for an Iceberg table.
 
-```
+```sql
 OPTIMIZE [{{db_name}}.]{{table_name}} REWRITE DATA USING BIN_PACK
   [WHERE {{predicate}}]
 ```

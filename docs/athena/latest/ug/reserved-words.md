@@ -1,7 +1,6 @@
 
 
 # Escape reserved keywords in queries
-<a name="reserved-words"></a>
 
 When you run queries in Athena that include reserved keywords, you must escape them by enclosing them in special characters. Use the lists in this topic to check which keywords are reserved in Athena. 
 
@@ -66,7 +65,7 @@ UNNEST, USING, VALUES, WHEN, WHERE, WITH
 
 The query in the following example uses backticks (`) to escape the DDL-related reserved keywords *partition* and *date* that are used for a table name and one of the column names:
 
-```
+```sql
 CREATE EXTERNAL TABLE {{`partition`}} (
 {{`date`}} INT, 
 col2 STRING
@@ -78,19 +77,19 @@ LOCATION 's3://amzn-s3-demo-bucket/test_examples/';
 
 The following example queries include a column name containing the DDL-related reserved keywords in `ALTER TABLE ADD PARTITION` and `ALTER TABLE DROP PARTITION` statements. The DDL reserved keywords are enclosed in backticks (`):
 
-```
+```sql
 ALTER TABLE test_table 
 ADD PARTITION ({{`date`}} = '2018-05-14')
 ```
 
-```
+```sql
 ALTER TABLE test_table 
 DROP PARTITION ({{`partition`}} = 'test_partition_value')
 ```
 
 The following example query includes a reserved keyword (end) as an identifier in a `SELECT` statement. The keyword is escaped in double quotes: 
 
-```
+```sql
 SELECT * 
 FROM TestTable
 WHERE "end" != nil;

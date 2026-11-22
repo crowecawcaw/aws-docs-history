@@ -1,7 +1,6 @@
 
 
 # Flatten nested arrays
-<a name="flattening-arrays"></a>
 
 When working with nested arrays, you often need to expand nested array elements into a single array, or expand the array into multiple rows.
 
@@ -10,7 +9,7 @@ When working with nested arrays, you often need to expand nested array elements 
 
 To flatten a nested array's elements into a single array of values, use the `flatten` function. This query returns a row for each element in the array.
 
-```
+```sql
 SELECT flatten(ARRAY[ ARRAY[1,2], ARRAY[3,4] ]) AS items
 ```
 
@@ -29,7 +28,7 @@ This query returns:
 
 To flatten an array into multiple rows, use `CROSS JOIN` in conjunction with the `UNNEST` operator, as in this example:
 
-```
+```sql
 WITH dataset AS (
   SELECT
     'engineering' as department,
@@ -57,7 +56,7 @@ This query returns:
 
 To flatten an array of key-value pairs, transpose selected keys into columns, as in this example:
 
-```
+```sql
 WITH
 dataset AS (
   SELECT
@@ -89,7 +88,7 @@ This query returns:
 
 From a list of employees, select the employee with the highest combined scores. `UNNEST` can be used in the `FROM` clause without a preceding `CROSS JOIN` as it is the default join operator and therefore implied.
 
-```
+```sql
 WITH
 dataset AS (
   SELECT ARRAY[
@@ -123,7 +122,7 @@ This query returns:
 
 From a list of employees, select the employee with the highest individual score.
 
-```
+```sql
 WITH
 dataset AS (
  SELECT ARRAY[
@@ -161,7 +160,7 @@ If `UNNEST` is used on one or more arrays in the query, and one of the arrays is
 
 For example, in the following query, because the second array is null, the query returns no rows.
 
-```
+```sql
 SELECT 
     col1, 
     col2 
@@ -171,7 +170,7 @@ CROSS JOIN UNNEST (ARRAY []) AS t(col2)
 
 In this next example, the second array is modified to contain an empty string. For each row, the query returns the value in `col1` and an empty string for the value in `col2`. The empty string in the second array is required in order for the values in the first array to be returned.
 
-```
+```sql
 SELECT 
     col1, 
     col2 

@@ -1,7 +1,6 @@
 
 
 # Specify a query result location using the Athena console
-<a name="query-results-specify-location-console"></a>
 
 Before you can run a query, a query result bucket location in Amazon S3 must be specified, or you must use a workgroup that has specified a bucket and whose configuration overrides client settings.
 

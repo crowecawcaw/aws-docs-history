@@ -1,7 +1,6 @@
 
 
 # Query JSON data
-<a name="querying-JSON"></a>
 
 Amazon Athena lets you query JSON-encoded data, extract data from nested JSON, search for values, and find length and size of JSON arrays. To learn the basics of querying JSON data in Athena, consider the following sample planet data:
 
@@ -14,7 +13,7 @@ Amazon Athena lets you query JSON-encoded data, extract data from nested JSON, s
 
 Notice how each record (essentially, each row in the table) is on a separate line. To query this JSON data, you can use a `CREATE TABLE` statement like the following:
 
-```
+```sql
 CREATE EXTERNAL TABLE `planets_json`(
   `name` string,
   `distancefromsun` double,
@@ -32,7 +31,7 @@ LOCATION
 
 To query the data, use a simple `SELECT` statement like the following example.
 
-```
+```sql
 SELECT * FROM planets_json
 ```
 
@@ -51,7 +50,7 @@ Notice how the `CREATE TABLE` statement uses the [OpenX JSON SerDe](openx-json-s
 
 To query JSON data that is in pretty print format, you can use the [Amazon Ion Hive SerDe](ion-serde.md) instead of the OpenX JSON SerDe. Consider the previous data stored in pretty print format:
 
-```
+```json
 {
   name:"Mercury",
   distanceFromSun:0.39,
@@ -80,7 +79,7 @@ To query JSON data that is in pretty print format, you can use the [Amazon Ion H
 
 To query this data without reformatting, you can use a `CREATE TABLE` statement like the following. Notice that, instead of specifying the OpenX JSON SerDe, the statement specifies `STORED AS ION`. 
 
-```
+```sql
 CREATE EXTERNAL TABLE `planets_ion`(
   `name` string,
   `distancefromsun` DECIMAL(10, 2),

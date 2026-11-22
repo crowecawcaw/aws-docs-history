@@ -1,7 +1,6 @@
 
 
 # query\_executions
-<a name="athena-system-table-query-executions"></a>
 
 The `query_executions` system table contains one row for each completed query execution across all workgroups in your account and Region. It includes data equivalent to the `GetQueryExecution` API response, plus additional columns.
 
@@ -12,7 +11,7 @@ Query metadata is written when a query reaches a final state (`SUCCEEDED`, `FAIL
 
 System tables are queried like any other S3 Tables. Here is an example of a query using the fully qualified name of the `query_executions` table:
 
-```
+```sql
 SELECT * FROM "s3tablescatalog/aws-athena"."metadata"."query_executions" LIMIT 10
 ```
 
@@ -70,7 +69,7 @@ The following table describes the columns in the `query_executions` system table
 ### Top 10 queries scanning the most data in the past 7 days
 <a name="athena-system-table-query-executions-examples-expensive"></a>
 
-```
+```sql
 SELECT
     query_execution_id,
     work_group_name,
@@ -88,7 +87,7 @@ LIMIT 10
 ### Identify who is running queries in a workgroup
 <a name="athena-system-table-query-executions-examples-principals"></a>
 
-```
+```sql
 SELECT
     principal_arn,
     COUNT(*) AS query_count,
@@ -103,7 +102,7 @@ ORDER BY total_tb_scanned DESC
 ### Most queried tables
 <a name="athena-system-table-query-executions-examples-most-queried"></a>
 
-```
+```sql
 SELECT
     t.catalog_name,
     t.database_name,
@@ -120,7 +119,7 @@ LIMIT 20
 ### Query failure patterns
 <a name="athena-system-table-query-executions-examples-failures"></a>
 
-```
+```sql
 SELECT
     error_category_enum,
     error_message,
@@ -137,7 +136,7 @@ LIMIT 10
 ### Daily data scanned trend by workgroup
 <a name="athena-system-table-query-executions-examples-daily-cost"></a>
 
-```
+```sql
 SELECT
     DATE(submission_date_time) AS query_date,
     work_group_name,

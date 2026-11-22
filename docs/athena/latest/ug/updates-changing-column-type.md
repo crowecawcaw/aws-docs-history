@@ -1,7 +1,6 @@
 
 
 # Change a column data type
-<a name="updates-changing-column-type"></a>
 
 You might want to use a different column type when the existing type can no longer hold the amount of information required. For example, an ID column's values might exceed the size of the `INT` data type and require the use of the `BIGINT` data type.
 
@@ -36,7 +35,7 @@ Whenever possible, use compatible data types. The following table lists data typ
 
 The following example uses the `CREATE TABLE` statement for the original `orders_json` table to create a new table called `orders_json_bigint`. The new table uses `BIGINT` instead of `INT` as the data type for the ``o_shippriority`` column. 
 
-```
+```sql
 CREATE EXTERNAL TABLE orders_json_bigint (
    `o_orderkey` int, 
    `o_custkey` int, 

@@ -1,7 +1,6 @@
 
 
 # Configure recent query display options
-<a name="queries-recent-queries-configuring-options"></a>
 
 You can configure options for the **Recent queries** tab like columns to display and text wrapping.
 

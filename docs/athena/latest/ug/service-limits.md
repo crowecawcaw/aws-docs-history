@@ -1,7 +1,6 @@
 
 
 # Service Quotas
-<a name="service-limits"></a>
 
 **Note**  
 The Service Quotas console provides information about Amazon Athena quotas. You can also use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/athena/quotas) for the quotas that are adjustable. For AWS Glue related schema limitations, see the [AWS Glue endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/glue.html) page. For general information about AWS service quotas, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*.
@@ -19,7 +18,7 @@ To request quota increases, you can use the [Athena Service Quotas](https://cons
 
 Athena processes queries by assigning resources based on the overall service load and the number of incoming requests. Your queries may be temporarily queued before they run. Asynchronous processes pick up the queries from queues and run them on physical resources as soon as the resources become available and for as long as your account configuration permits.
 
-The Active DML queries and Active DDL queries quotas include both running and queued queries. For example, if your Active DML query quota is 25 and your total of running and queued queries is 26, query 26 will result in a TooManyRequestsException error. 
+The Active DML queries and Active DDL queries quotas include both running and queued queries. For example, if your Active DML query quota is 25 and your total of running and queued queries is 26, query 26 will result in a `TooManyRequestsException` error. 
 
 **Note**  
 If you would like to control concurrency directly for the queries you run in Athena, you can use capacity reservations. For more information, see [Manage query processing capacity](capacity-management.md).
@@ -56,6 +55,6 @@ When you work with Amazon S3 buckets, remember the following points:
 
 Athena APIs have default quotas for the number of calls to the API per account (not per query). For a complete list of the default quotas, see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/athena.html#amazon-athena-limits) table in the AWS General Reference guide.
 
-If you use any of these APIs and exceed the default quota for the number of calls per second, or the burst capacity in your account, the Athena API issues an error similar to the following: ""ClientError: An error occurred (ThrottlingException) when calling the *<API\_name>* operation: Rate exceeded." Reduce the number of calls per second, or the burst capacity for the API for this account. 
+If you use any of these APIs and exceed the default quota for the number of calls per second, or the burst capacity in your account, the Athena API issues an error similar to the following: "`"ClientError: An error occurred (ThrottlingException) when calling the <API_name> operation: Rate exceeded."` Reduce the number of calls per second, or the burst capacity for the API for this account. 
 
 You can change the Athena quota for per account API calls in the [Athena Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/athena/quotas). 

@@ -1,7 +1,6 @@
 
 
 # Configure SSO for ODBC using the Okta plugin and Okta Identity Provider
-<a name="odbc-okta-plugin"></a>
 
 This page describes how to configure the Amazon Athena ODBC driver and Okta plugin to add single sign-on (SSO) capability using the Okta identity provider.
 

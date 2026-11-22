@@ -1,7 +1,6 @@
 
 
 # Example queries
-<a name="querying-r53-resolver-logs-example-queries"></a>
 
 The following examples show some queries that you can perform from Athena on your Resolver query logs.
 
@@ -10,7 +9,7 @@ The following examples show some queries that you can perform from Athena on you
 
 The following query displays log results in descending `query_timestamp` order.
 
-```
+```sql
 SELECT * FROM "r53_rlogs"
 ORDER BY query_timestamp DESC
 ```
@@ -20,7 +19,7 @@ ORDER BY query_timestamp DESC
 
 The following query queries logs between midnight and 8am on September 24, 2020. Substitute the start and end times according to your own requirements.
 
-```
+```sql
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode
 FROM "r53_rlogs"
 WHERE (parse_datetime(query_timestamp,'yyyy-MM-dd''T''HH:mm:ss''Z')
@@ -34,7 +33,7 @@ ORDER BY query_timestamp DESC
 
 The following query selects records whose query name includes the string "example.com".
 
-```
+```sql
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode, answers
 FROM "r53_rlogs"
 WHERE query_name LIKE '%example.com%'
@@ -46,7 +45,7 @@ ORDER BY query_timestamp DESC
 
 The following query selects log entries in which the request received no answer.
 
-```
+```sql
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode, answers
 FROM "r53_rlogs"
 WHERE cardinality(answers) = 0
@@ -57,7 +56,7 @@ WHERE cardinality(answers) = 0
 
 The following query shows logs in which the `answer.Rdata` value has the specified IP address.
 
-```
+```sql
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode, answer.Rdata
 FROM "r53_rlogs"
 CROSS JOIN UNNEST(r53_rlogs.answers) as st(answer)

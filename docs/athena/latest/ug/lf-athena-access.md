@@ -1,7 +1,6 @@
 
 
 # How Athena accesses data registered with Lake Formation
-<a name="lf-athena-access"></a>
 
 The access workflow described in this section applies when you run Athena queries on Amazon S3 locations, data catalogs, or metadata objects that are registered with Lake Formation. For more information, see [Registering a data lake](https://docs.aws.amazon.com/lake-formation/latest/dg/register-data-lake.html) in the *AWS Lake Formation Developer Guide*. In addition to registering data, the Lake Formation administrator applies Lake Formation permissions that grant or revoke access to metadata in the data catalog, AWS Glue Data Catalog, or the data location in Amazon S3. For more information, see [Security and access control to metadata and data](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html#security-data-access-permissions) in the *AWS Lake Formation Developer Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Create a table for CloudTrail logs in Athena using manual partitioning
-<a name="create-cloudtrail-table"></a>
 
 You can manually create tables for CloudTrail log files in the Athena console, and then run queries in Athena.
 
@@ -9,7 +8,7 @@ You can manually create tables for CloudTrail log files in the Athena console, a
 
 1. Copy and paste the following DDL statement into the Athena console query editor, then modify it according to your requirements. Note that because CloudTrail log files are not an ordered stack trace of public API calls, the fields in the log files do not appear in any specific order.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE cloudtrail_logs (
    eventversion STRING,
    useridentity STRUCT<
@@ -103,7 +102,7 @@ We suggest using the `org.apache.hive.hcatalog.data.JsonSerDe` shown in the exam
 
 1. Use the [ALTER TABLE ADD PARTITION](alter-table-add-partition.md) command to load the partitions so that you can query them, as in the following example.
 
-   ```
+   ```sql
    ALTER TABLE {{table_name}} ADD 
       PARTITION (region='us-east-1',
                  year='2019',

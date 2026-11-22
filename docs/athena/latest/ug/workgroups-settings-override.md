@@ -1,7 +1,6 @@
 
 
 # Override client-side settings
-<a name="workgroups-settings-override"></a>
 
 When you create or edit a workgroup, you can choose the option **Override client-side settings**. This option is not selected by default. Depending on whether you select it, Athena does the following:
 + If **Override client-side settings** is not selected, workgroup settings are not enforced at the client level. When the override client-side settings option is not selected for the workgroup, Athena uses the client's settings for all queries that run in the workgroup, including the settings for query results location, expected bucket owner, encryption, and control of objects written to the query results bucket. Each user can specify their own settings in the **Settings** menu on the console. If the client-side settings are not set, the workgroup-wide settings apply. If you use the AWS CLI, API actions, or JDBC and ODBC drivers to run queries in a workgroup that does not override client-side settings, your queries use the settings that you specify in your queries.

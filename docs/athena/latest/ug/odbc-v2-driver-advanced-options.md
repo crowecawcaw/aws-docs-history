@@ -1,7 +1,6 @@
 
 
 # Advanced options
-<a name="odbc-v2-driver-advanced-options"></a>
 
 ## Fetch size
 <a name="odbc-v2-driver-advanced-options-fetch-size"></a>

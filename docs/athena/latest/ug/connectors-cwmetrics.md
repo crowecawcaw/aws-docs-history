@@ -1,7 +1,6 @@
 
 
 # Amazon Athena CloudWatch Metrics connector
-<a name="connectors-cwmetrics"></a>
 
 The Amazon Athena CloudWatch Metrics connector enables Amazon Athena to query CloudWatch Metrics data with SQL.
 

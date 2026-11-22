@@ -1,7 +1,6 @@
 
 
 # Use Hudi metadata for improved performance
-<a name="querying-hudi-metadata-table"></a>
 
 The Apache Hudi has a [metadata table](https://hudi.apache.org/docs/next/metadata/) that contains indexing features for improved performance like file listing, data skipping using column statistics, and a bloom filter based index.
 
@@ -18,7 +17,7 @@ Metadata table based file listing is disabled by default. To enable the Hudi met
 **Example**  
 The following `ALTER TABLE SET TBLPROPERTIES` example enables the metadata table on the example `partition_cow` table.
 
-```
+```sql
 ALTER TABLE partition_cow SET TBLPROPERTIES('hudi.metadata-listing-enabled'='TRUE')
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Create the table for ALB access logs
-<a name="create-alb-access-logs-table"></a>
 
 1. Copy and paste the following `CREATE TABLE` statement into the query editor in the Athena console, and then modify it as necessary for your own log entry requirements. For information about getting started with the Athena console, see [Get started](getting-started.md). Replace the path in the `LOCATION` clause with your Amazon S3 access log folder location. For more information about access log file location, see [Access log files](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html#access-log-file-format) in the *User Guide for Application Load Balancers*.
 
@@ -9,7 +8,7 @@
 **Note**  
 The following example `CREATE TABLE` statement includes the recently added `classification`, `classification_reason`, `conn_trace_id` ('traceability ID', or TID), `transformed_host`, `transformed_uri`, `request_transform_status`, and `ip_address` columns. To create a table for Application Load Balancer access logs that do not contain these entries, remove the corresponding columns from the `CREATE TABLE` statement and modify the regular expression accordingly. 
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS alb_access_logs (
                type string,
                time string,

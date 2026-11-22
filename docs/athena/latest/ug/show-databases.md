@@ -1,7 +1,6 @@
 
 
 # SHOW DATABASES
-<a name="show-databases"></a>
 
 Lists all databases defined in the metastore. You can use `DATABASES` or `SCHEMAS`. They mean the same thing.
 
@@ -10,7 +9,7 @@ The programmatic equivalent of `SHOW DATABASES` is the [ListDatabases](https://d
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 SHOW {DATABASES | SCHEMAS} [LIKE '{{regular_expression}}']
 ```
 
@@ -23,10 +22,10 @@ Filters the list of databases to those that match the `{{regular_expression}}` t
 ## Examples
 <a name="examples"></a>
 
-```
+```sql
 SHOW SCHEMAS;
 ```
 
-```
+```sql
 SHOW DATABASES LIKE '.*analytics';
 ```

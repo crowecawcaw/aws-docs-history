@@ -1,7 +1,6 @@
 
 
 # Supported column data types
-<a name="delta-lake-tables-supported-data-types-columns"></a>
 
 This section describes the supported data types for non-partition and partition columns. 
 

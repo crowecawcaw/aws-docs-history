@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Apache Kafka connector
-<a name="connectors-kafka"></a>
 
 The Amazon Athena connector for Apache Kafka enables Amazon Athena to run SQL queries on your Apache Kafka topics. Use this connector to view [Apache Kafka](https://kafka.apache.org/) topics as tables and messages as rows in Athena.
 
@@ -149,13 +148,13 @@ Kafka topics are split into partitions. Each partition is ordered. Each message 
 
 As a best practice, use predicate pushdown when you query Athena, as in the following examples.
 
-```
+```sql
 SELECT * 
 FROM "{{kafka_catalog_name}}"."{{glue_schema_registry_name}}"."{{glue_schema_name}}" 
 WHERE integercol = 2147483647
 ```
 
-```
+```sql
 SELECT * 
 FROM "{{kafka_catalog_name}}"."{{glue_schema_registry_name}}"."{{glue_schema_name}}" 
 WHERE timestampcol >= TIMESTAMP '2018-03-25 07:30:58.878'
@@ -195,7 +194,7 @@ In the following example, the schema to be created in the AWS Glue Schema Regist
 **Note**  
 The value for `topicName` should use the same casing as the topic name in Kafka. 
 
-```
+```json
 {
   "topicName": "datatypejson",
   "message": {
@@ -258,7 +257,7 @@ The value for `topicName` should use the same casing as the topic name in Kafka.
 
 In the following example, the schema to be created in the AWS Glue Schema Registry specifies `csv` as the value for `dataFormat` and uses `datatypecsvbulk` for `topicName`. The value for `topicName` should use the same casing as the topic name in Kafka.
 
-```
+```json
 {
   "topicName": "datatypecsvbulk",
   "message": {
@@ -314,7 +313,7 @@ In the following example, the schema to be created in the AWS Glue Schema Regist
 
 The following example is used to create an AVRO-based schema in the AWS Glue Schema Registry. When you define the schema in the AWS Glue Schema Registry, for **Schema name**, you enter the Kafka topic name in the same casing as the original, and for **Data format**, you choose **Apache Avro**. Because you specify this information directly in the registry, the `dataformat`and `topicName` fields are not required.
 
-```
+```json
 {
     "type": "record",
     "name": "avrotest",

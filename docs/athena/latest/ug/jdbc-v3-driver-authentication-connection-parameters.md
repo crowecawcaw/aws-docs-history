@@ -1,7 +1,6 @@
 
 
 # Authentication connection parameters
-<a name="jdbc-v3-driver-authentication-connection-parameters"></a>
 
 The Athena JDBC 3.x driver supports several authentication methods. The connection parameters that are required depend on the authentication method that you use.
 

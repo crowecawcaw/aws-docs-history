@@ -1,7 +1,6 @@
 
 
 # Query restored Amazon Glacier objects
-<a name="querying-glacier"></a>
 
 You can use Athena to query restored objects from the Amazon Glacier Flexible Retrieval (formerly Glacier) and Amazon Glacier Deep Archive [Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-glacier). You must enable this capability on a per-table basis. If you do not enable the feature on a table before you run a query, Athena skips all of the table's Amazon Glacier Flexible Retrieval and Amazon Glacier Deep Archive objects during query execution. 
 
@@ -21,7 +20,7 @@ You can use Athena to query restored objects from the Amazon Glacier Flexible Re
 
  In Athena, you can use the [ALTER TABLE SET TBLPROPERTIES](alter-table-set-tblproperties.md) command to set the table property, as in the following example. 
 
-```
+```sql
 ALTER TABLE table_name SET TBLPROPERTIES ('read_restored_glacier_objects' = 'true')
 ```
 
@@ -53,7 +52,7 @@ ALTER TABLE table_name SET TBLPROPERTIES ('read_restored_glacier_objects' = 'tru
 
  In the AWS CLI, you can use the AWS Glue [update-table](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/update-table.html) command and its `--table-input` argument to redefine the table and in so doing add the `read_restored_glacier_objects` property. In the `--table-input` argument, use the `Parameters` structure to specify the `read_restored_glacier_objects` property and the value of `true`. Note that the argument for `--table-input` must not have spaces and must use backslashes to escape the double quotes. In the following example, replace {{my\_database}} and {{my\_table}} with the name of your database and table.
 
-```
+```shell
 aws glue update-table \
    --database-name {{my_database}} \
    --table-input={\"Name\":\"{{my_table}}\",\"Parameters\":{\"read_restored_glacier_objects\":\"true\"}}

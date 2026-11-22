@@ -1,7 +1,6 @@
 
 
 # Query Linux Foundation Delta Lake tables
-<a name="delta-lake-tables"></a>
 
 Linux Foundation [Delta Lake](https://delta.io/) is a table format for big data analytics. You can use Amazon Athena to read Delta Lake tables stored in Amazon S3 directly without having to generate manifest files or run the `MSCK REPAIR` statement.
 
@@ -21,11 +20,11 @@ Delta Lake support in Athena has the following considerations and limitations:
 
   For example, suppose you issue the following command:
 
-  ```
+  ```sql
   ALTER TABLE {{table_name}} SET TBLPROPERTIES ('read_restored_glacier_objects' = 'false')
   ```
 
-  For Iceberg and Delta Lake tables, the command produces the error Unsupported table property key: read\_restored\_glacier\_objects. For Hudi tables, the `ALTER TABLE` command does not produce an error, but Amazon Glacier objects are still not skipped. Running `SELECT` queries after the `ALTER TABLE` command continues to return all objects.
+  For Iceberg and Delta Lake tables, the command produces the error `Unsupported table property key: read_restored_glacier_objects`. For Hudi tables, the `ALTER TABLE` command does not produce an error, but Amazon Glacier objects are still not skipped. Running `SELECT` queries after the `ALTER TABLE` command continues to return all objects.
 + **Encrypted tables** – Athena does not support natively reading CSE-KMS encrypted Delta Lake tables. This includes SELECT statements and DDL statements.
 
 ### Delta Lake versioning and Athena

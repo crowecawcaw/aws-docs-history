@@ -1,7 +1,6 @@
 
 
 # Optimize Iceberg tables
-<a name="querying-iceberg-data-optimization"></a>
 
 Athena provides several optimization features to improve query performance on Apache Iceberg tables. As data accumulates, queries can become less efficient due to increased file processing overhead and the computational cost of applying row-level deletes stored in Iceberg delete files. To address these challenges, Athena supports manual compaction and vacuum operators to optimize table structure. Athena also works with Iceberg statistics to enable cost-based query optimization and Parquet column indexing for precise data pruning during query execution. These features work together to reduce query execution time, minimize data scanning, and lower costs. This topic describes how to use these optimization capabilities to maintain high-performance queries on your Iceberg tables.
 
@@ -15,7 +14,7 @@ The `OPTIMIZE {{table}} REWRITE DATA` compaction action rewrites data files into
 
 The following example merges delete files into data files and produces files near the targeted file size where the value of `category` is `c1`.
 
-```
+```sql
 OPTIMIZE iceberg_table REWRITE DATA USING BIN_PACK
   WHERE category = 'c1'
 ```
@@ -30,7 +29,7 @@ OPTIMIZE iceberg_table REWRITE DATA USING BIN_PACK
 
 The following example uses a table property to configure the table `iceberg_table` to retain the last three days of data, then uses `VACUUM` to expire the old snapshots and remove the orphan files from the table.
 
-```
+```sql
 ALTER TABLE iceberg_table SET TBLPROPERTIES (
   'vacuum_max_snapshot_age_seconds'='259200'
 )

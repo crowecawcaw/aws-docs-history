@@ -1,7 +1,6 @@
 
 
 # Basic connection parameters
-<a name="jdbc-v3-driver-basic-connection-parameters"></a>
 
 The following sections describe the basic connection parameters for the JDBC 3.x driver.
 

@@ -1,7 +1,6 @@
 
 
 # Endpoint overrides
-<a name="odbc-v2-driver-endpoint-overrides"></a>
 
 ## Athena endpoint override
 <a name="odbc-v2-driver-endpoint-overrides-athena"></a>

@@ -1,13 +1,12 @@
 
 
 # Create the table for ALB access logs in Athena using partition projection
-<a name="create-alb-access-logs-table-partition-projection"></a>
 
 Because ALB access logs have a known structure whose partition scheme you can specify in advance, you can reduce query runtime and automate partition management by using the Athena partition projection feature. Partition projection automatically adds new partitions as new data is added. This removes the need for you to manually add partitions by using `ALTER TABLE ADD PARTITION`. 
 
 The following example `CREATE TABLE` statement automatically uses partition projection on ALB access logs from a specified date until the present for a single AWS region. The statement is based on the example in the previous section but adds `PARTITIONED BY` and `TBLPROPERTIES` clauses to enable partition projection. In the `LOCATION` and `storage.location.template` clauses, replace the placeholders with values that identify the Amazon S3 bucket location of your ALB access logs. For more information about access log file location, see [Access log files](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html#access-log-file-format) in the *User Guide for Application Load Balancers*. For `projection.day.range`, replace {{2022}}/{{01}}/{{01}} with the starting date that you want to use. After you run the query successfully, you can query the table. You do not have to run `ALTER TABLE ADD PARTITION` to load the partitions. For information about each log file field, see [Access log entries](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html#access-log-entry-format). 
 
-```
+```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS alb_access_logs (
             type string,
             time string,

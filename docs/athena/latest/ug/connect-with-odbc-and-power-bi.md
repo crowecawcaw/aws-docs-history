@@ -1,7 +1,6 @@
 
 
 # Use the Amazon Athena Power BI connector
-<a name="connect-with-odbc-and-power-bi"></a>
 
 On Windows operating systems, you can use the Microsoft Power BI connector for Amazon Athena to analyze data from Amazon Athena in Microsoft Power BI Desktop. For information about Power BI, see [Microsoft power BI](https://powerbi.microsoft.com/). After you publish content to the Power BI service, you can use the July 2021 or later release of [Power BI gateway](https://powerbi.microsoft.com/gateway/) to keep the content up to date through on-demand or scheduled refreshes.
 

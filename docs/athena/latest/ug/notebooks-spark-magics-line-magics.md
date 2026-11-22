@@ -1,7 +1,6 @@
 
 
 # Use line magics
-<a name="notebooks-spark-magics-line-magics"></a>
 
 Magics that are on a single line are preceded by a percent sign (`%`) and are called line magic functions or line magics.
 

@@ -1,13 +1,12 @@
 
 
 # Considerations and limitations
-<a name="querying-hudi-in-athena-considerations-and-limitations"></a>
 
 When you use Athena to read Apache Hudi tables, consider the following points.
 + **Read and write operations** – Athena can read compacted Hudi datasets but not write Hudi data.
 + **Hudi versions** – Athena supports Hudi version 0.14.0 (default) and 0.15.0. Athena cannot guarantee read compatibility with tables that are created with later versions of Hudi. For more information about Hudi features and versioning, see the [Hudi documentation](https://hudi.apache.org/) on the Apache website. Note that version 0.15.0 of the Hudi connector on Athena does not support bootstrapped tables. To use 0.15.0 of the Hudi connector, set the following table property:
 
-  ```
+  ```sql
   ALTER TABLE {{table_name}} SET TBLPROPERTIES ('athena_enable_native_hudi_connector_implementation' = 'true')
   ```
 + **Cross account queries** – Version 0.15.0 of the Hudi connector does not support cross account queries.
@@ -23,14 +22,14 @@ When you use Athena to read Apache Hudi tables, consider the following points.
 
   For example, suppose you issue the following command:
 
-  ```
+  ```sql
   ALTER TABLE {{table_name}} SET TBLPROPERTIES ('read_restored_glacier_objects' = 'false')
   ```
 
-  For Iceberg and Delta Lake tables, the command produces the error Unsupported table property key: read\_restored\_glacier\_objects. For Hudi tables, the `ALTER TABLE` command does not produce an error, but Amazon Glacier objects are still not skipped. Running `SELECT` queries after the `ALTER TABLE` command continues to return all objects.
+  For Iceberg and Delta Lake tables, the command produces the error `Unsupported table property key: read_restored_glacier_objects`. For Hudi tables, the `ALTER TABLE` command does not produce an error, but Amazon Glacier objects are still not skipped. Running `SELECT` queries after the `ALTER TABLE` command continues to return all objects.
 + **Timestamp queries** – Currently, queries that attempt to read timestamp columns in Hudi real time tables either fail or produce empty results. This limitation applies only to queries that read a timestamp column. Queries that include only non-timestamp columns from the same table succeed. 
 
   Failed queries return a message similar to the following: 
 
-  GENERIC\_INTERNAL\_ERROR: class org.apache.hadoop.io.ArrayWritable cannot be cast to class org.apache.hadoop.hive.serde2.io.TimestampWritableV2 (org.apache.hadoop.io.ArrayWritable and org.apache.hadoop.hive.serde2.io.TimestampWritableV2 are in unnamed module of loader io.trino.server.PluginClassLoader @75c67992)
+  `GENERIC_INTERNAL_ERROR: class org.apache.hadoop.io.ArrayWritable cannot be cast to class org.apache.hadoop.hive.serde2.io.TimestampWritableV2 (org.apache.hadoop.io.ArrayWritable and org.apache.hadoop.hive.serde2.io.TimestampWritableV2 are in unnamed module of loader io.trino.server.PluginClassLoader @75c67992)`
 + **Lake Formation Permissions on 0.15.0 Hudi Connector** – This limitation applies only when you opt in to using the native Hudi connector (version 0.15.0) by setting the table property `athena_enable_native_hudi_connector_implementation` to `true`. By default, Athena uses Hudi connector version 0.14.0, which does not require this additional permission. To query a Lake Formation protected table, you must grant Lake Formation permissions to both the table's data location and the `.hoodie` metadata directory. For example, if your Hudi table is located at `s3://bucket/hudi-table/`, you must register and grant permissions to both `s3://bucket/hudi-table/` and `s3://bucket/hudi-table/.hoodie/` in Lake Formation. The `.hoodie` directory contains metadata files (such as `hoodie.properties`) that Athena needs to read during query planning. Without permissions to the `.hoodie` directory, queries will fail with permission denied errors.

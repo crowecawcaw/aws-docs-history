@@ -1,7 +1,6 @@
 
 
 # Migrate to the ODBC 2.x driver
-<a name="odbc-v2-driver-migrating"></a>
 
 Because most Athena ODBC 2.x connection parameters are backwardly compatible with the ODBC 1.x driver, you can reuse most of your existing connection string with the Athena ODBC 2.x driver. However, the following connection parameters require modifications.
 

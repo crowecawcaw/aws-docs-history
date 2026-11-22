@@ -1,7 +1,6 @@
 
 
 # Set up, administrative, and programmatic access
-<a name="setting-up"></a>
 
 If you've already signed up for Amazon Web Services, you can start using Amazon Athena immediately. If you haven't signed up for AWS or need assistance getting started, be sure to complete the following tasks.
 

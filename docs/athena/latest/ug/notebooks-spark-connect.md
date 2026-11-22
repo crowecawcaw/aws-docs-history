@@ -1,7 +1,6 @@
 
 
 # Spark Connect support
-<a name="notebooks-spark-connect"></a>
 
 Spark Connect is a client-server architecture for Apache Spark that decouples the application client from the Spark cluster's driver process, allowing remote connectivity to Spark from supported clients. Spark Connect also enables interactive debugging during development directly from your favorite IDEs/clients.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Athena IBM Db2 connector
-<a name="connectors-ibm-db2"></a>
 
 The Amazon Athena connector for Db2 enables Amazon Athena to run SQL queries on your IBM Db2 databases using JDBC.
 
@@ -249,7 +248,7 @@ The following Athena Db2 connector operators support predicate pushdown:
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -265,7 +264,7 @@ The Db2 connector supports [passthrough queries](federated-query-passthrough.md)
 
 To use passthrough queries with Db2, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -274,7 +273,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Db2. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

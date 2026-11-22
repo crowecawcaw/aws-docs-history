@@ -1,7 +1,6 @@
 
 
 # Proxy options
-<a name="odbc-v2-driver-proxy-options"></a>
 
 ## Proxy host
 <a name="odbc-v2-driver-proxy-options-proxy-host"></a>

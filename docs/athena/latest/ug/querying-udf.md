@@ -1,7 +1,6 @@
 
 
 # Query with user defined functions
-<a name="querying-udf"></a>
 
 User Defined Functions (UDF) in Amazon Athena allow you to create custom functions to process records or groups of records. A UDF accepts parameters, performs work, and then returns a result.
 

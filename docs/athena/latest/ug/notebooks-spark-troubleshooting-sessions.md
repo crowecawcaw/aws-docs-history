@@ -1,7 +1,6 @@
 
 
 # Troubleshoot session errors
-<a name="notebooks-spark-troubleshooting-sessions"></a>
 
 Use the information in this section to troubleshoot session issues.
 
@@ -25,7 +24,7 @@ You can get details about a session state change from the Athena notebook editor
 + In the Athena API, you can find session state change information in the `StateChangeReason` field of [SessionStatus](https://docs.aws.amazon.com/athena/latest/APIReference/API_SessionStatus.html) object.
 
 **Note**  
-After you manually stop a session, or if the session stops after an idle timeout (the default is 20 minutes), the value of **StateChangeReason** changes to Session was terminated per request.
+After you manually stop a session, or if the session stops after an idle timeout (the default is 20 minutes), the value of **StateChangeReason** changes to `Session was terminated per request`.
 
 ## Use logging to troubleshoot session start errors
 <a name="notebooks-spark-troubleshooting-sessions-using-logging"></a>
@@ -34,7 +33,7 @@ Custom configuration errors that occur during a session start are logged by [Ama
 
 For more information about Spark logging, see [Log Spark application events in Athena](notebooks-spark-logging.md).
 
-For more information about troubleshooting sessions in Athena for Spark, see [Troubleshoot session errors](#notebooks-spark-troubleshooting-sessions).
+For more information about troubleshooting sessions in Athena for Spark, see [Troubleshoot session errors](notebooks-spark-troubleshooting-sessions.md).
 
 ## Specific session issues
 <a name="notebooks-spark-troubleshooting-sessions-specific-error-messages"></a>
@@ -44,7 +43,7 @@ Use the information in this section to troubleshoot some specific session issues
 ### Session in unhealthy state
 <a name="notebooks-spark-troubleshooting-sessions-unhealthy"></a>
 
-If you receive the error message Session in unhealthy state. Please create a new session, terminate your existing session and create a new one.
+If you receive the error message `Session in unhealthy state. Please create a new session`, terminate your existing session and create a new one.
 
 ### A connection to the notebook server could not be established
 <a name="notebooks-spark-troubleshooting-sessions-wss-blocked"></a>

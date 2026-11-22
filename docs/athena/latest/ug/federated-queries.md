@@ -1,7 +1,6 @@
 
 
 # Use Amazon Athena Federated Query
-<a name="federated-queries"></a>
 
 If you have data in sources other than Amazon S3, you can use Athena Federated Query to query the data in place or build pipelines that extract data from multiple data sources and store the data in Amazon S3. With Athena Federated Query, you can run SQL queries across data stored in relational, non-relational, object, and custom data sources. For a full list of supported data sources, see [Available data source connectors](connectors-available.md). 
 
@@ -22,7 +21,7 @@ Third party developers may have used the Athena Query Federation SDK to write da
 <a name="connect-to-a-data-source-considerations"></a>
 + **Views** – You can create and query views on federated data sources. Federated views are stored in AWS Glue, not the underlying data source. For more information, see [Query federated views](running-federated-queries.md#running-federated-queries-federated-views).
 + **Delimited identifiers** – Delimited identifiers (also known as quoted identifiers) begin and end with double quotation marks ("). Currently, delimited identifiers are not supported for federated queries in Athena.
-+ **Write operations** – Write operations like [INSERT INTO](insert-into.md) are not supported. Attempting to do so may result in the error message This operation is currently not supported for external catalogs.
++ **Write operations** – Write operations like [INSERT INTO](insert-into.md) are not supported. Attempting to do so may result in the error message `This operation is currently not supported for external catalogs`.
 +  **Pricing** – For pricing information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/).
 + **JDBC driver** – To use the JDBC driver with federated queries or an [external Hive metastore](connect-to-data-source-hive.md), include `MetadataRetrievalMethod=ProxyAPI` in your JDBC connection string. For information about the JDBC driver, see [Connect to Amazon Athena with JDBC](connect-with-jdbc.md). 
 + **Secrets Manager** – To use the Athena Federated Query feature with AWS Secrets Manager, you must configure an Amazon VPC private endpoint for Secrets Manager. For more information, see [Create a Secrets Manager VPC private endpoint](https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html#vpc-endpoint-create) in the *AWS Secrets Manager User Guide*.

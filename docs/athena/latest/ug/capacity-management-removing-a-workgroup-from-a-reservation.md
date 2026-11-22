@@ -1,7 +1,6 @@
 
 
 # Remove a workgroup from a reservation
-<a name="capacity-management-removing-a-workgroup-from-a-reservation"></a>
 
 If you no longer require dedicated capacity for a workgroup or want to move a workgroup to its own reservation, you can remove it at any time. Removing a workgroup from a reservation is a straightforward process. After you remove a workgroup from a reservation, queries from the removed workgroup return to using on-demand capacity and are billed based on terabytes (TB) scanned.
 

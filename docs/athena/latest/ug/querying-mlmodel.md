@@ -1,7 +1,6 @@
 
 
 # Use Machine Learning (ML) with Amazon Athena
-<a name="querying-mlmodel"></a>
 
 Machine Learning (ML) with Amazon Athena lets you use Athena to write SQL statements that run Machine Learning (ML) inference using Amazon SageMaker AI. This feature simplifies access to ML models for data analysis, eliminating the need to use complex programming methods to run inference.
 

@@ -1,7 +1,6 @@
 
 
 # Permissions to create and use a data source in Athena
-<a name="connect-to-a-data-source-permissions"></a>
 
 ## AWS Glue Data Catalog federated connectors without Lambda permissions
 <a name="connect-to-a-data-source-permissions-managed"></a>
@@ -35,7 +34,7 @@ The example policy uses `"Resource": "*"` for simplicity. For production environ
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -122,7 +121,7 @@ The example policy uses `"Resource": "*"` for simplicity. For production environ
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

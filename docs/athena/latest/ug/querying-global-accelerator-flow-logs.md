@@ -1,7 +1,6 @@
 
 
 # Query AWS Global Accelerator flow logs
-<a name="querying-global-accelerator-flow-logs"></a>
 
 You can use AWS Global Accelerator to create accelerators that direct network traffic to optimal endpoints over the AWS global network. For more information about Global Accelerator, see [What is AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html).
 
@@ -13,7 +12,7 @@ You can use Athena to query your Global Accelerator flow logs by creating a tabl
 
 1. Copy and paste the following DDL statement into the Athena console. This query specifies *ROW FORMAT DELIMITED* and omits specifying a [SerDe](serde-reference.md), which means that the query uses the [`LazySimpleSerDe`](lazy-simple-serde.md). In this query, fields are terminated by a space.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS aga_flow_logs (
      version string,
      account string,
@@ -57,7 +56,7 @@ You can use Athena to query your Global Accelerator flow logs by creating a tabl
 
 1. Create partitions to read the data, as in the following sample query. The query creates a single partition for a specified date. Replace the placeholders for date and location.
 
-   ```
+   ```sql
    ALTER TABLE aga_flow_logs
    ADD PARTITION (dt={{'YYYY-MM-dd}}')
    LOCATION 's3://amzn-s3-demo-bucket/{{prefix}}/AWSLogs/{{account_id}}/globalaccelerator/{{region_code}}/{{YYYY}}/{{MM}}/{{dd}}';
@@ -69,7 +68,7 @@ You can use Athena to query your Global Accelerator flow logs by creating a tabl
 **Example – List the requests that pass through a specific edge location**  
 The following example query lists requests that passed through the LHR edge location. Use the `LIMIT` operator to limit the number of logs to query at one time.  
 
-```
+```sql
 SELECT 
   clientip, 
   agaregion, 
@@ -86,7 +85,7 @@ LIMIT
 **Example – List the endpoint IP addresses that receive the most HTTPS requests**  
 To see which endpoint IP addresses are receiving the highest number of HTTPS requests, use the following query. This query counts the number of packets received on HTTPS port 443, groups them by destination IP address, and returns the top 10 IP addresses.  
 
-```
+```sql
 SELECT 
   SUM(numpackets) AS packetcount, 
   endpointip 

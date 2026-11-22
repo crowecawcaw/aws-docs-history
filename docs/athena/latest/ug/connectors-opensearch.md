@@ -1,7 +1,6 @@
 
 
 # Amazon Athena OpenSearch connector
-<a name="connectors-opensearch"></a>
 
 OpenSearch Service
 
@@ -119,7 +118,7 @@ OpenSearch does not have a dedicated array data type. Any field can contain zero
 
 The following example defines `actor` and `genre` lists in the `movies` table.
 
-```
+```json
 PUT movies/_mapping 
 { 
   "_meta": { 
@@ -186,15 +185,15 @@ The OpenSearch connector can extract metadata definitions from either AWS Glue o
 
 The following are examples of DDL queries that you can use with this connector. In the examples, {{function\_name}} corresponds to the name of your Lambda function, {{domain}} is the name of the domain that you want to query, and {{index}} is the name of your index.
 
-```
+```sql
 SHOW DATABASES in `lambda:{{function_name}}`
 ```
 
-```
+```sql
 SHOW TABLES in `lambda:{{function_name}}`.{{domain}}
 ```
 
-```
+```sql
 DESCRIBE `lambda:{{function_name}}`.{{domain}}.{{index}}
 ```
 
@@ -207,14 +206,14 @@ The connector also pushes down predicates as part of its document search queries
 
 **Query**
 
-```
+```sql
 SELECT * FROM "lambda:elasticsearch".movies.movies 
 WHERE year >= 1955 AND year <= 1962 OR year = 1996
 ```
 
 **Predicate**
 
-```
+```sql
 (_exists_:year) AND year:([1955 TO 1962] OR 1996)
 ```
 
@@ -225,7 +224,7 @@ The OpenSearch connector supports [passthrough queries](federated-query-passthro
 
 To use passthrough queries with the OpenSearch connector, use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             schema => '{{schema_name}}',
@@ -236,7 +235,7 @@ SELECT * FROM TABLE(
 
 The following OpenSearch example passthrough query filters for employees with active employment status in the `employee` index of the `default` schema.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             schema => 'default',

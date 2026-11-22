@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Redis OSS connector
-<a name="connectors-redis"></a>
 
 The Amazon Athena Redis OSS connector enables Amazon Athena to communicate with your Redis OSS instances so that you can query your Redis OSS data with SQL. You can use the AWS Glue Data Catalog to map your Redis OSS key-value pairs into virtual tables.
 
@@ -102,7 +101,7 @@ The Redis connector supports [passthrough queries](federated-query-passthrough.m
 
 To create passthrough queries with Redis, use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.script(
             script => 'return redis.[call|pcall]({{query_script}})',
@@ -113,7 +112,7 @@ SELECT * FROM TABLE(
 
 The following example runs a Lua script to get the value at key `l:a`.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.script(
             script => 'return redis.call("GET", KEYS[1])',

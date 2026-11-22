@@ -1,7 +1,6 @@
 
 
 # Create tables using AWS Glue or the Athena console
-<a name="creating-tables-how-to"></a>
 
 You can create tables in Athena by using AWS Glue, the add table form, or by running a DDL statement in the Athena query editor.
 
@@ -32,7 +31,7 @@ You can create tables in Athena by using AWS Glue, the add table form, or by run
 
 1. In the query editor, enter a statement as shown in the following example and then choose **Run**.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE {{myopencsvtable}} (
       firstname string,
       lastname string,

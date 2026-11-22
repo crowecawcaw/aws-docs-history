@@ -1,7 +1,6 @@
 
 
 # Query Apache logs stored in Amazon S3
-<a name="querying-apache-logs"></a>
 
 You can use Amazon Athena to query [Apache HTTP Server log files](https://httpd.apache.org/docs/2.4/logs.html) stored in your Amazon S3 account. This topic shows you how to create table schemas to query Apache [Access log](https://httpd.apache.org/docs/2.4/logs.html#accesslog) files in the common log format.
 
@@ -61,7 +60,7 @@ Before you can query Apache logs stored in Amazon S3, you must create a table sc
 **Example – Filter for 404 errors**  
 The following example query selects the request received time, text of the client request, and server status code from the `apache_logs` table. The `WHERE` clause filters for HTTP status code `404` (page not found).  
 
-```
+```sql
 SELECT request_received_time, client_request, server_status
 FROM apache_logs
 WHERE server_status = '404'
@@ -74,7 +73,7 @@ The following image shows the results of the query in the Athena Query Editor.
 **Example – Filter for successful requests**  
 The following example query selects the user ID, request received time, text of the client request, and server status code from the `apache_logs` table. The `WHERE` clause filters for HTTP status code `200` (successful).  
 
-```
+```sql
 SELECT user_id, request_received_time, client_request, server_status
 FROM apache_logs
 WHERE server_status = '200'
@@ -87,6 +86,6 @@ The following image shows the results of the query in the Athena Query Editor.
 **Example – Filter by timestamp**  
 The following example queries for records whose request received time is greater than the specified timestamp.  
 
-```
+```sql
 SELECT * FROM apache_logs WHERE request_received_time > 10/Oct/2023:00:00:00
 ```

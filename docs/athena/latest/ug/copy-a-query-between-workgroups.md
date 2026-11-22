@@ -1,7 +1,6 @@
 
 
 # Copy a saved query between workgroups
-<a name="copy-a-query-between-workgroups"></a>
 
 Currently, the Athena console does not have an option to to copy a saved query from one workgroup to another directly, but you can perform the same task manually by using the following procedure.
 

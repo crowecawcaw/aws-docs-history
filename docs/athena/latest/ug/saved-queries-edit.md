@@ -1,7 +1,6 @@
 
 
 # Edit a saved query
-<a name="saved-queries-edit"></a>
 
 **To edit a saved query**
 

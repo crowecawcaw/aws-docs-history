@@ -1,7 +1,6 @@
 
 
 # Compliance validation for
-<a name="security-compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, and others.
 

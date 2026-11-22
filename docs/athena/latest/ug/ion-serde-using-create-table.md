@@ -1,7 +1,6 @@
 
 
 # Create Amazon Ion tables
-<a name="ion-serde-using-create-table"></a>
 
 To create a table in Athena from data stored in Amazon Ion format, you can use one of the following techniques in a CREATE TABLE statement:
 + Specify `STORED AS ION`. In this usage, you do not have to specify the Amazon Ion Hive SerDe explicitly. This choice is the more straightforward option.
@@ -14,7 +13,7 @@ You can also use `CREATE TABLE AS SELECT` (CTAS) statements to create Amazon Ion
 
 The following example `CREATE TABLE` statement uses `STORED AS ION` before the `LOCATION` clause to create a table based on flight data in Amazon Ion format. The `LOCATION` clause specifies the bucket or folder where the input files in Ion format are located. All files in the specified location are scanned.
 
-```
+```sql
 CREATE EXTERNAL TABLE flights_ion (
     yr INT,
     quarter INT,
@@ -44,7 +43,7 @@ Instead of using the `STORED AS ION` syntax, you can explicitly specify the Ion 
 
 The following DDL query uses this technique to create the same external table as in the previous example.
 
-```
+```sql
 CREATE EXTERNAL TABLE flights_ion (
     yr INT,
     quarter INT,

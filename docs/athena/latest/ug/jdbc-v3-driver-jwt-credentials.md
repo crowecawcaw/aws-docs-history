@@ -1,7 +1,6 @@
 
 
 # JWT credentials
-<a name="jdbc-v3-driver-jwt-credentials"></a>
 
 With this authentication type, you can use a JSON web token (JWT) obtained from an external identity provider as a connection parameter to authenticate with Athena. The external credentials provider must already be federated with AWS.
 

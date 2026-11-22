@@ -1,14 +1,13 @@
 
 
 # Convert JSON to Athena data types
-<a name="converting-json-to-native-data-types"></a>
 
 To convert JSON data to Athena data types, use `CAST`.
 
 **Note**  
 In this example, to denote strings as JSON-encoded, start with the `JSON` keyword and use single quotes, such as `JSON '12345'` 
 
-```
+```sql
 WITH dataset AS (
   SELECT
     CAST(JSON '"HELLO ATHENA"' AS VARCHAR) AS hello_msg,

@@ -1,7 +1,6 @@
 
 
 # Use Athena SQL
-<a name="using-athena-sql"></a>
 
 You can use Athena SQL to query your data in-place in Amazon S3 using the [AWS Glue Data Catalog](data-sources-glue.md), [an external Hive metastore](connect-to-data-source-hive.md), or [federated queries](federated-queries.md) using a variety of [prebuilt connectors](connectors-available.md) to other data sources.
 

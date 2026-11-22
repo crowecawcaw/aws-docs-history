@@ -1,7 +1,6 @@
 
 
 # Connect Athena to a Hive metastore using an existing IAM execution role
-<a name="connect-data-source-hive-existing-iam-role"></a>
 
 To connect your external Hive metastore to Athena with a Lambda function that uses an existing IAM role, you can use Athena's reference implementation of the Athena connector for external Hive metastore.
 

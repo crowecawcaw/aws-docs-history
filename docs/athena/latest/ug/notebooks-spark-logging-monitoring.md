@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring for Apache Spark sessions
-<a name="notebooks-spark-logging-monitoring"></a>
 
 From the release Apache Spark version 3.5 onwards, you can specify managed, Amazon S3, or CloudWatch logging as your logging options.
 

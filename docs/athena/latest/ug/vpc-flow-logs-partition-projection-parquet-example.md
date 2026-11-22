@@ -1,11 +1,10 @@
 
 
 # Create tables for flow logs in Apache Parquet format using partition projection
-<a name="vpc-flow-logs-partition-projection-parquet-example"></a>
 
 The following partition projection `CREATE TABLE` statement for VPC flow logs is in Apache Parquet format, not Hive compatible, and partitioned by hour and by date instead of day. Replace the table name `test_table_vpclogs_parquet` in the example with the name of your table. Edit the `LOCATION` clause to specify the Amazon S3 bucket that contains your Amazon VPC log data.
 
-```
+```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS test_table_vpclogs_parquet (
   version int,
   account_id string,

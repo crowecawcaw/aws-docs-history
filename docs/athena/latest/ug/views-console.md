@@ -1,7 +1,6 @@
 
 
 # Work with Athena views
-<a name="views-console"></a>
 
 Athena views can be easily created, updated, and managed in the Athena console.
 

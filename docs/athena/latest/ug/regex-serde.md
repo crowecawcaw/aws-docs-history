@@ -1,7 +1,6 @@
 
 
 # Regex SerDe
-<a name="regex-serde"></a>
 
 The Regex SerDe uses a regular expression (regex) to deserialize data by extracting regex groups into table columns. 
 
@@ -19,7 +18,7 @@ The serialization library name for the Regex SerDe is `org.apache.hadoop.hive.se
 
 The following example creates a table from CloudFront logs using the RegExSerDe. Replace {{myregion}} in `s3://athena-examples-{{myregion}}/cloudfront/plaintext/` with the region identifier where you run Athena (for example, `s3://athena-examples-us-west-1/cloudfront/plaintext/`).
 
-```
+```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS cloudfront_logs (
   `Date` DATE,
   Time STRING,

@@ -1,7 +1,6 @@
 
 
 # Register and use data catalogs in Athena
-<a name="gdc-register"></a>
 
 Athena supports mounting and connecting to multiple data catalogs. 
 + You can mount Amazon Redshift data in the AWS Glue Data Catalog and query it from Athena without having to copy or move data. For more information, see [Bringing Amazon Redshift data into the AWS Glue Data Catalog](https://docs.aws.amazon.com/lake-formation/latest/dg/managing-namespaces-datacatalog.html).

@@ -1,7 +1,6 @@
 
 
 # Key management
-<a name="key-management"></a>
 
 Amazon Athena supports AWS Key Management Service (AWS KMS) to encrypt datasets in Amazon S3 and Athena query results. AWS KMS uses customer managed keys to encrypt your Amazon S3 objects and relies on [envelope encryption](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping). 
 

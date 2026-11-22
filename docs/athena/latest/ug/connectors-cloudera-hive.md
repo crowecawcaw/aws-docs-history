@@ -1,7 +1,6 @@
 
 
 # Amazon Athena Cloudera Hive connector
-<a name="connectors-cloudera-hive"></a>
 
 The Amazon Athena connector for Cloudera Hive enables Athena to run SQL queries on the [Cloudera Hive](https://www.cloudera.com/products/open-source/apache-hadoop/apache-hive.html) Hadoop distribution. The connector transforms your Athena SQL queries to their equivalent HiveQL syntax. 
 
@@ -235,7 +234,7 @@ The following Athena Cloudera Hive connector operators support predicate pushdow
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
-```
+```sql
 SELECT * 
 FROM my_table 
 WHERE col_a > 10 
@@ -251,7 +250,7 @@ The Cloudera Hive connector supports [passthrough queries](federated-query-passt
 
 To use passthrough queries with Cloudera Hive, you can use the following syntax:
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => '{{query string}}'
@@ -260,7 +259,7 @@ SELECT * FROM TABLE(
 
 The following example query pushes down a query to a data source in Cloudera Hive. The query selects all columns in the `customer` table, limiting the results to 10.
 
-```
+```sql
 SELECT * FROM TABLE(
         system.query(
             query => 'SELECT * FROM customer LIMIT 10'

@@ -1,7 +1,6 @@
 
 
 # Control access to Amazon S3 from Athena
-<a name="s3-permissions"></a>
 
 You can grant access to Amazon S3 locations using identity-based policies, bucket resource policies, access point policies, or any combination of the above. When actors interact with Athena, their permissions pass through Athena to determine what Athena can access. This means that users must have permission to access Amazon S3 buckets in order to query them with Athena.
 
@@ -31,7 +30,7 @@ The following identity-based policy allows `Read` and `Write` access to objects 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -71,7 +70,7 @@ The following example permissions policy limits a user to reading objects that h
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

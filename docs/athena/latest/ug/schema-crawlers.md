@@ -1,7 +1,6 @@
 
 
 # Use a crawler to add a table
-<a name="schema-crawlers"></a>
 
 AWS Glue crawlers help discover the schema for datasets and register them as tables in the AWS Glue Data Catalog. The crawlers go through your data and determine the schema. In addition, the crawler can detect and register partitions. For more information, see [Defining crawlers](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) in the *AWS Glue Developer Guide*. Tables from data that were successfully crawled can be queried from Athena.
 
@@ -19,7 +18,7 @@ You can create a crawler by starting in the Athena console and then using the AW
 
 1. In the query editor, next to **Tables and views**, choose **Create**, and then choose **AWS Glue crawler**. 
 
-1. On the **AWS Glue** console **Add crawler** page, follow the steps to create a crawler. For more information, see [Using AWS Glue Crawlers](#schema-crawlers) in this guide and [Populating the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/populate-catalog-methods.html) in the *AWS Glue Developer Guide*.
+1. On the **AWS Glue** console **Add crawler** page, follow the steps to create a crawler. For more information, see [Using AWS Glue Crawlers](schema-crawlers.md) in this guide and [Populating the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/populate-catalog-methods.html) in the *AWS Glue Developer Guide*.
 
 **Note**  
 Athena does not recognize [exclude patterns](https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude) that you specify for an AWS Glue crawler. For example, if you have an Amazon S3 bucket that contains both `.csv` and `.json` files and you exclude the `.json` files from the crawler, Athena queries both groups of files. To avoid this, place the files that you want to exclude in a different location.

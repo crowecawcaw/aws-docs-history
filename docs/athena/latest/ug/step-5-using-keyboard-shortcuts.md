@@ -1,7 +1,6 @@
 
 
 # Step 5: Use keyboard shortcuts and typeahead suggestions
-<a name="step-5-using-keyboard-shortcuts"></a>
 
 The Athena query editor provides numerous keyboard shortcuts for actions like running a query, formatting a query, line operations, and find and replace. For more information and a complete list of shortcuts, see [Improve productivity by using keyboard shortcuts in Amazon Athena query editor](https://aws.amazon.com/blogs/big-data/improve-productivity-by-using-keyboard-shortcuts-in-amazon-athena-query-editor/) in the *AWS Big Data Blog*.
 

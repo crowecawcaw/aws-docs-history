@@ -1,7 +1,6 @@
 
 
 # Run a saved query
-<a name="saved-queries-run"></a>
 
 **To run a saved query**
 

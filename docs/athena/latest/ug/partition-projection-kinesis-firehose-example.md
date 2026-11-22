@@ -1,7 +1,6 @@
 
 
 # Amazon Data Firehose example
-<a name="partition-projection-kinesis-firehose-example"></a>
 
 When you use Firehose to deliver data to Amazon S3, the default configuration writes objects with keys that look like the following example:
 
@@ -13,7 +12,7 @@ To create an Athena table that finds the partitions automatically at query time,
 
 The following `CREATE TABLE` example uses the default Firehose configuration.
 
-```
+```sql
 CREATE EXTERNAL TABLE my_ingested_data (
  ...
 )

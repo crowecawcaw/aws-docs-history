@@ -1,7 +1,6 @@
 
 
 # Troubleshoot JSON queries
-<a name="json-troubleshooting"></a>
 
 For help on troubleshooting issues with JSON-related queries, see [JSON related errors](troubleshooting-athena.md#troubleshooting-athena-json-related-errors) or consult the following resources:
 + [I get errors when I try to read JSON data in Amazon Athena](https://aws.amazon.com/premiumsupport/knowledge-center/error-json-athena/)

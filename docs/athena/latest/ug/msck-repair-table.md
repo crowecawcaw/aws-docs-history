@@ -1,7 +1,6 @@
 
 
 # MSCK REPAIR TABLE
-<a name="msck-repair-table"></a>
 
 Use the `MSCK REPAIR TABLE` command to update the metadata in the catalog after you add Hive compatible partitions. 
 
@@ -26,14 +25,14 @@ When using `MSCK REPAIR TABLE`, keep in mind the following points:
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 MSCK REPAIR TABLE table_name
 ```
 
 ## Examples
 <a name="examples"></a>
 
-```
+```sql
 MSCK REPAIR TABLE orders;
 ```
 
@@ -45,10 +44,10 @@ After you run `MSCK REPAIR TABLE`, if Athena does not add the partitions to the 
 + **Amazon S3 access** – Make sure that the role has a policy with sufficient permissions to access Amazon S3, including the [`s3:DescribeJob`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html) action. For an example of which Amazon S3 actions to allow, see the example bucket policy in [Configure cross-account access in Athena to Amazon S3 buckets](cross-account-permissions.md).
 + **Amazon S3 object key casing** – Make sure that the Amazon S3 path is in lower case instead of camel case (for example, `userid` instead of `userId`), or use `ALTER TABLE ADD PARTITION` to specify the object key names. For more information, see [Change or redefine the Amazon S3 path](#msck-repair-table-troubleshooting-change-or-redefine-the-amazon-s3-path) later in this document.
 + **Query timeouts** – `MSCK REPAIR TABLE` is best used when creating a table for the first time or when there is uncertainty about parity between data and partition metadata. If you use `MSCK REPAIR TABLE` to add new partitions frequently (for example, on a daily basis) and are experiencing query timeouts, consider using [ALTER TABLE ADD PARTITION](alter-table-add-partition.md).
-+ **Partitions missing from file system** – If you delete a partition manually in Amazon S3 and then run `MSCK REPAIR TABLE`, you may receive the error message Partitions missing from filesystem. This occurs because `MSCK REPAIR TABLE` doesn't remove stale partitions from table metadata. To remove the deleted partitions from table metadata, run [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md) instead. Note that [SHOW PARTITIONS](show-partitions.md) similarly lists only the partitions in metadata, not the partitions in the file system.
++ **Partitions missing from file system** – If you delete a partition manually in Amazon S3 and then run `MSCK REPAIR TABLE`, you may receive the error message `Partitions missing from filesystem`. This occurs because `MSCK REPAIR TABLE` doesn't remove stale partitions from table metadata. To remove the deleted partitions from table metadata, run [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md) instead. Note that [SHOW PARTITIONS](show-partitions.md) similarly lists only the partitions in metadata, not the partitions in the file system.
 + **"NullPointerException name is null" error**
 
-  If you use the AWS Glue [CreateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_CreateTable.html) API operation or the CloudFormation [`AWS::Glue::Table`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html) template to create a table for use in Athena without specifying the `TableType` property and then run a DDL query like `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can receive the error message FAILED: NullPointerException Name is null. 
+  If you use the AWS Glue [CreateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_CreateTable.html) API operation or the CloudFormation [`AWS::Glue::Table`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html) template to create a table for use in Athena without specifying the `TableType` property and then run a DDL query like `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can receive the error message `FAILED: NullPointerException Name is null`. 
 
   To resolve the error, specify a value for the [TableInput](https://docs.aws.amazon.com/glue/latest/webapi/API_TableInput.html) `TableType` attribute as part of the AWS Glue `CreateTable` API call or [CloudFormation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html). Possible values for `TableType` include `EXTERNAL_TABLE` or `VIRTUAL_VIEW`.
 
@@ -66,7 +65,7 @@ Review the IAM policies attached to the role that you're using to run `MSCK REPA
 
 If one or more object keys in the Amazon S3 path are in camel case instead of lower case, `MSCK REPAIR TABLE` might not add the partitions to the AWS Glue Data Catalog. For example, if your Amazon S3 path includes the object key name `userId`, the following partitions might not be added to the AWS Glue Data Catalog:
 
-```
+```sql
 s3://amzn-s3-demo-bucket/path/userId=1/
 
 s3://amzn-s3-demo-bucket/path/userId=2/
@@ -77,7 +76,7 @@ s3://amzn-s3-demo-bucket/path/userId=3/
 To resolve this issue, do one of the following:
 + Use lower case instead of camel case when you create your Amazon S3 object keys:
 
-  ```
+  ```sql
   s3://amzn-s3-demo-bucket/path/userid=1/
   
   s3://amzn-s3-demo-bucket/path/userid=2/
@@ -86,7 +85,7 @@ To resolve this issue, do one of the following:
   ```
 + Use [ALTER TABLE ADD PARTITION](alter-table-add-partition.md) to redefine the location, as in the following example:
 
-  ```
+  ```sql
   ALTER TABLE table_name ADD [IF NOT EXISTS]
   PARTITION (userId=1)
   LOCATION 's3://amzn-s3-demo-bucket/path/userId=1/'

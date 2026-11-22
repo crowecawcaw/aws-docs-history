@@ -1,7 +1,6 @@
 
 
 # Use the cost-based optimizer
-<a name="cost-based-optimizer"></a>
 
 You can use the cost-based optimizer (CBO) feature in Athena SQL to optimize your queries. You can optionally request that Athena gather table or column-level statistics for one of your tables in AWS Glue. If all of the tables in your query have statistics, Athena uses the statistics to create an execution plan that it determines to be the most performant. The query optimizer calculates alternative plans based on a statistical model and then selects the one that will likely be the fastest to run the query.
 
@@ -61,4 +60,6 @@ In contrast, Hive tables in the Glue Data Catalog do not have a similar table pr
 
 For additional information, see the following resource.
 
-[![AWS Videos](https://img.youtube.com/vi/zUHEXJdHUxs?si=rMAhJj3I5IlhN-1R/0.jpg)](https://www.youtube.com/watch?v=zUHEXJdHUxs?si=rMAhJj3I5IlhN-1R)
+[![AWS Videos](https://img.youtube.com/vi/zUHEXJdHUxs/0.jpg)](https://www.youtube.com/watch?v=zUHEXJdHUxs)
+
+Enhance query performance using AWS Glue Data Catalog statistics (AWS YouTube channel)

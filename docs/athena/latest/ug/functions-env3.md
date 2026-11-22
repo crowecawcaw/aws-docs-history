@@ -1,7 +1,6 @@
 
 
 # Athena engine version 3 functions
-<a name="functions-env3"></a>
 
 Functions in Athena engine version 3 are based on Trino. For information about Trino functions, operators, and expressions, see [Functions and operators](https://trino.io/docs/current/functions.html) and the following subsections from the Trino documentation.
 +  [Aggregate](https://trino.io/docs/current/functions/aggregate.html) 
@@ -45,7 +44,7 @@ Returns a `VARCHAR` that contains the ARN of the principal (IAM role or Identity
 ### Usage
 <a name="functions-invoker-principal-usage"></a>
 
-```
+```sql
 SELECT invoker_principal()
 ```
 

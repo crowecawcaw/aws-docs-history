@@ -1,7 +1,6 @@
 
 
 # Choose a SerDe for your data
-<a name="supported-serdes"></a>
 
 The following table lists the data formats supported in Athena and their corresponding SerDe libraries.
 

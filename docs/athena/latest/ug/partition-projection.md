@@ -1,7 +1,6 @@
 
 
 # Use partition projection with Amazon Athena
-<a name="partition-projection"></a>
 
 You can use partition projection in Athena to speed up query processing of highly partitioned tables and automate partition management.
 

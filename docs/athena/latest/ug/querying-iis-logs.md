@@ -1,7 +1,6 @@
 
 
 # Query internet information server (IIS) logs stored in Amazon S3
-<a name="querying-iis-logs"></a>
 
 You can use Amazon Athena to query Microsoft Internet Information Services (IIS) web server logs stored in your Amazon S3 account. While IIS uses a [variety](https://docs.microsoft.com/en-us/previous-versions/iis/6.0-sdk/ms525807(v%3Dvs.90)) of log file formats, this topic shows you how to create table schemas to query W3C extended and IIS log file format logs from Athena.
 

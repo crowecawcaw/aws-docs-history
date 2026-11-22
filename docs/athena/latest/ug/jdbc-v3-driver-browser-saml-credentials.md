@@ -1,7 +1,6 @@
 
 
 # Browser SAML credentials
-<a name="jdbc-v3-driver-browser-saml-credentials"></a>
 
 Browser SAML is a generic authentication plugin that can work with SAML-based identity providers and supports multi-factor authentication.
 

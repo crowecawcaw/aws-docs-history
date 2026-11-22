@@ -1,7 +1,6 @@
 
 
 # Execute prepared statements using the AWS CLI
-<a name="querying-with-prepared-statements-cli-executing-prepared-statements"></a>
 
 To execute a prepared statement with the AWS CLI, you can supply values for the parameters by using one of the following methods:
 + Use the `execution-parameters` argument.

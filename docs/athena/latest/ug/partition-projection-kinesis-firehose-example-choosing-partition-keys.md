@@ -1,7 +1,6 @@
 
 
 # How to choose partition keys
-<a name="partition-projection-kinesis-firehose-example-choosing-partition-keys"></a>
 
 You can specify how partition projection maps the partition locations to partition keys. In the `CREATE TABLE` example in the previous section, the date and hour were combined into one partition key called datehour, but other schemes are possible. For example, you could also configure a table with separate partition keys for the year, month, day, and hour. 
 
@@ -9,7 +8,7 @@ However, splitting dates into year, month, and day means that the `date` partiti
 
 With that in mind, the following `CREATE TABLE` example separates the date from the hour. Because `date` is a reserved word in SQL, the example uses `day` as the name for the partition key that represents the date.
 
-```
+```sql
 CREATE EXTERNAL TABLE my_ingested_data2 (
  ...
 )
@@ -37,7 +36,7 @@ In the example `CREATE TABLE` statement, the hour is a separate partition key, c
 
 A query for the `my_ingested_data2` table might look like this:
 
-```
+```sql
 SELECT *
 FROM my_ingested_data2
 WHERE day = '2021/11/09'

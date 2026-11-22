@@ -1,7 +1,6 @@
 
 
 # Client and programming tools for using Athena
-<a name="accessing-athena"></a>
 
 You can access Athena using a variety of client and programming tools. These tools include the AWS Management Console, a JDBC or ODBC connection, the Athena API, the Athena CLI, the AWS SDK, or AWS Tools for Windows PowerShell.
 + To get started using Athena SQL with the console, see [Get started](getting-started.md).

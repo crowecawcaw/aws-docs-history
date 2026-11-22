@@ -1,14 +1,13 @@
 
 
 # DEALLOCATE PREPARE
-<a name="querying-with-prepared-statements-deallocate-prepare"></a>
 
 Removes the prepared statement with the specified name from the list of prepared statements in the current workgroup.
 
 ## Syntax
 <a name="querying-with-prepared-statements-deallocate-prepare-syntax"></a>
 
-```
+```sql
 DEALLOCATE PREPARE {{statement_name}}
 ```
 
@@ -19,6 +18,6 @@ DEALLOCATE PREPARE {{statement_name}}
 
 The following example removes the `my_select1` prepared statement from the current workgroup.
 
-```
+```sql
 DEALLOCATE PREPARE my_select1
 ```

@@ -1,7 +1,6 @@
 
 
 # Query Delta Lake tables with SQL
-<a name="delta-lake-tables-querying"></a>
 
 To query a Delta Lake table, use standard SQL `SELECT` syntax:
 

@@ -1,7 +1,6 @@
 
 
 # Use Athena Spark APIs
-<a name="notebooks-spark-api-list"></a>
 
 **Note**  
 Athena notebooks and Calculations APIs are available in the release version Pyspark engine version 3. Notebooks and Calculations APIs are not supported in the release version Apache Spark version 3.5.

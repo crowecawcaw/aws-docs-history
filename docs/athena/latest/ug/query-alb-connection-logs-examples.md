@@ -1,11 +1,10 @@
 
 
 # Example queries for ALB connection logs
-<a name="query-alb-connection-logs-examples"></a>
 
 The following query count occurrences where the value for `tls_verify_status` was not `'Success'`, grouped by client IP address:
 
-```
+```sql
 SELECT DISTINCT client_ip, count() AS count FROM alb_connection_logs
 WHERE tls_verify_status != 'Success'
 GROUP BY client_ip
@@ -14,7 +13,7 @@ ORDER BY count() DESC;
 
 The following query searches occurrences where the value for `tls_handshake_latency` was over 2 seconds in the specified time range:
 
-```
+```sql
 SELECT * FROM alb_connection_logs
 WHERE 
   (

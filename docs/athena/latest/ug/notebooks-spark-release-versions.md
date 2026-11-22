@@ -1,7 +1,6 @@
 
 
 # Release versions
-<a name="notebooks-spark-release-versions"></a>
 
 Amazon Athena for Apache Spark offers the following release versions:
 

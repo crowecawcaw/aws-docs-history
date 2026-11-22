@@ -1,7 +1,6 @@
 
 
 # Understand CloudTrail logs and Athena tables
-<a name="create-cloudtrail-table-understanding"></a>
 
 Before you begin creating tables, you should understand a little more about CloudTrail and how it stores data. This can help you create the tables that you need, whether you create them from the CloudTrail console or from Athena.
 

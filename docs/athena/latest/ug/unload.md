@@ -1,7 +1,6 @@
 
 
 # UNLOAD
-<a name="unload"></a>
 
 Writes query results from a `SELECT` statement to the specified data format. Supported formats for `UNLOAD` include Apache Parquet, ORC, Apache Avro, and JSON. CSV is the only output format supported by the Athena `SELECT` command, but you can use the `UNLOAD` command, which supports a variety of output formats, to enclose your `SELECT` query and rewrite its output to one of the formats that `UNLOAD` supports. 
 
@@ -25,7 +24,7 @@ When you use the `UNLOAD` statement in Athena, keep in mind the following points
 
 The `UNLOAD` statement uses the following syntax.
 
-```
+```sql
 UNLOAD (SELECT {{col_name}}[, ...] FROM {{old_table}}) 
 TO 's3://amzn-s3-demo-bucket/{{my_folder}}/' 
 WITH ( {{property_name}} = '{{expression}}' [, ...] )
@@ -53,7 +52,7 @@ Optional. The compression level to use for ZSTD compression. This property appli
 ** field\_delimiter = '{{delimiter}}' **  
 Optional. Specifies a single-character field delimiter for files in CSV, TSV, and other text formats. The following example specifies a comma delimiter.  
 
-```
+```sql
 WITH (field_delimiter = ',')
 ```
 Currently, multicharacter field delimiters are not supported. If you do not specify a field delimiter, the octal character `\001` (^A) is used.
@@ -67,7 +66,7 @@ In your `SELECT` statement, make sure that the names of the partitioned columns 
 
 The following example writes the output of a `SELECT` query to the Amazon S3 location `s3://amzn-s3-demo-bucket/unload_test_1/` using JSON format.
 
-```
+```sql
 UNLOAD (SELECT * FROM old_table) 
 TO 's3://amzn-s3-demo-bucket/unload_test_1/' 
 WITH (format = 'JSON')
@@ -75,7 +74,7 @@ WITH (format = 'JSON')
 
 The following example writes the output of a `SELECT` query in Parquet format using Snappy compression.
 
-```
+```sql
 UNLOAD (SELECT * FROM old_table) 
 TO 's3://amzn-s3-demo-bucket/' 
 WITH (format = 'PARQUET',compression = 'SNAPPY')
@@ -83,7 +82,7 @@ WITH (format = 'PARQUET',compression = 'SNAPPY')
 
 The following example writes four columns in text format, with the output partitioned by the last column.
 
-```
+```sql
 UNLOAD (SELECT name1, address1, comment1, key1 FROM table1) 
 TO 's3://amzn-s3-demo-bucket/ partitioned/' 
 WITH (format = 'TEXTFILE', partitioned_by = ARRAY['key1'])
@@ -91,7 +90,7 @@ WITH (format = 'TEXTFILE', partitioned_by = ARRAY['key1'])
 
 The following example unloads the query results to the specified location using the Parquet file format, ZSTD compression, and ZSTD compression level 4.
 
-```
+```sql
 UNLOAD (SELECT * FROM old_table) 
 TO 's3://amzn-s3-demo-bucket/' 
 WITH (format = 'PARQUET', compression = 'ZSTD', compression_level = 4)

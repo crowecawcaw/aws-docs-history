@@ -1,13 +1,12 @@
 
 
 # Add columns at the end of the table
-<a name="updates-add-columns-end-of-table"></a>
 
 If you create tables in any of the formats that Athena supports, such as Parquet, ORC, Avro, JSON, CSV, and TSV, you can use the `ALTER TABLE ADD COLUMNS` statement to add columns after existing columns but before partition columns.
 
 The following example adds a `comment` column at the end of the `orders_parquet` table before any partition columns: 
 
-```
+```sql
 ALTER TABLE orders_parquet ADD COLUMNS (comment string)
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Athena ODBC 2.x
-<a name="odbc-v2-driver"></a>
 
 You can use an ODBC connection to connect to Amazon Athena from many third-party SQL client tools and applications. You set up the ODBC connection on your client computer.
 
@@ -28,7 +27,7 @@ When you use the ODBC 2.x driver, be sure to note the following:
 
 | Driver version | Download link | 
 | --- | --- | 
-| ODBC 2.5.0.0 for Linux x86\_64 |  [Linux x86\_64 ODBC driver 2.5.0.0](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.5.0.0/Linux/AmazonAthenaODBC-2.5.0.0-x86_64.rpm)  | 
+| ODBC 2.6.0.0 for Linux x86\_64 |  [Linux x86\_64 ODBC driver 2.6.0.0](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.6.0.0/Linux/AmazonAthenaODBC-2.6.0.0-x86_64.rpm)  | 
 
 ### macOS
 <a name="connect-with-odbc-macos"></a>
@@ -36,7 +35,7 @@ When you use the ODBC 2.x driver, be sure to note the following:
 
 | Driver version | Download link | 
 | --- | --- | 
-| ODBC 2.5.0.0 for macOS |  [macOS ODBC driver 2.5.0.0](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.5.0.0/Mac/AmazonAthenaODBC-2.5.0.0-macos11-universal.pkg)  | 
+| ODBC 2.6.0.0 for macOS |  [macOS ODBC driver 2.6.0.0](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.6.0.0/Mac/AmazonAthenaODBC-2.6.0.0-macos11-universal.pkg)  | 
 
 ### Windows
 <a name="connect-with-odbc-windows"></a>
@@ -44,11 +43,11 @@ When you use the ODBC 2.x driver, be sure to note the following:
 
 | Driver version | Download link | 
 | --- | --- | 
-| ODBC 2.5.0.0 for Windows amd64 |  [Windows amd64 ODBC driver 2.5.0.0](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.5.0.0/Windows/AmazonAthenaODBC-2.5.0.0-windows-amd64.msi)  | 
+| ODBC 2.6.0.0 for Windows amd64 |  [Windows amd64 ODBC driver 2.6.0.0](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.6.0.0/Windows/AmazonAthenaODBC-2.6.0.0-windows-amd64.msi)  | 
 
 ### Licenses
 <a name="connect-with-odbc-licenses"></a>
-+  [AWS license](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.5.0.0/LICENSE.txt) 
++  [AWS license](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.6.0.0/LICENSE.txt) 
 
 ## Trusted identity propagation with ODBC
 <a name="odbc-v2-driver-trusted-identity"></a>

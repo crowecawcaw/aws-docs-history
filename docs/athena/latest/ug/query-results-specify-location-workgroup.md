@@ -1,7 +1,6 @@
 
 
 # Specify a query result location using a workgroup
-<a name="query-results-specify-location-workgroup"></a>
 
 You specify the query result location in a workgroup configuration using the AWS Management Console, the AWS CLI, or the Athena API.
 

@@ -1,7 +1,6 @@
 
 
 # Data perimeters
-<a name="data-perimeters"></a>
 
 A [data perimeter](https://aws.amazon.com/identity/data-perimeters-on-aws/) is a set of permissions guardrails in your AWS environment you use to help ensure that only your trusted identities are accessing trusted resources from expected networks. 
 

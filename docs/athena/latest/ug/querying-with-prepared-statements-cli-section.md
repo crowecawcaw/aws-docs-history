@@ -1,7 +1,6 @@
 
 
 # Use the AWS CLI to create, execute, and list prepared statements
-<a name="querying-with-prepared-statements-cli-section"></a>
 
 You can use the AWS CLI to create, execute, and list prepared statements.
 

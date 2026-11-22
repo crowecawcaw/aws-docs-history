@@ -1,7 +1,6 @@
 
 
 # Use Data Catalog views in Athena
-<a name="views-glue"></a>
 
 Creating Data Catalog views in Amazon Athena requires a special `CREATE VIEW` statement. Querying them uses conventional SQL `SELECT` syntax. Data Catalog views are also referred to as *multi dialect* views, or MDVs.
 
@@ -22,7 +21,7 @@ The `SHOW VIEW JSON` option applies to Data Catalog views only and not to Athena
 
 The following example shows how a user of the `Definer` role creates the `orders_by_date` Data Catalog view. The example assumes that the `Definer` role has full `SELECT` permissions on the `orders` table in the `default` database.
 
-```
+```sql
 CREATE PROTECTED MULTI DIALECT VIEW orders_by_date 
 SECURITY DEFINER 
 AS 
@@ -39,7 +38,7 @@ For syntax information, see [CREATE PROTECTED MULTI DIALECT VIEW](create-view.md
 
 After the view is created, the `Lake Formation` admin can grant `SELECT` permissions on the Data Catalog view to the `Invoker` principals. The `Invoker` principals can then query the view without having access to the underlying base tables referenced by the view. The following is an example `Invoker` query.
 
-```
+```sql
 SELECT * from orders_by_date where price > 5000
 ```
 
@@ -49,8 +48,8 @@ SELECT * from orders_by_date where price > 5000
 Most of the following Data Catalog view limitations are specific to Athena. For additional limitations on Data Catalog views that also apply to other services, see the Lake Formation documentation.
 + Data Catalog views cannot reference other views, database resource links, or table resource links.
 + You can reference up to 10 tables in the view definition.
-+ Tables must not have the `IAMAllowedPrincipals` data lake permission in Lake Formation. If present, the error Multi Dialect views may only reference tables without IAMAllowedPrincipals permissions occurs.
-+ The table's Amazon S3 location must be registered as a Lake Formation data lake location. If the table is not so registered, the error Multi Dialect views may only reference Lake Formation managed tables occurs. For information about how to register Amazon S3 locations in Lake Formation, see [Registering an Amazon S3 location](https://docs.aws.amazon.com/lake-formation/latest/dg/register-location.html) in the *AWS Lake Formation Developer Guide*.
++ Tables must not have the `IAMAllowedPrincipals` data lake permission in Lake Formation. If present, the error `Multi Dialect views may only reference tables without IAMAllowedPrincipals permissions` occurs.
++ The table's Amazon S3 location must be registered as a Lake Formation data lake location. If the table is not so registered, the error `Multi Dialect views may only reference Lake Formation managed tables` occurs. For information about how to register Amazon S3 locations in Lake Formation, see [Registering an Amazon S3 location](https://docs.aws.amazon.com/lake-formation/latest/dg/register-location.html) in the *AWS Lake Formation Developer Guide*.
 + The AWS Glue [GetTables](https://docs.aws.amazon.com/glue/latest/webapi/API_GetTables.html) and [SearchTables](https://docs.aws.amazon.com/glue/latest/webapi/API_SearchTables.html) API calls do not update the `IsRegisteredWithLakeFormation` parameter. To view the correct value for the parameter, use the AWS Glue [GetTable](https://docs.aws.amazon.com/glue/latest/webapi/API_GetTable.html) API. For more information, see [GetTables and SearchTables APIs do not update the value for the IsRegisteredWithLakeFormation parameter](https://docs.aws.amazon.com/lake-formation/latest/dg/limitations.html#issue-GetTables-value) in the *AWS Lake Formation Developer Guide*.
 + The `DEFINER` principal can be only an IAM role.
 + The `DEFINER` role must have full `SELECT` (grantable) permissions on the underlying tables.

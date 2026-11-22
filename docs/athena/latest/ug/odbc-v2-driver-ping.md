@@ -1,7 +1,6 @@
 
 
 # Ping
-<a name="odbc-v2-driver-ping"></a>
 
 Ping is a SAML based plugin that works with the [PingFederate](https://www.pingidentity.com/en/platform/capabilities/authentication-authority/pingfederate.html) identity provider.
 

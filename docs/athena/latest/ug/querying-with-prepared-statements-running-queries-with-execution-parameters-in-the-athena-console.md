@@ -1,7 +1,6 @@
 
 
 # Run queries with execution parameters in the Athena console
-<a name="querying-with-prepared-statements-running-queries-with-execution-parameters-in-the-athena-console"></a>
 
 When you run a parameterized query that has execution parameters (question marks) in the Athena console, you are prompted for the values in the order in which the question marks occur in the query.
 
@@ -9,7 +8,7 @@ When you run a parameterized query that has execution parameters (question marks
 
 1. Enter a query with question mark placeholders in the Athena editor, as in the following example.
 
-   ```
+   ```sql
    SELECT * FROM "my_database"."my_table"
    WHERE year = ? and month= ? and day= ?
    ```

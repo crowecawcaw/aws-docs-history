@@ -1,7 +1,6 @@
 
 
 # Reuse query results in Athena
-<a name="reusing-query-results"></a>
 
 When you re-run a query in Athena, you can optionally choose to reuse the last stored query result. This option can increase performance and reduce costs in terms of the number of bytes scanned. Reusing query results is useful if, for example, you know that the results will not change within a given time frame. You can specify a maximum age for reusing query results. Athena uses the stored result as long as it is not older than the age that you specify. For more information, see [Reduce cost and improve query performance with Amazon Athena](https://aws.amazon.com/blogs/big-data/reduce-cost-and-improve-query-performance-with-amazon-athena-query-result-reuse/) in the *AWS Big Data Blog*.
 

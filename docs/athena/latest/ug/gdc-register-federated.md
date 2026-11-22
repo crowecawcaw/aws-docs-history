@@ -1,7 +1,6 @@
 
 
 # Register federated catalogs in Athena
-<a name="gdc-register-federated"></a>
 
 After you create connections to federated data sources, you can register them as federated data catalogs for simplified data discovery and manage data access with fine-grained permissions using Lake Formation. For more information, see [Register your connection as a Glue Data Catalog](register-connection-as-gdc.md).
 

@@ -1,7 +1,6 @@
 
 
 # UPDATE
-<a name="update-statement"></a>
 
 Updates rows in an Apache Iceberg table. `UPDATE` is transactional and is supported only for Apache Iceberg tables. The statement works only on existing rows and cannot be used to insert or append a row.
 
@@ -10,7 +9,7 @@ Updates rows in an Apache Iceberg table. `UPDATE` is transactional and is suppor
 
 To update the rows in an Iceberg table, use the following syntax.
 
-```
+```sql
 UPDATE [{{db_name}}.]{{table_name}} SET xx=yy[,...] [WHERE {{predicate}}]
 ```
 

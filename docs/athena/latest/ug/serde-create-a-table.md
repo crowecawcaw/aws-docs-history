@@ -1,12 +1,11 @@
 
 
 # Use a SerDe to create a table
-<a name="serde-create-a-table"></a>
 
 To use a SerDe when creating a table in Athena, use one of the following methods:
 + Specify `ROW FORMAT DELIMITED` and then use DDL statements to specify field delimiters, as in the following example. When you specify `ROW FORMAT DELIMITED`, Athena uses the LazySimpleSerDe by default.
 
-  ```
+  ```sql
   ROW FORMAT DELIMITED 
   FIELDS TERMINATED BY ','
   ESCAPED BY '\\'
@@ -27,7 +26,7 @@ To use a SerDe when creating a table in Athena, use one of the following methods
   [Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md)
 + Use `ROW FORMAT SERDE` to explicitly specify the type of SerDe that Athena should use when it reads and writes data to the table. The following example specifies the LazySimpleSerDe. To specify the delimiters, use `WITH SERDEPROPERTIES`. The properties specified by `WITH SERDEPROPERTIES` correspond to the separate statements (like `FIELDS TERMINATED BY`) in the `ROW FORMAT DELIMITED` example.
 
-  ```
+  ```sql
   ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
   WITH SERDEPROPERTIES (
   'serialization.format' = ',',

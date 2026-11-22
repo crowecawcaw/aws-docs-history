@@ -1,11 +1,10 @@
 
 
 # Use CTAS and INSERT INTO to work around the 100 partition limit
-<a name="ctas-insert-into"></a>
 
 Athena has a limit of 100 partitions per `CREATE TABLE AS SELECT` ([CTAS](ctas.md)) query. Similarly, you can add a maximum of 100 partitions to a destination table with an [INSERT INTO](https://docs.aws.amazon.com/athena/latest/ug/insert-into.html) statement.
 
-If you exceed this limitation, you may receive the error message HIVE\_TOO\_MANY\_OPEN\_PARTITIONS: Exceeded limit of 100 open writers for partitions/buckets. To work around this limitation, you can use a CTAS statement and a series of `INSERT INTO` statements that create or insert up to 100 partitions each.
+If you exceed this limitation, you may receive the error message `HIVE_TOO_MANY_OPEN_PARTITIONS: Exceeded limit of 100 open writers for partitions/buckets`. To work around this limitation, you can use a CTAS statement and a series of `INSERT INTO` statements that create or insert up to 100 partitions each.
 
 The example in this topic uses a database called `tpch100` whose data resides in the Amazon S3 bucket location s3://amzn-s3-demo-bucket/.
 
@@ -15,7 +14,7 @@ The example in this topic uses a database called `tpch100` whose data resides in
 
    The following example statement partitions the data by the column `l_shipdate`. The table has 2525 partitions.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE `tpch100.lineitem_parq_partitioned`(
      `l_orderkey` int, 
      `l_partkey` int, 
@@ -41,7 +40,7 @@ The example in this topic uses a database called `tpch100` whose data resides in
 
 1. Run a `SHOW PARTITIONS {{<table_name>}}` command like the following to list the partitions.
 
-   ```
+   ```sql
    SHOW PARTITIONS lineitem_parq_partitioned
    ```
 
@@ -72,7 +71,7 @@ The example in this topic uses a database called `tpch100` whose data resides in
 
    The following example creates a table called `my_lineitem_parq_partitioned` and uses the `WHERE `clause to restrict the `DATE` to earlier than `1992-02-01`. Because the sample dataset starts with January 1992, only partitions for January 1992 are created.
 
-   ```
+   ```sql
    CREATE table my_lineitem_parq_partitioned
    WITH (partitioned_by = ARRAY['l_shipdate']) AS
    SELECT l_orderkey,
@@ -96,7 +95,7 @@ The example in this topic uses a database called `tpch100` whose data resides in
 
 1. Run the `SHOW PARTITIONS` command to verify that the table contains the partitions that you want.
 
-   ```
+   ```sql
    SHOW PARTITIONS my_lineitem_parq_partitioned;
    ```
 
@@ -141,7 +140,7 @@ The example in this topic uses a database called `tpch100` whose data resides in
 
    The following example adds partitions for the dates from the month of February 1992.
 
-   ```
+   ```sql
    INSERT INTO my_lineitem_parq_partitioned
    SELECT l_orderkey,
             l_partkey,
@@ -165,7 +164,7 @@ The example in this topic uses a database called `tpch100` whose data resides in
 
 1. Run `SHOW PARTITIONS` again.
 
-   ```
+   ```sql
    SHOW PARTITIONS my_lineitem_parq_partitioned;
    ```
 

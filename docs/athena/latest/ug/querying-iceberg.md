@@ -1,7 +1,6 @@
 
 
 # Query Apache Iceberg tables
-<a name="querying-iceberg"></a>
 
 You can use Athena to perform read, time travel, write, and DDL queries on Apache Iceberg tables.
 
@@ -30,16 +29,16 @@ Athena support for Iceberg tables has the following considerations and limitatio
   + [ALTER TABLE SET LOCATION](alter-table-set-location.md)
 + **Views** – Use `CREATE VIEW` to create Athena views as described in [Work with views](views.md). If you are interested in using the [Iceberg view specification](https://github.com/apache/iceberg/blob/master/format/view-spec.md) to create views, contact [athena-feedback@amazon.com](mailto:athena-feedback@amazon.com). 
 + **TTF management commands not supported in AWS Lake Formation** – Although you can use Lake Formation to manage read access permissions for TransactionTable Formats (TTFs) like Apache Iceberg, Apache Hudi, and Linux Foundation Delta Lake, you cannot use Lake Formation to manage permissions for operations like `VACUUM`, `MERGE`, `UPDATE` or `OPTIMIZE` with these table formats. For more information about Lake Formation integration with Athena, see [Using AWS Lake Formation with Amazon Athena](https://docs.aws.amazon.com/lake-formation/latest/dg/athena-lf.html) in the *AWS Lake Formation Developer Guide*.
-+ **Partitioning by nested fields** – Partitioning by nested fields is not supported. Attempting to do so produces the message NOT\_SUPPORTED: Partitioning by nested field is unsupported: {{column\_name}}.{{nested\_field\_name}}.
++ **Partitioning by nested fields** – Partitioning by nested fields is not supported. Attempting to do so produces the message `NOT_SUPPORTED: Partitioning by nested field is unsupported:` {{column\_name}}.{{nested\_field\_name}}.
 + **Skipping Amazon Glacier objects not supported ** – If objects in the Apache Iceberg table are in an Amazon Glacier storage class, setting the `read_restored_glacier_objects` table property to `false` has no effect.
 
   For example, suppose you issue the following command:
 
-  ```
+  ```sql
   ALTER TABLE {{table_name}} SET TBLPROPERTIES ('read_restored_glacier_objects' = 'false')
   ```
 
-  For Iceberg and Delta Lake tables, the command produces the error Unsupported table property key: read\_restored\_glacier\_objects. For Hudi tables, the `ALTER TABLE` command does not produce an error, but Amazon Glacier objects are still not skipped. Running `SELECT` queries after the `ALTER TABLE` command continues to return all objects.
+  For Iceberg and Delta Lake tables, the command produces the error `Unsupported table property key: read_restored_glacier_objects`. For Hudi tables, the `ALTER TABLE` command does not produce an error, but Amazon Glacier objects are still not skipped. Running `SELECT` queries after the `ALTER TABLE` command continues to return all objects.
 
 If you would like Athena to support a particular feature, send feedback to [athena-feedback@amazon.com](mailto:athena-feedback@amazon.com).
 

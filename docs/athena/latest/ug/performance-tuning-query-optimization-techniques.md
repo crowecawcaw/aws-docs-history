@@ -1,7 +1,6 @@
 
 
 # Optimize queries
-<a name="performance-tuning-query-optimization-techniques"></a>
 
 Use the query optimization techniques described in this section to make queries run faster or as workarounds for queries that exceed resource limits in Athena.
 
@@ -33,7 +32,7 @@ To find out how Athena will execute your query in advance, you can use the `EXPL
 ## Reduce the scope of window functions, or remove them
 <a name="performance-tuning-optimizing-window-functions"></a>
 
-Because window functions are resource intensive operations, they can make queries run slow or even fail with the message Query exhausted resources at this scale factor. Window functions keep all the records that they operate on in memory in order to calculate their result. When the window is very large, the window function can run out of memory.
+Because window functions are resource intensive operations, they can make queries run slow or even fail with the message `Query exhausted resources at this scale factor`. Window functions keep all the records that they operate on in memory in order to calculate their result. When the window is very large, the window function can run out of memory.
 
 To make sure your queries run within the available memory limits, reduce the size of the windows that your window functions operate over. To do so, you can add a `PARTITIONED BY` clause or narrow the scope of existing partitioning clauses.
 
@@ -44,7 +43,7 @@ Sometimes queries with window functions can be rewritten without window function
 
 For example, suppose you have a dataset with updates from a sensor. The sensor periodically reports its battery status and includes some metadata like location. If you want to know the last battery status for each sensor and its location, you can use this query:
 
-```
+```sql
 SELECT sensor_id,
        arbitrary(location) AS location,
        max_by(battery_status, updated_at) AS battery_status
@@ -65,11 +64,11 @@ It is also a good idea to avoid including redundant columns in `GROUP BY` clause
 
 Sometimes queries include columns in the `GROUP BY` clause to work around the fact that a column must either be part of the `GROUP BY` clause or an aggregate expression. If this rule is not followed, you can receive an error message like the following:
 
- EXPRESSION\_NOT\_AGGREGATE: line 1:8: 'category' must be an aggregate expression or appear in GROUP BY clause 
+ `EXPRESSION_NOT_AGGREGATE: line 1:8: 'category' must be an aggregate expression or appear in GROUP BY clause` 
 
 To avoid having to add a redundant columns to the `GROUP BY` clause, you can use the [arbitrary](https://trino.io/docs/current/functions/aggregate.html#arbitrary) function, as in the following example.
 
-```
+```sql
 SELECT country_id,
        arbitrary(country_name) AS country_name,
        COUNT(*) AS city_count
@@ -100,7 +99,7 @@ Athena has no specific limit on the number of columns in a result, but how queri
 
 For example, the following error is caused by a relation that exceeds the size limit for a relation descriptor:
 
- GENERIC\_INTERNAL\_ERROR: io.airlift.bytecode.CompilationException 
+ `GENERIC_INTERNAL_ERROR: io.airlift.bytecode.CompilationException` 
 
 To work around this issue, reduce the number of columns in the query, or create subqueries and use a `JOIN` that retrieves a smaller amount of data. If you have queries that do `SELECT *` in the outermost query, you should change the `*` to a list of only the columns that you need.
 
