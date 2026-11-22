@@ -1,7 +1,6 @@
 
 
 # Deleting a configuration for AWS Artifact notification settings
-<a name="notifications-configuration-delete"></a>
 
 **Note**  
 The content of this page is only applicable to commercial AWS [Regions](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html?icmpid=docs_homepage_addtlrcs#region), and does not currently apply to AWS GovCloud (US) Regions.

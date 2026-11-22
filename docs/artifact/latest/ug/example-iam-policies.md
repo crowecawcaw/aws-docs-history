@@ -1,7 +1,6 @@
 
 
 # Example IAM policies for AWS Artifact in commercial AWS Regions
-<a name="example-iam-policies"></a>
 
 You can create permissions policies that grant permissions to IAM users. You can grant users access to AWS Artifact reports and the ability to accept and download agreements on behalf of either a single account or an organization.
 
@@ -22,7 +21,7 @@ These policies are applicable in commercial AWS [Regions](https://docs.aws.amazo
 The following policy grants permission to download all AWS reports through fine-grained permissions.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -43,7 +42,7 @@ The following policy grants permission to download all AWS reports through fine-
 The following policy grants permission to download only the AWS SOC, PCI, and ISO reports through fine-grained permissions.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -86,7 +85,7 @@ Third-party reports are denoted by the IAM resource `report`.
 The following policy grants permission to all third-party report functionality.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -106,7 +105,7 @@ The following policy grants permission to all third-party report functionality.
 The following policy grants permission to download third-party reports.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -124,7 +123,7 @@ The following policy grants permission to download third-party reports.
 The following policy grants permission to list third-party reports.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -141,7 +140,7 @@ The following policy grants permission to list third-party reports.
 The following policy grants permission to view a third-party report's details for all versions.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -160,7 +159,7 @@ The following policy grants permission to view a third-party report's details fo
 The following policy grants permission to view a third-party report's details for a specific version.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -184,7 +183,7 @@ The following policy grants permission to view a third-party report's details fo
 The following policy grants permission to download all agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -222,7 +221,7 @@ The following policy grants permission to download all agreements.
 The following policy grants permission to accept all agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -252,7 +251,7 @@ The following policy grants permission to accept all agreements.
 The following policy grants permission to terminate all agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -280,7 +279,7 @@ The following policy grants permission to terminate all agreements.
 The following policy grants permissions to view and execute account level agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -321,7 +320,7 @@ The following policy grants permissions to view and execute account level agreem
 The following policy grants permission to create the IAM role that AWS Artifact uses to integrate with AWS Organizations. Your organization's management account must have these permissions to get started with organizational agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -347,7 +346,7 @@ The following policy grants permission to create the IAM role that AWS Artifact 
 The following policy grants permission to grant AWS Artifact the permissions to use AWS Organizations. Your organization's management account must have these permissions to get started with organizational agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -382,7 +381,7 @@ The following policy grants permission to grant AWS Artifact the permissions to 
 The following policy grants permissions to manage agreements for the management account.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -463,7 +462,7 @@ The following policy grants permissions to manage agreements for the management 
 The following policy grants permissions to manage organizational agreements. Another user with the required permissions must set up the organizational agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -509,7 +508,7 @@ The following policy grants permissions to manage organizational agreements. Ano
 The following policy grants permissions to view organizational agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -556,7 +555,7 @@ The following policy grants permissions to view organizational agreements.
 The following policy grants read-only permission to list, view, export compliance inquiries, and list tags for compliance inquiry resources.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -585,7 +584,7 @@ The following policy grants read-only permission to list, view, export complianc
 The following policy grants full permission to create, list, view, export compliance inquiries, and manage tags for compliance inquiry resources. It also grants permission to list the existing AWS User Notifications notification configurations that you can select when you create an inquiry. In addition, it grants permission to read each configuration's delivery channels, event rules, and email contacts.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -637,7 +636,7 @@ The following policy grants full permission to create, list, view, export compli
  The following policy grants complete permissions to use AWS Artifact notifications.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -679,7 +678,7 @@ The following policy grants full permission to create, list, view, export compli
  The following policy grants permission to list all configurations.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -703,7 +702,7 @@ The following policy grants full permission to create, list, view, export compli
  The following policy grants permission to create a configuration.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -732,7 +731,7 @@ The following policy grants full permission to create, list, view, export compli
  The following policy grants permission to edit a configuration.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -764,7 +763,7 @@ The following policy grants full permission to create, list, view, export compli
  The following policy grants permission to delete a configuration.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -784,7 +783,7 @@ The following policy grants full permission to create, list, view, export compli
  The following policy grants permission to view details of a configuration.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -807,7 +806,7 @@ The following policy grants full permission to create, list, view, export compli
  The following policy grants permission to register or deregister notification hubs.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

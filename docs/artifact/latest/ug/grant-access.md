@@ -1,7 +1,6 @@
 
 
 # Granting user access to AWS Artifact
-<a name="grant-access"></a>
 
 Complete the following steps to grant users permissions to AWS Artifact based on the level of access they need.
 

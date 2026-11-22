@@ -1,7 +1,6 @@
 
 
 # Using AWS managed policies for AWS Artifact
-<a name="security-iam-awsmanpol"></a>
 
  
 

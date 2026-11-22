@@ -1,7 +1,6 @@
 
 
 # Best practices for effective questions
-<a name="assurance-assistant-best-practices"></a>
 
 Well-formed questions produce the most relevant and complete responses. The guidance below helps you get the most value from Assurance Assistant.
 

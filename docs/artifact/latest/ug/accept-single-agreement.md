@@ -1,7 +1,6 @@
 
 
 # Accepting agreements for your AWS account in AWS Artifact
-<a name="accept-single-agreement"></a>
 
 You can use the AWS Artifact console to review and accept agreements with AWS for your AWS account.
 

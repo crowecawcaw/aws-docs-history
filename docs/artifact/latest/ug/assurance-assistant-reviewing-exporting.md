@@ -1,7 +1,6 @@
 
 
 # Reviewing and exporting responses
-<a name="assurance-assistant-reviewing-exporting"></a>
 
 ## Understanding your responses
 <a name="assurance-assistant-understanding-responses"></a>

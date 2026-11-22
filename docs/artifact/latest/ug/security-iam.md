@@ -1,7 +1,6 @@
 
 
 # Identity and access management in AWS Artifact
-<a name="security-iam"></a>
 
 When you sign up for AWS, you provide an email address and password that are associated with your AWS account. These are your *root credentials*, and they provide complete access to all of your AWS resources, including resources for AWS Artifact. However, we strongly recommend that you don't use the root account for everyday access. We also recommend that you don't share account credentials with others to give them complete access to your account. 
 

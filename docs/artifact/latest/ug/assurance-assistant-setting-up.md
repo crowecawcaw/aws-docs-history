@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="assurance-assistant-setting-up"></a>
 
 ## Prerequisites
 <a name="assurance-assistant-prerequisites"></a>

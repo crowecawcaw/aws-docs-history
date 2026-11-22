@@ -1,7 +1,6 @@
 
 
 # Example IAM policies for AWS Artifact in AWS GovCloud (US) Regions
-<a name="example-govcloud-iam-policies"></a>
 
 These policies are ONLY applicable in AWS GovCloud (US) Regions. For policies applicable to commercial AWS [Regions](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html?icmpid=docs_homepage_addtlrcs#region), see [Example IAM policies for AWS Artifact in commercial AWS Regions](https://docs.aws.amazon.com/artifact/latest/ug/example-iam-policies.html)
 
@@ -18,7 +17,7 @@ The following example policies show permissions that you can assign to IAM users
 The following policy grants permission to download all reports.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -39,7 +38,7 @@ The following policy grants permission to download all reports.
 The following policy grants permission to download only the SOC, PCI, and ISO reports.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -80,7 +79,7 @@ The following policy grants permission to download only the SOC, PCI, and ISO re
 The following policy grants permission to download all agreements. IAM users must also have this permission to accept agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -118,7 +117,7 @@ The following policy grants permission to download all agreements. IAM users mus
 The following policy grants permission to accept all agreement.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -148,7 +147,7 @@ The following policy grants permission to accept all agreement.
 The following policy grants permission to terminate all agreement.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -176,7 +175,7 @@ The following policy grants permission to terminate all agreement.
 The following policy grants permissions to view and execute account level agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -217,7 +216,7 @@ The following policy grants permissions to view and execute account level agreem
 The following policy grants permission to create the IAM role that AWS Artifact uses to integrate with AWS Organizations. Your organization's management account must have these permissions to get started with organizational agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -243,7 +242,7 @@ The following policy grants permission to create the IAM role that AWS Artifact 
 The following policy grants permission to grant AWS Artifact the permissions to use AWS Organizations. Your organization's management account must have these permissions to get started with organizational agreements.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -278,7 +277,7 @@ The following policy grants permission to grant AWS Artifact the permissions to 
 The following policy grants permissions to manage agreements for the management account.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -359,7 +358,7 @@ The following policy grants permissions to manage agreements for the management 
 The following policy grants permissions to manage organizational agreements. Another user with the required permissions must set up the organizational agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -405,7 +404,7 @@ The following policy grants permissions to manage organizational agreements. Ano
 The following policy grants permissions to view organizational agreements.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

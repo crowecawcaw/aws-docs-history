@@ -1,7 +1,6 @@
 
 
 # Managing agreements in AWS Artifact
-<a name="managing-agreements"></a>
 
 You can use AWS Artifact to review and manage agreements for your AWS account or organization. For example, companies that are subject to the Health Insurance Portability and Accountability Act (HIPAA) typically require a Business Associate Addendum (BAA) agreement with AWS to ensure that protected health information (PHI) is appropriately safeguarded. In the AWS Artifact console, you can review and accept such agreements, and you can designate an AWS account that can legally process PHI.
 

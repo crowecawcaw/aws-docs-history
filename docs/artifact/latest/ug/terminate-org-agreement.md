@@ -1,7 +1,6 @@
 
 
 # Terminating agreements for your organization in AWS Artifact
-<a name="terminate-org-agreement"></a>
 
 If you used the AWS Artifact console to [accept an agreement on behalf of all member accounts in an organization in AWS Organizations](accept-org-agreement.md), then you can use the console to terminate that agreement. Otherwise, see [Offline agreements in AWS Artifact](manage-offline-agreement.md).
 

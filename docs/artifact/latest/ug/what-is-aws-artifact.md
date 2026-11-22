@@ -1,7 +1,6 @@
 
 
 # What is AWS Artifact?
-<a name="what-is-aws-artifact"></a>
 
 AWS Artifact provides on-demand downloads of AWS security and compliance documents. For example, reports on compliance with International Organization for Standardization (ISO) standards and Payment Card Industry (PCI) Security Standards, and System and Organization Controls (SOC) reports. AWS Artifact also provides downloads of certifications from accreditation bodies that validate the implementation and operating effectiveness of AWS security controls.
 

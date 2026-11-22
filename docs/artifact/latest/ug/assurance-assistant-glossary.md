@@ -1,7 +1,6 @@
 
 
 # Glossary
-<a name="assurance-assistant-glossary"></a>
 
 
 | Term | Definition | 
