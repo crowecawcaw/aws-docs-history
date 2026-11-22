@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge integration in Image Builder
-<a name="integ-eventbridge"></a>
 
 Amazon EventBridge is a serverless event bus service that you can use to connect your Image Builder application with related data from other AWS services. In EventBridge, a rule matches incoming events and sends them to targets for processing. A single rule can send an event to multiple targets, and these events then run in parallel.
 
@@ -61,7 +60,7 @@ Image Builder sends this event when the state changes for an image resource duri
 + From `TESTING` to `FAILED`
 + From `INTEGRATING` to `AVAILABLE`
 
-```
+```json
 {
     "version": "0",
     "id": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
@@ -106,7 +105,7 @@ The `resources` array contains the ARN of the image resource that changed state.
 
 Image Builder sends this event with the results after it collects the findings from a successful image scan, even if the scan finds no vulnerabilities.
 
-```
+```json
 {
     "version": "0",
     "id": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
@@ -158,7 +157,7 @@ The `resources` array contains the ARN of the image resource, and the ARN of the
 
 Image Builder sends a message when a `WaitForAction` workflow step pauses to wait for an asynchronous action to complete.
 
-```
+```json
 {
     "version": "0",
     "id": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
@@ -196,7 +195,7 @@ To respond, call `SendWorkflowStepAction` with the `workflow-step-execution-id` 
 
 If you've configured the `autoDisablePolicy` for your pipeline, then Image Builder disables the pipeline and sends an event message to EventBridge when the number of consecutive scheduled pipeline execution failures exceeds the maximum number that's allowed per the policy.
 
-```
+```json
 {
     "version": "0",
     "id": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",

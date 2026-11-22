@@ -1,7 +1,6 @@
 
 
 # Use comparison operators in AWSTOE component documents
-<a name="toe-comparison-operators"></a>
 
 You can use the following comparison operators with the **[Assert](toe-action-modules.md#action-modules-assertion)** action module and with conditional expressions that use the [if Construct](toe-conditional-constructs.md#toe-conditional-if). A comparison operator can operate on a single value, for example `stringIsEmpty`, or it can compare a baseline value to a second value (variable value) to determine whether the conditional expression evaluates to `true` or `false`.
 
@@ -29,7 +28,7 @@ The following comparison operators work with strings to compare values, to test 
 **stringIsEmpty**  
 The `stringIsEmpty` operator returns `true` if the specified string doesn't contain any characters. For example:  
 
-```
+```yaml
 # Evaluates to true
 stringIsEmpty: ""
 
@@ -43,7 +42,7 @@ stringIsEmpty: "Hello."
 **stringIsWhitespace**  
 Tests if the string specified for `stringIsWhitespace` contains only spaces. For example:  
 
-```
+```yaml
 # Evaluates to true
 stringIsWhitespace: "   "
 
@@ -57,7 +56,7 @@ stringIsWhitespace: " Hello?"
 **stringEquals**  
 Tests if the string specified for `stringEquals` is an exact match for the string specified in the `value` parameter. For example:  
 
-```
+```yaml
 # Evaluates to true
 stringEquals: 'Testing, testing...'
 value: 'Testing, testing...'
@@ -82,7 +81,7 @@ value: 'Testing, testing...   '
 **stringLessThan**  
 Tests if the string specified in the `value` parameter is less than the string specified for `stringLessThan`. For example:  
 
-```
+```yaml
 # Evaluates to false - since the comparison isn't case sensitive, 'A' is equal to 'a'
 stringLessThan: 'A'
 value: 'a'
@@ -104,7 +103,7 @@ value: 'a'
 **stringLessThanEquals**  
 Tests if the string specified in the `value` parameter is less than or equal to the string specified for `stringLessThanEquals`. For example:  
 
-```
+```yaml
 # Evaluates to true - 'a' is equal to 'a'
 stringLessThanEquals: 'a'
 value: 'a'
@@ -129,7 +128,7 @@ value: 'a'
 **stringGreaterThan**  
 Tests if the string specified in the `value` parameter is greater than the string specified for `stringGreaterThan`. For example:  
 
-```
+```yaml
 # Evaluates to false - since the comparison isn't case sensitive, 'A' is equal to 'a'
 stringGreaterThan: 'a'
 value: 'A'
@@ -150,7 +149,7 @@ value: '0'
 **stringGreaterThanEquals**  
 Tests if the string specified in the `value` parameter is greater than or equal to the string specified for `stringGreaterThanEquals`. For example:  
 
-```
+```yaml
 # Evaluates to true - 'a' is equal to 'A'
 stringGreaterThanEquals: 'A'
 value: 'a'
@@ -172,7 +171,7 @@ value: '0'
 Tests if the string specified in the `value` parameter matches the regex pattern specified for `patternMatches`. The comparison uses the [Golang regexp package](https://pkg.go.dev/regexp), which conforms to the RE2 syntax. For more information about RE2 rules, see the [google / re2](https://github.com/google/re2/wiki/Syntax) repository in *GitHub*.  
 The following example shows a pattern match that returns `true`:  
 
-```
+```yaml
 patternMatches: '^[a-z]+$'
 value: 'ThisIsValue'
 ```
@@ -195,7 +194,7 @@ The following comparison operators work with numbers. The values provided for th
 **numberEquals**  
 Tests if the number specified for `numberEquals` is equal to the number specified in the `value` parameter. All of the following example comparisons return `true`:  
 
-```
+```yaml
 # Values provided as a positive number
 numberEquals: 1
 value: 1
@@ -220,7 +219,7 @@ value: -1
 **numberLessThan**  
 Tests if the number specified in the `value` parameter is less than the number specified for `numberLessThan`. For example:  
 
-```
+```yaml
 # Evaluates to true
 numberLessThan: 2
 value: 1
@@ -237,7 +236,7 @@ value: '2'
 **numberLessThanEquals**  
 Tests if the number specified in the `value` parameter is less than or equal to the number specified for `numberLessThanEquals`. For example:  
 
-```
+```yaml
 # Evaluates to true
 numberLessThanEquals: 2
 value: 1
@@ -258,7 +257,7 @@ value: 2.1
 **numberGreaterThan**  
 Tests if the number specified in the `value` parameter is greater than the number specified for `numberGreaterThan`. For example:  
 
-```
+```yaml
 # Evaluates to true
 numberGreaterThan: 1
 value: 2
@@ -275,7 +274,7 @@ value: '1'
 **numberGreaterThanEquals**  
 Tests if the number specified in the `value` parameter is greater than or equal to the number specified for `numberGreaterThanEquals`. For example:  
 
-```
+```yaml
 # Evaluates to true
 numberGreaterThanEquals: 1
 value: 2
@@ -310,7 +309,7 @@ The following comparison operators check the file hash or check if a file or fol
 **binaryExists**  
 Tests whether an application is available in the current path. For example:  
 
-```
+```yaml
 binaryExists: '{{foo}}'
 ```
 On Linux and macOS systems, for an application named {{foo}}, this works the same as the following bash command: **type {{foo}} >/dev/null 2>&1**, where **$? == 0** indicates a successful comparison.  
@@ -319,7 +318,7 @@ On Windows systems, for an application named {{foo}}, this works the same as the
 **fileExists**  
 Tests whether a file exists at the specified path. You can provide an absolute or relative path. If the location you specify exists and is a file, the comparison evaluates to `true`. For example:  
 
-```
+```yaml
 fileExists: '{{/path/to/file}}'
 ```
 On Linux and macOS systems, this works the same as the following bash command: **-f {{/path/to/file}}**, where **$? == 0** indicates a successful comparison.  
@@ -328,7 +327,7 @@ On Windows systems, this works the same as the PowerShell command **Test-Path -P
 **folderExists**  
 Tests whether a folder exists at the specified path. You can provide an absolute or relative path. If the location you specify exists and is a folder, the comparison evaluates to `true`. For example:  
 
-```
+```yaml
 folderExists: '{{/path/to/folder}}'
 ```
 On Linux and macOS systems, this works the same as the following bash command: **-d {{/path/to/folder}}**, where **$? == 0** indicates a successful comparison.  
@@ -337,7 +336,7 @@ On Windows systems, this works the same as the PowerShell command **Test-Path -P
 **fileMD5Equals**  
 Tests whether a file’s MD5 hash equals a specified value. For example:  
 
-```
+```yaml
 fileMD5Equals: '{{<MD5Hash>}}'
 path: '{{/path/to/file}}'
 ```
@@ -345,7 +344,7 @@ path: '{{/path/to/file}}'
 **fileSHA1Equals**  
 Tests whether a file’s SHA1 hash equals a specified value. For example:  
 
-```
+```yaml
 fileSHA1Equals: '{{<SHA1Hash>}}'
 path: '{{/path/to/file}}'
 ```
@@ -353,7 +352,7 @@ path: '{{/path/to/file}}'
 **fileSHA256Equals**  
 Tests whether a file’s SHA256 hash equals a specified value. For example:  
 
-```
+```yaml
 fileSHA256Equals: '{{<SHA256Hash>}}'
 path: '{{/path/to/file}}'
 ```
@@ -361,7 +360,7 @@ path: '{{/path/to/file}}'
 **fileSHA512Equals**  
 Tests whether a file’s SHA512 hash equals a specified value. For example:  
 
-```
+```yaml
 fileSHA512Equals: '{{<SHA512Hash>}}'
 path: '{{/path/to/file}}'
 ```

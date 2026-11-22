@@ -1,7 +1,6 @@
 
 
 # Use conditional statements in your workflow steps
-<a name="wfdoc-conditional-statements"></a>
 
 Conditional statements begin with the `if` statement document attribute. The ultimate purpose of the `if` statement is to determine whether to run the step action or to skip it. If the `if` statement resolves to `true`, then the step action runs. If it resolves to `false`, Image Builder skips the step action and records a step status of `SKIPPED` in the log.
 
@@ -56,7 +55,7 @@ Levels two through four are considered child levels. Child statements can includ
 **Example: Nested levels**  
 The following example shows the maximum number of levels in a conditional statement.
 
-```
+```yaml
 if:
   and:                             #first level
     - stringEquals: 'my_string'    #second level
@@ -84,7 +83,7 @@ The `and` branching statement operates on a list of expressions that are childre
 
 The following example evaluates to `true`, because both expressions evaluate to `true`.
 
-```
+```yaml
 if:
   and:
     - stringEquals: 'test_string'
@@ -98,7 +97,7 @@ The `or` branching statement operates on a list of expressions that are children
 
 The following example evaluates to `true`, even though the first expression is `false`.
 
-```
+```yaml
 if:
   or:
     - stringEquals: 'test_string'
@@ -112,7 +111,7 @@ The `not` conditional modifier negates the conditional statements that are child
 
 The following example evaluates to `true` when the `not` modifier negates the `stringEquals` conditional statement.
 
-```
+```yaml
 if:
   not:
     stringEquals: 'test_string'
@@ -124,7 +123,7 @@ The `booleanEquals` comparison operator compares Boolean values and returns true
 
 The following example determines if `collectImageScanFindings` is enabled.
 
-```
+```yaml
 if:
   booleanEquals: true
   value: '$.imagebuilder.collectImageScanFindings'
@@ -135,7 +134,7 @@ The `stringEquals` comparison operator compares two strings and returns true if 
 
 The following example compares the platform system variable to determine if the workflow is running on a Linux platform.
 
-```
+```yaml
 if:
   stringEquals: 'Linux'
   value: '$.imagebuilder.platform'
@@ -146,7 +145,7 @@ The `numberEquals` comparison operator compares two numbers and returns true if 
 
 The following example evaluates to `true`. It compares integers, floats, and negative values.
 
-```
+```yaml
 if:
   and:
     - numberEquals: 1

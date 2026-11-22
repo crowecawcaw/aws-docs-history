@@ -1,7 +1,6 @@
 
 
 # Create and update distribution settings for container images
-<a name="cr-upd-container-distribution-settings"></a>
 
 This section covers creating and updating distribution settings for Image Builder container images.
 
@@ -25,7 +24,7 @@ You can create distribution settings for your container image from the AWS CLI o
 
    Use your favorite file-editing tool to create a JSON file with the keys shown in the following example, plus values that are valid for your environment. This example uses a file named `create-container-distribution-configuration.json`:
 
-   ```
+   ```json
    {
    	"name": "distribution-configuration-name",
    	"description": "Distributes container image to Amazon ECR repository in two Regions.",
@@ -80,7 +79,7 @@ The following example uses the same settings as the AWS CLI example. Each top-le
 
 The following example shows how to use the [New-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBDistributionConfiguration.html) cmdlet to create distribution settings for a container image:
 
-```
+```ps
 Import-Module AWS.Tools.Imagebuilder
 $usWest2 = [Amazon.Imagebuilder.Model.Distribution]@{
     Region = "us-west-2"
@@ -137,7 +136,7 @@ The following example shows how to use the [update-distribution-configuration](h
 
    Use your favorite file-editing tool to create a JSON file with keys shown in the following example, plus values that are valid for your environment. This example uses a file named `update-container-distribution-configuration.json`:
 
-   ```
+   ```json
    {
    	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-2:111122223333:distribution-configuration/update-container-distribution-configuration",
    	"description": "Distributes container image to Amazon ECR repository in two Regions.",
@@ -188,7 +187,7 @@ The following example uses the same settings as the AWS CLI example. Each top-le
 
 The following example shows how to use the `Update-EC2IBDistributionConfiguration` cmdlet to update distribution settings for your container image:
 
-```
+```ps
 Import-Module AWS.Tools.Imagebuilder
 $usWest2 = [Amazon.Imagebuilder.Model.Distribution]@{
     Region = "us-west-2"

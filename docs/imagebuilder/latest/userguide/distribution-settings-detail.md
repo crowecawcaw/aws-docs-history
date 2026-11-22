@@ -1,7 +1,6 @@
 
 
 # List and view distribution configuration detail
-<a name="distribution-settings-detail"></a>
 
 This section describes the various ways that you can find information and view details for your EC2 Image Builder distribution configuration.
 
@@ -44,13 +43,13 @@ aws imagebuilder list-distribution-configurations --filters name=name,values={{m
 
 The following example shows how to use the [Get-EC2IBDistributionConfigurationList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBDistributionConfigurationList.html) cmdlet to list all of your distribution configurations:
 
-```
+```ps
 Get-EC2IBDistributionConfigurationList
 ```
 
 You can filter the list by distribution configuration `name`, which is the only supported filter. By default, the cmdlet retrieves all pages of results. To get one page at a time, use the `NoAutoIteration`, `MaxResult`, and `NextToken` parameters. The `MaxResult` value can't exceed 100. The following example filters the list by name:
 
-```
+```ps
 Get-EC2IBDistributionConfigurationList -Filter @{Name="name";Values="{{my-example-distribution}}"}
 ```
 
@@ -90,7 +89,7 @@ aws imagebuilder get-distribution-configuration --distribution-configuration-arn
 
 The following example shows how to use the [Get-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBDistributionConfiguration.html) cmdlet to get the details of a distribution configuration by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Get-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}}
 ```
 
@@ -131,7 +130,7 @@ aws imagebuilder delete-distribution-configuration --distribution-configuration-
 
 The following example shows how to use the [Remove-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBDistributionConfiguration.html) cmdlet to delete a distribution configuration by specifying its ARN:
 
-```
+```ps
 Remove-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:distribution-configuration/{{my-example-distribution-configuration}}
 ```
 

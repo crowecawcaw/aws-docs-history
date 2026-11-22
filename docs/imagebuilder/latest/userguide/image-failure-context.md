@@ -1,7 +1,6 @@
 
 
 # Find the cause of a failed image build with failure context
-<a name="image-failure-context"></a>
 
 When an image build fails, Image Builder reports the failure in the image `state`. The state carries a message that describes the failure in `reason`, and structured **failure context** in `failureContext`.
 
@@ -62,7 +61,7 @@ aws imagebuilder get-image \
 
 The following example output shows a build that failed because a component step ran a script that exited with a non-zero status.
 
-```
+```json
 {
     "status": "FAILED",
     "reason": "Workflow Execution ID: 'wf-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111' failed with reason: Document arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0/1 failed!",
@@ -87,7 +86,7 @@ A build that uses an older version of the AWSTOE component manager might report 
 
 The next example output shows an image that built and tested successfully, then failed while Image Builder updated launch templates in three destination Regions. The build succeeded in every other destination, so only the three failed Regions appear.
 
-```
+```json
 {
     "status": "FAILED",
     "reason": "Integration failed with JobId 'a1b2c3d4-5678-90ab-cdef-EXAMPLE33333', status = 'Failed' for ARN 'arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1'. …",
@@ -133,7 +132,7 @@ aws imagebuilder list-image-build-versions \
 
 To get the failure context, run the [Get-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImage.html) cmdlet with the build version ARN of the failed image and read the `State` property:
 
-```
+```ps
 (Get-EC2IBImage -ImageBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-example-recipe}}/1.0.0/1).State
 ```
 
@@ -141,7 +140,7 @@ The `State` property includes `Status`, `Reason`, and `FailureContext`. `Failure
 
 To find the failed builds in an account without inspecting each one, run the [Get-EC2IBImageBuildVersionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageBuildVersionList.html) cmdlet and filter on the image status. The following example returns the failed builds for an image, with the failure context for each:
 
-```
+```ps
 Get-EC2IBImageBuildVersionList -ImageVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-example-recipe}}/1.0.0 |
     Where-Object { $_.State.Status -eq "FAILED" } |
     Select-Object Arn, @{Name="FailureContext"; Expression={$_.State.FailureContext}}
@@ -169,7 +168,7 @@ Failure context narrows a failure down to a single step. Use the following steps
 
    To list the steps with Tools for PowerShell, run the [Get-EC2IBWorkflowStepExecutionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBWorkflowStepExecutionList.html) cmdlet. The cmdlet returns the full response, so the following example reads its `Steps` property:
 
-   ```
+   ```ps
    (Get-EC2IBWorkflowStepExecutionList -WorkflowExecutionId wf-{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}).Steps
    ```
 

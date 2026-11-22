@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in Image Builder
-<a name="infrastructure-security"></a>
 
 The AWS global network provides security capabilities and controls network access for services like EC2 Image Builder. For more information about the infrastructure security that AWS provides for its services, see the [Infrastructure Security](https://docs.aws.amazon.com/whitepapers/latest/introduction-aws-security/infrastructure-security.html) section in the *Introduction to AWS Security* whitepaper.
 

@@ -1,7 +1,6 @@
 
 
 # Monitor Image Builder logs with Amazon CloudWatch Logs
-<a name="monitor-cwlogs"></a>
 
 CloudWatch Logs support is turned on by default. Image Builder retains build logs on the instance during the build process, then streams the logs to CloudWatch Logs when the build is complete. Before it creates the final build image, Image Builder removes local logs from the instance.
 

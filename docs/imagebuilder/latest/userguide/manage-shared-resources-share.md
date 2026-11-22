@@ -1,7 +1,6 @@
 
 
 # Create an AWS RAM resource share for your Image Builder resources
-<a name="manage-shared-resources-share"></a>
 
 To share an Image Builder component, image, or recipe, you must add it to an AWS Resource Access Manager resource share. The resource share specifies the resources to share and the consumers with whom they are shared.
 
@@ -77,7 +76,7 @@ You can apply a resource policy to an image, to allow others to use it as the ba
 
    To identify the AWS principals to share the image with, run the [Write-EC2IBImagePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-EC2IBImagePolicy.html) cmdlet:
 
-   ```
+   ```ps
    $policy = @'
    {
        "Version": "2012-10-17",		 	 	 
@@ -144,7 +143,7 @@ You can apply a resource policy to a build or test component to enable cross-acc
 
    To identify the AWS principals to share the component with, run the [Write-EC2IBComponentPolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-EC2IBComponentPolicy.html) cmdlet:
 
-   ```
+   ```ps
    $policy = @'
    {
        "Version": "2012-10-17",		 	 	 
@@ -211,7 +210,7 @@ You can apply a resource policy to an image recipe to enable cross-account shari
 
    To identify the AWS principals to share the image recipe with, run the [Write-EC2IBImageRecipePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-EC2IBImageRecipePolicy.html) cmdlet:
 
-   ```
+   ```ps
    $policy = @'
    {
        "Version": "2012-10-17",		 	 	 
@@ -278,7 +277,7 @@ You can apply a resource policy to a container recipe to enable cross-account sh
 
    To identify the AWS principals to share the container recipe with, run the [Write-EC2IBContainerRecipePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-EC2IBContainerRecipePolicy.html) cmdlet:
 
-   ```
+   ```ps
    $policy = @'
    {
        "Version": "2012-10-17",		 	 	 

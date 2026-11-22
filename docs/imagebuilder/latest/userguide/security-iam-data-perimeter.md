@@ -1,7 +1,6 @@
 
 
 # Manage data perimeters for S3 bucket download access in Image Builder
-<a name="security-iam-data-perimeter"></a>
 
 EC2 Image Builder maintains two classes of AWS service-owned S3 buckets that contain downloadable resources needed to run Image Builder workloads in your account. If you use data perimeters to control access to Amazon S3 in your environment, you might need to explicitly allow access to these buckets. You can use the bucket ARN or bucket URL to allowlist these buckets, depending on how you control access to Amazon S3.
 

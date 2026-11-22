@@ -1,7 +1,6 @@
 
 
 # Instance placement and tenancy
-<a name="infra-config-placement"></a>
 
 Use placement settings to control where Image Builder launches your build and test instances. By default, Amazon EC2 instances run on shared tenancy hardware, which means multiple AWS accounts might share the same physical server. You can change the tenancy to run on single-tenant hardware or a Dedicated Host. You can also pin instances to a specific Availability Zone.
 

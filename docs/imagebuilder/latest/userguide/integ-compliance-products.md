@@ -1,7 +1,6 @@
 
 
 # Compliance products for your Image Builder images
-<a name="integ-compliance-products"></a>
 
 With constantly evolving security standards, it can be a challenge to maintain compliance and safeguard your organization from cyber threats. To help ensure that your custom images are compliant, and stay that way through automatic updates when publishers release new versions, Image Builder integrates with AWS Marketplace compliance products and Image Builder components.
 

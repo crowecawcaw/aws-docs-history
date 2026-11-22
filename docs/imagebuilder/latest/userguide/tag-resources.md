@@ -1,7 +1,6 @@
 
 
 # Tag Image Builder output resources
-<a name="tag-resources"></a>
 
 Tagging your resources can be useful for filtering and tracking resource costs, or other categories. You can also control access based on tags. For more information about tag-based authorization, see [Authorization based on Image Builder tags](security_iam_service-with-iam.md#security-iam-service-with-ib-tags)
 
@@ -32,7 +31,7 @@ The following example shows how to add tags to a resource in EC2 Image Builder. 
 
 The example `tag-resource.json` contents are as follows:
 
-```
+```json
 {
     "resourceArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}",
     "tags": {
@@ -52,7 +51,7 @@ aws imagebuilder tag-resource --cli-input-json file://tag-resource.json
 
 The following example shows how to use the [Add-EC2IBResourceTag](https://docs.aws.amazon.com/powershell/latest/reference/items/Add-EC2IBResourceTag.html) cmdlet to add tags to a resource by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Add-EC2IBResourceTag -ResourceArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}} `
     -Tag @{{{KeyName}}="{{KeyValue}}"}
 ```
@@ -69,7 +68,7 @@ The following example shows how to remove a tag from a resource. You must provid
 
 The example `untag-resource.json` contents are as follows:
 
-```
+```json
 {
     "resourceArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}",
     "tagKeys": [
@@ -89,7 +88,7 @@ aws imagebuilder untag-resource --cli-input-json file://untag-resource.json
 
 The following example shows how to use the [Remove-EC2IBResourceTag](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBResourceTag.html) cmdlet to remove a tag from a resource by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBResourceTag -ResourceArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}} `
     -TagKey {{KeyName}}
 ```
@@ -113,7 +112,7 @@ aws imagebuilder list-tags-for-resource --resource-arn arn:aws:imagebuilder:{{us
 
 The following example shows how to use the [Get-EC2IBResourceTag](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBResourceTag.html) cmdlet to list all the tags for a specific resource by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Get-EC2IBResourceTag -ResourceArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}
 ```
 

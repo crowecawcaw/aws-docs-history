@@ -1,7 +1,6 @@
 
 
 # Amazon SNS integration in Image Builder
-<a name="integ-sns"></a>
 
 Amazon Simple Notification Service (Amazon SNS) is a managed service that provides asynchronous message delivery from publishers to subscribers (also known as producers and consumers).
 
@@ -44,7 +43,7 @@ If your SNS topic is encrypted, the key that encrypts this topic must reside in 
 **Example KMS key policy addition**  
 The following example shows the additional section that you add to the KMS key policy. Use the Amazon Resource Name (ARN) for the IAM service-linked role that Image Builder created under your account when you first created an Image Builder image. To learn more about the Image Builder service-linked role, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md).
 
-```
+```json
 {
   "Statement": [{
     "Effect": "Allow",
@@ -91,7 +90,7 @@ aws iam get-role --role-name AWSServiceRoleForImageBuilder
 
 **Partial sample output:**
 
-```
+```JSON
 {
     "Role": {
         "Path": "/aws-service-role/imagebuilder.amazonaws.com/",
@@ -107,7 +106,7 @@ aws iam get-role --role-name AWSServiceRoleForImageBuilder
 
 To get the ARN for the service-linked role that Image Builder created under your account with PowerShell, use the IAM [Get-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-IAMRole.html) cmdlet:
 
-```
+```ps
 Get-IAMRole -RoleName AWSServiceRoleForImageBuilder
 ```
 
@@ -128,7 +127,7 @@ Image Builder uses the same message format for every image, but not every field 
 
 The `type` field tells you whether the message describes an AMI (`AMI`) or a container image (`DOCKER`). Branch on `type` before you read any of the blocks that depend on it. A message for a container image includes a `containerRecipe` block instead of `imageRecipe`, and `outputResources.containers` instead of `outputResources.amis`.
 
-```
+```json
 {
   "versionlessArn": "arn:aws:imagebuilder:us-west-1:123456789012:image/example-linux-image",
   "semver": 1237940039285380274899124227,
@@ -239,7 +238,7 @@ The `type` field tells you whether the message describes an AMI (`AMI`) or a con
 
 The following example shows the JSON payload for a typical message that Image Builder publishes for a pipeline build failure for a Linux image.
 
-```
+```json
 {
   "versionlessArn": "arn:aws:imagebuilder:us-west-2:123456789012:image/my-example-image",
   "semver": 1237940039285380274899124231,

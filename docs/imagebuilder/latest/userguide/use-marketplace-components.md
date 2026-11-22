@@ -1,7 +1,6 @@
 
 
 # Use AWS Marketplace components to customize your image
-<a name="use-marketplace-components"></a>
 
 In addition to a large selection of images created by Independent Software Vendors (ISVs), the AWS Marketplace offers components that you can use to customize your own Image Builder images. You must subscribe to these AWS Marketplace components before you can use them in your image recipe to build a new image.
 

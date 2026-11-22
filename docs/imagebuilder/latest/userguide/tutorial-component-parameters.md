@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a custom component with input parameters
-<a name="tutorial-component-parameters"></a>
 
 You can manage Image Builder components, including creating and setting component parameters, directly from the EC2 Image Builder console, from the AWS CLI, or from the Image Builder API or SDKs. In this section, we'll cover creating and using parameters in your component, and setting component parameters through the Image Builder console and AWS CLI commands at runtime.
 
@@ -24,7 +23,7 @@ To create a YAML application component document that uses parameters and runs co
 **Create a YAML component document**  
 Use a file editing tool to create a component document file. Documentation examples use a file named `{{hello-world-test.yaml}}` that includes the following content:
 
-```
+```yaml
 # Document Start
 # 
 name: "HelloWorldTestingDocument-Linux"
@@ -71,7 +70,7 @@ Use a tool like this online [YAML Validator](https://jsonformatter.org/yaml-vali
 **Create a YAML component document**  
 Use a file editing tool to create a component document file. Documentation examples use a file named `{{hello-world-test.yaml}}` that includes the following content:
 
-```
+```yaml
 # Document Start
 # 
 name: "HelloWorldTestingDocument-Windows"
@@ -118,7 +117,7 @@ Use a tool like this online [YAML Validator](https://jsonformatter.org/yaml-vali
 **Create a YAML component document**  
 Use a file editing tool to create a component document file. Documentation examples use a file named `{{hello-world-test.yaml}}` that includes the following content:
 
-```
+```yaml
 # Document Start
 # 
 name: "HelloWorldTestingDocument-macOS"

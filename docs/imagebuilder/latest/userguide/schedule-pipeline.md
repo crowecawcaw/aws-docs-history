@@ -1,7 +1,6 @@
 
 
 # Configure pipeline execution settings for image pipelines
-<a name="schedule-pipeline"></a>
 
 You can choose from the following options to schedule pipeline execution:
 

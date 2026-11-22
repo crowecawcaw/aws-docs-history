@@ -1,7 +1,6 @@
 
 
 # Data protection and the AWS shared responsibility model in Image Builder
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in EC2 Image Builder. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -112,7 +111,7 @@ For more information about customer managed keys, see [KMS key access and permis
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -160,7 +159,7 @@ Edit the policy for your workflow execution role to add the following policy sta
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -192,7 +191,7 @@ The following examples show typical AWS CloudTrail entries for encrypting and de
 **Example: GenerateDataKey**  
 This example shows what a CloudTrail event might look like when Image Builder invokes the AWS KMS **GenerateDataKey** API action from the Image Builder **CreateWorkflow** API action. Image Builder must encrypt a new workflow before it creates the workflow resource.
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -252,7 +251,7 @@ This example shows what a CloudTrail event might look like when Image Builder in
 **Example: Decrypt**  
 This example shows what a CloudTrail event might look like when Image Builder invokes the AWS KMS **Decrypt** API action from the Image Builder **GetWorkflow** API action. Image Builder pipelines need to decrypt a workflow resource before they can use it.
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {

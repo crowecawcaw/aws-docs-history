@@ -1,7 +1,6 @@
 
 
 # Supported step actions for your workflow document
-<a name="wfdoc-step-actions"></a>
 
 This section includes details for the step actions that Image Builder supports.Terms used in this section
 
@@ -128,7 +127,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{ApplyImageConfigurations}}
   action: ApplyImageConfigurations
   onFailure: Abort
@@ -142,7 +141,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{ApplyImageConfigurationsStep}}.configuredImages
 ```
 
@@ -182,7 +181,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{ContainerBootstrapStep}}
   action: BootstrapInstanceForContainer
   onFailure: Abort
@@ -192,7 +191,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{ContainerBootstrapStep}}.status
 ```
 
@@ -233,7 +232,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{CollectMetadataStep}}
   action: CollectImageMetadata
   onFailure: Abort
@@ -243,7 +242,7 @@ Specify the step action in the workflow document.
 
 Use output from the step action in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{CollectMetadataStep}}.osVersion
 ```
 
@@ -273,7 +272,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{CollectFindingsStep}}
   action: CollectImageScanFindings
   onFailure: Abort
@@ -315,7 +314,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{CreateImageFromInstance}}
   action: CreateImage
   onFailure: Abort
@@ -325,7 +324,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{CreateImageFromInstance}}.imageId
 ```
 
@@ -365,7 +364,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{CreateImageFromIsoStep}}
   action: CreateImageFromIso
   onFailure: Abort
@@ -375,7 +374,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{CreateImageFromIsoStep}}.amiName
 ```
 
@@ -417,7 +416,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{DistributeContainer}}
   action: DistributeContainerImage
   onFailure: Abort
@@ -427,7 +426,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{DistributeContainer}}.status
 ```
 
@@ -480,7 +479,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{DistributeImage}}
   action: DistributeImage
   onFailure: Abort
@@ -497,7 +496,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{DistributeImageStep}}.distributedImages
 ```
 
@@ -536,7 +535,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{ExecComponentsStep}}
   action: ExecuteComponents
   onFailure: Abort
@@ -546,7 +545,7 @@ Specify the step action in the workflow document.
 
 Use output from the step action in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{ExecComponentsStep}}.status
 ```
 
@@ -597,7 +596,7 @@ Your custom execution role must have the following permissions to use this step 
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{ValidateImageCompliance}}
   action: ExecuteStateMachine
   timeoutSeconds: 3600
@@ -615,7 +614,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{ValidateImageCompliance}}.executionArn
 ```
 
@@ -651,7 +650,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 + The instance must be running, in the same AWS account and AWS Region as the image, run the same platform and architecture as the image, and not be in use by another Image Builder workflow. Otherwise, the step fails.
 + The execution role needs the EC2ImageBuilderExecutionPolicy managed policy and `ec2:CreateTags` on the instance. Image Builder tags the instance with `CreatedBy: EC2 Image Builder`, and the managed policy only lets Image Builder run commands on, stop, create an image from, and terminate instances with that tag. The tags also replace the instance's `Name` tag. If tagging fails, the step continues, but later steps fail unless the instance already has the `CreatedBy` tag. The following example policy lets the role tag two instances:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [
@@ -682,7 +681,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{LaunchStep}}
   action: LaunchInstance
   onFailure: Abort
@@ -693,13 +692,13 @@ Specify the step action in the workflow document.
 
 Use output from the step action in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{LaunchStep}}.instanceId
 ```
 
 Build on an existing instance with the following build workflow.
 
-```
+```yaml
 parameters:
   - name: parentInstanceId
     type: string
@@ -779,7 +778,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{ModifyImageAttributes}}
   action: ModifyImageAttributes
   onFailure: Abort
@@ -794,7 +793,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{ModifyImageAttributesStep}}.modifiedImages
 ```
 
@@ -940,7 +939,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{RunCommandDoc}}
   action: RunCommand
   onFailure: Abort
@@ -954,7 +953,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{RunCommandDoc}}.status
 ```
 
@@ -991,7 +990,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{RunSysprep}}
   action: RunSysPrep
   onFailure: Abort
@@ -1001,7 +1000,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{RunSysprep}}.status
 ```
 
@@ -1040,7 +1039,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{SanitizeStep}}
   action: SanitizeInstance
   onFailure: Abort
@@ -1050,7 +1049,7 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{SanitizeStep}}.status
 ```
 
@@ -1083,7 +1082,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{TerminateInstance}}
   action: TerminateInstance
   onFailure: Continue
@@ -1094,7 +1093,7 @@ Specify the step action in the workflow document.
 
 Skip the step when `terminateInstanceOnCompletion` is `false`.
 
-```
+```yaml
 - name: TerminateBuildInstance
   action: TerminateInstance
   onFailure: Continue
@@ -1163,7 +1162,7 @@ Image Builder calls Amazon SNS in the Region where the workflow runs, with the e
 
 Specify the step action in the workflow document with SNS notification.
 
-```
+```yaml
 - name: {{SendEventAndWait}}
   action: WaitForAction
   onFailure: Abort
@@ -1173,7 +1172,7 @@ Specify the step action in the workflow document with SNS notification.
 
 When the step enters the `WAITING` state, Image Builder publishes the following message to the topic that you specify in `snsTopicArn`. If you specify a `lambdaFunctionName`, Image Builder sends this same message as the payload to that function and invokes the function asynchronously. You can set either input on its own, or both. The `customPayload` field appears only when you provide a `payload` value. Image Builder first resolves a `payload.$` JSONPath reference, and any `{{ }}` interpolation token inside a `payload` value, before it adds the result to the message. Image Builder doesn't parse the result as JSON. When you set `payload` to a string, `customPayload` is a JSON string inside the message, so parse it a second time to read structured data from it.
 
-```
+```json
 {
   "imageArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-image}}/1.0.0/1",
   "workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:workflow/build/{{my-workflow}}/1.0.0/1",
@@ -1189,7 +1188,7 @@ The `workflowArn` field contains the workflow build version ARN, which ends with
 
 Specify the step action in the workflow document with Lambda function invocation.
 
-```
+```yaml
 - name: {{SendEventAndWaitWithLambda}}
   action: WaitForAction
   onFailure: Abort
@@ -1204,7 +1203,7 @@ Specify the step action in the workflow document with Lambda function invocation
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{SendEventAndWait}}.reason
 ```
 
@@ -1239,7 +1238,7 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 Specify the step action in the workflow document.
 
-```
+```yaml
 - name: {{WaitForInstanceAfterReboot}}
   action: WaitForSSMAgent
   onFailure: Abort
@@ -1250,6 +1249,6 @@ Specify the step action in the workflow document.
 
 Use the output of the step action value in the workflow document.
 
-```
+```yaml
 $.stepOutputs.{{WaitForInstanceAfterReboot}}.status
 ```

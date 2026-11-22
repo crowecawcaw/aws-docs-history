@@ -1,7 +1,6 @@
 
 
 # Create an infrastructure configuration
-<a name="create-infra-config"></a>
 
 This section describes how to create an infrastructure configuration. You can use the Image Builder console, **imagebuilder** commands in the AWS CLI, or AWS Tools for PowerShell.
 
@@ -79,7 +78,7 @@ This example specifies two instance types, `m7i.large` and `m7i.xlarge`. We reco
 
    The following example JSON file defines this infrastructure configuration:
 
-   ```
+   ```json
    {
        "name": "{{example-infra-config-dont-terminate}}",
        "description": "{{An example that will retain instances of failed builds}}",
@@ -108,7 +107,7 @@ This example specifies instance types and placement for a Mac instance where the
 
    The following example JSON file defines this infrastructure configuration:
 
-   ```
+   ```json
    {
        "name": "{{macos-infra-config-auto-placement}}",
        "description": "{{An example infrastructure configuration for macOS.}}",
@@ -126,7 +125,7 @@ This example specifies instance type and placement for a Mac instance that targe
 
    The following example JSON file defines this infrastructure configuration:
 
-   ```
+   ```json
    {
        "name": "{{macos-infra-config-host-placement}}",
        "description": "{{An example infrastructure configuration for macOS.}}",
@@ -145,7 +144,7 @@ This example launches instances in a specific subnet and security group, require
 
    The following example JSON file defines this infrastructure configuration:
 
-   ```
+   ```json
    {
        "name": "{{vpc-infra-config-with-logging}}",
        "description": "{{Build in a custom VPC with IMDSv2 and S3 logging}}",
@@ -175,7 +174,7 @@ This example targets a host resource group instead of a specific host ID. Becaus
 
    The following example JSON file defines this infrastructure configuration:
 
-   ```
+   ```json
    {
        "name": "{{host-resource-group-infra-config}}",
        "instanceProfileName": "{{EC2InstanceProfileForImageBuilder}}",
@@ -193,7 +192,7 @@ This example takes the build instance from an existing Amazon EC2 Auto Scaling g
 
    The following example JSON file defines this infrastructure configuration:
 
-   ```
+   ```json
    {
        "name": "{{parent-instance-infra-config}}",
        "instanceProfileName": "{{EC2InstanceProfileForImageBuilder}}",
@@ -230,7 +229,7 @@ The `InstanceProfileName` parameter specifies the instance profile that provides
 
 The following example creates this infrastructure configuration:
 
-```
+```ps
 New-EC2IBInfrastructureConfiguration -Name {{example-infra-config-dont-terminate}} `
     -Description "{{An example that will retain instances of failed builds}}" `
     -InstanceType m7i.large, m7i.xlarge `
@@ -249,7 +248,7 @@ This example specifies instance types and placement for a Mac instance where the
 
 The following example creates this infrastructure configuration:
 
-```
+```ps
 New-EC2IBInfrastructureConfiguration -Name {{macos-infra-config-auto-placement}} `
     -Description "{{An example infrastructure configuration for macOS.}}" `
     -InstanceProfileName {{EC2InstanceProfileForImageBuilder}} `
@@ -263,7 +262,7 @@ This example specifies instance type and placement for a Mac instance that targe
 
 The following example creates this infrastructure configuration:
 
-```
+```ps
 New-EC2IBInfrastructureConfiguration -Name {{macos-infra-config-host-placement}} `
     -Description "{{An example infrastructure configuration for macOS.}}" `
     -InstanceProfileName {{EC2InstanceProfileForImageBuilder}} `
@@ -278,7 +277,7 @@ This example launches instances in a specific subnet and security group, require
 
 The following example creates this infrastructure configuration:
 
-```
+```ps
 New-EC2IBInfrastructureConfiguration -Name {{vpc-infra-config-with-logging}} `
     -Description "{{Build in a custom VPC with IMDSv2 and S3 logging}}" `
     -InstanceType m7i.large, m8i.large `
@@ -298,7 +297,7 @@ This example targets a host resource group instead of a specific host ID. Becaus
 
 The following example creates this infrastructure configuration:
 
-```
+```ps
 New-EC2IBInfrastructureConfiguration -Name {{host-resource-group-infra-config}} `
     -InstanceProfileName {{EC2InstanceProfileForImageBuilder}} `
     -InstanceType mac2.metal `

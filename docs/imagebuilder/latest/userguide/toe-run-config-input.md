@@ -1,7 +1,6 @@
 
 
 # Configure input for the AWSTOE run command
-<a name="toe-run-config-input"></a>
 
 To streamline command line input for your AWSTOE **run** command, you can include settings for command parameters and options in a JSON format input configuration file with a `.json` file extension. AWSTOE can read your file from one of the following locations:
 + A local file path ({{./config.json}}).
@@ -62,7 +61,7 @@ The input configuration file contains the following settings. To streamline your
 **Examples**  
 The following example shows an input configuration file that runs the `build` and `test` phases for two component documents: `sampledoc.yaml`, and `conversation-intro.yaml`. Each component document has a parameter that applies only to itself, and both use one shared parameter. The `project` parameter applies to both component documents.
 
-```
+```json
 {
    "documents": [
      {

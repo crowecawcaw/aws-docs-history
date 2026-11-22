@@ -1,7 +1,6 @@
 
 
 # Delete an infrastructure configuration
-<a name="delete-infra-config"></a>
 
 You can delete an infrastructure configuration that you no longer need. You can't delete an infrastructure configuration while an image pipeline references it. First update or delete the pipeline, and then delete the infrastructure configuration.
 
@@ -34,7 +33,7 @@ aws imagebuilder delete-infrastructure-configuration --infrastructure-configurat
 
 The following example shows how to use the [Remove-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBInfrastructureConfiguration.html) cmdlet to delete an infrastructure configuration by specifying its ARN:
 
-```
+```ps
 Remove-EC2IBInfrastructureConfiguration -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
 ```
 

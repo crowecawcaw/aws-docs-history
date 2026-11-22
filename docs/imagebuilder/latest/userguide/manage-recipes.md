@@ -1,7 +1,6 @@
 
 
 # Manage recipes in Image Builder
-<a name="manage-recipes"></a>
 
 An EC2 Image Builder recipe is the blueprint for creating a customized machine image. A recipe specifies three key elements:
 

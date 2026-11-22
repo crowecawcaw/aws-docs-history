@@ -1,7 +1,6 @@
 
 
 # Troubleshoot failed builds with AI
-<a name="devops-agent-troubleshooting"></a>
 
 When EC2 Image Builder builds fail, the root cause can be time-consuming and complex to identify. The Troubleshoot feature in Image Builder, powered by AWS DevOps Agent, automates this process with AI-powered analysis. You can quickly identify the cause of complex build failures or detect patterns across multiple failed pipelines.
 

@@ -1,7 +1,6 @@
 
 
 # Use dynamic variables in your workflow document
-<a name="wfdoc-dynamic-vars"></a>
 
 You can use dynamic variables in your workflow documents to represent values that vary at runtime for your image creation process. String interpolation for dynamic variables allows you to embed JSONPath expressions within structured content such as JSON strings.This is particularly useful when you need to pass runtime values within complex payloads to step actions like `ExecuteStateMachine` or `WaitForAction`.
 
@@ -27,7 +26,7 @@ The final node in the JSONPath is the name of the target variable, such as `inst
 
 Each step can refer to the output of any prior step actions with these JSONPath dynamic variables. This is also known as *chaining, or referencing*. To refer to output from a prior step action, you might use the following dynamic variable.
 
-```
+```yaml
 $.stepOutputs.{{step-name}}.{{output-name}}
 ```
 
@@ -38,7 +37,7 @@ When an input parameter refers to a dynamic variable, the chaining indicator (`.
 
 The following example shows an input parameter that uses string interpolation to resolve a dynamic variable in the parameter value at runtime.
 
-```
+```yaml
   - name: ApplyTestComponents
     action: ExecuteComponents
     onFailure: Abort
@@ -50,7 +49,7 @@ The following example shows an input parameter that uses string interpolation to
 
 The following example demonstrates how dynamic variables use string interpolation to determine values at runtime.
 
-```
+```yaml
 - name: ValidateImageConfiguration
   action: ExecuteStateMachine
   inputs:

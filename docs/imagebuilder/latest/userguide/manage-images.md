@@ -1,7 +1,6 @@
 
 
 # Image Builder output image resources
-<a name="manage-images"></a>
 
 After you have created image resources for AMI or container images with Image Builder, you can manage them using the Image Builder console, through the Image Builder API, or with **imagebuilder** commands in the AWS CLI.
 

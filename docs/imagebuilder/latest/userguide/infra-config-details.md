@@ -1,7 +1,6 @@
 
 
 # List and view infrastructure configuration details
-<a name="infra-config-details"></a>
 
 This section describes the various ways that you can find information and view details for your EC2 Image Builder infrastructure configurations.
 
@@ -47,7 +46,7 @@ aws imagebuilder list-infrastructure-configurations --max-results 10
 
 The following example shows how to use the [Get-EC2IBInfrastructureConfigurationList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBInfrastructureConfigurationList.html) cmdlet to list all of your infrastructure configurations:
 
-```
+```ps
 Get-EC2IBInfrastructureConfigurationList
 ```
 
@@ -81,7 +80,7 @@ aws imagebuilder get-infrastructure-configuration --infrastructure-configuration
 
 The following example shows how to use the [Get-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBInfrastructureConfiguration.html) cmdlet to get the details of an infrastructure configuration by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Get-EC2IBInfrastructureConfiguration -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Create a custom component with Image Builder
-<a name="create-component"></a>
 
 After you've completed your component document, you can use it to create a custom component that your Image Builder recipes can use. You can create a custom component from the Image Builder console, from the API or SDKs, or from the command line. For more information about how to create a custom component with input parameters and use it in your recipes, see [Tutorial: Create a custom component with input parameters](tutorial-component-parameters.md).
 
@@ -99,7 +98,7 @@ To provide the data values as command line parameters, refer to the parameter na
 
    Use a file editing tool to create a file named `{{create-update-linux-os-component.json}}`. Include the following content:
 
-   ```
+   ```json
    {
    	"name": "{{update-linux-os}}",
    	"semanticVersion": "1.1.2",
@@ -156,7 +155,7 @@ To provide the data values as command line parameters, refer to the parameter na
 
    Use a file editing tool to create a file named `{{create-update-windows-os-component.json}}`. Include the following content:
 
-   ```
+   ```json
    {
    	"name": "{{update-windows-os}}",
    	"semanticVersion": "1.1.2",
@@ -216,7 +215,7 @@ To provide the data values as command line parameters, refer to the parameter na
 
    Use a file editing tool to create a file named `{{install-wget-macos-component.json}}`. Include the following content:
 
-   ```
+   ```json
    {
    	"name": "{{install-wget-macos-component}}",
    	"semanticVersion": "1.1.2",
@@ -294,7 +293,7 @@ Use the [Get-EC2IBComponentList](https://docs.aws.amazon.com/powershell/latest/r
 
 In this example, you filter on the name of the Linux component that you created in [Create a custom component from AWS Tools for PowerShell](#create-component-ib-ps). To list the component that you created, use the value of the `Name` parameter that you used with the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
 
-```
+```ps
 Get-EC2IBComponentList -Filter @{Name="name";Values="{{update-linux-os}}"}
 ```
 
@@ -333,7 +332,7 @@ You can use an S3 bucket as a repository for your AWSTOE application component s
 
   To upload the document, run the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3Object.html) cmdlet:
 
-  ```
+  ```ps
   Write-S3Object -BucketName {{amzn-s3-demo-destination-bucket}} `
       -Key {{my-path}}/{{update-linux-os.yaml}} `
       -File {{update-linux-os.yaml}}
@@ -348,7 +347,7 @@ Use the `Uri` parameter to reference the `{{update-linux-os.yaml}}` document tha
 
   To create the component, run the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
 
-  ```
+  ```ps
   New-EC2IBComponent -Name {{update-linux-os}} `
       -SemanticVersion 1.1.2 `
       -Description "{{An example component that updates the Linux operating system}}" `
@@ -373,7 +372,7 @@ You can use an S3 bucket as a repository for your AWSTOE application component s
 
   To upload the document, run the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3Object.html) cmdlet:
 
-  ```
+  ```ps
   Write-S3Object -BucketName {{amzn-s3-demo-destination-bucket}} `
       -Key {{my-path}}/{{update-windows-os.yaml}} `
       -File {{update-windows-os.yaml}}
@@ -388,7 +387,7 @@ Use the `Uri` parameter to reference the `{{update-windows-os.yaml}}` document t
 
   To create the component, run the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
 
-  ```
+  ```ps
   New-EC2IBComponent -Name {{update-windows-os}} `
       -SemanticVersion 1.1.2 `
       -Description "{{An example component that updates the Windows operating system.}}" `
@@ -413,7 +412,7 @@ You can use an S3 bucket as a repository for your AWSTOE application component s
 
   To upload the document, run the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3Object.html) cmdlet:
 
-  ```
+  ```ps
   Write-S3Object -BucketName {{amzn-s3-demo-destination-bucket}} `
       -Key {{my-path}}/{{wget-macos.yaml}} `
       -File {{wget-macos.yaml}}
@@ -428,7 +427,7 @@ Use the `Uri` parameter to reference the `{{wget-macos.yaml}}` document that you
 
   To create the component, run the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
 
-  ```
+  ```ps
   New-EC2IBComponent -Name {{install-wget-macos-component}} `
       -SemanticVersion 1.1.2 `
       -Description "{{An example component that installs and verifies the wget utility on macOS.}}" `
@@ -453,7 +452,7 @@ This example uses a PowerShell script called `{{admin-config.ps1}}` that you alr
 
 This example assumes that you have a file called `{{import-component.json}}`. The file contains the following:
 
-```
+```json
 {
 "name": "{{my-imported-component}}",
 "semanticVersion": "1.0.0",
@@ -480,7 +479,7 @@ This example uses the same values as the AWS CLI example. Tools for PowerShell d
 
 To create the component from an imported script, run the [Import-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/Import-EC2IBComponent.html) cmdlet:
 
-```
+```ps
 Import-EC2IBComponent -Name {{my-imported-component}} `
     -SemanticVersion 1.0.0 `
     -Description "{{An example of how to import a component}}" `

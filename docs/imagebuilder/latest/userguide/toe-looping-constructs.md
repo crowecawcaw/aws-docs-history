@@ -1,7 +1,6 @@
 
 
 # Use looping constructs in AWSTOE
-<a name="toe-looping-constructs"></a>
 
 This section provides information to help you create looping constructs in the AWSTOE. Looping constructs define a repeated sequence of instructions. You can use the following types of looping constructs in AWSTOE:
 + `for` constructs – Iterate over a bounded sequence of integers.
@@ -69,7 +68,7 @@ AWSTOE verifies the `start`, `end`, and `updateBy` values to ensure that the com
 
 `for` loop schema
 
-```
+```yaml
   - name: "StepName"
     action: "ActionModule"
     loop:
@@ -94,7 +93,7 @@ inputs:
 
 `for` loop input example
 
-```
+```yaml
   - name: "CalculateFileUploadLatencies"
     action: "ExecutePowerShell"
     loop:
@@ -122,7 +121,7 @@ The `forEach` loop iterates on an explicit list of values, which can be strings 
 
 `forEach` loop with input list schema
 
-```
+```yaml
   - name: "StepName"
     action: "ActionModule"
     loop:
@@ -143,7 +142,7 @@ The `forEach` loop iterates on an explicit list of values, which can be strings 
 
 `forEach` loop with input list example 1
 
-```
+```yaml
   - name: "ExecuteCustomScripts"
     action: "ExecuteBash"
     loop:
@@ -167,7 +166,7 @@ The `forEach` loop iterates on an explicit list of values, which can be strings 
 
 `forEach` loop with input list example 2
 
-```
+```yaml
   - name: "RunMSIWithDifferentArgs"
     action: "ExecuteBinary"
     loop:
@@ -185,7 +184,7 @@ The `forEach` loop iterates on an explicit list of values, which can be strings 
 
 `forEach` loop with input list example 3
 
-```
+```yaml
   - name: "DownloadAllBinaries"
     action: "S3Download"
     loop:
@@ -206,7 +205,7 @@ The loop iterates over a string containing values separated by a delimiter. To i
 
 `forEach` loop with delimited list schema
 
-```
+```yaml
   - name: "StepName"
     action: "ActionModule"
     loop:
@@ -234,7 +233,7 @@ The value of `list` is treated as an immutable string. If the source of `list` i
 
 This example uses the following chaining expression pattern to refer to another step's output: `<phase_name>.<step_name>.[inputs | outputs].<var_name>`.
 
-```
+```yaml
   - name: "RunMSIs"
     action: "ExecuteBinary"
     loop:
@@ -248,7 +247,7 @@ This example uses the following chaining expression pattern to refer to another 
 
 `forEach` loop with delimited list example 2
 
-```
+```yaml
   - name: "UploadMetricFiles"
     action: "S3Upload"
     loop:
@@ -294,7 +293,7 @@ Every iteration contains an output. At the end of a loop run, AWSTOE consolidate
 
 **Output of `ExecuteBash` for Iteration 1**
 
-```
+```json
 {
 	"stdout":"Hello"
 }
@@ -302,7 +301,7 @@ Every iteration contains an output. At the end of a loop run, AWSTOE consolidate
 
 **Output of `ExecuteBash` for Iteration 2**
 
-```
+```json
 {
 	"stdout":"World"
 }
@@ -310,7 +309,7 @@ Every iteration contains an output. At the end of a loop run, AWSTOE consolidate
 
 **Output of `ExecuteBash` for Step**
 
-```
+```json
 {
 	"stdout":"Hello\nWorld"
 }

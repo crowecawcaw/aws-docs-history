@@ -1,7 +1,6 @@
 
 
 # Action modules supported by AWSTOE component manager
-<a name="toe-action-modules"></a>
 
 Image building services, such as EC2 Image Builder, use AWSTOE action modules to help configure the EC2 instances that are used for building and testing customized machine images. This section describes the features of commonly used AWSTOE action modules, and how to configure them, including examples.
 
@@ -92,7 +91,7 @@ If the comparison or logical operator expression evaluates to `true`, the step i
 
 This example evaluates to `true`.
 
-```
+```yaml
 - name: StringComparison
   action: Assert
   inputs:
@@ -104,7 +103,7 @@ This example evaluates to `true`.
 
 These examples all evaluate to `true`.
 
-```
+```yaml
 - name: Letters only
   action: Assert
   inputs:
@@ -130,7 +129,7 @@ The following example demonstrates nested comparisons with logical operators tha
 + The `ApplicationVersion` is greater than `2.0` and the `CPUArchitecture` equals `arm64`.
 + The `CPUArchitecture` equals `x86_64`.
 
-```
+```yaml
 - name: NestedComparisons
   action: Assert
   inputs:
@@ -170,7 +169,7 @@ After system restart, the application runs the same step that initiated the rest
 
 **Input example: Before and after a reboot**
 
-```
+```yaml
 name: ExitCode194Example
 description: This shows how the exit code can be used to restart a system with ExecuteBash
 schemaVersion: 1.0
@@ -204,7 +203,7 @@ If you start a reboot and return exit code `194` as part of the action module, t
 
 **Output example: Before reboot (first time through document)**
 
-```
+```json
 {
 	"stdout": "The reboot file does not exist. Creating it and triggering a restart."
 }
@@ -212,7 +211,7 @@ If you start a reboot and return exit code `194` as part of the action module, t
 
 **Output example: After reboot, (second time through document)**
 
-```
+```json
 {
 	"stdout": "The reboot file exists. Deleting it and exiting with success."
 }
@@ -239,7 +238,7 @@ After the system restarts, the application runs the same step that initiated the
 
 **Input example: install .NET**
 
-```
+```yaml
   - name: "InstallDotnet"
     action: ExecuteBinary
     inputs:
@@ -258,7 +257,7 @@ After the system restarts, the application runs the same step that initiated the
 
 **Output example**
 
-```
+```json
 {
 	"stdout": "success"
 }
@@ -306,7 +305,7 @@ The following examples show variations of the inputs for your component document
 
 **Input example: Local document path**
 
-```
+```yaml
 # main.yaml
 schemaVersion: 1.0
 
@@ -327,7 +326,7 @@ phases:
 
 **Input example: S3 URI as a document path**
 
-```
+```yaml
 # main.yaml
 schemaVersion: 1.0
 
@@ -349,7 +348,7 @@ phases:
 
 **Input example: EC2 Image Builder component ARN as a document path**
 
-```
+```yaml
 # main.yaml
 schemaVersion: 1.0
 
@@ -370,7 +369,7 @@ phases:
 
 **Using a ForEach loop to run documents**
 
-```
+```yaml
 # main.yaml
 schemaVersion: 1.0
 
@@ -396,7 +395,7 @@ phases:
 
 **Using a For loop to run documents**
 
-```
+```yaml
 # main.yaml
 schemaVersion: 1.0
 
@@ -424,7 +423,7 @@ phases:
 **Output**  
 AWSTOE creates an output file called `detailedoutput.json` every time it runs. The file contains details about every phase and step of every component document that is invoked while it's running. For the **ExecuteDocument** action module, you can find a brief runtime summary in the `outputs` field, and details about the phases, steps, and documents that it runs in the `detailedOutput`.
 
-```
+```json
 {
 	"executedStepCount":1,"executionId":"97054e22-06cc-11ec-9b14-acde48001122","failedStepCount":0,"failureMessage":"","ignoredFailedStepCount":0,"logUrl":"","status":"success"
 }
@@ -442,7 +441,7 @@ Each component document's output summary object contains the following details, 
 **Output example**  
 The following example shows output from the **ExecuteDocument** action module when a nested execution occurs. In this example, the `main.yaml` component document successfully runs the `Sample-1.yaml` component document.
 
-```
+```json
 {
     "executionId": "12345a67-89bc-01de-2f34-abcd56789012",
     "status": "success",
@@ -551,7 +550,7 @@ After system restart, the application runs the same step that initiated the rest
 
 **Input example: Before and after a reboot**
 
-```
+```yaml
 name: ExitCode3010Example
 description: This shows how the exit code can be used to restart a system with ExecutePowerShell
 schemaVersion: 1.0
@@ -585,7 +584,7 @@ If you run a reboot and return exit code `3010` as part of the action module, th
 
 **Output example: Before reboot (first time through document)**
 
-```
+```json
 {
 	"stdout": "The reboot file does not exist. Creating it and triggering a restart."
 }
@@ -593,7 +592,7 @@ If you run a reboot and return exit code `3010` as part of the action module, th
 
 **Output example: After reboot, (second time through document)**
 
-```
+```json
 {
 	"stdout": "The reboot file exists. Deleting it and exiting with success."
 }
@@ -644,7 +643,7 @@ For the following examples, the Windows folder path can be replaced with a Linux
 **Input example: copy an Amazon S3 object to a local file**  
 The following example shows how to copy an Amazon S3 object to a local file.
 
-```
+```yaml
   - name: DownloadMyFile
     action: S3Download
     inputs:
@@ -664,7 +663,7 @@ The following example shows how to copy an Amazon S3 object to a local file.
 **Input example: copy all Amazon S3 objects in an Amazon S3 bucket with key prefix to a local folder**  
 The following example shows how to copy all Amazon S3 objects in an Amazon S3 bucket with the key prefix to a local folder. Amazon S3 has no concept of a folder, therefore all objects that match the key prefix are copied. The maximum number of objects that can be downloaded is 1000.
 
-```
+```yaml
   - name: MyS3DownloadKeyprefix
     action: S3Download
     maxAttempts: 3
@@ -713,7 +712,7 @@ The IAM role that you associate with your instance profile must have permissions
 **Input example: copy a local file to an Amazon S3 object**  
 The following example shows how to copy a local file to an Amazon S3 object.
 
-```
+```yaml
   - name: MyS3UploadFile
     action: S3Upload
     onFailure: Abort
@@ -727,7 +726,7 @@ The following example shows how to copy a local file to an Amazon S3 object.
 **Input example: copy all files in a local folder to an Amazon S3 bucket with key prefix**  
 The following example shows how to copy all files in the local folder to an Amazon S3 bucket with key prefix. This example does not copy sub-folders or their contents because `recurse` is not specified, and it defaults to `false`.
 
-```
+```yaml
   - name: MyS3UploadMultipleFiles
     action: S3Upload
     onFailure: Abort
@@ -741,7 +740,7 @@ The following example shows how to copy all files in the local folder to an Amaz
 **Input example: copy all files and folders recursively from a local folder to an Amazon S3 bucket**  
 The following example shows how to copy all files and folders recursively from a local folder to an Amazon S3 bucket with key prefix.
 
-```
+```yaml
   - name: MyS3UploadFolder
     action: S3Upload
     onFailure: Abort
@@ -786,7 +785,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Input example: download remote file to local destination**
 
-```
+```yaml
   - name: DownloadRemoteFile
     action: WebDownload
     maxAttempts: 3
@@ -797,7 +796,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Output:**
 
-```
+```json
 {
 	"destination": "C:\\testfolder\\package.zip"
 }
@@ -805,7 +804,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Input example: download more than one remote file to more than one local destination **
 
-```
+```yaml
   - name: DownloadRemoteFiles
     action: WebDownload
     maxAttempts: 3
@@ -818,7 +817,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Output:**
 
-```
+```json
 {
 	"destination": "/tmp/java14_renamed.zip\n/tmp/create_new_folder_and_add_java14_as_zip/java14.zip"
 }
@@ -826,7 +825,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Input example: download one remote file without overwriting local destination, and download another remote file with file verification**
 
-```
+```yaml
   - name: DownloadRemoteMultipleProperties
     action: WebDownload
     maxAttempts: 3
@@ -843,7 +842,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Output:**
 
-```
+```json
 {
 	"destination": "C:\\create_new_folder\\java14_renamed.zip\nC:\\create_new_folder_and_add_java14_as_zip\\java14.zip"
 }
@@ -851,7 +850,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Input example: download remote file and ignore SSL certification validation**
 
-```
+```yaml
   - name: DownloadRemoteIgnoreValidation
     action: WebDownload
     maxAttempts: 3
@@ -863,7 +862,7 @@ This action module implicitly handles redirects. All HTTP status codes, except f
 
 **Output:**
 
-```
+```json
 {
 	"destination": "/tmp/downloads/resource"
 }
@@ -916,7 +915,7 @@ The action module returns an error when the following occurs:
 
 **Input example: append file without encoding (Linux)**
 
-```
+```yaml
   - name: AppendingFileWithOutEncodingLinux
     action: AppendFile
     inputs:
@@ -926,7 +925,7 @@ The action module returns an error when the following occurs:
 
 **Input example: append file without encoding (Windows)**
 
-```
+```yaml
   - name: AppendingFileWithOutEncodingWindows
     action: AppendFile
     inputs:
@@ -936,7 +935,7 @@ The action module returns an error when the following occurs:
 
 **Input example: append file with encoding (Linux)**
 
-```
+```yaml
   - name: AppendingFileWithEncodingLinux
     action: AppendFile
     inputs:
@@ -947,7 +946,7 @@ The action module returns an error when the following occurs:
 
 **Input example: append file with encoding (Windows)**
 
-```
+```yaml
   - name: AppendingFileWithEncodingWindows
     action: AppendFile
     inputs:
@@ -958,7 +957,7 @@ The action module returns an error when the following occurs:
 
 **Input example: append file with empty string (Linux)**
 
-```
+```yaml
   - name: AppendingEmptyStringLinux
     action: AppendFile
     inputs:
@@ -967,7 +966,7 @@ The action module returns an error when the following occurs:
 
 **Input example: append file with empty string (Windows)**
 
-```
+```yaml
   - name: AppendingEmptyStringWindows
     action: AppendFile
     inputs:
@@ -1005,7 +1004,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file (Linux)**
 
-```
+```yaml
   - name: CopyingAFileLinux
     action: CopyFile
     inputs:
@@ -1015,7 +1014,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file (Windows)**
 
-```
+```yaml
   - name: CopyingAFileWindows
     action: CopyFile
     inputs:
@@ -1025,7 +1024,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file using the source file name (Linux)**
 
-```
+```yaml
   - name: CopyingFileWithSourceFileNameLinux
     action: CopyFile
     inputs:
@@ -1035,7 +1034,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file using the source file name (Windows)**
 
-```
+```yaml
   - name: CopyingFileWithSourceFileNameWindows
     action: CopyFile
     inputs:
@@ -1045,7 +1044,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file using the wildcard character (Linux)**
 
-```
+```yaml
   - name: CopyingFilesWithWildCardLinux
     action: CopyFile
     inputs:
@@ -1055,7 +1054,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file using the wildcard character (Windows)**
 
-```
+```yaml
   - name: CopyingFilesWithWildCardWindows
     action: CopyFile
     inputs:
@@ -1065,7 +1064,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file without overwriting (Linux)**
 
-```
+```yaml
   - name: CopyingFilesWithoutOverwriteLinux
     action: CopyFile
     inputs:
@@ -1076,7 +1075,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a file without overwriting (Windows)**
 
-```
+```yaml
   - name: CopyingFilesWithoutOverwriteWindows
     action: CopyFile
     inputs:
@@ -1116,7 +1115,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder (Linux)**
 
-```
+```yaml
   - name: CopyingAFolderLinux
     action: CopyFolder
     inputs:
@@ -1126,7 +1125,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder (Windows)**
 
-```
+```yaml
   - name: CopyingAFolderWindows
     action: CopyFolder
     inputs:
@@ -1136,7 +1135,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder using the source folder name (Linux)**
 
-```
+```yaml
   - name: CopyingFolderSourceFolderNameLinux
     action: CopyFolder
     inputs:
@@ -1146,7 +1145,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder using the source folder name (Windows)**
 
-```
+```yaml
   - name: CopyingFolderSourceFolderNameWindows
     action: CopyFolder
     inputs:
@@ -1156,7 +1155,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder using the wildcard character (Linux)**
 
-```
+```yaml
   - name: CopyingFoldersWithWildCardLinux
     action: CopyFolder
     inputs:
@@ -1166,7 +1165,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder using the wildcard character (Windows)**
 
-```
+```yaml
   - name: CopyingFoldersWithWildCardWindows
     action: CopyFolder
     inputs:
@@ -1176,7 +1175,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder without overwriting (Linux)**
 
-```
+```yaml
   - name: CopyingFoldersWithoutOverwriteLinux
     action: CopyFolder
     inputs:
@@ -1187,7 +1186,7 @@ The action module returns an error when the following occurs:
 
 **Input example: copy a folder without overwriting (Windows)**
 
-```
+```yaml
   - name: CopyingFoldersWithoutOverwrite
     action: CopyFolder
     inputs:
@@ -1231,7 +1230,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a file without overwriting (Linux)**
 
-```
+```yaml
   - name: CreatingFileWithoutOverwriteLinux
     action: CreateFile
     inputs:
@@ -1242,7 +1241,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a file without overwriting (Windows)**
 
-```
+```yaml
   - name: CreatingFileWithoutOverwriteWindows
     action: CreateFile
     inputs:
@@ -1253,7 +1252,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a file with file properties**
 
-```
+```yaml
   - name: CreatingFileWithFileProperties
     action: CreateFile
     inputs:
@@ -1273,7 +1272,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a file without file properties**
 
-```
+```yaml
   - name: CreatingFileWithoutFileProperties
     action: CreateFile
     inputs:
@@ -1283,7 +1282,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create an empty file to skip a section in the Linux clean up script**
 
-```
+```yaml
   - name: CreateSkipCleanupfile
     action: CreateFile
     inputs:
@@ -1323,7 +1322,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a folder (Linux)**
 
-```
+```yaml
   - name: CreatingFolderLinux
     action: CreateFolder
     inputs:
@@ -1332,7 +1331,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a folder (Windows)**
 
-```
+```yaml
   - name: CreatingFolderWindows
     action: CreateFolder
     inputs:
@@ -1341,7 +1340,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a folder specifying folder properties**
 
-```
+```yaml
   - name: CreatingFolderWithFolderProperties
     action: CreateFolder
     inputs:
@@ -1355,7 +1354,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a folder that overwrites the existing folder, if there is one.**
 
-```
+```yaml
   - name: CreatingFolderWithOverwrite
     action: CreateFolder
     inputs:
@@ -1393,7 +1392,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create symbolic link that forces the creation of a link**
 
-```
+```yaml
   - name: CreatingSymbolicLinkWithForce
     action: CreateSymlink
     inputs:
@@ -1404,7 +1403,7 @@ The action module returns an error when the following occurs:
 
 **Input example: create a symbolic link that does not force the creation of a link**
 
-```
+```yaml
   - name: CreatingSymbolicLinkWithOutForce
     action: CreateSymlink
     inputs:
@@ -1435,7 +1434,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a single file (Linux)**
 
-```
+```yaml
   - name: DeletingSingleFileLinux
     action: DeleteFile
     inputs:
@@ -1444,7 +1443,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a single file (Windows)**
 
-```
+```yaml
   - name: DeletingSingleFileWindows
     action: DeleteFile
     inputs:
@@ -1453,7 +1452,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a file that ends with "log" (Linux)**
 
-```
+```yaml
   - name: DeletingFileEndingWithLogLinux
     action: DeleteFile
     inputs:
@@ -1462,7 +1461,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a file that ends with "log" (Windows)**
 
-```
+```yaml
   - name: DeletingFileEndingWithLogWindows
     action: DeleteFile
     inputs:
@@ -1471,7 +1470,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete all files in a specified folder (Linux)**
 
-```
+```yaml
   - name: DeletingAllFilesInAFolderLinux
     action: DeleteFile
     inputs:
@@ -1480,7 +1479,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete all files in a specified folder (Windows)**
 
-```
+```yaml
   - name: DeletingAllFilesInAFolderWindows
     action: DeleteFile
     inputs:
@@ -1511,7 +1510,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a folder that is not empty using the `force` option (Linux)** 
 
-```
+```yaml
   - name: DeletingFolderWithForceOptionLinux
     action: DeleteFolder
     inputs:
@@ -1521,7 +1520,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a folder that is not empty using the `force` option (Windows)** 
 
-```
+```yaml
   - name: DeletingFolderWithForceOptionWindows
     action: DeleteFolder
     inputs:
@@ -1531,7 +1530,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a folder (Linux)** 
 
-```
+```yaml
   - name: DeletingFolderWithOutForceLinux
     action: DeleteFolder
     inputs:
@@ -1540,7 +1539,7 @@ The action module returns an error when the following occurs:
 
 **Input example: delete a folder (Windows)** 
 
-```
+```yaml
   - name: DeletingFolderWithOutForce
     action: DeleteFolder
     inputs:
@@ -1573,7 +1572,7 @@ The action module returns an error when the following occurs:
 
 **Input example: list files in specified folder (Linux)**
 
-```
+```yaml
   - name: ListingFilesInSampleFolderLinux
     action: ListFiles
     inputs:
@@ -1582,7 +1581,7 @@ The action module returns an error when the following occurs:
 
 **Input example: list files in specified folder (Windows)**
 
-```
+```yaml
   - name: ListingFilesInSampleFolderWindows
     action: ListFiles
     inputs:
@@ -1591,7 +1590,7 @@ The action module returns an error when the following occurs:
 
 **Input example: list files that end with "log" (Linux)**
 
-```
+```yaml
   - name: ListingFilesWithEndingWithLogLinux
     action: ListFiles
     inputs:
@@ -1601,7 +1600,7 @@ The action module returns an error when the following occurs:
 
 **Input example: list files that end with "log" (Windows)**
 
-```
+```yaml
   - name: ListingFilesWithEndingWithLogWindows
     action: ListFiles
     inputs:
@@ -1611,7 +1610,7 @@ The action module returns an error when the following occurs:
 
 **Input example: list files recursively**
 
-```
+```yaml
   - name: ListingFilesRecursively
     action: ListFiles
     inputs:
@@ -1628,7 +1627,7 @@ The action module returns an error when the following occurs:
 
 **Output example**
 
-```
+```json
 {
 	"files": "/sample1.txt,/sample2.txt,/sample3.txt"
 }
@@ -1662,7 +1661,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file (Linux)**
 
-```
+```yaml
   - name: MovingAFileLinux
     action: MoveFile
     inputs:
@@ -1672,7 +1671,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file (Windows)**
 
-```
+```yaml
   - name: MovingAFileWindows
     action: MoveFile
     inputs:
@@ -1682,7 +1681,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file using the source file name (Linux)**
 
-```
+```yaml
   - name: MovingFileWithSourceFileNameLinux
     action: MoveFile
     inputs:
@@ -1692,7 +1691,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file using the source file name (Windows)**
 
-```
+```yaml
   - name: MovingFileWithSourceFileNameWindows
     action: MoveFile
     inputs:
@@ -1702,7 +1701,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file using a wildcard character (Linux)**
 
-```
+```yaml
   - name: MovingFilesWithWildCardLinux
     action: MoveFile
     inputs:
@@ -1712,7 +1711,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file using a wildcard character (Windows)**
 
-```
+```yaml
   - name: MovingFilesWithWildCardWindows
     action: MoveFile
     inputs:
@@ -1722,7 +1721,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file without overwriting (Linux)**
 
-```
+```yaml
   - name: MovingFilesWithoutOverwriteLinux
     action: MoveFile
     inputs:
@@ -1733,7 +1732,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a file without overwriting (Windows)**
 
-```
+```yaml
   - name: MovingFilesWithoutOverwrite
     action: MoveFile
     inputs:
@@ -1775,7 +1774,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder (Linux)**
 
-```
+```yaml
   - name: MovingAFolderLinux
     action: MoveFolder
     inputs:
@@ -1785,7 +1784,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder (Windows)**
 
-```
+```yaml
   - name: MovingAFolderWindows
     action: MoveFolder
     inputs:
@@ -1795,7 +1794,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder using the source folder name (Linux)**
 
-```
+```yaml
   - name: MovingFolderWithSourceFolderNameLinux
     action: MoveFolder
     inputs:
@@ -1805,7 +1804,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder using the source folder name (Windows)**
 
-```
+```yaml
   - name: MovingFolderWithSourceFolderNameWindows
     action: MoveFolder
     inputs:
@@ -1815,7 +1814,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder using a wildcard character (Linux)**
 
-```
+```yaml
   - name: MovingFoldersWithWildCardLinux
     action: MoveFolder
     inputs:
@@ -1825,7 +1824,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder using a wildcard character (Windows)**
 
-```
+```yaml
   - name: MovingFoldersWithWildCardWindows
     action: MoveFolder
     inputs:
@@ -1835,7 +1834,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder without overwriting (Linux)**
 
-```
+```yaml
   - name: MovingFoldersWithoutOverwriteLinux
     action: MoveFolder
     inputs:
@@ -1846,7 +1845,7 @@ The action module returns an error when the following occurs:
 
 **Input example: move a folder without overwriting (Windows)**
 
-```
+```yaml
   - name: MovingFoldersWithoutOverwriteWindows
     action: MoveFolder
     inputs:
@@ -1884,7 +1883,7 @@ The action module returns an error when the following occurs:
 
 **Input example: read a file (Linux)**
 
-```
+```yaml
   - name: ReadingFileLinux
     action: ReadFile
     inputs:
@@ -1893,7 +1892,7 @@ The action module returns an error when the following occurs:
 
 **Input example: read a file (Windows)**
 
-```
+```yaml
   - name: ReadingFileWindows
     action: ReadFile
     inputs:
@@ -1902,7 +1901,7 @@ The action module returns an error when the following occurs:
 
 **Input example: read a file and specify encoding standard**
 
-```
+```yaml
   - name: ReadingFileWithFileEncoding
     action: ReadFile
     inputs:
@@ -1912,7 +1911,7 @@ The action module returns an error when the following occurs:
 
 **Input example: read a file and print to the `console.log` file**
 
-```
+```yaml
   - name: ReadingFileToConsole
     action: ReadFile
     inputs:
@@ -1929,7 +1928,7 @@ The action module returns an error when the following occurs:
 
 **Output example**
 
-```
+```json
 {
 	"content" : "The file content"
 }
@@ -1955,7 +1954,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set file encoding property**
 
-```
+```yaml
   - name: SettingFileEncodingProperty
     action: SetFileEncoding
     inputs:
@@ -1990,7 +1989,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set file owner property without specifying the name of the user group**
 
-```
+```yaml
   - name: SettingFileOwnerPropertyNoGroup
     action: SetFileOwner
     inputs:
@@ -2000,7 +1999,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set file owner property by specifying the owner and the user group**
 
-```
+```yaml
   - name: SettingFileOwnerProperty
     action: SetFileOwner
     inputs:
@@ -2037,7 +2036,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set folder owner property without specifying the name of the user group**
 
-```
+```yaml
   - name: SettingFolderPropertyWithOutGroup
     action: SetFolderOwner
     inputs:
@@ -2047,7 +2046,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set folder owner property without overriding the ownership of all of the contents in a folder **
 
-```
+```yaml
   - name: SettingFolderPropertyWithOutRecursively
     action: SetFolderOwner
     inputs:
@@ -2058,7 +2057,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set file ownership property by specifying the name of the user group**
 
-```
+```yaml
   - name: SettingFolderPropertyWithGroup
     action: SetFolderOwner
     inputs:
@@ -2094,7 +2093,7 @@ The action module returns an error when the following occurs:
 
 **Input example: modify file permissions**
 
-```
+```yaml
   - name: ModifyingFilePermissions
     action: SetFilePermissions
     inputs:
@@ -2130,7 +2129,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set folder permissions**
 
-```
+```yaml
   - name: SettingFolderPermissions
     action: SetFolderPermissions
     inputs:
@@ -2140,7 +2139,7 @@ The action module returns an error when the following occurs:
 
 **Input example: set folder permissions without modifying permissions for all of the contents of a folder**
 
-```
+```yaml
   - name: SettingFolderPermissionsNoRecursive
     action: SetFolderPermissions
     inputs:
@@ -2214,7 +2213,7 @@ The following examples show variations of the input section for your component d
 
 **Input example: local document path installation**
 
-```
+```yaml
 - name: local-path-install
   steps:
     - name: LocalPathInstaller
@@ -2232,7 +2231,7 @@ The following examples show variations of the input section for your component d
 
 **Input example: Amazon S3 path installation**
 
-```
+```yaml
 - name: s3-path-install
   steps:
     - name: S3PathInstaller
@@ -2247,7 +2246,7 @@ The following examples show variations of the input section for your component d
 
 **Input example: web path installation**
 
-```
+```yaml
 - name: web-path-install
   steps:
     - name: WebPathInstaller
@@ -2263,7 +2262,7 @@ The following examples show variations of the input section for your component d
 **Output**  
 The following is an example of the output from the `InstallMSI` action module.
 
-```
+```json
 {
 	"logFile": "web-path-install.log",
 	"msiExitCode": 0,
@@ -2303,7 +2302,7 @@ The following examples show variations of the input section for your component d
 
 **Input example: remove local document path installation**
 
-```
+```yaml
 - name: local-path-uninstall
   steps:
     - name: LocalPathUninstaller
@@ -2321,7 +2320,7 @@ The following examples show variations of the input section for your component d
 
 **Input example: remove Amazon S3 path installation**
 
-```
+```yaml
 - name: s3-path-uninstall
   steps:
     - name: S3PathUninstaller
@@ -2336,7 +2335,7 @@ The following examples show variations of the input section for your component d
 
 **Input example: remove web path installation**
 
-```
+```yaml
 - name: web-path-uninstall
   steps:
     - name: WebPathUninstaller
@@ -2352,7 +2351,7 @@ The following examples show variations of the input section for your component d
 **Output**  
 The following is an example of the output from the `UninstallMSI` action module.
 
-```
+```json
 {
 	"logFile": "web-path-uninstall.log",
 	"msiExitCode": 0,
@@ -2383,7 +2382,7 @@ If the application is invoked on the host as a standalone process, it saves the 
 + **Windows**. AWSTOE creates a Windows Task Scheduler entry with a trigger that runs automatically at `SystemStartup`
 + **Linux**. AWSTOE adds a job in crontab that runs automatically after the system reboots.
 
-```
+```sh
 @reboot /download/path/awstoe run --document s3://bucket/key/doc.yaml
 ```
 
@@ -2403,7 +2402,7 @@ To use the **Reboot** action module, for steps that contain reboot `exitcode` (f
 
 **Input example: reboot step**
 
-```
+```yaml
   - name: RebootStep
     action: Reboot
     onFailure: Abort
@@ -2450,7 +2449,7 @@ The **SetRegistry** action module accepts a list of inputs and allows you to set
 
 **Input example: set registry key values**
 
-```
+```yaml
   - name: SetRegistryKeyValues
     action: SetRegistry
     maxAttempts: 3
@@ -2491,7 +2490,7 @@ If both "include" and "exclude" lists are provided, the resulting list of update
 
 **Input example: add support for installing Linux updates**
 
-```
+```yaml
   - name: UpdateMyLinux
     action: UpdateOS
     onFailure: Abort
@@ -2503,7 +2502,7 @@ If both "include" and "exclude" lists are provided, the resulting list of update
 
 **Input example: add support for installing Windows updates**
 
-```
+```yaml
   - name: UpdateWindowsOperatingSystem
     action: UpdateOS
     onFailure: Abort
@@ -2524,7 +2523,7 @@ To have **UpdateOS** also install updates for other Microsoft products, opt in t
 
 The following component document step uses PowerShell to register the Microsoft Update service:
 
-```
+```yaml
   - name: OptInToMicrosoftUpdate
     action: ExecutePowerShell
     onFailure: Abort

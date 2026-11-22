@@ -1,7 +1,6 @@
 
 
 # Verify the signature of the AWSTOE installation download
-<a name="awstoe-verify-sig"></a>
 
 This section describes the recommended process for verifying the validity of the installation download for AWSTOE on Linux, macOS and Windows based operating systems.
 
@@ -39,7 +38,7 @@ To install GPG tools, select the operating system that matches your instance.
 
 From a terminal, run the following command:
 
-```
+```sh
 apt-get install gnupg
 ```
 
@@ -48,7 +47,7 @@ apt-get install gnupg
 
 From a terminal, run the following command:
 
-```
+```sh
 yum install gnupg
 ```
 
@@ -57,7 +56,7 @@ yum install gnupg
 
 From a terminal, run the following command:
 
-```
+```sh
 brew install gnupg
 ```
 

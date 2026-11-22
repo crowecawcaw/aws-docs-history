@@ -1,7 +1,6 @@
 
 
 # List images and build versions
-<a name="image-details-list"></a>
 
 On the **Images** page in the Image Builder console, you can see lists of all of the Image Builder image resources that you own, that are shared with you, and that you have access to. The list results include some key details about those resources.
 
@@ -129,7 +128,7 @@ The following command example shows how to use the **list-images** command witho
 
 **Example: list all images**
 
-```
+```sh
 aws imagebuilder list-images
 ```
 
@@ -174,7 +173,7 @@ When you run the **list-images** command, you can apply filters to streamline th
 
 **Example: filter for Linux images**
 
-```
+```sh
 aws imagebuilder list-images --filters name="{{platform}}",values="{{Linux}}"
 ```
 
@@ -202,13 +201,13 @@ aws imagebuilder list-images --filters name="{{platform}}",values="{{Linux}}"
 
 When you run the [Get-EC2IBImageList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageList.html) cmdlet, you can get a list of images that you own or have access to. The following example shows how to use the cmdlet without filters to list all of the Image Builder image resources that you own:
 
-```
+```ps
 Get-EC2IBImageList
 ```
 
 You can also apply a filter to streamline the results, as the following example shows. This example filters for Linux images:
 
-```
+```ps
 Get-EC2IBImageList -Filter @{Name="{{platform}}";Values="{{Linux}}"}
 ```
 
@@ -254,7 +253,7 @@ The following command example shows how to use the **list-waiting-workflow-steps
 
 **Example: list images in your account with waiting workflow steps**
 
-```
+```sh
 aws imagebuilder list-waiting-workflow-steps
 ```
 
@@ -283,7 +282,7 @@ The output for this example shows one image in the account with a step that's wa
 
 The following example shows how to use the [Get-EC2IBWaitingWorkflowStepList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBWaitingWorkflowStepList.html) cmdlet to list all of the images in your account that have workflow steps that are waiting for action before completing the image creation process:
 
-```
+```ps
 Get-EC2IBWaitingWorkflowStepList
 ```
 
@@ -329,7 +328,7 @@ The following command example shows how to use the **list-image-build-versions**
 
 **Example: list build versions for a specific image**
 
-```
+```sh
 aws imagebuilder list-image-build-versions --image-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{image-recipe-name}}/{{1.0.0}}
 ```
 
@@ -403,7 +402,7 @@ Output from the **list-image-build-versions** command doesn't include security f
 
 The following example shows how to use the [Get-EC2IBImageBuildVersionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageBuildVersionList.html) cmdlet to list all of the build versions for the specified image resource. You must own the image to run this cmdlet:
 
-```
+```ps
 Get-EC2IBImageBuildVersionList -ImageVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{image-recipe-name}}/{{1.0.0}}
 ```
 

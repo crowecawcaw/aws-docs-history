@@ -1,7 +1,6 @@
 
 
 # Log Image Builder API calls using CloudTrail
-<a name="log-cloudtrail"></a>
 
 EC2 Image Builder is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Image Builder. CloudTrail captures all API calls for Image Builder as events. The calls captured include calls from the Image Builder console and code calls to the Image Builder API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Image Builder. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Image Builder, the IP address from which the request was made, who made the request, when it was made, and additional details.
 

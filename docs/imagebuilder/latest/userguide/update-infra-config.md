@@ -1,7 +1,6 @@
 
 
 # Update an infrastructure configuration
-<a name="update-infra-config"></a>
 
 This section covers how to update an infrastructure configuration resource. You can use the Image Builder console, **imagebuilder** commands in the AWS CLI, or AWS Tools for PowerShell. To track your resources, you can apply tags as follows. Enter tags as key-value pairs.
 + *Resource tags* assign metadata tags to the Amazon EC2 instance that Image Builder launches during the build process.
@@ -58,7 +57,7 @@ To prevent unintended removal of existing settings, use the **get-infrastructure
 
    Use a file editing tool to create a JSON file with keys shown in the following example, plus values that are valid for your environment. This example uses a file named `update-infrastructure-configuration.json`:
 
-   ```
+   ```json
    {
        "infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
        "description": "{{An example that will terminate instances of failed builds}}",
@@ -102,7 +101,7 @@ The following example sets common infrastructure fields. To require IMDSv2 token
 
 To update the infrastructure configuration, run the `Update-EC2IBInfrastructureConfiguration` cmdlet:
 
-```
+```ps
 Update-EC2IBInfrastructureConfiguration -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}} `
     -Description "{{An example that will terminate instances of failed builds}}" `
     -InstanceType m7i.large, m7i.2xlarge `

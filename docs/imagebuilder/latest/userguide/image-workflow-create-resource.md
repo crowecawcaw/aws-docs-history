@@ -1,7 +1,6 @@
 
 
 # Create an image workflow
-<a name="image-workflow-create-resource"></a>
 
 When you create an image workflow, you have more control over your image creation process. You can specify the workflow that runs when Image Builder builds your image, the workflows that run when it tests the image, and the workflow that runs when it distributes the image. You can also specify a customer managed key to encrypt your workflow resources. To learn more about encryption for your workflow resources, see [Encryption and key management in Image Builder](data-protection.md#ib-encryption).
 
@@ -108,7 +107,7 @@ The following examples use the [New-EC2IBWorkflow](https://docs.aws.amazon.com/p
 **Create build workflow**  
 The following example shows how to create a build workflow with the `New-EC2IBWorkflow` cmdlet. The `Data` parameter contains the build configuration for the workflow you create:
 
-```
+```ps
 New-EC2IBWorkflow -Name {{example-build-workflow}} `
     -SemanticVersion {{1.0.0}} `
     -Type BUILD `
@@ -120,7 +119,7 @@ The cmdlet returns the Amazon Resource Name (ARN) of the new workflow build vers
 **Create test workflow**  
 The following example shows how to create a test workflow with the `New-EC2IBWorkflow` cmdlet. The `Data` parameter contains the test configuration for the workflow you create:
 
-```
+```ps
 New-EC2IBWorkflow -Name {{example-test-workflow}} `
     -SemanticVersion {{1.0.0}} `
     -Type TEST `
@@ -132,7 +131,7 @@ The cmdlet returns the ARN of the new workflow build version.
 **Create distribution workflow**  
 The following example shows how to create a distribution workflow with the `New-EC2IBWorkflow` cmdlet. The `Data` parameter contains the distribution configuration for the workflow you create:
 
-```
+```ps
 New-EC2IBWorkflow -Name {{example-distribution-workflow}} `
     -SemanticVersion {{1.0.0}} `
     -Type DISTRIBUTION `

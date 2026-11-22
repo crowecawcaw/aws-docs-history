@@ -1,7 +1,6 @@
 
 
 # Import verified Windows ISO disk images with Image Builder
-<a name="import-iso-disk"></a>
 
 A Windows operating system ISO file is a disk image file that contains the complete installation package for a specific version of the Windows operating system. Microsoft provides official Windows operating system ISO files for download, either directly from their website or through authorized resellers. To avoid potential malware or unauthorized versions, obtain the ISO files from a trusted and legitimate source.
 
@@ -51,14 +50,14 @@ To import an ISO disk image, you must meet the following prerequisites:
 ------
 #### [ Command ]
 
-  ```
+  ```sh
   aws s3 cp s3://{{amzn-s3-demo-bucket}}/{{Win11_24H2_English}}.iso s3://{{amzn-s3-demo-bucket}}/{{Win11_24H2_English}}.ISO
   ```
 
 ------
 #### [ PowerShell ]
 
-  ```
+  ```ps
   Copy-S3Object -BucketName {{amzn-s3-demo-bucket}} -Key {{Win11_24H2_English}}.iso -DestinationKey {{Win11_24H2_English}}.ISO
   ```
 
@@ -168,7 +167,7 @@ Here is a summary of the parameters that we specify in this example:
 + **windowsConfiguration** (object) – Windows-specific configuration settings for the ISO import. Contains the following fields:
   + **imageIndex** (integer) – The 1-based index that specifies which Windows edition to install from a multi-edition Windows ISO file. A Windows ISO can contain a `.wim` file with multiple image indexes, each representing a different edition.
 
-```
+```sh
 aws imagebuilder import-disk-image \
     --name "{{example-iso-disk-import}}" \
     --semantic-version "{{1.0.0}}" \
@@ -204,7 +203,7 @@ Here is a summary of the parameters that we specify in this example:
 + **windowsConfiguration** (object) – Windows-specific configuration settings for the ISO import. Contains the following fields:
   + **imageIndex** (integer) – The 1-based index that specifies which Windows edition to install from a multi-edition Windows ISO file. A Windows ISO can contain a `.wim` file with multiple image indexes, each representing a different edition.
 
-```
+```ps
 Import-EC2IBDiskImage `
     -Name "{{example-iso-disk-import}}" `
     -SemanticVersion "{{1.0.0}}" `

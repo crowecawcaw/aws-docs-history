@@ -1,7 +1,6 @@
 
 
 # List lifecycle management policies for Image Builder image resources
-<a name="list-lifecycle-policies"></a>
 
 You can get a list of your image lifecycle management policies that includes key detail columns on the **Lifecycle policies** list page in the AWS Management Console, or with commands or actions in the Image Builder API, SDKs, or AWS CLI.
 
@@ -93,7 +92,7 @@ To use your default AWS Region, run this command without the `--region` paramete
 
 The following example shows how to use the [Get-EC2IBLifecyclePolicyList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBLifecyclePolicyList.html) cmdlet to list image lifecycle policies for a specific AWS Region:
 
-```
+```ps
 Get-EC2IBLifecyclePolicyList -Region {{us-west-1}}
 ```
 

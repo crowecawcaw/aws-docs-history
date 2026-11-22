@@ -1,7 +1,6 @@
 
 
 # Use cron expressions in Image Builder
-<a name="cron-expressions"></a>
 
 Use cron expressions for EC2 Image Builder to set up a time window to refresh your image with updates that apply to your pipeline's base image and components. The time window for your pipeline refresh starts with the time you set in the cron expression. You can set the time in your cron expression down to the minute. Your pipeline build can run on or after the start time.
 

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Image Builder
-<a name="compliance"></a>
 
 EC2 Image Builder is not in scope of any AWS compliance programs.
 

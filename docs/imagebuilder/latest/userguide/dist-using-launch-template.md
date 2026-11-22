@@ -1,7 +1,6 @@
 
 
 # Configure AMI distribution with an EC2 launch template
-<a name="dist-using-launch-template"></a>
 
 To help ensure a consistent launch experience for your Image Builder AMI in target accounts and Regions, you can specify an Amazon EC2 launch template in your distribution settings, using `launchTemplateConfigurations`. When `launchTemplateConfigurations` are present during the distribution process, Image Builder creates a new version of the launch template that includes all of the original settings from the template, and the new AMI ID from the build. For more information about launching an EC2 instance using a launch template, see [Launch EC2 instances using a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launch-instances-from-launch-template.html) in the *Amazon EC2 User Guide*.
 
@@ -58,7 +57,7 @@ This section describes how to configure distribution settings with a launch temp
 
    The following sample file, named `create-distribution-config-launch-template.json`, shows a few possible scenarios for launch template configuration in the source Region:
 
-   ```
+   ```json
    {
        "name": "NewDistributionConfiguration",
        "description": "This is just a test",
@@ -113,7 +112,7 @@ Tools for PowerShell doesn't take a JSON input file. Instead, each top-level JSO
 
 The following example shows how to use the [New-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBDistributionConfiguration.html) cmdlet to create distribution settings with the same launch template configurations as the AWS CLI example:
 
-```
+```ps
 Import-Module AWS.Tools.Imagebuilder
 $distribution = [Amazon.Imagebuilder.Model.Distribution]@{
     Region = "us-west-2"

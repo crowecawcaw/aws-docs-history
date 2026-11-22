@@ -1,7 +1,6 @@
 
 
 # Learn how to create custom images with Image Builder tutorials
-<a name="ib-tutorials"></a>
 
 There are many ways to build custom images and components with EC2 Image Builder. Tutorials help you learn about key Image Builder concepts. Each tutorial presents a use case with steps that you can follow for the first time. The instructions use defaults where possible to assist with learning the overall process. After you use one of the tutorials, you can explore more ways to customize your own images.
 

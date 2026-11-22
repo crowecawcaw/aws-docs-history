@@ -1,7 +1,6 @@
 
 
 # How Image Builder works with IAM policies and roles
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Image Builder, learn what IAM features are available to use with Image Builder.
 
@@ -161,7 +160,7 @@ Policy actions in Image Builder use the following prefix before the action: `ima
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": [
 	"imagebuilder:action1",
 	"imagebuilder:action2"
@@ -170,7 +169,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "imagebuilder:List*"
 ```
 
@@ -227,33 +226,33 @@ For more information about getting a list of components, including the use of an
 The following are some examples of resource ARNs that you might specify in an IAM policy:
 + Instance ARN
 
-  ```
+  ```json
   "Resource": "arn:aws:imagebuilder:{{us-east-1}}:{{111122223333}}:instance/{{i-1234567890abcdef0}}"
   ```
 + Wildcard (\*) example to specify all instances for a given account
 
-  ```
+  ```json
   "Resource": "arn:aws:imagebuilder:{{us-east-1}}:{{111122223333}}:instance/*"
   ```
 + Wildcard (\*) example to specify all versions of a managed image workflow
 
-  ```
+  ```json
   "Resource": "arn:aws:imagebuilder:{{us-east-1}}:aws:workflow/build/build-image/*"
   ```
 + Managed image ARN
 
-  ```
+  ```json
   "Resource": "arn:aws:imagebuilder:{{us-east-1}}:aws:image/{{amazon-linux-2-arm64/2024.12.17/1}}"
   ```
 + Wildcard (\*) example to specify all versions of a managed image
 
-  ```
+  ```json
   "Resource": "arn:aws:imagebuilder:{{us-east-1}}:aws:image/{{amazon-linux-2-arm64/x.x.x}}"
   ```
 
 Many EC2 Image Builder API actions involve multiple resources. To specify multiple resources in a single statement, separate the ARNs with commas. 
 
-```
+```json
 "Resource": [
 	  "{{resource1}}",
 	  "{{resource2}}"

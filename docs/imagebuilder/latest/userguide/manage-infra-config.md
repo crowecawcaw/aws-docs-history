@@ -1,7 +1,6 @@
 
 
 # Manage Image Builder infrastructure configuration
-<a name="manage-infra-config"></a>
 
 An infrastructure configuration is a reusable Image Builder resource that defines the Amazon EC2 environment where Image Builder builds and tests your image. When you create an image pipeline, you attach one infrastructure configuration to it. Image Builder then uses those settings every time the pipeline runs a build.
 

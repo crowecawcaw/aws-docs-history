@@ -1,7 +1,6 @@
 
 
 # Manage build, test, and distribution workflows for Image Builder images
-<a name="manage-image-workflows"></a>
 
 An image workflow defines the sequence of steps that EC2 Image Builder runs during one stage of the image creation process. You author a workflow as a YAML document and create it as a versioned, reusable resource. Image Builder then runs your workflows when it builds, tests, and distributes your images.
 

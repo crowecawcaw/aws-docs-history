@@ -1,7 +1,6 @@
 
 
 # Use IAM service-linked roles for Image Builder
-<a name="image-builder-service-linked-role"></a>
 
 EC2 Image Builder uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Image Builder. Service-linked roles are predefined by Image Builder and include all of the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -56,7 +55,7 @@ If the Image Builder service is using the role when you try to delete the resour
 
    To cancel a running build, use the [Stop-EC2IBImageCreation](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2IBImageCreation.html) cmdlet:
 
-   ```
+   ```ps
    Stop-EC2IBImageCreation -ImageBuildVersionArn {{arn:aws:imagebuilder:us-east-1:123456789012:image/sample-image/1.0.0/1}}
    ```
 

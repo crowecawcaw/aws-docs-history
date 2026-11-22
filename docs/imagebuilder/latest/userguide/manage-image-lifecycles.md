@@ -1,7 +1,6 @@
 
 
 # Manage lifecycle policies for Image Builder images
-<a name="manage-image-lifecycles"></a>
 
 EC2 Image Builder lifecycle policies automate deprecation, disabling, and deletion of outdated images and their associated resources. Each pipeline build creates a new image version and distributes associated resources. Without lifecycle policies, earlier versions remain in your account until you delete them manually.
 

@@ -1,7 +1,6 @@
 
 
 # Configure image pipeline workflows in Image Builder
-<a name="pipeline-workflows"></a>
 
 With image workflows, you can customize the workflows that your pipeline runs to build, test, and distribute images according to your needs. The workflows that you define run within the context of the Image Builder workflow framework. For more information about the stages that make up the workflow framework, see [Manage build, test, and distribution workflows for Image Builder images](manage-image-workflows.md).
 
@@ -169,7 +168,7 @@ For a step-by-step walkthrough of the full **Create image pipeline** wizard, see
 
 To associate custom image workflows when you create a pipeline, use the [create-image-pipeline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image-pipeline.html) command. Specify your execution role with the `--execution-role` parameter, and list your build, test, and distribution workflows with the `--workflows` parameter. The following example creates a pipeline with one build workflow, one test workflow, and one distribution workflow:
 
-```
+```sh
 aws imagebuilder create-image-pipeline \
     --name {{example-pipeline}} \
     --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{example}}/{{1.0.0}} \
@@ -187,7 +186,7 @@ aws imagebuilder create-image-pipeline \
 
 To associate custom image workflows when you create a pipeline, use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet. Specify your execution role with the `ExecutionRole` parameter. Pass your build, test, and distribution workflows to the `Workflow` parameter as a list of `WorkflowConfiguration` objects. The following example creates a pipeline with one build workflow, one test workflow, and one distribution workflow:
 
-```
+```ps
 Import-Module AWS.Tools.Imagebuilder
 
 $workflows = @(

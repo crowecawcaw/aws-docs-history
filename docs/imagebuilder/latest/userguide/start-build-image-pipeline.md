@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an image pipeline with output AMI from the Image Builder console wizard
-<a name="start-build-image-pipeline"></a>
 
 This tutorial walks you through creating an automated pipeline to build and maintain a customized EC2 Image Builder image using the **Create image pipeline** console wizard. To help you move through the steps efficiently, default settings are used when they are available, and optional sections are skipped.
 

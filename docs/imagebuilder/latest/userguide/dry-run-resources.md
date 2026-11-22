@@ -1,7 +1,6 @@
 
 
 # Validate Image Builder resource creation with a dry run
-<a name="dry-run-resources"></a>
 
 With a dry run, you can check whether a request to create an Image Builder resource would succeed, without creating the resource. When you set the `dryRun` parameter to `true` in your request, Image Builder validates the required permissions and request parameters, and then stops before it creates anything. The outcome is one of the following:
 + If validation succeeds, the request fails with a `DryRunOperationException` error. This error indicates that the request is valid, and that the resource creation would have succeeded without the `dryRun` parameter.
@@ -48,7 +47,7 @@ An error occurred (DryRunOperationException) when calling the CreateInfrastructu
 
 The following example shows how to validate an infrastructure configuration with the [New-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBInfrastructureConfiguration.html) cmdlet. Setting the `DryRun` parameter to `$true` turns the request into a dry run:
 
-```
+```ps
 New-EC2IBInfrastructureConfiguration -Name {{my-example-infrastructure-configuration}} `
     -InstanceProfileName {{EC2InstanceProfileForImageBuilder}} `
     -DryRun $true

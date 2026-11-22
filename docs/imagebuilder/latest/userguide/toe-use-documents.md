@@ -1,7 +1,6 @@
 
 
 # Use the AWSTOE component document framework for custom components
-<a name="toe-use-documents"></a>
 
 To build a component using the AWS Task Orchestrator and Executor (AWSTOE) component framework, you must provide a YAML-based document that represents the phases and steps that apply for the component you create. AWS services use your component when they create a new Amazon Machine Image (AMI) or container image.
 
@@ -109,7 +108,7 @@ The chaining feature allows you to recycle code and improve the maintainability 
 
 To refer to the source variable in the second entry of the following example step, the chaining pattern is `{{ build.{{SampleS3Download}}.inputs[1].source }}`.
 
-```
+```yaml
 phases:
   - name: 'build'
     steps:
@@ -127,7 +126,7 @@ phases:
 
 To refer to the output variable (equal to "Hello") of the following example step, the chaining pattern is `{{ build.{{SamplePowerShellStep}}.outputs.stdout }}`.
 
-```
+```yaml
 phases:
   - name: 'build'
     steps:
@@ -148,7 +147,7 @@ When a step's `if` condition skips the step, the step produces no outputs. A cha
 
 You can use this to check whether an earlier step produced output. The following example YAML document installs a tool only when it isn't already installed. Replace `{{sample-tool}}` with the name of your tool:
 
-```
+```yaml
 name: SkippedStepReferenceExample
 description: Installs a sample tool only when it is not already installed.
 schemaVersion: 1.0
@@ -191,7 +190,7 @@ The following rules still apply when a step is skipped:
 
 The following is the YAML schema for a document.
 
-```
+```yaml
 name: (optional)
 description: (optional)
 schemaVersion: "string"
@@ -252,7 +251,7 @@ The following examples show AWSTOE component documents that perform tasks for th
 **Example 1: Run a custom binary file**  
 The following is an example document that downloads and runs a custom binary file on a Linux instance.
 
-```
+```yaml
 name: LinuxBin
 description: Download and run a custom Linux binary file.
 schemaVersion: 1.0
@@ -289,7 +288,7 @@ phases:
 **Example 1: Install Windows updates**  
 The following is an example document that installs all available Windows updates, runs a configuration script, validates the changes before the AMI is created, and tests the changes after the AMI is created.
 
-```
+```yaml
 name: RunConfig_UpdateWindows
 description: 'This document will install all available Windows updates and run a config script. It will then validate the changes before an AMI is created. Then after AMI creation, it will test all the changes.'
 schemaVersion: 1.0
@@ -377,7 +376,7 @@ phases:
 **Example 2: Install the AWS CLI on a Windows instance**  
 The following is an example document that installs the AWS CLI on a Windows instance, using the setup file.
 
-```
+```yaml
 name: InstallCLISetUp
 description: Install &CLI; using the setup file
 schemaVersion: 1.0
@@ -407,7 +406,7 @@ phases:
 **Example 3: Install the AWS CLI with the MSI installer**  
 The following is an example document that installs the AWS CLI with the MSI installer.
 
-```
+```yaml
 name: InstallCLIMSI
 description: Install &CLI; using the MSI installer
 schemaVersion: 1.0
@@ -441,7 +440,7 @@ phases:
 **Example 1: Run a custom macOS binary file**  
 The following is an example document that downloads and runs a custom binary file on a macOS instance.
 
-```
+```yaml
 name: macOSBin
 description: Download and run a binary file on macOS.
 schemaVersion: 1.0

@@ -1,7 +1,6 @@
 
 
 # How lifecycle management rules work for Image Builder image resources
-<a name="image-lifecycle-rules"></a>
 
 Lifecycle rules keep your images fresh and reduce infrastructure costs, such as snapshot storage for output AMIs and Amazon ECR repository storage for containers.
 

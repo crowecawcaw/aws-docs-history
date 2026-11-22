@@ -1,7 +1,6 @@
 
 
 # Run an image pipeline manually
-<a name="pipelines-run"></a>
 
 If you chose the manual schedule option for your pipeline, it will only run when you manually kick off the build. If you chose one of the automatic scheduling options, you can also run it manually, in between regularly scheduled runs. For example, if you have a pipeline that normally runs once a month, but you need to incorporate an update to one of your components two weeks after the prior run, you can choose to run your pipeline manually.
 
@@ -30,7 +29,7 @@ To see what resources are created when the build pipeline runs, see [Resources c
 
 The following example shows how to use the [Start-EC2IBImagePipelineExecution](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-EC2IBImagePipelineExecution.html) cmdlet to start an image pipeline manually. When you run this cmdlet, the pipeline builds and distributes a new image.
 
-```
+```ps
 Start-EC2IBImagePipelineExecution -ImagePipelineArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-pipeline/{{my-example-pipeline}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Create lifecycle policies
-<a name="create-lifecycle-policies"></a>
 
 When you create a new EC2 Image Builder lifecycle policy, the configuration depends on what kind of image the policy is for. The API action to create a lifecycle policy for AMI image resources and container image resources is the same ([CreateLifecyclePolicy](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html)). However, the configuration for the image resources and associated resources is different. This section shows you how to create lifecycle management policies for both.
 

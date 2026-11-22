@@ -1,7 +1,6 @@
 
 
 # Patch Management for Image Builder images
-<a name="security-patch-management"></a>
 
 AWS provides updated managed AMIs each month that have the latest updates and security patches applied for the following operating systems. You can use these AMIs as the base image for your customizations. For more information, see [Supported operating systems](what-is-image-builder.md#image-builder-os).
 + Linux distributions including Amazon Linux 2, AL2023, Red Hat Enterprise Linux (RHEL), CentOS, Ubuntu, SUSE Linux Enterprise Server

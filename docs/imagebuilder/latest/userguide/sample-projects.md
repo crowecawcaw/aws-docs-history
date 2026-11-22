@@ -1,7 +1,6 @@
 
 
 # Explore Image Builder sample projects on GitHub
-<a name="sample-projects"></a>
 
 The EC2 Image Builder team maintains the [Image Builder samples repository](https://github.com/aws-samples/amazon-ec2-image-builder-samples) on GitHub. The repository contains complete, deployable sample projects that show how to implement common use cases with infrastructure as code. Samples are available as AWS CloudFormation (CloudFormation) templates, AWS Cloud Development Kit (AWS CDK) applications, Terraform modules, and AWS Task Orchestrator and Executor (AWSTOE) component documents.
 

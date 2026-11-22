@@ -1,7 +1,6 @@
 
 
 # List and view component details
-<a name="component-details"></a>
 
 This section describes how you can find information and view details for the components that you use in your EC2 Image Builder recipes.
 
@@ -105,7 +104,7 @@ Image Builder returns AWS Marketplace component ARNs under the `aws-marketplace`
 
 The following example shows how to use the [Get-EC2IBComponentList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBComponentList.html) cmdlet to return a list of Image Builder components that your account owns:
 
-```
+```ps
 Get-EC2IBComponentList
 ```
 
@@ -120,25 +119,25 @@ You can optionally filter on component ownership. By default, this request retur
 
 The following examples use the `Get-EC2IBComponentList` cmdlet with the `-Owner` parameter to filter the results by component owner:
 
-```
+```ps
 Get-EC2IBComponentList -Owner Self
 ```
 
-```
+```ps
 Get-EC2IBComponentList -Owner Amazon
 ```
 
-```
+```ps
 Get-EC2IBComponentList -Owner Shared
 ```
 
-```
+```ps
 Get-EC2IBComponentList -Owner ThirdParty
 ```
 
 When you list components with the `-Owner AWSMarketplace` value, you can filter the results by product code. Specify the `productCodes` filter with a value in the format `marketplace:{{productCodeId}}`, as shown in the following example:
 
-```
+```ps
 Get-EC2IBComponentList -Owner AWSMarketplace `
     -Filter @{Name="productCodes";Values="marketplace:{{examplecode123}}"}
 ```
@@ -188,7 +187,7 @@ The following example shows how to use the [Get-EC2IBComponentBuildVersionList](
 
 To list the build versions, specify the component version ARN, as shown in the following example:
 
-```
+```ps
 Get-EC2IBComponentBuildVersionList -ComponentVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{example-component}}/1.0.1
 ```
 
@@ -226,7 +225,7 @@ aws imagebuilder get-component --component-build-version-arn arn:aws:imagebuilde
 
 The following example shows how to use the [Get-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBComponent.html) cmdlet to get component details when you specify the component's Amazon Resource Name (ARN):
 
-```
+```ps
 Get-EC2IBComponent -ComponentBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{example-component}}/1.0.1/1
 ```
 
@@ -249,7 +248,7 @@ aws imagebuilder get-component-policy --component-arn arn:aws:imagebuilder:{{us-
 
 The following example shows how to use the [Get-EC2IBComponentPolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBComponentPolicy.html) cmdlet to get details of a component policy when you specify the component's ARN:
 
-```
+```ps
 Get-EC2IBComponentPolicy -ComponentArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{example-component}}/1.0.1
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Use conditional constructs in AWSTOE
-<a name="toe-conditional-constructs"></a>
 
 Conditional constructs perform different actions in your component document based on whether the specified conditional expression evaluates to `true` or `false`. You can use the `if` construct to control the flow of execution in your component document.
 
@@ -19,7 +18,7 @@ Conditional expressions support a maximum nesting depth of 4 levels. If you nest
 ### Syntax
 <a name="toe-conditional-if-syntax"></a>
 
-```
+```yaml
 if:
   <conditional expression>:
     [then: <step action>]
@@ -37,7 +36,7 @@ if:
 **Example 1: Install package**  
 The following example steps from an AWSTOE component document use logical operators to detect which package manager is available and install the unzip utility only when the unzip binary is not already present.
 
-```
+```yaml
     - name: InstallUnzipAptGet
       action: ExecuteBash
       if:
@@ -77,7 +76,7 @@ The following example steps from an AWSTOE component document use logical operat
 **Example 2: Skip a step**  
 The following example shows two ways to skip a step. One uses a logical operator, and one uses a comparison operator with the `Skip` step action.
 
-```
+```yaml
 # Creates a file if it does not exist using not
 - name: CreateMyConfigFile-1
   action: ExecuteBash

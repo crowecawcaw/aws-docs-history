@@ -1,7 +1,6 @@
 
 
 # Create an AMI image pipeline from the AWS CLI
-<a name="cli-create-image-pipeline"></a>
 
 To create an image pipeline from the AWS CLI, run the **create-image-pipeline** command with the configuration options that apply for your pipeline. You have the option to create a JSON file that contains all of your pipeline configuration, or to specify configuration at runtime. This section uses the JSON configuration file method to simplify the command.
 
@@ -29,7 +28,7 @@ This example configures a pipeline that is scheduled to run once a week on Sunda
 
    This example uses a configuration file named `create-image-pipeline.json` to configure the settings in one place. Alternatively, you can use command-line options when you run the command to specify all of the details in the following configuration file:
 
-   ```
+   ```json
    {
    	"name": "{{example-windows-2019-pipeline}}",
    	"description": "{{Builds Windows Server 2019 images}}",
@@ -69,7 +68,7 @@ Tools for PowerShell doesn't take a JSON input file. Instead, you pass each top-
 
 The following example shows how to use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet to create the pipeline with the same settings as the AWS CLI example:
 
-```
+```ps
 New-EC2IBImagePipeline -Name {{example-windows-2019-pipeline}} `
     -Description "{{Builds Windows Server 2019 images}}" `
     -EnhancedImageMetadataEnabled $true `
@@ -97,7 +96,7 @@ This example configures a pipeline that checks every seven days and runs only wh
 
    Create a JSON file named `create-pipeline-with-workflows.json`. This file defines the pipeline configuration with image scanning enabled and custom test workflows. Replace the placeholder values in the following example with your own resource ARNs:
 
-   ```
+   ```json
    {
    	"name": "{{my-pipeline-with-scanning}}",
    	"description": "{{Pipeline with vulnerability scanning and custom workflows}}",
@@ -167,7 +166,7 @@ In Tools for PowerShell, the `workflows` array becomes a list of `WorkflowConfig
 
 The following example shows how to use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet to create the pipeline with the same settings as the AWS CLI example:
 
-```
+```ps
 Import-Module AWS.Tools.Imagebuilder
 
 $workflows = @(
@@ -227,7 +226,7 @@ This example configures a pipeline that requests an on-demand AMI scan of the ou
 
    Create a JSON file named `create-pipeline-with-ami-scan.json` with the following content. Replace the placeholder values with your own resource ARNs:
 
-   ```
+   ```json
    {
    	"name": "{{my-ami-scan-pipeline}}",
    	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-recipe}}/1.0.0",
@@ -267,7 +266,7 @@ The `ImageScanningConfiguration_ImageScanningType` and `ImageScanningConfigurati
 
 The following example shows how to use the [New-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImagePipeline.html) cmdlet to create the pipeline with the same settings as the AWS CLI example:
 
-```
+```ps
 New-EC2IBImagePipeline -Name {{my-ami-scan-pipeline}} `
     -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-recipe}}/1.0.0 `
     -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-infra-config}} `

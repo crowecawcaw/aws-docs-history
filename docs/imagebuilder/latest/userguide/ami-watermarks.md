@@ -1,7 +1,6 @@
 
 
 # Track AMI lineage with watermarks
-<a name="ami-watermarks"></a>
 
 AMI watermarks are simple text labels that track the history of your machine images. You add watermark names to your image recipe, and Image Builder attaches them to the output AMI during the build process.
 
@@ -67,7 +66,7 @@ To add watermarks with the AWS CLI, include the `amiWatermarks` parameter in you
 
 The following example shows a recipe JSON file with watermarks configured:
 
-```
+```json
 {
     "name": "{{my-watermarked-recipe}}",
     "description": "{{Recipe with AMI watermarks for lineage tracking.}}",
@@ -87,7 +86,7 @@ The following example shows a recipe JSON file with watermarks configured:
 
 To create the recipe, run the following command:
 
-```
+```sh
 aws imagebuilder create-image-recipe --cli-input-json file://{{create-watermarked-recipe.json}}
 ```
 
@@ -99,7 +98,7 @@ The following list describes the `amiWatermarks` parameter:
 
 To add watermarks with Tools for PowerShell, include the `AmiWatermark` parameter when you run the [New-EC2IBImageRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImageRecipe.html) cmdlet. The following example creates a recipe with the same settings as the AWS CLI example:
 
-```
+```ps
 Import-Module AWS.Tools.Imagebuilder
 
 $component = [Amazon.Imagebuilder.Model.ComponentConfiguration]@{
@@ -124,7 +123,7 @@ You can specify AMI watermarks in an `AWS::ImageBuilder::ImageRecipe` resource b
 
 The following example shows a minimal image recipe template with watermarks configured:
 
-```
+```yaml
 Resources:
   WatermarkedRecipe:
     Type: AWS::ImageBuilder::ImageRecipe
@@ -164,7 +163,7 @@ The response includes the `amiWatermarks` array if watermarks were configured fo
 
 The following example shows how to use the [Get-EC2IBImageRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageRecipe.html) cmdlet to view the watermarks configured for a recipe:
 
-```
+```ps
 Get-EC2IBImageRecipe -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-watermarked-recipe}}/{{1.0.0}}
 ```
 

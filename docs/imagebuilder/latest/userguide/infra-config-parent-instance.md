@@ -1,7 +1,6 @@
 
 
 # Build on an instance from an Auto Scaling group
-<a name="infra-config-parent-instance"></a>
 
 By default, Image Builder launches a new Amazon EC2 instance for every build. With a parent instance, Image Builder takes an instance that's already running in an Amazon EC2 Auto Scaling group instead, so the build doesn't wait for an instance to launch. This applies only to the build phase. For the API fields, see [ParentInstanceConfiguration](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ParentInstanceConfiguration.html) in the *EC2 Image Builder API Reference*. To build on one specific instance instead, use the `parentInstanceId` input of the [LaunchInstance](wfdoc-step-actions.md#wfdoc-step-action-launch-instance) step action.
 
@@ -75,7 +74,7 @@ In addition to the EC2ImageBuilderExecutionPolicy managed policy, the role needs
 
 The following example policy grants these permissions for one group. Attach it to the execution role with EC2ImageBuilderExecutionPolicy.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -111,7 +110,7 @@ The following example policy grants these permissions for one group. Attach it t
 
 Instead of writing the policy yourself, you can create a role that has EC2ImageBuilderExecutionPolicy and these permissions from the EC2ImageBuilderParentInstanceASGRoleTemplate role template. In the console, choose **Create new role with required permission** in the infrastructure configuration. With the AWS CLI, use the [acquire-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/acquire-role.html) command. The following example creates a role named `EC2ImageBuilderParentInstanceASG-{{my-build-pool}}` for the `{{my-build-pool}}` group. The role template isn't available in the AWS GovCloud (US) Regions or the China Regions.
 
-```
+```sh
 aws iam acquire-role \
     --template-arn arn:aws:iam::aws:role-template/imagebuilder.amazonaws.com/EC2ImageBuilderParentInstanceASGRoleTemplate:3 \
     --replacement-values \

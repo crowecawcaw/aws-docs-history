@@ -1,7 +1,6 @@
 
 
 # View lifecycle policy details
-<a name="view-lifecycle-policy"></a>
 
 Use the EC2 Image Builder console, the AWS CLI, or the API to view lifecycle policy configuration, execution history, and rule definitions.
 

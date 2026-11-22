@@ -1,7 +1,6 @@
 
 
 # How lifecycle policy execution works
-<a name="lifecycle-policy-execution"></a>
 
 Image Builder runs enabled lifecycle policies on a recurring schedule. Each run is an *execution*. During an execution, Image Builder evaluates your image resources against the policy rules and performs the specified lifecycle actions.
 

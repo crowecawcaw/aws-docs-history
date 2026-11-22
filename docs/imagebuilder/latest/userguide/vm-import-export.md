@@ -1,7 +1,6 @@
 
 
 # Import and export virtual machine images with Image Builder
-<a name="vm-import-export"></a>
 
 When you export a VM from its virtualization environment, that process creates a set of one or more disk container files that act as snapshots of your VM’s environment, settings, and data. You can use these files to import your VM, and use it as the base image for your image recipes. To export, you can create VM disk files as output from your custom image build, and distribute the files.
 
@@ -47,7 +46,7 @@ To import a VM with the Image Builder console, follow these steps:
 
 **VM import configuration**
 
-1. When you export your VM from its virtualization environment, that process creates a set of one or more disk container files. These act as snapshots of your VM’s environment, settings, and data. You can use these files to import your VM as the base image for your image recipe. For more information about importing VMs in Image Builder, see [Import and export VM images](#vm-import-export).
+1. When you export your VM from its virtualization environment, that process creates a set of one or more disk container files. These act as snapshots of your VM’s environment, settings, and data. You can use these files to import your VM as the base image for your image recipe. For more information about importing VMs in Image Builder, see [Import and export VM images](vm-import-export.md).
 
    To specify the location of your import source, follow these steps:
 
@@ -126,7 +125,7 @@ To provide the data values as command line parameters, refer to the parameter na
 
    Save the file as `import-vm-image.json`, to use in the Image Builder **import-vm-image** command.
 
-   ```
+   ```json
    {
        "name": "example-request",
        "semanticVersion": "1.0.0",

@@ -1,7 +1,6 @@
 
 
 # Create a new version of a container recipe
-<a name="create-container-recipes"></a>
 
 This section shows you how to create a container recipe or a new version of an existing recipe. A container recipe defines three key elements: the base image, the build components, and the target repository. Use this recipe to produce Docker container images that Image Builder stores in Amazon ECR.
 
@@ -85,7 +84,7 @@ Component parameters are plain text values, and are logged in AWS CloudTrail. We
 At build time, this variable resolves to the base image for your recipe.  
 Example:  
 
-  ```
+  ```sh
   FROM
   {{{ imagebuilder:parentImage }}}
   ```  
@@ -93,14 +92,14 @@ Example:
 At build time, this variable resolves to the Dockerfile directives that stage your components in the build context. These directives copy the component scripts into the image and set the environment variables that those scripts use. It prepares the environment but doesn't run the components that you specify. Place this variable before the `components` variable.  
 Example:  
 
-  ```
+  ```sh
   {{{ imagebuilder:environments }}}
   ```  
 **components (optional)**  
 At build time, this variable resolves to the command that runs the build and test component scripts for the components that the container recipe includes, and then removes those scripts from the image. This is the variable that runs your components. Place it after the `environments` variable.  
 Example:  
 
-  ```
+  ```sh
   {{{ imagebuilder:components }}}
   ```
 
@@ -165,7 +164,7 @@ Component parameters are plain text values, and are logged in AWS CloudTrail. We
 At build time, this variable resolves to the base image for your recipe.  
 Example:  
 
-     ```
+     ```sh
      FROM
      {{{ imagebuilder:parentImage }}}
      ```  
@@ -173,14 +172,14 @@ Example:
 At build time, this variable resolves to the Dockerfile directives that stage your components in the build context. These directives copy the component scripts into the image and set the environment variables that those scripts use. It prepares the environment but doesn't run the components that you specify. Place this variable before the `components` variable.  
 Example:  
 
-     ```
+     ```sh
      {{{ imagebuilder:environments }}}
      ```  
 **components (optional)**  
 At build time, this variable resolves to the command that runs the build and test component scripts for the components that the container recipe includes, and then removes those scripts from the image. This is the variable that runs your components. Place it after the `environments` variable.  
 Example:  
 
-     ```
+     ```sh
      {{{ imagebuilder:components }}}
      ```
 
@@ -210,7 +209,7 @@ Example:
 
    The following example shows a complete container recipe input file that defines a Linux Docker container with build components. Save it as `create-container-recipe.json`, and use it in the **create-container-recipe** command:
 
-   ```
+   ```json
    {
    	"components": [ 
    	  { 
@@ -268,7 +267,7 @@ The path for the JSON file should follow the appropriate convention for the base
 
    The following example output shows the ARN of the newly created container recipe, along with the request ID and client token for the request:
 
-   ```
+   ```json
    {
    	"requestId": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
    	"clientToken": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}",
@@ -285,7 +284,7 @@ The path for the JSON file should follow the appropriate convention for the base
 
    The following example creates this container recipe:
 
-   ```
+   ```ps
    Import-Module AWS.Tools.Imagebuilder
    
    $component = [Amazon.Imagebuilder.Model.ComponentConfiguration]@{

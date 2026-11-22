@@ -1,7 +1,6 @@
 
 
 # Update container image pipelines from the AWS CLI
-<a name="cli-update-container-pipeline"></a>
 
 To update a container image pipeline, use a JSON file as input to the [update-image-pipeline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-image-pipeline.html) command in the AWS CLI. In AWS Tools for PowerShell, run the [Update-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/Update-EC2IBImagePipeline.html) cmdlet. To configure the update, you must have Amazon Resource Names (ARNs) to reference the following existing resources:
 + Image pipeline to update
@@ -24,7 +23,7 @@ aws imagebuilder get-image-pipeline --image-pipeline-arn arn:aws:imagebuilder:{{
 Use the output as the basis for your update request JSON file.  
 With Tools for PowerShell, run the [Get-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImagePipeline.html) cmdlet instead:  
 
-```
+```ps
 Get-EC2IBImagePipeline -ImagePipelineArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-pipeline/{{my-container-pipeline}}
 ```
 Use the returned values as the basis for the parameters that you pass to the `Update-EC2IBImagePipeline` cmdlet.
@@ -38,7 +37,7 @@ Use the returned values as the basis for the parameters that you pass to the `Up
 
    Use a text editor to create a JSON file with the following keys, plus values that are valid for your environment. This example uses a file named `update-image-pipeline.json`:
 
-   ```
+   ```json
    {
    	"imagePipelineArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-pipeline/{{my-example-pipeline}}",
    	"containerRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:container-recipe/{{my-example-recipe}}/2020.12.08",
@@ -61,7 +60,7 @@ The path for the JSON file should follow the appropriate convention for the base
 
 1. Run the following command, using the file you created as input:
 
-   ```
+   ```sh
    aws imagebuilder update-image-pipeline --cli-input-json file://{{update-image-pipeline.json}}
    ```
 
@@ -72,7 +71,7 @@ Tools for PowerShell doesn't take a JSON input file. Instead, you pass each top-
 
 The following example shows how to use the [Update-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/Update-EC2IBImagePipeline.html) cmdlet to update the pipeline with the same settings as the AWS CLI example:
 
-```
+```ps
 Update-EC2IBImagePipeline -ImagePipelineArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-pipeline/{{my-example-pipeline}} `
     -ContainerRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:container-recipe/{{my-example-recipe}}/2020.12.08 `
     -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}} `

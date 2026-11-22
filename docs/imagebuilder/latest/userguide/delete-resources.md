@@ -1,7 +1,6 @@
 
 
 # Delete outdated or unused Image Builder resources
-<a name="delete-resources"></a>
 
 Your Image Builder environment, just like your home, needs regular maintenance to help you find what you need, and complete your tasks without wading through clutter. Make sure to regularly clean up temporary resources that you created for testing. Otherwise, you might forget about those resources, and then later, not remember what they were used for. By then, it might not be clear if you can safely get rid of them.
 
@@ -43,7 +42,7 @@ aws imagebuilder delete-image-pipeline --image-pipeline-arn arn:aws:imagebuilder
 
 The following example shows how to use the [Remove-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBImagePipeline.html) cmdlet to delete an image pipeline by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBImagePipeline -ImagePipelineArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}
 ```
 
@@ -79,7 +78,7 @@ aws imagebuilder delete-image-recipe --image-recipe-arn arn:aws:imagebuilder:{{u
 
 The following example shows how to use the [Remove-EC2IBImageRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBImageRecipe.html) cmdlet to delete an image recipe by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBImageRecipe -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-recipe}}/2019.12.03
 ```
 
@@ -115,7 +114,7 @@ aws imagebuilder delete-container-recipe --container-recipe-arn arn:aws:imagebui
 
 The following example shows how to use the [Remove-EC2IBContainerRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBContainerRecipe.html) cmdlet to delete a container recipe by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBContainerRecipe -ContainerRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:container-recipe/{{my-example-container-recipe}}/{{1.0.0}}
 ```
 
@@ -151,7 +150,7 @@ aws imagebuilder delete-infrastructure-configuration --infrastructure-configurat
 
 The following example shows how to use the [Remove-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBInfrastructureConfiguration.html) cmdlet to delete an infrastructure configuration resource by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBInfrastructureConfiguration -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
 ```
 
@@ -187,7 +186,7 @@ aws imagebuilder delete-distribution-configuration --distribution-configuration-
 
 The following example shows how to use the [Remove-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBDistributionConfiguration.html) cmdlet to delete a distribution settings resource by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}
 ```
 
@@ -223,7 +222,7 @@ aws imagebuilder delete-image --image-build-version-arn arn:aws:imagebuilder:{{u
 
 The following example shows how to use the [Remove-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBImage.html) cmdlet to delete an image build version by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBImage -ImageBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-image}}/2019.12.02/1
 ```
 
@@ -249,7 +248,7 @@ aws imagebuilder delete-component --component-build-version-arn arn:aws:imagebui
 
 The following example shows how to use the [Remove-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBComponent.html) cmdlet to delete a component build version by specifying its Amazon Resource Name (ARN):
 
-```
+```ps
 Remove-EC2IBComponent -ComponentBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{my-example-component}}/2019.12.02/1
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Configure custom images with Image Builder
-<a name="manage-resources"></a>
 
 Configuration resources are the building blocks that make up image pipelines, as well as the images those pipelines produce. This chapter covers creating and maintaining Image Builder resources, including components, recipes, and images, along with infrastructure configuration and distribution settings.
 

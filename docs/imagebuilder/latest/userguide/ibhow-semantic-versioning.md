@@ -1,7 +1,6 @@
 
 
 # Semantic versioning in Image Builder
-<a name="ibhow-semantic-versioning"></a>
 
 Image Builder uses semantic versioning to organize resources and ensure that they have unique IDs. The semantic version has four nodes:
 
@@ -53,7 +52,7 @@ When you create or retrieve Image Builder resources, Image Builder automatically
 
 For example, when you create a component with version `1.2.3`, Image Builder returns:
 
-```
+```json
 {
     "componentBuildVersionArn": "arn:aws:imagebuilder:us-west-2:123456789012:component/my-component/1.2.3/1",
     "latestVersionReferences": {

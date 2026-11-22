@@ -1,7 +1,6 @@
 
 
 # Troubleshoot IAM issues in Image Builder
-<a name="security_iam_troubleshoot"></a>
 
 **Topics**
 + [I am not authorized to perform an action in Image Builder](#security_iam_troubleshoot-no-permissions)

@@ -1,7 +1,6 @@
 
 
 # Image Builder identity-based policies
-<a name="security-iam-identity-based-policies"></a>
 
 **Topics**
 + [Identity-based policy best practices](#security-iam-service-policy-best-practices)
@@ -38,7 +37,7 @@ The **AWSImageBuilderFullAccess** policy is required to create the Image Builder
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
