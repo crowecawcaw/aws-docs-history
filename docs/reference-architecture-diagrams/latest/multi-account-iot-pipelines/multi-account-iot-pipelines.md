@@ -1,7 +1,6 @@
 
 
 # Creating Multi-Account IoT Pipelines On-The-Fly on AWS
-<a name="multi-account-iot-pipelines"></a>
 
 Publication date: **October 16, 2020 ([Diagram history](#diagram-history))**
 
