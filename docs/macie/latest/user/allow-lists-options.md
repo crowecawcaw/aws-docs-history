@@ -1,7 +1,6 @@
 
 
 # Configuration options and requirements for allow lists
-<a name="allow-lists-options"></a>
 
 In Amazon Macie, you can use allow lists to specify text or text patterns that you want Macie to ignore when it inspects Amazon Simple Storage Service (Amazon S3) objects for sensitive data. Macie provides options for two types of allow lists, predefined text and regular expressions.
 

@@ -1,7 +1,6 @@
 
 
 # Configuration options for retrieving sensitive data samples with Macie
-<a name="findings-retrieve-sd-options"></a>
 
 You can optionally configure and use Amazon Macie to retrieve and reveal samples of sensitive data that Macie reports in individual findings. If you retrieve and reveal sensitive data samples for a finding, Macie uses data in the corresponding [sensitive data discovery result](discovery-results-repository-s3.md) to locate occurrences of sensitive data in the affected Amazon Simple Storage Service (Amazon S3) object. Macie then extracts samples of those occurrences from the affected object. Macie encrypts the extracted data with an AWS Key Management Service (AWS KMS) key that you specify, temporarily stores the encrypted data in a cache, and returns the data in your results for the finding. Soon after extraction and encryption, Macie permanently deletes the data from the cache unless additional retention is temporarily required to resolve an operational issue.
 
@@ -124,7 +123,7 @@ If you're the delegated Macie administrator for an organization, start by using 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -166,7 +165,7 @@ After you create the permissions policy for the IAM role, create and configure t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -213,7 +212,7 @@ After you receive this information, use the IAM policy editor to create the perm
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -246,7 +245,7 @@ After you create the permissions policy for the IAM role, create the role. If yo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -291,7 +290,7 @@ If you have a standalone Macie account or a Macie member account and you want to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -324,7 +323,7 @@ After you create the permissions policy for the IAM role, create the role. If yo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -380,7 +379,7 @@ In the statement:
 
 The following is an example of the statement to add to the policy for a KMS key. 
 
-```
+```JSON
 {
     "Sid": "Allow the Macie reveal role to use the key",
     "Effect": "Allow",
@@ -410,7 +409,7 @@ With this approach, the key owner first ensures that the key's policy allows the
 **Step 1: Update the key policy**  
 In the key policy, the key owner should ensure that the policy includes a statement that allows the role owner to create a grant for the IAM role in their (the role owner's) account. In this statement, the `Principal` element must specify the ARN of the role owner's account. The `Action` array must specify the `kms:CreateGrant` action. A `Condition` block can filter access to the specified action. The following is an example of this statement in the policy for a KMS key.
 
-```
+```JSON
 {
     "Sid": "Allow a role in an account to create a grant",
     "Effect": "Allow",

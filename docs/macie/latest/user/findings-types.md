@@ -1,7 +1,6 @@
 
 
 # Types of Macie findings
-<a name="findings-types"></a>
 
 Amazon Macie generates two categories of findings: *policy findings* and *sensitive data findings*. A *policy finding* is a detailed report of a potential policy violation or issue with the security or privacy of an Amazon Simple Storage Service (Amazon S3) general purpose bucket. Macie generates policy findings as part of its ongoing activities to evaluate and monitor your general purpose buckets for security and access control. A *sensitive data finding* is a detailed report of sensitive data that Macie detected in an S3 object. Macie generates sensitive data findings as part of the activities that it performs when you run sensitive data discovery jobs or it performs automated sensitive data discovery.
 

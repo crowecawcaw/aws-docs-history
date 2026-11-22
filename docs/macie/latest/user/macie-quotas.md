@@ -1,7 +1,6 @@
 
 
 # Quotas for Macie
-<a name="macie-quotas"></a>
 
 Your AWS account has certain default quotas, formerly referred to as *limits*, for each AWS service. These quotas are the maximum number of service resources or operations for your account. This topic lists the quotas that apply to Amazon Macie resources and operations for your account. Unless otherwise noted, each quota applies to your account in each AWS Region.
 

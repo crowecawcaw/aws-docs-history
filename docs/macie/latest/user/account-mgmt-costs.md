@@ -1,7 +1,6 @@
 
 
 # Forecasting and monitoring Macie costs
-<a name="account-mgmt-costs"></a>
 
 To help you forecast and monitor your costs for using Amazon Macie, Macie calculates and provides estimated usage costs for your account. With this data, you can determine whether to adjust your use of the service or your account quotas. If you’re currently participating in a 30-day free trial of Macie, you can use this data to estimate your costs for using Macie after the free trial ends. You can also check the status of your trial.
 

@@ -1,7 +1,6 @@
 
 
 # Defining sensitive data exceptions with allow lists
-<a name="allow-lists"></a>
 
 With allow lists in Amazon Macie, you can define specific text and text patterns that you want Macie to ignore when it inspects Amazon Simple Storage Service (Amazon S3) objects for sensitive data. These are typically sensitive data exceptions for your particular scenarios or environment. If data matches text or a text pattern in an allow list, Macie doesn’t report the data. This is the case even if the data matches the criteria of a [managed data identifier](managed-data-identifiers.md) or a [custom data identifier](custom-data-identifiers.md). By using allow lists, you can refine your analysis of Amazon S3 data and reduce noise.
 

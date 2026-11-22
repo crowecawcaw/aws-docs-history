@@ -1,7 +1,6 @@
 
 
 # Discovering sensitive data with Macie
-<a name="data-classification"></a>
 
 With Amazon Macie, you can automate discovery, logging, and reporting of sensitive data in your Amazon Simple Storage Service (Amazon S3) data estate. You can do this in two ways: by configuring Macie to perform automated sensitive data discovery, and by creating and running sensitive data discovery jobs.
 

@@ -1,7 +1,6 @@
 
 
 # Copying a sensitive data discovery job
-<a name="discovery-jobs-manage-copy"></a>
 
 To quickly create a sensitive data discovery job that's similar to an existing job, you can create a copy of the existing job. You can then edit the copy's settings, and save the copy as a new job. This can be helpful for cases where you want to analyze different sets of data in the same way, or the same set of data in different ways. It can also be helpful if you want to adjust the configuration settings for an existing job—cancel the existing job, copy it, and then adjust and save the copy as a new job.
 

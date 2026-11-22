@@ -1,7 +1,6 @@
 
 
 # Reviewing and editing tags for Macie resources
-<a name="tags-retrieve-update"></a>
 
 As your environment or requirements change over time, you can evaluate existing tags for your Amazon Macie resources and change the tags as necessary. A *tag* is a label that you define and assign to one or more AWS resources, including certain types of Macie resources. Each tag consists of a required *tag key* and an optional *tag value*. A *tag key* is a general label that acts as a category for a more specific tag value. A *tag value* acts as a descriptor for a tag key.
 

@@ -1,7 +1,6 @@
 
 
 # Reviewing data sensitivity details for S3 buckets
-<a name="discovery-asdd-results-s3-inventory-details"></a>
 
 As automated sensitive data discovery progresses, you can review detailed results in statistics and other information that Amazon Macie provides about each of your Amazon Simple Storage Service (Amazon S3) buckets. If you're the Macie administrator for an organization, this includes buckets that your member accounts own.
 

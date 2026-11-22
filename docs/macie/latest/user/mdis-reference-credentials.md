@@ -1,7 +1,6 @@
 
 
 # Managed data identifiers for credentials data
-<a name="mdis-reference-credentials"></a>
 
 Amazon Macie can detect multiple types of sensitive credentials data by using managed data identifiers. The topics on this page specify each type and provide information about the managed data identifier that's designed to detect the data. Each topic provides the following information:<a name="mdi-ref-fields-singular"></a>
 + **Managed data identifier ID** – Specifies the unique identifier (ID) for the managed data identifier that's designed to detect the data. When you [create a sensitive data discovery job](discovery-jobs-create.md) or [configure settings for automated sensitive data discovery](discovery-asdd-account-configure.md), you can use this ID to specify whether you want Macie to use the managed data identifier when it analyzes data.

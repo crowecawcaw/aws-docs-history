@@ -1,7 +1,6 @@
 
 
 # Evaluating Macie findings with AWS Security Hub CSPM
-<a name="securityhub-integration"></a>
 
 AWS Security Hub CSPM is a service that provides you with a comprehensive view of your security posture across your AWS environment and helps you check your environment against security industry standards and best practices. It does this partly by consuming, aggregating, organizing, and prioritizing findings from multiple AWS services and supported AWS Partner Network security solutions. Security Hub CSPM helps you analyze your security trends and identify the highest priority security issues. With Security Hub CSPM, you can also aggregate findings from multiple AWS Regions, and then evaluate and process all the aggregated findings data from a single Region. To learn more about Security Hub CSPM, see the [AWS Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
 
@@ -115,7 +114,7 @@ When Amazon Macie publishes findings to AWS Security Hub CSPM, it uses the [AWS 
 
 Here's an example of a sensitive data finding that Macie published to Security Hub CSPM using the ASFF.
 
-```
+```JSON
 {
     "SchemaVersion": "2018-10-08",
     "Id": "5be50fce24526e670df77bc00example",
@@ -259,7 +258,7 @@ Here's an example of a sensitive data finding that Macie published to Security H
 
 Here's an example of a new policy finding that Macie published to Security Hub CSPM in the ASFF.
 
-```
+```JSON
 {
     "SchemaVersion": "2018-10-08",
     "Id": "36ca8ba0-caf1-4fee-875c-37760example",

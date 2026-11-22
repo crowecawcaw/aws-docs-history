@@ -1,7 +1,6 @@
 
 
 # Managed data identifiers recommended for sensitive data discovery jobs
-<a name="discovery-jobs-mdis-recommended"></a>
 
 To optimize the results of your sensitive data discovery jobs, you can configure individual jobs to automatically use the set of managed data identifiers that we recommend for jobs. A *managed data identifier* is a set of built-in criteria and techniques that are designed to detect a specific type of sensitive data—for example, AWS secret access keys, credit card numbers, or passport numbers for a particular country or region.
 

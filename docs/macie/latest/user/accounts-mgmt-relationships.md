@@ -1,7 +1,6 @@
 
 
 # Macie administrator and member account relationships
-<a name="accounts-mgmt-relationships"></a>
 
 If you centrally manage multiple Amazon Macie accounts as an organization, the Macie administrator has access to Amazon Simple Storage Service (Amazon S3) inventory data, policy findings, and certain Macie settings and resources for associated member accounts. The administrator can also enable automated sensitive data discovery and run sensitive data discovery jobs to detect sensitive data in S3 buckets that member accounts own. Support for specific tasks varies based on whether a Macie administrator account is associated with a member account through AWS Organizations or by invitation.
 

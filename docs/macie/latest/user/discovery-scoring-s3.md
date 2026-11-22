@@ -1,7 +1,6 @@
 
 
 # Sensitivity scoring for S3 buckets
-<a name="discovery-scoring-s3"></a>
 
 If automated sensitive data discovery is enabled, Amazon Macie automatically calculates and assigns a sensitivity score to each Amazon Simple Storage Service (Amazon S3) general purpose bucket that it monitors and analyzes for an account or organization. A *sensitivity score* is a quantitative representation of the amount of sensitive data that an S3 bucket might contain. Based on that score, Macie also assigns a sensitivity label to each bucket. A *sensitivity label* is a qualitative representation of a bucket's sensitivity score. These values can serve as reference points for determining where sensitive data might reside in your Amazon S3 data estate, and identifying and monitoring potential security risks for that data.
 

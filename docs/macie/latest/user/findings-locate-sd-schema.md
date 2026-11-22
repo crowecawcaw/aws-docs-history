@@ -1,7 +1,6 @@
 
 
 # Schema for reporting the location of sensitive data
-<a name="findings-locate-sd-schema"></a>
 
 Amazon Macie uses standardized JSON structures to store information about where it finds sensitive data in Amazon Simple Storage Service (Amazon S3) objects. The structures are used by sensitive data findings and sensitive data discovery results. For sensitive data findings, the structures are part of the JSON schema for findings. To review the complete JSON schema for findings, see [Findings](https://docs.aws.amazon.com/macie/latest/APIReference/findings-describe.html) in the *Amazon Macie API Reference*. To learn more about sensitive data discovery results, see [Storing and retaining sensitive data discovery results](discovery-results-repository-s3.md).
 
@@ -22,7 +21,7 @@ For a sensitive data finding, a `detections` array can include 1–15 `occurrenc
 
 For example, the following `detections` array indicates the location of three occurrences of sensitive data (US Social Security numbers) that Macie found in a CSV file.
 
-```
+```json
 "sensitiveData": [
      {
        "category": "PERSONAL_INFORMATION",
@@ -98,7 +97,7 @@ In a `cells` array, a `Cell` object specifies a cell or field that Macie detecte
 
 The following example shows the structure of a `Cell` object that specifies the location of an occurrence of sensitive data that Macie detected in a CSV file.
 
-```
+```json
 "cells": [
    {
       "cellReference": null,
@@ -113,7 +112,7 @@ In the preceding example, the finding indicates that Macie detected sensitive da
 
 The following example shows the structure of a `Cell` object that specifies the location of an occurrence of sensitive data that Macie detected in an Excel workbook.
 
-```
+```json
 "cells": [
    {
       "cellReference": "Sheet2!C5",
@@ -149,7 +148,7 @@ The following table describes the purpose of each field in a `Range` object of a
 
 The following example shows the structure of a `Range` object that specifies the location of an occurrence of sensitive data that Macie detected on a single line in a TXT file.
 
-```
+```json
 "lineRanges": [
    {
       "end": 1,
@@ -163,7 +162,7 @@ In the preceding example, the finding indicates that Macie detected a complete o
 
 The following example shows the structure of a `Range` object that specifies the location of an occurrence of sensitive data that spans multiple lines in a TXT file.
 
-```
+```json
 "lineRanges": [
    {
       "end": 54,
@@ -184,7 +183,7 @@ In a `pages` array, a `Page` object specifies a page that Macie detected an occu
 
 The following example shows the structure of a `Page` object that specifies the location of an occurrence of sensitive data that Macie detected in a PDF file.
 
-```
+```json
 "pages": [
    {
       "pageNumber": 10
@@ -211,7 +210,7 @@ The following table describes the purpose of each field in a `Record` object.
 
 The following example shows the structure of a `Record` object that specifies the location of an occurrence of sensitive data that Macie detected in a Parquet file.
 
-```
+```json
 "records": [
    {
       "jsonPath": "$['abcdefghijklmnopqrstuvwxyz']",
@@ -224,7 +223,7 @@ In the preceding example, the finding indicates that Macie detected sensitive da
 
 The following example also shows the structure of a `Record` object for an occurrence of sensitive data that Macie detected in a Parquet file. However, in this example, Macie truncated the name of the field that contains the occurrence because the name exceeds the character limit.
 
-```
+```json
 "records": [
    {
       "jsonPath": "$['...uvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz']",
@@ -237,7 +236,7 @@ In the preceding example, the field is a direct descendant of the root (outer-le
 
 In the following example, also for an occurrence of sensitive data that Macie detected in a Parquet file, Macie truncated the full path to the field that contains the occurrence. The full path exceeds the character limit.
 
-```
+```json
 "records": [
    {
       "jsonPath": "$..usssn2.usssn3.usssn4.usssn5.usssn6.usssn7.usssn8.usssn9.usssn10.usssn11.usssn12.usssn13.usssn14.usssn15.usssn16.usssn17.usssn18.usssn19.usssn20.usssn21.usssn22.usssn23.usssn24.usssn25.usssn26.usssn27.usssn28.usssn29['abcdefghijklmnopqrstuvwxyz']",
@@ -252,7 +251,7 @@ In the preceding example, the finding indicates that Macie detected sensitive da
 
 The following example shows the structure of a `Record` object that specifies the location of an occurrence of sensitive data that Macie detected in a JSON file. In this example, the occurrence is a specific value in an array.
 
-```
+```json
 "records": [
    {
       "jsonPath": "$.access.key[2]",
@@ -265,7 +264,7 @@ In the preceding example, the finding indicates that Macie detected sensitive da
 
 The following example shows the structure of a `Record` object that specifies the location of an occurrence of sensitive data that Macie detected in a JSON Lines file.
 
-```
+```json
 "records": [
    {
       "jsonPath": "$.access.key",

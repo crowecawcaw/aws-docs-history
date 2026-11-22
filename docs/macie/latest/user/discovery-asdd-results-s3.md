@@ -1,7 +1,6 @@
 
 
 # Reviewing automated sensitive data discovery results
-<a name="discovery-asdd-results-s3"></a>
 
 If automated sensitive data discovery is enabled, Amazon Macie automatically generates and maintains additional inventory data, statistics, and other information about the Amazon Simple Storage Service (Amazon S3) general purpose buckets for your account. If you're the Macie administrator for an organization, by default this includes S3 buckets that your member accounts own.
 

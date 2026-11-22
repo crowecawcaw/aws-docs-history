@@ -1,7 +1,6 @@
 
 
 # Prerequisites for configuring automated sensitive data discovery
-<a name="discovery-asdd-account-configure-prereqs"></a>
 
 Before you enable or configure settings for automated sensitive data discovery, complete the following tasks. This helps ensure that you have the resources and permissions that you need.
 

@@ -1,7 +1,6 @@
 
 
 # Managing sensitive data discovery jobs
-<a name="discovery-jobs-manage"></a>
 
 To help you manage your sensitive data discovery jobs, Amazon Macie maintains a complete inventory of your jobs in each AWS Region. With this inventory, you can manage your jobs as a single collection, and access configuration settings, processing statistics, and the status of individual jobs.
 

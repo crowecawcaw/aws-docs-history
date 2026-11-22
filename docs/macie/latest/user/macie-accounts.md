@@ -1,7 +1,6 @@
 
 
 # Managing multiple Macie accounts as an organization
-<a name="macie-accounts"></a>
 
 If your AWS environment has multiple accounts, you can associate the Amazon Macie accounts in your environment and centrally manage them as an organization in Macie. With this configuration, a designated Macie administrator can assess and monitor the overall security posture of your organization’s Amazon Simple Storage Service (Amazon S3) data estate, and discover sensitive data in your organization’s S3 buckets. The administrator can also perform various account management and administration tasks at scale, such as monitoring estimated usage costs and assessing account quotas.
 

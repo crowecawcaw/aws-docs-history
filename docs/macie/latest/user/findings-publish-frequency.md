@@ -1,7 +1,6 @@
 
 
 # Configuring publication settings for Macie findings
-<a name="findings-publish-frequency"></a>
 
 To support integration with other applications, services, and systems, Amazon Macie automatically publishes both policy findings and sensitive data findings to Amazon EventBridge as events. For information about how you can use EventBridge to monitor and process findings, see [Processing findings with Amazon EventBridge](findings-monitor-events-eventbridge.md).
 

@@ -1,7 +1,6 @@
 
 
 # Reviewing the settings for a sensitive data discovery job
-<a name="discovery-jobs-manage-settings"></a>
 
 On the Amazon Macie console, you can use the details panel on the **Jobs** page to review configuration settings and other information about individual sensitive data discovery jobs. For example, you can review a list of the Amazon Simple Storage Service (Amazon S3) buckets that a job is configured to analyze. You can also determine which managed and custom data identifiers a job is configured to use when analyzing objects in those buckets.
 

@@ -1,7 +1,6 @@
 
 
 # Fundamentals of filtering Macie findings
-<a name="findings-filter-basics"></a>
 
 When you filter findings, keep the following features and guidelines in mind. Also note that filtered results are limited to the preceding 90 days and the current AWS Region. Amazon Macie stores your findings for only 90 days in each AWS Region.
 

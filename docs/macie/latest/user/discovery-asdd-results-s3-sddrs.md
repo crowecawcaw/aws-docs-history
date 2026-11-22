@@ -1,7 +1,6 @@
 
 
 # Accessing discovery results from automated sensitive data discovery
-<a name="discovery-asdd-results-s3-sddrs"></a>
 
 When Amazon Macie performs automated sensitive data discovery, it creates an analysis record for each Amazon Simple Storage Service (Amazon S3) object that it selects for analysis. These records, referred to as *sensitive data discovery results*, log details about the analysis that Macie performs on individual S3 objects. This includes objects that Macie doesn't find sensitive data in, and objects that Macie can't analyze due to errors or issues such as permissions settings or use of an unsupported file or storage format. Sensitive data discovery results provide you with analysis records that can be helpful for data privacy and protection audits or investigations.
 

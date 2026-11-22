@@ -1,7 +1,6 @@
 
 
 # Monitoring and processing Macie findings
-<a name="findings-monitor"></a>
 
 To support integration with other applications, services, and systems, such as monitoring or event management systems, Amazon Macie automatically publishes policy and sensitive data findings to Amazon EventBridge as events. For additional support and broader analysis of your organization's security posture, you can configure Macie to also publish policy and sensitive data findings to AWS Security Hub CSPM.
 

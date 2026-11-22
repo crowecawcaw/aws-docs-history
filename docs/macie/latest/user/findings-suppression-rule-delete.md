@@ -1,7 +1,6 @@
 
 
 # Deleting a suppression rule for Macie findings
-<a name="findings-suppression-rule-delete"></a>
 
 You can delete a suppression rule at any time. If you delete a suppression rule, Amazon Macie stops suppressing new and subsequent occurrences of findings that match the rule's criteria and aren't suppressed by other rules. Note, however, that Macie might continue to suppress findings that it's currently processing and match the rule's criteria.
 

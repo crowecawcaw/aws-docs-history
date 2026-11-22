@@ -1,7 +1,6 @@
 
 
 # Deleting an allow list
-<a name="allow-lists-delete"></a>
 
 When you delete an allow list in Amazon Macie, you permanently delete all the list's settings. These settings can't be recovered after they're deleted. If the settings specify a list of predefined text that you store in Amazon Simple Storage Service (Amazon S3), Macie doesn't delete the S3 object that stores the list. Only the settings in Macie are deleted.
 

@@ -1,7 +1,6 @@
 
 
 # Managing Macie member accounts for an organization
-<a name="accounts-mgmt-ao-administer"></a>
 
 After an AWS Organizations organization is [integrated and configured](accounts-mgmt-ao-integrate.md) in Amazon Macie, the organization’s delegated Macie administrator can access certain Macie settings, data, and resources for member accounts. As the Macie administrator for an organization, you can use Macie to centrally perform certain account management and administration tasks for the accounts. For example, you can:
 + Add and remove accounts as Macie member accounts.

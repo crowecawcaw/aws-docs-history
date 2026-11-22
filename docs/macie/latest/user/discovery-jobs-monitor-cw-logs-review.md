@@ -1,7 +1,6 @@
 
 
 # Reviewing logs for sensitive data discovery jobs
-<a name="discovery-jobs-monitor-cw-logs-review"></a>
 
 After you start running sensitive data discovery jobs in Amazon Macie, you can review logs for your jobs by using Amazon CloudWatch Logs. CloudWatch Logs provides features that are designed to help you review, analyze, and monitor log data. You can use these features to work with log streams and events for jobs as you would work with any other type of log data in CloudWatch Logs.
 

@@ -1,7 +1,6 @@
 
 
 # Checking the status of a sensitive data discovery job
-<a name="discovery-jobs-status-check"></a>
 
 When you create a sensitive data discovery job, its initial status is **Active (Running)** or **Active (Idle)**, depending on the job's type and schedule. The job then passes through additional states, which you can monitor as the job progresses.
 

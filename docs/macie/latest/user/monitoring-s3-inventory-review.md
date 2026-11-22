@@ -1,7 +1,6 @@
 
 
 # Reviewing your S3 bucket inventory in Macie
-<a name="monitoring-s3-inventory-review"></a>
 
 On the Amazon Macie console, the **S3 buckets** page provides detailed insight into the security and privacy of your Amazon Simple Storage Service (Amazon S3) data in the current AWS Region. With this page, you can review and analyze an inventory of your S3 general purpose buckets in the Region, and review detailed information and statistics for individual buckets. For information about how Macie generates and maintains this inventory, see [How Macie monitors Amazon S3 data security](monitoring-s3-how-it-works.md). If you're the Macie administrator for an organization, your inventory includes details and statistics for S3 buckets that your member accounts own.
 

@@ -1,7 +1,6 @@
 
 
 # Forecasting and monitoring costs for sensitive data discovery jobs
-<a name="discovery-jobs-costs"></a>
 
 Amazon Macie pricing is based partly on the amount of data that you analyze by running sensitive data discovery jobs. To forecast and monitor your estimated costs for running sensitive data discovery jobs, you can review cost estimates that Macie provides when you create a job and after you start running jobs. 
 

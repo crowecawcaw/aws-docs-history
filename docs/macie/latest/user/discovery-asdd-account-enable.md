@@ -1,7 +1,6 @@
 
 
 # Enabling automated sensitive data discovery
-<a name="discovery-asdd-account-enable"></a>
 
 When you enable automated sensitive data discovery, Amazon Macie begins evaluating your Amazon Simple Storage Service (Amazon S3) inventory data and performing other automated discovery activities for your account in the current AWS Region. If you're the Macie administrator for an organization, by default the evaluation and activities include S3 buckets that your member accounts own. Depending on the size of your Amazon S3 data estate, statistics and other results can begin to appear within 48 hours.
 

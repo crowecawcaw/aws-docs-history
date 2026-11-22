@@ -1,7 +1,6 @@
 
 
 # Supported storage classes and formats
-<a name="discovery-supported-storage"></a>
 
 To help you discover sensitive data in your Amazon Simple Storage Service (Amazon S3) data estate, Amazon Macie supports most Amazon S3 storage classes and a wide variety of file and storage formats. This support applies to the use of [managed data identifiers](managed-data-identifiers.md) and the use of [custom data identifiers](custom-data-identifiers.md) to analyze S3 objects.
 

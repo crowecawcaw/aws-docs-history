@@ -1,7 +1,6 @@
 
 
 # Configuration options for custom data identifiers
-<a name="cdis-options"></a>
 
 By using custom data identifiers, you can define custom criteria for detecting sensitive data in Amazon Simple Storage Service (Amazon S3) objects. You can supplement the [managed data identifiers](managed-data-identifiers.md) that Amazon Macie provides, and detect sensitive data that reflects your organization's particular scenarios, intellectual property, or proprietary data.
 
@@ -63,7 +62,7 @@ You can test detection criteria by using the Amazon Macie console or the Amazon 
 
 For a demonstration of how keywords can help you find sensitive data and avoid false positives, watch the following video:
 
-
+[![AWS Videos](https://img.youtube.com/vi/GBaIAwLYN-o/0.jpg)](https://www.youtube.com/watch?v=GBaIAwLYN-o)
 
 
 ## Severity settings for findings

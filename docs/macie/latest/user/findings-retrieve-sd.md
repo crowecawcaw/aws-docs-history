@@ -1,7 +1,6 @@
 
 
 # Retrieving sensitive data samples with Macie findings
-<a name="findings-retrieve-sd"></a>
 
 To verify the nature of sensitive data that Amazon Macie reports in findings, you can optionally configure and use Macie to retrieve and reveal samples of sensitive data reported by individual findings. This includes sensitive data that Macie detects using [managed data identifiers](managed-data-identifiers.md), and data that matches the criteria of [custom data identifiers](custom-data-identifiers.md). The samples can help you tailor your investigation of an affected Amazon Simple Storage Service (Amazon S3) object and bucket.
 

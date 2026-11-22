@@ -1,7 +1,6 @@
 
 
 # Building custom data identifiers
-<a name="custom-data-identifiers"></a>
 
 In addition to using the managed data identifiers that Amazon Macie provides, you can build and use custom data identifiers. A *custom data identifier* is a set of criteria that you define to detect sensitive data in Amazon Simple Storage Service (Amazon S3) objects. The criteria consist of a regular expression (*regex*) that defines a text pattern to match and, optionally, character sequences and a proximity rule that refine the results. The character sequences can be: *keywords*, which are words or phrases that must be in proximity of text that matches the regex, or *ignore words*, which are words or phrases to exclude from results.
 

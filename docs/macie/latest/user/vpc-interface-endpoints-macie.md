@@ -1,7 +1,6 @@
 
 
 # Accessing Macie with an interface endpoint (AWS PrivateLink)
-<a name="vpc-interface-endpoints-macie"></a>
 
 You can use AWS PrivateLink to create a private connection between your virtual private cloud (VPC) and Amazon Macie. You can access Macie as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access Macie.
 
@@ -51,7 +50,7 @@ It's a separate policy for controlling access from the endpoint to the specified
 **Example: VPC endpoint policy for Macie actions**  
 The following is an example of a custom endpoint policy for Macie. If you attach this policy to your interface endpoint, it grants access to the listed Macie actions for all principals on all resources. It allows users connecting to Macie through the VPC to access findings data by using the Amazon Macie API.
 
-```
+```json
 {
    "Statement": [
       {
@@ -70,7 +69,7 @@ The following is an example of a custom endpoint policy for Macie. If you attach
 
 To also allow users to access findings data or perform other actions by using the Amazon Macie console, the policy should also grant access to the `macie2:GetMacieSession` action, for example:
 
-```
+```json
 {
    "Statement": [
       {

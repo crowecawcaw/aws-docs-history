@@ -1,7 +1,6 @@
 
 
 # Reviewing Macie accounts for an organization
-<a name="accounts-mgmt-ao-review"></a>
 
 After an AWS Organizations organization is [integrated and configured](accounts-mgmt-ao-integrate.md) in Amazon Macie, the delegated Macie administrator can access an inventory of the organization's accounts in Macie. As the Macie administrator for an organization, you can use this inventory to review statistics and details for your organization's Macie accounts in an AWS Region. You can also use it to [perform certain management tasks](accounts-mgmt-ao-administer.md) for the accounts.
 

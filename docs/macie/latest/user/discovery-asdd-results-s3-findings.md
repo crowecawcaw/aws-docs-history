@@ -1,7 +1,6 @@
 
 
 # Analyzing findings from automated sensitive data discovery
-<a name="discovery-asdd-results-s3-findings"></a>
 
 When Amazon Macie performs automated sensitive data discovery, it creates a sensitive data finding for each Amazon Simple Storage Service (Amazon S3) object that it finds sensitive data in. A *sensitive data finding* is a detailed report of sensitive data that Macie found in an S3 object. A finding doesn't include the sensitive data that Macie found. Instead, it provides information that you can use for further investigation and remediation as necessary.
 

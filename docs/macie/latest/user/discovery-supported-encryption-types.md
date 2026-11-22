@@ -1,7 +1,6 @@
 
 
 # Analyzing encrypted Amazon S3 objects
-<a name="discovery-supported-encryption-types"></a>
 
 When you enable Amazon Macie for your AWS account, Macie creates a [service-linked role](service-linked-roles.md) that grants Macie the permissions that it requires to call Amazon Simple Storage Service (Amazon S3) and other AWS services on your behalf. A service-linked role simplifies the process of setting up an AWS service because you don't have to manually add permissions for the service to complete actions on your behalf. To learn about this type of role, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *AWS Identity and Access Management User Guide*.
 
@@ -73,7 +72,7 @@ In the statement:
 
 The following is an example of the statement to add to the policy for an AWS KMS key. 
 
-```
+```JSON
 {
     "Sid": "Allow the Macie service-linked role to use the key",
     "Effect": "Allow",
@@ -107,7 +106,7 @@ In the key policy, the key owner should ensure that the policy includes two stat
 
 In the first statement, the `Principal` element must specify the ARN of the bucket owner's account. The `Action` array must specify the `kms:Decrypt` action. This is the only AWS KMS action that Macie must be allowed to perform to decrypt an object that's encrypted with the key. The following is an example of this statement in the policy for an AWS KMS key. 
 
-```
+```JSON
 {
     "Sid": "Allow account {{111122223333}} to use the key",
     "Effect": "Allow",
@@ -127,7 +126,7 @@ In the preceding example:
 
 The second statement in the key policy allows the bucket owner to create a grant for the Macie service-linked role for their account. In this statement, the `Principal` element must specify the ARN of the bucket's owner's account. The `Action` array must specify the `kms:CreateGrant` action. A `Condition` element can filter access to the `kms:CreateGrant` action specified in the statement. The following is an example of this statement in the policy for an AWS KMS key.
 
-```
+```JSON
 {
     "Sid": "Allow account {{111122223333}} to create a grant",
     "Effect": "Allow",

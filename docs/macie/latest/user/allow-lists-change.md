@@ -1,7 +1,6 @@
 
 
 # Changing an allow list
-<a name="allow-lists-change"></a>
 
 After you create an allow list, you can change most of the list's settings in Amazon Macie. For example, you can change the list's name and description. You can also add and edit tags for the list. The only setting that you can't change is a list's type. For example, if an existing list specifies a regular expression (*regex*), you can't change its type to predefined text.
 

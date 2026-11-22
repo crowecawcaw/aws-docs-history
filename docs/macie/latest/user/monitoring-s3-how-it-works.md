@@ -1,7 +1,6 @@
 
 
 # How Macie monitors Amazon S3 data security
-<a name="monitoring-s3-how-it-works"></a>
 
 When you enable Amazon Macie for your AWS account, Macie creates an AWS Identity and Access Management (IAM) [service-linked role](service-linked-roles.md) for your account in the current AWS Region. The permissions policy for this role allows Macie to call other AWS services and monitor AWS resources on your behalf. By using this role, Macie generates and maintains an inventory of your Amazon Simple Storage Service (Amazon S3) general purpose buckets in the Region. Macie also monitors and evaluates the buckets for security and access control.
 

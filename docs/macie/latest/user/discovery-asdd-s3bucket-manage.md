@@ -1,7 +1,6 @@
 
 
 # Adjusting sensitivity scores for S3 buckets
-<a name="discovery-asdd-s3bucket-manage"></a>
 
 As you review and evaluate statistics, data, and other results of automated sensitive data discovery, there might be cases where you want to fine tune sensitivity assessments of your Amazon Simple Storage Service (Amazon S3) buckets. You might also want to capture the results of investigations that you or your organization performs for specific buckets. If you're the Amazon Macie administrator for an organization or you have a standalone Macie account, you can make these changes by adjusting the sensitivity score and other settings for individual buckets. If you have a member account in an organization, work with your Macie administrator to adjust the settings for buckets that you own. Only the Macie administrator for your organization can adjust these settings for your buckets.
 

@@ -1,7 +1,6 @@
 
 
 # Creating and applying filters to Macie findings
-<a name="findings-filter-procedure"></a>
 
 To identify and focus on findings that have specific characteristics, you can filter findings on the Amazon Macie console and in queries that you submit programmatically using the Amazon Macie API. When you create a filter, you use specific attributes of findings to define criteria for including or excluding findings from a view or from query results. A *finding attribute* is a field that stores specific data for a finding, such as severity, type, or the name of the resource that a finding applies to.
 

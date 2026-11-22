@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Macie
-<a name="security-iam-awsmanpol"></a>
 
 
 

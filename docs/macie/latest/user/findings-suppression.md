@@ -1,7 +1,6 @@
 
 
 # Suppressing Macie findings
-<a name="findings-suppression"></a>
 
 To streamline your analysis of findings, you can create and use suppression rules. A *suppression rule* is a set of attribute-based filter criteria that defines cases where you want Amazon Macie to archive findings automatically. Suppression rules are helpful in situations where you've reviewed a class of findings and don't want to be notified of them again.
 

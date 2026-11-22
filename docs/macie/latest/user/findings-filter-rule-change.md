@@ -1,7 +1,6 @@
 
 
 # Changing a filter rule for Macie findings
-<a name="findings-filter-rule-change"></a>
 
 After you create a filter rule, you can refine its criteria and change other settings for the rule. A *filter rule* is a set of filter criteria that you create and save to use again when you review findings on the Amazon Macie console. Filter rules can help you perform repeated, consistent analysis of findings that have specific characteristics. Each rule consists of a set of filter criteria, a name, and, optionally, a description. 
 

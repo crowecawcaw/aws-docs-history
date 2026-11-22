@@ -1,7 +1,6 @@
 
 
 # Tagging fundamentals for Macie resources
-<a name="tags-basics"></a>
 
 To identify, categorize, and manage Amazon Macie resources for your account, you can assign tags to the resources. A *tag* is a label that you define and assign to AWS resources, including certain types of Macie resources. Each tag consists of a required *tag key* and an optional *tag value*. A *tag key* is a general label that acts as a category for a more specific tag value. A *tag value* acts as a descriptor for a tag key. A resource can have as many as 50 tags.
 

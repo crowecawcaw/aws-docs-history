@@ -1,7 +1,6 @@
 
 
 # How automated sensitive data discovery works
-<a name="discovery-asdd-how-it-works"></a>
 
 When you enable Amazon Macie for your AWS account, Macie creates an AWS Identity and Access Management (IAM) [service-linked role](service-linked-roles.md) for your account in the current AWS Region. The permissions policy for this role allows Macie to call other AWS services and monitor AWS resources on your behalf. By using this role, Macie generates and maintains an inventory of your Amazon Simple Storage Service (Amazon S3) general purpose buckets in the Region. The inventory includes information about each of your S3 buckets and objects in the buckets. If you're the Macie administrator for an organization, your inventory includes information about buckets that your member accounts own. For more information, see [Managing multiple accounts](macie-accounts.md).
 
@@ -11,7 +10,7 @@ As the analysis progresses each day, Macie updates statistics, inventory data, a
 
 For a brief demonstration of how automated sensitive data discovery works, watch the following video:
 
-
+[![AWS Videos](https://img.youtube.com/vi/PVnFYotwqyo/0.jpg)](https://www.youtube.com/watch?v=PVnFYotwqyo)
 
 
 To configure and manage automated sensitive data discovery, you must be the Macie administrator for an organization or have a standalone Macie account. If your account is part of an organization, only the Macie administrator for your organization can enable or disable automated discovery for accounts in the organization. In addition, only the Macie administrator can configure and manage automated discovery settings for the accounts. This includes settings that define the scope and nature of the analyses that Macie performs. If you have a member account in an organization, contact your Macie administrator to learn about the settings for your account and organization.

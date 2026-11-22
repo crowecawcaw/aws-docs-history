@@ -1,7 +1,6 @@
 
 
 # Remediating coverage issues for automated sensitive data discovery
-<a name="discovery-coverage-remediate"></a>
 
 As automated sensitive data discovery progresses each day, Amazon Macie provides statistics and details to help you assess and monitor its coverage of your Amazon Simple Storage Service (Amazon S3) data estate. By [reviewing coverage data](discovery-coverage-review.md), you can check the status of automated sensitive data discovery for your data estate overall and individual S3 buckets within it. You can also identify issues that prevented Macie from analyzing objects in specific buckets. If you remediate the issues, you can increase coverage of your Amazon S3 data during subsequent analysis cycles.
 

@@ -1,7 +1,6 @@
 
 
 # Logging Macie API calls with AWS CloudTrail
-<a name="macie-cloudtrail"></a>
 
 Amazon Macie integrates with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), which is a service that provides a record of actions taken by a user, a role, or an AWS service. CloudTrail captures all API calls for Macie as management events. The calls captured include calls from the Amazon Macie console and programmatic calls to Amazon Macie API operations. By using the information collected by CloudTrail, you can determine the request that was made to Macie, the IP address from which the request was made, when it was made, and additional details.
 
@@ -50,7 +49,7 @@ The following examples show CloudTrail events that demonstrate Amazon Macie oper
 
 The following example shows a CloudTrail event for the Amazon Macie [ListFindings](https://docs.aws.amazon.com/macie/latest/APIReference/findings.html) operation. In this example, an AWS Identity and Access Management (IAM) user (`Mary_Major`) used the Amazon Macie console to retrieve a subset of information about current policy findings for their account.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -113,7 +112,7 @@ This example shows CloudTrail events for retrieving and revealing samples of sen
 
 The following event shows details about the user's request to retrieve and reveal sensitive data samples by using the Amazon Macie [GetSensitiveDataOccurrences](https://docs.aws.amazon.com/macie/latest/APIReference/findings-findingid-reveal.html) operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -159,7 +158,7 @@ The following event shows details about the user's request to retrieve and revea
 
 The next event shows details about Macie then assuming the specified IAM role (`MacieReveal`) by using the AWS Security Token Service (AWS STS) [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -211,7 +210,7 @@ XXyYaZAz",
 
 The following example shows a CloudTrail event for the Amazon Macie [DeleteInvitations](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-delete.html) operation. In this example, Macie logged an event in the delegated Macie administrator account for an organization when a member disassociated their account from the administrator's account and deleted the administrator's invitation to join the organization. In the example, the account ID for the administrator's AWS account is `777788889999`. The account ID for the member account is `111122223333`.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -254,7 +253,7 @@ This example shows CloudTrail events for disabling Amazon Macie for an AWS accou
 
 The following event shows details about the user's request to disable Macie for their account by using the Amazon Macie [DisableMacie](https://docs.aws.amazon.com/macie/latest/APIReference/macie.html) operation.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -297,7 +296,7 @@ The following event shows details about the user's request to disable Macie for 
 
 The next event shows details about Macie then cancelling and deleting one of the sensitive data discovery jobs for the account.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

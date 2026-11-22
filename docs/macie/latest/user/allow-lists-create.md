@@ -1,7 +1,6 @@
 
 
 # Creating an allow list
-<a name="allow-lists-create"></a>
 
 In Amazon Macie, an allow list defines specific text or a text pattern that you want Macie to ignore when it inspects Amazon Simple Storage Service (Amazon S3) objects for sensitive data. If text matches an entry or pattern in an allow list, Macie doesn’t report the text in sensitive data findings, statistics, or other types of results. This is the case even if the text matches the criteria of a [managed data identifier](managed-data-identifiers.md) or a [custom data identifier](custom-data-identifiers.md).
 

@@ -1,7 +1,6 @@
 
 
 # Suspending Macie for your AWS account
-<a name="suspend-macie"></a>
 
 You can temporarily pause Amazon Macie for your AWS account in an AWS Region. You can do this by suspending Macie in the Region. Macie then stops performing all activities for your account in that Region. The activities include: monitoring your Amazon Simple Storage Service (Amazon S3) data, performing automated sensitive data discovery, and running sensitive data discovery jobs that are currently in progress. Macie also cancels all of your sensitive data discovery jobs in the Region. You aren't charged for using Macie in the Region while it's suspended.
 

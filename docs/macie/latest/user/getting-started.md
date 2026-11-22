@@ -1,7 +1,6 @@
 
 
 # Getting started with Macie
-<a name="getting-started"></a>
 
 This tutorial provides an introduction to Amazon Macie. You'll learn how to enable Macie for your AWS account. You'll also learn how to assess your Amazon Simple Storage Service (Amazon S3) security posture and configure key settings and resources for discovering and reporting sensitive data in your S3 buckets.
 

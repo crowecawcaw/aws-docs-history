@@ -1,7 +1,6 @@
 
 
 # Reviewing coverage data for automated sensitive data discovery
-<a name="discovery-coverage-review"></a>
 
 To review and assess coverage by automated sensitive data discovery, you can use the Amazon Macie console or the Amazon Macie API. Both the console and the API provide data that indicates the current status of the analyses for your Amazon Simple Storage Service (Amazon S3) general purpose buckets in the current AWS Region. The data includes information about issues that create gaps in the analyses:
 + Buckets that Macie isn't allowed to access. Macie can't analyze any objects in these buckets. The buckets' permissions settings prevent Macie from accessing the buckets and the buckets' objects.

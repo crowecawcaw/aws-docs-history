@@ -1,7 +1,6 @@
 
 
 # Managing your membership in an organization in Macie
-<a name="accounts-mgmt-invitations-membership-manage"></a>
 
 **Note**  
 We recommend using AWS Organizations instead of Macie invitations to centrally manage Macie for multiple accounts. For more information, see [Managing multiple Macie accounts with AWS Organizations](accounts-mgmt-ao.md).

@@ -1,7 +1,6 @@
 
 
 # Reviewing suppressed findings in Macie
-<a name="findings-suppression-view-findings"></a>
 
 If you suppress findings with a suppression rule, Amazon Macie continues to generate findings for subsequent occurrences of sensitive data and potential policy violations that match the rule's criteria. However, Macie automatically changes the status of the findings to *archived*. This means that the findings don't appear by default on the Amazon Macie console, but they persist in Macie until they expire. (Macie stores findings for 90 days.) This also means that Macie doesn't publish the findings to Amazon EventBridge as events or to AWS Security Hub CSPM.
 

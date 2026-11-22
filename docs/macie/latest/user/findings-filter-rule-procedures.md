@@ -1,7 +1,6 @@
 
 
 # Defining filter rules for Macie findings
-<a name="findings-filter-rule-procedures"></a>
 
 To perform consistent analysis of findings, you can create and apply filter rules. A *filter rule* is a set of filter criteria that you create and save to use again when you review findings on the Amazon Macie console. Filter rules can help you perform repeated, consistent analysis of findings that have specific characteristics. For example, you might create one filter rule for analyzing all high-severity sensitive data findings that report specific types of sensitive data. You might create another filter rule for analyzing all high-severity policy findings for Amazon Simple Storage Service (Amazon S3) buckets that store unencrypted objects.
 

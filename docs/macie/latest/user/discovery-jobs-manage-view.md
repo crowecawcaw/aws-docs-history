@@ -1,7 +1,6 @@
 
 
 # Reviewing your inventory of sensitive data discovery jobs
-<a name="discovery-jobs-manage-view"></a>
 
 On the Amazon Macie console, you can review a complete inventory of your sensitive data discovery jobs in the current AWS Region. The inventory provides both summary information for all of your jobs and details about individual jobs. Summary information includes: the current status of each job; whether a job runs on a scheduled, periodic basis; and, whether a job is configured to analyze objects in specific Amazon Simple Storage Service (Amazon S3) buckets or S3 buckets that match runtime criteria. For individual jobs, you can also access details such as a breakdown of the job's configuration settings. If a job has already run, the details also provide direct access to sensitive data findings and other types of results that the job produced.
 

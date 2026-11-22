@@ -1,7 +1,6 @@
 
 
 # Changing the status of a sensitive data discovery job
-<a name="discovery-jobs-status-change"></a>
 
 After you create a sensitive data discovery job, you can pause it temporarily or cancel it permanently. When you pause a job that's actively running, Amazon Macie immediately begins to pause all processing tasks for the job. When you cancel a job that's actively running, Macie immediately begins to stop all processing tasks for the job. You can’t resume or restart a job after it’s cancelled.
 

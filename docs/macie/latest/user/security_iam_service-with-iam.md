@@ -1,7 +1,6 @@
 
 
 # How Macie works with AWS Identity and Access Management
-<a name="security_iam_service-with-iam"></a>
 
 Before you use AWS Identity and Access Management (IAM) to manage access to Amazon Macie, learn which IAM features are available to use with Macie.
 
@@ -61,19 +60,19 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 
 Policy actions for Amazon Macie use the following prefix before the action:
 
-```
+```json
 macie2
 ```
 
 For example, to grant someone permission to access information about all the managed data identifiers that Macie provides, which is an action that corresponds to the `ListManagedDataIdentifiers` operation of the Amazon Macie API, include the `macie2:ListManagedDataIdentifiers` action in their policy:
 
-```
+```json
 "Action": "macie2:ListManagedDataIdentifiers"
 ```
 
 To specify multiple actions in a single statement, separate them with commas. For example:
 
-```
+```json
 "Action": [
       "macie2:ListManagedDataIdentifiers",
       "macie2:ListCustomDataIdentifiers"
@@ -86,7 +85,7 @@ To specify multiple actions in a single statement, separate them with commas. Fo
 
 You can also specify multiple actions by using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "macie2:List*"
 ```
 
@@ -120,13 +119,13 @@ You can specify these types of resources in policies by using ARNs.
 
 For example, to create a policy for the sensitive data discovery job that has the job ID *3ce05dbb7ec5505def334104bexample*, you can use the following ARN:
 
-```
+```json
 "Resource": "arn:aws:macie2:*:*:classification-job/3ce05dbb7ec5505def334104bexample"
 ```
 
 Or, to specify all the sensitive data discovery jobs for a certain account, use a wildcard (\*):
 
-```
+```json
 "Resource": "arn:aws:macie2:*:{{123456789012}}:classification-job/*"
 ```
 
@@ -134,7 +133,7 @@ Where {{123456789012}} is the account ID for the AWS account that created the jo
 
 Some Macie actions can apply to multiple resources. For example, the `macie2:BatchGetCustomDataIdentifiers` action can retrieve the details of multiple custom data identifiers. In these cases, a principal must have permissions to access all the resources that the action applies to. To specify multiple resources in a single statement, separate the ARNs with commas:
 
-```
+```json
 "Resource": [
 	"arn:aws:macie2:*:*:custom-data-identifier/12g4aff9-8e22-4f2b-b3fd-3063eexample",
 	"arn:aws:macie2:*:*:custom-data-identifier/2d12c96a-8e78-4ca6-b1dc-8fd65example",

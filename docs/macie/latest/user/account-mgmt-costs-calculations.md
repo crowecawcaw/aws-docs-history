@@ -1,7 +1,6 @@
 
 
 # Understanding estimated usage costs for Macie
-<a name="account-mgmt-costs-calculations"></a>
 
 Amazon Macie pricing is based on the following dimensions.
 

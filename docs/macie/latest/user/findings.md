@@ -1,7 +1,6 @@
 
 
 # Reviewing and analyzing Macie findings
-<a name="findings"></a>
 
 Amazon Macie generates findings when it detects potential policy violations or issues with the security or privacy of your Amazon Simple Storage Service (Amazon S3) general purpose buckets or it detects sensitive data in S3 objects. A *finding* is a detailed report of a potential issue or sensitive data that Macie found. Each finding provides a severity rating, information about the affected resource, and additional details, such as when and how Macie found the issue or data. Macie stores your policy and sensitive data findings for 90 days.
 

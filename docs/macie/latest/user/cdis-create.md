@@ -1,7 +1,6 @@
 
 
 # Creating a custom data identifier
-<a name="cdis-create"></a>
 
 A *custom data identifier* is a set of criteria that you define to detect sensitive data in Amazon Simple Storage Service (Amazon S3) objects. When you create a custom data identifier, you specify a regular expression (*regex*) that defines a text pattern to match in an S3 object. You can also specify character sequences and a proximity rule that refine the results. The character sequences can be: *keywords*, which are words or phrases that must be in proximity of text that matches the regex, or *ignore words*, which are words or phrases to exclude from results. By using custom data identifiers, you can supplement the [managed data identifiers](managed-data-identifiers.md) that Amazon Macie provides, and detect sensitive data that reflects your organization's particular scenarios, intellectual property, or proprietary data.
 
@@ -9,7 +8,7 @@ For example, many companies have a specific syntax for employee IDs. One such sy
 
 For a demonstration of how keywords can help you find sensitive data and avoid false positives, watch the following video:
 
-
+[![AWS Videos](https://img.youtube.com/vi/GBaIAwLYN-o/0.jpg)](https://www.youtube.com/watch?v=GBaIAwLYN-o)
 
 
 In addition to detection criteria, you can optionally specify custom severity settings for findings that a custom data identifier produces. Severity can be based on the number of occurrences of text that match the identifier's detection criteria. If you don't specify these settings, Macie automatically assigns the *Medium* severity to all the findings that the identifier produces. Severity doesn't change based on the number of occurrences of text that match the identifier's detection criteria.

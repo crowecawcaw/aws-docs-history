@@ -1,7 +1,6 @@
 
 
 # Working with Macie sample findings
-<a name="findings-samples"></a>
 
 To explore and learn about the different [types of findings](findings-types.md) that Amazon Macie can generate, you can create sample findings. Sample findings use example data and placeholder values to demonstrate the kinds of information that each type of finding might contain.
 

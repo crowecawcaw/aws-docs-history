@@ -1,7 +1,6 @@
 
 
 # Creating a sensitive data discovery job
-<a name="discovery-jobs-create"></a>
 
 With Amazon Macie, you can create and run sensitive data discovery jobs to automate discovery, logging, and reporting of sensitive data in Amazon Simple Storage Service (Amazon S3) general purpose buckets. A *sensitive data discovery job* is a series of automated processing and analysis tasks that Macie performs to detect and report sensitive data in Amazon S3 objects. As the analysis progresses, Macie provides detailed reports of the sensitive data that it finds and the analysis that it performs: *sensitive data findings*, which report sensitive data that Macie finds in individual S3 objects, and *sensitive data discovery results*, which log details about the analysis of individual S3 objects. For more information, see [Reviewing job results](discovery-jobs-manage-results.md).
 

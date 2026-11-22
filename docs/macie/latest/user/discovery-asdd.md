@@ -1,7 +1,6 @@
 
 
 # Performing automated sensitive data discovery
-<a name="discovery-asdd"></a>
 
 For broad visibility into where sensitive data might reside in your Amazon Simple Storage Service (Amazon S3) data estate, configure Amazon Macie to perform automated sensitive data discovery for your account or organization. With automated sensitive data discovery, Macie continually evaluates your S3 bucket inventory and uses sampling techniques to identify and select representative S3 objects in your buckets. Macie then retrieves and analyzes the selected objects, inspecting them for sensitive data.
 

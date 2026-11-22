@@ -1,7 +1,6 @@
 
 
 # Reviewing estimated usage costs for Macie
-<a name="account-mgmt-costs-review"></a>
 
 To review your current estimated usage costs for Amazon Macie, you can use the Amazon Macie console or the Amazon Macie API. Both the console and the API provide estimated costs for Macie pricing dimensions. If you’re currently participating in a 30-day free trial, you can use this data to estimate your costs for using Macie after your free trial ends. For information about Macie pricing dimensions and considerations, see [Understanding estimated usage costs](account-mgmt-costs-calculations.md). For detailed information and examples of usage costs, see [Amazon Macie pricing](https://aws.amazon.com/macie/pricing/).
 

@@ -1,7 +1,6 @@
 
 
 # Configuring settings for automated sensitive data discovery
-<a name="discovery-asdd-account-configure"></a>
 
 If you enable automated sensitive data discovery for your account or organization, you can adjust your automated discovery settings to refine the analyses that Amazon Macie performs. The settings specify Amazon Simple Storage Service (Amazon S3) buckets to exclude from analyses. They also specify the types and occurrences of sensitive data to detect and report—the managed data identifiers, custom data identifiers, and allow lists to use when analyzing S3 objects.
 

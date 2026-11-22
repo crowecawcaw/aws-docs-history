@@ -1,7 +1,6 @@
 
 
 # Monitoring sensitive data discovery jobs with CloudWatch Logs
-<a name="discovery-jobs-monitor-cw-logs"></a>
 
 In addition to [monitoring the overall status](discovery-jobs-status-check.md) of a sensitive data discovery job, you can monitor and analyze specific events that occur as a job progresses. You can do this by using near real-time logging data that Amazon Macie automatically publishes to Amazon CloudWatch Logs. The data in these logs provides a record of changes to a job's progress or status. For example, you can use the data to determine the exact date and time when a job started to run, was paused, or finished running.
 

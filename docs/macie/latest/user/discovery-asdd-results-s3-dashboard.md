@@ -1,7 +1,6 @@
 
 
 # Reviewing data sensitivity statistics on the Summary dashboard
-<a name="discovery-asdd-results-s3-dashboard"></a>
 
 On the Amazon Macie console, the **Summary** dashboard provides a snapshot of aggregated statistics and findings data for your Amazon Simple Storage Service (Amazon S3) data in the current AWS Region. It's designed to help you assess the overall security posture of your Amazon S3 data.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring data security and privacy with Macie
-<a name="monitoring-s3"></a>
 
 When you enable Amazon Macie for your AWS account, Macie automatically generates and begins maintaining an inventory of your Amazon Simple Storage Service (Amazon S3) general purpose buckets in the current AWS Region. Macie also begins evaluating and monitoring the buckets for security and access control. If Macie detects an event that reduces the security or privacy of a bucket, Macie creates a [policy finding](findings-types.md#findings-policy-types) for you to review and remediate as necessary.
 

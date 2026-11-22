@@ -1,7 +1,6 @@
 
 
 # Disabling automated sensitive data discovery
-<a name="discovery-asdd-account-disable"></a>
 
 You can disable automated sensitive data discovery for an account or organization at any time. If you do this, Amazon Macie stops performing all automated discovery activities for the account or organization before a subsequent evaluation and analysis cycle starts, typically within 48 hours. Additional effects vary:
 + If you're a Macie administrator and you disable it for an individual account in your organization, you and the account can continue to access to all statistical data, inventory data, and other information that Macie produced and directly provided while performing automated discovery for the account. You can enable automated discovery for the account again. Macie then resumes all automated discovery activities for the account.

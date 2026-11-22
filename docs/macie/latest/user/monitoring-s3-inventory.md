@@ -1,7 +1,6 @@
 
 
 # Analyzing your Amazon S3 security posture with Macie
-<a name="monitoring-s3-inventory"></a>
 
 To help you perform in-depth analysis and evaluate the security posture of your Amazon Simple Storage Service (Amazon S3) data, Amazon Macie generates and maintains an inventory of your S3 general purpose buckets in each AWS Region where you use Macie. To learn how Macie maintains this inventory for you, see [How Macie monitors Amazon S3 data security](monitoring-s3-how-it-works.md). If you're the Macie administrator for an organization, the inventory includes data for S3 buckets that your member accounts own.
 

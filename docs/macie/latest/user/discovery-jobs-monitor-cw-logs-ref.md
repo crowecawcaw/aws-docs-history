@@ -1,7 +1,6 @@
 
 
 # Understanding log events for sensitive data discovery jobs
-<a name="discovery-jobs-monitor-cw-logs-ref"></a>
 
 To help you monitor your sensitive data discovery jobs, Amazon Macie automatically publishes logging data for jobs to Amazon CloudWatch Logs. The data in these logs provides a record of changes to a job's progress or status. For example, you can use the data to determine the exact date and time when a job started to run or finished running. The data also provides details about certain types of errors that can occur while a job runs. This data can help you identify, investigate, and address errors that prevent Macie from analyzing the data that you want.
 
@@ -23,7 +22,7 @@ Each log event for a sensitive data discovery job is a JSON object that contains
 
 The following example shows the log event schema for sensitive data discovery jobs. In this example, the event reports that Amazon Macie wasn't able to analyze any objects in an S3 bucket because Amazon S3 denied access to the bucket.
 
-```
+```json
 {
     "adminAccountId": "123456789012",
     "jobId": "85a55dc0fa6ed0be5939d0408example",
@@ -74,7 +73,7 @@ A job status event records a change to the status or progress of a job or a job 
 
 The following example uses sample data to show the structure and nature of the fields in a job status event. In this example, a `SCHEDULED_RUN_COMPLETED` event indicates that a scheduled run of a periodic job finished running. The run started on April 14, 2024, at 17:09:30 UTC, as indicated by the `runDate` field. The run finished on April 14, 2024, at 17:16:30 UTC, as indicated by the `occurredAt` field.
 
-```
+```json
 {
     "adminAccountId": "123456789012",
     "jobId": "ffad0e71455f38a4c7c220f3cexample",
@@ -111,7 +110,7 @@ An account-level error event records an error that prevented Macie from analyzin
 
 The following example uses sample data to show the structure and nature of the fields in an account-level error event. In this example, an `ACCOUNT_ACCESS_DENIED` event indicates that Macie wasn't able to analyze objects in any S3 buckets that are owned by account `444455556666`.
 
-```
+```json
 {
     "adminAccountId": "123456789012",
     "jobId": "85a55dc0fa6ed0be5939d0408example",
@@ -145,7 +144,7 @@ A bucket-level error event records an error that prevented Macie from analyzing 
 
 The following example uses sample data to show the structure and nature of the fields in a bucket-level error event. In this example, a `BUCKET_ACCESS_DENIED` event indicates that Macie wasn't able to analyze any objects in the S3 bucket named `amzn-s3-demo-bucket`. When Macie attempted to list the bucket's objects by using the [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html) operation of the Amazon S3 API, Amazon S3 denied access to the bucket.
 
-```
+```json
 {
     "adminAccountId": "123456789012",
     "jobId": "85a55dc0fa6ed0be5939d0408example",

@@ -1,7 +1,6 @@
 
 
 # Assessing data sensitivity with the S3 buckets table
-<a name="discovery-asdd-results-s3-inventory-table"></a>
 
 To review summary information for your Amazon Simple Storage Service (Amazon S3) buckets, you can use the **S3 buckets** table on the Amazon Macie console. By using the table, you can review and analyze an inventory of your general purpose buckets in the current AWS Region, and drill down to review detailed information and statistics for individual buckets. If you're the Macie administrator for an organization, the table includes information about buckets that your member accounts own. If you prefer to access and query the data programmatically, you can use the [DescribeBuckets](https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html) operation of the Amazon Macie API. 
 

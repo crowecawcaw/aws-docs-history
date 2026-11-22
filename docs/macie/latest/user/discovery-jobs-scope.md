@@ -1,7 +1,6 @@
 
 
 # Scope options for sensitive data discovery jobs
-<a name="discovery-jobs-scope"></a>
 
 With sensitive data discovery jobs, you define the scope of the analysis that Amazon Macie performs to detect and report sensitive data in your Amazon Simple Storage Service (Amazon S3) general purpose buckets. To help you do this, Macie provides several job-specific options that you can choose when you create and configure a job.
 

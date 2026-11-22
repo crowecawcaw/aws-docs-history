@@ -1,7 +1,6 @@
 
 
 # Filtering Macie findings
-<a name="findings-filter-overview"></a>
 
 To perform targeted analysis and to analyze findings more efficiently, you can filter Amazon Macie findings. With filters, you build custom views and queries for findings, which can help you identify and focus on findings that have specific characteristics. Use the Amazon Macie console to filter findings, or submit queries programmatically using the Amazon Macie API.
 

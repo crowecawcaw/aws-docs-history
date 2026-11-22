@@ -1,7 +1,6 @@
 
 
 # Monitoring Macie findings with AWS User Notifications
-<a name="findings-monitor-events-uno"></a>
 
 AWS User Notifications is a service that acts as a central location for your AWS notifications on the AWS Management Console. This includes notifications such as Amazon CloudWatch alarms, AWS Support cases, and communications from other AWS services. With User Notifications, you can configure custom rules and delivery channels for receiving notifications about certain types of Amazon EventBridge events. The delivery channels include email, Amazon Q Developer in chat applications, and push notifications in the AWS Console Mobile Application. You can also review notifications on the AWS User Notifications console. To learn more about User Notifications, see the [AWS User Notifications User Guide](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html).
 
@@ -49,7 +48,7 @@ With this configuration, User Notifications monitors EventBridge events for your
 
 The underlying JSON pattern for the event rule is:
 
-```
+```json
 {
     "source": ["aws.macie"],
     "detail-type": ["Macie Finding"]
@@ -62,7 +61,7 @@ If you create a rule that uses a custom JSON pattern, you can create multiple no
 
 For example, you might create one rule that notifies you if Macie generates or updates a *Policy:IAMUser/S3BucketPublic* finding. In this case, the pattern for the rule might be:
 
-```
+```json
 {
     "source": ["aws.macie"],
     "detail-type": ["Macie Finding"],
@@ -74,7 +73,7 @@ For example, you might create one rule that notifies you if Macie generates or u
 
 And you might create another rule that notifies you if Macie generates a sensitive data finding for an S3 bucket that's publicly accessible. In this case, the pattern for the rule might be:
 
-```
+```json
 {
     "source": ["aws.macie"],
     "detail-type": ["Macie Finding"],

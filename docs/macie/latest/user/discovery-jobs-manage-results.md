@@ -1,7 +1,6 @@
 
 
 # Reviewing the results of a sensitive data discovery job
-<a name="discovery-jobs-manage-results"></a>
 
 When you run a sensitive data discovery job, Amazon Macie automatically calculates and reports certain statistical data for the job. For example, Macie reports the number of times that the job has run, and the approximate number of Amazon Simple Storage Service (Amazon S3) objects that the job has yet to process during its current run. Macie also produces several types of results for the job: *log events*, *sensitive data findings*, and *sensitive data discovery results*.
 

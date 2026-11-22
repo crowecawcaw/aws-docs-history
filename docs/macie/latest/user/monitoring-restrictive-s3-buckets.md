@@ -1,7 +1,6 @@
 
 
 # Allowing Macie to access S3 buckets and objects
-<a name="monitoring-restrictive-s3-buckets"></a>
 
 When you enable Amazon Macie for your AWS account, Macie creates a [service-linked role](service-linked-roles.md) that grants Macie the permissions that it requires to call Amazon Simple Storage Service (Amazon S3) and other AWS services on your behalf. A service-linked role simplifies the process of setting up an AWS service because you don't have to manually add permissions for the service to complete actions on your behalf. To learn about this type of role, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *AWS Identity and Access Management User Guide*.
 
@@ -52,7 +51,7 @@ The following is an example of a bucket policy that uses an explicit `Deny` stat
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Policy1415115example",
@@ -85,7 +84,7 @@ To change this policy and allow Macie to access the S3 bucket and the bucket's o
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id":" Policy1415115example ",

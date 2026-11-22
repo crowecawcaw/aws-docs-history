@@ -1,7 +1,6 @@
 
 
 # Controlling access to Macie resources by using tags
-<a name="tags-iam"></a>
 
 After you start tagging Amazon Macie resources, you can define tag-based, resource-level permissions in AWS Identity and Access Management (IAM) policies. By using tags in this way, you can implement granular control of which users and roles in your AWS account have permission to create and tag Macie resources, and which users and roles have permission to add, edit, and remove tags more generally. To control access based on tags, you can use [tag-related condition keys](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonmacie.html#amazonmacie-policy-keys) for Macie in the [Condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of IAM policies.
 
@@ -12,7 +11,7 @@ For example, you can create a policy that allows a user to have full access to a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Managed data identifiers for financial information
-<a name="mdis-reference-financial"></a>
 
 Amazon Macie can detect multiple types of sensitive financial information by using managed data identifiers. The topics on this page list each type and provide information about the managed data identifiers that are designed to detect the data. Each topic provides the following information:<a name="mdi-ref-fields-plural"></a>
 + **Managed data identifier ID** – Specifies the unique identifier (ID) for one or more managed data identifiers that are designed to detect the data. When you [create a sensitive data discovery job](discovery-jobs-create.md) or [configure settings for automated sensitive data discovery](discovery-asdd-account-configure.md), you can use these IDs to specify which managed data identifiers you want Macie to use when it analyzes data.

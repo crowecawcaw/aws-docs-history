@@ -1,7 +1,6 @@
 
 
 # Locating sensitive data with Macie findings
-<a name="findings-locate-sd"></a>
 
 When you run sensitive data discovery jobs or Amazon Macie performs automated sensitive data discovery, Macie performs a deep inspection of the latest version of each Amazon Simple Storage Service (Amazon S3) object that it analyzes. For each job run or analysis cycle, Macie also uses a *depth-first search* algorithm to populate the resulting findings with details about the location of specific occurrences of sensitive data that Macie finds in S3 objects. These occurrences provide insight into the categories and types of sensitive data that an affected S3 bucket and object might contain. The details can help you locate individual occurrences of sensitive data in objects, and determine whether to perform a deeper investigation of specific buckets and objects.
 

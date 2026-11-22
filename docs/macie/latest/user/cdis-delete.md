@@ -1,7 +1,6 @@
 
 
 # Deleting a custom data identifier
-<a name="cdis-delete"></a>
 
 After you create a custom data identifier, you can delete it. If you do this, Amazon Macie soft deletes the custom data identifier. This means that a record of the custom data identifier remains for your account, but it’s marked as deleted. If a custom data identifier has this status, you can’t configure new sensitive data discovery jobs to use it or add it to your settings for automated sensitive data discovery. In addition, you can no longer access it by using the Amazon Macie console. You can, however, retrieve its settings by using the Amazon Macie API. If you delete a custom data identifier, it doesn’t count against the quota of custom data identifiers for your account.
 
