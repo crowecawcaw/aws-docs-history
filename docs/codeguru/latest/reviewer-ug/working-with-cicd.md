@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Create code reviews with GitHub Actions
-<a name="working-with-cicd"></a>
 
 Amazon CodeGuru Reviewer finds issues in your Java and Python code and recommends how to remediate them. CodeGuru Reviewer detects deviation from best practices for using AWS APIs and SDKs, and also identifies concurrency issues, resource leaks, security vulnerabilities and validates input parameters validation. First, you enable CodeGuru Reviewer on your build workflow. Next, for every push, pull, or scheduled repository scan, the CodeGuru Reviewer GitHub Action copies your code and build artifacts into an S3 bucket in your AWS account. CodeGuru Reviewer APIs are used to analyze the artifacts and provide recommendations.
 

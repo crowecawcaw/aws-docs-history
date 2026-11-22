@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Step 4: Provide feedback
-<a name="provide-feedback"></a>
 
 CodeGuru Reviewer is based on program analysis and machine learning models, so it's constantly improving. To assist in the machine learning process and enhance the experience with CodeGuru Reviewer, you can provide feedback on the recommendations in the **Code reviews** page on the CodeGuru Reviewer console. You can also provide feedback directly in the pull requests to indicate whether they were helpful to you. 
 

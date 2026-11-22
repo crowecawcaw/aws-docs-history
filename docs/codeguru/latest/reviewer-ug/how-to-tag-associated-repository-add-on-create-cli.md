@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Add a tag when you create a CodeGuru Reviewer associated repository (AWS CLI)
-<a name="how-to-tag-associated-repository-add-on-create-cli"></a>
 
 You can use the AWS CLI to add tags to an associated repository when you create it. 
 
@@ -34,7 +33,7 @@ Because you cannot use the AWS CLI to create a GitHub repository, you cannot use
 
 1. If successful, this command outputs a [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object that includes an array with the 3 tags. 
 
-   ```
+   ```json
    {
        "RepositoryAssociation": {
            "AssociationId": "repository-association-uuid",

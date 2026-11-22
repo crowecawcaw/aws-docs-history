@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Remove tags from a CodeGuru Reviewer associated repository (AWS CLI)
-<a name="how-to-tag-associated-repository-remove-cli"></a>
 
 You can remove a tag from an associated repository using the console or the AWS CLI.
 
@@ -37,7 +36,7 @@ Removing a tag from an associated repository can impact access to that associate
 
    The output is a [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object that includes an array that does not contain the keys you removed. In the following output example, all tags were removed so the tags array is empty.
 
-   ```
+   ```json
    {
        "RepositoryAssociation": {
            "AssociationId": "repository-association-uuid",

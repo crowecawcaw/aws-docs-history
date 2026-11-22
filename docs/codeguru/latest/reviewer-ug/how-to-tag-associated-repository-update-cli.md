@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Add or update tags for a CodeGuru Reviewer associated repository (AWS CLI)
-<a name="how-to-tag-associated-repository-update-cli"></a>
 
 Follow these steps to use the AWS CLI and the **tag-resource** command to add or update the AWS tags for an associated repository. This command adds a new tag or, if you pass in a tag with an existing key, updates the value associated with that key. If you want to use the AWS CLI to update the key of a tag, use **untag-resource** to remove it, then use **tag-resource** to add a new tag with the updated key and its value.
 
@@ -34,7 +33,7 @@ Follow these steps to use the AWS CLI and the **tag-resource** command to add or
 
    The output is a [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object that includes an array with the 3 added or updated tags. 
 
-   ```
+   ```json
    {
        "RepositoryAssociation": {
            "AssociationId": "repository-association-uuid",

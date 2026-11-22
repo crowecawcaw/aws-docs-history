@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Monitoring CodeGuru Reviewer with Amazon CloudWatch
-<a name="monitoring"></a>
 
 You can use Amazon CloudWatch to monitor the number of recommendations created for your source code in an associated repository over time. 
 

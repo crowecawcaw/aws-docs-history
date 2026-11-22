@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Disassociate a repository in CodeGuru Reviewer
-<a name="disassociate-repository-association"></a>
 
  You can disassociate any associated repository you create. After you disassociate a repository, Amazon CodeGuru Reviewer no longer has permission to read code in the repository's pull requests and doesn't have access to your repository's source code. This means that CodeGuru Reviewer does not have permission to perform operations such as cloning or publishing comments in source code. A disassociated repository does not send pull request notifications to Amazon CodeGuru Reviewer. You cannot create code reviews of any kind for a disassociated repository.
 
@@ -55,7 +54,7 @@ For information about using the AWS CLI with CodeGuru Reviewer, see the [CodeGur
 
 1. If successful, this command outputs a [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object with a state of `Disassociating`. 
 
-   ```
+   ```json
    {
        "RepositoryAssociation": {
            "AssociationId": "repository_association_uuid",

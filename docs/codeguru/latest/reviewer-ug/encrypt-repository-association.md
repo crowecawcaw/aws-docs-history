@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Encrypting a repository association in Amazon CodeGuru Reviewer
-<a name="encrypt-repository-association"></a>
 
 All associated repositories in Amazon CodeGuru Reviewer are encrypted by default using a key that AWS owns and manages for you. You can encrypt an associated repository using an AWS Key Management Service key, known as a *KMS key*, that you manage. If you want to use a KMS key, then you must create one in advance using AWS KMS, or create one when you create your associated repository. For more information, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*.
 

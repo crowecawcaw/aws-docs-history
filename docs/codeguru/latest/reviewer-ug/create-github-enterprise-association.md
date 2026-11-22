@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Create a GitHub Enterprise Server repository association in Amazon CodeGuru Reviewer
-<a name="create-github-enterprise-association"></a>
 
 You can create a GitHub Enterprise Server repository association using the Amazon CodeGuru Reviewer console, the AWS CLI, or the CodeGuru Reviewer SDK. Before you create a GitHub Enterprise Server repository association, you must have a GitHub Enterprise Server repository. 
 
@@ -92,7 +91,7 @@ For information about using the AWS CLI with CodeGuru Reviewer, see the [CodeGur
 
 1. If successful, this command outputs a [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object. 
 
-   ```
+   ```json
    {
        "RepositoryAssociation": {
            "ProviderType": "GitHubEnterpriseServer",
@@ -117,7 +116,7 @@ For information about using the AWS CLI with CodeGuru Reviewer, see the [CodeGur
 
 1. If successful, this command outputs a [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object which shows its status. 
 
-   ```
+   ```json
    {
        "RepositoryAssociation": {
            "ProviderType": "GitHubEnterpriseServer",

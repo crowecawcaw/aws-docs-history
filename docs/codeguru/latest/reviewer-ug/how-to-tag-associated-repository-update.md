@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Add or update tags for a CodeGuru Reviewer associated repository
-<a name="how-to-tag-associated-repository-update"></a>
 
 You can change the value for a tag associated with an associated repository or add a new tag. Keep in mind that there are limits on the characters you can use in the key and value fields. For more information, see [Limits](quotas.md#limits-tags).
 

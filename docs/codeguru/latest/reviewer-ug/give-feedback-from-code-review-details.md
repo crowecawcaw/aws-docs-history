@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # View recommendations and provide feedback
-<a name="give-feedback-from-code-review-details"></a>
 
 After you access the detailed code review page by choosing the name of the code review from the **Code reviews** page, you can view the recommendations from the code review directly in the console. To leave feedback on a code review in the console, do the following:
 

@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # View all code reviews
-<a name="view-all-code-reviews"></a>
 
 You can view all code reviews from the past 90 days and their statuses on the **Code reviews** page in the Amazon CodeGuru Reviewer console. There is an **incremental code review** tab to view code reviews done on incremental code reviews and a **Full repository analysis** tab to view code reviews requested for full repository analyses.
 

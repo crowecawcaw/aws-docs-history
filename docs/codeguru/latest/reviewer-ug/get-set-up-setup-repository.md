@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Create a repository for your source code
-<a name="get-set-up-setup-repository"></a>
 
 Before you use Amazon CodeGuru Reviewer to create code reviews, the source code that you want to analyze must be set up in a supported repository type. CodeGuru Reviewer supports AWS CodeCommit, Bitbucket, GitHub, and GitHub Enterprise Server. If you use Bitbucket or GitHub Enterprise Server, you must also create a connection to your repository using AWS CodeConnections. For more information, see [What are connections?](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html) in the *AWS Developer Tools User Guide*. 
 

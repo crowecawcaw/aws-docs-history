@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # View all repository associations in CodeGuru Reviewer
-<a name="repository-association-view-all"></a>
 
 You can view all the associated repositories in your AWS Region and your AWS account using the console or the AWS CLI. 
 
@@ -41,7 +40,7 @@ For information about using the AWS CLI with CodeGuru Reviewer, see the [CodeGur
 
 1. If successful, this command outputs one [`RepositoryAssociationSummary`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html) object for each of your associated repositories. 
 
-   ```
+   ```json
    {
        "RepositoryAssociationSummaries": [
            {

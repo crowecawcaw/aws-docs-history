@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Step 2: Associate a repository
-<a name="getting-started-associate-repository"></a>
 
 You must create a repository association to grant CodeGuru Reviewer access to read your source code and create notifications on your repository. The notifications initiate an analysis on the updated source code every time you create a pull request. When you create your repository association, CodeGuru Reviewer automatically creates a full repository analysis code review. You must initiate future full repository analysis code reviews. For more information, see [Working with repository associations in Amazon CodeGuru Reviewer](working-with-repositories.md).
 

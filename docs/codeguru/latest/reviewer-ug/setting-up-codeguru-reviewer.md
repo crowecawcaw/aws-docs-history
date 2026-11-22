@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Setting up Amazon CodeGuru Reviewer
-<a name="setting-up-codeguru-reviewer"></a>
 
 Complete the tasks in this section to set up Amazon CodeGuru Reviewer for the first time. If you already have an AWS account, know the repository that contains the source code you want reviewed, and prefer to use the defaults for IAM, skip ahead to [Getting started](getting-started-with-guru.md).
 

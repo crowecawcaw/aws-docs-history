@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Suppress recommendations from Amazon CodeGuru Reviewer
-<a name="recommendation-suppression"></a>
 
 Whether you initiate a full repository analysis code review or an incremental code review, you can suppress recommendations from CodeGuru Reviewer. You do this by excluding files and directories in an `aws-codeguru-reviewer.yml` file.
 
@@ -51,7 +50,7 @@ Replace the items under `excludeFiles:` with your own files and directories. For
 **Note**  
 Be sure to use relative paths for files and directories that you add to your `aws-codeguru-reviewer.yml` file.
 
-```
+```yaml
 version: 1.0
 
 # Sample YAML file
@@ -85,7 +84,7 @@ In your `aws-codeguru-reviewer.yml` file, add files and directories to exclude u
 
 In the following example, CodeGuru Reviewer excludes from analysis anything in the `resources` directory.
 
-```
+```yaml
 version: 1.0
 
 excludeFiles: 
@@ -96,7 +95,7 @@ excludeFiles:
 
 In the following example, CodeGuru Reviewer excludes from analysis all files under any directory named `configuration`.
 
-```
+```yaml
 version: 1.0
 
 excludeFiles: 
@@ -107,7 +106,7 @@ excludeFiles:
 
 In the following example, CodeGuru Reviewer excludes from analysis any file with a `.java` extension.
 
-```
+```yaml
 version: 1.0
 
 excludeFiles: 

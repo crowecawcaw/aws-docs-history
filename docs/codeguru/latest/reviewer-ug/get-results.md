@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Step 3: Get recommendations
-<a name="get-results"></a>
 
 CodeGuru Reviewer uses code reviews to provide [different kinds of recommendations](recommendations.md) to help improve your code. These recommendations are focused on best practices and resolving potential defects in code that are difficult for developers to find. After CodeGuru Reviewer completes an incremental code review or a full repository analysis code review, you can view recommendations. You can then choose whether to incorporate the recommendations, and you can provide feedback about whether the recommendations were helpful.
 

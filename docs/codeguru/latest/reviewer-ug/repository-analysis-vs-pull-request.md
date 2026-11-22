@@ -3,7 +3,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # About full repository analysis and incremental code reviews
-<a name="repository-analysis-vs-pull-request"></a>
 
 There are three different kinds of code reviews that CodeGuru Reviewer can do to provide recommendations.
 + *Incremental code reviews* are created automatically when you create a pull request from your repository context on an associated repository. These code reviews scan the changed code in a pull request. 
