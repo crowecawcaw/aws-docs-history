@@ -1,7 +1,6 @@
 
 
 # Application Auto Scaling in AWS GovCloud (US)
-<a name="govcloud-appas"></a>
 
 Application Auto Scaling is a web service for developers and system administrators who need a solution for automatically scaling their scalable resources for individual AWS services beyond Amazon EC2.
 

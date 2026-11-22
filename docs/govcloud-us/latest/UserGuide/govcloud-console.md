@@ -1,7 +1,6 @@
 
 
 # AWS Management Console for the AWS GovCloud (US) Region
-<a name="govcloud-console"></a>
 
 The AWS Management Console is a graphical interface for accessing a wide range of AWS Cloud services and managing compute, storage, and other cloud resources. The console includes the Tag Editor tool for managing metadata that you add to your resources. You can then use those tags to create resource groups to manage your AWS resources collectively.
 

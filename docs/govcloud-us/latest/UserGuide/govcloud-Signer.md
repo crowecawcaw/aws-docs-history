@@ -1,7 +1,6 @@
 
 
 # AWS Signer in AWS GovCloud (US)
-<a name="govcloud-Signer"></a>
 
  AWS Signer is a fully managed code-signing service to ensure the trust and integrity of your code. Organizations validate code against a digital signature to confirm that the code is unaltered and from a trusted publisher. With AWS Signer, your security administrators have a single place to define your signing environment, including what AWS Identity and Access Management (IAM) role can sign code and in what Regions. AWS Signer manages the code-signing certificate’s public and private keys, and enables central management of the code-signing lifecycle. Integration with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/) helps you track who is generating code signatures and to meet your compliance requirements.
 
@@ -25,7 +24,7 @@ The following differences apply to AWS Signer:
 
   1. In your trust policy, you must set `signingAuthority` to `aws-us-gov-signer-ts`. For example:
 
-     ```
+     ```json
      {
         "version":"1.0",
         "trustPolicies":[

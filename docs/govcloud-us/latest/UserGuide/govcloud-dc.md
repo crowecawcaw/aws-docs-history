@@ -1,7 +1,6 @@
 
 
 # Direct Connect in AWS GovCloud (US)
-<a name="govcloud-dc"></a>
 
 AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit, 10 gigabit, 100 gigabit, or 400 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud and Amazon Virtual Private Cloud, bypassing Internet service providers in your network path.
 

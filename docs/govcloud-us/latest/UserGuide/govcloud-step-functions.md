@@ -1,7 +1,6 @@
 
 
 # AWS Step Functions in AWS GovCloud (US)
-<a name="govcloud-step-functions"></a>
 
 AWS Step Functions makes it easy to coordinate the components of distributed applications as a series of steps in a visual workflow. You can quickly build and run state machines to execute the steps of your application in a reliable and scalable fashion.
 

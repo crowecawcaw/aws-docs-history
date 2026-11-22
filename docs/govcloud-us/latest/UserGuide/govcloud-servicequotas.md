@@ -1,7 +1,6 @@
 
 
 # Service Quotas in AWS GovCloud (US)
-<a name="govcloud-servicequotas"></a>
 
  [Service Quotas](https://console.aws.amazon.com/servicequotas) enables you to view and manage your AWS service quotas from a central location. You can view the AWS default quotas, your account-level or applied quotas and request for quota increases. Through its [integration with AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.html), you can also view usage against quotas and configure alarms to get notified when approaching a quota threshold. Service Quotas offers both a console experience and programmatic access via the AWS SDK, and is available to all AWS customers at no additional cost.
 

@@ -1,7 +1,6 @@
 
 
 # AWS IoT Greengrass Version 2 in AWS GovCloud (US)
-<a name="govcloud-iotgreengrassv2"></a>
 
 AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely even when not connected to the Internet.
 

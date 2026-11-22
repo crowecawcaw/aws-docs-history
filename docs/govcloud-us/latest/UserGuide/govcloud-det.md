@@ -1,7 +1,6 @@
 
 
 # Amazon Detective in AWS GovCloud (US)
-<a name="govcloud-det"></a>
 
 Amazon Detective makes it easy to analyze, investigate, and quickly identify the root cause of security findings or suspicious activities. Detective automatically collects log data from your AWS resources. It then uses machine learning, statistical analysis, and graph theory to help you visualize and conduct faster and more efficient security investigations.
 

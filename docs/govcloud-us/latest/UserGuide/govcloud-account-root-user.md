@@ -1,7 +1,6 @@
 
 
 # AWS GovCloud (US) account root user
-<a name="govcloud-account-root-user"></a>
 
 When you first create a standard AWS account (not an AWS GovCloud (US) account), you begin with one identity that has complete access to all AWS services and resources in the account. This identity is called the AWS account root user. You can sign in as the root user using the email address and password that you used to create the account.
 
@@ -156,7 +155,7 @@ In this step, you create a support case to the Accounts and Billing support team
 
 1. In the **Description** box, copy and paste the following template:
 
-   ```
+   ```bash
        Company Name: [Company Name From Step 1]
        Account Email: [Account Email  From Step 1]
        Address: [Address  From Step 1]

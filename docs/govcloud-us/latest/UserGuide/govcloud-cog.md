@@ -1,7 +1,6 @@
 
 
 # Amazon Cognito in AWS GovCloud (US)
-<a name="govcloud-cog"></a>
 
 Amazon Cognito provides authentication, authorization, and user management for your web and mobile apps. Your users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google or Apple. The two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for your app users. Identity pools enable you to grant your users access to other AWS services. You can use identity pools and user pools separately or together.
 
@@ -22,6 +21,7 @@ Amazon Cognito provides authentication, authorization, and user management for y
 + Automatic failover for managed login, a subfeature of multi-Region replication, isn’t available in AWS GovCloud (US) Regions. To prepare for a Regional failover, create a user pool domain in the replica Region, and update your application to switch to that domain when needed.
 + Identity pools might be unable to assume IAM roles in AWS GovCloud (US-East) when the length of your role name plus role session name are longer than 24 characters. This length doesn’t include the path. For best results in this Region, use roles with name lengths of no greater than 20 characters and session name lengths of no greater than four characters.
 +  Amazon Cognito Sync isn’t available in AWS GovCloud (US) Regions.
++ Point-in-time recovery for user pools isn’t available.
 
 The IAM roles that you assign to users with Amazon Cognito identity pools must have a trust policy that allows Amazon Cognito to generate temporary sessions. In AWS GovCloud (US), your trust policies must grant `AssumeRoleWithWebIdentity` permission to the `cognito-identity-us-gov.amazonaws.com` service principal. The following example trust policy allows the identity pool `us-gov-west-1:12345678-corner-cafe-123456790ab` to grant IAM credentials to unauthenticated guest users.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Support Unified Operations in AWS GovCloud (US)
-<a name="govcloud-support-uops"></a>
 
  AWS Support Unified Operations combines expertise with AI-powered insights to help reduce operational and security risks, resolve issues faster, and architect more resilient cloud solutions. For more information, see [AWS Support](govcloud-support.md).
 

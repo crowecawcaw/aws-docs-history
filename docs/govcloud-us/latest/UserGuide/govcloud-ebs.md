@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Block Store (Amazon EBS) in AWS GovCloud (US)
-<a name="govcloud-ebs"></a>
 
 Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance that is in the same Availability Zone. EBS volumes that are attached to an EC2 instance are exposed as storage volumes that persist independently from the life of the instance. With Amazon EBS, you pay only for what you use.
 

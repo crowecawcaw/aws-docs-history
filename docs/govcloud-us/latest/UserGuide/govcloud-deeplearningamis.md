@@ -1,7 +1,6 @@
 
 
 # AWS Deep Learning AMIs in AWS GovCloud (US)
-<a name="govcloud-deeplearningamis"></a>
 
 AWS Deep Learning AMIs empower machine learning practitioners and researchers with the cutting-edge infrastructure and tools to accelerate deep learning and artificial intelligence in the cloud, at any scale. With just a few clicks, you can launch Amazon EC2 instances pre-installed with the latest popular deep learning frameworks like TensorFlow and PyTorch and leverage these state-of-the-art frameworks to train sophisticated, custom AI models, experiment with groundbreaking new algorithms, and continuously enhance your deep learning skills and techniques.
 

@@ -1,7 +1,6 @@
 
 
 # Onboarding to AWS GovCloud (US) as a Solution Provider reselling in AWS GovCloud (US)
-<a name="getting-started-console"></a>
 
 If you are serving as a Solution Provider and reselling in AWS GovCloud (US), you must create an IAM user to sign in to the AWS Management Console for the AWS GovCloud (US) Region. If you received your account credentials through a Solution Provider, please contact your Solution Provider to sign up.
 

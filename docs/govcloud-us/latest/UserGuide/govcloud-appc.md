@@ -1,7 +1,6 @@
 
 
 # AWS AppConfig in AWS GovCloud (US)
-<a name="govcloud-appc"></a>
 
 Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy application configurations. You can use AWS AppConfig with applications hosted on Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS Lambda, containers, mobile applications, or IoT devices.
 

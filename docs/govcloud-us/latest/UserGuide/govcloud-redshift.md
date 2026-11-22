@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift in AWS GovCloud (US)
-<a name="govcloud-redshift"></a>
 
 Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools. It is optimized for datasets ranging from a few hundred gigabytes to a petabyte or more and costs less than $1,000 per terabyte per year, a tenth the cost of most traditional data warehousing solutions.
 

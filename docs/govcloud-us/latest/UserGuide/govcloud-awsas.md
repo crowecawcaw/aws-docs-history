@@ -1,7 +1,6 @@
 
 
 # AWS Auto Scaling in AWS GovCloud (US)
-<a name="govcloud-awsas"></a>
 
 With AWS Auto Scaling, you can quickly discover the scalable AWS resources for your application and set up dynamic scaling. It uses Amazon EC2 Auto Scaling to scale your EC2 instances and Application Auto Scaling to scale resources from other services.The AWS Management Console provides a web interface for AWS Auto Scaling.
 

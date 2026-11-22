@@ -1,7 +1,6 @@
 
 
 # AWS Snow Family in AWS GovCloud (US)
-<a name="govcloud-importexport"></a>
 
 AWS Snow Family is a service for customers who want to transport terabytes or petabytes of data to and from AWS, or who want to access the storage and compute power of the AWS Cloud locally and cost effectively in places where connecting to the internet might not be an option.
 

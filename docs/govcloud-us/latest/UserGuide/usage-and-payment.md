@@ -1,7 +1,6 @@
 
 
 # AWS GovCloud (US) Billing and Payment
-<a name="usage-and-payment"></a>
 
 All AWS GovCloud (US) activity, usage, and payments are managed through a standard AWS account. When you sign up for AWS GovCloud (US), your AWS GovCloud (US) account is associated with your standard AWS account. You can associate only one AWS GovCloud (US) account to one standard AWS account. If you require multiple AWS GovCloud (US) accounts, you must create a standard AWS account for each AWS GovCloud (US) account. For more information about Billing and Cost Management, see the [AWS Billing and Cost Management documentation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
 

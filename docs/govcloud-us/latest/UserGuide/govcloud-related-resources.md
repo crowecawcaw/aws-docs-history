@@ -1,7 +1,6 @@
 
 
 # Related Resources
-<a name="govcloud-related-resources"></a>
 
 This topic lists additional resources related to AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions.
 

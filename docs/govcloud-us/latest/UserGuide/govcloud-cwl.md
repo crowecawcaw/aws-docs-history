@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Logs in AWS GovCloud (US)
-<a name="govcloud-cwl"></a>
 
 Use CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources.
 

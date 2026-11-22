@@ -1,7 +1,6 @@
 
 
 # Signing in to AWS GovCloud (US)
-<a name="signing-into-govcloud"></a>
 
 The AWS Management Console provides a web-based user interface that you can use to create and manage your AWS resources. For example, you can start and stop Amazon EC2 instances, create Amazon DynamoDB tables, create Amazon S3 buckets, and so on.
 

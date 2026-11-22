@@ -1,7 +1,6 @@
 
 
 # Research and Engineering Studio on AWS in AWS GovCloud (US)
-<a name="govcloud-res"></a>
 
 Research and Engineering Studio on AWS (RES) is an AWS supported, open source product that enables IT administrators to provide a web portal for scientists and engineers to run technical computing workloads on AWS. RES provides a single pane of glass for users to launch secure virtual desktops to conduct scientific research, product design, engineering simulations, or data analysis workloads. Users can connect to the RES portal using their existing corporate credentials and work on individual or collaborative projects.
 

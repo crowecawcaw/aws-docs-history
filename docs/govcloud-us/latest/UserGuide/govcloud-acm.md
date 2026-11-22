@@ -1,7 +1,6 @@
 
 
 # AWS Certificate Manager in AWS GovCloud (US)
-<a name="govcloud-acm"></a>
 
 AWS Certificate Manager (ACM) makes it easy to provision, manage, and deploy SSL/TLS certificates on AWS managed resources.
 

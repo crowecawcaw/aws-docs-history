@@ -1,7 +1,6 @@
 
 
 # AWS IoT SiteWise in AWS GovCloud (US)
-<a name="govcloud-iotsitewise"></a>
 
 AWS IoT SiteWise is a managed service that you can use to collect, model, analyze, and visualize data from industrial equipment at scale. With AWS IoT SiteWise Monitor, you can quickly create web applications for non-technical users to view and analyze your industrial data in real time. With AWS IoT SiteWise gateways, you can view and process your data on your local devices.
 

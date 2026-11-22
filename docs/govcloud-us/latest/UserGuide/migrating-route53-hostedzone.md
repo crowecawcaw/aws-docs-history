@@ -1,7 +1,6 @@
 
 
 # Migrating Route 53 public hosted zones from commercial AWS Region to AWS GovCloud (US)
-<a name="migrating-route53-hostedzone"></a>
 
 If you have created a public hosted zone in your commercial AWS account for AWS GovCloud (US) resources, we recommend you to migrate the hosted zone from the commercial AWS account to the AWS GovCloud (US) account. This migration offers two key benefits:
 + Streamlined operations by consolidating resources into a single account.

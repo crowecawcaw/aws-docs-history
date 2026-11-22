@@ -1,7 +1,6 @@
 
 
 # Amazon S3 in AWS GovCloud (US)
-<a name="govcloud-s3"></a>
 
 Amazon Simple Storage Service (Amazon S3) is storage for the internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. You can accomplish these tasks using the simple and intuitive web interface of the AWS Management Console.
 
@@ -31,6 +30,7 @@ The following differences apply to Amazon Simple Storage Service:
 +  Amazon S3 Tables migration is not available.
 + Access points for directory buckets are not available.
 + You cannot use S3 access points to access file data stored on Amazon FSx file systems.
++ Full-text search and hybrid search for Amazon S3 Vectors are not available in the AWS GovCloud (US) Regions.
 
 ## Documentation
 <a name="govcloud-s3-docs"></a>

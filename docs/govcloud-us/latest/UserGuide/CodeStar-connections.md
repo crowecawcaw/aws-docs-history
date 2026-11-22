@@ -1,7 +1,6 @@
 
 
 # AWS CodeConnections in AWS GovCloud (US)
-<a name="CodeStar-connections"></a>
 
 You can use the connections feature in the Developer Tools console to connect AWS resources to external code repositories. This feature has its own API, the [AWS CodeStar Connections API reference](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/Welcome.html). Each connection is a resource that you can give to AWS services to connect to a third-party repository, such as BitBucket. For example, you can add a connection in CodePipeline so that it starts your pipeline when a code change is made to your third-party code repository. Each connection is named and associated with a unique Amazon Resource Name (ARN) that is used to reference the connection.
 

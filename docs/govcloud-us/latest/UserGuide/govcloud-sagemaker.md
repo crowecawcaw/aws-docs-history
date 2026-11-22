@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI in AWS GovCloud (US)
-<a name="govcloud-sagemaker"></a>
 
 {smlong} is a fully managed machine learning service. With {smlong}, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don’t have to manage servers. It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment. With native support for bring-your-own-algorithms and frameworks, {smlong} provides flexible distributed training options that adjust to your specific workflows.
 
@@ -47,7 +46,7 @@ The following differences apply to Amazon SageMaker AI:
          AWS GovCloud (US-East) - `237065988967.dkr.ecr.us-gov-east-1.amazonaws.com` 
     + ECR login - authenticate to the applicable account from the preceding list. For example, for the framework account in AWS GovCloud (US-West):
 
-      ```
+      ```sh
       aws ecr get-login-password --region us-gov-west-1 | docker login --username AWS --password-stdin 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com
       ```
     + Image URI format:

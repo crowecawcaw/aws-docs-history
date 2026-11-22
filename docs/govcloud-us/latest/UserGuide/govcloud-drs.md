@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Disaster Recovery in AWS GovCloud (US)
-<a name="govcloud-drs"></a>
 
 AWS Elastic Disaster Recovery minimizes downtime and data loss with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and point-in-time recovery.
 

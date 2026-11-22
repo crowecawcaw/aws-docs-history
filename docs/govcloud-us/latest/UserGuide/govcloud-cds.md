@@ -1,7 +1,6 @@
 
 
 # Amazon Cloud Directory in AWS GovCloud (US)
-<a name="govcloud-cds"></a>
 
 Amazon Cloud Directory is a high-performance, serverless, hierarchical data store. Cloud Directory is a highly scalable multi-tenant service that makes it easy for customers to organize and manage all their multi-dimensional data such as users, groups, locations, and devices and the rich relationships between them. Amazon Cloud Directory automatically scales to hundreds of millions of objects and provides an extensible schema that can be shared with multiple applications. As a serverless data store, Cloud Directory eliminates time-consuming and expensive administrative tasks, such as scaling infrastructure and managing servers. Cloud Directory is targeted for use cases such as human resources applications, course catalogs, device registry and network topology. Additionally, customer applications that need fine-grained permissions (Authorization) are well suited to leverage capabilities in Cloud Directory.
 

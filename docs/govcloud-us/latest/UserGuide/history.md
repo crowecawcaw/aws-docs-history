@@ -1,30 +1,31 @@
 
 
 # Document History
-<a name="history"></a>
 
 The following table describes important changes to the documentation since the last release of the * AWS GovCloud (US) User Guide*.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [AWS Organizations](govcloud-organizations.md) | Clarified that the seven-day age requirement for the organization does not apply in AWS GovCloud (US). | November 19, 2026 | 
+| [AWS DevOps Agent](govcloud-devops-agent.md) |  AWS DevOps Agent is now available in AWS GovCloud (US-West). Added the AWS DevOps Agent page for AWS GovCloud (US). | November 13, 2026 | 
 | [Amazon EC2 Image Builder](govcloud-ec2ib.md) |  Image Builder doesn’t support the console AI features (Create with AI and Troubleshoot with AI), which are powered by AWS DevOps Agent. | November 11, 2026 | 
 | [Amazon Quick](govcloud-aqs.md) | Removed the note stating that Amazon Quick and interface VPC endpoints (AWS PrivateLink) are not available in AWS GovCloud (US), as this capability is now available. | November 10, 2026 | 
 | [AWS Organizations](govcloud-organizations.md) |  AWS Organizations now supports declarative policies for Security Hub, Amazon Inspector, and Amazon GuardDuty. | November 3, 2026 | 
-| [Amazon EC2 Image Builder](#history) | EC2 Image Builder ISO disk file import is now available in AWS GovCloud (US) Regions. See [EC2 Image Builder](govcloud-ec2ib.md). | October 23, 2026 | 
+| [Amazon EC2 Image Builder](history.md) | EC2 Image Builder ISO disk file import is now available in AWS GovCloud (US) Regions. See [EC2 Image Builder](govcloud-ec2ib.md). | October 23, 2026 | 
 | [Amazon EC2 Image Builder](govcloud-ec2ib.md) |  Image Builder now supports ISO disk file import. | October 23, 2026 | 
 | [AWS Support Unified Operations](govcloud-support-uops.md) |  AWS Support Unified Operations is now supported in AWS GovCloud (US) Regions. | October 1, 2026 | 
 | [Amazon GuardDuty](govcloud-guardduty.md) | Finding type UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS now detects when temporary AWS credentials created for a Lambda function are used from a different AWS account. For more information, see [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws). | September 28, 2026 | 
 | [Amazon DynamoDB](govcloud-ddb.md) |  DynamoDB Accelerator (DAX) is now available. | September 18, 2026 | 
 | [Amazon Inspector](govcloud-inspector2.md) | Added Managed Code Repository Scanning to the list of features that are not available for Amazon Inspector in the AWS GovCloud (US) Regions. | September 8, 2026 | 
 | [AWS Transform](govcloud-transform.md) | AWS Transform is now supported in AWS GovCloud (US). | September 8, 2026 | 
-| [Amazon Connect](#history) | Updated the list of unavailable Amazon Connect features in AWS GovCloud (US) Regions. See [Amazon Connect](govcloud-con.md). | September 2, 2026 | 
+| [Amazon Connect](history.md) | Updated the list of unavailable Amazon Connect features in AWS GovCloud (US) Regions. See [Amazon Connect](govcloud-con.md). | September 2, 2026 | 
 | [Amazon OpenSearch Ingestion](govcloud-opensearch.md) | Amazon OpenSearch Ingestion is now available. | August 19, 2026 | 
 | [Amazon S3 Metadata](govcloud-s3.md) | S3 Metadata and annotations are now available in AWS GovCloud (US) Regions. | August 18, 2026 | 
 | [AWS Outposts](govcloud-outposts.md) | Launching Amazon EC2 instances that use Local Boot with an encrypted AMI is not supported on [AWS Outposts](govcloud-outposts.md) in AWS GovCloud (US) Regions. | August 17, 2026 | 
 | [Amazon Quick](govcloud-aqs.md) | Updated Amazon Quick to reflect current feature availability in AWS GovCloud (US), including newly supported agentic capabilities. | August 13, 2026 | 
-| [Amazon FSx for Lustre](#history) | Amazon FSx for Lustre Persistent 2 SSD file systems are now available in AWS GovCloud (US) Regions. See [Amazon FSx](govcloud-fsx.md). | August 4, 2026 | 
+| [Amazon FSx for Lustre](history.md) | Amazon FSx for Lustre Persistent 2 SSD file systems are now available in AWS GovCloud (US) Regions. See [Amazon FSx](govcloud-fsx.md). | August 4, 2026 | 
 | [Amazon GuardDuty](govcloud-guardduty.md) | New finding type UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS and updated finding type UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS. GuardDuty introduces a new finding type that detects when temporary AWS credentials created for an ECS task are used from a different AWS account. Additionally, the existing ResourceCredentialExfiltration.OutsideAWS finding now detects ECS task credential exfiltration in addition to Lambda. For more information, see [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws) and [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#unauthorizedaccess-iam-resourcecredentialexfiltrationoutsideaws). | July 15, 2026 | 
-| [Amazon RDS for Db2](#history) | Amazon RDS for Db2 is now available in AWS GovCloud (US) Regions with Bring Your Own License (BYOL). | April 29, 2026 | 
+| [Amazon RDS for Db2](history.md) | Amazon RDS for Db2 is now available in AWS GovCloud (US) Regions with Bring Your Own License (BYOL). | April 29, 2026 | 
 | [Amazon GuardDuty](govcloud-guardduty.md) |  GuardDuty has deprecated the `AmazonGuardDutyFullAccess` policy and replaced it with a scoped-down policy named `AmazonGuardDutyFullAccess_v2`. For more information, see [AWS managed policy: AmazonGuardDutyFullAccess\_v2](https://docs.aws.amazon.com/guardduty/latest/ug/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2). | March 13, 2026 | 
 | [Amazon GuardDuty](govcloud-guardduty.md) | The UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS finding type is now available in the AWS GovCloud (US) Regions. This finding detects when a host outside of AWS attempts to run AWS API operations using temporary AWS credentials that were created on a AWS Lambda resource in your AWS environment. | December 16, 2025 | 
 | [Amazon GuardDuty](govcloud-guardduty.md) | The DefenseEvasion:IAMUser/BedrockLoggingDisabled finding type is now available in the AWS GovCloud (US) Regions. This finding detects when logging is disabled for Amazon Bedrock model invocations in your account, which could indicate attempts to hide malicious activity. | November 21, 2025 | 
@@ -146,62 +147,62 @@ The following table describes important changes to the documentation since the l
 | [IAM Identity Center](govcloud-sso.md) |  AWS IAM Identity Center is now supported in the AWS GovCloud (US-West) Region. | September 22, 2021 | 
 | [AWS Cloud Map](govcloud-cm.md) |  AWS Cloud Map is now supported in the AWS GovCloud (US) Region. | September 8, 2021 | 
 | [AWS Network Firewall](govcloud-nf.md) |  AWS Network Firewall is now supported in the AWS GovCloud (US) Region. | June 24, 2021 | 
-| [Amazon MQ](#history) | Amazon MQ is now supported in the AWS GovCloud (US) Region. See [Amazon MQ](govcloud-mq.md). | June 16, 2021 | 
-| [AWS Firewall Manager](#history) | AWS Firewall Manager is now supported in the AWS GovCloud (US) Region. See [AWS Firewall Manager](govcloud-fms.md). | April 8, 2021 | 
-| [AWS Service Quotas](#history) | AWS Service Quotas is now supported in the AWS GovCloud (US) Region. See [Service Quotas](govcloud-servicequotas.md). | March 31, 2021 | 
-| [Amazon Detective](#history) | Amazon Detective is now supported in the AWS GovCloud (US) Region. See [Amazon Detective](govcloud-det.md). | March 24, 2021 | 
-| [AWS AppConfig](#history) | AWS AppConfig is now supported in the AWS GovCloud (US) Region. See [AWS AppConfig](govcloud-appc.md). | February 26, 2021 | 
-| [Amazon Lex](#history) | Amazon Lex is now supported in the AWS GovCloud (US) Region. See [Amazon Lex](govcloud-lex.md). | February 10, 2021 | 
-| [Amazon Connect](#history) | Amazon Connect is now supported in the AWS GovCloud (US) Region. See [Amazon Connect](govcloud-con.md). | February 9, 2021 | 
-| [Amazon FSx](#history) | Amazon FSx is now supported in the AWS GovCloud (US) Region. See [Amazon FSx](govcloud-fsx.md). | December 16, 2020 | 
-| [AWS IoT Greengrass V2](#history) | AWS IoT Greengrass V2 is now supported in the AWS GovCloud (US) Region. See [AWS IoT Greengrass V2](govcloud-iotgreengrassv2.md). | December 15, 2020 | 
-| [AWS Lake Formation](#history) | AWS Lake Formation is now supported in the AWS GovCloud (US) Region. See [AWS Lake Formation](govcloud-alf.md). | November 11, 2020 | 
-| [Amazon EventBridge](#history) | Amazon EventBridgeis now supported in the AWS GovCloud (US) Region. See [Amazon EventBridge](govcloud-eventbridge.md). | November 4, 2020 | 
-| [Amazon QuickSight](#history) | Amazon QuickSight is now supported in the AWS GovCloud (US) Region. See [Amazon QuickSight](govcloud-aqs.md). | October 28, 2020 | 
-| [AWS Transfer Family](#history) | AWS Transfer Family is now supported in the AWS GovCloud (US) Region. See [AWS Transfer Family](govcloud-tf.md). | September 30, 2020 | 
-| [Amazon SQS](#history) | Tagging Amazon SQS resources is now supported in all AWS GovCloud (US) Regions. See [Amazon SQS](govcloud-sqs.md). | September 15, 2020 | 
-| [Amazon EBS direct APIs](#history) | direct APIs is now supported in the AWS GovCloud (US) Region. See [Accessing the contents of an EBS snapshot.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html)  | September 15, 2020 | 
-| [Amazon Textract](#history) | Amazon Textract is now supported in the AWS GovCloud (US) Region. See [Amazon Textract](govcloud-txtrct.md). | August 19, 2020 | 
-| [Amazon DocumentDB (with MongoDB compatibility)](#history) | Amazon DocumentDB is now supported in the AWS GovCloud (US) Region. See [Amazon DocumentDB](govcloud-dcdb.md). | June 29, 2020 | 
-| [Amazon Managed Service for Apache Flink](#history) | Amazon Managed Service for Apache Flink is now supported in the AWS GovCloud (US) Region. See [Amazon Kinesis Data Analytics](govcloud-aka.md). | June 24, 2020 | 
-| [AWS Backup](#history) | AWS Backup is now supported in the AWS GovCloud (US) Region. See [AWS Backup](govcloud-bkp.md). | June 24, 2020 | 
-| [Amazon EKS](#history) | Amazon EKS is now supported in the AWS GovCloud (US) Region. See [Amazon EKS](govcloud-eks.md). | May 13, 2020 | 
-| [Amazon Cognito](#history) | Amazon Cognito is now supported in the AWS GovCloud (US) Region. See [Amazon Cognito](govcloud-cog.md). | May 13, 2020 | 
-| [Amazon Comprehend Medical](#history) | Amazon Comprehend Medical is now supported in the AWS GovCloud (US) Region. See [Amazon Comprehend Medical](govcloud-cmpm.md). | May 8, 2020 | 
-| [Amazon MSK](#history) | Amazon MSK is now supported in the AWS GovCloud (US) Region. See [Amazon MSK](govcloud-msk.md). | May 6, 2020 | 
-| [Amazon SES](#history) | Amazon SES is now supported in the AWS GovCloud (US) Region. See [Amazon SES](govcloud-ses.md). | April 30, 2020 | 
-| [Amazon Pinpoint](#history) | Amazon Pinpoint is now supported in the AWS GovCloud (US) Region. See [Amazon Pinpoint](govcloud-pinp.md). | April 30, 2020 | 
-| [AWS Security Hub](#history) | AWS Security Hub is now supported in the AWS GovCloud (US) Region. See [AWS Security Hub](govcloud-ash.md). | April 22, 2020 | 
-| [AWS CodePipeline](#history) | AWS CodePipeline is now supported in the AWS GovCloud (US) Region. See [AWS CodePipeline](govcloud-acp.md). | April 8, 2020 | 
-| [AWS Outposts](#history) | AWS Outposts is now supported in the AWS GovCloud (US) Regions. See [AWS Outposts](govcloud-outposts.md). | March 25, 2020 | 
-| [AWS X-Ray](#history) | AWS X-Ray is now supported in the AWS GovCloud (US) Regions. See [AWS X-Ray](govcloud-xray.md). | February 19, 2020 | 
-| [AWS Batch](#history) | AWS Batch is now supported in the AWS GovCloud (US) Regions. See [AWS Batch](govcloud-batch.md). | January 29, 2020 | 
-| [Amazon S3](#history) | Access points for S3 buckets. Customers can attach additional access-points to both existing and new buckets. See [Amazon S3](govcloud-s3.md). | December 3, 2019 | 
-| [Amazon EC2 Image Builder](#history) | Amazon EC2 Image Builder is now supported in the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. See [EC2 Image Builder](govcloud-ec2ib.md). | December 3, 2019 | 
-| [AWS DataSync](#history) | AWS DataSync is now supported in the AWS GovCloud (US-East) Region. See [AWS DataSync](govcloud-dsy.md). | November 20, 2019 | 
-| [Amazon AppStream 2.0](#history) | Amazon AppStream 2.0 is now supported in the AWS GovCloud (US-West) Region. See [Amazon AppStream 2.0](govcloud-appstream2.md). | October 9, 2019 | 
-| [AWS Artifact](#history) | AWS Artifact is now supported in the AWS GovCloud (US-West) Region. See [AWS Artifact](govcloud-artifact.md). | October 9, 2019 | 
-| [AWS Resource Groups](#history) | AWS Resource Groups is now supported in the AWS GovCloud (US) Region. See [AWS Resource Groups](govcloud-arg.md). | September 25, 2019 | 
-| [AWS RAM](#history) | AWS RAM is now supported in the AWS GovCloud (US-East) Region. See [AWS Resource Access Manager](govcloud-ram.md). | August 28, 2019 | 
-| [Amazon Neptune](#history) | Amazon Neptune is now supported in the AWS GovCloud (US) Region. See [Amazon Neptune](govcloud-neptune.md). | August 14, 2019 | 
-| [AWS Health](#history) | AWS Health is now supported in the AWS GovCloud US. See [AWS Health](govcloud-health.md). | August 7, 2019 | 
-| [Amazon Data Firehose](#history) | Amazon Data Firehose is now supported in the AWS GovCloud (US-East) Region. See [Amazon Data Firehose](govcloud-kinesisfirehose.md). | June 26, 2019 | 
-| [AWS IoT Greengrass](#history) | AWS IoT Greengrass is now supported in the AWS GovCloud (US-West) Region. See [AWS IoT Greengrass](govcloud-iotgreengrass.md). | June 26, 2019 | 
-| [AWS Fargate](#history) | AWS Fargate is now supported in the AWS GovCloud (US) Regions. See [AWS Fargate](govcloud-fargate.md). | June 24, 2019 | 
-| [AWS Serverless Application Repository](#history) | AWS Serverless Application Repository is now supported in the AWS GovCloud (US-West) Region. See [AWS Serverless Application Repository](govcloud-sar.md). | June 11, 2019 | 
-| [AWS Secrets Manager](#history) | AWS Secrets Manager is now supported in the AWS GovCloud (US-West) Region. See [AWS Secrets Manager](govcloud-asm.md). | June 11, 2019 | 
-| [AWS DataSync](#history) | AWS DataSync is now supported in the AWS GovCloud (US-West) Region. See [AWS DataSync](govcloud-dsy.md). | June 11, 2019 | 
-| [AWS CodeBuild](#history) | AWS CodeBuild is now supported in the AWS GovCloud (US-West) Region. See [AWS CodeBuild](govcloud-acb.md). | June 11, 2019 | 
-| [Amazon Route 53](#history) | Amazon Route 53 is now supported in the AWS GovCloud (US-West) Region. See [Amazon Route 53](govcloud-r53.md). | May 29, 2019 | 
-| [Amazon Athena](#history) | Amazon Athena is now supported in the AWS GovCloud (US) Regions. See [Amazon Athena](govcloud-athena.md). | May 13, 2019 | 
-| [AWS Trusted Advisor](#history) | AWS Trusted Advisor is now supported in the AWS GovCloud (US-West) Region | May 1, 2019 | 
-| [AWS RAM](#history) | AWS RAM is now supported in the AWS GovCloud (US-West) Region | April 25, 2019 | 
-| [AWS Organizations](#history) | AWS Organizations is now supported in the AWS GovCloud (US-West) Region. | April 18, 2019 | 
-| [AWS CodeCommit](#history) | AWS CodeCommit is now supported in the AWS GovCloud (US-West) Region. | April 17, 2019 | 
-| [AWS Service Catalog](#history) | AWS Service Catalog is now supported in the AWS GovCloud (US-West) Region. | March 20, 2019 | 
-| [Amazon Comprehend](#history) | Amazon Comprehend is now supported in the AWS GovCloud (US-West) Region. | March 13, 2019 | 
-| [AWS WAF](#history) | AWS WAF is now supported in the AWS GovCloud (US-West) Region. See [AWS WAF](govcloud-waf.md). | March 13, 2019 | 
-| [Updated the guide for the re-merge](#history) | Updated all the references from a single govCloud Region to multi-regions for GovCloud | February 6, 2019 | 
-| [Amazon Athena](#history) | Amazon Athena is now supported in the AWS GovCloud (US-West) Region. | February 6, 2019 | 
-| [AWS Glue](#history) | AWS Glue is now supported in the AWS GovCloud (US-West) Region. See [AWS Glue](govcloud-glue.md). | February 6, 2019 | 
-| [AWS IoT Device Defender](#history) | AWS IoT Device Defender is now supported in the AWS GovCloud (US) Region. See [AWS IoT Device Defender](govcloud-IotDevDefender.md). | November 14, 2018 | 
+| [Amazon MQ](history.md) | Amazon MQ is now supported in the AWS GovCloud (US) Region. See [Amazon MQ](govcloud-mq.md). | June 16, 2021 | 
+| [AWS Firewall Manager](history.md) | AWS Firewall Manager is now supported in the AWS GovCloud (US) Region. See [AWS Firewall Manager](govcloud-fms.md). | April 8, 2021 | 
+| [AWS Service Quotas](history.md) | AWS Service Quotas is now supported in the AWS GovCloud (US) Region. See [Service Quotas](govcloud-servicequotas.md). | March 31, 2021 | 
+| [Amazon Detective](history.md) | Amazon Detective is now supported in the AWS GovCloud (US) Region. See [Amazon Detective](govcloud-det.md). | March 24, 2021 | 
+| [AWS AppConfig](history.md) | AWS AppConfig is now supported in the AWS GovCloud (US) Region. See [AWS AppConfig](govcloud-appc.md). | February 26, 2021 | 
+| [Amazon Lex](history.md) | Amazon Lex is now supported in the AWS GovCloud (US) Region. See [Amazon Lex](govcloud-lex.md). | February 10, 2021 | 
+| [Amazon Connect](history.md) | Amazon Connect is now supported in the AWS GovCloud (US) Region. See [Amazon Connect](govcloud-con.md). | February 9, 2021 | 
+| [Amazon FSx](history.md) | Amazon FSx is now supported in the AWS GovCloud (US) Region. See [Amazon FSx](govcloud-fsx.md). | December 16, 2020 | 
+| [AWS IoT Greengrass V2](history.md) | AWS IoT Greengrass V2 is now supported in the AWS GovCloud (US) Region. See [AWS IoT Greengrass V2](govcloud-iotgreengrassv2.md). | December 15, 2020 | 
+| [AWS Lake Formation](history.md) | AWS Lake Formation is now supported in the AWS GovCloud (US) Region. See [AWS Lake Formation](govcloud-alf.md). | November 11, 2020 | 
+| [Amazon EventBridge](history.md) | Amazon EventBridgeis now supported in the AWS GovCloud (US) Region. See [Amazon EventBridge](govcloud-eventbridge.md). | November 4, 2020 | 
+| [Amazon QuickSight](history.md) | Amazon QuickSight is now supported in the AWS GovCloud (US) Region. See [Amazon QuickSight](govcloud-aqs.md). | October 28, 2020 | 
+| [AWS Transfer Family](history.md) | AWS Transfer Family is now supported in the AWS GovCloud (US) Region. See [AWS Transfer Family](govcloud-tf.md). | September 30, 2020 | 
+| [Amazon SQS](history.md) | Tagging Amazon SQS resources is now supported in all AWS GovCloud (US) Regions. See [Amazon SQS](govcloud-sqs.md). | September 15, 2020 | 
+| [Amazon EBS direct APIs](history.md) | direct APIs is now supported in the AWS GovCloud (US) Region. See [Accessing the contents of an EBS snapshot.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html)  | September 15, 2020 | 
+| [Amazon Textract](history.md) | Amazon Textract is now supported in the AWS GovCloud (US) Region. See [Amazon Textract](govcloud-txtrct.md). | August 19, 2020 | 
+| [Amazon DocumentDB (with MongoDB compatibility)](history.md) | Amazon DocumentDB is now supported in the AWS GovCloud (US) Region. See [Amazon DocumentDB](govcloud-dcdb.md). | June 29, 2020 | 
+| [Amazon Managed Service for Apache Flink](history.md) | Amazon Managed Service for Apache Flink is now supported in the AWS GovCloud (US) Region. See [Amazon Kinesis Data Analytics](govcloud-aka.md). | June 24, 2020 | 
+| [AWS Backup](history.md) | AWS Backup is now supported in the AWS GovCloud (US) Region. See [AWS Backup](govcloud-bkp.md). | June 24, 2020 | 
+| [Amazon EKS](history.md) | Amazon EKS is now supported in the AWS GovCloud (US) Region. See [Amazon EKS](govcloud-eks.md). | May 13, 2020 | 
+| [Amazon Cognito](history.md) | Amazon Cognito is now supported in the AWS GovCloud (US) Region. See [Amazon Cognito](govcloud-cog.md). | May 13, 2020 | 
+| [Amazon Comprehend Medical](history.md) | Amazon Comprehend Medical is now supported in the AWS GovCloud (US) Region. See [Amazon Comprehend Medical](govcloud-cmpm.md). | May 8, 2020 | 
+| [Amazon MSK](history.md) | Amazon MSK is now supported in the AWS GovCloud (US) Region. See [Amazon MSK](govcloud-msk.md). | May 6, 2020 | 
+| [Amazon SES](history.md) | Amazon SES is now supported in the AWS GovCloud (US) Region. See [Amazon SES](govcloud-ses.md). | April 30, 2020 | 
+| [Amazon Pinpoint](history.md) | Amazon Pinpoint is now supported in the AWS GovCloud (US) Region. See [Amazon Pinpoint](govcloud-pinp.md). | April 30, 2020 | 
+| [AWS Security Hub](history.md) | AWS Security Hub is now supported in the AWS GovCloud (US) Region. See [AWS Security Hub](govcloud-ash.md). | April 22, 2020 | 
+| [AWS CodePipeline](history.md) | AWS CodePipeline is now supported in the AWS GovCloud (US) Region. See [AWS CodePipeline](govcloud-acp.md). | April 8, 2020 | 
+| [AWS Outposts](history.md) | AWS Outposts is now supported in the AWS GovCloud (US) Regions. See [AWS Outposts](govcloud-outposts.md). | March 25, 2020 | 
+| [AWS X-Ray](history.md) | AWS X-Ray is now supported in the AWS GovCloud (US) Regions. See [AWS X-Ray](govcloud-xray.md). | February 19, 2020 | 
+| [AWS Batch](history.md) | AWS Batch is now supported in the AWS GovCloud (US) Regions. See [AWS Batch](govcloud-batch.md). | January 29, 2020 | 
+| [Amazon S3](history.md) | Access points for S3 buckets. Customers can attach additional access-points to both existing and new buckets. See [Amazon S3](govcloud-s3.md). | December 3, 2019 | 
+| [Amazon EC2 Image Builder](history.md) | Amazon EC2 Image Builder is now supported in the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. See [EC2 Image Builder](govcloud-ec2ib.md). | December 3, 2019 | 
+| [AWS DataSync](history.md) | AWS DataSync is now supported in the AWS GovCloud (US-East) Region. See [AWS DataSync](govcloud-dsy.md). | November 20, 2019 | 
+| [Amazon AppStream 2.0](history.md) | Amazon AppStream 2.0 is now supported in the AWS GovCloud (US-West) Region. See [Amazon AppStream 2.0](govcloud-appstream2.md). | October 9, 2019 | 
+| [AWS Artifact](history.md) | AWS Artifact is now supported in the AWS GovCloud (US-West) Region. See [AWS Artifact](govcloud-artifact.md). | October 9, 2019 | 
+| [AWS Resource Groups](history.md) | AWS Resource Groups is now supported in the AWS GovCloud (US) Region. See [AWS Resource Groups](govcloud-arg.md). | September 25, 2019 | 
+| [AWS RAM](history.md) | AWS RAM is now supported in the AWS GovCloud (US-East) Region. See [AWS Resource Access Manager](govcloud-ram.md). | August 28, 2019 | 
+| [Amazon Neptune](history.md) | Amazon Neptune is now supported in the AWS GovCloud (US) Region. See [Amazon Neptune](govcloud-neptune.md). | August 14, 2019 | 
+| [AWS Health](history.md) | AWS Health is now supported in the AWS GovCloud US. See [AWS Health](govcloud-health.md). | August 7, 2019 | 
+| [Amazon Data Firehose](history.md) | Amazon Data Firehose is now supported in the AWS GovCloud (US-East) Region. See [Amazon Data Firehose](govcloud-kinesisfirehose.md). | June 26, 2019 | 
+| [AWS IoT Greengrass](history.md) | AWS IoT Greengrass is now supported in the AWS GovCloud (US-West) Region. See [AWS IoT Greengrass](govcloud-iotgreengrass.md). | June 26, 2019 | 
+| [AWS Fargate](history.md) | AWS Fargate is now supported in the AWS GovCloud (US) Regions. See [AWS Fargate](govcloud-fargate.md). | June 24, 2019 | 
+| [AWS Serverless Application Repository](history.md) | AWS Serverless Application Repository is now supported in the AWS GovCloud (US-West) Region. See [AWS Serverless Application Repository](govcloud-sar.md). | June 11, 2019 | 
+| [AWS Secrets Manager](history.md) | AWS Secrets Manager is now supported in the AWS GovCloud (US-West) Region. See [AWS Secrets Manager](govcloud-asm.md). | June 11, 2019 | 
+| [AWS DataSync](history.md) | AWS DataSync is now supported in the AWS GovCloud (US-West) Region. See [AWS DataSync](govcloud-dsy.md). | June 11, 2019 | 
+| [AWS CodeBuild](history.md) | AWS CodeBuild is now supported in the AWS GovCloud (US-West) Region. See [AWS CodeBuild](govcloud-acb.md). | June 11, 2019 | 
+| [Amazon Route 53](history.md) | Amazon Route 53 is now supported in the AWS GovCloud (US-West) Region. See [Amazon Route 53](govcloud-r53.md). | May 29, 2019 | 
+| [Amazon Athena](history.md) | Amazon Athena is now supported in the AWS GovCloud (US) Regions. See [Amazon Athena](govcloud-athena.md). | May 13, 2019 | 
+| [AWS Trusted Advisor](history.md) | AWS Trusted Advisor is now supported in the AWS GovCloud (US-West) Region | May 1, 2019 | 
+| [AWS RAM](history.md) | AWS RAM is now supported in the AWS GovCloud (US-West) Region | April 25, 2019 | 
+| [AWS Organizations](history.md) | AWS Organizations is now supported in the AWS GovCloud (US-West) Region. | April 18, 2019 | 
+| [AWS CodeCommit](history.md) | AWS CodeCommit is now supported in the AWS GovCloud (US-West) Region. | April 17, 2019 | 
+| [AWS Service Catalog](history.md) | AWS Service Catalog is now supported in the AWS GovCloud (US-West) Region. | March 20, 2019 | 
+| [Amazon Comprehend](history.md) | Amazon Comprehend is now supported in the AWS GovCloud (US-West) Region. | March 13, 2019 | 
+| [AWS WAF](history.md) | AWS WAF is now supported in the AWS GovCloud (US-West) Region. See [AWS WAF](govcloud-waf.md). | March 13, 2019 | 
+| [Updated the guide for the re-merge](history.md) | Updated all the references from a single govCloud Region to multi-regions for GovCloud | February 6, 2019 | 
+| [Amazon Athena](history.md) | Amazon Athena is now supported in the AWS GovCloud (US-West) Region. | February 6, 2019 | 
+| [AWS Glue](history.md) | AWS Glue is now supported in the AWS GovCloud (US-West) Region. See [AWS Glue](govcloud-glue.md). | February 6, 2019 | 
+| [AWS IoT Device Defender](history.md) | AWS IoT Device Defender is now supported in the AWS GovCloud (US) Region. See [AWS IoT Device Defender](govcloud-IotDevDefender.md). | November 14, 2018 | 

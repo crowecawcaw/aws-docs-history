@@ -1,9 +1,8 @@
 
 
 # Verifying AWS CloudTrail Is Enabled
-<a name="verifying-cloudtrail"></a>
 
-As part of the automated AWS GovCloud (US) activation process, the CloudTrail service should be enabled for each account and an Amazon S3 bucket should be created to store CloudTrail logs. In the event of any interruptions in the automation process, you can manually enable CloudTrail.
+As part of the automated AWS GovCloud (US) activation process, the CloudTrail service should be enabled for each account and an Amazon S3 bucket should be created to store CloudTrail logs. The automated process creates a trail with a name that matches the identifier in the S3 bucket name (for example, "CloudTrail-<identifier>"). In the event of any interruptions in the automation process, you can manually enable CloudTrail.
 
 **To verify the S3 bucket was created for CloudTrail log storage**
 
@@ -15,7 +14,7 @@ As part of the automated AWS GovCloud (US) activation process, the CloudTrail se
 
 1. Type a name for your bucket.
 
-   Bucket names must be unique. S3 buckets created during the automated process follow the naming convention "cloudtrail-<xxxxxxxxxxxx>" where <xxxxxxxxxxxx> is replaced by the AWS GovCloud (US) account number. If you want to use a different bucket name, you can delete this bucket, create a new bucket, and then follow the steps in the next section to enable CloudTrail.
+   Bucket names must be unique. S3 buckets created during the automated process follow the naming convention "cloudtrail-<identifier>", where <identifier> is a unique value assigned when your account is activated. If you want to use a different bucket name, you can delete this bucket, create a new bucket, and then follow the steps in the next section to enable CloudTrail.
 
 **To verify CloudTrail is enabled**
 
@@ -29,7 +28,7 @@ For the **Storage location**, choose **Use existing S3 bucket**, and specify the
 
    This will set a bucket policy that allows the CloudTrail service to store logs in the S3 bucket. If the automated process created an S3 bucket and enabled CloudTrail, the following policy was applied:
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

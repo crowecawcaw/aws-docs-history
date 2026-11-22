@@ -1,7 +1,6 @@
 
 
 # Amazon Comprehend Medical in AWS GovCloud (US)
-<a name="govcloud-cmpm"></a>
 
 Amazon Comprehend Medical detects useful information in unstructured clinical text. As much as 75 percent of all health record data is found in unstructured text such as physician’s notes, discharge summaries, test results, and case notes. Amazon Comprehend Medical uses Natural Language Processing (NLP) models to sort through enormous quantities of data for valuable information gained through advances in machine learning.
 

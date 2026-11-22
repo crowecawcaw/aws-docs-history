@@ -1,23 +1,20 @@
 
 
 # AWS Verified Access in AWS GovCloud (US)
-<a name="govcloud-verified-access"></a>
 
 AWS Verified Access provides secure access to corporate applications without a VPN connection. It evaluates each request in real time and determines whether the user has access to the application.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS Verified Access is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS Verified Access differs
-<a name="govcloud-diffs-32"></a>
-
-The following differences apply to AWS Verified Access:
+<a name="feature-diffs"></a>
 + Use SSL (HTTPS) when you make calls to the service in the AWS GovCloud (US) Region. In other AWS Regions, you can use HTTP or HTTPS.
-+ Non-HTTP endpoints are not available in the AWS GovCloud (US) Regions.
++ Non-HTTP endpoints are not available in AWS GovCloud (US) Regions.
 
 ## Documentation
 <a name="govcloud-docs-71"></a>

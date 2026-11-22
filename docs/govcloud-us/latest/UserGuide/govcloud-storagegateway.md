@@ -1,21 +1,18 @@
 
 
 # AWS Storage Gateway in AWS GovCloud (US)
-<a name="govcloud-storagegateway"></a>
 
 AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between your on-premises IT environment and the AWS storage infrastructure in the cloud.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS Storage Gateway is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS Storage Gateway differs
-<a name="govcloud-sga-diffs"></a>
-
-The following differences apply to AWS Storage Gateway:
+<a name="feature-diffs"></a>
 + A file gateway created inside AWS GovCloud (US) cannot connect to a bucket outside of the AWS GovCloud (US) Regions.
 + A file gateway created outside of AWS GovCloud (US) cannot connect to a bucket inside AWS GovCloud (US).
 + TLS-enabled endpoint are available.

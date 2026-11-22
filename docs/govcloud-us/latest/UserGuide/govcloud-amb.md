@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Blockchain in AWS GovCloud (US)
-<a name="govcloud-amb"></a>
 
 Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks and network resources using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.
 

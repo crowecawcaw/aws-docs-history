@@ -1,7 +1,6 @@
 
 
 # Configuring Your Account
-<a name="configure-account"></a>
 
 The steps in this section describe how to sign in and create an account alias and access keys.
 

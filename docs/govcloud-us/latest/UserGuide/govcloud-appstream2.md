@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces Applications in AWS GovCloud (US)
-<a name="govcloud-appstream2"></a>
 
 Amazon AppStream 2.0 is a fully managed application streaming service that provides users with instant access to their desktop applications from anywhere. AppStream 2.0 manages the AWS resources required to host and run your applications, scales automatically, and provides access to your users on demand. AppStream 2.0 provides users access to the applications they need on the device of their choice, with a responsive, fluid user experience that is indistinguishable from natively installed applications.
 

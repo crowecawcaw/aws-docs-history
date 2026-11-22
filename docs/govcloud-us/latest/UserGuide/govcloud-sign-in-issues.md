@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS GovCloud (US) sign-in or account issues
-<a name="govcloud-sign-in-issues"></a>
 
 Use the information here to help you troubleshoot sign-in and other AWS GovCloud (US) account issues. For step-by-step directions to sign in to an AWS account, see [Sign in as the root](signing-into-govcloud.md#sign-in-root-user-govcloud) 
 

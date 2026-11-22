@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map in AWS GovCloud (US)
-<a name="govcloud-cm"></a>
 
  AWS Cloud Map is a fully managed service that you can use to create and maintain a map of the backend services and resources that your applications depend on.
 

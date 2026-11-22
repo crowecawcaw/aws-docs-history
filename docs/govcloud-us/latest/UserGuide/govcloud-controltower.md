@@ -1,7 +1,6 @@
 
 
 # AWS Control Tower in AWS GovCloud (US)
-<a name="govcloud-controltower"></a>
 
  AWS Control Tower offers a straightforward way to set up and govern an AWS multi-account environment, following prescriptive best practices. AWS Control Tower orchestrates the capabilities of several other AWS services, including AWS Organizations, AWS Service Catalog, and IAM Identity Center, to build a landing zone in less than an hour. Resources are set up and managed on your behalf.
 

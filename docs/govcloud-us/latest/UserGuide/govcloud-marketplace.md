@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace in AWS GovCloud (US)
-<a name="govcloud-marketplace"></a>
 
 AWS Marketplace is an online store where you can buy or sell software that runs on Amazon Web Services (AWS).
 

@@ -1,7 +1,6 @@
 
 
 # AWS Transfer Family in AWS GovCloud (US)
-<a name="govcloud-tf"></a>
 
  AWS Transfer Family is a secure transfer service that enables you to transfer files into and out of Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS) file systems over the following protocols:
 + Secure Shell (SSH) File Transfer Protocol (SFTP) (AWS Transfer for SFTP).

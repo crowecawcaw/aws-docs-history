@@ -1,7 +1,6 @@
 
 
 # What Is AWS GovCloud (US)?
-<a name="whatis"></a>
 
  AWS GovCloud (US) consist of isolated AWS Regions designed to allow U.S. government agencies and customers move sensitive workloads into [the cloud](https://aws.amazon.com/what-is-cloud-computing/) by addressing their specific regulatory and compliance requirements, including Federal Risk and Authorization Management Program (FedRAMP) High, Department of Defense Security Requirements Guide (DoD SRG) Impact Levels 4 and 5, and Criminal Justice Information Services (CJIS). To assist customers in managing their obligations under U.S. export control regimes such as the International Traffic in Arms Regulations (ITAR) and the Export Administration Regulations (EAR), AWS GovCloud (US) Regions are logically and physically administered exclusively by AWS personnel that are U.S. citizens only. In this guide, the term AWS GovCloud (US) Regions refer to both AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions.
 

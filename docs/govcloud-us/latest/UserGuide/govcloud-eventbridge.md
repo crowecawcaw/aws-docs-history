@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge in AWS GovCloud (US)
-<a name="govcloud-eventbridge"></a>
 
 Amazon EventBridge is a serverless event bus service that makes it easy to connect your applications with data from a variety of sources. EventBridge delivers a stream of real-time data from your own applications, and AWS services and routes that data to targets such as AWS Lambda. You can set up routing rules to determine where to send your data to build application architectures that react in real time to all of your data sources. EventBridge allows you to build event driven architectures, which are loosely coupled and distributed.
 

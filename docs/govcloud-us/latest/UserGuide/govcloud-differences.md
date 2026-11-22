@@ -1,7 +1,6 @@
 
 
 # AWS GovCloud (US) Compared to Standard AWS Regions
-<a name="govcloud-differences"></a>
 
  AWS GovCloud (US) are isolated AWS Regions designed to allow U.S. government agencies and customers to move sensitive workloads into [the cloud](https://aws.amazon.com/what-is-cloud-computing/) by addressing their specific regulatory and compliance requirements, including Federal Risk and Authorization Management Program (FedRAMP) High, Department of Defense Security Requirements Guide (DoD SRG) Impact Level 5, and Criminal Justice Services (CJIS). To assist customers in managing their obligations under U.S. export control regimes such as the International Traffic in Arms Regulations (ITAR) and the Export Administration Regulations (EAR), AWS GovCloud (US) are logically and physically administered exclusively by U.S. citizens
 +  AWS GovCloud (US) uses FIPS 140-3 approved cryptographic modules for all AWS service API endpoints, unless otherwise indicated in the [Service Endpoints](using-govcloud-endpoints.md) section.

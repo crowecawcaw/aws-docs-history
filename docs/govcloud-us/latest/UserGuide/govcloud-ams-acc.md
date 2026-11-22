@@ -1,7 +1,6 @@
 
 
 # AWS Managed Services - Accelerate in AWS GovCloud (US)
-<a name="govcloud-ams-acc"></a>
 
 AWS Managed Services - Accelerate is a service for configuring and managing your AWS infrastructure. For more information, see the [service description.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/acc-sd.html) 
 

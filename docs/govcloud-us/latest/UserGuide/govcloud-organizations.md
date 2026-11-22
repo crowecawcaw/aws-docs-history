@@ -1,7 +1,6 @@
 
 
 # AWS Organizations in AWS GovCloud (US)
-<a name="govcloud-organizations"></a>
 
 AWS Organizations is an account management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. AWS Organizations includes account management and consolidated billing capabilities that enable you to better meet the budgetary, security, and compliance needs of your business.
 
@@ -27,6 +26,7 @@ The following differences apply to AWS Organizations:
 + The [CreateGovCloudAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateGovCloudAccount.html) API action is not available from the AWS GovCloud (US) Regions.
 + To sign in to the AWS Organizations console in the AWS GovCloud (US) Regions, you must be signed in from a AWS GovCloud (US) account.
 + To learn what AWS services are currently available for trusted access with AWS Organizations, check the list in the AWS Organizations console from the AWS GovCloud (US) Regions.
++ The seven-day age requirement for the organization does not apply in AWS GovCloud (US). In other AWS Regions, you must wait until at least seven days after the organization was created before you can migrate an account to a new organization. This waiting period does not apply in the AWS GovCloud (US) Regions.
 + The following Organizations API operations work only when you specify the AWS GovCloud (US-West) Region:
   +  [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html) 
   +  [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html) 

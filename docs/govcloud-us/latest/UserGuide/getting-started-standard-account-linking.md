@@ -1,7 +1,6 @@
 
 
 # AWS Standard Account Linking
-<a name="getting-started-standard-account-linking"></a>
 
  AWS GovCloud (US) accounts are associated 1:1 with standard AWS accounts for billing, service, and support purposes. Customers are required to have an existing standard account before signing up for an AWS GovCloud (US) account
 

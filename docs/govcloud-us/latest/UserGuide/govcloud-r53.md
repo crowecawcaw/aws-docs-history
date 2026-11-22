@@ -1,7 +1,6 @@
 
 
 # Amazon Route 53 in AWS GovCloud (US)
-<a name="govcloud-r53"></a>
 
  Route 53 is a highly available and scalable Domain Name System (DNS) web service. In the AWS GovCloud (US), you can use Route 53 public and private DNS and health checking.
 
@@ -16,6 +15,9 @@ This service is available in the following AWS GovCloud (US) Regions:
 <a name="govcloud-r53-diffs"></a>
 
 The following differences apply to Amazon Route 53:
+
+ **Hosted Zone Tiers and Features** 
++ Hosted zone tiers, Change History, Change Guardrails, and public DNS fallback are not available.
 
  **Public Hosted Zones** 
 + DNS queries will be answered from within FedRAMP boundary.

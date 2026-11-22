@@ -1,7 +1,6 @@
 
 
 # Client.UnsupportedOperation: Instances can only be launched within Amazon VPC in this region
-<a name="Troubleshoot_launch-instance"></a>
 
  **Service:** Amazon EC2 
 

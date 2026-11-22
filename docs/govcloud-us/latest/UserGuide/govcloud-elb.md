@@ -1,7 +1,6 @@
 
 
 # Elastic Load Balancing in AWS GovCloud (US)
-<a name="govcloud-elb"></a>
 
  Elastic Load Balancing automatically distributes your incoming application traffic across multiple targets, such as EC2 instances. It monitors the health of registered targets and routes traffic only to the healthy targets.
 

@@ -1,7 +1,6 @@
 
 
 # AWS IAM Identity Center in AWS GovCloud (US)
-<a name="govcloud-sso"></a>
 
  IAM Identity Center is the AWS solution for connecting your workforce users to all of their AWS managed applications and AWS accounts. Users who have access to one or more AWS accounts can sign in to the AWS access portal and access AWS services by using the AWS Management Console or retrieve temporary credentials to access AWS services programmatically. You can connect your existing identity provider or create and manage your users directly in IAM Identity Center. For existing identity providers, automatic provisioning (synchronization) of user and group information from your identity provider into IAM Identity Center is supported.
 

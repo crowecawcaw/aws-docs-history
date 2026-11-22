@@ -1,7 +1,6 @@
 
 
 # Amazon S3 on Outposts in AWS GovCloud (US)
-<a name="govcloud-s3-outposts"></a>
 
 Amazon S3 on Outposts delivers object storage to your on-premises AWS Outposts environment to help you meet your low latency, local data processing, and data residency needs. Using the Amazon S3 APIs and features, Amazon S3 on Outposts makes it easier to store, secure, tag, retrieve, report on, and control access to the data on your Outposts. AWS Outposts is a fully managed service that extends AWS infrastructure, services, and tools to virtually any data center, co-location space, or on-premises facility for a truly consistent hybrid experience.
 

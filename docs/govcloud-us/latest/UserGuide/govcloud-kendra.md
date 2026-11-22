@@ -1,7 +1,6 @@
 
 
 # Amazon Kendra in AWS GovCloud (US)
-<a name="govcloud-kendra"></a>
 
  Amazon Kendra is an intelligent search service powered by machine learning. Amazon Kendra reimagines enterprise search for your websites and applications so your employees and customers can easily find the content they are looking for, even when it is scattered across multiple locations and content repositories within your organization.
 

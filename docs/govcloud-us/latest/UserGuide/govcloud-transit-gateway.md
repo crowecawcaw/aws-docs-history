@@ -1,21 +1,18 @@
 
 
 # AWS Transit Gateway in AWS GovCloud (US)
-<a name="govcloud-transit-gateway"></a>
 
 A transit gateway is a network transit hub that interconnects your virtual private clouds (VPC) and on-premises networks.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS Transit Gateway is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS Transit Gateway differs
-<a name="govcloud-diffs-43"></a>
-
-The following differences apply to AWS Transit Gateway:
+<a name="feature-diffs"></a>
 + You can’t visualize your global network in geographic map view in Transit Gateway Network Manager console.
 + Inter-Region peering is only supported between AWS GovCloud (US-East) and AWS GovCloud (US-West). You can’t create an Inter-Region peering between a AWS GovCloud (US) Region and any other AWS Region.
 + Policy-Based Routing (PBR) for transit gateways is not available.

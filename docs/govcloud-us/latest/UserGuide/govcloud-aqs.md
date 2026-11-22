@@ -1,7 +1,6 @@
 
 
 # Amazon Quick in AWS GovCloud (US)
-<a name="govcloud-aqs"></a>
 
 Amazon Quick is a comprehensive, generative AI-powered business intelligence service that makes it easy to analyze data, create visualizations, automate workflows, and collaborate across your organization. The service combines traditional business intelligence capabilities with modern AI assistance, requiring no machine learning expertise to use. You can connect to diverse data sources, create interactive dashboards, build intelligent automations, and get immediate insights through natural language conversations with AI agents. **In AWS GovCloud (US), Amazon Quick offers a limited deployment: in addition to the traditional Quick Sight capabilities (dashboards, visualizations, and data analysis), a subset of Amazon Quick capabilities is supported. Not all Amazon Quick features are available. For the full list of supported and unsupported features, see the differences section below.** As a fully managed cloud-based service, the supported features provide enterprise-grade security, global availability, and built-in redundancy. There is no infrastructure to deploy or manage.
 
@@ -10,14 +9,14 @@ With the supported Amazon Quick capabilities in AWS GovCloud (US), you can explo
 ## Region availability
 <a name="region-availability"></a>
 
-Amazon Quick is available in the following AWS GovCloud (US) Regions:
+ AWS Quick is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
 +  AWS GovCloud (US-West) 
 
-## How Amazon Quick differs
+## How AWS Quick differs
 <a name="feature-diffs"></a>
 
-The following differences apply to Amazon Quick:
+The following differences apply to AWS Quick:
 + Amazon Quick Automate is not available.
 + Amazon Quick Flows is not available.
 + Quick Agents is not available.

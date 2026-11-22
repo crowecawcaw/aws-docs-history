@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker in AWS GovCloud (US)
-<a name="govcloud-iot-twinmaker"></a>
 
  AWS IoT TwinMaker is used to build operational digital twins of physical and digital systems. AWS IoT TwinMaker creates digital visualizations using measurements and analysis from a variety of real-world sensors, cameras, and enterprise applications to help you keep track of your physical factory, building, or industrial plant.
 

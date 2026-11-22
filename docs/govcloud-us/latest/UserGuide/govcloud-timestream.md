@@ -1,7 +1,6 @@
 
 
 # Amazon Timestream in AWS GovCloud (US)
-<a name="govcloud-timestream"></a>
 
  Timestream is a fast, scalable, and serverless time series database service for IoT and operational applications. With Timestream, you can store and analyze trillions of events per day up to 1,000 times faster than with relational databases—​at as little as one-tenth of the cost.
 

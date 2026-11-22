@@ -1,7 +1,6 @@
 
 
 # AWS WAF in AWS GovCloud (US)
-<a name="govcloud-waf"></a>
 
 AWS WAF is a web application firewall that lets you monitor web requests that are forwarded to resources, such as AWS API Gateway and AWS Application Load Balancers. You can also use AWS WAF to block or allow requests based on conditions that you specify, such as the IP addresses that requests originate from or values in the requests.
 

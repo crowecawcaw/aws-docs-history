@@ -1,7 +1,6 @@
 
 
 # Enabling Multi-Factor Authentication (MFA) for users
-<a name="mfa-device"></a>
 
 For increased security, we recommend that you configure multi-factor authentication (MFA) to help protect your AWS GovCloud (US) resources. MFA adds extra security because it requires users to enter a unique authentication code from an approved authentication device when they access AWS websites or services.
 

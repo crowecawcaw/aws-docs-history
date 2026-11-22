@@ -1,7 +1,6 @@
 
 
 # New to AWS
-<a name="govcloud-additional-resources"></a>
 
 The following table lists additional resources for users new to AWS:
 

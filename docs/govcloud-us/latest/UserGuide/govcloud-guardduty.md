@@ -1,7 +1,6 @@
 
 
 # Amazon GuardDuty in AWS GovCloud (US)
-<a name="govcloud-guardduty"></a>
 
 Amazon GuardDuty is a continuous security monitoring service. Amazon GuardDuty can help to identify unexpected and potentially unauthorized or malicious activity in your AWS environment.
 

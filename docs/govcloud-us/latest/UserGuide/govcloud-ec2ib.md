@@ -1,7 +1,6 @@
 
 
 # EC2 Image Builder in AWS GovCloud (US)
-<a name="govcloud-ec2ib"></a>
 
 Amazon Elastic Compute Cloud Image Builder is a fully managed AWS service that makes it easier to automate the creation, management and deployment of customized, secure and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards. You can use the AWS Management Console, AWS CLI or APIs to create “golden” images in your AWS account. The images you build are created in your account and you can configure them for operating system patches on an ongoing basis.
 

@@ -1,7 +1,6 @@
 
 
 # Configure Your Account using AWS CLI
-<a name="configure-using-cli"></a>
 
 The AWS Management Console for the AWS GovCloud (US) Region provides an easy-to-use graphical interface to manage your AWS resources, similar to the AWS Management Console for the standard Regions. In the AWS GovCloud (US) region, you must create an IAM user and use this user name and password to sign in to the console. You cannot use the AWS GovCloud (US) access keys to log into the console. You also cannot use your sign-in credentials for the standard AWS Management Console to access the AWS GovCloud (US) console. The AWS Management Console for the AWS GovCloud (US) Region is a completely separate console from the standard AWS Management Console.
 

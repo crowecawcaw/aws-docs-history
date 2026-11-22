@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Compute Cloud (Amazon EC2) in AWS GovCloud (US)
-<a name="govcloud-ec2"></a>
 
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizeable computing capacity—literally, servers in Amazon’s data centers—that you use to build and host your software systems.
 

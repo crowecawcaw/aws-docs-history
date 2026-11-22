@@ -1,7 +1,6 @@
 
 
 # AWS Private Certificate Authority in AWS GovCloud (US)
-<a name="govcloud-acmpca"></a>
 
 ## Region availability
 <a name="_region_availability"></a>

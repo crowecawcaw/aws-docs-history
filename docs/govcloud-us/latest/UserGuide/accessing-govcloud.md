@@ -1,7 +1,6 @@
 
 
 # Accessing the AWS GovCloud (US) Regions
-<a name="accessing-govcloud"></a>
 
 When you access the AWS GovCloud (US) Regions, use your AWS GovCloud (US) credentials. Although your AWS GovCloud (US) account is associated with your standard AWS account, each account has distinct credentials, where users from one account cannot access AWS resources from the other account.
 

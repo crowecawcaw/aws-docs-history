@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub in AWS GovCloud (US)
-<a name="govcloud-arh"></a>
 
  AWS Resilience Hub gives you a central place to define, validate, and track the resiliency of your AWS application. AWS Resilience Hub helps you to protect your applications from disruptions, and reduce recovery costs to optimize business continuity to help meet compliance and regulatory requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Grafana in AWS GovCloud (US)
-<a name="grafana"></a>
 
 This topic describes the functionality of Amazon Managed Grafana in the AWS GovCloud (US) Regions.
 

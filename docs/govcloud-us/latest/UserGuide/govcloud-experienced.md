@@ -1,7 +1,6 @@
 
 
 # Experienced with AWS
-<a name="govcloud-experienced"></a>
 
 The following table lists additional resources for users experienced with AWS:
 

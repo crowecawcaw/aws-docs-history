@@ -1,7 +1,6 @@
 
 
 # Your AWS GovCloud (US) account ID and its alias
-<a name="govcloud-account-ID-alias"></a>
 
 To sign in to an AWS GovCloud (US) account as an IAM user, you must have an account alias or an account ID for the AWS GovCloud (US) account. If you are signed in to the AWS Management Console or have configured the AWS CLI or an AWS SDK with your account credentials, you can find the account alias or account ID for the AWS GovCloud (US) account. If you cannot sign in, ask your administrator for the information that you need to sign in.
 

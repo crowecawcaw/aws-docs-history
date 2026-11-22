@@ -1,7 +1,6 @@
 
 
 # AWS GovCloud (US) Sign Up
-<a name="getting-started-sign-up"></a>
 
 In order to sign up for an AWS GovCloud (US) account, you need to be an individual or entity that meets the requirement of AWS GovCloud (US).
 + The account holder must be a U.S. entity incorporated to do business in the United States and is based on U.S. soil.

@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Prometheus in AWS GovCloud (US)
-<a name="govcloud-amp"></a>
 
 Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for container metrics that makes it easier to securely monitor container environments at scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data model and query language that you use today to monitor the performance of your containerized workloads, and also enjoy improved scalability, availability, and security without having to manage the underlying infrastructure.
 

@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM in AWS GovCloud (US)
-<a name="govcloud-cloudhsm"></a>
 
 AWS CloudHSM offers secure cryptographic key storage for customers by providing managed hardware security modules in the AWS Cloud.
 

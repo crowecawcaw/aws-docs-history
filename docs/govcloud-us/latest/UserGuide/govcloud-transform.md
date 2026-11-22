@@ -1,7 +1,6 @@
 
 
 # AWS Transform in AWS GovCloud (US)
-<a name="govcloud-transform"></a>
 
 AWS Transform is an agentic AI service that accelerates the migration and modernization of enterprise workloads. It automates complex, time-consuming tasks across the migration lifecycle, helping you plan, migrate, and modernize workloads at scale while reducing manual effort and preserving context across each phase of your project.
 

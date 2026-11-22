@@ -1,7 +1,6 @@
 
 
 # Tips for Setting Up CloudFront
-<a name="setting-up-cloudfront-tips"></a>
 
 As you set up CloudFront to serve your AWS GovCloud (US) content, keep the following in mind:
 + You will be setting up CloudFront to distribute content from a custom origin server.

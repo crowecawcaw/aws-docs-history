@@ -1,7 +1,6 @@
 
 
 # AWS IoT Device Defender in AWS GovCloud (US)
-<a name="govcloud-IotDevDefender"></a>
 
 AWS IoT Device Defender is a fully managed service that helps you secure your fleet of IoT devices. You can use AWS IoT Device Defender to audit your IoT resources like policies, certificates, IAM roles and Amazon Cognito IDs against security best practices, monitor connected devices to detect abnormal behavior, and mitigate security risks. By using AWS IoT Device Defender, you can enforce consistent security policies across your AWS IoT device fleet and respond quickly when devices are compromised.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Compute Optimizer in AWS GovCloud (US)
-<a name="govcloud-compute-optimizer"></a>
 
  AWS Compute Optimizer recommends optimal AWS compute resources for your workloads to reduce costs and improve performance. Compute Optimizer uses machine learning to analyze your historical utilization metrics to help you choose the optimal AWS resource configuration.
 

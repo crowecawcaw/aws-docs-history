@@ -1,7 +1,6 @@
 
 
 # AWS Database Migration Service in AWS GovCloud (US)
-<a name="govcloud-dms"></a>
 
 ## Region availability
 <a name="_region_availability"></a>

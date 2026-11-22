@@ -1,7 +1,6 @@
 
 
 # AWS IoT Device Management in AWS GovCloud (US)
-<a name="govcloud-iotdevman"></a>
 
 AWS IoT Device Management is a cloud-based device management service that makes it easy for customers to securely manage IoT devices throughout their lifecycle. Customers can use AWS IoT Device Management to onboard device information and configuration, organize their device inventory, monitor their fleet of devices, and remotely manage devices deployed across many locations. This remote management includes over-the-air (OTA) updates to device software.
 

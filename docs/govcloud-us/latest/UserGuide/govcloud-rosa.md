@@ -1,7 +1,6 @@
 
 
 # Red Hat OpenShift Service on AWS in AWS GovCloud (US)
-<a name="govcloud-rosa"></a>
 
  Red Hat OpenShift Service on AWS (ROSA) is a managed service that you can use to build, scale, and deploy containerized applications with Red Hat OpenShift running on AWS infrastructure. ROSA is jointly supported and operated by AWS and Red Hat. ROSA offers 24-hour site reliability engineering (SRE) support for cluster installation, management, and upgrades backed by Red Hat’s 99.95% uptime service-level agreement.
 

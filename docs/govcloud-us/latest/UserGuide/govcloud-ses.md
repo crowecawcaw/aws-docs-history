@@ -1,7 +1,6 @@
 
 
 # Amazon SES in AWS GovCloud (US)
-<a name="govcloud-ses"></a>
 
 Lists the differences for using Amazon SES in the AWS GovCloud (US) compared to other AWS Regions.
 
