@@ -1,7 +1,6 @@
 
 
 # Cloud Point-of-Sale (POS) System on AWS for CPG
-<a name="cloud-pos-cpg-chapter"></a>
 
 ## Overview
 <a name="cloud-pos-overview"></a>
