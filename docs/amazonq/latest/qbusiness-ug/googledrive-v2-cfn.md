@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Google Drive using AWS CloudFormation
-<a name="googledrive-v2-cfn"></a>
 
 You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
@@ -21,7 +20,7 @@ The following is the Google Drive New CloudFormation template. Copy and save thi
 
 For more information about CloudFormation templates, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *CloudFormation User Guide*.
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "Template to connect Google Drive New to Amazon Q Business",

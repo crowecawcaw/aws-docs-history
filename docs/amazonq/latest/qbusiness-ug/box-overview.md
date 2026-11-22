@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Box connector overview
-<a name="box-overview"></a>
 
 The following table gives an overview of the Amazon Q Business Box connector and its supported features.
 

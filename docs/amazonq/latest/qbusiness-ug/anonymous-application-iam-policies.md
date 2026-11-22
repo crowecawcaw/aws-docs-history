@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Example IAM policies for Amazon Q Business application environment supporting anonymous access
-<a name="anonymous-application-iam-policies"></a>
 
 We strongly recommend that you use a restricted policies for the role that will be used to call the chat APIs for anonymous access application environments.
 
@@ -18,7 +17,7 @@ You need permission policies to use Amazon Q Business application environments t
 
 **Example policy to allow the Amazon Q Business APIs for anonymous access**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 ,
     "Statement": [{
@@ -55,7 +54,7 @@ You need permission policies to use Amazon Q Business application environments t
 
 **Example policy to allow the Amazon Q Business web experience for anonymous access**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 ,
     "Statement": [{
@@ -75,7 +74,7 @@ You need permission policies to use Amazon Q Business application environments t
 
 **Example trust policy to allow the Amazon Q Business web experience for anonymous access**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 ,
     "Statement": [
@@ -129,7 +128,7 @@ For the web experience to work properly with AWS CLI commands both policies are 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

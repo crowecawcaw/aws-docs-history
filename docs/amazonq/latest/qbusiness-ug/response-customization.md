@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Customizing responses in Amazon Q Business
-<a name="response-customization"></a>
 
 *Response customization* in Amazon Q Business allows you to control how the Amazon Q Business generates and formats responses to user queries. By configuring response settings, you can ensure that Amazon Q Business communicates in a way that matches your organization's voice, style, and communication preferences.
 

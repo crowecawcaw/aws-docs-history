@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Integrations
-<a name="integrations"></a>
 
 Amazon Q Business integrations enhance user productivity by bringing AI-powered assistance directly into daily workflows. To get started, choose the integrations you want Amazon Q to integrate with. Then, deploy your integrations to bring Amazon Q's capabilities directly within those enterprise tools.
 

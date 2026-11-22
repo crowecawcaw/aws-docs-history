@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Web Crawler using AWS CloudFormation
-<a name="web-crawler-cfn"></a>
 
 You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
@@ -76,7 +75,7 @@ The following is the Web Crawler JSON schema and examples for the configuration 
 
 The following is the Web Crawler JSON schema for the configuration property for CloudFormation
 
-```
+```json
 {
   "type": "object",
   "properties": {
@@ -392,7 +391,7 @@ The following is the Web Crawler JSON schema for the configuration property for 
 
 The following is the Web Crawler JSON schema example for the configuration property for CloudFormation
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "CloudFormation Web Crawler Data Source Template",
@@ -473,7 +472,7 @@ The following is the Web Crawler YAML schema and examples for the configuration 
 
 The following is the Web Crawler YAML schema for the configuration property for CloudFormation.
 
-```
+```YAML
 type: object
 properties:
   type:
@@ -707,7 +706,7 @@ required:
 
 The following is the Web Crawler YAML example for the Configuration property for CloudFormation:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: CloudFormation Web Crawler Data Source Template
 Resources:

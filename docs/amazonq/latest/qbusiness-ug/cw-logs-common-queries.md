@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q Business conversation log query examples
-<a name="cw-logs-common-queries"></a>
 
 You can use [CloudWatch Logs insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) to interact with conversation and feedback logs from Amazon Q Business. The following are examples of common queries.
 + Query for all the feedback type logs.

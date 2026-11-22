@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Checking Confluence (Server/Data Center) connectivity
-<a name="confluence-server-connection-check"></a>
 
 Before you sync your Confluence (Server/Data Center) data source connector after [configuring it](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/confluence-server-console.html), we recommend you check the connection between Amazon Q Business and Confluence (Server/Data Center). The following are the cURL commands you need to check Confluence (Server/Data Center) connectivity.
 
@@ -23,7 +22,7 @@ curl --location '{{https://<confluence_host-url>/wiki/rest/api/user/current}}'
 
 If your data source is connected as expected, the JSON response should resemble the following:
 
-```
+```json
 {
     "type": "known",
     "accountId": "{{accountId}}",
@@ -67,7 +66,7 @@ curl --location '{{https://<confluence_server_host_url>/rest/api/user/current}}'
 
 If your data source is connected as expected, the JSON response should resemble the following:
 
-```
+```json
 {
     "type": "known",
     "accountId": "{{accountId}}",

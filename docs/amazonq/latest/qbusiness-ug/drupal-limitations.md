@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Drupal connector
-<a name="drupal-limitations"></a>
 
 Amazon Q Business Drupal connector has the following known limitations:
 + Drupal APIs have no official throttling limits.

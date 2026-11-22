@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for an Amazon Kendra retriever
-<a name="kendra-retriever-iam-role"></a>
 
 When you use an Amazon Kendra index as a retriever, you must provide Amazon Q Business with an IAM role with permissions to access Amazon Kendra. You must also provide a trust policy that allows Amazon Q to assume the role. The following are the policies that must be provided.
 
@@ -14,7 +13,7 @@ When you use an Amazon Kendra index as a retriever, you must provide Amazon Q Bu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -40,7 +39,7 @@ When you use an Amazon Kendra index as a retriever, you must provide Amazon Q Bu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

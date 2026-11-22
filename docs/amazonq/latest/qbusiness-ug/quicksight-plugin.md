@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using the Quick plugin to get insights from structured data
-<a name="quicksight-plugin"></a>
 
 **Note**  
 The Quick plugin feature is in preview and is subject to change.
@@ -68,7 +67,7 @@ When you link your Quick account in the Amazon Q Business console, you specify a
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

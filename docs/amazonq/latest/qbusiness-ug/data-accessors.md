@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Share your enterprise data with data accessors using Amazon Q index
-<a name="data-accessors"></a>
 
 The Amazon Q Business data accessors feature allows you to securely share your enterprise data with verified independent software vendors (ISVs) using Amazon Q. This feature allows ISVs to retrieve relevant content from your Amazon Q index, enhancing their applications with your organization's knowledge. By granting controlled access to your data, you can leverage third-party tools while maintaining security and data access compliance.
 

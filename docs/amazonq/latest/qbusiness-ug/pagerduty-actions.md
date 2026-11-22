@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring a PagerDuty Advance plugin for Amazon Q Business
-<a name="pagerduty-actions"></a>
 
 PagerDuty Operations Cloud is a software-as-a-service (SaaS) incident response management platform that provides IT teams with knowledge about incidents as soon as they occur. If you’re a PagerDuty Advance customer who has [PagerDuty Advance AI Assistant](https://support.pagerduty.com/main/docs/pagerduty-advance#manage-pagerduty-advance-account-settings) functionality turned on, you can use the Amazon Q Business PagerDuty Advance plugin to allow your end users to perform the following actions from within their web experience chat:
 + Get incidents
@@ -51,7 +50,7 @@ To successfully connect Amazon Q to PagerDuty Advance, you need to give Amazon Q
 
 The following is the service access IAM role required:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -69,7 +68,7 @@ The following is the service access IAM role required:
 
 To allow Amazon Q to assume a role, use the following trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using an Amazon Q Business custom plugin
-<a name="using-custom-plugin"></a>
 
 Once a custom plugin is deployed, end users can launch it from the menu icon in the Amazon Q Business web experience.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # SharePoint Server (Subscription Edition) connector overview
-<a name="sharepoint-server-subscription-overview"></a>
 
 The following table gives an overview of the Amazon Q Business SharePoint Server (Subscription Edition) connector and its supported features.
 

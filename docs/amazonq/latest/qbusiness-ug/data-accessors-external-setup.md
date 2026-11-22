@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Completing the process to add a data accessor
-<a name="data-accessors-external-setup"></a>
 
 After you grant a software provider (ISV) data accessor permissions, you'll need to provide AWS or the ISV with the following configuration parameters. They will reach out to you to source these configuration parameters. These values are required inputs when the ISV uses the `SearchRelevantContent` API operation to perform cross-account access of the data from your Amazon Q index.
 
@@ -53,7 +52,7 @@ To access these variables in the Amazon Q Business console:
 
 Amazon Q Business `applicationId` and the `dataAccessorArn` are included in the response of `GetDataAccessor` API. To get the IDC Region of your IDC instance and the IDC application environment, you need to visit IAM identity center page in the AWS Management Console.
 
-```
+```bash
 # To get qbusiness application id
 aws qbusiness list-applications
 {

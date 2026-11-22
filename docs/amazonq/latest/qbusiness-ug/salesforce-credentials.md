@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Setting up Salesforce Online for connecting to Amazon Q Business
-<a name="salesforce-credentials"></a>
 
 Before you connect Salesforce Online to Amazon Q Business, you need to create and retrieve the Salesforce Online credentials you will use to connect Salesforce Online to Amazon Q. You will also need to add any authorization permissions needed by Salesforce Online to connect to Amazon Q.
 

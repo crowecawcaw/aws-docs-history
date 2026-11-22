@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Microsoft OneDrive using AWS CloudFormation
-<a name="onedrive-v2-cfn"></a>
 
 You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
@@ -29,7 +28,7 @@ The following is the Microsoft OneDrive JSON schema and examples for the configu
 
 The following is the Microsoft OneDrive JSON schema for the configuration property for CloudFormation.
 
-```
+```json
 {
     "type": "object",
     "properties": {
@@ -181,7 +180,7 @@ The following is the Microsoft OneDrive JSON schema for the configuration proper
 
 The following is the Microsoft OneDrive JSON example for the Configuration property for CloudFormation.
 
-```
+```json
 {
     "type": "ONEDRIVEV3",
     "crawlIdentities": false,
@@ -228,7 +227,7 @@ The following is the Microsoft OneDrive YAML schema and examples for the configu
 
 The following is the Microsoft OneDrive YAML schema for the configuration property for CloudFormation.
 
-```
+```yaml
 configuration:
   type: object
   properties:
@@ -349,7 +348,7 @@ configuration:
 
 The following is the Microsoft OneDrive YAML example for the Configuration property for CloudFormation:
 
-```
+```yaml
 configuration:
   type: ONEDRIVEV3
   crawlIdentities: false

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Data encryption for Amazon Q Business
-<a name="data-encryption"></a>
 
 Amazon Q Business supports encryption at rest using a customer supplied symmetric AWS KMS key when provided, or uses an AWS-owned AWS KMS key if no customer managed key is provided. Amazon Q Business also uses HTTPS protocol for data in transit.
 
@@ -91,7 +90,7 @@ Key policies control access to your customer managed key. Every customer managed
 
 The following are policy statement examples you can add for Amazon Q Business
 
-```
+```json
  "Statement": [{
          "Sid": "Allow access to principals authorized to use Amazon Q",
          "Effect": "Allow",
@@ -165,7 +164,7 @@ When you use an AWS KMS customer managed key to encrypt your application environ
 
 The following example event records the `CreateGrant` operation:
 
-```
+```json
 {
         "eventVersion": "1.08",
         "userIdentity": {
@@ -239,7 +238,7 @@ When you use an AWS KMS customer managed key for your application environment, A
 
 The following example event records the `GenerateDataKey` operation:
 
-```
+```json
 {
         "eventVersion": "1.08",
         "userIdentity": {
@@ -282,7 +281,7 @@ When you access an encrypted application environment, Amazon Q Business calls th
 
 The following example event records the `Decrypt` operation.
 
-```
+```json
 {
         "eventVersion": "1.08",
         "userIdentity": {
@@ -325,7 +324,7 @@ Amazon Q Business uses the `DescribeKey` operation to verify if the AWS KMS cust
 
 The following example event records `DescribeKey` operation:
 
-```
+```json
     {
         "eventVersion": "1.08",
         "userIdentity": {

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Reference materials for customizing the visual theme
-<a name="customizing-web-experience-themes-reference-materials"></a>
 
 **Topics**
 + [Color considerations for accessibility](#customizing-web-experience-themes-color-format)
@@ -89,7 +88,7 @@ Only the following root CSS variables are supported:
 
 The following is an example of a valid CSS file setting the visual theme for Amazon Q Business.
 
-```
+```css
 :root {
   --background: #FFFFFF;
   --qbusinesness-webexperience-title-color: #9013FE;

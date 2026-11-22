@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Information to be provided to the Amazon Q Business team
-<a name="isv-info-to-provide"></a>
 
 Before an independent software provider or vendor (ISV) can become a verified data accessor, they must provide either an Auth code or Trusted token issuer (TTI) configuration information to the Amazon Q Business team.
 
@@ -26,7 +25,7 @@ The `tenantID` is a unique identifier for your application tenant. Each applicat
   + **ISV IAM role**  
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -47,7 +46,7 @@ The `tenantID` is a unique identifier for your application tenant. Each applicat
   + **ISV IAM role trust policy**  
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -96,7 +95,7 @@ The ISVs must create the following AWS Identity and Access Management (IAM) role
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -123,7 +122,7 @@ The ISVs must create the following AWS Identity and Access Management (IAM) role
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

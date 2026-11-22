@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for Amazon Q Business SharePoint Server (Subscription Edition) connector
-<a name="sharepoint-server-subscription-iam-role"></a>
 
 **Note**  
 **(Optional)** If you use **Azure App-Only authentication**, you also need to add permissions for Amazon Q to access the certificate stored in your Amazon S3 bucket.
@@ -21,7 +20,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 + Permission to access the SSL certificate stored in your Amazon S3 bucket.
 + **(Optional)** If you're using Amazon VPC, permission to access your Amazon VPC.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 ,
     "Statement": [{
@@ -171,7 +170,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 
 **To allow Amazon Q to assume a role, you must also use the following trust policy:**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 ,
   "Statement": [

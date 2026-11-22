@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Cross-region inference in Amazon Q Business
-<a name="cross-region-inference"></a>
 
 With cross-region inference, Amazon Q Business will automatically select the optimal region within your geography (as described in more detail below) to process your inference request, maximizing available compute resources and model availability, and providing the best customer experience. With cross-region inference, you get:
 + Complete access to most advanced Amazon Q Business AI capabilities and features

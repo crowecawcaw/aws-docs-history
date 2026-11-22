@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Sharing Amazon Q Apps
-<a name="qapps-private-sharing"></a>
 
 Amazon Q Apps allows you to privately share your Q Apps with specific users within your Q Business application environment. This private sharing capability enables app creators to restrict app access to select users, providing more granular control over app visibility and usage within organizations.
 

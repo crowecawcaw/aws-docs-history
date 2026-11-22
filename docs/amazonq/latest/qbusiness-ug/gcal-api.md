@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Google Calendar using APIs
-<a name="gcal-api"></a>
 
 You use the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) action to connect a data source to your Amazon Q application. You can also use the [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html) action to modify an existing data source configuration.
 
@@ -48,7 +47,7 @@ The following table provides information about configuration properties required
 
 The following is the Google Calendar JSON schema:
 
-```
+```json
 {
  
 {
@@ -246,7 +245,7 @@ The following is the Google Calendar JSON schema:
 
 The following is the Google Calendar JSON schema example:
 
-```
+```json
 {
 
 {

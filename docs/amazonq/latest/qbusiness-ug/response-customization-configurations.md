@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Managing response configurations
-<a name="response-customization-configurations"></a>
 
 When you create an Amazon Q Business application, Amazon Q Business applies default response settings to it. You can customize responses for a Amazon Q Business application using the AWS Management Console and the API.
 

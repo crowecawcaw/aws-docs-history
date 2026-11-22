@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # How Amazon Q works with Confluence (Cloud) access and refresh tokens
-<a name="confluence-cloud-credentials-notes"></a>
 
 The following are important points to note about using Confluence (Cloud) access and refresh tokens with Amazon Q:
 + If a Confluence (Cloud) access token-refresh token pair you use to connect to Amazon Q are expired or invalid, the Amazon Q sync process fails. If this happens, you need to generate and provide a new pair of tokens.

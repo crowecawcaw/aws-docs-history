@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Google Drive to Amazon Q Business
-<a name="google-connector"></a>
 
 Google Drive is a cloud-based file storage service. Amazon Q Business can connect to your Google Drive instances. You can connect Google Drive instance to Amazon Q—using either the AWS Management Console or the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) API—and create an Amazon Q web experience.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q custom connector to Amazon Q Business
-<a name="custom-connector"></a>
 
 Use a custom data source when you have a repository that Amazon Q Business doesn’t yet provide a data source connector for. When you create a custom data source, you have complete control over how the documents to index are selected. Amazon Q only provides metric information that you can use to monitor your data source sync jobs. You must create and run the crawler that determines the documents your data source indexes.
 
@@ -19,7 +18,7 @@ You can create an Amazon Q custom data source connector using either the AWS Man
 + You only need to provide a `Name` and optionally a `Description`.
 + Set the `Configuration` parameter as follows:
 
-  ```
+  ```json
   "configuration": {
   "type": "CUSTOM",
   "version": "1.0.0"

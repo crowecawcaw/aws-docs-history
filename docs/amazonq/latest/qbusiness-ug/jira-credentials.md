@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Setting up Jira for connecting to Amazon Q Business
-<a name="jira-credentials"></a>
 
 Before you connect Jira to Amazon Q Business, you need to create and retrieve the Jira credentials you will use to connect Jira to Amazon Q. You will also need to add any permissions needed by Jira to connect to Amazon Q.
 

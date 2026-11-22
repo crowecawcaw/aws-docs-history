@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q Business application using APIs
-<a name="application-api"></a>
 
 All Amazon Q Business application environment actions are supported both on the console and using APIs.
 

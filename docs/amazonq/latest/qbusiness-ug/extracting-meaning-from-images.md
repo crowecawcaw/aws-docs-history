@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Extracting semantic meaning from embedded visual content with Amazon Q Business
-<a name="extracting-meaning-from-images"></a>
 
 When Amazon Q Business processes your input files from a data source, it uses advanced image understanding capabilities to extract semantic information and insights from images and other visuals. For example, it can extract insights from bar charts, technical illustrations, or hierarchical organizational structures. 
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Microsoft OneDrive to Amazon Q Business (Original)
-<a name="onedrive-original-connector"></a>
 
 **Note**  
 **Original version notice:** This documentation covers the original version of the Microsoft OneDrive connector. For new implementations, we recommend using the new connector which offers improved performance. The original connector remains available for customers requiring specific features not yet supported in the new connector.

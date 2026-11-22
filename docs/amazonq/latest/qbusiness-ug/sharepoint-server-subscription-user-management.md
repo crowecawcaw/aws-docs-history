@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # How Amazon Q Business connector crawls SharePoint Server (Subscription Edition) ACLs
-<a name="sharepoint-server-subscription-user-management"></a>
 
 When you connect an SharePoint Server (Subscription Edition) data source to Amazon Q Business, Amazon Q Business crawls ACL information attached to a document (user and group information) from your SharePoint Server (Subscription Edition) instance. If you choose to activate ACL crawling, the information can be used to filter chat responses to your end user's document access level.
 

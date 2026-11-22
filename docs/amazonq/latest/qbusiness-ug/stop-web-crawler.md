@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring a `robots.txt` file for Amazon Q Business Web Crawler
-<a name="stop-web-crawler"></a>
 
 The `robots.txt` file is a standard used to implement the Robots Exclusion Protocol, allowing website owners to specify which parts of their site visiting web crawlers and robots can access. Amazon Q Business Web Crawler adheres to the rules set in your website’s `robots.txt` file, which determines the areas it is allowed or not allowed to visit. Amazon Q Business Web Crawler respects standard robots.txt directives like `Allow` and `Disallow`. To control how Amazon Q Business Web Crawler interacts with your website, you can simply adjust these rules in your robots.txt file.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to GitHub (Cloud) using APIs
-<a name="github-cloud-api"></a>
 
 You use the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) action to connect a data source to your Amazon Q application. You can also use the [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html) action to modify an existing data source configuration.
 
@@ -63,7 +62,7 @@ The following provides information about important configuration properties requ
 
 The following is the GitHub (Cloud) JSON schema:
 
-```
+```json
 {
   "type": "object",
   "properties": {
@@ -604,7 +603,7 @@ The following is the GitHub (Cloud) JSON schema:
 
 The following is the GitHub (Cloud) JSON schema example:
 
-```
+```json
 {
   "type": "GITHUB",
   "syncMode": "FULL_CRAWL",

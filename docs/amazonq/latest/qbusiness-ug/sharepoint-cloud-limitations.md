@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the SharePoint (Online) connector
-<a name="sharepoint-cloud-limitations"></a>
 
 The SharePoint (Online) connector has the following known limitations:
 + The Amazon Q SharePoint (Online) connector supports custom field mappings only for the [**Files**](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/sharepoint-cloud-field-mappings.html#sharepoint-field-mappings-files) entity.

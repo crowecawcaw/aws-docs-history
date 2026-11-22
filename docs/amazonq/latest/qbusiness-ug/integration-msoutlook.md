@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Integrating Microsoft Outlook with the Amazon Q Business Add-in
-<a name="integration-msoutlook"></a>
 
 Amazon Q Business can enhance your users' Microsoft Outlook (Outlook) experience by increasing their email productivity, bringing Amazon Q's AI-powered assistance directly into their daily email workflows. As your users use their email, the Amazon Q Add-in can answer questions, provide summaries, draft responses and get insights from emails threads it has access to or from its general knowledge right in your Outlook enhancing your users' email productivity by bringing Amazon Q's AI-powered assistance directly into their daily email workflows.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # How Amazon Q works with Jira access and refresh tokens
-<a name="jira-credentials-notes"></a>
 
 The following are important points to note about using Jira access and refresh tokens with Amazon Q:
 + If a Jira access token-refresh token pair you use to connect to Amazon Q are expired or invalid, the Amazon Q sync process fails. If this happens, you need to generate and provide a new pair of tokens.

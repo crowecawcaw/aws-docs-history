@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q Business features
-<a name="features"></a>
 
 **Note**  
 Not all features in Amazon Q Business Pro are available in Amazon Q Business Lite. For information about what's included in Amazon Q Business Lite and what's included in Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-features). You must use the Amazon Q Business console to assign subscription tiers to your users.

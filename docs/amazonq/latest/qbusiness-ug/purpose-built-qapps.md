@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating purpose-built *Amazon Q Apps*
-<a name="purpose-built-qapps"></a>
 
 **Important**  
 As of July 1, 2024, Amazon Q Apps are available only to [Amazon Q Business Pro users](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#managing-sub-tiers). Amazon Q Business Lite users will no longer be able to create, run, or view Q Apps. To access, Q Apps, Lite users must upgrade to Amazon Q Business Pro.  

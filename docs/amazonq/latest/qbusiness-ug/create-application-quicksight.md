@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an AWS Quick-integrated Amazon Q Business application
-<a name="create-application-quicksight"></a>
 
 With an AWS Quick-integrated Amazon Q Business application, Quick users authenticate through AWS Quick and access answers from unstructured data in Amazon Q Business. [AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) is a business intelligence service that provides insights from your structured data, such as databases, data lakes, and data warehouses.
 

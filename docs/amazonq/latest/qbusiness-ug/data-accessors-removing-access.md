@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Deleting or removing a data accessor's access from your Amazon Q index
-<a name="data-accessors-removing-access"></a>
 
 You can remove a data accessor's permissions to your Amazon Q index using the Amazon Q Business console or the Amazon Q Business API using the AWS SDK, REST API, or AWS CLI. Once deleted, you will have to add the data and reconfigure access to grant the data accessor access again.
 
@@ -31,7 +30,7 @@ The following procedures show how you delete or remove a data accessor using the
 ## Using the AWS CLI;
 <a name="data-accessors-removing-access-cli"></a>
 
-```
+```bash
 aws qbusiness delete-data-accessor \
 --application-id ${qbusiness_application_id} \
 --data-accessors-id ${qbusiness_data_accessor_id}

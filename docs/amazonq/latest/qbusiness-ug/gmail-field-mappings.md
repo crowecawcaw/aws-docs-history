@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Gmail data source connector field mappings
-<a name="gmail-field-mappings"></a>
 
 You can improve search results and customize your users' chat experience by mapping document attributes from your Gmail data to fields in your Amazon Q index.
 

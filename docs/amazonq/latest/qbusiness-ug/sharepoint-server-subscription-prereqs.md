@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Prerequisites for connecting Amazon Q Business to SharePoint Server (Subscription Edition)
-<a name="sharepoint-server-subscription-prereqs"></a>
 
 The following page outlines the prerequisites you need to complete before connecting SharePoint Server (Subscription Edition) to Amazon Q, based on the authentication mode of your choice.
 

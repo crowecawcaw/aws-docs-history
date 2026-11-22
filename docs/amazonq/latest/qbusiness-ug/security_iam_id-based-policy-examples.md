@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Identity-based policy examples for Amazon Q Business
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Q resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -46,7 +45,7 @@ To ensure that users and roles can still use the Amazon Q Business console, also
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -91,7 +90,7 @@ This example allows a user to start conversations with Amazon Q Business, view p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -126,7 +125,7 @@ This example allows an Amazon Q Business admin to manage plugins in a chat appli
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -160,7 +159,7 @@ This example allows an Amazon Q Business admin to manage a specific plugin.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -198,7 +197,7 @@ This example policy grants a user or role in your AWS account permission to use 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -233,7 +232,7 @@ This example policy grants a user or role in your AWS account permission to use 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -272,7 +271,7 @@ This example policy restricts access for a user or role in your AWS account to u
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Error codes
-<a name="onedrive-original-error-codes"></a>
 
 The following table provides information about error codes you may see for the Microsoft OneDrive original connector and suggested resolutions.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating a new Q App with a data collection form
-<a name="qapps-forms-creating-app"></a>
 
 To create a new data collection app, you create a new app, add a data collection form with one or more fields, and publish the app.
 

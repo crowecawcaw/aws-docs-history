@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Troubleshooting data source connectors
-<a name="troubleshooting-data-sources"></a>
 
 This section can help you fix issues with Amazon Q Business data source connectors.
 
@@ -13,7 +12,7 @@ This section can help you fix issues with Amazon Q Business data source connecto
 + [My synchronization job is incomplete](#troubleshooting-data-sources-sync-job-incomplete)
 + [My synchronization job succeeded but there are no indexed documents](#troubleshooting-data-sources-succeeded-no-indexed-docs)
 + [I am running into file format issues while syncing my data source](#troubleshooting-data-sources-file-format-issues)
-+ [I am getting an AccessDenied When Using SSL Certificate File error message](#troubleshooting-data-sources-ssl-certificate-access-denied)
++ [I am getting an `AccessDenied When Using SSL Certificate File` error message](#troubleshooting-data-sources-ssl-certificate-access-denied)
 + [No CloudWatch Logs for Application Using New Connector](#troubleshooting-data-sources-no-cloudwatch-logs)
 
 ## My documents were not indexed
@@ -92,7 +91,7 @@ If you run into file format issues while adding files to your data source or syn
 
 If you're using the `BatchPutDocument` API operation with plaintext files, specify `PLAIN_TEXT` as the content type.
 
-## I am getting an AccessDenied When Using SSL Certificate File error message
+## I am getting an `AccessDenied When Using SSL Certificate File` error message
 <a name="troubleshooting-data-sources-ssl-certificate-access-denied"></a>
 
 If you're getting an access denied error when using an SSL certificate with your data source, make sure that your IAM role has the permissions to access the SSL certificate file in its specified location. If the certificate is encrypted with an AWS KMS key, your IAM role should also have permissions to decrypt using the AWS KMS key. For more information, see [ Authentication and access control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*.

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for Microsoft Teams connector
-<a name="teams-iam-role"></a>
 
 **Note**  
 This section applies to both new and original Microsoft Teams connector versions.
@@ -20,7 +19,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 + Permission to access your AWS Secrets Manager secret to authenticate your data source connector instance.
 + **(Optional)** If you're using Amazon VPC, permission to access your Amazon VPC.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 ,
   "Statement": [
@@ -156,7 +155,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 
 **To allow Amazon Q to assume a role, you must also use the following trust policy:**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 ,
   "Statement": [

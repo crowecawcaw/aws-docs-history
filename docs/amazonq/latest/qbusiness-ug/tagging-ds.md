@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Tagging resources in Amazon Q Business
-<a name="tagging-ds"></a>
 
 Manage your Amazon Q Business data sources, retrievers, and indexes by assigning tags. You can use tags to categorize your Amazon Q Business resources in various ways. For example, you could categorize by purpose, owner, or application, or any combination. Each tag consists of a *key* and a *value*, both of which you define.
 

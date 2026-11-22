@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Data collection concepts
-<a name="qapps-forms-data-collection-concepts"></a>
 
 This topic outlines specific concepts and features of Data collection forms in Amazon Q Apps. These concepts are key to understanding how to collect data from users with Amazon Q Apps.
 

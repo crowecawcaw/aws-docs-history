@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Getting access to your customer's Amazon Q index
-<a name="isv-getting-access"></a>
 
 There are two non-mutually exclusive ways to get access to a customer's Amazon Q index:
 

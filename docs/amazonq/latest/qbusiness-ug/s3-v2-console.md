@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using the console
-<a name="s3-v2-console"></a>
 
 The following procedure outlines how to connect Amazon Q Business to Amazon S3 using the AWS Management Console.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Amazon Q Business ServiceNow Online connector
-<a name="servicenow-limitations"></a>
 
 The ServiceNow Online connector has the following known limitations:
 + There is no REST API to wake up your ServiceNow instance. To activate it when it's in hibernation mode, log in to the your ServiceNow instance.

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for Amazon Q Business ServiceNow Online connector
-<a name="servicenow-iam-role"></a>
 
 If you use the AWS CLI or an AWS SDK, you must create an AWS Identity and Access Management (IAM) policy before you create an Amazon Q resource. When you call the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) operation, you provide the Amazon Resource Name (ARN) role with the policy attached.
 
@@ -17,7 +16,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 + Permission to access your AWS Secrets Manager secret to authenticate your data source connector instance.
 + **(Optional)** If you're using Amazon VPC, permission to access your Amazon VPC.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 ,
   "Statement": [
@@ -153,7 +152,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 
 **To allow Amazon Q to assume a role, you must also use the following trust policy:**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 ,
   "Statement": [

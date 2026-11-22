@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Retrieving XPaths (XML Path Language) for Web Crawler
-<a name="webcrawler-retrieving-credentials"></a>
 
 If the website you are crawling with Amazon Q Business Web Crawler uses Form or SAML authentication, you need to provide Amazon Q with the absolute XPaths for the username and password fields on your web page. Optionally, you may also need to provide the absolute XPaths to the username and password buttons.
 

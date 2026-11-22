@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Microsoft Teams connector
-<a name="teams-limitations"></a>
 
 **Note**  
 **Original version notice:** We recommend using the new connector for improved performance and retrieval quality. The following limitations apply only to the original connector version.

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Understand error codes in the Amazon Q Business ServiceNow Online connector
-<a name="servicenow-error-codes"></a>
 
 The following table provides information about error codes you may see for the ServiceNow Online connector and suggested resolutions.
 

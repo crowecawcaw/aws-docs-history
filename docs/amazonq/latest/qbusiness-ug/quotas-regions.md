@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Service quotas for Amazon Q Business
-<a name="quotas-regions"></a>
 
 The following are the service endpoints and service quotas for Amazon Q Business To connect programmatically to Amazon Q Business, you use an endpoint. For more information, see [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *AWS General Reference*. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*.
 

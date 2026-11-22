@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q index on behalf of a customer
-<a name="isv-creating-index"></a>
 
 We recommend creating one Amazon Q Business application environment per customer for better security and data segregation. Alternatively, you can create one Amazon Q Business application environment and share it with multiple customers. This is only recommended when you index documents that are visible to all users in your application.
 
@@ -36,7 +35,7 @@ Use the instructions from the previous topic, but modify the `QBusinessConversat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -57,7 +56,7 @@ Use the instructions from the previous topic, but modify the `QBusinessConversat
 
 When configuring access scopes for your Amazon Q Businessapplication environment, add the following using the AWS CLI to enable calling the `SearchRelevantContent` API:
 
-```
+```bash
     aws sso-admin put-application-access-scope \
     --application-arn identity-center-custom-application-arn \
     --scope "qbusiness:conversations:access"
@@ -69,7 +68,7 @@ When configuring access scopes for your Amazon Q Businessapplication environment
 
 The following AWS CLI example shows how to call this `SearchRelevantContent` API operation after you have these credentials.
 
-```
+```bash
     aws qbusiness search-relevant-content \
       --application-id ${qbusiness_application_id} \
       --query-text "What is Amazon Q?" \
@@ -88,7 +87,7 @@ Use the instructions in the previous topic, but modify the `trustpolicyforfedera
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -107,7 +106,7 @@ Use the instructions in the previous topic, but modify the `trustpolicyforfedera
 
 The following AWS CLI; example shows how to call this `SearchRelevantContent` API operation after you have these credentials.
 
-```
+```bash
     aws qbusiness search-relevant-content \
       --application-id ${qbusiness_application_id} \
       --query-text "What is Amazon Q?" \

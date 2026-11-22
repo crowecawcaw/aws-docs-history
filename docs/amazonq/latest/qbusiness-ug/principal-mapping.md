@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Principal mapping
-<a name="principal-mapping"></a>
 
 Amazon Q Business uses *principal mapping* to map users and groups with permissions to access an Amazon Q Business application environment to their user ids and group membership information within the data sources that are connected to the application.
 

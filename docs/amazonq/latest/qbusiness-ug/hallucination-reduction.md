@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Hallucination mitigation in Amazon Q Business
-<a name="hallucination-reduction"></a>
 
 A [hallucination](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/concepts-terms.html#hallucination), in the machine learning context, is a confident response by an AI (artificial intelligence) application environment that isn't supported by its underlying data. Amazon Q Business includes a hallucination prevention system that works in real-time during chat conversations.
 

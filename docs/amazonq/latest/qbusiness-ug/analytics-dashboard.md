@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Viewing Amazon Q Business and Q App metrics in analytics dashboards
-<a name="analytics-dashboard"></a>
 
 The analytics dashboards in Amazon Q Business offer a comprehensive view of key usage metrics and trends about the Amazon Q application environment and Amazon Q Apps. This centralized hub presents the CloudWatch metrics as interactive charts and visualizations for you to review. There are two dashboards:
 + Amazon Q Business Analytics dashboard – Use this dashboard to learn how users are interacting with a specific Amazon Q Business application environment. For example, you can identify trends in usage, conversation, feedback, and queries.

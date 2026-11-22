@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Managing Amazon Q Business data sources
-<a name="supported-datasource-actions"></a>
 
 To manage data source connectors, you can perform the following actions:
 

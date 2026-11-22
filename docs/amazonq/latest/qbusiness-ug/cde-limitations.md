@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Document enrichment limitations
-<a name="cde-limitations"></a>
 
 When you use document enrichment, be aware of the following limitations that affect how you can process different types of content.
 

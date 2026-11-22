@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Supported connectors
-<a name="connectors-list"></a>
 
 Amazon Q Business supports the following connectors:
 + [Amazon Q Business custom data source connector](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-connector.html)

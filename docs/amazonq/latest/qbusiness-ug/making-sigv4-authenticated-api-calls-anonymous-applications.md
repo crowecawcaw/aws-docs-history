@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Making authenticated Amazon Q Business API calls for application environment supporting anonymous access
-<a name="making-sigv4-authenticated-api-calls-anonymous-applications"></a>
 
 Amazon Q Business can securely handle data with integrated authentication and authorization. In order to achieve this, a subset of the Amazon Q Business APIs ([Chat](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_Chat.html), [ChatSync](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ChatSync.html), and [PutFeedback](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_PutFeedback.html)) require identity-unaware [AWS Sig V4 credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/signing-elements.html) for the API call that is being made.
 

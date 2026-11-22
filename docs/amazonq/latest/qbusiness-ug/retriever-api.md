@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating a retriever for an Amazon Q Business application using APIs
-<a name="retriever-api"></a>
 
 You can't create an Amazon Q Business retriever using the AWS Management Console. If you use the console, Amazon Q Business creates a retriever for you when you create an Amazon Q Business index. If you're using an Amazon Kendra index as retriever, adding an Amazon Kendra index will also add a retriever. 
 

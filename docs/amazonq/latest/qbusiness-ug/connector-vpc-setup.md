@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Set up an Amazon Q Business data source to connect to Amazon VPC
-<a name="connector-vpc-setup"></a>
 
 When you add a new data source in Amazon Q Business, you can use the Amazon VPC feature if the selected data source connector supports this feature. 
 

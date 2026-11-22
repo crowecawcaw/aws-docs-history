@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q Business API operation metrics
-<a name="qbusiness-metrics-api"></a>
 
 The following table shows the API operation metrics that Amazon Q Business sends to CloudWatch.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Data collection in Amazon Q Apps
-<a name="q-apps-forms"></a>
 
 **Note**  
 The Amazon Q Apps data collection feature is in preview and is subject to change.

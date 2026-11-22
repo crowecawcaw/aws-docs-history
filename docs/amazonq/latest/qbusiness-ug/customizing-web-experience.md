@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Customizing an Amazon Q Business web experience
-<a name="customizing-web-experience"></a>
 
 Creating an Amazon Q Business application environment automatically creates a web experience with a shareable URL. Amazon Q offers customization options for your web experience, allowing you to align the interface with your organization's branding and user needs. This guide will walk you through the process of customizing text elements, visual themes, and some accessibility features, helping you create a more suited experience for your users.
 

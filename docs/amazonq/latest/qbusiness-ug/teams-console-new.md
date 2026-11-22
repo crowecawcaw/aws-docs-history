@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting using the latest Microsoft Teams connector (Console)
-<a name="teams-console-new"></a>
 
 The latest Microsoft Teams connector provides a simplified configuration experience with essential features. Use this procedure to connect Amazon Q Business to Microsoft Teams using the latest connector.
 

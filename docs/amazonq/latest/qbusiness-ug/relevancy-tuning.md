@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Tuning the query results based on document attribute relevancy
-<a name="relevancy-tuning"></a>
 
 **Important**  
 This section assumes that you understand [document attributes](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-attributes.html) and [metadata controls](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/mapping-doc-attributes.html) in Amazon Q Business.

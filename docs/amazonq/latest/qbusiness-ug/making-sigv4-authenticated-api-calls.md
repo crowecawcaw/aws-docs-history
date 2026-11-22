@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Making authenticated Amazon Q Business API calls using IAM Identity Center
-<a name="making-sigv4-authenticated-api-calls"></a>
 
 **Important**  
 **This documentation is for developers building custom applications that integrate with Amazon Q Business APIs.** These instructions help you create a trusted backend component in your custom application that can make authenticated API calls on behalf of your users. This is NOT for the built-in Amazon Q Business web experience — that handles authentication automatically through the AWS console.
@@ -150,7 +149,7 @@ The following section outlines the steps to set up the Amazon Q Business control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{
@@ -183,7 +182,7 @@ The following section outlines the steps to set up the Amazon Q Business control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -278,7 +277,7 @@ Use the Java or JavaScript SDK to create the plugin and make calls to Amazon Q B
 
 If both `ssoOidcClient` and `stsClient`, and `applicationRoleArn` are provided, the former is prioritized.
 
-```
+```java
 // Option-1: Build and pass OIDC and STS clients
 SsoOidcClient oidcClient = SsoOidcClient.builder()
     .region(Region.US_EAST_1)

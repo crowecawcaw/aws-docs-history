@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Customizing visual themes
-<a name="customizing-web-experience-themes"></a>
 
 This topic shows how to customize the visual theme using the Amazon Q Business console and the AWS CLI.
 
@@ -40,7 +39,7 @@ Custom fonts — `font/ttf`, `font/otf`, `font/woff`, and `font/woff2`.
 
 ****  
 
-       ```
+       ```json
        {
            "Version":"2012-10-17",		 	 	 
            "Statement": [{
@@ -66,7 +65,7 @@ Custom fonts — `font/ttf`, `font/otf`, `font/woff`, and `font/woff2`.
 
 ****  
 
-     ```
+     ```json
      {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

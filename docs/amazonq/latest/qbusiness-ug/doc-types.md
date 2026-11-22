@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Supported document formats in Amazon Q Business
-<a name="doc-types"></a>
 
 When you add documents to an Amazon Q Business application environment ([directly](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/upload-docs.html) or through [data source connectors](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connectors-list.html)) using the console or the API, Amazon Q Business extracts document content and internally parses these to optimize chat responses. During this ingestion, there are file size limits depending on the file type. Video files have a limit of up to 10 GB/10,240 MB. Audio files have a 2 GB/2,048 MB limit. PDF/Word/Powerpoint documents have a 500 MB limit. Excel and other supported file formats have a 50 MB limit. There are also limits to the amount of text extracted from these documents. CSV and Excel have a extracted text limit of 10MB, all other document formats have a limit of 30MB of extracted text.
 

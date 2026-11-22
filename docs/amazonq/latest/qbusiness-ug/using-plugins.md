@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using Amazon Q Business built-in plugins
-<a name="using-plugins"></a>
 
 After plugins have been configured, you can use them to perform supported actions in your Amazon Q Business web experience chat. This topic provides an overview of how to use plugins.
 

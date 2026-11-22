@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Microsoft Exchange (New connector) using APIs
-<a name="exchange-new-api"></a>
 
 You use the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) action to connect a data source to your Amazon Q application. You can also use the [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html) action to modify an existing data source configuration.
 
@@ -16,7 +15,7 @@ For an example of the API request, see [CreateDataSource](https://docs.aws.amazo
 
 The following shows the Microsoft Exchange new connector JSON schema:
 
-```
+```json
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -103,7 +102,7 @@ The following table provides information about important JSON keys to configure 
 
 The following is a sample configuration for the new Microsoft Exchange connector:
 
-```
+```json
 {
     "displayName": "mail-0910-sample",
     "configuration": {

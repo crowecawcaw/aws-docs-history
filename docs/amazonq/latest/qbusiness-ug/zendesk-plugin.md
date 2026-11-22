@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring a Zendesk plugin for Amazon Q Business
-<a name="zendesk-plugin"></a>
 
 Zendesk is a customer relationship management system that helps businesses automate and enhance customer support interactions by creating tickets to track work. If you’re a Zendesk user, you can create an Amazon Q Business plugin to allow your end users to create Zendesk cases from within their web experience chat.
 
@@ -32,7 +31,7 @@ To successfully connect Amazon Q to Zendesk, you need to give Amazon Q the follo
 
 The following is the service access IAM role required:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -50,7 +49,7 @@ The following is the service access IAM role required:
 
 To allow Amazon Q to assume a role, use the following trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

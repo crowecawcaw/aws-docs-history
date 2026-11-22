@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q Business application using Identity Federation through IAM
-<a name="create-application-iam"></a>
 
 This section walks you through creating and configuring an Amazon Q Business application using IAM federation to manage end user access.
 

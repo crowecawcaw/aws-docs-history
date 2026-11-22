@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Overview
-<a name="s3-v1-overview"></a>
 
 The following table gives an overview of the Amazon Q Business Amazon S3 connector and its supported features.
 

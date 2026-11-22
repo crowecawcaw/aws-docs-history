@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Filtering chat responses using document attributes and metadata
-<a name="metadata-filtering"></a>
 
 **Note**  
 This section assumes that you have an understanding of [document attributes and how they work](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-attributes.html) in Amazon Q.

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Amazon Q Business Confluence (Server/Data Center) connector
-<a name="confluence-server-limitations"></a>
 
 The Amazon Q Confluence (Server/Data Center) connector has the following known limitation:
 + Because Amazon Q Business uses email addresses as unique identifiers, each user must have a unique email address.

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using ACL Analyzer in Amazon Q
-<a name="acl-analyzer"></a>
 
 The ACL (Access Control List) Analyzer is a troubleshooting tool that helps you verify and diagnose document access permissions in your Amazon Q applications. When users report issues accessing specific documents, you can use this tool to quickly determine whether a user has the necessary permissions and understand why access might be granted or denied. The tool provides detailed information about user memberships, group associations, and the specific access control rules affecting document accessibility. This makes it particularly useful for administrators who need to validate access controls or investigate permission-related issues.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring an Asana plugin for Amazon Q Business
-<a name="asana-actions"></a>
 
 Asana is a web-based work management platform that helps teams organize, collaborate, and plan tasks. If you’re a Asana user, you can create an Amazon Q Business plugin to allow your end users to create and update tasks from within their web experience chat.
 
@@ -40,7 +39,7 @@ To successfully connect Amazon Q to Asana, you need to give Amazon Q the followi
 
 The following is the service access IAM role required:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -58,7 +57,7 @@ The following is the service access IAM role required:
 
 To allow Amazon Q to assume a role, use the following trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

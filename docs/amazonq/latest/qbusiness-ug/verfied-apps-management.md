@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Understanding and managing Verified Amazon Q Apps
-<a name="verfied-apps-management"></a>
 
 The Verified Q Apps feature empowers administrators to endorse published Amazon Q Apps. The goal is to enhance governance and provide a clear signal to end-users about which Q Apps are recommended for use within their organization. By labeling apps as *Verified*, admins can help improve trust and adoption of the most valuable, high-quality Q Apps created by employees.
 

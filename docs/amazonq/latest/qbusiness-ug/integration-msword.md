@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Integrating Microsoft Word with the Amazon Q Business Add-in
-<a name="integration-msword"></a>
 
 Amazon Q Business can enhance your users' Microsoft Word (Word) experience by increasing their productivity, bringing Amazon Q's AI-powered assistance directly into their daily document workflows. As your users work on their documents, the Amazon Q Add-in can answer questions, review documents, suggest revisions and get insights from documents it has access to or from its general knowledge enhancing your users' productivity by bringing Amazon Q's AI-powered assistance directly into their document workflows.
 

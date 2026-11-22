@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q Business application using IAM federation through Microsoft Entra ID
-<a name="create-application-iam-entraid"></a>
 
 As the first step toward creating a generative artificial intelligence (AI) assistant, configure your external identity provider and connect it to AWS Identity and Access Management.
 
@@ -116,7 +115,7 @@ After you create and configure your Microsoft Entra ID application, create an IA
    + In **Custom trust policy**, add the following trust policy, replacing the value for {{AWS IAM Identity Provider ARN}} with the identity provider ARN you copied in the previous step:  
 ****  
 
-     ```
+     ```json
      
      
      ```

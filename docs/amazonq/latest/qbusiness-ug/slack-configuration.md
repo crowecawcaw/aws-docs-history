@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring the Amazon Q Business Slack integration for use
-<a name="slack-configuration"></a>
 
 The Amazon Q Business integration for Slack is only available for use by Amazon Q Business Pro users.
 

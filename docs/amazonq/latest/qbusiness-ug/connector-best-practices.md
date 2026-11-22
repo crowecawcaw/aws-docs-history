@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Best practices for data source connector configuration in Amazon Q Business
-<a name="connector-best-practices"></a>
 
 The following list describes best practices for setting up and configuring your Amazon Q Business data source connector:
 + Each document in an index must be unique. Check that there are no duplicate documents in a data source, or across any data sources, that you plan to connect to an Amazon Q Business retriever.

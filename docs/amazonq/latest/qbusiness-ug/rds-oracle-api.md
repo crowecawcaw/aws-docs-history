@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Amazon RDS (Oracle) using APIs
-<a name="rds-oracle-api"></a>
 
 You use the [`CreateDataSource`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) action to connect a data source to your Amazon Q application.
 
@@ -14,7 +13,7 @@ Then, you use the `configuration` parameter to provide a JSON schema with all ot
 
 The following is the Amazon RDS (Oracle) JSON schema:
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",

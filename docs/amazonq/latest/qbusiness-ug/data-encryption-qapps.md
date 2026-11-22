@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Data encryption for Q Apps
-<a name="data-encryption-qapps"></a>
 
 Q Apps stores the following data:
 + Title and description of the Q Apps.

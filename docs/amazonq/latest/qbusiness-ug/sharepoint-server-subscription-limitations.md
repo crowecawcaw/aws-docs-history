@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Amazon Q Business SharePoint Server (Subscription Edition) connector
-<a name="sharepoint-server-subscription-limitations"></a>
 
 The SharePoint Server (Subscription Edition) connector has the following known limitations:
 + The Amazon Q SharePoint connector supports custom field mappings only for the **Files** entity.

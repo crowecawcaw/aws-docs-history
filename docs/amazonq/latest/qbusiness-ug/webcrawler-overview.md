@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Web Crawler connector overview
-<a name="webcrawler-overview"></a>
 
 The following table gives an overview of the Amazon Q Business Web Crawler connector and its supported features.
 

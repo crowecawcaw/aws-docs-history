@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting using the Legacy Microsoft Exchange Connector (Console)
-<a name="exchange-console-original"></a>
 
 The legacy Microsoft Exchange connector provides comprehensive configuration options including entity type selection, field mappings, and VPC settings. The following procedure shows how to connect Amazon Q Business to Microsoft Exchange using the legacy connector.
 

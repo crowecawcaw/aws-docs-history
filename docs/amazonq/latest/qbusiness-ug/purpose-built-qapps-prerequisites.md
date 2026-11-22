@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Prerequisites for Amazon Q Apps
-<a name="purpose-built-qapps-prerequisites"></a>
 
 Before using Amazon Q Apps, make sure that you do the following:
 + **Set up your identity provider** – For web experience users to create and run their own Amazon Q Apps within a broader Amazon Q Business application environment, they must be recognized by either IAM Identity Center or AWS Identity and Access Management (IAM). These users can continue to authenticate either directly through IAM Identity Center, or through an existing enterprise identity provider connected to IAM Identity Center or IAM (like Okta, Microsoft Entra ID, and Ping Identity, among others). When users attempt to use an Amazon Q Business web experience, Amazon Q Apps authorizes their actions based on the user and group information it gathers from IAM Identity Center or IAM.

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # How Amazon Q Business connector crawls Amazon S3 ACLs
-<a name="s3-user-management-2"></a>
 
 You add access control information to a document in an Amazon S3 data source using a metadata file associated with the document. You specify the file using the console or as the `aclConfigurationFilePath` parameter when you call the `CreateDataSource` or `UpdateDataSource` API and use the `configuration` parameter.
 
@@ -22,7 +21,7 @@ The system grants ALL users access to prefixes that do NOT appear in the ACL fil
 
 The JSON structure for the configuration file must be in the following format:
 
-```
+```json
 [
     {
         "keyPrefix": "s3://BUCKETNAME/prefix1/",

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Confluence (Server/Data Center) using the console
-<a name="confluence-server-console"></a>
 
 On the ** Confluence ** page, enter the following information:
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using topic-level controls in Amazon Q Business
-<a name="guardrails-topic-controls"></a>
 
 You can use topic-level controls to specify special topics within your application environment. You can configure rules to customize how Amazon Q Business should respond when a chat message matches a special topic. To streamline your application environment's response, you provide a name and a short description for how the large language model (LLM) should respond based on the topic-specific guardrail you're building. You can configure up to 2 topic-level controls.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q Business custom plugin
-<a name="custom-plugin-create"></a>
 
 **Note**  
 To validate accuracy before deploying to end users, we recommend creating a Amazon Q Business test application to configure and test new features. To create a new custom plugin, first ensure that you have a test application with the same settings and configurations as your production application (the one deployed for your end users). Using the console, configure a custom plugin in the test application following the steps below. After you finish configuring your custom plugin, launch a test web experience and login as an end user. Issue a number of expected user prompts and confirm you are getting the expected results. If you are not getting the expected results, return to the console page and modify the OpenAPI specification to ensure it follows [best practices](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins-api-schema-best-practices.html) for configuring OpenAPI specifications. Repeat this process until you are satisfied with the test application results and then replicate the same custom plugins settings in your production application before you share it with your end users.

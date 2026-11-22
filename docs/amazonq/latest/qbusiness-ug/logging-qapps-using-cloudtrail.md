@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Logging Amazon Q Apps API calls using AWS CloudTrail
-<a name="logging-qapps-using-cloudtrail"></a>
 
 Amazon Q Apps is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Q Apps. CloudTrail captures all API calls for Amazon Q Apps as events. The calls captured include calls from theAmazon Q Apps web experience, console and code calls to theAmazon Q Apps API operations.
 
@@ -89,7 +88,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `GetLibraryItem` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Upload files to a chat in Amazon Q Business
-<a name="upload-chat-files"></a>
 
 Users using the Amazon Q Business web experience can upload documents and use the uploaded documents to ask questions and summarize or analyze data based on the content of the uploaded documents. Amazon Q provides a list of recent documents, enabling users to find and reuse recently attached files in new conversations without re-uploading. Users can upload new files from their computer, select from recent files, or drag and drop files directly into any conversation.
 

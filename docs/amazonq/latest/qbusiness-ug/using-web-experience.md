@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using an Amazon Q Business web experience
-<a name="using-web-experience"></a>
 
 You can use the Amazon Q Business web experience generative AI assistant to ask questions and to accomplish your tasks. When you ask a question, the Amazon Q Business web experience analyzes the latest approved data collected from data sources within your organization to generate a comprehensive response.
 

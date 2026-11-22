@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Managing Amazon Q Business indices
-<a name="supported-native-retriever-actions"></a>
 
 To manage Amazon Q Business indexes, you can take the following actions:
 

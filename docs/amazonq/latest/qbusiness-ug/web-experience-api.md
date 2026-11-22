@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating and customizing an Amazon Q Business web experience using APIs
-<a name="web-experience-api"></a>
 
 If you use the console to create your Amazon Q Business application, a web experience is created automatically and connected to your chosen data source.
 

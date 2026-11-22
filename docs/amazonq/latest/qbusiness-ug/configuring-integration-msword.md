@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring the Amazon Q Business Microsoft Word Add-in for use
-<a name="configuring-integration-msword"></a>
 
 **Note**  
 The Amazon Q Business customer integrating Microsoft Word (Word) must have a paid Word organization.

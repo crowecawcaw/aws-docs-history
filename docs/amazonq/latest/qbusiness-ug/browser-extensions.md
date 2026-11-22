@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Enhancing web browsing with Amazon Q Business
-<a name="browser-extensions"></a>
 
 The Amazon Q Business browser extension enhances your users' web browsing experience. As your users browse the web, the Amazon Q Assistant can answer questions, provide summaries, generate content, and complete tasks based on data made available to it or from its general knowledge right in their browser enhancing your users' productivity by bringing Amazon Q's AI-powered assistance directly into their daily workflows.
 

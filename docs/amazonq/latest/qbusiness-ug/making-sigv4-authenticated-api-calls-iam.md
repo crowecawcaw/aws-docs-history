@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Making authenticated Amazon Q Business API calls using IAM federation
-<a name="making-sigv4-authenticated-api-calls-iam"></a>
 
 Amazon Q Business can securely handle data with integrated authentication and authorization. During data ingestion, Amazon Q Business preserves the authorization information—access control lists (ACLs)—from the data source so users can only request answers from the data they already have access to. Through IAM Federation, Amazon Q Business uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.html) to ensure that an end user is authenticated and receives fine-grained authorization to their user ID and group-based resources.
 

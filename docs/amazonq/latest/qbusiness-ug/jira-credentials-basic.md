@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Basic authentication
-<a name="jira-credentials-basic"></a>
 
 You can connect Amazon Q to Jira using basic authentication credentials. The following procedure gives you an overview of how to configure Jira to connect to Amazon Q using basic authentication.
 

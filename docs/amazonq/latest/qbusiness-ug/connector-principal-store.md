@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Understanding Amazon Q Business User Store
-<a name="connector-principal-store"></a>
 
 With the Amazon Q Business *User Store* feature, end users see Amazon Q Business chat responses generated *only* from the documents that they have access to within an Amazon Q Business application. To achieve this, Amazon Q creates a mapping within the data sources attached to that application. The mapping is between every unique user accessing the application environment and all the user IDs and user groups that they are associated with. Amazon Q Business stores this principal mapping information in its internal User Store. During chat, Amazon Q Business uses the mapping information to return answers that are scoped to a user’s identity.
 

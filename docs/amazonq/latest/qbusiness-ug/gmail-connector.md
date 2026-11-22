@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Gmail to Amazon Q Business
-<a name="gmail-connector"></a>
 
 With Amazon Q Business, you can connect your Gmail enterprise email system to unlock valuable organizational knowledge stored in email communications. When you connect Gmail to Amazon Q Business, your users can search and get answers from email content and conversations directly through the Amazon Q web experience.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q index for independent software vendors (ISVs)
-<a name="isv"></a>
 
 As an ISV, you can leverage Amazon Q index to access and integrate your customers' enterprise data into your applications. This integration enables you to enhance your applications with generative AI capabilities powered by your customers' data, without having to directly connect to or index individual data sources. Your customers simply need to add you as a data accessor and provide you with the configuration details, allowing you to retrieve relevant content through the `SearchRelevantContent` API operation. 
 
@@ -69,7 +68,7 @@ The ISV doesn't need to change their existing login flow.
 
 1. The ISV application calls the `CreateTokenWithIAM` API operation to get a token with an authorization code. The ISV needs to use the AWS Identity and Access Management (IAM) role that they created during the onboarding process with `tenantId` information in the tags like the following:
 
-   ```
+   ```bash
    aws sts assume-role \
          --role-arn ${your_iam_role} \
          --role-session-name test-session \
@@ -93,7 +92,7 @@ The ISV doesn't need to change their existing login flow.
 
    Using Python:
 
-   ```
+   ```python
    import json
    import base64
    
@@ -105,7 +104,7 @@ The ISV doesn't need to change their existing login flow.
 
 1. Call the [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API with the extracted `sts:identity_context` and the ISV `tenantId` information.
 
-   ```
+   ```bash
    aws sts assume-role \
          --role-arn ${your_iam_role} \
          --role-session-name test-session \
@@ -115,7 +114,7 @@ The ISV doesn't need to change their existing login flow.
 
 1. Use the AWS Sig V4 credentials returned from the previous step to call `SearchRelevantContent` API.
 
-   ```
+   ```bash
    aws qbusiness search-relevant-content \
          --application-id ${qbusiness_application_id} \
          --query-text "What is Amazon Q?" \

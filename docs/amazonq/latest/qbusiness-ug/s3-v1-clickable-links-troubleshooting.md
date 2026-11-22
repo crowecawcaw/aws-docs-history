@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Troubleshooting clickable links
-<a name="s3-v1-clickable-links-troubleshooting"></a>
 
 This section helps you resolve errors that you might encounter when using clickable links for source references in your conversations with your Amazon Q Business AI assistant.
 

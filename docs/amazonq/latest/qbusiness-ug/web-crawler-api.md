@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Web Crawler using APIs
-<a name="web-crawler-api"></a>
 
 To connect Amazon Q Business to Web Crawler using the Amazon Q API, call `CreateDataSource`. Use this API to:
 + provide a name and tags for your data source
@@ -71,7 +70,7 @@ The following provides information about important configuration properties requ
 
 The following is the Web Crawler JSON schema:
 
-```
+```json
 {
   "type": "object",
   "properties": {
@@ -397,7 +396,7 @@ The following is the Web Crawler JSON schema:
 
 The following is the Web Crawler JSON schema example:
 
-```
+```json
 {
   "type": "WEBCRAWLERV2",
   "syncMode": "FULL_CRAWL",

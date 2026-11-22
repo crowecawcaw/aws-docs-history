@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Smartsheet connector
-<a name="smartsheet-limitations"></a>
 
 The Smartsheet connector has the following known limitations:
 +  If you remove users’ access to a Smartsheet data source but not to Amazon Q Business, they will be able to receive responses from the data source when they query Amazon Q Business.

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM roles for custom document enrichment in Amazon Q Business
-<a name="cde-iam-roles"></a>
 
 Custom document enrichment (CDE) is an Amazon Q Business feature that you can use to manipulate your document content and document attributes. When you use the Lambda functions for CDE, you need an IAM role for the following:
 + A role for `PreExtractionHookConfiguration` with permissions to run `PreExtractionHookConfiguration` and to access the Amazon S3 bucket when you use `PreExtractionHookConfiguration`.
@@ -23,7 +22,7 @@ Both AWS Identity and Access Management (IAM) roles must have the permissions to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -81,7 +80,7 @@ Both AWS Identity and Access Management (IAM) roles must have the permissions to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -128,7 +127,7 @@ Both AWS Identity and Access Management (IAM) roles must have the permissions to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -186,7 +185,7 @@ Both AWS Identity and Access Management (IAM) roles must have the permissions to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -233,7 +232,7 @@ We recommend that you include `aws:sourceAccount` and `aws:sourceArn` in the tru
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

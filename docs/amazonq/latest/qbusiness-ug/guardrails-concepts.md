@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Key terms for Amazon Q Business guardrails and chat controls
-<a name="guardrails-concepts"></a>
 
 The following are key terms to understand guardrails in Amazon Q Business:
 + **Enterprise data** – Data connected to your application environment using either an Amazon Q Business connector, direct document upload, or through an Amazon Kendra retriever.

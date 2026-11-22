@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # How Amazon Q Business document enrichment works
-<a name="cde-hiw"></a>
 
 To understand and use document enrichments, familiarize yourself with the key Amazon Q Business concepts that this topic outlines.
 

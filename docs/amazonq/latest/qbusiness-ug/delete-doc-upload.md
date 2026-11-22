@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Deleting documents uploaded in an Amazon Q Business application
-<a name="delete-doc-upload"></a>
 
 To delete documents that have been directly uploaded to an application environment, you can use the console or the [BatchDeleteDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchDeleteDociment.html) API operation. You can delete specific documents or all documents.
 

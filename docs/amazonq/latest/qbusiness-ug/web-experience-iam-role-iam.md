@@ -3,18 +3,15 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for an Amazon Q Business web experience using IAM Federation
-<a name="web-experience-iam-role-iam"></a>
 
 **Important**  
 This page only applies to Amazon Q Business web experiences connected to IAM Federated Amazon Q Business applications.
++ **Latest policy update:** December 3, 2024
+
+The following table lists and describes the changes to this policy over time.
 
 
-
-**Policy history**
-+ **Latest policy update:** — December 3, 2024
-
-The following table list and describes the changes to this policy over time.
-
+**IAM Federated policy history**  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
@@ -54,7 +51,7 @@ You must create and update an IAM policy for your Amazon Q Business application 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -245,7 +242,7 @@ You must create and update an IAM policy for your Amazon Q Business application 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -290,7 +287,7 @@ You must create and update an IAM policy for your Amazon Q Business application 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -334,7 +331,7 @@ You must create and update an IAM policy for your Amazon Q Business application 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

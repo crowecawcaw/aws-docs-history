@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Troubleshooting your Microsoft Teams connector
-<a name="teams-troubleshooting"></a>
 
 The following table provides information about error codes you might see for the Microsoft Teams connector and suggested troubleshooting actions.
 

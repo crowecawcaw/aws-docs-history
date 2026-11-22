@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Quick prompts in Amazon Q Business
-<a name="quick-prompts"></a>
 
 The Amazon Q Business web experience welcome page provides sample prompts to help your end users understand the types of questions and tasks that they can ask. Sample prompts are not enabled by default.
 

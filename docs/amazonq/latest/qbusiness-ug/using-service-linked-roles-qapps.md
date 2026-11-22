@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using service-linked roles for Amazon Q Apps
-<a name="using-service-linked-roles-qapps"></a>
 
 Amazon Q Apps uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon Q Apps. Service-linked roles are predefined by Amazon Q Apps and include all the permissions that the service requires to performs Q Apps related administrative actions to other AWS services on your behalf.
 

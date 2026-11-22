@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # OAuth 2.0 authentication
-<a name="confluence-cloud-credentials-oauth"></a>
 
 You can connect Amazon Q to Confluence (Cloud) using OAuth 2.0 authentication credentials. The following procedures give you an overview of how to configure Confluence (Cloud) to connect to Amazon Q using OAuth 2.0 authentication.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Setting up Zendesk for connecting to Amazon Q Business
-<a name="zendesk-credentials"></a>
 
 Before you connect Zendesk to Amazon Q Business, you need to create and retrieve the Zendesk credentials you will use to connect Zendesk to Amazon Q. You will also need to add any authorization permissions needed by Zendesk to connect to Amazon Q.
 

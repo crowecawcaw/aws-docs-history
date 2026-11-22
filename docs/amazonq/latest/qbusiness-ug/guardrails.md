@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Admin controls and guardrails in Amazon Q Business
-<a name="guardrails"></a>
 
 With Amazon Q Business, you can customize your application environment to your organizational needs. Amazon Q Business offers application environment *guardrails* or *chat controls* that you can configure to control the end user chat experience.
 

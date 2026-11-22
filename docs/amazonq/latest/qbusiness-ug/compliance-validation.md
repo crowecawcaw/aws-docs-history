@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Compliance validation for Amazon Q Business
-<a name="compliance-validation"></a>
 
  Third-party auditors assess the security and compliance of Amazon Q Business as part of multiple Amazon Q Business compliance programs. Amazon Q Business is compliant with the following:
 + Health Insurance Portability and Accountability Act (HIPAA)

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for SharePoint (Online) connector
-<a name="sharepoint-cloud-iam-role"></a>
 
 **Note**  
 **(Optional)** If you use **Azure App-Only authentication**, you also need to add permissions for Amazon Q to access the certificate stored in your Amazon S3 bucket.
@@ -20,7 +19,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 + Permission to access your AWS Secrets Manager secret to authenticate your data source connector instance.
 + **(Optional)** If you're using Amazon VPC, permission to access your Amazon VPC.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 ,
   "Statement": [
@@ -83,7 +82,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 
  **To allow Amazon Q to assume a role, you must also use the following trust policy:**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 ,
   "Statement": [
@@ -113,7 +112,7 @@ For more information on Amazon Q data source connector IAM roles, see [IAM roles
 
 If you are using Microsoft Entra ID (formerly Azure AD) App only authentication, you must ensure that Amazon Q Business is able access Amazon S3 to get the objects in your bucket. The following policy statement is provides permissions to access Amazon S3: 
 
-```
+```json
     {
     "Version": "2012-10-17",		 	 	 ,
     "Statement": [
@@ -140,7 +139,7 @@ If you are using Microsoft Entra ID (formerly Azure AD) App only authentication,
 
 If you are using a VPC, you must ensure that the permissions included in the following policy statement are included in your policy statement: 
 
-```
+```json
     {
     "Version": "2012-10-17",		 	 	 ,
     "Statement": [

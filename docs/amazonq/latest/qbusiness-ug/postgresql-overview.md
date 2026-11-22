@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # PostgreSQL connector overview
-<a name="postgresql-overview"></a>
 
 The following table gives an overview of the Amazon Q Business PostgreSQL connector and its supported features.
 

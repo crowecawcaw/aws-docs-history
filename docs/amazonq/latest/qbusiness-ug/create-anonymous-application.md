@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q Business application environment for anonymous access
-<a name="create-anonymous-application"></a>
 
 Amazon Q Business application environments support anonymous access, enabling unauthenticated user interactions with the Amazon Q generative AI assistant. You can also make selected enterprise data accessible to users without requiring credentials, such as website visitors seeking product information or support. This can be integrated through:
 + Embedding the web experience URL in an iframe for quick deployment

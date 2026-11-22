@@ -3,11 +3,10 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # GetDocumentContent Output Schema
-<a name="document-content-schema"></a>
 
 When you use the [GetDocumentContent](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetDocumentContent.html) API with `outputFormat` set to `EXTRACTED`, the response returns extracted text content in JSON format. The output schema is presented in JSON format:
 
-```
+```json
 {
    // always V1 for now
    schemaVersionId: string;
@@ -25,7 +24,7 @@ When you use the [GetDocumentContent](https://docs.aws.amazon.com/amazonq/latest
 
 The schema for non-plaintext documents includes the `ExtractedDocumentBodyElement` which includes:
 
-```
+```json
 {
    text: string;
    
@@ -106,7 +105,7 @@ The schema for non-plaintext documents includes the `ExtractedDocumentBodyElemen
 
 For plaintext documents, the extracted content is returned in the `plainTextDocumentContent` field:
 
-```
+```json
 {
   "schemaVersionId": "V1",
   "outputFormat": "JSON",

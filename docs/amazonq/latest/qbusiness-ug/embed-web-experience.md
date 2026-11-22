@@ -3,11 +3,10 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Add Amazon Q embedded to your website
-<a name="embed-web-experience"></a>
 
 You can embed your Amazon Q Business web experience by adding an `<iframe>` element to your website with the **Deployed URL** or `defaultEndpoint` you copied earlier as the `src` value and a minimum width of *450 pixels* as follows.
 
-```
+```html
 <iframe src="{{Deployed-URL-or-defaultEndpoint}}" style="min-width: 450px;"/>
 ```
 

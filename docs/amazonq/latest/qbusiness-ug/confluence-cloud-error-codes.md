@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Understand error codes in the Amazon Q Business Confluence (Cloud) connector
-<a name="confluence-cloud-error-codes"></a>
 
 The following table provides information about error codes you may see for the Confluence (Cloud) connector and suggested resolutions.
 

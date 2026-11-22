@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q custom connector
-<a name="custom-connector-hiw"></a>
 
 To use a custom data source, create an application environment that is responsible for updating your Amazon Q index. The application environment depends on a crawler that you create. The crawler reads the documents in your repository and determines which documents should be sent to Amazon Q. Your application environment should perform the following steps: 
 

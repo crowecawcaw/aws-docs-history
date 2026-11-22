@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Add a data accessor (ISV) to connect to your Amazon Q index
-<a name="data-accessors-granting-permissions"></a>
 
 After setting up your application environment and connecting your data source(s), Amazon Q Business begins indexing your enterprise data. You still need to add the software providers (ISVs) as a data accessor and provide configuration details to the ISV to retrieve content from your Amazon Q index. By adding a data accessor, you grant their AWS account to access the Amazon Q index via the `SearchRelevantContent` API operation.
 
@@ -221,7 +220,7 @@ The following are the `principal` role ARNs for the supported ISVs:
 + `action` — Only `qbusiness:SearchRelevantContent` is supported now
 + `filterConfiguration`: Specifies the data source id of the Amazon Q application environment. The ISV will only have access to the data from the specified data source id. If there is no data source id specified, the ISV will have access to all the data sources.
 
-```
+```json
 # CreateDataAccessor actionConfigurations example
 [
    {
@@ -245,7 +244,7 @@ The following are the `principal` role ARNs for the supported ISVs:
 
 The following CLI example shows how to create a data accessor and associate the necessary permissions with all end users enabled for this data accessor:
 
-```
+```bash
 aws qbusiness create-data-accessor \
  --application-id ${qbusiness_application_id} \
  --principal ${isv_data_accessor_role_arn} \
@@ -268,7 +267,7 @@ aws sso-admin put-application-assignment-configuration \
 
 The following CLI example shows how to add authentication details in your request:
 
-```
+```bash
 # For tti based dataaccessor
 "authenticationDetail": {
     "authenticationType": "AWS_IAM_IDC_TTI",

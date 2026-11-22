@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Salesforce Online connector
-<a name="salesforce-limitations"></a>
 
 The Salesforce Online connector has the following known limitations:
 + The Salesforce Online connector doesn't currently (as of 2/14/25) support explicit deny permission specifications for Contract, Task, and Custom objects and their respective attachments, although it respects base access controls for Salesforce Online entities. Users who have access to an entity through base access controls would still have access to those entities in Amazon Q Business - even if they have been added to the explicit deny list in Salesforce. 

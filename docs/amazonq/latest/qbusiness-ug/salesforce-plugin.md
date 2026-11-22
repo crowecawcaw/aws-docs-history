@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring a Salesforce plugin for Amazon Q Business
-<a name="salesforce-plugin"></a>
 
 Salesforce is a customer relationship management (CRM) tool for managing support, sales, and marketing teams that you can use to create cases (tickets) to track issues. If you’re a Salesforce user, you can create an Amazon Q Business plugin to allow your end users to create Salesforce cases from within their web experience chat.
 
@@ -32,7 +31,7 @@ To successfully connect Amazon Q to Salesforce, you need to give Amazon Q the fo
 
 The following is the service access IAM role required:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -50,7 +49,7 @@ The following is the service access IAM role required:
 
 To allow Amazon Q to assume a role, use the following trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

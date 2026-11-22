@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Guidelines and requirements
-<a name="semantic-meaning-guidelines-and-requirements"></a>
 
 The following are guidelines and requirements for extracting content from images:
 + Documents can have up to 3,000 pages.

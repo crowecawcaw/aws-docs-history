@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Extracting content from visuals with data connectors
-<a name="enable-semantic-meanining-data-source"></a>
 
 You can enable content extraction when you add or update a data connector with the Amazon Q Business console or API operations. Processing images and visuals takes more time than processing text-only for the documents.
 

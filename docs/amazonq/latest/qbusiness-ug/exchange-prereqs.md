@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Prerequisites for connecting Amazon Q Business to Microsoft Exchange
-<a name="exchange-prereqs"></a>
 
 **In Microsoft Exchange, make sure you have:**
 + Created a Microsoft Exchange account in Office 365.

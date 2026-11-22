@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using Amazon VPC with an Amazon S3 data source
-<a name="s3-vpc-example-1"></a>
 
 This topic describes the requirements for connecting Amazon Q Business to an Amazon Simple Storage Service through Amazon Virtual Private Cloud. It outlines the necessary prerequisites, including VPC configuration and S3 endpoint setup, to enable Amazon Q Business to access Amazon S3 buckets through a private connection.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Zendesk connector
-<a name="zendesk-limitations"></a>
 
 The Zendesk connector has the following known limitations:
 + Deleted and archived articles and their comments and attachments aren't supported in **Change log** mode since there are no SDK methods/REST API available for fetching deleted or archived articles.

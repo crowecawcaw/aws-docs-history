@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Amazon RDS (Microsoft SQL Server) using the console
-<a name="rds-ms-sql-server-console"></a>
 
 On the **Amazon RDS (Microsoft SQL Server)** page, enter the following information:
 

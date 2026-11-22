@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q Business chat metrics
-<a name="qbusiness-metrics-chat"></a>
 
 The following table shows the [Chat and conversation management](conversation-api.md) metrics that Amazon Q Business sends to CloudWatch in real time. 
 

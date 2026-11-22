@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring a Microsoft Exchange plugin for Amazon Q Business
-<a name="exchange-actions"></a>
 
 Microsoft Exchange is an enterprise collaboration tool for messaging, meetings, and file sharing. If you’re a Microsoft Exchange user, you can create an Amazon Q Business plugin to allow your end users to get events from their calendars and get emails from within their web experience chat.
 
@@ -39,7 +38,7 @@ To successfully connect Amazon Q to Microsoft Exchange, you need to give Amazon 
 
 The following is the service access IAM role required:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -57,7 +56,7 @@ The following is the service access IAM role required:
 
 To allow Amazon Q to assume a role, use the following trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

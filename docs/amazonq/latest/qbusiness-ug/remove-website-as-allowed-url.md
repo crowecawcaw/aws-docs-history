@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Remove your website as an allowed URL
-<a name="remove-website-as-allowed-url"></a>
 
 To remove a website(s) from list of allowed websites, you can use the Amazon Q Business console or the Amazon Q Business API.
 

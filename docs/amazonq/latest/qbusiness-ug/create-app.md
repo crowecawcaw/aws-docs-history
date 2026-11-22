@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Creating an Amazon Q Business application environment
-<a name="create-app"></a>
 
 To create an Amazon Q Business application environment, you can use either the AWS Management Console or the Amazon Q Business API. When you create an application, response generation from large language model (LLM) knowledge is enabled by default.
 
@@ -27,7 +26,7 @@ The following tabs provide a procedure for creating your Amazon Q Business appli
 ------
 #### [ Console ]
 
-**To create an application** 
+**To create an application**
 
 1. Sign in to the AWS Management Console and open the Amazon Q Business console.
 

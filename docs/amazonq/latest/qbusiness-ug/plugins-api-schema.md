@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Defining OpenAPI schemas for custom plugins
-<a name="plugins-api-schema"></a>
 
 Amazon Q Business uses the configured third-party OpenAPI specifications to dynamically determine which API operations to perform in order to fulfill an end user requests. To configure a custom plugin you must define at least 1 API operation and a maximum of 20 API operations that can be invoked. To define the API operations, create an OpenAPI schema in JSON or YAML format. You can create OpenAPI schema files and upload them to Amazon Simple Storage Service (Amazon S3). Alternatively, you can use the OpenAPI text editor in the console, which will validate your schema.
 
@@ -17,7 +16,7 @@ This section will first cover the required definitions for the OpenAPI schema. T
 
 The following is the general format of an OpenAPI schema for a custom plugin.
 
-```
+```json
 {
     "openapi": "3.0.0",
     "servers": [
@@ -77,7 +76,7 @@ For details on configuring the fields review the following sections:
 
 The following is a sample response.
 
-```
+```json
 "responses": {
     "200": {
         "content": {
@@ -111,7 +110,7 @@ Each key in the `responses` object is a response code, which describes the statu
 
 The following are examples of parameters.
 
-```
+```json
 "parameters": [
     {
         "name": "string", // e.g. "userName"
@@ -151,7 +150,7 @@ Your custom plugin uses the following fields to determine the information it mus
 
 The following is the general structure of a `requestBody` field:
 
-```
+```json
 "requestBody": {
     "required": boolean,
     "content": {
@@ -186,7 +185,7 @@ The following list describes each field:
 
 Following is the general structure of a `securityScheme` field:
 
-```
+```json
 "securitySchemes": {
       "OAuth2": {
         "type": "oauth2",

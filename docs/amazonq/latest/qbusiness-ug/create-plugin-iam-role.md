@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Service access roles for Amazon Q Business custom plugins
-<a name="create-plugin-iam-role"></a>
 
 To connect Amazon Q Business to third party applications that require authentication, you need to give the Amazon Q role permissions to access your Secrets Manager secret. This will enable an Amazon Q Business custom plugin to access the credentials needed to log in to the third party service.
 + Permission to access your Secrets Manager secret to get the credentials you use to log in to the third party service instance you are creating a plugin for.
@@ -20,7 +19,7 @@ The following is the service access IAM role required:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -47,7 +46,7 @@ The following is the service access IAM role required:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting multiple Amazon Q Business applications to an Identity Provider
-<a name="multiple-qbusiness-apps-idp"></a>
 
 You can connect multiple Amazon Q Business custom applications to a single SAML 2.0 or OIDC based identity provider (IdP) application. Connecting multiple Amazon Q Business applications to a single identity provider enables end users access Amazon Q Business with all their web-based tools and services through a single sign-on (SSO) provided by the IdP.
 

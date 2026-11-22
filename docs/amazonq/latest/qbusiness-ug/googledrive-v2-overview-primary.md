@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Google Drive connector overview
-<a name="googledrive-v2-overview-primary"></a>
 
 The following table gives an overview of the Amazon Q Business Google Drive connector new and its supported features.
 

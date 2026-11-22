@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Understand error codes in the SharePoint (Online) connector
-<a name="sharepoint-cloud-error-codes"></a>
 
 The following table provides information about error codes you may see for the Microsoft SharePoint connector and suggested resolutions. If you used the Amazon Q section of the AWS [console](https://console.aws.amazon.com/console/home) to configure your connectors, be sure to make the changes associated with an error through the console as well. You can refer to the Microsoft SharePoint [documentation](https://learn.microsoft.com/en-us/sharepoint/) for more information regarding SharePoint settings and details.
 

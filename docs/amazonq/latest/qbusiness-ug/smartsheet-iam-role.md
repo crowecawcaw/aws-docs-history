@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for Smartsheet connector
-<a name="smartsheet-iam-role"></a>
 
 If you use the AWS CLI or an AWS SDK, you must create an AWS Identity and Access Management (IAM) policy before you create an Amazon Q resource. When you call the operation, you provide the Amazon Resource Name (ARN) role with the policy attached.
 
@@ -19,7 +18,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -103,7 +102,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

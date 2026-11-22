@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM permissions for using Amazon Q Apps
-<a name="deploy-q-apps-iam-permissions"></a>
 
 If the users of your deployed web experience want to create lightweight, purpose-built Amazon Q Apps within your broader Amazon Q Business application environment, you must include the following policy permissions. 
 
@@ -29,7 +28,7 @@ This Amazon Q Apps IAM policy released on July 10, 2024 supports the ability for
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -170,14 +169,14 @@ The Amazon Q Apps IAM policy allows your web experience users permissions to do 
 **(Optional) You must add the following permissions to the Amazon Q Apps policy to allow Q Apps users to view and specify approved data sources** in their app.
 
 **Note**  
-If you are using permissions for Amazon Q Apps created prior to July 10, 2024, you must update your role with the new [Amazon Q Apps](#deploy-q-apps-iam-permissions) permissions for your users to have access to use the [permissions to view and specify approved data sources](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-q-apps-iam-permissions.html#deploy-data-source-iam-permissions) and other future features in Q Apps.
+If you are using permissions for Amazon Q Apps created prior to July 10, 2024, you must update your role with the new [Amazon Q Apps](deploy-q-apps-iam-permissions.md) permissions for your users to have access to use the [permissions to view and specify approved data sources](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-q-apps-iam-permissions.html#deploy-data-source-iam-permissions) and other future features in Q Apps.
 
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

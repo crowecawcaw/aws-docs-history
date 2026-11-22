@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Personalizing Amazon Q Business chat responses
-<a name="personalizing-chat-responses"></a>
 
 Amazon Q Business uses location and job-related information from your IAM Identity Center instance to generate personalized responses that are relevant to your end user. For example, if your end user asks "What are the company holidays for this year?", Amazon Q Business might list region-specific holidays based on their country.
 

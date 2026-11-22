@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # What is a document?
-<a name="connector-doc-crawl"></a>
 
 When you connect Amazon Q Business to a data source, what Amazon Q Business considers—and crawls—as a document varies by connector.
 

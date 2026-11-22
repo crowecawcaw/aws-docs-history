@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting using the legacy Microsoft Teams connector (Console)
-<a name="teams-console-original"></a>
 
 The legacy Microsoft Teams connector provides comprehensive configuration options including entity type selection, field mappings, and VPC settings. Use this procedure to connect Amazon Q Business to Microsoft Teams using the legacy connector.
 

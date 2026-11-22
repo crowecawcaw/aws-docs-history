@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Migrating an Amazon Q Business direct SAML 2.0 application to IAM Identity Center
-<a name="migrate-application"></a>
 
 **Important**  
 This content applies only to Amazon Q Business applications that need to migrate from using legacy SAML identity management to using IAM Identity Center for user access management.

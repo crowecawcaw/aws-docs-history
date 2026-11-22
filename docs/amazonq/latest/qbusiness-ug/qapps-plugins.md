@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using plugins in Amazon Q Apps
-<a name="qapps-plugins"></a>
 
 If [plugins](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html) are configured for your Amazon Q Business application environment you can add these to a Amazon Q Apps you're creating. Once you add a plugin to your Q Apps, your app users will be able to perform plugin actions from within your Q Apps.
 

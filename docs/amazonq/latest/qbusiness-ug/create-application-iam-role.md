@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM role for an Amazon Q Business application
-<a name="create-application-iam-role"></a>
 
 When you create an Amazon Q Business application, you must provide Amazon Q with an IAM role with permissions to write to an Amazon CloudWatch log and assign user subscriptions to applications. You must also provide a trust policy that allows Amazon Q to assume the role. The following are the policies that must be provided.
 
@@ -14,7 +13,7 @@ When you create an Amazon Q Business application, you must provide Amazon Q with
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ When you create an Amazon Q Business application, you must provide Amazon Q with
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -107,7 +106,7 @@ When you create an Amazon Q Business application, you must provide Amazon Q with
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q embedded
-<a name="embed-amazon-q-business"></a>
 
 Amazon Q embedded is a feature that lets you embed the Amazon Q Business assistant within websites that you trust. The Amazon Q assistant is powered by generative AI and can be configured to answer questions, provide summaries, generate content, and complete tasks based on your enterprise data. This allows your end users to receive immediate, permissions-aware responses from enterprise data sources, with citations.
 

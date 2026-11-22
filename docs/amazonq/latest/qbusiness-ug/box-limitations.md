@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Known limitations for the Box connector
-<a name="box-limitations"></a>
 
 The Amazon Q Box connector has the following known limitations:
 + Crawling data from external folders is not supported.

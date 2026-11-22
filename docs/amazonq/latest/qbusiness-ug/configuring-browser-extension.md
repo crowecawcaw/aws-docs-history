@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring the Amazon Q Business browser extension for use
-<a name="configuring-browser-extension"></a>
 
 After installation and authentication, your users can access Amazon Q while browsing the web.
 

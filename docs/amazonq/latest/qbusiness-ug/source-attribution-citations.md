@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Source attribution with citations in Amazon Q Business
-<a name="source-attribution-citations"></a>
 
 The Amazon Q Business web experience chat response provides in-text source citations for responses that use the organization's data sources and knowledge base as a source. The chat response also provides a full list of the sources used to generate the response.
 

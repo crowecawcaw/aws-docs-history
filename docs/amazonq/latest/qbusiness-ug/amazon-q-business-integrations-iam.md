@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM roles and trust policy for your integrations
-<a name="amazon-q-business-integrations-iam"></a>
 
 In order for your integrations to work, you will need to add the following two IAM roles as part of your configuration.
 
@@ -23,7 +22,7 @@ IAM roles and trust policy are not required for using browser extensions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -88,7 +87,7 @@ IAM roles and trust policy are not required for using browser extensions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ IAM roles and trust policy are not required for using browser extensions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

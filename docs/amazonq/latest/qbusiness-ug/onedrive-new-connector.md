@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Microsoft OneDrive to Amazon Q Business (New)
-<a name="onedrive-new-connector"></a>
 
 **Note**  
 **Enhanced Version:** With the new connector, you can refresh your index significantly faster than before, control the sync scope using a date filter, automatically discover and index content for all users within your Microsoft tenant, and enable Q&A capabilities for audio and video files stored in OneDrive.

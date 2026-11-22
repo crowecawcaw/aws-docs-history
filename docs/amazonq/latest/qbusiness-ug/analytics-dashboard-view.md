@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Viewing the analytics dashboards
-<a name="analytics-dashboard-view"></a>
 
 To view the Amazon Q Business Analytics dashboard or Amazon Q Apps Analytics dashboard with the Amazon Q Business console, you choose your application environment and navigate to the Analytics dashboard page. 
 

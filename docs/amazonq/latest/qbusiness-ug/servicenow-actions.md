@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring a ServiceNow plugin for Amazon Q Business
-<a name="servicenow-actions"></a>
 
 ServiceNow provides a cloud-based service management system to create and manage organization-level workflows, such as IT services, ticketing systems, and support. ServiceNow uses incidents (tickets) to track issues. If you’re a ServiceNow user, you can create an Amazon Q Business plugin to allow your end users to perform the following actions from within their web experience chat:
 + Create incident
@@ -55,7 +54,7 @@ To successfully connect Amazon Q to ServiceNow, you need to give Amazon Q the fo
 
 The following is the service access IAM role required:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -73,7 +72,7 @@ The following is the service access IAM role required:
 
 To allow Amazon Q to assume a role, use the following trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

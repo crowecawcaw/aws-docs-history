@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Checking Jira connectivity
-<a name="jira-connection-check"></a>
 
 Before you sync your Jira data source connector after [configuring it](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/jira-console.html), we recommend you check the connection between Amazon Q Business and Jira. The following are the cURL commands you need to check Jira connectivity.
 
@@ -22,7 +21,7 @@ curl --location '{{https://<jira-url>/wiki/rest/api/user/current}}'
 
 If your data source is connected as expected, the JSON response should resemble the following:
 
-```
+```json
 {
     "type": "known",
     "accountId": "{{accountId}}",

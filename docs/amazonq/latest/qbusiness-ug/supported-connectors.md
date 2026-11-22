@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business data source connectors
-<a name="supported-connectors"></a>
 
 **Note**  
 Before you connect an Amazon Q Business data source to your application, you [must add an index and retriever](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/select-retriever.html) to it.

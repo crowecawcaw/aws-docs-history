@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Gmail using the latest connector (Console)
-<a name="gmail-console-new"></a>
 
 The following procedure outlines how to connect Amazon Q Business to Gmail using the latest connector and the AWS Management Console. The latest connector provides a simplified configuration experience with automatic ACL and identity crawling.
 

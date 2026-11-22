@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to SharePoint (Online) using AWS CloudFormation
-<a name="sharepoint-cloud-cfn"></a>
 
 You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
@@ -64,7 +63,7 @@ The following is the SharePoint (Online) JSON schema and examples for the config
 
 The following is the SharePoint (Online) JSON schema for the configuration property for CloudFormation
 
-```
+```json
 {
   "type": "object",
   "properties": {
@@ -611,7 +610,7 @@ The following is the SharePoint (Online) JSON schema for the configuration prope
 
 The following is the SharePoint (Online) JSON schema example for the configuration property for CloudFormation
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "CloudFormation SHAREPOINT Data Source Template",
@@ -699,7 +698,7 @@ The following is the SharePoint (Online) YAML schema and examples for the config
 
 The following is the SharePoint (Online) YAML schema for the configuration property for CloudFormation.
 
-```
+```yaml
 $schema: http://json-schema.org/draft-04/schema#
 type: object
 properties:
@@ -1103,7 +1102,7 @@ required:
 
 The following is the SharePoint (Online) YAML example for the Configuration property for CloudFormation:
 
-```
+```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Description: CloudFormation SHAREPOINT Data Source Template
 Resources:

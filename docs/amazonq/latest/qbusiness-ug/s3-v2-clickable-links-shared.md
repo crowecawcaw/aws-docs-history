@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Clickable URLs
-<a name="s3-v2-clickable-links-shared"></a>
 
 The Clickable URL feature allows end users to access source documents through citation links in chat responses, regardless of whether a source URI is configured. 
 

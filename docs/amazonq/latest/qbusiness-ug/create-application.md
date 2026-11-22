@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Configuring an Amazon Q Business application using AWS IAM Identity Center
-<a name="create-application"></a>
 
 As the first step towards creating a generative artificial intelligence (AI) assistant, you configure an application environment, and grant end user access to users to interact with an application environment using AWS IAM Identity Center for user management. Then you provision subscriptions for your IAM Identity Center users and groups.
 

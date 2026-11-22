@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # IAM roles for Amazon Q Business
-<a name="iam-roles"></a>
 
 When you create an application or a web experience with Amazon Q Business, or connect a data source to it, Amazon Q Business needs access to the required AWS resources.
 

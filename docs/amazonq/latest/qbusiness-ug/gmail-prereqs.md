@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Prerequisites for connecting Amazon Q Business to Gmail
-<a name="gmail-prereqs"></a>
 
 Before you connect Amazon Q Business to Gmail, you need to set up authentication and permissions in your Google Workspace environment. This setup ensures Amazon Q Business can securely access your email data while respecting your organization's access controls.
 

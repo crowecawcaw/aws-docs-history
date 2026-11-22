@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q Business subscription tiers and index types
-<a name="tiers"></a>
 
 Amazon Q Business offers multiple index types and user subscription tiers. You can choose any combination of index types and user subscriptions for your Amazon Q Business application environment.
 

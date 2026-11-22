@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Key management
-<a name="key-management"></a>
 
 Amazon Q Business encrypts the contents of your index using the following types of keys:
 + An AWS-owned AWS KMS. This is the default.

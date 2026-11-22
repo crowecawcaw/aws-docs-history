@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Setting up Google Workspace authentication
-<a name="gmail-prereqs-google"></a>
 
 Complete these steps in your Google Workspace environment to prepare for the Amazon Q Business connection:
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Built-in plugins for Amazon Q Business
-<a name="built-in-plugin"></a>
 
 Built-in plugins have already been built by Amazon Q Business for common use cases across Jira, Salesforce, ServiceNow, and Zendesk. Amazon Q supports the following built-in plugins and actions:
 + **Asana ** – Create and update tasks.

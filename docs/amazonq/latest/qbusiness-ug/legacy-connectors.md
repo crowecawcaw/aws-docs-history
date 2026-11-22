@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Legacy connectors
-<a name="legacy-connectors"></a>
 
 The following connectors remain supported for existing customers but are no longer available for new onboarding. Support for existing usage will continue until May 31, 2026:
 + [AEM (Cloud)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/aem-cloud-connector.html)

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Agentic Retrieval Augmented Generation (RAG) in Amazon Q Business
-<a name="agentic-rag"></a>
 
 Agentic RAG enhances the standard RAG workflow of Amazon Q Business with agentic retrieval and response capabilities. Unlike standard RAG's document retrieval and simple response generation process, Agentic RAG uses multiple intelligent agents and specialized data retrieval tools to deliver more comprehensive and accurate responses while maintaining conversation context.
 

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using the Amazon Q Business browser extension
-<a name="using-browser-extension"></a>
 
 The browser extension is available to Amazon Q Business users on Google Chrome, Mozilla Firefox, and Microsoft Edge browsers.
 

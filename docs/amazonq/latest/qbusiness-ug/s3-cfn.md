@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Amazon S3 using AWS CloudFormation
-<a name="s3-cfn"></a>
 
 You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
@@ -56,7 +55,7 @@ The following is the Amazon S3 JSON schema and examples for the configuration pr
 
 The following is the Amazon S3 JSON schema for the configuration property for CloudFormation.
 
-```
+```json
 {
   "type": "object",
   "properties": {
@@ -184,7 +183,7 @@ The following is the Amazon S3 JSON schema for the configuration property for Cl
 
 The following is the Amazon S3 JSON example for the Configuration property for CloudFormation.
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "CloudFormation Amazon S3 Data Source Template",
@@ -245,7 +244,7 @@ The following is the Amazon S3 YAML schema and examples for the configuration pr
 
 The following is the Amazon S3 YAML schema for the configuration property for CloudFormation.
 
-```
+```yaml
 type: object
 properties:
   type:
@@ -338,7 +337,7 @@ required:
 
 The following is the Amazon S3 YAML example for the Configuration property for CloudFormation:
 
-```
+```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "CloudFormation Amazon S3 Data Source Template"
 Resources:

@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # How Amazon Q Business connector crawls Aurora (PostgreSQL) ACLs
-<a name="aurora-postgresql-user-management"></a>
 
 When you connect a database data source to Amazon Q Business, Amazon Q Business crawls user and group information from a column in the source table. You specify this column in the console or using the `configuration` parameter as part of the `CreateDataSource` operation.
 

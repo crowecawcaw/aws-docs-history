@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using the web experience to create and run Amazon Q Apps
-<a name="purpose-built-qapps-web-experience"></a>
 
 After you enable Amazon Q Apps in the console, web experience users can then start creating, running, and publishing their own purpose-built Q Apps.
 

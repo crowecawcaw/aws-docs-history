@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Best practices for OpenAPI schema definition for custom plugins
-<a name="plugins-api-schema-best-practices"></a>
 
 While application programming interfaces (APIs) have traditionally been used by developers to integrate with external applications, today APIs are increasingly being used by generative AI-powered assistants, such as Amazon Q Business custom plugins. However, its important to note that APIs being used with AI assistants may require design optimizations that were not critical for traditional application integrations. Following the best practices below will help Amazon Q Business to maximize the accuracy and improve efficiency when resolving end user requests.
 
@@ -85,7 +84,7 @@ This section shows you an example of an API schema before and after our best pra
 
 The following is the example unoptimized API Schema:
 
-```
+```json
 openapi: 3.0.3
 info:
   # title is too long

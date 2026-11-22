@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Adding document metadata in Amazon S3
-<a name="s3-metadata"></a>
 
 To customize chat results for your end users, you can add metadata or document attributes to documents in an Amazon S3 bucket by using a metadata file. Metadata is additional information about a document, such as its title and the date and time it was created. To learn more about metadata in Amazon Q Business, see [Document attributes in Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-attributes.html).
 
@@ -56,7 +55,7 @@ You define your document metadata itself in a JSON file. The file must be a UTF-
 
 The content of the JSON file uses the following template:
 
-```
+```json
 {
     "DocumentId": "{{document ID}}",
     "Attributes": {

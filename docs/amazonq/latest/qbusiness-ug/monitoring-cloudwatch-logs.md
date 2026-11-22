@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Monitoring Amazon Q Business user conversations with Amazon CloudWatch Logs
-<a name="monitoring-cloudwatch-logs"></a>
 
 You can use [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) to deliver user conversations and response feedback in Amazon Q Business for you to analyze. These logs can be delivered to multiple destinations, such as Amazon CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply). We recommend that you set up conversation and feedback logging within five minutes of creating your Amazon Q Business application environment. 
 

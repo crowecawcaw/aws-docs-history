@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Managing subscriptions for an Amazon Q Business application using APIs
-<a name="subscription-management-api"></a>
 
 Amazon Q Business provides APIs to manage subscriptions in your Amazon Q Business application. You can use these APIs to implement your own subscription management solution if you create a Amazon Q Business application environment programmatically.
 

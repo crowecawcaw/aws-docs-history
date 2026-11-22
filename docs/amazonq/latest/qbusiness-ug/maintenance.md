@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Maintenance updates for Amazon Q Business
-<a name="maintenance"></a>
 
 Amazon Q Business periodically performs maintenance updates on its resources. Maintenance most often involves updates to the Amazon Q Business index for security fixes, bug fixes, and other performance enhancements.
 

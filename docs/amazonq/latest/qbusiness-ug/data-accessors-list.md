@@ -3,7 +3,6 @@
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # A list of verified software providers who are data accessors
-<a name="data-accessors-list"></a>
 
 The following are the *verified* independent software vendors (ISVs) that are data accessors.
 + **Asana** — [Data accessor configuration registration page](https://help.asana.com/s/article/amazon-q?language=en_US)
