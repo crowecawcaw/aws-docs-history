@@ -1,7 +1,6 @@
 
 
 # Module 2: Add the Past Trips feature
-<a name="module-2"></a>
 
 ## Overview
 <a name="overview"></a>

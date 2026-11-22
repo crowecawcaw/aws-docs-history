@@ -1,7 +1,6 @@
 
 
 # Build a Flutter Mobile App Using AWS Amplify - Part 2
-<a name="build-flutter-mobile-app-part-2"></a>
 
 **Use nested data and Amplify functions to create a trip planner app for iOS and Android**
 

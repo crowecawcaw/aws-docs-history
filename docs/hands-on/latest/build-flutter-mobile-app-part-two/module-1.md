@@ -1,7 +1,6 @@
 
 
 # Module 1: Clone the Flutter app
-<a name="module-1"></a>
 
 ## Overview
 <a name="overview"></a>

@@ -1,7 +1,6 @@
 
 
 # Module 4: Add the Profile feature
-<a name="module-4"></a>
 
 ## Overview
 <a name="overview"></a>
