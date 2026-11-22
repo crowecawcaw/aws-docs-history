@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Prerequisites to use AWS Microservice Extractor for .NET
-<a name="microservice-extractor-prerequisites"></a>
 
 **Topics**
 + [Prerequisites for analysis and extraction](#microservice-extractor-prerequisites-analysis-extraction)
@@ -56,7 +55,7 @@ To provide access, add permissions to your users, groups, or roles:
 
 To use the AWS Microservice Extractor for .NET assessment tool, you must create an IAM policy that includes the following permissions. To view the type of application data collected by Microservice Extractor, see [Information collected](microservice-extractor-information-collected.md).
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

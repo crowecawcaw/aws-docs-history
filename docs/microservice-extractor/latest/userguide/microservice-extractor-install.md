@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Install AWS Microservice Extractor for .NET
-<a name="microservice-extractor-install"></a>
 
 This topic describes how to install AWS Microservice Extractor for .NET. It includes steps to configure prerequisites to use the runtime profiling agent on your application. You must configure the runtime profiling prerequisites after you download the Microservice Extractor installer.
 
@@ -22,13 +21,13 @@ For optional integrity detection, you can download the SHA256 checksum of the in
 
 To use the checksum file, calculate the SHA256 on your downloaded `.exe` file to compare against the output of the following PowerShell command:
 
-```
+```powershell
 Get-FileHash -Algorithm SHA256 Service-Extract.exe
 ```
 
 You can verify the authenticity of the signatures of the Microservice Extractor `.exe` file by running the following command, which verifies that a valid certificate is contained in the file.
 
-```
+```powershell
 Get-AuthenticodeSignature <file-name>
 ```
 

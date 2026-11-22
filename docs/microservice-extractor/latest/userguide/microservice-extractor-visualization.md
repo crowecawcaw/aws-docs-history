@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Visualization
-<a name="microservice-extractor-visualization"></a>
 
 AWS Microservice Extractor for .NET creates a visualization of the monolithic application nodes, the metrics for each node, and the dependencies between them. Depending on the visualization level, a node could mean an aggregation of related objects such as projects, namespaces, logical groups of classes, or individual classes. It provides data on the application structure required to help you decide what parts of the application you want to extract as smaller, independent services. You can use the visualization to perform the following:
 + **Isolate dependencies ** — Use the visualization to help you isolate dependencies and automatically capture interdependencies to create groups of closely related nodes. Nodes within each group rely on other nodes within the group.

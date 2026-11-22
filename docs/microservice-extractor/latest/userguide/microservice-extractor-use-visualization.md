@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Work with the application visualization
-<a name="microservice-extractor-use-visualization"></a>
 
 The **Visualization** tab displays the application nodes and dependencies in graphical format. The initial view on the **Visualization **tab is the main view. The circles represent nodes, and the arrows show dependencies and direction between nodes, incoming or outgoing. By default, no groups are created. The main view reflects any updates you make to your groupings. 
 
