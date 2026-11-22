@@ -1,7 +1,6 @@
 
 
 # Terms and concepts for Multi-party approval
-<a name="mpa-concepts"></a>
 
 To help you understand Multi-party approval, this topic describes some of the key terms and concepts.
 

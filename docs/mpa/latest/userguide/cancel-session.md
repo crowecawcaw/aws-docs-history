@@ -1,7 +1,6 @@
 
 
 # Cancel an approval session
-<a name="cancel-session"></a>
 
 When you sign in to your organization's management account, you can cancel an approval session by navigating to the Multi-party approval console.
 
@@ -53,19 +52,19 @@ You can use one of the following operations:
 
   1. Run the following command to return a list of Amazon Resource Names (ARNs) for your teams:
 
-     ```
+     ```bash
      $ C:\> aws mpa list-approval-teams
      ```
 
   1. Run the following command to get the Amazon Resource Name (ARN) for the session with the pending update from the relevant team:
 
-     ```
+     ```bash
      $ C:\> aws mpa get-approval-team --arn arn:aws:mpa:{{region}}:{{123456789012}}:approval-team/{{TeamName-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
      ```
 
   1. Run the following command to cancel a session:
 
-     ```
+     ```bash
      $ C:\> aws mpa cancel-session \
        --arn arn:aws:mpa:{{region}}:{{123456789012}}:session/{{TeamName-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
      ```

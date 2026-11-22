@@ -1,7 +1,6 @@
 
 
 # Administrator tasks for Multi-party approval
-<a name="administrator"></a>
 
 As an administrator, you are responsible for managing and creating approval teams. When you create a team, you set the initial approval requirements and invite approvers to join the team.
 

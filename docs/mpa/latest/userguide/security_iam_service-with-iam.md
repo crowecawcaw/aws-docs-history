@@ -1,7 +1,6 @@
 
 
 # How Multi-party approval works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Multi-party approval, learn what IAM features are available to use with Multi-party approval.
 

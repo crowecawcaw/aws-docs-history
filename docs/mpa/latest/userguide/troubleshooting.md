@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 To help you understand Multi-party approval, this topic describes troubleshooting scenarios.
 

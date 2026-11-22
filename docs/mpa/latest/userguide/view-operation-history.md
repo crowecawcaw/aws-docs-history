@@ -1,7 +1,6 @@
 
 
 # View operation history
-<a name="view-operation-history"></a>
 
 When you sign in to the Multi-party approval portal, you can view the operation history for recent approval sessions. History can be retrieved for up to one month.
 

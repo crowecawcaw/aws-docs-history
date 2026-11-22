@@ -1,7 +1,6 @@
 
 
 # Create an approval team
-<a name="create-team"></a>
 
 When you sign in to your organization's management account, you can create approval teams by navigating to the Multi-party approval console.
 
@@ -59,7 +58,7 @@ You can use one of the following operations:
 
   1. Run the following command to return a list of Amazon Resource Names (ARNs) for your IAM Identity Center instances:
 
-     ```
+     ```bash
      $ C:\> aws sso-admin list-instances
      ```
 
@@ -67,7 +66,7 @@ You can use one of the following operations:
 
   1. Run the following command to return a list of user IDs from the IAM Identity Center identity store of your choice:
 
-     ```
+     ```bash
      $ C:\> aws identitystore list-users --identity-store-id {{identitystoreId}}
      ```
 
@@ -75,7 +74,7 @@ You can use one of the following operations:
 
   1. Run the following command to return the Amazon Resource Name (ARN) for your Multi-party approval identity source:
 
-     ```
+     ```bash
      $ C:\> aws mpa list-identity-sources
      ```
 
@@ -83,7 +82,7 @@ You can use one of the following operations:
 
   1. Run the following command to create a team:
 
-     ```
+     ```bash
      $ C:\> aws mpa create-approval-team \
        --name "{{MyTeam}}" \
        --description "{{Description for my team}}" \

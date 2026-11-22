@@ -1,7 +1,6 @@
 
 
 # Region support
-<a name="mpa-region-support"></a>
 
 To use Multi-party approval, you must create [approval teams](mpa-concepts.md#mpa-team-term) and the [identity source](mpa-concepts.md#mpa-identity-source) in the US East (N. Virginia) Region. For more information about AWS Regions, see [Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html?icmpid=docs_homepage_addtlrcs#region) in the *AWS Glossary Reference*.
 

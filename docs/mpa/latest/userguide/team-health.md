@@ -1,7 +1,6 @@
 
 
 # Team health for Multi-party approval
-<a name="team-health"></a>
 
 To help you understand Multi-party approval, this topic describes statuses for Multi-party approval and the monthly report sent to Multi-party approval administrators.
 

@@ -1,7 +1,6 @@
 
 
 # Disable Multi-party approval
-<a name="delete-identity-source"></a>
 
 When you sign in to your organization's management account, you can disable Multi-party approval by navigating to the Multi-party approval console and deleting the Multi-party approval identity source.
 
@@ -54,13 +53,13 @@ You can use one of the following operations:
 
   1. Run the following command to return a list of Amazon Resource Names (ARNs) for your identity sources:
 
-     ```
+     ```bash
      $ C:\> aws mpa list-identity-sources
      ```
 
   1. Run the following command to delete an identity source:
 
-     ```
+     ```bash
      $ C:\> aws mpa delete-identity-source \
        --identity-source-arn arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter
      ```

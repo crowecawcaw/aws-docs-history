@@ -1,7 +1,6 @@
 
 
 # What is Multi-party approval?
-<a name="what-is"></a>
 
 **Security through approval**
 

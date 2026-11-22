@@ -1,7 +1,6 @@
 
 
 # View an approval team
-<a name="admin-view-team"></a>
 
 When you sign in to your organization's management account, you can view your approval teams and teams that have been shared with you by navigating to the Multi-party approval console.
 
@@ -49,13 +48,13 @@ You can use one of the following operations:
 
   1. Run the following command to return a list of Amazon Resource Names (ARNs) for your teams:
 
-     ```
+     ```bash
      $ C:\> aws mpa list-approval-teams
      ```
 
   1. Run the following command to view details for a team:
 
-     ```
+     ```bash
      $ C:\> aws mpa get-approval-team --arn arn:aws:mpa:{{region}}:{{123456789012}}:approval-team/{{TeamName-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
      ```
 + AWS SDKs: [ListApprovalTeams](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListApprovalTeams.html) and [GetApprovalTeam](https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetApprovalTeam.html)

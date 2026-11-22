@@ -1,7 +1,6 @@
 
 
 # View an approval team
-<a name="approver-view-team"></a>
 
 When you sign in to the Multi-party approval portal, you can view approval teams you belong to.
 

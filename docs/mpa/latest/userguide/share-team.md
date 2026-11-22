@@ -1,7 +1,6 @@
 
 
 # Share an approval team
-<a name="share-team"></a>
 
 Multi-party approval works with [AWS Resource Access Manager (AWS RAM)](https://aws.amazon.com/ram) to enable resource sharing. Sharing allows other AWS accounts to use or access approval teams you have created. For example, if you want the requester to have access to details about an approval session, you must share the associated approval team.
 
@@ -73,7 +72,7 @@ You can use one of the following operations:
 
   Run the following command to return a list of Amazon Resource Names (ARNs) for your teams:
 
-  ```
+  ```bash
   $ C:\> aws mpa list-approval-teams
   ```
 
