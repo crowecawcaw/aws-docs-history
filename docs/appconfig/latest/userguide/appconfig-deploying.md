@@ -1,7 +1,6 @@
 
 
 # Deploying a configuration
-<a name="appconfig-deploying"></a>
 
 After you [create required artifacts](https://docs.aws.amazon.com/appconfig/latest/userguide/creating-feature-flags-and-configuration-data.html) for working with feature flags and freeform configuration data, you can create a new deployment by using the AWS Management Console, the AWS CLI, or the SDK. Starting a deployment in AWS AppConfig calls the [StartDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html) API operation. This call includes the IDs of the AWS AppConfig application, the environment, the configuration profile, and (optionally) the configuration data version to deploy. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed.
 
@@ -87,7 +86,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Start-APPCDeployment `
      -ApplicationId {{The_application_ID}} `
      -ConfigurationProfileId {{The_configuration_profile_ID}} `

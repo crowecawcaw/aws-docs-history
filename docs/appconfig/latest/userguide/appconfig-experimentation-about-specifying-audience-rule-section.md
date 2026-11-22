@@ -1,7 +1,6 @@
 
 
 # Creating audience rules
-<a name="appconfig-experimentation-about-specifying-audience-rule-section"></a>
 
 The **Audience rule** section includes a **Rule builder** tab and an **Editor** tab for creating rules to target an audience for the experiment.
 

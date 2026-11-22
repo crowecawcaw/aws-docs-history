@@ -1,7 +1,6 @@
 
 
 # Logging metrics for AWS AppConfig data plane calls
-<a name="monitoring-data-plane-call-logging"></a>
 
 If you configured AWS CloudTrail to log AWS AppConfig data events, you can enable Amazon CloudWatch Logs to log metrics for calls to the AWS AppConfig data plane. You can then search and filter log data in CloudWatch Logs by creating one or more metric filters. Metric filters define the terms and patterns to look for in log data as it is sent to CloudWatch Logs. CloudWatch Logs uses metric filters to turn log data into numerical CloudWatch metrics. You can graph metrics or configure them with an alarm.
 

@@ -1,7 +1,6 @@
 
 
 # Creating or updating a freeform configuration stored in the hosted configuration store
-<a name="appconfig-code-samples-creating-freeform"></a>
 
 Each of the following samples includes comments about the actions performed by the code. The samples in this section call the following APIs:
 + [CreateApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateApplication.html)
@@ -11,7 +10,7 @@ Each of the following samples includes comments about the actions performed by t
 ------
 #### [ Java ]
 
-```
+```java
 public CreateHostedConfigurationVersionResponse createHostedConfigVersion() {
         AppConfigClient appconfig = AppConfigClient.create();
 
@@ -39,7 +38,7 @@ public CreateHostedConfigurationVersionResponse createHostedConfigVersion() {
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 
 appconfig = boto3.client('appconfig')
@@ -65,7 +64,7 @@ hcv = appconfig.create_hosted_configuration_version(
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 import {
   AppConfigClient,
   CreateApplicationCommand,

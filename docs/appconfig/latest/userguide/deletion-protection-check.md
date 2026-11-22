@@ -1,7 +1,6 @@
 
 
 # Bypassing or forcing a deletion protection check
-<a name="deletion-protection-check"></a>
 
 To help you manage deletion protection, the [DeleteEnvironment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteEnvironment.html) and [DeleteConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteConfigurationProfile.html) APIs include a parameter called `DeletionProtectionCheck`. This parameter supports the following values:
 + `BYPASS`: Instructs AWS AppConfig to bypass the deletion protection check and delete a configuration profile even if deletion protection would have otherwise prevented it. 

@@ -1,7 +1,6 @@
 
 
 # Experimentation terminology
-<a name="appconfig-experimentation-terminology"></a>
 
 Familiarize yourself with the following terminology and concepts before you begin working with AWS AppConfig experimentation.
 

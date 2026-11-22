@@ -1,7 +1,6 @@
 
 
 # Creating a feature flag configuration profile (console)
-<a name="appconfig-creating-feature-flag-configuration-create-console"></a>
 
 Use the following procedure to create an AWS AppConfig feature flag configuration profile by using the AWS AppConfig console. At the time you create the configuration profile, you can also create a basic feature flag. 
 

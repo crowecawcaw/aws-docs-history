@@ -1,7 +1,6 @@
 
 
 # Additional resources
-<a name="what-is-additional-resources"></a>
 
 The following resources can help you learn more about AWS AppConfig.
 

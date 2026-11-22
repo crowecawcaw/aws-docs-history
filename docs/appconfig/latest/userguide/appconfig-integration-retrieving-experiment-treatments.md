@@ -1,7 +1,6 @@
 
 
 # Retrieving experiment treatments
-<a name="appconfig-integration-retrieving-experiment-treatments"></a>
 
 When an experiment runs on a feature flag, you retrieve the assigned treatment the same way you retrieve any feature flag from AWS AppConfig Agent. This requires two additions: you identify the entity, and you provide the caller context that your experiment audience rule evaluates.
 
@@ -22,7 +21,7 @@ curl "http://localhost:2772/applications/MyApp/environments/MyEnv/configurations
 
 If `user123` is assigned to treatment `t1`, the agent returns a response like the following:
 
-```
+```json
 {
   "_variant": "__t1__",
   "enabled": true

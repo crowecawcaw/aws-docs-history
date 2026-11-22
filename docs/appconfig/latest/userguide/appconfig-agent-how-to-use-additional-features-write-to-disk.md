@@ -1,7 +1,6 @@
 
 
 # Configuring AWS AppConfig Agent to write configuration copies to disk
-<a name="appconfig-agent-how-to-use-additional-features-write-to-disk"></a>
 
 You can configure AWS AppConfig Agent to automatically store a copy of a configuration to disk in plain text. This feature enables customers with applications that read configuration data from disk to integrate with AWS AppConfig.
 

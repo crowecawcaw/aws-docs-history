@@ -1,7 +1,6 @@
 
 
 # How to use AWS AppConfig Agent to retrieve configuration data
-<a name="appconfig-agent-how-to-use"></a>
 
 The AWS AppConfig Agent is the recommended method for retrieving AWS AppConfig feature flags or free form configuration data. The agent is supported on all forms of AWS Compute including Amazon EC2, Amazon ECS, Amazon EKS, and Lambda. After you complete the initial agent set up, using the agent to retrieve configuration data is simpler than directly calling AWS AppConfig APIs. The agent automatically implements best practices and may lower your cost of using AWS AppConfig as a result of fewer API calls to retrieve configurations.
 
@@ -11,7 +10,7 @@ Retrieving configuration data from a separate AWS account isn't supported.
 ## Using AWS AppConfig Agent for user- or entity-based gradual deployments
 <a name="appconfig-entity-based-gradual-deployments"></a>
 
-AWS AppConfig Agent supports deploying feature flag or free-form configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests.
+AWS AppConfig Agent supports deploying feature flag, free-form, and AI configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests.
 
 With entity-based gradual deployments, AWS AppConfig Agent evaluates a unique identifier (`Entity-Id`) supplied with each HTTP request. Based on this identifier, the agent consistently serves either the new or previous configuration version throughout the deployment period. This process ensures that once a user receives the updated configuration, they continue to receive it. It also ensures that rollback alarms have sufficient time and data to detect issues.
 

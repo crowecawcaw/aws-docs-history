@@ -1,7 +1,6 @@
 
 
 # Using the GetLatestConfiguration API action to read a freeform configuration profile
-<a name="appconfig-code-samples-using-API-read-configuration"></a>
 
 Each of the following samples includes comments about the actions performed by the code. The samples in this section call the following APIs:
 + [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetLatestConfiguration.html)
@@ -10,7 +9,7 @@ Each of the following samples includes comments about the actions performed by t
 ------
 #### [ Java ]
 
-```
+```java
 /*
 The example below uses two AWS AppConfig Data APIs: StartConfigurationSession and GetLatestConfiguration.
 For more information about these APIs, see [AWS AppConfig Data](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.html).
@@ -148,7 +147,7 @@ public class AppConfigApiRetriever {
 ------
 #### [ Python ]
 
-```
+```python
 # The example below uses two AWS AppConfig Data APIs: StartConfigurationSession and GetLatestConfiguration.
 # For more information about these APIs, see [AWS AppConfig Data](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.html).
 #
@@ -254,7 +253,7 @@ class AppConfigApiRetriever:
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 /*
 The example below uses two AWS AppConfig Data APIs: StartConfigurationSession and GetLatestConfiguration.
 For more information about these APIs, see [AWS AppConfig Data](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.html)

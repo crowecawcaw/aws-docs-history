@@ -1,7 +1,6 @@
 
 
 # Creating multi-variant feature flags
-<a name="appconfig-creating-multi-variant-feature-flags"></a>
 
 Feature flag variants enable you to define a set of possible flag values to return for a request. You can also configure different statuses (enabled or disabled) for multi-variant flags. When requesting a flag configured with variants, your application provides context that AWS AppConfig evaluates against a set of user-defined rules. Depending on the context specified in the request and the rules defined for the variant, AWS AppConfig returns different flag values to the application.
 

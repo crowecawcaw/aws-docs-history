@@ -1,7 +1,6 @@
 
 
 # Deploying a configuration profile
-<a name="appconfig-code-samples-deploying"></a>
 
 Each of the following samples includes comments about the actions performed by the code. The samples in this section call the following APIs:
 + [CreateApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateApplication.html)
@@ -14,7 +13,7 @@ Each of the following samples includes comments about the actions performed by t
 ------
 #### [ Java ]
 
-```
+```java
 private void createDeployment() throws InterruptedException {
         AppConfigClient appconfig = AppConfigClient.create();
 
@@ -78,7 +77,7 @@ private void createDeployment() throws InterruptedException {
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 
 appconfig = boto3.client('appconfig')
@@ -117,7 +116,7 @@ deployment = appconfig.start_deployment(
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 import {
   AppConfigClient,
   CreateApplicationCommand,

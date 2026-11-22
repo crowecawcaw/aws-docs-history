@@ -1,7 +1,6 @@
 
 
 # Creating and running an experiment
-<a name="appconfig-experimentation-creating"></a>
 
 This section describes how to create and run an experiment using AWS AppConfig experimentation. For more detailed information about the concepts discussed in each of the following steps, see [About experiments in AWS AppConfig](appconfig-experimentation-about.md).
 

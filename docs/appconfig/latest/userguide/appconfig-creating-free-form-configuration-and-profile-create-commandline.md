@@ -1,7 +1,6 @@
 
 
 # Creating an AWS AppConfig freeform configuration profile (command line)
-<a name="appconfig-creating-free-form-configuration-and-profile-create-commandline"></a>
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or AWS Tools for PowerShell to create an AWS AppConfig freeform configuration profile. If you prefer, you can use AWS CloudShell to run the commands listed below. For more information, see [What is AWS CloudShell?](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html) in the *AWS CloudShell User Guide*.
 
@@ -45,7 +44,7 @@ For freeform configurations hosted in the AWS AppConfig hosted configuration sto
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-APPCConfigurationProfile `
      -Name {{NAME}} `
      -ApplicationId {{APPLICATION_ID}} `

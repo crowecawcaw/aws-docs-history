@@ -1,9 +1,13 @@
 
 
 # Retrieving feature flags and configuration data in AWS AppConfig
-<a name="retrieving-feature-flags"></a>
 
-Your application retrieves feature flags and free form configuration data by establishing a configuration session using the AWS AppConfig Data service. We recommended you use AWS AppConfig Agent to retrieve configuration data. The agent (or the AWS AppConfig Agent Lambda extension for Lambda compute environments) manages a series of API calls and session tokens on your behalf. From a high level, the process works as follows:
+Your application retrieves feature flags, free form configuration data, and AI configurations by establishing a configuration session using the AWS AppConfig Data service. We strongly recommend that you use AWS AppConfig Agent to retrieve configuration data. The agent (or the AWS AppConfig Agent Lambda extension for Lambda compute environments) manages a series of API calls and session tokens on your behalf, and it implements best practices for configuration retrieval on your behalf, including the following:
++ **Caching** – The agent caches your configuration data locally, so your application retrieves data from the local cache instead of calling AWS AppConfig on every request. This reduces latency and API calls.
++ **Background polling** – The agent polls AWS AppConfig for configuration updates in the background and refreshes its cache automatically, so your application receives new configuration data without implementing its own polling logic.
++ **Static stability** – If your application can't reach the AWS AppConfig service, the agent continues to serve the last known good configuration from its cache. Your application keeps running with the most recent configuration it received instead of failing.
+
+From a high level, the process works as follows:
 
 1. You configure AWS AppConfig Agent as a local host and have the agent poll AWS AppConfig for configuration updates.
 

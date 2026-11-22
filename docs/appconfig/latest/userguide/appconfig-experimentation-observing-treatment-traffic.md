@@ -1,7 +1,6 @@
 
 
 # Observing treatment traffic
-<a name="appconfig-experimentation-observing-treatment-traffic"></a>
 
 AWS AppConfig Agent collects aggregated treatment assignment counts and emits them as CloudWatch metrics in your account through a service-linked role that AWS AppConfig manages. There is no additional charge for these metrics.
 + Namespace: `AWS/AppConfig`

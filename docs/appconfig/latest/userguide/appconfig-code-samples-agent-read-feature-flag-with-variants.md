@@ -1,14 +1,13 @@
 
 
 # Using AWS AppConfig Agent to retrieve a feature flag with variants
-<a name="appconfig-code-samples-agent-read-feature-flag-with-variants"></a>
 
 Each of the following samples includes comments about the actions performed by the code.
 
 ------
 #### [ Java ]
 
-```
+```java
 public static void retrieveConfigFromAgentWithVariants() throws Exception {
     /*
     This sample retrieves feature flag configuration data 
@@ -43,7 +42,7 @@ public static void retrieveConfigFromAgentWithVariants() throws Exception {
 ------
 #### [ Python ]
 
-```
+```python
 # This sample retrieve features flag configuration data 
 # containing variants from AWS AppConfig Agent.
 
@@ -70,7 +69,7 @@ print("Configuration from agent via HTTP: ", response.json())
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 // This sample retrieves feature flag configuration data 
 // containing variants from AWS AppConfig Agent.
 

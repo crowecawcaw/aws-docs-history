@@ -1,7 +1,6 @@
 
 
 # Cleaning up an experiment
-<a name="appconfig-experimentation-archiving-or-deleting"></a>
 
 After an experiment completes, you can archive or permanently delete the experiment definition.
 + **Archive** – The experiment definition is hidden from the active list but can be restored later. The experiment feature flag remains deployed and continues serving its current configuration. To stop serving the flag, disable it separately in your feature flag configuration.

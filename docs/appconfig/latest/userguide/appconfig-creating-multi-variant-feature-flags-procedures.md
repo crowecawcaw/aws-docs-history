@@ -1,7 +1,6 @@
 
 
 # Creating a multi-variant feature flag
-<a name="appconfig-creating-multi-variant-feature-flags-procedures"></a>
 
 Use the procedures in this section to create variants of a feature flag.
 
@@ -227,7 +226,7 @@ Complete the following tasks before you create a multi-variant feature flag by u
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-APPCHostedConfigurationVersion `
      -ApplicationId {{APPLICATION_ID}} `
      -ConfigurationProfileId {{CONFIGURATION_PROFILE_ID}} `

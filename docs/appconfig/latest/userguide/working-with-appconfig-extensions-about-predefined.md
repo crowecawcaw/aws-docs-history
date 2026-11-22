@@ -1,7 +1,6 @@
 
 
 # Working with AWS authored extensions
-<a name="working-with-appconfig-extensions-about-predefined"></a>
 
 AWS AppConfig includes the following AWS authored extensions. These extensions can help you integrate the AWS AppConfig workflow with other services. You can use these extensions in the AWS Management Console or by calling extension [API actions](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_Operations.html) directly from the AWS CLI, AWS Tools for PowerShell, or the SDK.
 

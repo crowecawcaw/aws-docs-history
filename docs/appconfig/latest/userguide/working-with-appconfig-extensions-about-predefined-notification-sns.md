@@ -1,7 +1,6 @@
 
 
 # Using the AWS AppConfig deployment events to Amazon SNS extension
-<a name="working-with-appconfig-extensions-about-predefined-notification-sns"></a>
 
 The `AWS AppConfig deployment events to Amazon SNS` extension is an AWS authored extension that helps you monitor and act on the AWS AppConfig configuration deployment workflow. The extension publishes messages to an Amazon SNS topic whenever a configuration is deployed. After you associate the extension to one of your AWS AppConfig applications, environments, or configuration profiles, AWS AppConfig publishes a message to the topic after every configuration deployment start, end, and rollback.
 

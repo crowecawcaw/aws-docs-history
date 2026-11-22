@@ -1,7 +1,6 @@
 
 
 # Using a manifest to enable additional retrieval features
-<a name="appconfig-agent-how-to-use-additional-features"></a>
 
 AWS AppConfig Agent offers the following additional features to help you retrieve configurations for your applications. 
 + [Configuring AWS AppConfig Agent to retrieve configurations from multiple accounts](appconfig-agent-how-to-use-additional-features-multi-account.md): Use AWS AppConfig Agent from a primary or *retrieval* AWS account to retrieve configuration data from multiple vendor accounts. 

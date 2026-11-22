@@ -1,7 +1,6 @@
 
 
 # Saving a previous feature flag version to a new version
-<a name="appconfig-creating-configuration-profile-feature-flags-editing-version"></a>
 
 When you update a feature flag, AWS AppConfig automatically saves your changes to a new version. If you want to use a previous feature flag version, you must copy it to a draft version and then save it. You can't edit and save changes to a previous flag version without saving it to a new version. 
 

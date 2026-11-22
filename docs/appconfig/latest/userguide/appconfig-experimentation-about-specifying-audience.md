@@ -1,7 +1,6 @@
 
 
 # Specifying the target audience for the experiment
-<a name="appconfig-experimentation-about-specifying-audience"></a>
 
 The target audience defines which users are eligible to be assigned to treatments during an experiment run. Selecting the right audience is important for collecting reliable data, reducing risk, and ensuring that experiment results apply to your production environment. When you configure an experiment, choose an audience that is appropriate for the change you are evaluating and the outcomes you want to measure. Consider the following important details for selecting a target audience:
 

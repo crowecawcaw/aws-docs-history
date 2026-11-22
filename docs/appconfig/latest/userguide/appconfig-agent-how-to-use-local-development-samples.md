@@ -1,7 +1,6 @@
 
 
 # Feature flag samples for AWS AppConfig Agent local development mode
-<a name="appconfig-agent-how-to-use-local-development-samples"></a>
 
 This section includes feature flag samples you can use with AWS AppConfig Agent in local development mode. Local development mode expects feature flag data in the data's retrieval-time format. *Retrieval-time format* is the format returned when the flag is retrieved from the [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) API, which only contains the flag's value. Retrieval-time format doesn't include a flag's complete definition (as passed to the [CreateHostedConfigurationVersion](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.html) API). The complete definition for a flag also contains information such as attribute names and values, constraints, and the flag's enabled state. 
 

@@ -1,7 +1,6 @@
 
 
 # Understanding multi-variant feature flag concepts and common use cases
-<a name="appconfig-creating-multi-variant-feature-flags-concepts"></a>
 
 To help you better understand feature flag variants, this section explains flag variant concepts and common use cases.
 

@@ -1,7 +1,6 @@
 
 
 # About data collection
-<a name="appconfig-experimentation-about-data-collection"></a>
 
 Although AWS AppConfig experimentation provides aggregate treatment traffic metrics on your experiment, it does not provide analytics for experiment results. The experiment dashboard includes real-time monitoring of experiment traffic. You can view audience exposure levels, treatment allocation over time, and traffic distribution across treatments. For more information, see [Observing treatment traffic](appconfig-experimentation-observing-treatment-traffic.md).
 

@@ -1,7 +1,6 @@
 
 
 # Using code samples to perform common AWS AppConfig tasks
-<a name="appconfig-code-samples"></a>
 
 This section includes code samples for programmatically performing common AWS AppConfig actions. We recommend you use these samples with the [Java](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appconfig/package-summary.html), [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig.html), and [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppConfig.html) SDKs to perform the actions in a test environment. This section includes a code sample for cleaning up your test environment after you finish. 
 

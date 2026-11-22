@@ -1,7 +1,6 @@
 
 
 # Creating a configuration profile for non-native data sources
-<a name="appconfig-creating-configuration-profile-other-data-sources"></a>
 
 AWS AppConfig supports deploying configuration data from most any data store. Natively, AWS AppConfig supports deploying configuration data stored in the following services:
 + The AWS AppConfig hosted configuration store

@@ -1,7 +1,6 @@
 
 
 # Step 4: Create an extension association for a custom AWS AppConfig extension
-<a name="working-with-appconfig-extensions-creating-custom-association"></a>
 
 To create an extension, or configure an AWS authored extension, you define the action points that invoke an extension when a specific AWS AppConfig resource is used. For example, you can choose to run the `AWS AppConfig deployment events to Amazon SNS` extension and receive notifications on an Amazon SNS topic anytime a configuration deployment is started for a specific application. Defining which action points invoke an extension for a specific AWS AppConfig resource is called an *extension association*. An extension association is a specified relationship between an extension and an AWS AppConfig resource, such as an application or a configuration profile.
 

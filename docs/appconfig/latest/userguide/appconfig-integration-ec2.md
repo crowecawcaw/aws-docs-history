@@ -1,7 +1,6 @@
 
 
 # Using AWS AppConfig Agent with Amazon EC2 and on-premises machines
-<a name="appconfig-integration-ec2"></a>
 
 You can integrate AWS AppConfig with applications running on your Amazon Elastic Compute Cloud (Amazon EC2) Linux instances by using AWS AppConfig Agent. The agent enhances application processing and management in the following ways:
 + The agent calls AWS AppConfig on your behalf by using an AWS Identity and Access Management (IAM) role and managing a local cache of configuration data. By pulling configuration data from the local cache, your application requires fewer code updates to manage configuration data, retrieves configuration data in milliseconds, and isn't affected by network issues that can disrupt calls for such data.\*
@@ -22,7 +21,7 @@ You can integrate AWS AppConfig with applications running on your Amazon Elastic
 ## Step 1: (Required) Creating resources and configuring permissions
 <a name="appconfig-integration-ec2-resources-and-permissions"></a>
 
-To integrate AWS AppConfig with applications running on your Amazon EC2 instances, you must create AWS AppConfig artifacts and configuration data, including feature flags or freeform configuration data. For more information, see [Creating feature flags and free form configuration data in AWS AppConfig](creating-feature-flags-and-configuration-data.md).
+To integrate AWS AppConfig with applications running on your Amazon EC2 instances, you must create AWS AppConfig artifacts and configuration data, including feature flags or freeform configuration data. For more information, see [Creating configuration data with AWS AppConfig](creating-feature-flags-and-configuration-data.md).
 
 To retrieve configuration data hosted by AWS AppConfig, your applications must be configured with access to the AWS AppConfig data plane. To give your applications access, update the IAM permissions policy that is assigned to the Amazon EC2 instance role. Specifically, you must add the `appconfig:StartConfigurationSession` and `appconfig:GetLatestConfiguration` actions to the policy. Here is an example:
 
@@ -31,7 +30,7 @@ To retrieve configuration data hosted by AWS AppConfig, your applications must b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Extending AWS AppConfig workflows using extensions
-<a name="working-with-appconfig-extensions"></a>
 
 An extension augments your ability to inject logic or behavior at different points during the AWS AppConfig workflow of creating or deploying a configuration. For example, you can use extensions to perform the following types of tasks (to name a few):
 + Send a notification to an Amazon Simple Notification Service (Amazon SNS) topic when a configuration profile is deployed.

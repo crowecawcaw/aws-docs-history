@@ -1,7 +1,6 @@
 
 
 # Creating a free form configuration profile in AWS AppConfig
-<a name="appconfig-free-form-configurations-creating"></a>
 
 *Configuration data* is a collection of settings that influence the behavior of your application. A *configuration profile* includes, among other things, a URI that enables AWS AppConfig to locate your configuration data in its stored location and a configure type. With freeform configuration profiles, you can store your data in the AWS AppConfig hosted configuration store or any of the following AWS services and Systems Manager tools:
 

@@ -1,7 +1,6 @@
 
 
 # Using the AWS AppConfig deployment events to Amazon SQS extension
-<a name="working-with-appconfig-extensions-about-predefined-notification-sqs"></a>
 
 The `AWS AppConfig deployment events to Amazon SQS` extension is an AWS authored extension that helps you monitor and act on the AWS AppConfig configuration deployment workflow. The extension enqueues messages into your Amazon Simple Queue Service (Amazon SQS) queue whenever a configuration is deployed. After you associate the extension to one of your AWS AppConfig applications, environments, or configuration profiles, AWS AppConfig enqueues a message into the queue after every configuration deployment start, end, and rollback.
 

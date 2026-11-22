@@ -1,7 +1,6 @@
 
 
 # Understanding how the AWS AppConfig Agent Lambda extension works
-<a name="appconfig-integration-lambda-extensions-how-it-works"></a>
 
 If you use AWS AppConfig to manage configurations for a Lambda function *without* Lambda extensions, then you must configure your Lambda function to receive configuration updates by integrating with the [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) API actions.
 

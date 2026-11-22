@@ -1,7 +1,6 @@
 
 
 # Using AWS AppConfig Agent with Amazon ECS and Amazon EKS
-<a name="appconfig-integration-containers-agent"></a>
 
 You can integrate AWS AppConfig with Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic Kubernetes Service (Amazon EKS) by using AWS AppConfig Agent. The agent functions as a sidecar container running alongside your Amazon ECS and Amazon EKS container applications. The agent enhances containerized application processing and management in the following ways:
 + The agent calls AWS AppConfig on your behalf by using an AWS Identity and Access Management (IAM) role and managing a local cache of configuration data. By pulling configuration data from the local cache, your application requires fewer code updates to manage configuration data, retrieves configuration data in milliseconds, and isn't affected by network issues that can disrupt calls for such data.\*
@@ -13,7 +12,7 @@ You can integrate AWS AppConfig with Amazon Elastic Container Service (Amazon EC
 \*AWS AppConfig Agent caches data the first time the service retrieves your configuration data. For this reason, the first call to retrieve data is slower than subsequent calls.
 
 **Before you begin**  
-To integrate AWS AppConfig with your container applications, you must create AWS AppConfig artifacts and configuration data, including feature flags or freeform configuration data. For more information, see [Creating feature flags and free form configuration data in AWS AppConfig](creating-feature-flags-and-configuration-data.md).
+To integrate AWS AppConfig with your container applications, you must create AWS AppConfig artifacts and configuration data, including feature flags or freeform configuration data. For more information, see [Creating configuration data with AWS AppConfig](creating-feature-flags-and-configuration-data.md).
 
 To retrieve configuration data hosted by AWS AppConfig, your container applications must be configured with access to the AWS AppConfig data plane. To give your applications access, update the IAM permissions policy that is used by your container service IAM role. Specifically, you must add the `appconfig:StartConfigurationSession` and `appconfig:GetLatestConfiguration` actions to the policy. Container service IAM roles include the following:
 + The Amazon ECS task role

@@ -1,7 +1,6 @@
 
 
 # Step 4: Increasing exposure
-<a name="appconfig-experimentation-creating-increasing-exposure"></a>
 
 After validating the experiment at 0% exposure, gradually increase audience exposure while monitoring both experiment metrics and operational health. As exposure increases, verify that treatments continue to behave as expected under production traffic and monitor metrics such as latency, error rates, resource utilization, conversion rates, and user engagement. Increase exposure incrementally to reduce operational risk and allow time to detect unexpected behavior, invalid experiment data, or performance regressions before they affect a larger portion of your audience. Monitor alarms configured in CloudWatch or your preferred monitoring tools throughout the run and be prepared to stop the run if operational or business metrics exceed acceptable thresholds.
 

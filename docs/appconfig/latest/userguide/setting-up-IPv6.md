@@ -1,7 +1,6 @@
 
 
 # Understanding IPv6 support
-<a name="setting-up-IPv6"></a>
 
 All AWS AppConfig APIs fully support IPv4 and IPv6 calls.
 

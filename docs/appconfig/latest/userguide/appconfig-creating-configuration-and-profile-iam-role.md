@@ -1,7 +1,6 @@
 
 
 # Understanding the configuration profile IAM role
-<a name="appconfig-creating-configuration-and-profile-iam-role"></a>
 
 You can create the IAM role that provides access to the configuration data by using AWS AppConfig. Or you can create the IAM role yourself. If you create the role by using AWS AppConfig, the system creates the role and specifies one of the following permissions policies, depending on which type of configuration source you choose.
 
@@ -12,7 +11,7 @@ You can create the IAM role that provides access to the configuration data by us
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -38,7 +37,7 @@ You can create the IAM role that provides access to the configuration data by us
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -64,7 +63,7 @@ You can create the IAM role that provides access to the configuration data by us
 
 ****  
 
-```
+```json
 {
 
     "Version":"2012-10-17",		 	 	 
@@ -91,7 +90,7 @@ If you create the role by using AWS AppConfig, the system also creates the follo
 
 ****  
 
-```
+```json
 {
 
   "Version":"2012-10-17",		 	 	 

@@ -1,7 +1,6 @@
 
 
 # Understanding configurations stored in Amazon S3
-<a name="appconfig-creating-configuration-and-profile-S3-source"></a>
 
 You can store configurations in an Amazon Simple Storage Service (Amazon S3) bucket. When you create the configuration profile, you specify the URI to a single S3 object in a bucket. You also specify the Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that gives AWS AppConfig permission to get the object. Before you create a configuration profile for an Amazon S3 object, be aware of the following restrictions.
 
@@ -53,7 +52,7 @@ Use the following procedure to create an IAM policy that enables AWS AppConfig t
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -133,7 +132,7 @@ Use the following procedure to configure the role you just created to trust AWS 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

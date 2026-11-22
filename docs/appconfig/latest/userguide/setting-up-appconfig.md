@@ -1,7 +1,6 @@
 
 
 # Setting up AWS AppConfig
-<a name="setting-up-appconfig"></a>
 
 ## Sign up for an AWS account
 <a name="sign-up-for-aws"></a>
@@ -48,7 +47,7 @@ To return information about CloudWatch composite alarms, the [DescribeAlarms](ht
 
 ****  
 
-   ```
+   ```json
    {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -112,7 +111,7 @@ Use the following procedure to configure the role you just created to trust AWS 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

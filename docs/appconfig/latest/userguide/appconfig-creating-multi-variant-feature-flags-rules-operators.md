@@ -1,7 +1,6 @@
 
 
 # Defining rules for multi-variant feature flags
-<a name="appconfig-creating-multi-variant-feature-flags-rules-operators"></a>
 
 A variant rule is an expression comprised of one or more operands and an operator. An operand is a specific value used during the evaluation of a rule. Operand values can be either static, such as a literal number or string, or variable, such as the value found in a context or the result of another expression. An operator, such as "greater than", is a test or action applied to its operands that produces a value. A variant rule expression must produce either a "true" or "false" to be valid.
 

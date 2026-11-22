@@ -1,7 +1,6 @@
 
 
 # Understanding validators
-<a name="appconfig-creating-configuration-and-profile-validators"></a>
 
 When you create a configuration profile, you have the option to specify up to two validators. A validator ensures that your configuration data is syntactically and semantically correct. If you plan to use a validator, you must create it before you create the configuration profile. AWS AppConfig supports the following types of validators:
 + **AWS Lambda functions**: Supported for feature flags and free form configurations.

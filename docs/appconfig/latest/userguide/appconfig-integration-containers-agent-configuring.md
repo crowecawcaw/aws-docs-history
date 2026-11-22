@@ -1,7 +1,6 @@
 
 
 # (Optional) Using environment variables to configure AWS AppConfig Agent for Amazon ECS and Amazon EKS
-<a name="appconfig-integration-containers-agent-configuring"></a>
 
 You can configure AWS AppConfig Agent by changing the following environment variables for your agent container.
 

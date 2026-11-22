@@ -1,7 +1,6 @@
 
 
 # About experiments in AWS AppConfig
-<a name="appconfig-experimentation-about"></a>
 
 This section provides in-depth information about each of the required tasks for setting up and running an experiment using AWS AppConfig experimentation. To help illustrate how to complete these tasks, this section uses an example called *Increase add-to-cart rate by adding a button for each product displayed* experiment. For this experiment, a DevOps team wants to increase add-to-cart rates (and potentially sales rates) by adding a button beneath *each* item displayed on their site, like the following example from Amazon.com:
 

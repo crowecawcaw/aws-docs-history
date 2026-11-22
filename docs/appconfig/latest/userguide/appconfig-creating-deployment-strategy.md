@@ -1,12 +1,11 @@
 
 
 # Working with deployment strategies
-<a name="appconfig-creating-deployment-strategy"></a>
 
 A deployment strategy enables you to slowly release changes to all targets or specific segments over minutes or hours—either session based or along your own target dimension by leveraging entity-based deployments.
 
 **Note**  
-AWS AppConfig Agent (version 2.0.136060 or later) supports deploying feature flag or free-form configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests. For more information, see [Using AWS AppConfig Agent for user- or entity-based gradual deployments](appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments).
+AWS AppConfig Agent (version 2.0.136060 or later) supports deploying feature flag, free-form, and AI configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests. For more information, see [Using AWS AppConfig Agent for user- or entity-based gradual deployments](appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments).
 
 An AWS AppConfig deployment strategy defines the following important aspects of a configuration deployment.
 
@@ -42,7 +41,7 @@ An AWS AppConfig deployment strategy defines the following important aspects of 
 You can choose a predefined strategy included with AWS AppConfig or create your own. 
 
 **Note**  
-AWS AppConfig Agent (version 2.0.136060 or later) supports deploying feature flag or free-form configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests. For more information, see [Using AWS AppConfig Agent for user- or entity-based gradual deployments](appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments).
+AWS AppConfig Agent (version 2.0.136060 or later) supports deploying feature flag, free-form, and AI configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests. For more information, see [Using AWS AppConfig Agent for user- or entity-based gradual deployments](appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments).
 
 **Topics**
 + [Using predefined deployment strategies](appconfig-creating-deployment-strategy-predefined.md)

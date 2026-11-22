@@ -1,7 +1,6 @@
 
 
 # Creating a feature flag configuration profile in AWS AppConfig
-<a name="appconfig-creating-configuration-and-profile-feature-flags"></a>
 
 You can use feature flags to enable or disable features within your applications or to configure different characteristics of your application features using flag attributes. AWS AppConfig stores feature flag configurations in the AWS AppConfig hosted configuration store in a feature flag format that contains data and metadata about your flags and the flag attributes.
 

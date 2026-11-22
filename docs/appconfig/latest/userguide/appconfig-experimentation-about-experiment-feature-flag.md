@@ -1,7 +1,6 @@
 
 
 # Selecting the experiment feature flag
-<a name="appconfig-experimentation-about-experiment-feature-flag"></a>
 
 AWS AppConfig experiments use feature flags to deliver treatments to users. The feature flag defines the possible experiences that users can receive during an experiment run. Each treatment corresponds to a distinct feature flag configuration or variation.
 

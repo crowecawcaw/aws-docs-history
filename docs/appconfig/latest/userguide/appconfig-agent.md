@@ -1,7 +1,6 @@
 
 
 # What is AWS AppConfig Agent?
-<a name="appconfig-agent"></a>
 
 AWS AppConfig Agent is an Amazon-developed and managed process for retrieving configuration data from AWS AppConfig. With the agent, you can cache configuration data locally and asynchronously poll the AWS AppConfig data plane service for updates. This caching/polling process ensures that your configuration data is always available for your application while minimizing latency and cost. The agent is not the only way to retrieve configuration data from AWS AppConfig, but it is the recommended way. The agent enhances application processing and management in the following ways: 
 + The agent calls AWS AppConfig on your behalf by using an AWS Identity and Access Management (IAM) principal and managing a local cache of configuration data. By retrieving configuration data from the local cache, your application requires fewer code updates to manage configuration data, retrieves configuration data in milliseconds, and isn't affected by network issues that can disrupt calls for such data.

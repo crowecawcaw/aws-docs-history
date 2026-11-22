@@ -1,7 +1,6 @@
 
 
 # Understanding available versions of the AWS AppConfig Agent Lambda extension
-<a name="appconfig-integration-lambda-extensions-versions"></a>
 
 This topic includes information about AWS AppConfig Agent Lambda extension versions. The AWS AppConfig Agent Lambda extension supports Lambda functions developed for the x86-64 and ARM64 (Graviton2) platforms. To work properly, your Lambda function must be configured to use the specific Amazon Resource Name (ARN) for the AWS Region where it is currently hosted. You can view AWS Region and ARN details later in this section.
 
@@ -89,7 +88,7 @@ To retrieve the latest ARN versions, run the following commands.
 
 **x86\_64**
 
-```
+```bash
 aws ssm get-parameter \
     --name "/aws/service/aws-appconfig/lambda-extension/x86/latest" \
     --query "Parameter.Value" \
@@ -98,7 +97,7 @@ aws ssm get-parameter \
 
 **arm64**
 
-```
+```bash
 aws ssm get-parameter \
     --name "/aws/service/aws-appconfig/lambda-extension/arm64/latest" \
     --query "Parameter.Value" \
@@ -112,7 +111,7 @@ When you deploy Lambda functions with CloudFormation, you can use the `{{resolve
 
 **x86\_64**
 
-```
+```yaml
 Resources:
   MyFunction:
     Type: AWS::Lambda::Function
@@ -133,7 +132,7 @@ Resources:
 
 **arm64**
 
-```
+```yaml
 Resources:
   MyFunction:
     Type: AWS::Lambda::Function

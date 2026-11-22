@@ -1,7 +1,6 @@
 
 
 # Using AWS AppConfig Agent with AWS Lambda
-<a name="appconfig-integration-lambda-extensions"></a>
 
 An AWS Lambda extension is a companion process that augments the capabilities of a Lambda function. An extension can start before a function is invoked, run in parallel with a function, and continue to run after a function invocation is processed. In essence, a Lambda extension is like a client that runs in parallel to a Lambda invocation. This parallel client can interface with your function at any point during its lifecycle.
 

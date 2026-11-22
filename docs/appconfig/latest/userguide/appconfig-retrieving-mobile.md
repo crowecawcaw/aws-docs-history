@@ -1,7 +1,6 @@
 
 
 # AWS AppConfig browser and mobile use considerations
-<a name="appconfig-retrieving-mobile"></a>
 
 Feature flags enable you to update the experience of your web pages and mobile application on the fly, without the overhead, risk, or rigidity of an app store release. Using feature flags, you can gradually release a change to your user base at a time of your choosing. If you encounter an error, you can instantly roll back the change without requiring users to upgrade to a new software version. In short, feature flags provide greater control and flexibility when deploying changes to your application. 
 

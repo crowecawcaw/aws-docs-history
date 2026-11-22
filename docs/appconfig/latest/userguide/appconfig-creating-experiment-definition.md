@@ -1,7 +1,6 @@
 
 
 # Step 2: Creating an experiment definition
-<a name="appconfig-creating-experiment-definition"></a>
 
 An experiment definition describes the purpose, scope, and operational configuration of an experiment. It captures information about what is being tested, the expected outcome, and the business or technical objective so that stakeholders can quickly understand the intent of the experiment and interpret the results consistently.
 

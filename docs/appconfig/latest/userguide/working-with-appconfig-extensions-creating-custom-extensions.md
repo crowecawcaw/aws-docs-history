@@ -1,7 +1,6 @@
 
 
 # Step 3: Create a custom AWS AppConfig extension
-<a name="working-with-appconfig-extensions-creating-custom-extensions"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Using the AWS AppConfig deployment events to Amazon EventBridge extension
-<a name="working-with-appconfig-extensions-about-predefined-notification-eventbridge"></a>
 
 The `AWS AppConfig deployment events to Amazon EventBridge` extension is an AWS authored extension that helps you monitor and act on the AWS AppConfig configuration deployment workflow. The extension sends event notifications to the EventBridge default events bus whenever a configuration is deployed. After you've associated the extension to one of your AWS AppConfig applications, environments, or configuration profiles, AWS AppConfig sends event notifications to the event bus after every configuration deployment start, end, and rollback.
 

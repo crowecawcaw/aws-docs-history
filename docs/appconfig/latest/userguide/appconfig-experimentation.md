@@ -1,7 +1,6 @@
 
 
 # AWS AppConfig experimentation
-<a name="appconfig-experimentation"></a>
 
 Application experimentation is the systematic process of testing hypotheses on software applications. It uses A/B testing, feature flags, and analytics to measure user behavior, optimize performance, and drive data-driven product decisions. Experimentation enables teams to validate changes, such as new features or UI changes, before a full rollout, thereby reducing risk and improving engagement.
 

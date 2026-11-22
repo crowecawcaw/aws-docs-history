@@ -1,7 +1,6 @@
 
 
 # Retrieving configuration data without AWS AppConfig Agent
-<a name="about-data-plane"></a>
 
 The recommended way to retrieve configuration data from AWS AppConfig is by using the Amazon-developed and managed AWS AppConfig Agent. With the agent, you can cache configuration data locally and asynchronously poll the AWS AppConfig data plane service for updates. This caching/polling process ensures that your configuration data is always available for your application while minimizing latency and cost. If you prefer not to use the agent, you can call public APIs directly from the AWS AppConfig data plane service.
 

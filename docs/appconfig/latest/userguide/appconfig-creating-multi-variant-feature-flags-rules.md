@@ -1,7 +1,6 @@
 
 
 # Understanding multi-variant feature flag rules
-<a name="appconfig-creating-multi-variant-feature-flags-rules"></a>
 
 When you create a feature flag variant, you specify a rule for it. Rules are expressions that take context values as input and produce a boolean result as output. For example, you could define a rule to select a flag variant for beta users, identified by their account ID, testing a user interface refresh. For this scenario, you do the following:
 

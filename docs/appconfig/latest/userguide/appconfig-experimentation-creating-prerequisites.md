@@ -1,7 +1,6 @@
 
 
 # Step 1: Configuring prerequisites
-<a name="appconfig-experimentation-creating-prerequisites"></a>
 
 Before you begin, complete the following tasks:
 

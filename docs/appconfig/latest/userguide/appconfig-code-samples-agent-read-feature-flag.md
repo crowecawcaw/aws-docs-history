@@ -1,14 +1,13 @@
 
 
 # Using AWS AppConfig Agent to read a specific feature flag
-<a name="appconfig-code-samples-agent-read-feature-flag"></a>
 
 Each of the following samples includes comments about the actions performed by the code.
 
 ------
 #### [ Java ]
 
-```
+```java
 public void retrieveSingleFlagFromAgent() throws Exception {
         /*
           You can retrieve a single flag's data from the agent by providing the "flag" query string parameter.
@@ -34,7 +33,7 @@ public void retrieveSingleFlagFromAgent() throws Exception {
 ------
 #### [ Python ]
 
-```
+```python
 import requests
 
 application_name = 'MyDemoApp'
@@ -51,7 +50,7 @@ config = response.content
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 const application_name = "MyDemoApp";
 const environment_name = "MyEnvironment";
 const config_profile_name = "MyConfigProfile";

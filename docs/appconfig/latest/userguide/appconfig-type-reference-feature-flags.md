@@ -1,11 +1,10 @@
 
 
 # Understanding the type reference for AWS.AppConfig.FeatureFlags
-<a name="appconfig-type-reference-feature-flags"></a>
 
 Use the `AWS.AppConfig.FeatureFlags` JSON schema as a reference to create your feature flag configuration data.
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {

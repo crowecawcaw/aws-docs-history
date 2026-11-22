@@ -1,14 +1,13 @@
 
 
 # Using AWS AppConfig Agent to read a freeform configuration profile
-<a name="appconfig-code-samples-agent-read-configuration"></a>
 
 Each of the following samples includes comments about the actions performed by the code. 
 
 ------
 #### [ Java ]
 
-```
+```java
 public void retrieveConfigFromAgent() throws Exception {
         /*
         In this sample, we will retrieve configuration data from the AWS AppConfig Agent.
@@ -41,7 +40,7 @@ public void retrieveConfigFromAgent() throws Exception {
 ------
 #### [ Python ]
 
-```
+```python
 # in this sample, we will retrieve configuration data from the AWS AppConfig Agent.
 # the agent is a sidecar process that handles retrieving configuration data from AWS AppConfig
 # for you in a way that implements best practices like configuration caching.
@@ -68,7 +67,7 @@ config = response.content
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 // in this sample, we will retrieve configuration data from the AWS AppConfig Agent.
 // the agent is a sidecar process that handles retrieving configuration data from AppConfig
 // for you in a way that implements best practices like configuration caching.

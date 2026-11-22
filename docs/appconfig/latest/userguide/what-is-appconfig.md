@@ -1,9 +1,8 @@
 
 
 # What is AWS AppConfig?
-<a name="what-is-appconfig"></a>
 
-AWS AppConfig helps you safely change application behavior in production without redeploying code. Using feature flags and dynamic free-form configurations, you can control how your application runs in real time. This approach reduces risk, accelerates releases, and enables faster responses to issues. You can gradually roll out new features to specific users, monitor their impact, and expand availability with confidence. You can also update block lists, allow lists, throttling limits, and logging levels instantly, allowing you to mitigate issues and fine-tune performance without a deployment.
+AWS AppConfig helps you safely change application behavior in production without redeploying code. Using feature flags, dynamic free-form configurations, and AI configurations, you can control how your application runs in real time. This approach reduces risk, accelerates releases, and enables faster responses to issues. You can gradually roll out new features to specific users, monitor their impact, and expand availability with confidence. You can also update block lists, allow lists, throttling limits, logging levels, AI model settings, and prompts instantly, allowing you to mitigate issues and fine-tune performance without a deployment.
 
 AWS AppConfig experimentation enables software teams to run A/B tests and gradual feature rollouts using production traffic. Built on Amazon's 25\+ years of software experimentation expertise (including on Amazon.com), the service integrates experimentation directly into your existing AWS AppConfig feature flag workflows. Teams can define hypotheses, target specific audiences, split traffic between treatments, and gradually increase exposure while monitoring operational metrics using CloudWatch or other preferred monitoring tools. AWS AppConfig experimentation works with any compute environment supported by the AWS AppConfig Agent, including Amazon EC2, AWS Lambda, Amazon ECS, and Amazon EKS. Teams can export experiment assignment data to data warehouses such as Amazon Redshift, Snowflake, or Databricks for results analysis. As AI continues to accelerate how teams build and iterate on software, AWS AppConfig experimentation provides a way to validate AI-driven changes with measurable production data and reduced operational risk.
 
@@ -15,7 +14,7 @@ The following video can help you understand the capabilities of AWS AppConfig.
 **Video: Introduction to AWS AppConfig**  
 View a video introduction to AWS AppConfig capabilities.
 
-[![AWS Videos](https://img.youtube.com/vi/rL_e6W6SlMM?si=kmR92RLEuyhJP_hf/0.jpg)](https://www.youtube.com/watch?v=rL_e6W6SlMM?si=kmR92RLEuyhJP_hf)
+[![AWS Videos](https://img.youtube.com/vi/rL_e6W6SlMM/0.jpg)](https://www.youtube.com/watch?v=rL_e6W6SlMM)
 
 
 View more AWS videos on the [Amazon Web Services YouTube Channel](https://www.youtube.com/user/AmazonWebServices).
@@ -27,6 +26,7 @@ AWS AppConfig supports a broad spectrum of use cases:
 + **Application experimentation** – Safely evaluate application changes in production using controlled audience exposure and feature flag-based treatments.
 + **Feature flags and toggles** – Gradually release new capabilities to targeted users, monitor impact, and instantly roll back changes if issues occur.
 + **Application tuning** – Introduce changes safely in production, measure their effects, and refine behavior without redeploying code.
++ **AI configuration management** – Manage large language model (LLM) settings and prompts dynamically. Safely update model providers, model versions, inference parameters, and prompts on the fly without redeploying code, and automatically roll back changes when an alarm in Amazon CloudWatch, Datadog, New Relic, or another observability solution detects an issue.
 + **Allow list or block list** – Control access to features or restrict specific users in real time, without modifying application code. 
 + **Centralized configuration storage** – Manage configuration data consistently across workloads. AWS AppConfig can deploy configuration from the AWS AppConfig hosted configuration store, AWS Secrets Manager, Systems Manager Parameter Store, or Amazon S3.
 
@@ -42,9 +42,9 @@ Feature flags help you release changes to production more quickly and with less 
 AWS AppConfig includes safety features that help prevent configuration changes from causing application failures:  
 + **Validators**: Ensure that configuration data is syntactically and semantically correct before deployment.
 + **Deployment strategies**: Gradually roll out changes over a defined period of time to reduce risk.
-+ **Monitoring and automatic rollback**: AWS AppConfig integrates with Amazon CloudWatch to monitor application health. If a configuration change triggers an alarm, AWS AppConfig automatically rolls back the change to minimize impact.
++ **Monitoring and automatic rollback**: AWS AppConfig integrates with Amazon CloudWatch, Datadog, New Relic, and other observability solutions to monitor application health. If a configuration change triggers an alarm, AWS AppConfig automatically rolls back the change to minimize impact.
 
-**Secure and scalable feature flag deployments**  
+**Secure and scalable changes to configuration**  
 AWS AppConfig integrates with AWS Identity and Access Management (IAM) to provide fine-grain, role-based access control. It also integrates with AWS Key Management Service (AWS KMS) for encryption and AWS CloudTrail for auditing.  
 AWS developed and validated AWS AppConfig safety controls with internal teams that operate at scale before making them available to external customers. This foundation helps ensure the service is secure, reliable, and ready for production workloads.
 
@@ -57,14 +57,16 @@ This section provides a high-level description of how AWS AppConfig works.
 
 
 **1. Identify configuration data to manage in AWS AppConfig**  
-Before creating a configuration profile, identify the configuration data in your code that you want to manage dynamically using AWS AppConfig. Common examples include feature flags, allow and block lists, logging levels, service limits, and throttling rules. These values tend to change frequently and can cause issues if misconfigured.  
+Before creating a configuration profile, identify the configuration data in your code that you want to manage dynamically using AWS AppConfig. Common examples include feature flags, allow and block lists, logging levels, service limits, throttling rules, AI model settings, and prompts. These values tend to change frequently and can cause issues if misconfigured.  
 If your configuration data already exists in cloud services such as SSM Parameter Store or Amazon S3, you can use AWS AppConfig to validate, deploy, and manage that data more effectively.
 
 **2. Create a configuration profile in AWS AppConfig**  
 A configuration profile defines how AWS AppConfig locates and manages your configuration data. It includes a URI that points to the data source and a profile type.  
-AWS AppConfig supports two profile types  
+AWS AppConfig supports the following profile types:  
 + **Feature flags** – Enable controlled feature releases, gradual rollouts, and testing in production.
 + **Free-form configurations** – Store and retrieve configuration data from external sources and update it without redeploying code.
++ **AI model invocation configurations** – Define AI model invocation settings, including model identifier, inference parameters, messages, and custom parameters, as strongly typed configuration data.
++ **AI prompt configurations** – Manage AI prompts as independent, versioned artifacts that can be iterated on separately from model configuration.
 Both profile types help decouple configuration from code, support continuous delivery, and reduce deployment risk.  
 You can also add optional validators to ensure that configuration data is syntactically and semantically correct. During deployment, AWS AppConfig evaluates these validators and automatically rolls back changes if validation fails.  
 Each configuration profile is associated with an application, which acts as a logical container for your configuration resources. For more information about creating a configuration profile, see [Creating a configuration profile in AWS AppConfig](appconfig-creating-configuration-profile.md).

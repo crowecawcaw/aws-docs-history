@@ -1,7 +1,6 @@
 
 
 # Customizing AWS authored notification extensions
-<a name="working-with-appconfig-extensions-creating-custom-notification"></a>
 
 You don't have to create a Lambda or an extension to use [AWS authored notification extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions-about-predefined.html). You can simply create an extension association and then perform an operation that calls one of the supported action points. By default, the AWS authored notification extensions support the following actions points: 
 + `ON_DEPLOYMENT_START`

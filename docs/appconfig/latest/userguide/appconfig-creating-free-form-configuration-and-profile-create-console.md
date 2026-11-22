@@ -1,7 +1,6 @@
 
 
 # Creating an AWS AppConfig freeform configuration profile (console)
-<a name="appconfig-creating-free-form-configuration-and-profile-create-console"></a>
 
 Use the following procedure to create an AWS AppConfig freeform configuration profile and (optionally) a freeform-configuration by using the AWS Systems Manager console.
 

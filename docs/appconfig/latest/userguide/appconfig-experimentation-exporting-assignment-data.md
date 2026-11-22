@@ -1,7 +1,6 @@
 
 
 # Exporting experiment assignment data
-<a name="appconfig-experimentation-exporting-assignment-data"></a>
 
 To capture which entities are assigned to which treatments during an experiment run, configure AWS AppConfig Agent with the `EXPERIMENT_ASSIGNMENT_LOG_DESTINATION` option (on the Lambda extension, `AWS_APPCONFIG_EXTENSION_EXPERIMENT_ASSIGNMENT_LOG_DESTINATION`). A treatment assignment occurs when a request for the experiment flag is made on behalf of an entity that is currently exposed to the experiment. If you do not set this option, the agent does not emit assignment records.
 
@@ -13,7 +12,7 @@ The entity ID is the key you use to join assignment records to your metric (obse
 
 When you set the destination to `stderr`, the agent emits each assignment as a single-line JSON record. Each record includes a `type` field so you can distinguish assignment records from the agent application logs, which also go to stderr by default.
 
-```
+```json
 {
   "type": "AWS.AppConfig.TreatmentAssignment",
   "timestamp": "2026-01-01T12:00:00Z",
@@ -44,6 +43,6 @@ When you set the destination to a value like `file:{{path}}/`, the agent writes 
 
 Each file contains newline-delimited JSON records:
 
-```
+```json
 {"timestamp":"2026-01-01T12:00:00Z","treatmentKey":"t1","entityId":"user123"}
 ```

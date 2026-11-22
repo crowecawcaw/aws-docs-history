@@ -1,7 +1,6 @@
 
 
 # Configuring the AWS AppConfig Agent Lambda extension
-<a name="appconfig-integration-lambda-extensions-config"></a>
 
 You can configure the extension by changing the following AWS Lambda environment variables. For more information, see [Using AWS Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html) in the *AWS Lambda Developer Guide*. 
 

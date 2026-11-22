@@ -1,7 +1,6 @@
 
 
 # Reverting a configuration
-<a name="appconfig-deploying-reverting"></a>
 
 During a deployment, you can mitigate situations where malformed or incorrect configuration data causes errors in your application by using automatic rollbacks (if an alarm triggers during a deployment) or by reverting the configuration data to the previous version (if a deployment successfully completed).
 

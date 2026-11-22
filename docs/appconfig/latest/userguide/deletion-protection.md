@@ -1,7 +1,6 @@
 
 
 # Configuring AWS AppConfig deletion protection
-<a name="deletion-protection"></a>
 
 AWS AppConfig provides an account setting to help prevent users from unintentionally deleting actively-used environments and configuration profiles. AWS AppConfig monitors calls to [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) and [GetConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) and tracks which configuration profiles and environments have been included in these calls within a 60-minute interval (the default setting). Any configuration profile or environment that was accessed within that interval will be considered active. If you attempt to delete an active configuration profile or environment, AWS AppConfig returns an error. If needed, you can bypass this error by using the `DeletionProtectionCheck` parameter. For more information, see [Bypassing or forcing a deletion protection check](deletion-protection-check.md).
 

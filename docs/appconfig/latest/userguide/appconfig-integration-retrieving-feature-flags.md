@@ -1,7 +1,6 @@
 
 
 # Retrieving basic and multi-variant feature flags
-<a name="appconfig-integration-retrieving-feature-flags"></a>
 
 For feature flag configurations (configurations of type `AWS.AppConfig.FeatureFlags`), the AWS AppConfig Agent enables you to retrieve a single flag or a subset of flags in a configuration. Retrieving one or two flags is useful if your use case only needs to use a few flags from the configuration profile. The following examples use cURL.
 

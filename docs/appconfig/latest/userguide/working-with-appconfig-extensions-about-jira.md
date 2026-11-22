@@ -1,7 +1,6 @@
 
 
 # Using the Atlassian Jira extension for AWS AppConfig
-<a name="working-with-appconfig-extensions-about-jira"></a>
 
 By integrating with Atlassian Jira, AWS AppConfig can create and update issues in the Atlassian console whenever you make changes to a [feature flag](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html#appconfig-creating-configuration-and-profile-feature-flags) in your AWS account for the specified AWS Region. Each Jira issue includes the flag name, application ID, configuration profile ID, and flag values. After you update, save, and deploy your flag changes, Jira updates the existing issues with the details of the change.
 
@@ -49,7 +48,7 @@ Use the following procedure to create an IAM permission policy that allows Atlas
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
