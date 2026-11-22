@@ -1,7 +1,6 @@
 
 
 # Detect, Analyze, and Compare Faces with Amazon Rekognition
-<a name="detect-analyze-compare-faces-rekognition"></a>
 
 
 |  |  | 
