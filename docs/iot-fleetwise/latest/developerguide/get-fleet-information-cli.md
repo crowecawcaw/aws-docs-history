@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Get AWS IoT FleetWise fleet information
-<a name="get-fleet-information-cli"></a>
 
 You can use the [ListFleetsForVehicle](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListFleetsForVehicle.html) API operation to retrieve a paginated list of IDs of all fleets that the vehicle belongs to. The following example uses the AWS CLI.
 
@@ -11,7 +10,7 @@ To retrieve a paginated list of IDs of all fleets that the vehicle belongs to, r
 
 Replace {{vehicle-name}} with the ID of the vehicle.
 
-```
+```bash
 aws iotfleetwise list-fleets-for-vehicle \
             --vehicle-name {{vehicle-name}}
 ```
@@ -23,7 +22,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -48,7 +47,7 @@ To retrieve a paginated list of summaries of all vehicles in a fleet, run the fo
 
 Replace {{fleet-id}} with the ID of the fleet.
 
-```
+```bash
 aws iotfleetwise list-vehicles-in-fleet \
             --fleet-id {{fleet-id}}
 ```
@@ -60,7 +59,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ To retrieve the metadata of a fleet, run the following command.
 
 Replace {{fleet-id}} with the ID of the fleet.
 
-```
+```bash
 aws iotfleetwise get-fleet \
             --fleet-id {{fleet-id}}
 ```
@@ -100,7 +99,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

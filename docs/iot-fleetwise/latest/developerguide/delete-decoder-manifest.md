@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Delete an AWS IoT FleetWise decoder manifest
-<a name="delete-decoder-manifest"></a>
 
 You can use the AWS IoT FleetWise console or API to delete a decoder manifest.
 
@@ -45,7 +44,7 @@ To delete a decoder manifest, run the following command.
 
 Replace {{decoder-manifest-name}} with the name of the decoder manifest that you're deleting.
 
-```
+```bash
 aws iotfleetwise delete-decoder-manifest --name {{decoder-manifest-name}}
 ```
 
@@ -56,7 +55,7 @@ You can use the [ListDecoderManifests](https://docs.aws.amazon.com/iot-fleetwise
 
 To retrieve a paginated list of summaries of all decoder manifests, run the following command.
 
-```
+```bash
 aws iotfleetwise list-decoder-manifests
 ```
 
@@ -67,7 +66,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

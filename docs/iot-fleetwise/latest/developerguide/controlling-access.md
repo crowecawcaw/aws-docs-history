@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Controlling access with AWS IoT FleetWise
-<a name="controlling-access"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -43,7 +42,7 @@ You can use the AWS CLI to create an IAM role with a trust policy for MQTT messa
 + Replace {{IotTopicExecutionRole}} with the name of the role you're creating.
 + Replace {{trust-policy}} with the JSON file that contains the trust policy.
 
-```
+```bash
 aws iam create-role --role-name {{IotTopicExecutionRole}} --assume-role-policy-document file://{{trust-policy}}.json
 ```
 
@@ -55,7 +54,7 @@ aws iam create-role --role-name {{IotTopicExecutionRole}} --assume-role-policy-d
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -89,7 +88,7 @@ Create a permissions policy to give AWS IoT FleetWise permissions to publish mes
 + Replace {{AWSIoTFleetwiseAccessIotTopicPermissionsPolicy}} with the name of the policy you're creating.
 + Replace {{permissions-policy}} with the name of the JSON file that contains the permissions policy.
 
-```
+```bash
 aws iam create-policy --policy-name {{AWSIoTFleetwiseAccessIotTopicPermissionsPolicy}} --policy-document file://{{permissions-policy}}.json
 ```
 
@@ -101,7 +100,7 @@ aws iam create-policy --policy-name {{AWSIoTFleetwiseAccessIotTopicPermissionsPo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -128,7 +127,7 @@ aws iam create-policy --policy-name {{AWSIoTFleetwiseAccessIotTopicPermissionsPo
    + Replace {{permissions-policy-arn}} with the ARN that you copied in the previous step.
    + Replace {{IotTopicExecutionRole}} with the name of the IAM role that you created.
 
-   ```
+   ```bash
    aws iam attach-role-policy --policy-arn {{permissions-policy-arn}} --role-name {{IotTopicExecutionRole}}
    ```
 
@@ -151,7 +150,7 @@ Use the following access policy to enable AWS IoT FleetWise to access your S3 bu
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -202,7 +201,7 @@ The following bucket policy is for all campaigns in an account in an AWS Region.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -248,7 +247,7 @@ If you have a KMS key attached to your S3 bucket, the key will need the followin
 ### Key policy
 <a name="example-key-policy"></a>
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Effect": "Allow",
@@ -291,7 +290,7 @@ You can use the AWS CLI to create an IAM role with a trust policy for Timestream
 + Replace {{TimestreamExecutionRole}} with the name of the role you're creating.
 + Replace {{trust-policy}} with the .json file that contains the trust policy.
 
-```
+```bash
 aws iam create-role --role-name {{TimestreamExecutionRole}} --assume-role-policy-document file://{{trust-policy}}.json
 ```
 
@@ -303,7 +302,7 @@ aws iam create-role --role-name {{TimestreamExecutionRole}} --assume-role-policy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -337,7 +336,7 @@ Create a permissions policy to give AWS IoT FleetWise permissions to write data 
 + Replace {{AWSIoTFleetwiseAccessTimestreamPermissionsPolicy}} with the name of the policy you're creating.
 + Replace {{permissions-policy}} with the name of the JSON file that contains the permissions policy.
 
-```
+```bash
 aws iam create-policy --policy-name {{AWSIoTFleetwiseAccessTimestreamPermissionsPolicy}} --policy-document file://{{permissions-policy}}.json
 ```
 
@@ -349,7 +348,7 @@ aws iam create-policy --policy-name {{AWSIoTFleetwiseAccessTimestreamPermissions
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -385,7 +384,7 @@ aws iam create-policy --policy-name {{AWSIoTFleetwiseAccessTimestreamPermissions
    + Replace {{permissions-policy-arn}} with the ARN that you copied in the previous step.
    + Replace {{TimestreamExecutionRole}} with the name of the IAM role that you created.
 
-   ```
+   ```bash
    aws iam attach-role-policy --policy-arn {{permissions-policy-arn}} --role-name {{TimestreamExecutionRole}}
    ```
 
@@ -408,7 +407,7 @@ The IAM role need to have the following trust policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -444,7 +443,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -474,7 +473,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -505,7 +504,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -544,7 +543,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -578,7 +577,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

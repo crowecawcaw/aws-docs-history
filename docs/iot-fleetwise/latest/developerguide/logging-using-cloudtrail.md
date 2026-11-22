@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Log AWS IoT FleetWise API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS IoT FleetWise is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS IoT FleetWise. CloudTrail captures all API calls for AWS IoT FleetWise as events. The calls captured include calls from the AWS IoT FleetWise console and code calls to the AWS IoT FleetWise API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS IoT FleetWise. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS IoT FleetWise, the IP address from which the request was made, who made the request, when it was made, and additional details.
 

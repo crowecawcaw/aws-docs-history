@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Activate and deactivate state data collection using state templates
-<a name="start-stop-data-ingestion"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -63,7 +62,7 @@ To activate a state template, first create a command resource. You can then send
 **Important**  
 `$stateTemplate.name` and `$stateTemplate.operation` parameters must be provided as a string data type. If any other data type is provided, or if either of these two parameters is missing, the command execution fails with a validation exception. The `$stateTemplate.deactivateAfterSeconds` parameter must be provided as a `Long` data type.
 
-   ```
+   ```bash
    aws iot create-command \
        --description "This command activates a state template on a vehicle"
        --command-id ActivateStateTemplate \
@@ -93,7 +92,7 @@ To activate a state template, first create a command resource. You can then send
 **Important**  
 Make sure that you use the account-specific AWS IoT jobs data plane API endpoint for the API operation.
 
-   ```
+   ```bash
    aws iot-jobs-data start-command-execution \
        --endpoint-url <endpoint-url> \
        --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/ActivateStateTemplate \
@@ -106,7 +105,7 @@ Make sure that you use the account-specific AWS IoT jobs data plane API endpoint
 
    After you start the command execution, you can use the `GetCommandExecution` API to retrieve the state template.
 
-   ```
+   ```bash
    aws iot get-command-execution --execution-id {{<EXECUTION_ID>}} 
    ```
 
@@ -121,7 +120,7 @@ To deactivate a state template, first create a command resource. You can then se
 
    Before you can send a command to the vehicle, you must create a command resource. You can specify alternative values for mandatory parameters when you send the command to the vehicle. For more information, see [Create a command resource](create-manage-remote-command-cli.md#create-remote-command-cli).
 
-   ```
+   ```bash
    aws iot create-command \
        --description "This command deactivates a state template on a vehicle"
        --command-id DeactivateStateTemplate \
@@ -145,7 +144,7 @@ To deactivate a state template, first create a command resource. You can then se
 
    After the command is created, send the command to the vehicle. If you didn't specify values for the mandatory parameters when you created the command resource, you must specify them now. For more information, see [Send a command (AWS CLI)](send-monitor-remote-command-cli.md#send-remote-command-cli).
 
-   ```
+   ```bash
    aws iot-jobs-data start-command-execution \
        --endpoint-url <endpoint-url> \
        --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/DeactivateStateTemplate \
@@ -158,6 +157,6 @@ To deactivate a state template, first create a command resource. You can then se
 
    After you start the command execution, you can use the `GetCommandExecution` API to retrieve the state template.
 
-   ```
+   ```bash
    aws iot get-command-execution  --execution-id {{<EXECUTION_ID>}} 
    ```

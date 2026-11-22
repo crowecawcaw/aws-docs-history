@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Process last known state vehicle data using MQTT messaging
-<a name="process-last-known-state-vehicle-data"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -28,7 +27,7 @@ The MQTT message payload contains data collected from the vehicles. You can spec
 
 The MQTT message payload is protocol buffers (Protobuf) encoded, and the MQTT message header contains a content type indicator defined as application/octet-stream. The Protobuf encoding schema is as follows:
 
-```
+```java
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 

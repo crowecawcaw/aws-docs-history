@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Update an AWS IoT FleetWise campaign
-<a name="update-campaign-cli"></a>
 
 You can use the [UpdateCampaign](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateCampaign.html) API operation to update an existing campaign. The following command uses AWS CLI.
 + Replace {{campaign-name}} with the name of the campaign that you're updating.
@@ -17,7 +16,7 @@ You can use the [UpdateCampaign](https://docs.aws.amazon.com/iot-fleetwise/lates
   The description can have up to 2,048 characters.
 + Replace {{data-extra-dimensions}} with specified vehicle attributes to enrich data collected during the campaign. For example, you can add vehicle make and model to the campaign, and AWS IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream. You can then query the data against vehicle make and model.
 
-```
+```bash
 aws iotfleetwise update-campaign \
             --name {{campaign-name}} \
             --action {{action}} \
@@ -32,7 +31,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

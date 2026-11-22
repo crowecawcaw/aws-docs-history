@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Upload campaign data
-<a name="update-campaign-cli-data-partitions"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -17,7 +16,7 @@ There are two ways to upload campaign data on the Edge:
 After you create the campaign, the campaign status displays as `WAITING_FOR_APPROVAL` until you change the `action` to `APPROVED`.
 + Use the following sample to update the campaign `action` by calling on the [UpdateCampaign](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateCampaign.html) API operation.
 
-  ```
+  ```json
   {
      "action": "APPROVED",
      "dataExtraDimensions": [ "string" ],

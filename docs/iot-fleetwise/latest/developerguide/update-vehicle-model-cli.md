@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Update an AWS IoT FleetWise vehicle model
-<a name="update-vehicle-model-cli"></a>
 
 You can use the [UpdateModelManifest](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateModelManifest.html) API operation to update an existing vehicle model (model manifests). The following example uses the AWS CLI. 
 
@@ -11,7 +10,7 @@ To update an existing vehicle model, run the following command.
 
 Replace {{update-vehicle-model-configuration}} with the name of the .json file that contains the configuration.
 
-```
+```bash
 aws iotfleetwise update-model-manifest --cli-input-json file://{{update-vehicle-model-configuration}}.json
 ```
 
@@ -23,7 +22,7 @@ aws iotfleetwise update-model-manifest --cli-input-json file://{{update-vehicle-
 After the vehicle model is activated, you can't change the vehicle model.
 + (Optional) Replace {{description}} with an updated description to help you identify the vehicle model.
 
-```
+```json
 {
     "name": "{{vehicle-model-name}}",
     "status": "{{vehicle-model-status}}",                        
@@ -40,7 +39,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ To retrieve a paginated list of summaries of all signals (nodes) in a given vehi
 
 Replace {{vehicle-model-name}} with the name of the vehicle model that you're checking.
 
-```
+```bash
 aws iotfleetwise list-model-manifest-nodes /
                  --name {{vehicle-model-name}}
 ```
@@ -81,7 +80,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

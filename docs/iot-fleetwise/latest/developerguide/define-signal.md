@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Configure AWS IoT FleetWise signals
-<a name="define-signal"></a>
 
 This section shows you how to configure branches, attributes, sensors, and actuators.
 
@@ -86,7 +85,7 @@ The following complex data type example demonstrates how signals and data types 
 
 **Example complex data type**  
 
-```
+```json
 {
   "Vehicle": {
     "type": "branch"

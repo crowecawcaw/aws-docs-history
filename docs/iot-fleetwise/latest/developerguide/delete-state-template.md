@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Delete an AWS IoT FleetWise state template
-<a name="delete-state-template"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -26,7 +25,7 @@ To delete a state template, run the following command.
 
 Replace {{identifier}} with the name or ID of the state template.
 
-```
+```bash
 aws iotfleetwise delete-state-template \
     --identifier {{idenitfier}}
 ```

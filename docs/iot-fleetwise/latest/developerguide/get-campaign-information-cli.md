@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Get AWS IoT FleetWise campaign information
-<a name="get-campaign-information-cli"></a>
 
 You can use the [GetCampaign](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetCampaign.html) API operation to retrieve vehicle information. The following example uses the AWS CLI.
 
@@ -11,7 +10,7 @@ To retrieve the metadata of a campaign, run the following command.
 
 Replace {{campaign-name}} with the name of the campaign to you want to retrieve.
 
-```
+```bash
 aws iotfleetwise get-campaign --name {{campaign-name}}
 ```
 
@@ -25,7 +24,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

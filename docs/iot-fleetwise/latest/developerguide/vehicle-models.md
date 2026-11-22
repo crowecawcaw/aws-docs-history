@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Manage AWS IoT FleetWise vehicle models
-<a name="vehicle-models"></a>
 
 You use signals to create vehicle models that help standardize the format of your vehicles. Vehicle models enforce consistent information across multiple vehicles of the same type, so that you can process data from fleets of vehicles. Vehicles created from the same vehicle model inherit the same group of signals. For more information, see [Manage AWS IoT FleetWise vehicles](vehicles.md).
 

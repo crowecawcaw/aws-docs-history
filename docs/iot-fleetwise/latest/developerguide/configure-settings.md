@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Configure your AWS IoT FleetWise settings
-<a name="configure-settings"></a>
 
 You can use the AWS IoT FleetWise console or API to configure settings for Amazon CloudWatch Logs metrics, Amazon CloudWatch Logs, and encrypt data with an AWS managed key.
 
@@ -52,7 +51,7 @@ To invoke the `RegisterAccount` API successfully, you need to include `iam:Creat
 
 The following example shows a sample policy document for setting up permissions to `RegisterAccount` and `GetRegisterAccountStatus`:
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -73,7 +72,7 @@ The following example shows a sample policy document for setting up permissions 
 
 1. To configure settings, run the following command.
 
-   ```
+   ```bash
    aws iotfleetwise register-account
    ```
 
@@ -81,12 +80,12 @@ The following example shows a sample policy document for setting up permissions 
 **Note**  
 The service-linked role is only used to publish AWS IoT FleetWise metrics to CloudWatch. For more information, see [Using service-linked roles for AWS IoT FleetWise](using-service-linked-roles.md).
 
-   ```
+   ```bash
    aws iotfleetwise get-register-account-status
    ```  
 **Example response**  
 
-   ```
+   ```bash
    {
        "accountStatus": "REGISTRATION_SUCCESS",
        "creationTime": "2022-07-28T11:31:22.603000-07:00",

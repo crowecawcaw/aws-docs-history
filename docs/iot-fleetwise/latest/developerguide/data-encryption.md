@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Data encryption in AWS IoT FleetWise
-<a name="data-encryption"></a>
 
 Data encryption refers to protecting data while in-transit (as it travels to and from AWS IoT FleetWise, and between gateways and servers), and at rest (while it's stored on local devices or in AWS services). You can protect data at rest using client-side encryption.
 

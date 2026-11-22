@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Fetch a vehicle state snapshot using state templates
-<a name="on-demand-operations"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -46,7 +45,7 @@ To fetch a state snapshot, first create a command resource. You can then send th
 
    The following example shows how to create the command resource to perform the fetch operation. You can specify alternative values for mandatory parameters when you send the command to the vehicle. For more information, see [Create a command resource](create-manage-remote-command-cli.md#create-remote-command-cli).
 
-   ```
+   ```bash
    aws iot create-command \
        --command-id {{<COMMAND_ID>}} \
        --display-name "FetchSnapshot State Template" \
@@ -65,7 +64,7 @@ To fetch a state snapshot, first create a command resource. You can then send th
 
    Response:
 
-   ```
+   ```bash
    { 
        "commandId": "{{<COMMAND_ID>}}",
        "commandArn": "arn:aws:iot:{{<REGION>}}:{{111122223333}}:command/{{<COMMAND_ID>}}"
@@ -78,7 +77,7 @@ To fetch a state snapshot, first create a command resource. You can then send th
 
    After the command is created, send the command to the vehicle. If you didn't specify values for the mandatory parameters when you created the command resource, you must specify them now. For more information, see [Send a command (AWS CLI)](send-monitor-remote-command-cli.md#send-remote-command-cli).
 
-   ```
+   ```bash
    aws iot-jobs-data start-command-execution \
        --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/{{<COMMAND_ID>}} \
        --target-arn arn:aws:iot:{{region}}:{{111122223333}}:thing/{{<VEHICLE_NAME>}}
@@ -86,7 +85,7 @@ To fetch a state snapshot, first create a command resource. You can then send th
 
    Response:
 
-   ```
+   ```bash
    {
        "executionId": "{{<UNIQUE_UUID>}}"
    }
@@ -96,6 +95,6 @@ To fetch a state snapshot, first create a command resource. You can then send th
 
    After you start the command execution, you can use the `GetCommandExecution` API to retrieve the state template.
 
-   ```
+   ```bash
    aws iot get-command-execution --execution-id {{<EXECUTION_ID>}} 
    ```

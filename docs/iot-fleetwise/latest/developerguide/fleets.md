@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Manage fleets in AWS IoT FleetWise
-<a name="fleets"></a>
 
 A fleet represents a group of vehicles. A fleet without associated vehicles is an empty entity. Before you can use the fleet to manage multiple vehicles at the same time, you must associate vehicles with the fleet. A vehicle can belong to multiple fleets. You can control what data to collect from a fleet of vehicles and when to collect data by deploying a campaign. For more information, see [Collect AWS IoT FleetWise data with campaigns](campaigns.md).
 

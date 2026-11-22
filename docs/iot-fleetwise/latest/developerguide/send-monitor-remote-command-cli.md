@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Start and monitor command executions
-<a name="send-monitor-remote-command-cli"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -61,7 +60,7 @@ aws iot describe-endpoint --endpoint-type iot:Jobs
 
 It will return the account-specfic endpoint URL as shown in the sample response below.
 
-```
+```json
 {
     "endpointAddress": "{{<account-specific-prefix>}}.jobs.iot.{{<region>}}.amazonaws.com"
 }
@@ -85,7 +84,7 @@ You can specify the target ARN of an AWS IoT thing (AWS IoT FleetWise vehicle). 
 **Note**  
 The device can also report a `TIMED_OUT` status, or override this status to a status such as `SUCCEEDED`, `FAILED`, or `REJECTED`, and the command execution will become terminal. For more information, see [Command execution timeout status](remote-command-concepts-states.md#remote-command-execution-status-timeout).
 
-```
+```bash
 aws iot-jobs-data start-command-execution \ 
     --command-arn {{command-arn}} \ 
     --target-arn {{target-arn}} \
@@ -101,7 +100,7 @@ aws iot-jobs-data start-command-execution \
 
 The `StartCommandExecution` API operation returns a command execution ID. You can use this ID to query the command execution status, details, and command execution history.
 
-```
+```json
 {
     "executionId": "07e4b780-7eca-4ffd-b772-b76358da5542"
  }
@@ -109,7 +108,7 @@ The `StartCommandExecution` API operation returns a command execution ID. You ca
 
 After you run the command, your devices will receive a notification that contains the following information. The `issued_timestamp_ms` field corresponds to the time that the `StartCommandExecution` API was invoked. The `timeout_ms` corresponds to the time out value that's configured using the `executionTimeoutSeconds` parameter when invoking the `StartCommandExecution` API.
 
-```
+```json
 timeout_ms: {{9000000}}
 issued_timestamp_ms: {{1723847831317}}
 ```
@@ -125,7 +124,7 @@ In this example, replace {{`<device-id>`}} with the unique identifier of your ta
 The payload must use the protobuf format.
 It is optional for your devices to subscribe to the `/accepted` and `/rejected` response topics. Your devices will receive these response messages even if they haven't explicitly subscribed to them.
 
-```
+```JSON
 // Request topic
 $aws/devices/{{<DeviceID>}}/command_executions/+/request/protobuf
 
@@ -156,7 +155,7 @@ For the command execution status, if your devices use the `statusReason` object 
 The `reasonCode` uses the pattern `[A-Z0-9_-]+`, and it does not exceed 64 characters in length.
 The `reasonDescription` doesn't exceed 1,024 characters in length. It can use any characters except control characters such as new lines.
 
-```
+```JSON
 {
     "deviceId": "",
     "executionId": "",
@@ -179,7 +178,7 @@ To retrieve the metadata of an executed command, run the following command.
 + Replace {{execution-id}} with the ID of the command. You can obtain this information from the response of the `start-command-execution` CLI command.
 + Replace {{target-arn}} with the ARN for the target vehicle, or AWS IoT thing, for which you want to execute the command.
 
-```
+```bash
 aws iot get-command-execution --execution-id {{execution-id}} \ 
     --target-arn {{target-arn}}
 ```
@@ -193,7 +192,7 @@ To report this information, your devices can publish the updated status informat
 **Note**  
 The `completedAt` field in the execution response corresponds to the time when the device reports a terminal status to the cloud. In the case of `TIMED_OUT` status, this field will be set only when the device reports A timeout. When the `TIMED_OUT` status is set by the cloud, the `TIMED_OUT` status is not updated. For more information about the time out behavior, see [Command execution timeout status](remote-command-concepts-states.md#remote-command-execution-status-timeout).
 
-```
+```json
 {
     "executionId": "07e4b780-7eca-4ffd-b772-b76358da5542",
     "commandArn": "arn:aws:iot:ap-south-1:123456789012:command/LockDoor",
@@ -252,7 +251,7 @@ aws iot list-command-executions \
 
 Running this command generates a response that contains a list of command executions that you created, and the time when the executions started executing, and when it completed. It also provides status information, and the `statusReason` object that contains additional information about the status.
 
-```
+```JSON
 {
     "commandExecutions": [
         {

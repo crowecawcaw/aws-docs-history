@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Create and manage commands
-<a name="create-manage-remote-command-cli"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -65,7 +64,7 @@ When you create a command in AWS IoT FleetWise:
 + (Optional) Replace {{display-name}} with a user-friendly name for the command, and {{description}} with a meaningful description of the command.
 + Replace {{name}} and {{value}} of the `mandatory-parameters` object with the required information for the command being created. The `name` field is the fully qualified name as defined in the signal catalog with `$actuatorPath.` as the prefix. For example, `name` can be {{$actuatorPath.Vehicle.Chassis.SteeringWheel.HandsOff.HandsOffSteeringMode}} and `value` can be a boolean that indicates a steering mode status like {{{"B": false}}}.
 
-```
+```bash
 aws iot create-command --command-id {{command-id}} \ 
     --role-arn {{role-arn}} \
     --description {{description}} \
@@ -81,7 +80,7 @@ aws iot create-command --command-id {{command-id}} \
 
 The `CreateCommand` API operation returns a response that contains the ID and ARN (Amazon Resource Name) of the command.
 
-```
+```json
 {
     "commandId": "HandsOffSteeringMode",
     "commandArn": "arn:aws:iot:ap-south-1:123456789012:command/HandsOffSteeringMode"
@@ -95,7 +94,7 @@ You can use the [`GetCommand`](https://docs.aws.amazon.com/iot/latest/apireferen
 
 To get information about a command resource, run the following command. Replace {{command-id}} with the identifier that was used when creating the command.
 
-```
+```bash
 aws iot get-command --command-id {{command-id}}
 ```
 
@@ -105,7 +104,7 @@ The `GetCommand` API operation returns a response that contains the following in
 + The command state which indicates whether it's available to run on the vehicle.
 + Any parameters that you specified when creating the command.
 
-```
+```json
 {
     "commandId": "HandsOffSteeringMode",
     "commandArn": "arn:aws:iot:ap-south-1:123456789012:command/HandsOffSteeringMode"",
@@ -133,7 +132,7 @@ To list commands in your account, run the following command. By default, the API
 **Note**  
 You can also sort the list in ascending or descending order, or filter the list to display only commands that have a specific command parameter name.
 
-```
+```bash
 aws iot list-commands --namespace "AWS-IoT-FleetWise"
 ```
 
@@ -173,7 +172,7 @@ To deprecate a command from the console, go to the [Commands](https://console.aw
 **Update a command**  
 To update a command resource, run the following command. Replace {{command-id}} with the identifier of the command that you want to update, and provide the updated {{display-name}} and {{description}}.
 
-```
+```bash
 aws iot update-command \ 
     --command-id {{command-id}} \ 
     --display-name {{display-name}} \ 
@@ -182,7 +181,7 @@ aws iot update-command \
 
 The `UpdateCommand` API operation returns the following response.
 
-```
+```json
 {
     "commandId": "HandsOffSteeringMode",
     "deprecated": false,
@@ -193,7 +192,7 @@ The `UpdateCommand` API operation returns the following response.
 **Deprecate a command**  
 You deprecate a command when you intend to no longer continue using it for your device or when it's outdated. The following example shows how to deprecate a command.
 
-```
+```bash
 aws iot update-command \ 
     --command-id {{command-id}} \ 
     --deprecated
@@ -201,7 +200,7 @@ aws iot update-command \
 
 The `UpdateCommand` API operation returns a response that contains the ID and ARN (Amazon Resource Name) of the command.
 
-```
+```json
 {
     "commandId": "HandsOffSteeringMode",
     "deprecated": true,
@@ -233,7 +232,7 @@ To delete a command from the console, go to the [Commands](https://console.aws.a
 
 To delete a command resource, run the following command. Replace {{command-id}} with the identifier of the command that you want to delete. The following example shows how to delete a command resource.
 
-```
+```bash
 aws iot delete-command --command-id {{command-id}}
 ```
 

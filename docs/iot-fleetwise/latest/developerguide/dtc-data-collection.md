@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Create a data collection campaign for diagnostic trouble codes
-<a name="dtc-data-collection"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -20,7 +19,7 @@ An example custom defined function is `DTC_QUERY` as shown in the [demo script](
 
 1. Create a signal catalog that models a DTC signal as a string type.
 
-   ```
+   ```json
    [
     {
        "branch": {
@@ -49,7 +48,7 @@ An example custom defined function is `DTC_QUERY` as shown in the [demo script](
 1. Create and activate a decoder manifest with the DTC signal added. The DTC signal should be a `CUSTOM_DECODING_SIGNAL` signal decoder type with a `CUSTOM_DECODING_INTERFACE` network interface type.  
 **Example signal decoder**  
 
-   ```
+   ```json
    [
      {
        "fullyQualifiedName": "Vehicle.ECU1.DTC_INFO",
@@ -63,7 +62,7 @@ An example custom defined function is `DTC_QUERY` as shown in the [demo script](
    ```  
 **Example network interface**  
 
-   ```
+   ```json
    [
      {
        "interfaceId": "UDS_DTC",

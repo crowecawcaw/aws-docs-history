@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # What is AWS IoT FleetWise?
-<a name="what-is-iotfleetwise"></a>
 
 AWS IoT FleetWise is a managed service that you can use to collect vehicle data and organize it in the cloud. You can use the collected data to improve vehicle quality, performance, and autonomy. With AWS IoT FleetWise, you can collect and organize data from vehicles that use different protocols and data formats. AWS IoT FleetWise helps to transform low-level messages into human-readable values and standardize the data format in the cloud for data analyses. You can also define data collection campaigns to control what vehicle data to collect and when to transfer that data to the cloud.
 

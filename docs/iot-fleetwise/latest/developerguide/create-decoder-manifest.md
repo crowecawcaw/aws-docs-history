@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Create an AWS IoT FleetWise decoder manifest
-<a name="create-decoder-manifest"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -101,7 +100,7 @@ To create a decoder manifest, run the following command.
 
 Replace {{decoder-manifest-configuration}} with the name of the .json file that contains the configuration.
 
-```
+```bash
 aws iotfleetwise create-decoder-manifest --cli-input-json file://{{decoder-manifest-configuration}}.json
 ```
 
@@ -113,7 +112,7 @@ aws iotfleetwise create-decoder-manifest --cli-input-json file://{{decoder-manif
 
 For more information about how to configure branches, attributes, sensors, and actuators, see [Configure AWS IoT FleetWise network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md).
 
-```
+```json
 {
     "name": "{{decoder-manifest-name}}",
     "modelManifestArn": "{{vehicle-model-arn}}",
@@ -172,7 +171,7 @@ For more information about how to configure branches, attributes, sensors, and a
 
 The order of property nodes within a structure (struct) must remain consistent as defined in the signal catalog and vehicle model (model manifest). For more information about how to configure branches, attributes, sensors, and actuators, see [Configure AWS IoT FleetWise network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md).
 
-```
+```json
 {
 	"name": "{{decoder-manifest-name}}",
 	"modelManifestArn": "{{vehicle-model-arn}}",
@@ -315,7 +314,7 @@ The order of property nodes within a structure (struct) must remain consistent a
 
 For more information about how to configure branches, attributes, sensors, and actuators, see [Configure AWS IoT FleetWise network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md).
 
-```
+```json
 {
 	"name": "{{decoder-manifest-name}}",
 	"modelManifestArn": "{{vehicle-model-arn}}",
@@ -365,7 +364,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

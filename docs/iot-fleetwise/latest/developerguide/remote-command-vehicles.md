@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Vehicles and commands
-<a name="remote-command-vehicles"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).  
@@ -101,7 +100,7 @@ The operations that are described in this section use the MQTT protocol.
 **Note**  
 The payload message that's sent to the device must use the protobuf format.
 
-   ```
+   ```JSON
    $aws/commands/things/{{<DeviceID>}}/executions/+/request/protobuf
    ```
 
@@ -113,7 +112,7 @@ The payload message that's sent to the device must use the protobuf format.
 **Note**  
 It is optional for your vehicles to subscribe to the `/accepted` and `/rejected` response topics. Your vehicles will automatically receive these response messages even if they haven't explicitly subscribed to these topics.
 
-   ```
+   ```JSON
    $aws/commands/things/{{<DeviceID>}}/executions/{{<ExecutionId>}}/response/protobuf/accepted
    $aws/commands/things/{{<DeviceID>}}/executions/{{<ExecutionId>}}/response/protobuf/rejected
    ```
@@ -217,7 +216,7 @@ To receive notifications for all commands and command execution statuses, you ca
 
 The following code shows a sample payload for the commands events notifications that you'll receive.
 
-```
+```JSON
 {
     "executionId": "{{2bd65c51-4cfd-49e4-9310-d5cbfdbc8554}}",
     "status":"FAILED",

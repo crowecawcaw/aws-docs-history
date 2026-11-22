@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Making requests to AWS IoT FleetWise using IPv6
-<a name="fleetwise-ipv6-access"></a>
 
 You can communicate with AWS IoT FleetWise over Internet Protocol version 6 (IPv6) and IPv4 to manage your resources. Dual-stack endpoints support requests to AWS IoT FleetWise APIs over IPv6 and IPv4. There are no additional charges for communication over IPv6.
 
@@ -57,7 +56,7 @@ IAM policies that filter IP addresses use [IP Address Condition Operators](https
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -79,7 +78,7 @@ IAM policies that filter IP addresses use [IP Address Condition Operators](https
 
 To include IPv6 addresses, you can modify the policy's Condition element to allow both IPv4 (54.240.143.0/24) and IPv6 (2001:DB8:1234:5678::/64) address ranges as shown in the following example.
 
-```
+```JSON
        
   "Condition": {
     "IpAddress": {

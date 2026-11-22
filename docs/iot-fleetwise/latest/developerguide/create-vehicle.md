@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Create an AWS IoT FleetWise vehicle
-<a name="create-vehicle"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -92,7 +91,7 @@ To create a vehicle, run the following command.
 
 Replace {{file-name}} with the name of the .json file that contains the vehicle configuration.
 
-```
+```bash
 aws iotfleetwise create-vehicle --cli-input-json file://{{file-name}}.json
 ```
 
@@ -103,7 +102,7 @@ aws iotfleetwise create-vehicle --cli-input-json file://{{file-name}}.json
 
     To create an AWS IoT thing, run the following command. Replace {{thing-name}} with the name of the thing you want to create.
 
-    ```
+    ```bash
     aws iot create-thing --thing-name {{thing-name}}
     ```
 
@@ -121,7 +120,7 @@ Make sure that the AWS IoT thing is provisioned after the vehicle is created. Fo
 **Important**  <a name="update-attributes-requirement"></a>
 Attributes must be defined in the associated vehicle model before you can add them to individual vehicles.
 
-```
+```json
 {
     "associationBehavior": "{{associationBehavior}}",
     "vehicleName": "{{vehicle-name}}", 
@@ -139,12 +138,12 @@ In this example, `{{stateTemplateUpdateStrategy}}` can be one of:
 + `periodic`: allows you to specify a fixed rate at which Edge Agent software will send signal updates to the cloud (Edge Agent software will send updates even if the signal value hasn't changed between updates).
 + `onChange`: Edge Agent software will send signal updates whenever the signal changes.
 
-```
+```bash
 aws iotfleetwise create-vehicle --cli-input-json file://{{create-vehicle.json}}
 ```
 Where the `{{create-vehicle.json}}` file contains (for example):  
 
-```
+```JSON
 {
     "associationBehavior": "{{associationBehavior}}",
     "vehicleName": "{{vehicle-name}}", 
@@ -176,7 +175,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

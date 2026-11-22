@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Create an AWS IoT FleetWise state template
-<a name="state-templates"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -40,7 +39,7 @@ To create a state template, run the following command.
 
 Replace {{create-state-template}} with the name of the .json file that contains the state template configuration.
 
-```
+```bash
 aws iotfleetwise create-state-template \
     --cli-input-json file://{{create-state-template}}.json
 ```
@@ -49,7 +48,7 @@ aws iotfleetwise create-state-template \
 `stateTemplateProperties` should contain the fully qualified names of the signals.  
 `dataExtraDimensions` and `metadataExtraDimensions` should contain the fully qualified names of the vehicle attributes. The dimensions specified replace any existing dimension values in the state template.  
 
-```
+```json
 {
     "name": "{{state-template-name}}",
     "signalCatalogArn": "arn:aws:iotfleetwise:{{us-east-1}}:{{account}}:signal-catalog/{{catalog-name}}",

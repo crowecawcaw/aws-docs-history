@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Get AWS IoT FleetWise vehicle information
-<a name="get-vehicle-information-cli"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -14,7 +13,7 @@ To retrieve the metadata of a vehicle, run the following command.
 
 Replace {{vehicle-name}} with the ID of the vehicle that you want to retrieve.
 
-```
+```bash
 aws iotfleetwise get-vehicle --vehicle-name {{vehicle-name}}
 ```
 
@@ -27,7 +26,7 @@ To retrieve the status of resources associated with a vehicle, run the following
 + Replace {{vehicle-name}} with the ID of the vehicle which the resources are associated with.
 + Replace {{type}} with the type of the resource whose status you want to retrieve. Valid values for `type` are `CAMPAIGN`, `STATE_TEMPLATE`, and `DECODER`.
 
-```
+```bash
 aws iotfleetwise get-vehicle-status --vehicle-name {{vehicle-name}} --type {{type}}
 ```
 
@@ -38,7 +37,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

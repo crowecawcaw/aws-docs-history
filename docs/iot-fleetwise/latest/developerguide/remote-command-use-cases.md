@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Command usage scenarios
-<a name="remote-command-use-cases"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -33,7 +32,7 @@ This use case is especially useful in recurrent use cases, such as when you want
 
 This use case shows how to create a command without any mandatory parameters input.
 
-```
+```bash
 aws iot create-command \
     --command-id "UserJourney1" \
     --role-arn "arn:aws:iam:{{accountId}}:role/{{FwCommandExecutionRole}}" \
@@ -46,7 +45,7 @@ aws iot create-command \
 
 In this first example, the command that was created above allows you to execute a command on any actuator without restrictions. To set `actuator1` to a value of 10, run:
 
-```
+```bash
 aws iot-jobs-data start-command-execution \
     --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/UserJourney1 \
     --target-arn arn:aws:iot:{{region}}:{{111122223333}}:thing/target-vehicle \
@@ -57,7 +56,7 @@ aws iot-jobs-data start-command-execution \
 
 Similarly, you can run a command that sets `actuator3` to a value of `true`.
 
-```
+```bash
 aws iot-jobs-data start-command-execution \
     --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/UserJourney1 \
     --target-arn arn:aws:iot:{{region}}:{{111122223333}}:thing/target-vehicle \
@@ -78,7 +77,7 @@ This use case is especially useful when you want to send the same command multip
 
 The following command shows how to provide a default value for actuator1.
 
-```
+```bash
 aws iot create-command \
     --command-id "UserJourney2" \
     --namespace "AWS-IoT-FleetWise" \
@@ -96,7 +95,7 @@ aws iot create-command \
 
 The command `UserJourney2` allows you to execute a command without the need to pass an input value during runtime. In this case, the execution at runtime will use the default values specified during creation.
 
-```
+```bash
 aws iot-data start-command-execution \
     --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/UserJourney3 \
     --target-arn arn:aws:iot:{{region}}:{{111122223333}}:thing/target-vehicle
@@ -128,7 +127,7 @@ You can have more than name-value pairs for the `mandatory-parameters` input, wi
 
 This command only allows you to execute a command on the specified actuator. It also forces you to set a value for the actuator during runtime.
 
-```
+```bash
 aws iot create-command \
     --command-id "UserJourney2" \
     --namespace "AWS-IoT-FleetWise" \
@@ -145,7 +144,7 @@ aws iot create-command \
 
 When running the command, in this case, you must specify a value for actuator1. The command execution shown below will successfully set the value of `actuator1` to `10`.
 
-```
+```bash
 aws iot-data start-command-execution \    
     --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/UserJourney2 \
     --target-arn arn:aws:iot:{{region}}:{{111122223333}}:thing/target-vehicle \
@@ -185,7 +184,7 @@ aws iot create-command \
 
 Similarly, the following command shows an example of how you can use the `start-command-execution` CLI for state templates.
 
-```
+```bash
 aws iot-data start-command-execution \
     --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/{{<COMMAND_ID>}} \
     --target-arn arn:aws:iot:{{region}}:{{111122223333}}:thing/{{<VEHICLE_NAME>}} \
@@ -199,7 +198,7 @@ aws iot-data start-command-execution \
 
 The following command creates multiple state templates without default values for any of the parameters. It forces you to run the command with these parameters and the values for them.
 
-```
+```bash
 aws iot create-command \
     --command-id {{<COMMAND_ID>}} \
     --display-name "Activate State Template" \
@@ -222,7 +221,7 @@ aws iot create-command \
 
 The following command shows how you can use the `start-command-execution` CLI for the example above.
 
-```
+```bash
 aws iot-data start-command-execution \
     --command-arn arn:aws:iot:{{region}}:{{111122223333}}:command/{{<COMMAND_ID>}} \
     --target-arn arn:aws:iot:{{region}}:{{111122223333}}:thing/{{<VEHICLE_NAME>}} \

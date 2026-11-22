@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Update an AWS IoT FleetWise state template
-<a name="update-state-template"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -26,7 +25,7 @@ To update a state template, run the following command.
 
 Replace {{update-state-template}} with the name of the .json file that contains the configuration of the state template.
 
-```
+```bash
 aws iotfleetwise update-state-template \
     --cli-input-json file://{{update-state-template}}.json
 ```
@@ -35,7 +34,7 @@ aws iotfleetwise update-state-template \
 The `stateTemplateProperties` should contain the fully qualified names of the signals.  
 The `dataExtraDimensions` and `metadataExtraDimensions` should contain the fully qualified names of the vehicle attributes.  
 
-```
+```json
 {
     "identifier": "{{state-template-name}}",
     "stateTemplatePropertiesToAdd": [

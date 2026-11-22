@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Create data partitions
-<a name="create-campaign-data-partitions"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -42,7 +41,7 @@ Establish a default data partition for a campaign by using `default` as the ID.
 
 1. Replace {{target-arn}} with the ARN of a fleet or vehicle that you created.
 
-```
+```json
 {
     "name": "{{campaign-name}}",
     "description": "Measurement of SOC, SOH, thermal, and power optimization for Fleet 2704",

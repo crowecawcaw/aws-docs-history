@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Delete an AWS IoT FleetWise vehicle model
-<a name="delete-vehicle-model"></a>
 
 You can use the AWS IoT FleetWise console or API to delete vehicle models.
 
@@ -36,7 +35,7 @@ To delete a vehicle model, run the following command.
 
 Replace {{model-manifest-name}} with the name of the vehicle model that you're deleting.
 
-```
+```bash
 aws iotfleetwise delete-model-manifest --name {{model-manifest-name}}
 ```
 
@@ -47,7 +46,7 @@ You can use the [ListModelManifests](https://docs.aws.amazon.com/iot-fleetwise/l
 
 To retrieve a paginated list of summaries of all vehicle models, run the following command.
 
-```
+```bash
 aws iotfleetwise list-model-manifests
 ```
 
@@ -58,7 +57,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

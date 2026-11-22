@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Update an AWS IoT FleetWise decoder manifest
-<a name="update-decoder-manifest"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -14,7 +13,7 @@ To update a decoder manifest, run the following command.
 
 Replace {{decoder-manifest-name}} with the name of the decoder manifest that you're updating.
 
-```
+```bash
 aws iotfleetwise update-decoder-manifest / 
                 --name {{decoder-manifest-name}} /
                 --status ACTIVE
@@ -24,7 +23,7 @@ If the signals don't have specified decoding rules, you can create default decod
 
 Replace {{decoder-manifest-name}} with the name of the decoder manifest that you're updating.
 
-```
+```bash
 aws iotfleetwise update-decoder-manifest / 
                 --name {{decoder-manifest-name}} /
                 --status ACTIVE
@@ -41,7 +40,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -70,7 +69,7 @@ To retrieve a paginated list of summaries of all decoder signals (nodes) in a gi
 
 Replace {{decoder-manifest-name}} with the name of the decoder manifest that you're checking.
 
-```
+```bash
 aws iotfleetwise list-decoder-manifest-signals /
                  --name {{decoder-manifest-name}}
 ```
@@ -82,7 +81,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -107,7 +106,7 @@ To retrieve a paginated list of summaries of all network interfaces in a given d
 
 Replace {{decoder-manifest-name}} with the name of the decoder manifest that you're checking.
 
-```
+```bash
 aws iotfleetwise list-decoder-manifest-network-interfaces /
                  --name {{decoder-manifest-name}}
 ```
@@ -119,7 +118,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

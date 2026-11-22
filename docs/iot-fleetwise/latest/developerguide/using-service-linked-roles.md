@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Using service-linked roles for AWS IoT FleetWise
-<a name="using-service-linked-roles"></a>
 
 AWS IoT FleetWise uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to AWS IoT FleetWise. Service-linked roles are predefined by AWS IoT FleetWise and include the permissions that AWS IoT FleetWise needs to send metrics to Amazon CloudWatch. For more information, see [Monitor AWS IoT FleetWise with Amazon CloudWatch](monitoring-cloudwatch.md).
 

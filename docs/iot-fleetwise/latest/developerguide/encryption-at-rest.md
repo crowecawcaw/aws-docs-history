@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Encryption at rest in AWS IoT FleetWise
-<a name="encryption-at-rest"></a>
 
 AWS IoT FleetWise stores your data in the AWS Cloud and on gateways.
 
@@ -54,7 +53,7 @@ The following example policy grants AWS IoT FleetWise permissions to use your AW
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -99,14 +98,14 @@ Your decoder manifest could be stuck in a validating status if you haven't reset
 
 1. If the encryption type is `KMS_BASED_ENCRYPTION`, use the [PutEncryptionConfiguration](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_PutEncryptionConfiguration.html) API operation to reset the encryption type to `FLEETWISE_DEFAULT_ENCRYPTION`. 
 
-   ```
+   ```bash
    aws iotfleetwise put-encryption-configuration \
          --encryption-type FLEETWISE_DEFAULT_ENCRYPTION
    ```
 
 1. Use the [PutEncryptionConfiguration](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_PutEncryptionConfiguration.html) API operation to re-enable the encryption type to `KMS_BASED_ENCRYPTION`. 
 
-   ```
+   ```bash
    aws iotfleetwise put-encryption-configuration \
            --encryption-type KMS_BASED_ENCRYPTION \
            --kms-key-id {{kms_key_id}}

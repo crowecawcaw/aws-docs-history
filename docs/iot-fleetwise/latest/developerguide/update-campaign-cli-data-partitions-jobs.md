@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Upload data using AWS IoT Jobs
-<a name="update-campaign-cli-data-partitions-jobs"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -15,7 +14,7 @@ With AWS IoT Jobs, you can configure campaigns to upload stored vehicle data to 
 
   To request that only one vehicle uploads data, set the job target to the AWS IoT thing that's associated with the vehicle. To request that multiple vehicles (in the same campaign) upload data, create a thing group of all things corresponding with the vehicles, and then set the job target to the thing group.
 
-  ```
+  ```json
   {
     "version": "1.0",
     "parameters": {

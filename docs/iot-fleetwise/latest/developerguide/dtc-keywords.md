@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Diagnostic trouble code keywords
-<a name="dtc-keywords"></a>
 
 **Important**  
 Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
@@ -15,7 +14,7 @@ Use the signalsToFetch syntax to configure how the signal information can be fet
 Signals to fetch allows the collection of DTC information. For example, you can create a signal of string type named `DTC_Info` that can contain DTC information for every engine control unit (ECU). Or, you can filter for a specific ECU.
 + `SignalFetchInformation` structure and param definitions.
 
-  ```
+  ```json
   structure SignalFetchInformation {
       @required
       fullyQualifiedName: NodePath,
@@ -45,7 +44,7 @@ isNull(signalFqdn:String): Boolean
 
 **Example usage**  
 
-```
+```bash
 isNull($variable.`Vehicle.ECU1.DTC_INFO`) == false
 
 We want to make sure DTC_Info signal is being generated
@@ -67,7 +66,7 @@ custom_function(functionName:String, params: varargs{{Expression}}): Void
 
 **Example usage**  
 
-```
+```json
 {
        "fullyQualifiedName":"Vehicle.ECU1.DTC_INFO",
        "signalFetchConfig":{

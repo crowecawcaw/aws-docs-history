@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Delete an AWS IoT FleetWise campaign
-<a name="delete-campaign"></a>
 
 You can use the AWS IoT FleetWise console or API to delete campaigns.
 
@@ -33,7 +32,7 @@ To delete a campaign, run the following command.
 
 Replace {{campaign-name}} with the name of the vehicle that you're deleting.
 
-```
+```bash
 aws iotfleetwise delete-campaign --name {{campaign-name}}
 ```
 
@@ -47,6 +46,6 @@ You can use the [ListCampaigns](https://docs.aws.amazon.com/iot-fleetwise/latest
 
 To retrieve a paginated list of summaries for all campaigns, run the following command.
 
-```
+```bash
 aws iotfleetwise list-campaigns
 ```

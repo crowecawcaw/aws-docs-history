@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # AWS Region and feature availability in AWS IoT FleetWise
-<a name="fleetwise-regions"></a>
 
 For a list of AWS Regions that support AWS IoT FleetWise, see [AWS IoT FleetWise endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iotfleetwise.html). AWS IoT FleetWise features differ in their regional support.
 

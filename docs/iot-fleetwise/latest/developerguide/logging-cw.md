@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Configure AWS IoT FleetWise logging
-<a name="logging-cw"></a>
 
 You can send your AWS IoT FleetWise log data to a CloudWatch log group. CloudWatch Logs give visibility in case AWS IoT FleetWise fails to process messages from vehicles. For example, this can happen because of a faulty configuration or other client errors. You're notified of any errors so you can identify and mitigate issues.
 
@@ -23,7 +22,7 @@ With these permissions, you can change the logging configuration, configure log 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

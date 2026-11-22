@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Update an AWS IoT FleetWise fleet
-<a name="update-fleet-cli"></a>
 
 You can use the [UpdateFleet](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateFleet.html) API operation to update the description for a fleet. The following example uses AWS CLI.
 
@@ -13,7 +12,7 @@ To update a fleet, run the following command.
 
   The description can have 1-2048 characters.
 
-```
+```bash
 aws iotfleetwise update-fleet --fleet-id {{fleet-id}} --description {{description}}
 ```
 
@@ -24,7 +23,7 @@ If you [enabled encryption](key-management.md) using a customer managed AWS KMS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

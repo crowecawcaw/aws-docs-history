@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # AWS IoT FleetWise API actions and resources reference
-<a name="api-permissions-reference"></a>
 
 When you're [Managing access using policies](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/security-iam.html#security_iam_access-manage) for an IAM identity, you can use the following table as a reference. The table lists each AWS IoT FleetWise API, the corresponding actions for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions.
 

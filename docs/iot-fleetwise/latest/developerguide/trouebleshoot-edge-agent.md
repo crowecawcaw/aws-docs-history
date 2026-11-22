@@ -3,7 +3,6 @@
 AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Edge Agent for AWS IoT FleetWise software issues
-<a name="trouebleshoot-edge-agent"></a>
 
 Troubleshoot Edge Agent software issues.
 
@@ -20,7 +19,7 @@ Troubleshoot Edge Agent software issues.
 You might see the following errors when the Edge Agent software doesn't start.
 + 
 
-  ```
+  ```bash
   Error from reader: * Line 1, Column 1
   Syntax error: value, object or array expected.
   ```
@@ -32,7 +31,7 @@ You might see the following errors when the Edge Agent software doesn't start.
   1. <a name="open-edge-resources"></a>On the service home page, in the **Get started with AWS IoT FleetWise** section, choose **Explore Edge Agent**.
 + 
 
-  ```
+  ```bash
   [ERROR] [SocketCANBusChannel::connect]: [ SocketCan with name xxx is not accessible]
   [ERROR] [IoTFleetWiseEngine::connect]: [ Failed to Bind Consumers to Producers ]
   ```
@@ -41,18 +40,18 @@ You might see the following errors when the Edge Agent software doesn't start.
 
   To check that every network interface defined in the configuration is available, run the following command.
 
-  ```
+  ```bash
   ip link show
   ```
 
   To bring a network interface online, run the following command. Replace {{network-interface-id}} with the ID of the network interface.
 
-  ```
+  ```bash
   sudo ip link set {{network-interface-id}} up
   ```
 + 
 
-  ```
+  ```bash
   [ERROR] [AwsIotConnectivityModule::connect]: [Connection failed with error]
   [WARN] [AwsIotChannel::send]: [No alive MQTT Connection.]
   # or 
