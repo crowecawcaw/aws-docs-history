@@ -1,7 +1,6 @@
 
 
 # Ireland registration
-<a name="nx-country-reg-ie"></a>
 
 The following registrations are available for Ireland.
 

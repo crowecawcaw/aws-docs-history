@@ -1,7 +1,6 @@
 
 
 # Delete a keyword from a phone pool in AWS End User Messaging
-<a name="nx-features-keywords-pool-delete"></a>
 
 Use the AWS End User Messaging console or AWS CLI to delete a keyword from your phone pool.
 
@@ -30,7 +29,7 @@ You can use the [delete-keyword](https://docs.aws.amazon.com/cli/latest/referenc
 
 At the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 delete-keyword \
 > --origination-identity {{OriginationIdentity}} \
 > --keyword {{Keyword}}

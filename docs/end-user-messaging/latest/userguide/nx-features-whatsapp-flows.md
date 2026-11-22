@@ -1,7 +1,6 @@
 
 
 # WhatsApp Flows
-<a name="nx-features-whatsapp-flows"></a>
 
 WhatsApp Flows enable businesses to create interactive, multi-screen experiences that users can complete without leaving WhatsApp. Flows support data collection, form submissions, and complex UI components like text inputs, radio buttons, checkboxes, date pickers, and dropdown menus. Use Flows to build experiences such as appointment booking, lead generation forms, customer surveys, and shopping flows.
 

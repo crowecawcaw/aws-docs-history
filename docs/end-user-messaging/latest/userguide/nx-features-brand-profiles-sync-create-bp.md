@@ -1,7 +1,6 @@
 
 
 # Create a brand profile from a registration
-<a name="nx-features-brand-profiles-sync-create-bp"></a>
 
 Create a new brand profile whose attributes are imported from an existing registration. This is the **Import from registration** path when you create a brand profile. With smart match enabled, an AI model maps the registration fields onto brand profile attributes.
 

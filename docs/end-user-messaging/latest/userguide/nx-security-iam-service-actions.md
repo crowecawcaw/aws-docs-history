@@ -1,7 +1,6 @@
 
 
 # Policy actions for AWS End User Messaging
-<a name="nx-security-iam-service-actions"></a>
 
 **Supports policy actions: Yes**
 

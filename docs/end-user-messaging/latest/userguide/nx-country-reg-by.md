@@ -1,7 +1,6 @@
 
 
 # Belarus registration
-<a name="nx-country-reg-by"></a>
 
 The following registrations are available for Belarus.
 

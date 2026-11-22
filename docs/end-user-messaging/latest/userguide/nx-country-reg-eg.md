@@ -1,7 +1,6 @@
 
 
 # Egypt registration
-<a name="nx-country-reg-eg"></a>
 
 The following registrations are available for Egypt.
 

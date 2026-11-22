@@ -1,7 +1,6 @@
 
 
 # Managing unexpected blocks in SMS Protect
-<a name="nx-features-sms-protect-unexpected-blocks"></a>
 
 Filter mode might occasionally block a legitimate message that was flagged as potential AIT. This page describes how to manage legitimate traffic that is being blocked, and how to reduce unexpected blocks at the source.
 

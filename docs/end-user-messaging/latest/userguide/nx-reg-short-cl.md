@@ -1,7 +1,6 @@
 
 
 # Chile
-<a name="nx-reg-short-cl"></a>
 
 To send messages that use a short code in Chile, you must complete the Chile short code registration.
 

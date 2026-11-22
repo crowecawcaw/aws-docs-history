@@ -1,7 +1,6 @@
 
 
 # Finland long code registration
-<a name="nx-dednum-finland"></a>
 
 Registering a dedicated number is the first step in creating an origination identity.
 

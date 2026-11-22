@@ -1,7 +1,6 @@
 
 
 # Toll-free registration
-<a name="nx-reg-type-tollfree"></a>
 
 Toll-free numbers in the following countries and regions require registration before you can send messages. Select a country or region to review its requirements and the step-by-step registration process.
 

@@ -1,7 +1,6 @@
 
 
 # Scale
-<a name="nx-voice-scale"></a>
 
 This section helps you move voice into production and run it at scale. It covers monitoring, resiliency, limits and quotas, spending, moving out of the sandbox, calling best practices, and where voice is supported by country.
 

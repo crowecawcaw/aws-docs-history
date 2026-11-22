@@ -1,7 +1,6 @@
 
 
 # Request a sender ID
-<a name="nx-features-senders-request"></a>
 
 Before you request a sender ID, verify that they are available in the destination country. See the SMS supported countries and regions documentation.
 

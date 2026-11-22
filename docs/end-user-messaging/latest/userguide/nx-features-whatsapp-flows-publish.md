@@ -1,7 +1,6 @@
 
 
 # Publishing, deprecating, and previewing WhatsApp Flows
-<a name="nx-features-whatsapp-flows-publish"></a>
 
 ## Publishing a Flow
 <a name="nx-features-whatsapp-flows-publish-flow"></a>
@@ -16,7 +15,7 @@ Publishing a Flow is irreversible. Once published, a Flow cannot be reverted to 
 
 To publish a Flow using the API:
 
-```
+```bsh
 aws socialmessaging publish-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}}
@@ -34,7 +33,7 @@ Deprecating a Flow is irreversible. Deprecated Flows cannot be reverted to PUBLI
 
 To deprecate a Flow using the API:
 
-```
+```bsh
 aws socialmessaging deprecate-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}}
@@ -47,7 +46,7 @@ You can generate a web preview URL to test a Flow before publishing. Preview URL
 
 To generate a preview URL using the API:
 
-```
+```bsh
 aws socialmessaging get-whatsapp-flow-preview \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}}
@@ -55,7 +54,7 @@ aws socialmessaging get-whatsapp-flow-preview \
 
 The response includes the preview URL and its expiration timestamp:
 
-```
+```json
 {
     "flowId": "{FLOW_ID}",
     "preview": {
@@ -67,7 +66,7 @@ The response includes the preview URL and its expiration timestamp:
 
 To force generation of a new preview URL (for example, if the previous URL was shared and you want a fresh URL with a new expiration), use the `--invalidate` parameter:
 
-```
+```bsh
 aws socialmessaging get-whatsapp-flow-preview \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}} \

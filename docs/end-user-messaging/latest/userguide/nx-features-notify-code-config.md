@@ -1,7 +1,6 @@
 
 
 # Notify code configurations
-<a name="nx-features-notify-code-config"></a>
 
 A notify code configuration is a reusable one-time passcode (OTP) policy and message-template set that you apply when you send verifications. It defines how a passcode is generated — the code type, length, validity period, and maximum number of attempts — and holds per-channel templates for the text, voice, and WhatsApp channels. You define the rules once and reuse the configuration across any Notify configuration; any policy field you leave blank uses the service default at send time.
 

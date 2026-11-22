@@ -1,7 +1,6 @@
 
 
 # Agent setup guide
-<a name="nx-agent-setup"></a>
 
 AI coding agents can accelerate messaging development by guiding you through workflows that historically required navigating multiple documentation pages. Examples include creating a Rich Communication Services (RCS) branded agent, sending a one-time passcode, registering to send SMS, connecting a WhatsApp Business Account, and moving from the sandbox to production. AWS End User Messaging publishes agent skills that give your agent step-by-step, validated guidance for these tasks. An agent configured with your AWS credentials can also run the underlying API calls. Without credentials, a skill provides guidance only.
 
@@ -32,7 +31,7 @@ The `aws-core` plugin bundles the AWS MCP Server configuration and a curated set
 **Kiro**  
 Add the server to `.kiro/settings/mcp.json`:
 
-```
+```json
 {
   "mcpServers": {
     "aws": {

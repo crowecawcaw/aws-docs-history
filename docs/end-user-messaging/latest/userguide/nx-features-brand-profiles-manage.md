@@ -1,7 +1,6 @@
 
 
 # Managing brand profiles
-<a name="nx-features-brand-profiles-manage"></a>
 
 Create a brand profile to hold your business identity, view and list the profiles in your account, update a profile's name or deletion protection setting, and delete profiles you no longer need.
 

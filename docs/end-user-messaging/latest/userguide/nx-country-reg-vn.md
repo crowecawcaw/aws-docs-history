@@ -1,7 +1,6 @@
 
 
 # Vietnam registration
-<a name="nx-country-reg-vn"></a>
 
 The following registrations are available for Vietnam.
 

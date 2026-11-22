@@ -1,7 +1,6 @@
 
 
 # Required opt-out keywords
-<a name="nx-features-keywords-required"></a>
 
 Where required by local laws and regulations (such as in the US and Canada), SMS and MMS recipients can use their devices to opt out by replying to the message with any of the following:
 

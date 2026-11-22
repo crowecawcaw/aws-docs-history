@@ -1,7 +1,6 @@
 
 
 # Send a message with message feedback in AWS End User Messaging
-<a name="nx-features-message-feedback-api-enable"></a>
 
 To enable message feedback when sending a message with [SendTextMessage](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.html), or [SendMediaMessage](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_SendMediaMessage.html), set the `MessageFeedbackEnabled` parameter to true. When you use message feedback you have to set the message feedback status record to update your message feedback metrics.
 
@@ -10,7 +9,7 @@ The following is a partial example of sending an SMS with message feedback enabl
 **Sending an SMS message with message feedback enabled with the API**
 + At the command line, enter the following command:
 
-  ```
+  ```bsh
   aws pinpoint-sms-voice-v2 --region '{{us-east-1}}' send-text-message --destination-phone-number {{+12065550150}} --origination-identity {{+14255550120}} --message-body '{{text body}}' --message-feedback-enabled
   ```
 
@@ -26,7 +25,7 @@ The following is a partial example of sending an SMS with message feedback enabl
 **Example of sending an SMS message with message feedback with a configuration set**
 + At the command line, enter the following command:
 
-  ```
+  ```bsh
   aws pinpoint-sms-voice-v2 --region '{{us-east-1}}' send-text-message --destination-phone-number {{+12065550150}} --origination-identity {{+14255550120}} --message-body '{{text body}}' --configuration-set-name {{ConfigSetName}}
   ```
 
@@ -39,7 +38,7 @@ The following is a partial example of sending an SMS with message feedback enabl
 
 If AWS End User Messaging accepts the command you will receive the `MessageId`. This only means the command was successfully received and not that the destination device has received the message yet.
 
-```
+```json
 {
    "MessageId": "string"
 }

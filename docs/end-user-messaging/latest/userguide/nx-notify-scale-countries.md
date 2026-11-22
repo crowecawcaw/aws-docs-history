@@ -1,7 +1,6 @@
 
 
 # Supported countries
-<a name="nx-notify-scale-countries"></a>
 
 The countries available for Notify messaging depend on your configuration's tier. The Basic tier supports a curated set of 30 pre-approved countries optimized for reliability and quality. The Advanced tier supports an expanded list that includes all countries available in AWS End User Messaging; some Advanced-tier countries require you to associate your own phone pool with customer-owned origination identities. Country availability may change over time, so use the `ListNotifyCountries` API or the console to check the current list.
 

@@ -1,7 +1,6 @@
 
 
 # Requesting a 10DLC phone number by area code
-<a name="nx-features-phone-numbers-10dlc-select"></a>
 
 When you request a 10 digit long code (10DLC) phone number, you can search for and choose a specific number instead of receiving a random assignment. You can search by area code or by a pattern within the phone number. You can also request an exact phone number. This feature is available for United States 10DLC phone numbers only.
 
@@ -88,7 +87,7 @@ Use the AWS CLI to search for available 10DLC phone numbers and then request a s
 
 Use the [list-available-phone-numbers](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/list-available-phone-numbers.html) command to search for available 10DLC phone numbers. The following example searches for numbers in the 510 area code:
 
-```
+```bash
 $ aws pinpoint-sms-voice-v2 list-available-phone-numbers \
     --iso-country-code US \
     --number-type TEN_DLC \
@@ -98,7 +97,7 @@ $ aws pinpoint-sms-voice-v2 list-available-phone-numbers \
 
 If numbers matching your search criteria are available, the response includes a list of phone numbers in E.164 format:
 
-```
+```json
 {
     "AvailablePhoneNumbers": [
         "+15103921111",
@@ -124,7 +123,7 @@ After you find a phone number in the search results, use the [request-phone-numb
 
 The following example requests an exact phone number:
 
-```
+```bash
 $ aws pinpoint-sms-voice-v2 request-phone-number \
     --iso-country-code US \
     --message-type TRANSACTIONAL \
@@ -136,7 +135,7 @@ $ aws pinpoint-sms-voice-v2 request-phone-number \
 
 You can also request a phone number using a pattern. The following example requests any available number in the 510 area code:
 
-```
+```bash
 $ aws pinpoint-sms-voice-v2 request-phone-number \
     --iso-country-code US \
     --message-type TRANSACTIONAL \

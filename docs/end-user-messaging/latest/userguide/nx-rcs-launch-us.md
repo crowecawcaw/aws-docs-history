@@ -1,7 +1,6 @@
 
 
 # Launching RCS in the United States
-<a name="nx-rcs-launch-us"></a>
 
 To launch your RCS agent in the United States, submit a country launch registration using the `US_RCS_LAUNCH_REGISTRATION` registration type in the AWS End User Messaging console or API.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon SNS access policy
-<a name="nx-features-configuration-sets-sns-creating-role"></a>
 
 Access to an Amazon SNS topic is controlled by a *resource policy* attached to the Amazon SNS topic, this is also called an *access policy*. For more information about Amazon SNS *access polices*, see [Identity and access management](https://docs.aws.amazon.com/sns/latest/dg/security-iam.html) in the *Amazon SNS Developer Guide*. 
 

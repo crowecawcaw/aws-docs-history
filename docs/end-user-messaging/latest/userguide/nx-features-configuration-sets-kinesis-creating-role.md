@@ -1,7 +1,6 @@
 
 
 # IAM policy for Amazon Data Firehose
-<a name="nx-features-configuration-sets-kinesis-creating-role"></a>
 
 Use the following example to create a policy for sending events to a Amazon Data Firehose stream.
 

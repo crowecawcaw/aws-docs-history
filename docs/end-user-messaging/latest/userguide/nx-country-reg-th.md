@@ -1,7 +1,6 @@
 
 
 # Thailand registration
-<a name="nx-country-reg-th"></a>
 
 The following registrations are available for Thailand.
 

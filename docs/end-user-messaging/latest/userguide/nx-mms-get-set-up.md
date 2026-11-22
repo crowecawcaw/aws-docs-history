@@ -1,7 +1,6 @@
 
 
 # How to get set up
-<a name="nx-mms-get-set-up"></a>
 
 This topic takes you from a new AWS account to sending your first MMS (multimedia) message with AWS End User Messaging. Complete the following steps.
 

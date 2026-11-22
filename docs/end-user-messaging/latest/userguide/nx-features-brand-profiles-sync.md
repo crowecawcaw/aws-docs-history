@@ -1,7 +1,6 @@
 
 
 # Syncing brand profiles with registrations
-<a name="nx-features-brand-profiles-sync"></a>
 
 Sync connects a brand profile to your registrations in both directions. You can create or update registrations that are pre-filled from a brand profile, or create or update a brand profile from an existing registration. With smart match enabled, an AI model maps fields between the profile and the registration form semantically. These operations run asynchronously and return a job you can track.
 

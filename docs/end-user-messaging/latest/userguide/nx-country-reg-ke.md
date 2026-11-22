@@ -1,7 +1,6 @@
 
 
 # Kenya registration
-<a name="nx-country-reg-ke"></a>
 
 The following registrations are available for Kenya.
 

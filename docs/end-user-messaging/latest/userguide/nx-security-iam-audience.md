@@ -1,7 +1,6 @@
 
 
 # Audience
-<a name="nx-security-iam-audience"></a>
 
 How you use AWS Identity and Access Management (IAM) differs based on the work that you do in AWS End User Messaging.
 + **Service user**. If you use the AWS End User Messaging service to do your job, then your administrator provides you with the credentials and permissions that you need. As you use more AWS End User Messaging features to do your work, you might need additional permissions. Understanding how access is managed can help you request the right permissions from your administrator.

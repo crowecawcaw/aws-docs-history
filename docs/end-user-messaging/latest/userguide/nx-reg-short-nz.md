@@ -1,7 +1,6 @@
 
 
 # New Zealand
-<a name="nx-reg-short-nz"></a>
 
 To send messages that use a short code in New Zealand, you must complete the New Zealand short code registration.
 

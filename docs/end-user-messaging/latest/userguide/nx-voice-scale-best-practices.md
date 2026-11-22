@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="nx-voice-scale-best-practices"></a>
 
 For the best results when creating and sending voice messages, we recommend that you follow the best practices in this topic. Following these practices can help with the satisfaction of your recipients, protect your sender reputation, and protect you from unexpected charges. Sending unsolicited content is a violation of the [acceptable use policy](https://aws.amazon.com/aup/#No_E-Mail_or_Other_Message_Abuse), and the AWS End User Messaging team routinely audits voice messages.
 

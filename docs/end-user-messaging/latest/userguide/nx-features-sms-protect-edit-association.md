@@ -1,7 +1,6 @@
 
 
 # Change a protection configuration association in AWS End User Messaging
-<a name="nx-features-sms-protect-edit-association"></a>
 
 To use the country rules contained in a protect configuration, you need to associate the protect configuration as the *account default* to a configuration set, or use it directly with a message send. If you only have one message sending use case, using an *account default* is the simplest option. If you have several use cases, you can use configuration sets to control which countries AWS End User Messaging sends to, and for the most control, you can associate a protect configuration directly in a message send. To change a protect configuration's association, you can use the AWS End User Messaging console, the `AssociateProtectConfiguration` or `SetAccountDefaultProtectConfiguration` operation in the AWS End User Messaging and voice v2 API, or the `aws sms-voice associate-protect-configuration` or `aws sms-voice set-account-default-protect-configuration` commands in the AWS CLI. This section shows how to change a protect configuration’s association using the AWS End User Messaging console and the AWS CLI.
 
@@ -47,7 +46,7 @@ You can use the associate-protect-configuration command to associate the protect
 
 To change a configuration sets association to a protect configuration at the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 associate-protect-configuration --configuration-set-name {{ConfigurationSetName}} --protect-configuration-id {{ProtectConfigurationID}}
 ```
 
@@ -57,7 +56,7 @@ In the preceding command, make the following changes:
 
 To change the account default protect configuration at the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 set-account-default-protect-configuration --protect-configuration-id {{ProtectConfigurationID}}
 ```
 
@@ -71,7 +70,7 @@ You can use the disassociate-protect-configuration command to disassociate the p
 
 To remove a configuration sets association to a protect configuration at the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 disassociate-protect-configuration --configuration-set-name {{ConfigurationSetName}} --protect-configuration-id {{ProtectConfigurationID}}
 ```
 
@@ -81,7 +80,7 @@ In the preceding command, make the following changes:
 
 To remove the *account default* protect configuration at the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 delete-account-default-protect-configuration
 ```
 

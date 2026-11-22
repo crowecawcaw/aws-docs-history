@@ -1,7 +1,6 @@
 
 
 # Receiving Flow responses and status changes
-<a name="nx-features-whatsapp-flows-webhooks"></a>
 
 When a user completes a Flow or when a Flow's status changes, AWS End User Messaging delivers webhook notifications through your existing configured event destination. No additional setup or new event types are required — Flow events are delivered automatically to the same event destination you use for messages and delivery receipts. You must have an event destination enabled to receive these notifications. For more information about event destinations, see [Configuration sets](nx-features-configuration-sets.md).
 
@@ -12,7 +11,7 @@ When a user completes a Flow, you receive an inbound message with the type `inte
 
 The following example shows a Flow response webhook payload:
 
-```
+```json
 {
     "messages": [
         {
@@ -40,7 +39,7 @@ The `response_json` contains key-value pairs corresponding to the form field nam
 
 When Meta changes a Flow's status (for example, from PUBLISHED to BLOCKED), you receive a notification through your event destination. The following example shows a status change payload:
 
-```
+```json
 {
     "entry": [
         {
@@ -71,7 +70,7 @@ For dynamic Flows with an endpoint, Meta monitors endpoint health and sends noti
 
 **Endpoint error rate** — Sent when the error rate exceeds a threshold in the last 30 minutes:
 
-```
+```json
 {
     "entry": [
         {
@@ -99,7 +98,7 @@ For dynamic Flows with an endpoint, Meta monitors endpoint health and sends noti
 
 **Endpoint latency** — Sent when the p90 latency exceeds the threshold:
 
-```
+```json
 {
     "entry": [
         {
@@ -125,7 +124,7 @@ For dynamic Flows with an endpoint, Meta monitors endpoint health and sends noti
 
 **Endpoint availability** — Sent when endpoint availability drops below the threshold:
 
-```
+```json
 {
     "entry": [
         {
@@ -154,7 +153,7 @@ Monitor these events to detect and resolve endpoint issues before Meta blocks or
 
 Meta sends a warning webhook when the Flow JSON version used by your Flow is approaching its end-of-life date. When a version expires, you cannot send the Flow until you update to a newer version.
 
-```
+```json
 {
     "entry": [
         {

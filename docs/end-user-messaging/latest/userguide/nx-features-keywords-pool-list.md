@@ -1,7 +1,6 @@
 
 
 # View keywords used by a phone pool in AWS End User Messaging
-<a name="nx-features-keywords-pool-list"></a>
 
 Use the AWS End User Messaging console or AWS CLI to view the keyword responses for your phone pool.
 
@@ -27,7 +26,7 @@ You can use the [describe-keywords](https://docs.aws.amazon.com/cli/latest/refer
 
 To view a list of keywords using the AWS CLI at the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 describe-keywords \
 > --origination-identity {{OriginationIdentity}}
 ```

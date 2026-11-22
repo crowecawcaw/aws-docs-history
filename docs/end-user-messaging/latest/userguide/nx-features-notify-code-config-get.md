@@ -1,7 +1,6 @@
 
 
 # Get a notify code configuration
-<a name="nx-features-notify-code-config-get"></a>
 
 View a single notify code configuration to see its passcode policy, channel templates, deletion protection setting, and identifiers.
 

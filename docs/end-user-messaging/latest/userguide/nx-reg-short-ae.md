@@ -1,7 +1,6 @@
 
 
 # United Arab Emirates
-<a name="nx-reg-short-ae"></a>
 
 To send messages that use a short code in United Arab Emirates, you must complete the United Arab Emirates short code registration.
 

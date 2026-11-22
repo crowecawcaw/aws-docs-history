@@ -1,7 +1,6 @@
 
 
 # Brazil
-<a name="nx-reg-short-br"></a>
 
 To send messages that use a short code in Brazil, you must complete the Brazil short code registration.
 

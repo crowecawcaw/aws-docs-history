@@ -1,7 +1,6 @@
 
 
 # Setup RCS
-<a name="nx-rcs"></a>
 
 RCS (Rich Communication Services) for business is a mobile messaging channel that upgrades SMS with verified brand identity and rich, interactive content, and automatically falls back to SMS when a recipient's device or carrier does not support RCS. Messages appear in the same messaging app recipients already use, but carry your verified brand name, logo, and colors. Common use cases include branded notifications and promotions, rich cards and carousels, interactive suggested replies and actions, and two-way conversations.
 

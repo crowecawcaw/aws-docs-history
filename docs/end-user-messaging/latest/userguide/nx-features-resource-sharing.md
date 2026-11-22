@@ -1,7 +1,6 @@
 
 
 # Resource sharing
-<a name="nx-features-resource-sharing"></a>
 
 AWS End User Messaging integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. AWS RAM is a service that enables you to share some AWS End User Messaging resources with other AWS accounts or through AWS Organizations. With AWS RAM, you share resources that you own by creating a *resource share*. A resource share specifies the resources to share, and the consumers with whom to share them. Consumers can include:
 + Specific AWS accounts inside or outside of its organization in AWS Organizations

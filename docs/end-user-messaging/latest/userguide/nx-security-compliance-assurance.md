@@ -1,7 +1,6 @@
 
 
 # Security assurance program considerations for SMS
-<a name="nx-security-compliance-assurance"></a>
 
 The AWS End User Messaging capabilities are eligible for the security assurance programs listed in [Compliance Resources](https://aws.amazon.com/compliance/resources/). This means that it is possible to build compliant solutions using SMS. For customers to build compliant solutions, they should consult their own security teams.
 

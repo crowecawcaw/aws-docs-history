@@ -1,7 +1,6 @@
 
 
 # View Notify configurations
-<a name="nx-features-notify-config-view"></a>
 
 View the Notify configurations in your account and AWS Region to see each configuration's display name, use case, enabled channels and countries, tier, status, default template, associated pool, and deletion protection setting. You can view a single configuration by its ID or list all of them. In the AWS CLI, a single operation, `describe-notify-configurations`, does both: pass configuration IDs to view specific configurations, or omit them to list all configurations in the account.
 

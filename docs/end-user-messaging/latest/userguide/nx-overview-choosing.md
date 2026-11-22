@@ -1,7 +1,6 @@
 
 
 # Choosing a messaging service
-<a name="nx-overview-choosing"></a>
 
 Several AWS services can send messages to your end users, and it is not always obvious which one to use. AWS End User Messaging is the layer responsible for delivering messages to end users across AWS, so when another service such as Amazon SNS, Amazon Cognito, or Amazon Connect sends a message, that message is delivered through AWS End User Messaging. Use the following table to decide whether to work with AWS End User Messaging directly, so that you control the channel and send across SMS, MMS, RCS, WhatsApp, push, and voice, or through a service that sends messages on your behalf as part of a larger workflow, such as user authentication or a contact-center interaction.
 

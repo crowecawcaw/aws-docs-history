@@ -1,7 +1,6 @@
 
 
 # Singapore registration
-<a name="nx-country-reg-sg"></a>
 
 The following registrations are available for Singapore.
 

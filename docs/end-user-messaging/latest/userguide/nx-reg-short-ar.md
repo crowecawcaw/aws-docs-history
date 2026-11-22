@@ -1,7 +1,6 @@
 
 
 # Argentina
-<a name="nx-reg-short-ar"></a>
 
 To send messages that use a short code in Argentina, you must complete the Argentina short code registration.
 

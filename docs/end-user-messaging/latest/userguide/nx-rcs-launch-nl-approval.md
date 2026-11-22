@@ -1,7 +1,6 @@
 
 
 # Proactive brand approval email (required after registration)
-<a name="nx-rcs-launch-nl-approval"></a>
 
 **Important**  
 In addition to the console registration, you must send a proactive brand approval email. Your registration cannot be fully approved until the carriers receive your brand authorization.

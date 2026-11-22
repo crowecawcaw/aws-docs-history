@@ -1,7 +1,6 @@
 
 
 # Step 1: Link your WhatsApp Business Account
-<a name="nx-whatsapp-gsu-link-waba"></a>
 
 You link a WhatsApp Business Account (WABA) through an embedded sign-up flow that connects Meta's WhatsApp Business Platform to your AWS account. During sign-up you give AWS End User Messaging access to your WABA and allow it to bill you for messages. You can create a new WABA or migrate an existing one. A WABA can exist in only one AWS Region.
 

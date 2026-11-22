@@ -1,7 +1,6 @@
 
 
 # Delete a brand profile
-<a name="nx-features-brand-profiles-delete"></a>
 
 Delete a brand profile you no longer need. If deletion protection is enabled on the profile, turn it off before you delete (see [Update a brand profile](nx-features-brand-profiles-update.md)).
 

@@ -1,7 +1,6 @@
 
 
 # Outbound messaging
-<a name="nx-whatsapp-send-outbound"></a>
 
 WhatsApp business messaging is template-first. To open a conversation with a recipient, you send a message built from a Meta-approved template by calling `SendWhatsAppMessage` with your originating phone number ID, the recipient, and the approved template. After the first template message, you can exchange free-form messages within the open conversation window.
 
@@ -31,7 +30,7 @@ Use the console to send a test message without writing code.
 
 Use the `send-whatsapp-message` command. Pass the originating phone number ID and a Meta-formatted message payload. The following example sends an approved template to a recipient.
 
-```
+```bsh
 aws socialmessaging send-whatsapp-message \
     --origination-phone-number-id {{phone-number-id-abc123}} \
     --meta-api-version {{v20.0}} \

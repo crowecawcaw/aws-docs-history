@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="nx-voice-get-set-up-prerequisites"></a>
 
 Before you begin, complete the following:
 
@@ -14,7 +13,7 @@ Before you begin, complete the following:
 
 To get started quickly, the following example IAM policy allows all AWS End User Messaging SMS and voice actions on all resources. For production, scope the policy down to the specific actions and resources you use.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

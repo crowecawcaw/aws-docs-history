@@ -1,7 +1,6 @@
 
 
 # Send a message
-<a name="nx-whatsapp-send"></a>
 
 WhatsApp business messaging is template-first: you start a conversation by sending an approved message template, and then you exchange free-form messages within the open conversation window. You send WhatsApp messages with the `SendWhatsAppMessage` operation in the AWS End User Messaging Social Messaging API (the `social-messaging` namespace).
 

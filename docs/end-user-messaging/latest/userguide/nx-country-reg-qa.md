@@ -1,7 +1,6 @@
 
 
 # Qatar registration
-<a name="nx-country-reg-qa"></a>
 
 The following registrations are available for Qatar.
 

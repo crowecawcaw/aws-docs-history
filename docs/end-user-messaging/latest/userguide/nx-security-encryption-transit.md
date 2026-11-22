@@ -1,7 +1,6 @@
 
 
 # Encryption in transit
-<a name="nx-security-encryption-transit"></a>
 
 AWS End User Messaging uses HTTPS and Transport Layer Security (TLS) 1.2 to communicate with your clients and applications. To communicate with other AWS services, AWS End User Messaging uses HTTPS and TLS 1.2. In addition, when you create and manage AWS End User Messaging resources by using the console, an AWS SDK, or the AWS Command Line Interface, all communications are secured using HTTPS and TLS 1.2.
 

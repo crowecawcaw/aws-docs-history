@@ -1,14 +1,13 @@
 
 
 # Update an RCS agent
-<a name="nx-features-rcs-agents-update"></a>
 
 Update the settings on an existing AWS RCS Agent, including whether deletion protection is enabled.
 
 **To update an RCS agent using the AWS CLI**
 + At the command line, enter the following command, replacing {{rcs-agentId}} with the ID of the agent to update.
 
-  ```
+  ```bash
   $ aws pinpoint-sms-voice-v2 update-rcs-agent \
   > --rcs-agent-id {{rcs-agentId}} \
   > --deletion-protection-enabled

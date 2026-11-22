@@ -1,7 +1,6 @@
 
 
 # Requesting dedicated short codes
-<a name="nx-features-phone-numbers-request-short-code"></a>
 
 A short code is a number that you can use for high-volume SMS and MMS message sending. Short codes are often used for application-to-person (A2P) messaging, two-factor authentication (2FA), and marketing. A short code typically contains between five and seven digits, depending on the country that it's based in.
 

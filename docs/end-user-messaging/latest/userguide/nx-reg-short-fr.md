@@ -1,7 +1,6 @@
 
 
 # France
-<a name="nx-reg-short-fr"></a>
 
 To send messages that use a short code in France, you must complete the France short code registration.
 

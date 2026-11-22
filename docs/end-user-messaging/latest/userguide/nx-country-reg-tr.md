@@ -1,7 +1,6 @@
 
 
 # Turkey registration
-<a name="nx-country-reg-tr"></a>
 
 The following registrations are available for Turkey.
 

@@ -1,7 +1,6 @@
 
 
 # Keyword actions
-<a name="nx-features-keywords-actions"></a>
 
 A keyword can have one of three actions associated with it. When a customer responds with the keyword the action will be performed to add or remove the user from the opt-out list or respond to the user with a message.
 + `Opt-out` – The recipient is added to the opt-out list and will not receive future messages.

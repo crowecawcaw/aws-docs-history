@@ -1,13 +1,12 @@
 
 
 # Change a phone number's capabilities with the AWS CLI
-<a name="nx-features-phone-numbers-change-capabilities"></a>
 
 After you request a phone number, you can use the [update-phone-number](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/update-phone-number.html) CLI to change the settings of that phone number, or to enable additional features. You can change several phone number settings, including the pool and opt-out list that are associated with the phone number, as well as the deletion protection setting.
 
 An example of an additional feature that you can enable by updating a phone number is two-way messaging. Support for two-way messaging varies depending on which country you plan to send messages to. For a list of supported countries, see the supported countries and regions for SMS.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 update-phone-number \
 > --phone-number-id {{phone-d2b0f5dd4fd14ebdb2a3b9128example}} \
 > --deletion-protection-enabled {{true}} \

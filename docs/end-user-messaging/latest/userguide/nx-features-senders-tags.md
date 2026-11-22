@@ -1,7 +1,6 @@
 
 
 # Manage tags for a sender ID
-<a name="nx-features-senders-tags"></a>
 
 Tags are pairs of keys and values that you can optionally apply to your AWS resources to control access or usage. Adding a tag to a resource can help you categorize and manage resources by purpose, owner, environment, or other criteria.
 
@@ -30,7 +29,7 @@ Use the AWS End User Messaging console to add, edit, or delete a tag.
 
 Use the AWS CLI to add or edit a tag.
 
-```
+```shell
 $ aws pinpoint-sms-voice-v2 tag-resource \
   --resource-arn {{resource-arn}} \
   --tags tags={{{key1}}={{value1}}}
@@ -38,7 +37,7 @@ $ aws pinpoint-sms-voice-v2 tag-resource \
 
 Use the AWS CLI to delete a tag.
 
-```
+```shell
 $ aws pinpoint-sms-voice-v2 untag-resource \
   --resource-arn {{resource-arn}} \
   --tag-keys {{key1}}

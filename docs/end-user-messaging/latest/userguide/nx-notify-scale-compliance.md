@@ -1,7 +1,6 @@
 
 
 # Compliance and mobile carrier prerequisites
-<a name="nx-notify-scale-compliance"></a>
 
 When you use Notify, you are responsible for complying with applicable messaging laws and mobile carrier requirements in each country or region where your customers are located. Consult an attorney to assess your compliance obligations. Non-compliance may result in a carrier audit and removal of your access to Notify. These requirements apply to both the Basic and Advanced tiers. Before sending messages, you must publish your own terms and conditions and privacy policy pages that include the required language, and you must implement an opt-in flow that obtains explicit consent.
 

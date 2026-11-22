@@ -1,7 +1,6 @@
 
 
 # Limits and quotas
-<a name="nx-sms-scale-limits"></a>
 
 The SMS protocol is subject to several limitations and restrictions. There are technical limitations on the length of each SMS message, and there are throughput limits on how quickly you can send. When you set up SMS and MMS messaging in AWS End User Messaging, you must consider these limitations and restrictions, and you should also follow the techniques described in [Best practices](nx-sms-scale-best-practices.md). For the per-account service quotas that apply across channels, and how to request an increase, see [Quotas](nx-features-quotas.md).
 

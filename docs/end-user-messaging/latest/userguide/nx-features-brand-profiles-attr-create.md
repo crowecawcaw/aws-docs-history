@@ -1,7 +1,6 @@
 
 
 # Create brand profile attributes
-<a name="nx-features-brand-profiles-attr-create"></a>
 
 Attributes hold your brand identity information — company details, addresses, compliance documents, and logos — as key/value pairs on the brand profile. Each attribute has a type of `TEXT`, `IMAGE`, or `DOCUMENT`. You can add up to 10 attributes in a single request. For `IMAGE` and `DOCUMENT` attributes, provide the file content directly or reference a file in Amazon S3, and AWS End User Messaging returns a download URL.
 

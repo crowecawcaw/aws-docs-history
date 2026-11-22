@@ -1,7 +1,6 @@
 
 
 # Step 2: Add a WhatsApp business phone number
-<a name="nx-whatsapp-gsu-add-number"></a>
 
 Adding a phone number is part of the same embedded sign-up flow you started in Step 1. The number you register is displayed to your customers when you send them a message. To use a number that is already in use with the WhatsApp Messenger or WhatsApp Business app, delete it from that app first.
 

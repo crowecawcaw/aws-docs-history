@@ -1,7 +1,6 @@
 
 
 # Jordan registration
-<a name="nx-country-reg-jo"></a>
 
 The following registrations are available for Jordan.
 

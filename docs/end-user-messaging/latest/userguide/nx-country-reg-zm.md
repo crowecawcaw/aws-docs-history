@@ -1,7 +1,6 @@
 
 
 # Zambia registration
-<a name="nx-country-reg-zm"></a>
 
 The following registrations are available for Zambia.
 

@@ -1,7 +1,6 @@
 
 
 # Policy condition keys for AWS End User Messaging
-<a name="nx-security-iam-service-conditions"></a>
 
 **Supports service-specific policy condition keys: Yes**
 

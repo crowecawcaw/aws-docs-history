@@ -1,7 +1,6 @@
 
 
 # Scale
-<a name="nx-push-scale"></a>
 
 After you have tested your push notification setup, this section helps you run AWS End User Messaging Push at scale. It covers regional availability, the quotas that apply, how to monitor your messaging, and how to disable a push channel when you no longer need it.
 

@@ -1,7 +1,6 @@
 
 
 # How to get set up
-<a name="nx-rcs-get-set-up"></a>
 
 This topic takes you from a new AWS account to sending your first RCS message with AWS End User Messaging. For background on how RCS works, including the two-level identity model, see [Setup RCS](nx-rcs.md). Complete the following steps.
 

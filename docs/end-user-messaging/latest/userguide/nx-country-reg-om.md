@@ -1,7 +1,6 @@
 
 
 # Oman
-<a name="nx-country-reg-om"></a>
 
 To send messages that use a sender ID in Oman, you must complete the Oman sender ID registration.
 

@@ -1,7 +1,6 @@
 
 
 # Change the opt-out list for an originator
-<a name="nx-features-opt-out-lists-originators"></a>
 
 Multiple origination identities can use the same opt-out list. You can view all of the origination identities that are linked to an opt-out list using the AWS End User Messaging console, follow these steps:
 

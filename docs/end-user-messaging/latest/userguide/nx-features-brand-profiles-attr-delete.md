@@ -1,7 +1,6 @@
 
 
 # Delete a brand profile attribute
-<a name="nx-features-brand-profiles-attr-delete"></a>
 
 Delete an attribute you no longer need from a brand profile.
 

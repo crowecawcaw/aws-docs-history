@@ -1,7 +1,6 @@
 
 
 # Change a protect configuration country rules in AWS End User Messaging
-<a name="nx-features-sms-protect-edit-countries"></a>
 
 Protect configuration country rules either *Allow*, *Block*, *Monitor*, or *Filter* messages for each destination country. To update protect configuration country rules, you can use the AWS End User Messaging console or the `aws sms-voice update-protect-configuration-country-rule-set` command in the AWS CLI. This section shows how to update the protect configuration country rules using the AWS End User Messaging console and the AWS CLI.
 
@@ -35,7 +34,7 @@ You can use the update-protect-configuration-country-set command to change a pro
 **To edit a protect configuration**
 + To edit two country rules at the command line, enter the following command:
 
-  ```
+  ```bsh
   aws pinpoint-sms-voice-v2 update-protect-configuration-country-rule-set --protect-configuration-id {{ProtectConfigId}} --number-capability {{Capability}} --country-rule-set-updates '{"{{CountryISO1}}":{"ProtectStatus": "{{Rule1}}"}, "{{CountryISO2}}": {"ProtectStatus":"{{Rule2}}"}}'
   ```
 

@@ -1,7 +1,6 @@
 
 
 # Send a passcode
-<a name="nx-features-notify-code-config-send"></a>
 
 Send a one-time passcode to a recipient over the text, voice, or WhatsApp channel. The passcode policy is captured from the referenced notify code configuration at send time, so later updates to the configuration do not affect verifications already in progress. Supply a reference identifier to bind this send to a later validate request. In the console, you can send a test verification without creating any resources.
 
@@ -49,7 +48,7 @@ Send a one-time passcode to a recipient over the text, voice, or WhatsApp channe
 
 1. The response resembles the following:
 
-   ```
+   ```json
    {
        "messageId": "sms-abc123",
        "verificationId": "ver-xyz789"

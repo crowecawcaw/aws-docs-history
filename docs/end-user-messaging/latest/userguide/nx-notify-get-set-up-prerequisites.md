@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="nx-notify-get-set-up-prerequisites"></a>
 
 Before you begin, complete the following:
 
@@ -20,7 +19,7 @@ AWS End User Messaging generates and validates the code
 AWS End User Messaging generates the passcode, sends it, and validates the code the recipient enters, backed by a notify code configuration that defines your passcode policy. Use the `endusermessaging` namespace operations `SendNotifyCodeVerification` and `ValidateNotifyCodeVerification`. This mode requires the `end-user-messaging` IAM actions. Because Notify delivers the message through your origination identities, the caller also needs the `sms-voice` actions. Start with [Step 1: Create a notify code policy](nx-notify-get-set-up-policy.md).  
 To get started quickly, the following example IAM policy allows the required actions on all resources. For production, scope the policy down to the specific actions and resources you use.  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -40,7 +39,7 @@ You generate the code
 You generate the passcode in your own application and pass it to Notify, which delivers it over AWS-managed origination identities using a pre-approved template. Use the `sms-voice` namespace operations `SendNotifyTextMessage` and `SendNotifyVoiceMessage`. This mode requires only the `sms-voice` IAM actions. You do not need a notify code configuration; skip [Step 1: Create a notify code policy](nx-notify-get-set-up-policy.md) and start with [Step 2: Create a Notify configuration](nx-notify-get-set-up-create.md).  
 To get started quickly, the following example IAM policy allows all AWS End User Messaging SMS and voice actions on all resources. For production, scope the policy down to the specific actions and resources you use.  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

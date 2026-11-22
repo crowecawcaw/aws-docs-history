@@ -1,7 +1,6 @@
 
 
 # Limits and quotas
-<a name="nx-voice-scale-limits"></a>
 
 AWS End User Messaging applies limits and quotas to voice messaging. Some limits are fixed and some are account quotas that you can request to increase through Service Quotas. This topic describes the limits that apply to voice messages and how to request increases.
 

@@ -1,7 +1,6 @@
 
 
 # Update a Notify configuration
-<a name="nx-features-notify-config-update"></a>
 
 You can update the enabled channels, enabled countries, default template, associated pool, and deletion protection settings of a Notify configuration.
 

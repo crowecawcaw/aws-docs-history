@@ -1,7 +1,6 @@
 
 
 # Kazakhstan registration
-<a name="nx-country-reg-kz"></a>
 
 The following registrations are available for Kazakhstan.
 

@@ -1,7 +1,6 @@
 
 
 # Scale
-<a name="nx-rcs-scale"></a>
 
 This section helps you move RCS into production and run it at scale. It covers monitoring, resiliency with SMS fallback, limits and quotas, spending, moving out of the sandbox, sending best practices, and where RCS is supported by country.
 

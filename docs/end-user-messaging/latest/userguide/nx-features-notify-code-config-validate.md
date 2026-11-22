@@ -1,7 +1,6 @@
 
 
 # Validate a passcode
-<a name="nx-features-notify-code-config-validate"></a>
 
 Validate a passcode that a recipient submitted. Validation succeeds when the passcode matches, the validity period has not elapsed, and the maximum number of attempts has not been exceeded. If you set a reference identifier on the send request, supply the same value here so validation matches only codes sent with that identifier. The result is `VALID` or `INVALID`.
 
@@ -41,7 +40,7 @@ Validate a passcode that a recipient submitted. Validation succeeds when the pas
 
 1. The response resembles the following:
 
-   ```
+   ```json
    {
        "status": "VALID"
    }

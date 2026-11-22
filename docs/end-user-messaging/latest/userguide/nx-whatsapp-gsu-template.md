@@ -1,7 +1,6 @@
 
 
 # Step 3: Get a message template
-<a name="nx-whatsapp-gsu-template"></a>
 
 WhatsApp business messaging is template-first: to open a conversation with a customer you must send a message built from a template that Meta has approved. Create a template and submit it for approval before you send. After the template is approved, you can use it to open conversations with opted-in recipients, and then exchange free-form messages within the open conversation window.
 
@@ -31,7 +30,7 @@ You can create and submit a template from the AWS End User Messaging Social cons
 
 Use the `create-whatsapp-message-template` command. Pass the WABA ID and a template definition that sets the name, language, category, and components. The following example creates a basic English utility template with variable placeholders in the body.
 
-```
+```bsh
 aws socialmessaging create-whatsapp-message-template --region {{us-east-1}} \\
 --id {{WABA_ID}} \\
 --template-definition '{

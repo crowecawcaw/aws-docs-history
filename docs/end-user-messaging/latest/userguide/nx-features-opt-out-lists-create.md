@@ -1,7 +1,6 @@
 
 
 # Create an opt-out list in AWS End User Messaging
-<a name="nx-features-opt-out-lists-create"></a>
 
 Use the AWS End User Messaging console or AWS CLI to create an opt-out list.
 
@@ -25,7 +24,7 @@ To create an opt-out list using the AWS End User Messaging console, follow these
 
 At the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-opt-out-list \
 > --opt-out-list-name {{optOutListName}}
 ```

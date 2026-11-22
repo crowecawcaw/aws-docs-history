@@ -1,7 +1,6 @@
 
 
 # WhatsApp Message Templates
-<a name="nx-features-whatsapp-templates"></a>
 
 **Important**  
 Starting on 4/1/2025 Meta will block marketing message templates sent to the US country code of `+1`. For more information, see [Per-User Marketing Template Message Limits](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits) in the *WhatsApp Business Platform Cloud API Reference*.

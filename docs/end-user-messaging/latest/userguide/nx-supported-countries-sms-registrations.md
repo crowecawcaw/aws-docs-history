@@ -1,7 +1,6 @@
 
 
 # Registrations supported for SMS by country or region
-<a name="nx-supported-countries-sms-registrations"></a>
 
 Some countries and regions require you to register an origination identity before you can send SMS messages to recipients there. The following table lists the countries and regions that have an SMS registration form, together with the registration to complete. To learn how to complete a registration, see the how-to page named in the **How to complete** column.
 

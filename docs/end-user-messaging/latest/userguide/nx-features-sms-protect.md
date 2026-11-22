@@ -1,7 +1,6 @@
 
 
 # SMS Protect
-<a name="nx-features-sms-protect"></a>
 
 Protect is a set of capabilities that help you to manage SMS message deliveries to all countries where your customers are located, helping you to combat Artificially Inflated Traffic (AIT). SMS AIT (or SMS Pumping) occurs when bots target web and mobile applications, especially workflows that trigger immediate SMS sends like login or sign-up processes. Protect lets you set rules at the account level, by country, or by use case (such as transaction alerts vs. authentication). These rules instruct how AWS End User Messaging evaluates risk and delivers your messages. With SMS Protect, you can set configurations to:
 + **Create protect configurations** – These are containers for your rules, where blocking decisions are made. Create separate configurations for different use cases to optimize protection. Set rules at the account level or for specific use cases. To apply protect configurations, reference them when making API calls by either adding the *ProtectConfigurationId* parameter to `SendTextMessage`, `SendMediaMessage`, or `SendVoiceMessage` API requests, or by associating it with the SMS configuration set you send messages with.

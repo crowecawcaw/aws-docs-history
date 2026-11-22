@@ -1,7 +1,6 @@
 
 
 # Setup Push Notifications
-<a name="nx-push"></a>
 
 AWS End User Messaging Push lets you engage the users of your mobile and web applications by sending push notifications to their devices. It supports four push notification services: Apple Push Notification service (APNs) for iOS devices and the Safari browser on macOS, Firebase Cloud Messaging (FCM) for Android and web, Amazon Device Messaging (ADM) for Amazon devices, and Baidu Cloud Push. Common use cases include transactional alerts such as order and delivery updates, re-engagement and promotional campaigns, breaking-news and time-sensitive notifications, and in-app event prompts.
 

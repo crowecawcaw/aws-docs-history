@@ -1,7 +1,6 @@
 
 
 # Japan
-<a name="nx-reg-short-jp"></a>
 
 To send messages that use a short code in Japan, you must complete the Japan short code registration.
 

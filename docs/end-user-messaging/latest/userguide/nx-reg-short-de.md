@@ -1,7 +1,6 @@
 
 
 # Germany
-<a name="nx-reg-short-de"></a>
 
 To send messages that use a short code in Germany, you must complete the Germany short code registration.
 

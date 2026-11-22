@@ -1,7 +1,6 @@
 
 
 # Request a phone number in AWS End User Messaging
-<a name="nx-features-phone-numbers-request"></a>
 
 Using the AWS End User Messaging console, we'll recommend one of the below origination identities depending on your use-case. Recommendations are based on your input criteria including if you require SMS, MMS, and/or voice capabilities, a two-way number, and estimate monthly messages.
 
@@ -142,7 +141,7 @@ MMS capabilities are only available in some countries. For more information on s
 **To request a phone number**
 + At the command line, enter the following command:
 
-  ```
+  ```bsh
   $ aws pinpoint-sms-voice-v2 request-phone-number \
   > --iso-country-code {{XX}} \
   > --message-type {{TRANSACTIONAL}} \
@@ -170,7 +169,7 @@ If you plan to use a 10DLC phone number, you must first register your company an
 
 If the number is successfully added to your account, you see output similar to the following:
 
-```
+```json
 {
     "PhoneNumberArn": "arn:aws:sms-voice:us-east-1:111122223333:phone-number/phone-615790209ea34aea8da9b729fexample",
     "PhoneNumberId": "phone-615790209ea34aea8da9b729fexample",

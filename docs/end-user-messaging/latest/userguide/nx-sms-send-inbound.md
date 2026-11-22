@@ -1,7 +1,6 @@
 
 
 # Inbound messaging
-<a name="nx-sms-send-inbound"></a>
 
 With two-way SMS, you receive incoming messages from your customers. When a customer sends a message to your phone number, AWS End User Messaging delivers the message body to an Amazon SNS topic or an Connect Customer instance that you designate, where your application processes it – for example with Lambda or Amazon Lex to build interactive experiences.
 
@@ -37,7 +36,7 @@ Enable two-way SMS on a phone number, or on a phone pool to apply it to every nu
 
 Use [update-phone-number](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/update-phone-number.html) for a phone number, or [update-pool](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/update-pool.html) for a pool. The destination and role options are the same for both.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 update-phone-number \
 > --phone-number-id {{PhoneNumber}} \
 > --two-way-enabled {{True}} \
@@ -58,7 +57,7 @@ AWS End User Messaging needs permission to publish to your destination. Grant it
 
 When your number receives an SMS message, AWS End User Messaging sends a JSON payload to the Amazon SNS topic you designated, as in the following example:
 
-```
+```json
 {
   "originationNumber":"+14255550182",
   "destinationNumber":"+12125550101",

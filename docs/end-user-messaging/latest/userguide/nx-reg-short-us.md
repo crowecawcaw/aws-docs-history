@@ -1,7 +1,6 @@
 
 
 # United States
-<a name="nx-reg-short-us"></a>
 
 To send messages that use a short code in the United States, you must complete the United States short code registration.
 

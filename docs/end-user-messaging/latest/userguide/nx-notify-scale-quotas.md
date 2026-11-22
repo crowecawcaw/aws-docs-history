@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="nx-notify-scale-quotas"></a>
 
 The following quotas and limits apply to Notify. For the full cross-channel quota tables and how to request increases, see [Quotas](nx-features-quotas.md).
 

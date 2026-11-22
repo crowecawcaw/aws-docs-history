@@ -1,7 +1,6 @@
 
 
 # IAM policy for Amazon CloudWatch
-<a name="nx-features-configuration-sets-cloudwatch-creating-role"></a>
 
 Use the following example to create a policy for sending events to a CloudWatch group.
 

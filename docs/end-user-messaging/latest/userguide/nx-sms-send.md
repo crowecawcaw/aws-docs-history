@@ -1,7 +1,6 @@
 
 
 # Send a message
-<a name="nx-sms-send"></a>
 
 You use the AWS End User Messaging API to send SMS text messages directly from your applications with the `SendTextMessage` operation. How the service selects an origination identity depends on what you specify in the request. You can send through a phone pool (recommended), directly from a single origination identity, or at the account level. You can also set up two-way SMS to receive incoming messages from your customers.
 

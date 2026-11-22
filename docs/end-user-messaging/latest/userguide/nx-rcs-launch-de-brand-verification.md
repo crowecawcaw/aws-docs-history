@@ -1,7 +1,6 @@
 
 
 # Brand Verification Letter (out-of-band requirement)
-<a name="nx-rcs-launch-de-brand-verification"></a>
 
 **Important**  
 In addition to the console registration, you must complete a brand verification step outside of AWS End User Messaging. Your registration cannot be approved until the Brand Verification Letter is received and validated.

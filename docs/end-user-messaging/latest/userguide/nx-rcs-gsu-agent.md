@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an AWS RCS test agent
-<a name="nx-rcs-gsu-agent"></a>
 
 The first step is to create an AWS RCS Agent and submit a testing registration. The testing registration creates an RCS for Business ID (testing agent) that you can use to send messages to registered test devices without carrier approval.
 
@@ -51,7 +50,7 @@ You can also create an AWS RCS Agent using the AWS CLI. First, create the agent,
 
 Create the AWS RCS Agent:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 create-rcs-agent \
     --deletion-protection-enabled
 ```

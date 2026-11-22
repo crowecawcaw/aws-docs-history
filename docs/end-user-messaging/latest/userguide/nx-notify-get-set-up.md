@@ -1,7 +1,6 @@
 
 
 # How to get set up
-<a name="nx-notify-get-set-up"></a>
 
 This topic takes you from a new AWS account to sending your first OTP or verification message with Notify. Notify spans two API namespaces, and which one you set up depends on who generates the passcode. Complete the prerequisites, then follow the step for the sending mode you want.
 

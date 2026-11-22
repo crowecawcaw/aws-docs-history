@@ -1,7 +1,6 @@
 
 
 # Delete an Amazon CloudWatch event destination in AWS End User Messaging
-<a name="nx-features-configuration-sets-cloudwatch-delete"></a>
 
 Use the AWS End User Messaging console or AWS CLI to delete a CloudWatch event destination.
 
@@ -30,7 +29,7 @@ The process for deleting an event destination is the same regardless of the type
 **To delete an CloudWatch event destination in the AWS CLI**
 + At the command line, run the following command:
 
-  ```
+  ```bsh
   $ aws pinpoint-sms-voice-v2 delete-event-destination \
   > --event-destination-name {{eventDestinationName}} \
   > --configuration-set-name {{configurationSetName}}

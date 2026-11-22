@@ -1,7 +1,6 @@
 
 
 # Limits and quotas
-<a name="nx-mms-scale-limits"></a>
 
 MMS messaging is subject to several limitations and restrictions. There are limits on the size and type of media that each MMS message can carry, limits on the length of the message text body, and throughput limits on how quickly you can send. When you set up MMS messaging in AWS End User Messaging, you must consider these limitations and restrictions, and you should also follow the techniques described in [Best practices](nx-mms-scale-best-practices.md). For the per-account service quotas that apply across channels, and how to request an increase, see [Quotas](nx-features-quotas.md).
 

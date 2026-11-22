@@ -1,7 +1,6 @@
 
 
 # Billing and cost
-<a name="nx-whatsapp-scale-billing"></a>
 
 WhatsApp pricing is conversation-based rather than per-message. Meta charges for a conversation, which is a session that groups the messages exchanged with a recipient over a period of time, and AWS End User Messaging passes that charge through on your bill. Understanding how conversations are metered helps you forecast and control cost as volume grows. If you only want to view your monthly charges, use the AWS Billing and Cost Management console, which provides an estimate of your bill for the current month and your final charges for previous months.
 

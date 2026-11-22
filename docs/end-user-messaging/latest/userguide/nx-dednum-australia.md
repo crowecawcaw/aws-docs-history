@@ -1,7 +1,6 @@
 
 
 # Australia long code registration
-<a name="nx-dednum-australia"></a>
 
 Registering a dedicated number is the first step in creating an origination identity.
 

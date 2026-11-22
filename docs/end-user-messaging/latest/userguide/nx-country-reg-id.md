@@ -1,7 +1,6 @@
 
 
 # Indonesia registration
-<a name="nx-country-reg-id"></a>
 
 The following registrations are available for Indonesia.
 

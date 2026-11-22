@@ -1,7 +1,6 @@
 
 
 # Resource-based policies within AWS End User Messaging
-<a name="nx-security-iam-service-resource-based"></a>
 
 **Supports resource-based policies: No**
 

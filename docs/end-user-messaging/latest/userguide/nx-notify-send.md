@@ -1,7 +1,6 @@
 
 
 # Send a message
-<a name="nx-notify-send"></a>
 
 Notify sends templated one-time passcode (OTP) and verification messages over SMS and voice. You send a message by supplying your Notify configuration, a destination phone number in E.164 format, a pre-approved template, and the template variable values to substitute. How you send depends on whether you generate the passcode yourself or let AWS End User Messaging generate and validate it.
 

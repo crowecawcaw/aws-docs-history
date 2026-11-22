@@ -1,7 +1,6 @@
 
 
 # India
-<a name="nx-reg-short-in"></a>
 
 To send messages that use a short code in India, you must complete the India short code registration.
 

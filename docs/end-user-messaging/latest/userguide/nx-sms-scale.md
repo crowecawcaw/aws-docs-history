@@ -1,7 +1,6 @@
 
 
 # Scale
-<a name="nx-sms-scale"></a>
 
 After you have tested your setup, this section helps you move SMS into production and run it at scale. It covers monitoring, resiliency, limits and quotas, spending, moving out of the sandbox, sending best practices, and where SMS is supported by country.
 

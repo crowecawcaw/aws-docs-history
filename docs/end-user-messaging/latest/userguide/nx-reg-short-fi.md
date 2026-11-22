@@ -1,7 +1,6 @@
 
 
 # Finland
-<a name="nx-reg-short-fi"></a>
 
 To send messages that use a short code in Finland, you must complete the Finland short code registration.
 

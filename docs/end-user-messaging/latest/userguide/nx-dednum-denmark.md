@@ -1,7 +1,6 @@
 
 
 # Denmark long code registration
-<a name="nx-dednum-denmark"></a>
 
 Registering a dedicated number is the first step in creating an origination identity.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding Flow status
-<a name="nx-features-whatsapp-flows-status"></a>
 
 Each WhatsApp Flow has a status that represents its lifecycle state. The status determines what actions you can take on the Flow.
 

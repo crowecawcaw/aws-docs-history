@@ -1,7 +1,6 @@
 
 
 # Spending and cost
-<a name="nx-mms-scale-spending"></a>
 
 This topic explains how to monitor the amount of money that you spend when you send MMS messages through AWS End User Messaging, and how to read the usage types on your bill. If you only want to view your monthly charges, including the amount of money you've spent, use the AWS Billing and Cost Management console, which provides an estimate of your bill for the current month and your final charges for previous months.
 

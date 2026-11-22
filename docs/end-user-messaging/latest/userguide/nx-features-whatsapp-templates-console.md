@@ -1,7 +1,6 @@
 
 
 # Managing message templates in the console
-<a name="nx-features-whatsapp-templates-console"></a>
 
 Create and manage your WhatsApp message templates directly in the AWS End User Messaging Social console. Templates must be approved by Meta before they can be used to send messages to your customers. You can monitor the approval status of your templates in the console.
 

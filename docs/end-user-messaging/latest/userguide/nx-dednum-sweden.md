@@ -1,7 +1,6 @@
 
 
 # Sweden long code registration
-<a name="nx-dednum-sweden"></a>
 
 Registering a dedicated number is the first step in creating an origination identity.
 

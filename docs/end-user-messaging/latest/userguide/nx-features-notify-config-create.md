@@ -1,7 +1,6 @@
 
 
 # Create a Notify configuration
-<a name="nx-features-notify-config-create"></a>
 
 A Notify configuration is the central resource for Notify. When you create one, you provide a display name for your brand, a use case, and the channels to enable. AWS validates your account, configures fraud protection, assigns templates, and sets tier-appropriate limits. The display name is automatically reviewed for profanity, URLs, and other disallowed content using Amazon Bedrock; if it is rejected, the status is set to `REJECTED` with a rejection reason you can appeal through a support case.
 

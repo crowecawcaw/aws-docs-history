@@ -1,7 +1,6 @@
 
 
 # Country support
-<a name="nx-rcs-scale-country"></a>
 
 AWS End User Messaging supports RCS country launches in 22 countries across North America, Europe, Asia Pacific, Latin America, and the Middle East and Africa, including the United States, Canada, United Kingdom, Germany, France, and Brazil. Each country has its own registration form, requirements, and carrier approval process, and each carrier in a country reviews your AWS RCS Agent independently. Review the requirements for the countries you want to launch in before you register. For the current list of supported countries, see the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/pinpoint.html).
 

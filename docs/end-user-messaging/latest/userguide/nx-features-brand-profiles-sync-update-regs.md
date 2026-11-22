@@ -1,7 +1,6 @@
 
 
 # Update registrations from a brand profile
-<a name="nx-features-brand-profiles-sync-update-regs"></a>
 
 Update registrations that are already associated with a brand profile so they pick up the profile's current attribute values. Choose how conflicts are resolved when a registration field already has a value.
 

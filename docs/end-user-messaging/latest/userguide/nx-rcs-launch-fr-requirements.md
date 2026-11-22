@@ -1,7 +1,6 @@
 
 
 # France-specific requirements
-<a name="nx-rcs-launch-fr-requirements"></a>
 
 **Warning**  
 France enforces very strict brand name matching. Your RCS agent display name must exactly match your legal company name as registered with French authorities. Even minor differences (such as abbreviations, missing punctuation, or different capitalization) will result in registration denial.

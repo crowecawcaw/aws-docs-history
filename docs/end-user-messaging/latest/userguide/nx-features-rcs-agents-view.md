@@ -1,7 +1,6 @@
 
 
 # View RCS agents
-<a name="nx-features-rcs-agents-view"></a>
 
 View the RCS agents in your account and check their status, including the status of the testing agent.
 
@@ -9,13 +8,13 @@ View the RCS agents in your account and check their status, including the status
 
 1. At the command line, enter the following command.
 
-   ```
+   ```bash
    $ aws pinpoint-sms-voice-v2 describe-rcs-agents
    ```
 
 1. To check a specific agent and its testing agent status, filter the response by agent ID.
 
-   ```
+   ```bash
    $ aws pinpoint-sms-voice-v2 describe-rcs-agents \
    > --query "RcsAgents[?RcsAgentId=='{{rcs-agentId}}'].{Status:Status,TestingStatus:TestingAgent.Status}"
    ```

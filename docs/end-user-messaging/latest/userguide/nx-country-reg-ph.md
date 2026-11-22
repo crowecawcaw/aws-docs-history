@@ -1,7 +1,6 @@
 
 
 # Philippines registration
-<a name="nx-country-reg-ph"></a>
 
 The following registrations are available for Philippines.
 

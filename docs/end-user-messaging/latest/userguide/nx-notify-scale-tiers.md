@@ -1,7 +1,6 @@
 
 
 # Move to the Advanced tier
-<a name="nx-notify-scale-tiers"></a>
 
 All new configurations start on the Basic tier, which provides immediate access with conservative limits designed for getting started and low-volume use cases. The Basic tier supports a daily message limit of 200 messages per configuration, 1 transaction per second (TPS), and 30 pre-approved low-risk countries, and allows long codes, toll-free numbers, and sender IDs. The Advanced tier removes the daily message limit, raises throughput to 25 TPS, supports all available countries, adds short codes, and allows configurable country allow and block rules. SMS Protect is mandatory on both tiers.
 
@@ -31,7 +30,7 @@ The tier upgrade process uses the existing registration system.
 
 1. Create a brand verification registration.
 
-   ```
+   ```bsh
    $ aws pinpoint-sms-voice-v2 create-registration \
    > --registration-type MANAGED_ROUTES_BRAND_VERIFICATION
    ```
@@ -40,7 +39,7 @@ The tier upgrade process uses the existing registration system.
 
 1. Submit the registration.
 
-   ```
+   ```bsh
    $ aws pinpoint-sms-voice-v2 submit-registration-version \
    > --registration-id {{reg-1234567890abcdef0}}
    ```

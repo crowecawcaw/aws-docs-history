@@ -1,7 +1,6 @@
 
 
 # Saudi Arabia registration
-<a name="nx-country-reg-sa"></a>
 
 The following registrations are available for Saudi Arabia.
 

@@ -1,7 +1,6 @@
 
 
 # What is AWS End User Messaging?
-<a name="nx-overview"></a>
 
 AWS End User Messaging helps you integrate scalable, reliable messaging into your applications so you can reach your customers on the channels they use and trust. Across SMS, MMS, WhatsApp, RCS, push, and voice, you can power conversational experiences that go beyond one-way alerts–from time-sensitive notifications and one-time passcodes to two-way conversations and the AI agents that drive them. AWS End User Messaging delivers your messages globally and brings your agents into the conversation so you can respond to customers in real time.
 

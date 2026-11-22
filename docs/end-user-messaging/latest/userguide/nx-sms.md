@@ -1,7 +1,6 @@
 
 
 # Setup SMS
-<a name="nx-sms"></a>
 
 SMS (Short Message Service) is a text messaging channel that reaches recipients on virtually any mobile device, with no app or data connection required, in over 200 countries and regions. Common use cases include one-time passcodes and account verification, transactional notifications such as order confirmations and appointment reminders, time-sensitive alerts, and two-way conversations where customers reply to your messages.
 

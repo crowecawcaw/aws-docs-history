@@ -1,7 +1,6 @@
 
 
 # Get a brand profile
-<a name="nx-features-brand-profiles-get"></a>
 
 View a single brand profile to see its name, ID, ARN, status, deletion protection setting, and timestamps.
 
@@ -34,7 +33,7 @@ View a single brand profile to see its name, ID, ARN, status, deletion protectio
 
 1. The response resembles the following:
 
-   ```
+   ```json
    {
        "brandProfileId": "bp-gkma20fagojtpys0e",
        "brandProfileName": "MyBrandProfile",

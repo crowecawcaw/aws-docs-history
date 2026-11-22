@@ -1,7 +1,6 @@
 
 
 # RCS Agents
-<a name="nx-features-rcs-agents"></a>
 
 An AWS RCS Agent is the top-level resource in AWS End User Messaging that represents your brand for RCS messaging. It is the unified resource that binds together your testing agent and your country launch agents (RCS for Business IDs). You define keywords and two-way messaging configuration on the AWS RCS Agent, while brand assets are defined on each registration (the testing agent or a country launch agent).
 

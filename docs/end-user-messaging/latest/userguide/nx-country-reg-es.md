@@ -1,7 +1,6 @@
 
 
 # Spain registration
-<a name="nx-country-reg-es"></a>
 
 The following registrations are available for Spain.
 
@@ -16,6 +15,8 @@ Dedicated phone numbers (local long codes or short codes, international toll-fre
 
 **Important**  
 New Spain short code provisioning is temporarily on hold. If you need a dedicated number for Spain, request a long code instead. For more information, see [Dedicated phone numbers for Spain](https://docs.aws.amazon.com/sms-voice/latest/userguide/dedicated-number-spain.html).
+
+**CNMC portal access and digital certificate requirements**
 
 The CNMC registration portal requires authentication with a valid digital certificate. The following certificate types are accepted:
 + A qualifying digital certificate issued by the Spanish government
@@ -33,9 +34,13 @@ You must appoint a representative in Spain or a qualifying EU country who holds 
 
 Dedicated phone numbers (local long codes, international toll-free numbers) are not affected by this regulation and do not require CNMC registration. Note that new short code provisioning for Spain is temporarily on hold; request a long code instead. You can request a dedicated phone number for Spain through the [AWS End User Messaging console](https://console.aws.amazon.com/sms-voice/home). For more information, see [Dedicated phone numbers for Spain](https://docs.aws.amazon.com/sms-voice/latest/userguide/dedicated-number-spain.html). For registration processing timelines, see [Registration processing times](https://docs.aws.amazon.com/sms-voice/latest/userguide/registration-eta.html).
 
+**CNMC verification process**
+
 After you submit your registration at the CNMC portal, CNMC sends a verification email to the representative email address you provided. You (or your representative) must then log into the portal with the qualifying digital certificate and approve the registration within 10 business days.
 
 If you registered your sender ID with multiple downstream providers, you may receive a separate verification request for each provider.
+
+**How to register your sender ID for Spain**
 
 To complete your Spain sender ID registration, you must:
 
@@ -64,6 +69,8 @@ The TERCERO legal representative information is sensitive and you may not use th
    After submission, approve the CNMC verification notification within 10 business days.
 
 1. **Submit the AWS sender ID registration form** – Return to the registration you created in step 1 in the [AWS End User Messaging console](https://console.aws.amazon.com/sms-voice/home), complete any remaining fields, and submit. This informs our downstream SMS providers of your registration. See the procedure below for step-by-step instructions.
+
+**Complete the AWS registration form**
 
 1. Open the AWS End User Messaging console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
 
@@ -152,6 +159,8 @@ If you do not have a qualifying digital certificate issued by the Spanish govern
 Do not submit this form until you have completed your sender ID registration in the CNMC portal. You must register your sender ID with CNMC before submitting the AWS form.
 
    Choose **Submit registration**.
+
+**Useful links**
 + [CNMC Registration Portal](https://tramites.cnmc.gob.es/formulario/213/)
 + [CNMC FAQ – Gestión del Registro de Alias](https://sede.cnmc.gob.es/tramites/telecomunicaciones/gestion-del-registro-de-alias)
 + [AWS End User Messaging console](https://console.aws.amazon.com/sms-voice/home)

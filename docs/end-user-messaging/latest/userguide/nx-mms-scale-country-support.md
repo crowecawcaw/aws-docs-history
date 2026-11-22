@@ -1,7 +1,6 @@
 
 
 # Country support
-<a name="nx-mms-scale-country-support"></a>
 
 MMS messaging in AWS End User Messaging is available in a limited set of countries. Unlike SMS, which you can send to recipients in many countries worldwide, MMS is currently supported for sending to recipients in the United States and Canada. The number types that support MMS, and whether a given number type is available for each country, also differ from SMS.
 

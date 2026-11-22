@@ -1,7 +1,6 @@
 
 
 # Using phone pool deletion protection in AWS End User Messaging
-<a name="nx-features-phone-pools-deletion-protection"></a>
 
 When you turn on deletion protection you will not be able to delete the pool until deletion protection is disabled. By default deletion protection is disabled.
 

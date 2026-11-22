@@ -1,7 +1,6 @@
 
 
 # Configuration sets
-<a name="nx-features-configuration-sets"></a>
 
 You can use the configurations in AWS End User Messaging to provision phone numbers or sender IDs to send SMS messages, MMS messages, or voice messages to your customers' mobile devices. AWS End User Messaging can send messages to recipients in over 200 countries and regions. In some countries and regions, you can also receive messages from your customers by using the two-way SMS feature. When you create a new AWS End User Messaging account, your account is placed in an SMS sandbox. This initially limits your monthly spending and who you can send messages to. For more information, see AWS End User Messaging sandbox. 
 

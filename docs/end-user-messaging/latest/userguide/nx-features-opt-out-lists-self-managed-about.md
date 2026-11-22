@@ -1,7 +1,6 @@
 
 
 # Self managed opt-outs
-<a name="nx-features-opt-out-lists-self-managed-about"></a>
 
 By default, when a customer sends a message that begins with *HELP* or *STOP* to one of your dedicated numbers, AWS End User Messaging automatically replies with a customizable message. In the case of incoming STOP messages, AWS End User Messaging also opts the customer out of receiving future SMS messages. If you prefer to manage HELP and STOP responses by using a service other than AWS End User Messaging, you can enable self-managed opt-outs.
 

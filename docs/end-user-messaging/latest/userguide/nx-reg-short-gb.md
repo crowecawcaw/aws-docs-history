@@ -1,7 +1,6 @@
 
 
 # United Kingdom
-<a name="nx-reg-short-gb"></a>
 
 To send messages that use a short code in United Kingdom, you must complete the United Kingdom short code registration.
 

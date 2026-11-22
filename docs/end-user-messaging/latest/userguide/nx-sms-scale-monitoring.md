@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="nx-sms-scale-monitoring"></a>
 
 AWS End User Messaging gives you two complementary views of your SMS messaging, plus a record of your API activity and a way to report message outcomes. This topic describes how to set up each one.
 
@@ -77,7 +76,7 @@ With CloudWatch, you can also create alarms that trigger based on metric thresho
 
 Use the [put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html) command. The following example alarms when more than 1,000 text message parts are sent in one hour and notifies an Amazon SNS topic.
 
-```
+```bsh
 $ aws cloudwatch put-metric-alarm \
 > --alarm-name {{HighTextMessagePartsSent}} \
 > --namespace AWS/SMSVoice \
@@ -123,14 +122,14 @@ To route events, create a configuration set, add one or more event destinations 
 
 First, create the configuration set with the [create-configuration-set](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/create-configuration-set.html) command.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-configuration-set \
 > --configuration-set-name {{configurationSet}}
 ```
 
 Then add an event destination with the [create-event-destination](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/create-event-destination.html) command. The following example adds an Amazon SNS destination; you can also send events to CloudWatch or Firehose. Set `--matching-event-types` to the event types you want to send.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-event-destination \
 > --event-destination-name {{eventDestinationName}} \
 > --configuration-set-name {{configurationSet}} \
@@ -175,7 +174,7 @@ To act on these events, create an Amazon EventBridge rule on the default bus tha
 
 Create the rule with the [put-rule](https://docs.aws.amazon.com/cli/latest/reference/events/put-rule.html) command, then attach a target with [put-targets](https://docs.aws.amazon.com/cli/latest/reference/events/put-targets.html).
 
-```
+```bsh
 $ aws events put-rule \
 > --name {{sms-voice-delivery-status}} \
 > --event-pattern '{"source":["aws.sms-voice"],"detail-type":["Text Message Delivery Status Updated"]}'
@@ -220,7 +219,7 @@ You report the outcome with the API or AWS CLI (`put-message-feedback`); there i
 
 To enable feedback for a single message, add `--message-feedback-enabled` to your send command. To enable it for every message instead, turn the setting on in a configuration set (see the Console tab) and send with that configuration set.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 send-text-message \
 > --destination-phone-number {{+12065550150}} \
 > --origination-identity {{+14255550120}} \
@@ -230,7 +229,7 @@ $ aws pinpoint-sms-voice-v2 send-text-message \
 
 When you have a signal that the customer received or acted on the message, report the outcome with the [put-message-feedback](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/put-message-feedback.html) command, using the message ID from the send response. Set the status to `RECEIVED` or `FAILED`.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 put-message-feedback \
 > --message-id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
 > --message-feedback-status {{RECEIVED}}

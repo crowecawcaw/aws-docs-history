@@ -1,7 +1,6 @@
 
 
 # Create a protect configuration in AWS End User Messaging
-<a name="nx-features-sms-protect-create"></a>
 
 To create a new protect configuration, you can use the AWS End User Messaging console, the `CreateProtectConfiguration` operation in the AWS End User Messaging and voice v2 API, or the `aws sms-voice create-protect-configuration` command in the AWS CLI. This section shows how to create protect configurations using the AWS End User Messaging console and the AWS CLI.
 
@@ -42,7 +41,7 @@ You can use the create-protect-configuration command to create a new protect con
 **To create a protect configuration**
 + At the command line, enter the following command:
 
-  ```
+  ```bsh
   $ aws pinpoint-sms-voice-v2 create-protect-configuration --tags Key=Name,Value={{ProtectConfigName}}
   ```
 

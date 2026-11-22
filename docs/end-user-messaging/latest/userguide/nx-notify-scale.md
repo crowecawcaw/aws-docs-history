@@ -1,7 +1,6 @@
 
 
 # Scale
-<a name="nx-notify-scale"></a>
 
 After you have tested your Notify setup, this section helps you move to production and run OTP and verification messaging at scale. It covers how to move from the Basic tier to the Advanced tier, manage your spending and limits, monitor your messaging, understand which countries are supported, and meet the mobile carrier prerequisites for terms, privacy, and opt-in that apply to Notify messaging.
 

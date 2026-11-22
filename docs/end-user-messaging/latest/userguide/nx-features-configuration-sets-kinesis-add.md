@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Data Firehose event destination in AWS End User Messaging
-<a name="nx-features-configuration-sets-kinesis-add"></a>
 
 Before you can create a Amazon Data Firehose event destination, you must first create a Amazon Data Firehose stream. For more inforation about creating log groups, see [Creating an Amazon Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Data Firehose Developer Guide*.
 
@@ -49,7 +48,7 @@ After you create the IAM role and the Amazon Data Firehose delivery stream, you 
 
 You can use the [create-event-destination](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/create-event-destination.html) command to create an event destination.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-event-destination \
 > --event-destination-name {{eventDestinationName}} \
 > --configuration-set-name {{configurationSet}} \

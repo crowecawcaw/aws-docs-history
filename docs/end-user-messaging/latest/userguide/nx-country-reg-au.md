@@ -1,7 +1,6 @@
 
 
 # Australia registration
-<a name="nx-country-reg-au"></a>
 
 The following registrations are available for Australia.
 

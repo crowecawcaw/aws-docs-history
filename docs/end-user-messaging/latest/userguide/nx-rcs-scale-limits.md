@@ -1,7 +1,6 @@
 
 
 # Limits and quotas
-<a name="nx-rcs-scale-limits"></a>
 
 RCS messaging is subject to limits on the content you can send and on how quickly you can send it. There are limits on the length of the message text, the size and number of rich cards and carousel cards, the number of suggested actions, and how long a message remains valid for delivery. There are also throughput limits that control your send rate. When you design your RCS program in AWS End User Messaging, consider these limits and follow the guidance in [Best practices](nx-rcs-scale-bestpractices.md). For the per-account service quotas that apply across channels, and how to request an increase, see [Quotas](nx-features-quotas.md).
 

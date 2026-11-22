@@ -1,7 +1,6 @@
 
 
 # List brand profiles
-<a name="nx-features-brand-profiles-list"></a>
 
 List all of the brand profiles in your account and AWS Region. Each entry includes the profile name, ID, status, and creation date.
 

@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink
-<a name="nx-security-privatelink"></a>
 
 You can use AWS PrivateLink to create a private connection between your virtual private cloud (VPC) and AWS End User Messaging by creating an interface VPC endpoint. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/), which lets you privately access AWS End User Messaging APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not need public IP addresses to communicate with the AWS End User Messaging APIs. For more information, see the [AWS PrivateLink Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html).
 

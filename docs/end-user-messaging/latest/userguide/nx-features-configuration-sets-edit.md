@@ -1,7 +1,6 @@
 
 
 # Edit a configuration set in AWS End User Messaging
-<a name="nx-features-configuration-sets-edit"></a>
 
 To edit a configuration set using the AWS End User Messaging console, follow these steps:
 

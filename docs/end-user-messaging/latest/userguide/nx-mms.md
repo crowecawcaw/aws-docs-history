@@ -1,7 +1,6 @@
 
 
 # Setup MMS
-<a name="nx-mms"></a>
 
 MMS (Multimedia Messaging Service) extends SMS so you can send images, audio, video, and longer text to recipients in the United States and Canada. Common use cases include sending product images and promotional creative, delivery and appointment visuals, media-rich alerts, and any notification where a picture or short video communicates more than text alone.
 

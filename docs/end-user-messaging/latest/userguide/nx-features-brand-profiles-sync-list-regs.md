@@ -1,7 +1,6 @@
 
 
 # List registrations from a brand profile
-<a name="nx-features-brand-profiles-sync-list-regs"></a>
 
 List the registrations that are associated with a brand profile. Each entry shows the registration ID, registration type, whether smart match was used, and when the association was created.
 

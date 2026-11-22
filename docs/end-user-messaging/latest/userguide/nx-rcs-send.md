@@ -1,7 +1,6 @@
 
 
 # Send a message
-<a name="nx-rcs-send"></a>
 
 AWS End User Messaging uses the same `SendTextMessage` API operation for both RCS and SMS delivery. How the service routes your message depends on the origination identity that you specify in the request. To send rich RCS content such as rich cards, carousels, media files, and interactive suggestions, use the `SendRcsMessage` operation instead. You can send through a phone pool (recommended), directly through an AWS RCS Agent ARN, or at the account level.
 

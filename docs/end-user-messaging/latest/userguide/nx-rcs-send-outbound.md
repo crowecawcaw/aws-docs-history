@@ -1,7 +1,6 @@
 
 
 # Outbound messaging
-<a name="nx-rcs-send-outbound"></a>
 
 You send an RCS message with the `SendTextMessage` operation. Use the AWS End User Messaging console to send a test message from your AWS RCS Agent, or the AWS CLI to send from your application. The examples use a phone pool as the origination identity, which is the recommended approach: when the pool contains both an AWS RCS Agent and SMS phone numbers, the service attempts RCS first and automatically falls back to SMS from the same pool. To send from a specific resource instead, specify an AWS RCS Agent ARN, which delivers over RCS only with no fallback. For details on configuring pools with AWS RCS Agents, see [Resiliency](nx-rcs-scale-fallback.md).
 
@@ -27,7 +26,7 @@ After your test device has accepted the tester invitation, you can send a test m
 
 Use the `send-text-message` command. The example sends through a phone pool, so the service selects the best identity and falls back to SMS if RCS delivery is not possible.
 
-```
+```bsh
 aws pinpoint-sms-voice-v2 send-text-message \\
     --destination-phone-number {{+12065550100}} \\
     --origination-identity {{pool-a1b2c3d4e5f6g7h8i}} \\

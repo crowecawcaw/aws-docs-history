@@ -1,7 +1,6 @@
 
 
 # Limits and quotas
-<a name="nx-whatsapp-scale-limits"></a>
 
 WhatsApp messaging is subject to two kinds of limits: the per-account service quotas that AWS End User Messaging applies, and the messaging limits and quality rules that Meta applies to your WhatsApp Business Account (WABA). Both affect how much you can send, so plan for both when you scale.
 

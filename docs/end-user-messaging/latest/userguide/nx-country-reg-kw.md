@@ -1,7 +1,6 @@
 
 
 # Kuwait registration
-<a name="nx-country-reg-kw"></a>
 
 The following registrations are available for Kuwait.
 

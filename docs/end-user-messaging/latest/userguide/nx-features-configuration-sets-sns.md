@@ -1,7 +1,6 @@
 
 
 # Set up an Amazon SNS event destination in AWS End User Messaging
-<a name="nx-features-configuration-sets-sns"></a>
 
 Amazon Simple Notification Service (Amazon SNS) is a web service that enables applications, end-users, and devices to instantly send and receive notifications. To learn more about Amazon SNS, see the [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/).
 

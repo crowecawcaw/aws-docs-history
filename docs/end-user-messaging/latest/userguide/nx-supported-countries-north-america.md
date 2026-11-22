@@ -1,7 +1,6 @@
 
 
 # North America
-<a name="nx-supported-countries-north-america"></a>
 
 AWS End User Messaging supports 34 countries and regions in North America. The following table lists each country along with the messaging channels and SMS origination identities that AWS End User Messaging supports there. A value of **No** means that AWS End User Messaging does not support that capability in the country.
 

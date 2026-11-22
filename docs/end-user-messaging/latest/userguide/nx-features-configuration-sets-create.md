@@ -1,7 +1,6 @@
 
 
 # Create a configuration set in AWS End User Messaging
-<a name="nx-features-configuration-sets-create"></a>
 
 Use the AWS End User Messaging console or AWS CLI to create a configuration set. After you have created a configuration set you should add an [Event destinations in AWS End User Messaging](nx-features-configuration-sets-event-destinations.md) and protect configuration.
 
@@ -23,7 +22,7 @@ To create a configuration set using the AWS End User Messaging console, follow t
 
 You can use the [create-configuration-set](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/create-configuration-set.html) command to create a new configuration set.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-configuration-set \
 > --configuration-set-name {{configurationSet}}
 ```

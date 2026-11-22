@@ -1,7 +1,6 @@
 
 
 # United Kingdom registration
-<a name="nx-country-reg-gb"></a>
 
 The following registrations are available for United Kingdom.
 
@@ -21,8 +20,8 @@ Download the template for the [LOA](samples/AWS_Protected_Sender_ID_Letter-of-Au
 Clearly specify the sender ID requested and have other details such as website and sample message templates filled in correctly with no missing details. The casing of the Sender ID must match what is registered with MEF.   
 Complete all highlighted fields.
 The LOA must be dated within the last 30 days.
-Create a PDF of the LOA to upload as part of completing the **Sender ID info** section of your [UK registration](#nx-country-reg-gb). The maximum file size is 400 KB.
-Complete the [UK sender ID registration form](#nx-country-reg-gb) and omit the **Letter of authorization image – optional** field.
+Create a PDF of the LOA to upload as part of completing the **Sender ID info** section of your [UK registration](nx-country-reg-gb.md). The maximum file size is 400 KB.
+Complete the [UK sender ID registration form](nx-country-reg-gb.md) and omit the **Letter of authorization image – optional** field.
 
 **Topics**
 + [United Kingdom registration form](#nx-registration-uk-registrations-uk-form)
@@ -30,7 +29,7 @@ Complete the [UK sender ID registration form](#nx-country-reg-gb) and omit the *
 ### United Kingdom sender ID registration form
 <a name="nx-registration-uk-registrations-uk-form"></a>
 
-Complete the following form to register your sender ID in the United Kingdom. If your sender ID is protected by then a completed [Letter of Authorization (LOA)](#nx-country-reg-gb) is required as well.
+Complete the following form to register your sender ID in the United Kingdom. If your sender ID is protected by then a completed [Letter of Authorization (LOA)](nx-country-reg-gb.md) is required as well.
 
 **Complete a United Kingdom sender ID registration**
 

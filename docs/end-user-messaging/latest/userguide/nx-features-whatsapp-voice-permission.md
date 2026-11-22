@@ -1,7 +1,6 @@
 
 
 # Check calling permission for a user
-<a name="nx-features-whatsapp-voice-permission"></a>
 
 Before you call a user, check whether your business has permission to call them. Permission to call a user is granted by the user and is required by Meta. A permission can be permanent, or temporary with an expiration time. A user can also decline to grant permission. The permission status, the actions your business can take, and any limits on those actions are determined by Meta.
 

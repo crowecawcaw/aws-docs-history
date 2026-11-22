@@ -1,7 +1,6 @@
 
 
 # Supported countries
-<a name="nx-supported-countries"></a>
 
 AWS End User Messaging supports different countries and regions depending on the messaging channel that you use. The following pages group the supported countries and regions by geographic region. Each region page lists its countries in a single table that shows whether AWS End User Messaging supports SMS, MMS, voice, and RCS messaging in that country, along with the SMS origination identities that are available. Use these tables to determine which channels and origination identities will work best for the recipients that you want to reach.
 

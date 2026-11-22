@@ -1,7 +1,6 @@
 
 
 # Send a message
-<a name="nx-mms-send"></a>
 
 You send an MMS message with the `SendMediaMessage` operation, referencing media that you store in Amazon S3. How the service selects an origination identity depends on what you specify in the request. You can send through a phone pool (recommended), directly from a single origination identity, or at the account level.
 

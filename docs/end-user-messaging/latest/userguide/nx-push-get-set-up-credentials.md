@@ -1,7 +1,6 @@
 
 
 # Step 1: Obtain provider credentials
-<a name="nx-push-get-set-up-credentials"></a>
 
 To set up AWS End User Messaging Push so that it can send push notifications to your apps, you first provide the credentials that authorize AWS End User Messaging Push to send messages to your app. The credentials that you provide depend on which push notification service you use.
 + For Apple Push Notification service (APNs), obtain either an encryption key and key ID, or a provider certificate, from your Apple developer account. For more information, see the guidance on establishing a token-based connection and a certificate-based connection to APNs in the Apple Developer documentation.

@@ -1,7 +1,6 @@
 
 
 # Sri Lanka registration
-<a name="nx-country-reg-lk"></a>
 
 The following registrations are available for Sri Lanka.
 

@@ -1,7 +1,6 @@
 
 
 # United Arab Emirates registration
-<a name="nx-country-reg-ae"></a>
 
 The following registrations are available for United Arab Emirates.
 

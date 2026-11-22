@@ -1,7 +1,6 @@
 
 
 # Send OTP code
-<a name="nx-notify-send-outbound"></a>
 
 Notify sends one-time passcode (OTP) and verification messages from pre-approved templates over SMS, voice, and WhatsApp. You send a code with the **Send OTP code** actions, and, when AWS End User Messaging generates the code for you, you confirm what the recipient entered with the **Validate OTP code** action.
 
@@ -49,7 +48,7 @@ $ aws pinpoint-sms-voice-v2 send-notify-text-message \
 ------
 #### [ Python (Boto3) ]
 
-```
+```python
 import boto3
 
 client = boto3.client('pinpoint-sms-voice-v2')
@@ -96,7 +95,7 @@ AWS End User Messaging generates the passcode, delivers it over the channel you 
 
 Send a passcode with the [send-notify-code-verification](https://docs.aws.amazon.com/cli/latest/reference/endusermessaging/send-notify-code-verification.html) command. Set `--channel` to `TEXT`, `VOICE`, or `WHATSAPP`, and use the same `--reference-id` on the send and validate requests to bind them together.
 
-```
+```bsh
 $ aws endusermessaging send-notify-code-verification \
 > --channel {{TEXT}} \
 > --origination-identity {{+15550000000}} \

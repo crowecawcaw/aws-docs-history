@@ -1,7 +1,6 @@
 
 
 # Sender IDs
-<a name="nx-features-senders"></a>
 
 A sender ID is an alphanumeric name that identifies the sender of an SMS message. When you send an SMS message using a sender ID, and the recipient is in an area where sender ID authentication is supported, your sender ID appears on the recipient's device instead of a phone number. A sender ID provides SMS recipients with more information about the sender than a phone number or short code provides. For example, a fictitious company Example Corp could use the sender ID `EXAMPLECO`.
 

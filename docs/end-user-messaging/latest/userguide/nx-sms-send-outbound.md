@@ -1,7 +1,6 @@
 
 
 # Outbound messaging
-<a name="nx-sms-send-outbound"></a>
 
 After you set up an origination identity and a configuration set, you send an SMS message with the `SendTextMessage` operation. Use the AWS End User Messaging console to send a test message, or the AWS CLI to send from your application. The examples use a phone pool as the origination identity, which is the recommended approach; you can also specify a single phone number or sender ID instead.
 
@@ -35,7 +34,7 @@ Simulator phone numbers can only send to other simulator destination phone numbe
 
 Use the [send-text-message](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/send-text-message.html) command. The example sends from a phone pool.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 send-text-message \\
 > --destination-phone-number {{+14255550168}} \\
 > --origination-identity {{pool-a1b2c3d4e5f6g7h8i}} \\

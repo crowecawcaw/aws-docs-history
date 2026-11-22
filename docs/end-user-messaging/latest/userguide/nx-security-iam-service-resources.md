@@ -1,7 +1,6 @@
 
 
 # Policy resources for AWS End User Messaging
-<a name="nx-security-iam-service-resources"></a>
 
 **Supports policy resources: Yes**
 

@@ -1,7 +1,6 @@
 
 
 # Carrier lookup
-<a name="nx-features-carrier-lookup"></a>
 
 AWS End User Messaging includes a carrier lookup service that you can use to obtain information about a phone number, including if the phone number is valid. The carrier lookup service returns the following information for a phone number:
 + The phone number in E164 format (sanitized from the original input).
@@ -71,7 +70,7 @@ The data that's provided by the carrier lookup service is based on information p
 **Valid mobile phone numbers**  
 The following response is an example of the information `CarrierLookup` returns for a valid mobile phone number:
 
-```
+```json
 {
     "E164PhoneNumber": "+15555555333",
     "DialingCountryCode": "1",
@@ -87,7 +86,7 @@ The following response is an example of the information `CarrierLookup` returns 
 **Valid landline phone numbers**  
 The following response is an example of the information `CarrierLookup` returns for a valid landline phone number:
 
-```
+```json
 {
     "E164PhoneNumber": "+15555555333",
     "DialingCountryCode": "1",
@@ -101,7 +100,7 @@ The following response is an example of the information `CarrierLookup` returns 
 **Invalid phone numbers**  
 If your request contains an invalid phone number, the carrier lookup service returns information that resembles the following example:
 
-```
+```json
 {
     "E164PhoneNumber": "+15555555333444666",
     "PhoneNumberType": "INVALID"

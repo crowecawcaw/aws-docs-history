@@ -1,7 +1,6 @@
 
 
 # Brand profiles
-<a name="nx-features-brand-profiles"></a>
 
 A brand profile stores your business identity — company details, contact information, addresses, compliance documents, and logos — in one place so you can reuse it across your SMS and RCS registrations instead of re-entering the same information each time. You store the information once as a set of flexible attributes, and AWS End User Messaging maps those attributes onto registration form fields when you register a sender.
 

@@ -1,7 +1,6 @@
 
 
 # Edit an Amazon CloudWatch event destination in AWS End User Messaging
-<a name="nx-features-configuration-sets-cloudwatch-edit"></a>
 
 Use the AWS End User Messaging console or AWS CLI to edit a CloudWatch event destination.
 
@@ -39,7 +38,7 @@ You can use the [update-event-destination](https://docs.aws.amazon.com/cli/lates
 
 The procedure for updating a CloudWatch event destination is similar to the process for creating an event destination. At the command line, run the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 update-event-destination \
 > --event-destination-name {{eventDestinationName}} \
 > --configuration-set-name {{configurationSet}} \

@@ -1,7 +1,6 @@
 
 
 # Delete a keyword from a phone number in AWS End User Messaging
-<a name="nx-features-keywords-number-delete"></a>
 
 Use the AWS End User Messaging console to delete a keyword from your phone number.
 

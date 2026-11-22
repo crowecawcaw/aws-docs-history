@@ -1,7 +1,6 @@
 
 
 # Move out of the sandbox
-<a name="nx-mms-scale-sandbox"></a>
 
 New AWS End User Messaging accounts are placed into an SMS and MMS or voice sandbox. The sandbox protects both customers and recipients from fraud and abuse, and it creates a safe environment for test and development. While your account is in the sandbox, you have access to all of the features of AWS End User Messaging, with restrictions on the volume and destinations of the messages that you can send. To send unrestricted production MMS traffic, you request production access.
 

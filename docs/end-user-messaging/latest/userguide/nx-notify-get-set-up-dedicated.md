@@ -1,7 +1,6 @@
 
 
 # Step 3: Request your own numbers (optional)
-<a name="nx-notify-get-set-up-dedicated"></a>
 
 By default, Notify sends messages using AWS-managed origination identities, so you do not need to provision any phone numbers. Complete this step only if you want to send from your own dedicated numbers. You request one or more phone numbers, add them to a phone pool, and associate the pool with your Notify configuration. When a pool is associated, Notify checks the pool for a customer-owned identity that supports the destination country first, and falls back to AWS-managed identities if none is found.
 

@@ -1,7 +1,6 @@
 
 
 # Step 3: Set up a phone pool
-<a name="nx-mms-get-set-up-pool"></a>
 
 A phone pool is a container for the origination identities you send from. It groups identities that share the same settings, maps each message to an appropriate identity for the destination country, and fails over to another identity in the pool if one is unavailable. Using a pool is the recommended way to send, because you can send through a pool in every send API request, such as `SendTextMessage`, `SendMediaMessage`, `SendVoiceMessage`, and `SendRcsMessage`, and you can add or change origination identities later without changing your sending code.
 
@@ -27,7 +26,7 @@ To create a pool from the console or the AWS CLI, choose the tab that matches ho
 
 Use the [create-pool](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/create-pool.html) command, passing the number from Step 1 as {{originationIdentity}}. To add more identities to an existing pool later, use [associate-origination-identity](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/associate-origination-identity.html).
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-pool \
 > --origination-identity {{originationIdentity}} \
 > --iso-country-code {{XX}} \
@@ -36,7 +35,7 @@ $ aws pinpoint-sms-voice-v2 create-pool \
 
 To add another number to an existing pool, use [associate-origination-identity](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/associate-origination-identity.html). Replace {{poolId}} with the pool and {{originationIdentity}} with the number to add.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 associate-origination-identity \
 > --pool-id {{poolId}} \
 > --origination-identity {{originationIdentity}} \

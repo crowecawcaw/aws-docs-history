@@ -1,7 +1,6 @@
 
 
 # Scale
-<a name="nx-mms-scale"></a>
 
 This section helps you move MMS into production and run it at scale. It covers monitoring, resiliency, limits and quotas, spending, moving out of the sandbox, sending best practices, and where MMS is supported by country.
 

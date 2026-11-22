@@ -1,7 +1,6 @@
 
 
 # How to get set up
-<a name="nx-push-get-set-up"></a>
 
 This topic takes you from a new AWS account to sending your first push notification with AWS End User Messaging Push. Complete the following steps.
 

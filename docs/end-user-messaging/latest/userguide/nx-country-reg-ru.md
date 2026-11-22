@@ -1,7 +1,6 @@
 
 
 # Russia registration
-<a name="nx-country-reg-ru"></a>
 
 The following registrations are available for Russia.
 

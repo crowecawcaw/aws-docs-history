@@ -1,7 +1,6 @@
 
 
 # Choosing a phone number type
-<a name="nx-features-phone-numbers-types"></a>
 
 Dedicated phone numbers are country-specific. You can't request a dedicated phone number for one country but then use it as an identity for another country.
 

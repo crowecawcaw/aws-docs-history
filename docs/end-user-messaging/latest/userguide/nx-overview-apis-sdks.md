@@ -1,7 +1,6 @@
 
 
 # APIs and SDKs
-<a name="nx-overview-apis-sdks"></a>
 
 AWS End User Messaging is a family of APIs rather than a single API. Each channel group has its own API, and you choose the one that matches the service and features you want to use. The channel-level APIs give you direct control over sending and managing resources for a specific channel, and a top-level AWS End User Messaging API lets you orchestrate across channels, so you can manage shared resources such as brand profiles and coordinate how your brand sends across SMS, RCS, and the other channels from one place. You can call every AWS End User Messaging API through the AWS Management Console, the AWS AWS CLI, the AWS SDKs for your programming language, and the AWS Tools for PowerShell.
 

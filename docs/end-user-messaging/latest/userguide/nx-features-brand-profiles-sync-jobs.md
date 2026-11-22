@@ -1,7 +1,6 @@
 
 
 # Track brand profile jobs
-<a name="nx-features-brand-profiles-sync-jobs"></a>
 
 The registration sync operations run asynchronously and each returns a job ID. Track a job to see whether it is `PROCESSING`, `SUCCESS`, or `FAILED`, along with the resources it created or updated and any error details. List jobs to see all jobs for a brand profile.
 
