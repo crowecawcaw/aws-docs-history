@@ -1,7 +1,6 @@
 
 
 # review-walkthroughs
-<a name="review-walkthroughs"></a>
 
 **Topics**
 + [Create a managed prefix list](#ex-vpc-prefix-list-create-col)
@@ -6452,7 +6451,7 @@ You can use any `CreateRfc` parameters with any RFC whether or not they are part
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
-```
+```json
 aws amscm create-rfc --change-type-id "ct-0rmgrnr9w8mzh" --change-type-version "1.0" --title "{{Remove TGW Static Route}}" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-RemoveRouteFromTGWRouteTable\",\"Region\": \"{{us-east-1}}\",\"Parameters\": {\"TransitGatewayRouteTableId\": \"{{tgw-rtb-06ddc751c0c0c881c}}\", \"DestinationCidrBlock\": \"{{10.16.1.0/24}}\"}}"
 ```
 
@@ -6460,13 +6459,13 @@ aws amscm create-rfc --change-type-id "ct-0rmgrnr9w8mzh" --change-type-version "
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it RemoveTgwStaticRouteParams.json:
 
-   ```
+   ```json
    aws amscm get-change-type-version --change-type-id "ct-0rmgrnr9w8mzh" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RemoveTgwStaticRouteParams.json
    ```
 
 1. Modify and save the RemoveTgwStaticRouteParams file. For example, you can replace the contents with something like this:
 
-   ```
+   ```json
    {
      "DocumentName": "AWSManagedServices-RemoveRouteFromTGWRouteTable",
      "Region": "us-east-1",
@@ -6485,7 +6484,7 @@ aws amscm create-rfc --change-type-id "ct-0rmgrnr9w8mzh" --change-type-version "
 
 1. Modify and save the RemoveTgwStaticRouteRfc.json file. For example, you can replace the contents with something like this:
 
-   ```
+   ```json
    {
      "ChangeTypeVersion": "1.0",
      "ChangeTypeId": "ct-0rmgrnr9w8mzh",
