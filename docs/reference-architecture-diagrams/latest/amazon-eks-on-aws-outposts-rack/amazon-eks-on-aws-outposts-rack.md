@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Kubernetes Service on AWS Outposts Rack
-<a name="amazon-eks-on-aws-outposts-rack"></a>
 
 Publication date: **October 31, 2022 ([Diagram history](#diagram-history))**
 
