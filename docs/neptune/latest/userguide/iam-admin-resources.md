@@ -1,7 +1,6 @@
 
 
 # IAM resource types for administering Amazon Neptune
-<a name="iam-admin-resources"></a>
 
 Neptune supports the resource types in the following table for use in the `Resource` element of IAM administration policy statements. For more information about the `Resource` element, see [IAM JSON Policy Elements: Resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html).
 

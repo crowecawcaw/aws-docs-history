@@ -1,7 +1,6 @@
 
 
 # Using Native Date and Time for GLV Time Data
-<a name="best-practices-gremlin-datetime-glv"></a>
 
 If you are using a Gremlin Language Variant (GLV), you must use the native date and time classes and functions provided by the programming language for Gremlin time data.
 

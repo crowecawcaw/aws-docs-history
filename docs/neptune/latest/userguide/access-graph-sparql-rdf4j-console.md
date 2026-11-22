@@ -1,7 +1,6 @@
 
 
 # Using the RDF4J console to connect to a Neptune DB instance
-<a name="access-graph-sparql-rdf4j-console"></a>
 
 
 

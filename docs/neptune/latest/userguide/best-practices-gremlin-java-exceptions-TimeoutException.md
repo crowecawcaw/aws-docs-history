@@ -1,7 +1,6 @@
 
 
 # Troubleshooting `java.util.concurrent.TimeoutException`
-<a name="best-practices-gremlin-java-exceptions-TimeoutException"></a>
 
 The Gremlin Java client throws a `java.util.concurrent.TimeoutException` when a Gremlin request times out at the client itself while waiting for a slot in one of the WebSocket connections to become available. This timeout duration is controlled by the `maxWaitForConnection` client-side configurable parameter.
 

@@ -1,7 +1,6 @@
 
 
 # Neptune Loader Command
-<a name="load-api-reference-load"></a>
 
 Loads data from an Amazon S3 bucket into a Neptune DB instance.
 
@@ -127,7 +126,7 @@ You can use the `dependencies` parameter to queue up a job that must only be run
 ------
 #### [ SDK ]
 
-  ```
+  ```python
   import boto3
   from botocore.config import Config
   
@@ -164,8 +163,7 @@ You can use the `dependencies` parameter to queue up a job that must only be run
         }'
   ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+  To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -181,8 +179,12 @@ This example assumes that your AWS credentials are configured in your environmen
         }'
   ```
 
+  To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
+
 ------
 + **`region`**   –   The `region` parameter must match the AWS Region of the cluster and the S3 bucket. **(required)**
+
+  In the HTTP request body that you send to the `/loader` endpoint, name this field `region`. The AWS SDKs use `s3BucketRegion` and the AWS CLI uses `--s3-bucket-region` for the same value. Neptune rejects those interface-specific names in the JSON body and returns an `InvalidParameterException` error. Use `region` in the request body instead.
 
   Amazon Neptune is available in the following Regions:
   + US East (N. Virginia):   `us-east-1`
@@ -357,7 +359,7 @@ For more information, see [start-loader-job](https://docs.aws.amazon.com/cli/lat
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -400,8 +402,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/loader \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -419,6 +420,8 @@ curl -X POST https://{{your-neptune-endpoint}}:{{port}}/loader \
         "parallelism" : "MEDIUM"
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

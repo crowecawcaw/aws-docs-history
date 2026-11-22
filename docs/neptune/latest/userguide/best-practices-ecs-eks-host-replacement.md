@@ -1,7 +1,6 @@
 
 
 # Handle host replacement and connection stalling
-<a name="best-practices-ecs-eks-host-replacement"></a>
 
 When Neptune replaces a host (for example, during maintenance or failover), existing connections to that host become invalid. In containerized environments, this can stall all threads in a container if the client doesn't handle the replacement gracefully.
 

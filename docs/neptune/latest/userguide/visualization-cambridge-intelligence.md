@@ -1,7 +1,6 @@
 
 
 # Cambridge Intelligence
-<a name="visualization-cambridge-intelligence"></a>
 
 [Cambridge Intelligence](https://cambridge-intelligence.com/) provides data visualization technologies for exploring and understanding Amazon Neptune data. The graph visualization toolkits ([KeyLines](https://cambridge-intelligence.com/keylines/) for JavaScript developers and [ReGraph](https://cambridge-intelligence.com/regraph/) for React developers) offer an easy way to build highly interactive and customizable tools for web applications. These toolkits leverage WebGL and HTML5 Canvas for fast performance, they support advanced graph analysis functions, and combine flexibility and scalability with a secure, robust architecture. These SDKs work with both Neptune Gremlin and RDF data.
 

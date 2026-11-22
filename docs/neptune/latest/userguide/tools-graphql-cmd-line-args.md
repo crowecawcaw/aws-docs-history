@@ -1,7 +1,6 @@
 
 
 # Command-line arguments for the GraphQL utility
-<a name="tools-graphql-cmd-line-args"></a>
 + **`--help, -h`**   –   Returns help text for the GraphQL utility to the console.
 
    
@@ -15,7 +14,7 @@
 
   The changes file uses the following JSON format:
 
-  ```
+  ```json
   [
     {
       "type": "{{(GraphQL type name)}}",
@@ -31,7 +30,7 @@
    
 + **`--input-graphdb-schema {{(schema text)}}`**   –   Instead of running the utility against a Neptune database, you can express a graphdb schema in text form to use as input. A graphdb schema has a JSON format like this:
 
-  ```
+  ```json
   {
     "nodeStructures": [
       { "label":"nodelabel1",

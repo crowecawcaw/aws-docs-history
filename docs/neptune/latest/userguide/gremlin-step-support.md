@@ -1,7 +1,6 @@
 
 
 # Native Gremlin step support in Amazon Neptune
-<a name="gremlin-step-support"></a>
 
 The Amazon Neptune engine does not currently have full native support for all Gremlin steps, as explained in [Tuning Gremlin queries](gremlin-traversal-tuning.md). Current support falls into four categories:
 + [Gremlin steps that can always be converted to native Neptune engine operations](#gremlin-steps-always)

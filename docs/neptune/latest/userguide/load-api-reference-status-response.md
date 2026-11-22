@@ -1,7 +1,6 @@
 
 
 # Neptune Loader Get-Status Responses
-<a name="load-api-reference-status-response"></a>
 
  The following example response from the Neptune Get-Status API describes the overall structure of the response, explains the various fields and their data types, as well as the error handling and error log details. 
 
@@ -205,7 +204,7 @@ For example, the bulk loader would generate a parsing error if it encountered a 
 
 As you can see, the second `http` in the row above should be preceded by  `<`  rather than  `|` . The resulting error object under `errorLogs` in a status response would look like this:
 
-```
+```json
 {
     "errorCode" : "PARSING_ERROR",
     "errorMessage" : "Expected '<', found: |",

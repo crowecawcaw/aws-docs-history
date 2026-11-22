@@ -1,12 +1,11 @@
 
 
 # Amazon Neptune Engine Version 1.3.0.0 (2023-11-15)
-<a name="engine-releases-1.3.0.0"></a>
 
 As of 2023-11-15, AWS deploys engine version 1.3.0.0 to all Regions. It takes several days for a new release to become available in every Region.
 
 **Note**  
-[Engine release 1.3.0.0](#engine-releases-1.3.0.0) introduced a new format for custom parameter groups and custom cluster parameter groups. As a result, if you are upgrading from an engine version earlier than 1.3.0.0 to engine version 1.3.0.0 or above, you must re-create all of your existing custom parameter groups and custom cluster parameter groups using parameter group family `neptune1.3`. Earlier releases used parameter group family `neptune1`, or `neptune1.2`. and those parameter groups won't work with release 1.3.0.0 and above. Similarly, you should use 1.4.0.0 cluster parameter groups for engine versions 1.4.0.0 and above. See [Amazon Neptune parameter groups](parameter-groups.md) for more information.
+[Engine release 1.3.0.0](engine-releases-1.3.0.0.md) introduced a new format for custom parameter groups and custom cluster parameter groups. As a result, if you are upgrading from an engine version earlier than 1.3.0.0 to engine version 1.3.0.0 or above, you must re-create all of your existing custom parameter groups and custom cluster parameter groups using parameter group family `neptune1.3`. Earlier releases used parameter group family `neptune1`, or `neptune1.2`. and those parameter groups won't work with release 1.3.0.0 and above. Similarly, you should use 1.4.0.0 cluster parameter groups for engine versions 1.4.0.0 and above. See [Amazon Neptune parameter groups](parameter-groups.md) for more information.
 
 ## New Features in This Engine Release
 <a name="engine-releases-1.3.0.0-features"></a>

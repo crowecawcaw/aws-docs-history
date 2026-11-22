@@ -1,7 +1,6 @@
 
 
 # Avoid redundant node label checks by using granular relationship names
-<a name="best-practices-content-5"></a>
 
  When optimizing for performance, using relationship labels that are exclusive to node patterns allows the removal of label filtering on nodes. Consider a graph model where the relationship `likes` is only used to define a relationship between two `person` nodes. We could write the following query to find this pattern: 
 

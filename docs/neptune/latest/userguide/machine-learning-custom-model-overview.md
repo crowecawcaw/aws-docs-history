@@ -1,7 +1,6 @@
 
 
 # Overview of custom models in Neptune ML
-<a name="machine-learning-custom-model-overview"></a>
 
 ## When to use a custom model in Neptune ML
 <a name="machine-learning-custom-models-when-to-use"></a>
@@ -59,7 +58,7 @@ For more information, see [start-ml-model-training-job](https://docs.aws.amazon.
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -106,8 +105,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/ml/modeltraining \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -128,6 +126,8 @@ curl \
         }
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -159,7 +159,7 @@ For more information, see [start-ml-model-transform-job](https://docs.aws.amazon
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -202,8 +202,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/ml/modeltransform \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -222,5 +221,7 @@ curl \
         }
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------

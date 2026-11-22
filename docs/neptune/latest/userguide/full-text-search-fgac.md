@@ -1,7 +1,6 @@
 
 
 # Querying from an OpenSearch cluster with Fine-grained access control (FGAC) enabled
-<a name="full-text-search-fgac"></a>
 
 If you have enabled [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) on your OpenSearch cluster, you need to [enable IAM authentication](iam-auth-enable.md) in your Neptune database as well.
 
@@ -12,7 +11,7 @@ The IAM entity (User or Role) used for connecting to the Neptune database should
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Neptune Events API
-<a name="api-events"></a>
 
 **Actions:**
 + [CreateEventSubscription (action)](#CreateEventSubscription)

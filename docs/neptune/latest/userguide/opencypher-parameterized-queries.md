@@ -1,7 +1,6 @@
 
 
 # Examples of openCypher parameterized queries
-<a name="opencypher-parameterized-queries"></a>
 
 Neptune supports parameterized openCypher queries. This lets you use the same query structure multiple times with different arguments. Since the query structure doesn't change, Neptune can cache its abstract syntax tree (AST) rather than having to parse it multiple times.
 
@@ -38,7 +37,7 @@ For more information, see [execute-open-cypher-query](https://docs.aws.amazon.co
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -70,8 +69,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d 'parameters={"name": "john", "age": 20}'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -99,6 +97,8 @@ curl -H "Content-Type: application/opencypher" \
   -d "MATCH (n {name: \$name, age: \$age}) RETURN n"
 ```
 
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
+
 ------
 
 **Note**  
@@ -112,7 +112,7 @@ For more information about signing requests with AWS Signature Version 4, see [C
 
 Here is a Python example of an openCypher parameterized query using the Bolt protocol:
 
-```
+```python
 from neo4j import GraphDatabase
 uri = "bolt://[neptune-endpoint-url]:8182"
 driver = GraphDatabase.driver(uri, auth=("", ""))
@@ -130,7 +130,7 @@ driver.close()
 
 Here is a Java example of an openCypher parameterized query using the Bolt protocol:
 
-```
+```java
 Driver driver = GraphDatabase.driver("bolt+s://{{(your cluster endpoint URL)}}:8182");
 HashMap<String, Object> parameters = new HashMap<>();
 parameters.put("name", "john");

@@ -1,7 +1,6 @@
 
 
 # Neptune ML limits
-<a name="machine-learning-limits"></a>
 + The types of inference currently supported are node classification, node regression, edge classification, edge regression and link prediction (see [Neptune ML capabilities](machine-learning.md#machine-learning-capabilities)).
 + The maximum graph size that Neptune ML can support depends on the amount of memory and storage required during [data preparation](machine-learning-on-graphs-instance-selection.md#machine-learning-on-graphs-processing-instance-size), [model training](machine-learning-on-graphs-instance-selection.md#machine-learning-on-graphs-training-transform-instance-size), and [inference](machine-learning-on-graphs-instance-selection.md#machine-learning-on-graphs-inference-endpoint-instance-size).
   + The maximum size of memory of a SageMaker AI data-processing instance is 768 GB. As a result, the data-processing stage fails if it needs more than 768 GB of memory.

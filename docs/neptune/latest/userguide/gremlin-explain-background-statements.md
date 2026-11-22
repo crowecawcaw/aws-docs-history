@@ -1,7 +1,6 @@
 
 
 # Gremlin statements in Neptune
-<a name="gremlin-explain-background-statements"></a>
 
 Property graph data in Amazon Neptune is composed of four-position (quad) statements. Each of these statements represents an individual atomic unit of property graph data. For more information, see [Neptune Graph Data Model](feature-overview-data-model.md). Similar to the Resource Description Framework (RDF) data model, these four positions are as follows:
 + `subject (S)`

@@ -1,7 +1,6 @@
 
 
 # Querying All Named Graphs by Default
-<a name="best-practices-sparql-query"></a>
 
 Amazon Neptune associates every triple with a named graph. The default graph is defined as the union of all named graphs. 
 

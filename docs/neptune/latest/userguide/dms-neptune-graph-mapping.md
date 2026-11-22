@@ -1,7 +1,6 @@
 
 
 # Creating a Neptune GraphMappingConfig
-<a name="dms-neptune-graph-mapping"></a>
 
 The `GraphMappingConfig` that you create specifies how data extracted from a source data store should be loaded into a Neptune DB cluster. Its format differs depending on whether it is intended for loading RDF data or for loading property-graph data.
 
@@ -60,7 +59,7 @@ The W3 Recommendation at [R2RML: RDB to RDF Mapping Language](https://www.w3.org
 
 A comparable `GraphMappingConfig` for property-graph data is a JSON object that provides a mapping rule for each graph entity to be genereated from the source data. The following template shows what each rule in this object looks like:
 
-```
+```json
 {
   "rules": [
     {
@@ -118,7 +117,7 @@ Note that the presence of a vertex label implies that the vertex is being create
 
 Here is a sample rule for an employee record:
 
-```
+```json
 {
   "rules": [
     {

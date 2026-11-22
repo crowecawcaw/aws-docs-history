@@ -1,7 +1,6 @@
 
 
 # List of exceptions for Neptune ML Gremlin inference queries
-<a name="machine-learning-gremlin-exceptions"></a>
 
  This is a comprehensive list of exceptions that can occur when executing Neptune ML Gremlin inference queries. These exceptions cover a range of issues, from problems with the specified IAM role or endpoint, to unsupported Gremlin steps and limitations on the number of ML inference queries per query. Each entry includes a detailed message describing the issue. 
 + **`BadRequestException`**   –   The credentials for the supplied role cannot be loaded.

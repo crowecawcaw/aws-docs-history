@@ -1,7 +1,6 @@
 
 
 # Tuning Gremlin queries using `explain` and `profile`
-<a name="gremlin-traversal-tuning"></a>
 
 You can often tune your Gremlin queries in Amazon Neptune to get better performance, using the information available to you in the reports you get from the Neptune [explain](gremlin-explain-api.md) and [profile](gremlin-profile-api.md) APIs. To do so, it helps to understand how Neptune processes Gremlin traversals.
 

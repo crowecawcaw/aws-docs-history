@@ -1,7 +1,6 @@
 
 
 # Full text search in Amazon Neptune using Amazon OpenSearch Service
-<a name="full-text-search"></a>
 
 Neptune integrates with [Amazon OpenSearch Service (OpenSearch Service)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/) to support full-text search in both Gremlin and SPARQL queries.
 

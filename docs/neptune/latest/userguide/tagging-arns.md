@@ -1,7 +1,6 @@
 
 
 # Working with administrative ARNs in Amazon Neptune
-<a name="tagging-arns"></a>
 
 Resources that are created in Amazon Web Services are each uniquely identified with an Amazon Resource Name (ARN). For certain Amazon Neptune operations, you must uniquely identify a Neptune resource by specifying its ARN. 
 

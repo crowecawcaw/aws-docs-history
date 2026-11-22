@@ -1,7 +1,6 @@
 
 
 # How the SPARQL query engine works in Neptune
-<a name="sparql-explain-engine"></a>
 
 To use the information that the SPARQL `explain` feature provides, you need to understand some details about how the Amazon Neptune SPARQL query engine works.
 

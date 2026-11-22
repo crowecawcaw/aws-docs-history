@@ -1,7 +1,6 @@
 
 
 # Tag-based access control for Amazon Neptune data-plane operations
-<a name="iam-data-tbac"></a>
 
 Tag-based access control (TBAC) lets you use AWS resource tags and IAM principal tags as conditions in IAM policies and Service Control Policies (SCPs) to control access to Amazon Neptune data-plane operations. With TBAC, you can enforce that only principals whose tags match the tags on a Neptune DB cluster can perform `neptune-db:*` actions against that cluster, without enumerating specific cluster Amazon Resource Names (ARNs) in every policy.
 
@@ -65,7 +64,7 @@ The following patterns show common ways to use TBAC in IAM policies for Neptune 
 
 This is the most common TBAC pattern. It denies all Neptune data-plane actions unless the principal's tags match the resource's tags. You can apply this as an SCP for organization-wide enforcement or as an IAM policy for targeted control.
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -102,7 +101,7 @@ This is the most common TBAC pattern. It denies all Neptune data-plane actions u
 
 This pattern prevents access to Neptune clusters that have not been properly tagged, ensuring all clusters are enrolled in the TBAC scheme:
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -139,7 +138,7 @@ This pattern prevents access to Neptune clusters that have not been properly tag
 
 TBAC can be combined with specific `neptune-db:` actions to create fine-grained, tag-aware policies:
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -167,7 +166,7 @@ TBAC can be combined with specific `neptune-db:` actions to create fine-grained,
 
 Combine TBAC with the `neptune-db:QueryLanguage` condition key to restrict both which clusters a principal can access and which query languages they can use:
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -203,7 +202,7 @@ We recommend the following SCP strategy:
 
 1. Your individual accounts can retain their Allow policies for specific `neptune-db:` actions—the SCP acts as a guardrail.
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -278,7 +277,7 @@ Choose tag keys that represent your organizational boundaries. Common patterns:
 
 Use the AWS CLI to add the required classification tags to your Neptune DB clusters:
 
-```
+```bash
 aws neptune add-tags-to-resource \
   --resource-name arn:aws:rds:{{us-east-1}}:{{123456789012}}:cluster:{{my-neptune-cluster}} \
   --tags Key=Project,Value=FraudDetection Key=Department,Value=Engineering
@@ -289,7 +288,7 @@ aws neptune add-tags-to-resource \
 
 Use the AWS CLI to tag IAM roles with the same keys and values used on your Neptune clusters. For IAM roles:
 
-```
+```bash
 aws iam tag-role \
   --role-name {{NeptuneAppRole}} \
   --tags Key=Project,Value=FraudDetection Key=Department,Value=Engineering
@@ -307,7 +306,7 @@ Attach as an SCP for organization-wide enforcement, or as an IAM policy for targ
 
 Restrict who can modify tags on Neptune resources and IAM principals:
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [

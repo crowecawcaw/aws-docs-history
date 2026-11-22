@@ -1,7 +1,6 @@
 
 
 # Neptune SPARQL `explain` operators
-<a name="sparql-explain-operators"></a>
 
 The following sections describe the operators and parameters for the SPARQL `explain` feature currently available in Amazon Neptune.
 

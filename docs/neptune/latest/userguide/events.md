@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune events
-<a name="events"></a>
 
 **Topics**
 + [Amazon Neptune event categories and event messages](event-lists.md)

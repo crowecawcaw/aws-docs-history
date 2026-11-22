@@ -1,7 +1,6 @@
 
 
 # Tagging in Neptune using the AWS Management Console
-<a name="tagging-console"></a>
 
 The process to tag an Amazon Neptune resource is similar for all resources. The following procedure shows how to tag a Neptune DB instance. 
 

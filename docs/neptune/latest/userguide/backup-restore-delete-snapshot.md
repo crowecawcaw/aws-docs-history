@@ -1,7 +1,6 @@
 
 
 # Deleting a Neptune Snapshot
-<a name="backup-restore-delete-snapshot"></a>
 
 You can delete a DB snapshot using the AWS Management Console, the AWS CLI, or the Neptune management API:
 

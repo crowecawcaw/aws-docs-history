@@ -1,7 +1,6 @@
 
 
 # Neptune T3 Burstable Instance Class
-<a name="manage-console-instances-t3"></a>
 
 In addition to fixed-performance instance classes such as `R5` and `R6`, Amazon Neptune gives you the option of using a burstable-performance `T3` instance. While you’re developing your graph application, you want your database to be fast and responsive, but you don't need to use it all the time. Neptune's `db.t3.medium` instance class is just what you should use in that situation, at significantly lower cost than the least expensive fixed-performance instance class.
 

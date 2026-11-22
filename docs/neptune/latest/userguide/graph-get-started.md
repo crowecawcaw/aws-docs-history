@@ -1,13 +1,12 @@
 
 
 # Getting started with Amazon Neptune
-<a name="graph-get-started"></a>
 
 Amazon Neptune is a fully managed graph database service that scales to handle billions of relationships and lets you query them with milliseconds latency, at a low cost for that kind of capacity.
 
 If you're looking for more detailed information about Neptune, see [Overview of Amazon Neptune features](feature-overview.md).
 
-If you know about graphs already, jump ahead to [Quick start using CloudShell](get-started-quickstart.md) or [Using Neptune with graph notebooks](graph-notebooks.md). Or, if you want to create a Neptune database right away, see [Creating an Amazon Neptune cluster using AWS CloudFormation](get-started-cfn-create.md).
+If you know about graphs already, jump ahead to [Quick start using CloudShell](get-started-quickstart.md) or [Using Neptune with graph notebooks](graph-notebooks.md). Or, if you want to create a Neptune database right away, see [Creating an Amazon Neptune cluster using AWS CloudFormation](get-started-cfn-create.md). To browse and visualize graph data without writing queries, use [Graph Explorer](visualization-graph-explorer.md).
 
 Otherwise, you might want to know a little more about graph databases before you start.
 

@@ -1,7 +1,6 @@
 
 
 # Other Neptune APIs
-<a name="api-other-apis"></a>
 
 **Actions:**
 + [AddTagsToResource (action)](#AddTagsToResource)

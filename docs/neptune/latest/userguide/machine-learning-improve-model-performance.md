@@ -1,7 +1,6 @@
 
 
 # Model training best practices
-<a name="machine-learning-improve-model-performance"></a>
 
 There are things you can do to improve the performance of Neptune ML models.
 

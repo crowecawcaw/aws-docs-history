@@ -1,7 +1,6 @@
 
 
 # Controlling where Neptune DFE is used
-<a name="neptune-dfe-enabling-disabling"></a>
 
 By default, the [neptune\_dfe\_query\_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine) instance parameter of an instance is set to `viaQueryHint`, which causes DFE to be used only for openCypher queries and for Gremlin and SPARQL queries that explicitly include the `useDFE` query hint set to `true`.
 
@@ -17,7 +16,7 @@ curl -G https://{{your-neptune-endpoint}}:{{port}}/status
 
 The status response then specifies whether DFE is enabled or not:
 
-```
+```json
 {
   "status":"healthy",
   "startTime":"Wed Dec 29 02:29:24 UTC 2021",

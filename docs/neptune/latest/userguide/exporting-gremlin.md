@@ -1,7 +1,6 @@
 
 
 # Exporting Gremlin query results to Amazon S3
-<a name="exporting-gremlin"></a>
 
  Starting in engine release 1.4.3.0, Amazon Neptune supports exporting Gremlin query results directly to Amazon S3. This feature allows you to handle large query results efficiently by exporting them to an Amazon S3 bucket instead of returning them as a query response. 
 

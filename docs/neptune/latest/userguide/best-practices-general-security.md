@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune security best practices
-<a name="best-practices-general-security"></a>
 
 Use AWS Identity and Access Management (IAM) accounts to control access to Neptune API actions. Control actions that create, modify, or delete Neptune resources (such as DB instances, security groups, option groups, or parameter groups), and actions that perform common administrative actions (such as backing up and restoring DB instances).
 + Use temporary rather than persistent credentials whenever possible.

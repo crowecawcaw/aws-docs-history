@@ -1,13 +1,12 @@
 
 
 # Amazon Neptune Engine Version 1.2.0.0 (2022-07-21)
-<a name="engine-releases-1.2.0.0"></a>
 
 As of 2022-07-21, AWS deploys engine version 1.2.0.0 to all Regions. It takes several days for a new release to become available in every Region.
 
 **Note**  
 **If upgrading from an engine version earlier than 1.2.0.0:**  
-[Engine release 1.2.0.0](#engine-releases-1.2.0.0) introduced a new format for custom parameter groups and custom cluster parameter groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0 to engine version 1.2.0.0 or above, you must re-create all your existing custom parameter groups and custom cluster parameter groups using parameter group family `neptune1.2`. Earlier releases used parameter group family `neptune1`, and those parameter groups won't work with release 1.2.0.0 and above. See [Amazon Neptune parameter groups](parameter-groups.md) for more information.
+[Engine release 1.2.0.0](engine-releases-1.2.0.0.md) introduced a new format for custom parameter groups and custom cluster parameter groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0 to engine version 1.2.0.0 or above, you must re-create all your existing custom parameter groups and custom cluster parameter groups using parameter group family `neptune1.2`. Earlier releases used parameter group family `neptune1`, and those parameter groups won't work with release 1.2.0.0 and above. See [Amazon Neptune parameter groups](parameter-groups.md) for more information.
 Engine release 1.2.0.0 also introduced a new format for undo logs. As a result, any undo logs created by an earlier engine version must be purged and the [`UndoLogsListSize`](cw-metrics.md#cw-metrics-UndoLogListSize) CloudWatch metric must fall to zero before any upgrade from a version earlier than 1.2.0.0 can get started. If there are too many undo log records (200,000 or more) when you try to start an update, the upgrade attempt can time out while waiting for purging of the undo logs to complete.  
 You can speed up the purge rate by upgrading the cluster's writer instance, which is where the purging occurs. Doing that before trying to upgrade can bring down the number of undo logs before you start. Increasing the size of the writer to a 24XL instance type can increase your purge rate to more than a million records per hour.  
 If the `UndoLogsListSize` CloudWatch metric is extremely large, opening a support case may help you explore additional strategies for bringing it down.

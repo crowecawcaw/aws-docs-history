@@ -1,7 +1,6 @@
 
 
 # Working with other AWS services
-<a name="integrations"></a>
 
 You can use Amazon Neptune in conjunction with many other AWS services:
 

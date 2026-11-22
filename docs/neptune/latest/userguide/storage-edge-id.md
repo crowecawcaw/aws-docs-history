@@ -1,7 +1,6 @@
 
 
 # Neptune inlined server-generated edge ID
-<a name="storage-edge-id"></a>
 
  Neptune supports inline Server-Generated Edge IDs. It can be enabled via the Neptune configuration [parameter](parameters.md) `neptune_enable_inline_server_generated_edge_id` when `neptune_streams` is not enabled. This feature is available for Gremlin queries starting with engine release [1.4.3.0](https://docs.aws.amazon.com/releases/release-1.4.3.0.xml), and will be available for OpenCypher queries in a future release. 
 

@@ -1,7 +1,6 @@
 
 
 # DB Cluster Management API Error Messages and Codes
-<a name="CommonErrors"></a>
 
 These Amazon Neptune errors are associated with the APIs for creating and modifying Neptune resources with the AWS SDK and AWS CLI.
 

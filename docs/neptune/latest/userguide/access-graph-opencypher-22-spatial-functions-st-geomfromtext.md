@@ -1,7 +1,6 @@
 
 
 # ST\_GeomFromText
-<a name="access-graph-opencypher-22-spatial-functions-st-geomfromtext"></a>
 
 ST\_GeomFromText constructs a geometry object from a well-known text (WKT) representation of an input geometry.
 

@@ -1,7 +1,6 @@
 
 
 # Notes on Amazon Neptune Standards Compliance
-<a name="feature-overview-standards-compliance"></a>
 
 Amazon Neptune complies with applicable standards in implementing the Gremlin and SPARQL graph query languages in most cases.
 

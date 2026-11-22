@@ -1,7 +1,6 @@
 
 
 # openCypher query plan cache hint
-<a name="opencypher-query-hints-qpc-hint"></a>
 
  Query plan cache behavior can be overridden on a per-query (parameterized or not) basis by query-level query hint `QUERY:PLANCACHE`. It needs to be used with the `USING` clause. The query hint accepts `enabled` or `disabled` as a value. For more information on query plan cache, see [Query plan cache in Amazon Neptune](access-graph-qpc.md). 
 
@@ -38,7 +37,7 @@ For more information, see [execute-open-cypher-query](https://docs.aws.amazon.co
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -71,8 +70,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -98,5 +96,7 @@ Forcing plan to be neither cached nor reused:
 curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=Using QUERY:PLANCACHE \"disabled\" MATCH(n) RETURN n LIMIT 1"
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------

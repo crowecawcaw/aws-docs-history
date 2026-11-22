@@ -1,7 +1,6 @@
 
 
 # Monitoring the progress of a Neptune Blue/Green deployment
-<a name="neptune-BG-monitoring"></a>
 
 You can monitor the progress of the Neptune Blue/Green solution by going to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/) and looking at logs in the `/aws/neptune/{{(Neptune Blue/Green deployment ID)}}` CloudWatch log group. You can find a link to the CloudWatch logs in the outputs of the solution's CloudFormation stack:
 

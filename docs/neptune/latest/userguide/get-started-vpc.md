@@ -1,7 +1,6 @@
 
 
 # Set up the Amazon VPC where your Amazon Neptune DB cluster is located
-<a name="get-started-vpc"></a>
 
 An Amazon Neptune DB cluster can *only* be created in an Amazon Virtual Private Cloud (Amazon VPC). Its endpoints are accessible within that VPC, and if [Neptune public endpoints](neptune-public-endpoints.md) are enabled, they can also be accessed outside of the VPC and over the internet.
 

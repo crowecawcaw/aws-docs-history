@@ -1,7 +1,6 @@
 
 
 # Using an AWS CloudFormation template to start Neptune-to-OpenSearch replication
-<a name="full-text-search-cfn-create"></a>
 
 ## Launch an CloudFormation stack specific to your region
 <a name="full-text-search-cfn-by-region"></a>

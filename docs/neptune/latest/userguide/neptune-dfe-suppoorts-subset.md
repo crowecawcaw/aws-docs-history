@@ -1,7 +1,6 @@
 
 
 # Query constructs supported by Neptune DFE
-<a name="neptune-dfe-suppoorts-subset"></a>
 
 Neptune DFE supports SPARQL and Gremlin query constructs. For SPARQL, DFE handles the subset of conjunctive [basic graph patterns](https://www.w3.org/TR/sparql11-query/#BasicGraphPatterns). For Gremlin, starting with Neptune engine release 1.5.0.0, DFE natively supports most Gremlin steps. For a categorized list of supported and unsupported Gremlin steps, see [Gremlin step coverage in DFE](gremlin-step-coverage-in-DFE.md).
 

@@ -1,7 +1,6 @@
 
 
 # Using Tableau with the Neptune JDBC driver
-<a name="neptune-jdbc-tableau"></a>
 
 To use Tableau with the Neptune JDBC driver, start by downloading and installing the most recent version of [Tableau Desktop](https://www.tableau.com/products/desktop). Download the JAR file for the Neptune JDBC driver, and also the Neptune Tableau connector file (a `.taco` file).
 

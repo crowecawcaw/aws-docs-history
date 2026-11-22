@@ -1,7 +1,6 @@
 
 
 # Query plan cache in Amazon Neptune
-<a name="access-graph-qpc"></a>
 
  When a query is submitted to Neptune, the query string is parsed, optimized, and transformed into a query plan, which then gets executed by the engine. Applications are often backed by common query patterns that are instantiated with different values. Query plan cache can reduce the overall latency by caching the query plans and thereby avoiding parsing and optimization for such repeated patterns. 
 
@@ -45,7 +44,7 @@ For more information, see [execute-open-cypher-query](https://docs.aws.amazon.co
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -78,8 +77,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -106,6 +104,8 @@ curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=Using QUERY:PLANCACHE \"disabled\" MATCH(n) RETURN n LIMIT 1"
 ```
 
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
+
 ------
 
 ## How to determine if a plan is cached or not
@@ -128,7 +128,7 @@ For more information, see [execute-open-cypher-explain-query](https://docs.aws.a
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -160,8 +160,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "explain=details"
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -171,6 +170,8 @@ curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1" \
   -d "explain=details"
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

@@ -1,7 +1,6 @@
 
 
 # Java example of connecting to a Neptune DB instance with re-connect logic
-<a name="access-graph-gremlin-java-reconnect-example"></a>
 
 The following Java example demonstrates how to connect to the Gremlin client with reconnect logic to recover from an unexpected disconnect.
 
@@ -9,7 +8,7 @@ For detailed guidance on developing a practical retry strategy, including expone
 
 It has the following dependencies:
 
-```
+```java
 <dependency>
     <groupId>org.apache.tinkerpop</groupId>
     <artifactId>gremlin-driver</artifactId>
@@ -37,7 +36,7 @@ Here is the sample code:
 **Note**  
  The following example has been updated to include the use of requestInterceptor(). This was added in TinkerPop 3.6.6. Prior to TinkerPop version 3.6.6, the code example used handshakeInterceptor(), which was deprecated with that release. 
 
-```
+```java
 public static void main(String args[]) {
   boolean useIam = true;
 

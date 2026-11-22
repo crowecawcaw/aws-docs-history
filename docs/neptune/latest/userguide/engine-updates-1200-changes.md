@@ -1,7 +1,6 @@
 
 
 # Upgrading to engine version 1.2.0.0 or above from a version earlier than 1.2.0.0
-<a name="engine-updates-1200-changes"></a>
 
 [Engine release 1.2.0.0](engine-releases-1.2.0.0.md) introduced several significant changes that can make upgrading from an earlier version more complicated than usual:
 + [Engine release 1.2.0.0](engine-releases-1.2.0.0.md) introduced a new format for custom parameter groups and custom cluster parameter groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0 to engine version 1.2.0.0 or above, you must re-create all your existing custom parameter groups and custom cluster parameter groups using parameter group family `neptune1.2`. Earlier releases used parameter group family `neptune1`, and those parameter groups won't work with release 1.2.0.0 and above. See [Amazon Neptune parameter groups](parameter-groups.md) for more information.

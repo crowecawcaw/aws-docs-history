@@ -1,7 +1,6 @@
 
 
 # Neptune Graph Data Model
-<a name="feature-overview-data-model"></a>
 
 The basic unit of Amazon Neptune graph data is a four-position (quad) element, which is similar to a Resource Description Framework (RDF) quad. The following are the four positions of a Neptune quad:
 + `subject    (S)`

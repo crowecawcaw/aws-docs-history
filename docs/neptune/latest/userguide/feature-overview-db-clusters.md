@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune DB Clusters and Instances
-<a name="feature-overview-db-clusters"></a>
 
 An Amazon Neptune *DB cluster* manages access to your data through queries. A cluster consists of:
 + One *primary DB instance.*.

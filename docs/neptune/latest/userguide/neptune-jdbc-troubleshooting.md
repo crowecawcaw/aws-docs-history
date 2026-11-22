@@ -1,7 +1,6 @@
 
 
 # Troubleshooting a JDBC driver connection
-<a name="neptune-jdbc-troubleshooting"></a>
 
 If the driver fails to connect to the server, use the `isValid` function of the JDBC `Connection` object to check whether the connection is valid. If the function returns `false`, meaning that the connection is invalid, check that the endpoint being connected to is correct and that you are in the VPC of your Neptune DB cluster or that you have a valid SSH tunnel to the cluster.
 

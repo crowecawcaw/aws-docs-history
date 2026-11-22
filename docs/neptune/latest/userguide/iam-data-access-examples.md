@@ -1,7 +1,6 @@
 
 
 # Creating IAM data-access policies in Amazon Neptune
-<a name="iam-data-access-examples"></a>
 
 The following examples show how to create custom IAM policies that use fine-grained access control of data-plane APIs and actions, introduced in Neptune [engine release version 1.2.0.0](engine-releases-1.2.0.0.md). 
 
@@ -15,7 +14,7 @@ The following example policy allows an IAM user to connect to a Neptune DB clust
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -42,7 +41,7 @@ The following policy grants permission for full read-only access to data in a Ne
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -71,7 +70,7 @@ The default IAM action is to deny access to a DB cluster unless an `Allow` *Effe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -96,7 +95,7 @@ The following policy only grants permission to read from a Neptune DB cluster us
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -121,7 +120,7 @@ The following policy uses the `neptune-db:QueryLanguage` condition key to grant 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -155,7 +154,7 @@ The following policy grants full access to Neptune graph operations except for t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -196,7 +195,7 @@ This policy grants access to the Neptune ML model-management features:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -238,7 +237,7 @@ The following policy grants full access to Neptune graph query operations, but n
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -270,7 +269,7 @@ The following policy grants full access to Neptune graph query operations using 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -309,7 +308,7 @@ The following policy grants full access to a Neptune DB cluster except for using
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

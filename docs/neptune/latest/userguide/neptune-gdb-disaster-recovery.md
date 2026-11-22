@@ -1,7 +1,6 @@
 
 
 # Performing disaster recovery Amazon Neptune
-<a name="neptune-gdb-disaster-recovery"></a>
 
 A Neptune global database provides more comprehensive failover capabilities than a standalone Neptune DB cluster does. Using a global database, you can plan for and recover from disaster fairly quickly. Disaster recovery is generally assessed using evaluation of the recovery-time objective (RTO) and the recovery-point objective (RPO):
 + **Recovery-time objective (RTO)**   —   This is how fast a system returns to a working state after a disaster. In other words, RTO measures downtime. For a Neptune global database, RTO can be in the order of minutes.

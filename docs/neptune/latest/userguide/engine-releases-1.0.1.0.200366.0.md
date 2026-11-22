@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune Engine Updates 2019-07-26
-<a name="engine-releases-1.0.1.0.200366.0"></a>
 
 **Version:** 1.0.1.0.200366.0
 

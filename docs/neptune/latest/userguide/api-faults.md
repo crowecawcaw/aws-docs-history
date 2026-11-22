@@ -1,7 +1,6 @@
 
 
 # Neptune Exceptions Specific to Individual APIs
-<a name="api-faults"></a>
 
 **Exceptions:**
 + [AuthorizationAlreadyExistsFault (structure)](#AuthorizationAlreadyExistsFault)

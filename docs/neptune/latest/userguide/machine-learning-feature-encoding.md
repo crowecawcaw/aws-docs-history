@@ -1,7 +1,6 @@
 
 
 # Feature encoding in Neptune ML
-<a name="machine-learning-feature-encoding"></a>
 
 Property values come in different formats and data types. To achieve good performance in machine learning, it is essential to convert those values to numerical encodings known as *features*.
 
@@ -77,7 +76,7 @@ The `text_fasttext` method can optionally take `max_length` field that specifies
 
 This example specifies that French movie titles are encoded using fastText:
 
-```
+```json
 {
     "file_name" : "nodes/movie.csv",
     "separator" : ",",
@@ -101,7 +100,7 @@ SBERT encoding is multilingual, so there is no need to specify a language for th
 
 The following example specifies that movie titles are encoded as SBERT up to a maximum of 128 tokens:
 
-```
+```json
 {
     "file_name" : "nodes/movie.csv",
     "separator" : ",",
@@ -119,7 +118,7 @@ Neptune ML can encode string property values as a Word2Vec feature ([Word2Vec al
 
 The following example specifies that movie titles are encoded using Word2Vec:
 
-```
+```json
 {
     "file_name" : "nodes/movie.csv",
     "separator" : ",",

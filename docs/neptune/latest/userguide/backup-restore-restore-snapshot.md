@@ -1,7 +1,6 @@
 
 
 # Restoring from a DB Cluster Snapshot
-<a name="backup-restore-restore-snapshot"></a>
 
 When you create an Amazon Neptune snapshot of a DB cluster, Neptune creates a storage volume snapshot of the cluster, backing up all its data and not just individual instances. You can later create a new DB cluster by restoring from this DB cluster snapshot. When you restore the DB cluster, you provide the name of the DB cluster snapshot to restore from, and then provide a name for the new DB cluster that is created by the restore.
 

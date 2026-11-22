@@ -1,7 +1,6 @@
 
 
 # Migrating an existing graph to Amazon Neptune
-<a name="migrating"></a>
 
 There are a number of tools and techniques that can help you migrate existing graph data into Amazon Neptune from another data store.
 

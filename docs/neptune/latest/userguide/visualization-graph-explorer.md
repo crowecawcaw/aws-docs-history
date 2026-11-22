@@ -1,7 +1,6 @@
 
 
 # The open-source graph-explorer
-<a name="visualization-graph-explorer"></a>
 
 [Graph-explorer](https://github.com/aws/graph-explorer) is an open-source low-code visual exploration tool for graph data, available under the Apache-2.0 license. It lets you browse either labeled property graphs (LPG) or Resource Description Framework (RDF) data in a graph database without having to write graph queries. Graph-explorer is intended to help data scientists, business analysts, and other roles in an organization explore graph data interactively without having to learn a graph query language.
 
@@ -45,7 +44,7 @@ As an example, this section provides step-by-step instructions for running graph
 
 1. Create a new JSON task definition as follows:
 
-   ```
+   ```json
    {
      "family": "explorer-test",
      "containerDefinitions": [

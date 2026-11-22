@@ -1,7 +1,6 @@
 
 
 # Use flattened maps instead of nested maps in UNWIND clause
-<a name="best-practices-content-3"></a>
 
  Deep nested structure can restrict the ability of the query engine to generate an optimal query plan. To partially alleviate this issue, the following defined patterns will create optimal plans for the following scenarios: 
 +  Scenario 1: UNWIND with a list of cypher literals, which includes NUMBER, STRING and BOOLEAN. 

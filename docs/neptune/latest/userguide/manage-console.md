@@ -1,7 +1,6 @@
 
 
 # Managing Your Amazon Neptune Database
-<a name="manage-console"></a>
 
  This section shows how to manage and maintain your Neptune DB cluster using the AWS Management Console and the AWS CLI.
 

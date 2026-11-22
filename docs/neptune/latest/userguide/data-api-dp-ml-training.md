@@ -1,7 +1,6 @@
 
 
 # Neptune ML model training API
-<a name="data-api-dp-ml-training"></a>
 
 **Model training actions:**
 + [StartMLModelTrainingJob (action)](#StartMLModelTrainingJob)

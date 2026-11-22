@@ -1,7 +1,6 @@
 
 
 # The features field in neptune\_ml
-<a name="machine-learning-neptune_ml-features"></a>
 
 Property values and RDF literals come in different formats and data types. To achieve good performance in machine learning, it is essential to convert those values to numerical encodings known as *features*.
 
@@ -45,13 +44,13 @@ The `features` field contains a JSON array of node property features. Objects in
 
 The `node` field specifies a property-graph label of a feature vertex. For example:
 
-```
+```json
   "node": "Person"
 ```
 
 If a vertex has multiple labels, use an array to contain them. For example:
 
-```
+```json
   "node": ["Admin", "Person"]
 ```
 
@@ -60,13 +59,13 @@ If a vertex has multiple labels, use an array to contain them. For example:
 
 The `edge` field specifies the edge type of a feature edge. An edge type consists of an array containing the property-graph label(s) of the source vertex, the property-graph label of the edge, and the property-graph label(s) of the destination vertex. You must supply all three values when specifying an edge feature. For example:
 
-```
+```json
   "edge": ["User", "reviewed", "Movie"]
 ```
 
 If a source or destination vertex of an edge type has multiple labels, use another array to contain them. For example:
 
-```
+```json
   "edge": [["Admin", "Person"]. "edited", "Post"]
 ```
 
@@ -75,7 +74,7 @@ If a source or destination vertex of an edge type has multiple labels, use anoth
 
 Use the property parameter to specify a property of the vertex identified by the `node` parameter. For example:
 
-```
+```json
   "property" : "age"
 ```
 
@@ -84,7 +83,7 @@ Use the property parameter to specify a property of the vertex identified by the
 
 The `type` parameter specifies the type of feature being defined. For example:
 
-```
+```json
   "type": "bucket_numerical"
 ```
 
@@ -141,7 +140,7 @@ The `type` parameter specifies the type of feature being defined. For example:
 
 This field is required for numerical features. It specifies a normalization method to use on numeric values:
 
-```
+```json
 "norm": "min-max"
 ```
 
@@ -165,7 +164,7 @@ The language field specifies the language used in text property values. Its usag
 + For [`text_sbert`](machine-learning-feature-encoding.md#machine-learning-fasttext-features) encoding, this field is not used, since SBERT encoding is multilingual.
 + For [`text_word2vec`](machine-learning-feature-encoding.md#machine-learning-word2vec-features) encoding, this field is optional, since `text_word2vec` only supports English. If present, it must specify the name of the English language model:
 
-  ```
+  ```json
   "language" : "en_core_web_lg"
   ```
 + For [`text_tfidf`](machine-learning-feature-encoding.md#machine-learning-tfidf-features) encoding, this field is not used.
@@ -175,7 +174,7 @@ The language field specifies the language used in text property values. Its usag
 
 The `max_length` field is optional for `text_fasttext` features, where it specifies the maximum number of tokens in an input text feature that will be encoded. Input text that is longer than `max_length` is truncated. For example, setting max\_length to 128 indicates that any tokens after the 128th in a text sequence will be ignored:
 
-```
+```json
 "max_length": 128
 ```
 
@@ -184,7 +183,7 @@ The `max_length` field is optional for `text_fasttext` features, where it specif
 
 This field is used optionally with `category`, `numerical` and `auto` features. It specifies a character that can be used to split a property value into multiple categorical values or numerical values:
 
-```
+```json
 "separator": ";"
 ```
 
@@ -197,7 +196,7 @@ See [Categorical features](machine-learning-feature-encoding.md#machine-learning
 
 This field is required for `bucket_numerical` features. It specifies the range of numerical values that are to be divided into buckets, in the format `[{{lower-bound}}, {{upper-bound}}]`:
 
-```
+```json
 "range" : [20, 100]
 ```
 
@@ -210,7 +209,7 @@ See [Bucket-numerical features in Neptune ML](machine-learning-feature-encoding.
 
 This field is required for `bucket_numerical` features. It specifies the number of buckets that the numerical range defined by the `range` parameter should be divided into:
 
-```
+```json
 "bucket_cnt": 10
 ```
 
@@ -221,7 +220,7 @@ See [Bucket-numerical features in Neptune ML](machine-learning-feature-encoding.
 
 This field is used optionally with `bucket_numerical` features to assign values to more than one bucket:
 
-```
+```json
 "slide_window_size": 5
 ```
 
@@ -234,7 +233,7 @@ See [Bucket-numerical features in Neptune ML](machine-learning-feature-encoding.
 
 This field is used optionally with `numerical` and `bucket_numerical` features to provide an imputation technique for filling in missing values:
 
-```
+```json
 "imputer": "mean"
 ```
 
@@ -252,7 +251,7 @@ See [Numerical features in Neptune ML](machine-learning-feature-encoding.md#mach
 
 This field is used optionally by `text_tfidf` features to specify the maximum number of terms to encode:
 
-```
+```json
 "max_features": 100
 ```
 
@@ -265,7 +264,7 @@ See [TF-IDF encoding of text features in Neptune ML](machine-learning-feature-en
 
 This field is used optionally by `text_tfidf` features to specify the minimum document frequency of terms to encode:
 
-```
+```json
 "min_df": 5
 ```
 
@@ -280,7 +279,7 @@ See [TF-IDF encoding of text features in Neptune ML](machine-learning-feature-en
 
 This field is used optionally by `text_tfidf` features to specify what size sequences of words or tokens should be considered as potential individual terms to encode:
 
-```
+```json
 "ngram_range": [2, 4]
 ```
 
@@ -295,7 +294,7 @@ See [TF-IDF encoding of text features in Neptune ML](machine-learning-feature-en
 
 This field is used optionally by `datetime` features to specify which parts of the datetime value to encode categorically: 
 
-```
+```json
 "datetime_parts": ["weekday", "hour"]
 ```
 

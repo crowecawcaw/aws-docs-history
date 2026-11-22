@@ -1,7 +1,6 @@
 
 
 # General information about migrating from Neo4j to Neptune
-<a name="migrating-from-neo4j-general"></a>
 
 With Neptune [support for the openCypher query language](feature-opencypher-compliance.md), you can move most Neo4j workloads that use the Bolt protocol or HTTPS to Neptune. However, openCypher is an open-source specification that contains most but not all of the functionality supported by other databases such as Neo4j.
 

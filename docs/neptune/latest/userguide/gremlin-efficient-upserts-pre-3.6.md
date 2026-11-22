@@ -1,7 +1,6 @@
 
 
 # Making efficient Gremlin upserts with `fold()/coalesce()/unfold()`
-<a name="gremlin-efficient-upserts-pre-3.6"></a>
 
 An upsert (or conditional insert) reuses a vertex or edge if it already exists, or creates it if it doesn't. Efficient upserts can make a significant difference in the performance of Gremlin queries.
 

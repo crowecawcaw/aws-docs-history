@@ -1,7 +1,6 @@
 
 
 # Gremlin query cancellation
-<a name="gremlin-api-status-cancel"></a>
 
 To get the status of Gremlin queries, use HTTP `GET` or `POST` to make a request to the `https://{{your-neptune-endpoint}}:{{port}}/gremlin/status` endpoint.
 
@@ -9,6 +8,9 @@ To get the status of Gremlin queries, use HTTP `GET` or `POST` to make a request
 <a name="gremlin-api-status-cancel-request"></a>
 + **cancelQuery**   –   Required for cancellation. This parameter has no corresponding value.
 + **queryId**   –   The ID of the running Gremlin query to cancel.
+
+**Note**  
+To find the ID of a running query, list the active queries as described in [Listing active Gremlin queries](gremlin-api-status.md#gremlin-api-status-list).
 
 ## Gremlin query cancellation example
 <a name="gremlin-api-status-cancel-example"></a>
@@ -29,7 +31,7 @@ For more information, see [cancel-gremlin-query](https://docs.aws.amazon.com/cli
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -55,14 +57,12 @@ For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK]
 awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/status \
   --region {{us-east-1}} \
   --service neptune-db \
-  --data-urlencode "cancelQuery" \
-  --data-urlencode "queryId=fb34cd3e-f37c-4d12-9cf2-03bb741bf54f"
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "cancelQuery&queryId=fb34cd3e-f37c-4d12-9cf2-03bb741bf54f"
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
-
-For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -72,6 +72,8 @@ curl https://{{your-neptune-endpoint}}:{{port}}/gremlin/status \
   --data-urlencode "cancelQuery" \
   --data-urlencode "queryId=fb34cd3e-f37c-4d12-9cf2-03bb741bf54f"
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

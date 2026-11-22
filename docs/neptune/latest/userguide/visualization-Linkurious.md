@@ -1,7 +1,6 @@
 
 
 # Linkurious
-<a name="visualization-Linkurious"></a>
 
 [Linkurious](https://linkurious.com/decision-intelligence-platform-overview/) provides technical and non-technical users with a next-generation, enterprise-ready contextual decision intelligence platform powered by native graph technology.
 

@@ -1,7 +1,6 @@
 
 
 # Using Python to connect to a Neptune DB instance
-<a name="access-graph-gremlin-python"></a>
 
 **Important**  
 Choosing the correct Apache TinkerPop Gremlin driver version is critical for compatibility with your Neptune engine version. Using an incompatible version can result in connection failures or unexpected behavior. For detailed version compatibility information, see [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md).

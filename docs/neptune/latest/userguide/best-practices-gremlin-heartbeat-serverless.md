@@ -1,7 +1,6 @@
 
 
 # Heartbeat Configuration for Neptune Serverless
-<a name="best-practices-gremlin-heartbeat-serverless"></a>
 
 When using Gremlin WebSocket clients with Neptune Serverless, you need to configure the client's ping interval appropriately to maintain stable connections during scaling events. The Gremlin client uses WebSocket connections and sends periodic pings to verify the connection is active. The client expects a response from the server within the ping interval timeframe. If the server doesn't respond, the client automatically closes the connection.
 

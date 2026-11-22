@@ -1,7 +1,6 @@
 
 
 # Load Data Formats
-<a name="bulk-load-tutorial-format"></a>
 
 The Amazon Neptune `Load` API supports loading data in a variety of formats.
 

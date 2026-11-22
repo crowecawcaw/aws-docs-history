@@ -1,7 +1,6 @@
 
 
 # Updating the stream poller
-<a name="full-text-search-cfn-update-poller"></a>
 
  The following information outlines the steps needed to update the stream poller with the latest Lambda artifacts using the AWS management console. 
 

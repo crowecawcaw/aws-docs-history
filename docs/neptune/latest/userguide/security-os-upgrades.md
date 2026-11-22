@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune operating system upgrades
-<a name="security-os-upgrades"></a>
 
  Amazon Neptune ensures continuous improvements in database performance, security, and stability through regular OS upgrades. These upgrades are applied to both Neptune Databases and Neptune Analytics, following a structured update process. Amazon Neptune releases OS upgrades at least once per month. 
 

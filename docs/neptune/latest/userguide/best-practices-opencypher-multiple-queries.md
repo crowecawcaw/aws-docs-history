@@ -1,7 +1,6 @@
 
 
 # Neptune does not support multiple concurrent queries in a transaction
-<a name="best-practices-opencypher-multiple-queries"></a>
 
 Although the Bolt driver itself allows concurrent queries in a transaction, Neptune does not support multiple queries in a transaction running concurrently. Instead, Neptune requires that multiple queries in a transaction be run sequentially, and that the results of each query be completely consumed before the next query is initiated.
 

@@ -1,7 +1,6 @@
 
 
 # Managing Gremlin WebSocket connections in AWS Lambda functions
-<a name="lambda-functions-websocket-connections"></a>
 
 If you use a Gremlin language variant to query Neptune, the driver connects to the database using a WebSocket connection. WebSockets are designed to support long-lived client-server connection scenarios. AWS Lambda, on the other hand, is designed to support relatively short-lived and stateless executions. This mismatch in design philosophy can lead to some unexpected issues when using Lambda to query Neptune.
 

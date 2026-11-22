@@ -1,7 +1,6 @@
 
 
 # Neptune Loader Reference
-<a name="load-api-reference"></a>
 
 This section describes the `Loader` APIs for Amazon Neptune that are available from the HTTP endpoint of a Neptune DB instance.
 

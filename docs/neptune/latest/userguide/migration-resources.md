@@ -1,7 +1,6 @@
 
 
 # Resources for migrating from Neo4j to Neptune
-<a name="migration-resources"></a>
 
 Neptune provides several tools and resources that can assist in the migration process.
 

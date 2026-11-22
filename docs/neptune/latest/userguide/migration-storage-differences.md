@@ -1,7 +1,6 @@
 
 
 # Data storage differences between Neptune and Neo4j
-<a name="migration-storage-differences"></a>
 
 Neptune uses a [graph data model](feature-overview-data-model.md) based on a native quad model. When migrating your data to Neptune, there are several differences in the architecture of the data model and storage layer that you should be aware of to make optimal use of the distributed and scalable shared storage that Neptune provides:
 + Neptune doesn't use any explicitly defined schema or constraints. It lets you add nodes, edges, and properties dynamically without having to define the schema ahead of time. Neptune doesn't limit the values and types of data stored, except as noted in [Neptune limits](limits.md#limits-properties). As part of Neptune's storage architecture, data is also [automatically indexed](feature-overview-storage-indexing.md) in a way that handles many of the most common access patterns. This storage architecture removes the operational overhead of creation and management of database schema and index optimization.

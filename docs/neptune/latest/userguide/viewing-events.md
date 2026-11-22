@@ -1,7 +1,6 @@
 
 
 # Viewing Neptune events
-<a name="viewing-events"></a>
 
 You can view the following information for each Neptune event:
 + Resource name
@@ -32,19 +31,19 @@ You can also retrieve events by using the [describe-events](https://docs.aws.ama
 
 To view all Neptune events generated in the past hour, run `describe-events` with no parameters:
 
-```
+```bash
 aws neptune describe-events
 ```
 
 To view events for the past 7 days (10,080 minutes), use the `--duration` parameter:
 
-```
+```bash
 aws neptune describe-events --duration 10080
 ```
 
 To view events for a specific DB cluster within a time range, use the `--source-identifier`, `--source-type`, `--start-time`, and `--end-time` parameters:
 
-```
+```bash
 aws neptune describe-events \
     --source-identifier {{my-cluster}} \
     --source-type db-cluster \

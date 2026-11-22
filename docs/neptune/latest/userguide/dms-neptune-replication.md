@@ -1,7 +1,6 @@
 
 
 # Creating an AWS DMS replication task with Neptune as the target
-<a name="dms-neptune-replication"></a>
 
 Once you have created your table mapping and graph mapping configurations, use the following process to load data from the source store into Neptune. Consult the AWS DMS documentation for more details about the APIs in question.
 
@@ -48,7 +47,7 @@ You will need to create an IAM policy granting `GetObject`, `PutObject`, `Delete
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -87,7 +86,7 @@ If your Neptune DB cluster has IAM authentication enabled, you will also need to
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -110,7 +109,7 @@ Create an IAM role as a trust document to attach the policy to:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

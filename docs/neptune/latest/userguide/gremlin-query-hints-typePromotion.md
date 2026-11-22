@@ -1,7 +1,6 @@
 
 
 # Gremlin typePromotion query hint
-<a name="gremlin-query-hints-typePromotion"></a>
 
 When you submit a Gremlin traversal that filters on a numerical value or range, the Neptune query engine must normally use type promotion when it executes the query. This means that it has to examine values of every type that could hold the value you are filtering on.
 

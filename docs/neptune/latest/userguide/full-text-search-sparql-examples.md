@@ -1,7 +1,6 @@
 
 
 # Sample SPARQL queries using full-text search in Neptune
-<a name="full-text-search-sparql-examples"></a>
 
 The following are some sample SPARQL queries that use full-text search in Amazon Neptune.
 

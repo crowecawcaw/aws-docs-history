@@ -1,7 +1,6 @@
 
 
 # Send queries to the server as bytecode rather than as strings
-<a name="best-practices-gremlin-java-bytecode"></a>
 
 There are advantages to using bytecode rather than a string when submitting queries:
 + **Catch invalid query syntax early: **  Using the bytecode variant lets you detect invalid query syntax at the compilation stage. If you use the string-based variation, you won't discover the invalid syntax until the query is submitted to the server and an error is returned.
@@ -11,7 +10,7 @@ There are advantages to using bytecode rather than a string when submitting quer
 
 In other words, rather than submit a query like this:
 
-```
+```java
   final Cluster cluster = Cluster.build("localhost")
                                  .port(8182)
                                  .maxInProcessPerConnection(32)
@@ -30,7 +29,7 @@ In other words, rather than submit a query like this:
 
 Instead, submit the query using bytecode, like this:
 
-```
+```java
   final Cluster cluster = Cluster.build("localhost")
                                  .port(8182)
                                  .maxInProcessPerConnection(32)

@@ -1,7 +1,6 @@
 
 
 # Using the SPARQL 1.1 Graph Store HTTP Protocol (GSP) in Amazon Neptune
-<a name="sparql-graph-store-protocol"></a>
 
 In the [SPARQL 1.1 Graph Store HTTP Protocol](https://www.w3.org/TR/sparql11-http-rdf-update/) recommendation, the W3C defined an HTTP protocol for managing RDF graphs. It defines operations for removing, creating, and replacing RDF graph content as well as for adding RDF statements to existing content.
 

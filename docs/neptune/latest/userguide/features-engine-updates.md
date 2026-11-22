@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune engine updates
-<a name="features-engine-updates"></a>
 
 Amazon Neptune releases engine updates regularly. You can determine which engine release version you currently have installed using the [instance-status API](access-graph-status.md). 
 

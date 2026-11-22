@@ -1,7 +1,6 @@
 
 
 # Non-string OpenSearch indexing in Amazon Neptune
-<a name="full-text-search-non-string-indexing"></a>
 
 Non-string OpenSearch indexing in Amazon Neptune allows replicating non-string values for predicates to OpenSearch using the stream poller. All predicate values that can safely be converted to a corresponding OpenSearch mapping or datatype is then replicated to OpenSearch.
 

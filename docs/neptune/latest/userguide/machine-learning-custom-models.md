@@ -1,7 +1,6 @@
 
 
 # Custom models in Neptune ML
-<a name="machine-learning-custom-models"></a>
 
 **Note**  
 Neptune ML custom model support relies on an older version of Python 3. To create and run custom GNN models with up-to-date dependencies use [GraphStorm on SageMaker](https://graphstorm.readthedocs.io/en/v0.3.1/cli/model-training-inference/distributed/sagemaker.html).  

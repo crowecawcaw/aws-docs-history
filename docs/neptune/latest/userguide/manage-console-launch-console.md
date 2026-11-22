@@ -1,7 +1,6 @@
 
 
 # Launching a Neptune DB cluster using the AWS Management Console
-<a name="manage-console-launch-console"></a>
 
 The easiest way to launch a new Neptune DB cluster is to use an CloudFormation template that creates all the required resources for you, as explained in [Create Neptune cluster](get-started-create-cluster.md).
 

@@ -1,7 +1,6 @@
 
 
 # Updating/Merging multiple nodes
-<a name="best-practices-merge-multiple-nodes"></a>
 
  When running `MERGE` or `CREATE` queries on multiple nodes it is recommended to use an `UNWIND` in combination with a single MERGE/CREATE clause versus using a MERGE/CREATE clause for each node. Queries that use one clause for one node lead to an inefficient execution plan due to each line requiring optimization. This leads to the majority of the execution time of the query being spent in the static processing instead of the actual update. 
 

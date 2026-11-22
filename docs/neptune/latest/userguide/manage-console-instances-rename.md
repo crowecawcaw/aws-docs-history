@@ -1,7 +1,6 @@
 
 
 # Renaming a Neptune DB Instance
-<a name="manage-console-instances-rename"></a>
 
  You can rename an Amazon Neptune DB instance by using the AWS Management Console. Renaming a DB instance can have far-reaching effects. The following is a list of things you should know before you rename a DB instance. 
 +  When you rename a DB instance, the endpoint for the DB instance changes because the URL includes the name you assigned to the DB instance. You should always redirect traffic from the old URL to the new one.

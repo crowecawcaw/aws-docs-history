@@ -1,7 +1,6 @@
 
 
 # Neptune ML inference endpoint API
-<a name="data-api-dp-inference"></a>
 
 **Inference endpoint actions:**
 + [CreateMLEndpoint (action)](#CreateMLEndpoint)

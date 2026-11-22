@@ -1,7 +1,6 @@
 
 
 # Training a model using Neptune ML
-<a name="machine-learning-on-graphs-model-training"></a>
 
 After you have processed the data that you exported from Neptune for model training, you can start a model-training job using a command like the following:
 
@@ -21,7 +20,7 @@ For more information, see [start-ml-model-training-job](https://docs.aws.amazon.
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -56,8 +55,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/ml/modeltraining \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -72,6 +70,8 @@ curl \
         "trainModelS3Location" : "s3://{{(your S3 bucket)}}/neptune-model-graph-autotrainer"
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -96,7 +96,7 @@ For more information, see [start-ml-model-training-job](https://docs.aws.amazon.
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -133,8 +133,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/ml/modeltraining \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -150,6 +149,8 @@ curl \
         "previousModelTrainingJobId" : "{{(the model-training job-id of a completed job)}}"
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -177,7 +178,7 @@ For more information, see [start-ml-model-training-job](https://docs.aws.amazon.
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -224,8 +225,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/ml/modeltraining \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -246,6 +246,8 @@ curl \
         }
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

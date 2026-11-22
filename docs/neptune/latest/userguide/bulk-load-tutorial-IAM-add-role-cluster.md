@@ -1,7 +1,6 @@
 
 
 # Adding the IAM Role to an Amazon Neptune Cluster
-<a name="bulk-load-tutorial-IAM-add-role-cluster"></a>
 
 Use the console to add the IAM role to an Amazon Neptune cluster. This allows any Neptune DB instance in the cluster to assume the role and load from Amazon S3.
 

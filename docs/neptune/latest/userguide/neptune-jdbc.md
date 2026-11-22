@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune JDBC connectivity
-<a name="neptune-jdbc"></a>
 
 Amazon Neptune has released an [open-source JDBC driver](https://github.com/aws/amazon-neptune-jdbc-driver) that supports openCypher, Gremlin, SQL-Gremlin, and SPARQL queries. JDBC connectivity makes it easy to connect to Neptune with business intelligence (BI) tools such as Tableau. There is no additional cost to using the JDBC driver with Neptune — you still pay only for the Neptune resources that are consumed.
 

@@ -1,7 +1,6 @@
 
 
 # Accessing the Neptune graph with SPARQL
-<a name="access-graph-sparql"></a>
 
 SPARQL is a query language for the Resource Description Framework (RDF), which is a graph data format designed for the web. Amazon Neptune is compatible with SPARQL 1.1. This means that you can connect to a Neptune DB instance and query the graph using the query language described in the [SPARQL 1.1 Query Language](https://www.w3.org/TR/sparql11-query/) specification.
 

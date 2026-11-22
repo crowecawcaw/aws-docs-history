@@ -1,7 +1,6 @@
 
 
 # Setting up Neptune-to-Neptune replication
-<a name="streams-disaster-recovery-setup"></a>
 
 Your primary production DB cluster resides in a VPC in a given source region. There are three main things that you need to replicate or emulate in a different, recovery region for the purposes of disaster recovery:
 + The data stored in the cluster.

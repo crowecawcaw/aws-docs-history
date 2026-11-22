@@ -1,7 +1,6 @@
 
 
 # Factors that may slow down cold starts of Neptune Gremlin Lambda functions
-<a name="lambda-functions-gremlin-cold-start-recommendations"></a>
 
 The first time an AWS Lambda function is invoked is referred to as a cold start. There are several factors that can increase the latency of a cold start:
 + **Be sure to assign enough memory to your Lambda function.**   –   Compilation during a cold start can be significantly slower for a Lambda function than it would be on EC2 because AWS Lambda allocates CPU cycles [linearly in proportion to the memory](https://docs.aws.amazon.com/lambda/latest/dg/configuration-console.html) that you assign to the function. With 1,769 MB of memory, a function receives the equivalent of one full vCPU (one vCPU-second of credits per second). The impact of not assigning enough memory to receive adequate CPU cycles is particularly pronounced for large Lambda functions written in Java.

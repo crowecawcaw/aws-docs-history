@@ -1,7 +1,6 @@
 
 
 # ST\_Envelope
-<a name="access-graph-opencypher-22-spatial-functions-st-envelope"></a>
 
 ST\_Envelope returns the minimum bounding box of the input geometry, as follows:
 + If the input geometry is empty, the returned geometry will be POINT EMPTY.

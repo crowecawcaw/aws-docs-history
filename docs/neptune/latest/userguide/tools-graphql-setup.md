@@ -1,7 +1,6 @@
 
 
 # Installing and setting up the Amazon Neptune utility for GraphQL
-<a name="tools-graphql-setup"></a>
 
 If you're going to use the utility with an existing Neptune database, you need it to be able to connect to the database endpoint. By default, a Neptune database is accessible only from within the VPC where it is located.
 

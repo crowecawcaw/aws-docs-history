@@ -1,7 +1,6 @@
 
 
 # Granting `NeptuneFullAccess` to Amazon Neptune databases using AWS managed policy
-<a name="full-access-iam-managed-policy"></a>
 
 The [NeptuneFullAccess](https://console.aws.amazon.com/iam/home#policies/NeptuneFullAccess) managed policy below grants full access to all Neptune actions and resources for both administrative and data-access purposes. It is recommended if you need full access from the AWS CLI or from an SDK, but not from the AWS Management Console.
 
@@ -13,7 +12,7 @@ This policy was updated on 2022-07-21 to include full data-access permissions as
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

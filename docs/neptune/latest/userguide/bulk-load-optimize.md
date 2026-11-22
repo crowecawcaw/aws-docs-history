@@ -1,7 +1,6 @@
 
 
 # Optimizing an Amazon Neptune bulk load
-<a name="bulk-load-optimize"></a>
 
 Use the following strategies to keep the load time to a minimum for a Neptune bulk load:
 + **Clean your data:**
@@ -12,7 +11,7 @@ Use the following strategies to keep the load time to a minimum for a Neptune bu
   + If you load large files such as CSV files from an Amazon S3 bucket, the loader manages concurrency for you by parsing them into chunks that it can load in parallel. Using a very large number of tiny files can slow this process.
   +  If you load multiple files from an Amazon S3 prefix, the loader automatically loads vertex files first, then edge files afterwards. However, if you know that you will only be loading edge files, `edgeOnlyLoad` can be set to `TRUE` to skip the first-pass where all files are scanned to determine their contents (vertices or edges) so that any vertex files found are loaded before any edge files. This can speed up the load time significantly, especially when many edge files are involved. In case some vertex files are also present in the same Amazon S3 prefix (`source` parameter), they will get loaded but without any ordering guarantees relative to other files. Also, if some `from` or `to` vertices are not present in the database, the edge insertion may report errors with the message `FROM_OR_TO_VERTEX_ARE_MISSING`. As a best practice, put nodes and edges in separate Amazon S3 prefix. 
 + **Check your loader settings:**
-  + If you don't need to perform any other operations during the load, use the [`OVERSUBSCRIBE`  `parallelism`](load-api-reference-load.md#load-api-reference-load-syntax) parameter. This parameter setting causes the bulk loader to use all available CPU resources when it runs. It generally takes 60%-70% of CPU capacity to keep the operation running as fast as I/O constraints permit.
+  + If you don't need to perform any other operations during the load, use the [`OVERSUBSCRIBE`  `parallelism`](load-api-reference-load.md#load-api-reference-load-syntax) parameter. This parameter setting causes the bulk loader to use all available CPU resources when it runs. In practice, the load generally uses 60%-70% of CPU capacity, because I/O constraints, rather than CPU, usually limit how fast it can run.
 **Note**  
 When `parallelism` is set to `OVERSUBSCRIBE` or `HIGH` (the default setting), there is the risk when loading openCypher data that threads may encounter a race condition and deadlock, resulting in a `LOAD_DATA_DEADLOCK` error. In this case, set `parallelism` to a lower setting and retry the load.
   + If your load job will include multiple load requests, use the `queueRequest` parameter. Setting `queueRequest` to `TRUE` lets Neptune queue up your requests so you don't have to wait for one to finish before issuing another.

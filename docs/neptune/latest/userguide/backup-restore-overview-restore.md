@@ -1,7 +1,6 @@
 
 
 # Restoring data from a Neptune backup
-<a name="backup-restore-overview-restore"></a>
 
 You can recover your data by creating a new Neptune DB cluster from the backup data that Neptune retains, or from a DB cluster snapshot that you have saved. You can quickly restore a new copy of a DB cluster created from backup data to any point in time during your backup retention period. The continuous and incremental nature of Neptune backups during the backup retention period means you don't need to take frequent snapshots of your data to improve restore times.
 

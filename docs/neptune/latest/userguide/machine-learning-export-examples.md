@@ -1,7 +1,6 @@
 
 
 # Examples of using the Neptune-Export service to export training data for Neptune ML
-<a name="machine-learning-export-examples"></a>
 
 This request exports property-graph training data for a node classification task:
 
@@ -35,6 +34,8 @@ curl \
       }'
 ```
 
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
+
 ------
 #### [ awscurl ]
 
@@ -66,8 +67,7 @@ awscurl {{(your NeptuneExportApiUri)}} \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -103,6 +103,8 @@ curl \
       }'
 ```
 
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
+
 ------
 #### [ awscurl ]
 
@@ -134,7 +136,6 @@ awscurl {{(your NeptuneExportApiUri)}} \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------

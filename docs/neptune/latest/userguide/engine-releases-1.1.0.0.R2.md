@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune maintenance release, version 1.1.0.0.R2 (2022-05-16)
-<a name="engine-releases-1.1.0.0.R2"></a>
 
 As of 2022-05-16, AWS deploys engine version 1.1.0.0.R2 to all Regions. It takes several days for a new release to become available in every Region.
 

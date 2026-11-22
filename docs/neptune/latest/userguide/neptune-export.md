@@ -1,7 +1,6 @@
 
 
 # External `neptune-export` tool
-<a name="neptune-export"></a>
 
 The open-source [`neptune-export`](https://github.com/aws/neptune-export) tool is a separate application from Neptune. Unlike native export (which runs within the Neptune engine), `neptune-export` is external tooling that you deploy and operate yourself. Use it when you need output formats not yet supported by native export, such as CSV or property graph data.
 

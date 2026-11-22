@@ -1,7 +1,6 @@
 
 
 # Modifying a Neptune DB Cluster Using the Console
-<a name="manage-console-modify"></a>
 
 When you modify a DB instance using the AWS Management Console, you can choose to apply the changes right away by selecting **Apply Immediately**. If you choose to apply changes immediately, your new changes and any changes in the pending modifications queue are applied at once.
 
@@ -48,7 +47,7 @@ When you modify a DB cluster in Neptune, the **Apply Immediately** setting only 
 
 1. Change any of the settings that you want.
 **Note**  
-Some settings apply to the entire DB cluster and must be changed at the cluster level. To change those settings, follow the instructions in [Modifying a Neptune DB Cluster Using the Console](#manage-console-modify).   
+Some settings apply to the entire DB cluster and must be changed at the cluster level. To change those settings, follow the instructions in [Modifying a Neptune DB Cluster Using the Console](manage-console-modify.md).   
  In the AWS Management Console, some instance-level changes apply only to the current DB instance, whereas others apply to the entire DB cluster.
 
 1. When all the changes are as you want them, choose **Continue** and check the summary.

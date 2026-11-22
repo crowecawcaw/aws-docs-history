@@ -1,7 +1,6 @@
 
 
 # Database Cloning in Neptune
-<a name="manage-console-cloning"></a>
 
 Using DB cloning, you can quickly and cost-effectively create clones of all your databases in Amazon Neptune. The clone databases require only minimal additional space when they are first created. Database cloning uses a *copy-on-write protocol*. Data is copied at the time that it changes, either on the source databases or the clone databases. You can make multiple clones from the same DB cluster. You can also create additional clones from other clones. For more information about how the copy-on-write protocol works in the context of Neptune storage, see [Copy-on-Write Protocol](#manage-console-cloning-protocol). 
 

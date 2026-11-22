@@ -1,7 +1,6 @@
 
 
 # Data migration from Neo4j to Neptune
-<a name="migration-data-migration"></a>
 
 When performing a migration from Neo4j to Amazon Neptune, migrating the data is a major step in the process. There are multiple approaches to migrating data. The correct approach is determined by the needs of the application, the data size, and the type of migration desired. However, many of these migrations all require assessment of the same considerations, of which several are highlighted below.
 

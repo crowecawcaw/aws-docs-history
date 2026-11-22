@@ -1,7 +1,6 @@
 
 
 # Securing access to an Amazon Neptune cluster
-<a name="get-started-security"></a>
 
 There are multiple ways for you to secure your Amazon Neptune clusters.
 

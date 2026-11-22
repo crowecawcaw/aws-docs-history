@@ -1,7 +1,6 @@
 
 
 # Batch inputs using UNWIND instead of individual statements
-<a name="best-practices-content-14"></a>
 
  Whenever the same query needs to be executed for different inputs, instead of executing one query per input, it would be much more performant to run a query for a batch of inputs. 
 

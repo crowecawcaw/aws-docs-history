@@ -1,7 +1,6 @@
 
 
 # Using Amazon Neptune Serverless
-<a name="neptune-serverless-using"></a>
 
 You can create a new Neptune DB cluster as a serverless one, or in some cases you can convert an existing DB cluster to use serverless. You can also convert DB instances in a serverless DB cluster to and from serverless instances. You can only use Neptune Serverless in one of the AWS Regions where it's supported, with a few other limitations (see [Amazon Neptune Serverless constraints](neptune-serverless.md#neptune-serverless-limitations)).
 
@@ -31,7 +30,7 @@ You could also specify the `serverless-v2-scaling-configuration` parameter like 
 
 You can then run the `describe-db-clusters` command for the `ServerlessV2ScalingConfiguration` attribute, which should return the capacity range settings you specified:
 
-```
+```json
 "ServerlessV2ScalingConfiguration": {
     "MinCapacity": {{(the specified minimum number of NCUs)}},
     "MaxCapacity": {{(the specified maximum number of NCUs)}}
@@ -96,6 +95,200 @@ aws neptune modify-db-cluster \
 
 Changing the capacity range causes changes to the default values of some configuration parameters. Neptune can apply some of those new defaults immediately, but some of the dynamic parameter changes take effect only after a reboot. A status of `pending-reboot` indicates that you need a reboot to apply some parameter changes.
 
+## Checking the platform version of a Neptune Serverless DB cluster
+<a name="neptune-serverless-platform-version"></a>
+
+Every Neptune Serverless DB cluster runs on a specific *serverless platform version*. The platform version indicates the underlying infrastructure that provides scaling for your DB instances. It is independent from the Neptune database's engine version, and it determines the capacity range that your cluster can use. When you create a new serverless DB cluster, Neptune uses the default platform version.
+
+The capacity range that you can configure for a cluster depends on both the engine version and the platform version. For information about setting the range, see [Capacity scaling in a Neptune Serverless DB cluster](neptune-serverless-capacity-scaling.md).
+
+### Checking the platform version of an existing DB cluster
+<a name="neptune-serverless-platform-version-cluster"></a>
+
+The platform version that a DB cluster is using is reported in the `ServerlessV2PlatformVersion` attribute of the DB cluster. You can retrieve it with the `describe-db-clusters` command of the AWS CLI (on Windows, replace '\\' with '^'):
+
+```
+aws neptune describe-db-clusters \
+  --db-cluster-identifier {{(ID of the serverless DB cluster)}} \
+  --query 'DBClusters[*].{ServerlessV2PlatformVersion: ServerlessV2PlatformVersion, ServerlessV2ScalingConfiguration: ServerlessV2ScalingConfiguration}'
+```
+
+The output looks like this:
+
+```json
+[
+    {
+        "ServerlessV2PlatformVersion": "1",
+        "ServerlessV2ScalingConfiguration": {
+            "MinCapacity": 1.0,
+            "MaxCapacity": 16.0
+        }
+    }
+]
+```
+
+### Listing the available platform versions and the default version
+<a name="neptune-serverless-platform-version-list"></a>
+
+Use the `describe-serverless-v2-platform-versions` command to see the details of the available platform versions, or to find the default version that a new cluster receives. To restrict the results to Neptune, specify `--engine neptune`:
+
+```
+aws neptune describe-serverless-v2-platform-versions \
+  --engine neptune
+```
+
+The output looks like this:
+
+```json
+{
+    "ServerlessV2PlatformVersions": [
+        {
+            "ServerlessV2PlatformVersion": "4",
+            "ServerlessV2PlatformVersionDescription": "Version 4 offering scaling up to 128 NCUs",
+            "Engine": "neptune",
+            "ServerlessV2FeaturesSupport": {
+                "MinCapacity": 1.0,
+                "MaxCapacity": 128.0
+            },
+            "Status": "enabled",
+            "IsDefault": true
+        },
+        {
+            "ServerlessV2PlatformVersion": "1",
+            "ServerlessV2PlatformVersionDescription": "Version 1 offering scaling up to 128 NCUs",
+            "Engine": "neptune",
+            "ServerlessV2FeaturesSupport": {
+                "MinCapacity": 1.0,
+                "MaxCapacity": 128.0
+            },
+            "Status": "enabled",
+            "IsDefault": false
+        }
+    ]
+}
+```
+
+Each entry in the list has the following fields:
++ `ServerlessV2PlatformVersion`   –   The platform version number.
++ `ServerlessV2PlatformVersionDescription`   –   A short description of the platform version.
++ `Engine`   –   The database engine that the platform version applies to.
++ `ServerlessV2FeaturesSupport`   –   The `MinCapacity` and `MaxCapacity` values, in NCUs, that the platform version supports.
++ `Status`   –   Either `enabled` or `disabled`.
++ `IsDefault`   –   `true` for the platform version that Neptune assigns to a newly created cluster.
+
+You can narrow or widen the results with these optional parameters:
++ `--serverless-v2-platform-version`   –   Return details only for the specified platform version.
++ `--default-only`   –   Return only the default platform version for each engine.
++ `--include-all`   –   Also return platform versions that are no longer in use.
++ `--max-records` and `--marker`   –   Page through the results. `--max-records` accepts values from 1 to 200, and the default is 20. If more results are available, the response includes a `Marker` value that you pass to `--marker` in the next call.
+
+For example, to find the default platform version for Neptune:
+
+```
+aws neptune describe-serverless-v2-platform-versions \
+  --engine neptune \
+  --default-only
+```
+
+**Note**  
+The `--filters` parameter is not currently supported.
+
+### Checking for pending platform version upgrades
+<a name="neptune-serverless-platform-version-pending"></a>
+
+When a newer platform version is available for a cluster, Neptune makes the upgrade available as a pending maintenance action named `serverless-platform-version-update`. A cluster only has this pending action if it is not already on the latest platform version and it contains at least one `db.serverless` instance.
+
+To check whether a DB cluster has a pending platform version upgrade, use the `describe-pending-maintenance-actions` command and specify the Amazon Resource Name (ARN) of the cluster in the `--resource-identifier` parameter (on Windows, replace '\\' with '^'):
+
+```
+aws neptune describe-pending-maintenance-actions \
+  --resource-identifier arn:aws:rds:{{us-west-2}}:{{123456789012}}:cluster:{{my-serverless-cluster}}
+```
+
+If an upgrade is pending, the output looks like this:
+
+```json
+{
+    "PendingMaintenanceActions": [
+        {
+            "ResourceIdentifier": "arn:aws:rds:us-west-2:123456789012:cluster:my-serverless-cluster",
+            "PendingMaintenanceActionDetails": [
+                {
+                    "Action": "serverless-platform-version-update",
+                    "Description": "Upgrade to platform version 4"
+                }
+            ]
+        }
+    ]
+}
+```
+
+If the cluster has no pending platform version upgrade, the `PendingMaintenanceActions` list is empty.
+
+### Upgrading the platform version of a DB cluster
+<a name="neptune-serverless-platform-version-upgrade"></a>
+
+After you find a pending platform version upgrade, use the `apply-pending-maintenance-action` command to schedule it. Specify the following parameters:
++ `--resource-identifier`   –   The ARN of your Neptune Serverless DB cluster.
++ `--apply-action`   –   Specify `serverless-platform-version-update`.
++ `--opt-in-type`   –   Choose when to apply the upgrade:
+  + `immediate`   –   Apply the upgrade now.
+  + `next-maintenance`   –   Apply the upgrade during the next maintenance window of the cluster.
+
+For example, to start the upgrade immediately (on Windows, replace '\\' with '^'):
+
+```
+aws neptune apply-pending-maintenance-action \
+  --resource-identifier arn:aws:rds:{{us-west-2}}:{{123456789012}}:cluster:{{my-serverless-cluster}} \
+  --apply-action serverless-platform-version-update \
+  --opt-in-type immediate
+```
+
+The output confirms the opt-in:
+
+```json
+{
+    "ResourcePendingMaintenanceActions": {
+        "PendingMaintenanceActionDetails": [
+            {
+                "Action": "serverless-platform-version-update",
+                "OptInStatus": "immediate",
+                "CurrentApplyDate": "2026-10-28T04:37:14Z",
+                "Description": "Upgrade to platform version 4"
+            }
+        ]
+    }
+}
+```
+
+**Important**  
+A platform version upgrade replaces the host that each `db.serverless` instance in the cluster runs on, and the database is unavailable while the host is replaced. In testing, the upgrade of a single-instance cluster took about 10 minutes in total, and the instance was unavailable for about 6 minutes of that time. Plan the upgrade for a time when your application can tolerate the interruption, and make sure your application reconnects after the instance restarts. Your cluster's capacity range (`ServerlessV2ScalingConfiguration`) doesn't change during the upgrade.
+
+While the upgrade is running, the DB cluster and its serverless instances have a status of `upgrading`, and the `ServerlessV2PlatformVersion` of the cluster keeps its old value. You can follow the progress by checking the cluster status:
+
+```
+aws neptune describe-db-clusters \
+  --db-cluster-identifier {{(ID of the serverless DB cluster)}} \
+  --query 'DBClusters[0].{Status:Status,PV:ServerlessV2PlatformVersion}'
+```
+
+You can also view the progress as Neptune events for the cluster:
+
+```
+aws neptune describe-events \
+  --source-type db-cluster \
+  --source-identifier {{(ID of the serverless DB cluster)}} \
+  --duration 60 \
+  --query 'Events[].[Date,Message]' \
+  --output text
+```
+
+The cluster events include the following messages:
++ `DB cluster serverless platform update starting.`
++ `DB cluster serverless platform update completed. Database cluster is online.`
+
+When the upgrade is complete, the cluster status returns to `available`, the `ServerlessV2PlatformVersion` attribute shows the new platform version, and `describe-pending-maintenance-actions` no longer returns the `serverless-platform-version-update` action for the cluster.
+
 ## Changing a Serverless DB instance to provisioned
 <a name="neptune-conversion-to-provisioned"></a>
 
@@ -109,7 +302,7 @@ When using Gremlin WebSocket clients with Neptune Serverless, you need to config
 ## Monitoring serverless capacity with Amazon CloudWatch
 <a name="neptune-serverless-monitoring"></a>
 
-You can use CloudWatch to to monitor the capacity and utilization of the Neptune serverless instances in your DB cluster. There are two CloudWatch metrics that let you track current serverless capacity both at the cluster level and at the instance level:
+You can use CloudWatch to monitor the capacity and utilization of the Neptune serverless instances in your DB cluster. There are two CloudWatch metrics that let you track current serverless capacity both at the cluster level and at the instance level:
 + **`ServerlessDatabaseCapacity`**   –   As an instance-level metric, `ServerlessDatabaseCapacity` reports the current instance capacity, in NCUs. As a cluster-level metric, it reports the average of all the `ServerlessDatabaseCapacity` values of all the DB instances in the cluster.
 + **`NCUUtilization`**   –   This metric reports the percentage of possible capacity being used. It is calculated as the current `ServerlessDatabaseCapacity` (either at the instance level or at the cluster level) divided by the maximum capacity setting for the DB cluster.
 

@@ -1,14 +1,13 @@
 
 
 # Connecting to Amazon Neptune databases using IAM authentication with SPARQL and Node.js
-<a name="iam-auth-connecting-sparql-node"></a>
 
 ## Querying using Signature V4 signing and the AWS SDK for Javascript V3
 <a name="iam-auth-querying-sparql-js-sdk-v3"></a>
 
 Here is an example of how to connect to Neptune SPARQL using Node.js with Signature Version 4 authentication and the AWS SDK for Javascript V3:
 
-```
+```js
 const { HttpRequest }  = require('@smithy/protocol-http');
 const { fromNodeProviderChain } = require('@aws-sdk/credential-providers');
 const { SignatureV4 } = require('@smithy/signature-v4');
@@ -83,7 +82,7 @@ function runQuery(q) {
 
 Here is an example of how to connect to Neptune SPARQL using Node.js with Signature Version 4 authentication and the AWS SDK for Javascript V2:
 
-```
+```js
 var AWS = require('aws-sdk');
 
 var region = 'us-west-2'; // e.g. us-west-1

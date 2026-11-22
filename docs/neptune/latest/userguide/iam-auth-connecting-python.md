@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon Neptune databases using IAM authentication with Python
-<a name="iam-auth-connecting-python"></a>
 
 The `boto3` `neptunedata` client provides the simplest way to connect to an IAM-enabled Neptune database from Python. The client handles Signature Version 4 signing automatically, so you don't need to sign requests yourself.
 
@@ -21,7 +20,7 @@ Replace the endpoint URL with your Neptune cluster endpoint.
 
 **Gremlin and openCypher**
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -44,7 +43,7 @@ print(resp['results'])
 
 The `boto3` `neptunedata` client does not currently support SPARQL. To send SPARQL queries to an IAM-enabled Neptune database, sign requests manually by using Signature Version 4 with the `botocore` request-signing utilities and the `requests` library (`pip install boto3 requests`).
 
-```
+```python
 import requests
 from botocore.auth import SigV4Auth
 from botocore.awsrequest import AWSRequest
@@ -74,7 +73,7 @@ For cross-account access, time-limited sessions, or as a security best practice 
 
 **Gremlin and openCypher**
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -112,7 +111,7 @@ Temporary credentials expire after a specified interval (the default is 1 hour) 
 
 Because the `boto3` `neptunedata` client does not currently support SPARQL, you must sign requests manually with the temporary credentials.
 
-```
+```python
 import boto3
 import requests
 from botocore.auth import SigV4Auth

@@ -1,7 +1,6 @@
 
 
 # Editing a training data configuration file
-<a name="machine-learning-processing-training-config-file"></a>
 
 The Neptune export process exports Neptune ML data from a Neptune DB cluster into an S3 bucket. It exports nodes and edges separately into a `nodes/` and an `edges/` folder. It also creates a JSON training data configuration file, named `training-data-configuration.json` by default. This file contains information about the schema of the graph, the types of its features, feature transformation and normalization operations, and the target feature for a classification or regression task.
 

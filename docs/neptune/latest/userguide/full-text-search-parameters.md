@@ -1,7 +1,6 @@
 
 
 # Neptune full-text search parameters
-<a name="full-text-search-parameters"></a>
 
 Amazon Neptune uses the following parameters for specifying full-text OpenSearch queries in both Gremlin and SPARQL:
 + **`queryType`**   –   (*Required*) The type of OpenSearch query. (For a list of query types, see the [OpenSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html)). Neptune supports the following OpenSearch query types:

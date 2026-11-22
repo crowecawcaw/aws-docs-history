@@ -1,14 +1,13 @@
 
 
 # Connecting to Amazon Neptune databases using IAM with Gremlin Java
-<a name="iam-auth-connecting-gremlin-java"></a>
 
 Here is an example of how to connect to Neptune using the Gremlin Java API with Sig4 signing (it assumes general knowledge about using Maven). This example uses the [Amazon Neptune SigV4 Signer](https://github.com/aws/amazon-neptune-sigv4-signer) library to assist in request signing. First, define the dependencies as part of the `pom.xml` file:
 
 **Note**  
 The following examples use `requestInterceptor()`, which was introduced in TinkerPop 3.6.6. If you are using a TinkerPop version earlier than 3.6.6 (but 3.5.5 or higher), use `handshakeInterceptor()` instead of `requestInterceptor()` in the code examples below.
 
-```
+```java
 <dependency>
   <groupId>com.amazonaws</groupId>
   <artifactId>amazon-neptune-sigv4-signer</artifactId>
@@ -18,7 +17,7 @@ The following examples use `requestInterceptor()`, which was introduced in Tinke
 
  The Amazon Neptune SigV4 Signer supports both versions 1.x and 2.x of the AWS Java SDK. The following examples use 2.x, where `DefaultCredentialsProvider` is a `software.amazon.awssdk.auth.credentials.AwsCredentialsProvider` instance. If you are upgrading from 1.x to 2.x, see the [Credentials provider changes](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/migration-client-credentials.html) in the AWS SDK for Java 2.x documentation. 
 
-```
+```java
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import com.amazonaws.neptune.auth.NeptuneNettyHttpSigV4Signer;
 import com.amazonaws.neptune.auth.NeptuneSigV4SignerException;
@@ -63,7 +62,7 @@ try {
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ try {
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

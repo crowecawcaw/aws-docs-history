@@ -1,7 +1,6 @@
 
 
 # Fast bulk load (offline loader)
-<a name="bulk-load-offline"></a>
 
 The Amazon Neptune offline loader is a high-performance variant of the standard bulk loader. Use it for initial loads of large Gremlin CSV datasets. The loader reads files from Amazon Simple Storage Service and builds graph index structures directly on the instance. When the load completes, Neptune swaps the new indexes into place atomically. Because it bypasses the per-row transactional write path, it loads large datasets significantly faster than the standard bulk loader.
 
@@ -59,7 +58,7 @@ Use the same `/loader` endpoint as the standard bulk loader. Add `"loadType": "o
 
 The following example shows a request:
 
-```
+```json
 POST https://{{your-neptune-endpoint}}:{{port}}/loader
 Content-Type: application/json
 
@@ -85,7 +84,7 @@ The following standard loader parameters are *not* supported by the offline load
 
 The following example shows the response:
 
-```
+```json
 {
   "status": "200 OK",
   "payload": {
@@ -99,7 +98,7 @@ The following example shows the response:
 
 Use the same `GET /loader/{{loadId}}` endpoint as the standard bulk loader. While the load is in progress, the response includes an additional `progress` object that reports the current phase.
 
-```
+```json
 {
   "payload": {
     "overallStatus": {

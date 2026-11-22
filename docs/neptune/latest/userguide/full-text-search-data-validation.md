@@ -1,7 +1,6 @@
 
 
 # Validation of data mappings
-<a name="full-text-search-data-validation"></a>
 
 
 

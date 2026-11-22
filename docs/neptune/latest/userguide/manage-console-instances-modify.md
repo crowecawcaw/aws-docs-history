@@ -1,7 +1,6 @@
 
 
 # Modifying a Neptune DB Instance (and Applying Immediately)
-<a name="manage-console-instances-modify"></a>
 
 You can apply most changes to an Amazon Neptune DB instance immediately or defer them until the next maintenance window. Some modifications, such as parameter group changes, require that you manually reboot your DB instance for the change to take effect. 
 

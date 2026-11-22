@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Neptune cluster using AWS CloudFormation
-<a name="get-started-cfn-create"></a>
 
 You can use an CloudFormation template to set up a Neptune DB Cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Models and model training in Amazon Neptune ML
-<a name="machine-learning-models-and-training"></a>
 
 Neptune ML uses Graph Neural Networks (GNN) to create models for the various machine-learning tasks. Graph neural networks have been shown to obtain state-of-the-art results for graph machine learning tasks and are excellent at extracting informative patterns from graph structured data.
 

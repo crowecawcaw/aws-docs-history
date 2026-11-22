@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon Neptune databases using IAM authentication with Gremlin JavaScript
-<a name="gremlin-javascript-iam-auth"></a>
 
 ## Overview
 <a name="gremlin-javascript-iam-auth-overview"></a>
@@ -19,7 +18,7 @@
 
  Use the following code example as guidance on how to establish a basic connection with IAM authentication using the Gremlin JavaScript driver. 
 
-```
+```javascript
 const { fromNodeProviderChain } = require('@aws-sdk/credential-providers');
 const { getUrlAndHeaders } = require('gremlin-aws-sigv4/lib/utils');
 const { loadConfig } = require("@smithy/node-config-provider");

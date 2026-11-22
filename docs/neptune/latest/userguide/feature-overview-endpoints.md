@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon Neptune Endpoints
-<a name="feature-overview-endpoints"></a>
 
 Amazon Neptune uses a cluster of DB instances rather than a single instance. Each Neptune connection is handled by a specific DB instance. When you connect to a Neptune cluster, the host name and port that you specify point to an intermediate handler called an *endpoint*. An endpoint is a URL that contains a host address and a port. Neptune endpoints use encrypted Transport Layer Security/Secure Sockets Layer (TLS/SSL) connections.
 

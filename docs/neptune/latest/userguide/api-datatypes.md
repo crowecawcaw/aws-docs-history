@@ -1,7 +1,6 @@
 
 
 # Common Neptune Datatypes
-<a name="api-datatypes"></a>
 
 **Structures:**
 + [AvailabilityZone (structure)](#AvailabilityZone)

@@ -1,7 +1,6 @@
 
 
 # IAM actions for administering Amazon Neptune
-<a name="neptune-iam-admin-actions"></a>
 
 You can use the administrative actions listed below in the `Action` element of an IAM policy statement to control access to the [Neptune management APIs](api.md). When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 

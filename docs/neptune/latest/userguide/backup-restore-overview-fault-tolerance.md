@@ -1,7 +1,6 @@
 
 
 # Fault tolerance for a Neptune DB cluster
-<a name="backup-restore-overview-fault-tolerance"></a>
 
 A Neptune DB cluster is fault tolerant by design. The cluster volume spans multiple Availability Zones in a single AWS Region, and each Availability Zone contains a copy of the cluster volume data. This functionality means that your DB cluster can tolerate a failure of an Availability Zone without any loss of data and only a brief interruption of service.
 

@@ -1,7 +1,6 @@
 
 
 # Mapping of SPARQL and Gremlin datatypes to OpenSearch
-<a name="full-text-search-non-string-indexing-mapping"></a>
 
 New datatype mappings in OpenSearch are created based on the datatype being used in the property or object. Because some fields contain values of different types, the initial mapping may exclude some values of the field.
 

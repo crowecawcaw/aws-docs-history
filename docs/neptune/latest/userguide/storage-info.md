@@ -1,7 +1,6 @@
 
 
 # Neptune storage usage breakdown
-<a name="storage-info"></a>
 
  With the `GetStorageInfo` API, you can get a detailed breakdown of storage usage for your Neptune database, including undo logs, dictionary entries, change-stream data, DFE statistics, property graph schema, other internal metadata tables, and all of the quad indexes – grouped by property graph (PG) and Resource Description Framework (RDF). The response also includes a `totalStorageBytesUsed` value that sums the reported on-disk components. You can use this information to understand how your storage is distributed, to identify storage bloat, and to establish a baseline before and after an [online index rebuild](storage-index-rebuild.md). 
 
@@ -52,7 +51,7 @@ For more information, see [get-storage-info](https://docs.aws.amazon.com/cli/lat
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 import json
 from botocore.config import Config
@@ -77,8 +76,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/storage/info \
   --service neptune-db
 ```
 
-**Prerequisites**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -86,6 +84,8 @@ This example assumes that your AWS credentials are configured in your environmen
 ```
 curl -G https://{{your-neptune-endpoint}}:{{port}}/storage/info
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

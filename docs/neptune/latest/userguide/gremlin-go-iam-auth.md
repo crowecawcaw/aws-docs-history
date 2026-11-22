@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon Neptune databases using IAM authentication with Gremlin Go
-<a name="gremlin-go-iam-auth"></a>
 
 ## Overview
 <a name="gremlin-go-iam-auth-overview"></a>
@@ -19,7 +18,7 @@
 
  Use the following code example as guidance on how to establish a basic connection with IAM authentication using the Gremlin Go driver. 
 
-```
+```go
 package main
 
 import (
@@ -110,7 +109,7 @@ func main() {
 
  Gremlin Go has DynamicAuth which allows the injection of a function pointer to retrieve credentials and generate the header, which prevents header expiry with long-running connections. 
 
-```
+```go
 package main
 
 import (

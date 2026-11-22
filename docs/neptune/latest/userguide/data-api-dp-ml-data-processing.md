@@ -1,7 +1,6 @@
 
 
 # Neptune ML data-processing API
-<a name="data-api-dp-ml-data-processing"></a>
 
 **Data-processing actions:**
 + [StartMLDataProcessingJob (action)](#StartMLDataProcessingJob)

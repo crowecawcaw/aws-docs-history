@@ -1,7 +1,6 @@
 
 
 # SPARQL DESCRIBE behavior with respect to the default graph
-<a name="sparql-default-describe"></a>
 
 The SPARQL [`DESCRIBE`](https://www.w3.org/TR/sparql11-query/#describe) query form lets you retrieve information about resources without knowing the structure of the data and without having to compose a query. How this information is assembled is left up to the SPARQL implementation. Neptune provides [several query hints](sparql-query-hints-for-describe.md) that invoke different modes and algorithms for `DESCRIBE` to use.
 

@@ -1,7 +1,6 @@
 
 
 # Run a Neptune-Export job using the Neptune-Export API
-<a name="export-service-run-export"></a>
 
 The **Outputs** tab of the CloudFormation stack also includes the `NeptuneExportApiUri`. Use this URI whenever you send a request to the Neptune-Export endpoint.
 
@@ -44,7 +43,7 @@ If you omit the `command` request parameter, by default Neptune-Export attempts 
 
 If the previous command ran successfully, the output would look like this:
 
-```
+```json
 {
   "jobName": "neptune-export-abc12345-1589808577790",
   "jobId": "c86258f7-a9c9-4f8c-8f4c-bbfe76d51c8f"

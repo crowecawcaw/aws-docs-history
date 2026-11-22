@@ -1,13 +1,12 @@
 
 
 # Retry logic for exceptions
-<a name="best-practices-opencypher-retry-logic"></a>
 
 Not all exceptions should be retried. For example, syntax errors, authentication failures, or invalid queries should not trigger a retry. For exceptions that do allow a retry, use an exponential backoff strategy with jitter to progressively increase the wait time between retries and avoid synchronized retry storms. Set a reasonable maximum number of retries to prevent infinite loops and resource exhaustion. For detailed guidance on developing a practical retry strategy, see [Exception Handling and Retries](transactions-exceptions.md).
 
 The following shows an example of an exponential backoff and retry pattern for handling `ConcurrentModificationException` errors:
 
-```
+```java
 public static void main() {
   try (Driver driver = getDriver(HOST_BOLT, getDefaultConfig())) {
     retriableOperation(driver, "CREATE (n {prop:'1'})")

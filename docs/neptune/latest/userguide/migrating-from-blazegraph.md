@@ -1,7 +1,6 @@
 
 
 # Migrating from Blazegraph to Amazon Neptune
-<a name="migrating-from-blazegraph"></a>
 
 If you have a graph in the open-source [Blazegraph](https://blazegraph.com/) RDF triplestore, you can migrate to your graph data to Amazon Neptune using the following steps:
 + *Provision AWS infrastructure.* Begin by provisioning the required Neptune infrastructure using an AWS CloudFormation template (see [Create Neptune cluster](get-started-create-cluster.md) ).
@@ -75,7 +74,7 @@ CONSTRUCT WHERE { hint:Query hint:analytic "true" . hint:Query hint:constructDis
 
 Although other RDF tools exist to export this data, the easiest way to run this query is by using the REST API endpoint provided by Blazegraph. The following script demonstrates how to use a Python (3.6\+) script to export data as N-Quads:
 
-```
+```python
 import requests
 
 # Configure the URL here: e.g. http://localhost:9999/sparql
@@ -108,7 +107,7 @@ You run the utility from a Java command line on a machine that has Blazegraph in
 
 For example, if you have the Blazegraph journal file and properties files, export data as N-Quads using the following code:
 
-```
+```java
 java -cp blazegraph.jar \
     com.bigdata.rdf.sail.ExportKB \
     -outdir ~/temp/ \
@@ -135,7 +134,7 @@ For instructions on how to create an Amazon S3 bucket, see [How do I create an S
 
 For instructions about how to copy the data files you have exported into the new Amazon S3 bucket, see [Uploading an object to a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PuttingAnObjectInABucket.html) in the [Amazon Simple Storage Service User Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/), or [Using high-level (s3) commands with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html). You can also use Python code like the following to copy the files one by one:
 
-```
+```python
 import boto3
 
 region = '{{region name}}'

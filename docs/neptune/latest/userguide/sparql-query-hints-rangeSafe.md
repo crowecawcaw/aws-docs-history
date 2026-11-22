@@ -1,7 +1,6 @@
 
 
 # The `rangeSafe` SPARQL query hint
-<a name="sparql-query-hints-rangeSafe"></a>
 
 Use this query hint to turn off type promotion for a SPARQL query.
 

@@ -1,7 +1,6 @@
 
 
 # Export parameter fields in the `params` top-level JSON object
-<a name="export-params-fields"></a>
 
 The Neptune export `params` JSON object allows you to control the export, including the type and format of the exported data.
 
@@ -53,7 +52,7 @@ Listed below are all the possible top-level fields that can appear in a `params`
 
 If the `cloneCluster` parameter is set to `true`, the export process uses a fast clone of your DB cluster:
 
-```
+```json
   "cloneCluster" : true
 ```
 
@@ -77,7 +76,7 @@ If the `cloneCluster` parameter is present and set to `true`, you can use the `c
 
 By default, a cloned DB cluster consists of a single instance of the same instance type as the primary instance in the source DB cluster.
 
-```
+```json
   "cloneClusterInstanceType" : "{{(for example, r5.12xlarge)}}"
 ```
 
@@ -88,7 +87,7 @@ By default, a cloned DB cluster consists of a single instance of the same instan
 
 If the `cloneCluster` parameter is present and set to `true`, you can use the `cloneClusterReplicaCount` parameter to specify the number of read-replica instances created in the cloned DB cluster:
 
-```
+```json
   "cloneClusterReplicaCount" : {{(for example, 3)}}
 ```
 
@@ -114,7 +113,7 @@ By default, audit logging is disabled.
 
 The `clusterId` parameter specifies the ID of a DB cluster to use:
 
-```
+```json
   "clusterId" : "{{(the ID of your DB cluster)}}"
 ```
 
@@ -130,7 +129,7 @@ The `endpoint`, `endpoints`, and `clusterId` parameters are mutually exclusive. 
 
 Use `endpoint` to specify an endpoint of a Neptune instance in your DB cluster that the export process can query to extract data (see [Endpoint Connections](feature-overview-endpoints.md)). This is the DNS name only, and does not include the protocol or port:
 
-```
+```json
   "endpoint" : "{{(a DNS endpoint of your DB cluster)}}"
 ```
 
@@ -146,7 +145,7 @@ The `endpoint`, `endpoints`, and `clusterId` parameters are mutually exclusive. 
 
 Use `endpoints` to specify a JSON array of endpoints in your DB cluster that the export process can query to extract data (see [Endpoint Connections](feature-overview-endpoints.md)). These are DNS names only, and do not include the protocol or port:
 
-```
+```json
   "endpoints": [
     "{{(one endpoint in your DB cluster)}}",
     "{{(another endpoint in your DB cluster)}}",
@@ -168,7 +167,7 @@ The `profile` parameter provides sets of pre-configured parameters for specific 
 
 If you are exporting training data for Neptune ML, add the following parameter to the `params` object:
 
-```
+```json
   "profile" : "neptune_ml"
 ```
 
@@ -179,7 +178,7 @@ If you are exporting training data for Neptune ML, add the following parameter t
 
 If the database from which you are exporting data has [IAM authentication enabled](iam-auth-enable.md), you must include the `useIamAuth` parameter set to `true`:
 
-```
+```json
   "useIamAuth" : true
 ```
 
@@ -188,7 +187,7 @@ If the database from which you are exporting data has [IAM authentication enable
 
 If you set `includeLastEventId` to true, and the database from which you are exporting data has [Neptune Streams](streams-using.md) enabled, the export process writes a `lastEventId.json` file to your specified export location. This file contains the `commitNum` and `opNum` of the last event in the stream.
 
-```
+```json
   "includeLastEventId" : true
 ```
 
@@ -204,7 +203,7 @@ A cloned database created by the export process inherits the streams setting of 
 
 The `concurrency` parameter specifies the number of parallel queries that the export process should use:
 
-```
+```json
   "concurrency" : {{(for example, 24)}}
 ```
 
@@ -221,7 +220,7 @@ If you export from a cloned cluster, the export process calculates an appropriat
 
 Use `edgeLabels` to export only those edges that have labels that you specify:
 
-```
+```json
   "edgeLabels" : ["{{(a label)}}", "{{(another label}}"]
 ```
 
@@ -238,7 +237,7 @@ Use `filter` to specify that only nodes and/or edges with specific labels should
 
 The general structure of a `filter` object, either inline or in a filter-configuration file, is as follows:
 
-```
+```json
   "filter" : {
     "nodes": [ {{(array of node label and properties objects)}} ],
     "edges": [ {{(array of edge definition an properties objects)}} ]
@@ -246,7 +245,7 @@ The general structure of a `filter` object, either inline or in a filter-configu
 ```
 + **`nodes`**   –   Contains a JSON array of nodes and node properties in the following form:
 
-  ```
+  ```json
       "nodes : [
         {
           "label": "{{(node label)}}",
@@ -260,7 +259,7 @@ The general structure of a `filter` object, either inline or in a filter-configu
   + `properties`  –   Contains an array of the names of the node's properties that you want to export.
 + **`edges`**   –   Contains a JSON array of edge definitions in the following form:
 
-  ```
+  ```json
       "edges" : [
         {
           "label": "{{(edge label)}}",
@@ -278,7 +277,7 @@ The general structure of a `filter` object, either inline or in a filter-configu
 
 Use `filterConfigFile` to specify a JSON file that contains a filter configuration in the same form that the `filter` parameter takes:
 
-```
+```json
   "filterConfigFile" : "s3://{{(your Amazon S3 bucket)}}/neptune-export/{{(the name of the JSON file)}}"
 ```
 
@@ -291,7 +290,7 @@ See [filter](#export-params-filter) for the format of the `filterConfigFile` fil
 
 The `format` parameter specifies the output format of the exported property graph data:
 
-```
+```json
   "format" : {{(one of: csv, csvNoHeaders, json, neptuneStreamsJson)}}
 ```
 + **`csv`**   –   Comma-separated value (CSV) formatted output, with column headings formatted according to the [Gremlin load data format](bulk-load-tutorial-format-gremlin.md).
@@ -306,7 +305,7 @@ The `format` parameter specifies the output format of the exported property grap
 
 The `gremlinFilter` parameter allows you to supply a Gremlin snippet, such as a `has()` step, that is used to filter both nodes and edges:
 
-```
+```json
   "gremlinFilter" : {{(a Gremlin snippet)}}
 ```
 
@@ -314,7 +313,7 @@ Field names and string values should be surrounded by escaped double quotes. For
 
 The following example exports only those nodes and edges with a date-created property whose value is greater than 2021-10-10:
 
-```
+```json
   "gremlinFilter" : "has(\"created\", gt(datetime(\"2021-10-10\")))"
 ```
 
@@ -325,7 +324,7 @@ The following example exports only those nodes and edges with a date-created pro
 
 The `gremlinNodeFilter` parameter allows you to supply a Gremlin snippet, such as a `has()` step, that is used to filter nodes:
 
-```
+```json
   "gremlinNodeFilter" : {{(a Gremlin snippet)}}
 ```
 
@@ -333,7 +332,7 @@ Field names and string values should be surrounded by escaped double quotes. For
 
 The following example exports only those nodes with a `deleted` Boolean property whose value is `true`:
 
-```
+```json
   "gremlinNodeFilter" : "has(\"deleted\", true)"
 ```
 
@@ -344,7 +343,7 @@ The following example exports only those nodes with a `deleted` Boolean property
 
 The `gremlinEdgeFilter` parameter allows you to supply a Gremlin snippet, such as a `has()` step, that is used to filter edges:
 
-```
+```json
   "gremlinEdgeFilter" : {{(a Gremlin snippet)}}
 ```
 
@@ -352,7 +351,7 @@ Field names and string values should be surrounded by escaped double quotes. For
 
 The following example exports only those edges with a `strength` numerical property whose value is 5:
 
-```
+```json
   "gremlinEdgeFilter" : "has(\"strength\", 5)"
 ```
 
@@ -363,7 +362,7 @@ The following example exports only those edges with a `strength` numerical prope
 
 Use `nodeLabels` to export only those nodes that have labels you specify:
 
-```
+```json
   "nodeLabels" : ["{{(a label)}}", "{{(another label}}"]
 ```
 
@@ -378,7 +377,7 @@ The `scope` parameter takes precedence over the `nodeLabels` parameter, so if th
 
 The `scope` parameter specifies whether to export only nodes, or only edges, or both nodes and edges:
 
-```
+```json
   "scope" : {{(one of: nodes, edges, or all)}}
 ```
 + `nodes`   –   Export nodes and their properties only.
@@ -395,7 +394,7 @@ The `scope` parameter specifies whether to export only nodes, or only edges, or 
 
 The `format` parameter specifies the output format of the exported RDF data:
 
-```
+```json
   "format" : {{(one of: turtle, nquads, ntriples, neptuneStreamsJson)}}
 ```
 + **`turtle`**   –   Turtle formatted output.
@@ -410,7 +409,7 @@ The `format` parameter specifies the output format of the exported RDF data:
 
 The `rdfExportScope` parameter specifies the scope of the RDF export:
 
-```
+```json
   "rdfExportScope" : {{(one of: graph, edges, or query)}}
 ```
 + `graph`   –   Export all RDF data.
@@ -424,7 +423,7 @@ The `rdfExportScope` parameter specifies the scope of the RDF export:
 
 The `sparql` parameter allows you to specify a SPARQL query to retrieve the data to export:
 
-```
+```json
   "sparql" : {{(a SPARQL query)}}
 ```
 
@@ -437,7 +436,7 @@ If you supply a query using the `sparql` field, you must also set the `rdfExport
 
 The `namedGraph` parameter allows you to specify an IRI to limit the export to a single named graph:
 
-```
+```json
   "namedGraph" : {{(Named graph IRI)}}
 ```
 

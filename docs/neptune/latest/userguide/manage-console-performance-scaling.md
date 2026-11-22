@@ -1,7 +1,6 @@
 
 
 # Performance and Scaling in Amazon Neptune
-<a name="manage-console-performance-scaling"></a>
 
 Neptune DB clusters and instances scale at three different levels:
 + [Storage Scaling](#manage-console-performance-scaling-storage)

@@ -1,7 +1,6 @@
 
 
 # Engine releases for Amazon Neptune
-<a name="engine-releases"></a>
 
 Amazon Neptune releases engine updates regularly.
 

@@ -1,7 +1,6 @@
 
 
 # Rewriting Cypher queries to run in openCypher on Neptune
-<a name="migration-opencypher-rewrites"></a>
 
 The openCypher language is a declarative query language for property graphs that was originally developed by Neo4j, then open-sourced in 2015, and contributed to the [openCypher project](https://www.opencypher.org/) under an Apache 2 open-source license. At AWS, we believe that open source is good for everyone and we are committed to bringing the value of open source to our customers, and the operational excellence of AWS to open source communities.
 

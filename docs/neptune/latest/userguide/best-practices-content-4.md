@@ -1,7 +1,6 @@
 
 
 # Place more restrictive nodes on the left side in Variable-Length Path (VLP) expressions
-<a name="best-practices-content-4"></a>
 
  In Variable-Length Path (VLP) queries, the query engine optimizes the evaluation by choosing to start the traversal on the left or right side of the expression. The decision is based on the cardinality of the patterns on the left and right side. Cardinality is the number of nodes matching the specified pattern. 
 +  If the right pattern has a cardinality of one, then the right side will be the starting point. 

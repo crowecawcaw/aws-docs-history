@@ -1,7 +1,6 @@
 
 
 # Best practices for using the AWS CLI and SDKs with Neptune
-<a name="best-practices-cli-sdk"></a>
 
 By default, the AWS CLI and AWS SDKs time out after 60 seconds and automatically retry failed requests. For queries that take longer than 60 seconds to complete, this default behavior causes duplicate query execution. The retry fires a new request while the original query is still running on the server.
 
@@ -30,7 +29,7 @@ The `--cli-read-timeout 0` parameter disables the read timeout, allowing the AWS
 ------
 #### [ Python (boto3) ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -50,7 +49,7 @@ Setting `read_timeout=None` disables the read timeout. Setting `total_max_attemp
 ------
 #### [ Java V2 SDK ]
 
-```
+```java
 import software.amazon.awssdk.services.neptunedata.NeptunedataClient;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.core.retry.RetryPolicy;

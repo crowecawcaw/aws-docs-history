@@ -1,7 +1,6 @@
 
 
 # ST\_Intersects
-<a name="access-graph-opencypher-22-spatial-functions-st-intersect"></a>
 
 ST\_Intersects returns true if the 2D projections of the two input geometries have at least one point in common.
 

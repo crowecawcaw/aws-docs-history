@@ -1,7 +1,6 @@
 
 
 # General Best Practices for Using Gremlin with Neptune
-<a name="best-practices-gremlin"></a>
 
 Follow these recommendations when using the Gremlin graph traversal language with Neptune. For information about using Gremlin with Neptune, see [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md).
 

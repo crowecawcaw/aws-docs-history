@@ -1,7 +1,6 @@
 
 
 # neptune.read()
-<a name="access-graph-opencypher-21-extensions-s3-read"></a>
 
  Neptune supports a `CALL` procedure `neptune.read` to read data from Amazon S3 and then run an openCypher query (read, insert, update) using the data. The procedure yields each row in the file as a declared result variable row. It uses the IAM credentials of the caller to access the data in Amazon S3. See [Managing permissions for neptune.read()](access-graph-opencypher-21-extensions-s3-read-permissions.md) to set up the permissions. The AWS region of the Amazon S3 bucket must be in the same region where instance is located. Currently, cross-region reads are not supported. 
 

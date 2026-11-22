@@ -1,7 +1,6 @@
 
 
 # Graph schema and metadata
-<a name="graph-schema-metadata"></a>
 
 Neptune provides several ways to discover and inspect the structure of your graph data without scanning the entire database. Use these features to understand your graph's topology, optimize query planning, and provide schema context to applications.
 + **[Getting a quick summary report about your graph](neptune-graph-summary.md)** – Returns high-level statistics about your graph, including node and edge counts and the list of distinct labels and predicates.

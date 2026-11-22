@@ -1,7 +1,6 @@
 
 
 # Operational differences between Neptune and Neo4j
-<a name="migration-operational-differences"></a>
 
 Neptune is a fully managed service that automates many of the normal operational tasks you would have to do when using on-premise or self-managed databases such as Neo4j Enterprise or Community Edition:
 + **[Automated backups](backup-restore.md#backup-restore-overview-backups)**   –   Neptune backs up your cluster volume automatically and retains the backup for a retention period that you specify (from 1 to 35 days). These backups are continuous and incremental, so you can quickly restore to any point within the retention period. No performance impact or interruption of database service occurs as backup data is being written.

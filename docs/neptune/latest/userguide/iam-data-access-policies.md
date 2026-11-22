@@ -1,7 +1,6 @@
 
 
 # Creating custom IAM policy statements to access data in Amazon Neptune
-<a name="iam-data-access-policies"></a>
 
 Neptune data-access policy statements use [data-access actions](iam-dp-actions.md), [resources](iam-data-resources.md), and [condition keys](iam-data-condition-keys.md#iam-neptune-condition-keys), all of which are preceded by a `neptune-db:` prefix.
 

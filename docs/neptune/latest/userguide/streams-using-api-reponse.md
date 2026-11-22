@@ -1,12 +1,11 @@
 
 
 # Neptune Streams API Response Format
-<a name="streams-using-api-reponse"></a>
 
 A response to a Neptune Streams REST API request has the following fields:
 + `lastEventId`   –   Sequence identifier of the last change in the stream response. An event ID is composed of two fields: A `commitNum` identifies a transaction that changed the graph, and an `opNum` identifies a specific operation within that transaction. This is shown in the following example.
 
-  ```
+  ```json
     "eventId": {
       "commitNum": 12,
       "opNum": 1
@@ -28,7 +27,7 @@ A response to a Neptune Streams REST API request has the following fields:
 
 For example, the following response returns Gremlin change data, for a transaction that contains more than one operation:
 
-```
+```json
 {
   "lastEventId": {
     "commitNum": 12,
@@ -61,7 +60,7 @@ For example, the following response returns Gremlin change data, for a transacti
 
 The following response returns SPARQL change data for the last operation in a transaction (the operation identified by `EventId(97, 1)` in transaction number 97).
 
-```
+```json
 {
   "lastEventId": {
     "commitNum": 97,

@@ -1,7 +1,6 @@
 
 
 # Neptune Snapshots API
-<a name="api-snapshots"></a>
 
 **Actions:**
 + [CreateDBClusterSnapshot (action)](#CreateDBClusterSnapshot)

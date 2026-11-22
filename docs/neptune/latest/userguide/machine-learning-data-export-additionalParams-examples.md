@@ -1,7 +1,6 @@
 
 
 # Examples of using parameters within additionalParams for tuning model-training configuration
-<a name="machine-learning-data-export-additionalParams-examples"></a>
 
  The following examples demonstrate how to utilize the "additionalParams" feature in property-graph and RDF data models to configure various aspects of the model training process for a Neptune ML application. The examples cover a wide range of functionality, including specifying default split rates for training/validation/test data, defining node classification, regression, and link prediction tasks, as well as configuring different feature types such as numerical buckets, text embeddings, datetime, and categorical data. These detailed configurations allow you to tailor the machine learning pipeline to your specific data and modeling requirements, unlocking the full potential of the Neptune ML capabilities. 
 
@@ -115,7 +114,7 @@ To indicate which node property contains labeled regressions for training purpos
 
 The following `node` target indicates that the `rating` property of each `Movie` node should be treated as a node regression label:
 
-```
+```json
     "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -241,7 +240,7 @@ You can specify a numerical data feature for a node property by adding `"type": 
 
 The following `node` feature indicates that the `age` property of each `Person` node should be treated as a numerical bucket feature:
 
-```
+```json
   "additionalParams": {
   "neptune_ml": {
     "targets": [
@@ -269,7 +268,7 @@ You can specify a `Word2Vec` feature for a node property by adding `"type": "tex
 
 The following `node` feature indicates that the `description` property of each `Movie` node should be treated as a `Word2Vec` feature:
 
-```
+```json
 "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -302,7 +301,7 @@ Note that the `text_fasttext` encoding cannot handle more than one language at a
 
 The following `node` feature indicates that the French `description` property of each `Movie` node should be treated as a `FastText` feature:
 
-```
+```json
 "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -329,7 +328,7 @@ You can specify a `Sentence BERT` feature for a node property by adding `"type":
 
 The following `node` feature indicates that the `description` property of each `Movie` node should be treated as a `Sentence BERT` feature:
 
-```
+```json
 "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -354,7 +353,7 @@ You can specify a `TF-IDF` feature for a node property by adding `"type": "text_
 
 The following `node` feature indicates that the `bio` property of each `Person` node should be treated as a `TF-IDF` feature:
 
-```
+```json
   "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -382,7 +381,7 @@ The export process automatically infers `datetime` features for date properties.
 
 The following `node` feature indicates that the `createdAt` property of each `Post` node should be treated as a `datetime` feature:
 
-```
+```json
   "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -408,7 +407,7 @@ The export process automatically infers `auto` features for string properties an
 
 If you want to override a feature specification so that a property is treated as a categorical feature, add a `"type": "category"` to the features array. If the property contains multiple values, include a `separator` field. For example:
 
-```
+```json
   "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -434,7 +433,7 @@ The export process automatically infers `auto` features for string properties an
 
 If you want to override a feature specification so that a property is treated as a `numerical` feature, add `"type": "numerical"` to the features array. If the property contains multiple values, include a `separator` field. For example:
 
-```
+```json
   "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -460,7 +459,7 @@ The export process automatically infers `auto` features for string properties an
 
 If you want to override a feature specification so that a property is treated as an `auto` feature, add `"type": "auto"` to the features array. If the property contains multiple values, include a `separator` field. For example:
 
-```
+```json
   "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",
@@ -531,7 +530,7 @@ To indicate which node property contains labeled regressions for training purpos
 
 The following `node` target indicates that the `rating` property of each `Movie` node should be treated as a node regression label:
 
-```
+```json
     "additionalParams": {
   "neptune_ml": {
     "version": "v2.0",

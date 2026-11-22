@@ -1,7 +1,7 @@
 
 
 # Using Amazon Neptune with a global database
-<a name="neptune-global-database"></a><a name="gdb"></a><a name="globaldb"></a><a name="global_database"></a>
+<a name="gdb"></a><a name="globaldb"></a><a name="global_database"></a>
 
 An Amazon Neptune global database spans multiple AWS Regions, enabling low-latency global reads and providing fast recovery in the rare case where an outage affects an entire AWS Region.
 

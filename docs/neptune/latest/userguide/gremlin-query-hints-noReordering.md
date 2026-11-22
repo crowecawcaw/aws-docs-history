@@ -1,7 +1,6 @@
 
 
 # Gremlin noReordering query hint
-<a name="gremlin-query-hints-noReordering"></a>
 
 When you submit a Gremlin traversal, the Neptune query engine investigates the structure of the traversal and reorders parts of the query, trying to minimize the amount of work required for evaluation and query response time. For example, a traversal with multiple constraints, such as multiple `has()` steps, is typically not evaluated in the given order. Instead it is reordered after the query is checked with static analysis.
 

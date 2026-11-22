@@ -1,7 +1,6 @@
 
 
 # SPARQL standards compliance in Amazon Neptune
-<a name="feature-sparql-compliance"></a>
 
 After listing applicable SPARQL standards, the following sections provide specific details about how Neptune's SPARQL implementation extends or diverges from those standards.
 

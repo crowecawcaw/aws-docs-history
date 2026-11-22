@@ -1,7 +1,6 @@
 
 
 # Using the Gremlin `explain` API in Neptune
-<a name="gremlin-explain-api"></a>
 
 The Amazon Neptune Gremlin `explain` API returns the query plan that would be executed if a specified query were run. Because the API doesn't actually run the query, the plan is returned almost instantaneously.
 
@@ -47,7 +46,7 @@ For more information, see [execute-gremlin-explain-query](https://docs.aws.amazo
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -78,10 +77,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/explain \
   -d '{"gremlin":"g.V().limit(1)"}'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
-
-For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -90,6 +86,8 @@ For more information about using **awscurl** with IAM authentication, see [Using
 curl -X POST https://{{your-neptune-endpoint}}:{{port}}/gremlin/explain \
   -d '{"gremlin":"g.V().limit(1)"}'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -224,7 +222,7 @@ Neptune steps:
     },
     NeptuneTraverserConverterStep
 ]
-+ not converted into Neptune steps: [FoldStep, UnfoldStep, VertexStep(OUT,vertex)]
++ not converted into Neptune steps: FoldStep,UnfoldStep,VertexStep(OUT,vertex),
 
 Optimized Traversal
 ===================
@@ -238,9 +236,9 @@ Neptune steps:
     NeptuneTraverserConverterStep,
     NeptuneMemoryTrackerStep
 ]
-+ not converted into Neptune steps: [FoldStep, UnfoldStep, VertexStep(OUT,vertex)]
++ not converted into Neptune steps: FoldStep,UnfoldStep,VertexStep(OUT,vertex),
 
-WARNING: >> FoldStep << is not supported natively yet
+WARNING: >> [FoldStep] << (or one of the children for each step) is not supported natively yet
 ```
 
 In this case, the `FoldStep` breaks you out of native execution. But even the subsequent `VertexStep` is no longer handled natively because it appears downstream of the `Fold/Unfold` steps.

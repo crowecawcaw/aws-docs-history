@@ -1,7 +1,6 @@
 
 
 # Place restrictive filters as early in the query as possible
-<a name="best-practices-content-8"></a>
 
  In all scenarios, early placement of filters in the query helps in reducing the intermediate solutions a query plan must consider. This means less memory and fewer compute resources are needed to execute the query. 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can use [AWS PrivateLink](https://aws.amazon.com/privatelink/) to create a private connection between your VPC and Amazon Neptune API endpoints. You can access Amazon Neptune API operations as though they were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or connection. Traffic between your VPC and Amazon Neptune stays within the Amazon network.
 

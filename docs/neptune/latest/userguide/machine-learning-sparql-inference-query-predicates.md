@@ -1,7 +1,6 @@
 
 
 # Neptune ML predicates used in SPARQL inference queries
-<a name="machine-learning-sparql-inference-query-predicates"></a>
 
 The following predicates are used with SPARQL inference:
 

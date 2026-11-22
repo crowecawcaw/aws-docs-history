@@ -1,7 +1,6 @@
 
 
 # Neptune Best Practices Using openCypher and Bolt
-<a name="best-practices-opencypher"></a>
 
 Follow these best practices when using the openCypher query language and Bolt protocol with Neptune. For information about using openCypher in Neptune, see [Accessing the Neptune Graph with openCypher](access-graph-opencypher.md).
 

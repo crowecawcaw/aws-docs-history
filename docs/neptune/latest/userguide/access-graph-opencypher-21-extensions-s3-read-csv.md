@@ -1,7 +1,6 @@
 
 
 # Query examples using CSV
-<a name="access-graph-opencypher-21-extensions-s3-read-csv"></a>
 
 In the following examples, the `source` value must be the Amazon S3 URI of a single object, such as `s3://amzn-s3-demo-bucket/people.csv`. Neptune reads the object using the IAM credentials of the caller. Before you run these queries, give those credentials permission to read the bucket. For more information, see [Managing permissions for neptune.read()](access-graph-opencypher-21-extensions-s3-read-permissions.md).
 
@@ -104,7 +103,6 @@ Every row in the file would be required to have an integer in that position or b
 Given the following CSV file:
 
 ```
-<s3 path>
 colA:byte,colB:short,colC:int,colD:long,colE:float,colF:double,colG:string
 -128,-32768,-2147483648,-9223372036854775808,1.23456,1.23457,first
 127,32767,2147483647,9223372036854775807,nan,nan,second

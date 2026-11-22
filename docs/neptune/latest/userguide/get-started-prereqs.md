@@ -1,7 +1,6 @@
 
 
 # Prerequisites for setting up Amazon Neptune using AWS CloudFormation
-<a name="get-started-prereqs"></a>
 
 Before you create an Amazon Neptune cluster using an CloudFormation template, you need to have the following:
 + An Amazon EC2 key pair.
@@ -31,7 +30,7 @@ You must create this as a *customer-managed policy*, not as an inline policy. Th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

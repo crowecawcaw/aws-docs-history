@@ -1,7 +1,6 @@
 
 
 # Managing Amazon Neptune Instances
-<a name="manage-console-instances"></a>
 
 The following sections have information on instance-level operations. 
 

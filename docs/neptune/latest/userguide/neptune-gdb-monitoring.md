@@ -1,7 +1,6 @@
 
 
 # Monitoring your Amazon Neptune global database using CloudWatch metrics
-<a name="neptune-gdb-monitoring"></a>
 
 Neptune supports the following CloudWatch metrics that you can use to monitor a Neptune global database:
 + **`GlobalDbDataTransferBytes`**   –   The number of bytes of redo log data transferred from the primary AWS Region to a secondary AWS Region in a Neptune global database.

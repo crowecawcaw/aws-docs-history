@@ -1,7 +1,6 @@
 
 
 # metaphacts
-<a name="visualization-metaphacts"></a>
 
 [metaphacts](https://metaphacts.com/) offers a flexible, open platform for describing and querying graph data and for visualizing and interacting with knowledge graphs. Using [metaphactory](https://metaphacts.com/product), you can build interactive web applications such as visualizations and dashboards on top of knowledge graphs in Neptune using the RDF data model. The metaphactory platform supports a low-code development experience with a UI for data loading, a visual ontology modeling interface with OWL and SHACL support, a SPARQL query UI and query catalog, and a rich set of Web components for graph exploration, visualization, search and authoring.
 

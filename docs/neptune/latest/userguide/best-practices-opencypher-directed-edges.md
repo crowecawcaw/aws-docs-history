@@ -1,7 +1,6 @@
 
 
 # Prefer directed to bi-directional edges in queries
-<a name="best-practices-opencypher-directed-edges"></a>
 
 When Neptune performs query optimizations, bi-directional edges make it difficult to create optimal query plans. Sub-optimal plans require the engine to do unnecessary work and result in poorer performance.
 

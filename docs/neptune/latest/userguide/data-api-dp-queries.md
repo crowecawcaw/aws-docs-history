@@ -1,7 +1,6 @@
 
 
 # Neptune Query APIs
-<a name="data-api-dp-queries"></a>
 
 **Gremlin query actions:**
 + [ExecuteGremlinQuery (action)](#ExecuteGremlinQuery)

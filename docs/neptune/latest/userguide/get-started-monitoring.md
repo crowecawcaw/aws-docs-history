@@ -1,7 +1,6 @@
 
 
 # Monitoring an Amazon Neptune cluster
-<a name="get-started-monitoring"></a>
 
 Amazon Neptune supports the following monitoring methods.
 + **Amazon CloudWatch** – Amazon Neptune automatically sends metrics to CloudWatch and also supports CloudWatch Alarms. For more information, see [Monitoring Neptune Using Amazon CloudWatch](cloudwatch.md).

@@ -1,7 +1,6 @@
 
 
 # Installing updates to your Neptune engine manually
-<a name="engine-updates-manually"></a>
 
 ## Installing a major version engine upgrade
 <a name="engine-major-updates-manually"></a>

@@ -1,7 +1,6 @@
 
 
 # Neptune ML management API reference
-<a name="machine-learning-api-reference"></a>
 
 **Contents**
 + [The dataprocessing command](machine-learning-api-dataprocessing.md)

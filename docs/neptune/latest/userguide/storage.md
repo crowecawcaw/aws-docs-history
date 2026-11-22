@@ -1,7 +1,6 @@
 
 
 # Storage
-<a name="storage"></a>
 
 Neptune data is stored in a cluster volume, which is a single, virtual volume that uses Non-Volatile Memory Express (NVMe) SSD-based drives. The cluster volume consists of a collection of logical blocks known as segments. Each of these segments is allocated 10 gigabytes (GB) of storage. The data in each segment is replicated across three Availability Zones (AZs) in a single AWS Region where the DB cluster resides.
 

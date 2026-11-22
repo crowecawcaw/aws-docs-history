@@ -1,7 +1,6 @@
 
 
 # Neptune DB Clusters API
-<a name="api-clusters"></a>
 
 **Actions:**
 + [CreateDBCluster (action)](#CreateDBCluster)

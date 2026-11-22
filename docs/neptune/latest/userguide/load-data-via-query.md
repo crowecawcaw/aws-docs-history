@@ -1,7 +1,6 @@
 
 
 # Loading data into Amazon Neptune using queries
-<a name="load-data-via-query"></a>
 
 Neptune supports writing data directly through query language operations. You can use standard write operations like `CREATE` and `MERGE` in openCypher, `INSERT` in SPARQL, or `mergeV()` and `mergeE()` in Gremlin to add or modify data in your graph. These operations are suitable for incremental updates and transactional writes.
 
@@ -50,6 +49,14 @@ Use the `g.io()` step to read from an HTTPS URL. To load a file that you store a
 ```
 aws s3 presign s3://amzn-s3-demo-bucket/data/vertices.graphml
 ```
+
+A presigned URL ends with a query string and has no file extension, so `g.io()` cannot detect the file format automatically. Specify the format explicitly with the `IO.reader` option. The following Gremlin command substitutes the presigned URL from the preceding command into `g.io()` and reads it as GraphML:
+
+```
+g.io("https://amzn-s3-demo-bucket.s3.amazonaws.com/data/vertices.graphml?X-Amz-Algorithm=...&X-Amz-Signature=...").with(IO.reader, IO.graphml).read().iterate()
+```
+
+For a GraphSON file, use `IO.graphson` as the reader.
 
 For more information about presigned URLs, see [Download and upload objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) in the *Amazon S3 User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Gremlin edge classification queries in Neptune ML
-<a name="machine-learning-gremlin-edge-classification-queries"></a>
 
 For Gremlin edge classification in Neptune ML:
 + The model is trained on one property of the edges. The set of unique values of this property is referred to as a set of classes.

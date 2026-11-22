@@ -1,7 +1,6 @@
 
 
 # Property graph schema
-<a name="access-graph-pg-schema"></a>
 
 The `neptune.graph.pg_schema()` procedure provides a comprehensive overview of your property graph structure. It returns all node labels, edge labels, properties with their data types, and label triples (`{~from, ~type, ~to}` patterns that describe how node types connect through edge types).
 
@@ -45,7 +44,7 @@ The `compute()` and `stop()` operations require write permissions because they m
 **Example IAM policy**  
 The following policy grants the minimum permissions needed for all schema operations:  
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -88,7 +87,7 @@ aws neptunedata execute-open-cypher-query \
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -108,12 +107,14 @@ print(response)
 ------
 #### [ awscurl ]
 
-```
+```bash
 awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --region {{us-east-1}} --service neptune-db \
   -d 'query=CALL neptune.graph.pg_schema()'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -168,7 +169,7 @@ aws neptunedata execute-open-cypher-query \
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -188,7 +189,7 @@ print(response)
 ------
 #### [ awscurl ]
 
-```
+```bash
 awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --region {{us-east-1}} --service neptune-db \
@@ -197,12 +198,14 @@ awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
 
 With optional concurrency parameter:
 
-```
+```bash
 awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --region {{us-east-1}} --service neptune-db \
   -d 'query=CALL neptune.graph.pg_schema.compute({concurrency: 2})'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -239,7 +242,7 @@ aws neptunedata execute-open-cypher-query \
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -259,12 +262,14 @@ print(response)
 ------
 #### [ awscurl ]
 
-```
+```bash
 awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --region {{us-east-1}} --service neptune-db \
   -d 'query=CALL neptune.graph.pg_schema.stop()'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -281,7 +286,7 @@ awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
 
 You can use `YIELD` to extract schema fields and combine them with other queries. The following example retrieves all node labels and counts the number of nodes for each label. The `collSort()` function sorts the list alphabetically:
 
-```
+```cypher
 CALL neptune.graph.pg_schema()
   YIELD schema
   WITH schema.nodeLabels as nl
@@ -293,7 +298,7 @@ CALL neptune.graph.pg_schema()
 
 Sample output:
 
-```
+```json
 {
   "results": [{
       "label": "airport",
@@ -372,14 +377,14 @@ Read replicas cannot run `compute()` or `stop()`. These calls return an error:
 
 The following example shows the schema output for the air-routes dataset:
 
-```
+```bash
 awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --region {{us-east-1}} --service neptune-db \
   -d 'query=CALL neptune.graph.pg_schema()'
 ```
 
-```
+```json
 {
   "results": [{
       "schema": {

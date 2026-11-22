@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune Engine Version 1.0.2.1.R4 (2019-12-20)
-<a name="engine-releases-1.0.2.1.R4"></a>
 
 ## Improvements in This Engine Release
 <a name="engine-releases-1.0.2.1.R4-improvements"></a>

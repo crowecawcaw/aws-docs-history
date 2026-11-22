@@ -1,7 +1,6 @@
 
 
 # Troubleshooting the Neptune Blue/Green solution
-<a name="neptune-BG-troubleshooting"></a>
 
  The following information highlights issues that can arise during the Blue/Green solution deployment process, such as conflicts with existing clusters, the need to enable Neptune streams, ongoing bulk load operations, and version compatibility requirements. By addressing these potential problems, you can ensure a smooth and successful deployment of the Neptune Blue/Green solution. 
 

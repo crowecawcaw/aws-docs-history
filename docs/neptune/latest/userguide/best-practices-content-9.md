@@ -1,7 +1,6 @@
 
 
 # Explicitly check whether properties exist
-<a name="best-practices-content-9"></a>
 
  Based on openCypher semantics, when a property is accessed it is equivalent to an optional join and must retain all rows even if the property does not exist. If you know based on your graph schema that a particular property will always exist for that entity, explicitly checking that property for existence allows the query engine to create optimal plans and improve performance. 
 

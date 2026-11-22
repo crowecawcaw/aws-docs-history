@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda functions in Amazon Neptune
-<a name="lambda-functions"></a>
 
 AWS Lambda functions have many uses in Amazon Neptune applications. Here we provide general guidance for using Lambda functions with any of the popular Gremlin drivers and language variants, and specific examples of Lambda functions written in Java, JavaScript, and Python.
 

@@ -1,7 +1,6 @@
 
 
 # Spatial Data
-<a name="access-graph-opencypher-22-spatial-data"></a>
 
 Amazon Neptune now supports spatial queries, allowing you to store and analyze geometric data in your graph. While commonly used for geographic locations (like coordinates on a map), spatial features work with any two-dimensional data where position and proximity matter. Use this feature to answer questions like "Which stores are within 5 miles of this customer?", "Find all delivery routes that intersect with this service area," or "Which components in this floor plan overlap with the HVAC zone?" Neptune implements spatial support using industry-standard Spatial Types functions that work with points, polygons, and other geometric shapes. You can store spatial data as properties on nodes and edges, then use spatial functions to calculate distances, check if points fall within boundaries, or find overlapping regions, all within your openCypher queries.
 
@@ -74,14 +73,14 @@ If you already have locations stored as `ST_Point` then you can use those locati
 
 1. Set the property
 
-   ```
+   ```cypher
    MATCH (a:airport)
    SET a.location = ST_GeomFromText('POINT (' + a.lon + ' ' + a.lat + ')')
    ```
 
 1. Query using ST\_Distance:
 
-   ```
+   ```cypher
    MATCH (a:airport)
    WHERE a.location IS NOT NULL
    WITH a, ST_Distance(ST_GeomFromText('POINT (-84.4281 33.6367)'), a.location) AS distance
@@ -95,7 +94,7 @@ If you already have locations stored as `ST_Point` then you can use those locati
 
 Most query methods return Geometry values as WKT strings, which are human-readable. If you're using the Bolt driver, Geometry values are returned in WKB (Well-Known Binary) format for efficiency. Convert WKB to a Geometry object in your application:
 
-```
+```java
 try (Session session = driver.session()) {
     Result result = session.run("MATCH (n:airport {code: 'ATL'}) RETURN n.location as geom");
     

@@ -1,7 +1,6 @@
 
 
 # Neptune Loader Cancel Job
-<a name="load-api-reference-cancel"></a>
 
 Cancels a load job.
 
@@ -63,7 +62,7 @@ aws neptunedata cancel-loader-job \
 ```
 For more information, see [cancel-loader-job](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/cancel-loader-job.html) in the AWS CLI Command Reference.
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -86,8 +85,9 @@ awscurl 'https://{{your-neptune-endpoint}}:{{port}}/loader/{{0a237328-afd5-4574-
   --service neptune-db \
   -X DELETE
 ```
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ```
 curl -X DELETE 'https://{{your-neptune-endpoint}}:{{port}}/loader/{{0a237328-afd5-4574-a0bc-c29ce5f54802}}'
 ```
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).

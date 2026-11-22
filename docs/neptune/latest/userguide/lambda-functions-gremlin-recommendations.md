@@ -1,7 +1,6 @@
 
 
 # Recommendations for using AWS Lambda with Amazon Neptune Gremlin
-<a name="lambda-functions-gremlin-recommendations"></a>
 
 We now recommend using a single connection and graph traversal source for the entire lifetime of a Lambda execution context, rather than one for each function invocation (every function invocation handles only one client request). Because concurrent client requests are handled by different function instances running in separate execution contexts, there's no need to maintain a pool of connections to handle concurrent requests inside a function instance. If the Gremlin driver you’re using has a connection pool, configure it to use just one connection.
 

@@ -1,7 +1,6 @@
 
 
 # Optional HTTP trailing headers for multi-part SPARQL responses
-<a name="access-graph-sparql-http-trailing-headers"></a>
 
 The HTTP response to SPARQL queries and updates is often returned in more than one part or chunk. It can be hard to diagnose a failure that occurs after a query or update begins sending these chunks, especially since the first one arrives with an HTTP status code of `200`.
 

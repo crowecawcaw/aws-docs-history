@@ -1,7 +1,6 @@
 
 
 # Close the client to avoid the connections limit
-<a name="best-practices-gremlin-java-close-connections"></a>
 
 It is important to close the client when you are finished with it to ensure that the WebSocket connections are closed by the server and all resources associated with the connections are released. This happens automatically if you close the cluster using `Cluster.close( )`, because `client.close( )` is then called internally.
 

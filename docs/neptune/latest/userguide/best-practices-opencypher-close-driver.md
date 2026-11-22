@@ -1,7 +1,6 @@
 
 
 # Close driver objects when you're done
-<a name="best-practices-opencypher-close-driver"></a>
 
 Be sure to close the client when you are finished with it, so that the Bolt connections are closed by the server and all resources associated with the connections are released. This happens automatically if you close the driver using `driver.close()`.
 

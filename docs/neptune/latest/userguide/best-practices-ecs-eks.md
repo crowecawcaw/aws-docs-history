@@ -1,7 +1,6 @@
 
 
 # Best practices for using Neptune with Amazon ECS and Amazon EKS
-<a name="best-practices-ecs-eks"></a>
 
 Running your graph application in containers on [Amazon Elastic Container Service](https://docs.aws.amazon.com/ecs/) (Amazon ECS) or [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/) (Amazon EKS) introduces considerations that don't apply to traditional long-running server deployments. Containers are ephemeral — they start, stop, and replace each other during rolling updates and scaling events. This lifecycle affects how your application manages connections to Neptune, handles host replacements, and authenticates with IAM.
 

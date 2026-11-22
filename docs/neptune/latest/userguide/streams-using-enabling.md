@@ -1,7 +1,6 @@
 
 
 # Enabling Neptune Streams
-<a name="streams-using-enabling"></a>
 
 You can enable or disable Neptune Streams at any time by setting the [`neptune_streams` DB cluster parameter](parameters.md#parameters-db-cluster-parameters-neptune_streams). Setting the parameter to `1` enables Streams, and setting it to `0` disables Streams.
 

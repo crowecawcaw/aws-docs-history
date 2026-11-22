@@ -1,7 +1,6 @@
 
 
 # Setting up an Amazon Neptune global database
-<a name="neptune-gdb-setup"></a>
 
 You can create a Neptune global database in one of the following ways:
 + [Create a global database with all new DB clusters and instances](#neptune-gdb-creating-cli).

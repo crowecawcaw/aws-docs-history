@@ -1,7 +1,6 @@
 
 
 # Managing an Amazon Neptune global database
-<a name="neptune-gdb-managing"></a>
 
 With the exception of the managed planned failover process, you perform most management operations on the individual clusters that make up a Neptune global database. The managed planned failover process is available only to Neptune global databases, not to individual Neptune DB clusters. To learn more, see [Performing managed planned failovers for Neptune global databases](neptune-gdb-disaster-recovery.md#neptune-gdb-managed-failover).
 

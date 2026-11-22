@@ -1,7 +1,6 @@
 
 
 # The structure of JSON training data configuration files
-<a name="machine-learning-processing-training-config-file-structure"></a>
 
 The training configuration file refers to CSV files saved by the export process in the `nodes/` and `edges/` folders.
 
@@ -11,7 +10,7 @@ Each file under `edges/` stores information about nodes that have the same prope
 
 The training data configuration file has three top-level elements:
 
-```
+```json
 {
   "version" : "v2.0",
   "query_engine" : "gremlin",
@@ -29,7 +28,7 @@ The training data configuration file has three top-level elements:
 
 A configuration object in the `graph` array can contain three top-level nodes:
 
-```
+```json
     {
       "edges"    : [ {{...}} ],
       "nodes"    : [ {{...}} ],
@@ -45,7 +44,7 @@ A configuration object in the `graph` array can contain three top-level nodes:
 
 An edge configuration object listed in an `edges` array can contain the following top-level fields:
 
-```
+```json
       {
         "file_name" : "{{(path to a CSV file)}}",
         "separator" : "{{(separator character)}}",
@@ -89,7 +88,7 @@ An edge configuration object listed in an `edges` array can contain the followin
 
 A node configuration object listed in a `nodes` array can contain the following fields:
 
-```
+```json
       {
         "file_name" : "{{(path to a CSV file)}}",
         "separator" : "{{(separator character)}}",
@@ -130,7 +129,7 @@ A node feature object listed in a node `features` array can contain the followin
   + For [`text_sbert`](machine-learning-feature-encoding.md#machine-learning-fasttext-features) encoding, this field is not used, since SBERT encoding is multilingual.
   + For [`text_word2vec`](machine-learning-feature-encoding.md#machine-learning-word2vec-features) encoding, this field is optional, since `text_word2vec` only supports English. If present, it must specify the name of the English language model:
 
-    ```
+    ```json
     "language" : "en_core_web_lg"
     ```
   + For [`tfidf`](machine-learning-feature-encoding.md#machine-learning-tfidf-features) encoding, this field is not used.
@@ -168,7 +167,7 @@ A node feature object listed in a node `features` array can contain the followin
 
 A label object listed in a node `labels` array defines a node target feature and specifies the proportions of nodes that the training, validation, and test stages will use. Each object can contain the following fields:
 
-```
+```json
       {
         "label"      : ["{{(column label for the target feature property value)}}", "{{(task type)}}"],
         "split_rate" : [{{(training proportion)}}, {{(validation proportion)}}, {{(test proportion)}}],

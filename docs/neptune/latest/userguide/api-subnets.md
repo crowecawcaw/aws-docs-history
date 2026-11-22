@@ -1,7 +1,6 @@
 
 
 # Neptune Subnet API
-<a name="api-subnets"></a>
 
 **Actions:**
 + [CreateDBSubnetGroup (action)](#CreateDBSubnetGroup)

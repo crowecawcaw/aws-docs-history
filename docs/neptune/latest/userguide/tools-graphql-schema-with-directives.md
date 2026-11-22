@@ -1,7 +1,6 @@
 
 
 # Working with directives for a GraphQL schema
-<a name="tools-graphql-schema-with-directives"></a>
 
 You can start from a GraphQL schema that already has directives, using a command like the following:
 
@@ -173,7 +172,7 @@ You can also manually edit the GraphQL source schema and run the utility again u
 
 Finally, you can put your changes in a file using this JSON format:
 
-```
+```json
 [
   {
     "type": "{{(GraphQL type name)}}",
@@ -186,7 +185,7 @@ Finally, you can put your changes in a file using this JSON format:
 
 For example:
 
-```
+```json
 [
   {
     "type": "Airport",

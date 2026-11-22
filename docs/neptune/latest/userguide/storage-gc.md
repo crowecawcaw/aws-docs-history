@@ -1,7 +1,6 @@
 
 
 # Neptune dictionary garbage collection
-<a name="storage-gc"></a>
 
  Neptune supports dictionary garbage collection (GC) which can be enabled via the `neptune_lab_mode` [parameter](parameters.md) for property graph data. The feature requires a writer instance reboot to activate. This feature is available from engine release [1.4.3.0](https://docs.aws.amazon.com/releases/release-1.4.3.0.xml). 
 

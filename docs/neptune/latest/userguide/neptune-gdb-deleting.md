@@ -1,7 +1,6 @@
 
 
 # Deleting a Neptune global database
-<a name="neptune-gdb-deleting"></a>
 
 You can't delete a global database and its associated clusters in a single step. Instead, you have to delete its components one by one:
 

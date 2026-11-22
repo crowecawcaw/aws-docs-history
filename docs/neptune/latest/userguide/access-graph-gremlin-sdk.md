@@ -1,7 +1,6 @@
 
 
 # Using the AWS SDK to run Gremlin queries
-<a name="access-graph-gremlin-sdk"></a>
 
 With the AWS SDK, you can run Gremlin queries against your Neptune graph using a programming language of your choice. The Neptune data API SDK (service name `neptunedata`) provides the [ExecuteGremlinQuery](https://docs.aws.amazon.com/neptune/latest/data-api/API_ExecuteGremlinQuery.html) action for submitting Gremlin queries.
 
@@ -41,7 +40,7 @@ We also recommend setting the maximum retry attempts to `1` (no retries). If the
 
 1. Create a file named `gremlinExample.py` and paste the following code:
 
-   ```
+   ```python
    import boto3
    import json
    from botocore.config import Config
@@ -72,7 +71,7 @@ We also recommend setting the maximum retry attempts to `1` (no retries). If the
 
 1. Use the following code to set up a `NeptunedataClient`, run a Gremlin query, and print the result:
 
-   ```
+   ```java
    import java.net.URI;
    import java.time.Duration;
    import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
@@ -109,7 +108,7 @@ We also recommend setting the maximum retry attempts to `1` (no retries). If the
 
 1. Create a file named `gremlinExample.js` and paste the following code:
 
-   ```
+   ```javascript
    import { NeptunedataClient, ExecuteGremlinQueryCommand } from "@aws-sdk/client-neptunedata";
    import { NodeHttpHandler } from "@smithy/node-http-handler";
    

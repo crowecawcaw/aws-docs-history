@@ -1,7 +1,6 @@
 
 
 # Creating an IAM role to allow Amazon Neptune to access Amazon S3 resources
-<a name="bulk-load-tutorial-IAM-CreateRole"></a>
 
 Use the `AmazonS3ReadOnlyAccess` managed IAM policy to create a new IAM role that will allow Amazon Neptune access to Amazon S3 resources.
 
@@ -42,7 +41,7 @@ If your S3 bucket is encrypted, you need to add `kms:Decrypt` permissions
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

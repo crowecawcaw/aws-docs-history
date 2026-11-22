@@ -1,11 +1,10 @@
 
 
 # Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with a mix of default and custom parameter groups
-<a name="cfn-engine-update-1110-1202-mixed"></a>
 
 Find the `DBCluster` that you want to upgrade, and the template you used to create it. For example:
 
-```
+```yaml
 Description: Base Template to create Neptune Stack with Engine Version 1.1.1.0 using custom Parameter Groups 
 Parameters:
   DbInstanceType:
@@ -69,7 +68,7 @@ Outputs:
 
 The template should look like this:
 
-```
+```yaml
 Description: Template to update Neptune Stack to Engine Version 1.2.0.1 using custom and default Parameter Groups 
 Parameters:
   DbInstanceType:

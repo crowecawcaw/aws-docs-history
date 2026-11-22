@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune Data API Reference
-<a name="data-api"></a>
 
 This chapter documents the Neptune data API operations that you can use to load, access, and maintain the data in your Neptune graph.
 

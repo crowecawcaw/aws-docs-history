@@ -1,7 +1,6 @@
 
 
 # Neptune streams dataplane API
-<a name="data-api-dp-streams"></a>
 
 **Stream access actions:**
 + [GetPropertygraphStream (action)](#GetPropertygraphStream)

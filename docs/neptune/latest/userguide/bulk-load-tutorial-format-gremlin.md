@@ -1,7 +1,6 @@
 
 
 # Gremlin load data format
-<a name="bulk-load-tutorial-format-gremlin"></a>
 
 To load Apache TinkerPop Gremlin data using the CSV format, you must specify the vertices and the edges in separate files.
 
@@ -167,7 +166,7 @@ The `Date` and `Datetime` types are equivalent. Both accept the same formats and
 Fields in a row are separated by a comma. Records are separated by a newline or a newline followed by a carriage return.
 
 **Blank Fields**  
-Blank fields are allowed for non-required columns (such as user-defined properties). A blank field still requires a comma separator. Blank fields on required columns will result in a parsing error. Empty string values are interpreted as empty string value for the field; not as a blank field. The example in the next section has a blank field in each example vertex.
+Blank fields are allowed for non-required columns (such as user-defined properties). A blank field still requires a comma separator. Blank fields on required columns will result in a parsing error. By default, an empty string (`""`) becomes a blank field, and the loader does not create the property. The loader stores an empty string as an empty string value for the field only when the load sets `allowEmptyStrings` to `true` in `parserConfiguration` (see [Neptune Loader Request Parameters](load-api-reference-load.md#load-api-reference-load-parameters)). The example in the next section has a blank field in each example vertex.
 
 **Vertex IDs**  
 `~id` values must be unique for all vertices in every vertex file. Multiple vertex rows with identical `~id` values are applied to a single vertex in the graph. Empty string (`""`) is a valid id, and the vertex is created with an empty string as the id.
@@ -179,7 +178,7 @@ Additionally, `~id` values must be unique for all edges in every edge file. Mult
 Labels are case sensitive. A blank `~label` field gets the default label (`vertex` or `edge`). An empty string (`""`) also gets the default label, unless the load sets `allowEmptyStrings` to `true` in `parserConfiguration` (see [Neptune Loader Request Parameters](load-api-reference-load.md#load-api-reference-load-parameters)). In that case, the load reports an error for the row.
 
 **String Values**  
-Quotation marks are optional. Commas, newline, and carriage return characters are automatically escaped if they are included in a string surrounded by double quotation marks (`"`). Empty string values `("")` are interpreted as an empty string value for the field; not as a blank field.
+Quotation marks are optional. Commas, newline, and carriage return characters are automatically escaped if they are included in a string surrounded by double quotation marks (`"`). By default, an empty string (`""`) becomes a blank field, and the loader does not create the property. The loader stores an empty string as a value only when `allowEmptyStrings` is `true` in `parserConfiguration`.
 
 ## CSV Format Specification
 <a name="bulk-load-tutorial-format-csv-info"></a>

@@ -1,7 +1,6 @@
 
 
 # Recommendations for using Gremlin read-requests in Lambda
-<a name="lambda-functions-gremlin-read-recommendations"></a>
 
 If you have one or more read replicas in your cluster, it's a good idea to balance read requests across these replicas. One option is to use the [reader endpoint](feature-overview-endpoints.md). The reader endpoint balances connections across replicas even if the cluster topology changes when you add or remove replicas, or promote a replica to become the new primary instance.
 

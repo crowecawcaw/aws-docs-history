@@ -1,7 +1,6 @@
 
 
 # Streaming query results with Gremlin
-<a name="access-graph-gremlin-streaming"></a>
 
 When you run a Gremlin traversal that returns a large number of results, Neptune streams them back to the client in batches over the WebSocket connection. Neptune sends result batches as they are produced, without waiting for the client to request more. This can be advantageous if you want to process results as they are being returned from the server, but requires using lazy iteration patterns to avoid collecting the full result set into memory.
 
@@ -19,9 +18,12 @@ Streaming is most effective with traversals that can produce results incremental
 
 To process results as they arrive, iterate lazily using `hasNext()` / `next()` or equivalent APIs rather than collecting all results into a list. You can use `next(batchSize)` to pull results in application-level batches, allowing you to perform intermediate work between batches while the server continues producing results.
 
+**Note**  
+The Python (`gremlinpython`) and Node.js drivers receive the complete result set from Neptune before the traversal returns its first result. With these drivers, `next()` and `next(batchSize)` read from results that are already in client memory. Your intermediate work between batches doesn't run while the server produces more results.
+
 **Example Java (GLV bytecode)**  
 
-```
+```java
 GraphTraversalSource g = traversal().withRemote(connection);
 
 int batchSize = 10;
@@ -41,7 +43,7 @@ while (traversal.hasNext()) {
 
 **Example Python**  
 
-```
+```python
 g = traversal().with_remote(connection)
 
 BATCH_SIZE = 10
@@ -59,7 +61,7 @@ while t.has_next():
 
 **Example Go**  
 
-```
+```go
 // The Go driver does not support next(n), so batches are accumulated manually.
 g := gremlingo.Traversal_().WithRemote(connection)
 
@@ -97,7 +99,7 @@ for {
 
 **Example .NET**  
 
-```
+```csharp
 var g = Traversal().WithRemote(connection);
 
 var batchSize = 10;
@@ -119,7 +121,7 @@ while (traversal.HasNext())
 
 **Example Node.js**  
 
-```
+```javascript
 // The Node.js driver does not support next(n), so batches are accumulated manually.
 const g = traversal().withRemote(connection);
 

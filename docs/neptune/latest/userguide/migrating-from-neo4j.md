@@ -1,7 +1,6 @@
 
 
 # Migrating from Neo4j to Amazon Neptune
-<a name="migrating-from-neo4j"></a>
 
 Neo4j and Amazon Neptune are both graph databases, designed for online, transactional graph workloads that support the labeled property graph data model. These similarities make Neptune a common choice for customers seeking to migrate their current Neo4j applications. However, these migrations are not simply lift and shift, because there are differences in languages and feature support, operational characteristics, server architecture, and storage capabilities between the two databases.
 

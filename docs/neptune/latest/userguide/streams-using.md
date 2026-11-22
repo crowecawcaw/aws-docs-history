@@ -1,7 +1,6 @@
 
 
 # Using Neptune Streams
-<a name="streams-using"></a>
 
 With the Neptune Streams feature, you can generate a complete sequence of change-log entries that record every change made to your graph data as it happens. For an overview of this feature, see [Capturing graph changes in real time using Neptune streams](streams.md).
 

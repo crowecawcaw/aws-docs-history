@@ -1,7 +1,6 @@
 
 
 # Query queuing in Amazon Neptune
-<a name="access-graph-queuing"></a>
 
 When developing and tuning graph applications, it can be helpful to know the implications of how queries are being queued by the database. In Amazon Neptune, query queuing occurs as follows:
 + The maximum number of queries that can be queued up per instance, regardless of the instance size, is 8,192. Any queries over that number are rejected and fail with a `ThrottlingException`.

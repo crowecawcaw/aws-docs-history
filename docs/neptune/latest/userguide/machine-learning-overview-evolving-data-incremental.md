@@ -1,7 +1,6 @@
 
 
 # Incremental transductive workflows
-<a name="machine-learning-overview-evolving-data-incremental"></a>
 
 While you update model artifacts simply by re-running the steps one through three (from **Data export and configuration** to **Model transform**), Neptune ML supports simpler ways to update your batch ML predictions using new data. One is to use an [incremental-model workflow](#machine-learning-overview-incremental), and another is to use [model retraining with a warm start](#machine-learning-overview-model-retraining).
 

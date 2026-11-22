@@ -1,7 +1,6 @@
 
 
 # Connecting to an Amazon Neptune cluster over a private network
-<a name="get-started-connect-private-net"></a>
 
 You can access a Neptune DB cluster from a private network in two different ways:
 + Using an [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) connection.

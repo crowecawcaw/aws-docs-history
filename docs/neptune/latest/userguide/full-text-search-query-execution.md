@@ -1,7 +1,6 @@
 
 
 # Full-text-search query execution in Amazon Neptune
-<a name="full-text-search-query-execution"></a>
 
 In a query that includes full-text-search, Neptune tries to put the full-text-search calls first, before other parts of the query. This reduces the number of calls to OpenSearch and in most cases significantly improves performance. However, this is by no means a hard-and-fast rule. There are situations, for example, where a `PatternNode` or `UnionNode` may precede a full-text search call.
 

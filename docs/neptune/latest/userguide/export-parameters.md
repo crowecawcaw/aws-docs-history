@@ -1,13 +1,12 @@
 
 
 # Parameters used to control the Neptune export process
-<a name="export-parameters"></a>
 
 Whether you are using the Neptune-Export service or the `neptune-export` command line utility, the parameters you use to control the export are mostly the same. They contain a JSON object passed to the Neptune-Export endpoint or to `neptune-export` on the command line.
 
 The object passed in to the export process has the following top-level fields:
 
-```
+```json
 -d '{
       "command" : "{{(either export-pg or export-rdf)}}",
       "outputS3Path" : "s3:/{{(your Amazon S3 bucket)}}/{{(path to the folder for exported data)}}",
@@ -82,7 +81,7 @@ The `command` top-level parameter determines whether to export property-graph da
 
 The `outputS3Path` top-level parameter is required, and must contain the URI of an Amazon S3 location to which the exported files can be published:
 
-```
+```json
   "outputS3Path" : "s3://{{(your Amazon S3 bucket)}}/{{(path to output folder)}}"
 ```
 
@@ -93,7 +92,7 @@ The value must begin with `s3://`, followed by a valid bucket name and optionall
 
 The `expectedBucketOwner` top-level parameter is optional. When set to an AWS account ID, it validates that the Amazon S3 bucket specified in `outputS3Path` is owned by that account. If omitted, it defaults to the account ID resolved from the credentials used for Amazon S3 operations.
 
-```
+```json
   "expectedBucketOwner" : "{{(your AWS account ID for Amazon S3 bucket)}}"
 ```
 
@@ -102,7 +101,7 @@ The `expectedBucketOwner` top-level parameter is optional. When set to an AWS ac
 
 The `jobSize` top-level parameter is only used with the the Neptune-Export service, not with the `neptune-export` command line utility, and is optional. It lets you characterize the size of the export job you are starting, which helps determine the amount of compute resources devoted to the job and its maximum concurrency level.
 
-```
+```json
   "jobSize" : "{{(one of four size descriptors)}}"
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune Engine Version 1.0.1.1 (2020-06-26)
-<a name="engine-releases-1.0.1.1"></a>
 
 ## IMPORTANT: THIS ENGINE VERSION IS NOW DEPRECATED
 <a name="engine-releases-1.0.1.1-deprecation"></a>

@@ -1,7 +1,6 @@
 
 
 # Using the Gremlin API with Amazon Neptune
-<a name="gremlin-api-reference"></a>
 
 **Note**  
 Amazon Neptune does not support the `bindings` property.

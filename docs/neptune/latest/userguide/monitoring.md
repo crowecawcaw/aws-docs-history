@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Neptune resources
-<a name="monitoring"></a>
 
 Amazon Neptune supports various methods for monitoring database performance and usage:
 + **Instance status** – Check the health of a Neptune cluster's graph database engine, find out what version of the engine is installed, and obtain other instance-related information using the [instance status API](access-graph-status.md).

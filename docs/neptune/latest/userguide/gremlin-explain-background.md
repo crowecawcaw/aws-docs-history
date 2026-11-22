@@ -1,7 +1,6 @@
 
 
 # Understanding how Gremlin queries work in Neptune
-<a name="gremlin-explain-background"></a>
 
 To take full advantage of the Gremlin `explain` and `profile` reports in Amazon Neptune, it is helpful to understand some background information about Gremlin queries.
 

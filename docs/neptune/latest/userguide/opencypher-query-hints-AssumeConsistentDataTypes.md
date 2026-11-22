@@ -1,7 +1,6 @@
 
 
 # AssumeConsistentDataTypes hint
-<a name="opencypher-query-hints-AssumeConsistentDataTypes"></a>
 
  openCypher follows a paradigm where matches of numerical datatypes (e.g., int, byte, short, long, etc.) are carried out under type promotion semantics. For instance, when looking up all properties with an input value 10 with short type, under type promotion semantics, it would also match properties that have 10 as a long value. In some cases, type casting can induce overhead and result in query plans that are less efficient than they could be if no type casting was performed. In particular in cases where datatypes are used consistently in the data (e.g., if all person’s ages are stored as long value) performing type promotions causes overhead without impacting the query result. 
 

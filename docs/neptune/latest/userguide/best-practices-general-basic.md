@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune basic operational guidelines
-<a name="best-practices-general-basic"></a>
 
 The following are basic operational guidelines that you should follow when working with Neptune.
 + Understand Neptune DB instances so that you can size them appropriately for your performance and use-case requirements. See [Amazon Neptune DB Clusters and Instances](feature-overview-db-clusters.md).

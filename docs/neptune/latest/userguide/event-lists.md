@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune event categories and event messages
-<a name="event-lists"></a>
 
 Neptune generates a significant number of events in categories that you can subscribe to using the Neptune console. Each category applies to a source type, which can be a DB instance, DB snapshot, or DB parameter group.
 

@@ -1,7 +1,6 @@
 
 
 # Examples of Neptune transaction semantics
-<a name="transactions-examples"></a>
 
 The following examples illustrate different use cases for transaction semantics in Amazon Neptune.
 

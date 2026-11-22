@@ -1,7 +1,6 @@
 
 
 # Inject a Custom ID Into a Neptune Gremlin or SPARQL Query
-<a name="features-query-id"></a>
 
 By default, Neptune assigns a unique `queryId` value to every query. You can use this ID to get information about a running query (see [Gremlin query status API](gremlin-api-status.md) or [SPARQL query status API](sparql-api-status.md)), or cancel it (see [Gremlin query cancellation](gremlin-api-status-cancel.md) or [SPARQL query cancellation](sparql-api-status-cancel.md)).
 

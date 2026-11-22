@@ -1,11 +1,10 @@
 
 
 # Example of a JSON training data configuration file
-<a name="machine-learning-processing-training-config-file-example"></a>
 
 Here is a sample training data configuration file that describes a graph for a node-classification task:
 
-```
+```json
 {
   "version" : "v2.0",
   "query_engine" : "gremlin",

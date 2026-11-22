@@ -1,7 +1,6 @@
 
 
 # Spatial Functions
-<a name="access-graph-opencypher-22-spatial-functions"></a>
 
 The following spatial functions are available in Neptune openCypher for working with geometry data types:
 + [ST\_Point](access-graph-opencypher-22-spatial-functions-st-point.md)

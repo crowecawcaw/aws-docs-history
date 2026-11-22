@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune parameters
-<a name="parameters"></a>
 
 You manage your database configuration in Amazon Neptune by using parameters in [parameter groups](parameter-groups.md). The following parameters are available for configuring your Neptune database:
 
@@ -148,7 +147,7 @@ Using a JSON string that you set as the value of the `neptune_autoscaling_config
 
 The JSON string has a structure like this:
 
-```
+```json
 "{
   \"tags\": [
     { \"key\" : \"{{reader tag-0 key}}\", \"value\" : \"{{reader tag-0 value}}\" },

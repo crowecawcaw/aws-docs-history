@@ -1,7 +1,6 @@
 
 
 # Using Amazon Neptune with graph notebooks
-<a name="graph-notebooks"></a>
 
 To work with Neptune graphs you can use a Neptune graph notebook or create a new Neptune database using an CloudFormation [template](get-started-cfn-create.md).
 
@@ -19,6 +18,8 @@ You can host these notebooks in several different ways:
 **Note**  
  When creating a Neptune notebook instance, you are provided with two options for network access: Direct access through Amazon SageMaker AI (the default) and access through a VPC. In either option, the notebook requires access to the internet to fetch package dependencies for installing the Neptune workbench. Lack of internet access will cause the creation of a Neptune notebook instance to fail. 
 + You can also [install Jupyter locally](#graph-notebooks-local). This lets you run the notebooks from your laptop, connected either to Neptune or to a local instance of one of the open-source graph databases. In the latter case, you can experiment with graph technology as much as you want before you spend a penny. Then, when you're ready, you can move smoothly to the managed production environment that Neptune offers.
+
+If you use the Neptune workbench to host your notebook, you also get Graph Explorer, an open-source, low-code tool for visually exploring graph data. The workbench deploys Graph Explorer with your notebook and connects it to your Neptune DB cluster. For more information about using Graph Explorer in a notebook, see [Using graph-explorer in a Neptune graph notebook](visualization-graph-explorer.md#graph-explorer-notebook).
 
 ## Using the Neptune workbench to host Neptune notebooks
 <a name="graph-notebooks-workbench"></a>
@@ -60,7 +61,7 @@ The console can create an AWS Identity and Access Management (IAM) role for your
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -101,7 +102,7 @@ Also, the role should establish the following trust relationship:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -139,7 +140,7 @@ Connecting a notebook to Neptune is easy if you have installed the Neptune magic
 
 1. Write code such as the following to connect and issue a Gremlin query:
 
-   ```
+   ```python
    from gremlin_python import statics
    from gremlin_python.structure.graph import Graph
    from gremlin_python.process.graph_traversal import __
@@ -178,13 +179,13 @@ Connecting a notebook to Neptune is easy if you have installed the Neptune magic
 **Note**  
 If you happen to be using a version of the Gremlin Python client that is older than 3.5.0, this line:  
 
-```
+```python
 connection = DriverRemoteConnection(endpoint,'g',
                  transport_factory=lambda:AiohttpTransport(call_from_event_loop=True))
 ```
 Would just be:  
 
-```
+```python
 connection = DriverRemoteConnection(endpoint,'g')
 ```
 
@@ -217,7 +218,7 @@ CloudWatch logs are now enabled by default for Neptune Notebooks. If you have an
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -440,7 +441,7 @@ In addition, there are also a few more steps that apply specifically to migratin
 
 In the source Neptune notebook's IAM role, add all of the following permissions:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [

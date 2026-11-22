@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Neptune notebook issues
-<a name="graph-notebook-troubleshooting"></a>
 
 When working with Neptune notebooks in JupyterLab, you may occasionally run into issues related to browser behavior, JupyterLab itself, or Amazon SageMaker AI integration. The following sections describe the most common problems and how to resolve them.
 

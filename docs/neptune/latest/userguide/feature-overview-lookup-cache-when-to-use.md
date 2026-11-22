@@ -1,7 +1,6 @@
 
 
 # Use cases for the Neptune lookup cache
-<a name="feature-overview-lookup-cache-when-to-use"></a>
 
 The lookup cache only helps when your read queries are returning the properties of a very large number of vertices and edges, or of RDF triples.
 

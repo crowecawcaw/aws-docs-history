@@ -1,7 +1,6 @@
 
 
 # Quick start using AWS CloudShell
-<a name="get-started-quickstart"></a>
 
 This guide helps you get started quickly by using [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html) to connect to and query your Neptune cluster directly from the AWS Management Console.
 
@@ -33,7 +32,7 @@ This button becomes active after you select the check box next to your cluster a
 
 1. Choose **Run** to connect to the cluster. Provisioning the VPC environment takes a few seconds.
 
-After you connect, the `graphsh` console appears, providing an interactive shell for running graph queries.
+After you connect, the `graphsh` console appears, providing an interactive shell for running graph queries. To run a query, type or paste it at the prompt, and then press Enter.
 
 ## Step 2: Insert and query data
 <a name="get-started-quickstart-query"></a>

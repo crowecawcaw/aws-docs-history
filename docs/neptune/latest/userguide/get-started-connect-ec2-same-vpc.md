@@ -1,7 +1,6 @@
 
 
 # Connecting an Amazon EC2 instance to Amazon Neptune cluster in the same VPC
-<a name="get-started-connect-ec2-same-vpc"></a>
 
 One of the most common ways to connect to a Neptune database is from an Amazon EC2 instance in the same VPC as your Neptune DB cluster. For example, the EC2 instance might be running a web server that connects with the internet. In this case, only the EC2 instance has access to the Neptune DB cluster, and the internet only has access to the EC2 instance:
 

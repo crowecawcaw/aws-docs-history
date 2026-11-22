@@ -1,7 +1,6 @@
 
 
 # The Neptune lookup cache can accelerate read queries
-<a name="feature-overview-lookup-cache"></a>
 
 Amazon Neptune implements a lookup cache that uses the `R5d` instance's NVMe-based SSD to improve read performance for queries with frequent, repetitive lookups of property values or RDF literals. The lookup cache temporarily stores these values in the NVMe SSD volume where they can be accessed rapidly.
 

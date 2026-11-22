@@ -1,7 +1,6 @@
 
 
 # Using RDF4J Workbench to connect to a Neptune DB instance
-<a name="access-graph-sparql-rdf4j-workbench"></a>
 
 This section walks you through connecting to an Amazon Neptune DB instance using RDF4J Workbench and RDF4J Server. RDF4J Server is required because it acts as a proxy between the Neptune SPARQL HTTP REST endpoint and RDF4J Workbench. 
 

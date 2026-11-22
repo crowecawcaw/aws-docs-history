@@ -1,7 +1,6 @@
 
 
 # Gremlin query hints
-<a name="gremlin-query-hints"></a>
 
 You can use query hints to specify optimization and evaluation strategies for a particular Gremlin query in Amazon Neptune. 
 

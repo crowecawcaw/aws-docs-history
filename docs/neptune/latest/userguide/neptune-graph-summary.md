@@ -1,7 +1,6 @@
 
 
 # Getting a quick summary report about your graph
-<a name="neptune-graph-summary"></a>
 
 The Neptune graph summary API retrieves the following information about your graph:
 + For property (PG) graphs, the graph summary API returns a read-only list of node and edge labels and property keys, along with counts of nodes, edges, and properties.
@@ -39,7 +38,7 @@ curl -G "$GRAPH_SUMMARY_ENDPOINT"
 
 If no statistics are available when you try to retrieve a graph summary, the response looks like this:
 
-```
+```json
 {
   "detailedMessage": "Statistics are not available. Summary can only be generated after statistics are available.",
   "requestId": "48c1f788-f80b-b69c-d728-3f6df579a5f6",
@@ -65,7 +64,7 @@ If the `mode` parameter isn't present, `basic` mode is used by default, so while
 
 For an empty property graph, the detailed graph summary response looks like this:
 
-```
+```json
 {
   "status" : "200 OK",
   "payload" : {
@@ -124,7 +123,7 @@ A property graph (PG) summary response has the following fields:
 
 For an empty RDF graph, the detailed graph summary response looks like this:
 
-```
+```json
 {
   "status" : "200 OK",
   "payload" : {
@@ -166,7 +165,7 @@ An RDF graph summary response has the following fields:
 
 Here is the detailed summary response for a property graph that contains the [sample property-graph air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/propertygraph/gremlin/airports):
 
-```
+```json
 {
   "status" : "200 OK",
   "payload" : {
@@ -329,7 +328,7 @@ Here is the detailed summary response for a property graph that contains the [sa
 
 Here is the detailed summary response for an RDF graph that contains the [sample RDF air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/rdf/sparql/airports):
 
-```
+```json
 {
   "status" : "200 OK",
   "payload" : {
@@ -545,7 +544,7 @@ See [IAM Authentication Errors](errors-engine-codes.md#errors-iam-auth) for a li
 
 For example, if you make a request to graph summary endpoint in a Neptune database that has IAM authentication enabled, and the necessary permissions are not present in the requestor’s IAM policy, then you would get a response like the following:
 
-```
+```json
 {
   "detailedMessage": "User: arn:aws:iam::{{(account ID)}}:{{(user or user name)}} is not authorized to perform: neptune-db:GetGraphSummary on resource: arn:aws:neptune-db:{{(region)}}:{{(account ID)}}:{{(cluster resource ID)}}/*",
   "requestId": "7ac2b98e-b626-d239-1d05-74b4c88fce82",

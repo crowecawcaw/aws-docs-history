@@ -1,7 +1,6 @@
 
 
 # SPARQL federated queries in Neptune using the `SERVICE` extension
-<a name="sparql-service"></a>
 
 Amazon Neptune fully supports the SPARQL federated query extension that uses the `SERVICE` keyword. (For more information, see [SPARQL 1.1 Federated Query](https://www.w3.org/TR/sparql11-federated-query/).)
 
@@ -20,7 +19,7 @@ The following simple example shows how SPARQL federated queries work.
 
 Suppose that a customer sends the following query to *Neptune-1* at `http://neptune-1:8182/sparql`.
 
-```
+```sql
 SELECT * WHERE {
    ?person rdf:type foaf:Person .
    SERVICE <http://neptune-2:8182/sparql> {

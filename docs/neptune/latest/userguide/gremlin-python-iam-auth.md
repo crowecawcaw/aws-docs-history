@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon Neptune databases using IAM authentication with Gremlin Python
-<a name="gremlin-python-iam-auth"></a>
 
 ## Overview
 <a name="gremlin-python-iam-auth-overview"></a>
@@ -19,7 +18,7 @@
 
  Use the following code example as guidance on how to establish basic connection with IAM authentication using the Gremlin Python driver. 
 
-```
+```python
 from boto3 import Session
 from botocore.auth import SigV4Auth
 from botocore.awsrequest import AWSRequest

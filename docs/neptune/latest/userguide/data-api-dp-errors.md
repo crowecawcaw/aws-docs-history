@@ -1,7 +1,6 @@
 
 
 # Neptune dataplane API Exceptions
-<a name="data-api-dp-errors"></a>
 
 **Exceptions:**
 + [AccessDeniedException (structure)](#AccessDeniedException)

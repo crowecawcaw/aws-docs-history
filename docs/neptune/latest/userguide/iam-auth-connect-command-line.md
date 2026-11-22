@@ -1,13 +1,12 @@
 
 
 # Connecting to Amazon Neptune databases using IAM authentication from the command line
-<a name="iam-auth-connect-command-line"></a>
 
-Having a command-line tool for submitting queries to your Neptune DB cluster is very handy, as illustrated in many of the examples in this documentation. The [curl](https://curl.haxx.se/) tool is an excellent option for communicating with Neptune endpoints if IAM authentication is not enabled.
+Having a command-line tool for submitting queries to your Neptune DB cluster is very handy, as illustrated in many of the examples in this documentation. The [curl](https://curl.haxx.se/) tool is a good option for communicating with Neptune endpoints. If IAM authentication is not enabled, you can use `curl` directly. If IAM authentication is enabled, each request must be signed, which you can do with `curl` itself (version 7.75.0 or later) or with `awscurl`, as described below.
 
 **However, to keep your data secure it is best to enable IAM authentication.**
 
-When IAM authentication is enabled, every request must be [signed using Signature Version 4 (Sig4)](https://docs.aws.amazon.com/general/latest/gr/signing-aws-api-requests.html). The third-party [awscurl](https://github.com/okigan/awscurl) command-line tool uses the same syntax as `curl`, and can sign queries using Sig4 signing. The [Using `awscurl`](#iam-auth-connect-awscurl) section below explains how to use `awscurl` securely with temporary credentials.
+When IAM authentication is enabled, every request must be [signed using Signature Version 4 (Sig4)](https://docs.aws.amazon.com/general/latest/gr/signing-aws-api-requests.html). Version 7.75.0 and later of `curl` can produce this signature natively with its `--aws-sigv4` option, as described in [Using `curl`](#iam-auth-connect-curl-sigv4). Alternatively, the third-party [awscurl](https://github.com/okigan/awscurl) command-line tool uses the same syntax as `curl`, and can sign queries using Sig4 signing. The [Using `awscurl`](#iam-auth-connect-awscurl) section below explains how to use `awscurl` securely with temporary credentials.
 
 ## Setting up a command-line tool to use HTTPS
 <a name="iam-auth-connect-command-line-https"></a>
@@ -53,3 +52,20 @@ awscurl {{(your cluster endpoint)}}:8182/status \
     --region us-east-1 \
     --service neptune-db
 ```
+
+## Using `curl` with `--aws-sigv4` to connect to a DB cluster with IAM authentication enabled
+<a name="iam-auth-connect-curl-sigv4"></a>
+
+Version 7.75.0 and later of `curl` can sign requests using Signature Version 4 natively through the `--aws-sigv4` option, so you do not need `awscurl` to connect to a DB cluster that has IAM authentication enabled. Supply your credentials with the `--user` option, and include your session token in an `x-amz-security-token` header when you use temporary credentials (which is recommended—see [Using `awscurl`](#iam-auth-connect-awscurl) for how to obtain them):
+
+```bash
+curl https://{{your-neptune-endpoint}}:{{port}}/gremlin \
+  --aws-sigv4 "aws:amz:{{us-east-1}}:neptune-db" \
+  --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
+  -H "x-amz-security-token: $AWS_SESSION_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"gremlin":"g.V().limit(1)"}'
+```
+
+**Note**  
+The service name in the `--aws-sigv4` value is `neptune-db`. Replace {{us-east-1}} with the Region of your Neptune cluster. Omit the `x-amz-security-token` header if you are using long-term credentials instead of temporary ones.

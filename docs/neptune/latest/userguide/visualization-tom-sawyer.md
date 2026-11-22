@@ -1,7 +1,6 @@
 
 
 # Tom Sawyer Software
-<a name="visualization-tom-sawyer"></a>
 
 [Tom Sawyer Perspectives](https://www.tomsawyer.com/perspectives) is a low-code graph and data visualization and analysis development platform for data stored in Amazon Neptune. Integrated design and preview interfaces and extensive API libraries allow you to create custom, production-quality visualization applications quickly. With a point-and-click designer interface and 30 built-in analytics algorithms, you can design and develop applications to gain insights into data federated from dozens of sources.
 

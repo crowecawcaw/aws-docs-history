@@ -1,7 +1,6 @@
 
 
 # Connecting to an Amazon Neptune cluster
-<a name="get-started-connecting"></a>
 
 After creating a Neptune cluster, you must set up network access so that your applications can reach the cluster endpoint. The following sections describe the network connectivity options. For more information about querying your data after you connect, see [Accessing graph data](get-started-access-graph.md).
 
@@ -26,7 +25,7 @@ After you set up network access, you can verify that your connection works by ca
 
 Run the following command:
 
-```
+```bash
 aws neptunedata get-engine-status \
   --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --region {{us-east-1}}
@@ -37,7 +36,7 @@ For more information, see [get-engine-status](https://docs.aws.amazon.com/cli/la
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -55,34 +54,30 @@ print(response)
 ------
 #### [ awscurl ]
 
-```
+```bash
 awscurl https://{{your-neptune-endpoint}}:{{port}}/status \
   --region {{us-east-1}} \
   --service neptune-db
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
-
-For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
 
 Run the following command:
 
-```
+```bash
 curl -G https://{{your-neptune-endpoint}}:{{port}}/status
 ```
 
-**Note**  
-This command works only when IAM authentication is not enabled on your cluster. If IAM authentication is enabled, use **awscurl** or the AWS CLI instead.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
 A healthy cluster returns a JSON response that includes `"status": "healthy"`. For example:
 
-```
+```json
 {
     "status": "healthy",
     "startTime": "Thu Aug 24 21:07:13 UTC 2023",

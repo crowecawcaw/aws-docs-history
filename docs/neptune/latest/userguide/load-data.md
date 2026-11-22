@@ -1,7 +1,6 @@
 
 
 # Loading data into Amazon Neptune
-<a name="load-data"></a>
 
 There are several different ways to load graph data into Amazon Neptune:
 + If you only need to load a relatively small amount of data, you can use queries such as SPARQL `INSERT` statements or Gremlin `mergeV` and `mergeE` steps. openCypher also includes `CREATE` and `MERGE` clauses.

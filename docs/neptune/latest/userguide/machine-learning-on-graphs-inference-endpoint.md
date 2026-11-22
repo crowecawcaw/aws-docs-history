@@ -1,7 +1,6 @@
 
 
 # Creating an inference endpoint to query
-<a name="machine-learning-on-graphs-inference-endpoint"></a>
 
 An inference endpoint lets you query one specific model that the model-training process constructed. The endpoint attaches to the best-performing model of a given type that the training process was able to generate. The endpoint is then able to accept Gremlin queries from Neptune and return that model's predictions for inputs in the queries. After you have created an inference endpoint, it stays active until you delete it.
 
@@ -25,7 +24,7 @@ For more information, see [create-ml-endpoint](https://docs.aws.amazon.com/cli/l
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -58,8 +57,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/ml/endpoints \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -73,6 +71,8 @@ curl \
         "mlModelTrainingJobId": "{{(the model-training job-id of a completed job)}}"
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -93,7 +93,7 @@ For more information, see [create-ml-endpoint](https://docs.aws.amazon.com/cli/l
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -126,8 +126,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/ml/endpoints \
       }'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -141,6 +140,8 @@ curl \
         "mlModelTransformJobId": "{{(the model-transform job-id of a completed job)}}"
       }'
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

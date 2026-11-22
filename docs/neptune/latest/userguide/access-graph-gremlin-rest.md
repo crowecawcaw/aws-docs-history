@@ -1,7 +1,6 @@
 
 
 # Using the HTTPS REST endpoint to connect to a Neptune DB instance
-<a name="access-graph-gremlin-rest"></a>
 
 Amazon Neptune provides an HTTPS endpoint for Gremlin queries. The REST interface is compatible with whatever Gremlin version your DB cluster is using (see the [engine release page](engine-releases.md) of the Neptune engine version you are running to determine which Gremlin release it supports).
 
@@ -34,7 +33,7 @@ For more information, see [execute-gremlin-query](https://docs.aws.amazon.com/cl
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 import json
 from botocore.config import Config
@@ -66,10 +65,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin \
   -d '{"gremlin":"g.V().limit(1)"}'
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
-
-For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -85,6 +81,8 @@ Although HTTP **POST** requests are recommended for sending Gremlin queries, it 
 ```
 curl -G "https://{{your-neptune-endpoint}}:{{port}}?gremlin=g.V().count()"
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

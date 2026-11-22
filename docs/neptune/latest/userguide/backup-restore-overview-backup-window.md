@@ -1,7 +1,6 @@
 
 
 # Backup window in Neptune
-<a name="backup-restore-overview-backup-window"></a>
 
 Automated backups occur daily during the preferred backup window. If the backup requires more time than allotted to the backup window, the backup continues after the window ends, until it finishes. The backup window can't overlap with the weekly maintenance window for the DB instance. 
 

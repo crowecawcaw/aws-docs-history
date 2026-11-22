@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune Engine Version 1.2.0.2.R6 (2023-09-12)
-<a name="engine-releases-1.2.0.2.R6"></a>
 
 As of 2023-09-12, AWS deploys engine version 1.2.0.2.R6 to all Regions. It takes several days for a new release to become available in every Region.
 

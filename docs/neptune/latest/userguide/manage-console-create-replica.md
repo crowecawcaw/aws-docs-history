@@ -1,7 +1,6 @@
 
 
 # Creating a Neptune reader instance using the console
-<a name="manage-console-create-replica"></a>
 
 After creating the primary instance for your Neptune DB cluster, you can add additional Neptune reader instances using the Neptune console.
 

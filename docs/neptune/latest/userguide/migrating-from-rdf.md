@@ -1,7 +1,6 @@
 
 
 # Migrating an existing graph from an RDF triple store to Amazon Neptune
-<a name="migrating-from-rdf"></a>
 
 If you have graph data in an RDF/SPARQL to migrate to Amazon Neptune, you would take the following steps:
 

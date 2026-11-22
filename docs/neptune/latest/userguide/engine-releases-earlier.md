@@ -1,7 +1,6 @@
 
 
 # Earlier Neptune Engine Releases
-<a name="engine-releases-earlier"></a>
 
 **Topics**
 + [Amazon Neptune Engine Updates 2019-06-12](engine-releases-1.0.1.0.200310.0.md)

@@ -1,7 +1,6 @@
 
 
 # Application migration from Neo4j to Neptune
-<a name="migration-app-migration"></a>
 
 After you have migrated your data from Neo4j to Neptune, the next step is to migrate the application itself. As with data, there are multiple approaches to migrating your application based on the tools your use, requirements, architectural differences, and so on. Things that you usually need to consider in this process are outlined below.
 

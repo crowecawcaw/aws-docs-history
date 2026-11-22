@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune Limits
-<a name="limits"></a>
 
 ## Regions
 <a name="limits-regions"></a>

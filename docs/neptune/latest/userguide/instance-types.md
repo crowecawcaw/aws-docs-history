@@ -1,7 +1,6 @@
 
 
 # Choosing instance types for Amazon Neptune
-<a name="instance-types"></a>
 
 Amazon Neptune offers a number of different instance sizes and families. that offer different capabilities suited to different graph workloads. This section is meant to help you choose the best instance type for your needs.
 

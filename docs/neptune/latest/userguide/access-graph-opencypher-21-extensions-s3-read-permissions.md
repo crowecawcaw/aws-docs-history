@@ -1,7 +1,6 @@
 
 
 # Managing permissions for neptune.read()
-<a name="access-graph-opencypher-21-extensions-s3-read-permissions"></a>
 
 ## Required IAM Policies
 <a name="access-graph-opencypher-21-extensions-s3-read-permissions-iam"></a>
@@ -16,7 +15,7 @@ If your S3 bucket uses server-side encryption with AWS KMS, you must also grant 
 + **`kms:Decrypt`**: Required to perform decryption of the encrypted object so its data can be read by Neptune.
 + **`kms:GenerateDataKey`**: Also required by the S3 API used to retrieve objects to be read.
 
-```
+```json
 {
   "Sid": "NeptuneQueryAccess",
   "Effect": "Allow",

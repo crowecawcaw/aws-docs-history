@@ -1,7 +1,6 @@
 
 
 # Java-based Gremlin clients to use with Amazon Neptune
-<a name="access-graph-gremlin-client"></a>
 
 You can use either of two open-source Java-based Gremlin clients with Amazon Neptune: the [Apache TinkerPop Java Gremlin client](https://search.maven.org/artifact/org.apache.tinkerpop/gremlin-driver), or the [Gremlin client for Amazon Neptune](https://search.maven.org/artifact/software.amazon.neptune/gremlin-client).
 

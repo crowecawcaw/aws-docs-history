@@ -1,7 +1,6 @@
 
 
 # Graph.Build
-<a name="visualization-graph.build"></a>
 
  In any domain, collaboration with subject matter experts is key to designing graph models that effectively address specific use cases. Whether you're tackling traditional graph workloads like graph analytics or exploring advanced AI applications such as GraphRAG, link prediction, or neuro-symbolic reasoning, the ability to build and iterate on graph models is essential. With Graph.Build, designing and refining graph models becomes more accessible, empowering domain experts to work hand-in-hand with engineers and data analysts to create impactful, tailored solutions. 
 

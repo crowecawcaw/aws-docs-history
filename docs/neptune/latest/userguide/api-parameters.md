@@ -1,7 +1,6 @@
 
 
 # Neptune Parameters API
-<a name="api-parameters"></a>
 
 **Actions:**
 + [CopyDBParameterGroup (action)](#CopyDBParameterGroup)

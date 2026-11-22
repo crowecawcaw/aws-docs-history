@@ -1,7 +1,6 @@
 
 
 # Using Audit Logs with Amazon Neptune Clusters
-<a name="auditing"></a>
 
 To audit Amazon Neptune DB cluster activity, enable the collection of audit logs by setting a DB cluster parameter. When audit logs are enabled, you can use it to log any combination of supported events. You can view or download the audit logs to review them.
 

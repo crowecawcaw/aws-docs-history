@@ -1,7 +1,6 @@
 
 
 # Getting started with the Neptune JDBC driver
-<a name="neptune-jdbc-getting-started"></a>
 
 To use the Neptune JDBC driver to connect to a Neptune instance, either the JDBC driver must be deployed on an Amazon EC2 instance in the same VPC as your Neptune DB cluster, or the instance must be available through an SSH tunnel or load balancer. An SSH tunnel can be set up in the driver internally, or it can be set up externally.
 
@@ -9,7 +8,7 @@ You can download the driver [here](https://github.com/aws/amazon-neptune-jdbc-dr
 
 The driver needs a JDBC connection URL to connect with Neptune, in a form like this:
 
-```
+```java
 jdbc:neptune:{{(connection type)}}://{{(host)}};{{property}}={{value}};{{property}}={{value}};{{...}};{{property}}={{value}}
 ```
 
@@ -17,7 +16,7 @@ The sections for each query language in the GitHub project describe the properti
 
 If the JAR file is in your application's `classpath`, no other configuration is necessary. You can connect the driver using the JDBC `DriverManager` interface and a Neptune connection string. For example, if your Neptune DB cluster is accessible through the endpoint `neptune-example.com` on port 8182, you would be able to connect with openCypher like this:
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;

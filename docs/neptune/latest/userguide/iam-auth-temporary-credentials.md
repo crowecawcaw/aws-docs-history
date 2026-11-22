@@ -1,7 +1,6 @@
 
 
 # Using temporary credentials to connect to Amazon Neptune
-<a name="iam-auth-temporary-credentials"></a>
 
 Amazon Neptune supports IAM authentication using temporary credentials.
 
@@ -44,7 +43,7 @@ Add the following trust relationship to the Neptune IAM authentication role. If 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -165,7 +164,7 @@ Add the following trust relationship to the Neptune IAM authentication role. If 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -217,7 +216,7 @@ Add the following trust relationship to the Neptune IAM authentication role. If 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

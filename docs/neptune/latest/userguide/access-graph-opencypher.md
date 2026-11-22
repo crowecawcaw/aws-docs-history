@@ -1,7 +1,6 @@
 
 
 # Accessing the Neptune Graph with openCypher
-<a name="access-graph-opencypher"></a>
 
 Neptune supports building graph applications using openCypher, currently one of the most popular query languages for developers working with graph databases. Developers, business analysts, and data scientists like openCypher’s SQL-inspired syntax because it provides a familiar structure to compose queries for graph applications.
 

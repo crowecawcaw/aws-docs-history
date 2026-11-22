@@ -1,7 +1,6 @@
 
 
 # Prefer using custom IDs for node/relationship
-<a name="best-practices-content-15"></a>
 
  Neptune allows users to explicitly assign IDs on nodes and relationships. The ID must be globally unique in the dataset and deterministic to be useful. A deterministic ID can be used as a lookup or a filtering mechanism just like properties; however, using an ID is much more optimized from query execution perspective than using properties. There are several benefits to using custom IDs - 
 +  Properties can be null for an existing entity, but the ID must exist. This allows the query engine to use an optimized join during execution. 

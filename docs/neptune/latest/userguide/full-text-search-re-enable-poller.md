@@ -1,7 +1,6 @@
 
 
 # Re-enabling the stream poller process
-<a name="full-text-search-re-enable-poller"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 

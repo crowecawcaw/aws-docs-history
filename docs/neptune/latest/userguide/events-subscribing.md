@@ -1,7 +1,6 @@
 
 
 # Subscribing to Neptune event notification
-<a name="events-subscribing"></a>
 
 You can use the Neptune console to subscribe to event notifications, as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Specify edge labels where possible
-<a name="best-practices-content-6"></a>
 
  It is recommended to provide an edge label where possible when specifying an edge in a pattern. Consider the following example query, which is used to link all of the people living in a city with all of the people who visited that city. 
 

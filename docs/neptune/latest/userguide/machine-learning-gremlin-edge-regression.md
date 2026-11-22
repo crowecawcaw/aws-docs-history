@@ -1,7 +1,6 @@
 
 
 # Gremlin edge regression queries in Neptune ML
-<a name="machine-learning-gremlin-edge-regression"></a>
 
 Edge regression is similar to edge classification, except that the value inferred from the ML model is numeric. For edge regression, Neptune ML supports the same queries as for classification.
 

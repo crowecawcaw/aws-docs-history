@@ -1,7 +1,6 @@
 
 
 # Neptune Streams API Exceptions
-<a name="streams-using-api-exceptions"></a>
 
 The following table describes Neptune Streams exceptions.
 

@@ -1,14 +1,13 @@
 
 
 # Optionally, set timeouts at a per-query level
-<a name="best-practices-gremlin-java-per-query-timeout"></a>
 
 Neptune provides you with the ability to set a timeout for your queries using the parameter group option `neptune_query_timeout` (see [Parameters](parameters.md)). You can also override the global timeout, with code like this:
 
 **Note**  
 Query timeout settings apply only to query evaluation. Bytecode-based transaction control operations such as `tx().commit()` and `tx().rollback()` are not subject to query timeouts. For more information, see [Timeout behavior for bytecode commit and rollback](access-graph-gremlin-transactions.md#access-graph-gremlin-transactions-commit-rollback-timeout).
 
-```
+```java
   final Cluster cluster = Cluster.build("localhost")
                                  .port(8182)
                                  .maxInProcessPerConnection(32)
@@ -27,7 +26,7 @@ Query timeout settings apply only to query evaluation. Bytecode-based transactio
 
 Or, for string-based query submission, the code would look like this:
 
-```
+```java
   RequestOptions options = RequestOptions.build().timeout(500).create();
   List<Result> result = client.submit("g.V()", options).all().get();
 ```

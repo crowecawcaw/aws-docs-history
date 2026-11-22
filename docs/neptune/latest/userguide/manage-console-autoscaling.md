@@ -1,7 +1,6 @@
 
 
 # Auto-scaling the number of replicas in an Amazon Neptune DB cluster
-<a name="manage-console-autoscaling"></a>
 
 You can use Neptune auto-scaling to automatically adjust the number of Neptune replicas in a DB cluster to meet your connectivity and workload requirements. Auto-scaling lets your Neptune DB cluster handle increases in workload, and then, when the workload decreases, auto-scaling removes unnecessary replicas so you aren't paying for unused capacity.
 
@@ -30,7 +29,7 @@ Read-replica auto-scaling removes readers through the Neptune API, so cluster de
 
 Using the [neptune\_autoscaling\_config](parameters.md#parameters-db-cluster-parameters-neptune_autoscaling_config) DB cluster parameter, you can also specify the instance type of the new read-replicas that Neptune auto-scaling creates, the maintenance windows for those read-replicas, and tags to be associated with each of the new read-replicas. You provide these configuration settings in a JSON string as the value of the `neptune_autoscaling_config` parameter, like this:
 
-```
+```json
 "{
   \"tags\": [
     { \"key\" : \"{{reader tag-0 key}}\", \"value\" : \"{{reader tag-0 value}}\" },
@@ -47,7 +46,7 @@ Any of the three configuration settings not specified in the `neptune_autoscalin
 
 When [auto-scaling](https://docs.aws.amazon.com/autoscaling/plans/userguide/) adds a new read-replica instance, it prefixes the DB instance ID with `autoscaled-reader` (for example, `autoscaled-reader-7r7t7z3lbd-20210828`). It also adds a tag to every read-replica that it creates with the key `autoscaled-reader` and a value of `TRUE`. You can see this tag on the **Tags** tab of the DB instance detail page in the AWS Management Console.
 
-```
+```json
  "key" : "autoscaled-reader",  "value" : "TRUE"
 ```
 
@@ -137,7 +136,7 @@ A target-tracking scaling policy is defined as a JSON text object that can also 
 
 Here is an example target tracking scaling configuration policy for Neptune:
 
-```
+```json
 {
   "PredefinedMetricSpecification": { "PredefinedMetricType": "NeptuneReaderAverageCPUUtilization" },
   "TargetValue": 60.0,

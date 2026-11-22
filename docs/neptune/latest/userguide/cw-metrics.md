@@ -1,7 +1,6 @@
 
 
 # Neptune CloudWatch Metrics
-<a name="cw-metrics"></a>
 
 **Note**  
 Amazon Neptune sends metrics to CloudWatch only when they have a non-zero value.  

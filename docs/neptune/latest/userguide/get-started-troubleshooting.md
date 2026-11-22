@@ -1,7 +1,6 @@
 
 
 # Troubleshooting an Amazon Neptune cluster
-<a name="get-started-troubleshooting"></a>
 
 The following links might be helpful for resolving issues with Amazon Neptune.
 + **Best practices** – For solutions to common issues and performance suggestions, see [Best practices: getting the most out of Neptune](best-practices.md).

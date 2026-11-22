@@ -1,7 +1,6 @@
 
 
 # openCypher query timeout hint
-<a name="opencypher-query-hints-timeout-hint"></a>
 
  Query timeout behavior can be configured on a per-query basis by query-level query hint `QUERY:TIMEOUTMILLISECONDS`. It must be used with the `USING` clause. The query hint accepts non-negative long as a value. 
 
@@ -19,7 +18,7 @@ For more information, see [execute-open-cypher-query](https://docs.aws.amazon.co
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -49,8 +48,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=USING QUERY:TIMEOUTMILLISECONDS 100 MATCH(n) RETURN n LIMIT 1"
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -59,6 +57,8 @@ This example assumes that your AWS credentials are configured in your environmen
 curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=USING QUERY:TIMEOUTMILLISECONDS 100 MATCH(n) RETURN n LIMIT 1"
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

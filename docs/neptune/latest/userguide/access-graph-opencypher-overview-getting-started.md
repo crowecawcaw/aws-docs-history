@@ -1,7 +1,6 @@
 
 
 # Getting started using openCypher
-<a name="access-graph-opencypher-overview-getting-started"></a>
 
 You can query property-graph data in Neptune using openCypher regardless of how it was loaded, but you can't use openCypher to query data loaded as RDF.
 

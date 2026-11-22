@@ -1,7 +1,6 @@
 
 
 # Insufficient DB instances available
-<a name="insufficientDBInstancesAvailable"></a>
 
  The `InsufficientDBInstanceCapacity` error can be returned when you try to create, start, or modify a DB instance. It can also be returned when you try to restore a DB instance from a DB snapshot. When this error is returned, a common cause is that the specific DB instance class isn't available in the requested Availability Zone. You can try one of the following to solve the problem: 
 +  Retry the request with a different DB instance class. 

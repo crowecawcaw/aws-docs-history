@@ -1,7 +1,6 @@
 
 
 # Neptune Loader Get-Status API
-<a name="load-api-reference-status"></a>
 
 Gets the status of a `loader` job.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune utility for GraphQL
-<a name="tools-graphql"></a>
 
 The Amazon Neptune utility for [GraphQL](https://graphql.org/) is an open-source Node.js command-line tool that can help you create and maintain a GraphQL API for a Neptune property-graph database (it does not yet work with RDF data). It is a no-code way to create a GraphQL resolver for GraphQL queries that have a variable number of input parameters and return a variable number of nested fields.
 

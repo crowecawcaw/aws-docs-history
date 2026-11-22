@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Neptune full-text search
-<a name="streams-consumer-troubleshooting"></a>
 
 **Note**  
 If you have enabled [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) on your OpenSearch cluster, you need to [enable IAM authentication](iam-auth-enable.md) in your Neptune database as well.

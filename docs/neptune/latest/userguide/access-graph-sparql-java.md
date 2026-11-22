@@ -1,7 +1,6 @@
 
 
 # Using Java to connect to a Neptune DB instance
-<a name="access-graph-sparql-java"></a>
 
 This section walks you through the running of a complete Java sample that connects to an Amazon Neptune DB instance and performs a SPARQL query.
 

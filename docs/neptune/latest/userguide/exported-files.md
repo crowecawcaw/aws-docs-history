@@ -1,7 +1,6 @@
 
 
 # Files exported by Neptune-Export and `neptune-export`
-<a name="exported-files"></a>
 
 When an export is complete, the export files are published to the Amazon S3 location you have specified. All files published to Amazon S3 are encrypted using Amazon S3 server-side encryption (`SSE-S3`). The folders and files published to Amazon S3 vary depending on whether you are exporting property-graph or RDF data. If you open the Amazon Amazon S3 location where the files are published, you see the following content:
 

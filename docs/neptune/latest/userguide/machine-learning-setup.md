@@ -1,7 +1,6 @@
 
 
 # Setting up Neptune ML
-<a name="machine-learning-setup"></a>
 
 The easiest way to get started with Neptune ML is to [use the CloudFormation quick-start template](machine-learning-quick-start.md). This template installs all necessary components, including a new Neptune DB cluster, all the necessary IAM roles, and a new Neptune graph-notebook to make working with Neptune ML easier.
 

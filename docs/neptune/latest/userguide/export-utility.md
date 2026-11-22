@@ -1,7 +1,6 @@
 
 
 # Using the `neptune-export` command-line tool to export data from Neptune
-<a name="export-utility"></a>
 
 You can use the following steps to export data from your Neptune DB cluster to Amazon S3 using the `neptune-export` command-line utility:
 
@@ -51,7 +50,7 @@ You can use the following steps to export data from your Neptune DB cluster to A
 
 Use the following command to run neptune-export from the command line and start an export operation:
 
-```
+```java
 java -jar neptune-export.jar nesvc \
   --root-path {{(path to a local directory)}} \
   --json {{(the JSON file that defines the export)}}
@@ -68,7 +67,7 @@ The command has two parameters:
 
 To export property-graph data directly from your source DB cluster:
 
-```
+```java
 java -jar neptune-export.jar nesvc \
   --root-path /home/ec2-user/neptune-export \
   --json '{
@@ -82,7 +81,7 @@ java -jar neptune-export.jar nesvc \
 
 To export RDF data directly from your source DB cluster:
 
-```
+```java
 java -jar neptune-export.jar nesvc \
   --root-path /home/ec2-user/neptune-export \
   --json '{
@@ -98,7 +97,7 @@ If you omit the `command` request parameter, the `neptune-export` utility export
 
 To export from a clone of your DB cluster:
 
-```
+```java
 java -jar neptune-export.jar nesvc \
   --root-path /home/ec2-user/neptune-export \
   --json '{
@@ -113,7 +112,7 @@ java -jar neptune-export.jar nesvc \
 
 To export from your DB cluster using IAM authentication:
 
-```
+```java
 java -jar neptune-export.jar nesvc \
   --root-path /home/ec2-user/neptune-export \
   --json '{

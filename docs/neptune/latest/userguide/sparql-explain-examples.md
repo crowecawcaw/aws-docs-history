@@ -1,7 +1,6 @@
 
 
 # Examples of invoking SPARQL `explain` in Neptune
-<a name="sparql-explain-examples"></a>
 
 The examples in this section show the various kinds of output you can produce by invoking the SPARQL `explain` feature to analyze query execution in Amazon Neptune.
 

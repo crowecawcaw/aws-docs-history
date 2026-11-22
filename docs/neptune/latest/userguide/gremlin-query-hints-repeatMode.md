@@ -1,7 +1,6 @@
 
 
 # Gremlin repeatMode query hint
-<a name="gremlin-query-hints-repeatMode"></a>
 
 The Neptune `repeatMode` query hint specifies how the Neptune engine evaluates the `repeat()` step in a Gremlin traversal: breadth first, depth first, or chunked depth first.
 

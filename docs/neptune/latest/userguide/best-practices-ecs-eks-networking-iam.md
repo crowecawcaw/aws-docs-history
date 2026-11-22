@@ -1,7 +1,6 @@
 
 
 # Configure networking, security groups, and IAM authentication
-<a name="best-practices-ecs-eks-networking-iam"></a>
 
 Containerized deployments on Amazon ECS or Amazon EKS require correct network configuration and IAM credential management to connect to Neptune.
 
@@ -27,7 +26,7 @@ For more information, see [get-engine-status](https://docs.aws.amazon.com/cli/la
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -51,8 +50,7 @@ awscurl https://{{your-neptune-endpoint}}:8182/status \
   --service neptune-db
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -63,6 +61,8 @@ curl -k https://{{your-neptune-endpoint}}:8182/status
 
 **Note**  
 The `-k` flag skips certificate verification. Use this only for connectivity testing, not in production code.
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

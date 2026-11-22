@@ -1,7 +1,6 @@
 
 
 # Neptune Instances API
-<a name="api-instances"></a>
 
 **Actions:**
 + [CreateDBInstance (action)](#CreateDBInstance)

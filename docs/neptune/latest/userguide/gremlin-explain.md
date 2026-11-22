@@ -1,7 +1,6 @@
 
 
 # Analyzing Neptune query execution using Gremlin `explain`
-<a name="gremlin-explain"></a>
 
 Amazon Neptune has added a Gremlin feature named *explain*. This feature is a self-service tool for understanding the execution approach taken by the Neptune engine. You invoke it by adding an `explain` parameter to an HTTP call that submits a Gremlin query.
 

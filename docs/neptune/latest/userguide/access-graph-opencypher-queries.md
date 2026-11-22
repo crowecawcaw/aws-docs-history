@@ -1,7 +1,6 @@
 
 
 # The Amazon Neptune OpenCypher HTTPS endpoint
-<a name="access-graph-opencypher-queries"></a>
 
 **Topics**
 + [OpenCypher read and write queries on the HTTPS endpoint](#access-graph-opencypher-queries-read-write)
@@ -40,7 +39,7 @@ For more information, see [execute-open-cypher-query](https://docs.aws.amazon.co
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -71,8 +70,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=MATCH (n1) RETURN n1"
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -81,6 +79,8 @@ This example assumes that your AWS credentials are configured in your environmen
 curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=MATCH (n1) RETURN n1"
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -100,7 +100,7 @@ For more information, see [execute-open-cypher-query](https://docs.aws.amazon.co
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -131,8 +131,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=CREATE (n:Person { age: 25 })"
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -141,6 +140,8 @@ This example assumes that your AWS credentials are configured in your environmen
 curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=CREATE (n:Person { age: 25 })"
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -157,7 +158,7 @@ The JSON document that is returned contains one field, `results`, which contains
 
 **Value response example:**
 
-```
+```json
 {
   "results": [
     {
@@ -169,7 +170,7 @@ The JSON document that is returned contains one field, `results`, which contains
 
 **Node response example:**
 
-```
+```json
 {
   "results": [
     {
@@ -201,7 +202,7 @@ The JSON document that is returned contains one field, `results`, which contains
 
 **Relationship response example:**
 
-```
+```json
 {
   "results": [
     {
@@ -222,7 +223,7 @@ The JSON document that is returned contains one field, `results`, which contains
 
 **Path response example:**
 
-```
+```json
 {
   "results": [
     {
@@ -300,7 +301,7 @@ The JSON document that is returned contains one field, `results`, which contains
  For more information, see the [MDN page about TE request headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/TE). 
 
 **OpenCypher trailing headers usage example**  
- This example demonstrates how trailing headers help diagnose a query that exceeds its time limit: 
+ This example demonstrates how trailing headers help diagnose a query that exceeds its time limit. To reproduce this failure, set a low value for the [neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout) DB cluster parameter. Then run a query that returns enough results to take longer than that limit. 
 
 ```
 curl --raw 'https://your-neptune-endpoint:port/openCypher' \

@@ -1,7 +1,6 @@
 
 
 # Using Amazon Neptune slow-query logging
-<a name="slow-query-logs"></a>
 
 Identifying, debugging and optimizing a slow-running query can be difficult. When Neptune's slow-query logging is enabled, attributes of all long-running queries are automatically logged to make this process easier.
 
@@ -158,7 +157,7 @@ gremlin=g.V().has('code','AUS').repeat(out().simplePath()).until(has('code','AGR
 
 Then, if slow-query logging was enabled in debug mode, the following attributes would be logged for the query, in a form like this:
 
-```
+```json
 {
   "requestResponseMetadata": {
     "requestId": "5311e493-0e98-457e-9131-d250a2ce1e12",

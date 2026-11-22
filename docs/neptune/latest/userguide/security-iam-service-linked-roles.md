@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon Neptune
-<a name="security-iam-service-linked-roles"></a>
 
 Amazon Neptune uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Neptune. Service-linked roles are predefined by Neptune and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -49,7 +48,7 @@ The role permissions policy allows Neptune to complete the following actions on 
 
 **Note**  
 You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role. You might encounter the following error message:  
-Unable to create the resource. Verify that you have permission to create service linked role. Otherwise wait and try again later.  
+`Unable to create the resource. Verify that you have permission to create service linked role. Otherwise wait and try again later.`  
 If you see this message, make sure that you have the following permissions enabled:   
 
 ```

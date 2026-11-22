@@ -1,7 +1,6 @@
 
 
 # Fields to set in the params object when exporting training data
-<a name="machine-learning-params"></a>
 
 The `params` object in an export request can contain various fields, as described in the [`params` documentation](export-params-fields.md). The following ones are most relevant for exporting machine-learning training data:
 + **`endpoint`**   –   Use `endpoint` to specify an endpoint of a Neptune instance in your DB cluster that the export process can query to extract data.

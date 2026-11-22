@@ -1,7 +1,6 @@
 
 
 # Best practices for using Neptune metrics
-<a name="best-practices-general-metrics"></a>
 
 To identify performance issues caused by insufficient resources and other common bottlenecks, you can monitor the metrics available for your Neptune DB cluster. 
 

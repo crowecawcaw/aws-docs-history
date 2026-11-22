@@ -1,7 +1,6 @@
 
 
 # Removing a DB cluster from a Neptune global database
-<a name="neptune-gdb-detaching"></a>
 
 There are several reasons you might want to remove a DB cluster from a global database. For example:
 + If the primary cluster becomes degraded or isolated, you can remove it from the global database and it becomes a standalone provisioned cluster that can be used to create a new global database (see [Detach-and-promote a Neptune global database in the case of an unplanned outage](neptune-gdb-disaster-recovery.md#neptune-gdb-detach-and-promote)).

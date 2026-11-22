@@ -1,11 +1,10 @@
 
 
 # Disable DNS caching in the Java Virtual Machine
-<a name="best-practices-gremlin-java-disable-dns-caching"></a>
 
 In an environment where you want to load-balance requests across multiple read replicas, you need to disable DNS caching in the Java Virtual Machine (JVM) and provide Neptune's reader endpoint while creating the [Cluster object](https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/driver/Cluster.html). Disabling the JVM DNS cache ensures that DNS is resolved again for every new connection so that the requests are distributed across all of the read replicas. You can do this in your application's initialization code with the following line:
 
-```
+```java
 java.security.Security.setProperty("networkaddress.cache.ttl", "0");
 ```
 

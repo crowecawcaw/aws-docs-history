@@ -1,7 +1,6 @@
 
 
 # Working with custom endpoints in Neptune
-<a name="feature-custom-endpoint-membership"></a>
 
 When you add a DB instance to a custom endpoint or remove it from a custom endpoint, any existing connections to that DB instance remain active.
 

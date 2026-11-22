@@ -1,7 +1,6 @@
 
 
 # Neptune Lab Mode
-<a name="features-lab-mode"></a>
 
 You can use Amazon Neptune *lab mode* to enable new features that are in the current Neptune engine release, but that aren't yet ready for production use and aren't enabled by default. This lets you try out these features in your development and test environments.
 
@@ -26,7 +25,7 @@ curl -G https://{{your-neptune-endpoint}}:{{port}}/status
 ```
 The status results include lab-mode information which will show whether or not the changes you requested were made:  
 
-```
+```json
 {
   "status":"healthy",
   "startTime":"Wed Dec 29 02:29:24 UTC 2021",

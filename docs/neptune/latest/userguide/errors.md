@@ -1,7 +1,6 @@
 
 
 # Neptune Service Errors
-<a name="errors"></a>
 
 Amazon Neptune has two different sets of errors:
 + The graph engine errors that are for the Neptune DB cluster endpoints only.

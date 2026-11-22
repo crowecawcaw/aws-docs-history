@@ -1,7 +1,6 @@
 
 
 # Copying a DB Cluster Snapshot
-<a name="backup-restore-copy-snapshot"></a>
 
 With Neptune, you can copy automated or manual DB cluster snapshots. After you copy a snapshot, the copy is a manual snapshot. 
 

@@ -1,7 +1,6 @@
 
 
 # Best practices using the Gremlin Java client with Neptune
-<a name="best-practices-gremlin-java-client"></a>
 
 Follow these recommendations when using the Gremlin Java client with Neptune. These best practices help you optimize performance, manage connections effectively, and avoid common pitfalls when working with the Java driver.
 

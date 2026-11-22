@@ -1,7 +1,6 @@
 
 
 # Constructing an ARN for Neptune
-<a name="tagging-arns-constructing"></a>
 
 You can construct an ARN for an Amazon Neptune resource using the following syntax. Note that Neptune shares the format of Amazon RDS ARNs.
 

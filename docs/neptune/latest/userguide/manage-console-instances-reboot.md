@@ -1,7 +1,6 @@
 
 
 # Rebooting a DB instance in Amazon Neptune
-<a name="manage-console-instances-reboot"></a>
 
  In some cases, if you modify an Amazon Neptune DB instance, change the DB parameter group that is associated with the instance, or change a static DB parameter in a parameter group that the instance uses, you must reboot the instance to apply the changes.
 

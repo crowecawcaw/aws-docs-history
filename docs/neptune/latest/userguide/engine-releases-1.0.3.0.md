@@ -1,7 +1,6 @@
 
 
 # Amazon Neptune Engine Version 1.0.3.0 (2020-08-03)
-<a name="engine-releases-1.0.3.0"></a>
 
 As of 2020-08-03, AWS deploys engine version 1.0.3.0 to all Regions. It takes several days for a new release to become available in every Region.
 

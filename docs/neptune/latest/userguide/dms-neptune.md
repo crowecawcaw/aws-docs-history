@@ -1,7 +1,6 @@
 
 
 # Using AWS Database Migration Service to load data into Amazon Neptune from a different data store
-<a name="dms-neptune"></a>
 
 AWS Database Migration Service (AWS DMS) can load data into Neptune from [supported source databases](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html) quickly and securely. The source database remains fully operational during the migration, minimizing downtime for applications that rely on it.
 

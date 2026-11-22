@@ -1,7 +1,6 @@
 
 
 # Transaction Isolation Levels in Neptune
-<a name="transactions-neptune"></a>
 
 Amazon Neptune implements different transaction isolation levels for read-only queries and for mutation queries. SPARQL and Gremlin queries are classified as read-only or mutation based on the following criteria:
 + In SPARQL, there is a clear distinction between read queries (`SELECT`, `ASK`, `CONSTRUCT`, and `DESCRIBE` as defined in the [SPARQL 1.1 Query Language](https://www.w3.org/TR/sparql11-query/) specification), and mutation queries (`INSERT` and `DELETE` as defined in the [SPARQL 1.1 Update](https://www.w3.org/TR/sparql11-update/) specification).

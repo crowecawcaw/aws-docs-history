@@ -1,7 +1,6 @@
 
 
 # Using the Bolt protocol to make openCypher queries to Neptune
-<a name="access-graph-opencypher-bolt"></a>
 
 [Bolt](https://boltprotocol.org/) is a statement-oriented client/server protocol initially developed by Neo4j and licensed under the Creative Commons 3.0 [Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/) license. It is client-driven, meaning that the client always initiates message exchanges.
 
@@ -34,7 +33,7 @@ You can download a driver for whatever version you want to use from the Maven [M
 
 Then, to connect to Neptune in Java using one of these Bolt drivers, create a driver instance for the primary/writer instance in your cluster using code like the following:
 
-```
+```java
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
 
@@ -48,7 +47,7 @@ final Driver driver =
 
 If you have one or more reader replicas, you can similarly create a driver instance for them using code like this:
 
-```
+```java
 final Driver read_only_driver =              // (without connection timeout)
   GraphDatabase.driver("bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}",
       Config.builder().withEncryption()
@@ -58,7 +57,7 @@ final Driver read_only_driver =              // (without connection timeout)
 
 Or, with a timeout:
 
-```
+```java
 final Driver read_only_timeout_driver =      // (with connection timeout)
   GraphDatabase.driver("bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}",
     Config.builder().withConnectionTimeout(30, TimeUnit.SECONDS)
@@ -74,11 +73,11 @@ If you have custom endpoints, it may also be worthwhile to create a driver insta
 
 Here is how to make an openCypher query in Python using Bolt:
 
-```
+```python
 python -m pip install neo4j
 ```
 
-```
+```python
 from neo4j import GraphDatabase
 uri = "bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}"
 driver = GraphDatabase.driver(uri, auth=("username", "password"), encrypted=True)
@@ -91,11 +90,11 @@ Note that the `auth` parameters are ignored.
 
 To make an openCypher query in .NET using Bolt, the first step is to install the Neo4j driver using NuHet. To make synchronous calls, use the `.Simple` version, like this:
 
-```
+```cs
 Install-Package Neo4j.Driver.Simple-4.3.0
 ```
 
-```
+```cs
 using Neo4j.Driver;
 
 namespace hello
@@ -189,7 +188,7 @@ namespace hello
 
 The Java code below shows how to make openCypher queries in Java using Bolt with IAM authentication. The JavaDoc comment describes its usage. Once a driver instance is available, you can use it to make multiple authenticated requests.
 
-```
+```java
 package software.amazon.neptune.bolt;
 
 import com.amazonaws.DefaultRequest;
@@ -318,7 +317,7 @@ This example requires the Neo4j Python driver (version 5.x) and the AWS SDK for 
 pip install neo4j boto3
 ```
 
-```
+```python
 import json
 
 from neo4j import Auth, GraphDatabase
@@ -366,7 +365,7 @@ class NeptuneAuthToken(Auth):
 
 You use this class to create a driver as follows:
 
-```
+```python
   authToken = NeptuneAuthToken(creds, REGION, URL)
   driver = GraphDatabase.driver(URL, auth=authToken, encrypted=True)
 ```
@@ -389,7 +388,7 @@ The `_host_from_url` function is an internal botocore helper that sets the `Host
 
 The Node.js code below uses the AWS SDK for JavaScript version 3 and ES6 syntax to create a driver that authenticates requests:
 
-```
+```javascript
 import neo4j from "neo4j-driver";
 import { HttpRequest }  from "@smithy/protocol-http";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
@@ -485,7 +484,7 @@ try {
 
 To enable IAM authentication in .NET, you need to sign a request when establishing the connection. The example below shows how to create a `NeptuneAuthToken` helper to generate an authentication token:
 
-```
+```cs
 using Amazon.Runtime;
 using Amazon.Util;
 using Neo4j.Driver;
@@ -654,7 +653,7 @@ namespace Hello
 
 Here is how to make an openCypher query in .NET using Bolt with IAM authentication. The example below uses the `NeptuneAuthToken` helper:
 
-```
+```cs
 using Neo4j.Driver;
 
 namespace Hello
@@ -731,7 +730,7 @@ This example can be launched by running the code below on `.NET 6` or `.NET 7` w
 + **`Neo4j`**`.Driver=4.3.0`
 + **`AWSSDK`**`.Core=3.7.102.1`
 
-```
+```cs
 namespace Hello
 {
   class Program
@@ -754,7 +753,7 @@ The following example shows how to make openCypher queries in Go using the Bolt 
 
 First, create an `AuthTokenManager` that generates SigV4-signed tokens. Save this as `auth_token_manager.go`:
 
-```
+```go
 // AuthTokenManager for Amazon Neptune IAM authentication via the Bolt protocol.
 // Provides SigV4-signed credentials to the Neo4j driver's auth interface.
 package main
@@ -912,7 +911,7 @@ func (m *AuthTokenManager) generateToken(ctx context.Context) (neo4j.AuthToken, 
 
 Then use the token manager to create a driver and find a node by ID. Note the use of a parameterized query (`$nodeId`) instead of string interpolation:
 
-```
+```go
 package main
 
 import (
@@ -1017,7 +1016,7 @@ Here are some things to keep in mind about Neptune Bolt connections:
 + However, if a connection is idle for 20 minutes, the server closes it automatically.
 + If IAM authentication is not enabled, you can use `AuthTokens.none()` rather than supplying a dummy user name and password. For example, in Java:
 
-  ```
+  ```java
   GraphDatabase.driver("bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}", AuthTokens.none(),
       Config.builder().withEncryption().withTrustStrategy(TrustStrategy.trustSystemCertificates()).build());
   ```

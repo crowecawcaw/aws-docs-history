@@ -1,7 +1,6 @@
 
 
 # Graph visualization tools for Neptune
-<a name="visualization-tools"></a>
 
 In addition to the visualization capabilities that are [built into Neptune graph-notebooks](notebooks-visualization.md), you can also use solutions built by AWS partners and third-party vendors for visualizing data stored in Neptune.
 

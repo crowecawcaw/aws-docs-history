@@ -1,7 +1,6 @@
 
 
 # Gremlin query status API
-<a name="gremlin-api-status"></a>
 
 You can list all active Gremlin queries or get the status of a specific query. The underlying HTTP endpoint for both operations is `https://{{your-neptune-endpoint}}:{{port}}/gremlin/status`.
 
@@ -12,7 +11,7 @@ To list all active Gremlin queries, call the endpoint with no `queryId` paramete
 
 ### Request parameters
 <a name="gremlin-api-status-list-request"></a>
-+ **includeWaiting** (*optional*)   –   If set to `TRUE`, the response includes waiting queries in addition to running queries.
++ **includeWaiting** (*optional*)   –   Specifies whether the response includes waiting queries in addition to running queries. The default is `false`, so the `queries` list contains only running queries.
 
 ### Response syntax
 <a name="gremlin-api-status-list-response"></a>
@@ -54,7 +53,7 @@ For more information, see [list-gremlin-queries](https://docs.aws.amazon.com/cli
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -80,10 +79,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/status \
   --service neptune-db
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
-
-For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -91,6 +87,50 @@ For more information about using **awscurl** with IAM authentication, see [Using
 ```
 curl https://{{your-neptune-endpoint}}:{{port}}/gremlin/status
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
+
+------
+
+To include waiting queries, set `includeWaiting` to `true`, as shown in the following examples.
+
+------
+#### [ AWS CLI ]
+
+```
+aws neptunedata list-gremlin-queries \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
+  --include-waiting
+```
+
+------
+#### [ SDK ]
+
+```python
+response = client.list_gremlin_queries(
+    includeWaiting=True
+)
+```
+
+------
+#### [ awscurl ]
+
+```
+awscurl "https://{{your-neptune-endpoint}}:{{port}}/gremlin/status?includeWaiting=true" \
+  --region {{us-east-1}} \
+  --service neptune-db
+```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
+
+------
+#### [ curl ]
+
+```
+curl "https://{{your-neptune-endpoint}}:{{port}}/gremlin/status?includeWaiting=true"
+```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 
@@ -159,7 +199,7 @@ For more information, see [get-gremlin-query-status](https://docs.aws.amazon.com
 ------
 #### [ SDK ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -187,10 +227,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/status/fb34cd3e-f37c-
   --service neptune-db
 ```
 
-**Note**  
-This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
-
-For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 #### [ curl ]
@@ -198,6 +235,8 @@ For more information about using **awscurl** with IAM authentication, see [Using
 ```
 curl https://{{your-neptune-endpoint}}:{{port}}/gremlin/status/fb34cd3e-f37c-4d12-9cf2-03bb741bf54f
 ```
+
+To connect to a cluster that has IAM authentication enabled, each request must be signed. See [Connecting from the command line](iam-auth-connect-command-line.md).
 
 ------
 

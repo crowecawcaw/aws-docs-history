@@ -1,7 +1,6 @@
 
 
 # Cutting over from the production blue cluster to the updated green cluster
-<a name="neptune-BG-cutover"></a>
 
 Before promoting the green cluster to production, ensure that the commit difference between the blue and green clusters is zero and then disable all write traffic to the blue cluster. Continuing to write to the blue cluster while switching the database endpoint to the green cluster can result in data corruption caused by writing partial data to both clusters. You may not need to disable read traffic yet.
 

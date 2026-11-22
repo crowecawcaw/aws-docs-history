@@ -1,7 +1,6 @@
 
 
 # Encrypting connections to your Amazon Neptune database with SSL/HTTPS
-<a name="security-ssl"></a>
 
 Amazon Neptune only allows Secure Sockets Layer (SSL) connections through HTTPS to any instance or cluster endpoint.
 

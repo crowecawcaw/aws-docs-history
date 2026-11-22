@@ -1,7 +1,6 @@
 
 
 # SPARQL subject prediction example
-<a name="machine-learning-sparql-inference-subject-prediction"></a>
 
 *Subject prediction* predicts the subject given a predicate and an object.
 

@@ -1,7 +1,6 @@
 
 
 # Using Neptune streams cross-region replication for disaster recovery
-<a name="streams-disaster-recovery"></a>
 
 Neptune provides two ways of implementing cross-region failover capabilities:
 + Cross-region snapshot copy and restore

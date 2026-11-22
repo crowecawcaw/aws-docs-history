@@ -1,7 +1,6 @@
 
 
 # Customizing model hyperparameter configurations in Neptune ML
-<a name="machine-learning-customizing-hyperparams"></a>
 
 When you start a Neptune ML model-training job, Neptune ML automatically uses the information inferred from the preceding [data-processing](machine-learning-on-graphs-processing.md) job. It uses the information to generate hyperparameter configuration ranges that are used to create a [SageMaker AI hyperparameter tuning job](https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html) to train multiple models for your task. That way, you don’t have to specify a long list of hyperparameter values for the models to be trained with. Instead, the model hyperparameter ranges and defaults are selected based on the task type, graph type, and the tuning-job settings.
 
@@ -43,7 +42,7 @@ The hyperparameters are categorized as belonging to various tiers that signify t
 
 The following is a sample `model-HPO-configuration.json` file:
 
-```
+```json
 {
   "models": [
     {
@@ -191,7 +190,7 @@ If you set the `modelName` parameter in the `modelTraining` API and also change 
 
   For example, to change the metric to `F1`, change the `eval_metric` value as follows:
 
-  ```
+  ```json
   "  eval_metric": {
       "metric": "F1",
     },
@@ -199,7 +198,7 @@ If you set the `modelName` parameter in the `modelTraining` API and also change 
 
   Or, to change the metric to a `topk` accuracy score, you would change `eval_metric` as follows:
 
-  ```
+  ```json
     "eval_metric": {
       "metric": "acc_topk",
       "topk": 2
@@ -209,7 +208,7 @@ If you set the `modelName` parameter in the `modelTraining` API and also change 
 
   The `eval_frequency` object contains two elements, namely `"type"` and `"value"`. For example:
 
-  ```
+  ```json
     "eval_frequency": {
       "type":  "evaluate_every_pct",
       "value":  0.1
@@ -231,7 +230,7 @@ If you set the `modelName` parameter in the `modelTraining` API and also change 
 
   The default setting for `eval_frequency` is:
 
-  ```
+  ```json
     "eval_frequency": {
       "type":  "evaluate_every_epoch",
       "value":  1

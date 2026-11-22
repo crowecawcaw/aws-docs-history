@@ -1,7 +1,6 @@
 
 
 # Troubleshooting the Neptune export process
-<a name="export-troubleshooting"></a>
 
 The Amazon Neptune export process uses [AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/) to provision the compute and storage resources necessary to export your Neptune data. When an export is running, you can use the link in the `logs` field to access the CloudWatch logs for the export job.
 
@@ -45,7 +44,7 @@ If an `export-rdf` job is regularly failing with a `Tag mismatch!` `QueryEvaluat
 
 You can avoid getting this error by scaling up to a larger Neptune instance or by configuring the job to export from a large cloned cluster, like this:
 
-```
+```json
 '{
   "command": "export-rdf",
   "outputS3Path": "s3://{{(your Amazon S3 bucket)}}/neptune-export",

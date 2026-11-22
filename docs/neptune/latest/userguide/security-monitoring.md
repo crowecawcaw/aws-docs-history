@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring usage and performance in Amazon Neptune
-<a name="security-monitoring"></a>
 
 Amazon Neptune supports various methods for monitoring performance and usage:
 + **Cluster status** – Check the health of a Neptune cluster's graph database engine. For more information, see [Check the Health Status of a Neptune Instance](access-graph-status.md).

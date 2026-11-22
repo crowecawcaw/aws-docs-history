@@ -1,7 +1,6 @@
 
 
 # Graph Engine Error Messages and Codes
-<a name="errors-engine-codes"></a>
 
 Amazon Neptune endpoints return the standard errors for Gremlin and SPARQL when encountered. 
 

@@ -1,7 +1,6 @@
 
 
 # Encrypting Neptune resources at rest
-<a name="encrypt"></a>
 
 Data-at-rest encryption is the AWS recommendation. For more information, see [Data-at-Rest and Data-in-Transit encryption](https://docs.aws.amazon.com/whitepapers/latest/logical-separation/encrypting-data-at-rest-and--in-transit.html). Encryption is enforced in the AWS Console when you create a new Neptune DB Cluster or a new Neptune Global DB. This provides an additional layer of data protection. It secures your data from unauthorized access to the underlying storage and helps fulfill compliance requirements for data-at-rest encryption.
 
@@ -41,7 +40,7 @@ Here is an example (for `us-east-1` region) of a key policy that includes the ne
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "key-consolepolicy-3",
@@ -105,7 +104,7 @@ Here is an example (for `us-east-1` region) of a key policy that includes the ne
 
 You could also scope `createGrant` permissions down further by adding:
 
-```
+```json
 "Condition": {
   "Bool": {
     "kms:GrantIsForAWSResource": true

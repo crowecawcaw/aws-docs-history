@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Neptune API Calls with AWS CloudTrail
-<a name="cloudtrail"></a>
 
 Amazon Neptune is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Neptune. CloudTrail captures API calls for Neptune as events, including calls from the Neptune console and from code calls to the Neptune APIs.
 
