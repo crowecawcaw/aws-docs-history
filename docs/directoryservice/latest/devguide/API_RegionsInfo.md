@@ -1,7 +1,6 @@
 
 
 # RegionsInfo
-<a name="API_RegionsInfo"></a>
 
 Provides information about the Regions that are configured for multi-Region replication.
 

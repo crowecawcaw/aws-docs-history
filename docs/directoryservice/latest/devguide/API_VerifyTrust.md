@@ -1,7 +1,6 @@
 
 
 # VerifyTrust
-<a name="API_VerifyTrust"></a>
 
  AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.
 

@@ -1,7 +1,6 @@
 
 
 # DeleteConditionalForwarder
-<a name="API_DeleteConditionalForwarder"></a>
 
 Deletes a conditional forwarder that has been set up for your AWS directory.
 

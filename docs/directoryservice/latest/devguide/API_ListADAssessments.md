@@ -1,7 +1,6 @@
 
 
 # ListADAssessments
-<a name="API_ListADAssessments"></a>
 
 Retrieves a list of directory assessments for the specified directory or all assessments in your account. Use this operation to monitor assessment status and manage multiple assessments.
 
@@ -34,7 +33,7 @@ Valid Range: Minimum value of 1. Maximum value of 100.
 Required: No
 
  ** [NextToken](#API_ListADAssessments_RequestSyntax) **   <a name="DirectoryService-ListADAssessments-request-NextToken"></a>
-The pagination token from a previous request to [ListADAssessments](#API_ListADAssessments). Pass null if this is the first request.  
+The pagination token from a previous request to [ListADAssessments](API_ListADAssessments.md). Pass null if this is the first request.  
 Type: String  
 Required: No
 

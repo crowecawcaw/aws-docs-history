@@ -1,7 +1,6 @@
 
 
 # DescribeEventTopics
-<a name="API_DescribeEventTopics"></a>
 
 Obtains information about which Amazon SNS topics receive status messages from the specified directory.
 

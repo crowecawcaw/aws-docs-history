@@ -1,7 +1,6 @@
 
 
 # ResetUserPassword
-<a name="API_ResetUserPassword"></a>
 
 Resets the password for any user in your AWS Managed Microsoft AD or Simple AD directory. Disabled users will become enabled and can be authenticated following the API call.
 

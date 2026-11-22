@@ -1,7 +1,6 @@
 
 
 # CreateComputer
-<a name="API_CreateComputer"></a>
 
 Creates an Active Directory computer object in the specified directory.
 

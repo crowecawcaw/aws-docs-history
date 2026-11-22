@@ -1,7 +1,6 @@
 
 
 # UpdateConditionalForwarder
-<a name="API_UpdateConditionalForwarder"></a>
 
 Updates a conditional forwarder that has been set up for your AWS directory.
 

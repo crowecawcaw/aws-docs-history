@@ -1,7 +1,6 @@
 
 
 # NetworkUpdateSettings
-<a name="API_NetworkUpdateSettings"></a>
 
 Contains the network configuration for directory update operations.
 

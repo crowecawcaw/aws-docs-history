@@ -1,7 +1,6 @@
 
 
 # DescribeDirectoryDataAccess
-<a name="API_DescribeDirectoryDataAccess"></a>
 
 Obtains status of directory data access enablement through the Directory Service Data API for the specified directory.
 

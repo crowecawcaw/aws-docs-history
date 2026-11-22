@@ -1,7 +1,6 @@
 
 
 # DirectoryConnectSettingsDescription
-<a name="API_DirectoryConnectSettingsDescription"></a>
 
 Contains information about an AD Connector directory.
 

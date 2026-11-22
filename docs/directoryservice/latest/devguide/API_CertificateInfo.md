@@ -1,7 +1,6 @@
 
 
 # CertificateInfo
-<a name="API_CertificateInfo"></a>
 
 Contains general information about a certificate.
 

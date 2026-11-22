@@ -1,7 +1,6 @@
 
 
 # DirectoryLimits
-<a name="API_DirectoryLimits"></a>
 
 Contains directory limit information for a Region.
 

@@ -1,7 +1,6 @@
 
 
 # ShareTarget
-<a name="API_ShareTarget"></a>
 
 Identifier that contains details about the directory consumer account.
 

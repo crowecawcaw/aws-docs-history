@@ -1,7 +1,6 @@
 
 
 # DeleteLogSubscription
-<a name="API_DeleteLogSubscription"></a>
 
 Deletes the specified log subscription.
 

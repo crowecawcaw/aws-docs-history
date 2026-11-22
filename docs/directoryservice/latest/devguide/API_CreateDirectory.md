@@ -1,7 +1,6 @@
 
 
 # CreateDirectory
-<a name="API_CreateDirectory"></a>
 
 **Note**  
 Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore Directory Service Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple-ad-availability-change.html).

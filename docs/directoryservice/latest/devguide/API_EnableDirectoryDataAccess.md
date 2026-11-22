@@ -1,7 +1,6 @@
 
 
 # EnableDirectoryDataAccess
-<a name="API_EnableDirectoryDataAccess"></a>
 
 Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
 

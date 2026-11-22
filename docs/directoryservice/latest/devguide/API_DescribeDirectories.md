@@ -1,13 +1,12 @@
 
 
 # DescribeDirectories
-<a name="API_DescribeDirectories"></a>
 
 Obtains information about the directories that belong to this account.
 
 You can retrieve information about specific directories by passing the directory identifiers in the `DirectoryIds` parameter. Otherwise, all directories that belong to the current account are returned.
 
-This operation supports pagination with the use of the `NextToken` request and response parameters. If more results are available, the `DescribeDirectoriesResult.NextToken` member contains a token that you pass in the next call to [DescribeDirectories](#API_DescribeDirectories) to retrieve the next set of items.
+This operation supports pagination with the use of the `NextToken` request and response parameters. If more results are available, the `DescribeDirectoriesResult.NextToken` member contains a token that you pass in the next call to [DescribeDirectories](API_DescribeDirectories.md) to retrieve the next set of items.
 
 You can also specify a maximum number of return results with the `Limit` parameter.
 
@@ -41,7 +40,7 @@ Valid Range: Minimum value of 0.
 Required: No
 
  ** [NextToken](#API_DescribeDirectories_RequestSyntax) **   <a name="DirectoryService-DescribeDirectories-request-NextToken"></a>
-The `DescribeDirectoriesResult.NextToken` value from a previous call to [DescribeDirectories](#API_DescribeDirectories). Pass null if this is the first call.  
+The `DescribeDirectoriesResult.NextToken` value from a previous call to [DescribeDirectories](API_DescribeDirectories.md). Pass null if this is the first call.  
 Type: String  
 Required: No
 
@@ -153,7 +152,7 @@ It is possible that this list contains less than the number of items specified i
 Type: Array of [DirectoryDescription](API_DirectoryDescription.md) objects
 
  ** [NextToken](#API_DescribeDirectories_ResponseSyntax) **   <a name="DirectoryService-DescribeDirectories-response-NextToken"></a>
-If not null, more results are available. Pass this value for the `NextToken` parameter in a subsequent call to [DescribeDirectories](#API_DescribeDirectories) to retrieve the next set of items.  
+If not null, more results are available. Pass this value for the `NextToken` parameter in a subsequent call to [DescribeDirectories](API_DescribeDirectories.md) to retrieve the next set of items.  
 Type: String
 
 ## Errors

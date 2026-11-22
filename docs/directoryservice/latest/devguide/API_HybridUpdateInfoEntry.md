@@ -1,7 +1,6 @@
 
 
 # HybridUpdateInfoEntry
-<a name="API_HybridUpdateInfoEntry"></a>
 
 Contains detailed information about a specific update activity for a hybrid directory component.
 

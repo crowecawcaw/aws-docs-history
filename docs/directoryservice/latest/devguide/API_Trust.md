@@ -1,7 +1,6 @@
 
 
 # Trust
-<a name="API_Trust"></a>
 
 Describes a trust relationship between an AWS Managed Microsoft AD directory and an external domain.
 

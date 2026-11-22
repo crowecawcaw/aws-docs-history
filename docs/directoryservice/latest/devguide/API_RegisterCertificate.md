@@ -1,7 +1,6 @@
 
 
 # RegisterCertificate
-<a name="API_RegisterCertificate"></a>
 
 Registers a certificate for a secure LDAP or client certificate authentication.
 

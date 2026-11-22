@@ -1,7 +1,6 @@
 
 
 # SnapshotLimits
-<a name="API_SnapshotLimits"></a>
 
 Contains manual snapshot limit information for a directory.
 

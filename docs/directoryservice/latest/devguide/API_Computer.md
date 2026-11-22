@@ -1,7 +1,6 @@
 
 
 # Computer
-<a name="API_Computer"></a>
 
 Contains information about a computer account in a directory.
 

@@ -1,7 +1,6 @@
 
 
 # Assessment
-<a name="API_Assessment"></a>
 
 Contains detailed information about a directory assessment, including configuration parameters, status, and validation results.
 

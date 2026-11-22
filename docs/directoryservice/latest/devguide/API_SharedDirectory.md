@@ -1,7 +1,6 @@
 
 
 # SharedDirectory
-<a name="API_SharedDirectory"></a>
 
 Details about the shared directory in the directory owner account for which the share request in the directory consumer account has been accepted.
 

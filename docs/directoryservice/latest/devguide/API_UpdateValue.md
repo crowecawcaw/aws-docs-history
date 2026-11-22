@@ -1,7 +1,6 @@
 
 
 # UpdateValue
-<a name="API_UpdateValue"></a>
 
  The value for a given type of `UpdateSettings`. 
 

@@ -1,7 +1,6 @@
 
 
 # ClientCertAuthSettings
-<a name="API_ClientCertAuthSettings"></a>
 
 Contains information about the client certificate authentication settings for the `RegisterCertificate` and `DescribeCertificate` operations. 
 

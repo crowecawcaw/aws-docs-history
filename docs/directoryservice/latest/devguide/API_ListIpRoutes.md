@@ -1,7 +1,6 @@
 
 
 # ListIpRoutes
-<a name="API_ListIpRoutes"></a>
 
 Lists the address blocks that you have added to a directory.
 
@@ -34,7 +33,7 @@ Valid Range: Minimum value of 0.
 Required: No
 
  ** [NextToken](#API_ListIpRoutes_RequestSyntax) **   <a name="DirectoryService-ListIpRoutes-request-NextToken"></a>
-The *ListIpRoutes.NextToken* value from a previous call to [ListIpRoutes](#API_ListIpRoutes). Pass null if this is the first call.  
+The *ListIpRoutes.NextToken* value from a previous call to [ListIpRoutes](API_ListIpRoutes.md). Pass null if this is the first call.  
 Type: String  
 Required: No
 
@@ -70,7 +69,7 @@ A list of [IpRoute](API_IpRoute.md)s.
 Type: Array of [IpRouteInfo](API_IpRouteInfo.md) objects
 
  ** [NextToken](#API_ListIpRoutes_ResponseSyntax) **   <a name="DirectoryService-ListIpRoutes-response-NextToken"></a>
-If not null, more results are available. Pass this value for the *NextToken* parameter in a subsequent call to [ListIpRoutes](#API_ListIpRoutes) to retrieve the next set of items.  
+If not null, more results are available. Pass this value for the *NextToken* parameter in a subsequent call to [ListIpRoutes](API_ListIpRoutes.md) to retrieve the next set of items.  
 Type: String
 
 ## Errors

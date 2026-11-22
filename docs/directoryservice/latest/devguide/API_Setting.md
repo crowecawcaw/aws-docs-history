@@ -1,7 +1,6 @@
 
 
 # Setting
-<a name="API_Setting"></a>
 
 Contains information about the configurable settings for a directory.
 

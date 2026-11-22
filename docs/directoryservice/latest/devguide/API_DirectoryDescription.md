@@ -1,7 +1,6 @@
 
 
 # DirectoryDescription
-<a name="API_DirectoryDescription"></a>
 
 Contains information about an AWS Directory Service directory.
 

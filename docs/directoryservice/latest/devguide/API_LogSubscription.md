@@ -1,7 +1,6 @@
 
 
 # LogSubscription
-<a name="API_LogSubscription"></a>
 
 Represents a log subscription, which tracks real-time data from a chosen log group to a specified destination.
 

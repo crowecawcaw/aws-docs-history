@@ -1,7 +1,6 @@
 
 
 # DescribeRegions
-<a name="API_DescribeRegions"></a>
 
 Provides information about the Regions that are configured for multi-Region replication.
 
@@ -28,7 +27,7 @@ Pattern: `^d-[0-9a-f]{10}$`
 Required: Yes
 
  ** [NextToken](#API_DescribeRegions_RequestSyntax) **   <a name="DirectoryService-DescribeRegions-request-NextToken"></a>
-The `DescribeRegionsResult.NextToken` value from a previous call to [DescribeRegions](#API_DescribeRegions). Pass null if this is the first call.  
+The `DescribeRegionsResult.NextToken` value from a previous call to [DescribeRegions](API_DescribeRegions.md). Pass null if this is the first call.  
 Type: String  
 Required: No
 
@@ -71,7 +70,7 @@ If the action is successful, the service sends back an HTTP 200 response.
 The following data is returned in JSON format by the service.
 
  ** [NextToken](#API_DescribeRegions_ResponseSyntax) **   <a name="DirectoryService-DescribeRegions-response-NextToken"></a>
-If not null, more results are available. Pass this value for the `NextToken` parameter in a subsequent call to [DescribeRegions](#API_DescribeRegions) to retrieve the next set of items.  
+If not null, more results are available. Pass this value for the `NextToken` parameter in a subsequent call to [DescribeRegions](API_DescribeRegions.md) to retrieve the next set of items.  
 Type: String
 
  ** [RegionsDescription](#API_DescribeRegions_ResponseSyntax) **   <a name="DirectoryService-DescribeRegions-response-RegionsDescription"></a>

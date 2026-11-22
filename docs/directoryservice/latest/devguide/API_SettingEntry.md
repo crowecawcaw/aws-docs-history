@@ -1,7 +1,6 @@
 
 
 # SettingEntry
-<a name="API_SettingEntry"></a>
 
 Contains information about the specified configurable setting for a directory.
 

@@ -1,7 +1,6 @@
 
 
 # GetSnapshotLimits
-<a name="API_GetSnapshotLimits"></a>
 
 Obtains the manual snapshot limits for a directory.
 

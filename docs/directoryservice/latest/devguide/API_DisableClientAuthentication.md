@@ -1,7 +1,6 @@
 
 
 # DisableClientAuthentication
-<a name="API_DisableClientAuthentication"></a>
 
 Disables alternative client authentication methods for the specified directory. 
 

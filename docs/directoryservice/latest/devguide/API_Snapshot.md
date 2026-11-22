@@ -1,7 +1,6 @@
 
 
 # Snapshot
-<a name="API_Snapshot"></a>
 
 Describes a directory snapshot.
 

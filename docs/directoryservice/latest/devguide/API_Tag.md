@@ -1,7 +1,6 @@
 
 
 # Tag
-<a name="API_Tag"></a>
 
 Metadata assigned to a directory consisting of a key-value pair.
 

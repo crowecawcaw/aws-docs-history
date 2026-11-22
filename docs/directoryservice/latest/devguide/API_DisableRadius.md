@@ -1,7 +1,6 @@
 
 
 # DisableRadius
-<a name="API_DisableRadius"></a>
 
 Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
 

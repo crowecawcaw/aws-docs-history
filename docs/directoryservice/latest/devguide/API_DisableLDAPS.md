@@ -1,7 +1,6 @@
 
 
 # DisableLDAPS
-<a name="API_DisableLDAPS"></a>
 
 Deactivates LDAP secure calls for the specified directory.
 

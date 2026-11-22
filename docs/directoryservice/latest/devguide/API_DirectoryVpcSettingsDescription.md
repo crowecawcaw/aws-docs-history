@@ -1,7 +1,6 @@
 
 
 # DirectoryVpcSettingsDescription
-<a name="API_DirectoryVpcSettingsDescription"></a>
 
 Contains information about the directory.
 

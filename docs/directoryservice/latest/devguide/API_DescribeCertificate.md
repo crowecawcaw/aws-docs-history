@@ -1,7 +1,6 @@
 
 
 # DescribeCertificate
-<a name="API_DescribeCertificate"></a>
 
 Displays information about the certificate registered for secure LDAP or client certificate authentication.
 

@@ -1,7 +1,6 @@
 
 
 # SchemaExtensionInfo
-<a name="API_SchemaExtensionInfo"></a>
 
 Information about a schema extension.
 

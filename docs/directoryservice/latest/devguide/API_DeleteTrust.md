@@ -1,7 +1,6 @@
 
 
 # DeleteTrust
-<a name="API_DeleteTrust"></a>
 
 Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.
 

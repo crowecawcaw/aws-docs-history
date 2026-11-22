@@ -1,7 +1,6 @@
 
 
 # DeregisterEventTopic
-<a name="API_DeregisterEventTopic"></a>
 
 Removes the specified directory as a publisher to the specified Amazon SNS topic.
 

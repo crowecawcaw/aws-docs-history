@@ -1,7 +1,6 @@
 
 
 # RestoreFromSnapshot
-<a name="API_RestoreFromSnapshot"></a>
 
 Restores a directory using an existing directory snapshot.
 

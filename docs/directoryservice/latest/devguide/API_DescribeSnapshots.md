@@ -1,11 +1,10 @@
 
 
 # DescribeSnapshots
-<a name="API_DescribeSnapshots"></a>
 
 Obtains information about the directory snapshots that belong to this account.
 
-This operation supports pagination with the use of the *NextToken* request and response parameters. If more results are available, the *DescribeSnapshots.NextToken* member contains a token that you pass in the next call to [DescribeSnapshots](#API_DescribeSnapshots) to retrieve the next set of items.
+This operation supports pagination with the use of the *NextToken* request and response parameters. If more results are available, the *DescribeSnapshots.NextToken* member contains a token that you pass in the next call to [DescribeSnapshots](API_DescribeSnapshots.md) to retrieve the next set of items.
 
 You can also specify a maximum number of return results with the *Limit* parameter.
 
@@ -39,7 +38,7 @@ Valid Range: Minimum value of 0.
 Required: No
 
  ** [NextToken](#API_DescribeSnapshots_RequestSyntax) **   <a name="DirectoryService-DescribeSnapshots-request-NextToken"></a>
-The *DescribeSnapshotsResult.NextToken* value from a previous call to [DescribeSnapshots](#API_DescribeSnapshots). Pass null if this is the first call.  
+The *DescribeSnapshotsResult.NextToken* value from a previous call to [DescribeSnapshots](API_DescribeSnapshots.md). Pass null if this is the first call.  
 Type: String  
 Required: No
 
@@ -76,7 +75,7 @@ If the action is successful, the service sends back an HTTP 200 response.
 The following data is returned in JSON format by the service.
 
  ** [NextToken](#API_DescribeSnapshots_ResponseSyntax) **   <a name="DirectoryService-DescribeSnapshots-response-NextToken"></a>
-If not null, more results are available. Pass this value in the *NextToken* member of a subsequent call to [DescribeSnapshots](#API_DescribeSnapshots).  
+If not null, more results are available. Pass this value in the *NextToken* member of a subsequent call to [DescribeSnapshots](API_DescribeSnapshots.md).  
 Type: String
 
  ** [Snapshots](#API_DescribeSnapshots_ResponseSyntax) **   <a name="DirectoryService-DescribeSnapshots-response-Snapshots"></a>

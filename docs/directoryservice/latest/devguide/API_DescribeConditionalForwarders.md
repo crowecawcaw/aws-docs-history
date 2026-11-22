@@ -1,7 +1,6 @@
 
 
 # DescribeConditionalForwarders
-<a name="API_DescribeConditionalForwarders"></a>
 
 Obtains information about the conditional forwarders for this account.
 

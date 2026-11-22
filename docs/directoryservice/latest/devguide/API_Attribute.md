@@ -1,7 +1,6 @@
 
 
 # Attribute
-<a name="API_Attribute"></a>
 
 Represents a named directory attribute.
 

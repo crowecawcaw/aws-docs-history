@@ -1,7 +1,6 @@
 
 
 # DeleteADAssessment
-<a name="API_DeleteADAssessment"></a>
 
 Deletes a directory assessment and all associated data. This operation permanently removes the assessment results, validation reports, and configuration information.
 

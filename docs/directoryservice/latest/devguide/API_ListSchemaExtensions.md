@@ -1,7 +1,6 @@
 
 
 # ListSchemaExtensions
-<a name="API_ListSchemaExtensions"></a>
 
 Lists all schema extensions applied to a Microsoft AD Directory.
 

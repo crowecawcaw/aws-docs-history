@@ -1,7 +1,6 @@
 
 
 # RadiusSettings
-<a name="API_RadiusSettings"></a>
 
 Contains information about a Remote Authentication Dial In User Service (RADIUS) server.
 

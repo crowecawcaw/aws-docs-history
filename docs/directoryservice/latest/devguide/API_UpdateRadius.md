@@ -1,7 +1,6 @@
 
 
 # UpdateRadius
-<a name="API_UpdateRadius"></a>
 
 Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector or Microsoft AD directory.
 

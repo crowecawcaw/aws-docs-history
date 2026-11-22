@@ -1,7 +1,6 @@
 
 
 # EventTopic
-<a name="API_EventTopic"></a>
 
 Information about Amazon SNS topic and AWS Directory Service directory associations.
 

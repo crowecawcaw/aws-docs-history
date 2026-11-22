@@ -1,7 +1,6 @@
 
 
 # DirectorySizeUpdateSettings
-<a name="API_DirectorySizeUpdateSettings"></a>
 
 Contains the directory size configuration for update operations.
 

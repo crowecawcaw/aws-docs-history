@@ -1,7 +1,6 @@
 
 
 # DescribeLDAPSSettings
-<a name="API_DescribeLDAPSSettings"></a>
 
 Describes the status of LDAP security for the specified directory.
 

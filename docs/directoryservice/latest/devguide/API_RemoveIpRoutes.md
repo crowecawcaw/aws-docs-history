@@ -1,7 +1,6 @@
 
 
 # RemoveIpRoutes
-<a name="API_RemoveIpRoutes"></a>
 
 Removes IP address blocks from a directory.
 

@@ -1,7 +1,6 @@
 
 
 # ConnectDirectory
-<a name="API_ConnectDirectory"></a>
 
 Creates an AD Connector to connect to a self-managed directory.
 

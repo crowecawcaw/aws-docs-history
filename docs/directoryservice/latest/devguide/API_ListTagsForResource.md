@@ -1,7 +1,6 @@
 
 
 # ListTagsForResource
-<a name="API_ListTagsForResource"></a>
 
 Lists all tags on a directory.
 

@@ -1,7 +1,6 @@
 
 
 # EnableClientAuthentication
-<a name="API_EnableClientAuthentication"></a>
 
 Enables alternative client authentication methods for the specified directory.
 

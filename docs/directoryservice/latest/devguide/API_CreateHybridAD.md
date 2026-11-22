@@ -1,7 +1,6 @@
 
 
 # CreateHybridAD
-<a name="API_CreateHybridAD"></a>
 
 Creates a hybrid directory that connects your self-managed Active Directory (AD) infrastructure and AWS.
 

@@ -1,7 +1,6 @@
 
 
 # AssessmentValidation
-<a name="API_AssessmentValidation"></a>
 
 Contains information about a specific validation test performed during a directory assessment.
 

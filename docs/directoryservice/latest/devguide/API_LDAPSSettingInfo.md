@@ -1,7 +1,6 @@
 
 
 # LDAPSSettingInfo
-<a name="API_LDAPSSettingInfo"></a>
 
 Contains general information about the LDAPS settings.
 

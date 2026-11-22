@@ -1,7 +1,6 @@
 
 
 # DescribeTrusts
-<a name="API_DescribeTrusts"></a>
 
 Obtains information about the trust relationships for this account.
 
@@ -37,7 +36,7 @@ Valid Range: Minimum value of 0.
 Required: No
 
  ** [NextToken](#API_DescribeTrusts_RequestSyntax) **   <a name="DirectoryService-DescribeTrusts-request-NextToken"></a>
-The *DescribeTrustsResult.NextToken* value from a previous call to [DescribeTrusts](#API_DescribeTrusts). Pass null if this is the first call.  
+The *DescribeTrustsResult.NextToken* value from a previous call to [DescribeTrusts](API_DescribeTrusts.md). Pass null if this is the first call.  
 Type: String  
 Required: No
 
@@ -80,7 +79,7 @@ If the action is successful, the service sends back an HTTP 200 response.
 The following data is returned in JSON format by the service.
 
  ** [NextToken](#API_DescribeTrusts_ResponseSyntax) **   <a name="DirectoryService-DescribeTrusts-response-NextToken"></a>
-If not null, more results are available. Pass this value for the *NextToken* parameter in a subsequent call to [DescribeTrusts](#API_DescribeTrusts) to retrieve the next set of items.  
+If not null, more results are available. Pass this value for the *NextToken* parameter in a subsequent call to [DescribeTrusts](API_DescribeTrusts.md) to retrieve the next set of items.  
 Type: String
 
  ** [Trusts](#API_DescribeTrusts_ResponseSyntax) **   <a name="DirectoryService-DescribeTrusts-response-Trusts"></a>

@@ -1,7 +1,6 @@
 
 
 # AddIpRoutes
-<a name="API_AddIpRoutes"></a>
 
 If the DNS server for your self-managed domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. *AddIpRoutes* adds this address block. You can also use *AddIpRoutes* to facilitate routing traffic that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. 
 

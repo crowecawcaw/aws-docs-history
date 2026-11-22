@@ -1,7 +1,6 @@
 
 
 # CreateMicrosoftAD
-<a name="API_CreateMicrosoftAD"></a>
 
 Creates a Microsoft AD directory in the AWS Cloud. For more information, see [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the * AWS Directory Service Admin Guide*.
 
@@ -80,7 +79,7 @@ Type: Array of [Tag](API_Tag.md) objects
 Required: No
 
  ** [VpcSettings](#API_CreateMicrosoftAD_RequestSyntax) **   <a name="DirectoryService-CreateMicrosoftAD-request-VpcSettings"></a>
-Contains VPC information for the [CreateDirectory](API_CreateDirectory.md) or [CreateMicrosoftAD](#API_CreateMicrosoftAD) operation.  
+Contains VPC information for the [CreateDirectory](API_CreateDirectory.md) or [CreateMicrosoftAD](API_CreateMicrosoftAD.md) operation.  
 Type: [DirectoryVpcSettings](API_DirectoryVpcSettings.md) object  
 Required: Yes
 

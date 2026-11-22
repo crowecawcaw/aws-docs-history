@@ -1,7 +1,6 @@
 
 
 # Certificate
-<a name="API_Certificate"></a>
 
 Information about the certificate.
 

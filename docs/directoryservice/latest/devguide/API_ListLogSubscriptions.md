@@ -1,7 +1,6 @@
 
 
 # ListLogSubscriptions
-<a name="API_ListLogSubscriptions"></a>
 
 Lists the active log subscriptions for the AWS account.
 

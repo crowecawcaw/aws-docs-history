@@ -1,7 +1,6 @@
 
 
 # UnshareDirectory
-<a name="API_UnshareDirectory"></a>
 
 Stops the directory sharing between the directory owner and consumer accounts. 
 

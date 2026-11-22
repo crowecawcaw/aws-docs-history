@@ -1,7 +1,6 @@
 
 
 # HybridUpdateValue
-<a name="API_HybridUpdateValue"></a>
 
 Contains the configuration values for a hybrid directory update, including AWS System Manager managed node and DNS information.
 

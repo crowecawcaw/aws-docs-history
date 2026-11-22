@@ -1,7 +1,6 @@
 
 
 # DomainController
-<a name="API_DomainController"></a>
 
 Contains information about the domain controllers for a specified directory.
 

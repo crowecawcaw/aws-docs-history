@@ -1,7 +1,6 @@
 
 
 # OSUpdateSettings
-<a name="API_OSUpdateSettings"></a>
 
 OS version that the directory needs to be updated to.
 

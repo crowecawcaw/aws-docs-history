@@ -1,7 +1,6 @@
 
 
 # DisableSso
-<a name="API_DisableSso"></a>
 
 Disables single-sign on for a directory.
 

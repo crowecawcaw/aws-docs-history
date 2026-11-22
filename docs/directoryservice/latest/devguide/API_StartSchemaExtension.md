@@ -1,7 +1,6 @@
 
 
 # StartSchemaExtension
-<a name="API_StartSchemaExtension"></a>
 
 Applies a schema extension to a Microsoft AD directory.
 

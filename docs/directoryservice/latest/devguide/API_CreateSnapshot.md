@@ -1,7 +1,6 @@
 
 
 # CreateSnapshot
-<a name="API_CreateSnapshot"></a>
 
 Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
 

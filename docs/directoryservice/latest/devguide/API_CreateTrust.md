@@ -1,7 +1,6 @@
 
 
 # CreateTrust
-<a name="API_CreateTrust"></a>
 
  AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing self-managed Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
 

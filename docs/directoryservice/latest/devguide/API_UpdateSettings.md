@@ -1,7 +1,6 @@
 
 
 # UpdateSettings
-<a name="API_UpdateSettings"></a>
 
 Updates the configurable settings for the specified directory.
 

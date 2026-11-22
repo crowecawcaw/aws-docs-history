@@ -1,7 +1,6 @@
 
 
 # RemoveTagsFromResource
-<a name="API_RemoveTagsFromResource"></a>
 
 Removes tags from a directory.
 

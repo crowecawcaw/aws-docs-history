@@ -1,7 +1,6 @@
 
 
 # AssessmentConfiguration
-<a name="API_AssessmentConfiguration"></a>
 
 Contains configuration parameters required to perform a directory assessment.
 

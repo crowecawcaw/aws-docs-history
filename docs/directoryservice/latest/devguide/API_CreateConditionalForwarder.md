@@ -1,7 +1,6 @@
 
 
 # CreateConditionalForwarder
-<a name="API_CreateConditionalForwarder"></a>
 
 Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.
 

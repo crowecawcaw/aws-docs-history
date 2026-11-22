@@ -1,7 +1,6 @@
 
 
 # DescribeADAssessment
-<a name="API_DescribeADAssessment"></a>
 
 Retrieves detailed information about a directory assessment, including its current status, validation results, and configuration details. Use this operation to monitor assessment progress and review results.
 

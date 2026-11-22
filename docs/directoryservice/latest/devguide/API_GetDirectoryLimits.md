@@ -1,7 +1,6 @@
 
 
 # GetDirectoryLimits
-<a name="API_GetDirectoryLimits"></a>
 
 Obtains directory limit information for the current Region.
 

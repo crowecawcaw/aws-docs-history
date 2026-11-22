@@ -1,7 +1,6 @@
 
 
 # AcceptSharedDirectory
-<a name="API_AcceptSharedDirectory"></a>
 
 Accepts a directory sharing request that was sent from the directory owner account.
 

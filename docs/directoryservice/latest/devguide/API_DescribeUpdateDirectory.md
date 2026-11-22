@@ -1,7 +1,6 @@
 
 
 # DescribeUpdateDirectory
-<a name="API_DescribeUpdateDirectory"></a>
 
  Describes the updates of a directory for a particular update type. 
 
@@ -29,7 +28,7 @@ Pattern: `^d-[0-9a-f]{10}$`
 Required: Yes
 
  ** [NextToken](#API_DescribeUpdateDirectory_RequestSyntax) **   <a name="DirectoryService-DescribeUpdateDirectory-request-NextToken"></a>
- The `DescribeUpdateDirectoryResult`. NextToken value from a previous call to [DescribeUpdateDirectory](#API_DescribeUpdateDirectory). Pass null if this is the first call.   
+ The `DescribeUpdateDirectoryResult`. NextToken value from a previous call to [DescribeUpdateDirectory](API_DescribeUpdateDirectory.md). Pass null if this is the first call.   
 Type: String  
 Required: No
 

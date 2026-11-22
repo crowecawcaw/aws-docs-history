@@ -1,7 +1,6 @@
 
 
 # DeleteDirectory
-<a name="API_DeleteDirectory"></a>
 
 Deletes an AWS Directory Service directory.
 

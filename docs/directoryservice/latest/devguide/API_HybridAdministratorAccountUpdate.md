@@ -1,7 +1,6 @@
 
 
 # HybridAdministratorAccountUpdate
-<a name="API_HybridAdministratorAccountUpdate"></a>
 
  Use to recover to the hybrid directory administrator account credentials.
 

@@ -1,7 +1,6 @@
 
 
 # UnshareTarget
-<a name="API_UnshareTarget"></a>
 
 Identifier that contains details about the directory consumer account with whom the directory is being unshared.
 

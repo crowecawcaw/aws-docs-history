@@ -1,7 +1,6 @@
 
 
 # UpdateHybridAD
-<a name="API_UpdateHybridAD"></a>
 
 Updates the configuration of an existing hybrid directory. You can recover hybrid directory administrator account or modify self-managed instance settings.
 

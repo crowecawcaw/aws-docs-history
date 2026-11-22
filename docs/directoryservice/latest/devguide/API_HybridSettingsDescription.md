@@ -1,7 +1,6 @@
 
 
 # HybridSettingsDescription
-<a name="API_HybridSettingsDescription"></a>
 
 Describes the current hybrid directory configuration settings for a directory.
 

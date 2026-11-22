@@ -1,7 +1,6 @@
 
 
 # UpdateDirectorySetup
-<a name="API_UpdateDirectorySetup"></a>
 
 Updates directory configuration for the specified update type.
 

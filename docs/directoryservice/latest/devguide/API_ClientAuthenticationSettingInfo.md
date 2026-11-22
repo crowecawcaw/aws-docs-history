@@ -1,7 +1,6 @@
 
 
 # ClientAuthenticationSettingInfo
-<a name="API_ClientAuthenticationSettingInfo"></a>
 
 Contains information about a client authentication method for a directory.
 

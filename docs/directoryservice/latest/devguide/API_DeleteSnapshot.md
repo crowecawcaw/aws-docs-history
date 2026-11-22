@@ -1,7 +1,6 @@
 
 
 # DeleteSnapshot
-<a name="API_DeleteSnapshot"></a>
 
 Deletes a directory snapshot.
 

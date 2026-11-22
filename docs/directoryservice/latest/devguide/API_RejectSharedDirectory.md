@@ -1,7 +1,6 @@
 
 
 # RejectSharedDirectory
-<a name="API_RejectSharedDirectory"></a>
 
 Rejects a directory sharing request that was sent from the directory owner account.
 
