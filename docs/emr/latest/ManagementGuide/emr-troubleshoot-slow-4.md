@@ -1,7 +1,6 @@
 
 
 # Step 4: Check Amazon EMR cluster and instance health
-<a name="emr-troubleshoot-slow-4"></a>
 
  An Amazon EMR cluster is made up of nodes running on Amazon EC2 instances. If those instances become resource-bound (such as running out of CPU or memory), experience network connectivity issues, or are terminated, the speed of cluster processing suffers. 
 

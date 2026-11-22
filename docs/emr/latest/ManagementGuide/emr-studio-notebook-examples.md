@@ -1,7 +1,6 @@
 
 
 # Explore notebook examples in an EMR Studio workspace
-<a name="emr-studio-notebook-examples"></a>
 
 Every EMR Studio Workspace includes a set of notebook examples that you can use to explore EMR Studio features. To edit or run a notebook example, you can save it to the Workspace.
 

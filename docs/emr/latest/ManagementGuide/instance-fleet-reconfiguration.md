@@ -1,7 +1,6 @@
 
 
 # Reconfiguring instance fleets for your Amazon EMR cluster
-<a name="instance-fleet-reconfiguration"></a>
 
 With Amazon EMR version 5.21.0 and later, you can reconfigure cluster applications and specify additional configuration classifications for each instance fleet in a running cluster. To do so, you can use the AWS Command Line Interface (AWS CLI), or the AWS SDK.
 
@@ -161,7 +160,7 @@ In the following examples, replace **j-2AL4XXXXXX5T9** with your cluster ID, and
 
 The following code snippet provides a new configuration for an instance fleet using the AWS SDK for Java.
 
-```
+```java
 AWSCredentials credentials = new BasicAWSCredentials("access-key", "secret-key");
 AmazonElasticMapReduce emr = new AmazonElasticMapReduceClient(credentials);
 

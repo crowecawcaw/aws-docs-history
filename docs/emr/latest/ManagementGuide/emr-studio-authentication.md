@@ -1,7 +1,6 @@
 
 
 # Choose an authentication mode for Amazon EMR Studio
-<a name="emr-studio-authentication"></a>
 
 EMR Studio supports two authentication modes: IAM authentication mode and IAM Identity Center authentication mode. IAM mode uses AWS Identity and Access Management (IAM), while IAM Identity Center mode uses AWS IAM Identity Center. When you create an EMR Studio, you choose the authentication mode for all users of that Studio. For more information about the different authentication modes, see [Authentication and user login](how-emr-studio-works.md#emr-studio-login).
 

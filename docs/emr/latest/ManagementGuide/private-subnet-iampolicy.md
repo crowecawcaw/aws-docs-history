@@ -1,7 +1,6 @@
 
 
 # Sample policies for private subnets that access Amazon S3
-<a name="private-subnet-iampolicy"></a>
 
 When launching an Amazon EMR cluster in a private subnet, you must provide a route to Amazon S3. By default, a gateway endpoint for Amazon S3 allows access to all buckets. You can create a VPC endpoint policy to restrict access to specific buckets; if you do, you will need to add policy statements allowing access to the specific S3 buckets required by Amazon EMR. For more information about Amazon S3 endpoints, see [Gateway endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html).
 

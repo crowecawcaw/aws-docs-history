@@ -1,7 +1,6 @@
 
 
 # Assign and manage EMR Studio users
-<a name="emr-studio-manage-users"></a>
 
 After you create an EMR Studio, you can assign users and groups to it. The method you use to assign, update, and remove users depends on the Studio authentication mode. 
 + When you use IAM authentication mode, you configure EMR Studio user assignment and permissions in IAM or with IAM and your identity provider. 
@@ -23,7 +22,7 @@ To restrict a user to a Studio (or set of Studios), you can use attribute-based 
 The following example policy gives a user access to a particular EMR Studio by allowing the `CreateStudioPresignedUrl` action and specifying the Studio's Amazon Resource Name (ARN) in the `Resource` element.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -45,13 +44,13 @@ The following example policy gives a user access to a particular EMR Studio by a
 There are multiple ways to configure attribute-based access control (ABAC) for a Studio. For example, you might attach one or more tags to an EMR Studio, and then create an IAM policy that restricts the `CreateStudioPresignedUrl` action to a particular Studio or set of Studios with those tags.   
 You can add tags during or after Studio creation. To add tags to an existing Studio, you can use the [AWS CLI`emr add-tags`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/emr/add-tags.html) command. The following example adds a tag with the key-value pair `Team = Data Analytics` to an EMR Studio.   
 
-```
+```bash,sh,zsh
 aws emr add-tags --resource-id {{<example-studio-id>}} --tags Team="Data Analytics"
 ```
 The following example permissions policy allows the `CreateStudioPresignedUrl` action for EMR Studios with the tag key-value pair `Team = DataAnalytics`. For more information about using tags to control access, see [Controlling access to and for a users and roles using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) or [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -81,7 +80,7 @@ For more information, see the [How to relate IAM role activity to corporate iden
 The following example policy allows the `CreateStudioPresignedUrl` action and gives users with an `aws:SourceIdentity` that matches the {{<example-source-identity>}} access to the EMR Studio specified by {{<example-studio-arn>}}.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -138,7 +137,7 @@ Insert your own values for the following `create-studio-session-mapping` argumen
 + **`--identity-type`** – Use either `USER` or `GROUP` to specify the identity type.
 + **`--session-policy-arn`** – The Amazon Resource Name (ARN) for the session policy you want to associate with the user or group. For example, `arn:aws:iam::{{<aws-account-id>}}:policy/{{EMRStudio_Advanced_User_Policy}}`. For more information, see [Create permissions policies for EMR Studio users](emr-studio-user-permissions.md#emr-studio-permissions-policies).
 
-```
+```bash,sh,zsh
 aws emr create-studio-session-mapping \
  --studio-id {{<example-studio-id>}} \
  --identity-name {{<example-identity-name>}} \
@@ -151,7 +150,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 
 Use the `get-studio-session-mapping` command to verify the new assignment. Replace {{<example-identity-name>}} with the IAM Identity Center name of the user or group that you updated.
 
-```
+```bash,sh,zsh
 aws emr get-studio-session-mapping \
  --studio-id {{<example-studio-id>}} \
  --identity-type {{<USER-or-GROUP>}} \
@@ -191,7 +190,7 @@ For more information, see [User permissions for IAM authentication mode](how-emr
 
 Insert your own values for the following `update-studio-session-mappings` arguments. For more information about the `update-studio-session-mappings` command, see the [*AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/emr/update-studio-session-mapping.html).
 
-```
+```bash,sh,zsh
 aws emr update-studio-session-mapping \
  --studio-id {{<example-studio-id>}} \
  --identity-name {{<name-of-user-or-group-to-update>}} \
@@ -201,7 +200,7 @@ aws emr update-studio-session-mapping \
 
 Use the `get-studio-session-mapping` command to verify the new session policy assignment. Replace {{<example-identity-name>}} with the IAM Identity Center name of the user or group that you updated.
 
-```
+```bash,sh,zsh
 aws emr get-studio-session-mapping \
  --studio-id {{<example-studio-id>}} \
  --identity-type {{<USER-or-GROUP>}} \
@@ -225,7 +224,7 @@ In the following example policy, assume that you have an EMR Studio with the tag
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -272,7 +271,7 @@ In the following example policy, assume that you have an EMR Studio with the tag
 
 Insert your own values for the following `delete-studio-session-mapping` arguments. For more information about the `delete-studio-session-mapping` command, see the [*AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/emr/delete-studio-session-mapping.html).
 
-```
+```bash,sh,zsh
 aws emr delete-studio-session-mapping \
  --studio-id {{<example-studio-id>}} \
  --identity-type {{<USER-or-GROUP>}} \

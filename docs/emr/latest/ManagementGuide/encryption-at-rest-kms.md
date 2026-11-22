@@ -1,7 +1,6 @@
 
 
 # Encryption at rest using a customer KMS key for the EMR WAL service
-<a name="encryption-at-rest-kms"></a>
 
 EMR write-ahead logs (WAL) provides customer KMS key encryption-at-rest support. The following details at a high level how Amazon EMR WAL is integrated with AWS KMS:
 
@@ -31,7 +30,7 @@ Below is the IAM policy needed for the EMR WAL client role:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -66,7 +65,7 @@ You need to give the EMR WAL client role and EMR WAL service `Decrypt` and `Gene
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

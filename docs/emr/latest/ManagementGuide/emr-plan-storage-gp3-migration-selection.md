@@ -1,7 +1,6 @@
 
 
 # Selecting IOPS and throughput when migrating to gp3 Amazon EBS volume types
-<a name="emr-plan-storage-gp3-migration-selection"></a>
 
 When provisioning a gp2 volume, you must figure out the size of the volume in order to get the proportional IOPS and throughput. With gp3, you don’t have to provision a bigger volume to get higher performance. You can choose your desired size and performance according to application need. Selecting the right size and right performance parameters (IOPS, throughput) can provide you maximum cost reduction, without affecting performance.
 

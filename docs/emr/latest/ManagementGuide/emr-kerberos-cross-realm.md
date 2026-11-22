@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure a cross-realm trust with an Active Directory domain
-<a name="emr-kerberos-cross-realm"></a>
 
 When you set up a cross-realm trust, you allow principals (usually users) from a different Kerberos realm to authenticate to application components on the EMR cluster. The cluster-dedicated *key distribution center (KDC)* establishes a trust relationship with another KDC using a *cross-realm principal* that exists in both KDCs. The principal name and the password match precisely.
 
@@ -135,7 +134,7 @@ Now that the Active Directory domain controller is configured, you must configur
 
    ```
    aws emr create-cluster --name "{{MyKerberosCluster}}" \
-   --release-label emr-5.10.0 \
+   --release-label emr-7.14.0 \
    --instance-type {{m5.xlarge}} \
    --instance-count {{3}} \
    --ec2-attributes InstanceProfile={{EMR_EC2_DefaultRole}},KeyName={{MyEC2KeyPair}},\

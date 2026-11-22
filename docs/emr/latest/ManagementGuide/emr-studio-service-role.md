@@ -1,7 +1,6 @@
 
 
 # Create an EMR Studio service role
-<a name="emr-studio-service-role"></a>
 
 ## About the EMR Studio service role
 <a name="emr-studio-about-service-role"></a>
@@ -22,7 +21,7 @@ The following trust policy includes the [`aws:SourceArn`](https://docs.aws.amazo
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -66,7 +65,7 @@ You can apply tags to resources using the **Tags** tab on the relevant resource 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -306,7 +305,7 @@ For your IAM policy, the minimum viable policy has permissions as follows. Updat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

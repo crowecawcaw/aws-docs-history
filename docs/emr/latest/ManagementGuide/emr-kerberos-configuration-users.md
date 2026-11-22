@@ -1,7 +1,6 @@
 
 
 # Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections
-<a name="emr-kerberos-configuration-users"></a>
 
 Amazon EMR creates Kerberos-authenticated user clients for the applications that run on the cluster—for example, the `hadoop` user, `spark` user, and others. You can also add users who are authenticated to cluster processes using Kerberos. Authenticated users can then connect to the cluster with their Kerberos credentials and work with applications. For a user to authenticate to the cluster, the following configurations are required:
 + A Linux account matching the Kerberos principal in the KDC must exist on the cluster. Amazon EMR does this automatically in architectures that integrate with Active Directory.

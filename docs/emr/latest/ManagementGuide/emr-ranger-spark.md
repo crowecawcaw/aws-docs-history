@@ -1,7 +1,6 @@
 
 
 # Apache Spark plugin for Ranger integration with Amazon EMR
-<a name="emr-ranger-spark"></a>
 
 Amazon EMR has integrated EMR RecordServer to provide fine-grained access control for SparkSQL. EMR's RecordServer is a privileged process running on all nodes on an Apache Ranger-enabled cluster. When a Spark driver or executor runs a SparkSQL statement, all metadata and data requests go through the RecordServer. To learn more about EMR RecordServer, see the [Amazon EMR components for use with Apache Ranger](emr-ranger-components.md) page.
 

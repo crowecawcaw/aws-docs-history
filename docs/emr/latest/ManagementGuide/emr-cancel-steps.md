@@ -1,7 +1,6 @@
 
 
 # Cancel steps when you submit work to an Amazon EMR cluster
-<a name="emr-cancel-steps"></a>
 
 You can cancel pending and running steps from the AWS Management Console, the AWS CLI, or the Amazon EMR, when you submit work to your cluster. API.
 
@@ -26,7 +25,7 @@ You can cancel pending and running steps from the AWS Management Console, the AW
 **To cancel with using the AWS CLI**
 + Use the `aws emr cancel-steps` command, specifying the cluster and steps to cancel. The following example demonstrates an AWS CLI command to cancel two steps.
 
-  ```
+  ```bash
   aws emr cancel-steps --cluster-id {{j-2QUAXXXXXXXXX}} \
   --step-ids {{s-3M8DXXXXXXXXX s-3M8DXXXXXXXXX}} \
   --step-cancellation-option SEND_INTERRUPT

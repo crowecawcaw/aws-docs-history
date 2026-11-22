@@ -1,7 +1,6 @@
 
 
 # IAM managed policy for full access (on path to deprecation)
-<a name="emr-managed-policy-fullaccess"></a>
 
 The `AmazonElasticMapReduceFullAccess` and `AmazonEMRFullAccessPolicy_v2` AWS Identity and Access Management (IAM) managed policies grant all the required actions for Amazon EMR and other services.
 

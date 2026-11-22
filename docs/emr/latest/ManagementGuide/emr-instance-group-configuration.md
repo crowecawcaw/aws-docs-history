@@ -1,7 +1,6 @@
 
 
 # Create an Amazon EMR cluster with instance fleets or uniform instance groups
-<a name="emr-instance-group-configuration"></a>
 
 When you create a cluster and specify the configuration of the primary node, core nodes, and task nodes, you have two configuration options. You can use *instance fleets* or *uniform instance groups*. The configuration option you choose applies to all nodes, it applies for the lifetime of the cluster, and instance fleets and instance groups cannot coexist in a cluster. The instance fleets configuration is available in Amazon EMR version 4.8.0 and later, excluding 5.0.x versions. 
 

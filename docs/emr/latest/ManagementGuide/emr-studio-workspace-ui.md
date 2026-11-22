@@ -1,7 +1,6 @@
 
 
 # Understand the Workspace user interface in EMR Studio
-<a name="emr-studio-workspace-ui"></a>
 
 The EMR Studio Workspace user interface is based on the [JupyterLab interface](https://jupyterlab.readthedocs.io/en/latest/user/interface.html) with icon-denoted tabs on the left sidebar. When you pause over an icon, you can see a tooltip that shows the name of the tab. Choose tabs from the left sidebar to access the following panels.
 + **File Browser** – Displays the files and directories in the Workspace, as well as the files and directories of linked Git repositories.

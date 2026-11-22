@@ -1,7 +1,6 @@
 
 
 # Apache Ranger troubleshooting
-<a name="emr-ranger-troubleshooting"></a>
 
 Here are some commonly diagnosed issues related to using Apache Ranger.
 

@@ -1,7 +1,6 @@
 
 
-# Working with results
-<a name="emr-dq-working-with-results"></a>
+# Working with Amazon EMR Data Quality results
 
 This section covers how to read Amazon EMR Data Quality results after a run completes: retrieving history through the AWS Glue Data Quality APIs, interpreting the result DataFrame, comparing runs across engines, and configuring where results are stored. Every result also carries a `Dimensions` map with the originating `Platform` (for example, `emr-ec2`, `emr-eks`, `emr-serverless`, or `glue-etl`), which you can use to filter runs by engine when retrieving history.
 + [Retrieving historical results](#emr-dq-retrieve-results)

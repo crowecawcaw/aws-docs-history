@@ -1,7 +1,6 @@
 
 
 # Before you set up Amazon EMR
-<a name="emr-setting-up"></a>
 
 Complete the preliminary tasks detailed in this section before you launch an Amazon EMR cluster for the first time. These include setting up your AWS account if you need one and taking steps to set up secure communication.
 

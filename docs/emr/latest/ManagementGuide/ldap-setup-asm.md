@@ -1,7 +1,6 @@
 
 
 # Add AWS Secrets Manager permissions to the Amazon EMR instance role
-<a name="ldap-setup-asm"></a>
 
 Amazon EMR uses an IAM service role to perform actions on your behalf to provision and manage clusters. The service role for cluster EC2 instances, also called *the EC2 instance profile for Amazon EMR*, is a special type of service role that Amazon EMR assigns to every EC2 instance in a cluster at launch.
 

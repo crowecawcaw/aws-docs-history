@@ -1,7 +1,6 @@
 
 
 # VALIDATION\_ERROR\_INSTANCE\_TYPE\_NOT\_SUPPORTED
-<a name="VALIDATION_ERROR_INSTANCE_TYPE_NOT_SUPPORTED"></a>
 
 ## Overview
 <a name="VALIDATION_ERROR_INSTANCE_TYPE_NOT_SUPPORTED_overview"></a>
@@ -31,7 +30,7 @@ Perform the following steps to identify and fix the error:
 
 1. Use the AWS CLI to retrieve the available instance types in an Availability Zone. To do this, you can use the `[ec2 describe-instance-type-offerings](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-type-offerings.html)` command to filter available instance types by location (AWS Region or Availability Zone). For example, the following command returns the instance types that are offered in the specified AZ, `{{us-east-2a}}`.
 
-   ```
+   ```bash,sh,zh
    aws ec2 describe-instance-type-offerings --location-type "availability-zone" --filters Name=location,Values={{us-east-2a}} --region {{us-east-2}} --query "InstanceTypeOfferings[*].[InstanceType]" --output text | sort
    ```
 

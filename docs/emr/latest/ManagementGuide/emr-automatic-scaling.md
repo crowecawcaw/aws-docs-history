@@ -1,7 +1,6 @@
 
 
 # Using automatic scaling with a custom policy for instance groups in Amazon EMR
-<a name="emr-automatic-scaling"></a>
 
 Automatic scaling with a custom policy in Amazon EMR releases 4.0 and higher allows you to programmatically scale out and scale in core nodes and task nodes based on a CloudWatch metric and other parameters that you specify in a *scaling policy*. Automatic scaling with a custom policy is available with the instance groups configuration and is not available when you use instance fleets. For more information about instance groups and instance fleets, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md).
 
@@ -85,14 +84,14 @@ For a detailed description of the parameters available when configuring an autom
 
 You can specify an automatic scaling configuration within the `--instance-groups` option of the `aws emr create-cluster` command. The following example illustrates a create-cluster command where an automatic scaling policy for the core instance group is provided inline. The command creates a scaling configuration equivalent to the default scale-out policy that appears when you create an automatic scaling policy with the AWS Management Console for Amazon EMR. For brevity, a scale-in policy is not shown. We do not recommend creating a scale-out rule without a scale-in rule.
 
-```
-aws emr create-cluster --release-label {{emr-5.2.0}} --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --auto-scaling-role EMR_AutoScaling_DefaultRole  --instance-groups Name={{MyMasterIG}},InstanceGroupType=MASTER,InstanceType={{m5.xlarge}},InstanceCount=1 'Name={{MyCoreIG}},InstanceGroupType=CORE,InstanceType={{m5.xlarge}},InstanceCount={{2}},AutoScalingPolicy={Constraints={MinCapacity={{2}},MaxCapacity={{10}}},Rules=[{Name={{Default-scale-out}},Description={{Replicates the default scale-out rule in the console.}},Action={SimpleScalingPolicyConfiguration={AdjustmentType={{CHANGE_IN_CAPACITY}},ScalingAdjustment={{1}},CoolDown=300}},Trigger={CloudWatchAlarmDefinition={ComparisonOperator={{LESS_THAN}},EvaluationPeriods={{1}},MetricName={{YARNMemoryAvailablePercentage}},Namespace=AWS/ElasticMapReduce,Period={{300}},Statistic={{AVERAGE}},Threshold={{15}},Unit={{PERCENT}},Dimensions=[{Key=JobFlowId,Value="${emr.clusterId}"}]}}}]}'				
+```bash
+aws emr create-cluster --release-label {{emr-7.14.0}} --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --auto-scaling-role EMR_AutoScaling_DefaultRole  --instance-groups Name={{MyPrimaryIG}},InstanceGroupType=MASTER,InstanceType={{m5.xlarge}},InstanceCount=1 'Name={{MyCoreIG}},InstanceGroupType=CORE,InstanceType={{m5.xlarge}},InstanceCount={{2}},AutoScalingPolicy={Constraints={MinCapacity={{2}},MaxCapacity={{10}}},Rules=[{Name={{Default-scale-out}},Description={{Replicates the default scale-out rule in the console.}},Action={SimpleScalingPolicyConfiguration={AdjustmentType={{CHANGE_IN_CAPACITY}},ScalingAdjustment={{1}},CoolDown=300}},Trigger={CloudWatchAlarmDefinition={ComparisonOperator={{LESS_THAN}},EvaluationPeriods={{1}},MetricName={{YARNMemoryAvailablePercentage}},Namespace=AWS/ElasticMapReduce,Period={{300}},Statistic={{AVERAGE}},Threshold={{15}},Unit={{PERCENT}},Dimensions=[{Key=JobFlowId,Value="${emr.clusterId}"}]}}}]}'				
 ```
 
  The following command illustrates how to use the command line to provide the automatic scaling policy definition as part of an instance group configuration file named `{{instancegroupconfig.json}}`.
 
-```
-aws emr create-cluster --release-label {{emr-5.2.0}} --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --instance-groups file://{{your/path/to/instancegroupconfig.json}} --auto-scaling-role EMR_AutoScaling_DefaultRole								
+```bash
+aws emr create-cluster --release-label {{emr-7.14.0}} --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --instance-groups file://{{your/path/to/instancegroupconfig.json}} --auto-scaling-role EMR_AutoScaling_DefaultRole								
 ```
 
 With the contents of the configuration file as follows:
@@ -101,7 +100,7 @@ With the contents of the configuration file as follows:
 [
 {
   "InstanceCount": 1,
-  "Name": "MyMasterIG",
+  "Name": "MyPrimaryIG",
   "InstanceGroupType": "MASTER",
   "InstanceType": "m5.xlarge"
 },
@@ -235,7 +234,7 @@ The command produces the following example output.
         "Id": "j-1CWOHP4PI30VJ",
         "NormalizedInstanceHours": 48,
         "Name": "Auto Scaling Cluster",
-        "ReleaseLabel": "emr-5.2.0",
+        "ReleaseLabel": "emr-7.14.0",
         "ServiceRole": "EMR_DefaultRole",
         "AutoTerminate": false,
         "TerminationProtected": true,

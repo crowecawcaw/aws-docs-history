@@ -1,7 +1,6 @@
 
 
 # Understand Workspace status
-<a name="emr-studio-workspace-status"></a>
 
 After you create an EMR Studio Workspace, it appears as a row in the **Workspaces** list in your Studio with its name, status, creation time, and last modified timestamp. The following table describes Workspace statuses.
 

@@ -1,7 +1,6 @@
 
 
 # Using a custom AMI to provide more flexibility for Amazon EMR cluster configuration
-<a name="emr-custom-ami"></a>
 
 When you use Amazon EMR 5.7.0 or higher, you can choose to specify a custom Amazon Linux AMI instead of the default Amazon Linux AMI for Amazon EMR. A custom AMI is useful if you want to do the following:
 + Pre-install applications and perform other customizations instead of using bootstrap actions. This can improve cluster start time and streamline the startup work flow. For more information and an example, see [Creating a custom Amazon Linux AMI from a preconfigured instance](#emr-custom-ami-preconfigure).
@@ -128,7 +127,7 @@ Linux line continuation characters (\\) are included for readability. They can b
   ```
   aws emr create-cluster --name "{{Cluster with My Custom AMI}}" \
   --custom-ami-id {{MyAmiID}} --ebs-root-volume-size {{20}} \
-  --release-label emr-5.7.0 --use-default-roles \
+  --release-label emr-7.14.0 --use-default-roles \
   --instance-count {{2}} --instance-type {{m5.xlarge}}
   ```
 
@@ -240,7 +239,7 @@ The simplest way to do this is to add the role as a key user as described in the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

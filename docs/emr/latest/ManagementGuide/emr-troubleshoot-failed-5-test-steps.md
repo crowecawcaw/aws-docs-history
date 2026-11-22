@@ -1,7 +1,6 @@
 
 
 # Step 5: Test the Amazon EMR cluster step by step
-<a name="emr-troubleshoot-failed-5-test-steps"></a>
 
  A useful technique when you are trying to track down the source of an error is to restart the cluster and submit the steps to it one by one. This lets you check the results of each step before processing the next one, and gives you the opportunity to correct and re-run a step that has failed. This also has the advantage that you only load your input data once. 
 

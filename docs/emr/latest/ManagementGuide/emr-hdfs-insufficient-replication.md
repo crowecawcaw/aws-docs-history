@@ -1,7 +1,6 @@
 
 
 # Amazon EMR cluster error: HDFS replication factor error
-<a name="emr-hdfs-insufficient-replication"></a>
 
 When you remove a core node from a core [instance group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-uniform-instance-group.html) or [instance fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html), Amazon EMR might run into an HDFS replication error. This error happens when you remove core nodes and the number core nodes falls below the configured [dfs.replication factor](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hdfs-config.html) for the Hadoop Distributed File System (HDFS). As such, Amazon EMR can't safely perform the operation. To determine the default value of the `dfs.replication` configuration, [HDFS configuration](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hdfs-config.html).
 

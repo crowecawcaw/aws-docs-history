@@ -1,7 +1,6 @@
 
 
 # Troubleshoot common issues when using Amazon EMR with AWS Lake Formation
-<a name="emr-troubleshoot-lf"></a>
 
  This section walks you through the process of troubleshooting common issues when using Amazon EMR with AWS Lake Formation.
 

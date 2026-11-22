@@ -1,7 +1,6 @@
 
 
 # Working with S3 Access Grants on an IAM Identity Center enabled EMR cluster
-<a name="emr-idc-s3ag"></a>
 
 You can integrate [S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants.html) with your AWS IAM Identity Center enabled EMR cluster.
 
@@ -18,7 +17,7 @@ If you don't already have one, create an S3 Access Grants instance in the AWS Re
 
 Use the following AWS CLI command to create a new instance named `{{MyInstance}}`:
 
-```
+```bash,sh,zsh
 aws s3control-access-grants create-access-grants-instance \
 --account-id {{12345678912}} \
 --identity-center-arn "{{identity-center-instance-arn}}" \
@@ -26,7 +25,7 @@ aws s3control-access-grants create-access-grants-instance \
 
 Then, create an S3 Access Grants location, replacing the red values with your own:
 
-```
+```bash,sh,zsh
 aws s3control-access-grants create-access-grants-location \
 --account-id {{12345678912}} \
 --location-scope s3:// \
@@ -42,7 +41,7 @@ Define the `iam-role-arn` parameter as the `accessGrantRole` ARN.
 
 Finally, create the grants for the identities that have access to your cluster:
 
-```
+```bash,sh,zsh
 aws s3control-access-grants create-access-grant \
 --account-id {{12345678912}} \
 --access-grants-location-id "default" \

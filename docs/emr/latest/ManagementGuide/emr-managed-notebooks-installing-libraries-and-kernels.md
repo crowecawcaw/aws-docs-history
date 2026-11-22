@@ -1,7 +1,6 @@
 
 
 # Installing and using kernels and libraries in EMR Studio
-<a name="emr-managed-notebooks-installing-libraries-and-kernels"></a>
 
 Each EMR notebook comes with a set of pre-installed libraries and kernels. You can install additional libraries and kernels in an EMR cluster if the cluster has access to the repository where the kernels and libraries are located. For example, for clusters in private subnets, you might need to conﬁgure network address translation (NAT) and provide a path for the cluster to access the public PyPI repository to install a library. For more information about configuring external access for different network configurations, see [Scenarios and examples](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenarios.html) in the *Amazon VPC User Guide*.
 
@@ -34,12 +33,12 @@ You can install kernels and libraries using `pip` or `conda` in the `/emr/notebo
 **Example – Installing Python libraries**  
 From the Python3 kernel, run the `%pip` magic as a command from within a notebook cell to install Python libraries.  
 
-```
+```bash,sh,zsh
 %pip install pmdarima
 ```
 You may need to restart the kernel to use updated packages. You can also use the [`%%sh`](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-sh) Spark magic to invoke `pip`.  
 
-```
+```bash,sh,zsh
 %%sh
 /emr/notebook-env/bin/pip install -U matplotlib
 /emr/notebook-env/bin/pip install -U pmdarima
@@ -47,7 +46,7 @@ You may need to restart the kernel to use updated packages. You can also use the
 When using a PySpark kernel, you can either install libraries on the cluster using `pip` commands or use notebook-scoped libraries from within a PySpark notebook.   
 To run `pip` commands on the cluster from the terminal, first connect to the primary node using SSH, as the following commands demonstrate.  
 
-```
+```bash,sh,zsh
 sudo pip3 install -U matplotlib
 sudo pip3 install -U pmdarima
 ```
@@ -55,7 +54,7 @@ Alternatively, you can use notebook-scoped libraries. With notebook-scoped libra
 If you want to package multiple Python libraries within a PySpark kernel, you can also create an isolated Python virtual environment. For examples, see [Using Virtualenv](https://spark.apache.org/docs/latest/api/python/tutorial/python_packaging.html#using-virtualenv).   
 To create a Python virtual environment in a session, use the Spark property `spark.yarn.dist.archives` from the `%%configure` magic command in the first cell in a notebook, as the following example demonstrates.  
 
-```
+```bash,sh,zsh
 %%configure -f
 {
    "conf": {
@@ -85,7 +84,7 @@ You can also use `conda` to install Python libraries. You don't need sudo access
 **Example – Installing kernels**  
 The following example demonstrates installing the Kotlin kernel using a terminal command while connected to the primary node of a cluster:  
 
-```
+```bash,sh,zsh
 sudo /emr/notebook-env/bin/conda install kotlin-jupyter-kernel -c jetbrains
 ```
 These instructions do not install kernel dependencies. If your kernel has third-party dependencies, you may need to take additional setup steps before you can use the kernel with your notebook.
@@ -117,12 +116,12 @@ sc.list_packages()
 **Example – Installing the Celery library**  
 The following command installs the [Celery](https://pypi.org/project/celery/) library as a notebook-scoped library.  
 
-```
+```python
 sc.install_pypi_package("celery")
 ```
 After installing the library, the following command confirms that the library is available on the Spark driver and executors.  
 
-```
+```python
 import celery
 sc.range(1,10000,1,100).map(lambda x: celery.__version__).collect()
 ```
@@ -130,7 +129,7 @@ sc.range(1,10000,1,100).map(lambda x: celery.__version__).collect()
 **Example – Installing the Arrow library, specifying the version and repository**  
 The following command installs the [Arrow](https://pypi.org/project/arrow/) library as a notebook-scoped library, with a specification of the library version and repository URL.  
 
-```
+```python
 sc.install_pypi_package("arrow==0.14.0", "https://pypi.org/simple")
 ```
 

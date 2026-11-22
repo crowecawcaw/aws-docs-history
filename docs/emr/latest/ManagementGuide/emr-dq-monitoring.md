@@ -1,7 +1,6 @@
 
 
-# Monitoring and alerting
-<a name="emr-dq-monitoring"></a>
+# Monitoring and alerting for Amazon EMR Data Quality
 
 ## Amazon CloudWatch metrics
 <a name="emr-dq-cw-metrics"></a>
@@ -29,7 +28,7 @@ When your application sets `publishToDataCatalogTarget` with a `DatabaseName` an
 
 Without `publishToDataCatalogTarget`, results are not attributed to a catalog table and the AWS Glue console does not display them. Use the AWS Glue Data Quality APIs or the AWS CLI to retrieve those runs. See [Retrieving historical results](emr-dq-working-with-results.md#emr-dq-retrieve-results).
 
-### Limitations
+### Limitations of the AWS Glue console view
 <a name="emr-dq-studio-view-limitations"></a>
 
 The *Data quality* tab shows the overall data quality score and run metadata for each run. Per-rule outcomes and `FailureReason` values are not displayed in the console; retrieve them with `GetDataQualityResultV2` or `BatchGetDataQualityResultV2` (see [Retrieving historical results](emr-dq-working-with-results.md#emr-dq-retrieve-results)).

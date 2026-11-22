@@ -1,7 +1,6 @@
 
 
 # Step 3: Look at the last state change
-<a name="emr-troubleshoot-failed-3"></a>
 
  The last state change provides information about what occurred the last time the cluster changed state. This often has information that can tell you what went wrong as a cluster changes state to `FAILED`. For example, if you launch a streaming cluster and specify an output location that already exists in Amazon S3, the cluster will fail with a last state change of "Streaming output directory already exists". 
 

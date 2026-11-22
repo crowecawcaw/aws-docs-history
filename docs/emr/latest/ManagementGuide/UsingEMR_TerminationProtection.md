@@ -1,7 +1,6 @@
 
 
 # Using termination protection to protect your Amazon EMR clusters from accidental shut down
-<a name="UsingEMR_TerminationProtection"></a>
 
 Termination protection protects your clusters from accidental termination, which can be especially useful for long running clusters processing critical workloads. When termination protection is enabled on a long-running cluster, you can still terminate the cluster, but you must explicitly remove termination protection from the cluster first. This helps ensure that EC2 instances are not shut down by an accident or error. You can enable termination protection when you create a cluster, and you can change the setting on a running cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Types of input Amazon EMR can accept
-<a name="emr-plan-input-accept"></a>
 
 The default input format for a cluster is text files with each line separated by a newline (\\n) character, which is the input format most commonly used. 
 

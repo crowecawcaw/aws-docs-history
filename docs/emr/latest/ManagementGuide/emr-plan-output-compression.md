@@ -1,7 +1,6 @@
 
 
 # Ways to compress the output of your Amazon EMR cluster
-<a name="emr-plan-output-compression"></a>
 
 There are different ways to compress output that results from data processing. The compression tools you use depend on properties of your data. Compression can improve performance when you transfer large amounts of data.
 

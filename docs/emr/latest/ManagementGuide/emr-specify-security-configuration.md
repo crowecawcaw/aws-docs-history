@@ -1,7 +1,6 @@
 
 
 # Specify a security configuration for an Amazon EMR cluster
-<a name="emr-specify-security-configuration"></a>
 
 You can specify encryption settings when you create a cluster by specifying the security configuration. You can use the AWS Management Console or the AWS CLI.
 
@@ -26,8 +25,8 @@ You can specify encryption settings when you create a cluster by specifying the 
 **To specify a security configuration with the AWS CLI**
 + Use `aws emr create-cluster` to optionally apply a security configuration with `--security-configuration {{MySecConfig}}`, where `{{MySecConfig}}` is the name of the security configuration, as shown in the following example. The `--release-label` you specify must be 4.8.0 or later and the `--instance-type` can be any available.
 
-  ```
-  aws emr create-cluster --instance-type {{m5.xlarge}} --release-label emr-5.0.0 --security-configuration {{mySecConfig}}			
+  ```bash
+  aws emr create-cluster --instance-type {{m5.xlarge}} --release-label emr-7.14.0 --security-configuration {{mySecConfig}}			
   ```
 
 ------

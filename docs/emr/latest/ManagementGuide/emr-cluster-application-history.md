@@ -1,7 +1,6 @@
 
 
 # View Amazon EMR application history
-<a name="emr-cluster-application-history"></a>
 
 You can view Spark History Server and YARN timeline service application details with the cluster's detail page in the console. Amazon EMR application history makes it easier for you to troubleshoot and analyze active jobs and job history. 
 

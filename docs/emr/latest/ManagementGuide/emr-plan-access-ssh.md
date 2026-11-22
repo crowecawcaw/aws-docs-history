@@ -1,7 +1,6 @@
 
 
 # Use an EC2 key pair for SSH credentials for Amazon EMR
-<a name="emr-plan-access-ssh"></a>
 
 Amazon EMR cluster nodes run on Amazon EC2 instances. You can connect to cluster nodes in the same way that you can connect to Amazon EC2 instances. You can use Amazon EC2 to create a key pair, or you can import a key pair. When you create a cluster, you can specify the Amazon EC2 key pair that will be used for SSH connections to all cluster instances. You can also create a cluster without a key pair. This is usually done with transient clusters that start, run steps, and then terminate automatically.
 

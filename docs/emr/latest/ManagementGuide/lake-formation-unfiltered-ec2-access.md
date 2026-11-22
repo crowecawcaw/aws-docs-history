@@ -1,7 +1,6 @@
 
 
 # Lake Formation full table access for Amazon EMR on EC2
-<a name="lake-formation-unfiltered-ec2-access"></a>
 
 With Amazon EMR releases 7.8.0 and higher, you can leverage AWS Lake Formation with Glue Data Catalog where the job runtime role has full table permissions without the limitations of fine-grained access control. This capability allows you to read and write to tables that are protected by Lake Formation from your Amazon EMR on EC2 Spark batch and interactive jobs. See the following sections to learn more about Lake Formation and how to use it with Amazon EMR on EC2.
 
@@ -46,7 +45,7 @@ AWS Glue Data Catalog must be configured as a metastore to access Lake Formation
 
 Set the following settings to configure Glue catalog as a metastore:
 
-```
+```bash
 --conf spark.sql.catalogImplementation=hive
 --conf spark.hive.metastore.client.factory.class=com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory
 ```
@@ -124,7 +123,7 @@ To access Lake Formation registered tables from interactive Spark sessions in Ju
 ------
 #### [ For Hive tables ]
 
-```
+```spark
 %%configure -f
 {
     "conf": {
@@ -141,7 +140,7 @@ To access Lake Formation registered tables from interactive Spark sessions in Ju
 ------
 #### [ For Iceberg tables ]
 
-```
+```spark
 %%configure -f
 {
     "conf": {

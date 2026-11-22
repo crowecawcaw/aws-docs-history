@@ -1,7 +1,6 @@
 
 
 # Restrictions that apply to tagging resources in Amazon EMR
-<a name="emr-plan-tags-restrictions"></a>
 
 The following basic restrictions apply to tags:
 + Restrictions that apply to Amazon EC2 resources apply to Amazon EMR as well. For more information, see [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-restrictions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-restrictions).

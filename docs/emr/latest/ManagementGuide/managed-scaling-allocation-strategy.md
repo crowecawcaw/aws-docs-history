@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon EMR node allocation strategy and scenarios
-<a name="managed-scaling-allocation-strategy"></a>
 
 This section gives an overview of node allocation strategy and common scaling scenarios that you can use with Amazon EMR managed scaling. 
 
@@ -28,7 +27,7 @@ Amazon EMR managed scaling allocates core and task nodes based on the following 
 + Amazon EMR versions 5.34.0 and higher, and Amazon EMR versions 6.4.0 and higher, support Spark shuffle data awareness, which prevents an instance from scaling down while Managed Scaling is aware of existing shuffle data. For more information on shuffle operations, see the [Spark Programming Guide](https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations). Managed Scaling makes best effort to prevent scaling-down nodes with shuffle data from the current and previous stage of any active Spark application, up to a maximum of 30 minutes. This helps minimize unintended shuffle data loss, avoiding the need for job re-attempts and recomputation of intermediate data. However, prevention of shuffle data loss is not guaranteed. For improved Spark shuffle protection, we recommend shuffle awareness on clusters with release label 7.4 or higher. Add the following flags to the cluster configuration to enable improved Spark shuffle protection.
   + If either the `yarn.nodemanager.shuffledata-monitor.interval-ms` flag (default 30000 ms) or the `spark.dynamicAllocation.executorIdleTimeout` (default 60 sec) has been changed from the default values, ensure the condition `spark.dynamicAllocation.executorIdleTimeout > yarn.nodemanager.shuffledata-monitor.interval-ms` remains `true` by updating the necessary flag.
 
-    ```
+    ```JSON
     [
     	{
     		"Classification": "yarn-site",
@@ -55,7 +54,7 @@ Amazon EMR managed scaling allocates core and task nodes based on the following 
   + To minimize Spark shuffle data loss in Amazon EMR version 7.4.0 and higher, consider setting the following flags.
     + If either the `yarn.nodemanager.shuffledata-monitor.interval-ms` flag (default 30000 ms) or the `spark.dynamicAllocation.executorIdleTimeout` (default 60 sec) has been changed from the default values, ensure that the condition `spark.dynamicAllocation.executorIdleTimeout > yarn.nodemanager.shuffledata-monitor.interval-ms` remains `true` by updating the necessary flag.
 
-      ```
+      ```JSON
       [
       	{
       		"Classification": "yarn-site",

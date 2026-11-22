@@ -1,7 +1,6 @@
 
 
 # View web interfaces hosted on Amazon EMR clusters
-<a name="emr-web-interfaces"></a>
 
 **Important**  
 It is possible to configure a custom security group to allow inbound access to these web interfaces. Keep in mind that any port on which you allow inbound traffic represents a potential security vulnerability. Carefully review custom security groups to ensure that you minimize vulnerabilities. For more information, see [Control network traffic with security groups for your Amazon EMR cluster](emr-security-groups.md).

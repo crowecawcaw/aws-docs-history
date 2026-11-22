@@ -1,7 +1,6 @@
 
 
 # Use security configurations to set up Amazon EMR cluster security
-<a name="emr-security-configurations"></a>
 
 You can use Amazon EMR security configurations to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS on your clusters. First, you create a security configuration. Then, the security configuration is available to use and re-use when you create clusters.
 

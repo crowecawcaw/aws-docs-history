@@ -1,7 +1,6 @@
 
 
 # Publish Amazon EMR logs to CloudWatch Logs
-<a name="emr-plan-logging-cw"></a>
 
 ## Overview
 <a name="emr-plan-logging-cw-overview"></a>
@@ -31,7 +30,7 @@ The CloudWatch Agent requires specific AWS Identity and Access Management(IAM) p
 
 Add the following policy to your [EC2 instance profile for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-role-for-ec2.html) to grant the necessary permissions:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -267,7 +266,7 @@ For detailed information about encrypting CloudWatch Logs data, see [Encrypt log
 #### Example with KMS Encryption
 <a name="emr-plan-logging-cw-encrypting-logs-with-kms-example"></a>
 
-```
+```json
 {
   "CloudWatchLogConfiguration": {
     "Enabled": true,

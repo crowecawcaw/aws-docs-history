@@ -1,7 +1,6 @@
 
 
 # Run an EMR Studio Workspace with a runtime role
-<a name="emr-studio-runtime"></a>
 
 **Note**  
 The runtime role functionality described on this page only applies to Amazon EMR running on Amazon EC2, and doesn't refer to the runtime role functionality in EMR Serverless interactive applications. To learn more about how to use runtime roles in EMR Serverless, see [Job runtime roles](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/security-iam-runtime-role.html) in the *Amazon EMR Serverless User Guide*.
@@ -26,7 +25,7 @@ Configure user permissions so that the Studio user can call the `elasticmapreduc
 **Warning**  
 To grant this permission, create a condition based on the `elasticmapreduce:ExecutionRoleArn` context key when you grant a caller access to call the `GetClusterSessionCredentials` APIs. The following examples demonstrate how to do so.
 
-```
+```json
 {
       "Sid": "AllowSpecificExecRoleArn",
       "Effect": "Allow",

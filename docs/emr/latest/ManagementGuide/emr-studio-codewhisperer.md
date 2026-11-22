@@ -1,7 +1,6 @@
 
 
 # Amazon CodeWhisperer integration with EMR Studio Workspaces
-<a name="emr-studio-codewhisperer"></a>
 
 ## Overview
 <a name="emr-studio-codewhisperer-overview"></a>
@@ -28,7 +27,7 @@ To use CodeWhisperer, you must attach the following policy to your IAM user role
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

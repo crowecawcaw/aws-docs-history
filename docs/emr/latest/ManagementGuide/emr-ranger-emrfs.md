@@ -1,7 +1,6 @@
 
 
 # EMRFS S3 plugin for Ranger integration with Amazon EMR
-<a name="emr-ranger-emrfs"></a>
 
 To make it easier to provide access controls against objects in S3 on a multi-tenant cluster, the EMRFS S3 plugin provides access controls to the data within S3 when accessing it through EMRFS. You can allow access to S3 resources at a user and group level.
 

@@ -1,7 +1,6 @@
 
 
 # Terminate an Amazon EMR cluster in the starting, running, or waiting states
-<a name="UsingEMR_TerminateJobFlow"></a>
 
 **Warning**  
 A terminated EMR Cluster is irrecoverable. Ensure that the resource and any data on HDFS or jupyter notebooks is no longer required prior to removal. HDFS data is lost when the cluster is terminated.
@@ -37,7 +36,7 @@ You can terminate one or more clusters using the Amazon EMR console. The steps t
 
 1. Under the **Actions** dropdown menu, choose **Terminate cluster** to open the **Terminate cluster** prompt.
 
-1. At the prompt, choose **Terminate**. Depending on the cluster configuration, termination may take 5 to 10 minutes. For more information on how to Amazon EMR clusters, see [Terminate an Amazon EMR cluster in the starting, running, or waiting states](#UsingEMR_TerminateJobFlow).
+1. At the prompt, choose **Terminate**. Depending on the cluster configuration, termination may take 5 to 10 minutes. For more information on how to Amazon EMR clusters, see [Terminate an Amazon EMR cluster in the starting, running, or waiting states](UsingEMR_TerminateJobFlow.md).
 
 ------
 

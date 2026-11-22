@@ -1,7 +1,6 @@
 
 
 # Administrator permissions to create and manage an EMR Studio
-<a name="emr-studio-admin-permissions"></a>
 
 The IAM permissions described on this page permit you to create and manage an EMR Studio. For detailed information about each required permission, see [Permissions required to manage an EMR Studio](#emr-studio-admin-permissions-table).
 
@@ -51,7 +50,7 @@ You only need IAM Identity Center and Studio `SessionMapping` actions when you u
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -101,7 +100,7 @@ Identity Center and Identity Center directory APIs don't support specifying an A
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

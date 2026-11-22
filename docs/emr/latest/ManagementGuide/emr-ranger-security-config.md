@@ -1,7 +1,6 @@
 
 
 # Create the EMR security configuration
-<a name="emr-ranger-security-config"></a>
 
 **Creating an Amazon EMR Security Configuration for Apache Ranger**
 

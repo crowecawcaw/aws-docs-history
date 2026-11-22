@@ -1,7 +1,6 @@
 
 
 # Application support and considerations with LDAP for Amazon EMR
-<a name="ldap-considerations"></a>
 
 This topic lists supported applications, supported features and unsupported features.
 

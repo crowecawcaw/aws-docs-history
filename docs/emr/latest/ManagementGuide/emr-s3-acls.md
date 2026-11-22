@@ -1,7 +1,6 @@
 
 
 # How to write data to an Amazon S3 bucket you don't own with Amazon EMR
-<a name="emr-s3-acls"></a>
 
  When you write a file to an Amazon Simple Storage Service (Amazon S3) bucket, by default, you are the only one able to read that file. The assumption is that you will write files to your own buckets, and this default setting protects the privacy of your files. 
 

@@ -1,7 +1,6 @@
 
 
 # Configure IAM roles for EMRFS requests to Amazon S3
-<a name="emr-emrfs-iam-roles"></a>
 
 **Note**  
 The EMRFS role mapping capability described on this page has been improved upon with the introduction of Amazon S3 Access Grants in Amazon EMR 6.15.0. For a scalable access control solution for your data in Amazon S3, we recommend that you use [S3 Access Grants with Amazon EMR](emr-access-grants.md).
@@ -38,7 +37,7 @@ The following example trust policy is attached to roles for EMRFS. The statement
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -63,7 +62,7 @@ In addition, the following example trust policy statement is added to the `EMR_E
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

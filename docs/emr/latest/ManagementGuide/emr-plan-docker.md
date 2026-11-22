@@ -1,7 +1,6 @@
 
 
 # Configure Docker for use with Amazon EMR clusters
-<a name="emr-plan-docker"></a>
 
 **Note**  
 The procedure described works only with Amazon EMR version 6.x.

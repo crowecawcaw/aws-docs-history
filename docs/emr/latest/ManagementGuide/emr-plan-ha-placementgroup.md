@@ -1,7 +1,6 @@
 
 
 # Amazon EMR integration with EC2 placement groups
-<a name="emr-plan-ha-placementgroup"></a>
 
 When you launch an Amazon EMR multiple primary node cluster on Amazon EC2, you have the option to use placement group strategies to specify how you want the primary node instances deployed to protect against hardware failure.
 
@@ -26,7 +25,7 @@ Because the `AmazonElasticMapReducePlacementGroupPolicy` managed policy is updat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -72,7 +71,7 @@ If you launch an Amazon EMR cluster that has multiple primary nodes with the `pl
 **Example – Use a placement group strategy to launch an instance group cluster with multiple primary nodes from the Amazon EMR API**  
 When you use the RunJobFlow action to create an Amazon EMR cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following. Currently, the `MASTER` instance role automatically uses `SPREAD` as the placement group strategy.  
 
-```
+```bash
 {
    "Name":"ha-cluster",
    "PlacementGroupConfigs":[
@@ -111,7 +110,7 @@ When you use the RunJobFlow action to create an Amazon EMR cluster with multiple
 **Example – Use a placement group strategy to launch an instance fleet cluster with multiple primary nodes from the AWS Command Line Interface**  
 When you use the RunJobFlow action to create an Amazon EMR cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following. Currently, the `MASTER` instance role automatically uses `SPREAD` as the placement group strategy.  
 
-```
+```bash
 aws emr create-cluster \
 --name "ha-cluster" \
 --placement-group-configs InstanceRole=MASTER \
@@ -204,7 +203,7 @@ For a cluster with multiple primary nodes to launch primary nodes without the pl
 **Example – Launching a cluster with multiple primary nodes without placement group strategy using the Amazon EMRAPI.**  
 When using the RunJobFlow action to create a cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following.  
 
-```
+```json
 {
    "Name":"ha-cluster",
    "PlacementGroupConfigs":[
@@ -213,7 +212,7 @@ When using the RunJobFlow action to create a cluster with multiple primary nodes
          "PlacementStrategy":"NONE"
       }
    ],
-   "ReleaseLabel":"emr-5.30.1",
+   "ReleaseLabel":"emr-7.14.0",
    "Instances":{
       "ec2SubnetId":"subnet-22XXXX01",
       "ec2KeyName":"ec2_key_pair_name",
@@ -244,11 +243,11 @@ When using the RunJobFlow action to create a cluster with multiple primary nodes
 **Example – Launching a cluster with multiple primary nodes without a placement group strategy using the Amazon EMRCLI.**  
 When using the RunJobFlow action to create a cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following.  
 
-```
+```bash
 aws emr create-cluster \
 --name "ha-cluster" \
 --placement-group-configs InstanceRole=MASTER,PlacementStrategy=NONE \
---release-label emr-5.30.1 \
+--release-label emr-7.14.0 \
 --instance-groups InstanceGroupType=MASTER,InstanceCount=3,InstanceType=m5.xlarge InstanceGroupType=CORE,InstanceCount=4,InstanceType=m5.xlarge \
 --ec2-attributes KeyName=ec2_key_pair_name,InstanceProfile=EMR_EC2_DefaultRole,SubnetId=subnet-22XXXX01 \
 --service-role EMR_DefaultRole \

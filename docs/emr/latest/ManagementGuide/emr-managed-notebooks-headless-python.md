@@ -1,7 +1,6 @@
 
 
 # Python samples for an EMR notebook
-<a name="emr-managed-notebooks-headless-python"></a>
 
 This topic contains a sample command file. The code example is a Python file called `demo.py`. It shows the notebook execution APIs.
 
@@ -10,7 +9,7 @@ EMR Notebooks are available as EMR Studio Workspaces in the console. The **Creat
 
 For information about the Amazon EMR API `NotebookExecution` actions, see [Amazon EMR API actions.](https://docs.aws.amazon.com/emr/latest/APIReference/API_Operations.html)
 
-```
+```python
 import boto3,time
 
 emr = boto3.client(
@@ -52,7 +51,7 @@ print("\n")
 
 Here's the output from running `demo.py`.
 
-```
+```python
 ex-IZX56YJDW1D29Q1PHR32WABU2SAPK
      
 {'NotebookExecution': {'NotebookExecutionId': 'ex-IZX56YJDW1D29Q1PHR32WABU2SAPK', 'EditorId': 'e-40AC8ZO6EGGCPJ4DLO48KGGGI', 'ExecutionEngine': {'Id': 'j-1HYZS6JQKV11Q', 'Type': 'EMR'}, 'NotebookExecutionName': '', 'Status': 'STARTING', 'StartTime': datetime.datetime(2020, 8, 19, 0, 49, 19, 418000, tzinfo=tzlocal()), 'Arn': 'arn:aws:elasticmapreduce:us-west-1:123456789012:notebook-execution/ex-IZX56YJDW1D29Q1PHR32WABU2SAPK', 'LastStateChangeReason': 'Execution is starting for cluster j-1HYZS6JQKV11Q.', 'Tags': []}, 'ResponseMetadata': {'RequestId': '70f12c5f-1dda-45b7-adf6-964987d373b7', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': '70f12c5f-1dda-45b7-adf6-964987d373b7', 'content-type': 'application/x-amz-json-1.1', 'content-length': '448', 'date': 'Wed, 19 Aug 2020 00:49:22 GMT'}, 'RetryAttempts': 0}}

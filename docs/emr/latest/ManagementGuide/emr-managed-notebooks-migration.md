@@ -1,7 +1,6 @@
 
 
 # Amazon EMR Notebooks are available as Amazon EMR Studio Workspaces in the console
-<a name="emr-managed-notebooks-migration"></a>
 
 ## Making the transition from EMR Notebooks to Workspaces
 <a name="emr-notebooks-workspaces-transition"></a>

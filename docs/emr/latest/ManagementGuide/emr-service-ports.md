@@ -1,7 +1,6 @@
 
 
 # Amazon EMR service ports
-<a name="emr-service-ports"></a>
 
 **Note**  
 The following are interfaces and service ports for components on Amazon EMR. This is not a complete list of service ports. Non-default services, such as SSL ports and different types of protocols, are not listed.

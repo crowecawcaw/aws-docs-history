@@ -1,7 +1,6 @@
 
 
 # Encrypt data at rest and in transit with Amazon EMR
-<a name="emr-data-encryption"></a>
 
 Data encryption helps prevent unauthorized users from reading data on a cluster and associated data storage systems. This includes data saved to persistent media, known as data *at rest*, and data that may be intercepted as it travels the network, known as data *in transit*.
 

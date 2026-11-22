@@ -1,7 +1,6 @@
 
 
 # Option 2, part 2: Configure proxy settings to view websites hosted on the Amazon EMR cluster primary node
-<a name="emr-connect-master-node-proxy"></a>
 
 If you use an SSH tunnel with dynamic port forwarding, you must use a SOCKS proxy management add-on to control the proxy settings in your browser. Using a SOCKS proxy management tool allows you to automatically filter URLs based on text patterns and to limit the proxy settings to domains that match the form of the primary node's public DNS name. The browser add-on automatically handles turning the proxy on and off when you switch between viewing websites hosted on the primary node and those on the Internet. To manage your proxy settings, configure your browser to use an add-on such as FoxyProxy or SwitchyOmega. 
 

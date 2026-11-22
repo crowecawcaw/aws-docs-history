@@ -1,7 +1,6 @@
 
 
 # Start an EMR cluster with Apache Ranger
-<a name="emr-ranger-start-emr-cluster"></a>
 
 Before you launch an Amazon EMR cluster with Apache Ranger, make sure each component meets the following minimum version requirement:
 + Amazon EMR 5.32.0 or later, or 6.3.0 or later. We recommend that you use the latest Amazon EMR release version.

@@ -1,7 +1,6 @@
 
 
 # Considerations for Amazon EMR with Lake Formation
-<a name="emr-lf-limitations-cont"></a>
 
 Amazon EMR with Lake Formation is available in all [available regions](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-region.html).
 

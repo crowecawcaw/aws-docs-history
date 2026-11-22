@@ -1,7 +1,6 @@
 
 
 # Clone an Amazon EMR cluster using the console
-<a name="clone-console"></a>
 
 You can use the Amazon EMR console to clone a cluster, which makes a copy of the configuration of the original cluster to use as the basis for a new cluster. 
 

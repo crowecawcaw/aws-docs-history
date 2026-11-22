@@ -1,7 +1,6 @@
 
 
 # Known issues for Amazon EMR integration
-<a name="emr-ranger-security-considerations"></a>
 
 **Known Issues**
 

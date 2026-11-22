@@ -1,7 +1,6 @@
 
 
 # IAM service roles used by Amazon EMR
-<a name="emr-iam-service-roles"></a>
 
 Amazon EMR uses IAM service roles to perform actions on your behalf when provisioning cluster resources, running applications, dynamically scaling resources, and creating and running EMR Notebooks. Amazon EMR uses the following roles when interacting with other AWS services. Each role has a unique function within Amazon EMR. The topics in this section describe the role function and provide the default roles and permissions policy for each role.
 

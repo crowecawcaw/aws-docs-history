@@ -1,7 +1,6 @@
 
 
 # Internal error codes for Amazon EMR
-<a name="emr-troubleshoot-error-errordetail-internal"></a>
 
 The following sections provide troubleshooting information for internal error codes, including codes for insufficient capacity or no capacity.
 

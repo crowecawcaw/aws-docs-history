@@ -1,7 +1,6 @@
 
 
 # Step 3: Examine the log files for the Amazon EMR cluster
-<a name="emr-troubleshoot-slow-3"></a>
 
  The next step is to examine the log files in order to locate an error code or other indication of the issue that your cluster experienced. For information on the log files available, where to find them, and how to view them, see [View Amazon EMR log files](emr-manage-view-web-log-files.md). 
 

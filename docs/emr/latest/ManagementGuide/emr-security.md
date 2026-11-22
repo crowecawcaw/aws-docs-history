@@ -1,7 +1,6 @@
 
 
 # Security in Amazon EMR
-<a name="emr-security"></a>
 
 Security and compliance is a responsibility you share with AWS. This shared responsibility model can help relieve your operational burden as AWS operates, manages, and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which EMR clusters operate. You assume responsibility, management, and updating Amazon EMR clusters, as well as configuring the application software and AWS provided security controls. This differentiation of responsibility is commonly referred to as security *of* the cloud versus security *in* the cloud. 
 + Security of the cloud – AWS is responsible for protecting the infrastructure that runs AWS services in AWS. AWS also provides you with services that you can use securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS compliance programs](https://aws.amazon.com/compliance/programs/). To learn about the compliance programs that apply to Amazon EMR, see [AWS services in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/).

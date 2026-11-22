@@ -1,7 +1,6 @@
 
 
 # Amazon EMR Data Quality
-<a name="emr-data-quality"></a>
 
 Amazon EMR Data Quality, powered by [AWS Glue Data Quality](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html), lets you measure and monitor the quality of the data that your Amazon EMR Spark workloads read and write without leaving the Spark application. Amazon EMR Data Quality uses the same open-source [Deequ](https://github.com/awslabs/deequ) engine as AWS Glue Data Quality. Starting with the [AWS runtime for Apache Spark (`emr-spark-8.1.0`)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark810-release.html) on Amazon EMR, you can evaluate data quality directly inside your Amazon EMR Spark applications by adding the `EvaluateDataQuality` transform to your Spark script. The transform runs a declarative ruleset against your DataFrame and returns the per-rule outcome in-process, so your application can act on the result (for example, aborting a downstream write when a rule fails). Each evaluation is also published to AWS Glue Data Quality, so you can review the history of your runs and alert on them alongside runs from AWS Glue ETL and the AWS Glue Data Catalog.
 
@@ -13,12 +12,12 @@ Amazon EMR Data Quality is available on all three Amazon EMR deployment modes: A
 + [How Data Quality works](#emr-dq-how-it-works)
 + [Concepts and terminology](#emr-dq-concepts)
 + [Where to validate in your pipeline](#emr-dq-validation-stages)
-+ [Limits](#emr-dq-limits)
++ [Amazon EMR Data Quality limits](#emr-dq-limits)
 + [Getting started with Amazon EMR Data Quality](emr-dq-getting-started.md)
-+ [Key capabilities](emr-dq-key-capabilities.md)
-+ [Working with results](emr-dq-working-with-results.md)
-+ [Monitoring and alerting](emr-dq-monitoring.md)
-+ [Troubleshooting](emr-dq-troubleshooting.md)
++ [Key capabilities of Amazon EMR Data Quality](emr-dq-key-capabilities.md)
++ [Working with Amazon EMR Data Quality results](emr-dq-working-with-results.md)
++ [Monitoring and alerting for Amazon EMR Data Quality](emr-dq-monitoring.md)
++ [Troubleshooting Amazon EMR Data Quality](emr-dq-troubleshooting.md)
 
 ## How Data Quality works
 <a name="emr-dq-how-it-works"></a>
@@ -84,7 +83,7 @@ You can invoke `EvaluateDataQuality` anywhere in a Spark script. The three commo
 
 The following PySpark snippet gates a write on the result of a post-validation evaluation.
 
-```
+```python
 results = EvaluateDataQuality.apply(
     frame=final_df,
     ruleset=ruleset,
@@ -101,7 +100,7 @@ if failed > 0:
 final_df.write.mode("overwrite").parquet("s3://{{amzn-s3-demo-bucket}}/orders_curated/")
 ```
 
-## Limits
+## Amazon EMR Data Quality limits
 <a name="emr-dq-limits"></a>
 + A single ruleset can contain up to **2,000 rules**.
 + The serialized DQDL source of a ruleset must be no larger than **65 KB**.

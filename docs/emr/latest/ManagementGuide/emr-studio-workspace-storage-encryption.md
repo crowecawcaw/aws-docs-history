@@ -1,7 +1,6 @@
 
 
 # Encrypting EMR Studio workspace notebooks and files
-<a name="emr-studio-workspace-storage-encryption"></a>
 
 In EMR Studio, you can create and configure different workspaces to organize and run notebooks. These workspaces store notebooks and related files in your specified Amazon S3 bucket. By default, these files are encrypted with Amazon S3-managed keys (SSE-S3) with server-side encryption as the base level of encryption. You can also choose to use customer managed KMS keys (SSE-KMS) to encrypt your files. You can do so by using the Amazon EMR management console or through the AWS CLI and AWS SDK when creating an EMR Studio.
 
@@ -46,7 +45,7 @@ Your EMR Studio service role must also have the access permissions to use your A
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

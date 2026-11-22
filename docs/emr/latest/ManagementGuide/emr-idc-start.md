@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS IAM Identity Center and Amazon EMR
-<a name="emr-idc-start"></a>
 
 This section helps you configure Amazon EMR to integrate with AWS IAM Identity Center.
 
@@ -24,7 +23,7 @@ If you don't already have one, create an Identity Center instance in the AWS Reg
 
 Use the following AWS CLI command to create a new instance named `{{MyInstance}}`:
 
-```
+```bash,sh,zsh
 aws sso-admin create-instance --name {{MyInstance}}
 ```
 
@@ -35,7 +34,7 @@ To integrate Amazon EMR with AWS IAM Identity Center, create an IAM role that au
 
 When you create the role, use the following permissions policy:
 
-```
+```json
 {
   "Statement": [
     {
@@ -70,7 +69,7 @@ When you create the role, use the following permissions policy:
 
 The trust policy for this role allows the InstanceProfile role to let it assume the role.
 
-```
+```bash,sh,zsh
 {
     "Sid": "AssumeRole",
     "Effect": "Allow",
@@ -86,7 +85,7 @@ The trust policy for this role allows the InstanceProfile role to let it assume 
 
 If the role doesn't have trusted credentials and accesses a Lake Formation-protected table, Amazon EMR automatically sets the `principalId` of the assumed role to `{{userID}}-untrusted`. The following is a snippet of a CloudTrail event that displays the `principalId`.
 
-```
+```bash,sh,zsh
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -110,7 +109,7 @@ To learn more about Trusted Identity Propagation, see [Trusted Identity Propagat
 
 To launch an EMR cluster with IAM Identity Center integration, use the following example command to create an Amazon EMR security configuration that has Identity Center enabled. Each configuration is explained below.
 
-```
+```bash,sh,zsh
 aws emr create-security-configuration --name "IdentityCenterConfiguration-with-lf-accessgrants" --region "us-west-2" --security-configuration '{
     "AuthenticationConfiguration":{
         "IdentityCenterConfiguration":{

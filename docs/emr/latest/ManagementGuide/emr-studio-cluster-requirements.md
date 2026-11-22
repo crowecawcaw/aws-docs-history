@@ -1,7 +1,6 @@
 
 
 # Amazon EMR cluster requirements
-<a name="emr-studio-cluster-requirements"></a>
 
 **Amazon EMR Clusters Running on Amazon EC2**
 
@@ -16,7 +15,7 @@ We recommend the following cluster configurations when you work with EMR Studio.
 + Set deploy mode for Spark sessions to cluster mode. Cluster mode places the application master processes on the core nodes and not on the primary node of a cluster. Doing so relieves the primary node of potential memory pressures. For more information, see [Cluster Mode Overview](https://spark.apache.org/docs/latest/cluster-overview.html) in the Apache Spark documentation.
 + Change the Livy timeout from the default of one hour to six hours as in the following example configuration.
 
-  ```
+  ```json
   {
       "classification":"livy-conf",
           "Properties":{

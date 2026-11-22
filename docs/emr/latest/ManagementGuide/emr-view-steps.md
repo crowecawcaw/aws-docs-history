@@ -1,7 +1,6 @@
 
 
 # Viewing steps after submitting work to an Amazon EMR cluster
-<a name="emr-view-steps"></a>
 
 You can see up to 10,000 steps that Amazon EMR completed within the last seven days. You can also view 1,000 steps that Amazon EMR completed any time. This total includes both user-submitted and system steps.
 

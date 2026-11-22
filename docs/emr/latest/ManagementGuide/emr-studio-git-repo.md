@@ -1,7 +1,6 @@
 
 
 # Link Git-based repositories to an EMR Studio Workspace
-<a name="emr-studio-git-repo"></a>
 
 Associate up to three Git-based repositories with an Amazon EMR Studio Workspace to save and share notebook files.
 

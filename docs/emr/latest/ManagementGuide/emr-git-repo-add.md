@@ -1,7 +1,6 @@
 
 
 # Add a Git-based repository to Amazon EMR
-<a name="emr-git-repo-add"></a>
 
 Refer to the following sections for information on how to add a Git-based repository to an EMR notebook in the old console, or to an EMR Studio Workspace in the console.
 

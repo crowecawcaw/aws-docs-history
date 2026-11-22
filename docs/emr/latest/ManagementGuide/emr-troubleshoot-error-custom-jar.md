@@ -1,7 +1,6 @@
 
 
 # Amazon EMR: Custom JAR cluster errors
-<a name="emr-troubleshoot-error-custom-jar"></a>
 
 The following errors are common to custom JAR clusters.
 

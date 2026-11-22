@@ -1,7 +1,6 @@
 
 
 # Configure Amazon EMR cluster logging and debugging
-<a name="emr-plan-debugging"></a>
 
 One of the things to decide as you plan your cluster is how much debugging support you want to make available. When you are first developing your data processing application, we recommend testing the application on a cluster processing a small, but representative, subset of your data. When you do this, you will likely want to take advantage of all the debugging tools that Amazon EMR offers, such as archiving log files to Amazon S3. 
 

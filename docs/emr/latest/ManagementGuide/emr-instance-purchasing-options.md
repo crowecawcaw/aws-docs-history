@@ -1,7 +1,6 @@
 
 
 # Instance purchasing options in Amazon EMR
-<a name="emr-instance-purchasing-options"></a>
 
 When you set up a cluster, you choose a purchasing option for Amazon EC2 instances. You can choose On-Demand Instances, Spot Instances, or both. Prices vary based on the instance type and Region. The Amazon EMR price is in addition to the Amazon EC2 price (the price for the underlying servers) and Amazon EBS price (if attaching Amazon EBS volumes). For current pricing, see [Amazon EMR Pricing](https://aws.amazon.com/emr/pricing).
 

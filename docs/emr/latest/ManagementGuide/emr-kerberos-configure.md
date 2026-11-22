@@ -1,7 +1,6 @@
 
 
 # Configuring Kerberos on Amazon EMR
-<a name="emr-kerberos-configure"></a>
 
 This section provides configuration details and examples for setting up Kerberos with common architectures. Regardless of the architecture you choose, the configuration basics are the same and done in three steps. If you use an external KDC or set up a cross-realm trust, you must ensure that every node in a cluster has a network route to the external KDC, including the configuration of applicable security groups to allow inbound and outbound Kerberos traffic.
 

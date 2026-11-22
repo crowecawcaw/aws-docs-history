@@ -1,7 +1,6 @@
 
 
 # Manage Amazon EMR clusters
-<a name="emr-manage"></a>
 
  After you've launched your cluster, you can connect to it and manage it. Amazon EMR provides a collection of tools you can use to do this. This section provides guidance for connecting to your cluster, giving it work to do, monitoring work as it's done, and troubleshooting issues. 
 

@@ -1,7 +1,6 @@
 
 
 # Replacing unhealthy nodes with Amazon EMR
-<a name="emr-plan-node-replacement"></a>
 
 Amazon EMR periodically uses the [NodeManager health checker service](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/NodeManager.html#Health_checker_service) in Apache Hadoop to monitor the statuses of core nodes in your Amazon EMR on Amazon EC2 clusters. If a node is not functioning optimally, the node is marked as unhealthy and the health checker reports that node to the Amazon EMR controller. The Amazon EMR controller adds the node to a deny list, preventing the node from receiving new YARN applications until the status of the node improves. 
 

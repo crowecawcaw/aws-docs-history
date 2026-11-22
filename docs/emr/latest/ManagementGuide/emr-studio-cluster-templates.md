@@ -1,7 +1,6 @@
 
 
 # Create AWS CloudFormation templates for Amazon EMR Studio
-<a name="emr-studio-cluster-templates"></a>
 
 ## About EMR Studio cluster templates
 <a name="emr-studio-about-cluster-templates"></a>
@@ -74,7 +73,7 @@ Before you create a cluster template, make sure you have IAM permissions to acce
 
    Following is an example CloudFormation template in YAML format for a cluster with two nodes. The example template includes the required template options and defines additional input parameters for `EmrRelease` and `ClusterInstanceType`.
 
-   ```
+   ```yaml
    awsTemplateFormatVersion: 2010-09-09
    
    Parameters:

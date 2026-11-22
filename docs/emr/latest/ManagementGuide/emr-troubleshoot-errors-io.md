@@ -1,7 +1,6 @@
 
 
 # Cluster input and output errors during Amazon EMR operations
-<a name="emr-troubleshoot-errors-io"></a>
 
 The following errors are common in cluster input and output operations. Use the guidance in this topic to troubleshoot and check your configuration.
 

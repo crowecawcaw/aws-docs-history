@@ -1,7 +1,6 @@
 
 
 # Create an EMR Studio
-<a name="emr-studio-create-studio"></a>
 
 You can create an EMR Studio for your team with the Amazon EMR console or the AWS CLI. Creating a Studio instance is part of setting up Amazon EMR Studio.
 
@@ -111,7 +110,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 The following example AWS CLI command creates an EMR Studio with IAM authentication mode. When you use IAM authentication or federation for the Studio, you don't specify a `--user-role`.   
 To let federated users log in using the Studio URL and credentials for your identity provider (IdP), specify your `--idp-auth-url` and `--idp-relay-state-parameter-name`. For a list of IdP authentication URLs and RelayState names, see [Identity provider RelayState parameters and authentication URLs](#emr-studio-idp-reference-table).  
 
-```
+```bash,sh,zsh
 aws emr create-studio \
 --name {{<example-studio-name>}} \
 --auth-mode IAM \
@@ -130,7 +129,7 @@ aws emr create-studio \
 The following AWS CLI example command creates an EMR Studio that uses IAM Identity Center authentication mode. When you use IAM Identity Center authentication, you must specify a `--user-role`.   
 For more information about IAM Identity Center authentication mode, see [Set up IAM Identity Center authentication mode for Amazon EMR Studio](emr-studio-authentication.md#emr-studio-enable-sso).  
 
-```
+```bash,sh,zsh
 aws emr create-studio \
 --name {{<example-studio-name>}} \
 --auth-mode SSO \
@@ -149,7 +148,7 @@ aws emr create-studio \
 **Example – CLI output for `aws emr create-studio`**  
 The following is an example of the output that appears after you create a Studio.  
 
-```
+```json
 {
     StudioId: "es-123XXXXXXXXX",
     Url: "https://es-123XXXXXXXXX.emrstudio-prod.us-east-1.amazonaws.com"
@@ -163,7 +162,7 @@ For more information about the `create-studio` command, see [*AWS CLI Command Re
 ## Identity provider RelayState parameters and authentication URLs
 <a name="emr-studio-idp-reference-table"></a>
 
-When you use IAM federation, and you want users to log in using your Studio URL and credentials for your identity provider (IdP), you can specify your **Identity provider (IdP) login URL** and **RelayState** parameter name when you [Create an EMR Studio](#emr-studio-create-studio).
+When you use IAM federation, and you want users to log in using your Studio URL and credentials for your identity provider (IdP), you can specify your **Identity provider (IdP) login URL** and **RelayState** parameter name when you [Create an EMR Studio](emr-studio-create-studio.md).
 
 The following table shows the standard authentication URL and RelayState parameter name for some popular identity providers.
 

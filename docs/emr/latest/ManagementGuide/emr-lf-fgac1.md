@@ -1,7 +1,6 @@
 
 
 # Open-table format support
-<a name="emr-lf-fgac1"></a>
 
 Amazon EMR releases 6.15.0 and higher include support for fine-grained access control based on AWS Lake Formation with Hive tables, Apache Iceberg, Apache Hudi, and Delta Lake when you read and write data with Spark SQL. Amazon EMR supports table, row, column, and cell-level access control with Apache Hudi. Amazon EMR releases 6.15.0 and higher include support for fine-grained access control at the row, column, or cell level based on AWS Lake Formation. Starting with EMR 7.12, DML and DDL operations that modify table data are supported for Apache Hive, Apache Iceberg, and Delta Lake tables using Lake Formation vended credentials. 
 
@@ -92,7 +91,7 @@ Operations marked as **Supported with IAM permissions on Amazon S3 location** do
 
 **Spark configuration for Iceberg:** If you want to use Iceberg format, set the following configurations. Replace `{{DB_LOCATION}}` with the Amazon S3 path where your Iceberg tables are located, and replace the region and account ID placeholders with your own values.
 
-```
+```bash,sh,zsh
 spark-sql \
 --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog 
@@ -106,7 +105,7 @@ spark-sql \
 
 If you want to use Iceberg format on earlier EMR versions, use the following command instead:
 
-```
+```bash,sh,zsh
 spark-sql \
 --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions,com.amazonaws.emr.recordserver.connector.spark.sql.RecordServerSQLExtension  
 --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkCatalog 
@@ -123,7 +122,7 @@ spark-sql \
 
 Here are some examples of working with Iceberg tables:
 
-```
+```sql
 -- Create an Iceberg table
 CREATE TABLE my_iceberg_table (
     id BIGINT,
@@ -168,7 +167,7 @@ SELECT * FROM my_iceberg_table;
 
 To start the Spark shell on EMR 7.10 or higher versions, use the following command:
 
-```
+```bash,sh,zsh
 spark-sql
 --jars /usr/lib/hudi/hudi-spark-bundle.jar \
 --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog \
@@ -177,7 +176,7 @@ spark-sql
 
 To start the Spark shell on earlier EMR versions, use the below command instead:
 
-```
+```bash,sh,zsh
 spark-sql
 --jars /usr/lib/hudi/hudi-spark-bundle.jar \
 --conf spark.serializer=org.apache.spark.serializer.KryoSerializer \
@@ -190,7 +189,7 @@ spark-sql
 
 Here are some examples of working with Hudi tables:
 
-```
+```sql
 -- Create a Hudi table
 CREATE TABLE my_hudi_table (
     id BIGINT,
@@ -211,7 +210,7 @@ SELECT * FROM my_hudi_table;
 
 To query the latest snapshot of copy-on-write tables:
 
-```
+```sql
 SELECT * FROM {{my_hudi_cow_table}}
 ```
 
@@ -221,7 +220,7 @@ spark.read.table("{{my_hudi_cow_table}}")
 
 To query the latest compacted data of `MOR` tables, you can query the read-optimized table that is suffixed with `_ro`:
 
-```
+```sql
 SELECT * FROM {{my_hudi_mor_table}}_ro
 ```
 
@@ -284,7 +283,7 @@ If you want Lake Formation to use record server to manage your Spark catalog, se
 
 Here are some examples of working with Delta Lake tables:
 
-```
+```sql
 -- Create a Delta Lake table
 CREATE TABLE my_delta_table (
     id BIGINT,
@@ -315,7 +314,7 @@ Amazon EMR with Lake Formation doesn't support DDL commands and Delta table crea
 
 1. Use the following example to create a Delta table. Make sure that your S3 location exists.
 
-   ```
+   ```bash,sh,zsh
    spark-sql \
    --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" \
    --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"

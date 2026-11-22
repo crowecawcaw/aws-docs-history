@@ -1,7 +1,6 @@
 
 
 # Service role for automatic scaling in Amazon EMR (Auto Scaling role)
-<a name="emr-iam-role-automatic-scaling"></a>
 
 The Auto Scaling role for Amazon EMR performs a similar function as the service role, but allows additional actions for dynamically scaling environments.
 + The default role name is `EMR_AutoScaling_DefaultRole`.
@@ -14,7 +13,7 @@ The contents of version 1 of `AmazonElasticMapReduceforAutoScalingRole` are show
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -46,7 +45,7 @@ The following trust policy includes the [`aws:SourceArn`](https://docs.aws.amazo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

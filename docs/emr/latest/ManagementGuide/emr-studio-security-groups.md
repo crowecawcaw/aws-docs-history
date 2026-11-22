@@ -1,7 +1,6 @@
 
 
 # Define security groups to control EMR Studio network traffic
-<a name="emr-studio-security-groups"></a>
 
 ## About the EMR Studio security groups
 <a name="emr-studio-about-security-groups"></a>

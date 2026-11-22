@@ -1,7 +1,6 @@
 
 
 # Using Amazon SageMaker Unified Studio with Trusted Identity Propagation on Amazon EMR on EC2
-<a name="emr-trusted-identity-smus-tip"></a>
 
 These tutorials demonstrate how to use Amazon Amazon SageMaker Unified Studio (Amazon SageMaker Unified Studio) with trusted identity propagation (TIP) on Amazon EMR on EC2 clusters. You can use either Full Table Access (FTA) mode or Fine-Grained Access Control (FGAC) mode depending on your access control requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Save Workspace content in EMR Studio
-<a name="emr-studio-save-workspace"></a>
 
 When you work in the notebook editor of a Workspace, EMR Studio saves the content of notebook cells and output for you in the Amazon S3 location associated with the Studio. This backup process preserves work between sessions. 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon VPC options when you launch a cluster
-<a name="emr-clusters-in-a-vpc"></a>
 
 
 

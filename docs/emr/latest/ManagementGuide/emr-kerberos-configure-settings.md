@@ -1,7 +1,6 @@
 
 
 # Security configuration and cluster settings for Kerberos on Amazon EMR
-<a name="emr-kerberos-configure-settings"></a>
 
 When you create a Kerberized cluster, you specify the security configuration together with Kerberos attributes that are specific to the cluster. You can't specify one set without the other, or an error occurs.
 

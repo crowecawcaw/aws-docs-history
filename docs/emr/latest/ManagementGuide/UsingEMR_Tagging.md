@@ -1,7 +1,6 @@
 
 
 # View cluster instances in Amazon EC2
-<a name="UsingEMR_Tagging"></a>
 
  To help you manage your resources, Amazon EC2 allows you to assign metadata to resources in the form of tags. Each Amazon EC2 tag consists of a key and a value. Tags allow you to categorize your Amazon EC2 resources in different ways: for example, by purpose, owner, or environment. 
 

@@ -1,7 +1,6 @@
 
 
 # Connect existing Amazon EMR on EC2 clusters to Amazon SageMaker Unified Studio
-<a name="emr-trusted-identity-smus-tip-connect-existing-cluster"></a>
 
 To integrate an existing TIP-enabled Amazon EMR on EC2 cluster with Amazon SageMaker Unified Studio, complete the following prerequisites. For additional details, see:
 + [Adding existing Amazon EMR on EC2 clusters](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/adding-existing-emr-on-ec2-clusters.html)

@@ -1,7 +1,6 @@
 
 
 # Hive cluster errors
-<a name="emr-troubleshoot-error-hive"></a>
 
  You can usually find the cause of a Hive error in the `syslog` file, which you link to from the **Steps** pane. If you can't determine the problem there, check in the Hadoop task attempt error message. Link to it on the **Task Attempts** pane. 
 

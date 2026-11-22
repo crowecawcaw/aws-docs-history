@@ -1,7 +1,6 @@
 
 
 # Notebook CLI command samples in EMR Studio
-<a name="emr-managed-notebooks-headless-cli"></a>
 
 This topic shows CLI command samples for an EMR notebook. The example uses the demo notebook from the EMR Notebooks console. To locate the notebook, use the file path relative to the home directory. In this example, there are two notebook files that you can run: `demo_pyspark.ipynb` and `my_folder/python3.ipynb`. 
 
@@ -27,7 +26,7 @@ You can use the AWS CLI to run your notebook with the `start-notebook-execution`
 
 **Example – Executing an EMR notebook in an EMR Studio Workspace with an Amazon EMR (running on Amazon EC2) cluster**  
 
-```
+```bash,sh,zsh
 aws emr --region {{us-east-1}} \
 start-notebook-execution \
 --editor-id {{e-ABCDEFG123456}} \
@@ -44,7 +43,7 @@ start-notebook-execution \
 
 **Example – Executing an EMR notebook in an EMR Studio Workspace with an EMR Notebooks cluster**  
 
-```
+```bash,sh,zsh
 aws emr start-notebook-execution \
     --region {{us-east-1}} \
     --service-role EMR_Notebooks_DefaultRole \
@@ -57,7 +56,7 @@ aws emr start-notebook-execution \
 
 **Example – Executing an EMR notebook specifying its Amazon S3 location**  
 
-```
+```bash,sh,zsh
 aws emr start-notebook-execution \
     --region {{us-east-1}} \
     --notebook-execution-name {{my-execution-on-emr-on-eks-cluster}} \
@@ -82,7 +81,7 @@ aws emr start-notebook-execution \
 
 You can use the `describe-notebook-execution` action to access information about a specific notebook execution.
 
-```
+```bash,sh,zsh
 aws emr --region us-east-1 \
 describe-notebook-execution --notebook-execution-id ex-IZWZZVR9DKQ9WQ7VZWXJZR29UGHTE
  
@@ -112,7 +111,7 @@ describe-notebook-execution --notebook-execution-id ex-IZWZZVR9DKQ9WQ7VZWXJZR29U
 
 If your notebook is running an execution that you'd like to stop, you can do so with the `stop-notebook-execution` command.
 
-```
+```bash,sh,zsh
 # stop a running execution
 aws emr --region us-east-1 \
 stop-notebook-execution --notebook-execution-id ex-IZWZX78UVPAATC8LHJR129B1RBN4T
@@ -146,7 +145,7 @@ describe-notebook-execution --notebook-execution-id ex-IZWZX78UVPAATC8LHJR129B1R
 
 You can pass a `--from` parameter to `list-notebook-executions` to list your notebook's executions by start time.
 
-```
+```bash,sh,zsh
 # filter by start time 
 aws emr --region us-east-1 \ 
 list-notebook-executions --from 1593400000.000
@@ -197,7 +196,7 @@ list-notebook-executions --from 1593400000.000
 
 The `list-notebook-executions` command can also take a `--status` parameter to filter results.
 
-```
+```bash,sh,zsh
 # filter by start time and status 
 aws emr --region us-east-1 \                 
 list-notebook-executions --from 1593400000.000 --status FINISHED

@@ -1,7 +1,6 @@
 
 
 # How to manage Amazon EMR Service Quotas
-<a name="emr-service-limits-strategy"></a>
 
 Service Quotas is an AWS feature that you can use to view and manage your Amazon EMR service quotas or limits from a central location, using the AWS Management Console, the API or the AWS CLI. To learn more about viewing quotas and requesting increases, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*.
 

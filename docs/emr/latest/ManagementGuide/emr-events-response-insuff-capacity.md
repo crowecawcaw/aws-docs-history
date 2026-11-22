@@ -1,7 +1,6 @@
 
 
 # Responding to Amazon EMR cluster insufficient instance capacity events
-<a name="emr-events-response-insuff-capacity"></a>
 
 ## Overview
 <a name="emr-events-response-insuff-capacity-overview"></a>
@@ -33,7 +32,7 @@ When you build an automated process for an insufficient capacity exception, you 
 
 **Example function to respond to insufficient capacity event**  
 
-```
+```python
 // Lambda code with Python 3.10 and handler is lambda_function.lambda_handler
 // Note: related IAM role requires permission to use Amazon EMR
 

@@ -1,7 +1,6 @@
 
 
 # Common concepts for Amazon EMR API calls
-<a name="emr-common-programming-concepts"></a>
 
  When you write an application that calls the Amazon EMR API, there are several concepts that apply when calling one of the wrapper functions of an SDK. 
 

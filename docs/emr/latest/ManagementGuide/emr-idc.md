@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon EMR with AWS IAM Identity Center
-<a name="emr-idc"></a>
 
 With Amazon EMR releases 6.15.0 and higher, you can use identities from AWS IAM Identity Center to authenticate with an Amazon EMR cluster. The following sections provides a conceptual overview, prerequisites, and steps required to launch an EMR cluster with Identity Center integration.
 

@@ -1,7 +1,6 @@
 
 
 # Plan, configure and launch Amazon EMR clusters
-<a name="emr-plan"></a>
 
 This section explains configuration options and instructions for planning, configuring, and launching clusters using Amazon EMR. Before you launch a cluster, you make choices about your system based on the data that you're processing and your requirements for cost, speed, capacity, availability, security, and manageability. Your choices include: 
 + What region to run a cluster in, where and how to store data, and how to output results. See [Configure Amazon EMR cluster location and data storage](emr-cluster-location-data-storage.md).

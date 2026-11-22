@@ -1,7 +1,6 @@
 
 
 # View and monitor an Amazon EMR cluster as it performs work
-<a name="emr-manage-view"></a>
 
 Amazon EMR provides several tools you can use to gather information about your cluster. You can access information about the cluster from the console, the CLI or programmatically. The standard Hadoop web interfaces and log files are available on the primary node. You can also use monitoring services such as CloudWatch and Ganglia to track the performance of your cluster. 
 

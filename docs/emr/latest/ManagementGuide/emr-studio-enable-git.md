@@ -1,7 +1,6 @@
 
 
 # Establish access and permissions for Git-based repositories
-<a name="emr-studio-enable-git"></a>
 
 EMR Studio supports the following Git-based services:
 + [AWS CodeCommit](https://aws.amazon.com/codecommit)
@@ -42,7 +41,7 @@ To use privately hosted Git repositories, your DNS server must allow inbound acc
    + **`GitServerDnsName`** - The DNS name of your Git server. For example `"git.example.com"`.
    + **`GitServerIpV4List`** - A list of IPv4 addresses that belong to your Git servers.
 
-   ```
+   ```json
    [
        {
            "Type": "PrivatelyHostedGitConfig",

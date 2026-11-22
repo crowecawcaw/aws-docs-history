@@ -1,7 +1,6 @@
 
 
 # Use IAM roles with applications that call AWS services directly
-<a name="emr-iam-roles-calling"></a>
 
 Applications running on the EC2 instances of a cluster can use the EC2 instance profile to obtain temporary security credentials when calling AWS services.
 

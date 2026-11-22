@@ -1,7 +1,6 @@
 
 
 # What are Amazon EMR Service Quotas
-<a name="emr-service-limits-what-are"></a>
 
 Your AWS account has default service quotas, also known as limits, for each AWS service. The EMR service has two types of limits:
 + *Limits on resources* - You can use EMR to create EC2 resources. However, these EC2 resources are subject to service quotas. The resource limitations in this category are:

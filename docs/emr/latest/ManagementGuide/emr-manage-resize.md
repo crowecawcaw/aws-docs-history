@@ -1,7 +1,6 @@
 
 
 # Manually resize a running Amazon EMR cluster
-<a name="emr-manage-resize"></a>
 
 You can add and remove instances from core and task instance groups and instance fleets in a running cluster with the AWS Management Console, AWS CLI, or the Amazon EMR API. If a cluster uses instance groups, you explicitly change the instance count. If your cluster uses instance fleets, you can change the target units for On-Demand Instances and Spot Instances. The instance fleet then adds and removes instances to meet the new target. For more information, see [Instance fleet options](emr-instance-fleet.md#emr-instance-fleet-options). Applications can use newly provisioned Amazon EC2 instances to host nodes as soon as the instances are available. When instances are removed, Amazon EMR shuts down tasks in a way that does not interrupt jobs and safeguards against data loss. For more information, see [Terminate at task completion](emr-scaledown-behavior.md#emr-scaledown-terminate-task).
 

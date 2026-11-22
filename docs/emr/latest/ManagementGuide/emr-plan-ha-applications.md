@@ -1,7 +1,6 @@
 
 
 # Features that support high availability in an Amazon EMR cluster and how they work with open-source applications
-<a name="emr-plan-ha-applications"></a>
 
 This topic provides information about the Hadoop high-availability features of HDFS NameNode and YARN ResourceManager in an Amazon EMR cluster, and how the high-availability features work with open source applications and other Amazon EMR features.
 
@@ -18,13 +17,13 @@ In Amazon EMR versions 6.x and higher, all three of the primary nodes run HDFS N
 
 If you need to find out which NameNode is `active`, you can use SSH to connect to any primary node in the cluster and run the following command:
 
-```
+```bash
 hdfs haadmin -getAllServiceState
 ```
 
 The output lists the nodes where NameNode is installed and their status. For example,
 
-```
+```bash
 ip-##-#-#-##1.ec2.internal:8020 active
 ip-##-#-#-##2.ec2.internal:8020 standby
 ip-##-#-#-##3.ec2.internal:8020 standby
@@ -39,7 +38,7 @@ In an Amazon EMR cluster with multiple primary nodes, YARN ResourceManager runs 
 
 You can connect to "http://{{master-public-dns-name}}:8088/cluster" for any primary node, which automatically directs you to the `active` resource manager. To find out which resource manager is `active`, use SSH to connect to any primary node in the cluster. Then run the following command to get a list of the three primary nodes and their status:
 
-```
+```bash
 yarn rmadmin -getAllServiceState
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Configure managed scaling for Amazon EMR
-<a name="managed-scaling-configure"></a>
 
 The following sections explain how to launch an EMR cluster that uses managed scaling with the AWS Management Console, the AWS SDK for Java, or the AWS Command Line Interface.
 
@@ -51,7 +50,7 @@ You can use AWS CLI commands for Amazon EMR to configure managed scaling when yo
 
 You can enable managed scaling during cluster launch as the following example demonstrates.
 
-```
+```shell
 aws emr create-cluster \
  --service-role EMR_DefaultRole \
  --release-label emr-7.14.0 \
@@ -69,7 +68,7 @@ You can also specify a managed policy configuration using the --managed-scaling-
 
 You can apply a managed scaling policy to an existing cluster as the following example demonstrates.
 
-```
+```shell
 aws emr put-managed-scaling-policy  
 --cluster-id {{j-123456}}  
 --managed-scaling-policy ComputeLimits='{MinimumCapacityUnits={{1}},
@@ -78,13 +77,13 @@ MaximumCapacityUnits={{10}},  MaximumOnDemandCapacityUnits={{10}}, UnitType={{In
 
 You can also apply a managed scaling policy to an existing cluster by using the `aws emr put-managed-scaling-policy` command. The following example uses a reference to a JSON file, `managedscaleconfig.json`, that specifies the managed scaling policy configuration.
 
-```
+```shell
 aws emr put-managed-scaling-policy --cluster-id {{j-123456}} --managed-scaling-policy file://./managedscaleconfig.json
 ```
 
 The following example shows the contents of the `managedscaleconfig.json` file, which defines the managed scaling policy.
 
-```
+```JSON
 {
     "ComputeLimits": {
         "UnitType": "{{Instances}}",
@@ -105,7 +104,7 @@ aws emr get-managed-scaling-policy --cluster-id {{j-123456}}
 
 The command produces the following example output.
 
-```
+```JSON
  1. {
  2.    "ManagedScalingPolicy": { 
  3.       "ComputeLimits": { 
@@ -124,7 +123,7 @@ For more information about using Amazon EMR commands in the AWS CLI, see [https:
 
 The `RemoveManagedScalingPolicy` command removes the policy configuration. For example, the following command removes the configuration for the cluster with a cluster ID of `j-123456`.
 
-```
+```shell
 aws emr remove-managed-scaling-policy --cluster-id {{j-123456}}
 ```
 
@@ -133,7 +132,7 @@ aws emr remove-managed-scaling-policy --cluster-id {{j-123456}}
 
 The following program excerpt shows how to configure managed scaling using the AWS SDK for Java:
 
-```
+```java
 package com.amazonaws.emr.sample;
 
 import java.util.ArrayList;

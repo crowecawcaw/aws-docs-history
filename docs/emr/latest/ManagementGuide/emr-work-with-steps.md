@@ -1,7 +1,6 @@
 
 
 # Submit work to an Amazon EMR cluster
-<a name="emr-work-with-steps"></a>
 
 This section describes the methods that you can use to submit work to an Amazon EMR cluster. To submit work, you can add steps, or you can interactively submit Hadoop jobs to the primary node.
 

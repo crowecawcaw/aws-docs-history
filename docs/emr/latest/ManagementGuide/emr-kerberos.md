@@ -1,7 +1,6 @@
 
 
 # Use Kerberos for authentication with Amazon EMR
-<a name="emr-kerberos"></a>
 
 Amazon EMR releases 5.10.0 and higher support Kerberos. Kerberos is a network authentication protocol that uses secret-key cryptography to provide strong authentication so that passwords or other credentials aren't sent over the network in an unencrypted format.
 

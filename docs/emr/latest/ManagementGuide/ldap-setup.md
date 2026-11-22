@@ -1,7 +1,6 @@
 
 
 # Configure and launch an EMR cluster with LDAP
-<a name="ldap-setup"></a>
 
 This section covers how to configure Amazon EMR for use with LDAP authentication.
 

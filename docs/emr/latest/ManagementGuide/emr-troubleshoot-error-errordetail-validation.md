@@ -1,7 +1,6 @@
 
 
 # Validation failure error codes in Amazon EMR
-<a name="emr-troubleshoot-error-errordetail-validation"></a>
 
 The following sections provide troubleshooting information for validation failure error codes.
 

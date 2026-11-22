@@ -1,7 +1,6 @@
 
 
 # Create an EMR Studio Workspace
-<a name="emr-studio-create-workspace"></a>
 
 You can create EMR Studio Workspaces to run notebook code using the EMR Studio interface. 
 

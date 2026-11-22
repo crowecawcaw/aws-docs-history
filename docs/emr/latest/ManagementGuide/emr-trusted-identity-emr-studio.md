@@ -1,7 +1,6 @@
 
 
 # Using EMR Studio with Trusted Identity Propagation on Amazon EMR on EC2
-<a name="emr-trusted-identity-emr-studio"></a>
 
 This section covers how to set up and use trusted identity propagation with Amazon EMR on EC2 clusters through EMR Studio. It includes the prerequisites, identity-based authorization with open table formats, and cross-account access.
 

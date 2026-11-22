@@ -1,7 +1,6 @@
 
 
 # Connect to an Amazon EMR cluster
-<a name="emr-connect-master-node"></a>
 
 When you run an Amazon EMR cluster, often all you need to do is run an application to analyze your data and then collect the output from an Amazon S3 bucket. At other times, you may want to interact with the primary node while the cluster is running. For example, you may want to connect to the primary node to run interactive queries, check log files, debug a problem with the cluster, monitor performance using an application such as Ganglia that runs on the primary node, and so on. The following sections describe techniques that you can use to connect to the primary node. 
 

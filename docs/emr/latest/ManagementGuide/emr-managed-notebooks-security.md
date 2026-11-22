@@ -1,7 +1,6 @@
 
 
 # EMR notebooks security and access control
-<a name="emr-managed-notebooks-security"></a>
 
 Several features are available to help you tailor the security posture of EMR Notebooks. This helps ensure that only authorized users have access to an EMR notebook, can work with notebooks, and use the notebook editor to execute code on the cluster. These features work along with the security features available for Amazon EMR and Amazon EMR clusters. For more information, see [Security in Amazon EMR](emr-security.md).
 + You can use AWS Identity and Access Management policy statements together with notebook tags to limit access. For more information, see [How Amazon EMR works with IAM](security_iam_service-with-iam.md) and [Example identity-based policy statements for EMR Notebooks](emr-fine-grained-cluster-access.md#emr-managed-notebooks-tags-examples).

@@ -1,7 +1,6 @@
 
 
 # Use the Amazon Athena SQL editor in EMR Studio
-<a name="emr-studio-athena"></a>
 
 ## Overview
 <a name="emr-studio-athena-overview"></a>
@@ -35,3 +34,6 @@ If you have enabled trusted identity propagation through IAM Identity Center for
   + Amazon DataZone integration
   + Cost Based Optimizer (CBO)
   + Step functions
++ The Athena SQL editor in EMR Studio displays query results one page at a time. Each page of results can be up to about 6 MB. If a page of results is larger than this limit, the SQL editor shows an error with the size of the results and the limit.
+
+  To reduce the size of the results, select only the columns that you need or add a `LIMIT` clause to your query. To view the full results, download them from the query result location in Amazon S3 or use the Athena console.

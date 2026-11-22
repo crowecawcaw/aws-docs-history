@@ -1,7 +1,6 @@
 
 
 # Add tags to an Amazon EMR cluster
-<a name="emr-plan-tags-add-new"></a>
 
 You can add tags to a cluster when you create it. 
 
@@ -28,8 +27,8 @@ You can add tags to a cluster when you create it.
 The following example demonstrates how to add a tag to a new cluster using the AWS CLI. To add tags when you create a cluster, type the `create-cluster` subcommand with the `--tags` parameter. 
 + To add a tag named {{costCenter}} with key value {{marketing}} when you create a cluster, type the following command and replace {{myKey}} with the name of your EC2 key pair.
 
-  ```
-  aws emr create-cluster --name {{"Test cluster"}} --release-label {{emr-4.0.0}} --applications Name={{Hadoop}} Name={{Hive}} Name={{Pig}} --tags {{"costCenter=marketing"}} --use-default-roles --ec2-attributes KeyName={{myKey}} --instance-type {{m5.xlarge}} --instance-count {{3}}
+  ```bash
+  aws emr create-cluster --name {{"Test cluster"}} --release-label {{emr-7.14.0}} --applications Name={{Hadoop}} Name={{Hive}} Name={{Pig}} --tags {{"costCenter=marketing"}} --use-default-roles --ec2-attributes KeyName={{myKey}} --instance-type {{m5.xlarge}} --instance-count {{3}}
   ```
 
   When you specify the instance count without using the `--instance-groups` parameter, a single Master node is launched, and the remaining instances are launched as core nodes. All nodes will use the instance type specified in the command.

@@ -1,7 +1,6 @@
 
 
 # Create bootstrap actions to install additional software with an Amazon EMR cluster
-<a name="emr-plan-bootstrap"></a>
 
 You can use a *bootstrap action* to install additional software or customize the configuration of cluster instances. Bootstrap actions are scripts that run on cluster after Amazon EMR launches the instance using the Amazon Linux Amazon Machine Image (AMI). Bootstrap actions run before Amazon EMR installs the applications that you specify when you create the cluster and before cluster nodes begin processing data. If you add nodes to a running cluster, bootstrap actions also run on those nodes in the same way. You can create custom bootstrap actions and specify them when you create your cluster. 
 
@@ -105,8 +104,8 @@ When using the AWS CLI to include a bootstrap action, specify the `Path` and `Ar
 + To launch a cluster with a custom bootstrap action, type the following command, replacing {{myKey}} with the name of your EC2 key pair. Include `--bootstrap-actions` as a parameter and specify your bootstrap script location as the value of `Path`.
   + Linux, UNIX, and Mac OS X users:
 
-    ```
-    1. aws emr create-cluster --name {{"Test cluster"}} --release-label {{emr-4.0.0}} \
+    ```bash
+    1. aws emr create-cluster --name {{"Test cluster"}} --release-label {{emr-7.14.0}} \
     2. --use-default-roles --ec2-attributes KeyName={{myKey}} \
     3. --applications Name={{Hive}} Name={{Pig}} \
     4. --instance-count {{3}} --instance-type {{m5.xlarge}} \
@@ -115,7 +114,7 @@ When using the AWS CLI to include a bootstrap action, specify the `Path` and `Ar
   + Windows users:
 
     ```
-    1. aws emr create-cluster --name {{"Test cluster"}} --release-label {{emr-4.2.0}} --use-default-roles --ec2-attributes KeyName={{myKey}} --applications Name={{Hive}} Name={{Pig}} --instance-count {{3}} --instance-type {{m5.xlarge}} --bootstrap-actions Path={{"s3://elasticmapreduce/bootstrap-actions/download.sh"}}
+    1. aws emr create-cluster --name {{"Test cluster"}} --release-label {{emr-7.14.0}} --use-default-roles --ec2-attributes KeyName={{myKey}} --applications Name={{Hive}} Name={{Pig}} --instance-count {{3}} --instance-type {{m5.xlarge}} --bootstrap-actions Path={{"s3://elasticmapreduce/bootstrap-actions/download.sh"}}
     ```
 
   When you specify the instance count without using the `--instance-groups` parameter, a single primary node is launched, and the remaining instances are launched as core nodes. All nodes will use the instance type specified in the command.
@@ -133,7 +132,7 @@ You can use a bootstrap action to copy objects from Amazon S3 to each node in a 
 
 The following example demonstrates a simple bootstrap action script that copies a file, `myfile.jar`, from Amazon S3 to a local folder, `/mnt1/myfolder`, on each cluster node. The script is saved to Amazon S3 with the file name `copymyfile.sh` with the following contents.
 
-```
+```bash
 #!/bin/bash
 aws s3 cp s3://amzn-s3-demo-bucket/myfilefolder/myfile.jar /mnt1/myfolder
 ```

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Getting started with Amazon EMR
-<a name="emr-gs"></a>
 
 Walk through a workflow to quickly set up an Amazon EMR cluster and run a Spark application.
 
@@ -47,7 +46,7 @@ In this step, you upload a sample PySpark script to your Amazon S3 bucket. We've
 
 You also upload sample input data to Amazon S3 for the PySpark script to process. The input data is a modified version of Health Department inspection results in King County, Washington, from 2006 to 2020. For more information, see [King County Open Data: Food Establishment Inspection Data](https://data.kingcounty.gov/Health-Wellness/Food-Establishment-Inspection-Data/f29f-zza5). Don't download the restaurant data for this tutorial directly from the King County website, because it's a really big file. We provide a download below that has a file with fewer records, in order to help complete the tutorial. Following are sample rows from the dataset.
 
-```
+```csv
 name,inspection_result,inspection_closed_business,violation_type,violation_points
 100 LB CLAM,Unsatisfactory,FALSE,BLUE,5
 100 PERCENT NUTRICION,Unsatisfactory,FALSE,BLUE,5
@@ -58,7 +57,7 @@ name,inspection_result,inspection_closed_business,violation_type,violation_point
 
 1. Copy the example code below into a new file in your editor of choice.
 
-   ```
+   ```python
    import argparse
    
    from pyspark.sql import SparkSession
@@ -153,7 +152,7 @@ Your cluster status changes to **Waiting** when the cluster is up, running, and 
 
 1. Create IAM default roles that you can then use to create your cluster by using the following command.
 
-   ```
+   ```bash
    aws emr create-default-roles
    ```
 
@@ -161,7 +160,7 @@ Your cluster status changes to **Waiting** when the cluster is up, running, and 
 
 1. Create a Spark cluster with the following command. Enter a name for your cluster with the `--name` option, and specify the name of your EC2 key pair with the `--ec2-attributes` option.
 
-   ```
+   ```bash
    aws emr create-cluster \
    --name {{"<My First EMR Cluster>"}} \
    --release-label {{<emr-5.36.2>}} \
@@ -178,7 +177,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 
    You should see output like the following. The output shows the `ClusterId` and `ClusterArn` of your new cluster. Note your `ClusterId`. You use the `ClusterId` to check on the cluster status and to submit work.
 
-   ```
+   ```json
    {
        "ClusterId": "{{myClusterId}}",
        "ClusterArn": "{{myClusterArn}}"
@@ -187,13 +186,13 @@ Linux line continuation characters (\\) are included for readability. They can b
 
 1. Check your cluster status with the following command.
 
-   ```
+   ```bash
    aws emr describe-cluster --cluster-id {{<myClusterId>}}						
    ```
 
    You should see output like the following with the `Status` object for your new cluster.
 
-   ```
+   ```json
    {
        "Cluster": {
            "Id": "{{myClusterId}}",
@@ -241,7 +240,7 @@ After you launch a cluster, you can submit work to the running cluster to proces
    + Leave the **Spark-submit options** field empty. For more information on `spark-submit` options, see [Launching applications with spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#launching-applications-with-spark-submit). 
    + In the **Arguments** field, enter the following arguments and values:
 
-     ```
+     ```bash
      --data_source {{s3://amzn-s3-demo-bucket/food_establishment_data.csv}}
      --output_uri {{s3://amzn-s3-demo-bucket/myOutputFolder}}
      ```
@@ -262,7 +261,7 @@ After you launch a cluster, you can submit work to the running cluster to proces
 
 1. Make sure you have the `ClusterId` of the cluster you launched in [Launch an Amazon EMR cluster](#emr-getting-started-launch-sample-cluster). You can also retrieve your cluster ID with the following command.
 
-   ```
+   ```bash
    aws emr list-clusters --cluster-states WAITING							
    ```
 
@@ -272,7 +271,7 @@ After you launch a cluster, you can submit work to the running cluster to proces
    + Replace {{s3://amzn-s3-demo-bucket/MyOutputFolder}} with the S3 path of your designated bucket and a name for your cluster output folder.
    + `ActionOnFailure=CONTINUE` means the cluster continues to run if the step fails.
 
-   ```
+   ```bash
    aws emr add-steps \
    --cluster-id {{<myClusterId>}} \
    --steps Type=Spark,Name={{"<My Spark Application>"}},ActionOnFailure=CONTINUE,Args=[{{<s3://amzn-s3-demo-bucket/health_violations.py>}},--data_source,{{<s3://amzn-s3-demo-bucket/food_establishment_data.csv>}},--output_uri,{{<s3://amzn-s3-demo-bucket/MyOutputFolder>}}]
@@ -282,7 +281,7 @@ After you launch a cluster, you can submit work to the running cluster to proces
 
    After you submit the step, you should see output like the following with a list of `StepIds`. Since you submitted one step, you will see just one ID in the list. Copy your step ID. You use your step ID to check the status of the step.
 
-   ```
+   ```json
    {
        "StepIds": [
            "s-1XXXXXXXXXXA"
@@ -292,13 +291,13 @@ After you launch a cluster, you can submit work to the running cluster to proces
 
 1. Query the status of your step with the `describe-step` command.
 
-   ```
+   ```bash
    aws emr describe-step --cluster-id {{<myClusterId>}} --step-id {{<s-1XXXXXXXXXXA>}}							
    ```
 
    You should see output like the following with information about your step.
 
-   ```
+   ```json
    {
        "Step": {
            "Id": "s-1XXXXXXXXXXA",
@@ -352,7 +351,7 @@ After a step runs successfully, you can view its output results in your Amazon S
 
    The following is an example of `health_violations.py` results.
 
-   ```
+   ```csv
    name, total_red_violations
    SUBWAY, 322
    T-MOBILE PARK, 315
@@ -433,13 +432,13 @@ Regardless of your operating system, you can create an SSH connection to your cl
 
 1. Use the following command to open an SSH connection to your cluster. Replace {{<mykeypair.key>}} with the full path and file name of your key pair file. For example, `C:\Users\<username>\.ssh\mykeypair.pem`.
 
-   ```
+   ```bash
    aws emr ssh --cluster-id {{<j-2AL4XXXXXX5T9>}} --key-pair-file {{<~/mykeypair.key>}}						
    ```
 
 1. Navigate to `/mnt/var/log/spark` to access the Spark logs on your cluster's master node. Then view the files in that location. For a list of additional log files on the master node, see [View log files on the primary node](emr-manage-view-web-log-files.md#emr-manage-view-web-log-files-master-node).
 
-   ```
+   ```bash
    cd /mnt/var/log/spark
    ls
    ```
@@ -482,19 +481,19 @@ The Amazon EMR console does not let you delete a cluster from the list view afte
 
 1. Initiate the cluster termination process with the following command. Replace {{<myClusterId>}} with the ID of your sample cluster. The command does not return output.
 
-   ```
+   ```bash
    aws emr terminate-clusters --cluster-ids {{<myClusterId>}}
    ```
 
 1. To check that the cluster termination process is in progress, check the cluster status with the following command.
 
-   ```
+   ```bash
    aws emr describe-cluster --cluster-id {{<myClusterId>}}									
    ```
 
    Following is example output in JSON format. The cluster `Status` should change from **`TERMINATING`** to **`TERMINATED`**. Termination may take 5 to 10 minutes depending on your cluster configuration. For more information about terminating an Amazon EMR cluster, see [Terminate an Amazon EMR cluster in the starting, running, or waiting states](UsingEMR_TerminateJobFlow.md).
 
-   ```
+   ```bash
    {
        "Cluster": {
            "Id": "j-xxxxxxxxxxxxx",

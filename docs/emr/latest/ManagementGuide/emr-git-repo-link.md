@@ -1,7 +1,6 @@
 
 
 # Link or unlink a Git-based repository in EMR Studio
-<a name="emr-git-repo-link"></a>
 
 Use the following steps to link or unlink a Git-based repository to an EMR notebook in the old console, or to an EMR Studio Workspace in the console.
 
@@ -18,7 +17,7 @@ Because EMR Notebooks are EMR Studio Workspaces in the new console, you can you 
 ## Understanding repository status
 <a name="emr-managed-notebooks-repository-status"></a>
 
-A Git repository may have any of the following status in the repository list. For more information about linking EMR notebooks with Git repositories, see [Link or unlink a Git-based repository in EMR Studio](#emr-git-repo-link).
+A Git repository may have any of the following status in the repository list. For more information about linking EMR notebooks with Git repositories, see [Link or unlink a Git-based repository in EMR Studio](emr-git-repo-link.md).
 
 
 | Status | Meaning | 

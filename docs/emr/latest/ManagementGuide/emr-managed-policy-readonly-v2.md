@@ -1,7 +1,6 @@
 
 
 # IAM managed policy for read-only access (v2 managed default policy) for Amazon EMR
-<a name="emr-managed-policy-readonly-v2"></a>
 
 To grant read-only privileges to Amazon EMR, attach the **AmazonEMRReadOnlyAccessPolicy\_v2** managed policy. This default managed policy replaces the [`AmazonElasticMapReduceReadOnlyAccess`](emr-managed-policy-readonly.md) managed policy. The content of this policy statement is shown in the following snippet. Compared with the `AmazonElasticMapReduceReadOnlyAccess` policy, the `AmazonEMRReadOnlyAccessPolicy_v2` policy does not use wildcard characters for the `elasticmapreduce` element. Instead, the default v2 policy scopes the allowable `elasticmapreduce` actions.
 
@@ -13,7 +12,7 @@ You can also use the AWS Management Console link [`AmazonEMRReadOnlyAccessPolicy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

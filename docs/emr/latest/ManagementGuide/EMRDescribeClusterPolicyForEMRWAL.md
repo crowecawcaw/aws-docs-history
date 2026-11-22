@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: EMRDescribeClusterPolicyForEMRWAL
-<a name="EMRDescribeClusterPolicyForEMRWAL"></a>
 
 You can't attach `EMRDescribeClusterPolicyForEMRWAL` to your IAM entities. This policy is attached to a service-linked role that allows Amazon EMR to perform actions on your behalf. For more information on this service-linked role, see [Using service-linked roles with Amazon EMR for write-ahead logging](using-service-linked-roles-wal.md). 
 
@@ -17,7 +16,7 @@ This policy includes the following permissions:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

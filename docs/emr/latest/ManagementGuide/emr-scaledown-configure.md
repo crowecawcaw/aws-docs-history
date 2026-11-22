@@ -1,7 +1,6 @@
 
 
 # Configure Amazon EMR scale-down behavior
-<a name="emr-scaledown-configure"></a>
 
 **Note**  
 The terminate at instance hour scale-down behavior option is no longer supported for Amazon EMR release 5.10.0 and higher. The following scale-down behavior options only appear in the Amazon EMR console for releases 5.1.0 through 5.9.1.

@@ -1,7 +1,6 @@
 
 
 # EMR Studio features, requirements, and limits
-<a name="emr-studio-considerations"></a>
 
 This topic includes items to consider when working with Amazon EMR Studio, including considerations about regions and tools, cluster requirements, and technical limitations.
 
@@ -62,7 +61,7 @@ Consider the following when you work with EMR Studio:
 + Amazon EMR on EKS clusters don't support SparkMagic commands for EMR Studio.
 + To write multi-line Scala statements in notebook cells, make sure that all but the last line end with a period. The following example uses the correct syntax for multi-line Scala statements.
 
-  ```
+  ```scala
   val df = spark.sql("SELECT * from table_name).
           filter("col1=='value'").
           limit(50)
@@ -81,7 +80,7 @@ Consider the following when you work with EMR Studio:
 + When you [Debug Amazon EMR running on Amazon EC2 jobs](emr-studio-debug.md#emr-studio-debug-ec2), the links to the on-cluster Spark UI may not work or fail to appear. To regenerate the links, create a new notebook cell and run the `%%info` command.
 + Jupyter Enterprise Gateway doesn't clean up idle kernels on the primary node of a cluster in the following Amazon EMR release versions: 5.32.0, 5.33.0, 6.2.0, and 6.3.0. Idle kernels consume computing resources and can cause long running clusters to fail. You can configure idle kernel cleanup for Jupyter Enterprise Gateway using the following example script. You can [Connect to the Amazon EMR cluster primary node using SSH](emr-connect-master-node-ssh.md), or submit the script as a step. For more information, see [Run commands and scripts on an Amazon EMR cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-commandrunner.html).
 
-  ```
+  ```bash
   #!/bin/bash
   sudo tee -a /emr/notebook-env/conf/jupyter_enterprise_gateway_config.py << EOF
   c.MappingKernelManager.cull_connected = True

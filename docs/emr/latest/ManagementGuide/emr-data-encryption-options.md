@@ -1,7 +1,6 @@
 
 
 # Encryption options for Amazon EMR
-<a name="emr-data-encryption-options"></a>
 
 With Amazon EMR releases 4.8.0 and higher, you can use a security configuration to specify settings for encrypting data at rest, data in transit, or both. When you enable at-rest data encryption, you can choose to encrypt EMRFS data in Amazon S3, data in local disks, or both. Each security configuration that you create is stored in Amazon EMR rather than in the cluster configuration, so you can easily reuse a configuration to specify data encryption settings whenever you create a cluster. For more information, see [Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md).
 

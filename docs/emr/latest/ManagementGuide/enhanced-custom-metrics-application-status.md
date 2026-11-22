@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon EMR application status with CloudWatch integration
-<a name="enhanced-custom-metrics-application-status"></a>
 
 When you integrate CloudWatch with Amazon EMR, you can track critical statuses for applications like HiveServer2. You can publish status to CloudWatch custom metrics and configure alerts for service unavailability. 
 

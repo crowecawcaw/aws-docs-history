@@ -1,7 +1,6 @@
 
 
 # Write applications that launch and manage Amazon EMR clusters
-<a name="making_api_requests"></a>
 
 You can access the functionality provided by the Amazon EMR API by calling wrapper functions in one of the AWS SDKs. The AWS SDKs provide language-specific functions that wrap the web service's API and simplify connecting to the web service, handling many of the connection details for you. For more information about calling Amazon EMR using one of the SDKs, see [Use SDKs to call Amazon EMR APIs](call-emr-using-sdks.md). 
 

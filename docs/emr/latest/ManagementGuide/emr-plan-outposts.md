@@ -1,7 +1,6 @@
 
 
 # EMR clusters on AWS Outposts
-<a name="emr-plan-outposts"></a>
 
 Beginning with Amazon EMR 5.28.0, you can create and run EMR clusters on AWS Outposts. AWS Outposts enables native AWS services, infrastructure, and operating models in on-premises facilities. In AWS Outposts environments, you can use the same AWS APIs, tools, and infrastructure that you use in the AWS Cloud. Amazon EMR on AWS Outposts is ideal for low latency workloads that need to be run in close proximity to on-premises data and applications. For more information about AWS Outposts, see [AWS Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/). 
 

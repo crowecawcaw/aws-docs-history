@@ -1,7 +1,6 @@
 
 
 # Understanding in-transit encryption
-<a name="emr-encryption-support-matrix"></a>
 
 You can configure an EMR cluster to run open-source frameworks such as [Apache Spark](https://aws.amazon.com/emr/features/spark/), [Apache Hive](https://aws.amazon.com/emr/features/hive/), and [Presto](https://aws.amazon.com/emr/features/presto/). each of these open-source frameworks has a set of processes running on the EC2 instances of a cluster. Each of these processes can host network endpoints for network communication.
 
@@ -43,7 +42,7 @@ Use the following workaround:
 
 Example configuration:
 
-```
+```json
 [
                                {
                                  "Classification": "spark-defaults",

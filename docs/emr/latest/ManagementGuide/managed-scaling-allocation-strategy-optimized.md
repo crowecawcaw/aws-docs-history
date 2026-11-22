@@ -1,7 +1,6 @@
 
 
 # Advanced Scaling for Amazon EMR
-<a name="managed-scaling-allocation-strategy-optimized"></a>
 
 Starting with Amazon EMR on EC2 version 7.0, you can leverage Advanced Scaling to control your cluster's resource utilization. Advanced Scaling introduces a utilization-performance scale for tuning your resource utilization and performance level according to your business needs. The value you set determines whether your cluster is weighted more to resource conservation or to scaling up to handle service-level-agreement (SLA) sensitive workloads, where quick completion is critical. When the scaling value is adjusted, managed scaling interprets your intent and intelligently scales to optimize resources. For more information about managed scaling, see [Configure managed scaling for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-configure.html).
 

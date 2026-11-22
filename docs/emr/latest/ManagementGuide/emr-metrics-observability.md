@@ -1,7 +1,6 @@
 
 
 # EMR Observability Best Practices
-<a name="emr-metrics-observability"></a>
 
 EMR Observability encompasses a comprehensive monitoring and management approach for AWS EMR clusters. The foundation rests on Amazon CloudWatch as the primary monitoring service, complemented by EMR Studio, and third-party tools like Prometheus and Grafana for enhanced visibility. In this document, we explore specific aspects of cluster observability:
 

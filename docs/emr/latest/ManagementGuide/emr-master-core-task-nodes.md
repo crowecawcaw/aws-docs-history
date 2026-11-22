@@ -1,7 +1,6 @@
 
 
 # Understand node types in Amazon EMR: primary, core, and task nodes
-<a name="emr-master-core-task-nodes"></a>
 
 Use this section to understand how Amazon EMR uses each of these node types and as a foundation for cluster capacity planning.
 
@@ -46,14 +45,14 @@ Beginning with Amazon EMR 6.x release series, the YARN node labels feature is di
 
 Starting with the Amazon EMR 7.x release series, Amazon EMR assigns YARN node labels to instances by their market type, such as On-Demand or Spot. You can enable node labels and restrict application processes to ON\_DEMAND by configuring the following properties:
 
-```
+```bash,sh,zsh
 yarn.node-labels.enabled: true
 yarn.node-labels.am.default-node-label-expression: 'ON_DEMAND'
 ```
 
 If you're using Amazon EMR 7.0 or higher, you can restrict application process to nodes with the `CORE` label using the following configuration:
 
-```
+```bash,sh,zsh
 yarn.node-labels.enabled: true
 yarn.node-labels.am.default-node-label-expression: 'CORE'
 ```

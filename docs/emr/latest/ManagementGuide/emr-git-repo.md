@@ -1,7 +1,6 @@
 
 
 # Associating Git-based repositories with EMR Notebooks
-<a name="emr-git-repo"></a>
 
 You can associate Git-based repositories with your Amazon EMR notebooks to save your notebooks in a version controlled environment. You can associate up to three repositories with a notebook. The following Git-based services are supported:
 + [AWS CodeCommit](https://aws.amazon.com/codecommit)

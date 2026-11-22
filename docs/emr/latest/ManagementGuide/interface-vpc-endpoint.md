@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon EMR using an interface VPC endpoint
-<a name="interface-vpc-endpoint"></a>
 
 You can connect directly to Amazon EMR using an [interface VPC endpoint (AWS PrivateLink)](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html) in your Virtual Private Cloud (VPC) instead of connecting over the internet. When you use an interface VPC endpoint, communication between your VPC and Amazon EMR is conducted entirely within the AWS network. Each VPC endpoint is represented by one or more [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) (ENIs) with private IP addresses in your VPC subnets.
 
@@ -13,13 +12,13 @@ You can create an interface VPC endpoint to connect to Amazon EMR using the AWS 
 
 After you create an interface VPC endpoint, if you enable private DNS hostnames for the endpoint, the default Amazon EMR endpoint resolves to your VPC endpoint. The default service name endpoint for Amazon EMR is in the following format.
 
-```
+```bash
 elasticmapreduce.{{Region}}.amazonaws.com
 ```
 
 If you do not enable private DNS hostnames, Amazon VPC provides a DNS endpoint name that you can use in the following format.
 
-```
+```bash
 {{VPC_Endpoint_ID}}.elasticmapreduce.{{Region}}.vpce.amazonaws.com
 ```
 
@@ -42,7 +41,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 **Example – VPC endpoint policy to deny all access from a specified AWS account**  
 The following VPC endpoint policy denies AWS account {{123456789012}} all access to resources using the endpoint.  
 
-```
+```json
 {
     "Statement": [
         {
@@ -68,7 +67,7 @@ The following VPC endpoint policy denies AWS account {{123456789012}} all access
 **Example – VPC endpoint policy to allow VPC access only to a specified IAM principal (user)**  
 The following VPC endpoint policy allows full access only to the a user {{lijuan}} in AWS account {{123456789012}}. All other IAM principals are denied access using the endpoint.  
 
-```
+```json
 {
     "Statement": [
         {
@@ -88,7 +87,7 @@ The following VPC endpoint policy allows full access only to the a user {{lijuan
 The following VPC endpoint policy allows only AWS account {{123456789012}} to perform the specified Amazon EMR actions.  
 The actions specified provide the equivalent of read-only access for Amazon EMR. All other actions on the VPC are denied for the specified account. All other accounts are denied any access. For a list of Amazon EMR actions, see [Actions, resources, and condition keys for Amazon EMR](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonelasticmapreduce.html).  
 
-```
+```json
 {
     "Statement": [
         {
@@ -124,7 +123,7 @@ The actions specified provide the equivalent of read-only access for Amazon EMR.
 
 The following VPC endpoint policy allows full access for all accounts and principals, but denies any access for AWS account {{123456789012}} to actions performed on the Amazon EMR cluster with cluster ID {{j-A1B2CD34EF5G}}. Other Amazon EMR actions that don't support resource-level permissions for clusters are still allowed. For a list of Amazon EMR actions and their corresponding resource type, see [Actions, resources, and condition keys for Amazon EMR](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonelasticmapreduce.html).
 
-```
+```json
 {
     "Statement": [
         {

@@ -1,7 +1,6 @@
 
 
 # Configure networking in a VPC for Amazon EMR
-<a name="emr-plan-vpc-subnet"></a>
 
 Most clusters launch into a virtual network using Amazon Virtual Private Cloud (Amazon VPC). A VPC is an isolated virtual network within AWS that is logically isolated within your AWS account. You can configure aspects such as private IP address ranges, subnets, routing tables, and network gateways. For more information, see the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
 

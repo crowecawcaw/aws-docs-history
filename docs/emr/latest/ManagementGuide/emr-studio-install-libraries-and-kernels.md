@@ -1,7 +1,6 @@
 
 
 # Install kernels and libraries in an EMR Studio Workspace
-<a name="emr-studio-install-libraries-and-kernels"></a>
 
 Each Amazon EMR Studio Workspace comes with a set of pre-installed libraries and kernels. 
 

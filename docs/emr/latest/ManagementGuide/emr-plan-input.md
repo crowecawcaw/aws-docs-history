@@ -1,7 +1,6 @@
 
 
 # Prepare input data for processing with Amazon EMR
-<a name="emr-plan-input"></a>
 
 Most clusters load input data and then process that data. In order to load data, it needs to be in a location that the cluster can access and in a format the cluster can process. The most common scenario is to upload input data into Amazon S3. Amazon EMR provides tools for your cluster to import or read data from Amazon S3.
 

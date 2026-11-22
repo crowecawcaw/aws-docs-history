@@ -1,7 +1,6 @@
 
 
 # Runtime roles for Amazon EMR steps
-<a name="emr-steps-runtime-roles"></a>
 
 A *runtime role* is an AWS Identity and Access Management (IAM) role that you can specify when you submit a job or query to an Amazon EMR cluster. The job or query that you submit to your Amazon EMR cluster uses the runtime role to access AWS resources, such as objects in Amazon S3. You can specify runtime roles with Amazon EMR for Spark and Hive jobs.
 
@@ -27,7 +26,7 @@ When you specify a runtime role for an Amazon EMR step, the jobs or queries that
 
 Use the following JSON structure to create a security configuration on the AWS Command Line Interface (AWS CLI), and set `EnableApplicationScopedIAMRole` to `true`. For more information about security configurations, see [Use security configurations to set up Amazon EMR cluster security](emr-security-configurations.md).
 
-```
+```json
 {
     "AuthorizationConfiguration":{
         "IAMConfiguration":{
@@ -51,7 +50,7 @@ Amazon EMR clusters use the Amazon EC2 instance profile role to assume the runti
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -77,7 +76,7 @@ Amazon EMR clusters use the Amazon EC2 instance profile role to assume the runti
 
 For each IAM role that you plan to use as a runtime role, set the following trust policy, replacing `EMR_EC2_DefaultRole` with your instance profile role. To modify the trust policy of an IAM role, see [Modifying a role trust policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html).
 
-```
+```json
 {
     "Sid":"AllowAssumeRole",
     "Effect":"Allow",
@@ -101,7 +100,7 @@ After you set up your configurations, you can launch an Amazon EMR cluster with 
 
 The following is an example of how to run the HdfsTest example included with Apache Spark. This API call only succeeds if the provided Amazon EMR runtime role can access the `S3_LOCATION`.
 
-```
+```bash
 RUNTIME_ROLE_ARN={{<runtime-role-arn>}}
 S3_LOCATION={{<s3-path>}}
 REGION={{<aws-region>}}
@@ -121,7 +120,7 @@ We recommend that you turn off SSH access to the Amazon EMR cluster and only all
 
 The following example uses Apache Hive with Amazon EMR steps to submit a job to run the `QUERY_FILE.hql` file. This query only succeeds if the provided runtime role can access the Amazon S3 path of the query file.
 
-```
+```bash
 RUNTIME_ROLE_ARN={{<runtime-role-arn>}}
 REGION={{<aws-region>}}
 CLUSTER_ID={{<cluster-id>}}
@@ -156,7 +155,7 @@ You can control access to the runtime role with the condition key `elasticmapred
 **Important**  
 You must create a condition based on the `elasticmapreduce:ExecutionRoleArn` context key when you grant a caller access to call the `AddJobFlowSteps` or `GetClusterSessionCredentials` APIs, as the following example shows.
 
-```
+```json
 {
     "Sid":"AddStepsWithSpecificExecRoleArn",
     "Effect":"Allow",
@@ -289,7 +288,7 @@ Additionally, consider the following when you configure runtime roles for Amazon
   ```
 + You must escape your Bash command arguments when running commands with the `command-runner.jar` JAR file:
 
-  ```
+  ```bash,sh,zsh
   aws emr add-steps --cluster-id {{<cluster-id>}} --steps '[{"Name":"sample-step","ActionOnFailure":"CONTINUE","Jar":"command-runner.jar","Properties":"","Args":["bash","-c","\"aws s3 ls\""],"Type":"CUSTOM_JAR"}]' --execution-role-arn {{<IAM_ROLE_ARN>}}
   ```
 

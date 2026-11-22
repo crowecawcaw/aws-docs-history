@@ -1,7 +1,6 @@
 
 
 # Full Table Access with Amazon SageMaker Unified Studio and TIP on Amazon EMR on EC2
-<a name="emr-trusted-identity-smus-fta"></a>
 
 In Full Table Access (FTA) mode, Lake Formation grants authorized IAM Identity Center users access to full tables without row or column filtering. For more information about the FTA access model, see [Application integration for full table access](https://docs.aws.amazon.com/lake-formation/latest/dg/full-table-credential-vending.html).
 
@@ -65,7 +64,7 @@ Launch the Amazon EMR cluster with this security configuration and the software 
 
    **For Hive/Parquet tables:**
 
-   ```
+   ```python
    %%configure -f
    {
        "conf": {
@@ -81,7 +80,7 @@ Launch the Amazon EMR cluster with this security configuration and the software 
 
    **For Iceberg tables:**
 
-   ```
+   ```python
    %%configure -f
    {
        "conf": {
@@ -102,7 +101,7 @@ You must run the `%%configure` cell before executing any other Spark operations.
 
 1. In the next cell, query your table:
 
-   ```
+   ```python
    spark.sql("select * from {{database_name}}.{{table_name}}").show()
    ```
 

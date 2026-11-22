@@ -1,7 +1,6 @@
 
 
 # Configure Zeppelin for Apache Ranger-enabled Amazon EMR clusters
-<a name="emr-ranger-configure-zeppelin"></a>
 
 The topic covers how to configure [Apache Zeppelin](https://zeppelin.apache.org/) for an Apache Ranger-enabled Amazon EMR cluster so that you can use Zeppelin as a notebook for interactive data exploration. Zeppelin is included in Amazon EMR release versions 5.0.0 and later. Earlier release versions include Zeppelin as a sandbox application. For more information, see [Amazon EMR 4.x release versions](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-4x.html) in the *Amazon EMR Release Guide*.
 

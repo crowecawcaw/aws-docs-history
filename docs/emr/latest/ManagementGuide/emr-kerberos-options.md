@@ -1,7 +1,6 @@
 
 
 # Kerberos architecture options with Amazon EMR
-<a name="emr-kerberos-options"></a>
 
 When you use Kerberos with Amazon EMR, you can choose from the architectures listed in this section. Regardless of the architecture that you choose, you configure Kerberos using the same steps. You create a security configuration, you specify the security configuration and compatible cluster-specific Kerberos options when you create the cluster, and you create HDFS directories for Linux users on the cluster that match user principals in the KDC. For an explanation of configuration options and example configurations for each architecture, see [Configuring Kerberos on Amazon EMR](emr-kerberos-configure.md).
 

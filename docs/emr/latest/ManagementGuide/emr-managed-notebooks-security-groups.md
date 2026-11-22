@@ -1,11 +1,10 @@
 
 
 # Specifying EC2 security groups for EMR Notebooks
-<a name="emr-managed-notebooks-security-groups"></a>
 
 When you create an EMR notebook, two security groups are used to control network traffic between the EMR notebook and the Amazon EMR cluster when you use the notebook editor. The default security groups have minimal rules that allow only network traffic between the EMR Notebooks service and the clusters to which notebooks are attached.
 
-An EMR notebook uses [Apache Livy](https://livy.incubator.apache.org/) to communicate with the cluster via a proxy through TCP Port 18888. When you create custom security groups with rules that you tailor to your environment, you can limit network traffic so that only a subset of notebooks can run code within the notebook editor on particular clusters. The cluster uses your custom security in addition to the default security groups for the cluster. For more information, see [Control network traffic with security groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-groups.html) in the *Amazon EMR Management Guide* and [Specifying EC2 security groups for EMR Notebooks](#emr-managed-notebooks-security-groups).
+An EMR notebook uses [Apache Livy](https://livy.incubator.apache.org/) to communicate with the cluster via a proxy through TCP Port 18888. When you create custom security groups with rules that you tailor to your environment, you can limit network traffic so that only a subset of notebooks can run code within the notebook editor on particular clusters. The cluster uses your custom security in addition to the default security groups for the cluster. For more information, see [Control network traffic with security groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-groups.html) in the *Amazon EMR Management Guide* and [Specifying EC2 security groups for EMR Notebooks](emr-managed-notebooks-security-groups.md).
 
 ## Default EC2 security group for the primary instance
 <a name="emr-managed-notebooks-security-group-for-master"></a>

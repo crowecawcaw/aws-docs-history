@@ -1,7 +1,6 @@
 
 
 # IAM managed policy for read-only access (on path to deprecation)
-<a name="emr-managed-policy-readonly"></a>
 
 The `AmazonElasticMapReduceReadOnlyAccess` managed policy is on the path to deprecation. You cannot attach this policy when launching new clusters. `AmazonElasticMapReduceReadOnlyAccess` has been replaced with [`AmazonEMRReadOnlyAccessPolicy_v2`](emr-managed-policy-readonly-v2.md) as the Amazon EMR default managed policy. The content of this policy statement is shown in the following snippet. Wildcard characters for the `elasticmapreduce` element specify that only actions that begin with the specified strings are allowed. Keep in mind that because this policy does not explicitly deny actions, a different policy statement may still be used to grant access to specified actions.
 
@@ -13,7 +12,7 @@ You can also use the AWS Management Console to view the policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Configure uniform instance groups for your Amazon EMR cluster
-<a name="emr-uniform-instance-group"></a>
 
 With the instance groups configuration, each node type (master, core, or task) consists of the same instance type and the same purchasing option for instances: On-Demand or Spot. You specify these settings when you create an instance group. They can't be changed later. You can, however, add instances of the same type and purchasing option to core and task instance groups. You can also remove instances.
 
@@ -57,7 +56,7 @@ The following example demonstrates a `create-cluster` command that creates prima
 **Note**  
 Linux line continuation characters (\\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
-```
+```bash
 aws emr create-cluster --name "{{MySpotCluster}}" \
   --release-label {{emr-7.14.0}} \
   --use-default-roles \
@@ -73,9 +72,9 @@ Using the CLI, you can create uniform instance group clusters that specify a uni
 
 The following example shows a uniform instance group cluster created with two instance types, each with its own custom AMI. Notice that the custom AMIs are specified only at the instance type level, not at the cluster level. This is to avoid conflicts between the instance type AMIs and an AMI at the cluster level, which would cause the cluster launch to fail. 
 
-```
+```bash
 aws emr create-cluster
-  --release-label emr-5.30.0 \
+  --release-label emr-7.14.0 \
   --service-role EMR_DefaultRole \
   --ec2-attributes SubnetId=subnet-22XXXX01,InstanceProfile=EMR_EC2_DefaultRole \
   --instance-groups \
@@ -85,7 +84,7 @@ aws emr create-cluster
 
 You can add multiple custom AMIs to an instance group that you add to a running cluster. The `CustomAmiId` argument can be used with the `add-instance-groups` command as shown in the following example.
 
-```
+```bash
 aws emr add-instance-groups --cluster-id j-123456 \
   --instance-groups \
     InstanceGroupType=Task,InstanceType=m5.xlarge,InstanceCount=1,CustomAmiId=ami-123456

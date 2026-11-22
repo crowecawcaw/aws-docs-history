@@ -1,7 +1,6 @@
 
 
 # Upload data to Amazon S3 Express One Zone
-<a name="emr-express-one-zone"></a>
 
 ## Overview
 <a name="emr-express-one-zone-overview"></a>
@@ -15,7 +14,7 @@ With Amazon EMR 6.15.0 and higher, you can use Amazon EMR with Apache Spark in c
 
 To change the `s3` scheme, specify the following cluster configurations: 
 
-```
+```json
 [
   {
     "Classification": "core-site",
@@ -29,7 +28,7 @@ To change the `s3` scheme, specify the following cluster configurations:
 
 To change the `s3n` scheme, specify the following cluster configurations: 
 
-```
+```json
 [
   {
     "Classification": "core-site",
@@ -59,7 +58,7 @@ Before you can create a cluster that uses Amazon S3 Express One Zone, you must c
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -92,7 +91,7 @@ Next, create a cluster that runs Spark, HBase, Flink, or Hive with S3 Express On
 
 1. To enable Amazon S3 Express One Zone, enter a configuration similar to the following example in the **Software settings** section. The configurations and recommended values are described in the [Configurations overview](#emr-express-one-zone-configs) section that follows this procedure.
 
-   ```
+   ```json
    [
      {
        "Classification": "core-site",

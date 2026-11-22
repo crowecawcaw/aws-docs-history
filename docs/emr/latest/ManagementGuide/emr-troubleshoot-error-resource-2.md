@@ -1,7 +1,6 @@
 
 
 # Amazon EMR cluster error: File could only be replicated to 0 nodes instead of 1
-<a name="emr-troubleshoot-error-resource-2"></a>
 
 When a file is written to HDFS, it is replicated to multiple core nodes. When you see this error, it means that the NameNode daemon does not have any available DataNode instances to write data to in HDFS. In other words, block replication is not taking place. This error can be caused by a number of issues: 
 + The HDFS filesystem may have run out of space. This is the most likely cause. 

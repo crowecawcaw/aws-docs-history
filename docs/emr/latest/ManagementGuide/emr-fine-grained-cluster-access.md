@@ -1,7 +1,6 @@
 
 
 # IAM policies for tag-based access to clusters and EMR notebooks
-<a name="emr-fine-grained-cluster-access"></a>
 
 You can use conditions in your identity-based policy to control access to clusters and EMR notebooks based on tags.
 
@@ -37,7 +36,7 @@ In the following policy example, the `StringEquals` condition operator tries to 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -95,7 +94,7 @@ For more information about matching tag-key values, see [`aws:RequestTag/tag-key
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -187,7 +186,7 @@ For more information specifying the null ("false") condition operator, see [Cond
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -267,7 +266,7 @@ The following example policy statement, when attached to a role or user, allows 
 In the example, the `StringEquals` condition operator tries to match a variable representing the current users a user ID (`{aws:userId}`) with the value of the tag `creatorUserID`. If the tag `creatorUserID` hasn't been added to the notebook, or doesn't contain the value of the current user's ID, the policy doesn't apply, and the actions aren't allowed by this policy. If no other policy statements allow the actions, the user can only work with notebooks that have this tag with this value.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -299,7 +298,7 @@ In this example, the `RequestTag` context key is used. The `CreateEditor` action
 The policy statement can be used to help ensure that users do not remove the `createUserId` tag or change its value.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -324,7 +323,7 @@ The policy statement can be used to help ensure that users do not remove the `cr
 This example requires that the user create the cluster with a tag having the key string `dept` and a value set to one of the following: `datascience`, `analytics`, `operations`.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -355,7 +354,7 @@ This example requires that the user create the cluster with a tag having the key
 This example allows notebook creation only if the notebook is created with a tag that has the key string `owner` set to one of the specified values. In addition, the notebook can be created only if the cluster has a tag with the key string `department` set to one of the specified values.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -390,7 +389,7 @@ This example allows notebook creation only if the notebook is created with a tag
 This example limits the ability to start notebooks only to those notebooks that have a tag with the key string `owner` set to one of the specified values. Because the `Resource` element is used to specify only the `editor`, the condition does not apply to the cluster, and it does not need to be tagged.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -418,7 +417,7 @@ This example limits the ability to start notebooks only to those notebooks that 
 This example is similar to one above. However, the limit only applies to tagged clusters, not notebooks.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -450,7 +449,7 @@ This example uses a different set of notebook and cluster tags. It allows a note
 + The cluster has a tag with the key string `department` set to any of the specified values  
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -502,7 +501,7 @@ This example allows the notebook editor to be opened only if:
 + The cluster has a tag with the key string `department` set to any of the specified values.  
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

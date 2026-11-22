@@ -1,7 +1,6 @@
 
 
 # Allow users and groups to create and modify roles
-<a name="emr-iam-roles-create-permissions"></a>
 
 IAM principals (users and groups) who create, modify, and specify roles for a cluster, including default roles, must be allowed to perform the following actions. For details about each action, see [Actions](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) in the *IAM API Reference*.
 + `iam:CreateRole`

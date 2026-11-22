@@ -1,7 +1,6 @@
 
 
 # Debug applications and jobs with EMR Studio
-<a name="emr-studio-debug"></a>
 
 With Amazon EMR Studio, you can launch data application interfaces to analyze applications and job runs in the browser.
 

@@ -1,7 +1,6 @@
 
 
 # Service role for Amazon EMR (EMR role)
-<a name="emr-iam-role"></a>
 
 The Amazon EMR role defines the allowable actions for Amazon EMR when it provisions resources and performs service-level tasks that aren't performed in the context of an Amazon EC2 instance running within a cluster. For example, the service role is used to provision EC2 instances when a cluster launches.
 + The default role name is `EMR_DefaultRole_V2`.
@@ -19,7 +18,7 @@ The following shows the contents of the current `AmazonEMRServicePolicy_v2` poli
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -445,7 +444,7 @@ The following trust policy includes the [`aws:SourceArn`](https://docs.aws.amazo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

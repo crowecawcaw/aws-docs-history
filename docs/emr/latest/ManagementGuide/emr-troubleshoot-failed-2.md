@@ -1,7 +1,6 @@
 
 
 # Step 2: Check the environment
-<a name="emr-troubleshoot-failed-2"></a>
 
 Amazon EMR operates as part of an ecosystem of web services and open-source software. Things that affect those dependencies can impact the performance of Amazon EMR.
 

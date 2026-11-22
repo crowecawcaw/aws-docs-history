@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 Access Grants with Amazon EMR
-<a name="emr-access-grants"></a>
 
 ## S3 Access Grants overview for Amazon EMR
 <a name="emr-access-grants-overview"></a>
@@ -70,7 +69,7 @@ Use the following steps to launch an EMR cluster that runs on Amazon EC2, and us
 
 1. Set up a job execution role for your EMR cluster. Include the required IAM permissions that you need to run Spark jobs, `s3:GetDataAccess` and `s3:GetAccessGrantsInstanceForPrefix`:
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Action": [
@@ -88,7 +87,7 @@ With Amazon EMR, S3 Access Grants augment the permissions that are set in IAM ro
 
 1. Next, use the AWS CLI to create a cluster with Amazon EMR 6.15 or higher and the `emrfs-site` classification to enable S3 Access Grants, similar to the following example:
 
-   ```
+   ```bash,sh,zsh
    aws emr create-cluster 
      --release-label emr-6.15.0 \
      --instance-count 3 \
@@ -107,7 +106,7 @@ S3 Access Grants with AWS Lake Formation is only supported with Amazon EMR clust
 **Direct access**  
 Direct access involves all calls to access S3 data that don't invoke the API for the AWS Glue service that Lake Formation uses as a metastore with Amazon EMR, for example, to call `spark.read`:  
 
-```
+```sql
 spark.read.csv("s3://...")
 ```
 When you use S3 Access Grants with AWS Lake Formation on Amazon EMR, all direct access patterns go through S3 Access Grants to get temporary S3 credentials.
@@ -115,7 +114,7 @@ When you use S3 Access Grants with AWS Lake Formation on Amazon EMR, all direct 
 **Tabular access**  
 Tabular access occurs when Lake Formation invokes the metastore API to access your S3 location, for example, to query table data:  
 
-```
+```sql
 spark.sql("select * from test_tbl")
 ```
 When you use S3 Access Grants with AWS Lake Formation on Amazon EMR, all tabular access patterns go through Lake Formation.

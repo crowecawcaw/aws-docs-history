@@ -1,7 +1,6 @@
 
 
 # Overview of LDAP with Amazon EMR
-<a name="ldap-overview"></a>
 
 Lightweight Directory Access Protocol (LDAP) is a software protocol that network administrators use to manage and control access to data by authenticating users within a company’s network. The LDAP protocol stores information in a hierarchical, tree directory structure. For more information, see [Basic LDAP Concepts](https://ldap.com/basic-ldap-concepts/) on *LDAP.com*.
 

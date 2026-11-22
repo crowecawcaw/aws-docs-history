@@ -1,7 +1,6 @@
 
 
 # Cluster scale-down options for Amazon EMR clusters
-<a name="emr-scaledown-behavior"></a>
 
 **Note**  
 Scale-down behavior options are no longer supported since Amazon EMR release 5.10.0. Because of the introduction of per-second billing in Amazon EC2, the default scale-down behavior for Amazon EMR clusters is now terminate at task completion.

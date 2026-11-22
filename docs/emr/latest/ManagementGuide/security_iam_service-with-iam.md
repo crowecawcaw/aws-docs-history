@@ -1,7 +1,6 @@
 
 
 # How Amazon EMR works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon EMR, learn what IAM features are available to use with Amazon EMR.
 

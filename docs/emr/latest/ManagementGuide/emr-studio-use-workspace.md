@@ -1,7 +1,6 @@
 
 
 # Launch a Workspace in EMR Studio
-<a name="emr-studio-use-workspace"></a>
 
 To start working with notebook files, launch a Workspace to access the notebook editor. The **Workspaces** page in a Studio lists all of the Workspaces that you have access to with details including **Name**, **Status**, **Creation time**, and **Last modified**. 
 

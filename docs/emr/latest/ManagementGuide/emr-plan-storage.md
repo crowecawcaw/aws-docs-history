@@ -1,7 +1,6 @@
 
 
 # Instance storage options and behavior in Amazon EMR
-<a name="emr-plan-storage"></a>
 
 ## Overview
 <a name="emr-plan-storage-ebs-storage-overview"></a>

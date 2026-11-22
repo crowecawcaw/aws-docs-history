@@ -1,19 +1,18 @@
 
 
 # Configure Lake Formation for an IAM Identity Center enabled EMR cluster
-<a name="emr-idc-lf"></a>
 
 You can integrate [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/) with your AWS IAM Identity Center enabled EMR cluster.
 
 First, be sure you have an Identity Center instance set up in the same Region as your cluster. For more information, see [Create an Identity Center instance](emr-idc-start.md#emr-idc-start-instance). You can find the instance ARN in the IAM Identity Center console when you view the instance details, or use the following command to view details for all your instances from the CLI:
 
-```
+```bash,sh,zsh
 aws sso-admin list-instances
 ```
 
 Then use the ARN and your AWS account ID with the following command to configure Lake Formation to be compatible with IAM Identity Center:
 
-```
+```bash,sh,zsh
 aws lakeformation create-lake-formation-identity-center-configuration --cli-input-json file://create-lake-fromation-idc-config.json 
 json input:
 {
@@ -24,7 +23,7 @@ json input:
 
 Now, call `put-data-lake-settings` and enable `AllowFullTableExternalDataAccess` with Lake Formation:
 
-```
+```bash,sh,zsh
 aws lakeformation put-data-lake-settings --cli-input-json file://put-data-lake-settings.json 
 json input:
 {
@@ -55,7 +54,7 @@ Queries on the EMR cluster only work if the IAM Identity Center identity has ful
 
 Use the following command to grant the user full table access:
 
-```
+```bash,sh,zsh
 aws lakeformation grant-permissions --cli-input-json file://grantpermissions.json
 json input:
 {

@@ -1,7 +1,6 @@
 
 
 # Create the Amazon EMR security configuration for LDAP integration
-<a name="ldap-setup-security"></a>
 
 Before you can launch an EMR cluster with LDAP integration, use the steps in [Create a security configuration with the Amazon EMR console or with the AWS CLI](emr-create-security-configuration.md) to create an Amazon EMR security configuration for the cluster. Complete the following configurations in the `LDAPConfiguration` block under `AuthenticationConfiguration`, or the in corresponding fields in the Amazon EMR console **Security Configurations** section:
 

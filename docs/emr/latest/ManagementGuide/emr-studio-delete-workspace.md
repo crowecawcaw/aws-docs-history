@@ -1,7 +1,6 @@
 
 
 # Delete a Workspace and notebook files in EMR Studio
-<a name="emr-studio-delete-workspace"></a>
 
 When you delete a notebook file from an EMR Studio Workspace, you delete the file from the **File browser**, and EMR Studio removes its backup copy in Amazon S3. You do not have to take any further steps to avoid storage charges when you delete a file from a Workspace.
 

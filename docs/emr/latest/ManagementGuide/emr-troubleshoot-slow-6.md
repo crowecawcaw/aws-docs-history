@@ -1,7 +1,6 @@
 
 
 # Step 6: Review configuration settings for the Amazon EMR cluster
-<a name="emr-troubleshoot-slow-6"></a>
 
  Configuration settings specify details about how a cluster runs, such as how many times to retry a task and how much memory is available for sorting. When you launch a cluster using Amazon EMR, there are Amazon EMR-specific settings in addition to the standard Hadoop configuration settings. The configuration settings are stored on the master node of the cluster. You can check the configuration settings to ensure that your cluster has the resources it requires to run efficiently. 
 

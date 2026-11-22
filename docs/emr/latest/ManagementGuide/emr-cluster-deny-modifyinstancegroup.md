@@ -1,7 +1,6 @@
 
 
 # Denying the ModifyInstanceGroup action in Amazon EMR
-<a name="emr-cluster-deny-modifyinstancegroup"></a>
 
 The [ModifyInstanceGroups](https://docs.aws.amazon.com/emr/latest/APIReference/API_ModifyInstanceGroups.html) action in Amazon EMR does not require that you provide a cluster ID with the action. Instead, you can specify only an instance group ID. For this reason, an apparently simple deny policy for this action based on cluster ID or a cluster tag may not have the intended effect. Consider the following example policy.
 
@@ -10,7 +9,7 @@ The [ModifyInstanceGroups](https://docs.aws.amazon.com/emr/latest/APIReference/A
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -49,7 +48,7 @@ A solution to this issue is to attach a policy statement to the identity that us
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -96,7 +95,7 @@ The following example demonstrates a policy that, when attached to an identity, 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

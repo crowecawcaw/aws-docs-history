@@ -1,7 +1,6 @@
 
 
 # Configure EMR Studio user permissions for Amazon EC2 or Amazon EKS
-<a name="emr-studio-user-permissions"></a>
 
 You must configure user permissions policies for Amazon EMR Studio so that you can set fine-grained user and group permissions. For information about how user permissions work in EMR Studio, see [Access control](how-emr-studio-works.md#emr-studio-access-control) in [How Amazon EMR Studio works](how-emr-studio-works.md). 
 
@@ -24,7 +23,7 @@ You must create an EMR Studio user role when you use IAM Identity Center authent
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -72,7 +71,7 @@ For a breakdown of each Studio operation that a user might perform, and the mini
 
 Your permissions policy must include the following statements.
 
-```
+```json
 {
             "Sid": "AllowAddingTagsOnSecretsWithEMRStudioPrefix",
             "Effect": "Allow",
@@ -151,7 +150,7 @@ For more information about policy variables, see [IAM policy elements: Variables
 
 1. Add the following permissions to the the [EMR Studio **user role policy**](emr-studio-service-role.md). It uses the `for-use-with-amazon-emr-managed-user-policies` key with value `"${aws:{{userid}}}"`.
 
-   ```
+   ```json
    {
       "Sid": "AllowSecretsManagerReadOnlyActionsWithEMRTags",
        "Effect": "Allow",
@@ -167,7 +166,7 @@ For more information about policy variables, see [IAM policy elements: Variables
 
 1. If present, remove the following permission from the [EMR Studio **service role policy**](emr-studio-service-role.md). Because the service role policy applies to all secrets defined by each user, you only need to do this one time.
 
-   ```
+   ```json
    {
        "Sid": "AllowSecretsManagerReadOnlyActionsWithEMRTags", 
        "Effect": "Allow", 
@@ -223,7 +222,7 @@ The example policy includes `Condition` elements to enforce tag-based access con
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -386,7 +385,7 @@ The example policy includes `Condition` elements to enforce tag-based access con
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -634,7 +633,7 @@ The example policy includes `Condition` elements to enforce tag-based access con
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -976,7 +975,7 @@ In this example policy that has user permissions for EMR Serverless interactive 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1116,7 +1115,7 @@ The table also displays the operations allowed in each of example permissions po
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1139,7 +1138,7 @@ The table also displays the operations allowed in each of example permissions po
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

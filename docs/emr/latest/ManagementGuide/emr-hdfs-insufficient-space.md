@@ -1,7 +1,6 @@
 
 
 # Amazon EMR cluster error: HDFS insufficient space error
-<a name="emr-hdfs-insufficient-space"></a>
 
  An Hadoop Distributed File System (HDFS) insufficient space error can occur if you attempt to remove a core node, but Amazon EMR can't safely complete the operation because of insuficicent space left in the HDFS. Before Amazon EMR removes a core node, all HDFS data on the node must be transferred to other core nodes to ensure data redundancy. However, if there isn't enough space on the other core nodes for replication, Amazon EMR can't gracefully decommission the node. 
 

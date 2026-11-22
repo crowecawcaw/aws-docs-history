@@ -1,7 +1,6 @@
 
 
 # Availability Zone flexibility for an Amazon EMR cluster
-<a name="emr-flexibility"></a>
 
 Each AWS Region has multiple, isolated locations known as Availability Zones. When you launch an instance, you can optionally specify an Availability Zone (AZ) in the AWS Region that you use. [Availability Zone flexibility](#emr-flexibility-az) is the distribution of instances across multiple AZs. If one instance fails, you can design your application so that an instance in another AZ can handle requests. For more information on Availability Zones, see the [Region and zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones) documentation in the *Amazon EC2 User Guide*.
 

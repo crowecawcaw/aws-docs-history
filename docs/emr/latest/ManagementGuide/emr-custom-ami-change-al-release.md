@@ -1,7 +1,6 @@
 
 
 # Change the Amazon Linux release when you create an EMR cluster
-<a name="emr-custom-ami-change-al-release"></a>
 
 When you launch a cluster using Amazon EMR 6.6.0 or higher, it automatically uses the latest Amazon Linux 2 release that has been validated for the default Amazon EMR AMI. You can specify a different Amazon Linux release for your cluster with the Amazon EMR console or the AWS CLI. 
 

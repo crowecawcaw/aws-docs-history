@@ -1,7 +1,6 @@
 
 
 # Enhance kernels with magic commands in EMR Studio
-<a name="emr-studio-magics"></a>
 
 ## Overview
 <a name="overview-magics"></a>
@@ -76,7 +75,7 @@ You can use the notebook editor to configure your EMR notebook to use Hudi.
 
 The `%%sh` magic runs shell commands in a subprocess on an instance of your attached cluster. Typically, you'd use one of the Spark-related kernels to run Spark applications on your attached cluster. However, if you want to use a Python kernel to submit a Spark application, you can use the following magic, replacing the bucket name with your bucket name in lowercase.
 
-```
+```bash,sh,zsh
 %%sh
 spark-submit --master yarn --deploy-mode cluster s3://{{amzn-s3-demo-bucket}}/test.py
 ```
@@ -86,7 +85,7 @@ In this example, the cluster needs access to the location of `s3://{{amzn-s3-dem
 You can use any Linux command with the `%%sh` magic. If you want to run any Spark or YARN commands, use one of the following options to create an `emr-notebook` Hadoop user and grant the user permissions to run the commands:
 + You can explicitly create a new user by running the following commands.
 
-  ```
+  ```bash,sh,zsh
   hadoop fs -mkdir /user/emr-notebook
   hadoop fs -chown emr-notebook /user/emr-notebook
   ```
@@ -97,7 +96,7 @@ You can use any Linux command with the `%%sh` magic. If you want to run any Spar
 
 You can use the `%%display` magic to visualize a Spark dataframe. To use this magic, run the following command. 
 
-```
+```bash,sh,zsh
 %%display df
 ```
 
@@ -135,7 +134,7 @@ Directories are mounted as read-only by default. While `s3fs-fuse` and `goofys` 
 
   The Amazon EMR 7.x series uses Amazon Linux 2023, which doesn't support EPEL repositories. If you're running Amazon EMR 7.x, follow the [s3fs-fuse GitHub](https://github.com/s3fs-fuse/s3fs-fuse/blob/master/COMPILATION.md) instructions to install `s3fs-fuse`. If you use the 5.x or 6.x series, use the following commands to install `s3fs-fuse`.
 
-  ```
+  ```bash,sh,zsh
   #!/bin/sh
   
   # Install the s3fs dependency for EMR Notebooks magics 
@@ -145,7 +144,7 @@ Directories are mounted as read-only by default. While `s3fs-fuse` and `goofys` 
 
   **OR**
 
-  ```
+  ```bash,sh,zsh
   #!/bin/sh
   
   # Install the goofys dependency for EMR Notebooks magics 
@@ -190,7 +189,7 @@ The following example mounts the entire Workspace directory onto a cluster, and 
 
 To verify that your Workspace directory is mounted, use the following example to display the current working directory with the `ls` command. The output should display all of the files in your Workspace.
 
-```
+```python
 %%sh
 ls
 ```
@@ -251,7 +250,7 @@ When Amazon EMR and Amazon EC2 share an instance role, the role requires the fol
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

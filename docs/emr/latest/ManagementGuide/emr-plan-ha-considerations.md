@@ -1,7 +1,6 @@
 
 
 # Considerations and best practices when you create an Amazon EMR cluster with multiple primary nodes
-<a name="emr-plan-ha-considerations"></a>
 
 Consider the following when you create an Amazon EMR cluster with multiple primary nodes:
 

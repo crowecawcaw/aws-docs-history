@@ -1,7 +1,6 @@
 
 
 # Planning and configuring instance fleets for your Amazon EMR cluster
-<a name="emr-instance-fleet"></a>
 
 **Note**  
 The instance fleets configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.0 and 5.0.3.
@@ -155,7 +154,7 @@ If you use a custom service role or managed policy for your cluster, you must ad
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -185,7 +184,7 @@ The following service role permissions are required to create a cluster that use
 To use open capacity reservations, you must include the following additional permissions.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -209,7 +208,7 @@ To use open capacity reservations, you must include the following additional per
 To use targeted capacity reservations, you must include the following additional permissions.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -288,8 +287,8 @@ If you have not previously created the default Amazon EMR service role and EC2 i
 
 **Example: On-Demand primary, On-Demand core with single instance type, Default VPC**  
 
-```
-aws emr create-cluster --release-label {{emr-5.3.1}} --service-role EMR_DefaultRole \
+```bash
+aws emr create-cluster --release-label {{emr-7.14.0}} --service-role EMR_DefaultRole \
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole \
   --instance-fleets \
     InstanceFleetType=MASTER,TargetOnDemandCapacity=1,InstanceTypeConfigs=['{InstanceType=m5.xlarge}'] \
@@ -298,8 +297,8 @@ aws emr create-cluster --release-label {{emr-5.3.1}} --service-role EMR_DefaultR
 
 **Example: Spot primary, Spot core with single instance type, default VPC**  
 
-```
-aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
+```bash
+aws emr create-cluster --release-label emr-7.14.0 --service-role EMR_DefaultRole \
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole \
   --instance-fleets \
     InstanceFleetType=MASTER,TargetSpotCapacity=1,\
@@ -310,8 +309,8 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5}']
 
 **Example: On-Demand primary, mixed core with single instance type, single EC2 subnet**  
 
-```
-aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
+```bash
+aws emr create-cluster --release-label emr-7.14.0 --service-role EMR_DefaultRole \
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,SubnetIds=['subnet-ab12345c'] \
   --instance-fleets \
     InstanceFleetType=MASTER,TargetOnDemandCapacity=1,\
@@ -322,8 +321,8 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5,WeightedCapacity=2}']
 
 **Example: On-Demand primary, spot core with multiple weighted instance Types, Timeout for Spot, Range of EC2 Subnets**  
 
-```
-aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
+```bash
+aws emr create-cluster --release-label emr-7.14.0 --service-role EMR_DefaultRole \
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,SubnetIds=['subnet-ab12345c','subnet-de67890f'] \
   --instance-fleets \
     InstanceFleetType=MASTER,TargetOnDemandCapacity=1,\
@@ -336,8 +335,8 @@ LaunchSpecifications={SpotSpecification='{TimeoutDurationMinutes=120,TimeoutActi
 
 **Example: On-Demand primary, mixed core and task with multiple weighted instance types, timeout for core Spot Instances, range of EC2 subnets**  
 
-```
-aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
+```bash
+aws emr create-cluster --release-label emr-7.14.0 --service-role EMR_DefaultRole \
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,SubnetIds=['subnet-ab12345c','subnet-de67890f'] \
   --instance-fleets \
     InstanceFleetType=MASTER,TargetOnDemandCapacity=1,InstanceTypeConfigs=['{InstanceType=m5.xlarge}'] \
@@ -351,7 +350,7 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5,WeightedCapacity=3}']
 
 **Example: Spot primary, no core or task, Amazon EBS configuration, default VPC**  
 
-```
+```bash
 aws emr create-cluster --release-label Amazon EMR 5.3.1 --service-role EMR_DefaultRole \ 
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole \
   --instance-fleets \
@@ -364,7 +363,7 @@ SizeIn GB=100}},{VolumeSpecification={VolumeType=io1,SizeInGB=100,Iop s=100},Vol
 
 **Example: Multiple custom AMIs, multiple instance types, on-demand primary, on-demand core**  
 
-```
+```bash
 aws emr create-cluster --release-label Amazon EMR 5.3.1 --service-role EMR_DefaultRole \
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole \
   --instance-fleets \
@@ -376,7 +375,7 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,CustomAmiId=ami-123456},{InstanceT
 
 **Example: Add a task node to a running cluster with multiple instance types and multiple custom AMIs**  
 
-```
+```bash
 aws emr add-instance-fleet --cluster-id j-123456 --release-label Amazon EMR 5.3.1 \
   --service-role EMR_DefaultRole \
   --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole \
@@ -389,14 +388,14 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,CustomAmiId=ami-123456}',\
 **Example: Use a JSON configuration file**  
 You can configure instance fleet parameters in a JSON file, and then reference the JSON file as the sole parameter for instance fleets. For example, the following command references a JSON configuration file, `{{my-fleet-config.json}}`:  
 
-```
-aws emr create-cluster --release-label emr-5.30.0 --service-role EMR_DefaultRole \
+```bash
+aws emr create-cluster --release-label emr-7.14.0 --service-role EMR_DefaultRole \
 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole \
 --instance-fleets file://{{my-fleet-config.json}}
 ```
 The {{my-fleet-config.json}} file specifies primary, core, and task instance fleets as shown in the following example. The core instance fleet uses a maximum Spot price (`BidPrice`) as a percentage of On-Demand, while the task and primary instance fleets use a maximum Spot price (BidPriceAsPercentageofOnDemandPrice) as a string in USD.  
 
-```
+```bash
 [
     {
         "Name": "Masterfleet",
@@ -474,7 +473,7 @@ The {{my-fleet-config.json}} file specifies primary, core, and task instance fle
 
 Use the `modify-instance-fleet` command to specify new target capacities for an instance fleet. You must specify the cluster ID and the instance fleet ID. Use the `list-instance-fleets` command to retrieve instance fleet IDs.
 
-```
+```bash
 aws emr modify-instance-fleet --cluster-id {{<cluster-id>}} \
   --instance-fleet \
     InstanceFleetId='{{<instance-fleet-id>}}',TargetOnDemandCapacity=1,TargetSpotCapacity=1
@@ -485,7 +484,7 @@ aws emr modify-instance-fleet --cluster-id {{<cluster-id>}} \
 
 If a cluster has only primary and core instance fleets, you can use the `add-instance-fleet` command to add a task instance fleet. You can only use this to add task instance fleets.
 
-```
+```bash
 aws emr add-instance-fleet --cluster-id {{<cluster-id>}} 
   --instance-fleet \
     InstanceFleetType=TASK,TargetSpotCapacity=1,\
@@ -498,7 +497,7 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5}']
 
 Use the `list-instance-fleets` command to get configuration details of the instance fleets in a cluster. The command takes a cluster ID as input. The following example demonstrates the command and its output for a cluster that contains a primary task instance group and a core task instance group. For full response syntax, see [ListInstanceFleets](https://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstanceFleets.html) in the *Amazon EMR API Reference.*
 
-```
+```bash
 list-instance-fleets --cluster-id {{<cluster-id>}}			
 ```
 

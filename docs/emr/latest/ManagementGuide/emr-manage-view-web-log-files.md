@@ -1,7 +1,6 @@
 
 
 # View Amazon EMR log files
-<a name="emr-manage-view-web-log-files"></a>
 
  Amazon EMR and Hadoop both produce log files that report status on the cluster. By default, these are written to the primary node in the `/mnt/var/log/` directory. Depending on how you configured your cluster when you launched it, these logs may also be archived to Amazon S3 and may be viewable through the graphical debugging tool. 
 

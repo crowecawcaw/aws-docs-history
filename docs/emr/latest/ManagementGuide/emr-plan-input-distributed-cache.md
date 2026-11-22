@@ -1,7 +1,6 @@
 
 
 # Import files with distributed cache with Amazon EMR
-<a name="emr-plan-input-distributed-cache"></a>
 
 DistributedCache is a Hadoop feature that can boost efficiency when a map or a reduce task needs access to common data. If your cluster depends on existing applications or binaries that are not installed when the cluster is created, you can use DistributedCache to import these files. This feature lets a cluster node read the imported files from its local file system, instead of retrieving the files from other cluster nodes. 
 
@@ -94,8 +93,8 @@ You can use the AWS Management Console and the AWS CLI to create clusters that u
 **Example 1**  
 Type the following command to launch a cluster and submit a Streaming step that uses `-cacheFile` to add one file, `sample_dataset_cached.dat`, to the cache.   
 
-```
-aws emr create-cluster --name "Test cluster" --release-label emr-4.0.0 --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 --steps Type=STREAMING,Name="Streaming program",ActionOnFailure=CONTINUE,Args=["--files","s3://my_bucket/my_mapper.py s3://my_bucket/my_reducer.py","-mapper","my_mapper.py","-reducer","my_reducer.py,"-input","s3://my_bucket/my_input","-output","s3://my_bucket/my_output", "-cacheFile","s3://my_bucket/sample_dataset.dat#sample_dataset_cached.dat"]
+```bash
+aws emr create-cluster --name "Test cluster" --release-label emr-7.14.0 --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 --steps Type=STREAMING,Name="Streaming program",ActionOnFailure=CONTINUE,Args=["--files","s3://amzn-s3-demo-bucket/my_mapper.py s3://amzn-s3-demo-bucket/my_reducer.py","-mapper","my_mapper.py","-reducer","my_reducer.py,"-input","s3://amzn-s3-demo-bucket/my_input","-output","s3://amzn-s3-demo-bucket/my_output", "-cacheFile","s3://amzn-s3-demo-bucket/sample_dataset.dat#sample_dataset_cached.dat"]
 ```
 When you specify the instance count without using the `--instance-groups` parameter, a single primary node is launched, and the remaining instances are launched as core nodes. All nodes will use the instance type specified in the command.  
 If you have not previously created the default EMR service role and EC2 instance profile, type `aws emr create-default-roles` to create them before typing the `create-cluster` subcommand.
@@ -103,8 +102,8 @@ If you have not previously created the default EMR service role and EC2 instance
 **Example 2**  
 The following command shows the creation of a streaming cluster and uses `-cacheArchive` to add an archive of files to the cache.   
 
-```
-aws emr create-cluster --name "Test cluster" --release-label emr-4.0.0 --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 --steps Type=STREAMING,Name="Streaming program",ActionOnFailure=CONTINUE,Args=["--files","s3://my_bucket/my_mapper.py s3://my_bucket/my_reducer.py","-mapper","my_mapper.py","-reducer","my_reducer.py,"-input","s3://my_bucket/my_input","-output","s3://my_bucket/my_output", "-cacheArchive","s3://my_bucket/sample_dataset.tgz#sample_dataset_cached"]
+```bash
+aws emr create-cluster --name "Test cluster" --release-label emr-7.14.0 --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 --steps Type=STREAMING,Name="Streaming program",ActionOnFailure=CONTINUE,Args=["--files","s3://amzn-s3-demo-bucket/my_mapper.py s3://amzn-s3-demo-bucket/my_reducer.py","-mapper","my_mapper.py","-reducer","my_reducer.py,"-input","s3://amzn-s3-demo-bucket/my_input","-output","s3://amzn-s3-demo-bucket/my_output", "-cacheArchive","s3://amzn-s3-demo-bucket/sample_dataset.tgz#sample_dataset_cached"]
 ```
 When you specify the instance count without using the `--instance-groups` parameter, a single primary node is launched, and the remaining instances are launched as core nodes. All nodes will use the instance type specified in the command.  
 If you have not previously created the default EMR service role and EC2 instance profile, type `aws emr create-default-roles` to create them before typing the `create-cluster` subcommand.

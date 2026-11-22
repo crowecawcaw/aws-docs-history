@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon EMR with AWS Lake Formation
-<a name="emr-lake-formation"></a>
 
 AWS Lake Formation is a managed service that helps you discover, catalog, cleanse, and secure data in an Amazon Simple Storage Service (S3) data lake. Lake Formation provides fine-grained access at the column, row, or cell level to databases and tables in the AWS Glue Data Catalog. For more information, see [What is AWS Lake Formation?](https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html)
 

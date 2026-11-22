@@ -1,7 +1,6 @@
 
 
 # Adding steps to an Amazon EMR cluster with the AWS CLI
-<a name="add-step-cli"></a>
 
 The following procedures demonstrate how to add steps to a newly created cluster and to a running cluster with the AWS CLI. Both examples use the `--steps` subcommand to add steps to the cluster. 
 
@@ -32,7 +31,7 @@ The list of arguments changes depending on the type of step.
 **To add a step to a running cluster**
 + Type the following command to add a step to a running cluster. Replace `{{j-2AXXXXXXGAPLF}}` with your own cluster ID.
 
-  ```
+  ```bash
   aws emr add-steps --cluster-id {{j-2AXXXXXXGAPLF}} \
   --steps '[{"Args":["spark-submit","--deploy-mode","cluster","--class","org.apache.spark.examples.SparkPi","/usr/lib/spark/examples/jars/spark-examples.jar","5"],"Type":"CUSTOM_JAR","ActionOnFailure":"CONTINUE","Jar":"command-runner.jar","Properties":"","Name":"Spark application"}]'
   ```
@@ -51,13 +50,13 @@ The list of arguments changes depending on the type of step.
 
 1. In a running cluster, you can modify the `StepConcurrencyLevel` with the `ModifyCluster` API. For example, type the following command to increase the `StepConcurrencyLevel` to `10`. Replace `{{j-2AXXXXXXGAPLF}}` with your cluster ID.
 
-   ```
+   ```bash
    aws emr modify-cluster --cluster-id {{j-2AXXXXXXGAPLF}} --step-concurrency-level 10
    ```
 
 1. The output is similar to the following.
 
-   ```
+   ```bash
    {
    "StepConcurrencyLevel": 10
    }

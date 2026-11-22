@@ -1,13 +1,12 @@
 
 
 # Getting started with Amazon EMR Data Quality
-<a name="emr-dq-getting-started"></a>
 
 This section walks you through running your first Amazon EMR Data Quality evaluation end to end: the permissions your Amazon EMR Spark application needs, and a walkthrough that submits a DQDL ruleset against a DataFrame on Amazon EMR and retrieves the result.
-+ [Prerequisites](#emr-dq-prerequisites)
++ [Prerequisites for Amazon EMR Data Quality](#emr-dq-prerequisites)
 + [Run your first evaluation](#emr-dq-walkthrough)
 
-## Prerequisites
+## Prerequisites for Amazon EMR Data Quality
 <a name="emr-dq-prerequisites"></a>
 
 ### IAM permissions
@@ -26,7 +25,7 @@ The IAM role that your Amazon EMR Spark workload assumes — the EC2 instance pr
 
 The following inline policy grants the minimum set of permissions required to publish Data Quality results from an Amazon EMR Spark application.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -50,7 +49,7 @@ The following inline policy grants the minimum set of permissions required to pu
 
    For example, to create an Amazon EMR on EC2 cluster, run:
 
-   ```
+   ```bash
    aws emr create-cluster --release-label emr-spark-8.1.0 \
    --applications Name=Spark \
    --region us-east-1 \
@@ -64,7 +63,7 @@ The following inline policy grants the minimum set of permissions required to pu
 
 1. **Define a ruleset and evaluate it.** The following PySpark script defines a ruleset in DQDL, evaluates it against a DataFrame, and prints the per-rule outcome.
 
-   ```
+   ```python
    from pyspark.sql import SparkSession
    from awsdataquality.transforms import EvaluateDataQuality
    
@@ -101,7 +100,7 @@ The following inline policy grants the minimum set of permissions required to pu
 ------
 #### [ Amazon EMR on EC2 ]
 
-   ```
+   ```bash
    aws emr add-steps --cluster-id {{j-1234567890ABC}} \
    --steps Type=Spark,Name="dq-example",ActionOnFailure=CONTINUE,Args=[s3://{{amzn-s3-demo-bucket}}/scripts/dq_example.py]
    ```
@@ -109,7 +108,7 @@ The following inline policy grants the minimum set of permissions required to pu
 ------
 #### [ Amazon EMR on EKS ]
 
-   ```
+   ```bash
    aws emr-containers start-job-run \
    --virtual-cluster-id {{<virtual-cluster-id>}} \
    --name dq-example \
@@ -125,7 +124,7 @@ The following inline policy grants the minimum set of permissions required to pu
 ------
 #### [ Amazon EMR Serverless ]
 
-   ```
+   ```bash
    aws emr-serverless start-job-run \
    --application-id {{<application-id>}} \
    --execution-role-arn {{<execution-role-arn>}} \
@@ -141,7 +140,7 @@ The following inline policy grants the minimum set of permissions required to pu
 
 1. **Retrieve the result.** After the application finishes, list the run and fetch its detail with the AWS Glue Data Quality APIs or the AWS CLI. If your application also sets `publishToDataCatalogTarget` with a `DatabaseName` and `TableName`, the run appears on the *Data quality* tab of that catalog table in the AWS Glue console (see [Viewing results in the AWS Glue console](emr-dq-monitoring.md#emr-dq-studio-view)). Otherwise, use the API or AWS CLI to retrieve the run.
 
-   ```
+   ```bash
    aws glue list-data-quality-results-v2 --max-results 5
    
    aws glue get-data-quality-result-v2 --result-id {{<result-id>}}
@@ -162,7 +161,7 @@ Instead of defining your ruleset inline in each Spark script, you can author a r
 
 1. **Fetch the ruleset in your Spark script.** Call `GetDataQualityRuleset` with boto3, extract the `Ruleset` field, and pass the DQDL string to `EvaluateDataQuality.apply`.
 
-   ```
+   ```python
    import boto3
    from awsdataquality.transforms import EvaluateDataQuality
    

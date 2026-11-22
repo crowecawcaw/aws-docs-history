@@ -1,7 +1,6 @@
 
 
 # Configure provisioning timeouts for cluster launch in Amazon EMR
-<a name="emr-provisioning-timeout-launch"></a>
 
 You can define a timeout period to provision Spot Instances for each fleet in your cluster. If Amazon EMR can't provision Spot capacity, you can choose either to terminate the cluster or to provision On-Demand capacity instead. If the timeout period ends during the cluster resizing process, Amazon EMR cancels unprovisioned Spot requests. Unprovisioned Spot instances aren't transferred to On-Demand capacity.
 
@@ -33,7 +32,7 @@ Perform the following steps to customize a provisioning timeout period for clust
 
 ```
 aws emr create-cluster \
---release-label emr-5.35.0 \
+--release-label emr-7.14.0 \
 --service-role EMR_DefaultRole \
 --ec2-attributes '{"InstanceProfile":"EMR_EC2_DefaultRole","SubnetIds":["subnet-XXXXX"]}' \
 --instance-fleets '[{"InstanceFleetType":"MASTER","TargetOnDemandCapacity":1,"TargetSpotCapacity":0,"LaunchSpecifications":{"OnDemandSpecification":{"AllocationStrategy":"lowest-price"}},"InstanceTypeConfigs":[{"WeightedCapacity":1,"EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"SizeInGB":32,"VolumeType":"gp2"},"VolumesPerInstance":2}]},"BidPriceAsPercentageOfOnDemandPrice":100,"InstanceType":"m5.xlarge"}],"Name":"Master - 1"},{"InstanceFleetType":"CORE","TargetOnDemandCapacity":1,"TargetSpotCapacity":1,"LaunchSpecifications":{"SpotSpecification":{"TimeoutDurationMinutes":120,"TimeoutAction":"SWITCH_TO_ON_DEMAND"},"OnDemandSpecification":{"AllocationStrategy":"lowest-price"}},"InstanceTypeConfigs":[{"WeightedCapacity":1,"EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"SizeInGB":32,"VolumeType":"gp2"},"VolumesPerInstance":2}]},"BidPriceAsPercentageOfOnDemandPrice":1,"InstanceType":"m5.xlarge"}],"Name":"Core - 2"}]'

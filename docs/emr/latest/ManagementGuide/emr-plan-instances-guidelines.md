@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon EMR cluster instance types and best practices for Spot instances
-<a name="emr-plan-instances-guidelines"></a>
 
 Use the guidance in this section to help you determine the instance types, purchasing options, and amount of storage to provision for each node type in an EMR cluster.
 

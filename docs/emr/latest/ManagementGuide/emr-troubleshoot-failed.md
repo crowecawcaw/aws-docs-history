@@ -1,7 +1,6 @@
 
 
 # Troubleshoot an Amazon EMR cluster that has failed with an error code
-<a name="emr-troubleshoot-failed"></a>
 
  This section walks you through the process of troubleshooting a cluster that has failed. This means that the cluster terminated with an error code.
 

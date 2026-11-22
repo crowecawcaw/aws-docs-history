@@ -1,7 +1,6 @@
 
 
 # Resource errors during Amazon EMR cluster operations
-<a name="emr-troubleshoot-error-resource"></a>
 
 The following errors are commonly caused by constrained resources on the cluster. The guidance describes each error and provides troubleshooting help.
 

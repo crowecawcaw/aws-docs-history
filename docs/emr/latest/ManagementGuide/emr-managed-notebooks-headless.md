@@ -1,7 +1,6 @@
 
 
 # Sample programmatic commands for EMR Notebooks
-<a name="emr-managed-notebooks-headless"></a>
 
 ## Overview
 <a name="emr-managed-notebooks-headless-overview"></a>
@@ -23,7 +22,7 @@ To use programmatic execution with EMR Notebooks, you must configure user permis
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -62,7 +61,7 @@ When you programmatically execute EMR Notebooks on an EMR Notebooks cluster, you
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

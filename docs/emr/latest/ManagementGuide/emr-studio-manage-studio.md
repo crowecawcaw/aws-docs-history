@@ -1,7 +1,6 @@
 
 
 # Monitor, update and delete Amazon EMR Studio resources
-<a name="emr-studio-manage-studio"></a>
 
 This section includes instructions to help you monitor, update, or delete an EMR Studio resource. For information about assigning users or updating user permissions, see [Assign and manage EMR Studio users](emr-studio-manage-users.md).
 
@@ -26,7 +25,7 @@ This section includes instructions to help you monitor, update, or delete an EMR
 
 Use the following `describe-studio` AWS CLI command to fetch detailed information about a particular EMR Studio. For more information, see the [*AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/emr/describe-studio.html).
 
-```
+```bash,sh,zsh
 aws emr describe-studio \
  --studio-id {{<id-of-studio-to-describe>}} \
 ```
@@ -35,7 +34,7 @@ aws emr describe-studio \
 
 Use the following `list-studios` AWS CLI command. For more information, see the [*AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/emr/list-studios.html).
 
-```
+```bash,sh,zsh
 aws emr list-studios
 ```
 
@@ -81,7 +80,7 @@ The following is an example AWS CloudTrail event that is created when a user, `a
 **Note**  
 To protect Studio details, the EMR Studio API event for DescribeStudio excludes a value for `responseElements`.
 
-```
+```json
 {
    "eventVersion":"1.08",
    "userIdentity":{
@@ -123,7 +122,7 @@ To set up Spark user impersonation, set the following properties in the followin
 + `core-site`
 + `livy-conf`
 
-```
+```json
 [
     {
         "Classification": "core-site",
@@ -159,7 +158,7 @@ Use the `update-studio` AWS CLI command to update an EMR Studio. For more inform
 **Note**  
 You can associated a Studio with a maximum of 5 subnets. These subnets must belong to the same VPC as the Studio. The list of subnet IDs that you submit to the `update-studio` command can include new subnet IDs, but must also include all of the subnet IDs that you already associated with the Studio. You can't remove subnets from a Studio.
 
-```
+```bash,sh,zsh
 aws emr update-studio \
  --studio-id {{<example-studio-id-to-update>}} \
  --name {{<example-new-studio-name>}} \
@@ -168,7 +167,7 @@ aws emr update-studio \
 
 To verify the changes, use the `describe-studio` AWS CLI command and specify your Studio ID. For more information, see the [*AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/emr/describe-studio.html).
 
-```
+```bash,sh,zsh
 aws emr describe-studio \
  --studio-id {{<id-of-updated-studio>}} \
 ```
@@ -264,7 +263,7 @@ Since each EMR Studio Workspace is an EMR notebook instance, you can use the Ama
 
 Use the `delete-studio` AWS CLI command to delete an EMR Studio. For more information, see the [*AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/emr/delete-studio.html).
 
-```
+```bash,sh,zsh
 aws emr delete-studio --studio-id {{<id-of-studio-to-delete>}}
 ```
 

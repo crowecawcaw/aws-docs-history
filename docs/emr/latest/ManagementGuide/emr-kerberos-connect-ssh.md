@@ -1,7 +1,6 @@
 
 
 # Using SSH to connect to Kerberized clusters with Amazon EMR
-<a name="emr-kerberos-connect-ssh"></a>
 
 This section demonstrates the steps for a Kerberos-authenticated user to connect to the primary node of an EMR cluster.
 

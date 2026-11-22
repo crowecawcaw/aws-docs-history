@@ -1,7 +1,6 @@
 
 
 # Control network traffic with security groups for your Amazon EMR cluster
-<a name="emr-security-groups"></a>
 
 Security groups act as virtual firewalls for EC2 instances in your cluster to control inbound and outbound traffic. Each security group has a set of rules that control inbound traffic, and a separate set of rules to control outbound traffic. For more information, see [Amazon EC2 security groups for Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) in the *Amazon EC2 User Guide*.
 

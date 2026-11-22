@@ -1,7 +1,6 @@
 
 
 # Apache Ranger with Amazon EMR
-<a name="emr-ranger-overview"></a>
 
 Apache Ranger is a framework to enable, monitor, and manage comprehensive data security across the Hadoop platform.
 

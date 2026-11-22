@@ -1,7 +1,6 @@
 
 
 # Troubleshoot a slow Amazon EMR cluster
-<a name="emr-troubleshoot-slow"></a>
 
  This section walks you through the process of troubleshooting a cluster that is still running, but is taking a long time to return results. For more information about what to do if the cluster has terminated with an error code, see [Troubleshoot an Amazon EMR cluster that has failed with an error code](emr-troubleshoot-failed.md) 
 

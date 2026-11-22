@@ -1,7 +1,6 @@
 
 
 # Customizing the Amazon EBS root device volume
-<a name="emr-custom-ami-root-volume-size"></a>
 
 You can set your volume type and other attributes, depending on your use case and cost requirements. You can accept default values or make customizations.
 
@@ -92,7 +91,7 @@ The root volume size and IOPS can’t have a ratio higher than 1 volume to 500�
 **Note**  
 Linux line continuation characters (\\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
-  ```
+  ```bash,sh,zsh
   aws emr create-cluster --release-label emr-6.15.0\
   --ebs-root-volume-size 20 \
   --ebs-root-volume-iops 3000\

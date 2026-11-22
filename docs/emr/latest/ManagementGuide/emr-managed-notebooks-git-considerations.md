@@ -1,7 +1,6 @@
 
 
 # Prerequisites and considerations when integrating an EMR notebook with a repository
-<a name="emr-managed-notebooks-git-considerations"></a>
 
 Consider the following best practices regarding commits, permissions, and hosting when planning to integrate a Git-based repository with EMR Notebooks.
 
@@ -43,7 +42,7 @@ To use privately-hosted Git repositories, your DNS server must allow inbound acc
    + **`GitServerDnsName`** - The DNS name of your Git server. For example `"git.example.com"`.
    + **`GitServerIpV4List`** - A list of IPv4 addresses that belong to your Git server(s).
 
-   ```
+   ```json
    [
        {
            "Type": "PrivatelyHostedGitConfig",

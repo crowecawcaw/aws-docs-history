@@ -1,7 +1,6 @@
 
 
 # Amazon EMR components for use with Apache Ranger
-<a name="emr-ranger-components"></a>
 
 Amazon EMR enables fine-grained access control with Apache Ranger through the following components. See the [architecture diagram](emr-ranger-architecture.md) for a visual representation of these Amazon EMR components with the Apache Ranger plugins.
 

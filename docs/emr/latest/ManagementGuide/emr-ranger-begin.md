@@ -1,7 +1,6 @@
 
 
 # Set up Amazon EMR for Apache Ranger
-<a name="emr-ranger-begin"></a>
 
 Before you install Apache Ranger, review the information in this section to make sure that Amazon EMR is properly configured.
 

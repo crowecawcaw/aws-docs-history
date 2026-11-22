@@ -1,7 +1,6 @@
 
 
 # Configure Amazon EMR cluster hardware and networking
-<a name="emr-plan-instances"></a>
 
 An important consideration when you create an Amazon EMR cluster is how you configure Amazon EC2 instances and network options. This chapter covers the following options, and then ties them all together with [best practices and guidelines](emr-plan-instances-guidelines.md).
 + **Node types** – Amazon EC2 instances in an EMR cluster are organized into *node types*. There are three: *primary nodes*, *core nodes*, and *task nodes*. Each node type performs a set of roles defined by the distributed applications that you install on the cluster. During a Hadoop MapReduce or Spark job, for example, components on core and task nodes process data, transfer output to Amazon S3 or HDFS, and provide status metadata back to the primary node. With a single-node cluster, all components run on the primary node. For more information, see [Understand node types in Amazon EMR: primary, core, and task nodes](emr-master-core-task-nodes.md).

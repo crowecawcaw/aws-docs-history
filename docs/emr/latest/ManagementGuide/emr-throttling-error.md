@@ -1,7 +1,6 @@
 
 
 # Throttling errors with an Amazon EMR cluster
-<a name="emr-throttling-error"></a>
 
 The errors "Throttled from {{Amazon EC2}} while launching cluster" and "Failed to provision instances due to throttling from {{Amazon EC2}}" occur when Amazon EMR cannot complete a request because another service has throttled the activity. Amazon EC2 is the most common source of throttling errors, but other services may be the cause of throttling errors. [AWS service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) apply on a per-Region basis to improve performance, and a throttling error indicates that you have exceeded the service limit for your account in that Region.
 

@@ -1,7 +1,6 @@
 
 
 # Using Identity based federation with Parquet tables
-<a name="emr-trusted-identity-auth-parquet"></a>
 
 ## Overview
 <a name="identity-federation-parquet-tables"></a>
@@ -54,6 +53,8 @@ In your EMR console, you should be able to see the below screenshots after the c
 
 ![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-cluster-info-summary.png)
 
+New cluster summary.
+
 
 #### Option B: Create EMR on EC2 Cluster Using Console
 <a name="create-cluster-console"></a>
@@ -61,7 +62,8 @@ In your EMR console, you should be able to see the below screenshots after the c
 1. Open the EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr).
 
 1. Select **Clusters** from the left navigation panel under EMR on EC2 and choose **Create cluster**.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-create-cluster.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-create-cluster.png)  
+   Creating a cluster.
 
 1. Configure the following settings:
 
@@ -72,7 +74,8 @@ In your EMR console, you should be able to see the below screenshots after the c
    1. Select **Custom** for Application bundle.
 
    1. For AWS Glue Data Catalog settings, choose **Use for Spark table metadata**.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-new-cluster.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-new-cluster.png)  
+      Cluster configuration.
 
    1. Keep the defaults for cluster configuration cluster scaling sections.
 
@@ -83,7 +86,8 @@ In your EMR console, you should be able to see the below screenshots after the c
    1. Under **Security configuration and key pair** When configuring security settings, select the EMR security configuration you created earlier. To enable SSH access to the cluster, you'll need to set up a key pair. Click on **Create key pair**, which will open the EC2 key pair page. Provide a name for your new key pair and create it. After creating the key pair, return to the **Create cluster** page and select your newly created key pair from the dropdown menu.
 
    1. For IAM roles, you can either use existing EMR service roles and EC2 instance profiles, or create new ones if none are configured for your account.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-securtiy-config.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-securtiy-config.png)  
+      Security configuration.
 
    1. Finally, review the set up and choose **Create cluster**.
 
@@ -123,7 +127,8 @@ This step is needed only if you haven't deployed the CloudFormation stack under 
    This query is kept simple purposely. You might have to add the database name or make small adjustments for it to parse correctly in your environment.
 
 1. Query the sample data using Athena:  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-query.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-parquet-query.png)  
+   Prepare data.
 
 #### AWS Lake Formation permission set up
 <a name="emr-trusted-lf-permissions"></a>
@@ -142,7 +147,8 @@ Follow the AWS Lake Formation setup in the prerequisite section to set up AWS La
 1. On the Grant data lake permissions page, choose, **IAM Identity Center users and groups**.
 
 1. Select **Add** to choose the users and groups to grant permissions. Choose users and groups and click on **Assign**.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-assign-users-groups.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-assign-users-groups.png)  
+   Assign users.
 
 1. Next, choose **Named Data Catalog resources** to grant permissions to desired Catalog, Database and Table. For this tutorial choose:
    + Your account default catalog under **Catalogs**
@@ -151,7 +157,8 @@ Follow the AWS Lake Formation setup in the prerequisite section to set up AWS La
 1. For Database permissions, select **Create table** and **Describe**.
 
 1. Select **Grant**.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-assign-grant.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-assign-grant.png)  
+   Assign grant.
 
 ##### B. Provide table level permission to users and groups
 <a name="emr-trusted-table-permissions"></a>
@@ -175,11 +182,17 @@ Follow the AWS Lake Formation setup in the prerequisite section to set up AWS La
 
 ![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-lf-tables.png)
 
+Lake Formation tables.
+
 
 ![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-lf-principals.png)
 
+Lake Formation principals.
+
 
 ![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-lf-table-perms.png)
+
+Table permissions.
 
 
 ##### Grant LakeFormation permission to IDC user (using LF-Tags)
@@ -188,10 +201,12 @@ Follow the AWS Lake Formation setup in the prerequisite section to set up AWS La
 Before we do this, lets add tags to our table created above. We are doing this step manually from the console for demonstration purpose and you can also use automations or the CLI to do this.
 
 1. Create a LF-Tag names confidentiality with values as private, sensitive & public.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-add-lf.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-add-lf.png)  
+   Adding an LF tag.
 
 1. Assign the tag for the customer table created earlier.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-edit-lf-tags.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-edit-lf-tags.png)  
+   Edit an LF tag.
 
 1. In LakeFormation **Data permissions** tab, click **Grant** and proceed to grant permissions on the LF-Tag to aws-datanalyst IDC user. We grant the tag value as public to this user. As the table is tagged "sensitive" as shown in previous step, this table should not be accessible to the user.
 
@@ -211,3 +226,5 @@ Before we do this, lets add tags to our table created above. We are doing this s
    ```
 
 ![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/enr-tut-spark-job-progress.png)
+
+Job progress.

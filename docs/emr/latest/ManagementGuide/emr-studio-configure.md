@@ -1,7 +1,6 @@
 
 
 # Configure Amazon EMR Studio
-<a name="emr-studio-configure"></a>
 
 This section is for EMR Studio administrators. It covers how to set up an EMR Studio for your team and provides instructions for tasks such as assigning users and groups, setting up cluster templates, and optimizing Apache Spark for EMR Studio.
 

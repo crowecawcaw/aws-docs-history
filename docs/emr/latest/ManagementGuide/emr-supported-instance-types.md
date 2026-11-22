@@ -1,7 +1,6 @@
 
 
 # Supported instance types with Amazon EMR
-<a name="emr-supported-instance-types"></a>
 
 This section describes the instance types that Amazon EMR supports, organized by AWS Region. To learn more about instance types, see [Amazon EC2 instances](https://aws.amazon.com/ec2/instance-types/) and [Amazon Linux AMI instance type matrix](https://aws.amazon.com/amazon-linux-ami/instance-type-matrix/).
 

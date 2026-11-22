@@ -1,7 +1,6 @@
 
 
 # Enhanced step debugging with Amazon EMR
-<a name="emr-enhanced-step-debugging"></a>
 
 If an Amazon EMR step fails and you submitted your work using the Step API operation with an AMI of version 5.x or later, Amazon EMR can identify and return the root cause of the step failure in some cases, along with the name of the relevant log file and a portion of the application stack trace via API. For example, the following failures can be identified: 
 + A common Hadoop error such as the output directory already exists, the input directory does not exist, or an application runs out of memory.

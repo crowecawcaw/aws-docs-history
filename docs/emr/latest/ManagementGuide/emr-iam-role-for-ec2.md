@@ -1,7 +1,6 @@
 
 
 # Service role for cluster EC2 instances (EC2 instance profile)
-<a name="emr-iam-role-for-ec2"></a>
 
 The service role for cluster EC2 instances (also called the EC2 instance profile for Amazon EMR) is a special type of service role that is assigned to every EC2 instance in an Amazon EMR cluster when the instance launches. Application processes that run on top of the Hadoop ecosystem assume this role for permissions to interact with other AWS services.
 
@@ -22,7 +21,7 @@ The following shows the contents of version 3 of `AmazonElasticMapReduceforEC2Ro
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -94,7 +93,7 @@ Your service role should use the following trust policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -142,7 +141,7 @@ The sample statement below demonstrates the permissions that EMRFS requires to m
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -233,7 +232,7 @@ The following policy statement allows the Amazon EMR cluster to archive log file
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -263,7 +262,7 @@ The following policy statement allows actions that are required if you use the A
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

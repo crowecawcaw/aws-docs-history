@@ -1,7 +1,6 @@
 
 
 # Option 2, part 1: Set up an SSH tunnel to the primary node using dynamic port forwarding
-<a name="emr-ssh-tunnel"></a>
 
 To connect to the local web server on the primary node, you create an SSH tunnel between your computer and the primary node. This is also known as *port forwarding*. If you create your SSH tunnel using dynamic port forwarding, all traffic routed to a specified unused local port is forwarded to the local web server on the primary node. This creates a SOCKS proxy. You can then configure your Internet browser to use an add-on such as FoxyProxy or SwitchyOmega to manage your SOCKS proxy settings. 
 
@@ -35,7 +34,7 @@ Before you begin, you need the public DNS name of the primary node and your key 
 ## Set up an SSH tunnel using dynamic port forwarding with the AWS CLI
 <a name="emr-ssh-tunnel-cli"></a>
 
-You can create an SSH connection with the primary node using the AWS CLI on Windows and on Linux, Unix, and Mac OS X. If you are using the AWS CLI on Linux, Unix, or Mac OS X, you must set permissions on the `.pem` file as shown in [To configure the key pair private key file permissions](emr-connect-master-node-ssh.md#emr-keypair-file-permission-config). If you are using the AWS CLI on Windows, PuTTY must appear in the path environment variable or you may receive an error such as OpenSSH or PuTTY not available.<a name="ssh-tunnel-cli"></a>
+You can create an SSH connection with the primary node using the AWS CLI on Windows and on Linux, Unix, and Mac OS X. If you are using the AWS CLI on Linux, Unix, or Mac OS X, you must set permissions on the `.pem` file as shown in [To configure the key pair private key file permissions](emr-connect-master-node-ssh.md#emr-keypair-file-permission-config). If you are using the AWS CLI on Windows, PuTTY must appear in the path environment variable or you may receive an error such as `OpenSSH or PuTTY not available`.<a name="ssh-tunnel-cli"></a>
 
 **To set up an SSH tunnel using dynamic port forwarding with the AWS CLI**
 

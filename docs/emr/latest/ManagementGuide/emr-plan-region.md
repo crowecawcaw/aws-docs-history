@@ -1,7 +1,6 @@
 
 
 # Choose an AWS Region for your Amazon EMR cluster
-<a name="emr-plan-region"></a>
 
 Amazon Web Services run on servers in data centers around the world. Data centers are organized by geographical Region. When you launch an Amazon EMR cluster, you must specify a Region. You might choose a Region to reduce latency, minimize costs, or address regulatory requirements. For the list of Regions and endpoints supported by Amazon EMR, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/#emr_region) in the *Amazon Web Services General Reference*. 
 

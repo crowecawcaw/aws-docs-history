@@ -1,7 +1,6 @@
 
 
 # View persistent application user interfaces in Amazon EMR
-<a name="app-history-spark-UI"></a>
 
 Starting with Amazon EMR version 5.25.0, you can connect to the persistent Spark History Server application details hosted off-cluster using the cluster **Summary** page or the **Application user interfaces** tab in the console. Tez UI and YARN timeline server persistent application interfaces are available starting with Amazon EMR version 5.30.1. One-click link access to persistent application history provides the following benefits: 
 + You can quickly analyze and troubleshoot active jobs and job history without setting up a web proxy through an SSH connection.
@@ -84,7 +83,7 @@ The following sample shows the role permissions required for access to persisten
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -130,7 +129,7 @@ The following sample shows the role permissions required for removing the restri
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

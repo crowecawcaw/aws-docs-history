@@ -1,7 +1,6 @@
 
 
 # Amazon EMR architecture and service layers
-<a name="emr-overview-arch"></a>
 
 Amazon EMR service architecture consists of several layers, each of which provides certain capabilities and functionality to the cluster. This section provides an overview of the layers and the components of each.
 

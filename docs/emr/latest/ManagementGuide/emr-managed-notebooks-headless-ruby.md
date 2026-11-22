@@ -1,7 +1,6 @@
 
 
 # Ruby samples for an EMR notebook
-<a name="emr-managed-notebooks-headless-ruby"></a>
 
 This topic contains a Ruby sample that demonstrate notebook functionality.
 

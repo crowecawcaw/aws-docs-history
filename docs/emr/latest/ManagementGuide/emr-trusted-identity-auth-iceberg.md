@@ -1,7 +1,6 @@
 
 
 # Using Identity based federation with Iceberg tables
-<a name="emr-trusted-identity-auth-iceberg"></a>
 
 ## Overview
 <a name="identity-federation-iceberg-tables"></a>
@@ -93,24 +92,30 @@ Follow the prerequisites section to create and integrated trusted identity enabl
    ```
 
    Sample data in the table:  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-query-iceberg.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-query-iceberg.png)  
+   SELECT query
 
 1. **Grant LakeFormation permission to IDC user (Named Data Catalog Resource)** – Current permissions: No access to IDC user *aws-dataengineer*.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-lf-perms-idc.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-lf-perms-idc.png)  
+   LF permissions
 
    Grant permissions: Follow below steps to grant the permissions.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-lf-assign-anim.gif)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-lf-assign-anim.gif)  
+   LF tags and permissions
 
 1. **Grant LakeFormation permission to IDC user (using LF-Tags)** – Before doing this, add tags to the table created above. We do this step manually from the console for demo purposes and you can also use automations/CLI to do this.
 
    Create a LF-Tag names table-class with values as **confidential**, **public**.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-add-lf-idc-iceberg.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-add-lf-idc-iceberg.png)  
+   Add LF.
 
    In the table **sample\_iceberg** created earlier, assign the tag.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-edit-lf-tags-iceberg.gif)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-edit-lf-tags-iceberg.gif)  
+   Adding a table
 
    In LakeFormation **Data permissions** tab, click **Grant** and proceed to grant permissions on the LF-Tag to *aws-datanalyst* IDC user. We grant the tag value as Public to this user. As the table is tagged **“confidential”** as shown in the previous step, this table should not be accessible to the user.  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-grant-data-perms-iceberg.gif)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-grant-data-perms-iceberg.gif)  
+   Data permissions for LF
 
 ### Query Iceberg tables from EMR cluster with trusted-identity propagation and Delta Lake enabled
 <a name="identity-federation-iceberg-query-tables"></a>

@@ -1,7 +1,6 @@
 
 
 # Using Identity based federation with Delta Lake tables
-<a name="emr-trusted-identity-auth-delta-lake"></a>
 
 ## Overview
 <a name="identity-federation-delta-tables"></a>
@@ -54,16 +53,20 @@ Follow the prerequisites section to create and integrated trusted identity enabl
    ```
 
    Sample data in the table:  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-query.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-query.png)  
+   SELECT query
 
 1. Grant LakeFormation permission to IDC user **aws-dataengineer**:  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-named-resource.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-named-resource.png)  
+   Tables named resource
 
    Grant permissions:  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-named-resource-perms.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-named-resource-perms.png)  
+   LF tags and permissions
 
    Table permissions:  
-![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-resource-table-perms.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-delta-resource-table-perms.png)  
+   Table query permissions
 
 ### Query Delta Lake from an EMR cluster with trusted-identity propagation and Delta Lake enabled
 <a name="identity-federation-delta-query-tables"></a>

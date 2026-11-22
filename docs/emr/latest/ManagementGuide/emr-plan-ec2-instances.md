@@ -1,7 +1,6 @@
 
 
 # Configure Amazon EC2 instance types for use with Amazon EMR
-<a name="emr-plan-ec2-instances"></a>
 
 EC2 instances come in different configurations known as *instance types*. Instance types have different CPU, input/output, and storage capacities. In addition to the instance type, you can choose different purchasing options for Amazon EC2 instances. You can specify different instance types and purchasing options within uniform instance groups or instance fleets. For more information, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md). For guidance about choosing instance types and purchasing options for your application, see [Configuring Amazon EMR cluster instance types and best practices for Spot instances](emr-plan-instances-guidelines.md).
 

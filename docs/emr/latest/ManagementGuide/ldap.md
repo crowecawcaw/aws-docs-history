@@ -1,7 +1,6 @@
 
 
 # Use Active Directory or LDAP servers for authentication with Amazon EMR
-<a name="ldap"></a>
 
 With Amazon EMR releases 6.12.0 and higher, you can use the LDAP over SSL (LDAPS) protocol to launch a cluster that natively integrates with your corporate identity server. LDAP (Lightweight Directory Access Protocol) is an open, vendor-neutral application protocol that accesses and maintains data. LDAP is commonly used for user authentication against corporate identity servers that are hosted on applications such as Active Directory (AD) and OpenLDAP. With this native integration, you can use your LDAP server to authenticate users on Amazon EMR.
 

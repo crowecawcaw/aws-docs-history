@@ -1,7 +1,6 @@
 
 
 # Trino plugin for Ranger integration with Amazon EMR
-<a name="emr-ranger-trino"></a>
 
 Trino (previously PrestoSQL) is a SQL query engine that you can use to run queries on data sources such as HDFS, object storage, relational databases, and NoSQL databases. It eliminates the need to migrate data into a central location and allows you to query the data from wherever it sits. Amazon EMR provides an Apache Ranger plugin to provide fine-grained access controls for Trino. The plugin is compatible with open source Apache Ranger Admin server version 2.0 and later.
 
@@ -26,7 +25,7 @@ Follow these steps to install the Trino service definition.
 
 1. SSH into the Apache Ranger Admin server.
 
-   ```
+   ```bash
    ssh ec2-user@ip-xxx-xxx-xxx-xxx.ec2.internal
    ```
 
@@ -34,19 +33,19 @@ Follow these steps to install the Trino service definition.
 
 1. Uninstall the Presto server plugin, if it exists. Run the following command. If this errors out with a “Service not found” error, this means the Presto server plugin wasn't installed on your server. Proceed to the next step.
 
-   ```
+   ```bash
    curl -f -u *<admin users login>*:*_<_**_password_ **_for_** _ranger admin user_**_>_* -X DELETE -k 'https://*<RANGER SERVER ADDRESS>*:6182/service/public/v2/api/servicedef/name/presto'
    ```
 
 1. Download the service definition and Apache Ranger Admin server plugin. In a temporary directory, download the service definition. This service definition is supported by Ranger 2.x versions.
 
-   ```
+   ```bash
    wget https://s3.amazonaws.com/elasticmapreduce/ranger/service-definitions/version-2.0/ranger-servicedef-amazon-emr-trino.json
    ```
 
 1. Register the Apache Trino service definition for Amazon EMR.
 
-   ```
+   ```bash
    curl -u *<admin users login>*:*_<_**_password_ **_for_** _ranger admin user_**_>_* -X POST -d @ranger-servicedef-amazon-emr-trino.json \
    -H "Accept: application/json" \
    -H "Content-Type: application/json" \

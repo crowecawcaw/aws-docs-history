@@ -1,7 +1,6 @@
 
 
 # Benefits of using Amazon EMR
-<a name="emr-overview-benefits"></a>
 
 There are many benefits to using Amazon EMR. These include the flexibility offered through AWS and the cost savings available versus building your own on-premises resources. This section provides an overview of these benefits and links to additional information to help you explore further.
 

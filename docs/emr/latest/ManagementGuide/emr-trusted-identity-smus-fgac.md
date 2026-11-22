@@ -1,7 +1,6 @@
 
 
 # Fine-Grained Access Control with Amazon SageMaker Unified Studio and TIP on Amazon EMR on EC2
-<a name="emr-trusted-identity-smus-fgac"></a>
 
 In Fine-Grained Access Control (FGAC) mode, Lake Formation enforces row-level, column-level, and cell-level permissions on AWS Glue Data Catalog tables based on the propagated IAM Identity Center user identity. For more information about the FGAC access model, see [Enable Lake Formation with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-lf-enable.html).
 
@@ -88,7 +87,7 @@ The key difference from FTA is the inclusion of `AuthorizationConfiguration.Lake
 
 1. In the notebook cell, query your table:
 
-   ```
+   ```python
    spark.sql("select * from {{database_name}}.{{table_name}}").show()
    ```
 

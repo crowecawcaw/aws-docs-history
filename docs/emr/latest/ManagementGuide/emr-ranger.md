@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon EMR with Apache Ranger
-<a name="emr-ranger"></a>
 
 Beginning with Amazon EMR 5.32.0, you can launch a cluster that natively integrates with Apache Ranger. Apache Ranger is an open-source framework to enable, monitor, and manage comprehensive data security across the Hadoop platform. For more information, see [Apache Ranger](https://ranger.apache.org/). With native integration, you can bring your own Apache Ranger to enforce fine-grained data access control on Amazon EMR.
 

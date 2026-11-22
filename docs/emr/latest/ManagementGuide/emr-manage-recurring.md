@@ -1,7 +1,6 @@
 
 
 # Automate recurring Amazon EMR clusters with AWS Data Pipeline
-<a name="emr-manage-recurring"></a>
 
 **Note**  
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal.

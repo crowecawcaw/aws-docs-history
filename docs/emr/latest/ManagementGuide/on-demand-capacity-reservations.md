@@ -1,7 +1,6 @@
 
 
 # Use capacity reservations with instance fleets in Amazon EMR
-<a name="on-demand-capacity-reservations"></a>
 
 To launch On-Demand Instance fleets with capacity reservations options, attach additional service role permissions which are required to use capacity reservation options. Since capacity reservation options must be used together with On-Demand allocation strategy, you also have to include the permissions required for allocation strategy in your service role and managed policy. For more information, see [Allocation strategy permissions](emr-instance-fleet.md#create-cluster-allocation-policy).
 
@@ -74,10 +73,10 @@ When you use the `RunJobFlow` action to create an instance fleet-based cluster, 
 
 You can also use the Amazon EMR CLI to create an instance fleet-based cluster using open capacity reservations.
 
-```
+```bash
 aws emr create-cluster \
 	--name 'open-ODCR-cluster' \
-	--release-label emr-5.30.0 \
+	--release-label emr-7.14.0 \
 	--service-role EMR_DefaultRole \
 	--ec2-attributes SubnetId=subnet-22XXXX01,InstanceProfile=EMR_EC2_DefaultRole \
 	--instance-fleets InstanceFleetType=MASTER,TargetOnDemandCapacity=1,InstanceTypeConfigs=['{InstanceType=c4.xlarge}'] \
@@ -158,10 +157,10 @@ When you use the `RunJobFlow` action to create an instance fleet-based cluster, 
 
 You can also use the Amazon EMR CLI to create an instance-fleet based cluster using capacity reservations first.
 
-```
+```bash
 aws emr create-cluster \
   --name 'use-CR-first-cluster' \
-  --release-label emr-5.30.0 \
+  --release-label emr-7.14.0 \
   --service-role EMR_DefaultRole \
   --ec2-attributes SubnetId=subnet-22XXXX01,InstanceProfile=EMR_EC2_DefaultRole \
   --instance-fleets \
@@ -244,10 +243,10 @@ Where `arn:aws:resource-groups:sa-east-1:123456789012:group/MyCRGroup` is replac
 
 You can also use the Amazon EMR CLI to create an instance fleet-based cluster using targeted capacity reservations.
 
-```
+```bash
 aws emr create-cluster \
   --name 'targeted-CR-cluster' \
-  --release-label emr-5.30.0 \
+  --release-label emr-7.14.0 \
   --service-role EMR_DefaultRole \
   --ec2-attributes SubnetId=subnet-22XXXX01,InstanceProfile=EMR_EC2_DefaultRole \
   --instance-fleets InstanceFleetType=MASTER,TargetOnDemandCapacity=1,InstanceTypeConfigs=['{InstanceType=c4.xlarge}'] \
@@ -280,10 +279,10 @@ If you want to avoid unexpectedly using any of your open capacity reservations w
 ```
 You can also use the Amazon EMR CLI to create an instance fleet-based cluster without using any open capacity reservations.  
 
-```
+```bash
 aws emr create-cluster \
   --name 'none-CR-cluster' \
-  --release-label emr-5.30.0 \
+  --release-label emr-7.14.0 \
   --service-role EMR_DefaultRole \
   --ec2-attributes SubnetId=subnet-22XXXX01,InstanceProfile=EMR_EC2_DefaultRole \
   --instance-fleets \

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure an cluster-dedicated KDC with Amazon EMR
-<a name="emr-kerberos-cluster-kdc"></a>
 
 This topic guides you through creating a cluster with a cluster-dedicated *key distribution center (KDC)*, manually adding Linux accounts to all cluster nodes, adding Kerberos principals to the KDC on the primary node, and ensuring that client computers have a Kerberos client installed.
 

@@ -1,7 +1,6 @@
 
 
 # Attach a compute to an EMR Studio Workspace
-<a name="emr-studio-create-use-clusters"></a>
 
 Amazon EMR Studio runs notebook commands using a kernel on an EMR cluster. Before you can select a kernel, you should attach the Workspace to a cluster that uses Amazon EC2 instances, to an Amazon EMR on EKS cluster, or to an EMR Serverless application. EMR Studio lets you attach Workspaces to new or existing clusters, and gives you the flexibility to change clusters without closing the Workspace.
 

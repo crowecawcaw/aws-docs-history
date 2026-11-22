@@ -1,7 +1,6 @@
 
 
 # View a high-level application history in Amazon EMR
-<a name="app-history-summary"></a>
 
 **Note**  
 We recommend that you use the persistent application interface for an improved user experience that retains app history for up to 30 days. The high-level application history described on this page isn't available in the new Amazon EMR console ([https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr)). For more information, see [View persistent application user interfaces in Amazon EMR](app-history-spark-UI.md).

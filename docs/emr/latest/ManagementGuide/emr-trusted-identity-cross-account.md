@@ -1,7 +1,6 @@
 
 
 # Cross account setup with trusted identity propagation
-<a name="emr-trusted-identity-cross-account"></a>
 
 This tutorial demonstrates how to configure trusted identity propagation (TIP) with Amazon EMR on EC2 in a cross-account scenario. In this setup, an EMR cluster in one AWS account (the consumer account) accesses data governed by Lake Formation in a different AWS account (the producer account), while preserving the end user's identity throughout the request chain.
 
@@ -399,7 +398,7 @@ Use Amazon EMR release 7.8.0 or later for the best trusted identity propagation 
 
 1. Open a Spark notebook and run the following test query:
 
-   ```
+   ```python
    spark.sql("SHOW DATABASES").show()
    ```
 
@@ -407,7 +406,7 @@ Use Amazon EMR release 7.8.0 or later for the best trusted identity propagation 
 
 1. Query the cross-account table:
 
-   ```
+   ```python
    # Query data in Account A through the resource link
    df = spark.sql("SELECT * FROM cross_account_db_link.my_table LIMIT 10")
    df.show()

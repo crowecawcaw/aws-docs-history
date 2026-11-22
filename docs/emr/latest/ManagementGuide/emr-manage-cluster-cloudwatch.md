@@ -1,7 +1,6 @@
 
 
 # CloudWatch events and metrics from Amazon EMR
-<a name="emr-manage-cluster-cloudwatch"></a>
 
 Use events and metrics to track the activity and health of an Amazon EMR cluster. Events are useful for monitoring a specific occurrence within a cluster - for example, when a cluster changes state from starting to running. Metrics are useful to monitor a specific value - for example, the percentage of available disk space that HDFS is using within a cluster.
 

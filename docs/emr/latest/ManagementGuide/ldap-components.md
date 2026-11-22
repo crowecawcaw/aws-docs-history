@@ -1,7 +1,6 @@
 
 
 # LDAP components for Amazon EMR
-<a name="ldap-components"></a>
 
 You can use your LDAP server to authenticate with Amazon EMR and any applications that the user directly utilizes on the EMR cluster through the following components. 
 
