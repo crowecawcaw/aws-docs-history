@@ -1,7 +1,6 @@
 
 
 # MASUS 1: How can we verify that the acquired company aligns with our sustainability goals?
-<a name="masus-1"></a>
 
  Discuss sustainability vision and priorities with seller's executives, managers and sustainability staff. Important to gauge leadership buy-in and competence on sustainability issues. Consider sustainability terms in the acquisition agreement. If possible, include specific environmental, social or governance targets seller must achieve within a certain time period post acquisition and develop a post-acquisition integration plan. 
 

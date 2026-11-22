@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  IT integration for mergers and acquisitions involves combining information technology (IT) systems and infrastructure of two or more companies to form a single, unified organization. There are several challenges that arise during this process, including handling different architectures, security protocols, governance models, and compliance requirements. Here are some of the common challenges that organizations face during IT integration for mergers and acquisitions: 
 +  **Architecture differences**: The IT systems of the merging companies may have different architectures, technologies, and platforms, which can make it difficult to integrate them seamlessly. This challenge requires careful planning and analysis to identify commonalities and differences between the systems and to develop a unified architecture that meets the needs of the combined organization. 

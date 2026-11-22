@@ -1,7 +1,6 @@
 
 
 # MAOPS 6: How do you plan to use key industry domain knowledge, intellectual property (like patents and algorithms), and open-source tools after an acquisition as a barrier to entry?
-<a name="maops-6"></a>
 
  Determine what significant domain knowledge and intellectual property you have. Patents and key algorithms can create a barrier to existing or upcoming competitors to help protect company growth. 
 

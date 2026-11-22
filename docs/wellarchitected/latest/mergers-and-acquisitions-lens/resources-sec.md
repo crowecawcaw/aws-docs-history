@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-sec"></a>
 +  [SEC02-BP04 Rely on a centralized identity provider](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_identities_identity_provider.html) 
 +  [Identity management](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/identity-management.html) 
 +  [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/) 

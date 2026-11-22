@@ -1,7 +1,6 @@
 
 
 # MAOPS 8: Are product teams from both organizations aligned with the deal rationale and how to organize themselves internally?
-<a name="maops-8"></a>
 
 Synergies in product, technology, and the market are often cited in the deal rationale for mergers and acquisitions. Consider how the different product teams might collaborate, as well as the friction points or the obstacles they might encounter.
 

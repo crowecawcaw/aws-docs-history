@@ -1,7 +1,6 @@
 
 
 # MAOPS 3: What is your combined AWS Organizations strategy, and how do you handle cross-cloud governance?
-<a name="maops-3"></a>
 
  With accounts in AWS Organizations, you can easily allocate resources, group accounts, and apply governance policies to accounts or groups. Buyer organization structure needs to be extendible to accommodate new organization structure. Both involved organizations should come up with the right structure to support operational excellence. 
 

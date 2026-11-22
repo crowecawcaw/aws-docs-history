@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  The AWS Well-Architected Framework is based on six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. Mergers and acquisitions add a new dimension of considerations to each of these pillars.  
 

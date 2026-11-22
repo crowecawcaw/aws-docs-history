@@ -1,7 +1,6 @@
 
 
 # MAREL 2: How are critical external system integrations set up for high availability to maintain your platform capabilities?
-<a name="marel-2"></a>
 
  Core capabilities that come from external service integrations should be reviewed. These are out of your control and could be a concern, especially if they are backing mission-critical capabilities. 
 

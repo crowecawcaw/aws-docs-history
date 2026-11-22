@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this document: 
 +  Bhushan Bhale, Senior Solution Architect, Amazon Web Services 

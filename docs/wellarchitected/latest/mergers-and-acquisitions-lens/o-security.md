@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="o-security"></a>
 
  In mergers and acquisitions, the security pillar focuses on the security capabilities that are required to protect the application, identities, and data as they move between systems during integration. It is important to assess the security posture of the target organization and identify any gaps or vulnerabilities that may exist. This includes a review of the network infrastructure, applications, privileged access, monitoring, protection of data, security policies and procedures. There are several important security considerations during a mergers and acquisitions integration: 
 
@@ -26,12 +25,16 @@
 
 ![Figure 3: Security considerations for an AWS buyer and on-premises seller](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image3.png)
 
+*Figure 3: Security considerations for an AWS buyer and on-premises seller*
+
 
  
 
  Network connectivity is utmost to ensure data security and optimize data transfer cost. Design secure, cost-optimized network architecture using AWS services like AWS Direct Connect, AWS Transit Gateway, or AWS Site-to-Site VPN. We also recommend securing workloads and protecting applications from security attacks like DDoS, malware, and ransomware using AWS services. 
 
 ![Figure 4: Security considerations for AWS to AWS mergers and acquisitions](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image4.png)
+
+*Figure 4: Security considerations for AWS to AWS mergers and acquisitions*
 
 
  

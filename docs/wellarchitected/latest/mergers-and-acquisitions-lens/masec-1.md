@@ -1,7 +1,6 @@
 
 
 # MASEC 1: How do you plan to manage user and application identities across companies?
-<a name="masec-1"></a>
 
  A well-defined plan is important to integrate identities from both companies without any impact to the end users. It is critical to have an integration plan to avoid security and compliance issues after mergers and acquisitions. 
 

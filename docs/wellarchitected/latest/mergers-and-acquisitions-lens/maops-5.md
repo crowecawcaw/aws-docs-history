@@ -1,7 +1,6 @@
 
 
 # MAOPS 5: Do you have a well-defined tagging strategy?
-<a name="maops-5"></a>
 
  Tags are key and value pairs that act as metadata for organizing your AWS resources. With most AWS resources, you have the option of adding tags during creation. Tags can help you manage, identify, organize, search for, and filter resources. You can create tags to categorize resources by purpose, owner, environment, or other criteria. 
 

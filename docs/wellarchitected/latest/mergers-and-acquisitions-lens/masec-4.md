@@ -1,7 +1,6 @@
 
 
 # MASEC 4: How can a company (buyer) gain confidence in compliance and regulatory needs?
-<a name="masec-4"></a>
 
  Data governance establishes the processes and responsibilities that ensure the quality, consistency, and security of the data used across organizations. In case of compliance requirements due to personal identifiable information (PII) data, the buyer needs to verify that the integrated workloads meet these requirements. 
 

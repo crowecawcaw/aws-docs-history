@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-rel"></a>
 +  [Designing highly available distributed systems on AWS](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/designing-highly-available-distributed-systems-on-aws.html) 
 +  [AWS Architecture Center](https://aws.amazon.com/architecture/) 
 +  [Fault tolerance and fault isolation](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/fault-tolerance-and-fault-isolation.html) 

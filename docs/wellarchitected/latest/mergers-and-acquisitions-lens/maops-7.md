@@ -1,7 +1,6 @@
 
 
 # MAOPS 7: How do you plan to prioritize and develop a product innovation roadmap for the combined organization?
-<a name="maops-7"></a>
 
  Technical and market innovation roadmaps are essential to keep from growing stagnant in the market place and to drive growth. Roadmaps help provide product market differentiation. 
 

@@ -1,7 +1,6 @@
 
 
 # MACOST 3: How do you plan for data transfer and storage charges in case of required data integration after mergers and acquisitions activity?
-<a name="macost-3"></a>
 
  Plan and monitor data transfer charges so that you can make architectural decisions to minimize costs. A small yet effective architectural change can drastically reduce your operational costs over time. 
 

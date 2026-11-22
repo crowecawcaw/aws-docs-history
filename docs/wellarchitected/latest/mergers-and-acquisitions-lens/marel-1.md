@@ -1,7 +1,6 @@
 
 
 # MAREL 1: How do you plan to manage application robustness and availability during mergers and acquisitions?
-<a name="marel-1"></a>
 
  Establish service-level agreements (SLAs) and appropriate mechanisms for ensuring high availability. Capture the applicable SLAs and operational-level agreements (OLAs) that are relevant for the scope of the integration. Check for impact or changes required due to mergers and acquisitions. Are the SLAs and OLAs related to any third parties involved, like managed service providers? 
 

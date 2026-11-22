@@ -1,7 +1,6 @@
 
 
 # MAPERF 1: How do you select the best performing architecture between two organizations?
-<a name="maperf-1"></a>
 
  Support increased platform loading, which allows more customer usage and drives company growth. The platform hosting could be statically provisioned and have very predictable loading. Scaling can be accomplished by both vertical and horizontal methods. 
 

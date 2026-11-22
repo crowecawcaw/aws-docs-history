@@ -1,7 +1,6 @@
 
 
 # MAOPS 2: How do you plan to set up and govern a secure, multi-account, or multicloud AWS environment? 
-<a name="maops-2"></a>
 
  Businesses that are expanding their footprint on AWS due to mergers and acquisitions, or are planning to enhance an established AWS environment, need have a foundation on AWS for their cloud environment. Establishing a cloud foundation on AWS requires guidance tailored to your business needs. Using a capability-based approach, you can create an environment to deploy, operate, and govern your workloads. A capability includes a definition, scenarios, opinionated guidance, and supporting automation to establish and operate a specific part of a cloud environment. Capabilities are components that can help you plan, implement, and operate your cloud environment, and include people, process, and technology considerations. Capabilities are designed to integrate into your overall technology environment. 
 

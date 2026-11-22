@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-perf"></a>
 +  [Disaster Recovery (DR) Architecture on AWS, Part I: Strategies for Recovery in the Cloud](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-i-strategies-for-recovery-in-the-cloud/) 
 +  [AWS Multi-Region Fundamentals](https://docs.aws.amazon.com/whitepapers/latest/aws-multi-region-fundamentals/aws-multi-region-fundamentals.html?) 
 +  [AWS Architecture Center](https://aws.amazon.com/architecture/) 

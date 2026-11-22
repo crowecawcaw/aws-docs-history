@@ -1,7 +1,6 @@
 
 
 # MAOPS 1: How do you plan to structure your company and processes to support mergers and acquisitions?
-<a name="maops-1"></a>
 
  Both organizations involved in mergers and acquisitions activity must understand their part in achieving business outcomes. An organizational model that is optimized for cloud adoption should be established for the delivery and operation of cloud-based solutions. Both companies might need to extend or modify their structure in order to adopt the cloud, and the changes must be carefully managed in partnership with combined organization teams. Understanding responsibility, ownership, how decisions are made, and who has authority to make decisions helps focus efforts and maximizes the benefits from your teams. 
 

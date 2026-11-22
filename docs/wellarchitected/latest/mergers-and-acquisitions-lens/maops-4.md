@@ -1,7 +1,6 @@
 
 
 # MAOPS 4: How does technical debt hamper new feature development, hosting efficiencies, or cost reductions?
-<a name="maops-4"></a>
 
  Technical debt of the platform is a distraction and limits the ability to devote time to more significant innovations or feature additions that could otherwise drive company growth. Organizational technical debt could be unintentional due to mergers and acquisitions activity. These organizations need to work towards consolidating these processes, structures, cloud-native tools, and buyer needs to understand the efforts needed to reduce or remove this technical debt. 
 

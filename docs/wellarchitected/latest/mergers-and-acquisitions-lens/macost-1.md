@@ -1,7 +1,6 @@
 
 
 # MACOST 1: How is cost optimization progressing with AWS hosting for both companies?
-<a name="macost-1"></a>
 
  Carelessness or lack of oversight can cut into company profitability and growth. Reducing costs can likely be achieved and savings can be reinvested to improve the growth of a company. Establish policies and procedures to monitor and appropriately allocate your costs. This allows you to measure and improve the cost efficiency of workloads. Perform pricing model analysis for combined entity feature in AWS Cost Explorer. 
 

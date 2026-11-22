@@ -1,7 +1,6 @@
 
 
 # MAPERF 2: How does the platform scale and maintain performance as more customer load is added?
-<a name="maperf-2"></a>
 
  General support of increased platform loading, which allows for more customer usage and drive company growth. The platform hosting could be statically provisioned and have very predictable loading. Scaling can be accomplished by vertical as well as horizontal methods. 
 

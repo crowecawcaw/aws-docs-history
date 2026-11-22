@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-ops"></a>
 +  [Account migration when transitioning to a multi-account architecture](https://docs.aws.amazon.com/prescriptive-guidance/latest/transitioning-to-multiple-aws-accounts/account-migration.html) 
 +  [AWS Control Tower](https://aws.amazon.com/controltower/) 
 +  [Building your tagging strategy](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/building-your-tagging-strategy.html) 

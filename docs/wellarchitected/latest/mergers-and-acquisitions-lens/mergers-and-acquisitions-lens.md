@@ -1,7 +1,6 @@
 
 
 # Mergers and Acquisitions Lens - AWS Well-Architected Framework
-<a name="mergers-and-acquisitions-lens"></a>
 
 Publication date: **May 15, 2024** ([Document revisions](document-revisions.md))
 
