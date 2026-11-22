@@ -1,7 +1,6 @@
 
 
 # AWS Data Provider for SAP
-<a name="aws-data-provider"></a>
 
  AWS Data Provider for SAP is a tool that collects performance-related data from AWS services. It makes this data available to SAP applications to help monitor and improve the performance of business transactions. SAP requires customers to install the agent as described in SAP note [1656250](https://me.sap.com/notes/1656250) (login credentials required).
 

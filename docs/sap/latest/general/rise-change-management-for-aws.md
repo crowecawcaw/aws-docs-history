@@ -1,7 +1,6 @@
 
 
 # Change Management for AWS Services
-<a name="rise-change-management-for-aws"></a>
 
 You manage the change management of the AWS services that are connected to RISE with SAP; therefore, AWS provides services to automate pipeline provisioning and control.
 

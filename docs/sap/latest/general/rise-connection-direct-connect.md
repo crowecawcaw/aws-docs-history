@@ -1,7 +1,6 @@
 
 
 # Connecting to RISE using AWS Direct Connect
-<a name="rise-connection-direct-connect"></a>
 
 Use AWS Direct Connect if you require a higher throughput or more consistent network experience than an internet-based connection. AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. You can create different types of virtual interfaces (VIFs) to connect with various AWS services. For example, you can create a Public VIF to communicate with public services like Amazon S3 or a Private/Transit VIF for private resources such as Amazon VPC, while bypassing the internet service providers in your network path. For more information, see [AWS Direct Connect connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/WorkingWithConnections.html).
 

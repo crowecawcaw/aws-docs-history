@@ -1,7 +1,6 @@
 
 
 # Connecting to RISE using your single AWS account
-<a name="rise-connection-accounts"></a>
 
 You can establish connectivity between on-premises and RISE with SAP VPC using your AWS account. This method provides you with more control but also requires managing AWS services in your AWS account. You can use any one of the following options.
 +  AWS Transit Gateway – Share AWS Transit Gateway resource in you AWS account with AWS account managed by SAP.

@@ -1,7 +1,6 @@
 
 
 # Roles and responsibility for establishing connectivity
-<a name="rise-responsibility"></a>
 
 Under RISE with SAP, the SAP Enterprise Cloud Services (ECS) team manages the SAP S/4HANA Private Cloud Environment. The *Supplemental Terms and Conditions* provided by SAP has a section on Excluded Tasks. You are responsible for running such tasks. You can also use a third-party service provider to manage the excluded tasks for you. For further details, see [SAP Product Policies](https://www.sap.com/about/agreements/policies.html).
 

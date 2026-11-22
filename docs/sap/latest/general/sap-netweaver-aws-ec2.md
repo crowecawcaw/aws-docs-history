@@ -1,7 +1,6 @@
 
 
 # SAP NetWeaver supported instances
-<a name="sap-netweaver-aws-ec2"></a>
 
 Previous generation Amazon EC2 instances for SAP NetWeaver are fully supported and these instance types retain the same features and functionality. We recommend using current generation Amazon EC2 instances for new SAP NetWeaver implementations or migrations.
 

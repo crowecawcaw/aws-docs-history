@@ -1,7 +1,6 @@
 
 
 # SSO – SAP Cloud Identity Services and Microsoft Entra
-<a name="sso-entra"></a>
 
 Microsoft Entra (previously Azure AD) or other IdPs can be integrated to SAP Cloud Identity Services directly. This support a direct authentication with Single Sign-On (SSO), when you do not need AWS IAM Identity Center (i.e. no requirement to run a multi account strategy that utilizes AWS Organizations).
 

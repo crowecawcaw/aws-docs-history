@@ -1,7 +1,6 @@
 
 
 # Connecting to RISE using SD-WAN
-<a name="rise-connection-sd-wan"></a>
 
  **What is SD-WAN** 
 

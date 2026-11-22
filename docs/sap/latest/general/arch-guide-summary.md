@@ -1,7 +1,6 @@
 
 
 # Summary
-<a name="arch-guide-summary"></a>
 
 The table below summarizes the patterns and their key characteristics.
 

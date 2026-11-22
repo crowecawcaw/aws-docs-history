@@ -1,7 +1,6 @@
 
 
 # Disaster recovery scenarios
-<a name="scenarios"></a>
 
 The following are the three disaster recovery scenarios.
 

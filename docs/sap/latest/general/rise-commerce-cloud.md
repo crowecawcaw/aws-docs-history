@@ -1,7 +1,6 @@
 
 
 # SAP Commerce Cloud
-<a name="rise-commerce-cloud"></a>
 
 ## Background
 <a name="_background"></a>

@@ -1,7 +1,6 @@
 
 
 # Artificial Intelligence
-<a name="artificial-intelligence"></a>
 
  **Generative AI for SAP on AWS ** 
 

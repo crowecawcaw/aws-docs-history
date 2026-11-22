@@ -1,7 +1,6 @@
 
 
 # Decision tree on connectivity to RISE
-<a name="rise-decision-tree"></a>
 
 You must establish required connectivity to proceed with RISE with SAP on AWS. The following are a few connectivity patterns described in the preceding sections:
 + direct to RISE VPC, supported with Site-to-Site VPN (up to 1.25 Gbps per tunnel)

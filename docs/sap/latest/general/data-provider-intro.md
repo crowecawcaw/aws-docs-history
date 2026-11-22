@@ -1,7 +1,6 @@
 
 
 # Introduction
-<a name="data-provider-intro"></a>
 
 Many organizations of all sizes are choosing to host key SAP systems in the Amazon Web Services Cloud. With AWS, you can quickly provision an SAP environment. Additionally, the elastic nature of the AWS Cloud enables you to scale computing resources up and down as needed. As a result, your business can dedicate more resources (both people and funds) to innovation.
 

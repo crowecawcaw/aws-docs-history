@@ -1,7 +1,6 @@
 
 
 # Service-level agreements and SAP licenses
-<a name="slas-licenses"></a>
 
 For a disaster recovery implementation, Service Level Agreements (SLA) are used to define how resilient your system is at avoiding loss of data and reducing downtime when your workload becomes unavailable due to a disaster event.
 

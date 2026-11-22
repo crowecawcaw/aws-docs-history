@@ -1,7 +1,6 @@
 
 
 # Implement chargeback for connectivity to RISE
-<a name="rise-chargeback"></a>
 
 If you are a company with subsidiaries, you may have different RISE contracts, leading to deployments in separate AWS accounts while requiring an interlinked network connectivity. In this instance, you must deploy Transit Gateway connection in a Landing Zone (multi-account) setup. It can scale your RISE deployment and integrate with multiple RISE with SAP VPCs.
 

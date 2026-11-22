@@ -1,7 +1,6 @@
 
 
 # Replicating data using SAP services
-<a name="rise-data-replication-sap"></a>
 
 ![Data replication using SAP Services.](https://docs.aws.amazon.com/sap/latest/general/images/rise-data-replication-sap-services.png)
 

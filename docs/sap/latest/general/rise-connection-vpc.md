@@ -1,7 +1,6 @@
 
 
 # Connecting to RISE using AWS VPN
-<a name="rise-connection-vpc"></a>
 
 Enable access from your remote network to the RISE with SAP VPC using [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html). AWS Site-to-Site VPN encrypts traffic between the AWS Cloud and your on-premises location using Internet Protocol Security (IPsec) and transfers it through a secure tunnel over the internet. This option is faster to implement than a dedicated private connection such as AWS Direct Connect. For more information, see [Connect your VPC to remote networks using AWS Virtual Private Network](https://docs.aws.amazon.com/vpc/latest/userguide/vpn-connections.html).
 

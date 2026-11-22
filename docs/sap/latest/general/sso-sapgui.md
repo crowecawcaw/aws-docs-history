@@ -1,7 +1,6 @@
 
 
 # SSO – SAPGUI Front-End
-<a name="sso-sapgui"></a>
 
 SAPGUI is a graphical user interface client in the SAP ERP’s three-tier architecture of database, application servers and clients. It requires installation in a local desktop that run on Windows or macOS or Linux.
 

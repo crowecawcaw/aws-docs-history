@@ -1,7 +1,6 @@
 
 
 # Splunk Service Intelligence for SAP Solutions
-<a name="rise-observability-splunk"></a>
 
 Splunk Service Intelligence for SAP Solutions is a comprehensive out-of-the-box solution that provides proactive, end-to-end monitoring of SAP environment. It gives the ability to monitor various infrastructure elements that run SAP and the application components that connect to it, as well as the system’s underlying infrastructure. Use this app with the monitoring capabilities in Splunk IT Service Intelligence (ITSI) to quickly and proactively detect problems in SAP environment to reduce issues and avoid costly outages.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN
-<a name="rise-connection-cloud-wan"></a>
 
  [AWS Cloud WAN](https://aws.amazon.com/cloud-wan/) is a managed wide-area networking (WAN) service designed to simplify the process of building, managing, and monitoring unified global networks that connect cloud and on-premises resources. It enables organizations to centrally connect data centers, branch offices, remote sites, and Amazon Virtual Private Clouds (VPCs) across the AWS global backbone, using a centralized dashboard and policy-driven automation. For more information, see [AWS Cloud WAN documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/what-is-cloudwan.html).
 

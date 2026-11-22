@@ -1,7 +1,6 @@
 
 
 # Architecture guidelines and decisions 
-<a name="arch-guide-architecture-guidelines-and-decisions"></a>
 
 This section will provides a brief overview of the AWS services typically used for SAP workloads and some of the key points to understand when designing your architecture for hosting SAP on AWS. If you are already familiar with these AWS services, you can skip this section.
 

@@ -1,7 +1,6 @@
 
 
 # General SAP Guides
-<a name="welcome"></a>
 
 This section covers the following guides.
 +  [Overview](https://docs.aws.amazon.com/sap/latest/general/sap-on-aws-overview.html) 

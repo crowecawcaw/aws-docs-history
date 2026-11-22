@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security-rise"></a>
 
 SAP manages the security in AWS account managed by SAP. You can implement additional security mechanisms in your own AWS account.
 

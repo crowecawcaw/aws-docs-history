@@ -1,7 +1,6 @@
 
 
 # Updating to DataProvider 4.3
-<a name="data-provider-update"></a>
 
 If you have previously installed DataProvider 2.0 or 3.0 and want to update to DataProvider 4.3, you need to uninstall the running version first, and then install DataProvider 4.3.
 

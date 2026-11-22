@@ -1,7 +1,6 @@
 
 
 # Security Extension
-<a name="security-extension"></a>
 
 ## mTLS Authentication
 <a name="_mtls_authentication"></a>

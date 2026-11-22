@@ -1,7 +1,6 @@
 
 
 # Change Management with Partner Solutions
-<a name="rise-change-management-partner"></a>
 
 When your requirement goes beyond standard SAP and AWS change management tools, below are selected few partner solutions in testing and change management.
 

@@ -1,7 +1,6 @@
 
 
 # Example of captured metrics
-<a name="data-provider-example-metrics"></a>
 
 This following show example metrics. Your system metrics may slightly differ.
 

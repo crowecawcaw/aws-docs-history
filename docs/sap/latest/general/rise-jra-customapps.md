@@ -1,7 +1,6 @@
 
 
 # Custom Application
-<a name="rise-jra-customapps"></a>
 
 Custom applications are created by customers to address their unique business needs and challenges that cannot be fully met by off-the-shelf software solutions. Organizations often require specific functionality, workflows, or integrations that align precisely with their business processes, industry regulations, or competitive advantages. By developing custom applications, companies can maintain complete control over their software’s features, security requirements, and user experience while ensuring seamless integration with their existing systems and databases. Custom applications also allow businesses to adapt quickly to changing market conditions and scale their solutions as they grow, ultimately providing them with a tailored tool that directly supports their operational efficiency and strategic objectives.
 

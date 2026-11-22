@@ -1,7 +1,6 @@
 
 
 # Introduction
-<a name="arch-guide-introduction"></a>
 
 For decades, SAP customers protected SAP workloads on premise with two common patterns: high availability and disaster recovery. The advent of cloud computing provided an opportunity to rethink HADR capabilities for SAP, using modern architectures and technologies.
 

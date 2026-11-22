@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability-rise"></a>
 
 Reliability is one of the six pillars of SAP Lens - AWS Well-Architected Framework. For more information, see [Reliability](https://docs.aws.amazon.com/wellarchitected/latest/sap-lens/reliability.html).
 

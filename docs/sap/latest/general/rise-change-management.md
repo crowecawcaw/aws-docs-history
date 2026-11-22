@@ -1,7 +1,6 @@
 
 
 # Change Management
-<a name="rise-change-management"></a>
 
 In RISE with SAP, SAP Enterprise Cloud Services (ECS) manages technical-related transports while customers are responsible for application-related transports through the SAP Transport Management System (TMS), refer to [RISE with SAP S/4HANA Roles and Responsibilities](https://assets.cdn.sap.com/agreements/product-policy/hec/roles-responsibilities/rise-with-sap-s4hana-cloud-private-edition-and-sap-erp-tailored-option-roles-and-responsibilities-english-v3-2025.pdf) for more detail.
 

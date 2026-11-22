@@ -1,7 +1,6 @@
 
 
 # Archiving and Document Management
-<a name="document-management"></a>
 
 SAP Data Archiving and Document Management System (DMS) plays a crucial role both before and after migrating to RISE with SAP. It helps businesses effectively manage database growth and optimize overall costs. Before migrating to S/4HANA, archiving reduces migration expenses, minimizes downtime, and lowers risk by decreasing data volume. After moving to S/4HANA, it helps control operational costs and ensures optimal system performance. Additionally, businesses can decommission legacy SAP ECC systems, eliminating unnecessary expenses while retaining access to historical data
 

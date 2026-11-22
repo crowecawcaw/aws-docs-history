@@ -1,7 +1,6 @@
 
 
 # Internet of Things
-<a name="rise-jra-iot"></a>
 
 Internet of Things (IoT) refers to a network of interconnected physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, and network connectivity, enabling these objects to collect and exchange data. IoT allows objects to be sensed and controlled remotely across existing network infrastructure, creating opportunities for direct integration between the physical world and computer-based systems.
 

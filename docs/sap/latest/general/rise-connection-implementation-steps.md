@@ -1,7 +1,6 @@
 
 
 # Implementation steps for connectivity
-<a name="rise-connection-implementation-steps"></a>
 
 This section provides a deeper dive into the implementation steps for connectivity between RISE with SAP and your on-premises environments (without any Customer managed AWS Account usage). The two options we will step into are: first, creating highly resilient deployment for critical workloads, and second, creating cost effective alternative for non-critical workloads.
 

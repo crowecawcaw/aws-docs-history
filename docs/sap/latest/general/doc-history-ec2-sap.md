@@ -1,7 +1,6 @@
 
 
 # Document history for instance types for SAP on AWS
-<a name="doc-history-ec2-sap"></a>
 
 
 | Change | Date | 

@@ -1,7 +1,6 @@
 
 
 # DataProvider 4.3
-<a name="dp4.3"></a>
 
 If you are new to AWS Data Provider for SAP, see [Installing DataProvider 4.3](data-provider-installation.md).
 

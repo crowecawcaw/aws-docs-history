@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock Agent
-<a name="rise-agenticai-bedrock-agent"></a>
 
 Amazon Bedrock Agent acts as the intelligent orchestrator that uses the reason-and-act (ReAct) pattern to fulfil complex user requests. It uses the reasoning of foundation models (FMs), APIs, and data to break down user requests, gathers relevant information, and efficiently completes tasks—freeing teams to focus on high-value work. You can refer to [this link](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html) on how to implement Amazon Bedrock Agent.
 +  **User request**: The process begins with a natural language request from a user, such as "Generate a sales report and share it with the finance team".

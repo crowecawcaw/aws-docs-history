@@ -1,7 +1,6 @@
 
 
 # AWS Direct Connect gateway
-<a name="rise-connection-direct-connect-gateway"></a>
 
  [AWS Direct Connect gateway](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways.html) is a global service that enables you to establish private connectivity between your on-premises networks and multiple Amazon VPCs across different AWS regions. This centralized connection hub allows you to consolidate your network architecture, reduce complexity, and maintain secure, high-bandwidth connections while avoiding public internet for your mission-critical workloads.
 

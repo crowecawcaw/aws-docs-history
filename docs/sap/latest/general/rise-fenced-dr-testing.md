@@ -1,7 +1,6 @@
 
 
 # Fenced (Live) DR Testing
-<a name="rise-fenced-dr-testing"></a>
 
 Fenced DR Testing is a disaster recovery testing capability for RISE with SAP customers using Long Distance Disaster Recovery (LDDR). It uses network isolation to create a segregated testing environment. Production and DR systems operate simultaneously, eliminating the need for planned downtime during DR validation. Isolation spans multiple layers: network routing, DNS resolution, and application connectivity. These layers prevent cross-contamination between environments.
 

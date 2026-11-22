@@ -1,7 +1,6 @@
 
 
 # Connect to nearest Direct Connect POP (including Local Zone)
-<a name="rise-local-zone"></a>
 
  AWS Direct Connect point-of-presence (POP) is a physical cross-connect that allows users to establish a network connection from their own premises to an AWS Region or AWS Local Zone. You can use the nearest Direct Connect POP (for example, in an AWS Local Zone) to benefit from lower setup and running costs, with the same or lower network latency to your RISE with SAP VPC that runs on the parent AWS Region. For more information, see [AWS Direct Connect Traffic Flow with AWS Local Zone](https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/direct-connect-traffic-flow-local-zone-ra.pdf).
 

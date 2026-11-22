@@ -1,7 +1,6 @@
 
 
 # Data Warehouse Architecture
-<a name="rise-data-warehouse-architecture"></a>
 
 A [Data Warehouse](https://aws.amazon.com/what-is/data-warehouse/) is a centralized repository based on “schema-on-write” approach that aggregates structured, historical data from multiple sources (both SAP and non-SAP) to enable advanced analytics, reporting, and business intelligence (BI). It enables organizations to analyze vast amounts of integrated data for informed decision-making, using optimized architectures for complex queries rather than transactional processing.
 

@@ -1,7 +1,6 @@
 
 
 # Extensions
-<a name="extensions-rise"></a>
 
 You can extend RISE with SAP by using AWS services to improve performance, security, agility, and reduce costs. The following table provides recommended AWS services based on use case.
 

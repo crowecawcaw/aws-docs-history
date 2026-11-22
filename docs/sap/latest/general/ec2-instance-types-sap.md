@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance types for SAP on AWS
-<a name="ec2-instance-types-sap"></a>
 
 Amazon Elastic Compute Cloud (Amazon EC2) offers a wide selection of [instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) optimized to fit different use cases. The varying combinations of CPU, memory, storage, and networking capacity provide flexibility in selection of resources for your applications. You can choose the instance types that meet the requirements of your workload.
 

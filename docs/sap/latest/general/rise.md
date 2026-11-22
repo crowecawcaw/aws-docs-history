@@ -1,7 +1,6 @@
 
 
 # RISE with SAP on AWS Cloud
-<a name="rise"></a>
 
 RISE with SAP S/4HANA Cloud, private edition is a cloud ERP offering from SAP. Along with ERP, it includes Business Process Intelligence, Business Platform and Analytics, and Business Networks. SAP maintains responsibility for the holistic service level agreement, cloud operations, and technical support for RISE. You can choose your own cloud service provider in RISE with SAP.
 

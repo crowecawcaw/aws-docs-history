@@ -1,7 +1,6 @@
 
 
 # Replicating data using Partner Solutions
-<a name="rise-data-replication-partner"></a>
 
  AWS Partner Solutions offer ready to deploy solutions with enhanced features, such as pre-built connectors, specialized data pipelines, and advanced optimization techniques that reduce complexity and improve the speed of deployment.
 

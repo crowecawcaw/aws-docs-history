@@ -1,7 +1,6 @@
 
 
 # Performance
-<a name="rise-performance"></a>
 
  **Enhance SAP Fiori performance with Amazon CloudFront** 
 

@@ -1,7 +1,6 @@
 
 
 # SAP on AWS cost estimation
-<a name="sap-on-aws-pricing-guide"></a>
 
  *Last updated: May 2023* 
 

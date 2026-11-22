@@ -1,7 +1,6 @@
 
 
 # Rhondos: PowerConnect for SAP Solutions
-<a name="rise-observability-powerconnect"></a>
 
 PowerConnect, an SAP-certified advanced observability and security monitoring solution that streams real-time telemetry, performance, business, and security data from SAP systems into leading observability platforms such as Splunk and Dynatrace. It enables organizations to extend their existing monitoring investments into the SAP landscape, providing deep visibility into application performance, user activity, security events, and system health without disrupting core business operations.
 

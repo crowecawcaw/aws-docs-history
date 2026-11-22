@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock Agentcore
-<a name="rise-agenticai-bedrock-agentcore"></a>
 
 Bedrock AgentCore is a suite of services that enables developers to build, deploy, and operate highly capable AI agents securely and at enterprise scale. It is designed to take on the "undifferentiated heavy lifting" of developing agentic AI, allowing enterprises to move beyond proofs-of-concept and accelerate production deployment. Bedrock AgentCore provides a modular toolkit of services that can be used together or independently to create sophisticated AI agents.
 +  **Runtime**: A secure, serverless environment for deploying and scaling dynamic AI agents, supporting long-running and asynchronous tasks with complete session isolation.

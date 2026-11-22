@@ -1,7 +1,6 @@
 
 
 # Resiliency and Cost Considerations
-<a name="rise-resiliency-cost"></a>
 
 SAP has options available for RISE to meet different resiliency requirements. SAP adjusts the following key requirements for RISE through option packages.
 + Service Level Agreement (SLA) – describes the targeted availability of the solution.

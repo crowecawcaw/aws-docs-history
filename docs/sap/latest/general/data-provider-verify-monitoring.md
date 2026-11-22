@@ -1,7 +1,6 @@
 
 
 # Verification of AWS Data Provider for SAP in SAP system monitoring
-<a name="data-provider-verify-monitoring"></a>
 
 The AWS Data Provider for SAP exposes AWS-specific metrics through an XML page at http://localhost:8888/vhostmd of the given system.
 

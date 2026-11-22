@@ -1,7 +1,6 @@
 
 
 # Multi-Region Architecture Patterns
-<a name="arch-guide-multi-region-architecture-patterns"></a>
 
 You should select a multi-Region architecture if you require the following:
 + You require the data to reside in two specific geographical AWS Regions at all times.

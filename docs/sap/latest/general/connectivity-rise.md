@@ -1,7 +1,6 @@
 
 
 # Connectivity
-<a name="connectivity-rise"></a>
 
 You must establish connectivity between AWS cloud where your RISE with SAP solution is running and on-premises data centers. You also need a connection for direct data transfer (to avoid routing data via your on-premises locations) and communication between SAP systems and your applications running on AWS cloud. The following image provides an example overview of connectivity to RISE with SAP VPC.
 

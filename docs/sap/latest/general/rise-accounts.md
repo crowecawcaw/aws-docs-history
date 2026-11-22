@@ -1,7 +1,6 @@
 
 
 # Connecting to RISE from your AWS account
-<a name="rise-accounts"></a>
 
 You can connect to RISE from your AWS account in the following ways.
 

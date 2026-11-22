@@ -1,7 +1,6 @@
 
 
 # Other considerations
-<a name="other-considerations"></a>
 
 This sections provides information about other considerations when connecting to RISE.
 

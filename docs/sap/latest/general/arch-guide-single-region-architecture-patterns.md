@@ -1,7 +1,6 @@
 
 
 # Single Region architecture patterns
-<a name="arch-guide-single-region-architecture-patterns"></a>
 
 Select a single Region pattern if:
 + You require the data to reside only in a specific geographical Region (AWS Region) at all times

@@ -1,7 +1,6 @@
 
 
 # Connecting to RISE from on-premises networks
-<a name="rise-connection-on-premises"></a>
 
 Connectivity to RISE with SAP on AWS from on-premises is supported using AWS VPN or AWS Direct Connect or a combination of the two.
 

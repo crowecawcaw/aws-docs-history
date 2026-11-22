@@ -1,7 +1,6 @@
 
 
 # Implementing disaster recovery on AWS cloud for SAP workloads
-<a name="implementation"></a>
 
 Using Elastic Disaster Recovery to implement a disaster recovery solution for SAP workloads on AWS follows different considerations for different parts of a typical SAP workload, such as S/4HANA deployment. The following sections provide guidance on the differences in how to design, implement, and manage Elastic Disaster Recovery when used for the application and the database layers.
 

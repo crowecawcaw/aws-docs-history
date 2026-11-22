@@ -1,7 +1,6 @@
 
 
 # Architecture guidance for availability and reliability of SAP on AWS
-<a name="architecture-guidance-of-sap-on-aws"></a>
 
 August 2021
 

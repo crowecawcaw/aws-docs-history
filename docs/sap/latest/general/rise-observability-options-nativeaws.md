@@ -1,7 +1,6 @@
 
 
 # Native AWS
-<a name="rise-observability-options-nativeaws"></a>
 
  **SAP Monitoring using Amazon CloudWatch** 
 

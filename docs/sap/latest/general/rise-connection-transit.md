@@ -1,7 +1,6 @@
 
 
 # AWS Transit Gateway
-<a name="rise-connection-transit"></a>
 
  AWS Transit Gateway is a network transit hub to interconnect Amazon VPCs. It acts as a cloud router, resolving complex peering setup issues by acting as the central communication hub. You need to establish this connection with AWS account managed by SAP only once.
 

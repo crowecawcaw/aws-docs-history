@@ -1,7 +1,6 @@
 
 
 # Integration
-<a name="rise-jra-integration"></a>
 
 In the RISE with SAP landscape, SAP Business Technology Platform (BTP), particularly the [SAP Integration Suite](https://help.sap.com/docs/integration-suite/sap-integration-suite/what-is-sap-integration-suite?locale=en-US), often facilitates integration scenarios. This service is capable of supporting integrations across cloud, on-premises, and hybrid environments within the SAP ecosystem.
 

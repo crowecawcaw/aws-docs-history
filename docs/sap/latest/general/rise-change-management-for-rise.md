@@ -1,7 +1,6 @@
 
 
 # Change Management for RISE with SAP
-<a name="rise-change-management-for-rise"></a>
 
  [SAP Cloud ALM](https://support.sap.com/en/alm/sap-cloud-alm.html) provides capability to manage change and orchestrate deployments across the landscape. For RISE with SAP, Cloud ALM integrates with [Change and Transport System (CTS)](https://support.sap.com/en/tools/software-logistics-tools/change-and-transport-system.html) to orchestrate the deployment of transport requests.
 

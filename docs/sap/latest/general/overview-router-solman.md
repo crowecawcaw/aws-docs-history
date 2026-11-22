@@ -1,7 +1,6 @@
 
 
 # SAProuter and SAP Solution Manager
-<a name="overview-router-solman"></a>
 
 The following sections describe options for SAProuter and SAP Solution Manager when running SAP solutions on AWS.
 

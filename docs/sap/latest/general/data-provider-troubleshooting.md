@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="data-provider-troubleshooting"></a>
 
 This section provides help to analyze installation problems.
 

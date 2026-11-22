@@ -1,7 +1,6 @@
 
 
 # SAP LogServ
-<a name="rise-observability-options-logserv"></a>
 
 SAP LogServ gives you visibility into the operating system, database, and SAP application layers of your RISE with SAP landscape. SAP manages these layers, and you cannot access them directly. With LogServ, you can collect these logs and observe your landscape from within your own AWS account. This addresses the observability gap in the RISE with SAP shared responsibility model by making SAP-managed infrastructure logs available to your own security and operations teams.
 

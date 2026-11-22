@@ -1,7 +1,6 @@
 
 
 # Version history
-<a name="data-provider-version-history"></a>
 
  **Version 4.3.2 (August, 2023)** 
 + Bug fix : Security updates to address [CVE-2022-45688](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45688).

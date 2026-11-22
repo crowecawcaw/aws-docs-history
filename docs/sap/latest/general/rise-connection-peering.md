@@ -1,7 +1,6 @@
 
 
 # Amazon VPC peering
-<a name="rise-connection-peering"></a>
 
 VPC peering enables network connection between two AWS VPCs using private IPv4 and IPv6 addresses. Instances can communicate over the same network. For more information, see [What is VPC peering?](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) 
 

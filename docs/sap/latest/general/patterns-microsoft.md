@@ -1,7 +1,6 @@
 
 
 # SAP on AWS architecture patterns for Microsoft SQL server
-<a name="patterns-microsoft"></a>
 
 This document provides information about architecture patterns for deploying SAP workloads in AWS Cloud on Microsoft SQL servers. These patterns offer highly available and resilient implementation options while considering your recovery time and point objectives.
 

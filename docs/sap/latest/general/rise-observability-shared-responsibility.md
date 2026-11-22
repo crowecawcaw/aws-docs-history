@@ -1,7 +1,6 @@
 
 
 # Shared Responsibility
-<a name="rise-observability-shared-responsibility"></a>
 
 SAP bundles cloud infrastructure, S/4HANA software, tools, and services into a single subscription in the RISE with SAP commercial model. Although it is a comprehensive managed service, observability remains a critical concern that customers still want to have control of, and prefer to understand the internal state of their systems. Not all observability features are included in the construct by default. Customers should be aware of optional and excluded tasks based on the latest [RISE Roles and Responsibilities](https://assets.cdn.sap.com/agreements/product-policy/hec/roles-responsibilities/rise-with-sap-s4hana-cloud-private-edition-and-sap-erp-tailored-option-roles-and-responsibilities-english-v3-2025.pdf). SAP manages the infrastructure, operating system, database, and application layer. However, this creates a potential visibility gap for customers that they didn’t have while running SAP on-premises or natively on cloud. Without appropriate observability tools, organizations struggle to understand performance issues, identify bottlenecks, and ensure optimal business operations. This lack of visibility becomes especially problematic when issues span both SAP and other enterprise systems.
 

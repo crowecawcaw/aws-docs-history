@@ -1,7 +1,6 @@
 
 
 # Agentic AI
-<a name="rise-agenticai"></a>
 
  **What is an agentic AI** 
 

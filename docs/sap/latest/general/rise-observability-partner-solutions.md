@@ -1,7 +1,6 @@
 
 
 # Partner Solutions
-<a name="rise-observability-partner-solutions"></a>
 
 While customers can build SAP observability solutions using AWS services, or use SAP Cloud ALM, there are several compelling reasons to choose partner solutions. Partner observability solutions offer pre-built integrations thus faster implementation. While Cloud ALM has out-of-the-box observability options with a focus on standardization, extensive customization and specialized expertise without the need for dedicated engineering teams is often possible with partner offerings. Partner solutions deliver a complete package with built-in best practices, professional support, and advanced capabilities like AI/ML analytics, often at a lower total cost of ownership. This allows organizations to focus on their core business rather than building and maintaining observability infrastructure.
 

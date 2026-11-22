@@ -1,7 +1,6 @@
 
 
 # Technical Requirements
-<a name="data-provider-req"></a>
 
 Before creating an SAP instance, ensure that the following technical requirements are met.
 
@@ -67,7 +66,7 @@ If your Amazon EC2 instances are running in Beijing and Ningxia, you must update
 
     ** AWS Regions (except AWS GovCloud (US-East), AWS GovCloud (US-West), Beijing and Ningxia)** 
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -95,7 +94,7 @@ If your Amazon EC2 instances are running in Beijing and Ningxia, you must update
 
     **Beijing and Ningxia** 
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -123,7 +122,7 @@ If your Amazon EC2 instances are running in Beijing and Ningxia, you must update
 
     ** AWS GovCloud (US-East) and AWS GovCloud (US-West)** 
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

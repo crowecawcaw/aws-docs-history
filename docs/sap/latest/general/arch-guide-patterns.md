@@ -1,7 +1,6 @@
 
 
 # Patterns
-<a name="arch-guide-patterns"></a>
 
 In this section, we examine the architecture patterns available to handle the failure scenarios detailed above.
 

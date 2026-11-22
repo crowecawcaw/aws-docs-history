@@ -1,7 +1,6 @@
 
 
 # Amazon GuardDuty
-<a name="guardduty"></a>
 
 Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behaviour within an AWS environment. It combines machine learning, anomaly detection, and integrated threat intelligence to identify potential threats and protect AWS account linked to RISE with SAP environments, workloads, and data.
 

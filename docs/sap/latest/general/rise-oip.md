@@ -1,7 +1,6 @@
 
 
 # Connectivity to Overlay IP in RISE on AWS
-<a name="rise-oip"></a>
 
 An Overlay IP is a private IP address assigned to an EC2 instance that is outside the VPC’s CIDR block. It’s used for [high availability and failover scenarios in SAP deployments on AWS](https://docs.aws.amazon.com/sap/latest/sap-hana/sap-oip-sap-on-aws-high-availability-setup.html), allowing traffic to be directed to the active instance even if it is in a different Availability Zone. This IP address is routable and managed through routing tables, enabling seamless failover without changing the application’s configuration.
 

@@ -1,7 +1,6 @@
 
 
 # Customizing the AWS Data Provider for SAP
-<a name="data-provider-customization"></a>
 
 Some settings are hard coded in the AWS Data Provider for SAP. You can override existing settings or add new settings. For example, when AWS adds new instance types, you can add these to the AWS Data Provider for SAP configuration.
 

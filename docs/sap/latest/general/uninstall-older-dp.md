@@ -1,7 +1,6 @@
 
 
 # Uninstalling older versions
-<a name="uninstall-older-dp"></a>
 
 Uninstalling the AWS Data Provider for SAP does not require SAP downtime and can be done online. The only impact will be a gap in metric monitoring information for the time that the DataProvider was installed on your system.
 

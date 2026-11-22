@@ -1,7 +1,6 @@
 
 
 # SAP HANA certified and non-certified instances
-<a name="sap-hana-aws-ec2"></a>
 
  AWS has worked closely with SAP to test and certify Amazon EC2 instance types for SAP on AWS solutions.
 

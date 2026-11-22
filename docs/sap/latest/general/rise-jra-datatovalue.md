@@ -1,7 +1,6 @@
 
 
 # Data to Value
-<a name="rise-jra-datatovalue"></a>
 
 Enterprises need data-driven intelligence that delivers measurable business outcomes. Running SAP on AWS provides a scalable, secure, and flexible foundation to transform raw data into actionable value. The SAP and AWS Joint Reference Architecture (JRA) provides a framework for connecting data sources, harmonizing SAP and non-SAP data, and enabling AI and analytics-driven innovation through [SAP Business Data Cloud (SAP BDC)](https://www.sap.com/products/data-cloud.html) and [Amazon Sagemaker](https://aws.amazon.com/sagemaker/).
 

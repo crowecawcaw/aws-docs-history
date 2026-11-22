@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces as remote access solution
-<a name="rise-workspaces"></a>
 
 Using [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) provides a secure, scalable, and managed virtual desktop environment for accessing SAP systems. This virtual desktop can be used as a centrally managed hosting platform for SAP end user software such as SAPGUI and be connected to your SAP S/4HANA environment in RISE with SAP.
 

@@ -1,7 +1,6 @@
 
 
 # Operational Reliability
-<a name="rise-jra-operational-reliability"></a>
 
 Modern enterprises face significant hurdles in maintaining continuous availability of SAP services, particularly during regional outages or maintenance windows. Business continuity and operational reliability are critical concerns when deploying SAP Business Technology Platform (SAP BTP) and RISE with SAP.
 

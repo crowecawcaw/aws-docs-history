@@ -1,7 +1,6 @@
 
 
 # How AWS Nitro helps secure RISE with SAP?
-<a name="aws-nitro"></a>
 
  AWS Nitro System is the underlying technology used for [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/) (Amazon EC2) instances in RISE with SAP. AWS Nitro System offers a unique set of capabilities that support the most sensitive workloads in a multi-tenanted, hyper-scale cloud environment.
 

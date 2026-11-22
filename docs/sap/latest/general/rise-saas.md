@@ -1,7 +1,6 @@
 
 
 # Connecting to SaaS from RISE
-<a name="rise-saas"></a>
 
 When modernizing the SAP landscape, you may subscribe to several SAP cloud solutions or SaaS from independent software vendors to complement RISE with SAP solution.
 

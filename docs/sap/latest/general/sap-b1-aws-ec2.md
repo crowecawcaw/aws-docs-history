@@ -1,7 +1,6 @@
 
 
 # SAP Business One certified instances, version for SAP HANA
-<a name="sap-b1-aws-ec2"></a>
 
  AWS has worked closely with SAP to test and certify Amazon EC2 instance types for SAP on AWS solutions.
 
