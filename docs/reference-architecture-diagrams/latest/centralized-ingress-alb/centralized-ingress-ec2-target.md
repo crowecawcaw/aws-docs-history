@@ -1,7 +1,6 @@
 
 
 # Centralized Ingress - Amazon EC2 Target
-<a name="centralized-ingress-ec2-target"></a>
 
 Publication date: **March 24, 2022 ([Diagram history](#ec2t-diagram-history))**
 

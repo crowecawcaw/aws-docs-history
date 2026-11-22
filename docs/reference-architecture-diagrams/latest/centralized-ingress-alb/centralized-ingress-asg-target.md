@@ -1,7 +1,6 @@
 
 
 # Centralized Ingress - Auto Scaling Group Target
-<a name="centralized-ingress-asg-target"></a>
 
 Publication date: **March 24, 2022 ([Diagram history](#asg-diagram-history))**
 

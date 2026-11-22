@@ -1,7 +1,6 @@
 
 
 # Centralized Ingress - Auto Scaling Group Target with ALB
-<a name="centralized-ingress-asg-alb-target"></a>
 
 Publication date: **March 24, 2022 ([Diagram history](#asgalb-diagram-history))**
 
