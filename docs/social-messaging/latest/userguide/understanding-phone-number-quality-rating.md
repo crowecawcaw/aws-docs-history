@@ -1,7 +1,6 @@
 
 
 # Understanding phone number quality rating in WhatsApp
-<a name="understanding-phone-number-quality-rating"></a>
 
 The quality of your phone number and messages is determined by Meta. Your messaging quality score is based on how your messages have been received by customers over the past seven days, with more recent messages weighted more heavily. The messaging quality score is calculated based on a combination of quality signals from the conversations between you and your WhatsApp users. These signals include user feedback like blocks, reports, and the reasons users provide when they block a business. Meta evaluates the quality of your messages based on how well they are received by your customers on WhatsApp, with a focus on recent feedback and interactions.
 

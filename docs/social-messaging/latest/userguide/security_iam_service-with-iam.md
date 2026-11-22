@@ -1,7 +1,6 @@
 
 
 # How AWS End User Messaging Social works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS End User Messaging Social, learn what IAM features are available to use with AWS End User Messaging Social.
 

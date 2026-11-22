@@ -1,7 +1,6 @@
 
 
 # Uploading media files to send with WhatsApp
-<a name="managing-media-files-s3"></a>
 
 When you send or receive a media file, it has to be stored in an Amazon S3 bucket and uploaded or retrieved from WhatsApp. The Amazon S3 bucket must be in the same AWS account and AWS Region as your WhatsApp Business Account (WABA). These directions show how to create an Amazon S3 bucket, upload a file, and build the URL to the file. For more information on Amazon S3 commands, see [Use high-level (s3) commands with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html). For more information on configuring the AWS CLI, see [Configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) in the *[AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)*, and [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html), and [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html) in the *[Amazon S3 User Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/)*. 
 
@@ -47,7 +46,7 @@ You can also create a [presigned URL](https://docs.aws.amazon.com/AmazonS3/lates
 
 1. Upload the media file to WhatsApp using the [post-whatsapp-message-media](https://docs.aws.amazon.com/cli/latest/reference/socialmessaging/post-whatsapp-message-media.html) command. On successful completion, the command will return the {{{MEDIA\_ID}}}, which is required for sending the media message.
 
-   ```
+   ```bsh
    aws socialmessaging post-whatsapp-message-media --origination-phone-number-id {{{ORIGINATION_PHONE_NUMBER_ID}}}  --source-s3-file bucketName={{{BUCKET}}},key={{{MEDIA_FILE}}}
    ```
 
@@ -58,7 +57,7 @@ You can also create a [presigned URL](https://docs.aws.amazon.com/AmazonS3/lates
 
    You can also upload using a [presign url](#managing-media-files-s3.title) by using `--source-s3-presigned-url` instead of `--source-s3-file`. You must add `Content-Type` in the `headers` field. If you use both then an `InvalidParameterException` is returned.
 
-   ```
+   ```bsh
    --source-s3-presigned-url headers={"{{Name}}":"{{Value}}"},url={{https://BUCKET.s3.REGION/MEDIA_FILE}}
    ```
 

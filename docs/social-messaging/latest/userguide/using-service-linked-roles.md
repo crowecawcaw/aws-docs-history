@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for AWS End User Messaging Social
-<a name="using-service-linked-roles"></a>
 
 AWS End User Messaging Social uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to AWS End User Messaging Social. Service-linked roles are predefined by AWS End User Messaging Social and include all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -33,7 +32,7 @@ You can use the IAM console to create a service-linked role with the **AWSEndUse
 
 You can create the service-linked role for AWS End User Messaging Social with the following AWS CLI command:
 
-```
+```bsh
 aws iam create-service-linked-role --aws-service-name social-messaging.amazonaws.com
 ```
 

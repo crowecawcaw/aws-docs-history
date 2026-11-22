@@ -1,7 +1,6 @@
 
 
 # What is AWS End User Messaging Social?
-<a name="what-is-service"></a>
 
 AWS End User Messaging Social, also referred to as Social messaging, is a messaging service that allows developers to integrate WhatsApp into their applications. It provides access to WhatsApp's messaging capabilities, enabling the creation of branded, interactive content with images, videos, and buttons. By using this service, you can add WhatsApp messaging functionality to your applications alongside existing channels like SMS and push notifications. This allows you to engage with customers through their preferred communication channel.
 

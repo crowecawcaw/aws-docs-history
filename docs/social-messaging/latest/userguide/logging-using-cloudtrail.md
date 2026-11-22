@@ -1,7 +1,6 @@
 
 
 # Logging AWS End User Messaging Social API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS End User Messaging Social is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for AWS End User Messaging Social as events. The calls captured include calls from the AWS End User Messaging Social console and code calls to the AWS End User Messaging Social API operations. Using the information collected by CloudTrail, you can determine the request that was made to AWS End User Messaging Social, the IP address from which the request was made, when it was made, and additional details.
 
@@ -55,7 +54,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail event that demonstrates the operation.
 
-```
+```JSON
 {
         "eventVersion": "1.09",
         "userIdentity": {

@@ -1,11 +1,10 @@
 
 
 # Download a media file from WhatsApp to Amazon S3
-<a name="receive-message-image"></a>
 
 To retrieve a media file and save it to an Amazon S3 bucket, use the [get-whatsapp-message-media](https://docs.aws.amazon.com/cli/latest/reference/socialmessaging/get-whatsapp-message-media.html) command.
 
-```
+```bsh
 aws socialmessaging get-whatsapp-message-media --media-id {{{MEDIA_ID}}} --origination-phone-number-id {{{ORIGINATION_PHONE_NUMBER_ID}}} --destination-s3-file bucketName={{{BUCKET}}},key=inbound_
 {
     "mimeType": "image/jpeg",
@@ -20,7 +19,7 @@ In the preceding command, do the following:
 
 To retrieve the media from the Amazon S3 bucket, use the following command:
 
-```
+```bsh
 aws s3 cp s3://{{{BUCKET}}}/inbound_{{{MEDIA_ID}}}.jpeg
 ```
 

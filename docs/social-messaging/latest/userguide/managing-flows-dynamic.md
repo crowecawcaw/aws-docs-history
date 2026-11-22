@@ -1,7 +1,6 @@
 
 
 # Setting up Dynamic Flows
-<a name="managing-flows-dynamic"></a>
 
 A Dynamic Flow calls your own HTTPS endpoint at runtime to fetch screen content and decide navigation. Static Flows define all screens in the Flow JSON. Dynamic Flows instead use the `data_exchange` action to request data from your endpoint each time a user navigates between screens. This enables personalized, data-driven experiences such as showing a user their open orders, validating input server-side, or branching based on a backend decision.
 
@@ -57,7 +56,7 @@ Providing both or neither returns an `InvalidParametersException`.
 
 Generate an RSA key pair and upload the public key:
 
-```
+```bsh
 # Generate a key pair
 openssl genrsa -out private.pem 2048
 openssl rsa -in private.pem -pubout -out public.pem
@@ -74,7 +73,7 @@ Store the private key securely and make it available to your endpoint for decryp
 
 Create an asymmetric RSA KMS key and upload its ARN:
 
-```
+```bsh
 # Create the KMS key
 KMS_KEY_ARN=$(aws kms create-key \
     --key-spec RSA_2048 \
@@ -96,7 +95,7 @@ The KMS key policy must grant the following permissions:
 
 Use the `GetWhatsAppBusinessPublicKey` API to verify the stored key and check Meta's signing status:
 
-```
+```bsh
 aws social-messaging get-whatsapp-business-public-key \
     --origination-phone-number-id {{{PHONE_NUMBER_ID}}}
 ```
@@ -108,7 +107,7 @@ The response includes the stored PEM and Meta's signing status (`VALID` or `MISM
 
 When creating a Dynamic Flow, provide the `--endpoint-uri` parameter with your HTTPS endpoint URL. The Flow JSON must also declare `data_api_version`, which tells Meta to call your endpoint during Flow sessions.
 
-```
+```bsh
 aws social-messaging create-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-name "{{my_dynamic_flow}}" \
@@ -119,7 +118,7 @@ aws social-messaging create-whatsapp-flow \
 
 You can also add or change the endpoint on an existing DRAFT Flow using `UpdateWhatsAppFlow`:
 
-```
+```bsh
 aws social-messaging update-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}} \
@@ -131,7 +130,7 @@ When you publish a Dynamic Flow, Meta performs a synchronous health check agains
 
 To verify the endpoint and data API version configured for a Flow, use `GetWhatsAppFlow`:
 
-```
+```bsh
 aws social-messaging get-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}}
@@ -144,7 +143,7 @@ The response includes the `endpointUri` as Meta holds it, the `dataApiVersion` d
 
 By default, when you create a Flow through AWS End User Messaging Social, it is associated with the service's Meta app. To verify that data-exchange requests to your endpoint originate from Meta, attach your own Meta app to the Flow. Without your own app attached, request-origin verification is not possible. Attaching your app gives you access to the app secret needed to verify the `X-Hub-Signature-256` HMAC header that Meta includes on each request.
 
-```
+```bsh
 aws social-messaging update-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}} \
@@ -180,7 +179,7 @@ A Dynamic Flow JSON differs from a static Flow JSON in two ways:
 
 The following example shows a minimal Dynamic Flow JSON with two screens. The first screen collects a user's name and sends it to the endpoint. The endpoint returns a personalized greeting on the second screen.
 
-```
+```json
 {
     "version": "6.0",
     "data_api_version": "3.0",
@@ -270,7 +269,7 @@ For the complete Flow JSON schema reference, see [Flow JSON](https://developers.
 
 The following example shows the full sequence of API calls to set up and publish a Dynamic Flow:
 
-```
+```bsh
 # 1. Upload the business public key (KMS mode)
 aws social-messaging put-whatsapp-business-public-key \
     --origination-phone-number-id {{{PHONE_NUMBER_ID}}} \

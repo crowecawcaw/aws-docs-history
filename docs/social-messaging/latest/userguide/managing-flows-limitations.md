@@ -1,7 +1,6 @@
 
 
 # Limitations and considerations
-<a name="managing-flows-limitations"></a>
 
 Consider the following limitations when working with WhatsApp Flows:
 + **Flow name uniqueness** — Flow names must be unique within a WABA.

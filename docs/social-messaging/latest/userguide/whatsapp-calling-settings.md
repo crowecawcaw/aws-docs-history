@@ -1,7 +1,6 @@
 
 
 # Configure calling for a phone number
-<a name="whatsapp-calling-settings"></a>
 
 You configure calling for each phone number using its call settings. Call settings include whether calling is enabled, the hours during which your business accepts calls, the visibility of the call button in WhatsApp, and the callback permission behavior.
 

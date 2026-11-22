@@ -1,7 +1,6 @@
 
 
 # Phone number considerations for use with a WABA
-<a name="managing-phone-numbers_body"></a>
 
 When you link a phone number with your WhatsApp Business Account (WABA), you should consider the following:
 + Phone numbers can only be linked to one WABA at a time. 

@@ -1,7 +1,6 @@
 
 
 # Example of responding to a message with a read receipt and reaction
-<a name="example-response"></a>
 
 In this example, your customer, Diego, sent you a message saying "Hi" and you respond to him with a read receipt and hand wave emoji. 
 
@@ -18,7 +17,7 @@ To receive a notification that Diego sent a message, you must have set up an eve
 Because Diego initiated the conversation, it doesn't count against the quota for your business initiated conversations.  
 The `whatsAppWebhookEntry` in this example is shown in JSON notation. For an example of converting the `whatsAppWebhookEntry` from JSON sting to JSON, see [Example WhatsApp JSON for receiving a message](managing-event-destination-dlrs.md#managing-event-destination-dlrs-example-receive-text).
 
-   ```
+   ```bsh
    {
      "context": {
        "MetaWabaIds": [
@@ -79,7 +78,7 @@ The `whatsAppWebhookEntry` in this example is shown in JSON notation. For an exa
 **Note**  
 You must specify base64 encoding when you use the AWS CLI version 2. This can be done by adding the AWS CLI paramater `--cli-binary-format raw-in-base64-out` or changing the AWS CLI global configuration file. For more information, see [`cli_binary_format`](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-settings) in the *AWS Command Line Interface User Guide for Version 2*.
 
-   ```
+   ```bsh
    aws socialmessaging send-whatsapp-message --message '{"messaging_product":"whatsapp","message_id":"'{{{MESSAGE_ID}}}'","status":"read"}' --origination-phone-number-id {{{ORIGINATION_PHONE_NUMBER_ID}}} --meta-api-version v20.0    
    ```
 
@@ -89,7 +88,7 @@ You must specify base64 encoding when you use the AWS CLI version 2. This can be
 
 1. You can send Diego a hand wave reaction.
 
-   ```
+   ```bsh
    aws socialmessaging send-whatsapp-message --message '{"messaging_product":"whatsapp","recipient_type":"individual","to":"'{{{PHONE_NUMBER}}}'","type": "reaction","reaction": {"message_id": "'{{{MESSAGE_ID}}}'","emoji":"\uD83D\uDC4B"}}' --origination-phone-number-id {{{ORIGINATION_PHONE_NUMBER_ID}}} --meta-api-version v20.0
    ```
 

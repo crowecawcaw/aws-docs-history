@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS End User Messaging Social identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS End User Messaging Social and IAM.
 

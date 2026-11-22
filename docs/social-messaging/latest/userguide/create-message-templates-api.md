@@ -1,7 +1,6 @@
 
 
 # Creating message templates with the CreateWhatsAppMessageTemplate API
-<a name="create-message-templates-api"></a>
 
 You can create customized WhatsApp message templates using the API. This topic describes how to use the [CreateWhatsAppMessageTemplate](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_CreateWhatsAppMessageTemplate.html) to create a variety of message templates.
 
@@ -21,7 +20,7 @@ In the following examples Replace {{ENDPOINT}} and {{WABA\_ID}} with your actual
 
 This example creates a utility message template in English that uses only the `BODY` component, and doesn't include `HEADER`, `FOOTER`, or `BUTTON` components. The body text uses variable placeholders.
 
-```
+```json
 $ aws socialmessaging create-whatsapp-message-template --region {{us-east-1}} --endpoint-url {{ENDPOINT_URL}} \ 
 --id {{WABA_ID}} \ 
 --template-definition '{
@@ -51,7 +50,7 @@ $ aws socialmessaging create-whatsapp-message-template --region {{us-east-1}} --
 
 This example creates a utility message template in English that includes `BODY` and `BUTTON` components.
 
-```
+```bash
 $ aws socialmessaging create-whatsapp-message-template --region {{us-east-1}} --endpoint-url {{ENDPOINT_URL}} \
 --id {{WABA_ID}} \
 --template-definition '{
@@ -136,7 +135,7 @@ $ aws socialmessaging create-whatsapp-message-template --region {{us-east-1}} --
 
 This example creates a basic marketing message template that includes only a `BODY` component.
 
-```
+```json
 $ aws socialmessaging create-whatsapp-message-template --region us-east-1 --endpoint-url {{ENDPOINT_URL}} \
 --id {{WABA_ID}} \ 
 --template-definition '{
@@ -169,7 +168,7 @@ $ aws socialmessaging create-whatsapp-message-template --region us-east-1 --endp
 
 This example creates a marketing message template in English that includes `HEADER`,`BODY`, and `BUTTON` components.
 
-```
+```json
 $ aws socialmessaging create-whatsapp-message-template --region us-east-1 \
 --endpoint-url {{ENDPOINT_URL}} \ 
 --id {{WABA_ID}} \

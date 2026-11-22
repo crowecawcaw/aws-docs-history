@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS End User Messaging Social
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS End User Messaging Social resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -40,7 +39,7 @@ To ensure that users and roles can still use the AWS End User Messaging Social c
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

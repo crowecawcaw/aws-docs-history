@@ -1,7 +1,6 @@
 
 
 # Understanding a template's status and quality rating in WhatsApp
-<a name="managing-templates_status"></a>
 
 Each message template is assigned a quality rating based on usage, customer feedback, and customer engagement. A template can be used only if the status is Active, but the quality determines the template pacing. If a message template consistently receives negative feedback or experiences low engagement, it will cause a change in the template's status.
 

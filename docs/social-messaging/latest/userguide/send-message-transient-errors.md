@@ -1,7 +1,6 @@
 
 
 # Handling transient eligibility errors (WhatsApp error code 131042)
-<a name="send-message-transient-errors"></a>
 
 When sending messages through WhatsApp, you might receive error code `131042` with the message `Business eligibility payment issue` (also reported as `Eligibility read failed due to a transient error on Meta side`). This error originates from Meta's systems and indicates a temporary failure when Meta checks the sender's payment eligibility for the WhatsApp Business Account (WABA).
 

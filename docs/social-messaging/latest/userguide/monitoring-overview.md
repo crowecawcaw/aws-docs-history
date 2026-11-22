@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS End User Messaging Social
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS End User Messaging Social and your other AWS solutions. AWS provides the following monitoring tools to watch AWS End User Messaging Social, report when something is wrong, and take automatic actions when appropriate:
 + *Amazon CloudWatch* monitors your AWS resources and and the applications you run on AWS in real time. You can collect and track metrics, create customized dashboards, and set alarms that notify you or take actions when a specified metric reaches a threshold that you specify. For example, you can have CloudWatch track CPU usage or other metrics of your Amazon EC2 instances and automatically launch new instances when needed. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).

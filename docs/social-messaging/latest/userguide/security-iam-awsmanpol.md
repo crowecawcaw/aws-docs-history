@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS End User Messaging Social
-<a name="security-iam-awsmanpol"></a>
 
 
 

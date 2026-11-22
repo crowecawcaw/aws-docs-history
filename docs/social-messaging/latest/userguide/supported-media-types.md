@@ -1,7 +1,6 @@
 
 
 # Supported media file types and sizes in WhatsApp
-<a name="supported-media-types"></a>
 
 When sending or receiving a media message, the file type must be supported and under the maximum file size. For more information, see [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types) in the *WhatsApp Business Platform Cloud API Reference*.
 

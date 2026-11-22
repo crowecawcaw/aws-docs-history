@@ -1,7 +1,6 @@
 
 
 # View a WhatsApp Business Account (WABA) in AWS End User Messaging Social
-<a name="managing-waba_steps"></a>
 
 You can view the WABA associated with your AWS account.
 

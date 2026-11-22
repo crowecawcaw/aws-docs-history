@@ -1,7 +1,6 @@
 
 
 # WhatsApp calling in AWS End User Messaging Social
-<a name="whatsapp-calling"></a>
 
 WhatsApp calling lets your business place and receive voice calls with WhatsApp users directly in the WhatsApp conversation, using the same business phone number that you use for messaging. A customer can move from a chat to a live voice call without leaving WhatsApp.
 

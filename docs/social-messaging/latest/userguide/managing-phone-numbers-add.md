@@ -1,7 +1,6 @@
 
 
 # Add a phone number to a WhatsApp Business Account (WABA)
-<a name="managing-phone-numbers-add"></a>
 
 You can add phone numbers to an existing WhatsApp Business Account (WABA) or create a new WABA for the phone number.
 

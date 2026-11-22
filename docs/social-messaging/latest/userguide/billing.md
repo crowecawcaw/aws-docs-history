@@ -1,7 +1,6 @@
 
 
 # Understanding billing and usage reports for AWS End User Messaging Social
-<a name="billing"></a>
 
 You are billed on a per message basis when you use AWS End User Messaging Social. This topic explains the different types of `MetaTemplateMessageFee` and AWS `MessageFee` charges that you can incur per message while using End User Messaging Social.
 

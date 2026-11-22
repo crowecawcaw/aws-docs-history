@@ -1,7 +1,6 @@
 
 
 # Creating and editing WhatsApp Flows
-<a name="managing-flows-create"></a>
 
 You can create a WhatsApp Flow using the AWS End User Messaging Social console or the AWS End User Messaging Social API. When you create a Flow, it is placed in DRAFT status. You can optionally provide a Flow JSON definition at creation time, or add it later using the update assets operation.
 
@@ -45,7 +44,7 @@ After you create the Flow, you can edit the Flow JSON to customize the screens a
 
 Use the `CreateWhatsAppFlow` API to create a new Flow. The following example uses the AWS CLI to create a Flow with a name and category:
 
-```
+```bsh
 aws socialmessaging create-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-name "{{my_lead_generation_form}}" \
@@ -54,7 +53,7 @@ aws socialmessaging create-whatsapp-flow \
 
 The response includes the Flow ID assigned by Meta:
 
-```
+```json
 {
     "flowId": "{FLOW_ID}",
     "validationErrors": []
@@ -63,7 +62,7 @@ The response includes the Flow ID assigned by Meta:
 
 You can also provide a Flow JSON definition at creation time and publish immediately:
 
-```
+```bsh
 aws socialmessaging create-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-name "{{appointment_booking}}" \
@@ -77,7 +76,7 @@ If you include `--publish`, the Flow JSON must be valid and pass Meta's validati
 
 To clone an existing Flow within the same WABA:
 
-```
+```bsh
 aws socialmessaging create-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-name "{{lead_form_v2}}" \
@@ -97,7 +96,7 @@ Updating a published Flow's assets reverts its status to DRAFT. You must re-publ
 
 The following example updates a Flow's name:
 
-```
+```bsh
 aws socialmessaging update-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}} \
@@ -106,7 +105,7 @@ aws socialmessaging update-whatsapp-flow \
 
 The following example updates a Flow's JSON definition:
 
-```
+```bsh
 aws socialmessaging update-whatsapp-flow-assets \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}} \
@@ -122,14 +121,14 @@ Use `ListWhatsAppFlows` to see all Flows for a WABA, and `GetWhatsAppFlow` to re
 
 List all Flows:
 
-```
+```bsh
 aws socialmessaging list-whatsapp-flows \
     --id {{{WABA_ID}}}
 ```
 
 Get details for a specific Flow:
 
-```
+```bsh
 aws socialmessaging get-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}}
@@ -139,7 +138,7 @@ The `GetWhatsAppFlow` response includes the Flow status, categories, validation 
 
 To retrieve the Flow JSON definition (assets), use `ListWhatsAppFlowAssets`:
 
-```
+```bsh
 aws socialmessaging list-whatsapp-flow-assets \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}}
@@ -156,7 +155,7 @@ To delete a Flow using the console, select the Flow on the **Flows** tab and cho
 
 To delete a Flow using the API:
 
-```
+```bsh
 aws socialmessaging delete-whatsapp-flow \
     --id {{{WABA_ID}}} \
     --flow-id {{{FLOW_ID}}}

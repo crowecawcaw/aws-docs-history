@@ -1,7 +1,6 @@
 
 
 # Sending messages through WhatsApp with AWS End User Messaging Social
-<a name="whatsapp-send-message"></a>
 
 Before sending a message, you must set up your WhatsApp Business Account (WABA), and your user must opt in to receive messages from you. For more information, see [Obtain permission](whatsapp-best-practices.md#best-practices-whatsapp-obtain-permission). 
 

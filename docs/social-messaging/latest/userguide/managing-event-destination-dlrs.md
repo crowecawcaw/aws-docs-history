@@ -1,7 +1,6 @@
 
 
 # Message and event format in AWS End User Messaging Social
-<a name="managing-event-destination-dlrs"></a>
 
 The JSON object for an event contains the AWS event header and WhatsApp JSON payload. For a list of the JSON WhatsApp notification payload and values, see [Webhooks Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components) and [Message Status](https://developers.facebook.com/docs/whatsapp/conversation-types#message-status) in the *WhatsApp Business Platform Cloud API Reference*.
 
@@ -10,7 +9,7 @@ The JSON object for an event contains the AWS event header and WhatsApp JSON pay
 
 The JSON object for an event contains the AWS event header and WhatsApp JSON. The header contains the AWS identifiers and ARNs of your WhatsApp Business Account (WABA) and phone number.
 
-```
+```bsh
 {
   "context": {
     "MetaWabaIds": [
@@ -48,7 +47,7 @@ In the preceding example event:
 
 The following shows the event record for an incoming message from WhatsApp. The JSON received from WhatsApp in the `whatsAppWebhookEntry` is received as a JSON string and can be converted to JSON. For a list of fields and their meaning, see [Webhooks Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components) in the *WhatsApp Business Platform Cloud API Reference*.
 
-```
+```bsh
 {
   "context": {
     "MetaWabaIds": [
@@ -73,7 +72,7 @@ The following shows the event record for an incoming message from WhatsApp. The 
 
 You can use a tool, such as [jq](https://jqlang.org/), to convert the JSON string to JSON. The following is the `whatsAppWebhookEntry` in JSON form:
 
-```
+```bsh
 {
   "id": "503131219501234",
   "changes": [
@@ -116,7 +115,7 @@ You can use a tool, such as [jq](https://jqlang.org/), to convert the JSON strin
 
 The following shows the event record for an incoming media message. To retrieve the media file, use the GetWhatsAppMessageMedia API command. For a list of fields and their meaning, see [Webhooks Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components)
 
-```
+```bsh
 {
 //AWS End User Messaging Social header
 }

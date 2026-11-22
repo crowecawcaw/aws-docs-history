@@ -1,7 +1,6 @@
 
 
 # Setting up AWS End User Messaging Social
-<a name="setting-up"></a>
 
 Before you can use AWS End User Messaging Social for the first time, you must complete the following steps.
 

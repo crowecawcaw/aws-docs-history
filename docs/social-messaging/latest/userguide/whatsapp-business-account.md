@@ -1,7 +1,6 @@
 
 
 # Understanding WhatsApp business account types
-<a name="whatsapp-business-account"></a>
 
 Your WhatsApp business account determines how you appear to your customers. When you create a WhatsApp account, your account will be a *Business Account*. WhatsApp has two types of business accounts:
 + *Business Account*: WhatsApp verifies the authenticity of every account on the WhatsApp Business Platform. If a business account has completed the Business Verification process, the business name will be visible to all users. This feature helps users identify verified business accounts on WhatsApp.
