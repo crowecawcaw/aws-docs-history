@@ -1,7 +1,6 @@
 
 
 # Cancelling a job to order a Snow Family device
-<a name="cancel-job-order"></a>
 
 After creating a job to order a Snow Family device, you can cancel the job through the AWS Snow Family Management Console. If you cancel the job, you won't receive the device you ordered. You can only cancel the job while the job status is *Job created*. After the job progresses past this status, you cannot cancel the job.
 

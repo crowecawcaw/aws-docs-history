@@ -1,7 +1,6 @@
 
 
 # Bind the hardware security module to the Snow device
-<a name="bind-hsm"></a>
 
 Each Snow device can be bound to one hardware security module (HSM) to secure and encrypt the data on the Snow device.
 
@@ -61,7 +60,7 @@ The common name used here will be used when generating certificate. Remember the
 
 Run the `snowballEdge bind-device` command.
 
-```
+```sh
     snowballEdge bind-device 
 
         --device-id:{{unique_id_of_key_management_device}} /
@@ -72,7 +71,7 @@ Run the `snowballEdge bind-device` command.
 
 When the command is successful, it produces the following output:
 
-```
+```sh
     bind-device with <BindDeviceOutput.DeviceId> successful.
 ```
 

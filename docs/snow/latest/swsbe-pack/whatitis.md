@@ -1,7 +1,6 @@
 
 
 # What are Snow devices?
-<a name="whatitis"></a>
 
 Snow devices are a versatile, rugged, portable, and secure edge computing offering. A Snow device can be transported by customers, can be rack mounted for operations in a climate‐controlled data center, or be deployed in harsh environments. Customers use Snow devices to deploy applications at the edge, to collect data, process it locally, and to optionally send it back to AWS by AWS DataSync.
 

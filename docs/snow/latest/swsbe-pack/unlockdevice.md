@@ -1,7 +1,6 @@
 
 
 # Unlocking the device
-<a name="unlockdevice"></a>
 
 To unlock the Snow device, run the `snowballEdge unlock-device` command. To run this command, the Snow device that you use for your job must be on-site, plugged into power and network, and turned on.
 

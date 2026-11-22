@@ -1,7 +1,6 @@
 
 
 # Receiving the Snow Family device
-<a name="receive-device-sw"></a>
 
 **Important**  
 Snow Family devices are the property of AWS. Tampering with a Snow device is a violation of the AWS Acceptable Use Policy.

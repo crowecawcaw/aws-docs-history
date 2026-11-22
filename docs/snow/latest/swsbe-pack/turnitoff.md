@@ -1,7 +1,6 @@
 
 
 # Powering off the device
-<a name="turnitoff"></a>
 
 When you've finished using the device, prepare it to return to AWS.
 

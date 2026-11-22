@@ -1,7 +1,6 @@
 
 
 # Downloading and installing the Snowball Edge client
-<a name="download-the-client"></a>
 
 Download the Snowball Edge client for your operating system:
 + **Microsoft Windows**: 

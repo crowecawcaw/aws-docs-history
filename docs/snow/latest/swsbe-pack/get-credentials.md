@@ -1,7 +1,6 @@
 
 
 # Getting your credentials and tools
-<a name="get-credentials"></a>
 
 Each job has a set of credentials that you must get from the AWS Snow Family Management Console or the job management API to authenticate your access to the Snow device. These credentials are an encrypted manifest file and an unlock code. The manifest file contains important information about the job and the permissions associated with it.
 
