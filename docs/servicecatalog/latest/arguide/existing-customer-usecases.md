@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Tutorial: Existing AppRegistry application resources and the `awsApplication` tag
-<a name="existing-customer-usecases"></a>
 
 If you have existing AppRegistry application, AWS recommends that you retroactively apply the `awsApplication` tag to all of the resources in the application, and also ensure any future resources added to the application have the `awsApplication` tag applied. This tutorial provides instructions for both recommendations. 
 

@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Viewing attribute group metadata
-<a name="manage-metatdata"></a>
 
  An attribute group is an open JSON object where you define the metadata for a resource. Metadata is data that describes other data. For more information, see [Attribute groups](https://docs.aws.amazon.com/servicecatalog/latest/arguide/overview-appreg.html#attr-groups) on [Overview of AWS Service Catalog AppRegistry](https://docs.aws.amazon.com/servicecatalog/latest/arguide/overview-appreg.html). 
 
@@ -19,7 +18,7 @@ AWS Service Catalog AppRegistry is no longer open to new customers. Existing cus
 
  **Example: Attribute group metadata** 
 
-```
+```json
 {
  "Team" : "WebTeam",
  "Department": "10006",

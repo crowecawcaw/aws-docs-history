@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # AWS Service Catalog AppRegistry availability change
-<a name="app-registry-availability-change"></a>
 
 AWS Service Catalog AppRegistry is transitioning to maintenance mode, and will no longer be open to new customers starting July 30, 2026. AppRegistry is a service that helps customers organize and manage their application resources by creating logical groupings and associating metadata. AppRegistry enables customers to define applications, associate AWS resources to those applications, and apply tags for resource management and cost allocation.
 

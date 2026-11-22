@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Managing tags
-<a name="add-tags"></a>
 
  Tags act as metadata to organize application resources. You create tags using key-value pairs. You add tags to applications and attribute groups, so you can group them by environment, owner, purpose, or other criteria. 
 

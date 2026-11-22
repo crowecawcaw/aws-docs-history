@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # AWS Identity and Access Management in AppRegistry
-<a name="ar-iam"></a>
 
 You must have credentials to access AWS Service Catalog AppRegistry. These credentials grant permission to access AWS resources, such as AWS Service Catalog portfolios or products. AppRegistry integrates with AWS Identity and Access Management (IAM). You can grant administrators the required permissions to create and manage products. You can grant end users the required permissions to launch products and manage provisioned products. Administrators and end users create and manage these polcies. Alternatively, AWS can create and manage them. To control access, you attach these policies to the roles and groups that you use with AppRegistry. For more information, see see [IAM identities (users, user groups, and roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*. 
 
@@ -33,7 +32,7 @@ The permissions that you have through AWS Identity and Access Management (IAM) m
 
  ** Example: warning message ** 
 
-```
+```json
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: awes:GetWidget on resource: my-example-widget
 ```
 

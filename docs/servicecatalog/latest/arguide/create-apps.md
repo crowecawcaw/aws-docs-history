@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Creating applications
-<a name="create-apps"></a>
 
  You create applications to group resources and metadata. After you enter a name and description for your application, you can associate resources, attribute groups, and tags with it. You can also share your application with other accounts in your organization. 
 

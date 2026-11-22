@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Managing application resources
-<a name="associate-resource"></a>
 
 **Note**  
 You can also use myApplications in the AWS Management Console to add and remove resources from your applications. Review [Managing resources](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/myApp-manage-resources.html) in the AWS Management Console *Getting started guide* for instructions. 

@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # AWS managed polices
-<a name="managed-policies"></a>
 
  We recommend that you use AWS Service Catalog AppRegistry managed policies to add permissions to identies. For more information see [IAM identities (users, user groups, and roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*. 
 
@@ -32,7 +31,7 @@ AWS Service Catalog AppRegistry is no longer open to new customers. Existing cus
 
 ****  
 
-```
+```json
 {
     	"Version":"2012-10-17",		 	 	 
     	"Statement": [
@@ -142,7 +141,7 @@ AWS Service Catalog AppRegistry is no longer open to new customers. Existing cus
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

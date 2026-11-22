@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Tutorial: Create your first application and attribute group in AppRegistry
-<a name="tutorial-appreg"></a>
 
  The procedures in this topic describe how to get started with AppRegistry. 
 
@@ -31,14 +30,14 @@ AWS Service Catalog AppRegistry is no longer open to new customers. Existing cus
  The example describes how to format a command from the perspective of an application builder. 
 +  To create an application in the AWS CLI, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry create-application --name "CC_Payments_App" --description "Real-time payments service for processing customer orders."
 ```
 
 **Example: Output**  
 The following shows the output you might encounter.
 
-```
+```json
 {
         "application": {
             "id": "{{your-resource-id}}",
@@ -68,14 +67,14 @@ The following shows the output you might encounter.
  The following command and output is for an attribute group an administrator might create to share in multiple accounts. 
 +  To create an attribute group in the AWS CLI from the administrator's perspective, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry create-attribute-group --name "Corp_Application_Classification_High" --description "Applications classified as high." --attributes '{"ApplicationResilience":"high","DataSecurity":"high","DataSensitivity":"high"}'
 ```
 
 **Example: Output**  
  The following shows the output you might encounter. 
 
-```
+```json
 {
   "attributeGroup": {
     "id": "{{your-resource-id}}",
@@ -93,14 +92,14 @@ aws servicecatalog-appregistry create-attribute-group --name "Corp_Application_C
  The following command and output is for an attribute group an application builder might create to track information about an application. 
 +  To create an attribute group in the AWS CLI from the application builder's perspective, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry create-attribute-group --name "Commerce_Payments" --description "24X7 real-time payments processing." --attributes '{"Team":"payments","app-type":"processing","SLA":"0.1h","Runtime":"Java-12","Support":{"Phone":"XXX-XXX-XXXX","Email":"support@app.com"},"Compliance":["SOC-1","PCI"]}}'
 ```
 
 **Example: Output**  
  The following shows the output you might encounter. 
 
-```
+```json
 {
     "attributeGroup": {
         "id": "{{your-resource-id}}",
@@ -122,14 +121,14 @@ aws servicecatalog-appregistry create-attribute-group --name "Commerce_Payments"
  The example includes information from the application and attribute group you created from the application builder's perspective. 
 +  To add an attribute group to an application, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry associate-attribute-group --application "CC_Payments_App" --attribute-group "Commerce_Payments" 
 ```
 
 **Example: Output**  
  The following shows the output you might encounter. 
 
-```
+```json
 {
 "applicationArn": "arn:aws:servicecatalog:{{your-Region}}:{{your-account-id}}:/applications/{{your-resource-id}}",
 "attributeGroupArn": "arn:aws:servicecatalog:{{your-Region}}:{{your-account-id}}:/attribute-groups/{{your-resource-id}}"
@@ -147,14 +146,14 @@ aws servicecatalog-appregistry associate-attribute-group --application "CC_Payme
  To complete this tutorial, you must create a CloudFormation stack resource named **cc\_payment\_app\_cfn\_stackCODE**. For information about how to create a CloudFormation stack resource, see [Creating a stack](https://docs.aws.amazon.com/servicecatalog/latest/arguide/associate-attr-groups.html) in the *CloudFormation User Guide* 
 +  To add an CloudFormation stack resource to an application, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry associate-resource --application CC_Payments_App --resource-type CFN_STACK --resource cc_payment_app_cfn_stackCODE --apply-tag cc_payment_application
 ```
 
 **Example: Output**  
  The following shows the output you might encounter. 
 
-```
+```json
 {
   "applicationArn": "arn:aws:servicecatalog:{{your-Region}}: XXXXXXXXXX:/applications/{{your-resource-id}}",
   "resourceArn": "arn:aws:cloudformation:{{you-Region}}: XXXXXXXXXX:stack/cc_payment_app_cfn_stack/{{your-resource-id}}"
@@ -177,14 +176,14 @@ aws servicecatalog-appregistry associate-resource --application CC_Payments_App 
  The following command will only show the applications in your current AWS Region. 
 +  To view a your applications in your application registry, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry list-applications
 ```
 
 **Example: Output**  
  The following shows the output you might encounter. 
 
-```
+```json
 {
     "applications": [
         {
@@ -210,14 +209,14 @@ aws servicecatalog-appregistry list-applications
  The following command will only show the attribute groups in your current AWS Region. 
 +  To view your attribute groups, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry list-attribute-groups
 ```
 
 **Example: Output**  
  The following shows the output you might encounter. 
 
-```
+```json
 {
     "attributeGroups": [
         {
@@ -248,14 +247,14 @@ aws servicecatalog-appregistry list-attribute-groups
  The output in this procedure shows the attribute group you created from the application builder's perspective in the previous section. 
 +  To view an attribute group that's been added to an application, run the following command: 
 
-```
+```json
 aws servicecatalog-appregistry list-associated-attribute-groups --application "CC_Payments_App"
 ```
 
 **Example: Output**  
  The following shows the output you might encounter. 
 
-```
+```json
 {
     "attributeGroups": [
         "{{your-resource-id}}"

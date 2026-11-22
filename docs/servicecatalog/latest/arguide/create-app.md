@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Managing applications
-<a name="create-app"></a>
 
  This section describes how to create and manage applications in AppRegistry. After you define an application by specifying its name, description, and share configuration, you can perform the following actions: 
 +  Associate resources with the application. For more information, see [Managing application definitions](https://docs.aws.amazon.com/servicecatalog/latest/arguide/associate-resource.html). 

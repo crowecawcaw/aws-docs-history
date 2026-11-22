@@ -3,11 +3,10 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # What is AppRegistry?
-<a name="intro-app-registry"></a>
 
  With AppRegistry, you create applications to store associated resources. You can create attribute groups that describe the context of your applications based on metadata you provide. You can create tags that assign metadata to applications and attribute groups and associate resources with applications. You can also share applications and attribute groups to accounts, organizations, and organizational units. The following video (06:57) shows how you can create application in AppRegistry. 
 
-[![AWS Videos](https://img.youtube.com/vi///https://www.youtube.com/embed/Ln9U9WWXnZg/0.jpg)](https://www.youtube.com/watch?v=//https://www.youtube.com/embed/Ln9U9WWXnZg)
+[![AWS Videos](https://img.youtube.com/vi/Ln9U9WWXnZg/0.jpg)](https://www.youtube.com/watch?v=Ln9U9WWXnZg)
 
 
 **Note**  

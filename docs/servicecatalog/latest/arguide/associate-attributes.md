@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Managing attribute groups
-<a name="associate-attributes"></a>
 
  This section describes how to create and manage AWS attribute groups in AppRegistry. When you create an attribute group, you can do the following: 
 +  Share the attribute group's visibility with your organizational structure. For more information, see [Sharing resources with accounts in your organization](https://docs.aws.amazon.com/servicecatalog/latest/arguide/sharing-definitions.html). 

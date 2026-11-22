@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Supported resource types for AppRegistry applications
-<a name="supported-resource-types"></a>
 
  This topic includes a list of supported resource types by service for AppRegistry applications. 
 

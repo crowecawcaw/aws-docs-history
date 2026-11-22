@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Creating and managing resource shares in attribute groups
-<a name="share-attr-groups"></a>
 
  This topic describes how to create and manage resource shares for new and existing AppRegistry attribute groups. For information about creating attribute groups, see [Creating attribute groups](https://docs.aws.amazon.com/servicecatalog/latest/arguide/create-attr-groups.html). 
 

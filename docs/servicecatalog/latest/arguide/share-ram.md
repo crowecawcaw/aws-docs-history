@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Using AWS Resource Access Manager to share resources
-<a name="share-ram"></a>
 
 AppRegistry integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. AWS RAM is a service that enables you to share AppRegistry applications and attribute groups with other AWS accounts or through AWS Organizations. 
 

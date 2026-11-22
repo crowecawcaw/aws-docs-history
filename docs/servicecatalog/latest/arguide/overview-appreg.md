@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Key concepts of AWS Service Catalog AppRegistry
-<a name="overview-appreg"></a>
 
  This topic describes the key components of AppRegistry. 
 

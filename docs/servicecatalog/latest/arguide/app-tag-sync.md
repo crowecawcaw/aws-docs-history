@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Resource tag-sync tasks
-<a name="app-tag-sync"></a>
 
 An automatic tag-synchronization of application resources (a *tag-sync task*) is an application resource management strategy that works by automatically adding and removing [The `awsApplication` tag](ar-user-tags.md) from resources to manage their inclusion in an application. When you create a tag-sync task in the application, you specify a tag key-value pair to sync to the application, such as `Project:Blue`. The task then adds any resources tagged with `Project:Blue` to the application by adding the `awsApplication` tag to those resources. 
 
@@ -56,7 +55,7 @@ If you choose to use an existing IAM role, ensure it includes the following perm
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

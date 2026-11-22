@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # The `awsApplication` tag
-<a name="ar-user-tags"></a>
 
 The `awsApplication` tag is a tag that AppRegistry vends when you create an AppRegistry application. This tag marks resources as belonging to an application. This tag consists of a key-value pair, where the key is `awsApplication` and value is the Amazon Resource Name (ARN) of an application. 
 

@@ -3,7 +3,6 @@
 AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Data protection in AppRegistry
-<a name="ar-data-protection"></a>
 
  In the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/), you're responsible for ***security in the cloud*** while AWS is responsible for ***security of the cloud***. AWS protects the cloud infrastructure, and you protect the content that's hosted in the cloud infrastructure. For information about data privacy and information about data protection in Europe, see the following: 
 +  [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/) 
