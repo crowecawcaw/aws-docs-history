@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # CIS AWS Benchmark v1.2.0
-<a name="CIS-1-2"></a>
 
 
 

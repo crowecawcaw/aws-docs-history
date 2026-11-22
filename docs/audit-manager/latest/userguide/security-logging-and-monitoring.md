@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Logging and monitoring in AWS Audit Manager
-<a name="security-logging-and-monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Audit Manager and your other AWS solutions. AWS provides the following monitoring tools to watch Audit Manager, report when something is wrong, and take automatic actions when appropriate:
 + *AWS CloudTrail* captures API calls and related events made by or on behalf of your AWS account and delivers the log files to an Amazon S3 bucket that you specify. You can identify which users and accounts called AWS, the source IP address from which the calls were made, and when the calls occurred. For more information, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).

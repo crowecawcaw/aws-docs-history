@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Delegating a control set for review in AWS Audit Manager
-<a name="delegation-for-audit-owners-delegating-a-control-set"></a>
 
 
 
@@ -21,7 +20,7 @@ Audit Manager replaces the {{placeholder text}} with your account and resource i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

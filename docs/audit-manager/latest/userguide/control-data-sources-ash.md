@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # AWS Security Hub CSPM controls supported by AWS Audit Manager
-<a name="control-data-sources-ash"></a>
 
 
 
@@ -40,7 +39,7 @@ Let's say that you have enabled the following three security standards in Securi
 
 Here's an example of how that evidence might look:
 
-```
+```java
 {
     "SchemaVersion": "2018-10-08",
     "Id": "arn:aws:securityhub:us-west-2:111122223333:security-control/IAM.4/finding/09876543-p0o9-i8u7-y6t5-098765432109",
@@ -129,7 +128,7 @@ Here's an example of how that evidence might look. Note that in this example, ea
 
 **Evidence for IAM.4 (FSBP)**
 
-```
+```python
 {
   "version":"0",
   "id":"12345678-1q2w-3e4r-5t6y-123456789012",

@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Troubleshooting AWS Audit Manager identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Audit Manager and IAM.
 

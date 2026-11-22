@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Integrating Audit Manager evidence into your GRC system
-<a name="tutorial-for-grc-integration"></a>
 
 
 
@@ -94,7 +93,7 @@ Follow the instructions in [Creating a role for an IAM user](https://docs.aws.am
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [
@@ -200,7 +199,7 @@ Follow the instructions in [Granting users permission to switch roles](https://d
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": {

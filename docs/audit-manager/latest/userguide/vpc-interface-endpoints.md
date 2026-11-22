@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # AWS Audit Manager and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS Audit Manager by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access Audit Manager APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with Audit Manager APIs. Traffic between your VPC and AWS Audit Manager does not leave the AWS network. 
 

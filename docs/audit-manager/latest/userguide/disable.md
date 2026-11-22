@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Disabling AWS Audit Manager
-<a name="disable"></a>
 
 You can disable Audit Manager if you no longer want to use the service. When you disable Audit Manager, you also have the option to delete all of your data. 
 

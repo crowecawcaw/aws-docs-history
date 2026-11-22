@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # AWS Audit Manager availability change
-<a name="audit-manager-availability-change"></a>
 
 AWS Audit Manager is a service that enables you to view and report on the compliance posture of your AWS resources with control frameworks such as SOC2, PCI DSS, and HIPAA. Audit Manager is transitioning to maintenance mode and from April 30th 2026 customers will no longer be able to set up the service in new accounts. Existing customers who have set up Audit Manager for a single account within a region can continue to use the service for that account within that region, including creating new Assessments; but they will not be able to set up Audit Manager for additional regions or new accounts. Customers who have set up Audit Manager within the management account of an organization will be able to add accounts from that organization to assessments; but they will not be able to extend usage to additional regions or set up Audit Manager for new organizations.
 

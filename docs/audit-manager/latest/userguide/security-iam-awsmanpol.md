@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # AWS managed policies for AWS Audit Manager
-<a name="security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -45,7 +44,7 @@ This policy includes the following permissions:
 
 ****  
 
-```
+```json
 
 
 ```
@@ -337,7 +336,7 @@ For more information about the API calls that Audit Manager uses to collect evid
 
 ****  
 
-```
+```json
 
 
 ```

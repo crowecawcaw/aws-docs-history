@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Create an Audit Manager assessment report that contains one day of evidence using an AWS SDK
-<a name="example_auditmanager_Scenario_CreateAssessmentReport_section"></a>
 
 The following code example shows how to create an Audit Manager assessment report that contains one day of evidence.
 
@@ -13,7 +12,7 @@ The following code example shows how to create an Audit Manager assessment repor
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/auditmanager#code-examples). 
 
-```
+```python
 import dateutil.parser
 import logging
 import time

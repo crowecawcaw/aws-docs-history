@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Troubleshooting permission and access issues
-<a name="permissions-issues"></a>
 
 
 
@@ -67,7 +66,7 @@ Here’s an example of such an SCP. With this SCP in place, your delegated admin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Create an Audit Manager custom framework that contains Security Hub CSPM controls using an AWS SDK
-<a name="example_auditmanager_Scenario_CustomFrameworkFromSecurityHub_section"></a>
 
 The following code example shows how to:
 + Get a list of all standard controls that have Security Hub CSPM as their data source.
@@ -15,7 +14,7 @@ The following code example shows how to:
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/auditmanager#code-examples). 
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError

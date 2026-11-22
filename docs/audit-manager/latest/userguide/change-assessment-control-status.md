@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Changing the status of an assessment control in AWS Audit Manager
-<a name="change-assessment-control-status"></a>
 
 You can change the status of an assessment control within your active assessment. Updating a control's status enables you to track its progress and indicate when you have reviewed it, keeping your assessment organized and up-to-date. 
 

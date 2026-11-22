@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Code examples for Audit Manager using AWS SDKs
-<a name="service_code_examples"></a>
 
 The following code examples show how to use Audit Manager with an AWS software development kit (SDK). 
 

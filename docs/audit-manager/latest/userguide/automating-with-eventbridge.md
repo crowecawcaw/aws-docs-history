@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Monitoring AWS Audit Manager with Amazon EventBridge
-<a name="automating-with-eventbridge"></a>
 
 Amazon EventBridge helps you automate your AWS services and respond automatically to system events such as application availability issues or resource changes. 
 

@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Resource-based policy examples for AWS Audit Manager
-<a name="security_iam_resource-based-policy-examples"></a>
 
 ## Amazon S3 bucket policy
 <a name="s3-resource-policy"></a>
@@ -23,7 +22,7 @@ Replace the {{placeholder text}} with your own information, as follows:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -75,7 +74,7 @@ If your S3 bucket has the default encryption set to `SSE-KMS`, grant access to C
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
     "Statement": [

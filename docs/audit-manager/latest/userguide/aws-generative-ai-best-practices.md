@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # AWS Generative AI Best Practices Framework v2
-<a name="aws-generative-ai-best-practices"></a>
 
 **Note**  
 On June 11, 2024, AWS Audit Manager upgraded this framework to a new version, *AWS generative AI best practices framework v2*. In addition to supporting best practices for Amazon Bedrock, v2 enables you to collect evidence that demonstrates you’re following best practices on Amazon SageMaker AI.  

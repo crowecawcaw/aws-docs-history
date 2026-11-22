@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Logging AWS Audit Manager API calls with CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Audit Manager is integrated with CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Audit Manager. CloudTrail captures all API calls for Audit Manager as events. The calls captured include calls from the Audit Manager console and code calls to the Audit Manager API operations. 
 
@@ -44,7 +43,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the [`CreateAssessment`](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html) action. 
 
-```
+```json
 {
       eventVersion:"1.05",
       userIdentity:{

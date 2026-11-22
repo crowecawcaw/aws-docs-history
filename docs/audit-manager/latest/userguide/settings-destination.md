@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Configuring your default assessment report destination
-<a name="settings-destination"></a>
 
 
 
@@ -42,7 +41,7 @@ If you do choose to use a cross-account S3 bucket as your assessment report dest
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -85,7 +84,7 @@ For more information, see [Limit access to Amazon S3 buckets owned by specific A
 **Restrict S3 actions to your organization by using SCPs**  
 If you use , create a service control policy (SCP) that denies S3 actions on resources outside of your organization. The following example policy denies all S3 actions to resources outside your organization. The condition checks whether the `aws:ResourceOrgID` matches your organization ID.  
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [

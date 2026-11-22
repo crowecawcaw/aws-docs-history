@@ -3,7 +3,6 @@
 AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Configuring your data encryption settings
-<a name="settings-KMS"></a>
 
 You can choose how you encrypt your data in AWS Audit Manager. Audit Manager automatically creates a unique AWS managed key for the secure storage of your data. By default, your Audit Manager data is encrypted with this KMS key. However, if you want to customize your data encryption settings, you can specify your own symmetric encryption customer managed key. Using your own KMS key gives you more flexibility, including the ability to create, rotate, and disable keys.
 
