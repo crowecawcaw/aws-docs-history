@@ -1,7 +1,6 @@
 
 
 # Connected Airports Using IoT and AI/ML
-<a name="connected-airports"></a>
 
 Publication date: **December 23, 2022 ([Diagram history](#connected-airports-history))**
 
