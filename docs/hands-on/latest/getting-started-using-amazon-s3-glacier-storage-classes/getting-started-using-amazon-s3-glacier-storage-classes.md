@@ -1,7 +1,6 @@
 
 
 # Getting started using the Amazon Glacier storage classes
-<a name="getting-started-using-amazon-s3-glacier-storage-classes"></a>
 
 
 |  |  | 
