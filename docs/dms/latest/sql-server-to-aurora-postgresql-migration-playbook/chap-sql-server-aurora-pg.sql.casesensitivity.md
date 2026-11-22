@@ -1,7 +1,6 @@
 
 
 # Case sensitivity differences for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.casesensitivity"></a>
 
 This topic provides reference information on handling object name case sensitivity when migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can use this information to ensure proper naming conventions and avoid potential conflicts during the migration process.
 

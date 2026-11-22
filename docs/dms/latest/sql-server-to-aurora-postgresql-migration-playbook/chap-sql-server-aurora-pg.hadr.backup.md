@@ -1,7 +1,6 @@
 
 
 # Backup and restore design
-<a name="chap-sql-server-aurora-pg.hadr.backup"></a>
 
 This topic provides reference information about backup and restore capabilities in Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand the differences and similarities between these two database systems in terms of their backup and recovery features. The topic compares various aspects such as recovery models, backup types, and restore operations, helping you grasp how these functionalities translate between SQL Server and Aurora PostgreSQL.
 

@@ -1,7 +1,6 @@
 
 
 # SQL Server Agent and PostgreSQL
-<a name="chap-sql-server-aurora-pg.management.scheduledlambda"></a>
 
 This topic provides reference information about the differences between SQL Server Agent and PostgreSQL in the context of migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand the key functions of SQL Server Agent, including scheduling automated maintenance jobs and alerting, and how these features are utilized in SQL Server.
 

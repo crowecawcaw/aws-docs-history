@@ -1,7 +1,6 @@
 
 
 # User-defined types for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.udt"></a>
 
 This topic provides reference information about user-defined types in SQL Server and PostgreSQL, which is valuable for database administrators and developers migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can gain insight into how both database systems implement custom data types, including their similarities and differences.
 

@@ -1,7 +1,6 @@
 
 
 # Data control language for Aurora PostgreSQL
-<a name="chap-sql-server-aurora-pg.security.datacontrollanguage"></a>
 
 This topic provides reference information about user permissions and access control in Amazon Aurora PostgreSQL, comparing it to Microsoft SQL Server. You can understand how Aurora PostgreSQL implements the ANSI standard for data control language commands, including GRANT and REVOKE. The topic explains the various permission levels available in Aurora PostgreSQL, from individual object permissions to schema-wide access.
 

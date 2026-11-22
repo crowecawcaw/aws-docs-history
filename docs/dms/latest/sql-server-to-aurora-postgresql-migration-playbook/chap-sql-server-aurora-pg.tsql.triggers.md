@@ -1,7 +1,6 @@
 
 
 # Triggers for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.triggers"></a>
 
 This topic provides reference information about migrating triggers from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It compares the trigger functionality between the two database systems, highlighting similarities and differences in syntax, scope, and usage. You’ll gain insights into how triggers work in both environments, including their types, execution phases, and management capabilities.
 

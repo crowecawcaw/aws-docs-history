@@ -1,7 +1,6 @@
 
 
 # Managing statistics
-<a name="chap-sql-server-aurora-pg.tuning.statistics"></a>
 
 This topic provides reference information about statistics and query optimization in SQL Server and PostgreSQL databases. You can understand how these database systems use statistics to improve query performance and how they differ in their approach to collecting and managing statistical data. The topic compares the methods for creating, viewing, and updating statistics in SQL Server with similar functionality in PostgreSQL.
 

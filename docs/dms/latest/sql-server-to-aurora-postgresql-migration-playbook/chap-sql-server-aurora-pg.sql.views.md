@@ -1,7 +1,6 @@
 
 
 # Views for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.views"></a>
 
 This topic provides reference information about migrating views from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand the similarities and differences in view functionality between these two database systems, which is crucial for planning and executing a successful migration. The topic covers basic view concepts, usage patterns, and specific features like indexed views, partitioned views, and updateable views.
 

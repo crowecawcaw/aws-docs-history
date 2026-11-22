@@ -1,7 +1,6 @@
 
 
 # Delete and update from for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.delete"></a>
 
 This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically focusing on DELETE and UPDATE statements with JOINs. You can understand the differences in syntax and functionality when migrating from SQL Server to Aurora PostgreSQL. The topic highlights that while SQL Server supports an extended syntax for DELETE and UPDATE statements with additional FROM clauses, Aurora PostgreSQL has limitations in this area.
 

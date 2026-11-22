@@ -1,7 +1,6 @@
 
 
 # SQL Server cast and convert for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.castconvert"></a>
 
 This topic provides reference information about data type conversion and casting in Amazon Aurora PostgreSQL compared to Microsoft SQL Server. You can understand the similarities and differences between the CAST and CONVERT functions in both database systems. The topic explains how Aurora PostgreSQL supports the CAST function similarly to SQL Server, while also offering additional flexibility through custom casts and the CREATE CAST command.
 

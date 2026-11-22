@@ -1,7 +1,6 @@
 
 
 # Error handling for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.errorhandling"></a>
 
 This topic provides reference information about error handling in SQL Server and Amazon Aurora PostgreSQL, focusing on the differences and similarities between the two systems. You can use this knowledge to understand how error handling mechanisms in SQL Server translate to Aurora PostgreSQL when migrating your database. The topic compares specific error handling features, such as TRY…​CATCH blocks and THROW statements, with their PostgreSQL equivalents.
 

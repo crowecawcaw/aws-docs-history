@@ -1,7 +1,6 @@
 
 
 # Migration quick tips
-<a name="chap-sql-server-aurora-pg.tips"></a>
 
 This section provides migration tips that can help save time as you transition from Microsoft SQL Server to Aurora PostgreSQL. They address many of the challenges faced by administrators new to Aurora PostgreSQL. Some of these tips describe functional differences in similar features between SQL Server and Aurora PostgreSQL.
 

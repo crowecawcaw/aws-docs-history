@@ -1,7 +1,6 @@
 
 
 # Dynamic SQL for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.dynamicsql"></a>
 
 This topic provides reference information on migrating dynamic SQL functionality from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can use this guide to understand how to adapt your dynamic SQL queries and commands when transitioning to PostgreSQL. The topic explains the differences in syntax and execution methods between the two database systems, offering practical examples for running SELECT queries, DML commands, and DDL statements dynamically in PostgreSQL.
 

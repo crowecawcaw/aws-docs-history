@@ -1,7 +1,6 @@
 
 
 # ETL features
-<a name="chap-sql-server-aurora-pg.management.etl"></a>
 
 This topic provides reference information about migrating ETL (Extract, Transform, Load) functionality from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces AWS Glue as an alternative to SQL Server’s native ETL tools, specifically SQL Server Integration Services (SSIS) which replaced the older Data Transformation Services (DTS).
 

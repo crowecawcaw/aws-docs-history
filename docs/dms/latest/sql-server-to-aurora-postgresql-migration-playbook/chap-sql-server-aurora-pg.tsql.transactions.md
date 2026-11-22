@@ -1,7 +1,6 @@
 
 
 # Transactions for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.transactions"></a>
 
 This topic provides reference information about transaction handling in Microsoft SQL Server and Amazon Aurora PostgreSQL, focusing on their similarities and differences. It explores the fundamental principles of database transactions, including ACID properties and isolation levels, and how they are implemented in both database systems. The topic compares the default behaviors, syntax variations, and supported features for managing transactions in SQL Server and PostgreSQL.
 

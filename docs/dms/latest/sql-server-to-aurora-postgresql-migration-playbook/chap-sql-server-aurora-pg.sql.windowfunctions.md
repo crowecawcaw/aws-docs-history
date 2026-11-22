@@ -1,7 +1,6 @@
 
 
 # Window functions for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.windowfunctions"></a>
 
 This topic provides reference information comparing window functions in Microsoft SQL Server and PostgreSQL, which is valuable for database migration projects. You can gain insights into the similarities and differences between these two database systems' analytical capabilities. The topic highlights the types of window functions available in SQL Server, including ranking, aggregate, and analytic functions, and compares them to PostgreSQL’s window function support.
 

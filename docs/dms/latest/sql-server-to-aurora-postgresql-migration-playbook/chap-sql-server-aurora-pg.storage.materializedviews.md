@@ -1,7 +1,6 @@
 
 
 # Indexed view functionality
-<a name="chap-sql-server-aurora-pg.storage.materializedviews"></a>
 
 This topic provides reference information comparing the feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically focusing on indexed views and materialized views. You can understand the differences in implementation and limitations between these two database systems when it comes to creating and managing views with indexes. The topic highlights that while SQL Server supports indexed views with specific requirements, PostgreSQL offers similar functionality through materialized views.
 

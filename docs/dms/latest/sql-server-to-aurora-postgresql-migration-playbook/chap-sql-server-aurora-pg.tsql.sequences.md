@@ -1,7 +1,6 @@
 
 
 # Identity and sequences for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.sequences"></a>
 
 This topic provides reference information comparing automatic enumeration features between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. It focuses on how these databases handle sequence generation and identity columns, which are commonly used for creating surrogate keys in relational database systems.
 

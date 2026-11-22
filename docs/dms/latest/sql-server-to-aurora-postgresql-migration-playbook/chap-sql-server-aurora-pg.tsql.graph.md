@@ -1,7 +1,6 @@
 
 
 # SQL server graph features for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.graph"></a>
 
 This topic provides reference information about graph database capabilities in Microsoft SQL Server 2019 and their potential migration to Amazon Aurora PostgreSQL. You can understand the fundamental concepts of graph databases, including nodes, edges, and their unique features for modeling complex relationships. The topic explores how SQL Server implements graph functionality, offering examples of creating graph tables and performing queries.
 

@@ -1,7 +1,6 @@
 
 
 # High availability essentials
-<a name="chap-sql-server-aurora-pg.hadr.essentials"></a>
 
 This topic provides reference information comparing high availability and disaster recovery solutions between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain insight into how these database systems handle server-level and database-level failure protection, disk error protection, read-only replicas, failover addressing, and read-only workloads.
 

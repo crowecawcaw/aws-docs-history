@@ -1,7 +1,6 @@
 
 
 # Service Broker functionality for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.servicebroker"></a>
 
 This topic provides reference information about migrating from Microsoft SQL Server 2019’s Service Broker functionality to Amazon Aurora PostgreSQL. You can understand the challenges and alternatives available when moving from SQL Server’s native messaging and queuing capabilities to Aurora PostgreSQL, which doesn’t offer a direct equivalent. The topic explores how you can achieve similar functionality using a combination of AWS services, including DB Links, AWS Lambda, and Amazon SQS.
 

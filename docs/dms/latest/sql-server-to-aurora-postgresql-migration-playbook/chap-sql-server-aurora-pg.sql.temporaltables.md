@@ -1,7 +1,6 @@
 
 
 # Temporal tables for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.temporaltables"></a>
 
 This topic provides reference information about temporal database tables in Microsoft SQL Server and their compatibility with Amazon Aurora PostgreSQL. You can understand the functionality of temporal tables in SQL Server, including their use of DATETIME2 columns and querying methods. The topic also explains common scenarios where temporal tables are useful for tracking data change history.
 

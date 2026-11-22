@@ -1,7 +1,6 @@
 
 
 # Top fetch for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.topfetch"></a>
 
 This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically focusing on result set limiting and paging. You can understand how SQL Server’s TOP and FETCH clauses compare to PostgreSQL’s LIMIT and OFFSET functionality. The topic explains the differences in syntax and capabilities, helping you navigate the transition from SQL Server to Aurora PostgreSQL.
 

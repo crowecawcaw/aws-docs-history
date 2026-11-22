@@ -1,7 +1,6 @@
 
 
 # Resource governor features
-<a name="chap-sql-server-aurora-pg.management.resourcegovernor"></a>
 
 This topic provides reference information comparing resource management capabilities between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how SQL Server’s Resource Governor functionality, which allows administrators to control and manage resource consumption, differs from Aurora PostgreSQL. While Aurora PostgreSQL doesn’t have built-in resource management equivalent to SQL Server, it leverages cloud economics and flexibility to address similar needs.
 

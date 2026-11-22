@@ -1,7 +1,6 @@
 
 
 # Scripting features
-<a name="chap-sql-server-aurora-pg.management.scripting"></a>
 
 This topic provides reference information comparing the scripting and automation capabilities of Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. It highlights the differences in tool sets and scripting languages between these two database systems. The topic explains that SQL Server supports T-SQL and XQuery scripting within various frameworks, while Aurora PostgreSQL, as a Platform as a Service, offers different approaches for database administration and scripting.
 

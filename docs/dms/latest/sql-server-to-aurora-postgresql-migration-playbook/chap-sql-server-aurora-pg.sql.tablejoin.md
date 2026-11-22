@@ -1,7 +1,6 @@
 
 
 # Table JOIN for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.tablejoin"></a>
 
 This topic provides reference information about join operations in SQL Server and their compatibility with Amazon Aurora PostgreSQL. You can understand how different types of joins, such as INNER JOIN, OUTER JOIN, CROSS JOIN, and APPLY operations, are supported or need to be rewritten when migrating from SQL Server to Aurora PostgreSQL.
 

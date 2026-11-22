@@ -1,7 +1,6 @@
 
 
 # Common Language Runtime for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.clr"></a>
 
 This topic provides reference information about migrating Microsoft SQL Server’s Common Language Runtime (CLR) objects to Amazon Aurora PostgreSQL. You can understand the differences in functionality between SQL Server’s CLR capabilities and alternatives. The topic explains that while Aurora PostgreSQL doesn’t support .NET code directly, it offers Perl as an alternative for creating similar database objects.
 

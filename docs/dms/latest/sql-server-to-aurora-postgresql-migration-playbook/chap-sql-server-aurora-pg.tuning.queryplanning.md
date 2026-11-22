@@ -1,7 +1,6 @@
 
 
 # Query hints and plan guides
-<a name="chap-sql-server-aurora-pg.tuning.queryplanning"></a>
 
 This topic provides reference information about the differences in feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically regarding database hints and query optimization. You can understand how SQL Server’s hint functionality, which allows direct influence over query execution plans, contrasts with PostgreSQL’s approach. While PostgreSQL doesn’t support database hints in the same way, it offers alternative methods to influence query planning through session parameters.
 

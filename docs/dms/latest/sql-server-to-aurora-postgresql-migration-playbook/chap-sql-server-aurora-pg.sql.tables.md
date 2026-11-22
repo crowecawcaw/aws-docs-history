@@ -1,7 +1,6 @@
 
 
 # Creating tables for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.tables"></a>
 
 This topic provides reference information comparing the creation of tables in Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand the similarities and differences in table creation syntax, features, and capabilities between these two database systems. The topic highlights key aspects such as table and column naming, data types, constraints, and auto-generated values.
 

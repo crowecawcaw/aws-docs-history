@@ -1,7 +1,6 @@
 
 
 # Column encryption for Aurora PostgreSQL
-<a name="chap-sql-server-aurora-pg.security.columnencryption"></a>
 
 This topic provides reference information comparing encryption and decryption capabilities between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand the encryption functions available in SQL Server and their counterparts in Aurora PostgreSQL. The topic highlights the similarities in functionality while noting the differences in syntax and options. It introduces the encryption hierarchy in SQL Server and the various encryption algorithms supported by Aurora PostgreSQL.
 

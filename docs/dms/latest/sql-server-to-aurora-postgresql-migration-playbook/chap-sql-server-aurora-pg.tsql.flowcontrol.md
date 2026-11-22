@@ -1,7 +1,6 @@
 
 
 # Flow control for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.flowcontrol"></a>
 
 This topic provides reference information comparing flow control constructs between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can use this information to understand the similarities and differences in flow control mechanisms when migrating from SQL Server to Aurora PostgreSQL. The topic outlines various flow control commands available in both systems, highlighting where direct equivalents exist and suggesting alternatives where they don’t.
 

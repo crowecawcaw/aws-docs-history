@@ -1,7 +1,6 @@
 
 
 # Synonyms for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.synonyms"></a>
 
 This topic provides reference information about the differences in synonym functionality between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand how SQL Server uses synonyms as alternative identifiers for database objects and how this feature is not directly supported in PostgreSQL. The topic explains the purpose and benefits of synonyms in SQL Server, such as providing an abstraction layer and simplifying the use of four-part identifiers for remote instances.
 

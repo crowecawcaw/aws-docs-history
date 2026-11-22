@@ -1,7 +1,6 @@
 
 
 # Partitioning databases
-<a name="chap-sql-server-aurora-pg.storage.partitioning"></a>
 
 This topic provides reference information about partitioning in Microsoft SQL Server and Amazon Aurora PostgreSQL. It compares and contrasts how partitioning works in these two database systems, highlighting their similarities and differences. The topic explores the features, limitations, and recent improvements in partitioning capabilities for both platforms. You can use this information to understand the partitioning options available when migrating from SQL Server to Aurora PostgreSQL, helping you make informed decisions about database design and performance optimization.
 

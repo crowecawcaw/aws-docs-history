@@ -1,7 +1,6 @@
 
 
 # Cursors for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.cursors"></a>
 
 This topic provides reference information about cursor compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. It introduces the concept of cursors and their role in database operations, explaining how they allow developers to work with result sets sequentially. The topic compares cursor functionality in SQL Server and PostgreSQL, highlighting similarities and differences in syntax and usage.
 

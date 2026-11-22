@@ -1,7 +1,6 @@
 
 
 # Collations for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.collations"></a>
 
 This topic provides reference information about collations and character sets in Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, highlighting their differences and similarities. You can gain insight into how these database systems handle string management, sorting rules, and character encoding. The topic explores the various levels at which collations can be defined in SQL Server, from server-level to expression-level, and contrasts this with PostgreSQL’s approach.
 

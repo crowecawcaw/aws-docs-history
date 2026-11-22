@@ -1,7 +1,6 @@
 
 
 # Configuring upgrades
-<a name="chap-sql-server-aurora-pg.configuration.upgrades"></a>
 
 This topic provides reference information on upgrading database instances, comparing the process for Microsoft SQL Server and Amazon Aurora PostgreSQL. You can use this information to plan and execute database upgrades, whether you’re working with on-premises SQL Server or managed Aurora PostgreSQL in the cloud. The guide walks you through the necessary steps for each platform, including prerequisites, upgrade procedures, and post-upgrade tasks.
 

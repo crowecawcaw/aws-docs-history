@@ -1,7 +1,6 @@
 
 
 # Derived tables for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.derivedtables"></a>
 
 This topic provides reference information about derived tables in SQL Server and PostgreSQL, focusing on their compatibility in the context of migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand how derived tables function similarly in both database systems, enabling you to write complex join queries.
 

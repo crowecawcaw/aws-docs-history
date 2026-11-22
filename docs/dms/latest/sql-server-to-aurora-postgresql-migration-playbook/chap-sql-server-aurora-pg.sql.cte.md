@@ -1,7 +1,6 @@
 
 
 # Common table expressions for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.cte"></a>
 
 This topic provides reference information about Common Table Expressions (CTEs) in both SQL Server and PostgreSQL. It explains that CTEs are part of the ANSI SQL standard and are used to simplify queries and improve readability by defining temporary views or derived tables. The topic highlights the similarities between SQL Server and PostgreSQL implementations of CTEs, including their support for recursive functionality.
 

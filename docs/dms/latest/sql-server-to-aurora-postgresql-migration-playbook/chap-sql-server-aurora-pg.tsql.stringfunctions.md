@@ -1,7 +1,6 @@
 
 
 # String functions for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.stringfunctions"></a>
 
 Compare string function compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. Gain insights into how various string functions in SQL Server map to their PostgreSQL equivalents, which is crucial for database migration projects. The information highlights supported functions, unsupported ones, and alternative approaches in PostgreSQL.
 

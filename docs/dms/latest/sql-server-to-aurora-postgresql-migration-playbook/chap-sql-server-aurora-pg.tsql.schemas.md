@@ -1,7 +1,6 @@
 
 
 # Databases and schemas for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.schemas"></a>
 
 This topic provides reference information comparing database and schema structures between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain insights into how these database management systems handle logical containers for security and access control. The topic explores the similarities and differences in how databases, schemas, and objects are organized and referenced in both systems.
 

@@ -1,7 +1,6 @@
 
 
 # Stored procedures for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.storedprocedures"></a>
 
 This topic provides reference information about the compatibility and differences between stored procedures in Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can use this guide to understand the key distinctions in syntax, security contexts, parameter handling, and supported features when migrating stored procedures from SQL Server to Aurora PostgreSQL.
 

@@ -1,7 +1,6 @@
 
 
 # Migrating T-SQL features
-<a name="chap-sql-server-aurora-pg.tsql"></a>
 
 This topic provides conceptual content comparing various features and functionalities between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain valuable insights into the differences and similarities between these two database systems, which is crucial for planning and executing a successful migration. The content covers a wide range of topics, including data types, cursors, stored procedures, error handling, full-text search, and more. By understanding these concepts, database administrators and developers can anticipate challenges, identify potential workarounds, and make informed decisions when transitioning their databases and applications from SQL Server to Aurora PostgreSQL. This knowledge enables smoother migrations and helps maintain data integrity and functionality in the new PostgreSQL environment.
 

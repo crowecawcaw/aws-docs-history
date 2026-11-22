@@ -1,7 +1,6 @@
 
 
 # GROUP BY for ANSI SQL
-<a name="chap-sql-server-aurora-pg.sql.groupby"></a>
 
 This topic provides reference information about migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL, focusing on GROUP BY, CUBE, ROLLUP, and GROUPING SETS functionalities. You can use this guide to understand the similarities and differences between these database systems when working with aggregate functions and grouping operations.
 

@@ -1,7 +1,6 @@
 
 
 # Tuning run plans
-<a name="chap-sql-server-aurora-pg.tuning.plans"></a>
 
 This topic provides reference information about query execution plans in both Microsoft SQL Server and PostgreSQL, focusing on their importance for performance optimization. You can understand how these database management systems generate and utilize execution plans to analyze and improve query performance. The topic compares the features and syntax differences between SQL Server and PostgreSQL, highlighting SQL Server’s graphical representation of execution plans and automatic tuning capabilities.
 

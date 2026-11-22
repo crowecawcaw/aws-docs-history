@@ -1,7 +1,6 @@
 
 
 # User-defined functions for T-SQL
-<a name="chap-sql-server-aurora-pg.tsql.udf"></a>
 
 This topic provides reference information about User-Defined Functions (UDFs) in SQL Server and their compatibility with PostgreSQL. It introduces the types of UDFs supported in SQL Server, including scalar functions, table-valued functions, and multi-statement table-valued functions. The topic explains the characteristics of UDFs, such as their inability to modify database structures or data outside their scope, and the distinction between deterministic and non-deterministic functions.
 
