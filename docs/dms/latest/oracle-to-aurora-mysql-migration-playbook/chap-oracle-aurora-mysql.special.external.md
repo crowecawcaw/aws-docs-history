@@ -1,7 +1,6 @@
 
 
 # Oracle external tables and MySQL integration with Amazon S3
-<a name="chap-oracle-aurora-mysql.special.external"></a>
 
 With AWS DMS, you can integrate Oracle databases and MySQL databases with Amazon S3 using external tables and the AWS-developed MySQL integration. External tables allow Oracle databases to directly access and query data stored in Amazon S3, while the MySQL integration lets MySQL databases treat Amazon S3 as a storage engine.
 

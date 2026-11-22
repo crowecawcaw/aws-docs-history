@@ -1,7 +1,6 @@
 
 
 # Oracle sequences and identity columns and MySQL sequences and AUTO INCREMENT columns
-<a name="chap-oracle-aurora-mysql.sql.identity"></a>
 
 Oracle sequences and identity columns, as well as MySQL Sequences and `AUTO_INCREMENT` columns, are database objects used to generate unique sequential values, often employed as primary keys or unique identifiers. The following sections provide detailed guidance on handling Oracle sequences and identity columns, and MySQL sequences and AUTO\_INCREMENT columns when using AWS DMS.
 

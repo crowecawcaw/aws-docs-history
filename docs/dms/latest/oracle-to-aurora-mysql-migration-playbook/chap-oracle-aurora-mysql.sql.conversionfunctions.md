@@ -1,7 +1,6 @@
 
 
 # Conversion functions
-<a name="chap-oracle-aurora-mysql.sql.conversionfunctions"></a>
 
 With AWS DMS, you can transform data types between different database platforms during the migration process using conversion functions. Conversion functions define the mapping between data types in the source and target databases, allowing you to handle incompatible data types seamlessly.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle Data Pump and MySQL mysqldump and mysql
-<a name="chap-oracle-aurora-mysql.hadr.datapump"></a>
 
 With AWS DMS, you can migrate data between different database platforms, including Oracle and MySQL, using tools like Oracle Data Pump and MySQL mysqldump and mysql. Oracle Data Pump provides a streamlined way to move data and metadata from one Oracle database to another, while mysqldump and mysql are utilities for backing up and restoring MySQL databases.
 

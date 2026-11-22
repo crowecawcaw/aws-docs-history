@@ -1,7 +1,6 @@
 
 
 # Case sensitivity differences for Oracle and MySQL
-<a name="chap-oracle-aurora-mysql.tables.case"></a>
 
 Object name case sensitivity is different for Oracle and MySQL. Oracle names aren’t case sensitive. Aurora MySQL names are case sensitive.
 

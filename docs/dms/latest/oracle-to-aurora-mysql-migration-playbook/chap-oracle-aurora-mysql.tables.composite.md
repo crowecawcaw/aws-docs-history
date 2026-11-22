@@ -1,7 +1,6 @@
 
 
 # Oracle composite indexes and MySQL multiple-column indexes
-<a name="chap-oracle-aurora-mysql.tables.composite"></a>
 
 With AWS DMS, you can optimize database performance by creating composite indexes in Oracle databases and multiple-column indexes in MySQL databases. A composite index (Oracle) or multiple-column index (MySQL) is a database index built from multiple columns in a table, allowing queries to be satisfied by utilizing the index entries alone.
 

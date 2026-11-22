@@ -1,7 +1,6 @@
 
 
 # Oracle Flashback Table and MySQL snapshots
-<a name="chap-oracle-aurora-mysql.hadr.snapshots"></a>
 
 With AWS DMS, you can restore databases to a specific point in time using Oracle Flashback Table and MySQL snapshots. Oracle Flashback Table provides a way to view and restore data from a specified time in the past, while MySQL snapshots capture the state of a database at a specific point for backup or replication purposes.
 

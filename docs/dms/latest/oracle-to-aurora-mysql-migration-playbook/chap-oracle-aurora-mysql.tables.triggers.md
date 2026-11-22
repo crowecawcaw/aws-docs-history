@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL triggers
-<a name="chap-oracle-aurora-mysql.tables.triggers"></a>
 
 Triggers are database objects that encapsulate procedural logic, facilitating data validation, auditing, and maintaining referential integrity constraints. System administrators, database developers, and data engineers may require triggers to enforce business rules, log data changes, or propagate updates across related tables. The following sections provide detailed guidance on creating, managing, and testing triggers within the context of AWS DMS.
 

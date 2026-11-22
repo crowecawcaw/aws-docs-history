@@ -1,7 +1,6 @@
 
 
 # Oracle SQL Result Cache and MySQL Query Cache
-<a name="chap-oracle-aurora-mysql.special.cache"></a>
 
 With AWS DMS, you can leverage performance optimization features such as Oracle SQL Result Cache and MySQL Query Cache to improve query execution times. The Oracle SQL Result Cache stores data from previous queries, allowing faster retrieval for identical subsequent queries. MySQL Query Cache temporarily stores the text of a `SELECT` query and its corresponding result set, facilitating quicker responses to repeated queries on the same data.
 

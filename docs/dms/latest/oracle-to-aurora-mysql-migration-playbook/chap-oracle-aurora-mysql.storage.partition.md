@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL table partitioning
-<a name="chap-oracle-aurora-mysql.storage.partition"></a>
 
 With AWS DMS, you can implement table partitioning for Oracle and MySQL databases, which involves dividing a large table into multiple smaller partitions. Table partitioning helps manage and maintain large databases by improving query performance, facilitating data management operations, and reducing storage costs.
 

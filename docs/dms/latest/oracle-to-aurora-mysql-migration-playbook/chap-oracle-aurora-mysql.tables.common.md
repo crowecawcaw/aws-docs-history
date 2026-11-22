@@ -1,7 +1,6 @@
 
 
 # Data types
-<a name="chap-oracle-aurora-mysql.tables.common"></a>
 
 With AWS DMS, you can migrate data between different database platforms, allowing you to consolidate databases, perform database modernization, or migrate databases to the cloud. Data types define the kind of data that can be stored in a database column or variable. The following sections will provide detailed information about different data types supported by Oracle and MySQL.
 

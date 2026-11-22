@@ -1,7 +1,6 @@
 
 
 # Oracle DBMS\_REDEFINITION and MySQL tables and triggers
-<a name="chap-oracle-aurora-mysql.sql.redefinition"></a>
 
 The following sections provide detailed guidance on leveraging the Oracle `DBMS_REDEFINITION` and MySQL tables and triggers features during database migration using AWS DMS.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Schema Conversion Tool
-<a name="chap-oracle-aurora-mysql.tools.awssct"></a>
 
 The AWS Schema Conversion Tool (AWS SCT) is a Java utility that connects to source and target databases, scans the source database schema objects (tables, views, indexes, procedures, and so on), and converts them to target database objects.
 

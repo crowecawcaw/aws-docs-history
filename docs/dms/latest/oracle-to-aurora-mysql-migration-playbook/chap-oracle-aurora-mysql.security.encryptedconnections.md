@@ -1,7 +1,6 @@
 
 
 # Encrypted connections
-<a name="chap-oracle-aurora-mysql.security.encryptedconnections"></a>
 
 With AWS DMS, you can secure data transmission between the replication instance and the source or target database by using encrypted connections. Encrypted connections provide a private encrypted tunnel for data transfer, protecting sensitive information from unauthorized access or interception.
 

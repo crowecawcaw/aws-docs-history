@@ -1,7 +1,6 @@
 
 
 # Oracle Transaction Model and MySQL Transactions
-<a name="chap-oracle-aurora-mysql.sql.transactions"></a>
 
 Oracle Transaction Model and MySQL Transactions provide mechanisms for grouping SQL statements into logical units of work, ensuring atomicity, consistency, isolation, and durability (ACID properties) during database operations.
 

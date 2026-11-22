@@ -1,7 +1,6 @@
 
 
 # Oracle JSON document support and MySQL JSON
-<a name="chap-oracle-aurora-mysql.special.json"></a>
 
 With AWS DMS, you can migrate data between different database platforms, including Oracle and MySQL, while preserving the JSON document structure. Oracle JSON document support and MySQL JSON provide a way to store and query JSON data within the database.
 

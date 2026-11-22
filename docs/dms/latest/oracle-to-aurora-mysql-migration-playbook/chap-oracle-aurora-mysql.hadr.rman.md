@@ -1,7 +1,6 @@
 
 
 # Oracle Recovery Manager and Amazon RDS snapshots
-<a name="chap-oracle-aurora-mysql.hadr.rman"></a>
 
 With AWS DMS, you can migrate data from Oracle databases by using Oracle Recovery Manager (RMAN) backup sets or Amazon RDS snapshots. Oracle Recovery Manager is a utility for backing up, restoring, and recovering Oracle databases. Amazon RDS snapshots capture the entire database instance, including transaction logs, at a specific point in time.
 

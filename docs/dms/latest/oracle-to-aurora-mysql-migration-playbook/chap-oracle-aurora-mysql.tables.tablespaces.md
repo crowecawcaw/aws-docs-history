@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL tablespaces and data files
-<a name="chap-oracle-aurora-mysql.tables.tablespaces"></a>
 
 Oracle and MySQL databases use tablespaces and data files to store data. A tablespace is a logical storage unit, while a data file is a physical file that stores data for the tablespace. The following sections provide details on working with tablespaces and data files during database migration.
 

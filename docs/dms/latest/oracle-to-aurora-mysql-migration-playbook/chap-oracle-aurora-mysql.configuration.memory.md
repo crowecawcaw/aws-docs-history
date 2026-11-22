@@ -1,7 +1,6 @@
 
 
 # Oracle SGA and PGA memory sizing and MySQL memory buffers
-<a name="chap-oracle-aurora-mysql.configuration.memory"></a>
 
 With AWS DMS, you can optimize memory utilization for migrated databases by configuring Oracle System Global Area (SGA) and Program Global Area (PGA) memory sizes, as well as MySQL memory buffers. The SGA is a group of shared memory structures that contain data and control information for an Oracle database instance, while the PGA is a memory region that contains data and control information for a server process. MySQL memory buffers, such as the buffer pool and query cache, manage data caching and query performance.
 

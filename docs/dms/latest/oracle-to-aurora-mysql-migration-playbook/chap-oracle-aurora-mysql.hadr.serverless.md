@@ -1,7 +1,6 @@
 
 
 # Migrate to Aurora MySQL Serverless
-<a name="chap-oracle-aurora-mysql.hadr.serverless"></a>
 
 Another great option can be Amazon Aurora MySQL using Serverless option, this option it currently available only with Aurora MySQL 5.6 compatible.
 

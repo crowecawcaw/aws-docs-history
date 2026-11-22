@@ -1,7 +1,6 @@
 
 
 # Oracle database links and MySQL fully-qualified table names
-<a name="chap-oracle-aurora-mysql.special.dblinks"></a>
 
 With AWS DMS, you can migrate data between different database platforms, including Oracle and MySQL, while preserving database links and fully-qualified table names. Oracle database links provide a way to access data in remote databases, while MySQL fully-qualified table names specify the database and table for a given object.
 

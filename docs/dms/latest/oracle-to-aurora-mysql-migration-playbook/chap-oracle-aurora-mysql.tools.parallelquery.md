@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora Parallel Query
-<a name="chap-oracle-aurora-mysql.tools.parallelquery"></a>
 
  Amazon Aurora Parallel Query is a feature of the Amazon Aurora database that provides faster analytical queries over your current data, without having to copy the data into a separate system. It can speed up queries by up to two orders of magnitude, while maintaining high throughput for your core transactional workload.
 

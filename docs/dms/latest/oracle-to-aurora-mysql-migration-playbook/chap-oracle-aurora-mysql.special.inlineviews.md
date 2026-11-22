@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL inline views
-<a name="chap-oracle-aurora-mysql.special.inlineviews"></a>
 
 With AWS DMS, you can migrate data from Oracle and MySQL databases to Aurora or using inline views. Inline views are virtual tables that combine data from one or more tables using a `SELECT` statement. They are useful for querying complex data sets, joining data across tables, and simplifying data transformations during migration.
 

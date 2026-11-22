@@ -1,7 +1,6 @@
 
 
 # Oracle Log Miner and MySQL logs
-<a name="chap-oracle-aurora-mysql.special.log"></a>
 
 With AWS DMS, you can capture data manipulation language (DML) operations for replication or auditing purposes using Oracle Log Miner and MySQL binary logs. Oracle Log Miner provides access to redo log files, enabling the reconstruction and analysis of database activity. MySQL binary logs record all statements that update data or potentially could have updated it.
 

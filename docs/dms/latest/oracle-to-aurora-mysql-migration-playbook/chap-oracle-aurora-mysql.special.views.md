@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL views
-<a name="chap-oracle-aurora-mysql.special.views"></a>
 
 With AWS DMS, you can create and work with database views in Oracle and MySQL databases. A view is a virtual table that derives its data from one or more underlying tables or views. Views provide a way to present a subset of data from one or more tables, combining data from different tables, or adding additional data transformations.
 

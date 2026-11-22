@@ -1,7 +1,6 @@
 
 
 # Oracle materialized views and MySQL summary tables or views
-<a name="chap-oracle-aurora-mysql.special.matviews"></a>
 
 With AWS DMS, you can create Oracle materialized views and MySQL summary tables or views to improve query performance and data availability. Materialized views and summary tables are database objects that store pre-computed results of queries, reducing the need for complex calculations at runtime.
 

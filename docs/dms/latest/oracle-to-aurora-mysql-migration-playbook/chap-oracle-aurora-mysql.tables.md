@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL tables and indexes
-<a name="chap-oracle-aurora-mysql.tables"></a>
 
 This section provides reference pages for Oracle and MySQL tables and indexes.
 

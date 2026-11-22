@@ -1,7 +1,6 @@
 
 
 # Oracle TIMEZONE data type and functions and MySQL CONVERT\_TZ function
-<a name="chap-oracle-aurora-mysql.sql.timezone"></a>
 
 With AWS DMS, you can convert date and time values between different time zones when migrating databases. The Oracle `TIMEZONE` data type and functions, along with the MySQL `CONVERT_TZ` function, facilitate working with timestamps across time zones. The following sections provide details on leveraging Oracle `TIMEZONE` and MySQL `CONVERT_TZ` during database migrations using AWS DMS.
 

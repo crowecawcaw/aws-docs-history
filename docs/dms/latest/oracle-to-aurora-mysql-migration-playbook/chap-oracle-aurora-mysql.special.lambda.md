@@ -1,7 +1,6 @@
 
 
 # Oracle Advanced Queuing and MySQL integration with Lambda
-<a name="chap-oracle-aurora-mysql.special.lambda"></a>
 
 With AWS DMS, you can seamlessly migrate data from Oracle Advanced Queuing to Aurora MySQL, and integrate with AWS Lambda for event-driven processing. Oracle Advanced Queuing provides message queuing capabilities for Oracle databases, while AWS Lambda allows running code without provisioning or managing servers.
 

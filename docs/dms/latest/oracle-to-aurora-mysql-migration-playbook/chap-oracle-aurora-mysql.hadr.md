@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL high availability and disaster recovery
-<a name="chap-oracle-aurora-mysql.hadr"></a>
 
 This section includes pages about Oracle and MySQL high availability and disaster recovery capabilities.
 

@@ -1,7 +1,6 @@
 
 
 # Feature compatibility tables
-<a name="chap-oracle-aurora-mysql.features"></a>
 
 With AWS DMS, you can ensure compatibility between the source and target databases during migration. Feature Compatibility defines the set of database engine features that AWS DMS supports for a specific source-target combination. The following tables provide legends for feature compatibility to help you plan for your specific migration scenario.
 

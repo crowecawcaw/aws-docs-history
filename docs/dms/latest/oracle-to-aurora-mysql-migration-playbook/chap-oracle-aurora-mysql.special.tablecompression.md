@@ -1,7 +1,6 @@
 
 
 # Oracle table compression
-<a name="chap-oracle-aurora-mysql.special.tablecompression"></a>
 
 With AWS DMS, you can optimize storage utilization and improve query performance for Oracle databases by leveraging table compression. Oracle table compression reduces the disk space footprint of tables and associated indexes, which can lead to significant cost savings, especially for large datasets.
 

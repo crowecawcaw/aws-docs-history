@@ -1,7 +1,6 @@
 
 
 # Oracle virtual columns and MySQL generated columns
-<a name="chap-oracle-aurora-mysql.tables.virtual"></a>
 
 With AWS DMS, you can seamlessly migrate databases that utilize virtual columns (Oracle) or generated columns (MySQL) to compatible target databases. Virtual columns and generated columns define values derived from other columns or expressions, providing a means to store computed data without modifying the base tables. This functionality is beneficial for applications relying on calculated fields, auditing requirements, or data denormalization strategies.
 

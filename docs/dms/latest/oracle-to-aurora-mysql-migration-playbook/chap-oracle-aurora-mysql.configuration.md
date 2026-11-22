@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL configuration
-<a name="chap-oracle-aurora-mysql.configuration"></a>
 
 This section provides pages about Oracle and MySQL configuration topics.
 

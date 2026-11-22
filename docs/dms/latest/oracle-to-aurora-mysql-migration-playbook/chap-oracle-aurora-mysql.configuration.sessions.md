@@ -1,7 +1,6 @@
 
 
 # Oracle session parameters and MySQL session variables
-<a name="chap-oracle-aurora-mysql.configuration.sessions"></a>
 
 With AWS DMS, you can configure Oracle session parameters and MySQL session variables to optimize performance, control resource usage, and customize database behavior during migration tasks. Oracle session parameters and MySQL session variables are special configuration settings that influence how the database engine operates and processes data. These settings can be crucial for ensuring efficient data transfer, minimizing resource contention, and adhering to organizational policies or regulatory requirements.
 

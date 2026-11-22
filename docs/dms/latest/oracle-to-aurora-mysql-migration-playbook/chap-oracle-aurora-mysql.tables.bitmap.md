@@ -1,7 +1,6 @@
 
 
 # Oracle bitmap indexes
-<a name="chap-oracle-aurora-mysql.tables.bitmap"></a>
 
 With AWS DMS, you can optimize query performance for data warehousing and ad-hoc queries by creating Oracle bitmap indexes. You can use bitmap indexes to enhance the speed of complex queries involving conditions, joins, and aggregations on columns with a relatively small number of distinct values. Bitmap indexes can significantly improve query response times, especially for star schema queries common in data warehousing and business intelligence applications.
 

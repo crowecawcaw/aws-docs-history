@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL Common Table Expressions
-<a name="chap-oracle-aurora-mysql.sql.cte"></a>
 
 The following sections provide details on defining and leveraging Common Table Expressions (CTEs) within AWS DMS to streamline database operations and enhance query performance.
 

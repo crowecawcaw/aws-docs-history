@@ -1,7 +1,6 @@
 
 
 # Oracle SQL\*Loader and MySQL mysqlimport and LOAD DATA
-<a name="chap-oracle-aurora-mysql.hadr.dump"></a>
 
 With AWS DMS, you can efficiently migrate data from flat files into AWS databases using Oracle SQL\*Loader, MySQL mysqlimport, and `LOAD DATA` commands. These utilities facilitate bulk data loading from external files into database tables.
 

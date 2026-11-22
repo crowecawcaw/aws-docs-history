@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL table constraints
-<a name="chap-oracle-aurora-mysql.tables.constraints"></a>
 
 With AWS DMS, you can enforce data integrity rules on tables in Oracle and MySQL databases during migration. Table constraints are database objects that define rules for the data in a table. They prevent invalid data from being entered into the database and maintain consistency across related tables. The following sections will provide details on supported constraint types, configuration options, and best practices for managing table constraints during database migration using AWS DMS.
 

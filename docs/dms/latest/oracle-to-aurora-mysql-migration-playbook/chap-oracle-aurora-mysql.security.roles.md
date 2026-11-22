@@ -1,7 +1,6 @@
 
 
 # Oracle roles and MySQL privileges
-<a name="chap-oracle-aurora-mysql.security.roles"></a>
 
 With AWS DMS, you can manage access control and security for your databases during migration. Oracle roles and MySQL privileges define permissions and access levels for database users, allowing you to restrict or grant specific operations and data access.
 

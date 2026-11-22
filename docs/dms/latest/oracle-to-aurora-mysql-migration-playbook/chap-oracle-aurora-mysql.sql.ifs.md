@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL INSERT FROM SELECT statement
-<a name="chap-oracle-aurora-mysql.sql.ifs"></a>
 
 The following sections provide details on running the `INSERT FROM SELECT` statement, including syntax examples and best practices for efficient data transfer.
 

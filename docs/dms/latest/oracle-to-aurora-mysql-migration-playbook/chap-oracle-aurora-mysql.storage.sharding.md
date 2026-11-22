@@ -1,7 +1,6 @@
 
 
 # Oracle sharding
-<a name="chap-oracle-aurora-mysql.storage.sharding"></a>
 
 With AWS DMS, you can shard an Oracle database across multiple data stores to scale write throughput and distribute data horizontally. Oracle sharding is a database architecture that partitions data across multiple Oracle databases, providing horizontal scalability and improved performance.
 

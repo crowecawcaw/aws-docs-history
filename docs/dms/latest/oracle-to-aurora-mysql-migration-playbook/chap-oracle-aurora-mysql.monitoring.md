@@ -1,7 +1,6 @@
 
 
 # Oracle and MySQL monitoring
-<a name="chap-oracle-aurora-mysql.monitoring"></a>
 
 This section provides information about Oracle and MySQL monitoring.
 

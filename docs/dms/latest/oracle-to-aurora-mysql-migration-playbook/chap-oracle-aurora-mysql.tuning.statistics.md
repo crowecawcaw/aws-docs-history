@@ -1,7 +1,6 @@
 
 
 # Oracle table statistics and MySQL managing statistics
-<a name="chap-oracle-aurora-mysql.tuning.statistics"></a>
 
 With AWS DMS, you can gather and manage statistics about database tables and indexes to improve query performance. Oracle table statistics and MySQL managing statistics provide mechanisms to collect and update metadata about the distribution of data in tables and associated indexes. This information helps the query optimizer generate efficient run plans.
 

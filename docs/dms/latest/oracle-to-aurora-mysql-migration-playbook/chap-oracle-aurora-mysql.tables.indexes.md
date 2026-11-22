@@ -1,7 +1,6 @@
 
 
 # MySQL overall indexes summary
-<a name="chap-oracle-aurora-mysql.tables.indexes"></a>
 
 MySQL supports multiple types of indexes using different indexing algorithms that can provide performance benefits for different types of queries.
 

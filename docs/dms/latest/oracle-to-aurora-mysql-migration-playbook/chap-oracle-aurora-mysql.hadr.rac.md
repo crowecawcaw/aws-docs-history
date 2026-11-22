@@ -1,7 +1,6 @@
 
 
 # Oracle Real Application Clusters and Aurora MySQL architecture
-<a name="chap-oracle-aurora-mysql.hadr.rac"></a>
 
 With AWS DMS, you can migrate Oracle Real Application Clusters (RAC) and Aurora MySQL databases to the AWS Cloud. Oracle RAC is a database clustering solution that provides high availability, scalability, and load balancing for Oracle databases. Aurora MySQL is a fully managed MySQL-compatible relational database service offered by AWS. Migrating these databases can be beneficial for organizations seeking to reduce operational overhead, improve performance, and leverage the scalability and reliability of AWS services.
 

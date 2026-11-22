@@ -1,7 +1,6 @@
 
 
 # Oracle to [.shared]`AURMySQL` migration quick tips
-<a name="chap-oracle-aurora-mysql.tips"></a>
 
 This section provides migration tips that can help save time as you transition from Oracle to Amazon Aurora MySQL-Compatible Edition (Aurora MySQL). These tips address many of the challenges faced by administrators new to Aurora MySQL. Some of these tips describe functional differences in similar features between Oracle and Aurora MySQL.
 

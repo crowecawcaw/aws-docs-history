@@ -1,7 +1,6 @@
 
 
 # Oracle function-based indexes and MySQL indexing on generated columns
-<a name="chap-oracle-aurora-mysql.tables.expression"></a>
 
 With AWS DMS, you can improve query performance by creating indexes on computed values or expressions in your databases. Oracle function-based indexes and MySQL indexes on generated columns let you index data derived from an expression or function, rather than just indexing on a column’s stored values. This can significantly speed up queries that filter or sort on calculated values.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle EXECUTE IMMEDIATE and MySQL EXECUTE and PREPARE statements
-<a name="chap-oracle-aurora-mysql.sql.immediate"></a>
 
 With AWS DMS, you can migrate databases between different database platforms, including Oracle and MySQL, by leveraging features, such as Oracle’s `EXECUTE IMMEDIATE` statement and MySQL’s `EXECUTE` and `PREPARE` statements.
 

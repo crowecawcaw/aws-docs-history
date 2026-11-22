@@ -1,7 +1,6 @@
 
 
 # Oracle synonyms
-<a name="chap-oracle-aurora-mysql.special.synonyms"></a>
 
 With AWS DMS, you can create database objects called synonyms that act as aliases for other schema objects. A synonym is an alternative name for a table, view, sequence, procedure, function, package, materialized view, Java schema object, or other synonym. Synonyms provide data abstraction by hiding the underlying identity of an object, allowing multiple database objects to be referenced by a single name.
 
