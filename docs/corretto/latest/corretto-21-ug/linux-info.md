@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 21 Guide for Linux
-<a name="linux-info"></a>
 
 The topics in this section describe installation instructions for Amazon Corretto 21 on Linux platforms.
 

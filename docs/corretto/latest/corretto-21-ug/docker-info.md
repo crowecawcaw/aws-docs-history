@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 21 Guide for Docker
-<a name="docker-info"></a>
 
 This section describes simple use cases for using Amazon Corretto 21 in Docker containers.
 
