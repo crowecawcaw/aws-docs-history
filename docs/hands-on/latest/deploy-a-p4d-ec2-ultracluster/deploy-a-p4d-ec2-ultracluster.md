@@ -1,7 +1,6 @@
 
 
 # Deploy a P4d EC2 UltraCluster
-<a name="deploy-a-p4d-ec2-ultracluster"></a>
 
 
 |  |  | 
