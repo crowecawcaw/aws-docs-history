@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Compute and hardware
-<a name="compute-and-hardware"></a>
 
  The optimal compute choice for a particular workload can vary based on application design, usage patterns, and configuration settings. Architectures may use different compute choices for various components and allow different features to improve performance. Selecting the wrong compute choice for an architecture can lead to lower performance efficiency. 
 

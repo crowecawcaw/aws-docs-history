@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF05-BP02 Use monitoring solutions to understand the areas where performance is most critical
-<a name="perf_process_culture_use_monitoring_solutions"></a>
 
  Understand and identify areas where increasing the performance of your workload will have a positive impact on efficiency or customer experience. For example, a website that has a large amount of customer interaction can benefit from using edge services to move content delivery closer to customers. 
 

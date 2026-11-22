@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF05-BP06 Keep your workload and services up-to-date
-<a name="perf_process_culture_keep_workload_and_services_up_to_date"></a>
 
  Stay up-to-date on new cloud services and features to adopt efficient features, remove issues, and improve the overall performance efficiency of your workload. 
 

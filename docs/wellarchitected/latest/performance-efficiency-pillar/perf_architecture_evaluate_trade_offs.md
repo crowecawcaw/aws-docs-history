@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF01-BP04 Evaluate how trade-offs impact customers and architecture efficiency
-<a name="perf_architecture_evaluate_trade_offs"></a>
 
  When evaluating performance-related improvements, determine which choices impact your customers and workload efficiency. For example, if using a key-value data store increases system performance, it is important to evaluate how the eventually consistent nature of this change will impact customers. 
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF01-BP05 Use policies and reference architectures
-<a name="perf_architecture_use_policies_and_reference_architectures"></a>
 
  Use internal policies and existing reference architectures when selecting services and configurations to be more efficient when designing and implementing your workload. 
 

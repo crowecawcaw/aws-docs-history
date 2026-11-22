@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF05-BP05 Use automation to proactively remediate performance-related issues
-<a name="perf_process_culture_automation_remediate_issues"></a>
 
  Use key performance indicators (KPIs), combined with monitoring and alerting systems, to proactively address performance-related issues. 
 

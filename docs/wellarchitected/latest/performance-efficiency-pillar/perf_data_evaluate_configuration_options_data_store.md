@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF03-BP02 Evaluate available configuration options for data store
-<a name="perf_data_evaluate_configuration_options_data_store"></a>
 
  Understand and evaluate the various features and configuration options available for your data stores to optimize storage space and performance for your workload. 
 

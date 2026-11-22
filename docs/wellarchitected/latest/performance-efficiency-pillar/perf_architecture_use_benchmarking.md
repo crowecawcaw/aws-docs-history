@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF01-BP06 Use benchmarking to drive architectural decisions
-<a name="perf_architecture_use_benchmarking"></a>
 
  Benchmark the performance of an existing workload to understand how it performs on the cloud and drive architectural decisions based on that data. 
 

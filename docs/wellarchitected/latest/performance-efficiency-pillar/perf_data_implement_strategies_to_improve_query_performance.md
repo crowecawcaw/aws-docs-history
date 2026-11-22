@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF03-BP04 Implement strategies to improve query performance in data store
-<a name="perf_data_implement_strategies_to_improve_query_performance"></a>
 
  Implement strategies to optimize data and improve data query to enable more scalability and efficient performance for your workload. 
 

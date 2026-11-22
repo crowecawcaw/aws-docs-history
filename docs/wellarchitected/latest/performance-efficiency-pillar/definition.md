@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Definition
-<a name="definition"></a>
 
 Focus on the following areas to achieve performance efficiency in the cloud:
 +  [Architecture selection](architecture-selection.md) 

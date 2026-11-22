@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF02-BP06 Use optimized hardware-based compute accelerators
-<a name="perf_compute_hardware_compute_accelerators"></a>
 
  Use hardware accelerators to perform certain functions more efficiently than CPU-based alternatives. 
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF02-BP03 Collect compute-related metrics
-<a name="perf_compute_hardware_collect_compute_related_metrics"></a>
 
  Record and track compute-related metrics to better understand how your compute resources are performing and improve their performance and their utilization. 
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # PERF04-BP03 Choose appropriate dedicated connectivity or VPN for your workload
-<a name="perf_networking_choose_appropriate_dedicated_connectivity_or_vpn"></a>
 
  When hybrid connectivity is required to connect on-premises and cloud resources, provision adequate bandwidth to meet your performance requirements. Estimate the bandwidth and latency requirements for your hybrid workload. These numbers will drive your sizing requirements. 
 
@@ -38,6 +41,8 @@
 +  Regularly monitor your connectivity performance and usage and optimize if required. 
 
 ![A flowchart that describes the options you should consider when determining if you need deterministic performance in your networking or not.](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/images/deterministic-networking-flowchart.png)
+
+*Deterministic performance flowchart*
 
 
  
