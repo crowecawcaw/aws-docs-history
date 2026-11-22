@@ -1,7 +1,6 @@
 
 
 # Configure error response behavior
-<a name="custom-error-pages-procedure"></a>
 
 You have several options to manage how CloudFront responds when there’s an error. To configure custom error responses, you can use the CloudFront console, the CloudFront API, or CloudFormation. Regardless of how you choose to update the configuration, consider the following tips and recommendations:
 + Save your custom error pages in a location that is accessible to CloudFront. We recommend that you store them in an Amazon S3 bucket, and that you [don’t store them in the same place as the rest of your website or application’s content](custom-error-pages-different-locations.md). If you store the custom error pages on the same origin as your website or application, and the origin starts to return 5xx errors, CloudFront can’t get the custom error pages because the origin server is unavailable. For more information, see [Store objects and custom error pages in different locations](custom-error-pages-different-locations.md).

@@ -1,7 +1,6 @@
 
 
 # Working with shared resources in CloudFront
-<a name="sharing-resources"></a>
 
 Amazon CloudFront integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. AWS RAM enables you to share some CloudFront resources with other AWS accounts or through AWS Organizations. With AWS RAM, you share resources that you own by creating a *resource share*. A resource share specifies the resources to share, and the consumers with whom to share them. Consumers can include:
 + Specific AWS accounts inside or outside of its organization in AWS Organizations

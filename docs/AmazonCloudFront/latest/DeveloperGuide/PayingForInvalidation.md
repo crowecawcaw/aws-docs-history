@@ -1,7 +1,6 @@
 
 
 # Pay for file invalidation
-<a name="PayingForInvalidation"></a>
 
 The first 1,000 invalidation paths that you submit per month are free; you pay for each invalidation path over 1,000 in a month. An invalidation path can be for a single file (such as `/images/logo.jpg`) or for multiple files (such as ` /images/*`). A path that includes the `*` wildcard counts as one path even if it causes CloudFront to invalidate thousands of files.
 

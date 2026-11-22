@@ -1,7 +1,6 @@
 
 
 # Invalidate files to remove content
-<a name="Invalidation"></a>
 
 If you need to remove a file from CloudFront edge caches before it expires, you can do one of the following:
 + Invalidate the file from edge caches. The next time a viewer requests the file, CloudFront returns to the origin to fetch the latest version of the file.

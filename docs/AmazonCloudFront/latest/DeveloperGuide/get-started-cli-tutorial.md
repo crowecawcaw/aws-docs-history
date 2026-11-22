@@ -1,7 +1,6 @@
 
 
 # Get started with a standard distribution (AWS CLI)
-<a name="get-started-cli-tutorial"></a>
 
 The procedures in this section show you how to use the AWS CLI with CloudFront to set up a basic configuration that involves the following:
 + Creating an Amazon S3 bucket to use as your distribution origin.

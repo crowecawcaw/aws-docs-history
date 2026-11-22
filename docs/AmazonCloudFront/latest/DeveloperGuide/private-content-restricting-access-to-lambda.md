@@ -1,7 +1,6 @@
 
 
 # Restrict access to an AWS Lambda function URL origin
-<a name="private-content-restricting-access-to-lambda"></a>
 
 CloudFront provides *origin access control* (OAC) for restricting access to a Lambda function URL origin.
 
@@ -44,7 +43,7 @@ The following AWS CLI command grants the CloudFront service principal (`cloudfro
 **Example : AWS CLI command to update a policy to allow read-only access for a CloudFront distribution with OAC enabled**  
 The following AWS CLI commands allow the CloudFront distribution (`{{E1PDK09ESKHJWT}}`) access to your Lambda {{`FUNCTION_URL_NAME`}}.
 
-```
+```bash
 aws lambda add-permission \
 --statement-id "AllowCloudFrontServicePrincipal" \
 --action "lambda:InvokeFunctionUrl" \
@@ -53,7 +52,7 @@ aws lambda add-permission \
 --function-name {{FUNCTION_URL_NAME}}
 ```
 
-```
+```bash
 aws lambda add-permission \
 --statement-id "AllowCloudFrontServicePrincipalInvokeFunction" \
 --action "lambda:InvokeFunction" \
@@ -114,7 +113,7 @@ The distribution starts deploying to all of the CloudFront edge locations. When 
 
 To create an OAC with CloudFormation, use the `AWS::CloudFront::OriginAccessControl` resource type. The following example shows the CloudFormation template syntax, in YAML format, for creating an OAC.
 
-```
+```yaml
 Type: AWS::CloudFront::OriginAccessControl
 Properties: 
   OriginAccessControlConfig: 
@@ -224,7 +223,7 @@ Uses SigV4 authentication for secure AWS service access
 Supports file uploads by using multi-part form data
 Includes error handling for request exceptions
 
-```
+```python
 import boto3
 from botocore.auth import SigV4Auth
 from botocore.awsrequest import AWSRequest

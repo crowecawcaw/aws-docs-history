@@ -1,7 +1,6 @@
 
 
 # Switch from a custom SSL/TLS certificate with dedicated IP addresses to SNI
-<a name="cnames-and-https-switch-dedicated-to-sni"></a>
 
 If you configured CloudFront to use a custom SSL/TLS certificate with dedicated IP addresses, you can switch to using a custom SSL/TLS certificate with SNI instead and eliminate the charge that is associated with dedicated IP addresses.
 

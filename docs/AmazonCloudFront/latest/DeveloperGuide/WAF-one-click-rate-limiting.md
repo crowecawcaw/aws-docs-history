@@ -1,7 +1,6 @@
 
 
 # Set up rate limiting
-<a name="WAF-one-click-rate-limiting"></a>
 
 Rate limiting is one of the recommendations you may receive when configuring security protections. 
 

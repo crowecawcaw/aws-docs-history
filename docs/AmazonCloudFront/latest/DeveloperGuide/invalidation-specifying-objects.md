@@ -1,7 +1,6 @@
 
 
 # What you need to know when invalidating paths
-<a name="invalidation-specifying-objects"></a>
 
 When you specify a file to invalidate, refer to the following information:
 

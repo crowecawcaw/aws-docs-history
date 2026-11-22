@@ -1,7 +1,6 @@
 
 
 # Track configuration changes with AWS Config
-<a name="TrackingChanges"></a>
 
 To record and evaluate configurations of your AWS resources, you can use AWS Config, which provides you with a detailed view of the configuration of your distributions. This includes how the resources are related to one another and how they were configured in the past, so you can review changes over time.
 

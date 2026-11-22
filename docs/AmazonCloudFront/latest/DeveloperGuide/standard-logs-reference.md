@@ -1,7 +1,6 @@
 
 
 # Standard logging reference
-<a name="standard-logs-reference"></a>
 
 The following sections apply to both standard logging (v2) and standard logging (legacy).
 

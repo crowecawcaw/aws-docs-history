@@ -1,7 +1,6 @@
 
 
 # Optimize high availability with CloudFront origin failover
-<a name="high_availability_origin_failover"></a>
 
 You can set up CloudFront with origin failover for scenarios that require high availability. To get started, you create an *origin group* with two origins: a primary and a secondary. If the primary origin is unavailable, or returns specific HTTP response status codes that indicate a failure, CloudFront automatically switches to the secondary origin.
 

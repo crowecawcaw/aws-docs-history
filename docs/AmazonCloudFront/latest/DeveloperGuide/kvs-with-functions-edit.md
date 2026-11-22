@@ -1,7 +1,6 @@
 
 
 # Update a key value store
-<a name="kvs-with-functions-edit"></a>
 
 When you update a key value store, you can change the key-value pairs, or change the association between the key value store and the function.
 

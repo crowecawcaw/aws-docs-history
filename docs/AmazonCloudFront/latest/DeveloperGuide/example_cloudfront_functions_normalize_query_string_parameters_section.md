@@ -1,7 +1,6 @@
 
 
 # Normalize query string parameters in a CloudFront Functions viewer request
-<a name="example_cloudfront_functions_normalize_query_string_parameters_section"></a>
 
 The following code example shows how to normalize query string parameters in a CloudFront Functions viewer request.
 
@@ -11,7 +10,7 @@ The following code example shows how to normalize query string parameters in a C
 **JavaScript runtime 2.0 for CloudFront Functions**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/normalize-query-string-parameters) repository. 
 
-```
+```javascript
 function handler(event) {
      var qs=[];
      for (var key in event.request.querystring) {

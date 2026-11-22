@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="cloudfront-limits"></a>
 
 You can request a CloudFront quota increase by using the following options:
 + You can use the Service Quotas console or the AWS Command Line Interface. For more information, see the following topics:
@@ -17,6 +16,7 @@ CloudFront is subject to the following quotas.
 + [General quotas on policies](#limits-policies)
 + [Quotas on mTLS and trust stores](#quotas-mtls)
 + [Quotas on CloudFront Functions](#limits-functions)
++ [Quotas on CloudFront Functions network calls](#limits-functions-network-calls)
 + [Quotas on Connection Functions](#limits-connection-functions)
 + [Quotas on key value stores](#limits-keyvaluestores)
 + [Quotas on Lambda@Edge](#limits-lambda-at-edge)
@@ -124,6 +124,26 @@ CloudFront is subject to the following quotas.
 | Maximum function size<br />This quota isn't adjustable. To store additional data for your CloudFront Functions, create a key value store and add your key-value pairs. For more information, see [Amazon CloudFront KeyValueStore](kvs-with-functions.md). | 10 KB | 
 | Maximum function memory | 2 MB | 
 | Distributions associated with the same function | 100 | 
+
+In addition to these quotas, there are some other restrictions when using CloudFront Functions. For more information, see [Restrictions on CloudFront Functions](cloudfront-function-restrictions.md).
+
+## Quotas on CloudFront Functions network calls
+<a name="limits-functions-network-calls"></a>
+
+
+
+|  Entity  |  Default quota  | 
+| --- | --- | 
+| Network calls per function invocation (`cf.fetch()` and `cf.beacon()` combined) | 1 | 
+| Network call timeout, from sending the request to receiving the last byte | 1 second | 
+| Maximum network call request body size | 10 KB | 
+| Maximum network call response body size | 10 KB | 
+| Maximum length of a network call request header name | 256 bytes | 
+| Maximum length of a network call request header value | 1,783 bytes | 
+| Maximum total size of all network call headers (request or response) | 10 KB | 
+| Maximum length of the network call path and query string | 8 KB | 
+
+These quotas aren't adjustable.
 
 In addition to these quotas, there are some other restrictions when using CloudFront Functions. For more information, see [Restrictions on CloudFront Functions](cloudfront-function-restrictions.md).
 

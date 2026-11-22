@@ -1,7 +1,6 @@
 
 
 # Create a distribution
-<a name="distribution-web-creating-console"></a>
 
 This topic explains how to use the CloudFront console to create a distribution.<a name="create-download-distribution-task-list"></a>
 

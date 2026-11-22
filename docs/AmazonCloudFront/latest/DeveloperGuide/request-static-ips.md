@@ -1,7 +1,6 @@
 
 
 # Request Anycast static IPs to use for allowlisting
-<a name="request-static-ips"></a>
 
 You can also bring your own IP address range to use with CloudFront instead of CloudFront-provided Anycast static IPs. For more information, see [Bring your own IP to CloudFront using IPAM](bring-your-own-ip-address-using-ipam.md).
 
@@ -11,7 +10,7 @@ You can request 21 Anycast static IP addresses to allowlist with network provide
 
 If you want to enable routing of apex domains (such as example.com) directly to your CloudFront distributions, you can request 3 Anycast static IP addresses for this use case. Then, add A records in your DNS to point the apex domain to CloudFront.
 
-Anycast static IPs work with [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication). For more information, see [Use SNI to serve HTTPS requests (works for most clients)](cnames-https-dedicated-ip-or-sni.md#cnames-https-sni).
+Anycast static IPs work with [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication). For more information, see [Use SNI to serve HTTPS requests (works for most clients)](cnames-https-dedicated-ip-or-sni.md#cnames-https-sni). To serve viewers that don't send SNI on the Anycast static IPs of a connection group, see [Serve viewers that don't send SNI with a viewer fallback](connection-group-viewer-fallback.md).
 
 ## Prerequisites
 <a name="anycast-static-ip-prereqs"></a>

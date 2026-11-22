@@ -1,7 +1,6 @@
 
 
 # Associate Connection Functions with distributions
-<a name="associate-connection-functions"></a>
 
 After publishing a Connection Function to the LIVE stage, you must associate it with an mTLS-enabled distribution to handle live connections. Connection functions are associated at the distribution level, unlike viewer request and viewer response functions which are associated with cache behaviors.
 

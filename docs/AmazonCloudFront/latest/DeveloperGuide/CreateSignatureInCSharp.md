@@ -1,7 +1,6 @@
 
 
 # Create a URL signature using C\# and the .NET Framework
-<a name="CreateSignatureInCSharp"></a>
 
 The C\# examples in this section implement an example application that demonstrates how to create the signatures for CloudFront private distributions using canned and custom policy statements. The examples include utility functions based on the [AWS SDK for .NET](https://aws.amazon.com/sdkfornet) that can be useful in .NET applications.
 
@@ -25,7 +24,7 @@ After conversion, the RSA private key file is in the following format:
 
 **Example : RSA private key in the XML .NET Framework format**  <a name="RSAPrivateKeyXML.NETFrameworkFormat"></a>
 
-```
+```xml
 <RSAKeyValue>
   <Modulus>
     wO5IvYCP5UcoCKDo1dcspoMehWBZcyfs9QEzGi6Oe5y+ewGr1oW+vB2GPB
@@ -76,7 +75,7 @@ The `keyId` is returned when you upload a public key to CloudFront. For more inf
 
 **Example : Canned policy signing method in C\#**  <a name="ExampleCannedPolicySigningMethod-CSharp"></a>
 
-```
+```cs
 public static string ToUrlSafeBase64String(byte[] bytes)
 {
     return System.Convert.ToBase64String(bytes)
@@ -172,7 +171,7 @@ The `keyId` is returned when you upload a public key to CloudFront. For more inf
 
 **Example : Custom policy signing method in C\#**  <a name="ExampleCustomPolicySigningMethod-CSharp"></a>
 
-```
+```cs
 public static string ToUrlSafeBase64String(byte[] bytes)
 {
     return System.Convert.ToBase64String(bytes)
@@ -255,7 +254,7 @@ The following methods get the policy statement from a file and parse time interv
 
 **Example : Utility methods for signature generation**  <a name="UtilityMethodsForSignatureGeneration"></a>
 
-```
+```cs
 public static string CreatePolicyStatement(string policyStmnt, 
    string resourceUrl, 
    DateTime startTime, 

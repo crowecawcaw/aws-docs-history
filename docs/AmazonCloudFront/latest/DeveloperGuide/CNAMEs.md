@@ -1,7 +1,6 @@
 
 
 # Use custom URLs by adding alternate domain names (CNAMEs)
-<a name="CNAMEs"></a>
 
 When you create a distribution, CloudFront provides a domain name for it, such as d111111abcdef8.cloudfront.net. Instead of using this provided domain name, you can use an alternate domain name (also known as a CNAME).
 

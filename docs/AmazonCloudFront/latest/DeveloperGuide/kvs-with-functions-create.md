@@ -1,7 +1,6 @@
 
 
 # Create a key value store
-<a name="kvs-with-functions-create"></a>
 
 
 
@@ -69,7 +68,7 @@ To create a file of key-value pairs, see [File format for key-value pairs](kvs-w
 
   **Response**
 
-  ```
+  ```json
   {
       "ETag": "ETVABCEXAMPLE",
       "Location": "https://cloudfront.amazonaws.com/2020-05-31/key-value-store/arn:aws:cloudfront::123456789012:key-value-store/8aa76c93-3198-462c-aaf6-example",

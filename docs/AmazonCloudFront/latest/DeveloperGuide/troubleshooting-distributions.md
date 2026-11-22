@@ -1,7 +1,6 @@
 
 
 # Troubleshooting distribution issues
-<a name="troubleshooting-distributions"></a>
 
 Use the information here to help you diagnose and fix certificate errors, access-denied issues, or other common issues that you might encounter when setting up your website or application with Amazon CloudFront distributions.
 

@@ -1,7 +1,6 @@
 
 
 # Restrict access to an AWS Elemental MediaStore origin
-<a name="private-content-restricting-access-to-mediastore"></a>
 
 CloudFront provides *origin access control* (OAC) for restricting access to an AWS Elemental MediaStore origin.
 
@@ -36,7 +35,7 @@ The following are examples of MediaStore container policies that allow a CloudFr
 **Example MediaStore container policy that allows read-only access for a CloudFront distribution with OAC enabled**    
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -66,7 +65,7 @@ The following are examples of MediaStore container policies that allow a CloudFr
 **Example MediaStore container policy that allows read and write access for a CloudFront distribution with OAC enabled**    
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -146,7 +145,7 @@ The distribution starts deploying to all of the CloudFront edge locations. When 
 
 To create an origin access control (OAC) with CloudFormation, use the `AWS::CloudFront::OriginAccessControl` resource type. The following example shows the CloudFormation template syntax, in YAML format, for creating an origin access control.
 
-```
+```yaml
 Type: AWS::CloudFront::OriginAccessControl
 Properties: 
   OriginAccessControlConfig: 

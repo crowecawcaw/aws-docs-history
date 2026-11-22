@@ -1,7 +1,6 @@
 
 
 # HTTP 401 status code (Unauthorized)
-<a name="http-401-unauthorized"></a>
 
 A 401 Unauthorized response status code indicates that the client request hasn't been completed because it lacks valid authentication credentials for the requested resource. This status code is sent with an HTTP `WWW-Authenticate` response header that contains information about how the client can request the resource again after prompting the user for authentication credentials. For more information, see [401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401).
 

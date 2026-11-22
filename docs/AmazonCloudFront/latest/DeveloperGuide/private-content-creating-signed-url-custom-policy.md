@@ -1,7 +1,6 @@
 
 
 # Create a signed URL using a custom policy
-<a name="private-content-creating-signed-url-custom-policy"></a>
 
 To create a signed URL using a custom policy, complete the following procedure.<a name="private-content-creating-signed-url-custom-policy-procedure"></a>
 
@@ -200,7 +199,7 @@ For more information, see [Values that you specify in the policy statement for a
 
 The following example custom policy in a signed URL specifies that a user can access the file `https://d111111abcdef8.cloudfront.net/game_download.zip` from IP addresses in the range `192.0.2.0/24` until January 31, 2023 10:00 AM UTC:
 
-```
+```json
 {
     "Statement": [
         {
@@ -223,7 +222,7 @@ The following example custom policy in a signed URL specifies that a user can ac
 
 With the following example custom policy, you can create signed URLs for any file in the `training` directory, as indicated by the asterisk wildcard character (`*`) in the `Resource` parameter. Users can access the file from an IP address in the range `192.0.2.0/24` until January 31, 2023 10:00 AM UTC:
 
-```
+```json
 {
     "Statement": [
         {
@@ -250,7 +249,7 @@ Each signed URL with which you use this policy has a URL that identifies a speci
 
 With the following example custom policy, you can create signed URLs for any file associated with any distribution, as indicated by the asterisk wildcard character (`*`) in the `Resource` parameter. The signed URL must use the `https://` protocol, not `http://`. The user must use the IP address `192.0.2.10/32`. (The value `192.0.2.10/32` in CIDR notation refers to a single IP address, `192.0.2.10`.) The files are available only from January 31, 2023 10:00 AM UTC until February 2, 2023 10:00 AM UTC:
 
-```
+```json
 {
     "Statement": [
        {

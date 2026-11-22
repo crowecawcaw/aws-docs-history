@@ -1,13 +1,13 @@
 
 
 # Restrictions on CloudFront Functions
-<a name="cloudfront-function-restrictions"></a>
 
 The following restrictions apply only to CloudFront Functions.
 
 **Contents**
 + [Logs](#cloudfront-function-restrictions-logs)
 + [Request body](#cloudfront-function-restrictions-request-body)
++ [Network calls](#cloudfront-function-restrictions-network-calls)
 + [Using temporary credentials with the CloudFront KeyValueStore API](#regional-endpoint-for-key-value-store)
 + [Runtime](#cloudfront-function-runtime-restrictions)
 + [Compute utilization](#cloudfront-function-restrictions-compute-utilization)
@@ -22,7 +22,12 @@ Function logs in CloudFront Functions are truncated at 10 KB.
 ## Request body
 <a name="cloudfront-function-restrictions-request-body"></a>
 
-CloudFront Functions can't access the body of the HTTP request.
+CloudFront Functions can't access the body of the viewer's HTTP request. This is separate from the request body that your function can construct and send on a network call. For more information about network calls, see [Helper methods for network calls](helper-functions-network-calls.md).
+
+## Network calls
+<a name="cloudfront-function-restrictions-network-calls"></a>
+
+Your function can make one network call per invocation. The destination must be an origin that is configured on the same distribution as your function. For more information about network calls, see [Helper methods for network calls](helper-functions-network-calls.md).
 
 ## Using temporary credentials with the CloudFront KeyValueStore API
 <a name="regional-endpoint-for-key-value-store"></a>
@@ -45,7 +50,7 @@ Instead of using a Regional AWS STS endpoint, you can configure the global endpo
 
 **Example: IAM CLI command**  
 
-```
+```bash
 aws iam set-security-token-service-preferences --global-endpoint-token-version v2Token
 ```
 We recommend that you use the AWS STS Regional endpoints instead of this option. Regional endpoints provide higher availability and failover scenarios.
@@ -56,7 +61,7 @@ If you're using a custom identity provider that does the federation and assumes 
 ## Runtime
 <a name="cloudfront-function-runtime-restrictions"></a>
 
-The CloudFront Functions runtime environment doesn't support dynamic code evaluation, and it restricts access to the network, file system, environment variables, and timers. For more information, see [Restricted features](functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features).
+The CloudFront Functions runtime environment doesn't support dynamic code evaluation, and it restricts access to the file system, environment variables, and timers. For more information, see [Restricted features](functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features).
 
 **Note**  
 To use CloudFront KeyValueStore, your CloudFront function must use [JavaScript runtime 2.0](functions-javascript-runtime-20.md).

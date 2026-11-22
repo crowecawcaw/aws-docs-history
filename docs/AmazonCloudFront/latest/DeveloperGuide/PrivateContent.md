@@ -1,7 +1,6 @@
 
 
 # Serve private content with signed URLs and signed cookies
-<a name="PrivateContent"></a>
 
 Many companies that distribute content over the internet want to restrict access to documents, business data, media streams, or content that is intended for selected users, for example, users who have paid a fee. To securely serve this private content by using CloudFront, you can do the following:
 + Require that your users access your private content by using special CloudFront signed URLs or signed cookies. 

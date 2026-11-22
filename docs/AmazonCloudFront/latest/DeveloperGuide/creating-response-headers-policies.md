@@ -1,7 +1,6 @@
 
 
 # Create response headers policies
-<a name="creating-response-headers-policies"></a>
 
 You can use a response headers policy to specify the HTTP headers that Amazon CloudFront adds or removes in HTTP responses. For more information about response headers policies and reasons to use them, see [Add or remove HTTP headers in CloudFront responses with a policy](modifying-response-headers.md).
 
@@ -77,7 +76,7 @@ After you create a response headers policy, you can attach it to a cache behavio
 
 To create a response headers policy with CloudFormation, use the `AWS::CloudFront::ResponseHeadersPolicy` resource type. The following example shows the CloudFormation template syntax, in YAML format, for creating a response headers policy.
 
-```
+```yaml
 Type: AWS::CloudFront::ResponseHeadersPolicy
 Properties: 
   ResponseHeadersPolicyConfig: 

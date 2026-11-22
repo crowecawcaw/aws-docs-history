@@ -1,7 +1,6 @@
 
 
 # Use managed origin request policies
-<a name="using-managed-origin-request-policies"></a>
 
 CloudFront provides a set of managed origin request policies that you can attach to any of your distribution's cache behaviors. With a managed origin request policy, you don't need to write or maintain your own origin request policy. The managed policies use settings that are optimized for specific use cases.
 

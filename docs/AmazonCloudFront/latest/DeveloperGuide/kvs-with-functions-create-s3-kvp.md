@@ -1,11 +1,10 @@
 
 
 # File format for key-value pairs
-<a name="kvs-with-functions-create-s3-kvp"></a>
 
 When you create a UTF-8 encoded file, use the following JSON format:
 
-```
+```json
 {
   "data":[
     {

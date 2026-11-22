@@ -1,7 +1,6 @@
 
 
 # Create a signed URL using a canned policy
-<a name="private-content-creating-signed-url-canned-policy"></a>
 
 To create a signed URL using a canned policy, complete the following steps.<a name="private-content-creating-signed-url-canned-policy-procedure"></a>
 
@@ -70,7 +69,7 @@ When you create a signed URL using a canned policy, the `Signature` parameter is
 
 1. Construct the policy statement using the following JSON format and using UTF-8 character encoding. Include all punctuation and other literal values exactly as specified. For information about the `Resource` and `DateLessThan` parameters, see [Values that you specify in the policy statement for a signed URL that uses a canned policy](#private-content-canned-policy-statement-values).
 
-   ```
+   ```json
    {
        "Statement": [
            {
@@ -112,7 +111,7 @@ For more information, see [When CloudFront checks expiration date and time in a 
 
 When you use the following example policy statement in a signed URL, a user can access the file `https://d111111abcdef8.cloudfront.net/horizon.jpg` until January 1, 2026 10:00 am UTC:
 
-```
+```json
 {
     "Statement": [
         {

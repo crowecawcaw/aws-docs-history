@@ -1,7 +1,6 @@
 
 
 # Monitor CloudFront metrics with Amazon CloudWatch
-<a name="monitoring-using-cloudwatch"></a>
 
 Amazon CloudFront is integrated with Amazon CloudWatch and automatically publishes operational metrics for distributions and edge functions (both [Lambda@Edge and CloudFront Functions](edge-functions.md)). You can use these metrics to troubleshoot, track, and debug issues. Many of these metrics are displayed in a set of graphs in the CloudFront console, and are also accessible by using the CloudFront API or CLI. All of these metrics are available in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home) or through the CloudWatch API or CLI. CloudFront metrics don't count against [CloudWatch quotas (formerly known as limits)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_limits.html) and don't incur any additional cost.
 

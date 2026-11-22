@@ -1,7 +1,6 @@
 
 
 # Require HTTPS for communication between CloudFront and your custom origin
-<a name="using-https-cloudfront-to-custom-origin"></a>
 
 You can require HTTPS for communication between CloudFront and your origin.
 

@@ -1,7 +1,6 @@
 
 
 # Origin settings
-<a name="DownloadDistValuesOrigin"></a>
 
 When you use the CloudFront console to create or update a distribution, you provide information about one or more locations, known as *origins*, where you store the original versions of your web content. CloudFront gets your web content from your origins and serves it to viewers by using a worldwide network of edge servers.
 
@@ -27,6 +26,7 @@ When you create or update a distribution, you specify the following values for e
 + [Response timeout](#DownloadDistValuesOriginResponseTimeout)
 + [Response completion timeout](#response-completion-timeout)
 + [Keep-alive timeout (custom and VPC origins only)](#DownloadDistValuesOriginKeepaliveTimeout)
++ [Origin HTTP version (custom and VPC origins only)](#DownloadDistValuesOriginHttpVersion)
 + [Response and keep-alive timeout quotas](#response-keep-alive-timeout-quota)
 
 ## Origin domain
@@ -237,6 +237,24 @@ The keep-alive timeout is how long (in seconds) CloudFront tries to maintain a c
 
 **Note**  
 For the **Keep-alive timeout** value to have an effect, your origin must be configured to allow persistent connections.
+
+## Origin HTTP version (custom and VPC origins only)
+<a name="DownloadDistValuesOriginHttpVersion"></a>
+
+The HTTP version that CloudFront uses when it connects to your custom origin or VPC origin. Choose one of the following values:
++ **HTTP/1.1** – CloudFront uses HTTP/1.1 for all connections to the origin. This is the default.
++ **HTTP/2** – CloudFront offers HTTP/2 to the origin when it establishes the TLS connection. If the origin accepts HTTP/2, CloudFront can send multiple requests over the same connection, which reduces the number of connections and TLS handshakes that your origin handles. If the origin doesn't support HTTP/2, CloudFront uses HTTP/1.1, so you don't need to change the origin before you choose this value.
+
+CloudFront uses HTTP/2 only for HTTPS connections, and only when the origin's minimum SSL protocol is TLSv1.2 or later. Even when you choose **HTTP/2**, CloudFront uses HTTP/1.1 in the following cases:
++ **Protocol** is **HTTP only**.
++ **Protocol** is **Match viewer**, and the viewer request uses HTTP.
++ **Minimum origin SSL protocol** is earlier than TLSv1.2 (in the API, `OriginSslProtocols` includes `SSLv3`, `TLSv1`, or `TLSv1.1`). This applies to every connection to the origin, even connections that use TLS 1.2 or later. To use HTTP/2, set the minimum to TLSv1.2. For more information, see [Minimum origin SSL protocol](#DownloadDistValuesOriginSSLProtocols).
+
+If a cache behavior has a Lambda@Edge function for the origin request or origin response event, CloudFront might use HTTP/1.1 for requests that match that cache behavior.
+
+For VPC origins, you specify the HTTP version for the origin in each distribution, not on the VPC origin resource. Distributions that use the same VPC origin can use different HTTP versions.
+
+In the CloudFront API, this setting is the `OriginHttpVersion` field in [CustomOriginConfig](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CustomOriginConfig.html) and [VpcOriginConfig](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_VpcOriginConfig.html). Valid values are `http1.1` and `http2`. If you update a distribution and omit `OriginHttpVersion` for an origin, CloudFront uses HTTP/1.1 for that origin.
 
 ## Response and keep-alive timeout quotas
 <a name="response-keep-alive-timeout-quota"></a>

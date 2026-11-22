@@ -1,7 +1,6 @@
 
 
 # Restrictions on edge functions
-<a name="edge-functions-restrictions"></a>
 
 The following topics describe the restrictions that apply to CloudFront Functions and Lambda@Edge. Some restrictions apply to all edge functions, while others apply only to CloudFront Functions or Lambda@Edge.
 

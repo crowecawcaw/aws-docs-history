@@ -1,7 +1,6 @@
 
 
 # Restrict the geographic distribution of your content
-<a name="georestrictions"></a>
 
 You can use *geographic restrictions*, sometimes known as *geo blocking*, to prevent users in specific geographic locations from accessing content that you're distributing through an Amazon CloudFront distribution. To use geographic restrictions, you have two options:
 + Use the CloudFront geographic restrictions feature. Use this option to restrict access to all of the files that are associated with a distribution and to restrict access at the country level.

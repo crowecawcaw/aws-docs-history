@@ -1,7 +1,6 @@
 
 
 # Ways to use CloudFront
-<a name="IntroductionUseCases"></a>
 
 Using CloudFront can help you accomplish a variety of goals. This section lists just a few, together with links to more information, to give you an idea of the possibilities.
 

@@ -1,7 +1,6 @@
 
 
 # Set up the target standard distribution or distribution tenant
-<a name="alternate-domain-names-move-create-target"></a>
 
 Before you can move an alternate domain name, you must set up the target resource. This is the target standard distribution or distribution tenant that you're moving the alternate domain name to.
 
@@ -20,17 +19,28 @@ You must request or import the certificate in the US East (N. Virginia) (`us-eas
 
    If you already have a target standard distribution, associate the certificate with the standard distribution. For more information, see [Update a distribution](HowToUpdateDistribution.md).
 
-1. **If you’re moving alternate domain names within the same AWS account, skip this step.**
+1. **If you're using **update-domain-association** to move alternate domain names within the same AWS account, skip this step.**
 
-   To move an alternate domain name from one AWS account to another, you must create a TXT record in your DNS configuration. This verification step helps prevent unauthorized domain transfers. CloudFront uses this TXT record to validate your ownership of the alternate domain name. 
+   To move an alternate domain name from one AWS account to another, a DNS record must point the alternate domain name to the target standard distribution. This verification step helps prevent unauthorized domain transfers. CloudFront uses this DNS record to validate your ownership of the alternate domain name. 
 
-   In your DNS configuration, create a DNS TXT record that associates the alternate domain name with the target standard distribution. The TXT record format can vary, depending on the domain type.
-   + For subdomains, specify an underscore (`_`) in front of the alternate domain name. The following shows an example TXT record.
+   Usually, this is the domain's CNAME record, which points to the CloudFront domain name of the target standard distribution, such as d111111abcdef8.cloudfront.net. You can also create a TXT record instead.
 
-     `_www.example.com TXT d111111abcdef8.cloudfront.net`
-   + For an apex (or root domain), specify an underscore and period ( `_.`) in front of the domain name. The following shows an example TXT record.
+   An apex domain, such as `example.com`, can't have a CNAME record, and an alias record doesn't prove that you control the domain. For an apex domain, create a TXT record.
 
-     `_.example.com TXT d111111abcdef8.cloudfront.net`
+   The name of the TXT record depends on the type of domain. The value is the CloudFront domain name of the target standard distribution, or the routing endpoint of the target distribution tenant's connection group, such as d111111abcdef8.cloudfront.net.
+
+
+<table>
+<thead>
+  <tr><th>Domain type</th><th>Domain</th><th>TXT record</th></tr>
+</thead>
+<tbody>
+  <tr><td>Subdomain</td><td><code>www.example.com</code></td><td><code>_www.example.com TXT d111111abcdef8.cloudfront.net</code></td></tr>
+  <tr><td>Apex (root) domain</td><td><code>example.com</code></td><td><code>_.example.com TXT d111111abcdef8.cloudfront.net</code></td></tr>
+  <tr><td>Wildcard domain</td><td><code>*.example.com</code></td><td><code>_*.example.com TXT d111111abcdef8.cloudfront.net</code></td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ Distribution tenant ]
@@ -47,17 +57,28 @@ You must request or import the certificate in the US East (N. Virginia) (`us-eas
 
    If you already have a target distribution tenant, associate the certificate with the distribution tenant. For more information, see [Add a domain and certificate (distribution tenant)](managed-cloudfront-certificates.md#vanity-domain-tls-tenant).
 
-1. **If you’re moving alternate domain names within the same AWS account, skip this step.**
+1. **If you're using **update-domain-association** to move alternate domain names within the same AWS account, skip this step.** If you're setting `OnDomainTakeover` to `allow`, you need a DNS record that points the domain to the target distribution tenant even within the same AWS account. For more information, see [Move domains when you create or update a distribution tenant](alternate-domain-names-move-options.md#alternate-domain-names-move-takeover).
 
-   To move an alternate domain name from one AWS account to another, you must create a TXT record in your DNS configuration. This verification step helps prevent unauthorized domain transfers, and CloudFront uses this TXT record to validate your ownership of the alternate domain name. 
+   To move an alternate domain name from one AWS account to another, a DNS record must point the alternate domain name to the target distribution tenant. This verification step helps prevent unauthorized domain transfers, and CloudFront uses this DNS record to validate your ownership of the alternate domain name. 
 
-   In your DNS configuration, create a DNS TXT record that associates the alternate domain name with the target distribution tenant. The TXT record format can vary, depending on the domain type.
-   + For subdomains, specify an underscore (`_`) in front of the alternate domain name. The following shows an example TXT record.
+   Usually, this is the domain's CNAME record, which points to the routing endpoint of the target distribution tenant's connection group. You can also create a TXT record instead.
 
-     `_www.example.com TXT d111111abcdef8.cloudfront.net`
-   + For an apex (or root domain), specify an underscore and period ( `_.`) in front of the domain name. The following shows an example TXT record.
+   An apex domain, such as `example.com`, can't have a CNAME record, and an alias record that resolves the domain to the shared CloudFront IP addresses doesn't prove that you control the domain. For an apex domain, create a TXT record, or an A record that resolves the domain to the Anycast static IP addresses of the target distribution tenant's connection group.
 
-     `_.example.com TXT d111111abcdef8.cloudfront.net`
+   The name of the TXT record depends on the type of domain. The value is the CloudFront domain name of the target standard distribution, or the routing endpoint of the target distribution tenant's connection group, such as d111111abcdef8.cloudfront.net.
+
+
+<table>
+<thead>
+  <tr><th>Domain type</th><th>Domain</th><th>TXT record</th></tr>
+</thead>
+<tbody>
+  <tr><td>Subdomain</td><td><code>www.example.com</code></td><td><code>_www.example.com TXT d111111abcdef8.cloudfront.net</code></td></tr>
+  <tr><td>Apex (root) domain</td><td><code>example.com</code></td><td><code>_.example.com TXT d111111abcdef8.cloudfront.net</code></td></tr>
+  <tr><td>Wildcard domain</td><td><code>*.example.com</code></td><td><code>_*.example.com TXT d111111abcdef8.cloudfront.net</code></td></tr>
+</tbody>
+</table>
+
 
 ------
 

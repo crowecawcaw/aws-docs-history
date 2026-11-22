@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a CloudFront function that includes key values
-<a name="functions-tutorial-kvs"></a>
 
 This tutorial shows you how to include key values with CloudFront function. Key values are part of a key-value pair. You include the name (from the key-value pair) in the function code. When the function runs, CloudFront replaces the name with the value. 
 

@@ -1,7 +1,6 @@
 
 
 # Understand origin request policies
-<a name="origin-request-understand-origin-request-policy"></a>
 
 CloudFront provides some predefined origin request policies, known as *managed policies*, for common use cases. You can use these managed policies, or you can create your own origin request policy that's specific to your needs. For more information about the managed policies, see [Use managed origin request policies](using-managed-origin-request-policies.md).
 

@@ -1,7 +1,6 @@
 
 
 # Create CloudFront Connection Functions for mutual TLS (viewer) validation
-<a name="create-connection-functions"></a>
 
 You create a CloudFront Connection Function in two stages:
 

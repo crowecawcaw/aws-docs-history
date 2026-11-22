@@ -1,7 +1,6 @@
 
 
 # Use `GetCloudFrontOriginAccessIdentity` with a CLI
-<a name="example_cloudfront_GetCloudFrontOriginAccessIdentity_section"></a>
 
 The following code examples show how to use `GetCloudFrontOriginAccessIdentity`.
 
@@ -40,7 +39,7 @@ For more information, see [Restrict access to an Amazon S3 origin](https://docs.
 **Tools for PowerShell V4**  
 **Example 1: This example returns a specific Amazon CloudFront origin access identity, specified by the -Id parameter. Although the -Id parameter is not required, if you do not specify it, no results are returned.**  
 
-```
+```powershell
 Get-CFCloudFrontOriginAccessIdentity -Id E3XXXXXXXXXXRT
 ```
 **Output:**  
@@ -55,7 +54,7 @@ Get-CFCloudFrontOriginAccessIdentity -Id E3XXXXXXXXXXRT
 **Tools for PowerShell V5**  
 **Example 1: This example returns a specific Amazon CloudFront origin access identity, specified by the -Id parameter. Although the -Id parameter is not required, if you do not specify it, no results are returned.**  
 
-```
+```powershell
 Get-CFCloudFrontOriginAccessIdentity -Id E3XXXXXXXXXXRT
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Create a URL signature using Java
-<a name="CFPrivateDistJavaDevelopment"></a>
 
 In addition to the following code example, you can use [the `CloudFrontUrlSigner` utility class in the AWS SDK for Java (version 1)](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/cloudfront/CloudFrontUrlSigner.html) to create [CloudFront signed URLs](private-content-signed-urls.md).
 
@@ -13,7 +12,7 @@ In the `Signature.getInstance` call, note that `SHA1withRSA` can be replaced wit
 
 **Example Java policy and signature encryption methods**  <a name="ExampleJavaPolicyAndSignatureEncryptionMethods"></a>
 
-```
+```java
 package org.example;
 
 import java.time.Instant;
@@ -45,7 +44,7 @@ public class Main {
 
 **Example Canned Policy Signing with SHA256 in Java**  <a name="ExampleJavaPolicySHA256AndSignatureEncryptionMethods"></a>
 
-```
+```java
 package org.example;
 
 import java.io.File;

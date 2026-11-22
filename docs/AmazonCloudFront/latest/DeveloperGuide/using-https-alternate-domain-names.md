@@ -1,7 +1,6 @@
 
 
 # Use alternate domain names and HTTPS
-<a name="using-https-alternate-domain-names"></a>
 
 If you want to use your own domain name in the URLs for your files (for example, `https://www.example.com/image.jpg`) and you want your viewers to use HTTPS, you must complete the steps in the following topics. (If you use the default CloudFront distribution domain name in your URLs, for example, `https://d111111abcdef8.cloudfront.net/image.jpg`, follow the guidance in the following topic instead: [Require HTTPS for communication between viewers and CloudFront](using-https-viewers-to-cloudfront.md).)
 

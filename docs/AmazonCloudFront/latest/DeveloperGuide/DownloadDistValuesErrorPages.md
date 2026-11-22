@@ -1,7 +1,6 @@
 
 
 # Custom error pages and error caching
-<a name="DownloadDistValuesErrorPages"></a>
 
 You can have CloudFront return an object to the viewer (for example, an HTML file) when your Amazon S3 or custom origin returns an HTTP 4xx or 5xx status code to CloudFront. You can also specify how long an error response from your origin or a custom error page is cached in CloudFront edge caches. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md).
 

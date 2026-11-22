@@ -1,7 +1,6 @@
 
 
 # Delete a key value store
-<a name="kvs-with-functions-delete"></a>
 
 You can delete your key value store by using the Amazon CloudFront console or API.
 
@@ -33,7 +32,7 @@ You can delete your key value store by using the Amazon CloudFront console or AP
 
    Run the following command to delete the specified key value store.
 
-   ```
+   ```json
    aws cloudfront delete-key-value-store \
        --name=keyvaluestore1 \
        --if-match=E3UN6WX5RRO2AG

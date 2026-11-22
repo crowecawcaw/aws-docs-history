@@ -1,7 +1,6 @@
 
 
 # Get started with a CloudFront standard distribution
-<a name="GettingStarted.SimpleDistribution"></a>
 
 The procedures in this section show you how to use CloudFront to set up a standard distribution that does the following:
 + Creates an S3 bucket to use as your distribution origin.

@@ -1,7 +1,6 @@
 
 
 # View CloudFront top referrers reports
-<a name="top-referrers-report"></a>
 
 The CloudFront top referrers report includes the following for any date range in the previous 60 days:
 + Top 25 referrers (domains of websites that originated the most HTTP and HTTPS requests for objects that CloudFront is distributing for your distribution)

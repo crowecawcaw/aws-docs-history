@@ -1,7 +1,6 @@
 
 
 # Remove an alternate domain name
-<a name="alternate-domain-names-remove-domain"></a>
 
 If you want to stop routing traffic for a domain or subdomain to a CloudFront distribution, follow the steps in this section to update both the DNS configuration and the CloudFront distribution.
 

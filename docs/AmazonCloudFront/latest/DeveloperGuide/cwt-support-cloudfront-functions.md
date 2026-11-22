@@ -1,7 +1,6 @@
 
 
 # CWT support for CloudFront Functions
-<a name="cwt-support-cloudfront-functions"></a>
 
 This section provides details on support for CBOR Web Tokens (CWT) in your CloudFront Functions, which enables secure token-based authentication and authorization at CloudFront Edge Locations. This support is provided as a module, accessible in your CloudFront Function. 
 
@@ -110,7 +109,7 @@ When the `validateToken()` method returns a successfully validated token, the re
 
 This example demonstrates CWT token validation, where the `kid` is read from the `x-cwt-kid` request header. The `kid` is then passed into CloudFront Functions KeyValueStore to fetch the secret key used to validate the token.
 
-```
+```javascript
 import cf from 'cloudfront'
 
 const CwtClaims = {
@@ -193,7 +192,7 @@ Returns a JavaScript Buffer containing the encoded token.
 
 **Example : Generate a token**  
 
-```
+```javascript
 import cf from 'cloudfront';
 
 const CwtClaims = {
@@ -324,7 +323,7 @@ async function handler(event) {
 
 **Example : Refresh token based on some logic**  
 
-```
+```javascript
 import cf from 'cloudfront'
 
 const CwtClaims = {

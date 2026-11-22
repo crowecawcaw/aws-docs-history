@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a basic Lambda@Edge function (console)
-<a name="lambda-edge-how-it-works-tutorial"></a>
 
 This tutorial shows you how to get started with Lambda@Edge by creating and configuring an example Node.js function that runs in CloudFront. This example adds HTTP security headers to a response when CloudFront retrieves a file. (This can improve security and privacy for a website.)
 
@@ -70,7 +69,7 @@ CloudFront blueprints are available only in the **US-East-1 (N. Virginia)** Regi
 
 1. Replace the template code with a function that modifies the security headers that your origin returns. For example, you could use code similar to the following:
 
-   ```
+   ```javascript
    'use strict';
    export const handler = (event, context, callback) => {
    

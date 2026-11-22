@@ -1,7 +1,6 @@
 
 
 # Deliver video streaming with CloudFront and AWS Media Services
-<a name="live-streaming"></a>
 
 To use AWS Media Services with CloudFront to deliver live content to a global audience, see the following guidance.
 

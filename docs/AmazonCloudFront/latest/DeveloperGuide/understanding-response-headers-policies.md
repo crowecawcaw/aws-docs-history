@@ -1,7 +1,6 @@
 
 
 # Understand response headers policies
-<a name="understanding-response-headers-policies"></a>
 
 You can use a response headers policy to specify the HTTP headers that Amazon CloudFront removes or adds in responses that it sends to viewers. For more information about response headers policies and reasons to use them, see [Add or remove HTTP headers in CloudFront responses with a policy](modifying-response-headers.md).
 

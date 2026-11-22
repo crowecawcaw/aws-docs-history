@@ -1,7 +1,6 @@
 
 
 # Distribution tenant customizations
-<a name="tenant-customization"></a>
 
 When using a multi-tenant distribution, your distribution tenants inherit the multi-tenant distribution configuration. However, you can customize some settings at the distribution tenant level.
 
@@ -10,7 +9,7 @@ You can customize the following:
 + **AWS WAF web ACL (V2)** – You can specify a separate web ACL for the distribution tenant, which will *override* the web ACL used for the multi-tenant distribution. You can also disable this setting for a specific distribution tenant, which means the distribution tenant won't inherit the web ACL protections from the multi-tenant distribution. For more information, see [AWS WAF web ACL](DownloadDistValuesGeneral.md#DownloadDistValuesWAFWebACL).
 + **Geographic restrictions **– Geographic restrictions that you specify for a distribution tenant will *override* any geographic restrictions for the multi-tenant distribution. For example, if you block Germany (DE) in your multi-tenant distribution, all associated distribution tenants will also block DE. However, if you allow DE for a specific distribution tenant, that distribution tenant settings will override the settings for the multi-tenant distribution. For more information, see [Restrict the geographic distribution of your content](georestrictions.md).
 + **Invalidation paths** – Specify the file paths to the content that you want to invalidate for the distribution tenant. For more information, see [Invalidate files](Invalidation_Requests.md).
-+ **Custom TLS certificates** – AWS Certificate Manager (ACM) certificates that you specify for distribution tenants are supplemental to the certificate provided in the multi-tenant distribution. However, if the same domain is covered by both the multi-tenant distribution and distribution tenant certificates, then the tenant certificate is used. For more information, see [Request certificates for your CloudFront distribution tenant](managed-cloudfront-certificates.md).
++ **Custom TLS certificates** – AWS Certificate Manager (ACM) certificates that you specify for distribution tenants are supplemental to the certificate provided in the multi-tenant distribution. However, if the same domain is covered by both the multi-tenant distribution and distribution tenant certificates, then the tenant certificate is used. The distribution tenant uses the security policy of the multi-tenant distribution with its certificate, even when the multi-tenant distribution uses the default CloudFront certificate. For more information, see [Security policy (minimum SSL/TLS version)](DownloadDistValuesGeneral.md#DownloadDistValues-security-policy) and [Request certificates for your CloudFront distribution tenant](managed-cloudfront-certificates.md).
 + **Domain names** – You must specify at least one domain name per distribution tenant.
 
 ## How parameters work with distribution tenants
@@ -47,7 +46,7 @@ In the multi-tenant distribution configuration, you can define a parameter for t
 
 When you create a distribution tenant, specify the value to use for `{{parameter1}}`.
 
-```
+```json
 "Parameters": [
   {
     "Name": "parameter1",
@@ -72,7 +71,7 @@ Similarly, you can define parameters for the origin path in the multi-tenant dis
 
 When you create a distribution tenant, specify the value to use for `{{parameter2}}`.
 
-```
+```json
 "Parameters": [
   {
     "Name": "parameter2",

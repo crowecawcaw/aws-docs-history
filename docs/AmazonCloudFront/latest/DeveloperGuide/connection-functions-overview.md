@@ -1,7 +1,6 @@
 
 
 # Overview and workflow
-<a name="connection-functions-overview"></a>
 
 CloudFront Connection Functions are a specialized type of CloudFront Functions that run during the TLS handshake when a client attempts to establish an mTLS connection. Your Connection Function can access client certificate information, mTLS configuration parameters, certificate revocation check results, and the client IP address.
 

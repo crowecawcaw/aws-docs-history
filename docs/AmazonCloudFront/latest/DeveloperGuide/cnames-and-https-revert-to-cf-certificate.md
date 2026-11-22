@@ -1,7 +1,6 @@
 
 
 # Revert from a custom SSL/TLS certificate to the default CloudFront certificate
-<a name="cnames-and-https-revert-to-cf-certificate"></a>
 
 If you configured CloudFront to use HTTPS between viewers and CloudFront, and you configured CloudFront to use a custom SSL/TLS certificate, you can change your configuration to use the default CloudFront SSL/TLS certificate. The process depends on whether you've used your distribution to distribute your content:
 + If you have not used your distribution to distribute your content, you can just change the configuration. For more information, see [Update a distribution](HowToUpdateDistribution.md).

@@ -1,7 +1,6 @@
 
 
 # Request and response behavior for custom origins
-<a name="RequestAndResponseBehaviorCustomOrigin"></a>
 
 To understand how CloudFront processes requests and responses when you're using custom origins, see the following sections:
 
@@ -234,7 +233,7 @@ For more information about caching based on header values, see [Cache content ba
 ### HTTP version
 <a name="RequestCustomHTTPVersion"></a>
 
-CloudFront forwards requests to your custom origin using HTTP/1.1.
+By default, CloudFront forwards requests to your custom origin using HTTP/1.1. To have CloudFront use HTTP/2 when your origin supports it, see [Origin HTTP version (custom and VPC origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginHttpVersion).
 
 ### Maximum length of a request and maximum length of a URL
 <a name="RequestCustomMaxRequestStringLength"></a>

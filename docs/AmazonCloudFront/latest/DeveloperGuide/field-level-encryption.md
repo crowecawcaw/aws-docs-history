@@ -1,7 +1,6 @@
 
 
 # Use field-level encryption to help protect sensitive data
-<a name="field-level-encryption"></a>
 
 With Amazon CloudFront, you can enforce secure end-to-end connections to origin servers by using HTTPS. Field-level encryption adds an additional layer of security that you can use to protect specific data throughout system processing so that only certain applications can see it.
 
@@ -198,7 +197,7 @@ The following code example illustrates how applications can decrypt data at your
 ### Sample code
 <a name="field-level-encryption-decrypt-sample"></a>
 
-```
+```java
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.KeyFactory;

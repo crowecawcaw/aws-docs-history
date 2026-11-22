@@ -1,7 +1,6 @@
 
 
 # Download metrics data in CSV format
-<a name="cloudwatch-csv"></a>
 
 You can download the CloudWatch metrics data for a CloudFront distribution in CSV format. 
 

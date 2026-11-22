@@ -1,7 +1,6 @@
 
 
 # Create functions
-<a name="create-function"></a>
 
 You create a function in two stages: 
 
@@ -51,7 +50,7 @@ If you use the CLI, you typically first create the function code in a file, and 
 
 1. Run the command as shown in the example. This example uses the `fileb://` notation to pass in the file. It also includes line breaks to make the command more readable. 
 
-   ```
+   ```bash
    aws cloudfront create-function \
        --name MaxAge \
        --function-config '{"Comment":"Max Age 2 years","Runtime":"cloudfront-js-2.0","KeyValueStoreAssociations":{"Quantity":1,"Items":[{"KeyValueStoreARN":"arn:aws:cloudfront::111122223333:key-value-store/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}]}}' \
@@ -63,7 +62,7 @@ If you use the CLI, you typically first create the function code in a file, and 
 
    When the command is successful, you see output like the following.
 
-   ```
+   ```bash
    ETag: ETVABCEXAMPLE
    FunctionSummary:
      FunctionConfig:

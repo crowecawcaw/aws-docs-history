@@ -1,7 +1,6 @@
 
 
 # HTTP 500 status code (Internal Server Error)
-<a name="http-500-internal-server-error"></a>
 
 An HTTP 500 status code (Internal Server Error) indicates that the server encountered an unexpected condition that prevented it from fulfilling the request. The following are some common causes of 500 errors in Amazon CloudFront.
 

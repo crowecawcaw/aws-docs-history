@@ -1,7 +1,6 @@
 
 
 # CloudFront for e-commerce and marketplace applications
-<a name="ecommerce-marketplace-distribution"></a>
 
 An e-commerce or marketplace application serves three distinct content types through a single CloudFront distribution: static assets (product images, CSS, JavaScript), dynamic pages (product listings, search results), and API responses (cart, inventory, pricing). Each content type requires different cache behavior, TTL, and origin configuration to balance freshness against performance.
 

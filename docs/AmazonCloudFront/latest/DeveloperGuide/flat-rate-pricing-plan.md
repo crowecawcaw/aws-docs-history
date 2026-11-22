@@ -1,7 +1,6 @@
 
 
 # CloudFront flat-rate pricing plans
-<a name="flat-rate-pricing-plan"></a>
 
 CloudFront flat-rate pricing plans combine the Amazon CloudFront global content delivery network (CDN) with multiple AWS services and features into a monthly price with no overage charges, regardless of traffic spikes or attacks.
 
@@ -113,6 +112,7 @@ The following table shows the CloudFront, AWS WAF and DDoS, Amazon Route 53, Am
 | --- |--- |--- |--- |--- |
 |  **Serverless edge compute** <br />Run lightweight JavaScript at the edge to modify URLs, HTTP headers, and request/response elements in milliseconds using [CloudFront Functions](cloudfront-functions.md). Lambda@Edge can also be used with all plan tiers, but unlike CloudFront Functions, Lambda@Edge invocations are billed on a pay-as-you-go basis. | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | 
 |  **Edge key-value store** <br />Store data at the edge using [KeyValueStore](kvs-with-functions.md) for fast and dynamic content customization with CloudFront Functions. |  | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | 
+|  **CloudFront Functions network calls** <br />Make a [network call](helper-functions-network-calls.md) to any origin on your distribution and act on the answer without leaving the edge. |  | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | 
 | **Network and Protocol Support** |  |  |  |  | 
 | --- |--- |--- |--- |--- |
 |  **IPv6** <br />Deliver content over both modern IPv6 and traditional IPv4 connections from CloudFront to viewers and origins. Enables end-to-end IPv6 support for your applications. | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/success_icon.png) Yes | 

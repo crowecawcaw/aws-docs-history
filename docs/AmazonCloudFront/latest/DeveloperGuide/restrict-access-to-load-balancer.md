@@ -1,7 +1,6 @@
 
 
 # Restrict access to Application Load Balancers
-<a name="restrict-access-to-load-balancer"></a>
 
 You can use both internal and internet-facing Application Load Balancers with Amazon CloudFront. You can use internal Application Load Balancers inside private subnets with CloudFront by using VPC origins. CloudFront VPC origins allow you to serve content from applications hosted in private VPC subnets without exposing them to the public internet. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md).
 
@@ -48,7 +47,7 @@ You can edit the **Origin Custom Headers** setting when you create or edit an or
 In a CloudFormation template, use the `OriginCustomHeaders` property, as shown in the following example.  
 The header name and value in this example are just for demonstration. In production, use randomly generated values. Treat the header name and value as a secure credential, like a user name and password.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   TestDistribution:

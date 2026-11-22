@@ -1,7 +1,6 @@
 
 
 # Add HTTP security headers to a CloudFront Functions viewer response event
-<a name="example_cloudfront_functions_add_security_headers_section"></a>
 
 The following code example shows how to add HTTP security headers to a CloudFront Functions viewer response event.
 
@@ -11,7 +10,7 @@ The following code example shows how to add HTTP security headers to a CloudFron
 **JavaScript runtime 2.0 for CloudFront Functions**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/add-security-headers) repository. 
 
-```
+```javascript
 async function handler(event) {
     var response = event.response;
     var headers = response.headers;

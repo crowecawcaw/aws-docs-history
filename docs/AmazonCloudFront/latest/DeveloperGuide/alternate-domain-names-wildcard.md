@@ -1,7 +1,6 @@
 
 
 # Use wildcards in alternate domain names
-<a name="alternate-domain-names-wildcard"></a>
 
 When you add alternate domain names, you can use the \* wildcard at the beginning of a domain name instead of adding subdomains individually. For example, with an alternate domain name of \*.example.com, you can use any domain name that ends with example.com in your URLs, such as www.example.com, product-name.example.com, marketing.product-name.example.com, and so on. The path to the object is the same regardless of the domain name, for example:
 + www.example.com/images/image.jpg

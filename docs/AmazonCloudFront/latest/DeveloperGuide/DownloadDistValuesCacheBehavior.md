@@ -1,7 +1,6 @@
 
 
 # Cache behavior settings
-<a name="DownloadDistValuesCacheBehavior"></a>
 
 By setting the cache behavior, you can configure a variety of CloudFront functionality for a given URL path pattern for files on your website. For example, one cache behavior might apply to all `.jpg` files in the `images` directory on a web server that you're using as an origin server for CloudFront. The functionality that you can configure for each cache behavior includes:
 + The path pattern

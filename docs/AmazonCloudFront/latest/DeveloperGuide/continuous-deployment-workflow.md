@@ -1,7 +1,6 @@
 
 
 # CloudFront continuous deployment workflow
-<a name="continuous-deployment-workflow"></a>
 
 The following high-level workflow explains how to safely test and deploy configuration changes with CloudFront continuous deployment.
 

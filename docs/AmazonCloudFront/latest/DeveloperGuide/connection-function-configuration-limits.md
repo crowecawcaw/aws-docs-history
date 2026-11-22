@@ -1,7 +1,6 @@
 
 
 # Configuration and limits
-<a name="connection-function-configuration-limits"></a>
 
 CloudFront Connection Functions have specific configuration requirements and service limits due to their specialized role in TLS connection validation and the performance requirements of edge computing.
 

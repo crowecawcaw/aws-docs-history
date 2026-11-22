@@ -1,7 +1,6 @@
 
 
 # Write CloudFront Connection Function code for mutual TLS (viewer) validation
-<a name="write-connection-function-code"></a>
 
 CloudFront Connection Functions enable you to write lightweight JavaScript functions for mTLS certificate validation and custom authentication logic. Your Connection Function code can validate client certificates, implement device-specific authentication rules, handle certificate revocation scenarios, and make allow/deny decisions for TLS connections at CloudFront edge locations worldwide.
 
@@ -50,7 +49,7 @@ CloudFront Connection Functions receive a different event structure than viewer 
 
 Connection Functions receive an event object that contains certificate and connection information. The event structure of the function is shown below:
 
-```
+```json
 {
   "clientCertificate": {
     "certificates": {
@@ -95,7 +94,7 @@ Connection Functions receive an event object that contains certificate and conne
 
 Below is an example of the event object structure:
 
-```
+```json
 {
   "clientCertificate": {
     "certificates": {
@@ -143,7 +142,7 @@ Below is an example of the event object structure:
 
 Your Connection Function must return a response object that indicates whether to allow or deny the connection. Use the helper methods to make connection decisions:
 
-```
+```javascript
 function connectionHandler(connection) {
     // Helper methods to allow or deny connections
     if (/* some logic to determine if function should allow connection */) {
@@ -205,7 +204,7 @@ Proper async/await usage is critical for Connection Functions because KeyValueSt
 
 **Example : Async Connection Function with KeyValueStore**  
 
-```
+```javascript
 import cf from 'cloudfront';
 
 async function connectionHandler(connection) {
@@ -240,7 +239,7 @@ The following examples demonstrate common Connection Function patterns for diffe
 **Example : Device certificate validation**  
 This example validates device serial numbers and certificate subject fields for IoT devices, gaming consoles, and other client authentication scenarios:  
 
-```
+```javascript
 async function connectionHandler(connection) {
     // Custom validation: check device serial number format
     const serialNumber = connection.clientCertificate.certificates.leaf.serialNumber;
@@ -266,7 +265,7 @@ This function performs multiple validation checks beyond standard certificate va
 **Example : Optional mTLS with mixed authentication**  
 This example handles both mTLS and non-mTLS connections with different authentication policies:  
 
-```
+```javascript
 async function connectionHandler(connection) {
     if (connection.clientCertificate) {
         // mTLS connection - enhanced validation for certificate holders

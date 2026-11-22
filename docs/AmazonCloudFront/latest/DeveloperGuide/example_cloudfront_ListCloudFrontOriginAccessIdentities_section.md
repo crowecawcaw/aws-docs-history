@@ -1,7 +1,6 @@
 
 
 # Use `ListCloudFrontOriginAccessIdentities` with a CLI
-<a name="example_cloudfront_ListCloudFrontOriginAccessIdentities_section"></a>
 
 The following code examples show how to use `ListCloudFrontOriginAccessIdentities`.
 
@@ -49,7 +48,7 @@ For more information, see [Restrict access to an Amazon S3 origin](https://docs.
 **Tools for PowerShell V4**  
 **Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.**  
 
-```
+```powershell
 Get-CFCloudFrontOriginAccessIdentityList -MaxItem 2
 ```
 **Output:**  
@@ -67,7 +66,7 @@ Quantity    : 2
 **Tools for PowerShell V5**  
 **Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.**  
 
-```
+```powershell
 Get-CFCloudFrontOriginAccessIdentityList -MaxItem 2
 ```
 **Output:**  

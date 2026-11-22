@@ -1,7 +1,6 @@
 
 
 # Generate custom error responses
-<a name="GeneratingCustomErrorResponses"></a>
 
 If an object that you’re serving through CloudFront is unavailable for some reason, your web server typically returns a relevant HTTP status code to CloudFront to indicate this. For example, if a viewer requests an invalid URL, your web server returns an HTTP 404 (Not Found) status code to CloudFront, and then CloudFront returns that status code to the viewer. Instead of using this default error response, you can create a custom one that CloudFront returns to the viewer.
 

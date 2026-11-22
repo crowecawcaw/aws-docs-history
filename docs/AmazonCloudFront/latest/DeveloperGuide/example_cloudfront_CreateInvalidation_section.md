@@ -1,7 +1,6 @@
 
 
 # Use `CreateInvalidation` with a CLI
-<a name="example_cloudfront_CreateInvalidation_section"></a>
 
 The following code examples show how to use `CreateInvalidation`.
 
@@ -91,7 +90,7 @@ For more information, see [Invalidate files to remove content](https://docs.aws.
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new invalidation on a distribution with an ID of EXAMPLENSTXAXE. The CallerReference is a unique ID chosen by the user; in this case, a time stamp representing May 15, 2019 at 9:00 a.m. is used. The $Paths variable stores three paths to image and media files that the user does not want as part of the distribution's cache. The -Paths\_Quantity parameter value is the total number of paths specified in the -Paths\_Item parameter.**  
 
-```
+```powershell
 $Paths = "/images/*.gif", "/images/image1.jpg", "/videos/*.mp4"
 New-CFInvalidation -DistributionId "EXAMPLENSTXAXE" -InvalidationBatch_CallerReference 20190515090000 -Paths_Item $Paths -Paths_Quantity 3
 ```
@@ -107,7 +106,7 @@ Amazon.CloudFront.Model.Invalidation https://cloudfront.amazonaws.com/2018-11-05
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new invalidation on a distribution with an ID of EXAMPLENSTXAXE. The CallerReference is a unique ID chosen by the user; in this case, a time stamp representing May 15, 2019 at 9:00 a.m. is used. The $Paths variable stores three paths to image and media files that the user does not want as part of the distribution's cache. The -Paths\_Quantity parameter value is the total number of paths specified in the -Paths\_Item parameter.**  
 
-```
+```powershell
 $Paths = "/images/*.gif", "/images/image1.jpg", "/videos/*.mp4"
 New-CFInvalidation -DistributionId "EXAMPLENSTXAXE" -InvalidationBatch_CallerReference 20190515090000 -Paths_Item $Paths -Paths_Quantity 3
 ```

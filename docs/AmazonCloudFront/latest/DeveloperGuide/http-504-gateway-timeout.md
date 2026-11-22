@@ -1,7 +1,6 @@
 
 
 # HTTP 504 status code (Gateway Timeout)
-<a name="http-504-gateway-timeout"></a>
 
 An HTTP 504 status code (gateway timeout) indicates that when CloudFront forwarded a request to the origin (because the requested object wasn't in the edge cache), one of the following happened:
 + The origin returned an HTTP 504 status code to CloudFront.

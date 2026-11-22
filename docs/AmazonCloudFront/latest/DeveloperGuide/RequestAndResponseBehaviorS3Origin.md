@@ -1,7 +1,6 @@
 
 
 # Request and response behavior for Amazon S3 origins
-<a name="RequestAndResponseBehaviorS3Origin"></a>
 
 To understand how CloudFront processes requests and responses when you're using Amazon S3 as your origin, see the following sections:
 

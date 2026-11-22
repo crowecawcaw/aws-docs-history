@@ -1,7 +1,6 @@
 
 
 # Manage AWS WAF security protections in the CloudFront security dashboard
-<a name="security-dashboard"></a>
 
 CloudFront creates a security dashboard for each of your distributions. You use the dashboards in the CloudFront console. With the dashboards, you can use CloudFront and AWS WAF together in a single location to monitor and manage common security protections for your web applications. The dashboards provide the following tasks and data:
 + **Security configuration** – You can enable and disable AWS WAF protections, and see any app-specific protections such as WordPress protections.

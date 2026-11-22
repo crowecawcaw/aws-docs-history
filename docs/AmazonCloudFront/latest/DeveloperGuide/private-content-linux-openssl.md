@@ -1,7 +1,6 @@
 
 
 # Linux commands and OpenSSL for base64 encoding and encryption
-<a name="private-content-linux-openssl"></a>
 
 You can use the following Linux command-line command and OpenSSL to hash and sign the policy statement, base64-encode the signature, and replace characters that are not valid in URL query string parameters with characters that are valid.
 

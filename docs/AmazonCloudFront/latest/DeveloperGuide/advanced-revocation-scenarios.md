@@ -1,7 +1,6 @@
 
 
 # Advanced revocation scenarios
-<a name="advanced-revocation-scenarios"></a>
 
 For more complex certificate revocation requirements, consider these additional configurations:
 
@@ -44,7 +43,7 @@ When your TrustStore contains multiple Certificate Authorities (CAs), include th
 
 For multi-CA scenarios, use a combination of the issuer's SHA1 hash and the serial number as the key:
 
-```
+```javascript
 import cf from 'cloudfront';
 
 async function connectionHandler(connection) {
@@ -75,7 +74,7 @@ Using issuer identifier \+ serial number creates longer keys, which might reduce
 
 Connection functions can add custom data to CloudFront connection logs using the logCustomData method. With this, you can include revocation check results, certificate information, or other relevant data in your logs.
 
-```
+```javascript
 async function connectionHandler(connection) {
     const kvsHandle = cf.kvs();
     const clientSerialNumber = connection.clientCertInfo.serialNumber;

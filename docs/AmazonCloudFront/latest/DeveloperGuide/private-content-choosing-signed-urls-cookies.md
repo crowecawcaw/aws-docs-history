@@ -1,7 +1,6 @@
 
 
 # Decide to use signed URLs or signed cookies
-<a name="private-content-choosing-signed-urls-cookies"></a>
 
 CloudFront signed URLs and signed cookies provide the same basic functionality: they allow you to control who can access your content. If you want to serve private content through CloudFront and you're trying to decide whether to use signed URLs or signed cookies, consider the following.
 

@@ -1,7 +1,6 @@
 
 
 # Understand cache policies
-<a name="cache-key-understand-cache-policy"></a>
 
 You can use a cache policy to improve your cache hit ratio by controlling the values (URL query strings, HTTP headers, and cookies) that are included in the cache key. CloudFront provides some predefined cache policies, known as *managed policies*, for common use cases. You can use these managed policies, or you can create your own cache policy that's specific to your needs. For more information about the managed policies, see [Use managed cache policies](using-managed-cache-policies.md).
 

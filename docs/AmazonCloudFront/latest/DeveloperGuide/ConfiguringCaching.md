@@ -1,7 +1,6 @@
 
 
 # Caching and availability
-<a name="ConfiguringCaching"></a>
 
 You can use CloudFront to reduce the number of requests that your origin server must respond to directly. With CloudFront caching, more objects are served from CloudFront edge locations, which are closer to your users. This reduces the load on your origin server and reduces latency.
 

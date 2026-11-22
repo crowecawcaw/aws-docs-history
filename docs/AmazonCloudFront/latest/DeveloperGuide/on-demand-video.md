@@ -1,7 +1,6 @@
 
 
 # Deliver video on demand with CloudFront
-<a name="on-demand-video"></a>
 
 To deliver video on demand (VOD) streaming with CloudFront, use the following services:
 + Amazon S3 to store the content in its original format and to store the transcoded video.

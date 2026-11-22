@@ -1,7 +1,6 @@
 
 
 # Get a reference to a key value store
-<a name="kvs-with-functions-get-reference"></a>
 
 To work with the key value stores programmatically, you need the `ETag` and the name of the key value store. 
 
@@ -14,7 +13,7 @@ To get both values, you can use the AWS Command Line Interface (AWS CLI) or the 
 
 1. To return a list of key value stores, run the following command. Find the name of the key value store that you want to change.
 
-   ```
+   ```bash
    aws cloudfront list-key-value-stores
    ```
 
@@ -22,7 +21,7 @@ To get both values, you can use the AWS Command Line Interface (AWS CLI) or the 
 
    **Response**
 
-   ```
+   ```json
    {
        "KeyValueStoreList": {
            "Items": [
@@ -61,7 +60,7 @@ To get both values, you can use the AWS Command Line Interface (AWS CLI) or the 
 
    **Response**
 
-   ```
+   ```json
    {
        "ETag": "E3UN6WX5RRO2AG",
        "KeyValueStore": {

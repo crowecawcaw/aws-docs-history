@@ -1,7 +1,6 @@
 
 
 # Customize at the edge with Lambda@Edge
-<a name="lambda-at-the-edge"></a>
 
 Lambda@Edge is an extension of AWS Lambda. Lambda@Edge is a compute service that you can use to execute functions that customize the content that Amazon CloudFront delivers. You can author Node.js or Python functions in the Lambda console in one AWS Region, US East (N. Virginia).
 

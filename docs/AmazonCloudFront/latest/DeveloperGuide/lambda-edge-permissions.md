@@ -1,7 +1,6 @@
 
 
 # Set up IAM permissions and roles for Lambda@Edge
-<a name="lambda-edge-permissions"></a>
 
 To configure Lambda@Edge, you must have the following IAM permissions and roles for AWS Lambda: 
 + [IAM permissions ](#lambda-edge-permissions-required) – These permissions allow you to create your Lambda function and associate it with your CloudFront distribution.
@@ -43,7 +42,7 @@ For more information about creating an IAM role manually, see [Creating roles an
 You can add this role under the **Trust Relationship** tab in the IAM console. Don't add this policy under the **Permissions** tab.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

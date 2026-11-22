@@ -1,7 +1,6 @@
 
 
 # Interpret your AWS bill and usage reports for CloudFront
-<a name="billing-and-usage-interpreting"></a>
 
 After you have the [billing report](reports-billing.md#billing-report) and the [usage report](reports-billing.md#usage-report), you can use this topic to understand how to interpret each CloudFront charge that appears on your bill and the corresponding usage type for each charge. This topic includes the codes and AWS Region abbreviations that can appear on both reports.
 
@@ -42,6 +41,7 @@ The first column lists charges that appear in your AWS bill report and explains 
 | **SSL-Cert-Custom**<br />The charge for using an SSL certificate with a CloudFront alternate domain name such as example.com instead of using the default CloudFront SSL certificate and the domain name that CloudFront assigned to your distribution. | **SSL-Cert-Custom**<br />Same as the corresponding item in your CloudFront bill. | 
 | **RealTimeLog-KinesisDataStream**<br />The charge for the number of lines generated for [real-time access logs](real-time-logs.md). | **RealTimeLog-KinesisDataStream**<br />Same as the corresponding item in your CloudFront bill. | 
 | **Executions-CloudFrontFunctions**<br />The charge for the number of [CloudFront Functions](cloudfront-functions.md) invocations. | **Executions-CloudFrontFunctions**<br />Same as the corresponding item in your CloudFront bill. | 
+| **NetworkCalls-CloudFrontFunctions**<br />The charge for the number of [CloudFront Functions network calls](helper-functions-network-calls.md). | **NetworkCalls-CloudFrontFunctions**<br />Same as the corresponding item in your CloudFront bill. | 
 | **{{region}}-Lambda-Edge-Request**<br />The charge for the number of [Lambda@Edge](lambda-at-the-edge.md) function invocations. | **{{region}}-Lambda-Edge-Request**<br />Same as the corresponding item in your CloudFront bill. | 
 | **{{region}}-Lambda-Edge-GB-Second**<br />The charge for the duration from when your [Lambda@Edge](lambda-at-the-edge.md) function is invoked to when it returns or terminates. | **{{region}}-Lambda-Edge-GB-Second**<br />Same as the corresponding item in your CloudFront bill. | 
 | **KeyValueStore-EdgeReads**<br />The charge for the number of read calls to the [CloudFront KeyValueStore](kvs-with-functions.md) methods, `get()`, `exists()`, and `meta()`. For more information, see [Helper methods for key value stores](functions-custom-methods.md). | **KeyValueStore-EdgeReads**<br />Same as the corresponding item in your CloudFront bill. | 

@@ -1,7 +1,6 @@
 
 
 # Work with a staging distribution and continuous deployment policy
-<a name="working-with-staging-distribution-continuous-deployment-policy"></a>
 
 You can create, update, and modify staging distributions and continuous deployment policies in the CloudFront console, with the AWS Command Line Interface (AWS CLI), or with the CloudFront API.
 

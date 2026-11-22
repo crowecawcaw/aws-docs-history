@@ -1,7 +1,6 @@
 
 
 # Associate functions with distributions
-<a name="associate-function"></a>
 
 To use a function with a distribution, you associate the function with one or more cache behaviors in the distribution. You can associate a function with multiple cache behaviors in multiple distributions.
 
@@ -87,7 +86,7 @@ CloudFront associates the distribution with the function. Wait a few minutes for
    + Replace {{`DistributionID`}} with the distribution's ID.
    + Run the command on one line. In the example, line breaks are provided to make the example more readable.
 
-   ```
+   ```bash
    aws cloudfront update-distribution \
        --id {{DistributionID}} \
        --cli-input-yaml file://dist-config.yaml
@@ -95,7 +94,7 @@ CloudFront associates the distribution with the function. Wait a few minutes for
 
    When the command is successful, you see output like the following that describes the distribution that was just updated with the function association. The following example output is truncated for readability.
 
-   ```
+   ```bash
    Distribution:
      ARN: arn:aws:cloudfront::111122223333:distribution/EBEDLT3BGRBBW
      ... truncated ...

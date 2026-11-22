@@ -1,7 +1,6 @@
 
 
 # Get started with a secure static website
-<a name="getting-started-secure-static-website-cloudformation-template"></a>
 
 You can get started with Amazon CloudFront by using the solution described in this topic to create a secure static website for your domain name. A *static website* uses only static files—like HTML, CSS, JavaScript, images, and videos—and doesn’t need servers or server-side processing. With this solution, your website gets the following benefits:
 + **Uses the durable storage of [Amazon Simple Storage Service (Amazon S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html)** – This solution creates an Amazon S3 bucket to host your static website’s content. To update your website, just upload your new files to the S3 bucket.
@@ -117,7 +116,7 @@ To add your website content before deploying this solution, you must package the
 
 1. Run the following command to install and package the solution’s artifacts:
 
-   ```
+   ```sh
    make package-static
    ```
 
@@ -125,13 +124,13 @@ To add your website content before deploying this solution, you must package the
 
 1. Run the following AWS CLI command to create an Amazon S3 bucket to store the solution’s artifacts. Replace {{amzn-s3-demo-bucket-for-artifacts}} with your own bucket name.
 
-   ```
+   ```sh
    aws s3 mb s3://{{amzn-s3-demo-bucket-for-artifacts}} --region us-east-1
    ```
 
 1. Run the following AWS CLI command to package the solution’s artifacts as a CloudFormation template. Replace {{amzn-s3-demo-bucket-for-artifacts}} with the name of the bucket that you created in the previous step.
 
-   ```
+   ```sh
    aws cloudformation package \
        --region us-east-1 \ 
        --template-file templates/main.yaml \

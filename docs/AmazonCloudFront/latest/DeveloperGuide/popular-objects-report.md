@@ -1,7 +1,6 @@
 
 
 # View CloudFront popular objects reports
-<a name="popular-objects-report"></a>
 
 View the Amazon CloudFront popular objects report to see the 50 most popular objects for a distribution during a specified date range in the previous 60 days. You can also view statistics about those objects, including the following:
 + Number of requests for the object

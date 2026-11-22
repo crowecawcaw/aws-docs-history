@@ -1,7 +1,6 @@
 
 
 # Helper methods for origin modification
-<a name="helper-functions-origin-modification"></a>
 
 This section applies if you dynamically update or change the origin used on the request inside your CloudFront Functions code. You can update the origin on *viewer request* CloudFront Functions only. CloudFront Functions has a module that provides helper methods to dynamically update or change the origin.
 

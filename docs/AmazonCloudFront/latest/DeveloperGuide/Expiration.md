@@ -1,7 +1,6 @@
 
 
 # Manage how long content stays in the cache (expiration)
-<a name="Expiration"></a>
 
 You can control how long your files stay in a CloudFront cache before CloudFront forwards another request to your origin. By reducing the duration, you can serve dynamic content. Increasing the duration means that your users get better performance because your files are more likely to be served directly from the edge cache. A longer duration also reduces the load on your origin.
 

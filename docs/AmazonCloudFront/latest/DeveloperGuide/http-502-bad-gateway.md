@@ -1,7 +1,6 @@
 
 
 # HTTP 502 status code (Bad Gateway)
-<a name="http-502-bad-gateway"></a>
 
 CloudFront returns an HTTP 502 status code (Bad Gateway) when CloudFront wasn't able to serve the requested object because it couldn't connect to the origin server. 
 

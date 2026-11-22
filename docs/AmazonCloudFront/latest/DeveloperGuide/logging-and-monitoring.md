@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon CloudFront
-<a name="logging-and-monitoring"></a>
 
 Monitoring is an important part of maintaining the availability and performance of CloudFront and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. AWS provides several tools for monitoring your CloudFront resources and activity, and responding to potential incidents:
 

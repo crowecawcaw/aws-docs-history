@@ -1,7 +1,6 @@
 
 
 # Configure alternate domain names and HTTPS
-<a name="cnames-and-https-procedures"></a>
 
 To use alternate domain names in the URLs for your files and to use HTTPS between viewers and CloudFront, perform the applicable procedures.
 

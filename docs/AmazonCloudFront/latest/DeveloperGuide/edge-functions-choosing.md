@@ -1,7 +1,6 @@
 
 
 # Differences between CloudFront Functions and Lambda@Edge
-<a name="edge-functions-choosing"></a>
 
 CloudFront Functions and Lambda@Edge both provide a way to run code in response to CloudFront events. 
 
@@ -17,7 +16,7 @@ Lambda@Edge is ideal for the following use cases:
 + Functions that take several milliseconds or more to complete
 + Functions that require adjustable CPU or memory
 + Functions that depend on third-party libraries (including the AWS SDK, for integration with other AWS services)
-+ Functions that require network access to use external services for processing
++ Functions that need more than one network call per invocation
 + Functions that require file system access or access to the body of HTTP requests
 
 To get started with Lambda@Edge, see [Customize at the edge with Lambda@Edge](lambda-at-the-edge.md).
@@ -34,7 +33,7 @@ To help you choose the option for your use case, use the following table to unde
 | Function duration | Submillisecond | Up to 30 seconds (viewer request and viewer response)<br />Up to 30 seconds (origin request and origin response) | 
 | Maximum function memory size | 2 MB | 128 MB (viewer request and viewer response)<br />10,240 MB (10 GB) (origin request and origin response)<br />For more information, see [Quotas on Lambda@Edge](cloudfront-limits.md#limits-lambda-at-edge). | 
 | Maximum size of the function code and included libraries | 10 KB | 50 MB (viewer request and viewer response)<br />50 MB (origin request and origin response) | 
-| Network access | No | Yes | 
+| Network access | Yes, one call per invocation to an origin configured on the same distribution | Yes, any destination | 
 | File system access | No | Yes | 
 | Access to the request body | No | Yes | 
 | Access to geolocation and device data | Yes | No (viewer request and viewer response)<br />Yes (origin request and origin response) | 

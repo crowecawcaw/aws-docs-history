@@ -1,7 +1,6 @@
 
 
 # Video on demand and live streaming video with CloudFront
-<a name="on-demand-streaming-video"></a>
 
 You can use CloudFront to deliver video on demand (VOD) or live streaming video by using any HTTP origin. One way you can set up video workflows in the cloud is by using CloudFront together with [AWS Media Services](https://aws.amazon.com/media-services/).
 

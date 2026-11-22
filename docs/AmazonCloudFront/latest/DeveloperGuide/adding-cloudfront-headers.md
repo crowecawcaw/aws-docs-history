@@ -1,7 +1,6 @@
 
 
 # Add CloudFront request headers
-<a name="adding-cloudfront-headers"></a>
 
 You can configure CloudFront to add specific HTTP headers to the requests that CloudFront receives from viewers and forwards on to your origin or [edge function](edge-functions.md). The values of these HTTP headers are based on characteristics of the viewer or the viewer request. The headers provide information about the viewer's device type, IP address, geographic location, request protocol (HTTP or HTTPS), HTTP version, TLS connection details, [JA3 fingerprint](https://github.com/salesforce/ja3), and JA4 fingerprint. You can also configure your distribution's cache behavior to forward WebSocket headers. For more information, see [Use WebSockets with CloudFront distributions](distribution-working-with.websockets.md).
 

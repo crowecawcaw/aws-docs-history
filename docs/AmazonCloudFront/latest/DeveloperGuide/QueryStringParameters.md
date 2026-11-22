@@ -1,7 +1,6 @@
 
 
 # Cache content based on query string parameters
-<a name="QueryStringParameters"></a>
 
 Some web applications use query strings to send information to the origin. A query string is the part of a web request that appears after a `?` character; the string can contain one or more parameters, separated by `&` characters. In the following example, the query string includes two parameters, {{color=red}} and {{size=large}}:
 

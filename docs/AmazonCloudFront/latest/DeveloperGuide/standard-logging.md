@@ -1,7 +1,6 @@
 
 
 # Configure standard logging (v2)
-<a name="standard-logging"></a>
 
 You can enable access logs (standard logs) when you create or update a distribution. Standard logging (v2) includes the following features:
 + Send access logs to Amazon CloudWatch Logs, Amazon Data Firehose, and Amazon Simple Storage Service (Amazon S3).
@@ -126,13 +125,13 @@ There is an additional option to include cookies in standard logging. In the Clo
 
       The following is an example of configuring a delivery source for a distribution.
 
-      ```
+      ```bash
       aws logs put-delivery-source --name S3-delivery --resource-arn arn:aws:cloudfront::123456789012:distribution/d111111abcdef8 --log-type ACCESS_LOGS
       ```
 
       **Output**
 
-      ```
+      ```json
       {
        "deliverySource": {
        "name": "S3-delivery",
@@ -157,13 +156,13 @@ There is an additional option to include cookies in standard logging. In the Clo
 
       The following is an example of configuring a delivery destination to an Amazon S3 bucket.
 
-      ```
+      ```bash
       aws logs put-delivery-destination --name S3-destination --delivery-destination-configuration destinationResourceArn=arn:aws:s3:::amzn-s3-demo-bucket
       ```
 
       **Output**
 
-      ```
+      ```json
       {
           "name": "S3-destination",
           "arn": "arn:aws:logs:us-east-1:123456789012:delivery-destination:S3-destination",
@@ -191,13 +190,13 @@ If you're delivering logs cross-account, you must use the [PutDeliveryDestinatio
 
    The following is an example of creating a delivery. 
 
-   ```
+   ```bash
    aws logs create-delivery --delivery-source-name cf-delivery --delivery-destination-arn arn:aws:logs:us-east-1:123456789012:delivery-destination:S3-destination
    ```
 
    **Output**
 
-   ```
+   ```json
    {
        "id": "abcNegnBoTR123",
        "arn": "arn:aws:logs:us-east-1:123456789012:delivery:abcNegnBoTR123",
@@ -272,13 +271,13 @@ For destination account, complete the following procedure.
 
 1. To create the log delivery destination, you can enter the following AWS CLI command. This example uses the `{{MyLogPrefix}}` string to create a prefix for your access logs.
 
-   ```
+   ```bash
    aws logs put-delivery-destination --name {{cloudfront-delivery-destination}} --delivery-destination-configuration "destinationResourceArn=arn:aws:s3:::{{amzn-s3-demo-bucket-cloudfront-logs}}/{{MyLogPrefix}}"
    ```
 
    **Output**
 
-   ```
+   ```json
    {
        "deliveryDestination": {
            "name": "cloudfront-delivery-destination",
@@ -300,7 +299,7 @@ If you specify an S3 bucket *without* a prefix, CloudFront will automatically ap
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -321,13 +320,13 @@ If you specify an S3 bucket *without* a prefix, CloudFront will automatically ap
 
 1. To attach the previous policy to the delivery destination, enter the following AWS CLI command.
 
-   ```
+   ```bash
    aws logs put-delivery-destination-policy --delivery-destination-name {{cloudfront-delivery-destination}} --delivery-destination-policy file://deliverypolicy.json
    ```
 
 1. Add the below statement to the destination Amazon S3 bucket policy, replacing the resource ARN and the source account ID. This policy allows the `delivery.logs.amazonaws.com` service principal to perform the `s3:PutObject` action.
 
-   ```
+   ```json
    {
        "Sid": "AWSLogsDeliveryWrite",
        "Effect": "Allow",
@@ -346,7 +345,7 @@ If you specify an S3 bucket *without* a prefix, CloudFront will automatically ap
 
 1. If you're using AWS KMS for your bucket, add the following statement to the KMS key policy to grant permissions to the `delivery.logs.amazonaws.com` service principal.
 
-   ```
+   ```json
    {
        "Sid": "Allow Logs Delivery to use the key",
        "Effect": "Allow",
@@ -377,13 +376,13 @@ After you configure the destination account, follow this procedure to create the
 
    You can enter the following AWS CLI command, replacing the name and your distribution ARN.
 
-   ```
+   ```bash
    aws logs put-delivery-source --name {{s3-cf-delivery}} --resource-arn arn:aws:cloudfront::{{111111111111}}:distribution/{{E1TR1RHV123ABC}} --log-type ACCESS_LOGS
    ```
 
    **Output**
 
-   ```
+   ```json
    {
        "deliverySource": {
            "name": "s3-cf-delivery",
@@ -405,7 +404,7 @@ After you configure the destination account, follow this procedure to create the
 
    **Output**
 
-   ```
+   ```json
    {
        "delivery": {
            "id": "OPmOpLahVzhx1234",
@@ -509,6 +508,58 @@ In addition, you can select the following [real-time access log fields](real-tim
 
 1. `viewer-response-log-data` – Contains the custom data that your viewer response CloudFront function sends by using the `cf.logCustomData()` helper method. CloudFront URL-encodes the value and truncates it to a maximum of 800 bytes. If no CloudFront function is associated with the viewer response event, or if the function does not call `cf.logCustomData()`, this field is `-`. For more information, see [General helper methods](general-helper-methods.md).
 
+1. `s-ip` – The IP address of the CloudFront server that served the request, for example, `192.0.2.183` or `2001:0db8:85a3::8a2e:0370:7334`.
+
+1. `primary-distribution-id` – When continuous deployment is enabled, this ID identifies which distribution is the primary in the current distribution.
+
+1. `primary-distribution-dns-name` – When continuous deployment is enabled, this value shows the primary domain name that is related to the current CloudFront distribution (for example, d111111abcdef8.cloudfront.net).
+
+1. `r-host` – This field is sent for origin requests and it indicates the domain of the origin server used to serve the object. In case of errors, you can use this field to find the last origin attempted, for example: `{{cd8jhdejh6a}}.mediapackagev2.us-east-1.amazonaws.com`.
+
+1. `sr-reason` – This field provides a reason why the origin was selected. It's empty when a request to the primary origin succeeds. If origin failover occurs, the field will contain the HTTP error code that led to the failover, such as `Failover:403` or `Failover:502`. In case of origin failover, if the retried request also fails and you have not configured custom error pages, then `r-status` indicates the response of the second origin. However, if you have configured custom error pages along with origin failover, then this will contain the response of the second origin if the request failed and a custom error page was returned instead. If no origin failover occurs but media quality-aware resilience (MQAR) origin selection occurs, then this will be logged as `MediaQuality`. For more information, see [Media quality-aware resiliency](media-quality-score.md).
+
+1. `x-edge-mqcs` – This field indicates the Media Quality Confidence Score (MQCS) (range: 0 – 100) for media segments that CloudFront retrieved in the CMSD response headers from MediaPackage v2. This field is available for requests matching a cache behavior that has an MQAR-enabled origin group. CloudFront logs this field for media segments that are also served from its cache in addition to origin requests. For more information, see [Media quality-aware resiliency](media-quality-score.md).
+
+1. 
+**Common Media Client Data (CMCD) fields**  
+For more information about these fields, see the [CTA Specification Web Application Video Ecosystem - Common Media Client Data CTA-5004](https://www.cta.tech/standards/wave-common-media-client-data/) document.
+
+1. `cmcd-encoded-bitrate` – The encoded bitrate of the requested audio or video object. 
+
+1. `cmcd-buffer-length` – The buffer length of the requested media object.
+
+1. `cmcd-buffer-starvation` – Whether the buffer was starved at some point between the prior request and the object request. This can cause the player to be in a rebuffering state, which can stall the video or audio playback. 
+
+1. `cmcd-content-id` – A unique string that identifies the current content.
+
+1. `cmcd-object-duration` – The playback duration of the requested object (in milliseconds). 
+
+1. `cmcd-deadline` – The deadline from the request time that the first sample of this object must be available, so that a buffer underrun state or other playback problems are avoided. 
+
+1. `cmcd-measured-throughput` – The throughput between the client and server, as measured by the client.
+
+1. `cmcd-next-object-request` – The relative path of the next requested object.
+
+1. `cmcd-next-range-request` – If the next request is a partial object request, this string denotes the byte range to be requested.
+
+1. `cmcd-object-type` – The media type of the current object being requested.
+
+1. `cmcd-playback-rate` – 1 if real-time, 2 if double-speed, 0 if not playing. 
+
+1. `cmcd-requested-maximum-throughput` – The requested maximum throughput that the client considers sufficient for asset delivery.
+
+1. `cmcd-streaming-format` – The streaming format that defines the current request.
+
+1. `cmcd-session-id` – A GUID identifying the current playback session.
+
+1. `cmcd-stream-type` – Token identifying segment availability. `v` = all segments are available. `l` = segments become available over time.
+
+1. `cmcd-startup` – Key is included without a value if the object is needed urgently during startup, seeking, or recovery after a buffer-empty event.
+
+1. `cmcd-top-bitrate` – The highest bitrate rendition that the client can play.
+
+1. `cmcd-version` – The version of this specification used for interpreting the defined key names and values. If this key is omitted, the version is 1; according to the specification, both the client and server *must* interpret the version as 1 when this field is omitted.
+
 ## Send logs to CloudWatch Logs
 <a name="send-logs-cloudwatch-logs"></a>
 
@@ -523,7 +574,7 @@ Verify that your log group resource policy doesn't exceed the size limit. See th
 ### Example access log sent to CloudWatch Logs
 <a name="example-access-logs-cwl"></a>
 
-```
+```json
 { 
 "date": "2024-11-14", 
 "time": "21:34:06", 

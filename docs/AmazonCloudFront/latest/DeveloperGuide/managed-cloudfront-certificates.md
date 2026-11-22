@@ -1,7 +1,6 @@
 
 
 # Request certificates for your CloudFront distribution tenant
-<a name="managed-cloudfront-certificates"></a>
 
 When you create a distribution tenant, the tenant inherits the shared AWS Certificate Manager (ACM) certificate from the multi-tenant distribution. This shared certificate provides HTTPS for all tenants associated with the multi-tenant distribution.
 
@@ -187,7 +186,7 @@ For more information, see the documentation for your DNS provider:
 ## Domain considerations (distribution tenant)
 <a name="tenant-domain-considerations"></a>
 
-When a domain is active, domain control has been established and CloudFront will respond to all viewer requests to this domain. Once activated, a domain can't be deactivated or changed to an inactive status. The domain can't be associated with another CloudFront resource while it's already in use. To associate the domain with another distribution, use the [UpdateDomainAssociation](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDomainAssociation.html) request to move the domain from one CloudFront resource to another.
+When a domain is active, domain control has been established and CloudFront will respond to all viewer requests to this domain. Once activated, a domain can't be deactivated or changed to an inactive status. The domain can't be associated with another CloudFront resource while it's already in use. To associate the domain with another distribution, use the [UpdateDomainAssociation](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDomainAssociation.html) request to move the domain from one CloudFront resource to another. To move the domain to a distribution tenant, you can also set `OnDomainTakeover` to `allow` when you create or update the distribution tenant. For more information, see [Move domains when you create or update a distribution tenant](alternate-domain-names-move-options.md#alternate-domain-names-move-takeover).
 
 When a domain is inactive, CloudFront won't respond to viewer requests to the domain. While the domain is inactive, note the following:
 + If you have a pending certificate request, CloudFront will respond to requests for the well-known path. While the request is pending, the domain can't be associated with any other CloudFront resources.

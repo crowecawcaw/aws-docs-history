@@ -1,7 +1,6 @@
 
 
 # Use `DeleteDistribution` with an AWS SDK or CLI
-<a name="example_cloudfront_DeleteDistribution_section"></a>
 
 The following code examples show how to use `DeleteDistribution`.
 
@@ -33,7 +32,7 @@ For more information, see [Delete a distribution](https://docs.aws.amazon.com/Am
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples). 
 The following code example updates a distribution to *disabled*, uses a waiter that waits for the change to be deployed, then deletes the distribution.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.internal.waiters.ResponseOrException;

@@ -1,7 +1,6 @@
 
 
 # Set signed cookies using a canned policy
-<a name="private-content-setting-signed-cookie-canned-policy"></a>
 
 To set a signed cookie by using a canned policy, complete the following steps. To create the signature, see [Create a signature for a signed cookie that uses a canned policy](#private-content-canned-policy-signature-cookies).<a name="private-content-setting-signed-cookie-canned-policy-procedure"></a>
 
@@ -106,7 +105,7 @@ When you set a signed cookie that uses a canned policy, the `CloudFront-Signatur
 
 1. Construct the policy statement using the following JSON format and using UTF-8 character encoding. Include all punctuation and other literal values exactly as specified. For information about the `Resource` and `DateLessThan` parameters, see [Values that you specify in the policy statement for a canned policy for signed cookies](#private-content-canned-policy-statement-cookies-values).
 
-   ```
+   ```json
    {
        "Statement": [
            {
@@ -148,7 +147,7 @@ For more information, see [When CloudFront checks expiration date and time in a 
 
 When you use the following example policy statement in a signed cookie, a user can access the file `https://d111111abcdef8.cloudfront.net/horizon.jpg` until March 16, 2015 10:00 am UTC:
 
-```
+```json
 {
     "Statement": [
         {

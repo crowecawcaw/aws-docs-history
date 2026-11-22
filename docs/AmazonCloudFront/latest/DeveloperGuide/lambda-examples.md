@@ -1,7 +1,6 @@
 
 
 # Lambda@Edge example functions
-<a name="lambda-examples"></a>
 
 See the following examples to use Lambda functions with Amazon CloudFront.
 
@@ -34,7 +33,7 @@ You can use the following example to test two different versions of an image wit
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 exports.handler = (event, context, callback) => {
@@ -107,7 +106,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 import json
 import random
 
@@ -179,7 +178,7 @@ The following example shows how to change the value of a response header based o
 ------
 #### [ Node.js ]
 
-```
+```javascript
 export const handler = async (event) => {
     const response = event.Records[0].cf.response;
     const headers = response.headers;
@@ -203,7 +202,7 @@ export const handler = async (event) => {
 ------
 #### [ Python ]
 
-```
+```python
 import json 
 
 def lambda_handler(event, context):
@@ -247,7 +246,7 @@ You can also replace or remove the body of the HTTP response in origin response 
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 const content = `
@@ -289,7 +288,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 import json
 
 CONTENT = """
@@ -342,7 +341,7 @@ You can generate HTTP responses for viewer request and origin request events. Fo
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 exports.handler = (event, context, callback) => {
@@ -366,7 +365,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 def lambda_handler(event, context):
 
     # Generate HTTP redirect response with 302 status code and Location header.
@@ -405,7 +404,7 @@ The following example shows how to get the key-value pair of a query string para
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 const querystring = require('querystring');
@@ -437,7 +436,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 from urllib.parse import parse_qs, urlencode
 
 def lambda_handler(event, context):
@@ -479,7 +478,7 @@ For more information, see [Cache content based on query string parameters](Query
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 const querystring = require('querystring');
@@ -520,7 +519,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 from urllib.parse import parse_qs, urlencode
 
 def lambda_handler(event, context):
@@ -562,7 +561,7 @@ The following example shows how to redirect users to a sign-in page if they have
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 function parseCookies(headers) {
@@ -613,7 +612,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 import urllib
 
 def parseCookies(headers):
@@ -683,7 +682,7 @@ Note the following:
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 /* This is an origin request function */
@@ -730,7 +729,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 # This is an origin request function
 
 def lambda_handler(event, context):
@@ -784,7 +783,7 @@ The following example shows how to serve different versions of an object based o
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 /* This is an origin request function */
@@ -831,7 +830,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 # This is an origin request function
 def lambda_handler(event, context):
     request = event['Records'][0]['cf']['request']
@@ -890,7 +889,7 @@ This function demonstrates how an origin-request trigger can be used to change f
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
  const querystring = require('querystring');
@@ -930,7 +929,7 @@ This function demonstrates how an origin-request trigger can be used to change f
 ------
 #### [ Python ]
 
-```
+```python
 from urllib.parse import parse_qs
 
 def lambda_handler(event, context):
@@ -978,7 +977,7 @@ The following example code uses the same origin access identity (OAI) for all S3
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 exports.handler = (event, context, callback) => {
@@ -1044,7 +1043,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 def lambda_handler(event, context):
     request = event['Records'][0]['cf']['request']
 
@@ -1111,7 +1110,7 @@ This function demonstrates how an origin-request trigger can be used to change t
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 const querystring = require('querystring');
@@ -1152,7 +1151,7 @@ const querystring = require('querystring');
 ------
 #### [ Python ]
 
-```
+```python
 from urllib.parse import parse_qs
 
 def lambda_handler(event, context):
@@ -1192,7 +1191,7 @@ This function demonstrates how you can gradually transfer traffic from one Amazo
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
     function getRandomInt(min, max) {
@@ -1227,7 +1226,7 @@ if (randomNumber <= BLUE_TRAFFIC_PERCENTAGE) {
 ------
 #### [ Python ]
 
-```
+```python
 import math
 import random
 
@@ -1274,7 +1273,7 @@ Note that to enable this functionality you must configure your distribution to c
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 exports.handler = (event, context, callback) => {
@@ -1296,7 +1295,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 def lambda_handler(event, context):
     request = event['Records'][0]['cf']['request']
 
@@ -1331,7 +1330,7 @@ This function demonstrates how you can update the response status to 200 and gen
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 exports.handler = (event, context, callback) => {
@@ -1357,7 +1356,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 def lambda_handler(event, context):
     response = event['Records'][0]['cf']['response']
 
@@ -1387,7 +1386,7 @@ This function demonstrates how you can update the HTTP status code to 302 to red
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 exports.handler = (event, context, callback) => {
@@ -1419,7 +1418,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 def lambda_handler(event, context):
     response = event['Records'][0]['cf']['response']
     request = event['Records'][0]['cf']['request']
@@ -1465,7 +1464,7 @@ To enable this setting in the CloudFront API or with CloudFormation, set the `In
 
 This function demonstrates how you can process the body of a POST request generated by an HTML form (web form), such as a "contact us" form. For example, you might have an HTML form like the following:
 
-```
+```html
 <html>
   <form action="https://example.com" method="post">
     Param 1: <input type="text" name="name1"><br>
@@ -1480,7 +1479,7 @@ For the example function that follows, the function must be triggered in a Cloud
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 
 const querystring = require('querystring');
@@ -1517,7 +1516,7 @@ exports.handler = (event, context, callback) => {
 ------
 #### [ Python ]
 
-```
+```python
 import base64
 from urllib.parse import parse_qs
 
@@ -1572,7 +1571,7 @@ This function demonstrates how you can modify the body of a POST request generat
 ------
 #### [ Node.js ]
 
-```
+```javascript
 'use strict';
 				
 const querystring = require('querystring');
@@ -1621,7 +1620,7 @@ function getUpdatedBody(request) {
 ------
 #### [ Python ]
 
-```
+```python
 import base64
 from urllib.parse import parse_qs, urlencode
 

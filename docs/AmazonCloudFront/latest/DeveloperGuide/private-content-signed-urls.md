@@ -1,7 +1,6 @@
 
 
 # Use signed URLs
-<a name="private-content-signed-urls"></a>
 
 A signed URL includes additional information, for example, an expiration date and time, that gives you more control over access to your content. This additional information appears in a policy statement, which is based on either a canned policy or a custom policy. The differences between canned and custom policies are explained in the next two sections.
 

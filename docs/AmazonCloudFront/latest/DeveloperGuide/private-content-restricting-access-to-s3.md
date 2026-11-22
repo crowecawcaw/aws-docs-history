@@ -1,7 +1,6 @@
 
 
 # Restrict access to an Amazon S3 origin
-<a name="private-content-restricting-access-to-s3"></a>
 
 CloudFront provides two ways to send authenticated requests to an Amazon S3 origin: *origin access control* (OAC) and *origin access identity* (OAI). OAC helps you secure your origins, such as Amazon S3. 
 
@@ -61,7 +60,7 @@ The following are examples of S3 bucket policies that allow a CloudFront distrib
 **Example S3 bucket policy that allows read-only access for a CloudFront distribution with OAC enabled**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -86,7 +85,7 @@ The following are examples of S3 bucket policies that allow a CloudFront distrib
 **Example S3 bucket policy that allows read and write access for a CloudFront distribution with OAC enabled**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -119,7 +118,7 @@ If the objects in the S3 bucket origin are encrypted using [server-side encrypti
 **Example KMS key policy statement**  
 The following example shows an AWS KMS policy statement that allows the CloudFront distribution with OAC to access a KMS key for SSE-KMS.  
 
-```
+```json
 {
     "Sid": "AllowCloudFrontServicePrincipalSSE-KMS",
     "Effect": "Allow",
@@ -191,7 +190,7 @@ The distribution starts deploying to all of the CloudFront edge locations. When 
 
 To create an origin access control (OAC) with CloudFormation, use the `AWS::CloudFront::OriginAccessControl` resource type. The following example shows the CloudFormation template syntax, in YAML format, for creating an origin access control.
 
-```
+```yaml
 Type: AWS::CloudFront::OriginAccessControl
 Properties: 
   OriginAccessControlConfig: 
@@ -280,7 +279,7 @@ The following example S3 bucket policy allows both an OAI and a distribution wit
 **Example S3 bucket policy that allows read-only access for an OAI and a CloudFront distribution with OAC enabled**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -401,7 +400,7 @@ Find the OAI ID in the CloudFront console under **Security**, **Origin access**,
 The following example allows the OAI to read objects in the specified bucket (`s3:GetObject`).    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "PolicyForCloudFrontPrivateContent",
@@ -422,7 +421,7 @@ The following example allows the OAI to read objects in the specified bucket (`s
 The following example allows the OAI to read and write objects in the specified bucket (`s3:GetObject` and `s3:PutObject`). This allows viewers to upload files to your Amazon S3 bucket through CloudFront.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "PolicyForCloudFrontPrivateContent",

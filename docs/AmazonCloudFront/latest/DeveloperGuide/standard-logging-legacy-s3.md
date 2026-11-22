@@ -1,7 +1,6 @@
 
 
 # Configure standard logging (legacy)
-<a name="standard-logging-legacy-s3"></a>
 
 **Notes**  
 This topic is for the previous version of standard logging. For the latest version, see [Configure standard logging (v2)](standard-logging.md).
@@ -67,7 +66,7 @@ If you disable logging, CloudFront doesn't delete the ACLs for either the bucket
 
 If the S3 bucket for your standard logs uses server-side encryption with AWS KMS keys (SSE-KMS) by using a customer managed key, you must add the following statement to the key policy for your customer managed key. This allows CloudFront to write log files to the bucket. You can't use SSE-KMS with the AWS managed key because CloudFront won't be able to write log files to the bucket.
 
-```
+```json
 {
     "Sid": "Allow CloudFront to use the key to deliver logs",
     "Effect": "Allow",
@@ -81,7 +80,7 @@ If the S3 bucket for your standard logs uses server-side encryption with AWS KMS
 
 If the S3 bucket for your standard logs uses SSE-KMS with an [S3 Bucket Key](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html), you also need to add the `kms:Decrypt` permission to the policy statement. In that case, the full policy statement looks like the following.
 
-```
+```json
 {
     "Sid": "Allow CloudFront to use the key to deliver logs",
     "Effect": "Allow",

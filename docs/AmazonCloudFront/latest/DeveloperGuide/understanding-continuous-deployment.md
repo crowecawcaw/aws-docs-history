@@ -1,7 +1,6 @@
 
 
 # Learn how continuous deployment works
-<a name="understanding-continuous-deployment"></a>
 
 The following topics explain how CloudFront continuous deployment works.
 

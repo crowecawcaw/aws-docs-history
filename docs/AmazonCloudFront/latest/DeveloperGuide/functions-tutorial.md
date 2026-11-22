@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a simple function with CloudFront Functions
-<a name="functions-tutorial"></a>
 
 This tutorial shows you how to get started with CloudFront Functions. You can create a simple function that redirects the viewer to a different URL, and that also returns a custom response header.
 
@@ -36,7 +35,7 @@ You can use the CloudFront console to create a simple function that redirects th
 
 1. Copy the following function code. This function code redirects the viewer to a different URL, and also returns a custom response header.
 
-   ```
+   ```js
    function handler(event) {
        // NOTE: This example function is for a viewer request event trigger. 
        // Choose viewer request for event trigger when you associate this function with a distribution. 

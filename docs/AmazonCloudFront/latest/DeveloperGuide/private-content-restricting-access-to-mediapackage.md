@@ -1,7 +1,6 @@
 
 
 # Restrict access to an AWS Elemental MediaPackage v2 origin
-<a name="private-content-restricting-access-to-mediapackage"></a>
 
 CloudFront provides *origin access control* (OAC) for restricting access to a MediaPackage v2 origin.
 
@@ -38,7 +37,7 @@ Use an IAM policy to allow the CloudFront service principal (`cloudfront.amazona
 The following policy allows the CloudFront distribution (`{{E1PDK09ESKHJWT}}`) access to the MediaPackage v2 origin. The origin is the ARN specified for the `Resource` element.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -109,7 +108,7 @@ The distribution starts deploying to all of the CloudFront edge locations. When 
 
 To create an OAC with CloudFormation, use the `AWS::CloudFront::OriginAccessControl` resource type. The following example shows the CloudFormation template syntax, in YAML format, for creating an OAC.
 
-```
+```yaml
 Type: AWS::CloudFront::OriginAccessControl
 Properties: 
   OriginAccessControlConfig: 

@@ -1,7 +1,6 @@
 
 
 # Write and create a Lambda@Edge function
-<a name="lambda-edge-create-function"></a>
 
 To use Lambda@Edge, you *write* the code for your AWS Lambda function. To help you write Lambda@Edge functions, see the following resources:
 +  [Lambda@Edge event structure](lambda-event-structure.md) – Understand the event structure to use with Lambda@Edge.

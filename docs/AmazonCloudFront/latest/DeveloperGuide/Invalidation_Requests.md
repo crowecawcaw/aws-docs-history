@@ -1,7 +1,6 @@
 
 
 # Invalidate files
-<a name="Invalidation_Requests"></a>
 
 You can use the CloudFront console to create and run an invalidation, display a list of the invalidations that you submitted previously, and display detailed information about an individual invalidation. You can also copy an existing invalidation, edit the list of file paths, and run the edited invalidation. You can't remove invalidations from the list.
 

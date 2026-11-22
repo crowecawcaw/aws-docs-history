@@ -1,7 +1,6 @@
 
 
 # Disable AWS WAF security protections
-<a name="disable-waf"></a>
 
 If your distribution doesn't need AWS WAF security protections, you can disable this feature by using the CloudFront console. 
 

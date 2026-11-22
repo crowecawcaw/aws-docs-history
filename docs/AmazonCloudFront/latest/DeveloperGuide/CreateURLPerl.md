@@ -1,7 +1,6 @@
 
 
 # Create a URL signature using Perl
-<a name="CreateURLPerl"></a>
 
 This section includes a Perl script for Linux/Mac platforms that you can use to create the signature for private content. To create the signature, run the script with command line arguments that specify the CloudFront URL, the path to the private key of the signer, the key ID, and an expiration date for the URL. The tool can also decode signed URLs. 
 
@@ -17,7 +16,7 @@ In the signing command, note that `sha1` can be replaced with `sha256` in the `o
 
 The following Perl source code can be used to create a signed URL for CloudFront. Comments in the code include information about the command line switches and the features of the tool.
 
-```
+```perl
 #!/usr/bin/perl -w
 
 # Copyright 2008 Amazon Technologies, Inc.  Licensed under the Apache License, Version 2.0 (the "License");

@@ -1,13 +1,12 @@
 
 
 # Step 1: Create a KeyValueStore for revoked certificates
-<a name="create-kvs-revoked-certificates"></a>
 
 Create a KeyValueStore to store revoked certificate serial numbers that your Connection Function can check during mTLS connections.
 
 First, prepare your revoked certificate serial numbers in JSON format:
 
-```
+```json
 {
   "data": [
     {

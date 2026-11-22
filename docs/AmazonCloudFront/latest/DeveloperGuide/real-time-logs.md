@@ -1,7 +1,6 @@
 
 
 # Use real-time access logs
-<a name="real-time-logs"></a>
 
 With CloudFront real-time access logs, you can get information about requests made to a distribution in real time (logs are delivered within seconds of receiving the requests). You can use real-time access logs to monitor, analyze, and take action based on content delivery performance.
 
@@ -416,7 +415,7 @@ This field is truncated to 800 bytes.
 
 1. <a name="CMCD-real-time-logging-fields"></a>
 **CMCD fields in real-time access logs**  
-For more information about these fields, see the [CTA Specification Web Application Video Ecosystem - Common Media Client Data CTA-5004](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf) document.
+For more information about these fields, see the [CTA Specification Web Application Video Ecosystem - Common Media Client Data CTA-5004](https://www.cta.tech/standards/wave-common-media-client-data/) document.
 
 1. **`cmcd-encoded-bitrate`**
 
@@ -488,7 +487,7 @@ For more information about these fields, see the [CTA Specification Web Applicat
 
 1. **`cmcd-version`**
 
-   The version of this specification used for interpreting the defined key names and values. If this key is omitted, the client and server *must* interpret the values as being defined by version 1.
+   The version of this specification used for interpreting the defined key names and values. If this key is omitted, the version is 1; according to the specification, both the client and server *must* interpret the version as 1 when this field is omitted.
 
 1. **`r-host`**
 
@@ -573,7 +572,7 @@ To use the following IAM role trust policy, replace {{111122223333}} with your A
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -604,7 +603,7 @@ To use the following policy, replace {{arn:aws:kinesis:us-east-2:123456789012:st
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -635,7 +634,7 @@ To use the following policy, replace {{arn:aws:kinesis:us-east-2:123456789012:st
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # HTTP 403 status code (Permission Denied)
-<a name="http-403-permission-denied"></a>
 
 An HTTP 403 error means the client isn't authorized to access the requested resource. The client understands the request, but can't authorize viewer access. The following are common causes when CloudFront returns this status code:
 

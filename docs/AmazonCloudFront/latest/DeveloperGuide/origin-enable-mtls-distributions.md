@@ -1,9 +1,8 @@
 
 
 # Enable origin mutual TLS for CloudFront distributions
-<a name="origin-enable-mtls-distributions"></a>
 
-After obtaining a client certificate through AWS Certificate Manager and configuring your origin server to require mutual TLS, you can enable origin mTLS on your CloudFront distribution.
+After obtaining a client certificate through AWS Certificate Manager and configuring your origin server to require mutual TLS (mTLS), you can enable origin mTLS on your CloudFront distribution.
 
 ## Prerequisites and requirements
 <a name="origin-mtls-prerequisites-requirements"></a>
@@ -19,12 +18,10 @@ Before enabling origin mTLS on a CloudFront distribution, make sure you have:
 Origin mTLS can be configured for custom origins (including origins hosted outside AWS) and AWS origins that support mutual TLS such as Application Load Balancer and API Gateway.
 
 **Important**  
-The following CloudFront features are not supported with origin mTLS:  
-**gRPC traffic:** gRPC protocol is not supported for origins with origin mTLS enabled
-**WebSocket connections:** WebSocket protocol is not supported for origins with origin mTLS enabled
-**VPC origins:** origin mTLS cannot be used with VPC origins
-**Origin request and origin response triggers with Lambda@Edge:** Lambda@Edge functions in origin request and origin response positions are not supported with origin mTLS
-**Embedded POPs:** origin mTLS is not supported for embedded POPs
+You can't use origin mTLS with the following CloudFront features:  
+**Embedded points of presence (POPs)** – CloudFront doesn't support origin mTLS on Embedded POPs.
+**Origin request and origin response triggers with Lambda@Edge** – You can't use a Lambda@Edge function in an origin request or origin response trigger with origin mTLS. For more information, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md).
+**VPC origins** – You can't use origin mTLS with VPC origins. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md).
 
 ## Enable origin mTLS
 <a name="origin-enable-mtls-per-origin"></a>
@@ -82,7 +79,7 @@ Per-origin configuration allows you to specify different client certificates for
 
 For per-origin configuration, specify the origin mTLS settings within each origin's configuration:
 
-```
+```json
 {
   "Origins": {
     "Quantity": 2,

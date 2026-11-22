@@ -1,7 +1,6 @@
 
 
 # Add or remove HTTP headers in CloudFront responses with a policy
-<a name="modifying-response-headers"></a>
 
 You can configure CloudFront to modify the HTTP headers in the responses that it sends to viewers (web browsers and other clients). CloudFront can remove headers that it received from the origin, or add headers to the response, before sending the response to viewers. Making these changes doesn't require writing code or changing the origin.
 

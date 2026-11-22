@@ -1,7 +1,6 @@
 
 
 # Configuring additional settings
-<a name="configuring-additional-settings"></a>
 
 After enabling basic mutual TLS authentication, you can configure additional settings to customize the authentication behavior for specific use cases and requirements.
 

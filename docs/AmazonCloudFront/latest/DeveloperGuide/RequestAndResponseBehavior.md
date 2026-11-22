@@ -1,7 +1,6 @@
 
 
 # Request and response behavior
-<a name="RequestAndResponseBehavior"></a>
 
 The following topics describe how CloudFront handles requests and responses. 
 

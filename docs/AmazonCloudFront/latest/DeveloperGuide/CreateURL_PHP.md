@@ -1,7 +1,6 @@
 
 
 # Create a URL signature using PHP
-<a name="CreateURL_PHP"></a>
 
 Any web server that runs PHP can use this PHP example code to create policy statements and signatures for private CloudFront distributions. The full example creates a functioning webpage with signed URL links that play a video stream using CloudFront streaming. You can download the full example from the [demo-php.zip](samples/demo-php.zip) file.
 
@@ -25,7 +24,7 @@ This code example does the following:
 + The function `rsa_sha1_sign` hashes and signs the policy statement. The arguments required are a policy statement and the private key that corresponds with a public key that’s in a trusted key group for your distribution. 
 + Next, the `url_safe_base64_encode` function creates a URL-safe version of the signature.
 
-```
+```php
 function rsa_sha1_sign($policy, $private_key_filename) {
     $signature = "";
 
@@ -67,7 +66,7 @@ The following example code constructs a *canned* policy statement for the signat
 **Note**  
 The `$expires` variable is a date/time stamp that must be an integer, not a string.
 
-```
+```php
 function get_canned_policy_stream_name($video_path, $private_key_filename, $key_pair_id, $expires) {
     // this policy is well known by CloudFront, but you still need to sign it, since it contains your parameters
     $canned_policy = '{"Statement":[{"Resource":"' . $video_path . '","Condition":{"DateLessThan":{"AWS:EpochTime":'. $expires . '}}}]}';
@@ -92,7 +91,7 @@ For more information about canned policies, see [Create a signed URL using a can
 
 The following example code constructs a *custom* policy statement for the signature. 
 
-```
+```php
 function get_custom_policy_stream_name($video_path, $private_key_filename, $key_pair_id, $policy) {
     // the policy contains characters that cannot be part of a URL, so we base64 encode it
     $encoded_policy = url_safe_base64_encode($policy);
@@ -117,7 +116,7 @@ The following example code provides a complete demonstration of creating CloudFr
 
 In the following example, you can modify the `$policy` `Condition` element to allow both IPv4 and IPv6 address ranges. For an example, see [Using IPv6 addresses in IAM policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ipv6-access.html#ipv6-access-iam) in the *Amazon Simple Storage Service User Guide*.
 
-```
+```php
 <?php
 
 function rsa_sha1_sign($policy, $private_key_filename) {

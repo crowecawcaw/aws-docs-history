@@ -1,7 +1,6 @@
 
 
 # Tag a CloudFront resource
-<a name="tagging"></a>
 
 Tags are words or phrases that you can use to identify and organize your AWS resources. You can add multiple tags to each resource, and each tag includes a key and a value that you define. For example, the key might be "domain" and the value might be "example.com". You can search and filter your resources based on the tags you add. For more information about use cases for tags, see [Common tagging strategies](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) in the Tagging AWS Resources and Tag Editor Guide.
 

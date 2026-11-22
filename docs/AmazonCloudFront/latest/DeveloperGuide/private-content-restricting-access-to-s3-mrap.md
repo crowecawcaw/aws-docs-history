@@ -1,7 +1,6 @@
 
 
 # Restrict access to an Amazon S3 Multi-Region Access Point origin
-<a name="private-content-restricting-access-to-s3-mrap"></a>
 
 You can use origin access control (OAC) to restrict access to an Amazon S3 Multi-Region Access Point origin. S3 Multi-Region Access Points provide a global endpoint that routes requests to the closest S3 bucket based on network latency.
 
@@ -28,7 +27,7 @@ For information about adding or modifying a Multi-Region Access Point policy, se
 
 **Example Multi-Region Access Point policy for CloudFront OAC**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -65,7 +64,7 @@ Add a bucket policy to each S3 bucket that allows the CloudFront service princip
 
 **Example S3 bucket policy for an underlying bucket**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -94,7 +93,7 @@ Grant the Multi-Region Access Point full access to each underlying bucket. With 
 
 **Example S3 bucket policy that delegates access to the Multi-Region Access Point**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -127,7 +126,7 @@ If the objects in the underlying S3 buckets are encrypted using server-side encr
 **Example KMS key policy statement**  
 The following example shows a KMS key policy statement that allows the CloudFront distribution with OAC to access a KMS key for SSE-KMS.  
 
-```
+```json
 {
     "Sid": "AllowCloudFrontServicePrincipalSSE-KMS",
     "Effect": "Allow",
@@ -224,7 +223,7 @@ Specify the following values in the `OriginAccessControlConfig`:
 
 **Example CloudFormation template**  
 
-```
+```yaml
 Type: AWS::CloudFront::OriginAccessControl
 Properties:
   OriginAccessControlConfig:

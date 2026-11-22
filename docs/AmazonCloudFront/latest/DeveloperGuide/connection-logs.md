@@ -1,14 +1,13 @@
 
 
-# Observability using connection logs
-<a name="connection-logs"></a>
+# Connection logs
 
-CloudFront connection logs provide detailed visibility into mutual TLS authentication events, allowing you to monitor certificate validation, track connection attempts, and troubleshoot authentication issues.
+CloudFront connection logs provide detailed visibility into TLS connections, including mutual TLS authentication events, allowing you to monitor certificate validation, track connection attempts, and troubleshoot authentication issues.
 
 ## What are connection logs?
 <a name="what-are-connection-logs"></a>
 
-Connection logs capture detailed information about TLS handshakes and certificate validation for mutual TLS-enabled distributions. Unlike standard access logs that record HTTP request information, connection logs focus specifically on the TLS connection establishment phase, including:
+Connection logs capture detailed information about TLS handshakes and certificate validation for mutual TLS-enabled distributions, and for distribution tenants on the Anycast static IP addresses of their connection group. Unlike standard access logs that record HTTP request information, connection logs focus specifically on the TLS connection establishment phase, including:
 + Connection status (success/failure)
 + Client certificate details
 + TLS protocol and cipher information
@@ -17,16 +16,57 @@ Connection logs capture detailed information about TLS handshakes and certificat
 
 These logs provide comprehensive visibility into certificate-based authentication events, helping you monitor security, troubleshoot issues, and meet compliance requirements.
 
+## Connections that CloudFront logs
+<a name="connection-logs-supported-connections"></a>
+
+CloudFront generates connection logs only for the following connections:
++ Connections to a distribution that has mutual TLS (viewer) enabled. For more information, see [Mutual TLS authentication with CloudFront (Viewer mTLS)](mtls-authentication.md).
++ HTTPS connections to a distribution tenant on the Anycast static IP addresses of its connection group. For more information, see [Connection logs for distribution tenants on Anycast static IPs](#connection-logs-anycast-tenants).
+
+**Important**  
+CloudFront doesn't generate connection logs for any other connections. For example, you don't get connection logs for a standard distribution that doesn't use mutual TLS, for distribution tenants on the shared CloudFront IP addresses, or for HTTP connections. You can enable connection logs on a distribution that doesn't use mutual TLS, but the logs contain only the connections listed above.
+
+To enable connection logs, see [Enable connection logs](#enable-connection-logs).
+
+## Connection logs for distribution tenants on Anycast static IPs
+<a name="connection-logs-anycast-tenants"></a>
+
+When viewers connect to a distribution tenant through the Anycast static IP addresses of the distribution tenant's connection group, CloudFront can log each HTTPS connection, even when the multi-tenant distribution doesn't use mutual TLS. To get these logs, enable connection logs on the multi-tenant distribution, as described in [Enable connection logs](#enable-connection-logs). CloudFront doesn't log HTTP connections, or connections to the shared CloudFront IP addresses.
+
+In these records, `distributionId` is the multi-tenant distribution, `distributionTenantId` is the distribution tenant, and `serverIp` is the Anycast static IP address that the viewer connected to. The client certificate fields contain `-`, because the viewer doesn't present a client certificate. The following is an example record:
+
+```json
+{
+    "connectionId": "NSbVU0HLuZtjZEOxeIvLdCmqgCsjq0MRqda1ZxQQVNfCCLrxGZB4-A==",
+    "connectionStatus": "Success",
+    "clientIp": "192.0.2.110",
+    "clientPort": "4996",
+    "serverIp": "198.51.100.249",
+    "distributionTenantId": "dt_EXAMPLE22222",
+    "tlsProtocol": "TLSv1.2",
+    "tlsCipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "tlsHandshakeDuration": 70.0,
+    "tlsSni": "www.example.com",
+    "clientLeafCertSerialNumber": "-",
+    "clientLeafCertSubject": "-",
+    "clientLeafCertIssuer": "-",
+    "clientLeafCertValidity": "-",
+    "connectionLogCustomData": "-",
+    "eventTimestamp": 1794885872306,
+    "distributionId": "EDFDVBD6EXAMPLE"
+}
+```
+
 ## Enable connection logs
 <a name="enable-connection-logs"></a>
 
-Connection logs are available only for distributions with mutual TLS authentication enabled. You can send connection logs to multiple destinations including CloudWatch Logs, Amazon Data Firehose, and Amazon S3.
+CloudFront generates connection logs only for connections to distributions with mutual TLS enabled, and for HTTPS connections to distribution tenants on the Anycast static IP addresses of their connection group. For more information, see [Connections that CloudFront logs](#connection-logs-supported-connections). You can send connection logs to multiple destinations including CloudWatch Logs, Amazon Data Firehose, and Amazon S3.
 
 ### Prerequisites
 <a name="connection-logs-prerequisites"></a>
 
 Before enabling connection logs:
-+ Configure mutual TLS for your CloudFront distribution
++ Enable mutual TLS for your CloudFront distribution, or serve your distribution tenants from a connection group that uses an Anycast static IP list. CloudFront doesn't generate connection logs for other connections.
 + Enable connection logs for your CloudFront distribution
 + Make sure you have the required permissions for your chosen logging destination
 + For cross-account delivery, configure appropriate IAM policies
@@ -36,7 +76,7 @@ Before enabling connection logs:
 
 1. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home).
 
-1. From the distribution list, select your mTLS-enabled distribution.
+1. From the distribution list, select your mTLS-enabled distribution, or the multi-tenant distribution of your distribution tenants on Anycast static IPs.
 
 1. Choose the **Logging** tab.
 
@@ -94,7 +134,7 @@ Connection logs include detailed information about each TLS connection attempt:
 
 | Field | Description | Example | 
 | --- | --- | --- | 
-| eventTimestamp | ISO 8601 timestamp when the connection was established or failed | 1731620046814 | 
+| eventTimestamp | Unix epoch time in milliseconds when the connection was established or failed | 1731620046814 | 
 | connectionId | Unique identifier for the TLS connection | oLHiEKbQSn8lkvJfA3D4gFowK3\_iZ0g4i5nMUjE1Akod8TuAzn5nzg== | 
 | connectionStatus | The status of the mTLS connection attempt. | Success or Failed | 
 | clientIp | IP address of the connecting client | 2001:0db8:85a3:0000:0000:8a2e:0370:7334 | 
@@ -151,8 +191,11 @@ When connections fail, CloudFront records specific reason codes:
 | ClientCertIntentInvalid | Certificate intent is invalid | 
 | ClientCertRejected | Certificate rejected by custom validation | 
 | ClientCertMissing | Certificate is missing | 
+| ClientCertOcspProcessingError | An error occurred while CloudFront checked the certificate's revocation status with OCSP | 
+| ClientCertOcspDenied | The OCSP check didn't confirm that the certificate is valid, for example because the certificate is revoked | 
 | TcpError | An error occurred while attempting to establish a connection | 
 | TcpTimeout | The connection was not able to be established within the timeout period | 
 | ConnectionFunctionError | An uncaught exception was thrown during Connection Function execution | 
+| ConnectionFunctionDenied | The Connection Function denied the connection | 
 | Internal | An internal service error occurred | 
 | UnmappedConnectionError | An error occurred that does not fall into any of the other categories | 

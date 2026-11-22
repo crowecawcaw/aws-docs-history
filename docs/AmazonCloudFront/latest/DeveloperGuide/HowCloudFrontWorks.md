@@ -1,7 +1,6 @@
 
 
 # How CloudFront delivers content
-<a name="HowCloudFrontWorks"></a>
 
 After some initial setup, CloudFront works together with your website or application and speeds up delivery of your content. This section explains how CloudFront serves your content when viewers request it. 
 

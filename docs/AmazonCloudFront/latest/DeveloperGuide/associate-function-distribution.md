@@ -1,7 +1,6 @@
 
 
 # Step 4: Associate the function to your distribution
-<a name="associate-function-distribution"></a>
 
 After you publish your Connection Function, associate it with your mTLS-enabled distribution to activate certificate revocation checking.
 

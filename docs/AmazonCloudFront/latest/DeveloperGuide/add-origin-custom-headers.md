@@ -1,7 +1,6 @@
 
 
 # Add custom headers to origin requests
-<a name="add-origin-custom-headers"></a>
 
 You can configure CloudFront to add custom headers to the requests that it sends to your origin. You can use custom headers to send and gather information from your origin that you don’t get with typical viewer requests. You can even customize the headers for each origin. CloudFront supports custom headers for custom origins and Amazon S3 origins.
 

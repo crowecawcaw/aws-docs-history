@@ -1,7 +1,6 @@
 
 
 # Edit a Lambda function
-<a name="lambda-edge-edit-function"></a>
 
 After you create a Lambda@Edge function, you can use the Lambda console to edit it.
 

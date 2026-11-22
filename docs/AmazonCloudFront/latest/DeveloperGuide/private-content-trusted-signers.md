@@ -1,7 +1,6 @@
 
 
 # Specify signers that can create signed URLs and signed cookies
-<a name="private-content-trusted-signers"></a>
 
 **Topics**
 + [Choose between trusted key groups (recommended) and AWS accounts](#choosing-key-groups-or-AWS-accounts)

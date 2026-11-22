@@ -1,7 +1,6 @@
 
 
 # Helper methods for mutual TLS
-<a name="mtls-helper-methods"></a>
 
 CloudFront provides mTLS-specific helper functions in the `cf.mtls` namespace for viewer request functions. These functions rename, reformat, or combine client certificate headers before forwarding the request to your origin.
 
@@ -14,7 +13,7 @@ import cf from "cloudfront";
 
 Renames certificate metadata headers to custom header names.
 
-```
+```javascript
 cf.mtls.renameClientCertHeaders({
     "CloudFront-Viewer-Cert-Pem": "X-Client-Cert",
     "CloudFront-Viewer-Cert-Serial-Number": "X-Client-Cert-Serial",
@@ -38,7 +37,7 @@ Allowed source headers:
 
 Renames PEM certificate headers and optionally reformats the certificate encoding.
 
-```
+```javascript
 cf.mtls.renamePemHeaders({
     "Client-Cert": {
         "newHeaderName": "X-Leaf-Cert",
@@ -84,7 +83,7 @@ For `Client-Cert` and `Client-Cert-Chain`:
 
 Combines `Client-Cert` and `Client-Cert-Chain` into a single header containing the full certificate chain.
 
-```
+```javascript
 cf.mtls.combinePemHeaders({
     "newHeaderName": "X-Full-Chain",
     "pemCertFormatInfo": {

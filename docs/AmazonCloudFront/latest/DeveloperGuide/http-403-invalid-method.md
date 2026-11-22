@@ -1,7 +1,6 @@
 
 
 # HTTP 403 status code (Invalid method)
-<a name="http-403-invalid-method"></a>
 
 CloudFront returns a 403 (Invalid method) error if you're trying to use an HTTP method that you haven't specified in the CloudFront distribution. You can specify one of the following options for your distribution:
 + CloudFront forwards only `GET` and `HEAD` requests.

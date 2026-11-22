@@ -1,7 +1,6 @@
 
 
 # Customize the URL format for files in CloudFront
-<a name="LinkFormat"></a>
 
 After you set up your origin with the objects (content) that you want CloudFront to serve to your viewers, you must use the correct URLs to reference those objects in your website or application code so that CloudFront can serve it.
 

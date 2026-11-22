@@ -1,7 +1,6 @@
 
 
 # Restrictions on Lambda@Edge
-<a name="lambda-at-edge-function-restrictions"></a>
 
 The following restrictions apply only to Lambda@Edge.
 

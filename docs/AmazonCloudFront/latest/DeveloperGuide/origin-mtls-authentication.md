@@ -1,7 +1,6 @@
 
 
 # Origin mutual TLS with CloudFront
-<a name="origin-mtls-authentication"></a>
 
 Mutual TLS Authentication (Mutual Transport Layer Security Authentication — mTLS) is a security protocol that extends standard TLS authentication by requiring bidirectional certificate-based authentication, where both client and server must prove their identity before establishing a secure connection.
 

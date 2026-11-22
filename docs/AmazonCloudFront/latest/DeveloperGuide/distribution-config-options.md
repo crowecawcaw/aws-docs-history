@@ -1,7 +1,6 @@
 
 
 # Understand how multi-tenant distributions work
-<a name="distribution-config-options"></a>
 
 You can create CloudFront multi-tenant distributions with settings that can be reused across multiple distribution tenants. With a multi-tenant distribution, you can have CloudFront configure your distribution settings for you, based on your content origin type. For more details about the preconfigured settings, see [Preconfigured distribution settings reference](template-preconfigured-origin-settings.md).
 
@@ -26,7 +25,10 @@ For information about multi-tenant distribution quotas, see [Quotas on multi-ten
 + [Unsupported features](#unsupported-saas)
 + [Distribution tenant customizations](tenant-customization.md)
 + [Request certificates for your CloudFront distribution tenant](managed-cloudfront-certificates.md)
++ [Serve distribution tenant domains without a certificate](tenant-domains-without-certificate.md)
 + [Create custom connection group (optional)](custom-connection-group.md)
++ [Serve domains on specific IP addresses with address-based selection](address-based-selection.md)
++ [Serve viewers that don't send SNI with a viewer fallback](connection-group-viewer-fallback.md)
 + [Migrate to a multi-tenant distribution](template-migrate-distribution.md)
 
 ## How it works
@@ -77,7 +79,7 @@ A blueprint, multi-tenant distribution that specifies all shared configuration s
 A distribution that does not have multi-tenant functionality. These distributions are best for supporting single websites or apps.
 
 **Distribution tenant**  
-A distribution tenant inherits the multi-tenant distribution configuration. Some configuration settings can be customized at the distribution tenant level. The distribution tenant must have a valid TLS certificate, which can be inherited from the multi-tenant distribution as long as it covers the distribution tenant domain or subdomain.  
+A distribution tenant inherits the multi-tenant distribution configuration. Some configuration settings can be customized at the distribution tenant level. To serve HTTPS, the distribution tenant must have a valid TLS certificate, which can be inherited from the multi-tenant distribution as long as it covers the distribution tenant domain or subdomain. A distribution tenant can also serve a domain over HTTP without a certificate. For more information, see [Serve distribution tenant domains without a certificate](tenant-domains-without-certificate.md).  
 The distribution tenant must be associated with a connection group. CloudFront creates a connection group for you when you create a distribution tenant, and automatically assigns any distribution tenants to that connection group.
 
 **Multi-tenancy**  
@@ -119,6 +121,7 @@ Unlike standard distributions, you specify your domain name (alias) at the *dist
 + [AWS Identity and Access Management (IAM) server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
 + [Dedicated IP addresses](cnames-https-dedicated-ip-or-sni.md#cnames-https-dedicated-ip)
 + [Minimum Protocol Version SSLv3](DownloadDistValuesGeneral.md#DownloadDistValues-security-policy)
++ [Network calls](helper-functions-network-calls.md) from CloudFront Functions
 
 The following settings can't be configured in a multi-tenant distribution or distribution tenant. Instead, set the values that you want in a connection group. All distribution tenants associated in the connection group will use these settings. For more information, see [Create custom connection group (optional)](custom-connection-group.md).
 + [Enable IPv6 (viewer requests)](DownloadDistValuesGeneral.md#DownloadDistValuesEnableIPv6)

@@ -1,7 +1,6 @@
 
 
 # Understand the cache key
-<a name="understanding-the-cache-key"></a>
 
 The *cache key* determines whether a viewer request to a CloudFront edge location results in a *cache hit*. The cache key is the unique identifier for an object in the cache. Each object in the cache has a unique cache key.
 

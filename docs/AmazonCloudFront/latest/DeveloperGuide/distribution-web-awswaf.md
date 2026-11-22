@@ -1,7 +1,6 @@
 
 
 # Use AWS WAF protections
-<a name="distribution-web-awswaf"></a>
 
 You can use [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf) to protect your CloudFront distributions and origin servers. AWS WAF is a web application firewall that helps secure your web applications and APIs by blocking requests before they reach your servers. For more information, see [Accelerate and protect your websites using CloudFront and AWS WAF](https://aws.amazon.com/blogs/networking-and-content-delivery/accelerate-and-protect-your-websites-using-amazon-cloudfront-and-aws-waf/) and [Guidelines for Implementing AWS WAF](https://docs.aws.amazon.com/whitepapers/latest/guidelines-for-implementing-aws-waf/guidelines-for-implementing-aws-waf.html).
 

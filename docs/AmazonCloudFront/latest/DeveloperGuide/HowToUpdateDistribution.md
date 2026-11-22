@@ -1,7 +1,6 @@
 
 
 # Update a distribution
-<a name="HowToUpdateDistribution"></a>
 
 In the CloudFront console, you can see the CloudFront distributions that are associated with your AWS account, view the settings for a distribution, and update most settings. Be aware that settings changes that you make won't take effect until the distribution has propagated to the AWS edge locations.
 

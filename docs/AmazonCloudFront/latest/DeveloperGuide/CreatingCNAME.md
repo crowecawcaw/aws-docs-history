@@ -1,7 +1,6 @@
 
 
 # Add an alternate domain name
-<a name="CreatingCNAME"></a>
 
 The following task list describes how to use the CloudFront console to add an alternate domain name to your distribution so that you can use your own domain name in your links instead of the CloudFront domain name. For information about updating your distribution using the CloudFront API, see [Configure distributions](distribution-working-with.md).
 

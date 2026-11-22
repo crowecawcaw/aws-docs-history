@@ -1,7 +1,6 @@
 
 
 # Media quality-aware resiliency
-<a name="media-quality-score"></a>
 
 Media quality-aware resiliency (MQAR) is an integrated capability between [Amazon CloudFront](https://aws.amazon.com/cloudfront/) and [AWS Media Services](https://aws.amazon.com/media-services/). MQAR provides automated cross-Region origin selection based on Media Quality Confidence Score (MQCS). MQCS is synthesized by AWS Elemental MediaLive based on parameters that affect media quality experience perceived by viewers. You can configure CloudFront and AWS Media Services to deliver your live event streaming with high resiliency by using multiple options that you can specify in the CloudFront origin group failover criteria.
 

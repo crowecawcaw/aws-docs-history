@@ -1,7 +1,6 @@
 
 
 # Understand how origin request policies and cache policies work together
-<a name="understanding-how-origin-request-policies-and-cache-policies-work-together"></a>
 
 You can use a CloudFront [origin request policy](controlling-origin-requests.md) to control the requests that CloudFront sends to the origin, which are called *origin requests*. To use an origin request policy, you must attach a [cache policy](controlling-the-cache-key.md) to the same cache behavior. You cannot use an origin request policy in a cache behavior without a cache policy. For more information, see [Control origin requests with a policy](controlling-origin-requests.md).
 

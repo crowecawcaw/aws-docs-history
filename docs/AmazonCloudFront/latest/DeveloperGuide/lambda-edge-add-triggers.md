@@ -1,7 +1,6 @@
 
 
 # Add triggers for a Lambda@Edge function
-<a name="lambda-edge-add-triggers"></a>
 
 A Lambda@Edge trigger is one combination of a CloudFront distribution, cache behavior, and event that causes a function to execute. For example, you can create a trigger that causes the function to execute when CloudFront receives a request from a viewer for a specific cache behavior you set up for your distribution. You can specify one or more CloudFront triggers. 
 

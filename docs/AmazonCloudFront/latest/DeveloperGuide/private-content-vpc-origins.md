@@ -1,7 +1,6 @@
 
 
 # Restrict access with VPC origins
-<a name="private-content-vpc-origins"></a>
 
 You can use CloudFront to deliver content from applications that are hosted in your virtual private cloud (VPC) private subnets. You can use Application Load Balancers (ALBs), Network Load Balancers (NLBs), and EC2 instances in private subnets as VPC origins.
 

@@ -1,7 +1,6 @@
 
 
 # Trust stores and certificate management
-<a name="trust-stores-certificate-management"></a>
 
 Creating and configuring a trust store is a mandatory requirement for implementing mutual TLS authentication with CloudFront. Trust stores contain the Certificate Authority (CA) certificates that CloudFront uses to validate client certificates during the authentication process.
 

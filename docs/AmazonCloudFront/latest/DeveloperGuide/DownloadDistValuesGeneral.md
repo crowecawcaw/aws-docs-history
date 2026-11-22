@@ -1,7 +1,6 @@
 
 
 # Distribution settings
-<a name="DownloadDistValuesGeneral"></a>
 
 The following values apply to the entire distribution. 
 
@@ -106,7 +105,9 @@ Specify the security policy that you want CloudFront to use for HTTPS connection
 For more information about the security policies, including the protocols and ciphers that each one includes, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md).
 
 The security policies that are available depend on the values that you specify for **SSL Certificate** and **Custom SSL Client Support** (known as `CloudFrontDefaultCertificate` and `SSLSupportMethod` in the CloudFront API):
-+ When **SSL Certificate** is **Default CloudFront Certificate (\*.cloudfront.net)** (when `CloudFrontDefaultCertificate` is `true` in the API), CloudFront automatically sets the security policy to TLSv1.
++ When **SSL Certificate** is **Default CloudFront Certificate (\*.cloudfront.net)** (when `CloudFrontDefaultCertificate` is `true` in the API), CloudFront automatically sets the security policy of a standard distribution to TLSv1.
+
+  A multi-tenant distribution is different. You can choose a security policy for a multi-tenant distribution even when it uses the default CloudFront certificate, for example when each distribution tenant has its own certificate. You can choose from the same security policies as for `sni-only`, listed below. If you don't choose one, CloudFront uses TLSv1.2\_2021. Distribution tenants use the security policy of their multi-tenant distribution, including distribution tenants that have their own certificate.
 + When **SSL Certificate** is **Custom SSL Certificate (example.com)** *and* **Custom SSL Client Support** is **Clients that Support Server Name Indication (SNI) - (Recommended)** (when `CloudFrontDefaultCertificate` is `false` *and* `SSLSupportMethod` is `sni-only` in the API), you can choose from the following security policies:
   + TLSv1.3\_2025
   + TLSv1.2\_2025
@@ -170,9 +171,9 @@ CloudFront supports the following standard logging options:
 ## Connection logs
 <a name="DownloadDistValuesConnectionLogs"></a>
 
-When you turn on [mutual authentication](#DownloadDistValuesMutualAuthentication) for your distribution, CloudFront provides connection logs that capture attributes about the requests sent to your distributions. Connection logs contain information such as the client IP address and port, client certificate information, connection results, and TLS ciphers being used. These connection logs can then be used to review request patterns and other trends.
+CloudFront provides connection logs that capture attributes about the TLS connections to your distributions. CloudFront generates connection logs only for connections to distributions that use [mutual authentication](#DownloadDistValuesMutualAuthentication), and for HTTPS connections to distribution tenants on the Anycast static IP addresses of their connection group. Connection logs contain information such as the client IP address and port, client certificate information, connection results, and TLS ciphers being used. These connection logs can then be used to review request patterns and other trends.
 
-To learn more about connection logs, see [Observability using connection logs](connection-logs.md).
+To learn more about connection logs, see [Connection logs](connection-logs.md).
 
 ## Log prefix
 <a name="DownloadDistValuesLogPrefix"></a>

@@ -1,7 +1,6 @@
 
 
 # Delete a distribution
-<a name="HowToDeleteDistribution"></a>
 
 The following procedure deletes a distribution by using the CloudFront console. For information about deleting with the CloudFront API, see [DeleteDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteDistribution.html) in the *Amazon CloudFront API Reference*.
 

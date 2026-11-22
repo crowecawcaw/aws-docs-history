@@ -1,7 +1,6 @@
 
 
 # Associate a key value store with a function
-<a name="kvs-with-functions-associate"></a>
 
 After you create your key value store, you can update your function to associate it with your key value store. You must make this association to use the key-value pairs from that store in that function. The following rules apply:
 + A function can have only one key value store
@@ -32,7 +31,7 @@ For more information, see [Update functions](update-function.md).
 **To associate a key value store with a function**
 + Run the following command to update the `{{MaxAge}}` function and associate a key value store resource.
 
-  ```
+  ```bash
   aws cloudfront update-function \
       --name MaxAge \
       --function-config '{"Comment":"Max Age 2 years","Runtime":"cloudfront-js-2.0","KeyValueStoreAssociations":{"Quantity":1,"Items":[{"KeyValueStoreARN":"arn:aws:cloudfront::123456789012:key-value-store/8aa76c93-3198-462c-aaf6-example"}]}}' \

@@ -1,7 +1,6 @@
 
 
 # Choose how CloudFront serves HTTPS requests
-<a name="cnames-https-dedicated-ip-or-sni"></a>
 
 If you want your viewers to use HTTPS and to use alternate domain names for your files, choose one of the following options for how CloudFront serves HTTPS requests:
 + Use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) – Recommended
@@ -67,7 +66,7 @@ The IP address ranges for CloudFront edge servers are subject to change. To be n
 ## Request permission to use three or more dedicated IP SSL/TLS certificates
 <a name="cnames-and-https-multiple-certificates"></a>
 
-If you need permission to permanently associate three or more SSL/TLS dedicated IP certificates with CloudFront, perform the following procedure. For more details about HTTPS requests, see [Choose how CloudFront serves HTTPS requests](#cnames-https-dedicated-ip-or-sni).
+If you need permission to permanently associate three or more SSL/TLS dedicated IP certificates with CloudFront, perform the following procedure. For more details about HTTPS requests, see [Choose how CloudFront serves HTTPS requests](cnames-https-dedicated-ip-or-sni.md).
 
 **Note**  
 This procedure is for using three or more dedicated IP certificates across your CloudFront distributions. The default value is 2. Keep in mind you cannot bind more than one SSL certificate to a distribution.  

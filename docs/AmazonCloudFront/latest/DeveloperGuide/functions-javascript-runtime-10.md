@@ -1,7 +1,6 @@
 
 
 # JavaScript runtime 1.0 features for CloudFront Functions
-<a name="functions-javascript-runtime-10"></a>
 
 The CloudFront Functions JavaScript runtime environment is compliant with [ECMAScript (ES) version 5.1](https://262.ecma-international.org/5.1/) and also supports some features of ES versions 6 through 9. It also provides some nonstandard methods that are not part of the ES specifications. 
 
@@ -386,7 +385,7 @@ For example, for the following query string:
 ```
 The return value of `querystring.parse()` is:  
 
-```
+```js
 {
 name: 'value',
 abc: ['xyz', '123']
@@ -404,7 +403,7 @@ The function to use for converting URL-unsafe characters to percent-encoding in 
 By default, characters that require percent-encoding within the query string are encoded as UTF-8. To use a different encoding, specify the `encodeURIComponent` option.  
 For example, for the following code:  
 
-```
+```js
 querystring.stringify({ name: 'value', abc: ['xyz', '123'], anotherName: '' });
 ```
 The return value is:  

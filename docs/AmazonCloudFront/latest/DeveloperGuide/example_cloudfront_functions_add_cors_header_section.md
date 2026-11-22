@@ -1,7 +1,6 @@
 
 
 # Add a CORS header to a CloudFront Functions viewer response event
-<a name="example_cloudfront_functions_add_cors_header_section"></a>
 
 The following code example shows how to add a CORS header to a CloudFront Functions viewer response event.
 
@@ -11,7 +10,7 @@ The following code example shows how to add a CORS header to a CloudFront Functi
 **JavaScript runtime 2.0 for CloudFront Functions**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/add-cors-header) repository. 
 
-```
+```javascript
 async function handler(event)  {
     var request = event.request;
     var response  = event.response;

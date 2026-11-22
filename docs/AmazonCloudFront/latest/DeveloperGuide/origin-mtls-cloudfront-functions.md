@@ -1,7 +1,6 @@
 
 
 # Using CloudFront Functions with origin mutual TLS
-<a name="origin-mtls-cloudfront-functions"></a>
 
 CloudFront Functions provides lightweight, serverless compute at the edge to customize content delivery. When using origin mutual TLS with CloudFront Functions, there are specific behaviors and limitations to be aware of regarding origin selection and manipulation.
 
@@ -20,7 +19,7 @@ The updateRequestOrigin() function supports limited modifications when working w
 #### Example: Switching between origin mTLS origins with the same certificate
 <a name="example-switching-mtls-origins"></a>
 
-```
+```javascript
 import cf from 'cloudfront';
 
 function handler(event) {
@@ -43,7 +42,7 @@ function handler(event) {
 #### Example: Conditionally disabling origin mTLS
 <a name="example-disabling-mtls"></a>
 
-```
+```javascript
 import cf from 'cloudfront';
 
 function handler(event) {
@@ -69,7 +68,7 @@ The `selectRequestOriginById()` function supports selecting origins that have mu
 #### Example: Selecting a mutual TLS (origin) enabled origin by ID
 <a name="example-select-mtls-origin-by-id"></a>
 
-```
+```javascript
 import cf from 'cloudfront';
 
 function handler(event) {
@@ -92,7 +91,7 @@ The `createRequestOriginGroup()` function supports creating origin groups that i
 #### Example: Creating an origin group with mutual TLS (origin) enabled origins
 <a name="example-create-mtls-origin-group"></a>
 
-```
+```javascript
 import cf from 'cloudfront';
 
 function handler(event) {

@@ -1,7 +1,6 @@
 
 
 # Work with key value data
-<a name="kvs-with-functions-kvp"></a>
 
 This topic describes how to add key-value pairs to an existing key value store. To include key-value pairs when you initially create the key value stores, see [Create a key value store](kvs-with-functions-create.md).
 
@@ -73,14 +72,14 @@ You can run the following AWS Command Line Interface commands for CloudFront Key
 
 To list key-value pairs in your key value store, run the following command.
 
-```
+```bash
 aws cloudfront-keyvaluestore list-keys \
     --kvs-arn=arn:aws:cloudfront::123456789012:key-value-store/37435e19-c205-4271-9e5c-example
 ```
 
 **Response**
 
-```
+```json
 {
     "Items": [
         {
@@ -96,7 +95,7 @@ aws cloudfront-keyvaluestore list-keys \
 
 To get a key-value pair in your key value store, run the following command.
 
-```
+```bash
 aws cloudfront-keyvaluestore get-key \
     --key=key1 \
     --kvs-arn=arn:aws:cloudfront::123456789012:key-value-store/37435e19-c205-4271-9e5c-example
@@ -104,7 +103,7 @@ aws cloudfront-keyvaluestore get-key \
 
 **Response**
 
-```
+```json
 {
     "Key": "key1",
     "Value": "value1",
@@ -118,14 +117,14 @@ aws cloudfront-keyvaluestore get-key \
 
 To describe a key value store, run the following command.
 
-```
+```bash
 aws cloudfront-keyvaluestore describe-key-value-store \
     --kvs-arn=arn:aws:cloudfront::123456789012:key-value-store/37435e19-c205-4271-9e5c-example
 ```
 
 **Response**
 
-```
+```json
 {
     "ETag": "KV1F83G8C2ARO7P",
     "ItemCount": 1,
@@ -142,7 +141,7 @@ aws cloudfront-keyvaluestore describe-key-value-store \
 
 To create a key-value pair in your key value store, run the following command.
 
-```
+```bash
 aws cloudfront-keyvaluestore put-key \
     --if-match=KV1PA6795UKMFR9 \
     --key=key2 \
@@ -152,7 +151,7 @@ aws cloudfront-keyvaluestore put-key \
 
 **Response**
 
-```
+```json
 {
     "ETag": "KV13V1IB3VIYZZH",
     "ItemCount": 3,
@@ -165,7 +164,7 @@ aws cloudfront-keyvaluestore put-key \
 
 To delete a key-value pair, run the following command.
 
-```
+```bash
 aws cloudfront-keyvaluestore delete-key \
     --if-match=KV13V1IB3VIYZZH \
     --key=key1 \
@@ -174,7 +173,7 @@ aws cloudfront-keyvaluestore delete-key \
 
 **Output**
 
-```
+```json
 {
     "ETag": "KV1VC38T7YXB528",
     "ItemCount": 2,
@@ -187,7 +186,7 @@ aws cloudfront-keyvaluestore delete-key \
 
 You can use the `update-keys` command to update more than one key-value pair. For example, to delete an existing key-value pair and create another one, run the following command.
 
-```
+```bash
 aws cloudfront-keyvaluestore update-keys \
     --if-match=KV2EUQ1WTGCTBG2 \
     --kvs-arn=arn:aws:cloudfront::123456789012:key-value-store/37435e19-c205-4271-9e5c-example \
@@ -197,7 +196,7 @@ aws cloudfront-keyvaluestore update-keys \
 
 **Response**
 
-```
+```json
 {
     "ETag": "KV3AEGXETSR30VB",
     "ItemCount": 3,
@@ -257,7 +256,7 @@ See the following CloudFront KeyValueStore API operations:
 **Example**  
 The following code shows you how to call the `DescribeKeyValueStore` API operation for a key value store.  
 
-```
+```java
 const {
   CloudFrontKeyValueStoreClient,
   DescribeKeyValueStoreCommand,

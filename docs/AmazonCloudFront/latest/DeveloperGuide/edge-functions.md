@@ -1,7 +1,6 @@
 
 
 # Customize at the edge with functions
-<a name="edge-functions"></a>
 
 With Amazon CloudFront, you can write your own code to customize how your CloudFront distributions process HTTP requests and responses. The code runs close to your viewers (users) to minimize latency, and you don’t have to manage servers or other infrastructure. You can write code to manipulate the requests and responses that flow through CloudFront, perform basic authentication and authorization, generate HTTP responses at the edge, and more.
 

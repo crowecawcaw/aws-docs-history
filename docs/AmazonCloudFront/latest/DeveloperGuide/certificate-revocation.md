@@ -1,7 +1,6 @@
 
 
 # Certificate revocation
-<a name="certificate-revocation"></a>
 
 When certificates need to be revoked — due to compromise, policy changes, or terminated relationships — you need a mechanism to reject those certificates during the mTLS handshake. CloudFront provides two native approaches to certificate revocation, and you can combine them for layered control.
 + **OCSP (Online Certificate Status Protocol)** — CloudFront queries your Certificate Authority's OCSP responder in real time to check whether a client certificate has been revoked. Enable OCSP on your trust store and CloudFront handles the validation automatically during the TLS handshake. OCSP results are also visible in Connection Functions, giving you programmatic access to revocation status for custom decision-making.
@@ -39,7 +38,7 @@ CloudFront caches OCSP responses at the edge to reduce round-trip time and prote
 
 When a Connection Function is configured on the same distribution, CloudFront invokes it after OCSP validation completes. The connection object contains the OCSP status for the leaf and intermediate certificates:
 
-```
+```json
 {
   "clientCertificate": {
     "certificates": {
@@ -104,7 +103,7 @@ The `errorType` field will only be present if the status is `Error`.
 ### Example: Custom OCSP handling with trusted IP exception
 <a name="ocsp-example"></a>
 
-```
+```javascript
 function connectionHandler(connection) {
     var revocationStatus = connection.clientCertificate.revocationStatus;
     var trustedIP = (connection.clientIp === "[IP_ADDRESS]");
@@ -129,7 +128,7 @@ function connectionHandler(connection) {
 
 When CloudFront cannot determine a certificate's revocation status — because the OCSP responder is unreachable, returns an error, or returns "unknown" — CloudFront denies the connection by default. To implement soft-fail behavior, use a Connection Function. Connection Functions will not be executed if OCSP is enabled and the OCSP URL is absent in the client certificates. The OCSP result is available in the connection object, and your function can allow connections when the OCSP status is undetermined:
 
-```
+```javascript
 async function connectionHandler(connection) {
     var revocationStatus = connection.clientCertificate.revocationStatus;
 
@@ -179,7 +178,7 @@ When a client connects, CloudFront validates the certificate against the trust s
 
 Prepare your revoked certificate serial numbers in JSON format:
 
-```
+```json
 {
   "data": [
     { "key": "ABC123DEF456", "value": "" },
@@ -190,7 +189,7 @@ Prepare your revoked certificate serial numbers in JSON format:
 
 Upload this JSON file to an S3 bucket, then create the KeyValueStore:
 
-```
+```bash
 aws s3 cp revoked-serials.json s3://your-bucket-name/revoked-serials.json
 
 aws cloudfront create-key-value-store \
@@ -203,7 +202,7 @@ aws cloudfront create-key-value-store \
 
 Wait for the KeyValueStore to finish provisioning. Check the status with:
 
-```
+```bash
 aws cloudfront get-key-value-store --name "revoked-serials-kvs"
 ```
 
@@ -212,7 +211,7 @@ aws cloudfront get-key-value-store --name "revoked-serials-kvs"
 
 Create a Connection Function that checks certificate serial numbers against the KeyValueStore:
 
-```
+```bash
 aws cloudfront create-connection-function \
   --name "revocation-control" \
   --connection-function-config file://connection-function-config.json \
@@ -221,7 +220,7 @@ aws cloudfront create-connection-function \
 
 The configuration file specifies the KeyValueStore association:
 
-```
+```json
 {
   "Runtime": "cloudfront-js-2.0",
   "Comment": "A function that implements revocation control via KVS",
@@ -238,7 +237,7 @@ The configuration file specifies the KeyValueStore association:
 
 Sample Connection Function code:
 
-```
+```javascript
 import cf from 'cloudfront';
 
 async function connectionHandler(connection) {
@@ -295,7 +294,7 @@ You can enable OCSP for CA-authoritative revocation checking and layer a Connect
 
 **Example OCSP \+ KVS combined revocation**  
 
-```
+```javascript
 import cf from 'cloudfront';
 
 async function connectionHandler(connection) {

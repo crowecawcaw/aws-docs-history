@@ -1,7 +1,6 @@
 
 
 # Use WebSockets with CloudFront distributions
-<a name="distribution-working-with.websockets"></a>
 
 Amazon CloudFront supports using WebSocket, a TCP-based protocol that is useful when you need long-lived bidirectional connections between clients and servers. A persistent connection is often a requirement with real-time applications. The scenarios in which you might use WebSockets include social chat platforms, online collaboration workspaces, multi-player gaming, and services that provide real-time data feeds like financial trading platforms. Data over a WebSocket connection can flow in both directions for full-duplex communication. 
 
@@ -58,5 +57,13 @@ To avoid unexpected compression-related issues when using WebSockets, we recomme
 + `Sec-WebSocket-Accept`
 + `Sec-WebSocket-Extensions`
 
-**Note**  
-Currently, CloudFront only supports WebSocket connections over the HTTP/1.1 protocol.
+## HTTP versions for WebSocket connections
+<a name="distribution-working-with.websockets.http-versions"></a>
+
+Viewers connect to CloudFront for WebSockets over HTTP/1.1. CloudFront doesn't support WebSocket connections from viewers over HTTP/2 or HTTP/3.
+
+For the connection from CloudFront to your origin, CloudFront uses HTTP/1.1 by default. CloudFront can use HTTP/2 for WebSocket connections to your origin when both of the following are true:
++ The [origin HTTP version](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginHttpVersion) is HTTP/2, and the origin supports HTTP/2.
++ The origin supports WebSockets over HTTP/2 with the extended `CONNECT` method (see [RFC 8441 on the IETF Datatracker website](https://datatracker.ietf.org/doc/html/rfc8441)). The origin advertises this with the `SETTINGS_ENABLE_CONNECT_PROTOCOL` setting.
+
+Even when both are true, CloudFront might use HTTP/1.1 for some WebSocket connections to the origin, for example to limit resource usage. If the origin doesn't support WebSockets over HTTP/2, CloudFront uses HTTP/1.1.

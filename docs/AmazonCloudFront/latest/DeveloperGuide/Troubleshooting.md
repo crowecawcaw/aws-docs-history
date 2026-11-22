@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="Troubleshooting"></a>
 
 Use this section to troubleshoot common problems you might encounter when you set up Amazon CloudFront to distribute your content.
 

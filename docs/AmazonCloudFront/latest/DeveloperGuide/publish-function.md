@@ -1,7 +1,6 @@
 
 
 # Publish functions
-<a name="publish-function"></a>
 
 When you publish your function, this copies the function from the `DEVELOPMENT` stage to the `LIVE` stage.
 
@@ -37,7 +36,7 @@ When successful, a banner appears at the top of the page that says **{{Function 
 
 1. Run the following **aws cloudfront publish-function** command. In the example, line breaks are provided to make the example more readable.
 
-   ```
+   ```bash
    aws cloudfront publish-function \
        --name MaxAge \
        --if-match ETVXYZEXAMPLE
@@ -45,7 +44,7 @@ When successful, a banner appears at the top of the page that says **{{Function 
 
    When the command is successful, you see output like the following.
 
-   ```
+   ```bash
    FunctionSummary:
      FunctionConfig:
        Comment: Max Age 2 years

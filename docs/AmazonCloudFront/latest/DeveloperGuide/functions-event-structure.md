@@ -1,13 +1,12 @@
 
 
 # CloudFront Functions event structure
-<a name="functions-event-structure"></a>
 
 CloudFront Functions passes an `event` object to your function code as input when it runs the function. When you [test a function](test-function.md), you create the `event` object and pass it to your function. When you create an `event` object for testing a function, you can omit the `distributionDomainName`, `distributionId`, and `requestId` fields in the `context` object. Make sure that the names of headers are lowercase, which is always the case in the `event` object that CloudFront Functions passes to your function in production.
 
 The following shows an overview of the structure of this event object. 
 
-```
+```json
 {
     "version": "1.0",
     "context": {
@@ -210,7 +209,7 @@ Host: video.example.com
 ```
 This header is represented as follows in the `request` object:  
 
-```
+```json
 "headers": {
     "host": {
         "value": "video.example.com"
@@ -219,13 +218,13 @@ This header is represented as follows in the `request` object:
 ```
 To access the `Host` header in your function code, use code like the following:  
 
-```
+```js
 var request = event.request;
 var host = request.headers.host.value;
 ```
 To add or modify a header in your function code, use code like the following (this code adds a header named `X-Custom-Header` with the value `example value`):  
 
-```
+```js
 var request = event.request;
 request.headers['x-custom-header'] = {value: 'example value'};
 ```
@@ -245,7 +244,7 @@ Accept: text/html
 ```
 These headers are represented as follows in the `request` object.  
 
-```
+```json
 "headers": {
     "accept": {
         "value": "application/json",
@@ -283,7 +282,7 @@ Accept: application/json, application/xml, text/html
 ```
 This header is represented as follows in the `request` object.  
 
-```
+```json
 "headers": {
     "accept": {
         "value": "application/json, application/xml, text/html"
@@ -303,7 +302,7 @@ Set-Cookie: cookie1=val1; Secure; Path=/; Domain=example.com; Expires=Wed, 05 Ap
 ```
 In the `response` object, these attributes are represented in the `attributes` property of the cookie field. For example, the preceding `Set-Cookie` header is represented as follows:  
 
-```
+```json
 "cookie1": {
     "value": "val1",
     "attributes": "Secure; Path=/; Domain=example.com; Expires=Wed, 05 Apr 2021 07:28:00 GMT"
@@ -315,7 +314,7 @@ In the `response` object, these attributes are represented in the `attributes` p
 
 The following example shows a `response` object — the output of a viewer response function — in which the body has been replaced by a viewer response function.
 
-```
+```json
 {
   "response": {
     "statusCode": 200,
@@ -384,7 +383,7 @@ The following example shows a complete `event` object. This is an example invoca
 **Note**  
 The `event` object is the input to your function. Your function returns only the `request` or `response` object, not the complete `event` object.
 
-```
+```json
 {
     "version": "1.0",
     "context": {

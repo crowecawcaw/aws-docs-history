@@ -1,7 +1,6 @@
 
 
 # Get started with a basic content distribution network
-<a name="example_cloudfront_GettingStarted_section"></a>
 
 The following code example shows how to:
 + Create an Amazon S3 bucket
@@ -15,7 +14,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/005-cloudfront-gettingstarted) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # CloudFront Getting Started Tutorial Script

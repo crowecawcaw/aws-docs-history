@@ -1,7 +1,6 @@
 
 
 # Helper methods for key value stores
-<a name="functions-custom-methods"></a>
 
 **Note**  
 Key value store helper method calls from CloudFront Functions don't trigger an AWS CloudTrail data event. These events aren't logged in the CloudTrail event history. For more information, see [Logging Amazon CloudFront API calls using AWS CloudTrail](logging_using_cloudtrail.md).
@@ -12,7 +11,7 @@ To use this module in the function code, make sure that you have [associated a k
 
 Next, include the following statements in the first lines of the function code:
 
-```
+```javascript
 import cf from 'cloudfront';
 const kvsHandle = cf.kvs();
 ```

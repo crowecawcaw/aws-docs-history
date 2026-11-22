@@ -1,7 +1,6 @@
 
 
 # Code examples for creating a signature for a signed URL
-<a name="PrivateCFSignatureCodeAndExamples"></a>
 
 This section includes downloadable application examples that demonstrate how to create signatures for signed URLs. Examples are available in Perl, PHP, C\#, and Java. You can use any of the examples to create signed URLs. The Perl script runs on Linux and macOS platforms. The PHP example will work on any server that runs PHP. The C\# example uses the .NET Framework.
 

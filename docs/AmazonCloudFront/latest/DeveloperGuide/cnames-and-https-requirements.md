@@ -1,7 +1,6 @@
 
 
 # Requirements for using SSL/TLS certificates with CloudFront
-<a name="cnames-and-https-requirements"></a>
 
 The requirements for SSL/TLS certificates are described in this topic. They apply to both of the following, except as noted:
 + Certificates for using HTTPS between viewers and CloudFront 
