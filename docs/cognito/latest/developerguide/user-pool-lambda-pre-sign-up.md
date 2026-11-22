@@ -1,7 +1,6 @@
 
 
 # Pre sign-up Lambda trigger
-<a name="user-pool-lambda-pre-sign-up"></a>
 
 You might want to customize the sign-up process in user pools that have self-service sign-up options. Some common uses of the pre sign-up trigger are to perform custom analysis and recording of new users, apply security and governance standards, or link users from a third-party IdP to a [consolidated user profile](cognito-user-pools-identity-federation-consolidate-users.md). You might also have trusted users who aren't required to undergo [verification and confirmation](signing-up-users-in-your-app.md).
 
@@ -88,7 +87,7 @@ This is example Lambda trigger code. The pre sign-up trigger is invoked immediat
 ------
 #### [ Node.js ]
 
-```
+```javascript
 export const handler = async (event, context, callback) => {
   // Set the user pool autoConfirmUser flag after validating the email domain
   event.response.autoConfirmUser = false;
@@ -160,7 +159,7 @@ If an alias with the same phone number already exists, the alias is moved to the
 ------
 #### [ Node.js ]
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
   // Confirm the user
   event.response.autoConfirmUser = true;
@@ -229,7 +228,7 @@ This example checks the length of the username in a sign-up request. The example
 ------
 #### [ Node.js ]
 
-```
+```javascript
 export const handler = (event, context, callback) => {
     // Impose a condition that the minimum length of the username is 5 is imposed on all user pools.
     if (event.userName.length < 5) {

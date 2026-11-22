@@ -1,7 +1,6 @@
 
 
 # Custom-attribute multi-tenancy best practices
-<a name="custom-attribute-based-multi-tenancy"></a>
 
 Amazon Cognito supports [custom attributes](user-pool-settings-attributes.md#user-pool-settings-custom-attributes.title) with names that you choose. One scenario where custom attributes are useful is when they distinguish the tenancy of users in a shared user pool. When you assign users a value for an attribute like `custom:tenantID`, your app can assign access to tenant-specific resources accordingly. A custom attribute that defines a tenant ID should be immutable or read-only to the app client.
 

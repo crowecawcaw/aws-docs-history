@@ -1,7 +1,6 @@
 
 
 # User pool managed login
-<a name="cognito-user-pools-managed-login"></a>
 
 You can choose a web domain to host services for your user pool. An Amazon Cognito user pool gains the following functions when you add a domain, collectively referred to as *managed login*.
 + An [authorization server](https://datatracker.ietf.org/doc/html/rfc6749#section-1.1) that acts as an identity provider (IdP) to applications that work with OAuth 2.0 and OpenID Connect (OIDC). The authorization server [routes requests](authorization-endpoint.md), [issues and manages JSON web tokens (JWTs)](token-endpoint.md), and [delivers user attribute information](userinfo-endpoint.md).
@@ -108,7 +107,7 @@ To configure terms documents for your app client, navigate to the **Managed logi
 
 The following is an example [CreateTerms](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateTerms.html) request body. It causes the sign-up page for app client `1example23456789` to render links for a French-language and a Portuguese-language (Brazil) version of the privacy policy when managed login is localized to that language. A separate request is required to set URLs for `terms-of-use` before managed login renders links at the sign-up page.
 
-```
+```json
 {
    "ClientId": "1example23456789",
    "Enforcement": "NONE",
@@ -190,7 +189,7 @@ When you navigate to the `/oauth2/authorize` endpoint with your custom parameter
 **Example request for an implicit grant**  
 You can view your sign-in webpage with the following URL for the implicit code grant where `response_type=token`. After a successful sign-in, Amazon Cognito returns user pool tokens to your web browser's address bar.
 
-```
+```http
             https://{{mydomain.auth.us-east-1.amazoncognito.com}}/authorize?response_type=token&client_id={{1example23456789}}&redirect_uri={{https://mydomain.example.com}}
 ```
 

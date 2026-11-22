@@ -1,7 +1,6 @@
 
 
 # Using your own domain for managed login
-<a name="cognito-user-pools-add-custom-domain"></a>
 
 After you set up an app client, you can configure your user pool with a custom domain for the domain services of [managed login](cognito-user-pools-managed-login.md). With a custom domain, users can sign in to your application using your own web address instead of the default `amazoncognito.com` [prefix domain](cognito-user-pools-assign-domain-prefix.md). Custom domains improve user trust in your application with a familiar domain name, especially when the root domain matches the domain that hosts your application. Custom domains can improve compliance with organizational security requirements.
 
@@ -44,7 +43,7 @@ You might need to obtain a new certificate for your custom domain's subdomain if
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -103,7 +102,7 @@ You can have a custom domain and a prefix domain, but Amazon Cognito only serves
 
 The following [CreateUserPoolDomain](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.html) request body creates a custom domain.
 
-```
+```json
 {
    "Domain": "auth.example.com",
    "UserPoolId": "us-east-1_EXAMPLE",
@@ -251,7 +250,7 @@ You can select the minimum TLS version from the Amazon Cognito console, or with 
 
 The following [UpdateUserPoolDomain](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.html) request body updates the minimum TLS version of an existing custom domain.
 
-```
+```json
 {
    "Domain": "auth.example.com",
    "UserPoolId": "us-east-1_EXAMPLE",

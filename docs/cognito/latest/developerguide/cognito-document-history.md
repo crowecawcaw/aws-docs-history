@@ -1,7 +1,6 @@
 
 
 # Document history for Amazon Cognito
-<a name="cognito-document-history"></a>
 
 The following table describes important additions to the documentation for Amazon Cognito. We also make frequent minor updates to the documentation in response to the feedback that you send. To submit feedback, locate the **Feedback** link at the bottom of any page in Amazon Cognito documentation.
 
@@ -9,9 +8,11 @@ For changes to the Amazon Cognito service itself, such as new features, behavior
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated the `AmazonCognitoIdpServiceRolePolicy` AWS managed policy](https://docs.aws.amazon.com/cognito/latest/developerguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | The AWS managed policy for the `AWSServiceRoleForAmazonCognitoIdp` service-linked role now includes AWS Secrets Manager permissions. Amazon Cognito uses these permissions to manage the app client secrets that it stores for you in Secrets Manager. | November 10, 2026 | 
 | [Session management for user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/managing-user-sessions.html) | You can now manage user sessions in your user pools, including viewing active sessions and revoking them. | November 5, 2026 | 
 | [SCIM-compatible custom attribute names](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes-scim) | Custom attribute names must now comply with the attribute-name rule of the System for Cross-domain Identity Management (SCIM) protocol in RFC 7644. Existing custom attributes aren't affected. | November 2, 2026 | 
-| [Reorganized API and endpoint references](#cognito-document-history) | The user pool endpoints and managed login reference is now a top-level section of the guide. The guide no longer links to the Amazon Cognito user pools, Amazon Cognito identity pools, and Amazon Cognito Sync API references. These API references remain available in their respective API reference guides. | October 8, 2026 | 
+| [Point-in-time recovery for user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-point-in-time-recovery.html) | You can now recover the user data in user pools on the Essentials and Plus feature plans to a point in time up to 1 day or 14 days in the past. Recovery restores users, their attributes, groups, passwords, MFA settings, and passkeys. | October 31, 2026 | 
+| [Reorganized API and endpoint references](cognito-document-history.md) | The user pool endpoints and managed login reference is now a top-level section of the guide. The guide no longer links to the Amazon Cognito user pools, Amazon Cognito identity pools, and Amazon Cognito Sync API references. These API references remain available in their respective API reference guides. | October 8, 2026 | 
 | [Reserved resource server identifiers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html#cognito-user-pools-define-resource-servers-about-resource-servers) | You can't create a resource server identifier that is `aws.cognito`, or that begins with `aws.cognito/`, because Amazon Cognito reserves them for AWS use. | October 2, 2026 | 
 | [Dynamic client registration](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-dynamic-client-registration.html) | Applications and AI agents can now register their own app clients in your user pool at runtime through the registration endpoint of your user pool domain. | October 2, 2026 | 
 | [Status codes in AWS WAF custom block responses](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html#user-pool-waf-custom-response-status) | Amazon Cognito now returns a `403` status code in place of `5xx` status codes from AWS WAF custom block responses in managed login and the classic hosted UI. | October 1, 2026 | 
@@ -148,4 +149,4 @@ For changes to the Amazon Cognito service itself, such as new features, behavior
 | [OpenID Connect support](https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html) | Enables support for OpenID Connect providers. | November 23, 2014 | 
 | [Push synchronization](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync.html) | Enables support for silent push synchronization. | November 6, 2014 | 
 | [Developer-authenticated identities support added](https://docs.aws.amazon.com/cognito/latest/developerguide/developer-authenticated-identities.html) | Enables developers who own their own authentication and identity management systems to be treated as an identity provider in Amazon Cognito. | September 29, 2014 | 
-| [Amazon Cognito general availability](#cognito-document-history) |  | July 10, 2014 | 
+| [Amazon Cognito general availability](cognito-document-history.md) |  | July 10, 2014 | 

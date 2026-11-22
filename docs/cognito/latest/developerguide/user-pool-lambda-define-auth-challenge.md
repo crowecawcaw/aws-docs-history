@@ -1,7 +1,6 @@
 
 
 # Define Auth challenge Lambda trigger
-<a name="user-pool-lambda-define-auth-challenge"></a>
 
 The define auth challenge trigger is a Lambda function that maintains the challenge sequence in a custom authentication flow. It declares success or failure of the challenge sequence, and sets the next challenge if the sequence isn't yet complete.
 
@@ -25,7 +24,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "request": {
         "userAttributes": {
@@ -101,7 +100,7 @@ After the user solves the CAPTCHA and answers the security question, this functi
 ------
 #### [ Node.js ]
 
-```
+```javascript
 const handler = async (event) => {
   if (
     event.request.session.length === 1 &&

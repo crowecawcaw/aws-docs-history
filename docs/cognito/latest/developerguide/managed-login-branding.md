@@ -1,7 +1,6 @@
 
 
 # Apply branding to managed login pages
-<a name="managed-login-branding"></a>
 
 You might want to provide a consistent user experience between your authentication service and your application. You can accomplish this goal either with custom forms and back-end API operations in an AWS SDK, or with managed login. Managed login and the classic hosted UI are web front ends for the component of your application that serves authentication with user pools. To synchronize your managed authentication services with your application UX, you have two customization options: the branding editor and hosted UI branding. You can choose your preferred experience in the Amazon Cognito console and with user pool API operations.
 

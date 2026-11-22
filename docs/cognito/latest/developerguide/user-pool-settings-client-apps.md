@@ -1,7 +1,6 @@
 
 
 # Application-specific settings with app clients
-<a name="user-pool-settings-client-apps"></a>
 
 A user pool app client is a configuration within a user pool that interacts with one mobile or web application that authenticates with Amazon Cognito. App clients can call authenticated and unauthenticated API operations, and read or modify some or all of your users' attributes. Your app must identify itself to the app client in operations to register, sign in, and handle forgotten passwords. These API requests must include self-identification with an app client ID, and authorization with an optional client secret. You must secure any app client IDs or secrets so that only authorized client apps can call these unauthenticated operations. Additionally, if you configure your app to sign authenticated API requests with AWS credentials, you must secure your credentials against user inspection.
 
@@ -37,10 +36,133 @@ A confidential client has server-side resources that can be trusted with a **cli
 **Client secret**  
 A client secret, or client password, is a fixed string that your app must use in all API requests to the app client. Your app client must have a client secret to perform `client_credentials` grants. For more information, see [IETF RFC 6749 \#2.3.1](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1).  
 Each app client can have up to two secrets at a time, enabling secret rotation without downtime. When you create an app client, you can either let Amazon Cognito generate a secret value or provide your own custom secret value. You can't change secrets after you create an app. You can add a second secret with the [AddUserPoolClientSecret](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AddUserPoolClientSecret.html) API operation to rotate secrets. When you add a secret, you can either let Amazon Cognito generate a secret value or provide your own custom secret value. To delete a secret, use the [DeleteUserPoolClientSecret](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolClientSecret.html) API operation. You cannot delete the only secret associated with an app client. You can also delete an app to block access from apps that use that app client ID.  
+For a Cognito-generated client secret, you can have Amazon Cognito manage it in AWS Secrets Manager. You don't have to handle the raw secret value yourself. Amazon Cognito stores and rotates the secret in Secrets Manager. Your app retrieves the current value from Secrets Manager at runtime. Standard Secrets Manager charges apply. For more information, see [Managing app client secrets with AWS Secrets Manager](#user-pool-settings-client-apps-asm-managed-secrets).
 The Amazon Cognito console creates app clients with client secrets when you select the **Traditional web application** and **Machine-to-machine application** options for application type. Choose one of these options to generate a client secret, or create the client programmatically with [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) and set `GenerateSecret` to `true`.
 You can't change whether an app client has a client secret after you create the app client. The [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) operation can't add or remove a client secret. To change this configuration, create a new app client. You don't need to recreate the user pool, and your other app clients aren't affected.
 
 You can use a confidential client, and a client secret, with a public app. Use an Amazon CloudFront proxy to add a `SECRET_HASH` in transit. For more information, see [Protect public clients for Amazon Cognito by using an Amazon CloudFront proxy](https://aws.amazon.com/blogs/security/protect-public-clients-for-amazon-cognito-by-using-an-amazon-cloudfront-proxy/) on the AWS blog.
+
+### Managing app client secrets with AWS Secrets Manager
+<a name="user-pool-settings-client-apps-asm-managed-secrets"></a>
+
+For an app client with a generated client secret, you can have Amazon Cognito manage the secret in AWS Secrets Manager. Amazon Cognito stores the secret as a [managed secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html), which is a secret that an AWS service creates and manages for you. Amazon Cognito creates, rotates, and deletes the secret. Secrets Manager starts each rotation on a schedule, and Amazon Cognito performs the rotation with no downtime. Your app reads the current value from Secrets Manager when it needs the secret.
+
+Amazon Cognito doesn't return the raw secret value in API responses for a managed secret.
+
+**Important**  
+Storing and rotating app client secrets in Secrets Manager incurs standard Secrets Manager charges. For more information about pricing, see [AWS Secrets Manager pricing](https://aws.amazon.com/secrets-manager/pricing/).
+
+**Important**  
+The following rules apply to managed client secrets.  
+You can't provide your own custom secret value and set `PublishSecretsInAWSSecretsManager` to `true` in the same request. Doing so fails with an `InvalidInputException`.
+You can't call [AddUserPoolClientSecret](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AddUserPoolClientSecret.html) or [DeleteUserPoolClientSecret](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolClientSecret.html) for a managed client. These operations fail with an `InvalidInputException`, because Amazon Cognito manages secret rotation for you.
+You can't recover the Secrets Manager secret after you delete a managed app client. Amazon Cognito deletes the secret right away, with no recovery window.
+
+Use the following options to manage your app client's secret:
+
+**Turn on managed secrets**  
+To have Amazon Cognito publish the client secret to Secrets Manager, set `PublishSecretsInAWSSecretsManager` to `true`. You can set this parameter when you create a client with [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) (together with `GenerateSecret` set to `true`), or when you update a client that already has a generated secret with [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html).  
+In API requests, this parameter defaults to `false`. If you don't set `PublishSecretsInAWSSecretsManager`, Amazon Cognito doesn't manage the secret in Secrets Manager and returns the plaintext `ClientSecret` value as before. In the Amazon Cognito console, the **Store secret in AWS Secrets Manager - recommended** option is turned on by default when you create an app client with a generated client secret.  
+When managed secrets are turned on, the response contains a `ClientSecretArn` instead of the plaintext `ClientSecret` value. `ClientSecretArn` is the Amazon Resource Name (ARN) of the secret in Secrets Manager. An app client can have up to two secrets at a time for rotation. Secrets Manager stores both of them in the same secret, so a managed client has a single `ClientSecretArn`.  
+When you turn on managed secrets for an existing app client, Amazon Cognito copies the client's secrets into Secrets Manager. Amazon Cognito then starts the first rotation right away. If the client has one secret, that secret keeps working until the next rotation, which is 7 days later by default. If the client has two secrets, the first rotation deletes the older one.  
+Before you turn on managed secrets for an existing app client, make sure that your app uses the newer secret. Then update your app to read the secret from Secrets Manager before the next rotation.
+
+**Retrieve the secret value**  
+[DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html) returns the `ClientSecretArn` for a managed client and doesn't return the raw secret value. To read the current secret, retrieve it from Secrets Manager by its ARN with the [GetSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html) operation. The following JSON object shows the contents of `SecretString`:  
+
+```json
+{
+  "userPoolId": "us-east-1_EXAMPLE",
+  "userPoolClientId": "1example23456789",
+  "clientSecretValue": "example-client-secret"
+}
+```
+Use the value of `clientSecretValue` as the app client secret. The `userPoolId` and `userPoolClientId` values identify the user pool and app client that the secret belongs to. For more information, see [Get secrets from AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html) in the *AWS Secrets Manager User Guide*.
+
+**Rotate the secret**  
+By default, Amazon Cognito rotates a managed client secret every 7 days. The first rotation starts as soon as you turn on managed secrets. Rotation has no downtime and requires no Lambda function of your own.  
+To use a different schedule, change the rotation schedule of the secret in Secrets Manager. For more information, see [Managed rotation for AWS Secrets Manager secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html) in the *AWS Secrets Manager User Guide*.  
+Each rotation adds a new secret and makes it the current value in Secrets Manager. The previous secret keeps working until the next rotation, when Amazon Cognito deletes it. A secret value that your app reads stays valid for one to two rotation intervals, depending on when in the rotation cycle your app reads it. With the default schedule, the value stays valid for 7 to 14 days.  
+Read the secret from Secrets Manager when your app starts, and refresh any cached copy more often than the secret rotates. If Amazon Cognito can't verify the secret in an authentication request, read the secret from Secrets Manager again and retry the request.
+
+**Encrypt the secret with your own KMS key**  
+By default, Secrets Manager encrypts the managed secret with the Secrets Manager AWS managed key (`aws/secretsmanager`). This is true even if you encrypt your user pool with a customer managed key. To control the key that encrypts the secret, for example to apply your own key policy or grants, you can re-encrypt the secret with a customer managed AWS KMS key that you own. This key protects only the copy of the secret in Secrets Manager, which your application reads. Amazon Cognito keeps its own copy of the secret with the rest of your user pool data, so changing the Secrets Manager key doesn't change how Amazon Cognito verifies the secret. For more information about how Amazon Cognito encrypts user pool data, see [Data protection in Amazon Cognito](data-protection.md).  
+Amazon Cognito uses the key through the Amazon Cognito service-linked role (`AWSServiceRoleForAmazonCognitoIdp`) when it rotates or replicates the secret, not with your credentials. Authorize that role in the *key policy* of your KMS key, not through an IAM policy on the role. Amazon Cognito creates the service-linked role in your account when you turn on managed secrets, so turn on managed secrets before you update the key policy.  
+The key policy needs a statement for the Amazon Cognito service-linked role and a statement for each application role that reads the secret. The service-linked role needs its permissions to rotate the secret and to replicate it to replica Regions. Your application's role needs `kms:Decrypt` because Secrets Manager decrypts the secret with your application's credentials when your application calls [GetSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html). The following example key policy contains both statements and a statement that lets your account administer the key. Replace the example account ID, Region, and role name with your own values.  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Allow administrators to manage the key",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:{{aws}}:iam::{{111122223333}}:root"
+            },
+            "Action": "kms:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowCognitoToUseKeyForManagedClientSecret",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:{{aws}}:iam::{{111122223333}}:role/aws-service-role/cognito-idp.amazonaws.com/AWSServiceRoleForAmazonCognitoIdp"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "kms:ViaService": "secretsmanager.{{us-east-1}}.amazonaws.com"
+                },
+                "StringLike": {
+                    "kms:EncryptionContext:SecretARN": "arn:{{aws}}:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:cognito-idp!*"
+                }
+            }
+        },
+        {
+            "Sid": "AllowApplicationToDecryptManagedClientSecret",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:{{aws}}:iam::{{111122223333}}:role/{{MyApplicationRole}}"
+            },
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "kms:ViaService": "secretsmanager.{{us-east-1}}.amazonaws.com"
+                },
+                "StringLike": {
+                    "kms:EncryptionContext:SecretARN": "arn:{{aws}}:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:cognito-idp!*"
+                }
+            }
+        }
+    ]
+}
+```
+If your key already has a key policy, add the two Amazon Cognito statements to it. Don't remove the statements that give your account access to the key.  
+Without the application statement, your application's `GetSecretValue` call fails with an `AccessDeniedException` error, even if the application has `secretsmanager:GetSecretValue` permission.  
+After the key policy is in place, call the Secrets Manager [UpdateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UpdateSecret.html) operation and pass your key in the `KmsKeyId` parameter. Secrets Manager encrypts later secret versions with the key that you set, including the versions that managed rotation creates.  
+If the key becomes unavailable, for example because you disable it, delete it, or remove a statement from its key policy, then retrieving the secret from Secrets Manager and managed rotation both fail until you restore access. During that time, an app that doesn't already have the secret can't get it from Secrets Manager, so it can't authenticate with Amazon Cognito.
+
+**Use managed secrets with multi-Region replication**  
+If your user pool has replicas in other AWS Regions, Amazon Cognito replicates the managed secret to each replica Region with Secrets Manager replication. Your apps in a replica Region can read the replica of the secret from Secrets Manager in that Region. For more information about replica user pools, see [Multi-Region replication for user pools](user-pool-multi-region.md).  
+Secrets Manager encrypts each replica with the AWS managed key (`aws/secretsmanager`) in the replica Region, even if the primary secret uses a customer managed KMS key. If the primary secret uses a customer managed KMS key, its key policy must allow the Amazon Cognito service-linked role to use `kms:Decrypt`, as in the example key policy. Otherwise, Secrets Manager can't replicate new secret versions, and the replicas keep an old secret value that stops working after later rotations.
+
+**Turn off managed secrets**  
+To stop managing the secret in Secrets Manager, set `PublishSecretsInAWSSecretsManager` to `false` on [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html). Amazon Cognito migrates the secret value back into Amazon Cognito, returns the plaintext `ClientSecret` again, and deletes the secret in Secrets Manager right away, with no recovery window. After that, your apps can't read the secret from Secrets Manager. Get the secret with [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html) and update your apps to use it.
+
+**Note**  
+To retrieve the current secret, you need `secretsmanager:GetSecretValue` permission for the secret. If the secret uses a customer managed KMS key, you also need `kms:Decrypt` permission for the key.
+
+**Note**  
+Managing the client secret in Secrets Manager is independent of refresh token rotation. Managed secret storage applies to the app client's static secret. Refresh token rotation applies to your users' per-session refresh tokens. You can turn on both features. When your app client refreshes tokens under rotation, it still supplies its client secret as usual. Managing that secret in Secrets Manager doesn't change the refresh request.
 
 ## JSON web tokens
 <a name="user-pool-settings-client-app-token-types"></a>
@@ -69,7 +191,8 @@ A callback URL indicates where the user is redirected after a successful sign-in
 + Be pre-registered with a client.
 + Not include a fragment component.
 See [OAuth 2.0 - redirection endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2).  
-Amazon Cognito requires `HTTPS` over `HTTP` except for `http://localhost` for testing purposes only.  
+Amazon Cognito requires `HTTPS` over `HTTP` except for `http://localhost`, `http://127.0.0.1`, and `http://[::1]` for testing purposes only.  
+For loopback hosts, Amazon Cognito accepts any port at runtime. This exception applies only to `localhost`, `127.0.0.1`, and `[::1]`. When a registered callback URL points to one of these hosts, Amazon Cognito accepts a runtime `redirect_uri` on that host with any port. A port in the registered URL doesn't restrict the runtime port: if you register `http://localhost:3000/redirect`, Amazon Cognito also accepts `http://localhost:124/redirect` at runtime. This behavior supports clients that run locally and bind a port at runtime. It applies to app clients, CIMD clients, and dynamic client registration clients. Other hosts require an exact match to a registered callback URL.  
 App callback URLs such as `myapp://example` are also supported.
 
 **Allowed sign out URLs**  
@@ -187,7 +310,7 @@ aws cognito-idp update-user-pool-client --user-pool-id  "{{MyUserPoolID}}" --cli
 
 If the command is successful, the AWS CLI returns a confirmation:
 
-```
+```json
 {
     "UserPoolClient": {
         "ClientId": "{{MyClientID}}",

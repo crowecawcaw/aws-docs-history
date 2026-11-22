@@ -1,7 +1,6 @@
 
 
 # Authorization models for API and SDK authentication
-<a name="authentication-flows-public-server-side"></a>
 
 When you're starting development of your application with user pools authentication, you must decide on the API authorization model that fits your application type. An authorization model is a system for providing authorization to make requests with the authentication components in the Amazon Cognito user pools API and SDK integrations. Amazon Cognito has three authorization models: IAM-authorized, public, and token-authorized.
 

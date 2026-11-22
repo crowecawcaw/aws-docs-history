@@ -1,7 +1,6 @@
 
 
 # Understanding the identity (ID) token
-<a name="amazon-cognito-user-pools-using-the-id-token"></a>
 
 The ID token is a [JSON web token (JWT)](https://tools.ietf.org/html/rfc7519) that contains claims about the identity of the authenticated user, such as `name`, `email`, and `phone_number`. You can use this identity information inside your application. The ID token can also be used to authenticate users to your resource servers or server applications. You can also use an ID token outside of the application with your web API operations. In those cases, you must verify the signature of the ID token before you can trust any claims inside the ID token. See [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md). 
 

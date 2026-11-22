@@ -1,7 +1,6 @@
 
 
 # Mapping IdP attributes to profiles and tokens
-<a name="cognito-user-pools-specifying-attribute-mapping"></a>
 
 Identity provider (IdP) services, including Amazon Cognito, can typically record more information about a user. You might want to know what company they work for, how to contact them, and other identifying information. But the format that these attributes take has variations between providers. For example, set up three IdPs from three different vendors with your user pool and examine an example SAML assertion, ID token, or `userInfo` payload from each. One will represent the user's email address as `email`, another as `emailaddress`, and the third as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
@@ -109,7 +108,7 @@ Amazon Cognito maps incoming claims to user pool attributes only if the claims e
 
 The following request body for [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html) or [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html) maps the SAML provider "MyIdP" attributes `emailaddress`, `birthdate`, and `phone` to the user pool attributes `email`, `birthdate`, and `phone_number`, in that order. This is a complete request body for a SAML 2.0 provider—your request body varies depending on IdP type and specific details. The attribute mapping is in the `AttributeMapping` parameter.
 
-```
+```json
 {
    "AttributeMapping": { 
       "email" : "emailaddress",

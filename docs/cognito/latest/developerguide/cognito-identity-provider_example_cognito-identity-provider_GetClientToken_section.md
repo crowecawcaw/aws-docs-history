@@ -1,7 +1,6 @@
 
 
 # Use `GetClientToken` with an AWS SDK
-<a name="cognito-identity-provider_example_cognito-identity-provider_GetClientToken_section"></a>
 
 The following code example shows how to use `GetClientToken`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito/scenarios/client_token#code-examples). 
 
-```
+```python
     def get_client_token(
         self,
         client_id: str,

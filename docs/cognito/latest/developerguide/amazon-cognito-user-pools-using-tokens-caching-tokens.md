@@ -1,7 +1,6 @@
 
 
 # Managing user pool token expiration and caching
-<a name="amazon-cognito-user-pools-using-tokens-caching-tokens"></a>
 
 Your app must successfully complete one of the following requests each time you want to get a new JSON web token (JWT).
 + Request a client credentials or authorization code [grant](https://www.rfc-editor.org/rfc/rfc6749#section-1.3) from the [Token endpoint](token-endpoint.md).

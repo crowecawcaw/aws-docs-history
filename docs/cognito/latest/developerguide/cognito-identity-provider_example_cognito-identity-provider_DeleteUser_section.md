@@ -1,7 +1,6 @@
 
 
 # Use `DeleteUser` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_DeleteUser_section"></a>
 
 The following code examples show how to use `DeleteUser`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -62,7 +61,7 @@ For more information, see [Managing users in your user pool](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -98,7 +97,7 @@ func (actor CognitoActions) DeleteUser(ctx context.Context, userAccessToken stri
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-pools-triggers#code-examples). 
 
-```
+```javascript
 /**
  * Delete the signed-in user. Useful for allowing a user to delete their
  * own profile.

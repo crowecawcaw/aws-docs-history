@@ -1,7 +1,6 @@
 
 
 # Post confirmation Lambda trigger
-<a name="user-pool-lambda-post-confirmation"></a>
 
 Amazon Cognito invokes this trigger after a signed-up user confirms their user account. In your post confirmation Lambda function, you can send custom messages or add custom API requests. For example, you can query an external system and populate additional attributes to the user. Amazon Cognito invokes this trigger only for user who sign up in your user pool, not for user accounts that you create with your administrator credentials.
 
@@ -19,7 +18,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "request": {
             "userAttributes": {
@@ -59,7 +58,7 @@ This example Lambda function sends a confirmation email message to your user usi
 ------
 #### [ Node.js ]
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js. Note that this requires
 // the `@aws-sdk/client-ses` module to be either bundled with this code or included
 // as a Lambda layer.

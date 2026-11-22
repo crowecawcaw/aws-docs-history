@@ -1,7 +1,6 @@
 
 
 # Using the Amazon Cognito prefix domain for managed login
-<a name="cognito-user-pools-assign-domain-prefix"></a>
 
 The default experience for managed login is hosted on a domain that AWS owns. This approach has a low barrier to entry—choose a prefix name and it's active—but doesn't have the trust-inspiring features of a custom domain. There isn't a cost difference between the Amazon Cognito domain option and the custom domain option. The only difference is the domain in the web address that you direct your users to. For cases of third-party IdP redirects and client-credentials flows, the prefix domain has little visible effect. A custom domain is better for cases where your users sign in with managed login and would interact with an authentication domain that doesn't match the application domain.
 

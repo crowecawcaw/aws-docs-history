@@ -1,7 +1,6 @@
 
 
 # User-pool multi-tenancy best practices
-<a name="bp_user-pool-based-multi-tenancy"></a>
 
 Create a user pool for each tenant in your app. This approach provides maximum isolation for each tenant. You can implement different configurations for each tenant. Tenant isolation by user pool gives you flexibility in user-to-tenant mapping. You can create multiple profiles for the same user. However, each user must sign up individually for each tenant they can access. 
 

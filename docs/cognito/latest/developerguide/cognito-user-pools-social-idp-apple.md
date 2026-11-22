@@ -1,7 +1,6 @@
 
 
 # Add Sign in with Apple as a social identity provider
-<a name="cognito-user-pools-social-idp-apple"></a>
 
 **Note**  
 **Last verified against the provider console:** October 2, 2026. Apple steps use [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources) in the Apple Developer account. You must have the Account Holder or Admin role.

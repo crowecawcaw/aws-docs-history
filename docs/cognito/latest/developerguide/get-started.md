@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Cognito
-<a name="get-started"></a>
 
 This chapter gets you started with user pool authentication—creating your first user pool and signing in your first user. Amazon Cognito also offers identity pools, which exchange a user's identity for temporary AWS credentials; if that is what you need, see [Other capabilities](other-capabilities.md). If you are not sure which component you need, see [Which parts of Amazon Cognito do you need?](what-is-amazon-cognito.md#what-is-amazon-cognito-choosing).
 

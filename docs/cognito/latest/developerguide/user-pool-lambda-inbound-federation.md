@@ -1,7 +1,6 @@
 
 
 # Inbound federation Lambda trigger
-<a name="user-pool-lambda-inbound-federation"></a>
 
 The inbound federation trigger transforms federated user attributes during the authentication process with external identity providers. When users authenticate through configured identity providers, this trigger allows you to modify responses from external SAML and OIDC providers by intercepting and transforming data in the authentication process, providing programmatic control over how Amazon Cognito user pools handle federated users and their attributes.
 
@@ -30,7 +29,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "version": "string",
     "triggerSource": "InboundFederation_ExternalProvider",
@@ -122,7 +121,7 @@ This example shows how to map federated identity provider groups to Amazon Cogni
 ------
 #### [ Node.js ]
 
-```
+```javascript
 exports.handler = async (event) => {
     const { providerType, attributes } = event.request;
     
@@ -174,7 +173,7 @@ Amazon Cognito passes event information to your Lambda function. The function th
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "userPoolId": "us-east-1_XXXXXXXXX",
     "request": {
@@ -206,7 +205,7 @@ This example shows how to truncate attribute values that exceed Amazon Cognito's
 ------
 #### [ Node.js ]
 
-```
+```javascript
 exports.handler = async (event) => {
     const MAX_ATTRIBUTE_LENGTH = 2048;
     
@@ -251,7 +250,7 @@ Amazon Cognito passes event information to your Lambda function. The function th
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "version": "string",
     "triggerSource": "InboundFederation_ExternalProvider",
@@ -299,7 +298,7 @@ This example shows how to log federated authentication events for monitoring and
 ------
 #### [ Node.js ]
 
-```
+```javascript
 exports.handler = async (event) => {
     const { providerName, providerType, attributes } = event.request;
     
@@ -338,7 +337,7 @@ Amazon Cognito passes event information to your Lambda function. The function th
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "version": "string",
     "triggerSource": "InboundFederation_ExternalProvider",
@@ -375,7 +374,7 @@ Expected CloudWatch Logs output:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "timestamp": "2025-01-14T21:17:40.153Z",
     "providerName": "CorporateAD",

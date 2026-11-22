@@ -1,7 +1,6 @@
 
 
 # Use `ListIdentityPoolUsage` with an AWS SDK
-<a name="cognito-sync_example_cognito-sync_ListIdentityPoolUsage_section"></a>
 
 The following code example shows how to use `ListIdentityPoolUsage`.
 
@@ -11,7 +10,7 @@ The following code example shows how to use `ListIdentityPoolUsage`.
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/cognitosync#code-examples). 
 
-```
+```rust
 async fn show_pools(client: &Client) -> Result<(), Error> {
     let response = client
         .list_identity_pool_usage()

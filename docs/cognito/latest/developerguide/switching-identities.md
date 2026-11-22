@@ -1,7 +1,6 @@
 
 
 # Switching unauthenticated users to authenticated users
-<a name="switching-identities"></a>
 
 Amazon Cognito identity pools support both authenticated and unauthenticated users. Unauthenticated users receive access to your AWS resources even if they aren't signed in with any of your identity providers (IdPs). This degree of access is useful to display content to users before they sign in. Each unauthenticated user has a unique identity in the identity pool, even though they haven't been individually signed in and authenticated.
 
@@ -14,7 +13,7 @@ Users can sign in to your application as unauthenticated guests. Eventually they
 
 Your application is informed of a profile merge through the `IdentityChangedListener` interface. Implement the `identityChanged` method in the interface to receive these messages:
 
-```
+```java
 @override
 public void identityChanged(String oldIdentityId, String newIdentityId) {
     // handle the change
@@ -28,7 +27,7 @@ Users can sign in to your application as unauthenticated guests. Eventually they
 
 `NSNotificationCenter` informs your application of a profile merge:
 
-```
+```objectivec
 [[NSNotificationCenter defaultCenter] addObserver:self
                                       selector:@selector(identityIdDidChange:)
                                       name:AWSCognitoIdentityIdChangedNotification
@@ -49,7 +48,7 @@ Users can sign in to your application as unauthenticated guests. Eventually they
 
 `NSNotificationCenter` informs your application of a profile merge:
 
-```
+```swift
 [NSNotificationCenter.defaultCenter().addObserver(observer: self
    selector:"identityDidChange"
    name:AWSCognitoIdentityIdChangedNotification
@@ -71,7 +70,7 @@ func identityDidChange(notification: NSNotification!) {
 
 Users typically start with the unauthenticated role. For this role, you create a `fromCognitoIdentityPool` credentials provider without a `logins` property and attach it to your service clients. In this case, your default configuration might look like the following:
 
-```
+```javascript
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
 // Create a credentials provider without a logins map for the unauthenticated role.
@@ -90,7 +89,7 @@ const client = new SomeServiceClient({ region, credentials });
 
 When an unauthenticated user logs in to an IdP and you have a token, you can switch the user from unauthenticated to authenticated by calling a custom function that creates a new `fromCognitoIdentityPool` provider with the `logins` map that contains the token:
 
-```
+```javascript
 // Called when an identity provider has a token for a logged in user
 function userLoggedIn(providerName, token) {
     // Re-create the provider with a logins map to switch to the authenticated role.

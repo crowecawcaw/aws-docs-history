@@ -1,7 +1,6 @@
 
 
 # Configuring a user pool domain
-<a name="cognito-user-pools-assign-domain"></a>
 
 Configuring a domain is an optional part of setting up a user pool. A user pool domain hosts features for user authentication, federation with third-party providers, and OpenID Connect (OIDC) flows. It has *managed login*, a prebuilt interface for key operations like signing up, signing in, and password recovery. It also hosts the standard OpenID Connect (OIDC) endpoints like [authorize](authorization-endpoint.md), [userInfo](userinfo-endpoint.md), and [token](token-endpoint.md), for machine-to-machine (M2M) authorization and other OIDC and OAuth 2.0 authentication and authorization flows.
 

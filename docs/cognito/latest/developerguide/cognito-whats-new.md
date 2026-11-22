@@ -1,7 +1,6 @@
 
 
 # What's new in Amazon Cognito
-<a name="cognito-whats-new"></a>
 
 This page lists changes to Amazon Cognito that affect how your applications, users, or administrators work with the service. Changes are newest first. Each entry starts with a label line. The label line shows the type of change, the component it applies to, the feature plan it requires (when one applies), and the date the change became available.
 
@@ -26,6 +25,28 @@ For changes to this guide that don't change the service, see [Document history](
 
 ## November 2026
 <a name="whats-new-2026-11"></a>
+
+### Point-in-time recovery for user pools
+<a name="whats-new-2026-11-18-pitr"></a>
+
+New · User pools · Essentials, Plus · November 18, 2026
+
+You can now restore the user data in a user pool to an earlier point in time. Recovered users keep their identifiers, passwords, multi-factor authentication (MFA) settings, and passkeys, so they can sign in without resetting their credentials. Before you start a recovery, you can preview how many users, groups, MFA settings, and passkeys it will create, update, or delete.
+
+Point-in-time recovery is on automatically for user pools on the Essentials and Plus feature plans, at no additional charge. You can recover to a point up to 1 day in the past on Essentials and up to 14 days on Plus.
+
+See [Point-in-time recovery for user pools](user-pool-point-in-time-recovery.md) and the [What's New post](https://aws.amazon.com/about-aws/whats-new/2026/11/cognito-point-in-time-recovery/) on the AWS website.
+
+### Authentication level and method claims in tokens
+<a name="whats-new-2026-11-17-acr-amr"></a>
+
+New · User pools, Managed login · November 17, 2026
+
+Access, ID, and refresh tokens now include authentication context class reference (ACR) and authentication methods reference (AMR) claims. Use the authentication level to make authorization decisions, such as requiring an additional factor before a sensitive operation. Use the completed methods for auditing. Amazon Cognito defines four levels, from a password only (level 1) to a password with a time-based one-time password (TOTP) (level 4). For federated users from an OpenID Connect (OIDC) provider, Amazon Cognito maps the provider's values to your levels.
+
+The claims are in tokens from every user pool, on every feature plan. To request a target level for step-up authentication, or to set custom ACR level URIs, your user pool must be on the Essentials or Plus feature plan.
+
+See [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md) and the [What's New post](https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-acr-amr-token/) on the AWS website.
 
 ### OAuth 2.0 token exchange (RFC 8693)
 <a name="whats-new-2026-11-12-token-exchange"></a>

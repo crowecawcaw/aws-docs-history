@@ -1,7 +1,6 @@
 
 
 # The redirect and authorization endpoint
-<a name="authorization-endpoint"></a>
 
 The `/oauth2/authorize` endpoint is a redirection endpoint that supports two redirect destinations. If you include an `identity_provider` or `idp_identifier` parameter in the URL, it silently redirects your user to the sign-in page for that identity provider (IdP). Otherwise, it redirects to the [Login endpoint](login-endpoint.md) with the same URL parameters that you included in your request. 
 
@@ -44,7 +43,8 @@ A redirect uniform resource identifier (URI) must have the following attributes:
 + You must have pre-registered the URI with a client.
 + It can't include a fragment component.
 See [OAuth 2.0 - Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2).  
-Amazon Cognito requires that your redirect URI use HTTPS, except for `http://localhost`, which you can set as a callback URL for testing purposes.  
+Amazon Cognito requires that your redirect URI use HTTPS, except for `http://localhost`, `http://127.0.0.1`, and `http://[::1]`, which you can set as a callback URL for testing purposes.  
+For loopback hosts, Amazon Cognito accepts any port at runtime. This exception applies only to `localhost`, `127.0.0.1`, and `[::1]`. When a registered callback URL points to one of these hosts, Amazon Cognito accepts a runtime `redirect_uri` on that host with any port. A port in the registered URL doesn't restrict the runtime port: if you register `http://localhost:3000/redirect`, Amazon Cognito also accepts `http://localhost:124/redirect` at runtime. This behavior applies to app clients, CIMD clients, and dynamic client registration clients. For more information, see [app client callback URLs](user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-about).  
 Amazon Cognito also supports app callback URLs such as `myapp://example`.
 
 **`state`**  
@@ -165,7 +165,7 @@ Location: {{https://www.example.com}}?code=a1b2c3d4-5678-90ab-cdef-EXAMPLE11111&
 
 The following request adds a `prompt=login` parameter that requires the user to authenticate again, even if they have an existing session.
 
-```
+```HTTP
 GET https://{{mydomain.auth.us-east-1.amazoncognito.com}}/oauth2/authorize?
 response_type=code&
 client_id={{1example23456789}}&
@@ -177,7 +177,7 @@ prompt=login
 
 The authorization server redirects to the [login endpoint](login-endpoint.md), requiring re-authentication.
 
-```
+```HTTP
 HTTP/1.1 302 Found Location: https://{{mydomain.auth.us-east-1.amazoncognito.com}}/login?response_type=code&client_id={{1example23456789}}&redirect_uri={{https://www.example.com}}&state={{abcdefg}}&scope={{openid+profile+aws.cognito.signin.user.admin}}&prompt=login
 ```
 
@@ -186,7 +186,7 @@ HTTP/1.1 302 Found Location: https://{{mydomain.auth.us-east-1.amazoncognito.com
 
 The following request adds a `prompt=none` parameter that silently checks if the user has a valid session.
 
-```
+```HTTP
 GET https://{{mydomain.auth.us-east-1.amazoncognito.com}}/oauth2/authorize?
 response_type=code&
 client_id={{1example23456789}}&
@@ -198,13 +198,13 @@ prompt=none
 
 When no valid session exists, the authorization server returns an error to the redirect URI
 
-```
+```HTTP
 HTTP/1.1 302 Found Location: https://{{www.example.com}}?error=login_required&state={{abcdefg}}
 ```
 
 When a valid session exists, the authorization server returns an authorization code.
 
-```
+```HTTP
 HTTP/1.1 302 Found Location: https://{{www.example.com}}?code={{AUTHORIZATION_CODE}}&state={{abcdefg}}
 ```
 
@@ -213,7 +213,7 @@ HTTP/1.1 302 Found Location: https://{{www.example.com}}?code={{AUTHORIZATION_CO
 
 The following request adds a `resource` parameter to bind the access token to a specific resource server. The resulting access token creates the conditions for the target API to validate that it is the intended audience of the authenticated user's request.
 
-```
+```HTTP
 GET https://{{mydomain.auth.us-east-1.amazoncognito.com}}/oauth2/authorize?
 response_type={{code}}&
 client_id={{1example23456789}}&
@@ -225,7 +225,7 @@ resource={{https://solar-system-data-api.example.com}}
 
 The authorization server returns an authorization code that results in an access token with an `aud` claim of `https://solar-system-data-api.example.com`.
 
-```
+```HTTP
 HTTP/1.1 302 Found Location: https://{{www.example.com}}?code={{AUTHORIZATION_CODE}}&state={{abcdefg}}
 ```
 
@@ -287,55 +287,55 @@ Amazon Cognito might deny your request. Negative requests come with an HTTP erro
 
   The following is the response to an example request with incorrect formatting.
 
-  ```
+  ```http
   HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request
   ```
 + If the client requests `code` or `token` in `response_type`, but doesn't have permission for these requests, the Amazon Cognito authorization server returns `unauthorized_client` to client's `redirect_uri`, as follows:
 
-  ```
+  ```http
   HTTP 1.1 302 Found Location: https://client_redirect_uri?error=unauthorized_client
   ```
 +  If the client requests scope that is unknown, malformed, or not valid, the Amazon Cognito authorization server returns `invalid_scope` to the client's `redirect_uri`, as follows: 
 
-  ```
+  ```http
   HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_scope
   ```
 + If there is any unexpected error in the server, the authentication server returns `server_error` to the client's `redirect_uri`. Because the HTTP 500 error doesn't get sent to the client, the error doesn't display in the user's browser. The authorization server returns the following error.
 
-  ```
+  ```http
   HTTP 1.1 302 Found Location: https://client_redirect_uri?error=server_error
   ```
 + When Amazon Cognito authenticates through federation to third-party IdPs, Amazon Cognito might experience connection issues, such as the following:
   + If a connection timeout occurs while requesting token from the IdP, the authentication server redirects the error to the client’s `redirect_uri` as follows:
 
-    ```
+    ```http
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Timeout+occurred+in+calling+IdP+token+endpoint
     ```
   + If a connection timeout occurs while calling the `jwks_uri` endpoint for ID token validation, the authentication server redirects with an error to the client’s `redirect_uri` as follows:
 
-    ```
+    ```http
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=error_description=Timeout+in+calling+jwks+uri
     ```
 + When authenticating by federating to third-party IdPs, the providers may return error responses. This can be due to configuration errors or other reasons, such as the following:
   + If an error response is received from other providers, the authentication server redirects the error to the client’s `redirect_uri` as follows:
 
-    ```
+    ```http
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=[IdP name]+Error+-+[status code]+error getting token
     ```
   + If an error response is received from Google, the authentication server redirects the error to the client’s `redirect_uri` as follows: 
 
-    ```
+    ```http
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Google+Error+-+[status code]+[Google-provided error code]
     ```
 + When Amazon Cognito encounters a communication exception when it connects to an external IdP, the authentication server redirects with an error to the client's `redirect_uri` with either of the following messages:
   + 
 
-    ```
+    ```http
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Connection+reset
     ```
   + 
 
-    ```
+    ```http
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Read+timed+out
     ```
 
@@ -345,7 +345,7 @@ Amazon Cognito might deny your request. Negative requests come with an HTTP erro
 **Note**  
 Authentication levels with ACR and AMR claims is rolling out gradually. This feature might not yet be available to your user pool. If the behavior described here isn't available, check back later as the rollout continues.
 
-Amazon Cognito supports step-up authentication with managed login. It isn't supported in the hosted UI. If your application relies on ACR and AMR, use managed login.
+Amazon Cognito supports step-up authentication with managed login. It isn't supported in the hosted UI (classic). With the hosted UI (classic), Amazon Cognito silently ignores `acr_values` and `max_age`, and tokens contain default `acr` and `amr` values. For example, local users receive level 1 even if they completed MFA. If your application relies on ACR and AMR, use managed login. For more information, see [Hosted UI (classic) behavior](cognito-user-pools-step-up-authentication.md#cognito-user-pools-step-up-hosted-ui-classic).
 
 For more information about ACR levels and AMR values, see [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md).
 

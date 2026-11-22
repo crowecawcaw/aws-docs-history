@@ -1,7 +1,6 @@
 
 
 # Refresh tokens
-<a name="amazon-cognito-user-pools-using-the-refresh-token"></a>
 
 You can use the refresh token to retrieve new ID and access tokens. By default, the refresh token expires 30 days after your application user signs into your user pool. When you create an application for your user pool, you can set the application's refresh token expiration to any value between 60 minutes and 10 years. 
 
@@ -64,7 +63,7 @@ The following procedure turns refresh token rotation on or off for your app clie
 
 Configure refresh token rotation in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) API request. The following partial request body turns on refresh token rotation and sets the grace period to ten seconds.
 
-```
+```json
 "RefreshTokenRotation" : {
    "Feature" : "ENABLED",
    "RetryGracePeriodSeconds" : 10
@@ -87,7 +86,7 @@ Users can authenticate with user pools in [managed login](cognito-user-pools-man
 
 [GetTokensFromRefreshToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.html) returns new ID, access and refresh tokens from a request that you authorize with a refresh token. The following is an example request body for `GetTokensFromRefreshToken`. You can submit client metadata to Lambda triggers in requests to this operation.
 
-```
+```json
 {
     "RefreshToken": "{{eyJjd123abcEXAMPLE}}",
     "ClientId": "{{1example23456789}}",

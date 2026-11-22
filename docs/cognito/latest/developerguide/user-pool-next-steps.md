@@ -1,7 +1,6 @@
 
 
 # Add more features and security options to your user pool
-<a name="user-pool-next-steps"></a>
 
 After you have followed the tutorials to complete example applications, you can broaden the scope of your user pool implementation. Or, if you didn't create a test application, create a new user pool according to your preferences. You can customize user pool features for other applications or [add external identity providers](tutorial-create-user-pool-social-idp.md). As you plan your move to put Amazon Cognito user pools in production applications, you can evaluate [additional examples and tutorials](cognito-guided-setup.md).
 

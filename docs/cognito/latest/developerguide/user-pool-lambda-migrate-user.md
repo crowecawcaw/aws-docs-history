@@ -1,7 +1,6 @@
 
 
 # Migrate user Lambda trigger
-<a name="user-pool-lambda-migrate-user"></a>
 
 When a user doesn't exist in the user pool at sign-in with a password, or in the forgot-password flow, Amazon Cognito invokes this trigger. After the Lambda function returns successfully, Amazon Cognito creates the user in the user pool. For details on the authentication flow with the user migration Lambda trigger, see [Importing users with a user migration Lambda trigger](cognito-user-pools-import-using-lambda.md).
 
@@ -32,7 +31,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "userName": "{{string}}",
     "request": {
@@ -124,7 +123,7 @@ This example Lambda function migrates the user with an existing password and sup
 ------
 #### [ Node.js ]
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
   var user;
 

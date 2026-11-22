@@ -1,7 +1,6 @@
 
 
 # Sign up a user with an Amazon Cognito user pool that requires MFA using an AWS SDK
-<a name="cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section"></a>
 
 The following code examples show how to:
 + Sign up and confirm a user with a username, password, and email address.
@@ -14,7 +13,7 @@ The following code examples show how to:
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
-```
+```csharp
 namespace CognitoBasics;
 
 public class CognitoBasics
@@ -488,7 +487,7 @@ public class CognitoWrapper
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -856,7 +855,7 @@ bool AwsDoc::Cognito::adminInitiateAuthorization(const Aws::String &clientID,
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.AdminGetUserRequest;
@@ -1203,7 +1202,7 @@ public class CognitoMVP {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/scenarios/basic#code-examples). 
 For the best experience, clone the GitHub repository and run this example. The following code represents a sample of the full example application.  
 
-```
+```javascript
 import { logger } from "@aws-doc-sdk-examples/lib/utils/util-log.js";
 import { signUp } from "../../../actions/sign-up.js";
 import { FILE_USER_POOLS } from "./constants.js";
@@ -1566,7 +1565,7 @@ const verifySoftwareToken = (totp) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
-```
+```kotlin
 /**
  Before running this Kotlin code example, set up your development environment, including your credentials.
 
@@ -1834,7 +1833,7 @@ suspend fun signUp(
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 Create a class that wraps Amazon Cognito functions used in the scenario.  
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 
@@ -2289,7 +2288,7 @@ class CognitoIdentityProviderWrapper:
 ```
 Create a class that runs the scenario. This example also registers an MFA device to be tracked by Amazon Cognito and shows you how to sign in by using a password and information from the tracked device. This avoids the need to enter a new MFA code.  
 
-```
+```python
 def run_scenario(cognito_idp_client, user_pool_id, client_id):
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -2505,7 +2504,7 @@ if __name__ == "__main__":
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 The `Package.swift` file.  
 
-```
+```swift
 // swift-tools-version: 5.9
 //
 // The swift-tools-version declares the minimum version of Swift required to
@@ -2547,7 +2546,7 @@ let package = Package(
 ```
 The Swift code file.  
 
-```
+```swift
 // An example demonstrating various features of Amazon Cognito. Before running
 // this Swift code example, set up your development environment, including
 // your credentials.

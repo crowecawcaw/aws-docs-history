@@ -1,7 +1,6 @@
 
 
 # Collecting data for threat protection in applications
-<a name="user-pool-settings-viewing-threat-protection-app"></a>
 
 Amazon Cognito [adaptive authentication](cognito-user-pool-settings-adaptive-authentication.md) evaluates risk levels for attempted account takeover from contextual details of users' sign-in attempts. Your application must add *context data* to API requests so that Amazon Cognito threat protection can more accurately evaluate risk. Context data is information like IP address, browser agent, device information, and request headers that provides contextual information about how a user connected to your user pool.
 
@@ -55,13 +54,13 @@ The `amazon-cognito-advanced-security-data.min.js` module collects `EncodedData`
 
 Add the `amazon-cognito-advanced-security-data.min.js` module to your JavaScript configuration. Replace `<region>` with an AWS Region from the following list: `us-east-1`, `us-east-2`, `us-west-2`, `eu-west-1`, `eu-west-2`, or `eu-central-1`.
 
-```
+```javascript
 <script src="https://amazon-cognito-assets.<region>.amazoncognito.com/amazon-cognito-advanced-security-data.min.js"></script>
 ```
 
 To generate an `encodedContextData` object that you can use in the `EncodedData` parameter, add the following to your JavaScript application source:
 
-```
+```javascript
 var encodedContextData = AmazonCognitoAdvancedSecurityData.getData(_username, _userpoolId, _userPoolClientId);
 ```
 
@@ -72,7 +71,7 @@ To generate context data, iOS applications can integrate the [Mobile SDK for iOS
 
 To collect encoded context data for threat protection, add the following snippet to your application:
 
-```
+```swift
 import AWSCognitoIdentityProviderASF
 
 let deviceId = getDeviceId()

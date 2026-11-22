@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon Cognito authentication and authorization with web and mobile apps
-<a name="cognito-integrate-apps"></a>
 
 Implementation of Amazon Cognito is a mix of AWS Management Console or AWS SDK administrative tools, and SDK libraries in applications. The Amazon Cognito console is the visual interface for setup and management of your Amazon Cognito user pools and identity pools.
 

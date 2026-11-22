@@ -1,7 +1,6 @@
 
 
 # Identity pools authentication flow
-<a name="authentication-flow"></a>
 
 Amazon Cognito helps you create unique identifiers for your end users that are kept consistent across devices and platforms. Amazon Cognito also delivers temporary, limited-privilege credentials to your application to access AWS resources. This page covers the basics of how authentication in Amazon Cognito works and explains the lifecycle of an identity inside your identity pool.
 

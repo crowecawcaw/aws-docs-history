@@ -1,7 +1,6 @@
 
 
 # Use `SetIdentityPoolRoles` with a CLI
-<a name="cognito-identity_example_cognito-identity_SetIdentityPoolRoles_section"></a>
 
 The following code examples show how to use `SetIdentityPoolRoles`.
 
@@ -27,7 +26,7 @@ For more information, see [IAM roles](https://docs.aws.amazon.com/cognito/latest
 **Tools for PowerShell V4**  
 **Example 1: Configures the specific Identity Pool to have an unauthenticated IAM role.**  
 
-```
+```powershell
 Set-CGIIdentityPoolRole -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1 -Role @{ "unauthenticated" = "arn:aws:iam::123456789012:role/CommonTests1Role" }
 ```
 +  For API details, see [SetIdentityPoolRoles](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Set-CGIIdentityPoolRole -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPL
 **Tools for PowerShell V5**  
 **Example 1: Configures the specific Identity Pool to have an unauthenticated IAM role.**  
 
-```
+```powershell
 Set-CGIIdentityPoolRole -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1 -Role @{ "unauthenticated" = "arn:aws:iam::123456789012:role/CommonTests1Role" }
 ```
 +  For API details, see [SetIdentityPoolRoles](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

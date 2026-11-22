@@ -1,7 +1,6 @@
 
 
 # Your first sign-in: an end-to-end walkthrough
-<a name="get-started-first-sign-in"></a>
 
 This page is a map, not a replacement for the detailed procedures it links to. It shows how the setup steps connect so that you can see the whole journey before you dive into any single step. Each numbered step links to the authoritative procedure.
 

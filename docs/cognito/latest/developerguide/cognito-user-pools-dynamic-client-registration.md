@@ -1,7 +1,6 @@
 
 
 # Dynamic client registration
-<a name="cognito-user-pools-dynamic-client-registration"></a>
 
 With dynamic client registration, applications and AI agents can register their own OAuth app clients in your user pool at runtime. They call the registration endpoint of your user pool domain, which follows the OAuth 2.0 Dynamic Client Registration Protocol. For more information, see [RFC 7591](https://www.rfc-editor.org/rfc/rfc7591) on the RFC Editor website. Registered clients count toward the [app client quota](#cognito-user-pools-dynamic-client-registration-quota) of your user pool. Dynamic client registration is available with the **Essentials** and **Plus** feature plans.
 
@@ -128,7 +127,7 @@ Content-Type: application/json
 
 Amazon Cognito returns HTTP `201` with the new client. When the application doesn't request `none`, the response also includes a `client_secret`, and `client_secret_expires_at` is `0` because the secret doesn't expire.
 
-```
+```json
 {
     "client_id": "{{dcr_1example23456789}}",
     "client_id_issued_at": {{1767225600}},
@@ -182,7 +181,7 @@ Model Context Protocol (MCP) clients, such as AI agents and developer tools, can
 
 1. Configure your MCP server to name your user pool as its authorization server, and to accept access tokens from your user pool that carry its scopes.
 
-MCP clients usually register as public clients. They set `token_endpoint_auth_method` to `none` and use PKCE with `S256`. Clients that run on a user's computer often use a loopback redirect URI, such as `http://localhost:{{port}}/callback`. Amazon Cognito accepts the `http` scheme only for loopback hosts.
+MCP clients usually register as public clients. They set `token_endpoint_auth_method` to `none` and use PKCE with `S256`. Clients that run on a user's computer often use a loopback redirect URI, such as `http://localhost:{{port}}/callback`. Amazon Cognito accepts the `http` scheme only for loopback hosts. A client can register a loopback redirect URI without a port, for example `http://localhost/callback`, and then use any port at runtime, such as `http://localhost:8080/callback`. This is the same rule that applies to other [app client callback URLs](user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-about): for loopback hosts, Amazon Cognito accepts any port at runtime.
 
 MCP clients include the `resource` parameter to name the MCP server. With managed login, the audience (`aud`) of the access token is the requested resource. Custom scopes in the request must belong to the resource server whose identifier matches the value of `resource` exactly. For more information, see [Resource binding](cognito-user-pools-define-resource-servers.md#cognito-user-pools-resource-binding).
 

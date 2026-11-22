@@ -1,7 +1,6 @@
 
 
 # Regional data considerations
-<a name="security-cognito-regional-data-considerations"></a>
 
 Amazon Cognito user pools are each created in one AWS Region, and they store the user profile data only in that region. User pools can send user data to a different AWS Region, depending on how optional features are configured.
 + If the default `no-reply@verificationemail.com` email address setting is used for routing verification of emails addresses with Amazon Cognito user pools, emails are routed through the same region as the associated user pool.

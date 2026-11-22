@@ -1,7 +1,6 @@
 
 
 # Things to know about SAML IdPs in Amazon Cognito user pools
-<a name="cognito-user-pools-saml-idp-things-to-know"></a>
 
 Implementation of a SAML 2.0 IdP comes with some requirements and restrictions. Refer to this section when you're implementing your IdP. You'll also find information that's useful for troubleshooting errors during SAML federation with a user pool.
 
@@ -24,7 +23,7 @@ Amazon Cognito and your SAML IdP maintain session information with a `relayState
 **Identify the ACS endpoint**  
 Your SAML identity provider requires that you set an assertion consumer endpoint. Your IdP redirects your users to this endpoint with their SAML assertion. Configure the following endpoint in your user pool domain for SAML 2.0 POST binding in your SAML identity provider.  
 
-```
+```http
 https://{{Your user pool domain}}/saml2/idpresponse
 With an Amazon Cognito domain:
 https://{{mydomain.auth.us-east-1.amazoncognito.com}}/saml2/idpresponse
@@ -60,21 +59,21 @@ Your SAML IdP must include the following claims in the SAML assertion.
   A `Format` in your IdP `NameID` claim of `urn:oasis:names:tc:SAML:1.1:nameid-format:persistent` indicates that your IdP is passing an unchanging value. Amazon Cognito doesn't require this format declaration, and assigns a format of `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` if your IdP doesn't specify a format of the `NameID` claim. This behavior complies with section 2.2.2 *Complex Type NameIDType*, of [the SAML 2.0 specification](https://groups.oasis-open.org/higherlogic/ws/public/download/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf/latest).
 + An `AudienceRestriction` claim with an `Audience` value that sets your user pool SP entity ID as the target of the response.
 
-  ```
+  ```xml
   <saml:AudienceRestriction>
     <saml:Audience> urn:amazon:cognito:sp:{{us-east-1_EXAMPLE}}
   </saml:AudienceRestriction>
   ```
 + For SP-initiated single sign-on, a `Response` element with an `InResponseTo` value of the original SAML request ID.
 
-  ```
+  ```xml
   <saml2p:Response Destination="https://{{mydomain.auth.us-east-1.amazoncognito.com}}/saml2/idpresponse" ID="{{id123}}" InResponseTo="_dd0a3436-bc64-4679-a0c2-cb4454f04184" IssueInstant="{{Date-time stamp}}" Version="2.0" xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   ```
 **Note**  
 IdP-initiated SAML assertions must *not* contain an `InResponseTo` value.
 + A `SubjectConfirmationData` element with a `Recipient` value of your user pool `saml2/idpresponse` endpoint and, for SP-initiated SAML, an `InResponseTo` value that matches the original SAML request ID.
 
-  ```
+  ```xml
   <saml2:SubjectConfirmationData InResponseTo="_dd0a3436-bc64-4679-a0c2-cb4454f04184" NotOnOrAfter="{{Date-time stamp}}" Recipient="https://{{mydomain.auth.us-east-1.amazoncognito.com}}/saml2/idpresponse"/>
   ```
 

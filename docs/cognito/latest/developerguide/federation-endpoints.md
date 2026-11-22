@@ -1,7 +1,6 @@
 
 
 # Identity provider and relying party endpoints
-<a name="federation-endpoints"></a>
 
 *Federation endpoints* are user pool endpoints that serve a purpose for one of the authentication standards used by user pools. They include SAML ACS URLs, OIDC discovery endpoints, and service endpoints for user pool roles both as identity provider and relying party. Federation endpoints initiate authentication flows, receive proof of authentication from IdPs, and issue tokens to clients. They interact with IdPs, applications, and administrators, but not with users.
 

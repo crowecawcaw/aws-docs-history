@@ -1,7 +1,6 @@
 
 
 # Adding MFA to a user pool
-<a name="user-pool-settings-mfa"></a>
 
 MFA adds a *something you have* authentication factor to the initial *something you know* factor that is typically a username and password. You can choose SMS text messages, email messages, or time-based one-time passwords (TOTP) as additional factors to sign in your users who have passwords as their primary authentication factor.
 

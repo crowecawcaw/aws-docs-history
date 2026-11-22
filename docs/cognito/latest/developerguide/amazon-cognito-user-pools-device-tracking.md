@@ -1,7 +1,6 @@
 
 
 # Working with user devices in your user pool
-<a name="amazon-cognito-user-pools-device-tracking"></a>
 
 When you sign in local user pool users with the Amazon Cognito user pools API, you can associate your users’ activity logs from [threat protection](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) with each of their devices and, optionally, allow your users to skip multi-factor authentication (MFA) if they’re on a trusted device. Amazon Cognito includes a device key in the response to any sign-in that doesn’t already include device information. The device key is in the format `{{Region}}_{{UUID}}`. With a device key, a Secure Remote Password (SRP) library, and a user pool that permits device authentication, you can prompt users in your app to trust the current device and no longer prompt for an MFA code at sign-in.
 

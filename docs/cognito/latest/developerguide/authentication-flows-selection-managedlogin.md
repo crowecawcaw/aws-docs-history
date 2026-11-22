@@ -1,7 +1,6 @@
 
 
 # Configure authentication methods for managed login
-<a name="authentication-flows-selection-managedlogin"></a>
 
 You can invoke [managed login pages](cognito-user-pools-managed-login.md), a web front end for user pool authentication, when you want users to sign in, sign out, or reset their password. In this model, your application imports OIDC libraries to process browser-based authentication attempts with user pool managed login pages. The forms of authentication that are available to your users are dependent on the configuration of your user pool and your app client. Implement the `ALLOW_USER_AUTH` flow in your app client, and Amazon Cognito prompts users to select a sign-in method from the available options. Implement `ALLOW_USER_PASSWORD_AUTH` and assign a SAML provider, and your login pages prompt users with the option to enter their username and password or to connect with their IdP.
 

@@ -1,7 +1,6 @@
 
 
 # Implement authentication flows
-<a name="authentication-implement"></a>
 
 Whether you're implementing [managed login](authentication-flows-selection-managedlogin.md) or a [custom-built application front end](authentication-flows-selection-sdk.md) with an AWS SDK for authentication, you must configure your app client for the types of authentication that you want to implement. The following information describes setup for authentication flows in your [app clients](user-pool-settings-client-apps.md) and your application.
 
@@ -25,7 +24,7 @@ The following procedure configures available authentication flows for an app cli
 **To configure an app client for authentication flows (API/SDK)**  
 To configure available authentication flows for an app client with the Amazon Cognito API, set the value of `ExplicitAuthFlows` in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html#CognitoUserPools-CreateUserPoolClient-request-ExplicitAuthFlows) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html#CognitoUserPools-UpdateUserPoolClient-request-ExplicitAuthFlows) request. The following is an example that provisions secure remote password (SRP) and choice-based authentication to a client.
 
-```
+```json
 "ExplicitAuthFlows": [ 
    "ALLOW_USER_AUTH",
    "ALLOW_USER_SRP_AUTH"
@@ -57,13 +56,13 @@ When you sign users in, the body of your [InitiateAuth](https://docs.aws.amazon.
 
 Choice-based authentication:
 
-```
+```json
 "AuthFlow": "USER_AUTH"
 ```
 
 Client-based authentication with SRP:
 
-```
+```json
 "AuthFlow": "USER_SRP_AUTH"
 ```
 

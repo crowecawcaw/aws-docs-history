@@ -1,7 +1,6 @@
 
 
 # Working with compromised-credentials detection
-<a name="cognito-user-pool-settings-compromised-credentials"></a>
 
 Amazon Cognito can detect if a user's username and password have been compromised elsewhere. This can happen when users reuse credentials at more than one site, or when they use insecure passwords. Amazon Cognito checks [local users](cognito-terms.md#terms-localuser) who sign in with username and password, in managed login and with the Amazon Cognito API.
 

@@ -1,7 +1,6 @@
 
 
 # User pool feature plans
-<a name="cognito-sign-in-feature-plans"></a>
 
 Understanding the cost is a crucial step in preparing to implement Amazon Cognito user pools authentication. Amazon Cognito has feature plans for user pools. Each plan has a set of features and a monthly cost per active user. Each feature plan unlocks access to more features than the one before it.
 
@@ -98,7 +97,15 @@ See [create-user-pool](https://docs.aws.amazon.com/cli/latest/reference/cognito-
 | Customize access token scopes and claims at runtime | Use a Lambda trigger to extend the authorization capabilities of user pool access tokens | Essentials \+ Plus | 
 | Passwordless sign-in with one-time codes | Permit users to receive a one-time password by email or SMS as their first authentication factor | Essentials \+ Plus | 
 | Passkey sign-in with hardware or software FIDO2 authenticators | Permit users to use a cryptographic key stored on a FIDO2 authenticator as their first authentication factor | Essentials \+ Plus | 
+| Point-in-time recovery | Restore the user data in your user pool to a point in time in the past: up to 1 day with the Essentials plan and up to 14 days with the Plus plan | Essentials \+ Plus | 
 | Session management | Track, list, and revoke users' active sessions across devices and apps, and set a limit on active sessions for each user | Essentials \+ Plus | 
+| Step-up authentication | Request a target authentication level when a user signs in, and set custom ACR level URIs for your user pool | Essentials \+ Plus | 
+| Token exchange | Exchange a user's token for a new token that's scoped and bound to the audience of a downstream service | Essentials \+ Plus | 
+| Dynamic client registration | Let applications and AI agents register their own app clients at runtime through your user pool domain | Essentials \+ Plus | 
+| Refresh token rotation | Issue a new refresh token each time an app client uses a refresh token | Essentials \+ Plus | 
+| Resource binding | Request access tokens for a specific resource server with the resource parameter in managed login | Essentials \+ Plus | 
+| Customer managed keys | Encrypt user pool data at rest with your own AWS KMS customer managed key | Essentials \+ Plus | 
+| Multi-Region replication | Keep a replica of your user pool in another AWS Region for failover. This feature is an add-on with separate charges. | Essentials \+ Plus | 
 | Sign-up and sign-in | Perform authentication operations and let new users register for an account in your application. | Lite \+ Essentials \+ Plus | 
 | User groups | Create logical groupings of users and assign default IAM roles for identity pool operations. | Lite \+ Essentials \+ Plus | 
 | Sign-in with social, SAML, and OIDC providers | Provide users with the options to sign in directly or with their preferred provider. | Lite \+ Essentials \+ Plus | 
@@ -110,5 +117,6 @@ See [create-user-pool](https://docs.aws.amazon.com/cli/latest/reference/cognito-
 | User import | Set up import jobs from CSV files and perform just-in-time migration of users as they sign in. | Lite \+ Essentials \+ Plus | 
 | MFA with authenticator apps and SMS one-time codes | Request or require local users to provide an additional SMS message or authenticator app sign-in factor after username authentication | Lite \+ Essentials \+ Plus | 
 | Customize ID token scopes and claims at runtime | Use a Lambda trigger to extend the authentication capabilities of user pool identity (ID) tokens | Lite \+ Essentials \+ Plus | 
+| ACR and AMR claims in tokens | Read the authentication level and the completed authentication methods from access, ID, and refresh tokens | Lite \+ Essentials \+ Plus | 
 | Custom runtime actions with Lambda triggers | Customize the sign-in process at runtime with Lambda functions that perform external actions and influence authentication | Lite \+ Essentials \+ Plus | 
 | Customize managed login pages with CSS | Download a CSS template and change some styles in your managed login pages | Lite \+ Essentials \+ Plus | 

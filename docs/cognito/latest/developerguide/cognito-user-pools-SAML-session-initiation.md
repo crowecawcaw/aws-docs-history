@@ -1,7 +1,6 @@
 
 
 # SAML session initiation in Amazon Cognito user pools
-<a name="cognito-user-pools-SAML-session-initiation"></a>
 
 Amazon Cognito supports service provider-initiated (SP-initiated) single sign-on (SSO) and IdP-initiated SSO. As a best security practice, implement SP-initiated SSO in your user pool. Section 5.1.2 of the [ SAML V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html#5.1.2.SP-Initiated%20SSO:%20%20Redirect/POST%20Bindings|outline) describes SP-initiated SSO. Amazon Cognito is the identity provider (IdP) to your app. The app is the service provider (SP) that retrieves tokens for authenticated users. However, when you use a third-party IdP to authenticate users, Amazon Cognito is the SP. When your SAML 2.0 users authenticate with an SP-initiated flow, they must always first make a request to Amazon Cognito and redirect to the IdP for authentication.
 
@@ -135,7 +134,7 @@ Location: {{https://www.example.com}}?code={{[Authorization code]}}
 
 Configure IdP-initiated SAML with the `IDPInit` parameter in a [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html) or [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html) API request. The following is an example `ProviderDetails` of an IdP that supports IdP-initiated SAML.
 
-```
+```json
 "ProviderDetails": { 
       "MetadataURL" : "{{https://myidp.example.com/saml/metadata}}",
       "IDPSignout" : "true",

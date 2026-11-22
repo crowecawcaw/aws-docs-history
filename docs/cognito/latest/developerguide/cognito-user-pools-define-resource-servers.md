@@ -1,7 +1,6 @@
 
 
 # Scopes, M2M, and resource servers
-<a name="cognito-user-pools-define-resource-servers"></a>
 
 After you configure a domain for your user pool, Amazon Cognito automatically provisions an OAuth 2.0 authorization server and a hosted web UI with sign-up and sign-in pages that your app can present to your users. For more information see [User pool managed login](cognito-user-pools-managed-login.md). You can choose the scopes that you want the authorization server to add to access tokens. Scopes authorize access to resource servers and user data.
 
@@ -64,7 +63,7 @@ Amazon Cognito doesn't use AWS Identity and Access Management (IAM) identity-bas
 
 To use `GetClientToken`, configure an app client that has a client secret and only the `ALLOW_CLIENT_TOKEN_AUTH` authentication flow. This flow is mutually exclusive with user authentication flows. An app client can have up to two active secrets. Associate your [resource server](#cognito-user-pools-define-resource-servers-about-resource-servers) custom scopes with the app client. The following AWS CLI example creates a compatible app client.
 
-```
+```bash
 aws cognito-idp create-user-pool-client \
     --user-pool-id {{us-west-2_EXAMPLE}} \
     --client-name my-m2m-client \
@@ -75,7 +74,7 @@ aws cognito-idp create-user-pool-client \
 
 To get an access token, call `GetClientToken` with the app client ID, an active client secret, and the custom scopes that you want in the token. `GetClientToken` doesn't take a `UserPoolId` parameter; Amazon Cognito identifies the user pool from the client ID. If you don't specify `Scopes`, Amazon Cognito authorizes the scopes that are configured for the app client.
 
-```
+```bash
 aws cognito-idp get-client-token \
     --client-id {{1example23456789}} \
     --secret {{exampleClientSecret123EXAMPLE}} \
@@ -84,7 +83,7 @@ aws cognito-idp get-client-token \
 
 The response contains the access token and its metadata in a `ClientAuthenticationResult` object.
 
-```
+```json
 {
     "ClientAuthenticationResult": {
         "AccessToken": "{{eyJra456defEXAMPLE}}",

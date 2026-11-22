@@ -1,7 +1,6 @@
 
 
 # Access Amazon Cognito using an interface endpoint (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and Amazon Cognito. You can access Amazon Cognito as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access Amazon Cognito.
 
@@ -87,7 +86,7 @@ Systems in a VPC can send requests to [user pool API actions](https://docs.aws.a
 
 To prevent the assignment of domains from systems in a VPC, Amazon Cognito blocks `CreateUserPoolDomain` requests at the interface endpoint. This prevents addition of domains to your user pools from systems that are in a VPC. To prevent the addition of a domain from all systems, apply a [resource control policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html) (RCP) like the following example to your AWS account. This policy blocks the `CreateUserPoolDomain` action against the specified user pool.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 		 	 	 
     "Statement": [
@@ -153,7 +152,7 @@ aws iam tag-role \
 
 Then modify your network-based policies to allow tagged principals. For example, in an RCP:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 		 	 	 
     "Statement": [
@@ -191,7 +190,7 @@ Identity pools provide service-specific context keys for resource-level authoriz
 
 You can use these context keys in VPC endpoint policies to restrict access based on authentication status, as demonstrated in the following example:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 		 	 	 
     "Statement": [
@@ -220,7 +219,7 @@ Amazon Cognito supports controlling access to your resources with [resource cont
 
 For example, the following example policy prevents access to all user pools from a specific VPC.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -275,7 +274,7 @@ For more information, see [Control access to services using endpoint policies](h
 **Example: VPC endpoint policy for user pool actions**  
 The following is an example of a custom endpoint policy for user pools. When you attach this policy to your interface endpoint, it grants access to the listed user pool actions for all principals on all resources.
 
-```
+```json
 {
    "Version": "2012-10-17", 		 	 	 		 	 	 
    "Statement": [
@@ -308,7 +307,7 @@ The following is an example of a custom endpoint policy for user pools. When you
 **Example: VPC endpoint policy for identity pool actions**  
 The following is an example of a custom endpoint policy for identity pools. This policy uses service-specific context keys to restrict access to authenticated users from a specific identity pool.
 
-```
+```json
 {
    "Version": "2012-10-17", 		 	 	 		 	 	 
    "Statement": [
@@ -344,7 +343,7 @@ An identity-based policy specifies the following information:
 **Example: identity-based policy for user pool server-side authentication**  
 The following example policy grants access to the listed user pool actions in the specified user pool, from the specified endpoint. Apply this policy to the assumed IAM role for your web application.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 		 	 	 
     "Statement": [
@@ -369,7 +368,7 @@ The following example policy grants access to the listed user pool actions in th
 **Example: identity-based policy for identity pool administrative operations**  
 The following example policy grants access to identity pool administrative actions from the specified VPC endpoint. Apply this policy to the IAM principal that needs to perform identity pool administration.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 		 	 	 
     "Statement": [

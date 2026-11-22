@@ -1,7 +1,6 @@
 
 
 # Using role-based access control
-<a name="role-based-access-control"></a>
 
 Amazon Cognito identity pools assign your authenticated users a set of temporary, limited-privilege credentials to access your AWS resources. The permissions for each user are controlled through [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that you create. You can define rules to choose the role for each user based on claims in the user's ID token. You can define a default role for authenticated users. You can also define a separate IAM role with limited permissions for guest users who are not authenticated.
 
@@ -15,7 +14,7 @@ It is important to add the appropriate trust policy for each role so that it can
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -53,7 +52,7 @@ To allow a user to set roles with permissions in excess of the user's existing p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -116,13 +115,13 @@ You can set up rule-based mapping for identity providers in the AWS CLI or API w
 
 For example, the following AWS CLI command adds a rule that assigns the role `arn:aws:iam::123456789012:role/Sacramento_team_S3_admin` to users in your Sacramento location who were authenticated by OIDC IdP `arn:aws:iam::123456789012:oidc-provider/myOIDCIdP`:
 
-```
+```bat
 aws cognito-identity set-identity-pool-roles --region us-east-1 --cli-input-json file://role-mapping.json
 ```
 
 **Contents of `role-mapping.json`**:
 
-```
+```json
 {
     "IdentityPoolId": "us-east-1:12345678-corner-cafe-123456790ab",
     "Roles": {

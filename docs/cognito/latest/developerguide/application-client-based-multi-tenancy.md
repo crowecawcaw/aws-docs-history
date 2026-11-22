@@ -1,7 +1,6 @@
 
 
 # App-client multi-tenancy best practices
-<a name="application-client-based-multi-tenancy"></a>
 
 Create an [app client](user-pool-settings-client-apps.md#user-pool-settings-client-apps.title) for each tenant in your app. With app-client multi-tenancy, you can assign any user to tenant-linked app clients and retain a single user profile. Because you can assign any or all of the [identity providers (IdPs)](cognito-user-pools-identity-federation.md#cognito-user-pools-identity-federation.title) in your user pool to an app client, a tenant app client can permit sign-in with a tenant-specific IdP. When users exist in multiple tenants, you can link their profiles with multiple IdPs for a consistent user experience.
 

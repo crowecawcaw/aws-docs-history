@@ -1,7 +1,6 @@
 
 
 # Post authentication Lambda trigger
-<a name="user-pool-lambda-post-authentication"></a>
 
 The post authentication trigger doesn't change the authentication flow for a user. Amazon Cognito invokes this Lambda after authentication is complete, before a user has received tokens. Add a post authentication trigger when you want to add custom post-processing of authentication events, for example logging or user profile adjustments that are reflected on the next sign-in.
 
@@ -28,7 +27,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "request": {
         "userAttributes": {
@@ -72,7 +71,7 @@ This post authentication sample Lambda function sends data from a successful sig
 ------
 #### [ Node.js ]
 
-```
+```javascript
 const handler = async (event) => {
   // Send post authentication data to Amazon CloudWatch logs
   console.log("Authentication successful");

@@ -1,7 +1,6 @@
 
 
 # Custom authentication challenge Lambda triggers
-<a name="user-pool-lambda-challenge"></a>
 
 As you build out your authentication flows for your Amazon Cognito user pool, you might find that you want to extend your authentication model beyond the built-in flows. One common use case for the custom challenge triggers is to implement additional security checks beyond username, password, and multi-factor authentication (MFA). A custom challenge is any question and response you can generate in a Lambda-supported programming language. For example, you might want to require users to solve a CAPTCHA or answer a security question before being allowed to authenticate. Another potential need is to integrate with specialized authentication factors or devices. Or you might have already developed software that authenticates users with a hardware security key or a biometric device. The definition of authentication success for a custom challenge is whatever answer your Lambda function accepts as correct: a fixed string, for example, or a satisfactory response from an external API.
 
@@ -58,7 +57,7 @@ You can have Amazon Cognito verify user passwords before it issues your custom c
 
 The following is an example of a starting `InitiateAuth` request that precedes custom authentication with an SRP flow.
 
-```
+```json
 {
     "AuthFlow": "CUSTOM_AUTH",
     "ClientId": "1example23456789",
@@ -127,7 +126,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 1. **InitiateAuth request**
 
-   ```
+   ```json
    {
        "AuthFlow": "CUSTOM_AUTH",
        "ClientId": "{{1example23456789}}",
@@ -141,7 +140,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 1. **InitiateAuth response**
 
-   ```
+   ```json
    {
        "ChallengeName": "PASSWORD_VERIFIER",
        "ChallengeParameters": {
@@ -153,7 +152,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 1. **RespondToAuthChallenge request with `PASSWORD_VERIFIER`**
 
-   ```
+   ```json
    {
        "ChallengeName": "PASSWORD_VERIFIER",
        "ClientId": "{{1example23456789}}",
@@ -169,7 +168,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 1. **RespondToAuthChallenge response with `NEW_PASSWORD_REQUIRED` challenge**
 
-   ```
+   ```json
    {
        "ChallengeName": "NEW_PASSWORD_REQUIRED",
        "ChallengeParameters": {},
@@ -179,7 +178,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 1. **RespondToAuthChallenge request with `NEW_PASSWORD_REQUIRED`**
 
-   ```
+   ```json
    {
        "ChallengeName": "NEW_PASSWORD_REQUIRED",
        "ClientId": "{{1example23456789}}",
@@ -193,7 +192,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 1. **RespondToAuthChallenge response with CAPTCHA custom challenge**
 
-   ```
+   ```json
    {
        "ChallengeName": "CUSTOM_CHALLENGE",
        "ChallengeParameters": {
@@ -205,7 +204,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 1. **RespondToAuthChallenge request with answer to CAPTCHA custom challenge**
 
-   ```
+   ```json
    {
        "ChallengeName": "CUSTOM_CHALLENGE",
        "ClientId": "{{1example23456789}}",
@@ -219,7 +218,7 @@ The following example demonstrates a complete custom authentication flow for a u
 
 **6. Final success response**
 
-```
+```json
 {
     "AuthenticationResult": {
         "AccessToken": "{{eyJra456defEXAMPLE}}",

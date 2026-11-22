@@ -1,7 +1,6 @@
 
 
 # Add Google as a social identity provider
-<a name="cognito-user-pools-social-idp-google"></a>
 
 **Note**  
 **Last verified against the provider console:** October 2, 2026. Google console steps follow the Google Auth Platform (the sections **Branding**, **Audience**, **Data Access**, and **Clients**). If the Google console differs from these steps, consult the [Google Auth Platform documentation](https://support.google.com/cloud/answer/15544987).

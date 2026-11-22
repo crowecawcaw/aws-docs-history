@@ -1,7 +1,6 @@
 
 
 # Use `AdminGetUser` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section"></a>
 
 The following code examples show how to use `AdminGetUser`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get the specified user from an Amazon Cognito user pool with administrator access.
     /// </summary>
@@ -43,7 +42,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -125,7 +124,7 @@ For more information, see [Managing and searching for user accounts](https://doc
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
     public static void getAdminUser(CognitoIdentityProviderClient identityProviderClient, String userName,
             String poolId) {
         try {
@@ -151,7 +150,7 @@ For more information, see [Managing and searching for user accounts](https://doc
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/#code-examples). 
 
-```
+```javascript
 const adminGetUser = ({ userPoolId, username }) => {
   const client = new CognitoIdentityProviderClient({});
 
@@ -171,7 +170,7 @@ const adminGetUser = ({ userPoolId, username }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
-```
+```kotlin
 suspend fun getAdminUser(
     userNameVal: String?,
     poolIdVal: String?,
@@ -196,7 +195,7 @@ suspend fun getAdminUser(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 
@@ -266,7 +265,7 @@ class CognitoIdentityProviderWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSCognitoIdentityProvider
 

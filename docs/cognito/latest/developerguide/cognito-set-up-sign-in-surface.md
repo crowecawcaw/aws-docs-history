@@ -1,7 +1,6 @@
 
 
 # Setting up your sign-in surface
-<a name="cognito-set-up-sign-in-surface"></a>
 
 Before your users can authenticate, you set up the surface they sign in through. For managed login, that means a user pool domain to serve the pages and an app client that points to them, plus the branding you apply. This chapter covers:
 + **Managed login**—the hosted sign-in pages, the user pool domain that serves them, and the branding editor.

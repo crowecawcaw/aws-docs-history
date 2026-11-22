@@ -1,7 +1,6 @@
 
 
 # Metrics in Service Quotas
-<a name="use-the-service-quota-console-to-track-metrics"></a>
 
 You can view and manage your Amazon Cognito user pools and identity pools quotas from a central location with Service Quotas. You can use the Service Quotas console to view details about a specific quota, monitor quota utilization, and request a quota increase. For some quota types, you can create a CloudWatch alarm to track your quota utilization. To learn more about what Amazon Cognito metrics you can track, see [Track quota usage](quotas.md#track-quota-usage).
 

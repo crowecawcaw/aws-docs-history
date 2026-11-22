@@ -1,7 +1,6 @@
 
 
 # Multi-Region replication for user pools
-<a name="user-pool-multi-region"></a>
 
 With multi-Region replication (MRR), you can create a replica user pool in an additional AWS Region to provide business continuity and disaster recovery capabilities for your authentication infrastructure. With MRR, registered users can continue to authenticate with your applications even when you lose connectivity to resources in a Region, ensuring your applications remain available.
 
@@ -22,6 +21,7 @@ When you configure MRR, Amazon Cognito creates separate user pools with a shared
   + Log export configuration
   + AWS WAF web ACLs
 + Data replication between Regions might introduce brief delays. The primary user pool syncs settings and user-directory updates to the secondary, and this process is eventually consistent.
++ You can initiate a [point-in-time recovery](user-pool-point-in-time-recovery.md) only in the primary user pool, and only when no replication changes are in progress. Amazon Cognito replicates the restored user data to the secondary user pool.
 
 ## Limitations of multi-Region replication
 <a name="user-pool-multi-region-limitations"></a>
@@ -68,7 +68,7 @@ Before you can enable multi-Region replication, ensure your user pool meets the 
 
 To create a replica user pool, use the [CreateUserPoolReplica](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolReplica.html) operation. The following example creates a replica in the `us-west-2` Region for a primary user pool in `us-east-1`.
 
-```
+```json
 {
  "UserPoolId": "{{us-east-1_EXAMPLE}}",
  "RegionName": "{{us-west-2}}",
@@ -81,7 +81,7 @@ To create a replica user pool, use the [CreateUserPoolReplica](https://docs.aws.
 
 The response includes the replica information:
 
-```
+```json
 {
  "Replica": {
     "RegionName": "{{us-west-2}}",
@@ -94,7 +94,7 @@ The response includes the replica information:
 
 You must also configure your domain for failover. Set up a health check in Route 53 and apply it to your domain in an [UpdateUserPoolDomain](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.html) request:
 
-```
+```json
 {
  "CustomDomainConfig": { 
     "CertificateArn": "arn:aws:acm:us-east-1:{{111122223333}}:certificate/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"
@@ -113,7 +113,7 @@ You must also configure your domain for failover. Set up a health check in Route
 
 To activate the replica for production use, use the [UpdateUserPoolReplica](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolReplica.html) operation:
 
-```
+```json
 {
  "UserPoolId": "{{us-east-1_EXAMPLE}}",
  "RegionName": "{{us-west-2}}",
@@ -123,7 +123,7 @@ To activate the replica for production use, use the [UpdateUserPoolReplica](http
 
 The response confirms the updated replica status:
 
-```
+```json
 {
  "Replica": {
     "RegionName": "{{us-west-2}}",

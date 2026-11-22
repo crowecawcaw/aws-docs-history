@@ -1,7 +1,6 @@
 
 
 # Updating user pool and app client configuration
-<a name="cognito-user-pool-updating"></a>
 
 When you want to change a setting in a user pool or app client, you can apply the update in the Amazon Cognito console with a few clicks. You navigate through the feature-based tabs in your user pool settings and update fields as described in other areas of this guide.
 
@@ -108,12 +107,12 @@ You can also use this modified `DescribeUserPool` output in the `--cli-input-jso
 
 Alternately, run the following AWS CLI command to generate JSON with blank values for the accepted input fields for `update-user-pool`. You can then populate these fields with the existing values from your user pool.
 
-```
+```bash
 aws cognito-idp update-user-pool --generate-cli-skeleton --output json
 ```
 
 Run the following command to generate the same JSON object for an app client.
 
-```
+```bash
 aws cognito-idp update-user-pool-client --generate-cli-skeleton --output json
 ```

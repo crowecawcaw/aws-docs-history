@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Cognito using AWS SDKs
-<a name="service_code_examples"></a>
 
 The following code examples show how to use Amazon Cognito with an AWS software development kit (SDK). 
 

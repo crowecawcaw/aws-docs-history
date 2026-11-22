@@ -1,7 +1,6 @@
 
 
 # The token revocation endpoint
-<a name="revocation-endpoint"></a>
 
 Users who hold a refresh token in their session have something similar to a browser cookie. They can renew their existing session as long as the refresh token is valid. Instead of prompting a user to sign in after their ID or access token expires, your application can use the refresh token to get new, valid tokens. However, you might externally determine that a user's session should be ended, or the user might elect to forget their current session. At that point, you can revoke that refresh token so that they can no longer persist their session.
 

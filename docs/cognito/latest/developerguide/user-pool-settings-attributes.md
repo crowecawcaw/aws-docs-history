@@ -1,7 +1,6 @@
 
 
 # Working with user attributes
-<a name="user-pool-settings-attributes"></a>
 
 Attributes are pieces of information that help you identify individual users, such as name, email address, and phone number. A new user pool has a set of default *standard attributes*. You can also add custom attributes to your user pool definition in the AWS Management Console. This topic describes those attributes in detail and gives you tips on how to set up your user pool.
 
@@ -190,7 +189,7 @@ You must set email address and phone number as alias attributes when you create 
 
 Create a new user pool with the [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) API operation. Configure the `AliasAttributes` parameter as shown. You can remove the `email` entry if you only want phone-number aliases, or remove the `phone_number` entry if you only want email-address aliases.
 
-```
+```json
 "AliasAttributes": [
    "email",
    "phone_number"
@@ -205,7 +204,7 @@ The Amazon Cognito console creates user pools without `preferred_username` as an
 **Configure as an alias**  
 Configure `preferred_username` as an alias in the `AliasAttributes` parameter of a `CreateUserPool` request as shown. Remove any values that you don't want as alias attributes from the list.
 
-```
+```json
 "AliasAttributes": [
    "email",
    "phone_number",
@@ -271,7 +270,7 @@ The following procedure creates a user pool with email address or phone number u
 
 In a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) request, configure the `UsernameAttributes` parameter as shown. To allow sign-in only with email-address usernames, specify `email` alone in this list. To allow sign-in only with phone-number usernames, specify `phone_number` alone. This parameter overrides username as a sign-in option.
 
-```
+```json
 "UsernameAttributes": [ 
    "email",
    "phone_number"
@@ -280,7 +279,7 @@ In a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/la
 
 The following example configures a user pool where each user signs in with only their email address as the username. As a best practice, also set `email` as a required sign-up attribute so that new users provide their email address when they sign up through managed login:
 
-```
+```json
 "UsernameAttributes": [
    "email"
 ],

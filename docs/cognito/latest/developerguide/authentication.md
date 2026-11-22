@@ -1,7 +1,6 @@
 
 
 # Authentication with Amazon Cognito user pools
-<a name="authentication"></a>
 
 Amazon Cognito includes several methods to authenticate your users. Users can sign in with passwords and WebAuthn passkeys. Amazon Cognito can send them a one-time password in an email or SMS message. You can implement Lambda functions that orchestrate your own sequence of challenges and responses. These are *authentication flows*. In authentication flows, users provide a secret and Amazon Cognito verifies the secret, then issues JSON web tokens (JWTs) for applications to process with OIDC libraries. This chapter describes how to configure your user pools and app clients for various authentication flows in various application environments. It covers options for the use of the hosted sign-in pages of managed login, and for building your own logic and front end in an AWS SDK.
 

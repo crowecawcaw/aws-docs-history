@@ -1,7 +1,6 @@
 
 
 # Custom SMS sender Lambda trigger
-<a name="user-pool-lambda-custom-sms-sender"></a>
 
 When you assign a custom SMS sender trigger to your user pool, Amazon Cognito invokes a Lambda function instead of its default behavior when a user event requires that it send an SMS message. With a custom sender trigger, your AWS Lambda function can send SMS notifications to your users through a method and provider that you choose. The custom code of your function must process and deliver all SMS messages from your user pool.
 
@@ -33,7 +32,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "request": {
         "type": "customSMSSenderRequestV1",
@@ -100,7 +99,7 @@ The Amazon Resource Name (ARN) of the KMS key that you want to use to encrypt an
 
 1. [Deploy the ZIP file to your function](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-package.html).
 
-```
+```javascript
 import { KmsKeyringNode, buildClient, CommitmentPolicy } from '@aws-crypto/client-node';
 
 // Configure the encryption SDK client with the KMS key from the environment variables

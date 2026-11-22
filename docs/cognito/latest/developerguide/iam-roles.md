@@ -1,7 +1,6 @@
 
 
 # IAM roles
-<a name="iam-roles"></a>
 
 While creating an identity pool, you're prompted to update the IAM roles that your users assume. IAM roles work like this: When a user logs in to your app, Amazon Cognito generates temporary AWS credentials for the user. These temporary credentials are associated with a specific IAM role. With the IAM role, you can define a set of permissions to access your AWS resources.
 
@@ -53,7 +52,7 @@ The following example role trust policy allows the federated service principal `
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -97,7 +96,7 @@ The following is an example trust policy that meets the *minimum* requirements f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -134,7 +133,7 @@ Don't implement the [aws:SourceIp](https://docs.aws.amazon.com/IAM/latest/UserGu
 **Reuse roles across identity pools**  
 To reuse a role across multiple identity pools, because they share a common permission set, you can include multiple identity pools, like this:
 
-```
+```json
 "StringEquals": {
     "cognito-identity.amazonaws.com:aud": [
         "us-east-1:12345678-abcd-abcd-abcd-123456790ab",
@@ -146,7 +145,7 @@ To reuse a role across multiple identity pools, because they share a common perm
 **Limit access to specific identities**  
 To create a policy limited to a specific set of app users, check the value of `cognito-identity.amazonaws.com:sub`:
 
-```
+```json
 "StringEquals": {
     "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-abcd-abcd-abcd-123456790ab",
     "cognito-identity.amazonaws.com:sub": [
@@ -159,7 +158,7 @@ To create a policy limited to a specific set of app users, check the value of `c
 **Limit access to specific providers**  
 To create a policy limited to users who have signed in with a specific provider (perhaps your own login provider), check the value of `cognito-identity.amazonaws.com:amr`:
 
-```
+```json
 "ForAnyValue:StringLike": {
     "cognito-identity.amazonaws.com:amr": "login.myprovider.myapp"
 }
@@ -167,7 +166,7 @@ To create a policy limited to users who have signed in with a specific provider 
 
 For example, an app that trusts only Facebook would have the following amr clause:
 
-```
+```json
 "ForAnyValue:StringLike": {
     "cognito-identity.amazonaws.com:amr": "graph.facebook.com"
 }
@@ -244,7 +243,7 @@ Amazon Cognito adds the following inline policy to sessions for your users in AW
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -296,7 +295,7 @@ Amazon Cognito adds the following inline policy to sessions for your users in AW
 
 For all other Regions, the inline scope-down policy includes everything listed in the default Regions except for the following `Action` statements.
 
-```
+```json
                 "cognito-sync:*",
                 "sumerian:View*",
                 "codewhisperer:*",
@@ -321,7 +320,7 @@ The `AmazonCognitoUnAuthedIdentitiesSessionPolicy` managed policy has the follow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -376,7 +375,7 @@ The following access policy grants read permissions to an identity to retrieve a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -403,7 +402,7 @@ With this policy, an identity such as `us-east-1:12345678-1234-1234-1234-1234567
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -437,7 +436,7 @@ The following access policy provides fine-grained access control to DynamoDB res
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -475,7 +474,7 @@ The following access policy grants an identity permission to invoke a Lambda fun
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -500,7 +499,7 @@ The following access policy allows an identity to use the `PutRecord` operation 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -525,7 +524,7 @@ The following access policy grants an identity permissions to access only their 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[{
@@ -548,7 +547,7 @@ The way these roles differ is in their trust relationships. The following is an 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -578,7 +577,7 @@ This policy grants federated users from `cognito-identity.amazonaws.com` (the is
 
 When Amazon Cognito creates a token, it sets the `amr` of the token as either `unauthenticated` or `authenticated`. If `amr` is `authenticated`, the token includes any providers used during authentication. This means that you can create a role that trusts only users that signed in via Facebook by changing the `amr` condition as shown:
 
-```
+```json
 "ForAnyValue:StringLike": {
   "cognito-identity.amazonaws.com:amr": "graph.facebook.com"
 }

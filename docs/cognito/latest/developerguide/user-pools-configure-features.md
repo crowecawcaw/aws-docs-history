@@ -1,7 +1,6 @@
 
 
 # Messaging and analytics
-<a name="user-pools-configure-features"></a>
 
 Configure email and SMS messaging for your user pool, and set up Amazon Pinpoint analytics to track user engagement.
 

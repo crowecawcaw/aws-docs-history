@@ -1,7 +1,6 @@
 
 
 # User-interactive managed login and classic hosted UI endpoints
-<a name="managed-login-endpoints"></a>
 
 Amazon Cognito activates the managed login endpoints in this section when you add a domain to your user pool. They are webpages where your users can complete the core authentication operations of a user pool. They include pages for password management, multi-factor authentication (MFA), and attribute verification.
 

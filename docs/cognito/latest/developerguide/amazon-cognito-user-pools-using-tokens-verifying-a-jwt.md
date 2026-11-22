@@ -1,7 +1,6 @@
 
 
 # Verifying JSON web tokens
-<a name="amazon-cognito-user-pools-using-tokens-verifying-a-jwt"></a>
 
 JSON web tokens (JWTs) can be decoded, read, and modified easily. A modified access token creates a risk of privilege escalation. A modified ID token creates a risk of impersonation. Your application trusts your user pool as a token issuer, but what if a user intercepts the token in transit? You must ensure that your application is receiving the same token that Amazon Cognito issued.
 
@@ -69,7 +68,7 @@ The header and payload are base64url-encoded JSON. You can identify them by the 
 
 The following example application verifies user pool tokens with `aws-jwt-verify`.
 
-```
+```javascript
 // cognito-verify.js
 // Usage example: node cognito-verify.js eyJra789ghiEXAMPLE
 

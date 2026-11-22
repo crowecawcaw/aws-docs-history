@@ -1,7 +1,6 @@
 
 
 # Setting up Sign in with Apple as an identity pool IdP
-<a name="apple"></a>
 
 Amazon Cognito identity pools work with Sign in with Apple to provide federated authentication for your mobile application and web application users. This section explains how to register and set up your application using Sign in with Apple as an identity provider (IdP).
 

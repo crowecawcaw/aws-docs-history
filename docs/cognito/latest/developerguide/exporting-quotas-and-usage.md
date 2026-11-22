@@ -1,7 +1,6 @@
 
 
 # Exporting logs from Amazon Cognito user pools
-<a name="exporting-quotas-and-usage"></a>
 
 You can configure your user pool to send detailed logs of some additional activity to another AWS service, like a CloudWatch log group. These logs are of a finer granularity than those in AWS CloudTrail, and can be useful to troubleshoot your user pool and analyze user sign-in activity with [threat protection](cognito-user-pool-settings-threat-protection.md). When you want to stream logs of SMS and email notification errors, your user pool sends `ERROR`-level logs to a CloudWatch log group. When you want to stream logs of user sign-in activity, your user pool sends `INFO`-level logs to a log group, a Amazon Data Firehose stream, or an Amazon S3 bucket. You can combine both options in a user pool.
 
@@ -61,7 +60,7 @@ For email and SMS message delivery errors, you can deliver **Error**-level user 
 
 You can configure detailed notification logs with the Amazon Cognito user pools API in a [SetLogDeliveryConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetLogDeliveryConfiguration.html) API request. You can view the logging configuration of a user pool in a [GetLogDeliveryConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetLogDeliveryConfiguration.html) API request. The following is an example request body.
 
-```
+```json
 {
    "LogConfigurations": [ 
       { 
@@ -83,7 +82,7 @@ You must authorize these requests with AWS credentials that have the following p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -132,7 +131,7 @@ You must authorize these requests with AWS credentials that have the following p
 
 The following is an example event from a user pool. This log schema is subject to change. Some fields might be logged with null values.
 
-```
+```json
 {
     "eventTimestamp": "1687297330677",
     "eventSource": "USER_NOTIFICATION",
@@ -153,7 +152,7 @@ User pools with the Plus feature plan and threat protection log user activity ev
 
 With the information in these user activity logs, you can view a profile of user sign-in and account-management activity. By default, Amazon Cognito captures these events to storage that's based in your user pool. The following example is an example event for a user who signed in and was evaluated to have no risk factors. You can retrieve this information with the `AdminListUserAuthEvents` API operation. The following is an example output:
 
-```
+```json
 {
     "AuthEvents": [
         {
@@ -214,7 +213,7 @@ Choose one type of destination for your user activity logs.
 
 The following is an example `SetLogDeliveryConfiguration` request body that sets a Firehose stream as the log destination.
 
-```
+```json
 {
    "LogConfigurations": [
       {
@@ -231,7 +230,7 @@ The following is an example `SetLogDeliveryConfiguration` request body that sets
 
 The following is an example `SetLogDeliveryConfiguration` request body that sets a Amazon S3 bucket as the log destination.
 
-```
+```json
 {
    "LogConfigurations": [
       {
@@ -248,7 +247,7 @@ The following is an example `SetLogDeliveryConfiguration` request body that sets
 
 The following is an example `SetLogDeliveryConfiguration` request body that sets a CloudWatch log group as the log destination.
 
-```
+```json
 {
    "LogConfigurations": [
       {
@@ -275,7 +274,7 @@ The user that configures log delivery must be a user pool administrator and have
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -314,7 +313,7 @@ The user that configures log delivery must be a user pool administrator and have
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -360,7 +359,7 @@ The user that configures log delivery must be a user pool administrator and have
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -395,7 +394,7 @@ The user that configures log delivery must be a user pool administrator and have
 
 The following is an example event from a user pool. This log schema is subject to change. Some fields might be logged with null values.
 
-```
+```json
 {
     "eventTimestamp": "1687297330677",
     "eventSource": "USER_ACTIVITY",

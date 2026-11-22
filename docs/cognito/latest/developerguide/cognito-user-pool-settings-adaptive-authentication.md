@@ -1,7 +1,6 @@
 
 
 # Working with adaptive authentication
-<a name="cognito-user-pool-settings-adaptive-authentication"></a>
 
 With adaptive authentication, you can configure your user pool to block suspicious sign-ins or add second factor authentication in response to an increased risk level. For each sign-in attempt, Amazon Cognito generates a risk score for how likely the sign-in request is to be from a compromised source. This risk score is based on device and user factors that your application provides, and others that Amazon Cognito derives from the request. Some factors that contribute to the risk evaluation by Amazon Cognito are IP address, user agent, and geographical distance from other sign-in attempts. Adaptive authentication can turn on or require multi-factor authentication (MFA) for a user in your user pool when Amazon Cognito detects risk in a user's session, and the user hasn't yet chosen an MFA method. When you activate MFA for a user, they always receive a challenge to provide or set up a second factor during authentication, regardless of how you configured adaptive authentication. From your user's perspective, your app offers to help them set up MFA, and optionally Amazon Cognito prevents them from signing in again until they have configured an additional factor.
 
@@ -90,7 +89,7 @@ Update your app client as follows in the Amazon Cognito console to add support f
 
 To configure your app client to accept user context data in the Amazon Cognito API, set `EnablePropagateAdditionalUserContextData` to `true` in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) request. For information about how to work with threat protection in your web or mobile app, see [Collecting data for threat protection in applications](user-pool-settings-viewing-threat-protection-app.md). When your app calls Amazon Cognito from your server, collect user context data from the client side. The following is an example that uses the JavaScript SDK method `getData`.
 
-```
+```javascript
 var EncodedData = AmazonCognitoAdvancedSecurityData.getData({{username}}, {{userPoolId}}, {{clientId}});
 ```
 
@@ -133,7 +132,7 @@ You can query user event history with the Amazon Cognito API operation [AdminLis
 
 The following request body for `AdminListUserAuthEvents` returns the most recent activity log for one user.
 
-```
+```JSON
 {
   "UserPoolId": "us-west-2_EXAMPLE", 
   "Username": "myexampleuser", 
@@ -146,7 +145,7 @@ The following request body for `AdminListUserAuthEvents` returns the most recent
 
 The following request for `admin-list-user-auth-events` returns the most recent activity log for one user.
 
-```
+```shell
 aws cognito-idp admin-list-user-auth-events --max-results 1 --username myexampleuser --user-pool-id us-west-2_EXAMPLE
 ```
 
@@ -155,7 +154,7 @@ aws cognito-idp admin-list-user-auth-events --max-results 1 --username myexample
 
 Amazon Cognito returns the same JSON response body to both requests. The following is an example response for a managed login sign-in event that wasn't found to contain risk factors:
 
-```
+```json
 {
     "AuthEvents": [
         {
@@ -219,7 +218,7 @@ Choose one type of destination for your user activity logs.
 
 The following is an example `SetLogDeliveryConfiguration` request body that sets a Firehose stream as the log destination.
 
-```
+```json
 {
    "LogConfigurations": [
       {
@@ -236,7 +235,7 @@ The following is an example `SetLogDeliveryConfiguration` request body that sets
 
 The following is an example `SetLogDeliveryConfiguration` request body that sets a Amazon S3 bucket as the log destination.
 
-```
+```json
 {
    "LogConfigurations": [
       {
@@ -253,7 +252,7 @@ The following is an example `SetLogDeliveryConfiguration` request body that sets
 
 The following is an example `SetLogDeliveryConfiguration` request body that sets a CloudWatch log group as the log destination.
 
-```
+```json
 {
    "LogConfigurations": [
       {

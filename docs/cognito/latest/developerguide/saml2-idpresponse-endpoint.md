@@ -1,7 +1,6 @@
 
 
 # The IdP SAML assertion endpoint
-<a name="saml2-idpresponse-endpoint"></a>
 
 The `/saml2/idpresponse` receives SAML assertions. In service-provider-initiated (SP-initiated) sign-in, your application doesn't interact directly with this endpoint—your SAML 2.0 identity provider (IdP) redirects your user here with their SAML response. For SP-initiated sign-in, configure your IdP with the path to your `saml2/idpresponse` as the assertion consumer service (ACS) URL. For more information about session initiation, see [SAML session initiation in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md).
 

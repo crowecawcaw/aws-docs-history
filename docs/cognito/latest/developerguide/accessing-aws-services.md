@@ -1,7 +1,6 @@
 
 
 # Accessing AWS services with temporary credentials
-<a name="accessing-aws-services"></a>
 
 The result of a successful authentication with an identity pool is a set of AWS credentials. With these credentials, your application can make requests to AWS resources that are protected with IAM authentication. With the various AWS SDKs that you can add to your applications to access identity pools API operations, you can make unauthenticated API requests that produce temporary credentials. Then you can add SDKs for other AWS services to your client and sign requests with those temporary credentials. The IAM permissions granted to your temporary-credentials role must permit the operations that you request from other services.
 
@@ -23,7 +22,7 @@ The following snippet initializes an Amazon DynamoDB client:
 
 To use a Amazon Cognito identity pool in an Android app, set up AWS Amplify. For more information, see [Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/android/) in the *Amplify Dev Center*.
 
-```
+```java
 // Create a service client with the provider
 AmazonDynamoDB client = new AmazonDynamoDBClient(credentialsProvider);
 ```
@@ -35,7 +34,7 @@ AmazonDynamoDB client = new AmazonDynamoDBClient(credentialsProvider);
 
 To use a Amazon Cognito identity pool in an iOS app, set up AWS Amplify. For more information, see [Swift Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/) and [Flutter Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/flutter/) in the *Amplify Dev Center*.
 
-```
+```objectivec
 // create a configuration that uses the provider
 AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1 provider:credentialsProvider];
 // get a client with the default service configuration
@@ -49,7 +48,7 @@ AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
 To use a Amazon Cognito identity pool in an iOS app, set up AWS Amplify. For more information, see [Swift Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/) in the *Amplify Dev Center*.
 
-```
+```objectivec
 // get a client with the default service configuration
 let dynamoDB = AWSDynamoDB.default()
 
@@ -65,7 +64,7 @@ The credentials provider communicates with Amazon Cognito, retrieving both the u
 
 
 
-```
+```javascript
 // Create a service client with the provider
 var dynamodb = new AWS.DynamoDB({region: 'us-west-2'});
 ```
@@ -77,7 +76,7 @@ var dynamodb = new AWS.DynamoDB({region: 'us-west-2'});
 
 The [AWS SDK for Unity](https://docs.aws.amazon.com/mobile/sdkforunity/developerguide/what-is-unity-plugin.html) is now part of the [SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/welcome.html). To get started with Amazon Cognito in the SDK for .NET, see [Amazon Cognito credentials provider](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/cognito-creds-provider.html) in the AWS SDK for .NET Developer Guide. Or see [Amplify Dev Center](https://docs.amplify.aws/) for options for building an app with AWS Amplify.
 
-```
+```csharp
 // create a service client that uses credentials provided by Cognito
 AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, REGION);
 ```

@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon Cognito
-<a name="using-service-linked-roles"></a>
 
 Amazon Cognito uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role with a trust policy that permits an AWS service to assume the role. Service-linked roles are predefined by Amazon Cognito and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -16,7 +15,7 @@ For information about other services that support service-linked roles, see [AWS
 
 Amazon Cognito uses the following service-linked roles:
 + ** AWSServiceRoleForAmazonCognitoIdpEmailService** – Allows Amazon Cognito user pools service to use your Amazon SES identities for sending email.
-+ ** AWSServiceRoleForAmazonCognitoIdp** – Allows Amazon Cognito user pools to publish events and configure endpoints for your Amazon Pinpoint projects.
++ ** AWSServiceRoleForAmazonCognitoIdp** – Allows Amazon Cognito user pools to publish events and configure endpoints for your Amazon Pinpoint projects, and to manage the app client secrets that Amazon Cognito stores for you in AWS Secrets Manager.
 
 **AWSServiceRoleForAmazonCognitoIdpEmailService**
 
@@ -42,15 +41,27 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 **AWSServiceRoleForAmazonCognitoIdp**
 
 The AWSServiceRoleForAmazonCognitoIdp service-linked role trusts the following services to assume the role:
-+ `email.cognito-idp.amazonaws.com`
++ `cognito-idp.amazonaws.com`
 
-The role permissions policy allows Amazon Cognito to complete the following actions on the specified resources:
+The role permissions policy is the AWS managed policy `AmazonCognitoIdpServiceRolePolicy`. To view the policy document, see [AmazonCognitoIdpServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonCognitoIdpServiceRolePolicy.html) in the *AWS Managed Policy Reference Guide*. For changes to this policy, see [Amazon Cognito updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates).
+
+With this policy, Amazon Cognito can complete the following actions on the specified resources:
 
 **Allowed Actions for AWSServiceRoleForAmazonCognitoIdp**
-+ Action: `cognito-idp:Describe` 
-+ Resource: `*`
++ Action: `cognito-idp:Describe*`
 
-With this permission, Amazon Cognito can call `Describe` Amazon Cognito API operations for you.
+  Resource: `*`
++ Action: `secretsmanager:DeleteSecret`, `secretsmanager:RestoreSecret`, `secretsmanager:DescribeSecret`, `secretsmanager:PutSecretValue`, `secretsmanager:UpdateSecretVersionStage`, `secretsmanager:RotateSecret`, `secretsmanager:ReplicateSecretToRegions`, and `secretsmanager:RemoveRegionsFromReplication`
+
+  Resource: Secrets in the same AWS account as the role. The secret name must begin with `cognito-idp!`, and the secret must have the `aws:secretsmanager:owningService` tag with the value `cognito-idp`.
+
+With these permissions, Amazon Cognito can do the following:
++ Call `Describe` Amazon Cognito API operations for you.
++ Manage the app client secrets that Amazon Cognito stores for you in AWS Secrets Manager.
+
+Amazon Cognito uses the Secrets Manager permissions to rotate the secrets and set their rotation schedule. It also uses them to replicate the secrets to the Regions of your replica user pools. When Amazon Cognito deletes or restores a user pool, it uses them to delete or restore the secrets of the user pool's app clients.
+
+These permissions don't apply to other secrets in your account. For more information, see [Managing app client secrets with AWS Secrets Manager](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-apps-asm-managed-secrets).
 
 **Note**  
 When you integrate Amazon Cognito with Amazon Pinpoint using `createUserPoolClient` and `updateUserPoolClient`, resource permissions are added to the SLR as an inline policy. The inline policy provides `mobiletargeting:UpdateEndpoint` and `mobiletargeting:PutEvents` permissions. These permissions allow Amazon Cognito to publish events and configure endpoints for Pinpoint projects you integrate with Cognito.

@@ -1,7 +1,6 @@
 
 
 # Configuring email or phone verification
-<a name="user-pool-settings-email-phone-verification"></a>
 
 You can choose settings for email or phone verification under the **Authentication methods** menu. For more information on multi-factor authentication (MFA), see [SMS Text Message MFA](user-pool-settings-mfa-sms-email-message.md).
 

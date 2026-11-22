@@ -1,7 +1,6 @@
 
 
 # SAML identity provider names and identifiers
-<a name="cognito-user-pools-managing-saml-idp-naming"></a>
 
 When you name your SAML identity providers (IdPs) and assign IdP identifiers, you can automate the flow of SP-initiated sign-in and sign-out requests to that provider. For information about string constraints to the provider name, see the `ProviderName` property of [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderName).
 

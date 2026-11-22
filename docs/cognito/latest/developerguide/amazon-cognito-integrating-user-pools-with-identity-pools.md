@@ -1,7 +1,6 @@
 
 
 # Accessing AWS services using an identity pool after sign-in
-<a name="amazon-cognito-integrating-user-pools-with-identity-pools"></a>
 
 After your users sign in with a user pool, they can access AWS services with temporary API credentials that are issued from an identity pool.
 

@@ -1,7 +1,6 @@
 
 
 # Protecting user pools with threat protection
-<a name="managing-security"></a>
 
 You might want to secure your application against network intrusion, password guessing, user impersonation, and malicious sign-up and sign-in. Your configuration of Amazon Cognito user pools security features can be a key component in your security architecture. The security of your application is *Customer responsibility "Security in the cloud"* as described in the AWS [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/). The tools in this chapter contribute to the ability of your application security design to be in line with these goals.
 

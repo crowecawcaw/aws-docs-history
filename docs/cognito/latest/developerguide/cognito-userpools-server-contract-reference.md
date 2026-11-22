@@ -1,7 +1,6 @@
 
 
 # User pool endpoints and managed login reference
-<a name="cognito-userpools-server-contract-reference"></a>
 
 Amazon Cognito has two models of user pool authentication: with the user pools API and with the OAuth 2.0 authorization server. Use the API when you want to retrieve OpenID Connect (OIDC) tokens with an AWS SDK in your application back end. Use the authorization server when you want to implement your user pool as an OIDC provider. The authorization server adds features like [federated sign-in](cognito-user-pools-identity-federation.md), [API and M2M authorization with access token scopes](cognito-user-pools-define-resource-servers.md), and [managed login](cognito-user-pools-managed-login.md). You can use the API and OIDC models each on their own or together, configured at the user pool level or at the [app client](user-pool-settings-client-apps.md) level. This section is a reference for the implementation of the OIDC model. For more information about the two authentication models, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations).
 

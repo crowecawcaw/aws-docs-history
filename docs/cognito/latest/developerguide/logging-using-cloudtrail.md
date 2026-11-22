@@ -1,7 +1,6 @@
 
 
 # Amazon Cognito logging in AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Cognito is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Cognito. CloudTrail captures a subset of API calls for Amazon Cognito as events, including calls from the Amazon Cognito console and from code calls to the Amazon Cognito API operations. If you create a trail, you can choose to deliver CloudTrail events to an Amazon S3 bucket, including events for Amazon Cognito. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Cognito, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -122,7 +121,7 @@ To generate CloudTrail logs for these API operations, you must activate data eve
 
 You can also add identity pools event selectors to your trail with the following CLI command.
 
-```
+```sh
 aws cloudtrail put-event-selectors --trail-name {{<trail name>}} --advanced-event-selectors \
 "{\
    \"Name\": \"Cognito Selector\",\

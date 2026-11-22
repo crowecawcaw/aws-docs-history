@@ -1,7 +1,6 @@
 
 
 # Pre authentication Lambda trigger
-<a name="user-pool-lambda-pre-authentication"></a>
 
 Amazon Cognito invokes this trigger when a user attempts to sign in so that you can create custom validation that performs preparatory actions. For example, you can deny the authentication request or record session data to an external system.
 
@@ -75,7 +74,7 @@ This example function prevents users from signing in to your user pool with a sp
 ------
 #### [ Node.js ]
 
-```
+```javascript
 const handler = async (event) => {
   if (
     event.callerContext.clientId === "user-pool-app-client-id-to-be-blocked"

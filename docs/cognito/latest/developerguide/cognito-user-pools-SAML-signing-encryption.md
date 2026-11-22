@@ -1,7 +1,6 @@
 
 
 # SAML signing and encryption
-<a name="cognito-user-pools-SAML-signing-encryption"></a>
 
 SAML 2.0 sign-in is built around the user of an application as a bearer of requests and responses in their authentication flow. You might want to ensure that users aren't reading or modifying these SAML documents in transit. To accomplish this, add SAML signing and encryption to the SAML identity providers (IdPs) in your user pool. With SAML signing, your user pools adds a signature to SAML sign-in and sign-out requests. With your user pool public key, your IdP can verify that it's receiving unmodified SAML requests. Then, when your IdP responds and passes SAML assertions to users' browser sessions, the IdP can encrypt that response so that the user can't inspect their own attributes and entitlements.
 
@@ -54,7 +53,7 @@ Any external SAML IdP in your user pool can support response encryption, and eac
 
 Configure response encryption with the `EncryptedResponses` parameter of a [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html) or [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html) API request. The following is an example `ProviderDetails` of an IdP that supports request signing.
 
-```
+```json
 "ProviderDetails": { 
       "MetadataURL" : "{{https://myidp.example.com/saml/metadata}}",
       "IDPSignout" : "{{true}}",
@@ -93,7 +92,7 @@ The ability to prove the integrity of SAML 2.0 requests to your IdP is a securit
 
 Configure request signing with the `RequestSigningAlgorithm` parameter of a [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html) or [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html) API request. The following is an example `ProviderDetails` of an IdP that supports request signing.
 
-```
+```json
 "ProviderDetails": { 
       "MetadataURL" : "{{https://myidp.example.com/saml/metadata}}",
       "IDPSignout" : "true",

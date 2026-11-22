@@ -1,7 +1,6 @@
 
 
 # Use `AdminInitiateAuth` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_AdminInitiateAuth_section"></a>
 
 The following code examples show how to use `AdminInitiateAuth`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Initiate an admin auth request.
     /// </summary>
@@ -49,7 +48,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -117,7 +116,7 @@ For more information, see [Admin authentication flow](https://docs.aws.amazon.co
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
     public static AdminInitiateAuthResponse initiateAuth(CognitoIdentityProviderClient identityProviderClient,
             String clientId, String userName, String password, String userPoolId) {
         try {
@@ -152,7 +151,7 @@ For more information, see [Admin authentication flow](https://docs.aws.amazon.co
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/#code-examples). 
 
-```
+```javascript
 const adminInitiateAuth = ({ clientId, userPoolId, username, password }) => {
   const client = new CognitoIdentityProviderClient({});
 
@@ -174,7 +173,7 @@ const adminInitiateAuth = ({ clientId, userPoolId, username, password }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
-```
+```kotlin
 suspend fun checkAuthMethod(
     clientIdVal: String,
     userNameVal: String,
@@ -208,7 +207,7 @@ suspend fun checkAuthMethod(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 
@@ -284,7 +283,7 @@ class CognitoIdentityProviderWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Set up authentication parameters
         DATA(lt_auth_params) = VALUE /aws1/cl_cgpauthparamstype_w=>tt_authparameterstype(
@@ -334,7 +333,7 @@ class CognitoIdentityProviderWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSCognitoIdentityProvider
 

@@ -1,7 +1,6 @@
 
 
 # Setting up a SAML provider as an identity pool IdP
-<a name="saml-identity-provider"></a>
 
 With Amazon Cognito identity pools, you can authenticate users with identity providers (IdPs) through SAML 2.0. You can use an IdP that supports SAML with Amazon Cognito to provide a simple onboarding flow for your users. Your SAML-supporting IdP specifies the IAM roles that your users can assume. This way, different users can receive different sets of permissions.
 

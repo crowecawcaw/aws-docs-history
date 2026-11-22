@@ -1,7 +1,6 @@
 
 
 # Authentication flows
-<a name="amazon-cognito-user-pools-authentication-flow-methods"></a>
 
 The process of authentication with Amazon Cognito user pools can best be described as a *flow* where users make an initial choice, submit credentials, and respond to additional challenges. When you implement managed login authentication in your application, Amazon Cognito manages the flow of these prompts and challenges. When you implement flows with an AWS SDK in your application back end, you must construct the logic of requests, prompt users for input, and respond to challenges.
 
@@ -62,7 +61,7 @@ To verify that password authentication is available in choice-based authenticati
 
 Configure `ExplicitAuthFlows` with your preferred username-and-password authentication options in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) request.
 
-```
+```json
 "ExplicitAuthFlows": [ 
    "ALLOW_USER_PASSWORD_AUTH",
    "ALLOW_ADMIN_USER_PASSWORD_AUTH",
@@ -72,7 +71,7 @@ Configure `ExplicitAuthFlows` with your preferred username-and-password authenti
 
 In a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) request, configure `Policies` with the choice-based authentication flows that you want to support. The `PASSWORD` value in `AllowedFirstAuthFactors` includes both the plain-password and SRP authentication flow options.
 
-```
+```json
 "Policies": {
    "SignInPolicy": {
       "AllowedFirstAuthFactors": [
@@ -89,7 +88,7 @@ In a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/la
 
 To sign a user in to an application with username-password authentication, configure the body of your [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) or [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request as follows. This sign-in request succeeds or continues to the next challenge if the current user is eligible for username-password authentication. Otherwise, it responds with a list of available primary-factor authentication challenges. This set of parameters is the minimum required for sign-in. Additional parameters are available.
 
-```
+```json
 {
    "AuthFlow": "USER_AUTH",
    "AuthParameters": { 
@@ -103,7 +102,7 @@ To sign a user in to an application with username-password authentication, confi
 
 You can also omit the `PREFERRED_CHALLENGE` value and receive a response that contains a list of eligible sign-in factors for the user.
 
-```
+```json
 {
    "AuthFlow": "USER_AUTH",
    "AuthParameters": { 
@@ -115,7 +114,7 @@ You can also omit the `PREFERRED_CHALLENGE` value and receive a response that co
 
 If you didn't submit a preferred challenge or the submitted user isn't eligible for their preferred challenge, Amazon Cognito returns a list of options in `AvailableChallenges`. When `AvailableChallenges` includes a `ChallengeName` of `PASSWORD`, you can continue authentication with a [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) or [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html) challenge response in the format that follows. You must pass a `Session` parameter that associates the challenge response with the API response to your initial sign-in request. This set of parameters is the minimum required for sign-in. Additional parameters are available.
 
-```
+```json
 {
    "ChallengeName": "{{PASSWORD}}",
    "ChallengeResponses": { 
@@ -134,7 +133,7 @@ Amazon Cognito responds to eligible and successful preferred-challenge requests 
 
 To sign a user in to a client-side app with username-password authentication, configure the body of your [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request as follows. This set of parameters is the minimum required for sign-in. Additional parameters are available.
 
-```
+```json
 {
    "AuthFlow": "USER_PASSWORD_AUTH",
    "AuthParameters": { 
@@ -147,7 +146,7 @@ To sign a user in to a client-side app with username-password authentication, co
 
 To sign a user in to a server-side app with username-password authentication, configure the body of your [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) request as follows. Your application must sign this request with AWS credentials. This set of parameters is the minimum required for sign-in. Additional parameters are available.
 
-```
+```json
 {
    "AuthFlow": "ADMIN_USER_PASSWORD_AUTH",
    "AuthParameters": { 
@@ -186,7 +185,7 @@ To verify that SRP authentication is available in your choice-based authenticati
 
 Configure `ExplicitAuthFlows` with your preferred username-and-password authentication options in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) request.
 
-```
+```json
 "ExplicitAuthFlows": [ 
    "ALLOW_USER_SRP_AUTH",
    "ALLOW_USER_AUTH"
@@ -195,7 +194,7 @@ Configure `ExplicitAuthFlows` with your preferred username-and-password authenti
 
 In a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) request, configure `Policies` with the choice-based authentication flows that you want to support. The `PASSWORD` value in `AllowedFirstAuthFactors` includes both the plaintext-password and SRP authentication flow options.
 
-```
+```json
 "Policies": {
    "SignInPolicy": {
       "AllowedFirstAuthFactors": [
@@ -212,7 +211,7 @@ In a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/la
 
 To sign a user in to an application with username-password authentication with SRP, configure the body of your [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) or [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request as follows. This sign-in request succeeds or continues to the next challenge if the current user is eligible for username-password authentication. Otherwise, it responds with a list of available primary-factor authentication challenges. This set of parameters is the minimum required for sign-in. Additional parameters are available.
 
-```
+```json
 {
    "AuthFlow": "USER_AUTH",
    "AuthParameters": { 
@@ -226,7 +225,7 @@ To sign a user in to an application with username-password authentication with S
 
 You can also omit the `PREFERRED_CHALLENGE` value and receive a response that contains a list of eligible sign-in factors for the user.
 
-```
+```json
 {
    "AuthFlow": "USER_AUTH",
    "AuthParameters": { 
@@ -238,7 +237,7 @@ You can also omit the `PREFERRED_CHALLENGE` value and receive a response that co
 
 If you didn't submit a preferred challenge or the submitted user isn't eligible for their preferred challenge, Amazon Cognito returns a list of options in `AvailableChallenges`. When `AvailableChallenges` includes a `ChallengeName` of `PASSWORD_SRP`, you can continue authentication with a [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) or [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html) challenge response in the format that follows. You must pass a `Session` parameter that associates the challenge response with the API response to your initial sign-in request. This set of parameters is the minimum required for sign-in. Additional parameters are available.
 
-```
+```json
 {
    "ChallengeName": "{{PASSWORD_SRP}}",
    "ChallengeResponses": { 
@@ -252,7 +251,7 @@ If you didn't submit a preferred challenge or the submitted user isn't eligible 
 
 Amazon Cognito responds to eligible preferred-challenge requests and `PASSWORD_SRP` challenge responses with a `PASSWORD_VERIFIER` challenge. Your client must complete SRP calculations and respond to the challenge in a [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) or [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html) request.
 
-```
+```json
 {
    "ChallengeName": "PASSWORD_VERIFIER",
    "ChallengeResponses": { 
@@ -274,7 +273,7 @@ SRP authentication is more common to client-side authentication than to server-s
 
 The client generates `SRP_A` from a generator modulo N *g* raised to the power of a secret random integer *a*.
 
-```
+```json
 {
    "AuthFlow": "USER_SRP_AUTH",
    "AuthParameters": { 
@@ -287,7 +286,7 @@ The client generates `SRP_A` from a generator modulo N *g* raised to the power o
 
 Amazon Cognito responds with a `PASSWORD_VERIFIER` challenge. Your client must complete SRP calculations and respond to the challenge in a [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) or [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html) request.
 
-```
+```json
 {
    "ChallengeName": "PASSWORD_VERIFIER",
    "ChallengeResponses": { 
@@ -344,7 +343,7 @@ Navigate to the **App clients** menu and choose an app client or create a new on
 **API/SDK**  
 In the user pools API, configure `SignInPolicy` with the appropriate passwordless options in a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) request.
 
-```
+```json
 "SignInPolicy": { 
     "AllowedFirstAuthFactors": [ 
         "EMAIL_OTP",
@@ -355,7 +354,7 @@ In the user pools API, configure `SignInPolicy` with the appropriate passwordles
 
 Configure your app client `ExplicitAuthFlows` with the required option in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) request.
 
-```
+```json
 "ExplicitAuthFlows": [ 
    "ALLOW_USER_AUTH"
 ]
@@ -368,7 +367,7 @@ Passwordless sign-in doesn't have a [client-based](authentication-flows-selectio
 
 In this example, we don't know which way the user wants to sign in. If we add a `PREFERRED_CHALLENGE` parameter and the preferred challenge is available to the user, Amazon Cognito responds with that challenge.
 
-```
+```json
 {
    "AuthFlow": "USER_AUTH",
    "AuthParameters": { 
@@ -382,7 +381,7 @@ You can instead add `"PREFERRED_CHALLENGE": "EMAIL_OTP"` or `"PREFERRED_CHALLENG
 
 If you don't specify a preferred challenge, Amazon Cognito responds with an `AvailableChallenges` parameter.
 
-```
+```json
 {
    "AvailableChallenges": [ 
       "EMAIL_OTP", 
@@ -395,7 +394,7 @@ If you don't specify a preferred challenge, Amazon Cognito responds with an `Ava
 
 This user is eligible for passwordless sign-in with email message OTP, SMS message OTP, and username-password. Your application can prompt the user for their selection, or make a selection based on internal logic. It then proceeds with a [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) or [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html) request that selects the challenge. Suppose the user wants to complete passwordless authentication with an email-message OTP.
 
-```
+```json
 {
    "ChallengeName": "SELECT_CHALLENGE",
    "ChallengeResponses": { 
@@ -411,7 +410,7 @@ Amazon Cognito responds with an `EMAIL_OTP` challenge and sends a code to your u
 
 This would also be the next challenge response if you requested `EMAIL_OTP` as a `PREFERRED_CHALLENGE`.
 
-```
+```json
 {
    "ChallengeName": "EMAIL_OTP",
    "ChallengeResponses": {
@@ -456,7 +455,7 @@ Passkeys are *discoverable*. They can be automatically recognized and used by a 
 ### How does Amazon Cognito implement passkey authentication?
 <a name="amazon-cognito-user-pools-authentication-flow-methods-passkey-cognito"></a>
 
-Passkeys are an opt-in feature that's available in all [feature plans](cognito-sign-in-feature-plans.md) except for **Lite**. It is only available in the [choice-based authentication flow](authentication-flows-selection-sdk.md#authentication-flows-selection-choice). With [managed login](authentication-flows-selection-managedlogin.md), Amazon Cognito handles the logic of passkey authentication. You can also use the [Amazon Cognito user pools API in AWS SDKs](#amazon-cognito-user-pools-authentication-flow-methods) to do passkey authentication in your application back end.
+Passkeys are an opt-in feature that's available in all [feature plans](cognito-sign-in-feature-plans.md) except for **Lite**. It is only available in the [choice-based authentication flow](authentication-flows-selection-sdk.md#authentication-flows-selection-choice). With [managed login](authentication-flows-selection-managedlogin.md), Amazon Cognito handles the logic of passkey authentication. You can also use the [Amazon Cognito user pools API in AWS SDKs](amazon-cognito-user-pools-authentication-flow-methods.md) to do passkey authentication in your application back end.
 
 Amazon Cognito recognizes passkeys created using either of two asymmetric cryptographic algorithms, ES256(-7) and RS256(-257). Most authenticators support both algorithms. By default, users can set up any type of authenticators, for example hardware tokens, mobile smart phones, and software authenticator apps. Amazon Cognito doesn't currently support [attestation](https://csrc.nist.gov/glossary/term/attestation) enforcement.
 
@@ -489,7 +488,7 @@ Navigate to the **App clients** menu and choose an app client or create a new on
 **API/SDK**  
 In the user pools API, configure `SignInPolicy` with the appropriate passkey options in a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) request. The `WEB_AUTHN` option for passkey authentication must be accompanied by at least one other option. Passkey registration requires an existing authentication session.
 
-```
+```json
 "SignInPolicy": { 
     "AllowedFirstAuthFactors": [ 
         "PASSWORD",
@@ -500,7 +499,7 @@ In the user pools API, configure `SignInPolicy` with the appropriate passkey opt
 
 Configure your user-verification preference and RP ID in the `WebAuthnConfiguration` parameter of a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html#CognitoUserPools-SetUserPoolMfaConfig-request-WebAuthnConfiguration) request. The `RelyingPartyId`, the intended target of passkey authentication outcomes, can be your user pool prefix or custom domain, or a domain of your own choosing.
 
-```
+```json
 "WebAuthnConfiguration": { 
    "RelyingPartyId": "{{example.auth.us-east-1.amazoncognito.com}}",
    "UserVerification": "{{preferred}}",
@@ -510,7 +509,7 @@ Configure your user-verification preference and RP ID in the `WebAuthnConfigurat
 
 Configure your app client `ExplicitAuthFlows` with the required option in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) request.
 
-```
+```json
 "ExplicitAuthFlows": [ 
    "ALLOW_USER_AUTH"
 ]
@@ -548,7 +547,7 @@ You register passkey credentials with metadata in a [PublicKeyCreationOptions](h
 
 To start the process of passkey registration, sign in a user with an existing sign-in option. Authorize the [token-authorized](authentication-flows-public-server-side.md#user-pool-apis-auth-unauth-token-auth) [StartWebAuthnRegistration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_StartWebAuthnRegistration.html) API request with the current user's access token. The following is the body of an example `GetWebAuthnRegistrationOptions` request.
 
-```
+```json
 {
    "AccessToken": "eyJra456defEXAMPLE"
 }
@@ -565,7 +564,7 @@ Passwordless sign-in doesn't have an `AuthFlow` that you can specify in [Initiat
 
 In this example, we know that the user wants to sign in with a passkey, and we add a `PREFERRED_CHALLENGE` parameter.
 
-```
+```json
 {
    "AuthFlow": "USER_AUTH",
    "AuthParameters": { 
@@ -578,7 +577,7 @@ In this example, we know that the user wants to sign in with a passkey, and we a
 
 Amazon Cognito responds with a `WEB_AUTHN` challenge. Your application must respond to this challenge. Initiate a sign-in request with the user's passkey provider. It returns an [AuthenticationResponseJSON](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationresponsejson) object.
 
-```
+```json
 {
    "ChallengeName": "WEB_AUTHN",
    "ChallengeResponses": {

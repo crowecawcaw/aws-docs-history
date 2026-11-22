@@ -1,7 +1,6 @@
 
 
 # Creating user accounts as administrator
-<a name="how-to-create-user-accounts"></a>
 
 User pools aren't only a customer identity and access management (CIAM) user directory, where anyone on the internet can sign up for a user profile in your application. You can disable self-service sign-up. You might already know your customers and want to only admit those who have been authorized in advance. You can put manual authentication guardrails around your application with a [private SAML 2.0 or OIDC identity provider](cognito-user-pools-identity-federation.md), by [importing users](cognito-user-pools-import-users.md), by [screening users at sign-up](user-pool-lambda-pre-sign-up.md)—or by creating users with administrative API operations. Your workflow for administrative creation of users can be programmatic, provisioning users after they register in another system, or it can be on a case-by-case or testing basis in the Amazon Cognito console.
 

@@ -1,7 +1,6 @@
 
 
 # Use `ResendConfirmationCode` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_ResendConfirmationCode_section"></a>
 
 The following code examples show how to use `ResendConfirmationCode`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Send a new confirmation code to a user.
     /// </summary>
@@ -44,7 +43,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -104,7 +103,7 @@ For more information, see [Signing up and confirming user accounts](https://docs
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
     public static void resendConfirmationCode(CognitoIdentityProviderClient identityProviderClient, String clientId,
             String userName) {
         try {
@@ -130,7 +129,7 @@ For more information, see [Signing up and confirming user accounts](https://docs
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
-```
+```javascript
 const resendConfirmationCode = ({ clientId, username }) => {
   const client = new CognitoIdentityProviderClient({});
 
@@ -150,7 +149,7 @@ const resendConfirmationCode = ({ clientId, username }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
-```
+```kotlin
 suspend fun resendConfirmationCode(
     clientIdVal: String?,
     userNameVal: String?,
@@ -175,7 +174,7 @@ suspend fun resendConfirmationCode(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 
@@ -224,7 +223,7 @@ class CognitoIdentityProviderWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSCognitoIdentityProvider
 

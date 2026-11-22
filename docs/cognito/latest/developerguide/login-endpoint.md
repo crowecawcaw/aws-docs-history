@@ -1,7 +1,6 @@
 
 
 # The managed login sign-in endpoint: `/login`
-<a name="login-endpoint"></a>
 
 The login endpoint is an authentication server and a redirect destination from [Authorize endpoint](authorization-endpoint.md). It's the entry point to managed login when you don't specify an identity provider. When you generate a redirect to the login endpoint, it loads the login page and presents the authentication options configured for the client to the user.
 

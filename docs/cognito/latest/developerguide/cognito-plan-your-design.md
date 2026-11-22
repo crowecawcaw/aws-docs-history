@@ -1,7 +1,6 @@
 
 
 # Planning your Amazon Cognito design
-<a name="cognito-plan-your-design"></a>
 
 The choices in this chapter are easier to make up front than to change later. This chapter covers:
 + **Choosing an authentication approach**—how your users sign in.

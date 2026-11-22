@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon Cognito
-<a name="security-iam"></a>
 
 
 

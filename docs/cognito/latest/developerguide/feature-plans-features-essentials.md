@@ -1,9 +1,8 @@
 
 
 # Essentials plan features
-<a name="feature-plans-features-essentials"></a>
 
-The Essentials feature plan has most of the best and latest features of Amazon Cognito user pools. When you switch from the Lite to the Essentials plan, you get new features for your managed login pages, multi-factor authentication with email-message one-time passwords, an enhanced password policy, and custom access tokens. To stay up-to-date with new user pool features, choose the Essentials plan for your user pools.
+The Essentials feature plan has most of the best and latest features of Amazon Cognito user pools. When you switch from the Lite to the Essentials plan, you get new features for your managed login pages, multi-factor authentication with email-message one-time passwords, an enhanced password policy, and custom access tokens. You also get session management, step-up authentication, token exchange, point-in-time recovery, and other features that are listed in [Features by plan](cognito-sign-in-feature-plans.md#cognito-sign-in-feature-plans-list). To stay up-to-date with new user pool features, choose the Essentials plan for your user pools.
 
 The sections that follows present a brief overview of the features that you can add to your application with the Essentials plan. For detailed information, see the following pages.
 
@@ -12,6 +11,15 @@ The sections that follows present a brief overview of the features that you can 
 + Email MFA: [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md)
 + Password history: [Passwords, account recovery, and password policies](managing-users-passwords.md)
 + Enhanced UI: [Apply branding to managed login pages](managed-login-branding.md)
++ Session management: [Managing user sessions](managing-user-sessions.md)
++ Step-up authentication: [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md)
++ Token exchange: [Exchanging tokens for downstream services](cognito-user-pools-token-exchange.md)
++ Point-in-time recovery: [Point-in-time recovery for user pools](user-pool-point-in-time-recovery.md)
++ Dynamic client registration: [Dynamic client registration](cognito-user-pools-dynamic-client-registration.md)
++ Refresh token rotation: [Refresh token rotation](amazon-cognito-user-pools-using-the-refresh-token.md#using-the-refresh-token-rotation)
++ Resource binding: [Resource binding](cognito-user-pools-define-resource-servers.md#cognito-user-pools-resource-binding)
++ Customer managed keys: [Encryption at rest](data-protection.md#data-encryption-at-rest)
++ Multi-Region replication: [Multi-Region replication for user pools](user-pool-multi-region.md)
 
 **Topics**
 + [Access token customization](#features-access-token-customization)

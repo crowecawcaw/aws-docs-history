@@ -1,7 +1,6 @@
 
 
 # Legacy
-<a name="legacy"></a>
 
 **Important**  
 Amazon Cognito Sync is closed to new customers. If you are starting a new application, use a current alternative such as [AWS AppSync](https://docs.aws.amazon.com/appsync/) and [DynamoDB](https://docs.aws.amazon.com/dynamodb/) instead. The content in this section is retained for customers with existing Amazon Cognito Sync implementations.

@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon Cognito
-<a name="monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Cognito and your other AWS solutions. Amazon Cognito currently supports the following AWS services so that you can monitor your organization and the activity that happens within it.
 + **AWS CloudTrail –** With CloudTrail you can capture API calls from the Amazon Cognito console and from code calls to the Amazon Cognito API operations. For example, when a user authenticates, CloudTrail can record details such as the IP address in the request, who made the request, and when it was made.

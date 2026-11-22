@@ -1,7 +1,6 @@
 
 
 # Signing up and confirming user accounts
-<a name="signing-up-users-in-your-app"></a>
 
 User accounts are added to your user pool in one of the following ways:
 + The user signs up in your user pool's client app. This can be a mobile or web app.
@@ -237,14 +236,14 @@ You can use the following code examples in your server-side app code.
 ------
 #### [ Shell ]
 
-```
+```shell
 echo -n "{{[username]}}{{[app client ID]}}" | openssl dgst -sha256 -hmac {{[app client secret]}} -binary | openssl enc -base64
 ```
 
 ------
 #### [ Java ]
 
-```
+```java
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
  
@@ -269,7 +268,7 @@ public static String calculateSecretHash(String userPoolClientId, String userPoo
 ------
 #### [ Python ]
 
-```
+```python
 import sys
 import hmac, hashlib, base64 
 username = sys.argv[1] 

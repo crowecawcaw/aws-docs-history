@@ -1,7 +1,6 @@
 
 
 # Setting up Login with Amazon as an identity pools IdP
-<a name="amazon"></a>
 
 Amazon Cognito identity pools work with Login with Amazon to provide federated authentication for your mobile and web app users. This section explains how to register and set up your application with Login with Amazon as an identity provider (IdP).
 

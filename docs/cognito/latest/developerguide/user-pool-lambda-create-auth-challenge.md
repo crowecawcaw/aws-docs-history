@@ -1,7 +1,6 @@
 
 
 # Create Auth challenge Lambda trigger
-<a name="user-pool-lambda-create-auth-challenge"></a>
 
 The create auth challenge trigger is a Lambda function that has the details of each challenge declared by the define auth challenge trigger. It processes the challenge name declared by the define auth challenge trigger and returns a `publicChallengeParameters` that your application must present to the user. This function then provides your user pool with the answer to the challenge, `privateChallengeParameters`, that your user pool passes to the verify auth challenge trigger. Where your define auth challenge trigger manages the challenge sequence, your create auth challenge trigger manages the challenge contents.
 
@@ -27,7 +26,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "request": {
         "userAttributes": {
@@ -107,7 +106,7 @@ For the fourth challenge, this function returns a security question. Your applic
 ------
 #### [ Node.js ]
 
-```
+```javascript
 const handler = async (event) => {
   if (event.request.challengeName !== "CUSTOM_CHALLENGE") {
     return event;

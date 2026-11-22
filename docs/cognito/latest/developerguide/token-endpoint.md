@@ -1,7 +1,6 @@
 
 
 # The token endpoint
-<a name="token-endpoint"></a>
 
 The OAuth 2.0 [token endpoint](https://www.rfc-editor.org/rfc/rfc6749#section-3.2) at `/oauth2/token` issues JSON web tokens (JWTs) to applications that want to complete authorization-code and client-credentials grant flows. These tokens are the end result of authentication with a user pool. They contain information about the user (ID token), the user's level of access (access token), and the user's entitlement to persist their signed-in session (refresh token). OpenID Connect (OIDC) relying-party libraries handle requests to and response payloads from this endpoint. Tokens provide verifiable proof of authentication, profile information, and a mechanism for access to back-end systems.
 
@@ -86,6 +85,7 @@ Amazon Cognito rejects an unusable scope rather than dropping it and returning a
 **`redirect_uri`**  
 *Optional. Not required for client-credentials grants.*  
 Must be the same `redirect_uri` that was used to get `authorization_code` in `/oauth2/authorize`.  
+For loopback redirect URIs, this is the runtime value including its port (for example, `http://localhost:124/redirect`), not the registered URI.  
 You must provide this parameter if `grant_type` is `authorization_code`.
 
 **`refresh_token`**  
@@ -154,7 +154,7 @@ scope={{resourceServerIdentifier1}}%2F{{scope1}}%20{{resourceServerIdentifier2}}
 
 Amazon Cognito passes the following input event to the pre token generation Lambda trigger.
 
-```
+```json
 {
     version: '3',
     triggerSource: 'TokenGeneration_ClientCredentials',
@@ -219,7 +219,7 @@ aws_client_metadata={{%7B%22onBehalfOfToken%22%3A%22eyJra789ghiEXAMPLE%22,%20%22
 
 Amazon Cognito passes the following input event to the pre token generation Lambda trigger.
 
-```
+```json
 {
     version: '3',
     triggerSource: 'TokenGeneration_ClientCredentials',

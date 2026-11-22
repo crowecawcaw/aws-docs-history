@@ -1,7 +1,6 @@
 
 
 # Managed login and federation error responses
-<a name="federation-endpoint-idp-responses"></a>
 
 A sign-in process in managed login or federated sign-in might return an error. The following are some conditions that can cause authentication to end with an error.
 + A user performs an operation that your user pool can't fulfill.
@@ -18,7 +17,7 @@ When Amazon Cognito encounters an error, it communicates it in one of the follow
 
 Errors that Amazon Cognito appends to request parameters have the following format.
 
-```
+```http
 https://{{<Callback URL>}}/?error_description={{error+description}}&error={{error+name}}
 ```
 
@@ -32,7 +31,7 @@ Your identity provider might return an error. When an OIDC or OAuth 2.0 IdP retu
 
 The following URL is an example redirect from an IdP that returned an error to Amazon Cognito.
 
-```
+```HTTP
 https://{{www.amazon.com}}/?error_description={{LoginWithAmazon}}+Error+-+{{400}}+{{invalid_request+The+request+is+missing+a+required+parameter+%3A+client_secret}}&error={{invalid_request}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Use `ListUserPools` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_ListUserPools_section"></a>
 
 The following code examples show how to use `ListUserPools`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListUserPools`.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Cognito#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List the Amazon Cognito user pools for an account.
     /// </summary>
@@ -93,7 +92,7 @@ For more information, see [Amazon Cognito user pools](https://docs.aws.amazon.co
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -149,7 +148,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.CognitoIdentityProviderException;
@@ -200,7 +199,7 @@ public class ListUserPools {
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/cognitoidentityprovider#code-examples). 
 
-```
+```rust
 async fn show_pools(client: &Client) -> Result<(), Error> {
     let response = client.list_user_pools().max_results(10).send().await?;
     let pools = response.user_pools();

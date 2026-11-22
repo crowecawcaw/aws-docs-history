@@ -1,7 +1,6 @@
 
 
 # Use `InitiateAuth` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_InitiateAuth_section"></a>
 
 The following code examples show how to use `InitiateAuth`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Initiate authorization.
     /// </summary>
@@ -90,7 +89,7 @@ For more information, see [Authentication](https://docs.aws.amazon.com/cognito/l
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -136,7 +135,7 @@ func (actor CognitoActions) SignIn(ctx context.Context, clientId string, userNam
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
-```
+```javascript
 const initiateAuth = ({ username, password, clientId }) => {
   const client = new CognitoIdentityProviderClient({});
 
@@ -161,7 +160,7 @@ const initiateAuth = ({ username, password, clientId }) => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 This example shows you how to start authentication with a tracked device. To complete sign-in, the client must respond correctly to Secure Remote Password (SRP) challenges.  
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 

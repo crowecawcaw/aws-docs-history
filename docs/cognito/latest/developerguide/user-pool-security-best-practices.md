@@ -1,7 +1,6 @@
 
 
 # Security best practices for Amazon Cognito user pools
-<a name="user-pool-security-best-practices"></a>
 
 This page describes security best practices that you can implement when you want to guard against common threats. The configuration that you choose depends on the use case of each application. We recommend that at a minimum, you apply least privilege to administrative operations and take action to guard application and user secrets. Another advanced but effective step that you can take is to configure and apply AWS WAF web ACLs to your user pools.
 
@@ -80,7 +79,7 @@ You can limit levels of user pool administration with least-privilege `Action` l
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -130,7 +129,7 @@ The following example policy grants user and group management and authentication
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Importing users with a user migration Lambda trigger
-<a name="cognito-user-pools-import-using-lambda"></a>
 
 With this approach, you can seamlessly migrate users from your existing user directory to user pools when a user signs in for the first time with your app or requests a password reset. Add a [Migrate user Lambda trigger](user-pool-lambda-migrate-user.md) function to your user pool and it receives metadata about users who try to sign in, and returns user profile information from an external identity source. For details and example code for this Lambda trigger, including request and response parameters, see [Migrate user Lambda trigger parameters](user-pool-lambda-migrate-user.md#cognito-user-pools-lambda-trigger-syntax-user-migration).
 

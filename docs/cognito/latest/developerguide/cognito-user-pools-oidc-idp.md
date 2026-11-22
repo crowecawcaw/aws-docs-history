@@ -1,7 +1,6 @@
 
 
 # Using OIDC identity providers with a user pool
-<a name="cognito-user-pools-oidc-idp"></a>
 
 Users can sign in to your application using their existing accounts from OpenID Connect (OIDC) identity providers (IdPs). With OIDC providers, users of independent single sign-on systems can provide existing credentials while your application receives OIDC tokens in the shared format of user pools. To configure an OIDC IdP, set up your IdP to handle your user pool as the RP and configure your application to handle your user pool as the IdP. Amazon Cognito serves as an intermediate step between multiple OIDC IdPs and your applications. Your user pool applies attribute-mapping rules to the claims in the ID and access tokens that your provider passes directly to your user pool. Amazon Cognito then issues new tokens based on the mapped user attributes and any additional adjustments you've made to the authentication flow with [Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md#lambda-triggers-for-federated-users).
 
@@ -182,7 +181,7 @@ See the OIDC configuration in example two at [CreateIdentityProvider](https://do
 
 In your application, you must invoke a browser in the user's client so that they can sign in with their OIDC provider. Test sign-in with your provider after you have completed the setup procedures in the preceding sections. The following example URL loads the sign-in page for your user pool with a prefix domain.
 
-```
+```HTTP
 https://{{mydomain.auth.us-east-1.amazoncognito.com}}/oauth2/authorize?response_type=code&client_id={{1example23456789}}&redirect_uri={{https://www.example.com}}
 ```
 
@@ -190,7 +189,7 @@ This link is the page that Amazon Cognito directs you to when you go to the **Ap
 
 The following example link sets up silent redirect to the `MyOIDCIdP` provider from the [Authorize endpoint](authorization-endpoint.md) with an `identity_provider` query parameter. This URL bypasses interactive user pool sign-in with managed login and goes directly to the IdP sign-in page.
 
-```
+```HTTP
 https://{{mydomain.auth.us-east-1.amazoncognito.com}}/oauth2/authorize?identity_provider={{MyOIDCIdP}}&response_type=code&client_id={{1example23456789}}&redirect_uri={{https://www.example.com}}
 ```
 
@@ -204,7 +203,7 @@ For federated users who sign in through an OpenID Connect (OIDC) identity provid
 
 You map the ACR values of the OIDC IdP to Amazon Cognito levels with the `AcrMapping` field on the IdP. Configure this field with the [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html) or [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html) operation. Amazon Cognito maps the ACR value of the OIDC IdP to a Amazon Cognito level, then stamps the corresponding level name that you configured for your user pool onto the Amazon Cognito token. The following example configures an `AcrMapping` for an OIDC provider.
 
-```
+```json
 {
   "ProviderName": "MyOktaIdP",
   "ProviderType": "OIDC",

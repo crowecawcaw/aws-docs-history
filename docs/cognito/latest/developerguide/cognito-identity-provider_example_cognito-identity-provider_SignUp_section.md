@@ -1,7 +1,6 @@
 
 
 # Use `SignUp` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_SignUp_section"></a>
 
 The following code examples show how to use `SignUp`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Sign up a new user.
     /// </summary>
@@ -58,7 +57,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -126,7 +125,7 @@ For more information, see [Signing up and confirming user accounts](https://docs
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -175,7 +174,7 @@ func (actor CognitoActions) SignUp(ctx context.Context, clientId string, userNam
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
     public static void signUp(CognitoIdentityProviderClient identityProviderClient, String clientId, String userName,
             String password, String email) {
         AttributeType userAttrs = AttributeType.builder()
@@ -210,7 +209,7 @@ func (actor CognitoActions) SignUp(ctx context.Context, clientId string, userNam
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
-```
+```javascript
 const signUp = ({ clientId, username, password, email }) => {
   const client = new CognitoIdentityProviderClient({});
 
@@ -232,7 +231,7 @@ const signUp = ({ clientId, username, password, email }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
-```
+```kotlin
 suspend fun signUp(
     clientIdVal: String?,
     userNameVal: String?,
@@ -269,7 +268,7 @@ suspend fun signUp(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 
@@ -339,7 +338,7 @@ class CognitoIdentityProviderWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSCognitoIdentityProvider
 

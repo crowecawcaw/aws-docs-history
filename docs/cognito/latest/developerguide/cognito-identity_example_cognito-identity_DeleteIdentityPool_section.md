@@ -1,7 +1,6 @@
 
 
 # Use `DeleteIdentityPool` with an AWS SDK or CLI
-<a name="cognito-identity_example_cognito-identity_DeleteIdentityPool_section"></a>
 
 The following code examples show how to use `DeleteIdentityPool`.
 
@@ -26,7 +25,7 @@ For more information, see [Amazon Cognito identity pools](https://docs.aws.amazo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.awscore.exception.AwsServiceException;
 import software.amazon.awssdk.regions.Region;
@@ -93,7 +92,7 @@ public class DeleteIdentityPool {
 **Tools for PowerShell V4**  
 **Example 1: Deletes a specific Identity Pool.**  
 
-```
+```powershell
 Remove-CGIIdentityPool -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
 ```
 +  For API details, see [DeleteIdentityPool](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -101,7 +100,7 @@ Remove-CGIIdentityPool -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLE
 **Tools for PowerShell V5**  
 **Example 1: Deletes a specific Identity Pool.**  
 
-```
+```powershell
 Remove-CGIIdentityPool -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
 ```
 +  For API details, see [DeleteIdentityPool](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -112,7 +111,7 @@ Remove-CGIIdentityPool -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLE
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples). 
 
-```
+```swift
 import AWSCognitoIdentity
 
 

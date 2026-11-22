@@ -1,7 +1,6 @@
 
 
 # Use `UpdateUserPool` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_UpdateUserPool_section"></a>
 
 The following code examples show how to use `UpdateUserPool`.
 
@@ -47,7 +46,7 @@ For more information, see [Updating user pool configuration](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -117,7 +116,7 @@ func (actor CognitoActions) UpdateTriggers(ctx context.Context, userPoolId strin
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-pools-triggers#code-examples). 
 
-```
+```javascript
 /**
  * Connect a Lambda function to the PreSignUp trigger for a Cognito user pool
  * @param {{ region: string, userPoolId: string, handlerArn: string }} config

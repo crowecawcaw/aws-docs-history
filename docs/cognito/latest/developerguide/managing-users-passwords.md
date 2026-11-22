@@ -1,7 +1,6 @@
 
 
 # Passwords, account recovery, and password policies
-<a name="managing-users-passwords"></a>
 
 All users who sign in to a user pool, even [federated users](cognito-terms.md#terms-federateduser), have passwords assigned to their user profiles. [Local users](cognito-terms.md#terms-localuser) and [linked users](cognito-terms.md#terms-linkeduser) must provide a password when they sign in. Federated users don't use user pool passwords, but sign in with their identity provider (IdP). You can permit users to reset their own passwords, reset or change passwords as an administrator, and [set policies](#user-pool-settings-policies) for password complexity and history.
 

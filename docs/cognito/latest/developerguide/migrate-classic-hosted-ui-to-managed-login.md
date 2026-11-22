@@ -1,7 +1,6 @@
 
 
 # Migrating from the classic hosted UI to managed login
-<a name="migrate-classic-hosted-ui-to-managed-login"></a>
 
 If your user pool currently uses the classic hosted UI, you can migrate it to managed login. Managed login and the classic hosted UI are the two branding versions. You set the branding version on the user pool domain, and your choice applies to all app clients that use that domain, so migrating switches every app client on the domain at the same time. Managed login adds a visual branding editor, passkey sign-in, and additional authentication features. The classic hosted UI uses file-based branding and is available in all feature plans. For a feature-by-feature comparison, see [User pool managed login](cognito-user-pools-managed-login.md).
 

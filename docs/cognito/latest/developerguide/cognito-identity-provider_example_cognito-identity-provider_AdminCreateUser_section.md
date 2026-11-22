@@ -1,7 +1,6 @@
 
 
 # Use `AdminCreateUser` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section"></a>
 
 The following code examples show how to use `AdminCreateUser`.
 
@@ -59,7 +58,7 @@ For more information, see [Creating user accounts as administrator](https://docs
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"

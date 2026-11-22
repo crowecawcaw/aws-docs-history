@@ -1,7 +1,6 @@
 
 
 # Example application for identity pools
-<a name="getting-started-identity-pools-application"></a>
 
 The most common use case for Amazon Cognito identity pools is to federate users from multiple sign-in systems and deliver temporary, limited-access AWS credentials directly to the client. This eliminates the need to build a credentials broker for permissions to access your AWS resources. For example, you might need to let users sign in with their social media accounts and access app assets from Amazon S3 for your mobile application. Identity pools also deliver credentials to users who sign in with user pools.
 
@@ -83,13 +82,13 @@ For this demo application, you don't need to set up all supported identity provi
 
 1. Clone the `aws-doc-sdk-examples` repository or otherwise retrieve [this folder in the repo](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito/scenarios/identity_pools_example_demo/web).
 
-   ```
+   ```bash
    git clone https://github.com/awsdocs/aws-doc-sdk-examples.git
    ```
 
 1. Navigate to the project directory.
 
-   ```
+   ```bash
    cd python/example_code/cognito/scenarios/identity_pools_example_demo/web
    ```
 
@@ -123,7 +122,7 @@ The following steps guide you through initial setup of your demo application.
 
 1. Create a `.env` file by copying the [example environment file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/python/example_code/cognito/scenarios/identity_pools_example_demo/web/.env.example).
 
-   ```
+   ```bash
    cp .env.example .env
    ```
 
@@ -131,20 +130,20 @@ The following steps guide you through initial setup of your demo application.
 
 1. Install backend dependencies.
 
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 1. Start the backend server:
 
-   ```
+   ```bash
    cd backend 
    python oauth_server.py
    ```
 
 1. Open a new terminal window, navigate to the project directory and start the frontend server:
 
-   ```
+   ```bash
    cd frontend
    python -m http.server 8001
    ```
@@ -195,7 +194,7 @@ The enhanced flow is a streamlined approach to obtaining AWS credentials for una
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. 
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
         "Credentials": {
@@ -210,7 +209,7 @@ The enhanced flow is a streamlined approach to obtaining AWS credentials for una
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. 
       + `GetId()` API request with your `identityPoolId`. No authentication tokens required for guest access
 
-        ```
+        ```json
         {
           "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
         }
@@ -218,14 +217,14 @@ The enhanced flow is a streamlined approach to obtaining AWS credentials for una
 
         If valid, it finds or creates and returns the user's `IdentityID`. An example response looks like this:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
         }
         ```
       + `GetCredentialsForIdentity()` with the returned `identityPoolId`.
 
-        ```
+        ```json
         POST GetCredentialsForIdentity
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
@@ -234,7 +233,7 @@ The enhanced flow is a streamlined approach to obtaining AWS credentials for una
 
         Cognito validates guest access, assumes the unauthenticated role internally with AWS STS, and return temporary AWS credential. (No IAM authentication on this call; role trust must allow `cognito-identity-amazonzaws.com`.)
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
           "Credentials": {
@@ -267,7 +266,7 @@ The basic flow provides granular control over the authentication process with se
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. 
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -282,7 +281,7 @@ The basic flow provides granular control over the authentication process with se
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. 
       +  `GetId()` API request with your identity pool ID. No authentication tokens required for guest access.
 
-        ```
+        ```json
         POST GetId
         {
           "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
@@ -291,14 +290,14 @@ The basic flow provides granular control over the authentication process with se
 
         If valid, it finds or creates and returns the user's `IdentityID`. An example response looks like this:
 
-        ```
+        ```json
         {
            "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       +  `GetOpenIdToken()` with the returned `IdentityID` and the same `Logins` map
 
-        ```
+        ```json
         POST GetOpenIdToken
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
@@ -307,7 +306,7 @@ The basic flow provides granular control over the authentication process with se
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
           "Token": "eyJraWQiOiJFWAMPLE......"
@@ -317,7 +316,7 @@ The basic flow provides granular control over the authentication process with se
         **What happens in this step:** Amazon Cognito issues a short-lived OpenID Connect web identity token from cognito-identity.amazonaws.com that represents this `IdentityId`. The token includes OIDC claims that AWS STS evaluates, including aud (your identity pool ID) and amr (authenticated or unauthenticated). Your IAM role's trust policy must require those claims.
       +  `AssumeRoleWithWebIdentity()` - Your app calls AWS STS directly to exchange the Amazon Cognito OpenID token for temporary AWS credentials
 
-        ```
+        ```json
         POST sts:AssumeRoleWithWebIdentity
         {
           "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolUnauth_Role",
@@ -327,7 +326,7 @@ The basic flow provides granular control over the authentication process with se
 
         Response:
 
-        ```
+        ```json
         {
           "Credentials": {
             "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
@@ -356,7 +355,7 @@ The following examples configure credentials providers for limited Amazon S3 acc
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Using credentials with boto3
 import boto3
 
@@ -379,7 +378,7 @@ for obj in response.get('Contents', []):
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 // Example: Accessing public content
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 
@@ -409,7 +408,7 @@ The following examples make use of read-only access to Amazon DynamoDB as a gues
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Limited app functionality for trial users
 import boto3
 
@@ -427,7 +426,7 @@ response = dynamodb.scan(TableName='SampleProducts', Limit=5)
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 // Example: Limited app functionality for trial users
 import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
 
@@ -483,7 +482,7 @@ This section shows how you can use a social identity provider to sign in a user 
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. 
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -513,7 +512,7 @@ This section shows how you can use a social identity provider to sign in a user 
 
         After successful authentication with the social provider, your app receives an OAuth response containing the access token and other authentication details:
 
-        ```
+        ```json
         {
            "access_token": "ya29.A0AS3H6NEXAMPLE......",
            "expires_in": 3599,
@@ -524,7 +523,7 @@ This section shows how you can use a social identity provider to sign in a user 
         ```
       +  `GetId()` API request with your identity pool ID and a `Logins`map containing your social provider token
 
-        ```
+        ```json
         POST GetId
         {
           "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -536,14 +535,14 @@ This section shows how you can use a social identity provider to sign in a user 
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       + `GetCredentialsForIdentity()` with the returned `IdentityID` and the same `Logins` map
 
-        ```
+        ```json
         POST GetCredentialsForIdentity
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -555,7 +554,7 @@ This section shows how you can use a social identity provider to sign in a user 
 
         Response:
 
-        ```
+        ```json
         {
           "Credentials": {
             "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
@@ -596,7 +595,7 @@ This section shows how you can use a social identity provider to sign in a user 
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. 
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -626,7 +625,7 @@ This section shows how you can use a social identity provider to sign in a user 
 
         After successful authentication with the social provider, your app receives an OAuth response containing the access token and other authentication details:
 
-        ```
+        ```json
         {
            "access_token": "ya29.A0AS3H6NEXAMPLE......",
            "expires_in": 3599,
@@ -637,7 +636,7 @@ This section shows how you can use a social identity provider to sign in a user 
         ```
       +  `GetId()` API request with your identity pool ID and a `Logins` map containing your social provider token
 
-        ```
+        ```json
         POST GetId
         {
           "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -649,14 +648,14 @@ This section shows how you can use a social identity provider to sign in a user 
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       +  `GetOpenIdToken()` with the returned `IdentityID` and the same Logins map
 
-        ```
+        ```json
         POST GetOpenIdToken
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -668,7 +667,7 @@ This section shows how you can use a social identity provider to sign in a user 
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
           "Token": "eyJraWQiOiJFWAMPLE......"
@@ -676,7 +675,7 @@ This section shows how you can use a social identity provider to sign in a user 
         ```
       +  `AssumeRoleWithWebIdentity()` with the OpenID token
 
-        ```
+        ```json
         POST AssumeRoleWithWebIdentity
         {
           "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role",
@@ -686,7 +685,7 @@ This section shows how you can use a social identity provider to sign in a user 
 
         Response:
 
-        ```
+        ```json
         {
           "Credentials": {
             "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
@@ -742,7 +741,7 @@ The enhanced flow provides a streamlined approach to obtaining AWS credentials t
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. 
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -770,7 +769,7 @@ The enhanced flow provides a streamlined approach to obtaining AWS credentials t
 
         After successful authentication with the user pool, your app receives an OAuth 2.0 response containing the ID token (JWT):
 
-        ```
+        ```json
         {
            "id_token": "eyJraWQiOiJFWAMPLE......",
            "token_type": "Bearer",
@@ -779,7 +778,7 @@ The enhanced flow provides a streamlined approach to obtaining AWS credentials t
         ```
       +  `GetId()` API request with your `identityPoolId`and a `Logins` map that includes your user-pool provider key mapped to the `id_token`. Amazon Cognito verified the user pool ID token's signature, issuer, expiry, and audience (`aud`) matches one of the app client IDs you registered for this user pool IdP in the identity pool.
 
-        ```
+        ```json
         POST GetId
         {
           "AccountId": "111122223333",
@@ -792,14 +791,14 @@ The enhanced flow provides a streamlined approach to obtaining AWS credentials t
 
         If valid, it finds or creates and returns the user's `IdentityID`. An example response looks like this:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       +  `GetCredentialsForIdentity()` with the returned `identityPoolId`and a=the same `Logins` map with the `id_token`. Amazon Cognito revalidates the user pool ID token's signature, issuer, expiry, and audience (`aud`) matches one of the app client IDs you registered for this user pool IdP in the identity pool.
 
-        ```
+        ```json
         POST GetCredentialsForIdentity
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -811,7 +810,7 @@ The enhanced flow provides a streamlined approach to obtaining AWS credentials t
 
         If valid, it chooses an IAM role (roles-in-token, rules, or default), calls AWS STS on your behalf, and returns temporary AWS credentials. An example response looks like this:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
           "Credentials": {
@@ -852,7 +851,7 @@ The basic flow provides granular control over the authentication process with se
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. 
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -867,7 +866,7 @@ The basic flow provides granular control over the authentication process with se
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. 
       + The app signs in the user with a Amazon Cognito user pool and obtains ID token (JWT) as the artifact. After successful authentication with the user pool, your app receives an OAuth response containing the ID token (JWT). Identity pools use this token for authentication:
 
-        ```
+        ```json
         {
            "id_token": "eyJraWQiOiJFWAMPLE......",
            "token_type": "Bearer",
@@ -876,7 +875,7 @@ The basic flow provides granular control over the authentication process with se
         ```
       + `GetId()` API request with your identity pool ID and a `Logins` map that includes your user-pool provider key and the ID token as the value. Amazon Cognito verified the user pool ID token's signature, expiry, and audience (aud) matches one of the app client IDs you registered for this user pool IdP in the identity pool.
 
-        ```
+        ```json
         POST GetId
         {
           "AccountId": "111122223333",
@@ -889,14 +888,14 @@ The basic flow provides granular control over the authentication process with se
 
         If valid, it finds or creates and returns the user's `IdentityID`. An example response looks like this:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       + `GetOpenIdToken()` with the returned `IdentityID` and the same `Logins` map
 
-        ```
+        ```json
         POST GetOpenIdToken
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -908,7 +907,7 @@ The basic flow provides granular control over the authentication process with se
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
           "Token": "eyJraWQiOiJFWAMPLE......"
@@ -918,7 +917,7 @@ The basic flow provides granular control over the authentication process with se
         **What happens in this step:** Amazon Cognito issues a short-lived OpenID Connect web identity token from cognito-identity.amazonaws.com that represents this `IdentityId`. The token includes OIDC claims that AWS STS evaluates, including aud (your identity pool ID) and amr (authenticated or unauthenticated). Your IAM role's trust policy must require those claims.
       + `AssumeRoleWithWebIdentity()` - Your app calls AWS STS directly to exchange the Amazon Cognito OpenID token for temporary AWS credentials
 
-        ```
+        ```json
         POST sts:AssumeRoleWithWebIdentity
         {
           "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role",
@@ -929,7 +928,7 @@ The basic flow provides granular control over the authentication process with se
 
         Response:
 
-        ```
+        ```json
         {
           "Credentials": {
             "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
@@ -988,7 +987,7 @@ This section shows how you can use a SAML identity provider to sign in a user an
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details.
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -1016,7 +1015,7 @@ This section shows how you can use a SAML identity provider to sign in a user an
 
         After successful authentication with the SAML provider, your app receives a SAML response via HTTP POST to your callback URL:
 
-        ```
+        ```json
         {
           "saml_response": "PD94bWwgdmVyc2lvbj0iMS4wIiBFWAMPLE...",
           "provider_arn": "arn:aws:iam::111122223333:saml-provider/EXAMPLE",
@@ -1025,7 +1024,7 @@ This section shows how you can use a SAML identity provider to sign in a user an
         ```
       +  `GetId()` API request with your identity pool ID and a `Logins` map containing your SAML provider ARN and assertion
 
-        ```
+        ```json
         POST GetId
         {
           "AccountId": "111122223333",
@@ -1038,14 +1037,14 @@ This section shows how you can use a SAML identity provider to sign in a user an
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       +  `GetCredentialsForIdentity()` with the returned `IdentityID`and the same `Logins` map
 
-        ```
+        ```json
         POST GetCredentialsForIdentity
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -1057,7 +1056,7 @@ This section shows how you can use a SAML identity provider to sign in a user an
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
           "Credentials": {
@@ -1113,7 +1112,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details.
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -1141,7 +1140,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
         After successful authentication with the OIDC provider, your app receives an OAuth 2.0 response containing the tokens:
 
-        ```
+        ```json
         {
           "token_type": "Bearer",
           "expires_in": 3600,
@@ -1152,7 +1151,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
         ```
       +  `GetId()` API request with your identity pool ID and a `Logins` map containing your OIDC provider token
 
-        ```
+        ```json
         POST GetId
         {
           "AccountId": "111122223333",
@@ -1165,14 +1164,14 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       +  `GetCredentialsForIdentity()` with the returned `IdentityID` and the same Logins map
 
-        ```
+        ```json
         POST GetCredentialsForIdentity
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -1184,7 +1183,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
           "Credentials": {
@@ -1226,7 +1225,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
    1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details.
 
-      ```
+      ```json
       {
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "Credentials": {
@@ -1254,7 +1253,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
         After successful authentication with the OIDC provider, your app receives an OAuth 2.0 response containing the tokens:
 
-        ```
+        ```json
         {
           "token_type": "Bearer",
           "expires_in": 3600,
@@ -1265,7 +1264,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
         ```
       +  `GetId()` API request with your identity pool ID and a `Logins`map containing your OIDC provider token
 
-        ```
+        ```json
         POST GetId
         {
           "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -1277,14 +1276,14 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
         }
         ```
       +  `GetOpenIdToken()` with the returned IdentityID and the same `Logins`map
 
-        ```
+        ```json
         POST GetOpenIdToken
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -1296,7 +1295,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
         Response:
 
-        ```
+        ```json
         {
           "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
           "Token": "eyJraWQiOiJFWAMPLE......"
@@ -1304,7 +1303,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
         ```
       +  `AssumeRoleWithWebIdentity()` with the OpenID token
 
-        ```
+        ```json
         POST AssumeRoleWithWebIdentity
         {
           "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role",
@@ -1314,7 +1313,7 @@ This section shows how you can use an OIDC identity provider to sign in a user a
 
         Response:
 
-        ```
+        ```json
         {
           "Credentials": {
             "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",

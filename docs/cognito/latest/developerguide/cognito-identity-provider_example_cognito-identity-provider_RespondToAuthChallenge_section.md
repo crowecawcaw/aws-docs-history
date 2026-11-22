@@ -1,7 +1,6 @@
 
 
 # Use `RespondToAuthChallenge` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_RespondToAuthChallenge_section"></a>
 
 The following code examples show how to use `RespondToAuthChallenge`.
 
@@ -99,7 +98,7 @@ For more information, see [Adding MFA](https://docs.aws.amazon.com/cognito/lates
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
-```
+```javascript
 const respondToAuthChallenge = ({
   clientId,
   username,
@@ -132,7 +131,7 @@ const respondToAuthChallenge = ({
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 Sign in with a tracked device. To complete sign-in, the client must respond correctly to Secure Remote Password (SRP) challenges.  
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 

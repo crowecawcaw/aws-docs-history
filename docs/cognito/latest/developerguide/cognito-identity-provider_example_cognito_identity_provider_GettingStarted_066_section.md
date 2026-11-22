@@ -1,7 +1,6 @@
 
 
 # Getting started with user pools
-<a name="cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section"></a>
 
 The following code example shows how to:
 + Create a user pool
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/066-amazon-cognito-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon Cognito User Pools Getting Started Script

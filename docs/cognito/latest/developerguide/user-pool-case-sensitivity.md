@@ -1,7 +1,6 @@
 
 
 # User pool case sensitivity
-<a name="user-pool-case-sensitivity"></a>
 
 Amazon Cognito user pools that you create in the AWS Management Console are case insensitive by default. When a user pool is case insensitive, *user@example.com* and *User@example.com* refer to the same user. When usernames in a user pool are case insensitive, the `preferred_username` and `email` attributes also are case insensitive.
 

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Cognito
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -54,6 +53,7 @@ View details about updates to AWS managed policies for Amazon Cognito since this
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AmazonCognitoIdpServiceRolePolicy](using-service-linked-roles.md#slr-permissions)–Change | Amazon Cognito added new AWS Secrets Manager permissions to the policy for the AWSServiceRoleForAmazonCognitoIdp service-linked role. With these permissions, Amazon Cognito can rotate, replicate, delete, and restore the app client secrets that it stores for you in Secrets Manager. The permissions apply only to secrets that Amazon Cognito owns in the same AWS account as the role. | November 10, 2026 | 
 | AmazonCognitoPowerUser–Change | Amazon Cognito added new actions to permit the use of the AWS End User Messaging SMS API operation [DescribeAccountAttributes](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeAccountAttributes.html) for Amazon Cognito user pools administrative power users. | February 27, 2025 | 
 | AmazonCognitoUnAuthedIdentitiesSessionPolicy–Change | Amazon Cognito added new actions to permit the use of AWS Key Management Service for unauthenticated (guest) users in identity pools. | October 30, 2024 | 
 | AmazonCognitoUnAuthedIdentitiesSessionPolicy–Change | Amazon Cognito added new actions to permit the use of Amazon Location Service for unauthenticated (guest) users in identity pools. | August 9, 2024 | 

@@ -1,7 +1,6 @@
 
 
 # The managed login sign-out endpoint: `/logout`
-<a name="logout-endpoint"></a>
 
 The `/logout` endpoint is a redirection endpoint. It signs out the user and redirects either to an authorized sign-out URL for your app client, or to the `/login` endpoint. The available parameters in a GET request to the `/logout` endpoint are tailored to Amazon Cognito managed login use cases.
 

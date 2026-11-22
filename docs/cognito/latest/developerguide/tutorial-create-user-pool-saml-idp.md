@@ -1,7 +1,6 @@
 
 
 # Add a SAML 2.0 identity provider
-<a name="tutorial-create-user-pool-saml-idp"></a>
 
 Your app users can sign in with a SAML 2.0 identity provider (IdP). You might choose SAML 2.0 IdPs over social IdPs when your customers are the internal customers or linked businesses of your organization. Where a social IdP permits all users to register for an account, a SAML IdP is more likely to pair with a user directory that your organization controls. Whether your users sign in directly or through a third party, all users have a profile in the user pool. Skip this step if you don't want to add sign in through a SAML identity provider. 
 
@@ -11,7 +10,7 @@ You must update your SAML identity provider and configure your user pool. For in
 
 You must also provide an assertion consumer service (ACS) endpoint to your SAML identity provider. Configure the following endpoint in your user pool domain for SAML 2.0 POST binding in your SAML identity provider. For more information about user pool domains, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md).
 
-```
+```http
 https://{{Your user pool domain}}/saml2/idpresponse
 With an Amazon Cognito domain:
 https://{{<yourDomainPrefix>}}.auth.{{<region>}}.amazoncognito.com/saml2/idpresponse

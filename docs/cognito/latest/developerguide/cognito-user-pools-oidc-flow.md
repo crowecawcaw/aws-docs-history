@@ -1,7 +1,6 @@
 
 
 # OIDC user pool IdP authentication flow
-<a name="cognito-user-pools-oidc-flow"></a>
 
 With OpenID Connect (OIDC) sign-in, your user pool automates an authorization-code sign-in flow with your identity provider (IdP). After your user completes sign-in with their IdP, Amazon Cognito collects their code at the `oauth2/idpresponse` endpoint of the external provider. With the resulting access token, your user pool queries the IdP `userInfo` endpoint to retrieve user attributes. Your user pool then compares the received attributes to the attribute-mapping rules you've set up and populates the user's profile and ID token accordingly.
 

@@ -1,7 +1,6 @@
 
 
 # Using attributes for access control
-<a name="attributes-for-access-control"></a>
 
 Attributes for access control is the Amazon Cognito identity pools implementation of attribute-based access control (ABAC). You can use IAM policies to control access to AWS resources through Amazon Cognito identity pools based on user attributes. These attributes can be drawn from social and corporate identity providers. You can map attributes within providers’ access and ID tokens or SAML assertions to tags that can be referenced in the IAM permissions policies. 
 
@@ -72,7 +71,7 @@ Consider a scenario where an employee from the legal department of a company nee
 
 **Claims**
 
-```
+```json
 {
             "...": "other claims",
             "sub" : "57e7b692-4f66-480d-98b8-45a6729b4c88",
@@ -95,7 +94,7 @@ The following permissions policy does two things:
 
 ****  
 
-```
+```json
    {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -129,7 +128,7 @@ The trust policy determines who can assume this role. The trust relationship pol
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

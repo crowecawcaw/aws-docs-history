@@ -1,9 +1,8 @@
 
 
 # Code examples for Amazon Cognito Sync using AWS SDKs
-<a name="service_code_examples_cognito-sync"></a>
 
-The following code examples show how to use Amazon Cognito Sync with an AWS software development kit (SDK). 
+The following code examples show how to use Amazon Cognito Sync with an AWS software development kit (SDK). Amazon Cognito Sync is no longer open to new customers. For alternatives to Amazon Cognito Sync, please explore [AWS AppSync](https://docs.aws.amazon.com/appsync/) and [Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb/). [Learn more](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync-availability-change.html).
 
 *Actions* are code excerpts from larger programs and must be run in context. While actions show you how to call individual service functions, you can see actions in context in their related scenarios.
 

@@ -1,7 +1,6 @@
 
 
 # Getting credentials
-<a name="getting-credentials"></a>
 
 You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application, so that your users can access AWS resources. This section describes how to get credentials and how to retrieve an Amazon Cognito identity from an identity pool.
 
@@ -37,7 +36,7 @@ To use a Amazon Cognito identity pool in an Android app, set up AWS Amplify. For
 
 If you're allowing unauthenticated users, you can retrieve a unique Amazon Cognito identifier (identity ID) for your end user immediately. If you're authenticating users, you can retrieve the identity ID after you've set the login tokens in the credentials provider:
 
-```
+```java
 String identityId = credentialsProvider.getIdentityId();
 Log.d("LogTag", "my ID is " + identityId);
 ```
@@ -56,7 +55,7 @@ To use a Amazon Cognito identity pool in an iOS app, set up AWS Amplify. For mor
 
 You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user immediately if you're allowing unauthenticated users or after you've set the login tokens in the credentials provider if you're authenticating users:
 
-```
+```objectivec
 // Retrieve your Amazon Cognito ID
 [[credentialsProvider getIdentityId] continueWithBlock:^id(AWSTask *task) {
     if (task.error) {
@@ -84,7 +83,7 @@ To use a Amazon Cognito identity pool in an iOS app, set up AWS Amplify. For mor
 
 You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user immediately if you're allowing unauthenticated users or after you've set the login tokens in the credentials provider if you're authenticating users:
 
-```
+```swift
 // Retrieve your Amazon Cognito ID
 credentialsProvider.getIdentityId().continueWith(block: { (task) -> AnyObject? in
     if (task.error != nil) {
@@ -109,7 +108,7 @@ If you have not yet created one, create an identity pool in the [Amazon Cognito 
 
 After you configure an identity pool with your identity providers, you can use the `fromCognitoIdentityPool` function from the `@aws-sdk/credential-providers` package to authenticate users. Rather than setting a global `AWS.config.credentials`, attach the credentials provider directly to each service client through its `credentials` property. The v3 SDK resolves the provider lazily the first time the client makes a request, so there is no separate call to obtain credentials. The following example attaches the provider to an `S3Client`: 
 
-```
+```javascript
 import { S3Client } from "@aws-sdk/client-s3";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
@@ -166,7 +165,7 @@ FB.login(function (response) {
 
 You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user. If you allow unauthenticated users, you can retrieve it immediately. If you authenticate users, retrieve it after you set the login tokens. The `fromCognitoIdentityPool` provider exposes the `identityId` on the credentials that it resolves, so you can read it from the resolved credentials of a client that uses the provider:
 
-```
+```javascript
 // Inside an async function:
 const { identityId } = await client.config.credentials();
 ```
@@ -182,6 +181,6 @@ The [AWS SDK for Unity](https://docs.aws.amazon.com/mobile/sdkforunity/developer
 
  You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user immediately if you're allowing unauthenticated users or after you've set the login tokens in the credentials provider if you're authenticating users: 
 
-```
+```csharp
 string identityId = await credentials.GetIdentityIdAsync();
 ```

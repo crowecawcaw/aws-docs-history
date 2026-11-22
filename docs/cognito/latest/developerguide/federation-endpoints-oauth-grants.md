@@ -1,7 +1,6 @@
 
 
 # OAuth 2.0 grants
-<a name="federation-endpoints-oauth-grants"></a>
 
 The Amazon Cognito user pool OAuth 2.0 authorization server issues tokens in response to three types of OAuth 2.0 [authorization grants](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3). You can set the supported grant types for each app client in your user pool. You can't enable *client credentials* grants in the same app client as either *implicit* or *authorization code* grants. Requests for implicit and authorization code grants begin at your [Authorize endpoint](authorization-endpoint.md) and requests for client credentials grants start at your [Token endpoint](token-endpoint.md).
 

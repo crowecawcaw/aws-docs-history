@@ -1,7 +1,6 @@
 
 
 # Add social sign-in to your user pool
-<a name="tutorial-create-user-pool-social-idp"></a>
 
 Providing users with the ability to sign in to your application through their existing public, or social, identity providers can improve their authentication experience. Amazon Cognito user pools integrate with popular social identity providers (IdPs) like Facebook, Google, Amazon, and Apple, giving your users convenient sign-in options that they are already familiar with.
 

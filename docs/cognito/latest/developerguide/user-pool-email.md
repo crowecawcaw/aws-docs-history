@@ -1,7 +1,6 @@
 
 
 # Email settings for Amazon Cognito user pools
-<a name="user-pool-email"></a>
 
 Certain events in your application can cause Amazon Cognito to email your users. For example, if you configure your user pool to require email verification, Amazon Cognito sends an email when a user signs up for a new account in your app or resets their password. Depending on the action that initiates the email, the email contains a verification code or a temporary password.
 
@@ -184,7 +183,7 @@ The following example sending authorization policy grants Amazon Cognito a limit
 Your sending authorization policy in the user pool Region or alternate Region must permit the Amazon Cognito service principal to send email messages. Refer to the [Regions table](#ses-regions-table) for more information. If your **User pool Region** matches at least one value in **Amazon SES Region**, configure your sending authorization policy with the global service principal in the following example.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -217,7 +216,7 @@ Amazon SES isn't available in all opt-in AWS Regions where Amazon Cognito is ava
 Your sending authorization policy in each of the alternate Regions must permit the Amazon Cognito service principal in the user pool opt-in Region to send email messages. Refer to the [Regions table](#ses-regions-table) for more information. If your Region is marked as **Alternate Region**, configure your sending authorization policies with the Regional service principal as in the following example. Replace the example Region identifier {{me-central-1}} with the required Region ID as needed.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

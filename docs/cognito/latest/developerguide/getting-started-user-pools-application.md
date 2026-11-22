@@ -1,7 +1,6 @@
 
 
 # Create a new application in the Amazon Cognito console
-<a name="getting-started-user-pools-application"></a>
 
 User pools add authentication options to software applications. For the easiest getting-started experience, step into the Amazon Cognito console and follow the instructions there. The creation process there guides you not only through setup of user pool resources, but through setting up the initial pieces of your application.
 

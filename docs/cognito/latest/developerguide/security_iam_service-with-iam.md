@@ -1,7 +1,6 @@
 
 
 # How Amazon Cognito works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon Cognito, learn what IAM features are available to use with Amazon Cognito.
 
@@ -150,7 +149,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 In Amazon Cognito identity pools (federated identities), it is possible to restrict an IAM user's access to a specific identity pool, using the Amazon Resource Name (ARN) format, as in the following example. For more information about ARNs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html).
 
-```
+```json
 arn:aws:cognito-identity:{{REGION}}:{{ACCOUNT_ID}}:identitypool/{{IDENTITY_POOL_ID}}
 ```
 
@@ -160,19 +159,19 @@ In Amazon Cognito Sync, customers can also restrict access by the identity pool 
 
 For APIs that operate on an identity pool, the identity pool ARN format is the same as for Amazon Cognito Federated Identities, except that the service name is `cognito-sync` instead of `cognito-identity`:
 
-```
+```json
 arn:aws:cognito-sync:{{REGION}}:{{ACCOUNT_ID}}:identitypool/{{IDENTITY_POOL_ID}}
 ```
 
 For APIs that operate on a single identity, such as `RegisterDevice`, you can refer to the individual identity by the following ARN format:
 
-```
+```json
 arn:aws:cognito-sync:{{REGION}}:{{ACCOUNT_ID}}:identitypool/{{IDENTITY_POOL_ID}}/identity/{{IDENTITY_ID}}
 ```
 
 For APIs that operate on datasets, such as `UpdateRecords` and `ListRecords`, you can refer to the individual dataset using the following ARN format:
 
-```
+```json
 arn:aws:cognito-sync:{{REGION}}:{{ACCOUNT_ID}}:identitypool/{{IDENTITY_POOL_ID}}/identity/{{IDENTITY_ID}}/dataset/{{DATASET_NAME}}
 ```
 
@@ -180,7 +179,7 @@ arn:aws:cognito-sync:{{REGION}}:{{ACCOUNT_ID}}:identitypool/{{IDENTITY_POOL_ID}}
 
 For Amazon Cognito Your User Pools, it is possible to restrict a user's access to a specific user pool, using the following ARN format:
 
-```
+```json
 arn:aws:cognito-idp:{{REGION}}:{{ACCOUNT_ID}}:userpool/{{USER_POOL_ID}}
 ```
 

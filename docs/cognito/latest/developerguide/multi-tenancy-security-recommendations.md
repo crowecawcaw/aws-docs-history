@@ -1,7 +1,6 @@
 
 
 # Multi-tenancy security recommendations
-<a name="multi-tenancy-security-recommendations"></a>
 
  To help make your application more secure, we recommend the following: 
 + Validate tenancy in your app with Amazon Verified Permissions. Build policies that examine user pool, app client, group, or custom-attribute entitlement before you permit a user's request in your application. AWS created Verified Permissions [identity sources](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/identity-providers.html) with Amazon Cognito user pools in mind. Verified Permissions has [additional guidance](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/design-multi-tenancy-considerations.html) for multi-tenancy management.

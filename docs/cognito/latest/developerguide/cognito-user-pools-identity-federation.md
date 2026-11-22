@@ -1,7 +1,6 @@
 
 
 # User pool sign-in with third party identity providers
-<a name="cognito-user-pools-identity-federation"></a>
 
 Your app users can either sign in directly through a user pool, or they can federate through a third-party identity provider (IdP). The user pool manages the overhead of handling the tokens that are returned from social sign-in through Facebook, Google, Amazon, and Apple, and from OpenID Connect (OIDC) and SAML IdPs. With the built-in hosted web UI, Amazon Cognito provides token handling and management for authenticated users from all IdPs. This way, your back-end systems can standardize on one set of user pool tokens.
 

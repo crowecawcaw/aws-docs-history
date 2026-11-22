@@ -1,7 +1,6 @@
 
 
 # Importing users into user pools from a CSV file
-<a name="cognito-user-pools-using-import-tool"></a>
 
 When you have an external identity store and the time to prepare your user pool for new local users, a bulk user import from a comma-separated values (CSV) file can be a low-effort, low-cost option for a migration to an Amazon Cognito user pool. A CSV file import is a process of downloading and populating a template file, then handing off the file to your user pool in an import job. You can use a CSV import to quickly create test users. You can also programmatically populate the file with read API requests to your external identity store, followed by parsing their details and attributes into write operations to the file.
 
@@ -66,7 +65,7 @@ When you create an import job in the Amazon Cognito console, you can create the 
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -101,7 +100,7 @@ When you create an import job in the Amazon Cognito console, you can create the 
 
 ****  
 
-   ```
+   ```json
    {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -128,7 +127,7 @@ Alternatively, you can create the same role with the AWS CLI. The following comm
 
 1. Create the role with a trust policy that allows Amazon Cognito to assume it.
 
-   ```
+   ```bash
    aws iam create-role \
        --role-name {{CognitoUserImportRole}} \
        --assume-role-policy-document '{
@@ -145,7 +144,7 @@ Alternatively, you can create the same role with the AWS CLI. The following comm
 
 1. Attach a policy that permits the role to write import results to CloudWatch Logs.
 
-   ```
+   ```bash
    aws iam put-role-policy \
        --role-name {{CognitoUserImportRole}} \
        --policy-name {{CognitoUserImportLogsPolicy}} \
@@ -168,7 +167,7 @@ Alternatively, you can create the same role with the AWS CLI. The following comm
 
 1. Retrieve the role ARN to use as {{ROLE\_ARN}} when you create your import job.
 
-   ```
+   ```bash
    aws iam get-role \
        --role-name {{CognitoUserImportRole}} \
        --query 'Role.Arn' --output text
@@ -292,6 +291,9 @@ Jane,,Jane,Roe,,,,,,,janeroe@example.com,TRUE,,01/01/1985,,,+12345550199,TRUE,10
 <a name="cognito-user-pools-creating-import-job"></a>
 
 This section describes how to create and run the user pool import job by using the Amazon Cognito console and the AWS Command Line Interface (AWS CLI).
+
+**Note**  
+You can't import users while a [point-in-time recovery](user-pool-point-in-time-recovery.md) of your user pool is in progress. You also can't initiate a point-in-time recovery while an import job is in progress in your user pool. Wait for the import job to complete, or stop it, before you initiate a recovery.
 
 **Topics**
 + [Importing users from a CSV file (console)](#cognito-user-pools-using-import-tool-console)

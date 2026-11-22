@@ -1,7 +1,6 @@
 
 
 # Pre token generation Lambda trigger
-<a name="user-pool-lambda-pre-token-generation"></a>
 
 Because Amazon Cognito invokes this trigger before token generation, you can customize the claims in user pool tokens. With the **Basic features** of the version one or `V1_0` pre token generation trigger event, you can customize the identity (ID) token. In user pools with the Essentials or Plus feature plan, you can generate the version two or `V2_0` trigger event with access token customization, and the version three or `V3_0` trigger event with access token customization for machine-to-machine (M2M) authorization, including both client-credentials grants and the `GetClientToken` API operation.
 
@@ -136,7 +135,7 @@ Generate a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-po
 
 Include the following content in the `LambdaVersion` parameter of your request. A `LambdaVersion` value of `V2_0` causes your user pool to add parameters for, and apply changes to, access tokens. A `LambdaVersion` value of `V3_0` produces the same event as `V2_0`, but causes your user pool to *also* apply changes to M2M access tokens. To invoke a specific function version, use a Lambda function ARN with a function version as the value of `LambdaArn`.
 
-```
+```json
 "PreTokenGenerationConfig": { 
    "LambdaArn": "{{arn:aws:lambda:us-west-2:123456789012:function:MyFunction}}",
    "LambdaVersion": "{{V3_0}}"
@@ -146,7 +145,7 @@ Include the following content in the `LambdaVersion` parameter of your request. 
 ------
 
 **Client metadata for machine-to-machine (M2M) client credentials**  
-You can pass [client metadata](cognito-user-pools-working-with-lambda-triggers.md#working-with-lambda-trigger-client-metadata) in M2M requests. Client metadata is additional information from a user or application environment that can contribute to the outcomes of a [Pre token generation Lambda trigger](#user-pool-lambda-pre-token-generation). In authentication operations with a user principal, you can pass client metadata to the pre token generation trigger in the body of [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html) and [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) API requests. Because applications conduct the flow for generation of access tokens for M2M with direct requests to the [Token endpoint](token-endpoint.md), they have a different model. In the POST body of token requests for client credentials, pass an `aws_client_metadata` parameter with the client metadata object URL-encoded (`x-www-form-urlencoded`) to string. For an example request, see [Client credentials with basic authorization](token-endpoint.md#exchanging-client-credentials-for-an-access-token-in-request-body). The following is an example parameter that passes the key-value pairs `{"environment": "dev", "language": "en-US"}`.
+You can pass [client metadata](cognito-user-pools-working-with-lambda-triggers.md#working-with-lambda-trigger-client-metadata) in M2M requests. Client metadata is additional information from a user or application environment that can contribute to the outcomes of a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md). In authentication operations with a user principal, you can pass client metadata to the pre token generation trigger in the body of [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html) and [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) API requests. Because applications conduct the flow for generation of access tokens for M2M with direct requests to the [Token endpoint](token-endpoint.md), they have a different model. In the POST body of token requests for client credentials, pass an `aws_client_metadata` parameter with the client metadata object URL-encoded (`x-www-form-urlencoded`) to string. For an example request, see [Client credentials with basic authorization](token-endpoint.md#exchanging-client-credentials-for-an-access-token-in-request-body). The following is an example parameter that passes the key-value pairs `{"environment": "dev", "language": "en-US"}`.
 
 ```
 aws_client_metadata=%7B%22environment%22%3A%20%22dev%22,%20%22language%22%3A%20%22en-US%22%7D
@@ -190,7 +189,7 @@ The request that Amazon Cognito passes to this Lambda function is a combination 
 
 The version one token can set group membership, IAM roles, and new claims in ID tokens. Group membership overrides also apply to the `cognito:groups` claim in access tokens.
 
-```
+```json
 {
     "request": {
         "userAttributes": {"string": "string"},
@@ -240,7 +239,7 @@ The versions two and three request events add fields that customize the access t
 + Array of strings, numbers, booleans, or a combination of any of these
 + JSON
 
-```
+```json
 {
     "request": {
         "userAttributes": {
@@ -340,7 +339,7 @@ The removal of `phone_number` from scopes only prevents retrieval of a user's ph
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 export const handler = function(event, context) {
   event.response = {
     "claimsAndScopeOverrideDetails": {
@@ -391,7 +390,7 @@ Amazon Cognito passes event information to your Lambda function. The function th
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "version": "2",
     "triggerSource": "TokenGeneration_Authentication",
@@ -447,7 +446,7 @@ This example makes the following modifications to a user's tokens.
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 export const handler = function(event, context) {
 
     var scopes = ["MyAPI.read", "MyAPI.write", "MyAPI.admin"]
@@ -517,7 +516,7 @@ Amazon Cognito passes event information to your Lambda function. The function th
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "version": "2",
     "triggerSource": "TokenGeneration_HostedAuth",
@@ -566,7 +565,7 @@ This example uses a version 1 trigger event with a pre token generation Lambda f
 ------
 #### [ Node.js ]
 
-```
+```javascript
 const handler = async (event) => {
   event.response = {
     claimsOverrideDetails: {
@@ -608,7 +607,7 @@ This example uses a version 1 trigger event with a pre token generation Lambda f
 ------
 #### [ Node.js ]
 
-```
+```javascript
 const handler = async (event) => {
   event.response = {
     claimsOverrideDetails: {

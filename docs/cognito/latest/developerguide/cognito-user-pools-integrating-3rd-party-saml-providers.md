@@ -1,7 +1,6 @@
 
 
 # Configuring your third-party SAML identity provider
-<a name="cognito-user-pools-integrating-3rd-party-saml-providers"></a>
 
 When you want to add a SAML identity provider (IdP) to your user pool, you must make some configuration updates in the management interface of your IdP. This section describes how to format the values that you must provide to your IdP. You can also learn about how to retrieve the static or active-URL metadata document that identifies the IdP and its SAML claims to your user pool.
 

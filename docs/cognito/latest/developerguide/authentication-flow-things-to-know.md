@@ -1,7 +1,6 @@
 
 
 # Things to know about authentication with user pools
-<a name="authentication-flow-things-to-know"></a>
 
 Consider the following information in the design of your authentication model with Amazon Cognito user pools.
 

@@ -1,7 +1,6 @@
 
 
 # User pool deletion protection
-<a name="user-pool-settings-deletion-protection"></a>
 
 To make it so that your administrators don't accidentally delete your user pool, activate deletion protection. With deletion protection active, you can only delete your user pool after you confirm that you want to delete it. When you delete a user pool in the AWS Management Console, you can deactivate deletion protection at the same time. When you accept the prompt to deactivate deletion protection and confirm your intention to delete, as shown in the following image, Amazon Cognito deletes your user pool.
 

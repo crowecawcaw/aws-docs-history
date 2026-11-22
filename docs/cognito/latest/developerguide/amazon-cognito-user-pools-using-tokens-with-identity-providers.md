@@ -1,7 +1,6 @@
 
 
 # Understanding user pool JSON web tokens (JWTs)
-<a name="amazon-cognito-user-pools-using-tokens-with-identity-providers"></a>
 
 Tokens are artifacts of authentication that your applications can use as proof of OIDC authentication and to request access to resources. The *claims* in tokens are information about your user. The ID token contains claims about their identity, like their username, family name, and email address. The access token contains claims like `scope` that the authenticated user can use to access third-party APIs, Amazon Cognito user self-service API operations, and the [userInfo endpoint](userinfo-endpoint.md). The access and ID tokens both include a `cognito:groups` claim that contains your user's group membership in your user pool. For more information about user pool groups, see [Adding groups to a user pool](cognito-user-pools-user-groups.md).
 

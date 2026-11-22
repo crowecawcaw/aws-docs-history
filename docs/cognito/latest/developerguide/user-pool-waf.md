@@ -1,7 +1,6 @@
 
 
 # Associate an AWS WAF web ACL with a user pool
-<a name="user-pool-waf"></a>
 
 AWS WAF is a web application firewall. With an AWS WAF web access control list (web ACL), you can protect your user pool from unwanted requests to your classic hosted UI, managed login, and Amazon Cognito API service endpoints. A web ACL gives you fine-grained control over all of the HTTPS web requests that your user pool responds to. For more information about AWS WAF web ACLs, see [Managing and using a web access control list (web ACL)](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl.html) in the *AWS WAF Developer Guide*.
 
@@ -68,7 +67,7 @@ To work with a web ACL in your user pool, your AWS Identity and Access Managemen
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

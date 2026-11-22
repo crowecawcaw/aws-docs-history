@@ -1,7 +1,6 @@
 
 
 # Setting up Facebook as an identity pools IdP
-<a name="facebook"></a>
 
 Amazon Cognito identity pools work with Facebook to provide federated authentication for your application users. This section explains how to register and set up your application with Facebook as an IdP.
 
@@ -118,7 +117,7 @@ To provide the Facebook access token to Amazon Cognito, implement the [AWSIdenti
 
 When you implement the `logins` method, return a dictionary that contains `AWSIdentityProviderFacebook`. This dictionary acts as the key, and the current access token from the authenticated Facebook user acts as the value, as shown in the following code example.
 
-```
+```objectivec
 - (AWSTask<NSDictionary<NSString *, NSString *> *> *)logins {
     FBSDKAccessToken* fbToken = [FBSDKAccessToken currentAccessToken];
     if(fbToken){
@@ -146,7 +145,7 @@ To provide the Facebook access token to Amazon Cognito, implement the [AWSIdenti
 
 When you implement the `logins` method, return a dictionary containing `AWSIdentityProviderFacebook`. This dictionary acts as the key, and the current access token from the authenticated Facebook user acts as the value, as shown in the following code example.
 
-```
+```swift
 class FacebookProvider: NSObject, AWSIdentityProviderManager {
     func logins() -> AWSTask<NSDictionary> {
         if let token = AccessToken.current?.authenticationToken {

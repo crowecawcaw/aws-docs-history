@@ -1,7 +1,6 @@
 
 
 # User pool metrics in CloudWatch
-<a name="metrics-for-cognito-user-pools"></a>
 
 User pools report user-activity statistics to CloudWatch as metrics. From CloudWatch, you can analyze the volume of authentication activity and quota usage in your user pools. With the information in these metrics, you can set alarms for noteworthy events and adjust your user pool configuration as needed. Where user-activity logging has detailed records of user activity in your user pools, CloudWatch metrics have aggregated statistics and performance indicators.
 

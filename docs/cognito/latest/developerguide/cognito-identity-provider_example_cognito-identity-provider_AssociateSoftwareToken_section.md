@@ -1,7 +1,6 @@
 
 
 # Use `AssociateSoftwareToken` with an AWS SDK or CLI
-<a name="cognito-identity-provider_example_cognito-identity-provider_AssociateSoftwareToken_section"></a>
 
 The following code examples show how to use `AssociateSoftwareToken`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get an MFA token to authenticate the user with the authenticator.
     /// </summary>
@@ -43,7 +42,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -108,7 +107,7 @@ For more information, see [TOTP software token MFA](https://docs.aws.amazon.com/
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
-```
+```java
     public static String getSecretForAppMFA(CognitoIdentityProviderClient identityProviderClient, String session) {
         AssociateSoftwareTokenRequest softwareTokenRequest = AssociateSoftwareTokenRequest.builder()
                 .session(session)
@@ -130,7 +129,7 @@ For more information, see [TOTP software token MFA](https://docs.aws.amazon.com/
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
-```
+```javascript
 const associateSoftwareToken = (session) => {
   const client = new CognitoIdentityProviderClient({});
   const command = new AssociateSoftwareTokenCommand({
@@ -148,7 +147,7 @@ const associateSoftwareToken = (session) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
-```
+```kotlin
 suspend fun getSecretForAppMFA(sessionVal: String?): String? {
     val softwareTokenRequest =
         AssociateSoftwareTokenRequest {
@@ -172,7 +171,7 @@ suspend fun getSecretForAppMFA(sessionVal: String?): String? {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
-```
+```python
 class CognitoIdentityProviderWrapper:
     """Encapsulates Amazon Cognito actions"""
 
@@ -218,7 +217,7 @@ class CognitoIdentityProviderWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_result) = lo_cgp->associatesoftwaretoken(
           iv_session = iv_session
@@ -243,7 +242,7 @@ class CognitoIdentityProviderWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSCognitoIdentityProvider
 

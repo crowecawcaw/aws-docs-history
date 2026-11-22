@@ -1,7 +1,6 @@
 
 
 # Common Amazon Cognito scenarios
-<a name="cognito-scenarios"></a>
 
 This topic describes seven common scenarios for using Amazon Cognito.
 

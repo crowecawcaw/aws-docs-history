@@ -1,7 +1,6 @@
 
 
 # Exchanging tokens for downstream services
-<a name="cognito-user-pools-token-exchange"></a>
 
 Token exchange is an OAuth 2.0 extension, defined in [RFC 8693](https://www.rfc-editor.org/rfc/rfc8693.html) on the RFC Editor website, that trades an existing token for a new token. With Amazon Cognito user pools, when your service receives a request from a user, it can exchange the user's token for a new token. The new token is narrowed in scope and bound to the audience of a specific downstream service. Your service doesn't forward the user's original token, which might be broader than the downstream service needs or intended for a different audience.
 
@@ -92,7 +91,7 @@ To perform a token exchange, complete the following steps.
 
 To exchange a token at the [Token endpoint](token-endpoint.md), make an HTTP POST request to `/oauth2/token` with a `Content-Type` of `application/x-www-form-urlencoded`. Authenticate your app client in the same way as other token-endpoint grants, with `client_secret_basic` or `client_secret_post`. Set `grant_type` to the token-exchange grant `urn:ietf:params:oauth:grant-type:token-exchange`. The token-type parameters use the RFC 8693 URN values, for example `urn:ietf:params:oauth:token-type:access_token`.
 
-```
+```http
 POST /oauth2/token HTTP/1.1
 Host: {{example-domain.auth.us-west-2.amazoncognito.com}}
 Content-Type: application/x-www-form-urlencoded
@@ -129,7 +128,7 @@ To perform delegation, add the `actor_token` and `actor_token_type` parameters. 
 
 To exchange a token with the SDK, call the `GetDerivedToken` operation. The request requires `ClientId`, `SubjectToken`, and `SubjectTokenType`. A confidential app client also supplies `ClientSecret`. To perform delegation, include `ActorToken` and `ActorTokenType`. The following example requests an impersonation exchange of an access token.
 
-```
+```json
 {
     "ClientId": "{{1example23456789}}",
     "ClientSecret": "{{exampleClientSecret123EXAMPLE}}",
@@ -174,7 +173,7 @@ The following examples show the output of an impersonation exchange and a delega
 
 An impersonation exchange returns a token that represents the user and has no `act` claim. The following is a `/oauth2/token` response.
 
-```
+```json
 {
     "access_token": "{{eyJra456defEXAMPLE}}",
     "issued_token_type": "urn:ietf:params:oauth:token-type:access_token",
@@ -185,7 +184,7 @@ An impersonation exchange returns a token that represents the user and has no `a
 
 A delegation exchange returns a token whose decoded payload includes an `act` claim that identifies the intermediary. The following shows the decoded payload of an issued access token:
 
-```
+```json
 {
     "sub": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
     "token_use": "access",

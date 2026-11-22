@@ -1,7 +1,6 @@
 
 
 # Customizing user pool workflows with Lambda triggers
-<a name="cognito-user-pools-working-with-lambda-triggers"></a>
 
 Amazon Cognito works with AWS Lambda functions to modify the authentication behavior of your user pool. You can configure your user pool to automatically invoke Lambda functions before their first sign-up, after they complete authentication, and at several stages in between. Your functions can modify the default behavior of your authentication flow, make API requests to modify your user pool or other AWS resources, and communicate with external systems. The code in your Lambda functions is your own. Amazon Cognito sends event data to your function, waits for the function to process the data, and in most cases anticipates a response event that reflects any changes you want to make to the session.
 
@@ -94,7 +93,7 @@ The following example Lambda resource-based policy grants Amazon Cognito a limit
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "default",
@@ -155,7 +154,7 @@ Amazon Cognito passes event information to your Lambda function. The Lambda func
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "version": "{{string}}",
     "triggerSource": "{{string}}",
@@ -230,7 +229,7 @@ Here is an example of passing client metadata to the pre sign-up trigger.
 
 The following is an example [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html#CognitoUserPools-SignUp-request-ValidationData) request with client metadata that Amazon Cognito passes to a pre sign-up trigger.
 
-```
+```http
 POST HTTP/1.1
 Host: cognito-idp.us-east-1.amazonaws.com
 X-Amz-Date: 20230613T200059Z
@@ -271,7 +270,7 @@ Content-Length: <PayloadSizeBytes>
 
 The request results in the following request body to your pre sign-up function.
 
-```
+```json
 {
     "callerContext": {
         "awsSdkVersion": "aws-sdk-unknown-unknown",

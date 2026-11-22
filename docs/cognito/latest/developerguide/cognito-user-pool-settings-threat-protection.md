@@ -1,7 +1,6 @@
 
 
 # Advanced security with threat protection
-<a name="cognito-user-pool-settings-threat-protection"></a>
 
 After you create your user pool, you have access to **Threat protection** in the navigation menu in the Amazon Cognito console. You can turn threat protection features on and customize the actions that are taken in response to different risks. Or you can use audit mode to gather metrics on detected risks without applying any security mitigations. In audit mode, threat protection publishes metrics to Amazon CloudWatch. You can see metrics after Amazon Cognito generates its first event. See [Viewing threat protection metrics](metrics-for-cognito-user-pools.md#user-pool-settings-viewing-threat-protection-metrics).
 
@@ -88,7 +87,7 @@ Client credentials grants are intended for machine-to-machine (M2M) authorizatio
 
 Set your feature plan to Plus in a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) API request. The following partial example request body sets threat protection to full-function mode. For a complete example request, see [Examples](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html#API_CreateUserPool_Examples).
 
-```
+```json
 "UserPoolAddOns": { 
       "AdvancedSecurityMode": "ENFORCED"
    }
@@ -205,7 +204,7 @@ To set the threat protection configuration for a user pool, send a [SetRiskConfi
 
 To enforce this configuration, you must set `AdvancedSecurityMode` to `ENFORCED` in a separate [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) API request. For more information about the placeholder templates like `{username}` in this example, see [Configuring MFA, authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md).
 
-```
+```json
 {
    "AccountTakeoverRiskConfiguration": { 
       "Actions": { 
@@ -261,7 +260,7 @@ To set the threat protection configuration for an app client, send a [SetRiskCon
 
 To enforce this configuration, you must set `AdvancedSecurityMode` to `ENFORCED` in a separate [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) API request. For more information about the placeholder templates like `{username}` in this example, see [Configuring MFA, authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md).
 
-```
+```json
 {
    "AccountTakeoverRiskConfiguration": { 
       "Actions": { 

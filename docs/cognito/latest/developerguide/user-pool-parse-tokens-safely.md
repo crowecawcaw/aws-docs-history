@@ -1,7 +1,6 @@
 
 
 # Parse user pool tokens safely
-<a name="user-pool-parse-tokens-safely"></a>
 
 An Amazon Cognito token's claim set is not fixed. The claims that your token carries vary with the authentication flow, the user's group membership, and the identity provider, and with the features that you enable on your user pool. Amazon Cognito adds new claims additively over time: it introduces new keys, but it does not rename, change the type of, or remove the existing claims that this guide documents. These rules apply to both ID tokens and access tokens.
 
