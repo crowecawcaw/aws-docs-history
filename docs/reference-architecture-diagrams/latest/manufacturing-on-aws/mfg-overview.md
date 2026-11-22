@@ -1,7 +1,6 @@
 
 
 # Overview
-<a name="mfg-overview"></a>
 
 The overview diagram shows how manufacturing workloads connect through a central data lake on AWS.
 

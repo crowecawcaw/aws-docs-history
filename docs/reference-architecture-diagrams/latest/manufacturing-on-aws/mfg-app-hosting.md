@@ -1,7 +1,6 @@
 
 
 # Application hosting
-<a name="mfg-app-hosting"></a>
 
 The application hosting diagram shows how to run enterprise and engineering applications on AWS.
 

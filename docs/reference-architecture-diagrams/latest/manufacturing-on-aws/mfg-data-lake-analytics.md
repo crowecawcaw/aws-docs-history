@@ -1,7 +1,6 @@
 
 
 # Data lake and analytics
-<a name="mfg-data-lake-analytics"></a>
 
 The data lake and analytics diagram shows how to process, analyze, and derive insights from manufacturing data.
 

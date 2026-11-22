@@ -1,7 +1,6 @@
 
 
 # Manufacturing on AWS
-<a name="manufacturing-on-aws"></a>
 
 Publication date: **October 28, 2020 ([Diagram history](#mfg-diagram-history))**
 
