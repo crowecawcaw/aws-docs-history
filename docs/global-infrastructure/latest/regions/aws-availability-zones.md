@@ -1,7 +1,6 @@
 
 
 # AWS Availability Zones
-<a name="aws-availability-zones"></a>
 
 Each Region has at least three Availability Zones. This helps you to design highly available applications on AWS.
 
@@ -225,7 +224,7 @@ aws ec2 describe-availability-zones \
 
 The following is example output for the US East (Ohio) Region.
 
-```
+```json
 [
     {
         "ZoneName": "us-east-2a",
@@ -253,7 +252,7 @@ aws ec2 describe-availability-zones \
 
 The following is example output for `us-east-2a` in the US East (Ohio) Region.
 
-```
+```json
 {
     "AvailabilityZones": [
         {
@@ -288,7 +287,7 @@ The following is example output for `us-east-2a` in the US East (Ohio) Region.
 **To list the Availability Zones in a Region**  
 Use the following [Get-EC2AvailabilityZone](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2AvailabilityZone.html) command. To include any Local Zones and Wavelength Zones that are opted in for your account, omit the `-Filter` parameter.
 
-```
+```powershell
 Get-EC2AvailabilityZone `
     -Filter @{Name="zone-type";Values="availability-zone"} `
     -Region {{us-east-2}} |
@@ -308,7 +307,7 @@ us-east-2c use2-az3
 **To describe an Availability Zone**  
 To view the details of a single Availability Zone, use the following [Get-EC2AvailabilityZone](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2AvailabilityZone.html) command.
 
-```
+```powershell
 Get-EC2AvailabilityZone -ZoneName {{us-east-2a}} -Region {{us-east-2}}
 ```
 

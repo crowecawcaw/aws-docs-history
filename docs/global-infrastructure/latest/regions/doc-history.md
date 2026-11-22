@@ -1,7 +1,6 @@
 
 
 # Document history for AWS Regions and Availability Zones
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for Regions and Zones.
 
@@ -9,7 +8,7 @@ The following table describes the documentation releases for Regions and Zones.
 | --- |--- |--- |
 | [Asia Pacific (New Zealand)](https://aws.amazon.com/blogs/aws/now-open-aws-asia-pacific-new-zealand-region/) | Launched the Asia Pacific (New Zealand) Region (`ap-southeast-6`). | September 2, 2025 | 
 | [Asia Pacific (Taipei)](https://aws.amazon.com/blogs/aws/now-open-aws-asia-pacific-taipei-region/) | Launched the Asia Pacific (Taipei) Region (`ap-east-2`). | June 6, 2025 | 
-| [Geography](#doc-history) | The geography of a Region is the specific physical location of its infrastructure. This information can help you meet your regularly, compliance, and operational requirements. | March 25, 2025 | 
+| [Geography](doc-history.md) | The geography of a Region is the specific physical location of its infrastructure. This information can help you meet your regularly, compliance, and operational requirements. | March 25, 2025 | 
 | [Mexico (Central)](https://aws.amazon.com/blogs/aws/now-open-aws-mexico-central-region/) | Launched the Mexico (Central) Region (`mx-central-1`). | January 14, 2025 | 
 | [Asia Pacific (Thailand)](https://aws.amazon.com/blogs/aws/announcing-the-new-aws-asia-pacific-thailand-region/) | Launched the Asia Pacific (Thailand) Region (`ap-southeast-7`). | January 7, 2025 | 
 | [Asia Pacific (Malaysia)](https://aws.amazon.com/blogs/aws/now-open-aws-asia-pacific-malaysia-region/) | Launched the Asia Pacific (Malaysia) Region (`ap-southeast-5`). | August 21, 2024 | 
@@ -26,8 +25,8 @@ The following table describes the documentation releases for Regions and Zones.
 | [Middle East (Bahrain)](https://aws.amazon.com/blogs/aws/now-open-aws-middle-east-bahrain/) | Launched the Middle East (Bahrain) Region (`me-south-1`). | July 30, 2019 | 
 | [Asia Pacific (Hong Kong)](https://aws.amazon.com/blogs/aws/now-open-aws-asia-pacific-hong-kong-region/) | Launched the Asia Pacific (Hong Kong) Region (`ap-east-1`). | April 25, 2019 | 
 | [Europe (Stockholm)](https://aws.amazon.com/blogs/aws/now-open-aws-europe-stockholm-region/) | Launched the Europe (Stockholm) Region (`eu-north-1`). | December 12, 2018 | 
-| [AZ IDs](#doc-history) | An AZ ID is the unique and consistent identifier for an Availability Zone. Use AZ IDs to determine the physical location of your resources relative to resources in another account. | November 27, 2018 | 
-| [Asia Pacific (Osaka)](#doc-history) | Launched the Asia Pacific (Osaka) Region (`ap-northeast-3`) as a local Region. It became a generally available Region on March 1, 2021. | February 12, 2018 | 
+| [AZ IDs](doc-history.md) | An AZ ID is the unique and consistent identifier for an Availability Zone. Use AZ IDs to determine the physical location of your resources relative to resources in another account. | November 27, 2018 | 
+| [Asia Pacific (Osaka)](doc-history.md) | Launched the Asia Pacific (Osaka) Region (`ap-northeast-3`) as a local Region. It became a generally available Region on March 1, 2021. | February 12, 2018 | 
 | [Europe (Paris)](https://aws.amazon.com/blogs/aws/now-open-aws-eu-paris-region/) | Launched the Europe (Paris) Region (`eu-west-3`). | December 18, 2017 | 
 | [Europe (London)](https://aws.amazon.com/blogs/publicsector/aws-europe-london-region-now-open/) | Launched the Europe (London) Region (`eu-west-2`). | December 14, 2016 | 
 | [Canada (Central)](https://aws.amazon.com/blogs/aws/now-open-aws-canada-central-region/) | Launched the Canada (Central) Region (`ca-central-1`). | December 8, 2016 | 
@@ -42,4 +41,4 @@ The following table describes the documentation releases for Regions and Zones.
 | [Asia Pacific (Singapore)](https://aws.amazon.com/about-aws/whats-new/2010/04/29/announcing-asia-pacific-singapore-region/) | Launched the Asia Pacific (Singapore) Region (`ap-southeast-1`). | April 29, 2010 | 
 | [US West (N. California)](https://aws.amazon.com/about-aws/whats-new/2009/12/03/aws-launches-the-northern-california-region/) | Launched the US West (N. California) Region (`us-west-1`). | December 3, 2009 | 
 | [Europe (Ireland)](https://aws.amazon.com/about-aws/whats-new/2008/12/10/amazon-ec2-crosses-the-atlantic/) | Launched the Europe (Ireland) Region (`eu-west-1`). | December 10, 2008 | 
-| [US East (N. Virginia)](#doc-history) | Launched the US East (N. Virginia) Region (`us-east-1`). | August 25, 2006 | 
+| [US East (N. Virginia)](doc-history.md) | Launched the US East (N. Virginia) Region (`us-east-1`). | August 25, 2006 | 

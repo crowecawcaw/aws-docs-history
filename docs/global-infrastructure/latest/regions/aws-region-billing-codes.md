@@ -1,7 +1,6 @@
 
 
 # AWS Region billing codes
-<a name="aws-region-billing-codes"></a>
 
 AWS billing and usage reports often use abbreviations for Region codes. For example, the `line_item_usage_type` value `APE1-USE1-AWS-In-Bytes` shows the short codes for the Asia Pacific (Hong Kong) and US East (N. Virginia) Regions.
 

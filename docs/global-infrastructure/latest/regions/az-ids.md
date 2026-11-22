@@ -1,7 +1,6 @@
 
 
 # AZ IDs
-<a name="az-ids"></a>
 
 Originally, we decided to independently map Availability Zones to codes in each AWS account. This ensures that resources are distributed across the Availability Zones for these Regions, even if most customers chose the first Availability Zone in the Region. For example, the `us-east-1a` for your AWS account might not be the same physical location as the `us-east-1a` for another AWS account. As AWS learned more about customer usage patterns, and as AWS evolved, we determined that it was not necessary to continue to independently map Availability Zones to codes. All Regions introduced after November 2012 use a uniform mapping of Availability Zones to codes.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Regions
-<a name="aws-regions"></a>
 
 When you are preparing to deploy a workload, consider which Region or Regions best meet your needs. For example, select a Region that has the AWS services and features that you need. Also, you can lower network latency when you select a Region that is close to the majority of your users.
 
@@ -198,7 +197,7 @@ aws account get-region-opt-status --region-name af-south-1
 
 The following is example output:
 
-```
+```json
 {
     "RegionName": "af-south-1",
     "RegionOptStatus": "DISABLED"
@@ -227,7 +226,7 @@ Africa (Cape Town)
 **To list the Regions enabled by default**  
 Use the following AWS Tools for PowerShell [Get-ACCTRegionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-ACCTRegionList.html) command.
 
-```
+```powershell
 (Get-ACCTRegionList -RegionOptStatusContain ENABLED_BY_DEFAULT).RegionName
 ```
 
@@ -256,14 +255,14 @@ us-west-2
 **To list the Regions enabled for your account**  
 Use the following AWS Tools for PowerShell [Get-ACCTRegionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-ACCTRegionList.html) command to list both Regions enabled by default and Regions enabled for your account.
 
-```
+```powershell
 (Get-ACCTRegionList -RegionOptStatusContain ENABLED_BY_DEFAULT,ENABLED).RegionName
 ```
 
 **To get the opt-in status of a Region**  
 Use the following AWS Tools for PowerShell [Get-ACCTRegionOptStatus](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-ACCTRegionOptStatus.html) command.
 
-```
+```powershell
 Get-ACCTRegionOptStatus -RegionName af-south-1
 ```
 
@@ -278,7 +277,7 @@ DISABLED
 **To get the long name of a Region**  
 Use the following AWS Tools for PowerShell [Get-SSMParametersByPath](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMParametersByPath.html) command. Replace {{region-code}} with the code for the Region.
 
-```
+```powershell
 (Get-SSMParametersByPath -Path /aws/service/global-infrastructure/regions/{{region-code}} | Where-Object Name -like "*longName*").Value
 ```
 

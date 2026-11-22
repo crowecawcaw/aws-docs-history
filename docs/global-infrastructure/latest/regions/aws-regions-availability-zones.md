@@ -1,7 +1,6 @@
 
 
 # AWS Regions and Availability Zones
-<a name="aws-regions-availability-zones"></a>
 
 AWS services are hosted in multiple locations world-wide. These locations are composed of AWS Regions, Availability Zones, Local Zones, and Wavelength Zones.
 + Each [Region](#concepts-regions) is a separate geographic area.
