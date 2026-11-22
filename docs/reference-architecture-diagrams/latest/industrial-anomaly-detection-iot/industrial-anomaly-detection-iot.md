@@ -1,7 +1,6 @@
 
 
 # AWS Industrial Anomaly Detection Using AWS IoT
-<a name="industrial-anomaly-detection-iot"></a>
 
 Publication date: **October 12, 2021 ([Diagram history](#iad-diagram-history))**
 
