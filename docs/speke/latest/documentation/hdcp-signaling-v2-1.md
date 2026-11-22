@@ -1,7 +1,6 @@
 
 
 # SPEKE API v2.1 - HDCP signaling
-<a name="hdcp-signaling-v2-1"></a>
 
 In SPEKE v2.1, the key provider can return High-bandwidth Digital Content Protection (HDCP) output protection information for a content key. The encryptor uses this information to signal the required HDCP level to players in the manifest or playlist that it produces.
 

@@ -1,7 +1,6 @@
 
 
 # What is Secure Packager and Encoder Key Exchange?
-<a name="what-is-speke"></a>
 
 Secure Packager and Encoder Key Exchange (SPEKE) defines the standard for communication between encryptors and packagers of media content and digital rights management (DRM) key providers. The specification accommodates encryptors running on premises and in the AWS Cloud.
 

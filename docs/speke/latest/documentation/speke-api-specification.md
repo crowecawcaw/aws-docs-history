@@ -1,7 +1,6 @@
 
 
 # SPEKE API specification
-<a name="speke-api-specification"></a>
 
 This is the REST API specification for Secure Packager and Encoder Key Exchange (SPEKE). Use this specification to provide DRM copyright protection for customers who use encryption.
 

@@ -1,7 +1,6 @@
 
 
 # License for the SPEKE API specification
-<a name="license"></a>
 
 ## Creative Commons Attribution-ShareAlike 4.0 International Public License
 <a name="creative-commons"></a>

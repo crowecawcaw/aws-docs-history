@@ -1,7 +1,6 @@
 
 
 # SPEKE API v2.1 - Encryption contract
-<a name="encryption-contract-v2-1"></a>
 
 The encryption contract defines which content keys are protecting which tracks inside a given streamset, based on the tracks characteristics.
 
@@ -46,7 +45,7 @@ There are situations where the information provided in the encryption contract m
 **Examples of Encryption Contracts**  
  *Example 1: one content key for all audio and video tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="ALL">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -58,7 +57,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 2: one content key for all video tracks, one content key for all audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
     <cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">
         <cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -73,7 +72,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 3: one content key for all video tracks, unencrypted audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -84,7 +83,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 4: multiple content keys for different video tracks (SD/HD), one content key for all audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
@@ -106,7 +105,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 5: multiple content keys for different video tracks (SD/HD/UHD), one content key for all audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
@@ -133,7 +132,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 6: multiple content keys for different video tracks (SD/HD/UHD1/UHD2), one content key for all audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
@@ -165,7 +164,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 7: multiple content keys for different video tracks (SD/HD1/HD2/UHD1/UHD2), one content key for all audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
@@ -202,7 +201,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 8: multiple content keys for different video tracks (based on multiple attributes types), one content key for all audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD and HD video tracks-->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD+HD">
@@ -227,7 +226,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 9: one content key for all video tracks, multiple content keys for stereo and multichannel audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for video tracks-->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">
@@ -249,7 +248,7 @@ There are situations where the information provided in the encryption contract m
 
  *Example 10: one content key for all video tracks, multiple content keys for stereo and two types of multichannel audio tracks* 
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for video tracks-->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">

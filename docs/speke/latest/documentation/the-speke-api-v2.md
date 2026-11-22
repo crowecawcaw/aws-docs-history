@@ -1,7 +1,6 @@
 
 
 # SPEKE API v2.0
-<a name="the-speke-api-v2"></a>
 
 This is the REST API for Secure Packager and Encoder Key Exchange (SPEKE) v2. Use this specification to provide DRM copyright protection for customers who use encryption. To be SPEKE-compliant, your DRM key provider must expose the REST API described in this specification. The encryptor makes API calls to your key provider.
 

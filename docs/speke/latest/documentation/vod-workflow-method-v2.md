@@ -1,7 +1,6 @@
 
 
 # SPEKE API v2.0 - VOD workflow method call examples
-<a name="vod-workflow-method-v2"></a>
 
  *Request Syntax Example* 
 
@@ -51,7 +50,7 @@ The examples in this section do not include content key encryption. For informat
 
 The following example shows a typical VOD request payload from the encryptor to the DRM key provider, with one content key for all video tracks and one content key for all audio tracks:
 
-```
+```xml
 <cpix:CPIX contentId="abc123" version="2.3" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
 	<cpix:ContentKeyList>
 		<cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs"></cpix:ContentKey>
@@ -111,7 +110,7 @@ The following example shows a typical VOD request payload from the encryptor to 
 
 The following example shows a typical response payload from the DRM key provider (returned values have been shortened with […​] for readability):
 
-```
+```xml
 <cpix:CPIX contentId="abc123" version="2.3" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
 	<cpix:ContentKeyList>
 		<cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs">

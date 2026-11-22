@@ -1,7 +1,6 @@
 
 
 # SPEKE API v1 - Heartbeat
-<a name="heartbeat"></a>
 
  *Request Syntax Example* 
 

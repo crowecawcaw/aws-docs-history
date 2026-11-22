@@ -1,7 +1,6 @@
 
 
 # SPEKE API v2.0 - Standard payload components
-<a name="standard-payload-components-v2"></a>
 
 Through a single SPEKE request, the encryptor can request multiple content keys, together with the necessary manfest signaling for multiple packaging formats, according to the encryption contract that is defined for a given content.
 
@@ -18,7 +17,7 @@ As per the CPIX specification, the possible values of the `ContentKey@commonEncr
 
 The following example shows a CPIX document with a single, non encrypted, content key:
 
-```
+```xml
 <cpix:CPIX contentId="abc123" version="2.3" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
 	<cpix:ContentKeyList>
 		<cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs">
@@ -48,7 +47,7 @@ This is a mandatory section, relevant for both Live and VOD streaming, defining 
 
 The following example shows a DRM system list with a single PlayReady DRM system specification:
 
-```
+```xml
 <cpix:DRMSystemList>
 	<cpix:DRMSystem kid="98ee5596-cd3e-a20d-163a-e382420c6eff" systemId="9a04f079-9840-4286-ab92-e65be0885f95">
 		<cpix:HLSSignalingData playlist="media">HicXmbZ2m[...]4==</cpix:HLSSignalingData>
@@ -79,7 +78,7 @@ This is an optional section, relevant only for Live streaming, defining the cryp
 
 The `<cpix:ContentKeyPeriodList>` element can contain one or several `<cpix:ContentKeyPeriod>` child elements, each of them describing a distinct crypto period in the live timeline. Using UUIDs as part of the value of the id attribute is a commonly used approach.
 
-```
+```xml
 <cpix:ContentKeyPeriodList>
 	<cpix:ContentKeyPeriod id="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f" index="1" />
 </cpix:ContentKeyPeriodList>
@@ -100,7 +99,7 @@ The <cpix:ContentKeyUsageRuleList> element can contain one or several <cpix:Cont
 
 The following example shows a simple list with only one rule applying a single content key to all audio and video tracks during a specific crypto period.
 
-```
+```xml
 <cpix:ContentKeyUsageRuleList>
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="ALL">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>

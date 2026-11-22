@@ -1,7 +1,6 @@
 
 
 # SPEKE API v2.1 - Changes from SPEKE v2.0
-<a name="changes-from-v2-0-v2-1"></a>
 
 SPEKE v2.1 introduces the following changes compared to SPEKE v2.0. Except for these changes, SPEKE v2.1 behaves identically to SPEKE v2.0.
 +  **CPIX 2.4 alignment.** SPEKE v2.1 aligns with the CPIX 2.4 specification. The encryptor sends `X-Speke-Version` value `2.1` and `CPIX@version` value `2.4`.

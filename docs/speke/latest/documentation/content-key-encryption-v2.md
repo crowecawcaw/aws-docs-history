@@ -1,7 +1,6 @@
 
 
 # SPEKE API v2.0 - Content key encryption
-<a name="content-key-encryption-v2"></a>
 
 You can optionally add content key encryption to your SPEKE implementation. Content key encryption guarantees full end-to-end protection by encrypting the content keys for transit, in addition to encrypting the content itself. If you don’t implement this for your key provider, you rely on the transport layer encryption plus strong authentication for security.
 
@@ -23,7 +22,7 @@ For more information about these elements, see the [DASH-IF CPIX 2.3 specificati
 
  *Example Content Key Encryption Element ` <cpix:DeliveryDataList> ` in the Request Payload* 
 
-```
+```xml
 <cpix:CPIX contentId="abc123"
     version="2.3"
     xmlns:cpix="urn:dashif:org:cpix"
@@ -45,7 +44,7 @@ For more information about these elements, see the [DASH-IF CPIX 2.3 specificati
 
  *Example Content Key Encryption Element ` <cpix:DeliveryDataList> ` in the Response Payload* 
 
-```
+```xml
 <cpix:CPIX contentId="abc123"
     version="2.3"
     xmlns:cpix="urn:dashif:org:cpix"
@@ -93,7 +92,7 @@ For more information about these elements, see the [DASH-IF CPIX 2.3 specificati
 
 The following example shows encrypted content key handling in the `<cpix:ContentKeyList>` element of the response payload. This uses the `<pskc:EncryptedValue>` element:
 
-```
+```xml
 <cpix:ContentKeyList>
      <cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs">
          <cpix:Data>
@@ -113,7 +112,7 @@ The following example shows encrypted content key handling in the `<cpix:Content
 
 By comparison, the following example shows a similar response payload with the content key delivered unencrypted, as a clear key. This uses the `<pskc:PlainValue>` element:
 
-```
+```xml
 <cpix:ContentKeyList>
     <cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs">
         <cpix:Data>

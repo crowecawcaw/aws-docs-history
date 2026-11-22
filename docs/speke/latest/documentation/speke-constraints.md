@@ -1,7 +1,6 @@
 
 
 # SPEKE API v1 - Customizations and constraints to the DASH-IF specification
-<a name="speke-constraints"></a>
 
 The DASH-IF CPIX specification, https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf, supports a number of use cases and topologies. The SPEKE API specification adheres to the CPIX specification with the following customizations and constraints:
 + SPEKE follows the Encryptor Consumer workflow.

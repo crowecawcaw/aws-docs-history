@@ -1,7 +1,6 @@
 
 
 # SPEKE API v1 - Standard payload components
-<a name="standard-payload-components"></a>
 
 In any SPEKE request, the encryptor can request responses for one or more DRM systems. The encryptor specifies the DRM systems in `<cpix:DRMSystemList>` of the request payload. Each system specification includes the key and indicates the type of response to return.
 

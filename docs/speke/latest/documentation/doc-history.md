@@ -1,7 +1,6 @@
 
 
 # Document history for the SPEKE partner and customer guide
-<a name="doc-history"></a>
 
 The following table describes the changes to the SPEKE documentation.
 
