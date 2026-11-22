@@ -1,7 +1,6 @@
 
 
 # Publish a .NET Application to a Windows Server 2022 Instance in Amazon Lightsail
-<a name="host-net-web-app"></a>
 
 
 |  |  | 
