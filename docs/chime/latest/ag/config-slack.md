@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Setting up the Amazon Chime Meetings App for Slack
-<a name="config-slack"></a>
 
 If you use [ Slack Enterprise Grid Organizations ](https://slack.com/help/articles/360000281563-Manage-apps-on-Enterprise-Grid), and you own or administer a Slack organization, you can set up the Amazon Chime Meetings App for Slack for your organizations. If you're a Slack workspace administrator, you can set up the Amazon Chime Meetings App for Slack for your workspaces.
 

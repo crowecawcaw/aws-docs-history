@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Guide to Amazon Chime transition features
-<a name="amazon-chime-transition-features"></a>
 
 After careful consideration, we decided to end support for the Amazon Chime service, including Business Calling features, effective February 20, 2026. Amazon Chime will no longer accept new customers beginning February 19, 2025. As an existing customer with an Amazon Chime Team or Enterprise account created before February 19, 2025, you can continue to use Amazon Chime features, including Business Calling, scheduling and hosting meetings, adding and managing users, and other capabilities supported through the Amazon Chime admin console. After February 20, 2026, you will no longer be able to manage your users, host Amazon Chime meetings, or use any of the Business Calling features. Contact Support if you are unable to delete your data before February 20, 2026.
 

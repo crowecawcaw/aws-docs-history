@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Deleting chat messages
-<a name="delete-individual-messages"></a>
 
 To comply with data retention policies, Amazon Chime retains all chat messages, and it prevents end users from deleting the messages that they send. However, Amazon Chime system administrators can use a pair of APIs to delete individual messages from conversations and chat rooms. The messages must reside in the administrator's Amazon Chime account.
 

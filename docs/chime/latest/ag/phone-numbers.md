@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Managing phone numbers in Amazon Chime
-<a name="phone-numbers"></a>
 
 You use Use the Amazon Chime console to provision phone numbers. When you provision numbers, you request them from a pool of numbers managed by Amazon Chime. When you unassign and then delete numbers, they return to the pool. When you port numbers, you port them into and out of Amazon Chime.
 

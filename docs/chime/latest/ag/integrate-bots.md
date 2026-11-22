@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Step 1: Integrate a chatbot with Amazon Chime
-<a name="integrate-bots"></a>
 
 After you complete the [prerequisites](use-bots.md#bots-prereqs), integrate your chatbot with Amazon Chime using the AWS CLI or Amazon Chime API.
 
@@ -61,7 +60,7 @@ These procedures create a name and email address for your chatbot. Chatbot names
 
 The following sample code demonstrates how to integrate a chatbot using the AWS SDK for Java.
 
-```
+```java
 CreateBotRequest createBotRequest = new CreateBotRequest()
     .withAccountId("{{chimeAccountId}}")
     .withDisplayName("{{exampleBot}}")

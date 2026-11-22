@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Connecting to your Active Directory
-<a name="active_directory"></a>
 
 When you connect your Amazon Chime administrative account to an Active Directory, you can benefit from the following capabilities:
 + Your Amazon Chime users can sign in with their Active Directory credentials.

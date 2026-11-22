@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Using outbound calling names
-<a name="calling-name"></a>
 
 Outbound calling names act as caller IDs. You can set a default calling name for one or more of the phone numbers in your inventory. You can also set unique calling names for individual phone numbers. The names then appear to recipients of outbound calls made using those phone numbers. Calling names apply to all phone number product types. You can update the names once every seven days.
 

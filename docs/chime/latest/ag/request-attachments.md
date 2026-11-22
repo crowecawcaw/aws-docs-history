@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Requesting user attachments
-<a name="request-attachments"></a>
 
 If you manage an Enterprise account and have the appropriate permissions, you can request and receive the attachments that your users upload into Amazon Chime. You can get attachments that users uploaded into 1:1 and group conversations, or into chat rooms that they created. 
 

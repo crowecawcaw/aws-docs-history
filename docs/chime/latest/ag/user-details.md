@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Viewing user details
-<a name="user-details"></a>
 
 In the Amazon Chime console, under **Users**, you can view a list of all the users in your account and see their user details. Search for a specific user by their email address and choose their name to see their user details. Under **User details**, you can see detailed information about the user, and make updates to their user account.
 

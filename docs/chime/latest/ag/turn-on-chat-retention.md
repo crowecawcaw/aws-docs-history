@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Turning on chat retention
-<a name="turn-on-chat-retention"></a>
 
 Amazon Chime Enterprise account administrators can use the Amazon Chime console to turn chat retention on for chat conversations and chat rooms in their account. You can also use the console to update chat retention periods or turn off chat retention at any time.
 

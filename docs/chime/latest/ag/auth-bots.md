@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Authenticate chatbot requests
-<a name="auth-bots"></a>
 
 You can authenticate requests sent to your chatbot from an Amazon Chime chat room. To do this, compute a signature based on the request. Then, validate that the computed signature matches the one on the request header. Amazon Chime uses the HMAC SHA256 hash to generate the signature.
 
@@ -23,7 +22,7 @@ If your chatbot is configured for Amazon Chime using an outbound HTTPS endpoint,
 
 The following code sample demonstrates how to generate a signature using Java.
 
-```
+```java
         private final String DELIMITER = "|";
         private final String HMAC_SHA_256 = "HmacSHA256";
    
@@ -55,7 +54,7 @@ If your chatbot is configured for Amazon Chime using a Lambda function ARN, use 
 
 1. Get the **Chime-Signature** and **Chime-Request-Timestamp** from the Lambda request **ClientContext**, in Base64 encoded JSON format.
 
-   ```
+   ```json
    {
    "Chime-Signature" : "1234567890",
    "Chime-Request-Timestamp" : "2019-04-04T21:30:43.181Z"

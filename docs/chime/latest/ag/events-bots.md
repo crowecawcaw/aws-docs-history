@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Amazon Chime events sent to chatbots
-<a name="events-bots"></a>
 
 The following events are sent to your chatbot from Amazon Chime:
 + **Invite** – Sent when your chatbot is added to an Amazon Chime chat room
@@ -14,7 +13,7 @@ The following examples show the JSON payload sent to your chatbot for each of th
 
 **Example : Invite event**  
 
-```
+```json
             {
               "Sender": {
                             "SenderId": "{{user@example.com}}",
@@ -35,7 +34,7 @@ The following examples show the JSON payload sent to your chatbot for each of th
 
 **Example : Mention event**  
 
-```
+```json
             {
                 "Sender": {
                             "SenderId": "{{user@example.com}}",
@@ -60,7 +59,7 @@ The `InboundHttpsEndpoint` URL for a Mention event expires 2 minutes after it is
 
 **Example : Remove event**  
 
-```
+```json
             {
                 "Sender": {
                             "SenderId": "{{user@example.com}}",

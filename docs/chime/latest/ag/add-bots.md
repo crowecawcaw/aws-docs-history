@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Step 3: Add the chatbot to an Amazon Chime chat room
-<a name="add-bots"></a>
 
 Only a chat room administrator can add a chatbot to a chat room. They use the chatbot email address created in [Step 1](integrate-bots.md).
 

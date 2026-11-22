@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Converting a Team account to an Enterprise account
-<a name="convert-team-to-enterprise"></a>
 
 To convert an existing Team account to an Enterprise account, claim one or more email domains in the Amazon Chime console. For more information about the differences between Team and Enterprise accounts, see [Choosing between an Amazon Chime Team account or Enterprise account](choose-team-enterprise-account.md). For more information about claiming a domain, see [Claiming a domain](claim-domain.md).
 

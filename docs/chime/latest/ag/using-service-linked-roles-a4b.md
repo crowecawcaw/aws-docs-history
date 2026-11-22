@@ -3,7 +3,6 @@
 **End of support notice**: On February 20, 2026, AWS will end support for the Amazon Chime service. After February 20, 2026, you will no longer be able to access the Amazon Chime console or Amazon Chime application resources. For more information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-targeting/update-on-support-for-amazon-chime/). **Note:** This does not impact the availability of the [Amazon Chime SDK service](https://aws.amazon.com/chime/chime-sdk/).
 
 # Using roles with shared Alexa for Business devices
-<a name="using-service-linked-roles-a4b"></a>
 
 The information in the following sections explains how to use service-linked roles and grant Amazon Chime access to the Alexa for Business resources in your AWS account.
 
