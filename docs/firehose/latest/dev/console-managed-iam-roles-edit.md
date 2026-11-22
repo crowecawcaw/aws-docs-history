@@ -1,7 +1,6 @@
 
 
 # Edit IAM role from console
-<a name="console-managed-iam-roles-edit"></a>
 
 When you edit a Firehose stream, Firehose updates the corresponding permission policy accordingly to reflect the configuration and permission changes. 
 

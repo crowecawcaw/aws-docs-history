@@ -1,7 +1,6 @@
 
 
 # Understand custom prefixes for Amazon S3 objects
-<a name="s3-prefixes"></a>
 
 Objects delivered to Amazon S3 follow the [name format](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-namekey) of <evaluated prefix><suffix>. You can specify your custom prefix that includes expressions that are evaluated at runtime. Custom prefix you specify will override the default prefix of `yyyy/MM/dd/HH`.
 

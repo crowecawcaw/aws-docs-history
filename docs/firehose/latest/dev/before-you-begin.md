@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites to set up Amazon Data Firehose
-<a name="before-you-begin"></a>
 
 Before you use Amazon Data Firehose for the first time, complete the following tasks.
 

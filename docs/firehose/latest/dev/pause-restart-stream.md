@@ -1,7 +1,6 @@
 
 
 # Pause and resume data delivery
-<a name="pause-restart-stream"></a>
 
 After you setup a Firehose stream, data available in the stream source is continuously delivered to the destination. If you encounter situations where your stream destination is temporarily unavailable (for example, during planned maintenance operations), you may want to temporarily pause data delivery, and resume when the destination becomes available again. 
 

@@ -1,7 +1,6 @@
 
 
 # Using Amazon Data Firehose with AWS PrivateLink
-<a name="vpc"></a>
 
 You can use an interface VPC endpoint (AWS PrivateLink) to access Amazon Data Firehose from your VPC without requiring an Internet Gateway or NAT Gateway. Interface VPC endpoints don't require an internet gateway, NAT device, VPN connection, or Direct Connect connection. Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private communication between AWS services using an elastic network interface with private IPs in your Amazon VPC. For more information, see [Amazon Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html). 
 
@@ -28,7 +27,7 @@ The following example shows how you can set up an AWS Lambda function in a VPC a
 
 1. For **Policy**, choose **Custom** and paste the following policy:
 
-   ```
+   ```JSON
    {
        "Statement": [
            {
@@ -99,7 +98,7 @@ This is an example. You might need stricter policies for your production environ
 
 1. Under **Function code**, paste the following code.
 
-   ```
+   ```Python
        import json
        import boto3
        import os

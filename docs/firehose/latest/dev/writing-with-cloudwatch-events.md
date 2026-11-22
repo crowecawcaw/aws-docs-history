@@ -1,7 +1,6 @@
 
 
 # Send CloudWatch Events to Firehose
-<a name="writing-with-cloudwatch-events"></a>
 
 You can configure Amazon CloudWatch to send events to a Firehose stream by adding a target to a CloudWatch Events rule.
 

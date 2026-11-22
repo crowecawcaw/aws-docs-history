@@ -1,7 +1,6 @@
 
 
 # Pre-process data with Agents
-<a name="pre-processing"></a>
 
 The agent can pre-process the records parsed from monitored files before sending them to your Firehose stream. You can enable this feature by adding the `dataProcessingOptions` configuration setting to your file flow. One or more processing options can be added, and they are performed in the specified order.
 

@@ -1,7 +1,6 @@
 
 
 # Configure Kinesis agent to send data
-<a name="writing-with-agents"></a>
 
 Amazon Kinesis agent is a standalone Java software application that serves as a reference implementation to show how you can collect and send data to Firehose. The agent continuously monitors a set of files and sends new data to your Firehose stream. The agent shows how you can handle file rotation, checkpointing, and retry upon failures. It shows how you can deliver your data in a reliable, timely, and simple manner. It also shows how you can emit CloudWatch metrics to better monitor and troubleshoot the streaming process. To learn more, [awslabs/amazon-kinesis-agent](https://github.com/awslabs/amazon-kinesis-agent).
 

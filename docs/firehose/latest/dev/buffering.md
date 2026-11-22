@@ -1,7 +1,6 @@
 
 
 # Buffer data for dynamic partitioning
-<a name="buffering"></a>
 
 Amazon Data Firehose buffers incoming streaming data to a certain size and for a certain period of time before delivering it to the specified destinations. You can configure the buffer size and the buffer interval while creating new Firehose streams or update the buffer size and the buffer interval on your existing Firehose streams. A buffer size is measured in MBs and a buffer interval is measured in seconds.
 

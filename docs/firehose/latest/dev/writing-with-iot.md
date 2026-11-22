@@ -1,7 +1,6 @@
 
 
 # Configure AWS IoT to send data to Firehose
-<a name="writing-with-iot"></a>
 
 You can configure AWS IoT to send information to a Firehose stream by adding an action.
 

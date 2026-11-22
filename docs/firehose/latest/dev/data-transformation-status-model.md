@@ -1,7 +1,6 @@
 
 
 # Required parameters for data transformation
-<a name="data-transformation-status-model"></a>
 
 All transformed records from Lambda must contain the following parameters, or Amazon Data Firehose rejects them and treats that as a data transformation failure.
 
@@ -15,7 +14,7 @@ The following parameters are required for all transformed records from Lambda.
 
   Following is a sample Lambda result output:
 
-  ```
+  ```json
    {
       "recordId": {{"<recordId from the Lambda input>"}},
       "result": "Ok",
@@ -33,7 +32,7 @@ The following parameters are required for all transformed records from Lambda.
 
   Following is a sample Lambda result output:
 
-  ```
+  ```json
    {
       "recordId": {{"<recordId from the Lambda input>"}},
       "result": "Ok",

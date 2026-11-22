@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon Data Firehose
-<a name="encryption"></a>
 
 Amazon Data Firehose encrypts all data in transit using TLS protocol. Furthermore, for data stored in interim storage during processing, Amazon Data Firehose encrypts data using [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) and verifies data integrity using checksum verification.
 

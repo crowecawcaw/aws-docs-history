@@ -1,7 +1,6 @@
 
 
 # Use `PutRecordBatch` with an AWS SDK or CLI
-<a name="example_firehose_PutRecordBatch_section"></a>
 
 The following code examples show how to use `PutRecordBatch`.
 
@@ -57,7 +56,7 @@ For more information, see [Sending Data to an Amazon Kinesis Data Firehose Deliv
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples). 
 
-```
+```java
     /**
      * Puts a batch of records to an Amazon Kinesis Data Firehose delivery stream.
      *
@@ -115,7 +114,7 @@ For more information, see [Sending Data to an Amazon Kinesis Data Firehose Deliv
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose#code-examples). 
 
-```
+```python
 class FirehoseClient:
     """
     AWS Firehose client to send records and monitor metrics.
@@ -175,7 +174,7 @@ class FirehoseClient:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/firehose#code-examples). 
 
-```
+```rust
 async fn put_record_batch(
     client: &Client,
     stream: &str,
@@ -197,7 +196,7 @@ async fn put_record_batch(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_result) = lo_frh->putrecordbatch(
           iv_deliverystreamname = iv_deliv_stream_name

@@ -1,7 +1,6 @@
 
 
 # Send CloudWatch Logs to Firehose
-<a name="writing-with-cloudwatch-logs"></a>
 
 CloudWatch Logs events can be sent to Firehose using CloudWatch subscription filters. For more information, see [Subscription filters with Amazon Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#FirehoseExample).
 

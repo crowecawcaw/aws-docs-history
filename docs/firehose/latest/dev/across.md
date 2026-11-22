@@ -1,7 +1,6 @@
 
 
 # Understand delivery across AWS accounts and regions
-<a name="across"></a>
 
 Amazon Data Firehose supports data delivery to HTTP endpoint destinations across AWS accounts. The Firehose stream and the HTTP endpoint that you choose as your destination can belong to different AWS accounts.
 

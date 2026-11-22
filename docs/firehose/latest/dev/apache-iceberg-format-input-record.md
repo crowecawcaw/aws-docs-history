@@ -1,7 +1,6 @@
 
 
 # Route incoming records to a single Iceberg table
-<a name="apache-iceberg-format-input-record"></a>
 
 If you want Firehose to insert data to a single Iceberg table, simply configure a single database and table in your stream configuration as shown in the following example JSON. For a single table, you do not require JQ expression and Lambda function for providing the routing information to Firehose. If you provide these fields along with JQ or Lambda, then Firehose will take input from JQ or Lambda.
 

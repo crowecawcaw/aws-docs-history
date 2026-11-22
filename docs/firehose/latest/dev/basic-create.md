@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a Firehose stream from console
-<a name="basic-create"></a>
 
 You can use the AWS Management Console or an AWS SDK to create a Firehose stream to your chosen destination. 
 

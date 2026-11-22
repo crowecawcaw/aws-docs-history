@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon OpenSearch Service
-<a name="data-not-delivered-to-es"></a>
 
 Check the following if data is not delivered to your OpenSearch Service domain.
 

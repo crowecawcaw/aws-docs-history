@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Splunk
-<a name="data-not-delivered-to-splunk"></a>
 
 Check the following if data is not delivered to your Splunk endpoint.
 + If your Splunk platform is in a VPC, make sure that Firehose can access it. For more information, see [Accessing Splunk in VPC](controlling-access.md#using-iam-splunk-vpc).

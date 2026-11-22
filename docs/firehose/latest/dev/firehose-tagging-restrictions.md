@@ -1,7 +1,6 @@
 
 
 # Know tag restrictions
-<a name="firehose-tagging-restrictions"></a>
 
 The following restrictions apply to tags in Amazon Data Firehose.
 

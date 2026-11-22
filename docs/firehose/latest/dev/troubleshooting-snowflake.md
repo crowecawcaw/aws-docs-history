@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Snowflake
-<a name="troubleshooting-snowflake"></a>
 
 This section describes common troubleshooting steps while using Snowflake as a destination
 

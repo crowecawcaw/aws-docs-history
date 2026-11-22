@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Data Firehose Using CloudWatch Logs
-<a name="monitoring-with-cloudwatch-logs"></a>
 
 Amazon Data Firehose integrates with Amazon CloudWatch Logs so that you can view the specific error logs when the Lambda invocation for data transformation or data delivery fails. You can enable Amazon Data Firehose error logging when you create your Firehose stream.
 

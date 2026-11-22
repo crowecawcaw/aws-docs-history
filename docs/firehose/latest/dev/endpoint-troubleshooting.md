@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Firehose endpoint reachability
-<a name="endpoint-troubleshooting"></a>
 
 If the Firehose API encounters a timeout, perform the following steps to test endpoint reachability:
 + Check if API requests are made from a host in a VPC. All traffic from a VPC requires setting up a Firehose VPC endpoint. For more information, see [Using Firehose with AWS PrivateLink](https://docs.aws.amazon.com/firehose/latest/dev/vpc.html).
@@ -10,20 +9,20 @@ If the Firehose API encounters a timeout, perform the following steps to test en
 
     For example:
 
-    ```
+    ```text
     traceroute firehose.us-east-2.amazonaws.com
     ```
 
     or
 
-    ```
+    ```text
     tcping firehose.us-east-2.amazonaws.com 443
     ```
   + If it appears the network setting is correct and the following command fails, check whether the [Amazon CA (Certficate Authority)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) is in the trust chain. 
 
     For example:
 
-    ```
+    ```text
     curl firehose.us-east-2.amazonaws.com 
     ```
 

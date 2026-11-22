@@ -1,7 +1,6 @@
 
 
 # Understand tag basics
-<a name="firehose-tagging-basics"></a>
 
 You can use the Amazon Data Firehose API operations to complete the following tasks:
 + Add tags to a Firehose stream.

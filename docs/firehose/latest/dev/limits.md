@@ -1,7 +1,6 @@
 
 
 # Amazon Data Firehose Quota
-<a name="limits"></a>
 
 This section describes current quotas, formerly referred to as limits, within Amazon Data Firehose. Each quota applies on a per-Region basis unless otherwise specified.
 

@@ -1,7 +1,6 @@
 
 
 # (Optional) Configure record transformation and format conversion
-<a name="create-transform"></a>
 
 Configure Amazon Data Firehose to transform and convert your record data.
 

@@ -1,7 +1,6 @@
 
 
 # Set up the Firehose stream
-<a name="apache-iceberg-stream"></a>
 
 To create a Firehose stream with Apache Iceberg Tables as your destination you must configure the following.
 

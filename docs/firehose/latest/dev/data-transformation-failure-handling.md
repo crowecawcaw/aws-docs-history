@@ -1,7 +1,6 @@
 
 
 # Handle failure in data transformation
-<a name="data-transformation-failure-handling"></a>
 
 If your Lambda function invocation fails because of a network timeout or because you've reached the Lambda invocation limit, Amazon Data Firehose retries the invocation three times by default. If the invocation does not succeed, Amazon Data Firehose then skips that batch of records. The skipped records are treated as unsuccessfully processed records. You can specify or override the retry options using the [CreateDeliveryStream](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html) or `[UpdateDestination](https://docs.aws.amazon.com/firehose/latest/APIReference/API_UpdateDestination.html)` API. For this type of failure, you can log invocation errors to Amazon CloudWatch Logs. For more information, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md).
 

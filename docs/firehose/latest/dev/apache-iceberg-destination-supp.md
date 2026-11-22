@@ -1,7 +1,6 @@
 
 
 # Understand supported data types
-<a name="apache-iceberg-destination-supp"></a>
 
 Firehose supports all the primitive and complex data types that Apache Iceberg supports. For more information, see [Schemas and Data Types](https://iceberg.apache.org/spec/#schemas-and-data-types). When sending binary data as a string, you must use Firehose supported encoding types - Basic Base64, MIME Base64, URL and filename safe Base64, and Hex. For Timestamp data types, you must always send in microseconds. 
 

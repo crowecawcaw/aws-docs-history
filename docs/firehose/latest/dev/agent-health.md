@@ -1,7 +1,6 @@
 
 
 # Monitor Kinesis Agent health
-<a name="agent-health"></a>
 
 Kinesis Agent publishes custom CloudWatch metrics with a namespace of **AWSKinesisAgent**. It helps assess whether the agent is healthy, submitting data into Amazon Data Firehose as specified, and consuming the appropriate amount of CPU and memory resources on the data producer. 
 

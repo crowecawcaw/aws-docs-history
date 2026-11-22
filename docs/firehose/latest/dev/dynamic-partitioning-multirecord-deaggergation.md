@@ -1,7 +1,6 @@
 
 
 # Apply dynamic partitioning to aggregated data
-<a name="dynamic-partitioning-multirecord-deaggergation"></a>
 
 You can apply dynamic partitioning to aggregated data (for example, multiple events, logs, or records aggregated into a single `PutRecord` and `PutRecordBatch` API call) but this data must first be deaggregated. You can deaggregate your data by enabling multi record deaggregation - the process of parsing through the records in the Firehose stream and separating them. 
 

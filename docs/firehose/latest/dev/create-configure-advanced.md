@@ -1,7 +1,6 @@
 
 
 # Configure advanced settings
-<a name="create-configure-advanced"></a>
 
 The following section contains details about the advanced settings for your Firehose stream.
 + Server-side encryption - Amazon Data Firehose supports Amazon S3 server-side encryption with AWS Key Management Service (AWS KMS) for encrypting delivered data in Amazon S3. For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS–Managed Keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).

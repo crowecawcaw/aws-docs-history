@@ -1,7 +1,6 @@
 
 
 # Access CloudWatch Metrics for Amazon Data Firehose
-<a name="cloudwatch-metrics"></a>
 
 You can monitor metrics for Amazon Data Firehose using the CloudWatch console, command line, or CloudWatch API. The following procedures show you how to access metrics using these different methods. 
 

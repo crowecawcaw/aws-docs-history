@@ -1,7 +1,6 @@
 
 
 # Configure backup settings
-<a name="create-configure-backup"></a>
 
 Amazon Data Firehose uses Amazon S3 to backup all or failed only data that it attempts to deliver to your chosen destination. 
 

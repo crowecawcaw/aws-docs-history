@@ -1,7 +1,6 @@
 
 
 # Send data with AWS SDK
-<a name="writing-with-sdk"></a>
 
 You can use the [Amazon Data Firehose API](https://docs.aws.amazon.com/firehose/latest/APIReference/) to send data to a Firehose stream using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/), [.NET](https://aws.amazon.com/sdk-for-net/), [Node.js](https://aws.amazon.com/sdk-for-javascript/), [Python](https://aws.amazon.com/sdk-for-python/), or [Ruby](https://aws.amazon.com/sdk-for-ruby/). If you are new to Amazon Data Firehose, take some time to become familiar with the concepts and terminology presented in [What is Amazon Data Firehose?](what-is-this-service.md). For more information, see [Start Developing with Amazon Web Services](http://aws.amazon.com/developers/getting-started/).
 
@@ -14,7 +13,7 @@ The Amazon Data Firehose API offers two operations for sending data to your Fire
 
 Putting data requires only the Firehose stream name and a byte buffer (<=1000 KB). Because Amazon Data Firehose batches multiple records before loading the file into Amazon S3, you may want to add a record separator. To put data one record at a time into a Firehose stream, use the following code:
 
-```
+```java
 PutRecordRequest putRecordRequest = new PutRecordRequest();
 putRecordRequest.setDeliveryStreamName(deliveryStreamName);
 
@@ -34,7 +33,7 @@ For more code context, see the sample code included in the AWS SDK. For informat
 
 Putting data requires only the Firehose stream name and a list of records. Because Amazon Data Firehose batches multiple records before loading the file into Amazon S3, you may want to add a record separator. To put data records in batches into a Firehose stream, use the following code:
 
-```
+```java
 PutRecordBatchRequest putRecordBatchRequest = new PutRecordBatchRequest();
 putRecordBatchRequest.setDeliveryStreamName(deliveryStreamName);
 putRecordBatchRequest.setRecords(recordList);

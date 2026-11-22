@@ -1,7 +1,6 @@
 
 
 # Access CloudWatch logs for Amazon Data Firehose
-<a name="accessing-firehose-data-delivery-logs"></a>
 
 You can view the error logs related to Amazon Data Firehose data delivery failure using the Amazon Data Firehose console or the CloudWatch console. The following procedures show you how to access error logs using these two methods.
 

@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Data Firehose with CloudWatch metrics
-<a name="monitoring-with-cloudwatch-metrics"></a>
 
 **Important**  
 Be sure to enable alarms on all CloudWatch metrics that belong to your destination in order to identify errors in timely manner.

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues when sending from Kinesis Agent
-<a name="agent-faq"></a>
 
 This table provides troubleshooting information and solutions for common issues faced when using the Amazon Kinesis Agent. 
 

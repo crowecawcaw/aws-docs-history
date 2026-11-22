@@ -1,7 +1,6 @@
 
 
 # Create a new IAM role from console
-<a name="console-managed-iam-create-new-roles"></a>
 
 Alternatively, you could also use the Firehose console to create a new role on your behalf. 
 
@@ -31,7 +30,7 @@ The console create and edit Firehose stream workflows also create a trust policy
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	  
     "Statement": [{

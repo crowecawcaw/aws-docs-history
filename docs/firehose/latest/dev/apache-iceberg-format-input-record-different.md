@@ -1,7 +1,6 @@
 
 
 # Route incoming records to different Iceberg tables
-<a name="apache-iceberg-format-input-record-different"></a>
 
 Amazon Data Firehose can route incoming records in a stream to different Iceberg tables based on the content of the record. Records are not kept in order when delivered from Amazon Data Firehose. Consider the following sample input record. 
 
@@ -131,7 +130,7 @@ For more information, see the [Route incoming records to a single Iceberg table]
 
 This Lambda function is a sample Python code that parses the incoming stream records and adds required fields to specify how the data should be written to specific tables. You can use this sample code to add the metadata section for routing information.
 
-```
+```python
 import json
 import base64
  

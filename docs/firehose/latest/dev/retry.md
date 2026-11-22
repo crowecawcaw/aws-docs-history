@@ -1,7 +1,6 @@
 
 
 # Handle data delivery failures
-<a name="retry"></a>
 
 Each Amazon Data Firehose destination has its own data delivery failure handling. 
 
@@ -80,7 +79,7 @@ A failure to receive an acknowledgement isn't the only type of data delivery err
 
 The following is an example error record.
 
-```
+```JSON
 {
   "attemptsMade": 0,
   "arrivalTimestamp": 1506035354675,
@@ -103,7 +102,7 @@ A failure to receive a response isn't the only type of data delivery error that 
 
 The following is an example error record.
 
-```
+```JSON
 {
 	"attemptsMade":5,
 	"arrivalTimestamp":1594265943615,
@@ -127,7 +126,7 @@ Similarly, if delivery fails due to an incorrect role, table, or database, Fireh
 
 The following is an example JSON for each record that you deliver to S3.
 
-```
+```JSON
 {
     "attemptsMade": 3,
     "arrivalTimestamp": 1594265943615,

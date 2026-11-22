@@ -1,7 +1,6 @@
 
 
 # Send data to a Firehose stream
-<a name="basic-write"></a>
 
 This section describes how you can use different data sources to send data to your Firehose stream. If you are new to Amazon Data Firehose, take some time to become familiar with the concepts and terminology presented in [What is Amazon Data Firehose?](what-is-this-service.md).
 

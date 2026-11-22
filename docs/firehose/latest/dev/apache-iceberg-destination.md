@@ -1,7 +1,6 @@
 
 
 # Deliver data to Apache Iceberg Tables with Amazon Data Firehose
-<a name="apache-iceberg-destination"></a>
 
 Apache Iceberg is a high-performance open-source table format for performing big data analytics. Apache Iceberg brings the reliability and simplicity of SQL tables to Amazon S3 data lakes, and makes it possible for open-source analytics engines like Spark, Flink, Trino, Hive, and Impala to work with the same data concurrently. For more information, see [Apache Iceberg](https://iceberg.apache.org) and [Considerations and limitations](apache-iceberg-considerations.md).
 

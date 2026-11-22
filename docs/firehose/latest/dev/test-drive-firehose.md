@@ -1,7 +1,6 @@
 
 
 # Testing Firehose stream with sample data
-<a name="test-drive-firehose"></a>
 
 You can use the AWS Management Console to ingest simulated stock ticker data. The console runs a script in your browser to put sample records in your Firehose stream. This enables you to test the configuration of your Firehose stream without having to generate your own test data.
 

@@ -1,13 +1,12 @@
 
 
 # Create custom credential providers
-<a name="custom-cred-provider"></a>
 
 You can create a custom credentials provider and give its class name and jar path to the Kinesis agent in the following configuration settings: `userDefinedCredentialsProvider.classname` and `userDefinedCredentialsProvider.location`. For the descriptions of these two configuration settings, see [Specify agent configuration settings](agent-config-settings.md).
 
 To create a custom credentials provider, define a class that implements the `AWSCredentialsProvider` interface, like the one in the following example.
 
-```
+```JAVA
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;

@@ -1,7 +1,6 @@
 
 
 # Use common Agent CLI commands
-<a name="cli-commands"></a>
 
 The following table provides a set of common use cases and corresponding commands for working with the AWS Kinesis agent. 
 

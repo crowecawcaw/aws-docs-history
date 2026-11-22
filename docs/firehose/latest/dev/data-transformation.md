@@ -1,7 +1,6 @@
 
 
 # Transform source data in Amazon Data Firehose
-<a name="data-transformation"></a>
 
 Amazon Data Firehose can invoke your Lambda function to transform incoming source data and deliver the transformed data to destinations. You can enable Amazon Data Firehose data transformation when you create your Firehose stream.
 
@@ -16,6 +15,6 @@ The Lambda synchronous invocation mode has a payload size limit of 6 MB for both
 ## Lambda invocation duration
 <a name="data-transformation-execution-duration"></a>
 
-Amazon Data Firehose supports a Lambda invocation time of up to 5 minutes. If your Lambda function takes more than 5 minutes to complete, you get the following error: Firehose encountered timeout errors when calling AWS Lambda. The maximum supported function timeout is 5 minutes.
+Amazon Data Firehose supports a Lambda invocation time of up to 5 minutes. If your Lambda function takes more than 5 minutes to complete, you get the following error: `Firehose encountered timeout errors when calling AWS Lambda. The maximum supported function timeout is 5 minutes.`
 
 For information about what Amazon Data Firehose does if such an error occurs, see [Handle failure in data transformation](data-transformation-failure-handling.md).

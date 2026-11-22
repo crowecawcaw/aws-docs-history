@@ -1,7 +1,6 @@
 
 
 # Choose source and destination for your Firehose stream
-<a name="create-name"></a>
 
 1. Open the Firehose console at [https://console.aws.amazon.com/firehose/](https://console.aws.amazon.com/firehose/).
 

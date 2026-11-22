@@ -1,7 +1,6 @@
 
 
 # Convert input data format in Amazon Data Firehose
-<a name="record-format-conversion"></a>
 
 Amazon Data Firehose can convert the format of your input data from JSON to [Apache Parquet](https://parquet.apache.org/) or [Apache ORC](https://orc.apache.org/) before storing the data in Amazon S3. Parquet and ORC are columnar data formats that save space and enable faster queries compared to row-oriented formats like JSON. If you want to convert an input format other than JSON, such as comma-separated values (CSV) or structured text, you can use AWS Lambda to transform it to JSON first. For more information, see [Transform source data in Amazon Data Firehose](data-transformation.md).
 

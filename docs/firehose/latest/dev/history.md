@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="history"></a>
 
 The following table describes the important changes to the Amazon Data Firehose documentation.
 

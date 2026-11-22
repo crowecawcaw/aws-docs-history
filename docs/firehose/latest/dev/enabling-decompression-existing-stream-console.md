@@ -1,7 +1,6 @@
 
 
 # Enable decompression on an existing Firehose stream
-<a name="enabling-decompression-existing-stream-console"></a>
 
 This section provides instructions for enabling decompression on existing Firehose streams. It covers two scenarios – streams with Lambda processing disabled and streams with Lambda processing already enabled. The following sections outline step-by-step procedures for each case, including the creation or modification of Lambda functions, updating Firehose settings, and monitoring CloudWatch metrics to ensure successful implementation of the built-in Firehose decompression feature.
 

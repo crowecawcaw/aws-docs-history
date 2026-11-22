@@ -1,7 +1,6 @@
 
 
 # Disable decompression on Firehose stream
-<a name="writing-with-cloudwatch-logs-decompression-disabling-console"></a>
 
 To disable decompression on a data stream using the AWS Management Console
 

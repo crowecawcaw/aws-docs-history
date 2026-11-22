@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Data Firehose
-<a name="monitoring"></a>
 
 You can monitor Amazon Data Firehose using the following features:
 

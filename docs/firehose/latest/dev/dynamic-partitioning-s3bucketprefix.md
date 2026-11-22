@@ -1,7 +1,6 @@
 
 
 # Use Amazon S3 bucket prefix to deliver data
-<a name="dynamic-partitioning-s3bucketprefix"></a>
 
 When you create a Firehose stream that uses Amazon S3 as the destination, you must specify an Amazon S3 bucket where Firehose is to deliver your data. Amazon S3 bucket prefixes are used to organize the data that you store in your S3 buckets. An Amazon S3 bucket prefix is similar to a directory that enables you to group similar objects together.
 

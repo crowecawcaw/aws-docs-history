@@ -1,7 +1,6 @@
 
 
 # Enable decompression on a new Firehose stream from console
-<a name="writing-with-cloudwatch-logs-decompression-enabling-console"></a>
 
 **To enable decompression on a new Firehose stream using the AWS Management Console**
 

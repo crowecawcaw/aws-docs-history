@@ -1,7 +1,6 @@
 
 
 # Configure and start the Agent
-<a name="config-start"></a>
 
 **To configure and start the agent**
 

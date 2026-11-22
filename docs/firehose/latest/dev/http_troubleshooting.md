@@ -1,7 +1,6 @@
 
 
 # Troubleshooting HTTP Endpoints
-<a name="http_troubleshooting"></a>
 
 This section describes common troubleshooting steps when dealing with Amazon Data Firehose delivering data to generic HTTP endpoints destinations and to partner destinations, including Datadog, Dynatrace, LogicMonitor, MongoDB, New Relic, Splunk, or Sumo Logic. For the purposes of this section, all applicable destinations are referred to as HTTP endpoints. Make sure that the IAM role that is specified in your Firehose stream can access the S3 backup bucket and the Lambda function for data transformation (if data transformation is enabled). Also, make sure that the IAM role has access to CloudWatch log group and log streams to check error logs. For more information, see [Grant Firehose Access to an HTTP Endpoint Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-http).
 

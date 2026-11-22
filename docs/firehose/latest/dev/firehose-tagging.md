@@ -1,7 +1,6 @@
 
 
 # Tag a Firehose stream
-<a name="firehose-tagging"></a>
 
 You can assign your own metadata to Firehose streams that you create in Amazon Data Firehose in the form of *tags*. A tag is a key-value pair that you define for a stream. Using tags is a simple yet powerful way to manage AWS resources and organize data, including billing data. 
 
