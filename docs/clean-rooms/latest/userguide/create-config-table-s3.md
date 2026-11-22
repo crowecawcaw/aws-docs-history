@@ -1,7 +1,6 @@
 
 
 # Creating a configured table – Amazon S3 data source
-<a name="create-config-table-s3"></a>
 
 In this procedure, the [member](glossary.md#glossary-member) does the following tasks: 
 +  Configures an existing AWS Glue table for use in AWS Clean Rooms. (This step can be done before or after joining a collaboration, unless using Cryptographic Computing for Clean Rooms.)

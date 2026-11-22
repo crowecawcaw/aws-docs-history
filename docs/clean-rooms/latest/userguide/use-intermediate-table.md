@@ -1,7 +1,6 @@
 
 
 # Using an intermediate table in analyses
-<a name="use-intermediate-table"></a>
 
 After you populate an intermediate table and attach an analysis rule, you can reference it in queries just like a configured table.
 
@@ -13,7 +12,7 @@ All collaboration members can view intermediate tables on the **Tables** tab of 
 
 Reference an intermediate table by name in your SQL query, just like you reference a configured table. For example:
 
-```
+```sql
 SELECT * FROM my_intermediate_table
 ```
 
@@ -21,7 +20,7 @@ SELECT * FROM my_intermediate_table
 
 In a PySpark analysis template, reference an intermediate table through the context object:
 
-```
+```python
 context['referencedTables']['my_intermediate_table']
 ```
 

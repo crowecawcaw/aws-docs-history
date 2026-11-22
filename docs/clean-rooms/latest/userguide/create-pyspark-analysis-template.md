@@ -1,7 +1,6 @@
 
 
 # Creating a PySpark analysis template
-<a name="create-pyspark-analysis-template"></a>
 
 **Note**  
 Parameters are user-provided strings that can contain arbitrary content.  

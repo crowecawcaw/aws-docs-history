@@ -1,7 +1,6 @@
 
 
 # Cryptographic computing parameters
-<a name="crypto-computing-parameters"></a>
 
 Cryptographic computing parameters are available for collaborations using Cryptographic Computing for Clean Rooms (C3R) when [creating a collaboration](create-collaboration.md). You can create a collaboration using either the AWS Clean Rooms console or the `CreateCollaboration` API operation. In the console, you can set values for the parameters in **Cryptographic computing parameters** after you turn on the **Support cryptographic computing** option. For more information, see the following topics.
 

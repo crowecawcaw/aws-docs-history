@@ -1,7 +1,6 @@
 
 
 # Disassociating ID namespace associations
-<a name="disassociate-id-namespace-association"></a>
 
 As a collaboration member, you can disassociate an ID namespace from the collaboration. This action prevents the member who can query from querying the table.
 

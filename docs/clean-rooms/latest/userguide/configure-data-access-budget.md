@@ -1,7 +1,6 @@
 
 
 # Configuring a data access budget
-<a name="configure-data-access-budget"></a>
 
 A collaborator can view, add, edit, and delete a *data access budget* to set a limit on the number of times a table can be used in queries, PySpark jobs, and ML jobs. Use these budgets to manage data and costs.
 

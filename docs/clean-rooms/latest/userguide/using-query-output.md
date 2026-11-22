@@ -1,7 +1,6 @@
 
 
 # Using query output in other AWS services
-<a name="using-query-output"></a>
 
 SQL query output can be used for the seed data for a Clean Rooms ML model. For more information, see [AWS Clean Rooms ML](machine-learning.md).
 

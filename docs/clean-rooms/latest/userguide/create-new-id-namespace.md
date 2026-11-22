@@ -1,7 +1,6 @@
 
 
 # Creating and associating a new ID namespace
-<a name="create-new-id-namespace"></a>
 
 Each member of the collaboration must create and associate either an ID namespace **Source** or an ID namespace **Target** before creating an ID mapping table to query identity data.
 

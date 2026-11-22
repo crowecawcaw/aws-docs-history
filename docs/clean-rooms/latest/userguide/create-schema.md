@@ -1,7 +1,6 @@
 
 
 # (Optional) Create a schema (advanced users)
-<a name="create-schema"></a>
 
 Creating a schema manually is for advanced users.
 
@@ -38,7 +37,7 @@ This information is encoded in a table-specific JSON schema file, which consists
 
 The mapped schema has the following shape.
 
-```
+```json
 {
   "headerRow": true,
   "columns": [
@@ -64,7 +63,7 @@ This field is optional for mapped schemas. If this field is omitted, the `source
 + `type` – The `TYPE` of the target column in the output file. That is, one of `cleartext`, `sealed`, or `fingerprint` depending on how the column will be used in the collaboration. 
 + `pad` – A field of a column schema object that is only present when the `TYPE` is `sealed`. Its corresponding value of `PAD` is an object that describes how the data should be padded before it's encrypted.
 
-  ```
+  ```json
   {
     "type": PAD_TYPE,
     "length": INT
@@ -78,7 +77,7 @@ This field is optional for mapped schemas. If this field is omitted, the `source
 
 The following is an example mapped schema, with a column of each type.
 
-```
+```json
 {
   "headerRow": true,
   "columns": [
@@ -116,7 +115,7 @@ The following is an example mapped schema, with a column of each type.
 
 As a more complex example, the following is an example .csv file with headers. 
 
-```
+```json
 FirstName,LastName,Address,City,State,PhoneNumber,Title,Level,Notes
 Jorge,Souza,12345 Mills Rd,Anytown,SC,703-555-1234,CEO,10,
 Paulo,Santos,0 Street,Anytown,MD,404-555-111,CIO,9,This is a really long note that could really be a paragraph
@@ -129,7 +128,7 @@ Jane,Doe,8 Hollows Rd,Anytown,VA,407-555-4322,SDE II,5,John's older sister
 
 In the following mapped schema example, the columns `FirstName` and `LastName` are `cleartext` columns. The `State` column is encrypted as a `fingerprint` column and as a `sealed` column with a padding of `none`. The remaining columns are omitted. 
 
-```
+```json
 {
   "headerRow": true,
   "columns": [
@@ -162,7 +161,7 @@ In the following mapped schema example, the columns `FirstName` and `LastName` a
 
 The following is the .csv file that results from the mapped schema. 
 
-```
+```json
 givenname,surname,state_fingerprint,state
 John,Doe,01:hmac:UK8s8Cn/WR2JO/To2dTxWD73aDEe2ZUXeSHy3Tv+1Mk=,01:enc:FQ3n3Ahv9BQQNWQGcugeHzHYzEZE1vapHa2Uu4SRgSAtZ3qObjPA4TcsHt+BOkMKBcnHWI13BeGG/SBqmj7vKpI=
 Paulo,Santos,01:hmac:CHF4eIrtTNgAooU9v4h9Qjc+txBnMidQTjdjWuaDTTA=,01:enc:KZ5n5GtaXACco65AXk48BQO2durDNR2ULc4YxmMC8NaZZKKJiksU1IwFadAvV4iBQ1Bus5TU5c4biez3bilfTY8=
@@ -178,7 +177,7 @@ Jane,Doe,01:hmac:UK8s8Cn/WR2JO/To2dTxWD73aDEe2ZUXeSHy3Tv+1Mk=,01:enc:9RWv46YLvey
 
 The positional schema has the following shape.
 
-```
+```json
 {
   "headerRow": false,
   "columns": [
@@ -210,7 +209,7 @@ This field is required for positional schemas.
 + `type` – The `TYPE` of the target column in the output file. That is, one of `cleartext`, `sealed`, or `fingerprint` depending on how the column will be used in the collaboration. 
 + `pad` – A field of a column schema object that is only present when the `TYPE` is `sealed`. Its corresponding value of `PAD` is an object that describes how the data should be padded before it's encrypted.
 
-  ```
+  ```json
   {
     "type": PAD_TYPE,
     "length": INT
@@ -228,7 +227,7 @@ Also, the length of the longest value isn't saved between invocations of the cli
 
 The following is an example of a positional schema.
 
-```
+```json
 {
   "headerRow": false,
   "columns": [

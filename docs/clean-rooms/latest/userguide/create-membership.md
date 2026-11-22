@@ -1,7 +1,6 @@
 
 
 # Creating a membership and joining a collaboration
-<a name="create-membership"></a>
 
 A *membership* is a resource that's created when a member joins a collaboration in AWS Clean Rooms. 
 
@@ -16,7 +15,7 @@ All members can contribute data.
 
 For information about how to create a membership and join a collaboration using the AWS SDKs, see the *[AWS Clean Rooms API Reference](https://docs.aws.amazon.com/clean-rooms/latest/apireference/Welcome.html)*.
 
-In this procedure, the invited member [joins the collaboration by creating a membership resource](#create-membership).
+In this procedure, the invited member [joins the collaboration by creating a membership resource](create-membership.md).
 
 If the invited member is the member who can receive results, they specify the results destination and format. They also provide a service role ARN to write to the results destination.
 

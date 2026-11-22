@@ -1,7 +1,6 @@
 
 
 # Leaving a collaboration
-<a name="leave-collab"></a>
 
 As a collaboration member, you can leave a collaboration by deleting your membership. If you are the collaboration creator, you can only leave a collaboration by [deleting the collaboration](delete-collaboration.md).
 

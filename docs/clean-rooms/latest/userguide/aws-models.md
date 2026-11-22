@@ -1,7 +1,6 @@
 
 
 # AWS models in Clean Rooms ML
-<a name="aws-models"></a>
 
 AWS Clean Rooms ML provides a privacy-preserving method for two parties to identify similar users in their data without the need to share their data with each other. The first party brings the training data to AWS Clean Rooms so that they can create and configure a lookalike model and associate it with a collaboration. Then, seed data is brought to the collaboration to create a lookalike segment that resembles the training data.
 

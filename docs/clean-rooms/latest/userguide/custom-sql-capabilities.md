@@ -1,7 +1,6 @@
 
 
 # SQL capabilities for minimum aggregation and comparison controls
-<a name="custom-sql-capabilities"></a>
 
 The following table lists the supported and unsupported SQL constructs and functions when a custom analysis rule uses minimum aggregation thresholds and comparison controls in the Spark analytics engine. Function categories follow the AWS Clean Rooms Spark SQL reference.
 
@@ -27,11 +26,11 @@ The following table lists the supported and unsupported SQL constructs and funct
 | Constructor functions |  + STRUCT function<br />+ NAMED\_STRUCT function<br />+ MAP function  | Yes | Supported | Supported | 
 | Data type formatting functions |  + STR\_TO\_MAP function<br />+ BASE64 function<br />+ UNBASE64 function<br />+ HEX function<br />+ UNHEX function<br />+ TO\_DATE function<br />+ DECODE function<br />+ ENCODE function<br />+ CAST function  | Yes | Supported | Supported | 
 |  + TO\_CHAR function<br />+ TO\_NUMBER function  | No | — | — | 
-| Date and time functions |  + CURRENT\_DATE function<br />+ CURRENT\_TIMESTAMP function<br />+ TO\_TIMESTAMP function<br />+ DATE\_DIFF function<br />+ DATE\_TRUNC function<br />+ DATE\_PART function<br />+ EXTRACT function<br />+ CONVERT\_TIMEZONE function<br />+ FROM\_UTC\_TIMESTAMP function<br />+ TIMESTAMP function<br />+ DAY / DAYOFMONTH functions<br />+ DAYOFWEEK function<br />+ WEEKOFYEAR function<br />+ MONTH function<br />+ YEAR function<br />+ HOUR function<br />+ MINUTE function<br />+ SECOND function  | Yes | Supported | Supported | 
+| Date and time functions |  + CURRENT\_DATE function<br />+ CURRENT\_TIMESTAMP function<br />+ TO\_TIMESTAMP function<br />+ DATE\_DIFF function<br />+ DATE\_TRUNC function<br />+ DATE\_PART function<br />+ EXTRACT function<br />+ CONVERT\_TIMEZONE function<br />+ FROM\_UTC\_TIMESTAMP function<br />+ TIMESTAMP function<br />+ DAY / DAYOFMONTH functions<br />+ DAYOFWEEK function<br />+ WEEKOFYEAR function<br />+ MONTH function<br />+ YEAR function<br />+ HOUR function<br />+ MINUTE function<br />+ SECOND function<br />+ TRUNC function  | Yes | Supported | Supported | 
 |  + DAYOFYEAR function<br />+ DATE\_ADD function<br />+ ADD\_MONTHS function  | No | — | — | 
 | Hash functions |  + MD5 function<br />+ SHA function<br />+ SHA1 function<br />+ SHA2 function<br />+ XXHASH64 function  | Yes | Supported | Supported | 
 | JSON functions |  + GET\_JSON\_OBJECT function<br />+ TO\_JSON function  | Yes | Supported | Supported | 
-| Math functions |  + ABS function<br />+ CEIL / CEILING functions<br />+ FLOOR function<br />+ ROUND function<br />+ LN function<br />+ LOG / LOG10 functions<br />+ POWER function<br />+ SQRT function<br />+ RAND / RANDOM functions<br />+ EXP function<br />+ SIGN function<br />+ TRUNC function  | Yes | Supported | Supported | 
+| Math functions |  + ABS function<br />+ CEIL / CEILING functions<br />+ FLOOR function<br />+ ROUND function<br />+ LN function<br />+ LOG / LOG10 functions<br />+ POWER function<br />+ SQRT function<br />+ RAND / RANDOM functions<br />+ EXP function<br />+ SIGN function  | Yes | Supported | Supported | 
 |  + TRUNCATE function<br />+ CBRT function<br />+ PI function<br />+ RADIANS function<br />+ ACOS function<br />+ ASIN function<br />+ ATAN function<br />+ ATAN2 function<br />+ COS function<br />+ COT function<br />+ SIN function<br />+ DEGREES function  | No | — | — | 
 | Mathematical operator symbols |  + \+<br />+ -<br />+ \*<br />+ /<br />+ %  | Yes | Supported | Supported | 
 | Scalar functions |  + CARDINALITY function<br />+ SIZE function  | Yes | Supported | Supported | 

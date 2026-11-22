@@ -1,7 +1,6 @@
 
 
 # Reviewing a SQL analysis template
-<a name="review-analysis-template"></a>
 
 After a collaboration member has created a SQLanalysis template, you can review and approve it. After the analysis template and approved, it can be used in a query in AWS Clean Rooms.
 

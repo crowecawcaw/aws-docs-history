@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Clean Rooms
-<a name="setting-up"></a>
 
 The following topics explain how to set up AWS Clean Rooms. 
 

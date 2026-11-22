@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms quotas
-<a name="clean-rooms-quotas"></a>
 
 Your AWS account has the following quotas related to AWS Clean Rooms.
 

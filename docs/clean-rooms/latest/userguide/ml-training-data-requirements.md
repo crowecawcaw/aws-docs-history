@@ -1,7 +1,6 @@
 
 
 # Training data requirements for Clean Rooms ML
-<a name="ml-training-data-requirements"></a>
 
 To successfully create a lookalike model, your training data must meet the following requirements:
 + The training data must be in Parquet, CSV, or JSON format.

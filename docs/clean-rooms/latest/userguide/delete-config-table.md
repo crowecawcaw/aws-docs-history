@@ -1,7 +1,6 @@
 
 
 # Deleting a configured table
-<a name="delete-config-table"></a>
 
 You can delete a configured table that you own. This action cannot be undone and affects all related resources.
 

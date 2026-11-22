@@ -1,7 +1,6 @@
 
 
 # IAM behaviors for AWS Clean Rooms ML
-<a name="ml-behaviors"></a>
 
 ## Cross-account jobs
 <a name="ml-behaviors-cross-account-jobs"></a>
@@ -23,7 +22,7 @@ In order for a cross-account `StartAudienceGenerationJob` to succeed, AWS accoun
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

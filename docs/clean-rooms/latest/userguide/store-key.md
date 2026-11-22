@@ -1,7 +1,6 @@
 
 
 # Step 6: Store the shared secret key in an environment variable
-<a name="store-key"></a>
 
 An environment variable is a convenient and extensible way for users to provide a secret key from various key stores like AWS Secrets Manager and pass it to the C3R encryption client. 
 

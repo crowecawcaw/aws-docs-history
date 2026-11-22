@@ -1,7 +1,6 @@
 
 
 # Troubleshooting PySpark analysis templates
-<a name="troubleshooting-pyspark-analysis-templates"></a>
 
 When running jobs using PySpark analysis templates, you might encounter failures during job initialization or execution. These failures typically relate to script configuration, data access permissions, or environment setup.
 

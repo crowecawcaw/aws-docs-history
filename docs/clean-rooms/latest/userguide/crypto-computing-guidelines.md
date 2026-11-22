@@ -1,7 +1,6 @@
 
 
 # Guidelines for the C3R encryption client
-<a name="crypto-computing-guidelines"></a>
 
 The C3R encryption client is a tool that enables organizations to bring sensitive data together to derive new insights from data analytics. The tool cryptographically limits what can be learned by any party and AWS in the process. Although this is vitally important, the process of securing data cryptographically can add significant overhead both in terms of compute and storage resources. Therefore, it is important to understand the tradeoffs of using each setting and how to optimize settings while still maintaining the desired cryptographic assurances. This topic focuses on the performance implications of different settings in the C3R encryption client and schemas. 
 

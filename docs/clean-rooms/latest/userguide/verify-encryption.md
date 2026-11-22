@@ -1,7 +1,6 @@
 
 
 # Step 8: Verify data encryption
-<a name="verify-encryption"></a>
 
 **To verify that the data was encrypted**
 

@@ -1,7 +1,6 @@
 
 
 # Adding members to a collaboration
-<a name="add-member"></a>
 
 **Prerequisites**
 + An AWS account with permissions to manage collaborations

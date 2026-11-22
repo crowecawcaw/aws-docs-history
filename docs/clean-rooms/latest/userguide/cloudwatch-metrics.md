@@ -1,7 +1,6 @@
 
 
 # Detailed monitoring with CloudWatch in AWS Clean Rooms
-<a name="cloudwatch-metrics"></a>
 
 *Detailed monitoring* is an opt-in feature in AWS Clean Rooms. When you [create a collaboration](create-collaboration.md) and turn on **Detailed monitoring**, members who can run queries and configured payors can choose to receive detailed observability metrics in their CloudWatch account.
 

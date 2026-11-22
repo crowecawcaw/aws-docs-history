@@ -1,7 +1,6 @@
 
 
 # Editing the configured table analysis rule
-<a name="edit-config-table-analysis-rule"></a>
 
 **To edit the configured table analysis rule**
 

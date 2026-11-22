@@ -1,7 +1,6 @@
 
 
 # Disassociating configured tables
-<a name="disassociate-config-table"></a>
 
 As a collaboration member, you can disassociate a configured table from the collaboration. This action prevents the member who can query from querying the table.
 

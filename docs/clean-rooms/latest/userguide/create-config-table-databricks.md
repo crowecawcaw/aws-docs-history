@@ -1,7 +1,6 @@
 
 
 # Creating a configured table – Databricks data source
-<a name="create-config-table-databricks"></a>
 
 In this procedure, the [member](glossary.md#glossary-member) does the following tasks: 
 + Configures an existing Databricks table, shared through Delta Sharing, for use in AWS Clean Rooms. (This step can be done before or after joining a collaboration, unless using Cryptographic Computing for Clean Rooms.)

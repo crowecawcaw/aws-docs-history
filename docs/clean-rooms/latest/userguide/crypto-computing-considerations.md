@@ -1,7 +1,6 @@
 
 
 # Considerations when using Cryptographic Computing for Clean Rooms
-<a name="crypto-computing-considerations"></a>
 
 Cryptographic Computing for Clean Rooms (C3R) seeks to maximize data protection. However, some use cases might benefit from lower levels of data protection in exchange for additional functionality. You can make these specific tradeoffs by modifying C3R from its most secure configuration. As the customer, you should be aware of these tradeoffs and determine if they are appropriate for your use case. Tradeoffs to consider include the following: 
 

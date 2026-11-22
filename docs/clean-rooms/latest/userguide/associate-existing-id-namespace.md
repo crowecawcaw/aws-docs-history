@@ -1,7 +1,6 @@
 
 
 # Associating an existing ID namespace
-<a name="associate-existing-id-namespace"></a>
 
 In this procedure, each member associates either their existing ID namespace source or their ID namespace target in the collaboration.
 

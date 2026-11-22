@@ -1,7 +1,6 @@
 
 
 # Creating a SQL analysis template
-<a name="create-sql-analysis-template"></a>
 
 **Prerequisites**
 

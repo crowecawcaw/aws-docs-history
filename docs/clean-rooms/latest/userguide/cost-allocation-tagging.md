@@ -1,7 +1,6 @@
 
 
 # Cost Allocation Tagging
-<a name="cost-allocation-tagging"></a>
 
 AWS Clean Rooms supports using Cost Allocation Tags to track your AWS costs. You activate these tags on the AWS Billing and Cost Management dashboard. AWS uses the tags to categorize your costs and deliver a monthly cost allocation report to you. User-defined cost allocation tags can be applied to AWS Clean Rooms resources to help track and allocate costs across your collaboration. 
 

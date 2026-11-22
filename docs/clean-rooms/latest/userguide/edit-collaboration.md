@@ -1,7 +1,6 @@
 
 
 # Editing collaborations
-<a name="edit-collaboration"></a>
 
 As a collaboration creator, you can edit the different parts of a collaboration.
 

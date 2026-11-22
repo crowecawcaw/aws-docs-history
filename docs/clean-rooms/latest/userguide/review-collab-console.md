@@ -1,7 +1,6 @@
 
 
 # Viewing collaborations
-<a name="review-collab-console"></a>
 
 As a collaboration creator, you can view all of the collaborations that you created.
 

@@ -1,7 +1,6 @@
 
 
 # Querying with the analysis builder
-<a name="query-data-analysis-builder"></a>
 
 You can use the analysis builder to build queries without having to write SQL code. With the analysis builder, you can build a query for a collaboration that has:
 + A single table that uses the [aggregation analysis rule](analysis-rules-aggregation.md) with no JOIN required

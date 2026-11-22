@@ -1,7 +1,6 @@
 
 
 # Editing an ID mapping table
-<a name="edit-id-mapping-table"></a>
 
 As a collaboration member, you can edit the ID mapping table that you have created.
 

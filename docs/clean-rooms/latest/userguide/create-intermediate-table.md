@@ -1,7 +1,6 @@
 
 
 # Creating an intermediate table
-<a name="create-intermediate-table"></a>
 
 You can create an intermediate table to cache analysis results for reuse in subsequent queries within a collaboration.
 
@@ -25,7 +24,7 @@ The name must be unique across all tables, intermediate tables, and ID mapping t
 
 1. In **Dataset**, choose a method to define your intermediate table:
    + **SQL query** – Use the Tables panel to reference available tables, and write a query in the SQL editor.
-   + **Analysis template** – Provide the ARN of a PySpark analysis template.
+   + **Analysis template** – Choose **Analysis template**, and then choose an analysis template from the list. The console lists only PySpark 2.0 (`PYSPARK_2_0`) analysis templates and displays the **Entry point file**, **Entry point SHA-256 hash**, **Role ARN**, and libraries for the selected template. To inspect the template, choose **View**.
 
 1. In **Encryption**, optionally select **Encrypt secret with a custom KMS key** and provide the KMS key ARN. For more information about the required key policy, see [Encryption for intermediate tables](data-protection.md#encrypt-intermediate-tables).
 

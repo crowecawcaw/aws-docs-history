@@ -1,7 +1,6 @@
 
 
 # Integrating AWS Clean Rooms into event-driven applications using Amazon EventBridge
-<a name="eventbridge-integration-full"></a>
 
 You can incorporate AWS Clean Rooms into event-driven applications (EDAs) that use events that occur in AWS Clean Rooms to communicate between application components and initiate downstream processes. You do this by using Amazon EventBridge to route events from AWS Clean Rooms to other software components. Amazon EventBridge is a serverless service that uses events to connect application components together, making it easier for you to integrate AWS services like AWS Clean Rooms into event-driven architectures without additional code and operations.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing query details
-<a name="view-query-details"></a>
 
 You can view the query details as the member who can run queries or as a member who can receive results.
 

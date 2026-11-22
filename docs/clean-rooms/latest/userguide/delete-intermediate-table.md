@@ -1,7 +1,6 @@
 
 
 # Deleting an intermediate table
-<a name="delete-intermediate-table"></a>
 
 You can remove an intermediate table from a collaboration by deleting it as the owner. Other collaboration actions can cause an intermediate table to reach an unusable state without deleting the resource (such as `DISALLOWED_BY_DATA_PROVIDER` or `BASE_TABLE_REMOVED`). In any of these deletion scenarios, the stored data in AWS Clean Rooms is deleted, and storage-based billing stops.
 

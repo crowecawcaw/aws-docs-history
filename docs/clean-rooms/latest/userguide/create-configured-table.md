@@ -1,7 +1,6 @@
 
 
 # Creating a configured table in AWS Clean Rooms
-<a name="create-configured-table"></a>
 
 A *configured table* is a reference to an existing table in a data source. It contains an analysis rule that determines how the data can be queried in AWS Clean Rooms. Configured tables can be associated to one or more collaborations.
 

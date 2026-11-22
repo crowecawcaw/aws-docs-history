@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms ML model evaluation metrics
-<a name="ml-metrics"></a>
 
 Clean Rooms ML computes the *recall* and *relevance score* to determine how well your model performs. Recall compares the similarity between the lookalike data and training data. The relevance score is used to decide how large the audience should be, not whether the model is well-performing.
 

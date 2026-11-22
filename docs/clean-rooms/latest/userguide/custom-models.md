@@ -1,7 +1,6 @@
 
 
 # Custom models in Clean Rooms ML
-<a name="custom-models"></a>
 
 With Clean Rooms ML, members of a collaboration can use a dockerized custom model algorithm that is stored in Amazon ECR to jointly analyze their data. To do this, the *model provider* must create an image and store it in Amazon ECR. Follow the steps in [Amazon Elastic Container Registry User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/) to create a private repository that will contain the custom ML model. 
 

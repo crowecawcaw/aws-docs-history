@@ -1,7 +1,6 @@
 
 
 # Editing configured table tags
-<a name="edit-config-table-tags"></a>
 
 As a collaboration member, after you have created a configured table, you can manage the tags on the configured table resource on the **Configured tables** tab.
 

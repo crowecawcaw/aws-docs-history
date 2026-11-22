@@ -1,7 +1,6 @@
 
 
 # Querying configured tables using a SQL analysis template
-<a name="use-analysis-template"></a>
 
 This procedure demonstrates how to use an analysis template in the AWS Clean Rooms console to query configured tables with the **Custom** analysis rule. 
 

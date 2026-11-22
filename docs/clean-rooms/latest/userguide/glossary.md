@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms Glossary
-<a name="glossary"></a>
 
 Consult this glossary to become familiar with terminology that is used for AWS Clean Rooms.
 

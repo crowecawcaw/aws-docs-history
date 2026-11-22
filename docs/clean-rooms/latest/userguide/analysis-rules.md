@@ -1,7 +1,6 @@
 
 
 # Analysis rules in AWS Clean Rooms
-<a name="analysis-rules"></a>
 
 As part of enabling a table to use in AWS Clean Rooms for collaboration analysis, the collaboration member must configure an *analysis rule*.
 

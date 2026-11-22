@@ -1,7 +1,6 @@
 
 
 # Apache Iceberg tables in AWS Clean Rooms
-<a name="iceberg-tables"></a>
 
 Apache Iceberg is an open source table format for data lakes. AWS Clean Rooms can use the statistics stored in Apache Iceberg metadata to optimize query plans and reduce file scans during clean room query processing. For more information, see the [Apache Iceberg](https://iceberg.apache.org/) documentation.
 

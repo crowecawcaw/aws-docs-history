@@ -1,7 +1,6 @@
 
 
 # What is AWS Clean Rooms?
-<a name="what-is"></a>
 
 AWS Clean Rooms helps you and your partners analyze and collaborate on your collective datasets to gain new insights without revealing underlying data to one another. AWS Clean Rooms is a secure collaboration workspace, where you create your own clean rooms in minutes, and analyze your collective datasets with just a few steps. You choose the partners with whom you want to collaborate, select their datasets, and configure privacy-enhancing controls for those partners. 
 

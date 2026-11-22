@@ -1,7 +1,6 @@
 
 
 # Viewing recent queries
-<a name="view-queries-console"></a>
 
 You can view the queries that ran in the last 90 days on the **Analysis** tab.
 

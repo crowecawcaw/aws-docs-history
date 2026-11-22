@@ -1,7 +1,6 @@
 
 
 # IAM behaviors for Clean Rooms ML Custom Models
-<a name="ml-behaviors-byom"></a>
 
 ## Cross-account jobs
 <a name="ml-behaviors-byom-cross-account-jobs"></a>
@@ -25,7 +24,7 @@ When accessing membership and collaboration resources in context of Clean Rooms 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

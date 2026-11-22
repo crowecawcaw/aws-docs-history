@@ -1,7 +1,6 @@
 
 
 # Model authoring guidelines for the training container
-<a name="custom-model-guidelines"></a>
 
 This section details the guidelines that model providers should follow when creating a custom ML model algorithm for Clean Rooms ML.
 + Use the appropriate SageMaker AI training-supported container base image, as described in the [SageMaker AI Developer Guide](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths.html). The following code allows you to pull the supported container base images from public SageMaker AI endpoints.

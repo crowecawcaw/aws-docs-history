@@ -1,7 +1,6 @@
 
 
 # Step 2: Download the C3R encryption client
-<a name="download-client"></a>
 
 **To download the C3R encryption client from GitHub**
 

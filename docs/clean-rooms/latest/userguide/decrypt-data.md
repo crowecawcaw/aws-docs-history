@@ -1,7 +1,6 @@
 
 
 # Decrypting data tables with the C3R encryption client
-<a name="decrypt-data"></a>
 
 Follow this procedure for collaborations that use Cryptographic Computing for Clean Rooms and the C3R encryption client to encrypt data tables. Use this procedure after you have [queried data in the collaboration](analyze-data.md).
 

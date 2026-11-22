@@ -1,7 +1,6 @@
 
 
 # Preparing data tables in Amazon S3
-<a name="prepare-data-S3"></a>
 
 You can analyze data tables that have been cataloged in AWS Glue and stored in Amazon S3. If your data tables are already cataloged in AWS Glue, skip to [Creating a configured table in AWS Clean Rooms](create-configured-table.md).
 

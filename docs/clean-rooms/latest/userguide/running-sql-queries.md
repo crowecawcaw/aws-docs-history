@@ -1,7 +1,6 @@
 
 
 # Running SQL queries
-<a name="running-sql-queries"></a>
 
 **Note**  
 You can only run queries if the member who is responsible to pay for query compute costs has joined the collaboration as an active member.

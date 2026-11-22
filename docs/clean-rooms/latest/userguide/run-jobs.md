@@ -1,7 +1,6 @@
 
 
 # Running PySpark jobs
-<a name="run-jobs"></a>
 
 As the [member who can query](glossary.md#glossary-member-who-can-query), you can run a PySpark job on a configured table by using an approved PySpark [analysis template](create-analysis-template.md).
 

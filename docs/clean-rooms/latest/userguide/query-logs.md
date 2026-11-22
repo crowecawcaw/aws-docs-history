@@ -1,7 +1,6 @@
 
 
 # Analysis logging in AWS Clean Rooms
-<a name="query-logs"></a>
 
 *Analysis logging* is a feature in AWS Clean Rooms. When you [create a collaboration](create-collaboration.md) and turn on **Analysis logging**, members can store relevant logs from queries or jobs in Amazon CloudWatch Logs.
 

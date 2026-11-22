@@ -1,7 +1,6 @@
 
 
 # Configuring a lookalike model
-<a name="create-ml-model-configure-model"></a>
 
 After you have created a lookalike model, you are ready to configure it for use in a collaboration. You can create multiple configured lookalike models from a single lookalike model.
 
@@ -20,7 +19,7 @@ After you have created a lookalike model, you are ready to configure it for use 
 To verify that this is the correct lookalike model, turn on **Show lookalike model details** to view the details.  
 To create a new lookalike model, choose **Create lookalike model**.
 
-   1. Choose the **Minimum matching seed size** that you want. This is the minimum number of users in the seed data provider's data that overlap with users in the training data. This value must be greater than 0.
+   1. Choose the **Minimum matching seed size** that you want. This is the minimum number of users in the seed data provider's data that overlap with users in the training data. This value must be between 25 and 500,000. For more information, see [Privacy protections of AWS Clean Rooms ML](ml-privacy.md).
 
 1. For **Metrics to share with other members**, choose whether you want the seed data provider in your collaboration to receive model metrics, including relevance scores. 
 

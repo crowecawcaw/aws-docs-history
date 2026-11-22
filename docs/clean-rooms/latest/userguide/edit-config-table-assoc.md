@@ -1,7 +1,6 @@
 
 
 # Editing configured table associations
-<a name="edit-config-table-assoc"></a>
 
 As a collaboration member, you can edit the configured table associations that you have created.
 

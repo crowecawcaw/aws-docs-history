@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="custom-considerations"></a>
 
 AWS Clean Rooms helps you and your partners analyze and collaborate on collective datasets to drive new insights without revealing underlying data to one another. Verify that your data collaboration configuration adheres to the privacy, security, legal, and compliance requirements of your organization.
 
@@ -30,7 +29,7 @@ Note the following limitations:
 + The SQL surface for queries using minimum aggregation thresholds is restricted. For a complete list of supported and unsupported SQL constructs, see [SQL capabilities for minimum aggregation and comparison controls](custom-sql-capabilities.md).
 + When minimum aggregation thresholds apply, your query must include a qualifying aggregation, and not every supported aggregate function is a qualifying aggregate function. For example, COLLECT\_LIST never qualifies, and MIN and MAX qualify only if their value doesn't reach an output column. For more information, see [Qualifying aggregate functions](custom-min-agg-thresholds.md#custom-min-agg-qualifying-functions).
 + Minimum aggregation thresholds and comparison controls do not currently work with [differential privacy](custom-diff-privacy.md).
-+ The minimum aggregation threshold is not enforced on COUNT, COUNT(DISTINCT), or APPROX\_COUNT\_DISTINCT functions over a single table with no grouping or join.
++ AWS Clean Rooms doesn't enforce the minimum aggregation threshold on COUNT(\*), or on a COUNT, COUNT(DISTINCT), or APPROX\_COUNT\_DISTINCT of a literal value, such as COUNT(1).
 + A LEFT ANTI JOIN is rejected when its right side uses a column that is protected by a minimum aggregation threshold. For more information, see [LEFT SEMI JOIN and LEFT ANTI JOIN](custom-min-agg-thresholds.md#custom-min-agg-semi-anti-joins).
 
 ## Controls that apply only to SQL queries

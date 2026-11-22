@@ -1,7 +1,6 @@
 
 
 # Analyze data in a collaboration
-<a name="analyze-data"></a>
 
 In AWS Clean Rooms, you can analyze data by running queries or jobs.
 

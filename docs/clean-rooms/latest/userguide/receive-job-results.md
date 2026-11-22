@@ -1,7 +1,6 @@
 
 
 # Receiving job results
-<a name="receive-job-results"></a>
 
 **Note**  
 The **Results destination in Amazon S3** can't be within the same S3 bucket as any data source.

@@ -1,7 +1,6 @@
 
 
 # Adding a collaboration analysis rule to a configured table
-<a name="add-collaboration-analysis-rule"></a>
 
 The *collaboration analysis rule* allows you to specify controls that are specific to this collaboration. These controls work together with the configured table analysis rule to determine how this table can be analyzed within this collaboration.
 

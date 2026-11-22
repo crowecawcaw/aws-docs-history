@@ -1,7 +1,6 @@
 
 
 # Limitations of AWS Clean Rooms Differential Privacy
-<a name="dp-limitations"></a>
 
 AWS Clean Rooms Differential Privacy doesn't address the following situations:
 

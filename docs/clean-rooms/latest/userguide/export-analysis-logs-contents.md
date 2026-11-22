@@ -1,7 +1,6 @@
 
 
 # Understanding redacted logs
-<a name="export-analysis-logs-contents"></a>
 
 AWS Clean Rooms redacts Spark logs before exporting them so that the exported logs don't reveal the contents of a member's data, or identify the table and storage locations of the source data. AWS Clean Rooms reconstructs the log records and emits only the fields that are known to be safe to share. Some information is preserved deliberately, including the names of columns that a query read.
 

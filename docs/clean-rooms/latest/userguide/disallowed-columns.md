@@ -1,7 +1,6 @@
 
 
 # Configured table disallowed columns
-<a name="disallowed-columns"></a>
 
 The disallowed output columns configuration is a control in the AWS Clean Rooms custom analysis rule that enables you to define the list of columns (if any) that you don’t allow to be projected in the query result. The columns referenced in this list are considered “disallowed output columns”. This means that any reference to such column through transformation, aliasing, or other means may not be present in the final SELECT (projection) of the query.
 
@@ -23,7 +22,7 @@ The following examples display how the disallowed output columns control is appl
 
 If Member B runs the following query, it's blocked because disallowed output columns can't be directly projected:
 
-```
+```sql
 SELECT 
   age 
 FROM 
@@ -32,7 +31,7 @@ FROM
 
 If Member B runs the following query, it's blocked because disallowed output columns can't be implicitly projected via project star:
 
-```
+```sql
 SELECT 
   * 
 FROM 
@@ -41,7 +40,7 @@ FROM
 
 If Member B runs the following query, it's blocked because transformations of disallowed output columns can't be projected:
 
-```
+```sql
 SELECT 
   COUNT(age) 
 FROM 
@@ -50,7 +49,7 @@ FROM
 
 If Member B runs the following query, it's blocked because disallowed output columns can't be referenced in final projection using an alias:
 
-```
+```sql
 SELECT 
   count_age
 FROM 
@@ -59,7 +58,7 @@ FROM
 
 If Member B runs the following query, it's blocked because transformed restricted columns are projected in output:
 
-```
+```sql
 SELECT 
   CONCAT(name, email) 
 FROM 
@@ -68,7 +67,7 @@ FROM
 
 If Member B runs the following query, it's blocked because disallowed output columns defined in CTE can't be referenced in the final projection:
 
-```
+```sql
 WITH cte AS (
   SELECT 
     age AS age_alias 
@@ -80,7 +79,7 @@ SELECT age_alias FROM cte
 
 If Member B runs the following query, it's blocked because disallowed output columns can't be used as sort or partition keys in the final projection:
 
-```
+```sql
 SELECT 
   LISTAGG(gender) WITHIN GROUP (ORDER BY age) OVER (PARTITION BY age) 
 FROM 
@@ -89,7 +88,7 @@ FROM
 
 If Member B runs the following query, it succeeds because columns that are part of the disallowed output columns can still be used across other constructs in the query, such as in join or filter clauses.
 
-```
+```sql
 SELECT
   u.email,
   p.gender,
@@ -104,7 +103,7 @@ ON
 
 In the same scenario, Member B can also use the *name* column in *users* as a filter or sort key:
 
-```
+```sql
 SELECT 
   u.email,
   u.gender
@@ -118,7 +117,7 @@ ORDER BY
 
 Additionally, the disallowed output columns from *users* can be used in intermediate projections such as subqueries, CTEs, and CACHE TABLE statements. For example, the following query succeeds because *age* is projected in the CTE and the subquery but not in the final projection:
 
-```
+```sql
 WITH cte AS (
  SELECT
    u.age,
@@ -136,7 +135,7 @@ FROM
 
 The following query also succeeds because *age* is projected in the cached table but not in the final projection:
 
-```
+```sql
 CACHE TABLE cached_users AS
   SELECT age, gender, email FROM users;
 

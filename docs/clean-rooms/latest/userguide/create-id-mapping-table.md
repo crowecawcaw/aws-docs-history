@@ -1,7 +1,6 @@
 
 
 # Creating and populating a new ID mapping table
-<a name="create-id-mapping-table"></a>
 
 **Prerequisites**
 

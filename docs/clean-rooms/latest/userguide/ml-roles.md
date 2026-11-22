@@ -1,7 +1,6 @@
 
 
 # Set up service roles for AWS Clean Rooms ML
-<a name="ml-roles"></a>
 
 The roles needed to perform lookalike modeling differ from those needed to use a custom model. The following sections describe the roles needed to perform each task.
 
@@ -40,7 +39,7 @@ Your AWS Glue resources and underlying Amazon S3 resources must be in the same A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -162,7 +161,7 @@ Your AWS Glue resources and underlying Amazon S3 resources must be in the same A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -233,7 +232,7 @@ Your AWS Glue resources and underlying Amazon S3 resources must be in the same A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -329,7 +328,7 @@ Your AWS Glue resources and underlying Amazon S3 resources must be in the same A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -399,7 +398,7 @@ Your AWS Glue resources and underlying Amazon S3 resources must be in the same A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -448,7 +447,7 @@ The following example policy supports the permissions needed to read the results
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -533,7 +532,7 @@ The following example policy supports the permissions needed to read the results
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -614,7 +613,7 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -710,7 +709,7 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -780,7 +779,7 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -828,7 +827,7 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -890,7 +889,7 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -954,7 +953,7 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -1016,7 +1015,7 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -1111,7 +1110,7 @@ All AWS Glue resources (catalog, database, and table) must be in the same AWS ac
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

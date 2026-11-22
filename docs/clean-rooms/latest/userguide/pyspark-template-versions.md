@@ -1,13 +1,13 @@
 
 
 # Differences between PySpark 1.0 and PySpark 2.0 analysis templates
-<a name="pyspark-template-versions"></a>
 
-PySpark analysis templates that use the `PYSPARK_2_0` format (PySpark 2.0) let you choose CSV or Parquet results and run multiple jobs at the same time in a collaboration. They also differ from PySpark 1.0 analysis templates in supported column types and CSV output. Existing PySpark 1.0 analysis templates aren't affected.
+PySpark analysis templates that use the `PYSPARK_2_0` format (PySpark 2.0) let you choose CSV or Parquet results, run multiple jobs at the same time in a collaboration, and populate intermediate tables. They also differ from PySpark 1.0 analysis templates in supported column types and CSV output. Existing PySpark 1.0 analysis templates aren't affected.
 
 **Topics**
 + [Moving to PySpark 2.0](#pyspark-template-versions-migration)
 + [Result format](#pyspark-template-versions-result-format)
++ [Populating intermediate tables](#pyspark-template-versions-intermediate-tables)
 + [Multiple job concurrency in a collaboration](#pyspark-template-versions-concurrency)
 + [Supported column types](#pyspark-template-versions-types)
 + [CSV output differences](#pyspark-template-versions-csv)
@@ -27,6 +27,13 @@ If you move back to PySpark 1.0, set the result format for job results back to *
 <a name="pyspark-template-versions-result-format"></a>
 
 If your membership can receive results, you choose whether job results are written as CSV or Parquet. If you set the result format to Parquet, jobs that use a PySpark 1.0 analysis template fail validation. For more information about setting the result format, see [Receiving job results](receive-job-results.md).
+
+## Populating intermediate tables
+<a name="pyspark-template-versions-intermediate-tables"></a>
+
+You can use a `PYSPARK_2_0` analysis template to populate an intermediate table. The populate operation runs as a protected job. For more information about intermediate tables, see [Intermediate tables in AWS Clean Rooms](working-with-intermediate-tables.md). For the steps to populate an intermediate table, see [Populating an intermediate table](populate-intermediate-table.md).
+
+For intermediate table population, results are written as Parquet only, and you can't choose CSV. Of the deferred privacy controls, only the allowed result receivers control applies when you populate an intermediate table with a PySpark analysis template.
 
 ## Multiple job concurrency in a collaboration
 <a name="pyspark-template-versions-concurrency"></a>

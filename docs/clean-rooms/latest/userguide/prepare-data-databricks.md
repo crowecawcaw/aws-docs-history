@@ -1,7 +1,6 @@
 
 
 # Preparing data tables in Databricks
-<a name="prepare-data-databricks"></a>
 
 You can query data tables that are stored in Databricks by sharing them with AWS Clean Rooms through the Delta Sharing open protocol. AWS Clean Rooms connects to Databricks using JSON Web Token (JWT) exchange, so you don't need to store any long-lived secrets.
 
@@ -67,7 +66,7 @@ In Databricks, enable Delta Sharing, create a recipient that trusts your AWS ide
 
 1. Create a share, add your table to it, and grant the recipient access. Run the following commands in the Databricks SQL editor, replacing the placeholder names with your own.
 
-   ```
+   ```sql
    CREATE SHARE my_share;
    ALTER SHARE my_share ADD TABLE my_catalog.my_schema.my_table;
    GRANT SELECT ON SHARE my_share TO RECIPIENT my_recipient;

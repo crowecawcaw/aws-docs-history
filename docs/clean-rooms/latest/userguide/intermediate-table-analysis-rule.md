@@ -1,7 +1,6 @@
 
 
 # Configuring an analysis rule for an intermediate table
-<a name="intermediate-table-analysis-rule"></a>
 
 An intermediate table is not available for analysis until you attach an analysis rule to it. The only supported analysis rule type for intermediate tables is Custom.
 

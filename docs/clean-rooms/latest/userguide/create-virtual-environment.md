@@ -1,7 +1,6 @@
 
 
 # Creating a virtual environment (optional)
-<a name="create-virtual-environment"></a>
 
 If you have any additional libraries required by your user script, you have the option to create a virtual environment to store those libraries. If you don't need additional libraries, you can skip this step.
 

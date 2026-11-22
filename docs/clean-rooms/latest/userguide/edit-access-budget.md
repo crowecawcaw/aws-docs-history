@@ -1,7 +1,6 @@
 
 
 # Editing a data access budget
-<a name="edit-access-budget"></a>
 
 As a collaboration member, you can edit the data access budget. When you edit a data access budget, it resets the current budget balance.
 

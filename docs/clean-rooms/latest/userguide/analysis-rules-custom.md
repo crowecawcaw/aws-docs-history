@@ -1,7 +1,6 @@
 
 
 # Custom analysis rule in AWS Clean Rooms
-<a name="analysis-rules-custom"></a>
 
 In AWS Clean Rooms, a *custom analysis rule* is a new type of analysis rule that allows custom queries to be run on the configured table. Custom SQL queries are still restricted to having only the SELECT command but can use more SQL constructs than [aggregation](analysis-rules-aggregation.md#agg-query-controls) and [list](analysis-rules-list.md#list-query-controls) queries (for example, window functions, OUTER JOIN, CTEs, or subqueries; see the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html) for a complete list). Custom SQL queries don’t have to follow a query structure like [aggregation](analysis-rules-aggregation.md#agg-query-structure-syntax) and [list](analysis-rules-list.md#list-query-controls) queries. 
 
@@ -247,7 +246,7 @@ To create a collaboration and run a custom analysis, the companies do the follow
 
 1. Company A adds a custom analysis rule to the `impressions` configured table with a minimum aggregation threshold so that every returned row represents at least 100 distinct users. Company A sets `user_id` as the identity column and overrides the threshold to 5 for the lower-sensitivity `campaign_id` output column. Company A also allows literal comparison on `campaign_id` and `event_date` so that Company B can scope a query to one campaign and a date range. Every column that appears in a literal comparison must be in the allowlist, except for comparisons against always-allowed values. For more information, see [Literal values that are always allowed](custom-comparison-controls.md#custom-literal-comparison-always-allowed). Finally, Company A adds Company B's account to the allowed analysis providers control so Company B can run queries without per-template review.
 
-   ```
+   ```json
    {
      "aggregationThresholds": [
        {
@@ -284,7 +283,7 @@ To create a collaboration and run a custom analysis, the companies do the follow
 
 1. Company B runs a reach query grouped by `event_date` and filtered to a campaign:
 
-   ```
+   ```sql
    SELECT event_date, COUNT(DISTINCT user_id) AS reach
    FROM impressions
    WHERE event_date >= '2026-01-01' AND campaign_id = 'Holiday Promotion'
@@ -313,7 +312,7 @@ Comparison controls are worth configuring when your table contains low-cardinali
 
 The following configuration combines both controls:
 
-```
+```json
 {
   "aggregationThresholds": [
     {
@@ -353,7 +352,7 @@ The following example shows a complete configuration of the custom analysis rule
 
 This policy also grants additional flexibility by allowing literal comparison filtering on low-sensitivity columns `status` and `price`, and overrides the minimum aggregation threshold to 5 for the `campaign_id` column:
 
-```
+```json
 {
   "disallowedOutputColumns": [
     "user_id"

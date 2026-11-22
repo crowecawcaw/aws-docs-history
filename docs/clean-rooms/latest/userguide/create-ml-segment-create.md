@@ -1,7 +1,6 @@
 
 
 # Creating a lookalike segment
-<a name="create-ml-segment-create"></a>
 
 **Note**  
 You can only supply a training data set for using in a Clean Rooms ML lookalike model that has data stored in Amazon S3. However, you can supply the seed data for a lookalike model using SQL that runs across data stored in any supported data source. 

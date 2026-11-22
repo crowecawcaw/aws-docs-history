@@ -1,7 +1,6 @@
 
 
 # Collaborations and memberships in AWS Clean Rooms
-<a name="working-with-collaborations"></a>
 
 A *collaboration* is a secure logical boundary in AWS Clean Rooms in which members can perform analysis on configured tables. 
 

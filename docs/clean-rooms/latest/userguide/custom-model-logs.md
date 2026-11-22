@@ -1,7 +1,6 @@
 
 
 # Receiving model logs and metrics
-<a name="custom-model-logs"></a>
 
 To receive logs and metrics from custom model training or inference, members must have [created an ML Configuration](https://docs.aws.amazon.com/clean-rooms/latest/userguide/create-custom-ml-collaboration.html) with a valid role that provides the necessary CloudWatch permissions (see [Create a service role for custom ML modeling - ML Configuration](https://docs.aws.amazon.com/clean-rooms/latest/userguide/ml-roles.html#ml-roles-custom-configure)).
 

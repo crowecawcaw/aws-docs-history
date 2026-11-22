@@ -1,7 +1,6 @@
 
 
 # ID mapping table analysis rule
-<a name="analysis-rules-id-mapping-table"></a>
 
 In AWS Clean Rooms, an *ID mapping table analysis rule* isn't a standalone analysis rule. This type of analysis rule is managed by AWS Clean Rooms and is used to join disparate identity data to facilitate querying. It's automatically added to ID mapping tables and can't be edited. It inherits the behaviors of the other analysis rules in the collaboration – as long as those analysis rules are homogeneous.
 
@@ -27,7 +26,7 @@ With the ID mapping table analysis rule, AWS Clean Rooms enforces an overlap on 
 
   A protected column is an ID mapping table column that, by default, you can use only in JOIN statements. For example, the following queries aren't supported:
 
-  ```
+  ```sql
   -- Not supported: the ID mapping table is joined in the same FROM clause
   SELECT provider.data_col
   FROM provider
@@ -42,7 +41,7 @@ With the ID mapping table analysis rule, AWS Clean Rooms enforces an overlap on 
 
   To use a LEFT SEMI JOIN or LEFT ANTI JOIN with mapped IDs, join your table to the ID mapping table in a subquery or common table expression (CTE) that respects the overlap and returns only unprotected columns. Then use the result in the LEFT SEMI JOIN or LEFT ANTI JOIN. For example:
 
-  ```
+  ```sql
   WITH matched AS (
     SELECT provider.id, provider.data_col
     FROM provider

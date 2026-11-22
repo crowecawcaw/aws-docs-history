@@ -1,7 +1,6 @@
 
 
 # Removing members from a collaboration
-<a name="remove-member"></a>
 
 **Note**  
 Before you begin, note that removing a member:   

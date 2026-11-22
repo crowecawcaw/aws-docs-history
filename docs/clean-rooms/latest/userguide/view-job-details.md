@@ -1,7 +1,6 @@
 
 
 # Viewing job details
-<a name="view-job-details"></a>
 
 You can view the job details as the member who can run jobs or as a member who can receive results.
 

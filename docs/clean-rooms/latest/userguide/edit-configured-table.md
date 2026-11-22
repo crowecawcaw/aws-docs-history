@@ -1,7 +1,6 @@
 
 
 # Editing a configured table
-<a name="edit-configured-table"></a>
 
 Prerequisites: 
 + An AWS account with access to AWS Clean Rooms

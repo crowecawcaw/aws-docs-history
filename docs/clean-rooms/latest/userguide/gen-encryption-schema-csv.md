@@ -1,7 +1,6 @@
 
 
 # Step 4: Generate an encryption schema for a tabular file
-<a name="gen-encryption-schema-csv"></a>
 
 To encrypt data, an encryption schema describing how the data will be used is required. This section describes how the C3R encryption client assists in generating an encryption schema for a CSV file with a header row or a Parquet file. 
 

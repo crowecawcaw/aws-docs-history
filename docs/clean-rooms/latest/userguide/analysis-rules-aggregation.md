@@ -1,7 +1,6 @@
 
 
 # Aggregation analysis rule
-<a name="analysis-rules-aggregation"></a>
 
 In AWS Clean Rooms, an *aggregation analysis rule* generates aggregate statistics using COUNT, SUM, and/or AVG functions along optional dimensions. When the aggregation analysis rule is added to a configured table, it enables the member who can query to run queries on the configured table.
 
@@ -16,7 +15,7 @@ The parameters of the analysis rule, defined in [Aggregation analysis rule - que
 
 Queries on tables that have an aggregation analysis rule must adhere to the following syntax.
 
-```
+```json
 --{{select_aggregate_function_expression}}
 SELECT 
 aggregation_function(column_name) [[AS] column_alias ] [, ...]
@@ -48,10 +47,10 @@ The following table explains each expression listed in the preceding syntax.
 | --- | --- | --- | 
 | {{select\_aggregate\_function\_expression}} | A comma-separated list containing the following expressions:+  `select_aggregation_function_expression` <br />+  `select_aggregate_expression`  There must be at least one `select_aggregation_function_expression` in the `select_aggregate_expression`.   | `SELECT SUM(PRICE), user_segment` | 
 | {{select\_aggregation\_function\_expression}} | One or more supported aggregation functions applied to one or more columns. Only columns are allowed as arguments of aggregation functions. There must be at least one `select_aggregation_function_expression` in the `select_aggregate_expression`.   | `AVG(PRICE)`<br />`COUNT(DISTINCT user_id)` | 
-| {{select\_grouping\_column\_expression}} | An expression that can contain any expression using the following:+  Table column names <br />+  Supported scalar functions <br />+  String literals <br />+  Numerical literals  `select_aggregate_expression` can alias columns with or without the `AS` parameter. For more information, see the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).  | `TRUNC(timestampColumn)` <br />`UPPER(campaignName)`  | 
+| {{select\_grouping\_column\_expression}} | An expression that can contain any expression using the following:+  Table column names <br />+  Supported scalar functions <br />+  String literals <br />+  Numerical literals  `select_aggregate_expression` can alias columns with or without the `AS` parameter. For more information, see the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).  | `TRUNC(timestampColumn, 'MONTH')` <br />`UPPER(campaignName)`  | 
 | {{table\_expression}} | A table, or join of tables, connecting join conditional expressions with `join_condition`.<br />`join_condition` returns a Boolean. <br />The `table_expression` supports:+  A specific JOIN type (INNER JOIN)  <br />+  The equality comparison condition within a `join_condition` (`=`) <br />+  Logical operators (`AND`, `OR`).   |  <pre>FROM consumer_table <br />INNER JOIN provider_table<br />ON<br />consumer_table.identifier1 = provider_table.identifier1<br />AND<br />consumer_table.identifier2 = provider_table.identifier2</pre>  | 
-| {{where\_expression}} | A conditional expression that returns a Boolean. It may be comprised of the following:+  Table column names <br />+  Supported scalar functions <br />+  Mathematical operators <br />+  String literals <br />+  Numerical literals <br />Supported comparison conditions are (`=, >, <, <=, >=, <>, !=, NOT, IN, NOT IN, LIKE, IS NULL, IS NOT NULL`). <br />Supported logical operators are (`AND, OR`).<br />The `where_expression` is optional. | `WHERE where_condition`<br />`WHERE price > 100` <br />`WHERE TRUNC(timestampColumn) = '1/1/2022'` <br />`WHERE timestampColumn = timestampColumn2 - 14`  | 
-| {{group\_by\_expression}} | A comma-separated list of expressions that match the requirements for the `select_grouping_column_expression`.  | `GROUP BY TRUNC(timestampColumn), UPPER(campaignName), segment` | 
+| {{where\_expression}} | A conditional expression that returns a Boolean. It may be comprised of the following:+  Table column names <br />+  Supported scalar functions <br />+  Mathematical operators <br />+  String literals <br />+  Numerical literals <br />Supported comparison conditions are (`=, >, <, <=, >=, <>, !=, NOT, IN, NOT IN, LIKE, IS NULL, IS NOT NULL`). <br />Supported logical operators are (`AND, OR`).<br />The `where_expression` is optional. | `WHERE where_condition`<br />`WHERE price > 100` <br />`WHERE TRUNC(timestampColumn, 'MONTH') = '2022-01-01'` <br />`WHERE timestampColumn = timestampColumn2 - 14`  | 
+| {{group\_by\_expression}} | A comma-separated list of expressions that match the requirements for the `select_grouping_column_expression`.  | `GROUP BY TRUNC(timestampColumn, 'MONTH'), UPPER(campaignName), segment` | 
 | {{having\_expression}} | A conditional expression that returns an Boolean. They have a supported aggregation function applied to a single column (for example, `SUM(price)`) and are compared to a numerical literal.<br />Supported conditions are (`=, >, <, <=, >=, <>, !=`). <br />Supported logical operators are (`AND, OR`).<br />The `having_expression` is optional. | `HAVING SUM(SALES) > 500` | 
 | {{order\_by\_expression}} | A comma-separated list of expressions that is compatible with the same requirements defined in `select_aggregate_expression` defined earlier. <br />The `order_by_expression` is optional. `order_by_expression` permits `ASC` and `DESC` parameters. For more information, see ASC DESC parameters in the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).  | `ORDER BY SUM(SALES), UPPER(campaignName)` | 
 
@@ -196,7 +195,7 @@ The following example shows a predefined structure for an aggregation analysis r
 
 In the following example, {{`MyTable`}} refers to your data table. You can replace each {{user input placeholder}} with your own information. 
 
-```
+```json
 {
   "aggregateColumns": [
     {
@@ -360,9 +359,9 @@ Company A doesn't include `joinRequired` in the analysis rule. It provides flexi
    `dimensionColumns` – Company B enables Company A to filter and group by `state`, `popularpurchases`, and `customerserviceuser` which are unique attributes that could help make the analysis for Company A. Company B enables Company A to use `returndate` to filter output on `returndate` that occurs after `purchasedate`. With this filtering, the output is more accurate for evaluating the impact of the product change. 
 
    `scalarFunctions` – Company B enables the following: 
-   + TRUNC for dates
+   + TRUNC in case Company A needs to truncate dates in queries
    + LOWER and UPPER in case the `producttype` is entered in a different format in their data
-   + CAST if Company A needs to convert data types in sales to be the same as data types in returns
+   + CAST if Company A needs to convert data types in sales to be the same as data types in returns, or to compare `returndate` to `purchasedate` as a DATE
 
    Company A doesn't enable other scalar functions because they don’t believe they are required for queries.
 
@@ -374,19 +373,16 @@ Company A doesn't include `joinRequired` in the analysis rule. It provides flexi
 
 1. Company A runs queries, such as the following example, to better understand the quantity of returns in Company B as compared to total purchases by location in 2022.
 
-   ```
-   SELECT
-     companyB.state,
-     SUM(companyB.returns),
-     COUNT(DISTINCT companyA.hashedemail)
-   FROM
-     sales companyA
-     INNER JOIN returns companyB ON companyA.identifier = companyB.identifier
-   WHERE
-     companyA.purchasedate BETWEEN '2022-01-01' AND '2022-12-31' AND
-     TRUNC(companyB.returndate) > companyA.purchasedate
-   GROUP BY
-     companyB.state;
+   ```json
+   SELECT companyB.state,
+       SUM(companyB.returns),
+       COUNT(DISTINCT companyA.hashedemail)
+   FROM sales companyA
+       INNER JOIN returns companyB
+           ON companyA.identifier = companyB.identifier
+   WHERE companyA.purchasedate BETWEEN '2022-01-01' AND '2022-12-31'
+       AND CAST(companyB.returndate AS DATE) > companyA.purchasedate
+   GROUP BY companyB.state;
    ```
 
 1. Company A and Company B review query logs. Company B verifies that the query aligns with what was agreed upon in the collaboration agreement. 

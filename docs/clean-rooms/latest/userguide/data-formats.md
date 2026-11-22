@@ -1,7 +1,6 @@
 
 
 # Data formats for AWS Clean Rooms
-<a name="data-formats"></a>
 
 To analyze data, the datasets must be in a format that AWS Clean Rooms supports. ​
 

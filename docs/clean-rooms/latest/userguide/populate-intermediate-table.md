@@ -1,17 +1,24 @@
 
 
 # Populating an intermediate table
-<a name="populate-intermediate-table"></a>
 
 After you create an intermediate table, you must populate it to materialize data. You can also repopulate an intermediate table to refresh the data when base tables are updated.
 
 Each populate operation creates a new version of the intermediate table. The previous version remains available during the refresh. If the refresh fails, the existing data is not affected.
 
-**Note**  
-Populating an intermediate table decrements access budgets on all referenced base tables, including transitive dependencies.
+**Considerations and limitations**
 
-**Note**  
-Populating an intermediate table starts a query to store the data in the service. This query counts towards your quotas for concurrent SQL queries per account and concurrent SQL query vCPU usage per account. For more information, see [AWS Clean Rooms quotas](clean-rooms-quotas.md).
+Before you populate an intermediate table, review the following:
++ **Access budgets** – Populating an intermediate table decrements access budgets on all referenced base tables, including transitive dependencies.
++ **Quotas** – SQL and PySpark analyses that populate an intermediate table count toward your quotas. For more information, see [AWS Clean Rooms quotas](clean-rooms-quotas.md).
+
+If you populate an intermediate table with a PySpark analysis template, the following also apply:
++ You must use a PySpark 2.0 (`PYSPARK_2_0`) analysis template.
++ The script must return exactly one result DataFrame.
++ Results are written as Parquet only. CSV isn't supported.
++ The output can have at least 1 column and at most 100 columns.
++ The populate operation converts column names to lowercase. If two names become identical after conversion, the operation fails.
++ The populate operation runs as a protected job that can take from minutes to hours. During this time, the table moves from `POPULATE_STARTED` to `POPULATE_SUCCESS` or `POPULATE_FAILED`.
 
 **To populate an intermediate table**
 
@@ -37,9 +44,6 @@ Populating an intermediate table starts a query to store the data in the service
 
 **Tracking progress**
 
-To view the status of a populate operation, choose the **Analysis** tab on the intermediate table details page. You can view the following information:
-+ Protected query ID (linked to query details)
-+ Status
-+ Worker type
-+ Number of workers
-+ Billed CRPU hours
+To view the status of a populate operation, choose the **Analysis** tab on the intermediate table details page. The information shown depends on how the table is populated:
++ When the table is populated by a SQL query, the tab shows the **Protected query ID** (linked to query details), **Status**, **Worker type**, **Number of workers**, and **Billed CRPU hours**.
++ When the table is populated by a PySpark analysis template, the tab shows the **Protected job ID** (linked to job details), **Status**, **Worker type**, and **Number of workers**.

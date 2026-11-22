@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Clean Rooms
-<a name="security-iam"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Associating a configured lookalike model
-<a name="create-ml-model-associate-model"></a>
 
 After you have configured a lookalike model, you can associate it to a collaboration.
 

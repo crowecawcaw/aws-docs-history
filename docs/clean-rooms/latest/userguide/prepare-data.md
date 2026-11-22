@@ -1,7 +1,6 @@
 
 
 # Preparing data tables for queries in AWS Clean Rooms
-<a name="prepare-data"></a>
 
 If your use case doesn't require you to bring your own data, you can skip this procedure. 
 

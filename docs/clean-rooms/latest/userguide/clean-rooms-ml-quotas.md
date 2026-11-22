@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms ML quotas
-<a name="clean-rooms-ml-quotas"></a>
 
 Your AWS account has the default quotas, formerly referred to as limits, for AWS Clean Rooms ML.
 

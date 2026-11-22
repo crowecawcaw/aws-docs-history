@@ -1,7 +1,6 @@
 
 
 # Viewing tables and analysis rules
-<a name="view-tables"></a>
 
 **To view tables associated with the collaboration and the analysis rules**
 

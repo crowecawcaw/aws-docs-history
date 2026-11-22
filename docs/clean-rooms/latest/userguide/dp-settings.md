@@ -1,7 +1,6 @@
 
 
 # Differential privacy policy
-<a name="dp-settings"></a>
 
 The differential privacy policy controls how many aggregation functions the member who can query is allowed to run in a collaboration. The **Privacy budget** defines a common, finite resource that is applied all tables in a collaboration. The **Noise added per query** governs the rate at which the privacy budget is depleted.
 

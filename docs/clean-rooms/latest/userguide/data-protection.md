@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Clean Rooms
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Clean Rooms. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -57,7 +56,7 @@ The following are policy statement examples you can add for AWS Clean Rooms for 
 
 **ML input channel with synthetic data**
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -161,7 +160,7 @@ The following are policy statement examples you can add for AWS Clean Rooms for 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -209,7 +208,7 @@ The following are policy statement examples you can add for AWS Clean Rooms for 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -333,7 +332,7 @@ To use your customer managed key with intermediate tables, the following API ope
 
 The following is an example key policy for using a customer managed key with intermediate tables:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -352,7 +351,7 @@ The following is an example key policy for using a customer managed key with int
         "StringLike": {
           "kms:EncryptionContext:aws:cleanrooms:intermediateTableArn": "arn:aws:cleanrooms:{{us-east-1}}:{{666666666666}}:membership/{{membership-id}}/intermediatetable/{{intermediate-table-id}}"
         },
-        "ForAnyValue:ArnEquals": {
+        "ArnEquals": {
           "aws:SourceArn": [
             "arn:aws:cleanrooms:{{us-east-1}}:{{666666666666}}:membership/{{member-1-membership-id}}",
             "arn:aws:cleanrooms:{{us-east-1}}:{{}}:membership/{{member-2-membership-id}}"
@@ -369,7 +368,15 @@ The following is an example key policy for using a customer managed key with int
       "Action": [
         "kms:DescribeKey"
       ],
-      "Resource": "*"
+      "Resource": "*",
+      "Condition": {
+        "ArnEquals": {
+          "aws:SourceArn": [
+            "arn:aws:cleanrooms:{{us-east-1}}:{{666666666666}}:membership/{{member-1-membership-id}}",
+            "arn:aws:cleanrooms:{{us-east-1}}:{{}}:membership/{{member-2-membership-id}}"
+          ]
+        }
+      }
     },
     {
       "Sid": "Allow caller to validate key via Clean Rooms",
@@ -385,8 +392,7 @@ The following is an example key policy for using a customer managed key with int
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "kms:ViaService": "cleanrooms.{{us-east-1}}.amazonaws.com",
-          "kms:CallerAccount": "{{666666666666}}"
+          "kms:ViaService": "cleanrooms.{{us-east-1}}.amazonaws.com"
         }
       }
     }
@@ -396,18 +402,91 @@ The following is an example key policy for using a customer managed key with int
 
 The first statement grants the AWS Clean Rooms service principal access for encrypting data during population and decrypting data during analysis. The `kms:EncryptionContext:aws:cleanrooms:intermediateTableArn` condition restricts which intermediate tables can use the key. The `aws:SourceArn` condition provides confused deputy protection by restricting access to specific membership ARNs in your collaboration.
 
-The second statement allows the service to describe the key for validation purposes.
+The second statement allows the service to describe the key for validation purposes. Like the first statement, the `aws:SourceArn` condition restricts it to the same membership ARNs, which provides confused deputy protection.
 
-The third statement allows a specific IAM role in the customer's account to perform key validation through AWS Clean Rooms. The permitted actions are DescribeKey, GenerateDataKey, and Decrypt. Access is scoped using `kms:ViaService` and `kms:CallerAccount` conditions. This role is typically the IAM role that you use to interact with AWS Clean Rooms.
+The third statement allows a specific IAM role in the customer's account to perform key validation through AWS Clean Rooms. The permitted actions are DescribeKey, GenerateDataKey, and Decrypt. The `kms:ViaService` condition scopes access. This role is typically the IAM role that you use to interact with AWS Clean Rooms.
 
 **Encryption context**
 
 AWS Clean Rooms uses the following encryption context when encrypting intermediate table data:
 
-```
+```json
 {
   "aws:cleanrooms:intermediateTableArn": "{{arn:aws:cleanrooms:us-east-1:123456789012:membership/membership-id/intermediatetable/intermediate-table-id}}"
 }
 ```
 
 Every AWS KMS operation is logged in CloudTrail with the intermediate table ARN, providing a clear audit trail of which resource triggered each encrypt or decrypt call. You can use the `kms:EncryptionContext` condition key in your key policy to restrict which intermediate tables can use the key.
+
+**Note**  
+Custom AWS KMS encryption context (`kms:EncryptionContext`) isn't supported for intermediate tables that you create from a PySpark analysis template.
+
+Because the encryption context isn't present for an intermediate table that you populate with a PySpark analysis template, use `StringLikeIfExists` instead of `StringLike` in the first statement. This lets the policy allow requests that don't include the encryption context, while still restricting access by the intermediate table ARN when the encryption context is present. The following is an example key policy for an intermediate table that you populate with a PySpark analysis template:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Allow Clean Rooms to encrypt and decrypt intermediate table data",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cleanrooms.amazonaws.com"
+      },
+      "Action": [
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLikeIfExists": {
+          "kms:EncryptionContext:aws:cleanrooms:intermediateTableArn": "arn:aws:cleanrooms:{{us-east-1}}:{{666666666666}}:membership/{{membership-id}}/intermediatetable/{{intermediate-table-id}}"
+        },
+        "ArnEquals": {
+          "aws:SourceArn": [
+            "arn:aws:cleanrooms:{{us-east-1}}:{{666666666666}}:membership/{{member-1-membership-id}}",
+            "arn:aws:cleanrooms:{{us-east-1}}:{{}}:membership/{{member-2-membership-id}}"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "Allow Clean Rooms to describe key",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cleanrooms.amazonaws.com"
+      },
+      "Action": [
+        "kms:DescribeKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ArnEquals": {
+          "aws:SourceArn": [
+            "arn:aws:cleanrooms:{{us-east-1}}:{{666666666666}}:membership/{{member-1-membership-id}}",
+            "arn:aws:cleanrooms:{{us-east-1}}:{{}}:membership/{{member-2-membership-id}}"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "Allow caller to validate key via Clean Rooms",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::{{666666666666}}:role/{{ExampleRole}}"
+      },
+      "Action": [
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "cleanrooms.{{us-east-1}}.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```

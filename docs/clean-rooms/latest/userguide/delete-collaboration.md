@@ -1,7 +1,6 @@
 
 
 # Deleting collaborations
-<a name="delete-collaboration"></a>
 
 As a collaboration creator, you can delete a collaboration that you created.
 

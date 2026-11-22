@@ -1,7 +1,6 @@
 
 
 # Custom ML modeling prerequisites
-<a name="custom-model-prerequisites"></a>
 
 Before you can perform custom ML modeling, you should consider the following:
 + Determine whether both model training and inference on the trained model is going to be performed in the collaboration.

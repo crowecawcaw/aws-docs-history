@@ -1,7 +1,6 @@
 
 
 # Deleting a data access budget
-<a name="delete-access-budget"></a>
 
 You can delete a data access budget from the **Tables** tab or from the table details page.
 

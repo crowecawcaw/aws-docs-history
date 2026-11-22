@@ -1,7 +1,6 @@
 
 
 # Receiving and using analysis results
-<a name="receive-query-results"></a>
 
  [Members who can receive results](glossary.md#glossary-member-who-can-receive-results) can review the query results in either the AWS Clean Rooms console or in the Amazon S3 buckets that they specified when they joined the collaboration. 
 

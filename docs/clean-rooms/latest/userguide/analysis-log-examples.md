@@ -1,13 +1,12 @@
 
 
 # Example analysis logs
-<a name="analysis-log-examples"></a>
 
 The following examples show representative analysis log entries. The examples use fictional identifiers.
 
 **Example Query submission log**  
 
-```
+```json
 {
   "eventId": "ffffffff-0000-4111-8222-333333333333",
   "eventTimestamp": 1723392245000,
@@ -33,7 +32,7 @@ The following examples show representative analysis log entries. The examples us
 
 **Example Query completion log**  
 
-```
+```json
 {
   "eventId": "ffffffff-0000-4111-8222-333333333333",
   "eventTimestamp": 1723392305000,
@@ -49,7 +48,7 @@ The following examples show representative analysis log entries. The examples us
 
 **Example Job submission log**  
 
-```
+```json
 {
   "eventId": "00000000-1111-4222-8333-444444444444",
   "eventTimestamp": 1723392365000,
@@ -72,7 +71,7 @@ The following examples show representative analysis log entries. The examples us
 
 **Example Job completion log**  
 
-```
+```json
 {
   "eventId": "00000000-1111-4222-8333-444444444444",
   "eventTimestamp": 1723392605000,

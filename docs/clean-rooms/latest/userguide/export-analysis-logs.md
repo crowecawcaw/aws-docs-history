@@ -1,7 +1,6 @@
 
 
 # Exporting query analysis logs
-<a name="export-analysis-logs"></a>
 
 AWS Clean Rooms runs SQL queries on Apache Spark. When a query fails or runs slowly, the Spark logs for that query contain the execution detail you need to find the cause. They show which stage failed, how work was distributed across tasks, how much memory was used, and where time was spent.
 

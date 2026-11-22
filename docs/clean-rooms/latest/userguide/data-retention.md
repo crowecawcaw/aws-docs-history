@@ -1,9 +1,10 @@
 
 
 # Data retention in AWS Clean Rooms
-<a name="data-retention"></a>
 
 Any data that is temporarily read into an AWS Clean Rooms collaboration is deleted after the query completes.
+
+Intermediate tables are an exception, because they cache analysis results for reuse within a collaboration. When you populate an intermediate table, AWS Clean Rooms materializes the results and stores them in AWS managed storage within the collaboration. AWS Clean Rooms doesn't export this data outside the collaboration and encrypts it at rest. Each populate operation creates a new version of the table. AWS Clean Rooms retains each version for the table's retention period, which is 30 days by default. When a version's retention period expires, AWS Clean Rooms deletes the stored data, and you must repopulate the table to use it again. Deleting an intermediate table also deletes its stored data. For more information, see [Intermediate tables in AWS Clean Rooms](working-with-intermediate-tables.md).
 
 When you create a lookalike model, Clean Rooms ML reads your training data, transforms it into a format suitable for our ML model, and stores the trained model parameters inside Clean Rooms ML. Clean Rooms ML does not retain a copy of your training data. AWS Clean Rooms SQL queries do not retain any of your data after the query has run. Clean Rooms ML then uses the trained model to summarize the behavior of all of your users. Clean Rooms ML stores a user-level data set for each user in your data for as long as your lookalike model is active.
 

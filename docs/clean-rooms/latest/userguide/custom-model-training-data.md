@@ -1,7 +1,6 @@
 
 
 # Contributing training data in AWS Clean Rooms ML
-<a name="custom-model-training-data"></a>
 
 After the collaboration creator has created the collaboration and invited members have joined, you are ready to contribute training data to the collaboration. Any member can contribute training data.
 
@@ -143,7 +142,7 @@ This service role has permissions to the tables. The service role is assumable o
 
    Run the following code with your specific parameters.
 
-   ```
+   ```Python
    import boto3
    acr_client= boto3.client('cleanrooms')
    

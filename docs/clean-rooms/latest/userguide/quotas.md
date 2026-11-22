@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS Clean Rooms
-<a name="quotas"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is specific to an AWS Region. You can request increases for some quotas, and other quotas can't be increased.
 

@@ -1,7 +1,6 @@
 
 
 # Optional flags in Cryptographic Computing for Clean Rooms
-<a name="crypto-computing-optional-flags"></a>
 
 The following sections describe the optional flags that you can set when you [encrypt data](encrypt-data.md) using the C3R encryption client for tabular file customization and testing.
 

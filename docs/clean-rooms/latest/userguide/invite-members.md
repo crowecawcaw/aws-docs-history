@@ -1,7 +1,6 @@
 
 
 # Inviting members to a collaboration
-<a name="invite-members"></a>
 
 As a collaboration creator, after you have created a collaboration, you can send an invitation link to the members listed on the **Members** tab.
 

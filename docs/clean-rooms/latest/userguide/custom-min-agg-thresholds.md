@@ -1,7 +1,6 @@
 
 
 # Minimum aggregation thresholds
-<a name="custom-min-agg-thresholds"></a>
 
 Data aggregation is a privacy-enhancing technique that helps enforce anonymization by preventing queries from returning results about individuals or small groups. When minimum aggregation thresholds are configured on your tables, AWS Clean Rooms suppresses results that do not meet the data provider's specified minimum threshold.
 
@@ -22,7 +21,7 @@ You can configure minimum aggregation thresholds in a Custom analysis rule for y
 
 The following example sets the minimum aggregation threshold to 100 with `user_id` as the `identityColumns` value:
 
-```
+```json
 {
   "aggregationThresholds": [
     {
@@ -61,7 +60,7 @@ A per-column override accepts `0`, which exempts that output column from minimum
 
 The following example sets a minimum aggregation threshold override for the `campaign_id` column:
 
-```
+```json
 {
   "outputColumnThresholds": [
     {
@@ -92,7 +91,7 @@ The following is an example of an expression in an aggregation function that is 
 
 The following is a complete `aggregationThresholds` example:
 
-```
+```json
 {
   "aggregationThresholds": [
     {
@@ -122,7 +121,7 @@ The value reaches an output column if you return it directly, transform it (for 
 
 You can't run the following SQL queries:
 
-```
+```sql
 -- Blocked: each SELECT returns a MIN or MAX value. Other aggregate functions,
 -- such as SUM or COUNT, in the same SELECT don't make it qualify.
 SELECT campaign_id, MIN(price) AS cheapest, SUM(spend) AS total_spend
@@ -140,7 +139,7 @@ GROUP BY campaign_id
 
 If you use the value only in a comparison, in the condition of an IF or CASE expression, in a HAVING clause, or in a join condition, it doesn't reach the output and these functions qualify. You can run the following SQL queries:
 
-```
+```sql
 -- Allowed: you use the MAX value only in a comparison or a HAVING clause,
 -- so it never reaches the output.
 SELECT campaign_id, MAX(age) > 21 AS has_adult
@@ -155,7 +154,7 @@ HAVING MAX(spend) > 1000
 
 You can also compute MIN or MAX in a subquery or common table expression (CTE), and then aggregate the result in an outer SELECT that uses only qualifying aggregate functions. The inner SELECT isn't a qualifying aggregation, but the outer SELECT is, so you can run the query:
 
-```
+```sql
 -- Allowed: the outer SELECT uses only SUM, so it's a qualifying aggregation.
 WITH per_household AS (
   SELECT campaign_id, household_id, MAX(spend) AS max_spend
@@ -237,7 +236,7 @@ A LEFT SEMI JOIN returns the rows of the left table that have a match in the rig
 
 To get the results you expect, use only equality conditions between columns in the ON condition, and filter the right table in a subquery. If the ON condition contains other comparisons, such as a range comparison, OR, or a condition on the right table, the threshold can remove more rows than expected. A query that doesn't aggregate its results can also be rejected.
 
-```
+```sql
 -- Can return fewer rows than expected
 SELECT s.region, COUNT(*) AS stores
 FROM stores s
@@ -257,7 +256,7 @@ AWS Clean Rooms rejects a LEFT ANTI JOIN when its right side uses a column that 
 
 The following query is rejected because the right side of the LEFT ANTI JOIN uses `user_id` from `partner_purchases`, which is protected by a minimum aggregation threshold:
 
-```
+```sql
 -- Rejected: partner_purchases.user_id is protected by a minimum aggregation threshold
 SELECT a.campaign, COUNT(*) AS non_converters
 FROM ad_exposures a

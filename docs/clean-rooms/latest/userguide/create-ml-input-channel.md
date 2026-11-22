@@ -1,7 +1,6 @@
 
 
 # Creating an ML input channel in AWS Clean Rooms ML
-<a name="create-ml-input-channel"></a>
 
 **Prerequisites: **
 + An AWS account with access to AWS Clean Rooms

@@ -1,7 +1,6 @@
 
 
 # Step 1: Complete the prerequisites
-<a name="prerequisites"></a>
 
 To prepare your data tables for use with C3R, you must complete the following prerequisites:
 + You can access the Cryptographic Computing for Clean Rooms repository on GitHub: 

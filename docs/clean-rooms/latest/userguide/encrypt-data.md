@@ -1,7 +1,6 @@
 
 
 # Step 7: Encrypt data
-<a name="encrypt-data"></a>
 
 To perform this step, you must acquire the AWS Clean Rooms collaboration ID and the shared secret key. For more information, see the [Prerequisites](prerequisites.md).
 

@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms ML
-<a name="machine-learning"></a>
 
 AWS Clean Rooms ML allows two or more parties to run machine learning models on their data without the need to share their data with each other. The service provides privacy-enhancing controls that allow data owners to safe-guard their data and their model IP. You can use AWS authored models or bring your own custom model.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing recent jobs
-<a name="view-recent-jobs"></a>
 
 You can view the jobs that ran in the last 90 days on the **Analysis** tab.
 
