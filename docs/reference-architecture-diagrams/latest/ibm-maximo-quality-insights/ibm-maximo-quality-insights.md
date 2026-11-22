@@ -1,7 +1,6 @@
 
 
 # Computer Vision for Quality Insights with IBM Maximo on AWS
-<a name="ibm-maximo-quality-insights"></a>
 
 Publication date: **April 11, 2023 ([Diagram history](#imq-diagram-history))**
 
