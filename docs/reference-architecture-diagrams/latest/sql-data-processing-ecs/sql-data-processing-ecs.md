@@ -1,7 +1,6 @@
 
 
 # SQL Based Data Processing in Amazon ECS
-<a name="sql-data-processing-ecs"></a>
 
 Publication date: **March 8, 2021 ([Diagram history](#diagram-history))**
 
