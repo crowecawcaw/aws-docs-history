@@ -1,7 +1,6 @@
 
 
 # HOTSPOTS
-<a name="sqlrf-hotspots"></a>
 
 Detects *hotspots*, or regions of activity that is significantly higher than the norm, in your data stream. A hotspot is defined as a small region of space that is relatively dense with data points. 
 
@@ -127,7 +126,7 @@ price           REAL)
 
 In this example, a destination stream is created for the output of the HOTSPOTS function. A pump is then created that runs the HOTSPOTS function on the specified values in the sample data stream.
 
-```
+```sql
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM"(
     CHANGE REAL, 
     PRICE REAL,

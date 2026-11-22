@@ -1,7 +1,6 @@
 
 
 # FAST\_REGEX\_LOG\_PARSER
-<a name="sql-reference-fast-regex-log-parser"></a>
 
 ```
 FAST_REGEX_LOG_PARSE('input_string', 'fast_regex_pattern')

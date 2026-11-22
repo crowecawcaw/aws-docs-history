@@ -1,7 +1,6 @@
 
 
 # TRIM
-<a name="sql-reference-trim"></a>
 
 ```
 TRIM ( [ [ <trim-specification> ] [ <trim-character> ] FROM ] <trim-source> )

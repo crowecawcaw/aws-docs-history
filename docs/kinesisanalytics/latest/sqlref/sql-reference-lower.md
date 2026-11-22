@@ -1,7 +1,6 @@
 
 
 # LOWER
-<a name="sql-reference-lower"></a>
 
 ```
 LOWER ( <character-expression> )

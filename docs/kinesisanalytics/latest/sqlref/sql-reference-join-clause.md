@@ -1,7 +1,6 @@
 
 
 # JOIN clause
-<a name="sql-reference-join-clause"></a>
 
 The JOIN clause in a SELECT statement combines columns from one or more streams or reference tables.
 

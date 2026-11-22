@@ -1,7 +1,6 @@
 
 
 # CREATE STREAM
-<a name="sql-reference-create-stream"></a>
 
 The CREATE STREAM statement creates a (local) stream. The name of the stream must be distinct from the name of any other stream in the same schema. It is good practice to include a description of the stream.
 

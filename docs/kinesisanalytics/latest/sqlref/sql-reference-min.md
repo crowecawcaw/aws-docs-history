@@ -1,7 +1,6 @@
 
 
 # MIN
-<a name="sql-reference-min"></a>
 
 Returns the minimum value of a group of values from a windowed query. A windowed query is defined in terms of time or rows. For information about windowed queries, see [Windowed Queries](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/windowed-sql.html).
 

@@ -1,7 +1,6 @@
 
 
 # UNIX\_TIMESTAMP
-<a name="sql-reference-unix-timestamp"></a>
 
 Converts a SQL timestamp to a Unix timestamp that is expressed in milliseconds since '1970-01-01 00:00:00' UTC and that is a BIGINT.
 

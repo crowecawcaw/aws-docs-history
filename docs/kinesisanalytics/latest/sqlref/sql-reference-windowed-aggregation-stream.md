@@ -1,7 +1,6 @@
 
 
 # Windowed Aggregation on Streams
-<a name="sql-reference-windowed-aggregation-stream"></a>
 
 To illustrate how windowed aggregation works on Amazon Kinesis data streams, assume that the data in the following table is flowing through a stream called WEATHERSTREAM.
 

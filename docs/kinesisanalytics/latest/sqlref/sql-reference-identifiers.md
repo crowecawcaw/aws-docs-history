@@ -1,7 +1,6 @@
 
 
 # Identifiers
-<a name="sql-reference-identifiers"></a>
 
 All identifiers may be up to 128 characters. Identifiers may be quoted (with case-sensitivity) by enclosing them in double-quote marks ("), or unquoted (with implicit uppercasing before both storage and lookup).
 

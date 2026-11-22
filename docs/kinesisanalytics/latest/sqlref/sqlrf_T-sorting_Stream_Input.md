@@ -1,7 +1,6 @@
 
 
 # T-sorting Stream Input
-<a name="sqlrf_T-sorting_Stream_Input"></a>
 
 Amazon Kinesis Data Analytics real-time analytics use the fact that arriving data is ordered by ROWTIME. However, sometimes data arriving from multiple sources may not be time-synchronized.
 

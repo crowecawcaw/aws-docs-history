@@ -1,7 +1,6 @@
 
 
 # Group Rank
-<a name="sql-reference-group-rank-udx"></a>
 
 This function applies a `RANK()` function to logical groups of rows and optionally delivers the group in sorted order.
 
@@ -71,7 +70,7 @@ price           REAL)
 
 In this example, the aggregate query has a `GROUP BY` clause on `ROWTIME` that groups the stream into finite rows. The `GROUP_RANK` function then sorts the rows returned by the `GROUP BY` clause.
 
-```
+```sql
 CREATE OR REPLACE STREAM "ticker_grouped" (
     "group_time" TIMESTAMP,
     "ticker" VARCHAR(65520),

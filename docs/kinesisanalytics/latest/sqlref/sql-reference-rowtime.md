@@ -1,7 +1,6 @@
 
 
 # ROWTIME
-<a name="sql-reference-rowtime"></a>
 
 ROWTIME is an operator and system column that returns the time at which a particular row of a stream was created. 
 

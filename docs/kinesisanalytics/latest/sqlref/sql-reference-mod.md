@@ -1,7 +1,6 @@
 
 
 # MOD
-<a name="sql-reference-mod"></a>
 
 ```
 MOD ( <dividend>, <divisor> )

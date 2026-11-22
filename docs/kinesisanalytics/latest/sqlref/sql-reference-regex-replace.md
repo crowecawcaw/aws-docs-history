@@ -1,7 +1,6 @@
 
 
 # REGEX\_REPLACE
-<a name="sql-reference-regex-replace"></a>
 
 REGEX\_REPLACE replaces a substring with an alternative substring. It returns the value of the following Java expression.
 

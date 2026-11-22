@@ -1,7 +1,6 @@
 
 
 # Query
-<a name="sql-reference-query"></a>
 
 ## Syntax
 <a name="sql-reference-query-syntax"></a>

@@ -1,7 +1,6 @@
 
 
 # INSERT
-<a name="sql-reference-insert"></a>
 
 INSERT is used to insert rows into a stream. It can also be used in a pump to insert the output of one stream into another.
 

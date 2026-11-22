@@ -1,7 +1,6 @@
 
 
 # VARIABLE\_COLUMN\_LOG\_PARSE
-<a name="sql-reference-variable-column-log-parse"></a>
 
 ```
  VARIABLE_COLUMN_LOG_PARSE(

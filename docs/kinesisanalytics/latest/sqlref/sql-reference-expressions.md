@@ -1,7 +1,6 @@
 
 
 # Expressions and Literals
-<a name="sql-reference-expressions"></a>
 <a name="value-expression"></a>
 **Value expressions**  
 Value expressions are defined by the following syntax:

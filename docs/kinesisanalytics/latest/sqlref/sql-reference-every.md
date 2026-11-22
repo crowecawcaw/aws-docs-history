@@ -1,7 +1,6 @@
 
 
 # EVERY
-<a name="sql-reference-every"></a>
 
 ```
 EVERY ( <boolean_expression> )

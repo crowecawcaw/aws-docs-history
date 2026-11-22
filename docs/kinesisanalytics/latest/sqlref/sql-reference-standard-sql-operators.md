@@ -1,7 +1,6 @@
 
 
 # Standard SQL Operators
-<a name="sql-reference-standard-sql-operators"></a>
 
 The following topics discuss standard SQL operators:
 

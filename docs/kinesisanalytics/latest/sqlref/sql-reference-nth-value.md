@@ -1,7 +1,6 @@
 
 
 # NTH\_VALUE
-<a name="sql-reference-nth-value"></a>
 
 ```
 NTH_VALUE(x, n) [ <from first or last> ] [ <null treatment> ] over w

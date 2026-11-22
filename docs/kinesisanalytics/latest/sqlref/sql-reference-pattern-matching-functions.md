@@ -1,7 +1,6 @@
 
 
 # Log Parsing Functions
-<a name="sql-reference-pattern-matching-functions"></a>
 
 Amazon Kinesis Data Analytics features the following functions for log parsing: 
 + [FAST\_REGEX\_LOG\_PARSER](sql-reference-fast-regex-log-parser.md) works similarly to the regex parser, but takes several "shortcuts" to ensure faster results. For example, the fast regex parser stops at the first match it finds (known as "lazy" semantics.) 

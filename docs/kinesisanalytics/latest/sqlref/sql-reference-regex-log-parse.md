@@ -1,7 +1,6 @@
 
 
 # REGEX\_LOG\_PARSE
-<a name="sql-reference-regex-log-parse"></a>
 
 ```
 REGEX_LOG_PARSE (<character-expression>,<regex-pattern>,<columns>)<regex-pattern> := <character-expression>[OBJECT] <columns> := <columnname> [ <datatype> ] {, <columnname> <datatype> }*

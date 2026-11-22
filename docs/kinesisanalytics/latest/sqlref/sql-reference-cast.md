@@ -1,7 +1,6 @@
 
 
 # CAST
-<a name="sql-reference-cast"></a>
 
 CAST lets you convert one value expression or data type to another value expression or data type.
 

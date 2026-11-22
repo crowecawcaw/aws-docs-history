@@ -1,7 +1,6 @@
 
 
 # WINDOW Clause (Sliding Windows)
-<a name="sql-reference-window-clause"></a>
 
 The `WINDOW` clause for a sliding windowed query specifies the rows over which analytic functions are computed across a group of rows in relation to the current row. These aggregate functions produce an output row aggregated by the keys in one or more columns for each input row. The `WINDOW` clause in a query specifies records in a stream partitioned by the time range interval or the number of rows, and an additional optional set of columns specified by the `PARTITION BY` clause. You can define named or inline window specifications that can be used in analytic functions and streaming `JOIN` clauses. For more information about analytic functions, see [Analytic Functions](sql-reference-analytic-functions.md).
 

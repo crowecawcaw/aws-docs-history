@@ -1,7 +1,6 @@
 
 
 # SELECT statement
-<a name="sql-reference-select"></a>
 
 SELECT retrieves rows from streams. You can use SELECT as a top-level statement, or as part of a query involving set operations, or as part of another statement, including (for example) when passed as a query into a UDX. For examples, see the topics INSERT, IN, EXISTS, [CREATE PUMP](sql-reference-create-pump.md) in this guide.
 

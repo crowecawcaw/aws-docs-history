@@ -1,7 +1,6 @@
 
 
 # Monotonic Expressions and Operators
-<a name="sql-reference-monotonic-expressions-operators"></a>
 
 Since Amazon Kinesis Data Analytics queries operate on infinite streams of rows, some operations are only possible if something is known about those streams.
 

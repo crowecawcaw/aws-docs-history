@@ -1,7 +1,6 @@
 
 
 # Data Types
-<a name="sql-reference-data-types"></a>
 
 The following table summarizes the data types supported by Amazon Kinesis Data Analytics. 
 

@@ -1,7 +1,6 @@
 
 
 # COUNT\_DISTINCT\_ITEMS\_TUMBLING Function
-<a name="count-distinct-items"></a>
 
 Returns a count of the number of distinct items in the specified in-application stream column over a tumbling window. The resulting count is approximate; the function uses the HyperLogLog algorithm. 
 
@@ -13,7 +12,7 @@ When you use `COUNT_DISTINCT_ITEMS_TUMBLING`, be aware of the following:
 
   The following example demonstrates how to get an exact count of distinct rows for each ticker symbol in a five second tumbling window. The SELECT statement uses all of the columns (except ROWTIME) in determining the uniqueness.
 
-  ```
+  ```sql
   CREATE OR REPLACE STREAM output_stream (ticker_symbol VARCHAR(4), unique_count BIGINT); 
   
   
@@ -96,7 +95,7 @@ price           REAL)
 
 The following example demonstrates how to use the `COUNT_DISTINCT_ITEMS_TUMBLING` function to approximate the number of distinct `TICKER_SYMBOL` values in the current tumbling window of the in-application stream. For more information about tumbling windows, see [Tumbling Windows](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/tumbling-window-concepts.html).
 
-```
+```sql
 CREATE OR REPLACE STREAM DESTINATION_SQL_STREAM (
     NUMBER_OF_DISTINCT_ITEMS BIGINT);
 

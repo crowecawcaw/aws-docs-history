@@ -1,7 +1,6 @@
 
 
 # FROM clause
-<a name="sql-reference-from-clause"></a>
 
 The FROM clause is the source of rows for a query.
 

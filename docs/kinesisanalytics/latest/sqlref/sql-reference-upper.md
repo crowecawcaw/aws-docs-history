@@ -1,7 +1,6 @@
 
 
 # UPPER
-<a name="sql-reference-upper"></a>
 
 ```
 < UPPER ( <character-expression> )

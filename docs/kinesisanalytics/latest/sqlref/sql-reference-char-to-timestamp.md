@@ -1,7 +1,6 @@
 
 
 # Char To Timestamp(Sys)
-<a name="sql-reference-char-to-timestamp"></a>
 
 The Char to Timestamp function is one of the most frequently-used system functions, because it lets you create a timestamp out of any correctly formatted input string. Using this function, you can specify which parts of the timestamp string you wish to use in subsequent processing, and create a TIMESTAMP value containing only those. To do so, you specify a template that identifies the parts of the timestamp you want. For example, to use only year and month, you would specify 'yyyy-MM'. 
 

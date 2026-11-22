@@ -1,7 +1,6 @@
 
 
 # CHAR\_LENGTH / CHARACTER\_LENGTH
-<a name="sql-reference-char-length"></a>
 
 ```
  CHAR_LENGTH | CHARACTER_LENGTH ( <character-expression> )

@@ -1,7 +1,6 @@
 
 
 # EXP
-<a name="sql-reference-exp"></a>
 
 ```
 EXP ( <number-expression> )

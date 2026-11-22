@@ -1,7 +1,6 @@
 
 
 # EXTRACT
-<a name="sql-reference-extract"></a>
 
 ```
 EXTRACT(YEAR|MONTH|DAY|HOUR|MINUTE|SECOND FROM <datetime expression>|<interval expression>)

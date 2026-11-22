@@ -1,7 +1,6 @@
 
 
 # LN
-<a name="sql-reference-ln"></a>
 
 ```
 LN ( <number-expression> )

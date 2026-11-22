@@ -1,7 +1,6 @@
 
 
 # String and Search Functions
-<a name="sql-reference-string-and-search-functions"></a>
 
 The topics in this section describe the string and search functions for Amazon Kinesis Data Analytics streaming SQL.
 

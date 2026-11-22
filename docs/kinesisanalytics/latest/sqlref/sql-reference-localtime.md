@@ -1,7 +1,6 @@
 
 
 # LOCALTIME
-<a name="sql-reference-localtime"></a>
 
 Returns the current time when the query executes as defined by the environment on which Amazon Kinesis Data Analytics is running. LOCALTIME is always returned as UTC (GMT), not the local timezone.
 

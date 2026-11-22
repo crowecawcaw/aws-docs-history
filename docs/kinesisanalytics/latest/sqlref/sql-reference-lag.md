@@ -1,7 +1,6 @@
 
 
 # LAG
-<a name="sql-reference-lag"></a>
 
 LAG returns the evaluation of the expression (such as the name of a column) for the record that is N records before the current record in a given window. Both offset and default are evaluated with respect to the current record. If there is no such record, LAG instead returns a specified default expression. LAG returns a value of the same type as the expression. 
 

@@ -1,7 +1,6 @@
 
 
 # CURRENT\_TIMESTAMP
-<a name="sql-reference-current-timestamp"></a>
 
 Returns the current database system timestamp (as defined on the environment on which Amazon Kinesis Data Analytics is running) as a datetime value. 
 

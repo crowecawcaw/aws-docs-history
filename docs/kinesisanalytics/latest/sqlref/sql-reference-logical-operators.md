@@ -1,7 +1,6 @@
 
 
 # Logical Operators
-<a name="sql-reference-logical-operators"></a>
 
 Logical operators let you establish conditions and test their results.
 

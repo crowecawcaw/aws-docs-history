@@ -1,7 +1,6 @@
 
 
 # Datetime Conversion Functions
-<a name="sql-reference-datetime-conversion-functions"></a>
 
 You specify date and time formats using patterned letters. Date and time pattern strings use unquoted letters from 'A' to 'Z' and from 'a' to 'z', with each letter representing a formatting element.
 

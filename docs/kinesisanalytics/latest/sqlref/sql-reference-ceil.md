@@ -1,7 +1,6 @@
 
 
 # CEIL / CEILING
-<a name="sql-reference-ceil"></a>
 
 ```
  CEIL | CEILING ( <number-expression> )

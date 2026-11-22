@@ -1,7 +1,6 @@
 
 
 # INITCAP
-<a name="sql-reference-initcap"></a>
 
 ```
 INITCAP ( <character-expression> )

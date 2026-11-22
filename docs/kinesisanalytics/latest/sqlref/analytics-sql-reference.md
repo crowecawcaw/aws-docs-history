@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Data Analytics SQL Reference
-<a name="analytics-sql-reference"></a>
 
 **Note**  
 For new projects, we recommend that you use Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes.

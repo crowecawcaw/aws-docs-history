@@ -1,7 +1,6 @@
 
 
 # W3C\_LOG\_PARSE
-<a name="sql-reference-w3c-log-parse"></a>
 
 
 

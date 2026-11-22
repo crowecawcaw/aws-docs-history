@@ -1,7 +1,6 @@
 
 
 # TIMESTAMP\_TO\_CHAR
-<a name="sql-reference-timestamp-to-char"></a>
 
 Uses a format string to format a timestamp as char. Returns the timestamp as a string.
 

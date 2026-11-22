@@ -1,7 +1,6 @@
 
 
 # HAVING clause
-<a name="sql-reference-having-clause"></a>
 
 The HAVING clause in a SELECT specifies a condition to apply within a group or aggregate. In other words, HAVING filters rows after the aggregation of the GROUP BY clause has been applied. Since HAVING is evaluated after GROUP BY, it can only reference expressions constructed (or derivable) from grouping keys, aggregate expressions, and constants. (These are the same rules that apply to expressions in the SELECT clause of a GROUP BY query.) A HAVING clause must come after any GROUP BY clause and before any ORDER BY clause. HAVING is like [WHERE clause](sql-reference-where-clause.md), but applies to groups. Results from a HAVING clause represent groupings or aggregations of original rows, whereas results from a WHERE clause are individual original rows.
 

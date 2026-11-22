@@ -1,7 +1,6 @@
 
 
 # SYS\_LOG\_PARSE
-<a name="sql-reference-sys-log-parse"></a>
 
 Parses the standard syslog format:
 

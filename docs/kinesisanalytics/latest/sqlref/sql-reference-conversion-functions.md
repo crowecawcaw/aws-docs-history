@@ -1,7 +1,6 @@
 
 
 # Conversion Functions
-<a name="sql-reference-conversion-functions"></a>
 
 The topics in this section describe the conversion functions for Amazon Kinesis Data Analytics streaming SQL.
 

@@ -1,7 +1,6 @@
 
 
 # Date and Time Patterns
-<a name="sql-reference-parse-timestamp-format"></a>
 
 Date and time formats are specified by date and time pattern strings. In these pattern strings, unquoted letters from A to Z and from a to z represent components of a data or time value. If a letter or text string is enclosed within a pair of single quotes, that letter or text is not interpreted but rather used as is, as are all other characters in the pattern string. During printing, that letter or text is copied as is to the output string; during parsing, they are matched against the input string. "''" represents a single quote.
 

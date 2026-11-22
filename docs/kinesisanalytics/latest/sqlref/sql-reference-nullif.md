@@ -1,7 +1,6 @@
 
 
 # NULLIF
-<a name="sql-reference-nullif"></a>
 
 ```
 NULLIF ( <value-expression>, <value-expression> )

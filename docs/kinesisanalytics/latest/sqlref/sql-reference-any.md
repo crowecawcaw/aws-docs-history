@@ -1,7 +1,6 @@
 
 
 # ANY
-<a name="sql-reference-any"></a>
 
 ```
 ANY ( <boolean_expression> )

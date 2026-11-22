@@ -1,7 +1,6 @@
 
 
 # TSDIFF
-<a name="sql-reference-tsdiff"></a>
 
 Returns NULL if any of the arguments is null.
 

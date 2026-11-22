@@ -1,7 +1,6 @@
 
 
 # FIRST\_VALUE
-<a name="sql-reference-first-value"></a>
 
 ```
 FIRST_VALUE( <value-expression>) <null treatment> OVER <window-specification>

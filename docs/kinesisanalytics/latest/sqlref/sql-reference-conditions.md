@@ -1,7 +1,6 @@
 
 
 # Condition Clause
-<a name="sql-reference-conditions"></a>
 
 Referenced by:
 + SELECT clauses: [HAVING clause](sql-reference-having-clause.md), [WHERE clause](sql-reference-where-clause.md), and [JOIN clause](sql-reference-join-clause.md). (See also the SELECT chart and its [SELECT clause](sql-reference-select-clause.md).)

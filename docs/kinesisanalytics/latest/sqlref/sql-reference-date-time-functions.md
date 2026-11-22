@@ -1,7 +1,6 @@
 
 
 # Date and Time Functions
-<a name="sql-reference-date-time-functions"></a>
 
 The following built-in functions relate to dates and time. 
 

@@ -1,7 +1,6 @@
 
 
 # Template Strings to Create Specific Output Timestamps
-<a name="sql-reference-template-strings-create-output-timestamps"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # OVERLAY
-<a name="sql-reference-overlay"></a>
 
 ```
  OVERLAY ( <original-string>

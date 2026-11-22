@@ -1,7 +1,6 @@
 
 
 # EXP\_AVG
-<a name="sql-reference-exp-avg"></a>
 
 ```
 EXP_AVG ( expression, <time-interval> )

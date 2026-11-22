@@ -1,7 +1,6 @@
 
 
 # POSITION
-<a name="sql-reference-position"></a>
 
 ```
  POSITION ( <search-string> IN <source-string> )

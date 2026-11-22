@@ -1,7 +1,6 @@
 
 
 # FLOOR
-<a name="sql-reference-floor"></a>
 
 ```
 FLOOR ( <time-unit> )

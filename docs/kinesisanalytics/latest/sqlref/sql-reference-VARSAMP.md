@@ -1,7 +1,6 @@
 
 
 # VAR\_SAMP
-<a name="sql-reference-VARSAMP"></a>
 
 Returns the sample variance of a non-null set of numbers (nulls being ignored).
 
@@ -47,7 +46,7 @@ The examples following are based on the sample stock dataset that is part of the
 
 The sample stock dataset has the schema following.
 
-```
+```sql
 (ticker_symbol  VARCHAR(4),
 sector          VARCHAR(16),
 change          REAL,
@@ -62,7 +61,7 @@ The following example demonstrates how to use the `VAR_SAMP` function to determi
 #### Using STEP (Recommended)
 <a name="varsamp-example-step"></a>
 
-```
+```sql
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (ticker_symbol VARCHAR(4), var_samp_price REAL);
 
 CREATE OR REPLACE  PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"
@@ -75,7 +74,7 @@ SELECT STREAM ticker_symbol, VAR_SAMP(price) AS var_samp_price
 #### Using FLOOR
 <a name="varsamp-example-floor"></a>
 
-```
+```sql
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (ticker_symbol VARCHAR(4), var_samp_price REAL);
 
 CREATE OR REPLACE  PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"
@@ -98,7 +97,7 @@ The preceding examples output a stream similar to the following:
 
 The following example demonstrates how to use the `VAR_SAMP` function to determine the sample variance of the values in a sliding window of the PRICE column of the example dataset. `DISTINCT` is not specified, so duplicate values are included in the calculation.
 
-```
+```sql
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (ticker_symbol VARCHAR(4), var_samp_price REAL);
 
 CREATE OR REPLACE PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"

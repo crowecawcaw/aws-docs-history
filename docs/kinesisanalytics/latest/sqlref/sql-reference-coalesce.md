@@ -1,7 +1,6 @@
 
 
 # COALESCE
-<a name="sql-reference-coalesce"></a>
 
 ```
 COALESCE (

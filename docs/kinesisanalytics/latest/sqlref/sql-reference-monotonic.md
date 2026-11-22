@@ -1,7 +1,6 @@
 
 
 # Monotonic Function
-<a name="sql-reference-monotonic"></a>
 
 ```
 MONOTONIC(<expression>)

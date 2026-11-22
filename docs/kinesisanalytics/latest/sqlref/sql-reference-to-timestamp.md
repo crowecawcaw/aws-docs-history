@@ -1,7 +1,6 @@
 
 
 # TO\_TIMESTAMP
-<a name="sql-reference-to-timestamp"></a>
 
 Converts a Unix timestamp to a SQL timestamp in 'YYYY-MM-DD HH:MM:SS' format. 
 

@@ -1,7 +1,6 @@
 
 
 # Numeric Types and Precision
-<a name="sql-reference-numeric-types-precision"></a>
 
 For DECIMAL we support a maximum of 18 digits for precision and scale.
 

@@ -1,7 +1,6 @@
 
 
 # Streaming SQL Language Elements
-<a name="sql-reference-basic-building-blocks"></a>
 
 The following topics discuss the language elements in Kinesis Data Analytics that underlie its syntax and operations:
 

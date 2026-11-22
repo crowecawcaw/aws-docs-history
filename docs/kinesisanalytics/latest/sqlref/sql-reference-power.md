@@ -1,7 +1,6 @@
 
 
 # POWER
-<a name="sql-reference-power"></a>
 
 ```
  POWER ( <base>, <exponent> )

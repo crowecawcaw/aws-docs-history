@@ -1,7 +1,6 @@
 
 
 # AVG
-<a name="sql-reference-avg"></a>
 
 Returns the average of a group of values from a windowed query. A windowed query is defined in terms of time or rows. For information about windowed queries, see [Windowed Queries](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/windowed-sql.html). To return an exponentially weighted average of a stream of value expressions selected in a specified time window, see [EXP\_AVG](sql-reference-exp-avg.md).
 

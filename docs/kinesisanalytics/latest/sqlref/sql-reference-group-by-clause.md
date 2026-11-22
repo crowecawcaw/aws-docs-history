@@ -1,7 +1,6 @@
 
 
 # GROUP BY clause
-<a name="sql-reference-group-by-clause"></a>
 
 ## Syntax Chart for the GROUP BY Clause
 <a name="sqlrf-groupbyclause-syntax-chart"></a>

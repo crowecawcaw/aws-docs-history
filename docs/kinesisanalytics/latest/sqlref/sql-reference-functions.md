@@ -1,7 +1,6 @@
 
 
 # Functions
-<a name="sql-reference-functions"></a>
 
 The topics in this section describe functions supported by streaming SQL.
 

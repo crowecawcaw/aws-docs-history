@@ -1,7 +1,6 @@
 
 
 # ABS
-<a name="sql-reference-abs"></a>
 
 Returns the absolute value of the input argument. Returns `null` if the input argument is null.
 

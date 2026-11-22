@@ -1,7 +1,6 @@
 
 
 # STEP
-<a name="sql-reference-step"></a>
 
 ```
 STEP ( <time-unit> BY INTERVAL '<integer-literal>' <interval-literal> )

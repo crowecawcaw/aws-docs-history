@@ -1,7 +1,6 @@
 
 
 # RANDOM\_CUT\_FOREST\_WITH\_EXPLANATION
-<a name="sqlrf-random-cut-forest-with-explanation"></a>
 
 Computes an anomaly score and explains it for each record in your data stream. The anomaly score for a record indicates how different it is from the trends that have recently been observed for your stream. The function also returns an attribution score for each column in a record, based on how anomalous the data in that column is. For each record, the sum of the attribution scores of all columns is equal to the anomaly score. 
 

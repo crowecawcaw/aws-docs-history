@@ -1,7 +1,6 @@
 
 
 # SELECT ALL and SELECT DISTINCT
-<a name="sql-reference-select-all-distinct"></a>
 
 If the ALL keyword is specified, the query does not eliminate duplicate rows. This is the default behavior if neither ALL nor DISTINCT is specified.
 
