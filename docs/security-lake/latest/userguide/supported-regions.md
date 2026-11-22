@@ -1,7 +1,6 @@
 
 
 # Security Lake Regions and endpoints
-<a name="supported-regions"></a>
 
 For a list of supported Regions and service endpoints for Security Lake, see [Amazon Security Lake endpoints](https://docs.aws.amazon.com/general/latest/gr/securitylake.html) in the *AWS General Reference*.
 

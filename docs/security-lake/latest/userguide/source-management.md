@@ -1,7 +1,6 @@
 
 
 # Source management in Security Lake
-<a name="source-management"></a>
 
 Sources are logs and events generated from a single system that match a specific event class in the [Open Cybersecurity Schema Framework (OCSF) in Security Lake](open-cybersecurity-schema-framework.md) schema. Amazon Security Lake can collect logs and events from a variety of sources, including natively supported AWS services and third-party custom sources.
 

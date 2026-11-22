@@ -1,7 +1,6 @@
 
 
 # Integration with Amazon SageMaker AI
-<a name="sagemaker-integration"></a>
 
 **Integration type:** Subscriber
 

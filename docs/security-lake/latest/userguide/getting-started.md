@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Security Lake
-<a name="getting-started"></a>
 
 The topics in this section explain how to enable and start using Security Lake. You'll learn how to configure your data lake settings and set up log collection. You can enable and use Security Lake through the AWS Management Console or programmatically. Whichever method you use, you must first set up an AWS account and an administrative user. The steps after that differ based on the method of access. 
 

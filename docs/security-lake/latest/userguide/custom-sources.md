@@ -1,7 +1,6 @@
 
 
 # Collecting data from custom sources in Security Lake
-<a name="custom-sources"></a>
 
 Amazon Security Lake can collect logs and events from third-party custom sources. A Security Lake custom source is a third-party service that sends security logs and events to Amazon Security Lake. Before sending the data, the custom source must convert the logs and events to the Open Cybersecurity Schema Framework (OCSF) and meet the source requirements for Security Lake including partitioning, parquet file format and object size and rate requirements.
 
@@ -97,7 +96,7 @@ To grant the necessary permissions, you must also create and embed the following
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ Attach the following trust policy to permit an AWS account by using which, it ca
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Removing an AWS service as a source from Security Lake
-<a name="remove-internal-sources"></a>
 
 Choose your access method, and follow these steps to remove a natively-supported AWS service as a Security Lake source. You can remove a source for one or more Regions. When you remove the source, Security Lake stops collecting data from that source in the specified Regions and accounts, and subscribers can no longer consume new data from the source. However, subscribers can still consume data that Security Lake collected from the source before removal. You can only use these instructions to remove a natively-supported AWS service as a source. For information about removing a custom source, see [Collecting data from custom sources in Security Lake](custom-sources.md).
 

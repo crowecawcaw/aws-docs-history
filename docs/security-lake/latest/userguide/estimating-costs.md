@@ -1,7 +1,6 @@
 
 
 # How Security Lake pricing is determined
-<a name="estimating-costs"></a>
 
 Amazon Security Lake pricing is based on two dimensions: data ingestion and data conversion. Security Lake also works with other AWS services to store and share your data, and you may incur separate charges for these activities.
 

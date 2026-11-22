@@ -1,7 +1,6 @@
 
 
 # Integration with AWS Quick
-<a name="quicksight-integration"></a>
 
 **Integration type:** Subscriber
 

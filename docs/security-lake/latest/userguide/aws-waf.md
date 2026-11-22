@@ -1,7 +1,6 @@
 
 
 # AWS WAF logs in Security Lake
-<a name="aws-waf"></a>
 
 When you add AWS WAF as a log source in Security Lake, Security Lake immediately starts collecting the logs. AWS WAF is a web application firewall that you can use to monitor web requests that your end users send to your applications and to control access to your content. Logged information includes the time that AWS WAF received a web request from your AWS resource, detailed information about the request, and details about the rules that the request matched. 
 

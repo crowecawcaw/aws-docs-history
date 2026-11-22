@@ -1,7 +1,6 @@
 
 
 # Third-party integrations with Security Lake
-<a name="integrations-third-party"></a>
 
 Amazon Security Lake integrates with multiple third-party providers. A provider may offer a *source integration*, a *subscriber integration*, or a *service integration*. Providers may offer one or more integration types.
 

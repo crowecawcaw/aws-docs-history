@@ -1,7 +1,6 @@
 
 
 # Concepts and terminology
-<a name="service-concepts"></a>
 
 This section describes the key concepts and terms to help you use Amazon Security Lake.
 

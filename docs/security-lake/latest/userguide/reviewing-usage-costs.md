@@ -1,7 +1,6 @@
 
 
 # Reviewing Security Lake usage and estimated costs
-<a name="reviewing-usage-costs"></a>
 
 The **Usage** page of the Amazon Security Lake console lets you review your current Security Lake usage, as well as future usage and cost estimates. If you’re currently participating in a 15-day free trial, your usage during the trial can help you estimate your costs for using Security Lake after your free trial ends. For an overview of Security Lake pricing, see [How Security Lake pricing is determined](estimating-costs.md). For detailed information and cost examples, see [Amazon Security Lake Pricing](https://aws.amazon.com/security-lake/pricing/).
 

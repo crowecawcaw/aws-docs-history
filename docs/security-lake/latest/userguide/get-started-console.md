@@ -1,7 +1,6 @@
 
 
 # Enabling Security Lake using the console
-<a name="get-started-console"></a>
 
 This tutorial explains how to enable and configure Security Lake through the AWS Management Console. As part of the AWS Management Console, the Security Lake console offers a streamlined process for getting started, and creates all necessary AWS Identity and Access Management (IAM) roles that you need to create your data lake.
 

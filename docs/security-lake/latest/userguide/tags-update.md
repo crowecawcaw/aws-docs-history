@@ -1,7 +1,6 @@
 
 
 # Editing tags for Amazon Security Lake resources
-<a name="tags-update"></a>
 
 To edit the tags (tag keys or tag values) for an Amazon Security Lake resource, you can use the Security Lake console or the Security Lake API.
 

@@ -1,7 +1,6 @@
 
 
 # Tagging fundamentals
-<a name="tags-basics"></a>
 
 A resource can have as many as 50 tags. Each tag consists of a required *tag key* and an optional *tag value*, both of which you define. A *tag key* is a general label that acts as a category for a more specific tag value. A *tag value* acts as a descriptor for a tag key.
 

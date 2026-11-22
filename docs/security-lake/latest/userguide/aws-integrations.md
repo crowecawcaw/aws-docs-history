@@ -1,7 +1,6 @@
 
 
 # AWS service integrations with Security Lake
-<a name="aws-integrations"></a>
 
 Amazon Security Lake integrates with other AWS services. A service may either operate as a *source integration*, a *subscriber integration*, or both.
 

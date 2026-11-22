@@ -1,7 +1,6 @@
 
 
 # VPC Flow Logs in Security Lake
-<a name="vpc-flow-logs"></a>
 
 The VPC Flow Logs feature of Amazon VPC captures information about the IP traffic going to and from network interfaces within your environment. 
 

@@ -1,7 +1,6 @@
 
 
 # Integration with Amazon Detective
-<a name="detective-integration"></a>
 
 **Integration type:** Subscriber
 

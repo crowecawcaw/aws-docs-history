@@ -1,7 +1,6 @@
 
 
 # Integration with AWS AppFabric
-<a name="appfabric-integration"></a>
 
 **Integration type:** Source
 

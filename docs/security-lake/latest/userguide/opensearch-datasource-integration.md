@@ -1,7 +1,6 @@
 
 
 # Integration with Amazon OpenSearch Service zero-ETL direct query
-<a name="opensearch-datasource-integration"></a>
 
 **Integration type:** Subscriber (Query)
 

@@ -1,14 +1,16 @@
 
 
 # Troubleshooting querying in Amazon Athena
-<a name="querying-troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when using Athena to query objects that are stored in your Security Lake S3 bucket. For more Athena troubleshooting topics, see the [Troubleshooting in Athena](https://docs.aws.amazon.com/athena/latest/ug/troubleshooting-athena.html) section of the *Amazon Athena User Guide*.
 
 ## Querying isn't returning new objects in the data lake
 <a name="query-not-returning-objects"></a>
 
-Your Athena query may not return new objects in your data lake even when the S3 bucket for Security Lake contains those objects. This may occur if you've disabled Security Lake and then enabled it again. As a result, the AWS Glue partitions may not properly register the new objects.
+Your Athena query may not return new objects in your data lake even when the S3 bucket for Security Lake contains those objects. This may occur if you've disabled Security Lake and then enabled it again. Because of this, the AWS Glue partitions may not properly register the new objects.
+
+### Cause 1: The Lambda trigger is disabled
+<a name="query-not-returning-objects-trigger-disabled"></a>
 
 To resolve the error, follow these steps:
 
@@ -20,11 +22,33 @@ To resolve the error, follow these steps:
    + `Source version 1 (OCSF 1.0.0-rc.2) ` – **SecurityLake\_Glue\_Partition\_Updater\_Lambda\_{{≪region>}}** function.
    + `Source version 2 (OCSF 1.1.0)` – **AmazonSecurityLakeMetastoreManager\_{{≪region>}}** function.
 
-1. On the **Configurations** tab, choose **Triggers**.
+1. On the **Configuration** tab, choose **Triggers**.
 
-1. Select the option next to the function, and choose **Edit**.
+1. Choose the Amazon SQS trigger.
+
+1. Choose **Edit**.
 
 1. Select **Activate trigger**, and choose **Save**. This will turn the function state to **Enabled**.
+
+### Cause 2: The metastore manager Lambda function is timing out
+<a name="query-not-returning-objects-metastore-timeout"></a>
+
+As your data lake grows, Security Lake creates more Apache Iceberg manifest files for each table. If manifest compaction isn't running, the `AmazonSecurityLakeMetastoreManager_{{region}}` function processes new objects more slowly and can eventually time out. When the function times out, Security Lake doesn't add new objects to the table, so your queries don't return them.
+
+To check for this issue:
+
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+
+1. In the navigation pane, choose **Log groups**, and then choose the log group for the `AmazonSecurityLakeMetastoreManager_{{region}}` function.
+
+1. Search the recent log streams for `Task timed out` errors.
+
+If you find `Task timed out` errors, enable the service-linked role as described in the following resolution.
+
+**Note**  
+Before you enable the service-linked role, note that this task requires administrator access. If you don't have administrator access, ask an administrator to enable the role for you, or to grant you the necessary IAM permissions.
+
+To resolve the `Task timed out` error, enable the **AWSServiceRoleForSecurityLakeResourceManagement** service-linked role. With this role, Security Lake compacts Apache Iceberg manifest files, which reduces the metastore manager function's processing time. To enable the role, open the Security Lake console, and on the **Summary** page, choose **Enable service-linked role**. If you create the role with the AWS Command Line Interface, you must also grant it Lake Formation permissions. If you use a customer managed AWS KMS key, you must also update the key policy. For more information about the Security Lake service-linked role, see [Service-linked role (SLR) permissions for resource management](AWSServiceRoleForSecurityLakeResourceManagement.md).
 
 ## Unable to access AWS Glue tables
 <a name="access-glue-tables"></a>
@@ -100,10 +124,18 @@ Because Athena controls how it reads from S3, you can't slow down an individual 
 
 Compaction combines many small files into fewer large ones, which reduces the number of requests that a query needs. Athena and AWS Glue offer different compaction features, and only one of them works with Security Lake tables.
 + **Not supported: AWS Glue table optimizers.** Don't turn on AWS Glue Data Catalog table optimizers for tables that Security Lake creates and manages. AWS Glue compaction isn't compatible with the Parquet files that Security Lake writes, and compaction jobs on these tables fail.
++ **Not supported: Athena VACUUM.** Don't run the Athena `VACUUM` statement on tables that Security Lake creates and manages. `VACUUM` expires snapshots and removes orphan files, which are files in the table location that the current table state doesn't reference. Security Lake writes new objects to your bucket before it adds them to the table. Because of this, `VACUUM` can permanently delete data that you haven't added to the table yet. Security Lake manages data retention for these tables through your retention settings.
 + **Supported with considerations: Athena OPTIMIZE.** You can run the Athena `OPTIMIZE REWRITE DATA` statement on Security Lake tables. Before you do, consider the following:
-  + **Effect on subscribers.** Athena can write the compacted data files to prefixes outside the standard Security Lake prefix layout, and Security Lake doesn't deliver these files to subscribers. Subscribers that rely on new-object notifications might miss the compacted data. They might also process the same records twice if they read both the original and the compacted files. Check how your subscribers consume data before you compact.
+  + **Effect on subscribers.** `OPTIMIZE` writes new, compacted data files but doesn't delete the original files. The original files remain in your Amazon S3 bucket until they're removed. Because Security Lake writes the compacted files within the log source prefix, data access subscribers that use new-object notifications can receive notifications for these files. Because of this, they might reprocess records that they already processed from the original files.
+
+    Query access subscribers aren't affected, because they read only the current table snapshot. Before you compact, confirm that your data access subscribers can deduplicate records or ignore notifications for compacted files.
+  + **Effect on storage and retention.** Security Lake applies Amazon S3 lifecycle rules based on your retention settings. Compacted files are new objects. Their retention period starts when you compact, not when the data was originally delivered. Don't add your own Amazon S3 lifecycle rules to the Security Lake bucket to remove files. Deleting files that the table still references causes queries on the table to fail.
+**Important**  
+Until the original files are removed, you pay to store both the original and the compacted copies of the data.
   + **Measure first.** Compact a small sample, such as 10 days for one account and Region. Then, compare `EXPLAIN ANALYZE` output for the same query on compacted and uncompacted partitions before you compact at scale.
-  + **Statement size.** Limit each statement to a few partitions with a `WHERE` clause, for example, one account, one Region, and a few days. Statements that rewrite large amounts of data can time out.
+  + **Statement size.** Limit each statement to a few partitions with a `WHERE` clause, for example, one account, one Region, and one day. Statements that rewrite large amounts of data can exceed the Athena Data Manipulation Language (DML) query timeout. By default, this timeout is 30 minutes. If a single partition still can't be compacted within the timeout, you can request a quota increase. You can increase the DML query timeout quota up to 240 minutes in the Service Quotas console. Longer-running statements are also more likely to conflict with Security Lake writes (see the Concurrent writes consideration).
+**Important**  
+With on-demand pricing, you pay for the data scanned, not the run time. If you use capacity reservations, longer-running statements consume more DPU hours, which increases your costs.
   + **Concurrent writes.** Security Lake continues to write to the table while `OPTIMIZE` runs. If both commit at the same time, one of the commits fails, and you must retry it.
 
 Compaction reduces the number of files a query reads, but it doesn't raise the per-prefix request limit. As the number of concurrent queries grows, you still need query filters and retries.

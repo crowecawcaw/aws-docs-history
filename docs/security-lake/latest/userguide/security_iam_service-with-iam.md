@@ -1,7 +1,6 @@
 
 
 # How Security Lake works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Security Lake, learn what IAM features are available to use with Security Lake.
 
@@ -57,7 +56,7 @@ An example resource is an S3 bucket with an Amazon Resource Name (ARN) of `arn:a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -121,7 +120,7 @@ For a list of Security Lake actions, see [Actions defined by Amazon Security Lak
 
 Policy actions in Security Lake use the following prefix before the action:
 
-```
+```json
 securitylake
 ```
 
@@ -129,7 +128,7 @@ For example, to grant a user permission to access information about a specific s
 
 To specify multiple actions in a single statement, separate them with commas.
 
-```
+```json
 "Action": [
       "securitylake:{{action1}}",
       "securitylake:{{action2}}"

@@ -1,7 +1,6 @@
 
 
 # Considerations when enabling Security Lake
-<a name="enable-securitylake-considerations"></a>
 
 **Before enabling Security Lake, consider the following**:
 + Security Lake provides cross-region management features, which means you can create your data lake and configure log collection across AWS Regions. To enable Security Lake in [all supported Regions](supported-regions.md), you can choose any supported Regional endpoint. You can also add [rollup Regions](add-rollup-region.md) to aggregate data from multiple regions to a single Region.

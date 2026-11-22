@@ -1,7 +1,6 @@
 
 
 # Prerequisites to create a subscriber with data access in Security Lake
-<a name="prereqs-creating-subscriber"></a>
 
 You must complete the following prerequisites before you can create a subscriber with data access in Security Lake.
 
@@ -66,7 +65,7 @@ Attach the following policy to your IAM role:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -93,7 +92,7 @@ Attach the following trust policy to your IAM role to permit EventBridge to assu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

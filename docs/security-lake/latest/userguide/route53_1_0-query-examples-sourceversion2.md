@@ -1,7 +1,6 @@
 
 
 # Example queries for Route 53 resolver query logs
-<a name="route53_1_0-query-examples-sourceversion2"></a>
 
 Amazon Route 53 resolver query logs track DNS queries made by resources within your Amazon VPC. Subscribers can query Route 53 resolver query logs to learn the following types of information:
 
@@ -9,7 +8,7 @@ Here are some example queries for Route 53 reesolver query logs for AWS source 
 
 **List of DNS queries from CloudTrail in the last 7 days**
 
-```
+```sql
 SELECT 
     time_dt,
     src_endpoint.instance_uid,
@@ -25,7 +24,7 @@ LIMIT 25
 
 **List of DNS queries that match `s3.amazonaws.com` in the last 7 days**
 
-```
+```sql
 SELECT 
     time_dt,
     src_endpoint.instance_uid,
@@ -42,7 +41,7 @@ LIMIT 25
 
 **List of DNS queries that didn't resolve in the last 7 days**
 
-```
+```sql
 SELECT 
     time_dt,
     src_endpoint.instance_uid, 
@@ -58,7 +57,7 @@ LIMIT 25
 
 **List of DNS queries that resolved to `192.0.2.1`** in the last 7 days
 
-```
+```sql
 SELECT 
     time_dt,
     src_endpoint.instance_uid, 

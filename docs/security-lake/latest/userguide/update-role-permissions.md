@@ -1,7 +1,6 @@
 
 
 # Updating role permissions in Security Lake
-<a name="update-role-permissions"></a>
 
 If you don't have the required role permissions or resources—new AWS Lambda function and Amazon Simple Queue Service (Amazon SQS) queue—to ingest data from a new version of the data source, you must update your `AmazonSecurityLakeMetaStoreManagerV2` role permissions and create a new set of resources to process data from your sources.
 

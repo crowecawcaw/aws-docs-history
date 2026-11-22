@@ -1,7 +1,6 @@
 
 
 # Security Lake queries
-<a name="subscriber-query-examples"></a>
 
 You can query the data that Security Lake stores in AWS Lake Formation databases and tables. You can also create third-party subscribers in the Security Lake console, API, or AWS CLI. Third-party subscribers can also query Lake Formation data from the sources that you specify.
 

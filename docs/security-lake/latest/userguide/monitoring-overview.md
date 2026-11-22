@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Security Lake
-<a name="monitoring-overview"></a>
 
 Security Lake integrates with AWS CloudTrail, which is a service that provides a record of actions that were taken in Security Lake by a user, a role, or another AWS service. This includes actions from the Security Lake console and programmatic calls to Security Lake API operations. By using the information collected by CloudTrail, you can determine which requests were made to Security Lake. For each request, you can identify when it was made, the IP address from which it was made, who made it, and additional details. For more information, see [Logging Security Lake API calls using CloudTrail](securitylake-cloudtrail.md).
 

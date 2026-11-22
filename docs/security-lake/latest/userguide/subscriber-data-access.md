@@ -1,7 +1,6 @@
 
 
 # Managing data access for Security Lake subscribers
-<a name="subscriber-data-access"></a>
 
 Subscribers with data access to source data in Amazon Security Lake are notified of new objects for the source as the data is written to the S3 bucket. By default, subscribers are notified about new objects through an HTTPS endpoint that they provide. Alternatively, subscribers can be notified about new objects by polling an Amazon Simple Queue Service (Amazon SQS) queue.
 

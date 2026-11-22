@@ -1,7 +1,6 @@
 
 
 # Integration with Amazon OpenSearch Service Ingestion pipeline
-<a name="opensearch-ingestion-pipeline-integration"></a>
 
 **Integration type:**Subscriber, Source
 

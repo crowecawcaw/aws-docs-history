@@ -1,7 +1,6 @@
 
 
 # Updating a data subscriber in Security Lake
-<a name="subscriber-update"></a>
 
 You can update a subscriber by changing the sources from which the subscriber consumes. You can also assign or edit the tags for a subscriber. A *tag* is a label that you can define and assign to certain types of AWS resources, including subscribers. To learn more, see [Tagging Security Lake resources](tagging-resources.md).
 

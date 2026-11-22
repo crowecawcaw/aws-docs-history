@@ -1,7 +1,6 @@
 
 
 # Creating a subscriber with query access in Security Lake
-<a name="create-query-subscriber-procedures"></a>
 
 Choose your preferred method to create a subscriber with query access in the current AWS Region. A subscriber can query data only from the AWS Region that it is created in. To create a subscriber, you'll need to have the AWS account ID and external ID of the subscriber. The external ID is a unique identifier that the subscriber provides to you. For more information about external IDs, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) in the *IAM User Guide*.
 

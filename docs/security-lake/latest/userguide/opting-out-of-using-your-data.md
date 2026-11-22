@@ -1,7 +1,6 @@
 
 
 # Opting out of using your data for service improvement
-<a name="opting-out-of-using-your-data"></a>
 
 You can choose to opt out of having your data used to develop and improve Security Lake and other AWS security services by using the AWS Organizations opt-out policy. You can choose to opt out even if Security Lake doesn't currently collect any such data. For more information about how to opt out, see [AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) in the *AWS Organizations User Guide*. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating a subscriber with data access in Security Lake
-<a name="create-subscriber-data-access"></a>
 
 Choose one of the following access methods to create a subscriber with access to data in the current AWS Region.
 
@@ -105,7 +104,7 @@ To subsequently change the notification method (Amazon SQS queue or HTTPS endpoi
 
 The following example shows the event notification in JSON structure format for the `CreateSubscriberNotification` operation. 
 
-```
+```json
 {
   "source": "aws.s3",
   "time": "2021-11-12T00:00:00Z",

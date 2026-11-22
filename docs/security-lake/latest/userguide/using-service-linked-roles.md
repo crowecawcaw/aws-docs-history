@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Security Lake
-<a name="using-service-linked-roles"></a>
 
 Security Lake uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is an IAM role that's linked directly to Security Lake. It's predefined by Security Lake, and it includes all the permissions that Security Lake requires to call other AWS services on your behalf and operate the security data lake service. Security Lake uses this service-linked role in all the AWS Regions where Security Lake is available.
 

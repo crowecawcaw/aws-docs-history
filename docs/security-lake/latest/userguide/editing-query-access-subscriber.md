@@ -1,7 +1,6 @@
 
 
 # Editing a subscriber with query access in Security Lake
-<a name="editing-query-access-subscriber"></a>
 
 Security Lake supports making edits to a subscriber with query access. You can edit the subscriber's name, description, external ID, principal (AWS account ID), and the log sources that the subscriber is able to consume. Choose your preferred method, and follow the steps to edit a subscriber with query access in the current AWS Region.
 

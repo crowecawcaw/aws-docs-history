@@ -1,7 +1,6 @@
 
 
 # Collecting data from AWS services in Security Lake
-<a name="internal-sources"></a>
 
 Amazon Security Lake can collect logs and events from the following natively-supported AWS services:
 + AWS CloudTrail management and data events (S3, Lambda)
@@ -38,7 +37,7 @@ It is recommended for the role to have the following conditions and resource sco
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

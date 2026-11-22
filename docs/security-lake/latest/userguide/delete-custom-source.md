@@ -1,7 +1,6 @@
 
 
 # Deleting a custom source from Security Lake
-<a name="delete-custom-source"></a>
 
 Delete a custom source to stop sending data from the source to Security Lake. When you remove the source, Security Lake stops collecting data from that source in the specified Regions and accounts, and subscribers can no longer consume new data from the source. However, subscribers can still consume data that Security Lake collected from the source before removal. You can only use these instructions to remove a custom source. For information about removing a natively-supported AWS service, see [Collecting data from AWS services in Security Lake](custom-sources.md).
 

@@ -1,7 +1,6 @@
 
 
 # Example Security Lake queries for CloudTrail data
-<a name="cloudtrail-query-examples"></a>
 
 AWS CloudTrail tracks user activity and API usage in AWS services. Subscribers can query CloudTrail data to learn the following types of information:
 
@@ -9,7 +8,7 @@ Here are some example queries of CloudTrail data for AWS source version 1:
 
 **Unauthorized attempts against AWS services in the last 7 days**
 
-```
+```sql
 SELECT 
       time, 
       api.service.name, 
@@ -34,7 +33,7 @@ SELECT
 
 **List of all CloudTrail activity from source IP `192.0.2.1` in the last 7 days**
 
-```
+```sql
 SELECT 
       api.request.uid, 
       time, 
@@ -53,7 +52,7 @@ SELECT
 
 **List of all IAM activity in the last 7 days**
 
-```
+```sql
 SELECT * 
     FROM amazon_security_lake_glue_db_us_east_1.amazon_security_lake_table_us_east_1_cloud_trail_mgmt_1_0
     WHERE eventDay BETWEEN cast(date_format(current_timestamp - INTERVAL '7' day, '%Y%m%d%H') as varchar) and cast(date_format(current_timestamp - INTERVAL '0' day, '%Y%m%d%H') as varchar)
@@ -64,7 +63,7 @@ SELECT *
 
 **Instances where the credential `AIDACKCEVSQ6C2EXAMPLE` was used in the last 7 days**
 
-```
+```sql
 SELECT 
       actor.user.uid, 
       actor.user.uuid, 
@@ -78,7 +77,7 @@ SELECT
 
 **List of failed CloudTrail records in the last 7 days**
 
-```
+```sql
 SELECT 
       actor.user.uid, 
       actor.user.uuid, 

@@ -1,7 +1,6 @@
 
 
 # Service-linked role (SLR) permissions for resource management
-<a name="AWSServiceRoleForSecurityLakeResourceManagement"></a>
 
 Security Lake uses the service-linked role named `AWSServiceRoleForSecurityLakeResourceManagement` to perform ongoing monitoring and performance improvements, which can reduce latency and costs. This service-linked role trusts the `resource-management.securitylake.amazonaws.com` service to assume the role. Enabling `AWSServiceRoleForSecurityLakeResourceManagement` will also grant it access to Lake Formation and automatically register your Security Lake managed S3 buckets with Lake Formation across all Regions for improved security. 
 
@@ -46,7 +45,7 @@ To create the service-linked role you must grant the following permissions to yo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

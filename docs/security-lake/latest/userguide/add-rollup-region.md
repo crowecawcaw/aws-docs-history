@@ -1,7 +1,6 @@
 
 
 # Configuring rollup Regions in Security Lake
-<a name="add-rollup-region"></a>
 
 A rollup Region consolidates data from one or more contributing Regions. Specifying a rollup Region can help you comply with Regional compliance requirements.
 
@@ -29,7 +28,7 @@ To grant these permissions, create an IAM role that starts with the prefix `Secu
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -91,7 +90,7 @@ Attach the following trust policy to your role to permit Amazon S3 to assume the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ Attach the following trust policy to your role to permit Amazon S3 to assume the
 
 If you use a customer managed key from AWS Key Management Service (AWS KMS) to encrypt your Security Lake data lake, you must grant the following permissions in addition to the permissions in the data replication policy.
 
-```
+```json
 {
     "Action": [
         "kms:Decrypt"

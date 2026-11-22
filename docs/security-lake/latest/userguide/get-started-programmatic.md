@@ -1,7 +1,6 @@
 
 
 # Enabling Security Lake programmatically
-<a name="get-started-programmatic"></a>
 
 This tutorial explains how to enable and start using Security Lake programmatically. The Amazon Security Lake API gives you comprehensive, programmatic access to your Security Lake account, data, and resources. Alternatively, you can use AWS command line tools— the [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) or the [AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html)—or the [AWS SDKs](https://aws.amazon.com/developertools/) to access Security Lake.
 

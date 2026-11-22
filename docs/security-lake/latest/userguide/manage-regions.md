@@ -1,7 +1,6 @@
 
 
 # Managing Regions in Security Lake
-<a name="manage-regions"></a>
 
 Amazon Security Lake can collect security logs and events across AWS Regions in which you've enabled the service. For each Region, your data is stored in a different Amazon S3 bucket. You can specify different data lake configurations (for example, different sources and retention settings) for different Regions. You can also define one or more rollup Regions to consolidate data from multiple Regions.
 

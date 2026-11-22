@@ -1,7 +1,6 @@
 
 
 # Security Lake queries for AWS source version 2 (OCSF 1.1.0)
-<a name="subscriber-query-examples2"></a>
 
 The following section provides guidance on querying data from Security Lake and includes some query examples for natively-supported AWS sources for AWS source version 2. These queries are designed to retrieve data in a specific AWS Region. These examples use us-east-1 (US East (N. Virginia)). In addition, the example queries use a `LIMIT 25` parameter, which returns up to 25 records. You can omit this parameter or adjust it based on your preferences. For more examples, see the [Amazon Security Lake OCSF Queries GitHub directory](https://github.com/awslabs/aws-security-analytics-bootstrap/tree/main/AWSSecurityAnalyticsBootstrap/amazon_security_lake_queries).
 
@@ -13,7 +12,7 @@ The following queries include time-based filters using `eventDay` to ensure your
 
 For example, if data older than 60 days has expired, your queries should include time constraints to prevent accessing expired data. For a 60-day retention period, include the following clause in your query:
 
-```
+```SQL
 ...
 WHERE time_dt > DATE_ADD('day', -59, CURRENT_TIMESTAMP)
 ...
@@ -26,7 +25,7 @@ This clause uses 59 days (rather than 60) to avoid any data or time overlap betw
 
 When you query Security Lake data, you must include the name of the Lake Formation table in which the data resides.
 
-```
+```sql
 SELECT *
 FROM "amazon_security_lake_glue_db_DB_Region"."amazon_security_lake_table_DB_Region_SECURITY_LAKE_TABLE"
 WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
@@ -45,7 +44,7 @@ Common values for the log source table include the following:
 
 **Example: All Security Hub CSPM findings in table `sh_findings_2_0` from us-east-1 Region**
 
-```
+```sql
 SELECT *
     FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_sh_findings_2_0"
     WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
@@ -61,7 +60,7 @@ When you query Security Lake data, you must include the name of the database Reg
 
 The following example lists all the Amazon VPC activities from the source IP {{192.0.2.1}} that were recorded after {{20230301}} (March 01, 2023), in the table {{vpc\_flow\_2\_0}} from the {{us-west-2}} `DB_Region`.
 
-```
+```sql
 SELECT * 
     FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
     WHERE time_dt > TIMESTAMP '2023-03-01' 
@@ -79,7 +78,7 @@ Querying `time_dt` will automatically yield the date partitions from S3, and can
 
 This is an example query using the` time_dt` partition to query the logs after the time March 01, 2023:
 
-```
+```sql
 SELECT *
     FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
 WHERE time_dt > TIMESTAMP '2023-03-01'
@@ -142,7 +141,7 @@ By querying specific elements within observables, you can restrict the data sets
 
 This is an example query using the observables array to query the logs across VPC Flow and Route53 tables containing the IP value '172.01.02.03'
 
-```
+```sql
 WITH a AS 
     (SELECT 
     time_dt,
@@ -177,7 +176,7 @@ Here are some example queries for Amazon EKS audit logs for AWS source version 2
 
 **Requests to a specific URL in the last 7 days**
 
-```
+```sql
 SELECT 
     time_dt,
     actor.user.name,
@@ -192,7 +191,7 @@ LIMIT 25
 
 **Update requests from '10.0.97.167' over the last 7 days**
 
-```
+```sql
 SELECT 
     activity_name,
     time_dt,
@@ -209,7 +208,7 @@ LIMIT 25
 
 **Requests and Responses associated with resource 'kube-controller-manager' over the last 7 days**
 
-```
+```sql
 SELECT 
     activity_name,
     time_dt,

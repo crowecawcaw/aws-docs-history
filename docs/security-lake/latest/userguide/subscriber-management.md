@@ -1,7 +1,6 @@
 
 
 # Subscriber management in Security Lake
-<a name="subscriber-management"></a>
 
 An Amazon Security Lake subscriber consumes logs and events from Security Lake. To control costs and adhere to least privilege access best practices, you provide subscribers access to data on a per-source basis. For more information about sources, see [Source management in Security Lake](source-management.md).
 

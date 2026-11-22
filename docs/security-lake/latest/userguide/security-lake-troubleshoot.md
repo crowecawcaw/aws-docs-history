@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues in Security Lake
-<a name="security-lake-troubleshoot"></a>
 
 If you encounter issues when working with Amazon Security Lake, use the following troubleshooting resources.
 

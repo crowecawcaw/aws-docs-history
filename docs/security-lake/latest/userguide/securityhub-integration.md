@@ -1,7 +1,6 @@
 
 
 # Integration with AWS Security Hub CSPM
-<a name="securityhub-integration"></a>
 
 **Integration type:** Source
 

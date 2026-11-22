@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Organizations issues
-<a name="securitylake-orgs-troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Security Lake and AWS Organizations. For more Organizations troubleshooting topics, see the [Troubleshooting](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_troubleshoot.html) section of the *AWS Organizations User Guide*.
 

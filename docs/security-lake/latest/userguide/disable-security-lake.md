@@ -1,7 +1,6 @@
 
 
 # Disabling Security Lake
-<a name="disable-security-lake"></a>
 
 When you disable Amazon Security Lake, Security Lake stops collecting logs and events from your AWS sources. Existing Security Lake settings and the resources that were created in your AWS account are retained. In addition, the data that you stored in or published to other AWS services, such as sensitive data in AWS Lake Formation tables and AWS CloudTrail logs, remains available. Data that's stored in your Amazon Simple Storage Service (Amazon S3) bucket remains available in accordance with your [Amazon S3 storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting data lake status
-<a name="securitylake-data-lake-troubleshoot"></a>
 
 The **Issues** page of the Security Lake console shows you a summary of issues that are affecting your data lake. For example, Security Lake can't enable log collection for AWS CloudTrail management events if you haven't created a CloudTrail trail for your organization. The **Issues** page covers issues that have occurred in the last 14 days. You can see a description of each issue and the suggested remediation steps.
 

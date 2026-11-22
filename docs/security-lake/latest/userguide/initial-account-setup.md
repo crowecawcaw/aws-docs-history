@@ -1,7 +1,6 @@
 
 
 # Setting up your AWS account
-<a name="initial-account-setup"></a>
 
 Before you can enable Amazon Security Lake, you must have an AWS account.
 

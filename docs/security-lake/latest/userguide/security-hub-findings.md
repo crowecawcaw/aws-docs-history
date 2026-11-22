@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM findings in Security Lake
-<a name="security-hub-findings"></a>
 
 Security Hub CSPM findings help you understand your security posture in AWS and let you check your environment against security industry standards and best practices. Security Hub CSPM collects findings from various sources, including integrations with other AWS services, third-party product integrations, and checks against Security Hub CSPM controls. Security Hub CSPM processes findings in a standard format called AWS Security Finding Format (ASFF).
 

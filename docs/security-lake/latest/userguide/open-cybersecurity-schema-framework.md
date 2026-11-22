@@ -1,7 +1,6 @@
 
 
 # Open Cybersecurity Schema Framework (OCSF) in Security Lake
-<a name="open-cybersecurity-schema-framework"></a>
 
 ## What is OCSF?
 <a name="what-is-ocsf"></a>

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Lake Formation issues
-<a name="securitylake-lf-troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Security Lake and AWS Lake Formation databases or tables. For more Lake Formation troubleshooting topics, see the [Troubleshooting](https://docs.aws.amazon.com/lake-formation/latest/dg/troubleshooting.html) section of the *AWS Lake Formation Developer Guide*.
 

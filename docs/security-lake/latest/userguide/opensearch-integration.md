@@ -1,7 +1,6 @@
 
 
 # Integration with Amazon OpenSearch Service
-<a name="opensearch-integration"></a>
 
 **Integration type:** Subscriber
 

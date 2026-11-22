@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Security Lake
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -66,7 +65,7 @@ To provide sufficient permissions to grant Lake Formation based subscriber acces
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

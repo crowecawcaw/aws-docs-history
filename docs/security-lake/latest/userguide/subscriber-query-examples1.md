@@ -1,7 +1,6 @@
 
 
 # Security Lake queries for AWS source version 1 (OCSF 1.0.0-rc.2)
-<a name="subscriber-query-examples1"></a>
 
 The following section provides guidance on querying data from Security Lake and includes some query examples for natively-supported AWS sources for AWS source version 1. These queries are designed to retrieve data in a specific AWS Region. These examples use us-east-1 (US East (N. Virginia)). In addition, the example queries use a `LIMIT 25` parameter, which returns up to 25 records. You can omit this parameter or adjust it based on your preferences. For more examples, see the [Amazon Security Lake OCSF Queries GitHub directory](https://github.com/awslabs/aws-security-analytics-bootstrap/tree/main/AWSSecurityAnalyticsBootstrap/amazon_security_lake_queries).
 
@@ -9,7 +8,7 @@ The following queries include time-based filters using `eventDay` to ensure your
 
 For example, if data older than 60 days has expired, your queries should include time constraints to prevent accessing expired data. For a 60-day retention period, include the following clause in your query:
 
-```
+```SQL
 ...
 WHERE eventDay BETWEEN cast(date_format(current_date - INTERVAL '59' day, '%Y%m%d') AS varchar) 
                    AND cast(date_format(current_date, '%Y%m%d') AS varchar)
@@ -23,7 +22,7 @@ This clause uses 59 days (rather than 60) to avoid any data or time overlap betw
 
 When you query Security Lake data, you must include the name of the Lake Formation table in which the data resides.
 
-```
+```sql
 SELECT *
    FROM amazon_security_lake_glue_db_{{DB_Region}}.amazon_security_lake_table_{{DB_Region}}_{{SECURITY_LAKE_TABLE}}
    WHERE eventDay BETWEEN cast(date_format(current_timestamp - INTERVAL '7' day, '%Y%m%d%H') as varchar) and cast(date_format(current_timestamp - INTERVAL '0' day, '%Y%m%d%H') as varchar)
@@ -40,7 +39,7 @@ Common values for the log source table include the following:
 
 **Example: All Security Hub CSPM findings in table `sh_findings_1_0` from us-east-1 Region**
 
-```
+```sql
 SELECT *
    FROM amazon_security_lake_glue_db_{{us_east_1}}.amazon_security_lake_table_{{us_east_1}}_{{sh_findings_1_0}}
    WHERE eventDay BETWEEN cast(date_format(current_timestamp - INTERVAL '7' day, '%Y%m%d%H') as varchar) and cast(date_format(current_timestamp - INTERVAL '0' day, '%Y%m%d%H') as varchar)
@@ -56,7 +55,7 @@ When you query Security Lake data, you must include the name of the database Reg
 
 The following example lists all the CloudTrail activities from the source IP {{192.0.2.1}} that were recorded after {{20230301}} (March 01, 2023), in the table {{cloud\_trail\_mgmt\_1\_0}} from the {{us-east-1}} `DB_Region`.
 
-```
+```sql
 SELECT *
     FROM amazon_security_lake_glue_db_{{us_east_1}}.amazon_security_lake_table_{{us_east_1}}_{{cloud_trail_mgmt_1_0}}
     WHERE eventDay > '20230301' AND src_endpoint.ip = '192.0.2.1'
@@ -71,7 +70,7 @@ By partitioning your data, you can restrict the amount of data scanned by each q
 
 This is an example query using the `eventDay` partition:
 
-```
+```sql
 SELECT *
     FROM amazon_security_lake_glue_db_us_east_1.amazon_security_lake_table_us_east_1_cloud_trail_mgmt_1_0
     WHERE eventDay > '{{20230301}}'
