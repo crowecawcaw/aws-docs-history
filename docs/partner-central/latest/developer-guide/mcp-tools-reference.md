@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Tools Reference
-<a name="mcp-tools-reference"></a>
 
 The Partner Central Agent MCP Server exposes two MCP tools: `sendMessage` for all agent interactions, and `getSession` for retrieving session state. All Partner Central operations — opportunity queries, funding applications, document analysis — are handled through natural language via `sendMessage`.
 
@@ -73,7 +72,7 @@ The response includes:
 
 Request:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -95,7 +94,7 @@ Request:
 
 Response:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -117,7 +116,7 @@ Response:
 
 Request:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 2,
@@ -143,7 +142,7 @@ Request:
 
 Upload a document to S3 first, then reference it in the message:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 3,
@@ -184,7 +183,7 @@ When the agent needs to perform a write operation (e.g., update an opportunity, 
 
 **Step 1 — Agent requests approval:**
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 4,
@@ -214,7 +213,7 @@ When the agent needs to perform a write operation (e.g., update an opportunity, 
 
 **Step 2 — Approve the action:**
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 5,
@@ -238,7 +237,7 @@ When the agent needs to perform a write operation (e.g., update an opportunity, 
 
 **Step 2 (alternative) — Reject the action:**
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 5,
@@ -263,7 +262,7 @@ When the agent needs to perform a write operation (e.g., update an opportunity, 
 
 **Step 2 (alternative) — Override with custom response:**
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 5,
@@ -302,7 +301,7 @@ Enable streaming to receive incremental response chunks as the agent processes y
 
 Request:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 6,
@@ -378,7 +377,7 @@ Retrieve the current state of a conversation session, including full conversatio
 
 Request:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 7,
@@ -395,7 +394,7 @@ Request:
 
 Response:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 7,
@@ -415,7 +414,7 @@ Response:
 
 All errors follow the JSON-RPC 2.0 error format:
 
-```
+```JSON
 {
     "jsonrpc": "2.0",
     "id": 1,

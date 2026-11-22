@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Actions for Partner Central using AWS SDKs
-<a name="service_code_examples_actions"></a>
 
 The following code examples demonstrate how to perform individual Partner Central actions with AWS SDKs. Each example includes a link to GitHub, where you can find instructions for setting up and running the code. 
 

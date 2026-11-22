@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `CreateOpportunity` with an AWS SDK
-<a name="example_partnercentral-selling_CreateOpportunity_section"></a>
 
 The following code examples show how to use `CreateOpportunity`.
 
@@ -13,7 +12,7 @@ The following code examples show how to use `CreateOpportunity`.
 **SDK for .NET**  
 Create an opportunity.  
 
-```
+```csharp
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // PDX-License-Identifier: Apache-2.0
 
@@ -136,7 +135,7 @@ namespace AWSExample
 **SDK for Java 2.x**  
 Create an opportunity.  
 
-```
+```java
 package org.example;
 
 import java.time.Instant;
@@ -371,7 +370,7 @@ public class CreateOpportunity {
 **SDK for Python (Boto3)**  
 Create an opportunity.  
 
-```
+```python
 #!/usr/bin/env python
 import boto3
 import logging

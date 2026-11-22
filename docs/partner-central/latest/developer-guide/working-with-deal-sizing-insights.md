@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Working with deal sizing insights
-<a name="working-with-deal-sizing-insights"></a>
 
 ## What is Deal Sizing?
 <a name="what-is-deal-sizing"></a>
@@ -76,7 +75,7 @@ Partners who estimate in Total Contract Value rather than Monthly Recurring Reve
 
 For deal sizing in TCV, provide `ExpectedContractDuration` as `Months` (valid values range from 1 to 144 months) and `TargetCompany` as `Self` and `Frequency` as `None`.
 
-```
+```json
 {
   "Project": {
     "ExpectedContractDuration": { "Term": "Months", "Value": "36" },
@@ -94,7 +93,7 @@ For deal sizing in TCV, provide `ExpectedContractDuration` as `Months` (valid va
 
 AWS derives the AWS MRR estimate and returns both entries on `GetOpportunity`:
 
-```
+```json
 {
   "Project": {
     "ExpectedContractDuration": { "Term": "Months", "Value": "36" },
@@ -141,7 +140,7 @@ On `UpdateOpportunity`, if `ExpectedContractDuration` is present without a Self 
 
 To switch from TCV mode back to manual MRR, explicitly set `ExpectedContractDuration` to `null` and provide only an `AWS` entry:
 
-```
+```json
 {
   "Project": {
     "ExpectedContractDuration": null,
@@ -173,7 +172,7 @@ Partners can manually enter MRR estimates using the `Project.ExpectedCustomerSpe
 **Note**  
 The `CurrencyCode` field accepts `USD` and `EUR`. If the AWS Partition is `aws-eusc` (AWS European Sovereign Cloud), the currency code must be `EUR`.
 
-```
+```json
 {
   "Project": {
     "ExpectedCustomerSpend": [
@@ -195,7 +194,7 @@ This field is available to all Partners and can be used to accept AI forecasts b
 
 Partners can optionally provide AWS Pricing Calculator URLs via the `Project.ExpectedCustomerSpend[].EstimationUrl` field to automatically import service configurations and receive enhanced insights including MAP eligibility indicators, optimization recommendations, and cost savings analysis.
 
-```
+```json
 {
   "Project": {
     "ExpectedCustomerSpend": [
@@ -227,7 +226,7 @@ When you provide only the Amount field, the API saves your manual estimate and s
 
 Example request:
 
-```
+```json
 {
     "Project": {
         "ExpectedCustomerSpend": [{
@@ -249,7 +248,7 @@ When you provide only the EstimationUrl field:
 
 Example request:
 
-```
+```json
 {
     "Project": {
         "ExpectedCustomerSpend": [{
@@ -264,7 +263,7 @@ Example request:
 
 Example error response (invalid URL):
 
-```
+```json
 {
     "ErrorList": [{
         "Code": "INVALID_VALUE",
@@ -326,7 +325,7 @@ This separation enables Partners to:
 ### Structure Overview
 <a name="structure-overview"></a>
 
-```
+```json
 {
   "Insights": {
     "AwsProductsSpendInsightsBySource": {
@@ -449,7 +448,7 @@ Each optimization recommendation contains:
 
 This example shows the typical response when only AI recommendations are available and per-product spend amounts cannot yet be recommended.
 
-```
+```json
 {
   "Catalog": "AWS",
   "Insights": {
@@ -514,7 +513,7 @@ This example shows the typical response when only AI recommendations are availab
 
 This example shows enhanced insights when a partner has provided a valid Pricing Calculator URL.
 
-```
+```json
 {
   "Catalog": "AWS",
   "Insights": {
@@ -606,7 +605,7 @@ This example shows enhanced insights when a partner has provided a valid Pricing
 
 This example demonstrates how both AWS recommendations and partner estimates appear together, enabling comparison.
 
-```
+```json
 {
   "Catalog": "AWS",
   "Insights": {

@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Quotas for the AWS Partner Central Selling API
-<a name="quotas"></a>
 
 AWS Partner Central selling API enforces quotas to ensure fair usage and to protect the service from misuse. Below are the detailed quotas for various API operations and associations per opportunity.
 

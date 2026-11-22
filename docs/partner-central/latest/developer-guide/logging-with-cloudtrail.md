@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Logging the AWS Partner Central Selling API
-<a name="logging-with-cloudtrail"></a>
 
  [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With AWS CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. AWS Partner Central API activity is recorded as events in CloudTrail. You can create a trail, a configuration that enables delivery of events as log files to an Amazon S3 bucket. 
 
@@ -23,7 +22,7 @@ The AWS Partner Central API Reference was restructured. For more information abo
 
  The following example shows a CloudTrail log entry that demonstrates the `ListOpportunities` action on AWS Partner Central: 
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

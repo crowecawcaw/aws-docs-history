@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Associating, disassociating and assigning opportunities
-<a name="associating-disassociating-assigning-opportunities"></a>
 
  Opportunities can be associated or disassociated with Partner Solutions, AWS Products, AWS Marketplace Solutions, AWS Marketplace Products, AWS Marketplace Offers, and AWS Marketplace Offer Sets at any stage of the opportunity lifecycle. 
 

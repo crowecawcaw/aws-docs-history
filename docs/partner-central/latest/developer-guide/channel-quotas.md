@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Quotas for the AWS Partner Central Channel API
-<a name="channel-quotas"></a>
 
 The AWS Partner Central Channel API has the following quotas.
 

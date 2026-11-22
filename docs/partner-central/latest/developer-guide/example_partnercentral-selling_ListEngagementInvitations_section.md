@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `ListEngagementInvitations` with an AWS SDK
-<a name="example_partnercentral-selling_ListEngagementInvitations_section"></a>
 
 The following code examples show how to use `ListEngagementInvitations`.
 
@@ -13,7 +12,7 @@ The following code examples show how to use `ListEngagementInvitations`.
 **SDK for Java 2.x**  
 Retrieves a list of engagement invitations sent to the partner.  
 
-```
+```java
 package org.example;
 
 import java.util.ArrayList;
@@ -73,7 +72,7 @@ public class ListEngagementInvitations {
 **SDK for Python (Boto3)**  
 Retrieves a list of engagement invitations sent to the partner.  
 
-```
+```python
 #!/usr/bin/env python
 
 """

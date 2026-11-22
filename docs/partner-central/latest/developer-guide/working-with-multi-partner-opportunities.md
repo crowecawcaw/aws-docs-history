@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Working with multipartner opportunities
-<a name="working-with-multi-partner-opportunities"></a>
 
 AWS Partners can work together on opportunities with AWS as an active participant.
 
@@ -40,7 +39,7 @@ To create this role, go to your IAM console and create the `ResourceSnapshotJobR
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -64,7 +63,7 @@ After creating this role, you need to attach the [AWSPartnerCentralSellingResour
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -96,7 +95,7 @@ Replace `{account}` with your AWS account ID.
 
 After you create the `ResourceSnapshotJobRole` role and attach the permissions, you need to set the `ResourceSnapshotJobRole` for your organization. Use the [PutSellingSystemSettings](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_PutSellingSystemSettings.html) action to set the role you created as the `ResourceSnapshotJobRole` for your company (identified by your AWS account):
 
-```
+```json
 aws-cli/2.13.5 Python/3.11.4 Linux/4.14.255-314-253.539.amzn2.x86_64
 Host: partner-central.aws.amazon.com
 Content-Type: application/json

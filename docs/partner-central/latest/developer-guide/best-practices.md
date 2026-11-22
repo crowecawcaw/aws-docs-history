@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Best practices
-<a name="best-practices"></a>
 
 ## Reacting to events
 <a name="reacting-to-events"></a>
@@ -54,7 +53,7 @@ It is essential to keep your system synced with the latest data from Partner Cen
 
 1. Use the timestamp in the `AfterLastModifiedDate` filter when calling [ListOpportunities](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListOpportunities.html).
 
-   ```
+   ```json
    {
       "FilterList": [
           {
@@ -69,7 +68,7 @@ It is essential to keep your system synced with the latest data from Partner Cen
 
 1. Iterate over all returned pages using `NextToken`, and update your system's data using [GetOpportunity](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_GetOpportunity.html).
 
-   ```
+   ```json
    {
       "NextToken": "AAMA-EFRSN...PZa942D",
       "FilterList": [

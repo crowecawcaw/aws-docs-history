@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Access for the Selling API
-<a name="access-control"></a>
 
 Access control and permissions are managed by AWS Identity and Access Management (IAM). This section provides guidance for configuring the necessary permissions to interact with the API, including the permissions required to list AWS Marketplace entities.
 
@@ -27,7 +26,7 @@ This policy grants full access to Partner Central opportunity management actions
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -100,7 +99,7 @@ If the managed policies don't meet your needs, create custom IAM policies that g
 **Example of custom policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ This policy provides broad access to Partner Central selling actions, including 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":

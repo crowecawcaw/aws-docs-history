@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Testing in a sandbox
-<a name="testing"></a>
 
 Partners can use a sandbox to test and validate their AWS Partner Central API interactions in a secure and isolated environment, ensuring smooth operation before promoting their solution to the production environment. AWS offers a dynamic sandbox to AWS Partner Central API users that returns responses similar to the production environment. AWS does not provide a user interface to the sandbox environment. Therefore, partners need to rely on the programmatic responses to test their solutions.
 
@@ -20,7 +19,7 @@ To set up sandbox access, complete the following steps in order:
 
 1. Check whether a `Sandbox` partner account already exists. Call the `ListPartners` API with `catalog` set to `Sandbox`. Use the following request body:
 
-   ```
+   ```json
    {
      "Catalog": "Sandbox"
    }
@@ -41,7 +40,7 @@ If you migrated from PC2.0 to PC3.0, you might already have a `Sandbox` partner 
 
 1. Register in the sandbox using the `CreatePartner` API. After you complete AWS catalog registration, call `CreatePartner` with `catalog` set to `Sandbox`. Use the following request body:
 
-   ```
+   ```json
    {
      "Catalog": "Sandbox",
      "ClientToken": "unique-idempotency-token",

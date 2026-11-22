@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Access for the Revenue Measurement API
-<a name="prm-access-control"></a>
 
 Access control and permissions are managed by AWS Identity and Access Management (IAM). This section provides guidance for configuring the necessary permissions to interact with the Revenue Measurement API, including the permissions required to list AWS Marketplace entities.
 
@@ -26,7 +25,7 @@ For more information, see [AWS managed policies for AWS Partner Central users](h
 
 This policy provides necessary access for revenue attribution management activities for AWS accounts registered with AWS Partner Central.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -199,7 +198,7 @@ This policy provides necessary access for revenue attribution management activit
 
 This policy provides necessary access for revenue attribution management activities for AWS accounts who are not registered with AWS Partner Central.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

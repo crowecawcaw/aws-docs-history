@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Working with Benefit Applications
-<a name="working-with-benefit-applications"></a>
 
 A Benefit Application models a partner's request for a specific benefit. It captures all information needed to evaluate and process the request according to benefit-specific conditions. The benefit application lifecycle progresses through multiple states from draft creation to final approval or rejection.
 

@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `GetEngagementInvitation` with an AWS SDK
-<a name="example_partnercentral-selling_GetEngagementInvitation_section"></a>
 
 The following code examples show how to use `GetEngagementInvitation`.
 
@@ -13,7 +12,7 @@ The following code examples show how to use `GetEngagementInvitation`.
 **SDK for Java 2.x**  
 Retrieves the details of an engagement invitation shared by AWS with a partner.  
 
-```
+```java
 package org.example;
 
 import static org.example.utils.Constants.*;
@@ -71,7 +70,7 @@ public class GetEngagementInvitation {
 **SDK for Python (Boto3)**  
 Retrieves the details of an engagement invitation shared by AWS with a partner.  
 
-```
+```python
 #!/usr/bin/env python
 
 """

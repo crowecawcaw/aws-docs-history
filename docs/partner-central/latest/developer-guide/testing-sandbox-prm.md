@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Testing in a sandbox for the AWS Partner Central Revenue Measurement API
-<a name="testing-sandbox-prm"></a>
 
 ## How to use the sandbox
 <a name="prm-use-sandbox"></a>
@@ -18,7 +17,7 @@ To use the sandbox, complete the following steps:
 
    Assign the following policy to the IAM role. For more information, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -167,7 +166,7 @@ To simulate the creation of a Revenue Attribution ID, in the payload of the `Cre
 
 For example:
 
-```
+```json
 {
   "Catalog": "Sandbox",
   "ClientToken": "String",

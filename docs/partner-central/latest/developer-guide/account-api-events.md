@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Notifications for the AWS Partner Central Account API
-<a name="account-api-events"></a>
 
 Partner Account Connection notifications enable partners to stay informed about connection lifecycle events that directly impact their business relationships and operational workflows. These events are critical for partners to:
 + React promptly to new collaboration
@@ -60,7 +59,7 @@ To set up an EventBridge rule using the AWS Management Console, follow the steps
 
 Following is an example of an event rule:
 
-```
+```json
 {
     "source": ["aws.partnercentral-account"],
     "detail": {
@@ -71,7 +70,7 @@ Following is an example of an event rule:
 
 Business plan events share the `aws.partnercentral-account` source with the account connection events. To match only business plan events, add a `prefix` match on `detail-type`, as in the following example. To match events from the Sandbox catalog, replace `AWS` with `Sandbox`.
 
-```
+```json
 {
     "source": ["aws.partnercentral-account"],
     "detail-type": [{"prefix": "Business Plan"}],
@@ -88,7 +87,7 @@ You can use the AWS SDKs to create and manage EventBridge rules programmatically
 
 The following example uses the AWS SDK for Python (Boto3):
 
-```
+```python
 import boto3
 
 client = boto3.client('events', region_name='us-east-1')
@@ -227,7 +226,7 @@ Common Integration Patterns:
 ##### Example
 <a name="connection-invitation-received-example"></a>
 
-```
+```json
 {
   "version": "1",
   "id": "<event id>",
@@ -287,7 +286,7 @@ Common Integration Patterns:
 ##### Example
 <a name="connection-invitation-accepted-example"></a>
 
-```
+```json
 {
   "version": "1",
   "id": "<event id>",
@@ -348,7 +347,7 @@ Common Integration Patterns:
 ##### Example
 <a name="connection-invitation-rejected-example"></a>
 
-```
+```json
 {
   "version": "1",
   "id": "<event id>",
@@ -405,7 +404,7 @@ Common Integration Patterns:
 ##### Example
 <a name="connection-cancelled-example"></a>
 
-```
+```json
 {
   "version": "1",
   "id": "<event id>",
@@ -460,7 +459,7 @@ Common Integration Patterns:
 ##### Example
 <a name="connection-invitation-cancelled-example"></a>
 
-```
+```json
 {
   "version": "1",
   "id": "<event id>",
@@ -516,7 +515,7 @@ Common Integration Patterns:
 ##### Example
 <a name="connection-invitation-expired-example"></a>
 
-```
+```json
 {
   "version": "1",
   "id": "<event id>",
@@ -558,7 +557,7 @@ The AWS account that owns the business plan.
 ##### Example – Business Plan Activated event
 <a name="business-plan-activated-example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "21234567-0123-0123-0123-EXAMPLE1111a",
@@ -603,7 +602,7 @@ The AWS account that owns the business plan.
 ##### Example – Business Plan Completed event
 <a name="business-plan-completed-example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "22234567-0123-0123-0123-EXAMPLE2222a",
@@ -648,7 +647,7 @@ The AWS account that owns the business plan.
 ##### Example – Business Plan Canceled event
 <a name="business-plan-canceled-example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "23234567-0123-0123-0123-EXAMPLE3333a",
@@ -693,7 +692,7 @@ The AWS account that owns the business plan.
 ##### Example – Business Plan Submission Task Succeeded event
 <a name="business-plan-submission-task-succeeded-example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "31234567-0123-0123-0123-EXAMPLE4444a",
@@ -746,7 +745,7 @@ The AWS account that owns the business plan.
 ##### Example – Business Plan Submission Task Failed event
 <a name="business-plan-submission-task-failed-example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "32234567-0123-0123-0123-EXAMPLE5555a",
@@ -795,7 +794,7 @@ The AWS account that owns the business plan.
 ##### Example – Business Plan Ending In 30 Days event
 <a name="business-plan-ending-in-30-days-example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "41234567-0123-0123-0123-EXAMPLE1111a",
@@ -841,7 +840,7 @@ The AWS account that owns the business plan.
 ##### Example – Business Plan Item Due In 30 Days event
 <a name="business-plan-item-due-in-30-days-example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "42234567-0123-0123-0123-EXAMPLE2222b",

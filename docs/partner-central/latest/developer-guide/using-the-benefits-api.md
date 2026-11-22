@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Using the AWS Partner Central Benefits API
-<a name="using-the-benefits-api"></a>
 
 The AWS Partner Central Benefits API streamlines how partners discover, apply for, and manage benefits across all AWS Partner Programs. By centralizing benefit management into a single, intuitive interface, the service creates a transparent meritocracy that rewards partners while simplifying operations.
 

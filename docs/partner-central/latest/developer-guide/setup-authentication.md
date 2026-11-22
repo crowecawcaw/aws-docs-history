@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Setup and authentication
-<a name="setup-authentication"></a>
 
 Setting up and authenticating with the AWS Partner Central API involves three steps. Here’s an overview of the process:
 
@@ -98,7 +97,7 @@ Including this header in every request enables AWS to analyze request patterns, 
 
 To include the `X-Amzn-User-Agent` header in SDK calls, you can modify the client request behavior before making the API call. Below is a selling API example using the AWS SDK for Python (Boto3):
 
-```
+```python
 # Requires the AWS SDK for Python (Boto3)
 import boto3
 

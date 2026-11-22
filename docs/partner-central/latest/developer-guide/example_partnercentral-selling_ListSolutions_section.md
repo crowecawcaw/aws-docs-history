@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `ListSolutions` with an AWS SDK
-<a name="example_partnercentral-selling_ListSolutions_section"></a>
 
 The following code examples show how to use `ListSolutions`.
 
@@ -13,7 +12,7 @@ The following code examples show how to use `ListSolutions`.
 **SDK for Java 2.x**  
 Retrieves a list of Partner Solutions that the partner registered on Partner Central.  
 
-```
+```java
 package org.example;
 
 import java.util.ArrayList;
@@ -72,7 +71,7 @@ public class ListSolutions {
 **SDK for Python (Boto3)**  
 Retrieves a list of Partner Solutions that the partner registered on Partner Central.  
 
-```
+```python
 #!/usr/bin/env python
 
 """

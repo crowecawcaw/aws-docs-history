@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Working with business plans
-<a name="working-with-business-plans-api"></a>
 
 A business plan describes your priorities for your AWS partnership for one plan year. A plan has a narrative, items such as goals, key performance indicators (KPIs), initiatives, and activities, and optional attachments. When the plan is ready, you submit it for review by AWS.
 

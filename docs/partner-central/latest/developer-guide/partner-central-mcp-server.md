@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Connect AI agents to AWS Partner Central with the MCP Server
-<a name="partner-central-mcp-server"></a>
 
 The Partner Central agents MCP Server provides Partner Central tools through the Model Context Protocol (MCP), enabling your AI agents and tools to discover and interact with opportunity management, customer insights, and funding programs through natural language.
 
@@ -126,12 +125,12 @@ The agent accepts supporting documents (meeting transcripts, call notes, email s
 ## Agentic experience for partner onboarding
 <a name="mcp-onboarding-agent"></a>
 
-The agent automates partner onboarding to Partner Central and provides guided assistance for Marketplace seller setup and PRM compliance — all through natural language.
+The agent automates partner onboarding to Partner Central and provides guided assistance for Marketplace seller setup and AWS Revenue Measurement compliance — all through natural language.
 
 Agent capabilities:
 + **Partner profile automation** — Scan your website, auto-populate your partner profile, and manage visibility, alliance lead contact, training domains, and account connections
 + **Seller setup guidance** — Step-by-step guidance for Marketplace seller registration including tax forms, banking, compliance (KYC/BAV/SU), ESC catalog, and service-linked roles
-+ **PRM compliance guidance** — Assess PRM readiness, retrieve product codes for revenue tagging, and verify subsidiary account connections for consolidated revenue attribution
++ **AWS Revenue Measurement compliance guidance** — Assess AWS Revenue Measurement readiness, retrieve product codes for revenue tagging, and verify subsidiary account connections for consolidated revenue attribution
 
 ### Partner profile automation
 <a name="mcp-onboarding-profile-automation"></a>
@@ -151,13 +150,13 @@ The agent walks through Marketplace seller registration end-to-end, determining 
 + "Do I need KYC? I'm selling to customers in France"
 + "How do I set up payments if I'm outside the US?"
 
-### PRM compliance guidance
-<a name="mcp-onboarding-prm-compliance"></a>
+### AWS Revenue Measurement compliance guidance
+<a name="mcp-onboarding-aws-revenue-measurement-compliance"></a>
 
-The agent checks whether your account is PRM-ready — verifying that your account is connected, a listing exists, and your product code is available for tagging. For partners with subsidiary accounts, it verifies that all seller accounts are properly linked for consolidated revenue attribution.
-+ "Am I PRM compliant?"
+The agent checks whether your account is ready for AWS Revenue Measurement — verifying that your account is connected, a listing exists, and your product code is available for tagging. For partners with subsidiary accounts, it verifies that all seller accounts are properly linked for consolidated revenue attribution.
++ "Am I compliant with AWS Revenue Measurement?"
 + "Where do I find my product code for tagging?"
-+ "Tell me all the steps I need to perform to be PRM compliant"
++ "Tell me all the steps I need to perform to be compliant with AWS Revenue Measurement"
 
 ## Get started
 <a name="mcp-get-started"></a>

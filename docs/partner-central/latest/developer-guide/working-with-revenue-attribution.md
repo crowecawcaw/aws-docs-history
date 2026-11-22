@@ -3,151 +3,215 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Working with your Revenue Attribution IDs
-<a name="working-with-revenue-attribution"></a>
 
-A Revenue Attribution ID is a deal-level identifier that maps your AWS Marketplace product revenue to specific AWS Marketplace Offers and/or AWS Partner Central Opportunities. It builds on top of product-level Partner Revenue Measurement (PRM) implementation: PRM captures total attributed revenue for a Marketplace product, and a Revenue Attribution ID maps that revenue to specific deals according to the monthly cost allocation percentages you specify.
+A Revenue Attribution ID is a deal-level identifier that maps your AWS Marketplace product revenue to specific AWS Marketplace Offers and/or AWS Partner Central Opportunities. It builds on product-level AWS Revenue Measurement: AWS Revenue Measurement captures total attributed revenue for a Marketplace product, and a Revenue Attribution ID maps that revenue to specific deals according to the monthly cost allocation percentages you specify.
 
-The Revenue Attribution Service exposes APIs to create, retrieve, list, and update Revenue Attribution IDs and to manage their monthly cost allocation entries asynchronously.
+Partners use the AWS Partner Central API to create, retrieve, list, and update Revenue Attribution IDs, and to manage their monthly cost allocation entries asynchronously.
 
 ## What is a Revenue Attribution ID?
 <a name="what-is-a-revenue-attribution-id"></a>
 
 A Revenue Attribution ID has two layers:
-+ **The attribution** a partner-named, partner-described resource identified by an `ra-` prefix ID (for example, `ra-aabbccddee001`) and an ARN. Each attribution is scoped to a `Catalog` (`AWS` for production, `Sandbox` for testing) and the partner's account.
-+ **One or more monthly cost allocation entries** each entry maps a single (Offer ID or Opportunity ID, Billing Month) combination to a cost-allocation percentage. Entries are managed in batches asynchronously through an allocation task pattern.
++ **The attribution** — a resource that the partner names and describes, identified by an ID with the `ra-` prefix (for example, `ra-aabbccddee001`) and an ARN. Each attribution is scoped to a `Catalog` (`AWS` for production, `Sandbox` for testing) and to the partner's account. An attribution can also carry context: key-value attributes defined by AWS programs, such as the program and workload that the attribution belongs to.
++ **One or more monthly cost allocation entries** — each entry maps one Marketplace Offer or Partner Central Opportunity, one customer AWS account and one calendar month to a revenue share percentage. Entries are created and updated in batches, asynchronously, through an allocation task.
 
 A Revenue Attribution ID can be used in two ways:
-+ **As a deal-level overlay** on your existing product-level PRM implementation. Create a Revenue Attribution ID, associate your applicable Marketplace Offers and/or ACE Opportunities, and AWS maps your already-measured product revenue to those specific deals — no changes to your existing resource tags or user agent strings are required.
-+ **As a standalone identifier** used directly as a resource-tag value (`aws-apn-id` = `<RA ID>`) or in a user-agent string (`APN_1.1/pc_<RA ID>$`) to attribute AWS consumption to a specific deal from the start.
++ **As a deal-level overlay** on your existing product-level AWS Revenue Measurement implementation. Create a Revenue Attribution ID, associate your Marketplace Offers and/or Partner Central Opportunities, and AWS maps your already-measured product revenue to those deals — no changes to your existing resource tags or user agent strings are required.
++ **As a standalone identifier**, used directly as a resource tag value (`aws-apn-id` = `<RA ID>`) or in a user agent string (`APN_1.1/pc_<RA ID>$`), to attribute AWS consumption to a specific deal from the start.
 
 ## Working with your Revenue Attribution IDs
 <a name="managing-revenue-attribution-ids"></a>
 
-Partners can manage Revenue Attribution IDs and their monthly cost allocation entries through the Revenue Attribution Service. The lifecycle progresses through two independent flows: the attribution-record flow (create, update, retrieve, list) and the allocations flow (start a batch task, poll for results, retrieve individual entries, list entries for an attribution).
+Partners manage Revenue Attribution IDs and their monthly cost allocation entries through the AWS Partner Central API. The lifecycle progresses through two independent flows: the attribution-record flow (create, update, retrieve, list) and the allocations flow (start a batch task, poll for results, retrieve individual entries, list entries for an attribution).
 
 ### Creating a Revenue Attribution ID
 <a name="creating-a-revenue-attribution-id"></a>
 
-The first step is creating a Revenue Attribution ID using the `CreateRevenueAttribution` API action. The returned `Id` and `Arn` can be used immediately as a resource-tag value or in a user-agent string to attribute AWS consumption.
+The first step is creating a Revenue Attribution ID with the `CreateRevenueAttribution` API action. The returned `Id` and `Arn` can be used immediately as a resource tag value or in a user agent string to attribute AWS consumption.
 
 When creating a Revenue Attribution ID, partners must provide:
 + **`Catalog`** — `AWS` for production or `Sandbox` for testing.
-+ **`Name`** — a human-readable name for the attribution. Must be unique within the Catalog and the partner's account. Maximum 128 characters.
++ **`Name`** — a human-readable name for the attribution. Maximum 128 characters.
++ **`TenancyModel`** — `MULTI_TENANT` or `SINGLE_TENANT`, the tenancy model of the product that the attribution covers.
 
 Partners can optionally provide:
-+ **`Description`** — free-text description of the attribution. Maximum 1024 characters.
-+ **`MarketplaceProduct`** — the AWS Marketplace product to associate with this attribution. Provide `ProductIdentifier` (the 25-character Marketplace product ID) and `TenancyModel` (`MULTI_TENANT` or `SINGLE_TENANT`). If omitted at creation, attribution applies across all consumption measured under the Revenue Attribution ID, regardless of which Marketplace product the customer purchased — useful when a single deployment spans more than one Marketplace listing.
-+ **`Tags`** — up to 200 key-value pairs for resource organization. Tag keys must be unique within the request.
++ **`Description`** — a free-text description of the attribution. Maximum 1024 characters.
++ **`ProductIdentifier`** — the AWS Marketplace product ID or product ARN to associate with this attribution. If omitted, the attribution applies across all consumption measured under the Revenue Attribution ID, regardless of which Marketplace product the customer purchased. This is useful when a single deployment spans more than one Marketplace listing.
++ **`Context`** — program-defined key-value attributes. For details, see [Adding context to a Revenue Attribution ID](#adding-context-to-a-revenue-attribution-id) below.
++ **`Tags`** — up to 200 key-value pairs for organizing resources. Tag keys must be unique within the request.
++ **`ClientToken`** — an idempotency token. AWS SDKs generate this token automatically.
 
-Best Practice: Provide `MarketplaceProduct.ProductIdentifier` whenever your deal is anchored to a specific Marketplace listing. This enables AWS to validate that the product is owned by the calling partner account or by a subsidiary account connected via Partner Account Connection (PAC), and surfaces the resolved `ProductCode` and `ProductType` (for example, `SaaS`, `AMI`, `ML`) in the response. If the product is not owned by an authorized account, the API returns `ValidationException` with reason `PRODUCT_NOT_FOUND_OR_NOT_OWNED`.
+**Best Practice:** Provide `ProductIdentifier` whenever your deal is anchored to a specific Marketplace listing. AWS then validates that the product is owned by the calling partner account, or by a subsidiary account connected to it through Partner Account Connection, and returns the resolved product attributes in the response. If the product is not owned by an authorized account, the API returns `ValidationException`.
 
-The response returns the new `Id` (format `ra-[a-z0-9]{13}`), `Arn`, resolved `MarketplaceProduct` attributes, and the initial `Version` number (which starts at 1 and increments on each subsequent update).
+The response returns:
++ the new `Id` (format `ra-[a-z0-9]{13}`) and `Arn`
++ `Name`, `Description`, and `TenancyModel`
++ the resolved `MarketplaceProduct` attributes: `ProductId`, `ProductCode`, and `ProductName`
++ the stored `Context`
++ the initial `Revision`
+
+`Revision` is a numeric string, starting at "1", that increases with each subsequent change.
+
+### Adding context to a Revenue Attribution ID
+<a name="adding-context-to-a-revenue-attribution-id"></a>
+
+`Context` lets partners label a Revenue Attribution ID with key-value attributes defined by AWS programs. Partners can then find attributions by those attributes with `ListRevenueAttributions`.
+
+`Context` is supported on `CreateRevenueAttribution`, `UpdateRevenueAttribution`, `GetRevenueAttribution` and `ListRevenueAttributions`.
+
+The following keys are supported. Keys are case-sensitive: for example, `program` is rejected.
+
+
+| Key | Meaning | 
+| --- | --- | 
+| Program | The AWS partner program that the attribution belongs to | 
+| Workload | The workload that is migrated or deployed | 
+| ProgramEngagementId | The ID of the partner's engagement in that program | 
+
+Context rules:
++ A `Context` map can contain up to 10 entries. Each key can appear only once.
++ Values are free text: printable ASCII, 1 to 1024 characters.
++ An unsupported key returns `ValidationException` with the reason `REQUEST_VALIDATION_FAILED`. The `FieldList` names the field (for example, `Context.<key>`) and lists the supported keys.
++ Don't put sensitive information in context values.
+
+On `UpdateRevenueAttribution`, `Context` is a full replacement. Omit it to keep the stored context, or send an empty map (`{}`) to clear it. `GetRevenueAttribution` with a `Revision` returns the context that was stored at that revision.
 
 ### Adding monthly cost allocation entries
 <a name="adding-monthly-cost-allocation-entries"></a>
 
-Once a Revenue Attribution ID is created, partners associate AWS Marketplace Offers and/or ACE Opportunities to it by submitting a batch of monthly cost allocation entries through the `StartRevenueAttributionAllocationsTask` API action. This is an asynchronous operation that accepts up to 250 allocation changes (`CREATE` and/or `UPDATE`) per task.
+Once a Revenue Attribution ID is created, partners associate Marketplace Offers and/or Partner Central Opportunities with it by submitting a batch of monthly allocation entries through the `StartRevenueAttributionAllocationsTask` API action. This is an asynchronous operation that accepts up to 250 allocation changes per task. Each change has an `Action` of `CREATE` or `UPDATE`.
+
+The request takes the `Catalog`, the `RevenueAttributionIdentifier` (ID or ARN), the attribution's current `RevenueAttributionRevision` and the list of `RevenueShareAllocations`. Partners can also provide an optional `Description` and a `ClientToken`.
 
 Each allocation entry specifies:
-+ **Offer ID or Opportunity ID** — the unique identifier of the deal being associated. If a Marketplace Offer is already linked to an ACE Opportunity, partners only need to provide the Offer ID; AWS automatically attributes revenue to the linked Opportunity.
-+ **Billing Month** — the calendar month for which the cost allocation applies (for example, `2026-04`).
-+ **Cost Allocation %** — the portion of the product's total AWS consumption attributable to this deal in this billing month. Required for multi-tenant SaaS products, including partner-hosted components for hybrid deployments, where customers share infrastructure.
-+ **Customer AWS Account ID** — the AWS account of the customer that consumes the product. Required for multi-tenant SaaS products.
++ **`EntityType` and `EntityIdentifier`** — `OFFER` with a Marketplace Offer ID, or `OPPORTUNITY` with a Partner Central Opportunity ID. If a Marketplace Offer is already linked to a Partner Central Opportunity, partners only need to provide the Offer ID; AWS automatically attributes revenue to the linked Opportunity.
++ **`CustomerAwsAccountId`** — the AWS account of the customer that consumes the product.
++ **`EffectiveFrom` and `EffectiveUntil`** — the first and last day of the calendar month that the entry applies to (`YYYY-MM-DD`).
++ **`RevenueSharePercent`** — the portion of the product's total AWS consumption attributable to this deal in this month, as a decimal string (for example, "25.00").
++ **`RevenueAttributionAllocationId`** — required for `UPDATE`, to identify the entry to change.
++ **`Status`** (optional) — `ACTIVE` or `INACTIVE`.
 
-The total Cost Allocation % across all allocation entries for a given Revenue Attribution ID and the same Billing Month must not exceed 100%. If the total exceeds 100%, the offending entry is rejected during async business validation with a per-record error code.
+The total `RevenueSharePercent` across all active entries of a Revenue Attribution ID for the same month must not exceed 100%. An entry that would exceed it is rejected during asynchronous validation with the error code `ALLOCATION_CAP_EXCEEDED`.
 
-Synchronous validation: `StartRevenueAttributionAllocationsTask` performs basic shape validation synchronously (field types, patterns, batch size). If the basic validation passes, the API returns a `TaskId` with status `IN_PROGRESS`. Business validation (cap checks, immutability rules, dependency lookups against Marketplace and ACE) runs asynchronously and the per-record results are discovered through `GetRevenueAttributionAllocationsTask`.
+**Synchronous validation:** `StartRevenueAttributionAllocationsTask` validates the request shape synchronously: field types, patterns, and batch size. If the request passes, the API returns a `TaskId` with the status `IN_PROGRESS`. Business validation runs asynchronously: the cap check, finalized months, and lookups against AWS Marketplace and Partner Central.
 
-To monitor a submitted task, partners poll `GetRevenueAttributionAllocationsTask` with the Revenue Attribution Resource Id or ARN. The response progresses from `IN_PROGRESS` to `COMPLETED` (regardless of whether individual records succeeded or failed) and returns:
-+ **`TaskStatus`** — `IN_PROGRESS`, `COMPLETED`, or `FAILED` (top-level task failure).
-+ **`RecordResults`** — for each input record: the assigned `AllocationId` (if successful), the per-record status (`SUCCEEDED` or `FAILED`), and a structured error code and message if the record failed.
+To monitor a task, call `GetRevenueAttributionAllocationsTask` with the Revenue Attribution ID or ARN. It returns the attribution's latest task:
++ **`Status`** — `IN_PROGRESS`, `COMPLETE`, or `FAILED`.
++ `StartedAt`, `EndedAt`, and `TotalRevenueAttributionAllocationRecords`.
++ **`ErrorDetailList`** — one item for each record that failed, with its `EntityType`, `EntityId`, `CustomerAwsAccountId`, `EffectiveFrom`, `EffectiveUntil`, `Action`, an `ErrorCode`, and an `ErrorMessage`. Error codes are `ALLOCATION_CAP_EXCEEDED`, `RESOURCE_NOT_FOUND`, `IMMUTABLE_ALLOCATION`, `ACCESS_DENIED`, `INVALID_VALUE`, `CONCURRENT_MODIFICATION`, and `INTERNAL_ERROR`.
++ **`RevenueAttributionLatestRevision`** — the attribution's revision after the task.
 
-Partners should retrieve task results promptly. After the task completes, the per-record outcomes can be reconciled and any failed entries can be corrected and resubmitted in a new task.
+Retrieve task results promptly. Once the task completes, reconcile the outcome of each record, then correct any failed entries and resubmit them in a new task.
 
 ### Editing monthly cost allocation entries
 <a name="editing-monthly-cost-allocation-entries"></a>
 
-Cost allocation entries are managed per billing month with these rules:
-+ Partners can **add a new monthly entry** for the current or any future billing month at any time.
-+ Partners can **update a monthly entry** for the current or any future billing month at any time.
-+ Partners can **update last month's entry** until the **7th of the current month**. This window allows partners to review actual usage in AWS Cost Explorer before finalizing the prior month's allocation.
+Allocation entries are managed per month, with these rules:
++ Partners can add or update an entry for the current month or any future month at any time.
++ Partners can update last month's entry until the end of the 7th day of the current month (UTC). This window allows partners to review actual usage in AWS Cost Explorer before finalizing the prior month's allocation.
++ After the 7th of the current month, the prior month is finalized and can no longer be changed. A change to a finalized month is rejected with the error code `IMMUTABLE_ALLOCATION`. Updates to a current or future month apply from the next monthly billing cycle. Attribution for prior months is not recalculated retroactively.
 
-After the 7th of the current month, attribution for the prior billing month can no longer be modified. Updates to a current or future month's entry apply from the next monthly billing cycle. Historical attribution for prior months is not retroactively recalculated.
-
-Updates to allocation entries are submitted through the same `StartRevenueAttributionAllocationsTask` API action with `Operation` set to `UPDATE` for each affected entry. The async task pattern handles updates and creations uniformly.
+Updates are submitted through the same `StartRevenueAttributionAllocationsTask` API action, with `Action` set to `UPDATE` for each affected entry.
 
 ### Updating a Revenue Attribution ID
 <a name="updating-a-revenue-attribution-id"></a>
 
-Partners can update the `Description` of an existing Revenue Attribution ID using the `UpdateRevenueAttribution` API action. The attribution record itself is otherwise immutable — `Name`, `MarketplaceProduct`, and tag-on-create values cannot be changed after creation. To re-tag the resource, use the standard AWS tagging operations on the attribution's ARN.
+Partners can update the `Description` and `Context` of an existing Revenue Attribution ID with the `UpdateRevenueAttribution` API action. The attribution record is otherwise immutable: `Name`, `TenancyModel`, the associated product and the values tagged on creation can't be changed after creation. To re-tag the resource, use the standard AWS tagging operations on the attribution's ARN.
 
 When updating a Revenue Attribution ID, partners must provide:
 + **`Catalog`** — `AWS` or `Sandbox`.
-+ **`Identifier`** — the `ra-` ID of the attribution to update.
-+ **`Version`** — the current version of the attribution for optimistic locking.
++ **`Identifier`** — the ID or ARN of the attribution to update.
++ **`Revision`** — the attribution's current revision, for optimistic locking.
 
 Partners can optionally provide:
-+ **`Description`** — the updated free-text description. Maximum 1024 characters.
++ **`Description`** — the updated description. Maximum 1024 characters.
++ **`Context`** — the full replacement context map. Omit it to keep the stored context, or send `{}` to clear it.
 + **`ClientToken`** — an idempotency token for the update.
 
-Optimistic Locking: The `Version` field ensures updates apply only if the attribution hasn't changed since it was last retrieved. If the submitted `Version` doesn't match the current resource version, the update is rejected with `ConflictException` and a message including the submitted and current version numbers. Best practice is to retrieve the latest version with `GetRevenueAttribution` before each update.
+**Optimistic Locking:** The `Revision` field ensures that an update applies only if the attribution hasn't changed since it was last retrieved. If the submitted `Revision` doesn't match the current one, the update is rejected with `ConflictException` and the reason `REVISION_MISMATCH`. As a best practice, retrieve the latest revision with `GetRevenueAttribution` before each update.
 
 ### Viewing Revenue Attribution ID details
 <a name="viewing-revenue-attribution-id-details"></a>
 
-Partners can retrieve complete information for a single Revenue Attribution ID using the `GetRevenueAttribution` API action. This returns:
+Partners can retrieve a single Revenue Attribution ID with the `GetRevenueAttribution` API action, by ID or ARN. This returns:
 
-Resource Metadata:
-+ Unique identifier (`Id`) and Amazon Resource Name (`Arn`).
-+ The `Catalog` in which the attribution exists.
-+ `Name` and `Description`.
-+ The retrieved `Version` and the `LatestVersion` (use the latest for subsequent updates).
+Resource metadata:
++ The unique identifier (`Id`) and the Amazon Resource Name (`Arn`).
++ The `Catalog` that the attribution belongs to.
++ `Name`, `Description`, and `TenancyModel`.
++ `Context`.
++ The returned `Revision` and the `LatestRevision`. Use the latest revision for subsequent updates.
++ `EffectiveFrom` and `EffectiveUntil`: the range covered by the attribution's allocations.
++ `TotalActiveRevenueAttributionAllocationCount` and `TotalRevenueAttributionAllocationCount`.
 
-Marketplace Product Attributes (if `MarketplaceProduct` was set at creation):
-+ `ProductId` — the Marketplace product ID provided by the partner.
-+ `ProductCode` — the AWS Marketplace product code resolved from `ProductId`.
-+ `ProductType` — `SaaS`, `AMI`, `Container`, `ML`, `Data`, or `Professional Services`.
-+ `TenancyModel` — `MULTI_TENANT` or `SINGLE_TENANT`.
+Marketplace product attributes (if a product was associated on creation):
++ `ProductId`: the Marketplace product ID provided by the partner.
++ `ProductCode`: the AWS Marketplace product code resolved from `ProductId`.
++ `ProductName`: the display name of the Marketplace product.
 
-Audit Information:
+Audit information:
 + `CreatedDate` and `LastModifiedDate`.
 
-Partners can optionally provide a specific `Version` in the request to retrieve a historical version of the attribution. Omit `Version` to return the latest.
+Optionally, provide a `Revision` in the request to retrieve an earlier revision of the attribution. Omit it to get the latest.
 
-To retrieve a specific monthly cost allocation entry, partners use the `GetRevenueAttributionAllocation` API action with the entry's `AllocationId`. This returns the Offer ID or Opportunity ID, Billing Month, Cost Allocation %, Customer AWS Account ID, and the entry's status and audit information.
+To retrieve a specific monthly allocation entry, use the `GetRevenueAttributionAllocation` API action with the attribution's ID or ARN and the entry's `RevenueAttributionAllocationId`. This returns:
++ the `EntityType`, `EntityIdentifier`, and `EntityName`
++ the `CustomerAwsAccountId`
++ `EffectiveFrom`, `EffectiveUntil`, and `RevenueSharePercent`
++ the entry's `Status`
++ the attribution's revisions
++ `CreatedDate` and `LastModifiedDate`
 
 ### Listing Revenue Attribution IDs
 <a name="listing-revenue-attribution-ids"></a>
 
-Partners can view all Revenue Attribution IDs in their account using the `ListRevenueAttributions` API action. This returns a paginated list of attribution summaries with filtering and sorting capabilities.
+Partners can view the Revenue Attribution IDs in their account with the `ListRevenueAttributions` API action. This returns a paginated list of attribution summaries, with filtering and sorting.
 
 Partners can filter results by:
-+ **`Catalog`** — `AWS` or `Sandbox` (required).
-+ **`Identifiers`** — a list of up to 100 specific `ra-` IDs to retrieve.
-+ **`CreatedAfter` / `CreatedBefore`** — filter by creation timestamp range (inclusive).
++ **`Catalog`** (required) — `AWS` or `Sandbox`.
++ **`Identifiers`** — up to 100 attribution IDs or ARNs.
++ **`CreatedAfter` and `CreatedBefore`** — a creation time range.
++ **`ContextFilters`** — up to 5 filters, each with a context `Key` and, optionally, up to 20 `Values`.
+  + A filter with `Values` matches attributions whose value for that key equals any of the values.
+  + A filter without `Values` matches attributions that have the key.
+  + Filters are combined with AND, and each key can appear at most once.
 
-Partners can configure result sorting using the `Sort` parameter:
-+ `SortBy` — `CreatedDate` or `LastModifiedDate`.
-+ `SortOrder` — `ASCENDING` or `DESCENDING`.
+Sort the results with `SortBy` (`LastModifiedDate`) and `SortOrder` (`ASCENDING` or `DESCENDING`).
 
-The response includes a summary for each attribution: `Arn`, `Id`, `Catalog`, `Name`, resolved `MarketplaceProduct` attributes, `CreatedDate`, `LastModifiedDate`, the latest `Version`, and `TotalRevenueAttributionAssociationCount` (the number of active monthly cost allocation entries linked to the attribution).
+Each summary includes:
++ `Arn`, `Id`, `Catalog`, `Name`, and `TenancyModel`
++ the resolved `MarketplaceProduct` attributes
++ `Context`
++ `CreatedDate` and `LastModifiedDate`
++ the `LatestRevision`, `EffectiveFrom`, and `EffectiveUntil`
++ `TotalActiveRevenueAttributionAllocationCount` and `TotalRevenueAttributionAllocationCount`
 
-Use `MaxResults` (default 25, maximum 100) and `NextToken` to paginate through large result sets. The response includes a `NextToken` if additional pages are available.
+Example: list attributions in the Migration Acceleration Program (MAP) that have a program engagement ID:
 
 ### Listing monthly cost allocation entries
 <a name="listing-monthly-cost-allocation-entries"></a>
 
-Partners can list the monthly cost allocation entries for a specific Revenue Attribution ID using the `ListRevenueAttributionAllocations` API action. This returns a paginated list of allocation summaries with filtering capabilities.
+Partners can list the monthly allocation entries of a specific Revenue Attribution ID with the `ListRevenueAttributionAllocations` API action. This returns a paginated list of allocation summaries.
 
 Partners can filter results by:
-+ **`MarketplaceOfferId`** — list only entries associated with a specific Marketplace Offer.
-+ **`AwsPartnerCentralOpportunityId`** — list only entries associated with a specific Partner Central Opportunity.
-+ **`BillingMonth`** — list only entries for a specific calendar month.
++ **`EntityTypeFilters` and `EntityIdentifierFilters`** — entries for specific Offers or Opportunities.
++ **`CustomerAwsAccountIdFilters`** — entries for specific customer AWS accounts.
++ **`StatusFilter`** — `ACTIVE` or `INACTIVE`.
++ **Effective date ranges** — `AfterEffectiveFrom` / `BeforeEffectiveFrom` and `AfterEffectiveUntil` / `BeforeEffectiveUntil`, for example to list the entries for one month.
 
-The response includes summary information for each entry: the `AllocationId`, the associated Offer ID or Opportunity ID, the Customer AWS Account ID, the Billing Month, the Cost Allocation %, the entry's name and status, and audit timestamps.
+Sort the results with `SortBy` (`EffectiveFrom`) and `SortOrder` (`ASCENDING` or `DESCENDING`).
 
-Dashboard Building: The combination of `ListRevenueAttributions` and `ListRevenueAttributionAllocations` is designed to support partner dashboard creation. Partners can build views such as:
-+ All Revenue Attribution IDs created in the last 30 days, sorted by creation date.
-+ All monthly cost allocation entries for a specific Marketplace Offer across multiple Revenue Attribution IDs.
-+ All cost allocation entries for the current billing month, to validate that totals do not exceed 100% per attribution.
-+ All Revenue Attribution IDs that have at least one active allocation entry (`TotalRevenueAttributionAssociationCount > 0`).
+Each summary includes:
++ the `RevenueAttributionAllocationId`
++ the `EntityType`, `EntityIdentifier`, and `EntityName`
++ the `CustomerAwsAccountId`
++ `EffectiveFrom`, `EffectiveUntil`, and `RevenueSharePercent`
++ the entry's `Status`
++ audit timestamps
+
+**Dashboard Building:** The combination of `ListRevenueAttributions` and `ListRevenueAttributionAllocations` supports partner dashboards. For example:
++ All Revenue Attribution IDs created in the last 30 days.
++ All Revenue Attribution IDs for a given program, using `ContextFilters` on `Program`.
++ All monthly allocation entries for a specific Marketplace Offer.
++ All allocation entries for the current month, to check that the totals don't exceed 100% for each attribution.
++ All Revenue Attribution IDs with at least one active allocation entry (`TotalActiveRevenueAttributionAllocationCount > 0`).

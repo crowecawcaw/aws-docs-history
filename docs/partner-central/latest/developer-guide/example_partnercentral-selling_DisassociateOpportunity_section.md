@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `DisassociateOpportunity` with an AWS SDK
-<a name="example_partnercentral-selling_DisassociateOpportunity_section"></a>
 
 The following code examples show how to use `DisassociateOpportunity`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
 Remove an existing association between an Opportunity and related entities.  
 
-```
+```java
 package org.example;
 
 import static org.example.utils.Constants.*;
@@ -83,7 +82,7 @@ public class DisassociateOpportunity {
 **SDK for Python (Boto3)**  
 Remove an existing association between an Opportunity and related entities.  
 
-```
+```python
 #!/usr/bin/env python
 
 """

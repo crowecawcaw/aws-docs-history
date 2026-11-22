@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Release notes
-<a name="release-notes"></a>
 
 This page contains a summary of the significant changes to the documentation for the AWS Partner Central API, starting with the most recent update.
 

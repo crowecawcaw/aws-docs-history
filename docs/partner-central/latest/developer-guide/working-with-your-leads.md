@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Manage leads using the AWS Partner Central Selling API
-<a name="working-with-your-leads"></a>
 
 ## What is a Lead?
 <a name="what-is-a-lead"></a>
@@ -134,6 +133,72 @@ The list response includes key information such as:
 + Creation and modification timestamps
 
 Partners can use this list to build dashboards, track lead pipeline health, and identify leads requiring attention.
+
+### Finding Lead Groups
+<a name="discovering-lead-groups"></a>
+
+You can find curated groups of leads using the `ListEngagementGroups` operation. A group is a set of leads that share characteristics, so you can focus your outreach on leads that fit a common approach. The operation returns only the groups available to your partner account in the catalog you specify.
+
+Each group in the response includes the group ID and Amazon Resource Name (ARN), name, description, number of leads, readiness level, and the time of the last update.
+
+The readiness level of a group determines how the group is formed and how you can approach its leads:
+
+`SalesReady`  
+Leads that are ready for direct sales outreach. Leads are grouped by country.
+
+`MarketingReady`  
+Leads that suit a marketing campaign. Each group combines leads with various characteristics, such as industry, country, market segment, AWS Marketplace engagement, solution category, and lead source.
+
+`LowPotential`  
+Leads that suit nurturing better than direct outreach. Leads are grouped by country.
+
+You can narrow the list with the `ReadinessLevel` or `EngagementGroupIdentifiers` parameters, and sort it by `Count` or `UpdatedAt`. The response is paginated. Use the `NextToken` value from each response to retrieve subsequent pages.
+
+To retrieve the leads in a group, pass the group ID as the `GroupId` parameter of the `SearchEngagements` operation, described in the next section.
+
+### Searching Leads
+<a name="searching-leads"></a>
+
+You can find specific leads using the `SearchEngagements` operation. Use it when you want leads that match certain criteria, rather than the full list that `ListEngagements` returns. Each result contains the same engagement and context details as `GetEngagement`.
+
+A search request requires a `Catalog` and can combine the following parameters. Results must match every parameter you provide.
+
+`Keyword`  
+Free text matched against the engagement title, description, customer account name, and member company names.
+
+`Filter`  
+Conditions on lead fields.
+
+`GroupId`  
+Limits results to the leads in an engagement group. Results include only leads that have contact details.
+
+`Sort`  
+The field and order to sort by. By default, the newest leads come first.
+
+A filter combines conditions with `AndAllFilters`, `OrAllFilters`, and `NotFilter`. Each condition compares a field using one of the following operators:
+
+`EqualsTo`  
+The field equals the specified value.
+
+`ContainsAny`  
+The field contains at least one of the specified values.
+
+`ContainsAll`  
+The field contains every specified value.
+
+`GreaterThan`, `GreaterThanOrEquals`, `LessThan`, `LessThanOrEquals`  
+Compare a date or numeric field with the specified value.
+
+You can filter on:
++ Customer details, such as company name, industry, country, market segment, and AWS maturity level
++ Qualification status and readiness score
++ Interaction details, such as source, use case, and contact name and title
++ Prospecting insights, such as customer country, industry, segment, and solution category. These fields have values only for leads that you enriched. See [Enriching Leads with Prospecting Insights](#prospecting-leads).
++ Creation and modification timestamps
+
+To find leads that you have not yet enriched, use `NotFilter` with a `ContextType` condition equal to `ProspectingResult`.
+
+The response is paginated. Use the `NextToken` value from each response to retrieve subsequent pages.
 
 ### Enriching Leads with Prospecting Insights
 <a name="prospecting-leads"></a>

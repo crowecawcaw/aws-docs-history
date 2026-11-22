@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Testing in a sandbox for the AWS Partner Central Channel API
-<a name="testing-sandbox-channel"></a>
 
 Accounts in sandbox are not eligible for channel benefits, and are not validated against all program requirements.
 
@@ -20,7 +19,7 @@ To use the sandbox, complete the following steps:
 
    Assign the following policy to the IAM role. For more information, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -93,7 +92,7 @@ To simulate the creation of a Program Management Account, in the payload of the 
 
 For example:
 
-```
+```json
 {
   "catalog": "Sandbox",
   "accountId": "123456789012",
@@ -116,7 +115,7 @@ To simulate updates on a relationship, use the `UpdateRelationship` action with 
 
 For example:
 
-```
+```json
 {
   "catalog": "Sandbox",
   "displayName": "Updated Test PMA",
@@ -139,7 +138,7 @@ Partners can consume events from the sandbox environment to help test the event-
 
 Example event rule:
 
-```
+```json
 {
   "source": ["aws.partnercentral-channel"],
   "detail": {
@@ -153,20 +152,18 @@ Event rules that specify `catalog` as `Sandbox` will only match events coming fr
 ## Getting help
 <a name="getting-help"></a>
 
-If you encounter challenges in testing, or if you need to test a specific scenario not covered here, please reach out to support by raising a case through the following steps:
+If you have problems testing, or you need to test a scenario that isn't covered here, create a support case:
 
-1. Sign in to the [AWS Partner Central](https://partnercentral.awspartner.com/) with your AWS Partner Network credentials.
+1. Open the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
-1. On the [Support Center for Partner Central](https://partnercentral.awspartner.com/support), choose `Open New Case` to log a new case. Complete the fields as follows:
+1. Choose **Get support**.
 
-   1. Type of support case: `Channel Program`
+1. In the support chat, describe the Channel API testing scenario or issue, including errors and the troubleshooting steps that you tried.
 
-   1. Question regarding: `General Program Inquiry`
+1. Answer the chat's questions. If your issue needs a support case, the chat displays a case form with the details filled in.
 
-   1. Get specific: Select the most appropriate Channel case type.
+1. Review the case form, and attach logs and screenshots.
 
-   1. Subject: Include a brief description of the request.
+1. Choose **Submit**. The chat displays your case ID.
 
-   1. Description: Provide a detailed description of issues, questions, errors, and troubleshooting steps.
-
-   1. Attachments: Include logs and screenshots, where applicable.
+For more information, see [Create a support case](https://docs.aws.amazon.com/partner-central/latest/getting-started/getting-support.html#how-support-chat-works).

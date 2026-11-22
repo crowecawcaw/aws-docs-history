@@ -3,7 +3,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `RejectEngagementInvitation` with an AWS SDK
-<a name="example_partnercentral-selling_RejectEngagementInvitation_section"></a>
 
 The following code examples show how to use `RejectEngagementInvitation`.
 
@@ -13,7 +12,7 @@ The following code examples show how to use `RejectEngagementInvitation`.
 **SDK for Java 2.x**  
 Rejects an EngagementInvitation that AWS shared.  
 
-```
+```java
 package org.example;
 
 import static org.example.utils.Constants.*;
@@ -72,7 +71,7 @@ public class RejectEngagementInvitation {
 **SDK for Python (Boto3)**  
 Rejects an EngagementInvitation that AWS shared.  
 
-```
+```python
 #!/usr/bin/env python
 
 """
