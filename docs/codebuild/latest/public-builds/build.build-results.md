@@ -1,7 +1,6 @@
 
 
 # Build results
-<a name="build.build-results"></a>
 
 The entry page for an individual build result displays information about the project.
 
