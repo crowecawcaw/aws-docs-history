@@ -1,7 +1,6 @@
 
 
 # Migrate your Classic Load Balancer
-<a name="migrate-classic-load-balancer"></a>
 
 Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. For information about the different features of each load balancer type, see [Elastic Load Balancing features](https://aws.amazon.com/elasticloadbalancing/features/).
 
@@ -175,7 +174,7 @@ Both the [Elastic Load Balancing V2](https://docs.aws.amazon.com/service-authori
 
 The following policy denies users permission to create a load balancer if the listener protocol is specified. Because you must configure at least one listener when you create a Classic Load Balancer, this policy prevents users from creating Classic Load Balancers. It does not prevent users from creating other types of load balancers, because there are separate API actions for creating those load balancers and their listeners.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

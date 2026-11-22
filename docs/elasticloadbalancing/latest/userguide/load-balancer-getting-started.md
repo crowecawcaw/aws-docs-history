@@ -1,7 +1,6 @@
 
 
 # Getting started with Elastic Load Balancing
-<a name="load-balancer-getting-started"></a>
 
 Elastic Load Balancing supports multiple load balancer types. You can select the type of load balancer that best suits your needs. For more information, see [Elastic Load Balancing features](https://aws.amazon.com/elasticloadbalancing/features/).
 

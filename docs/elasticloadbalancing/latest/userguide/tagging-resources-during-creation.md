@@ -1,7 +1,6 @@
 
 
 # Elastic Load Balancing API permissions to tag resources during creation
-<a name="tagging-resources-during-creation"></a>
 
 For users to tag resources during creation, they must have permissions to use the action that creates the resource, such as `elasticloadbalancing:CreateLoadBalancer` or `elasticloadbalancing:CreateTargetGroup`. If tags are specified in the resource-creating action, additional authorization is required on the `elasticloadbalancing:AddTags` action to verify if users have permissions to apply tags to the resources being created. Therefore, users must also have explicit permissions to use the `elasticloadbalancing:AddTags` action.
 
@@ -14,7 +13,7 @@ The following example demonstrates a policy that allows users to create target g
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -50,7 +49,7 @@ Similarly, the following policy allows users to create a load balancer and apply
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

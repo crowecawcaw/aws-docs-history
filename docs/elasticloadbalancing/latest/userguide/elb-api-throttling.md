@@ -1,7 +1,6 @@
 
 
 # Request throttling for the Elastic Load Balancing API
-<a name="elb-api-throttling"></a>
 
 Elastic Load Balancing throttles its API requests for each AWS account on a per-Region basis. We do this to help the performance and availability of the service. Throttling ensures that requests to the Elastic Load Balancing API do not exceed the maximum allowed API request limits. API requests are subject to the request limits whether you call them or they are called on your behalf (for example, by the AWS Management Console or a third-party application).
 

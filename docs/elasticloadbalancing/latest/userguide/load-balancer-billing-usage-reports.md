@@ -1,7 +1,6 @@
 
 
 # Understand codes for Elastic Load Balancing in billing and usage reports
-<a name="load-balancer-billing-usage-reports"></a>
 
 When you use Elastic Load Balancing, we include related codes in your AWS billing and usage reports. Reviewing these codes helps you understand your load balancer costs and usage patterns. Tracking and managing your expenses is essential for optimizing your costs.
 

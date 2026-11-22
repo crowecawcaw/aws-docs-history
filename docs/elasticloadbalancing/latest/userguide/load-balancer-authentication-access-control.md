@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Elastic Load Balancing
-<a name="load-balancer-authentication-access-control"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Elastic Load Balancing resources. IAM is an AWS service that you can use with no additional charge.
 
