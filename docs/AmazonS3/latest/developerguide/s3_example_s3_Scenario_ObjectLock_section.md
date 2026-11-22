@@ -1,7 +1,6 @@
 
 
 # Work with Amazon S3 object lock features using an AWS SDK
-<a name="s3_example_s3_Scenario_ObjectLock_section"></a>
 
 The following code examples show how to work with S3 object lock features.
 
@@ -12,7 +11,7 @@ The following code examples show how to work with S3 object lock features.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 Run an interactive scenario demonstrating Amazon S3 object lock features.  
 
-```
+```csharp
 using Amazon.S3;
 using Amazon.S3.Model;
 using Microsoft.Extensions.Configuration;
@@ -442,7 +441,7 @@ public static class S3ObjectLockWorkflow
 ```
 A wrapper class for S3 functions.  
 
-```
+```csharp
 using System.Net;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -864,7 +863,7 @@ public class S3ActionsWrapper
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 Run an interactive scenario demonstrating Amazon S3 object lock features.  
 
-```
+```go
 import (
 	"context"
 	"fmt"
@@ -1240,7 +1239,7 @@ func (scenario *ObjectLockScenario) Run(ctx context.Context) {
 ```
 Define a struct that wraps S3 actions used in this example.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -1670,7 +1669,7 @@ func (actor S3Actions) DeleteObjects(ctx context.Context, bucket string, objects
 ```
 Clean up resources.  
 
-```
+```go
 import (
 	"context"
 	"log"
@@ -1821,7 +1820,7 @@ func (resources *Resources) deleteObjects(ctx context.Context, bucket *DemoBucke
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/lockscenario#code-examples). 
 Run an interactive scenario demonstrating Amazon S3 object lock features.  
 
-```
+```java
 import software.amazon.awssdk.services.s3.model.ObjectLockLegalHold;
 import software.amazon.awssdk.services.s3.model.ObjectLockRetention;
 import java.io.BufferedWriter;
@@ -2180,7 +2179,7 @@ public class S3ObjectLockWorkflow {
 ```
 A wrapper class for S3 functions.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.BucketVersioningStatus;
@@ -2525,7 +2524,7 @@ public class S3LockActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3/scenarios/object-locking#code-examples). 
 Entrypoint for the scenario (index.js). This orchestrates all of the steps. Visit GitHub to see the implementation details for Scenario, ScenarioInput, ScenarioOutput, and ScenarioAction.   
 
-```
+```javascript
 import * as Scenarios from "@aws-doc-sdk-examples/lib/scenario/index.js";
 import {
   exitOnFalse,
@@ -2638,7 +2637,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 ```
 Output welcome messages to the console (welcome.steps.js).  
 
-```
+```javascript
 /**
  * @typedef {import("@aws-doc-sdk-examples/lib/scenario/index.js")} Scenarios
  */
@@ -2667,7 +2666,7 @@ export { welcome, welcomeContinue };
 ```
 Deploy buckets, objects, and file settings (setup.steps.js).  
 
-```
+```javascript
 import {
   BucketVersioningStatus,
   ChecksumAlgorithm,
@@ -3151,7 +3150,7 @@ export {
 ```
 View and delete files in the buckets (repl.steps.js).  
 
-```
+```javascript
 import {
   ChecksumAlgorithm,
   DeleteObjectCommand,
@@ -3396,7 +3395,7 @@ export { replInput, replAction, choices };
 ```
 Destroy all created resources (clean.steps.js).  
 
-```
+```javascript
 import {
   DeleteObjectCommand,
   DeleteBucketCommand,

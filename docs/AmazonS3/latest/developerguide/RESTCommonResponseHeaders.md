@@ -1,7 +1,6 @@
 
 
 # Common response headers
-<a name="RESTCommonResponseHeaders"></a>
 
 The following table describes response headers that are common to most Amazon S3 responses.
 

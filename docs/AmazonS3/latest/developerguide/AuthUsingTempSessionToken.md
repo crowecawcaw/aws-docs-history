@@ -1,7 +1,6 @@
 
 
 # Making requests using IAM user temporary credentials
-<a name="AuthUsingTempSessionToken"></a>
 
  An AWS account or an IAM user can request temporary security credentials and use them to send authenticated requests to Amazon S3. This section provides examples of how to use the AWS SDK for Java, .NET, and PHP to obtain temporary security credentials and use them to authenticate your requests to Amazon S3.
 
@@ -31,7 +30,7 @@ If you want to test the sample by using IAM user credentials, you must create an
 
 For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -226,9 +225,9 @@ If you obtain temporary security credentials using your AWS account security cre
 
 **Example**  
 The following PHP example lists object keys in the specified bucket using temporary security credentials. The example obtains temporary security credentials for a default one-hour session, and uses them to send authenticated request to Amazon S3. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).  
-If you want to test the example by using IAM user credentials, you must create an IAM user under your AWS account. For information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*. For examples of setting the session duration when using IAM user credentials to request a session, see [Making requests using IAM user temporary credentials](#AuthUsingTempSessionToken).   
+If you want to test the example by using IAM user credentials, you must create an IAM user under your AWS account. For information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*. For examples of setting the session duration when using IAM user credentials to request a session, see [Making requests using IAM user temporary credentials](AuthUsingTempSessionToken.md).   
 
-```
+```PHP
  require 'vendor/autoload.php';
 
 use Aws\S3\Exception\S3Exception;
@@ -285,7 +284,7 @@ If you obtain temporary security credentials using your AWS account security cre
 
 The following Ruby example creates a temporary user to list the items in a specified bucket for one hour. To use this example, you must have AWS credentials that have the necessary permissions to create new AWS Security Token Service (AWS STS) clients, and list Amazon S3 buckets.
 
-```
+```ruby
 # Prerequisites:
 # - A user in AWS Identity and Access Management (IAM). This user must
 #   be able to assume the following IAM role. You must run this code example

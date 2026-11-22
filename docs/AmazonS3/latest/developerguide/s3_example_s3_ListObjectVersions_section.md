@@ -1,7 +1,6 @@
 
 
 # Use `ListObjectVersions` with an AWS SDK or CLI
-<a name="s3_example_s3_ListObjectVersions_section"></a>
 
 The following code examples show how to use `ListObjectVersions`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.S3;
@@ -186,7 +185,7 @@ For more information, see [Retaining multiple versions of objects with S3 Versio
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -241,7 +240,7 @@ func (actor S3Actions) ListObjectVersions(ctx context.Context, bucket string) ([
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 async fn show_versions(client: &Client, bucket: &str) -> Result<(), Error> {
     let resp = client.list_object_versions().bucket(bucket).send().await?;
 
@@ -262,7 +261,7 @@ async fn show_versions(client: &Client, bucket: &str) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->listobjectversions(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name

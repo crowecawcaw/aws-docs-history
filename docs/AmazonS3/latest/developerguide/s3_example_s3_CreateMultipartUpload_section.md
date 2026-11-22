@@ -1,7 +1,6 @@
 
 
 # Use `CreateMultipartUpload` with an AWS SDK or CLI
-<a name="s3_example_s3_CreateMultipartUpload_section"></a>
 
 The following code examples show how to use `CreateMultipartUpload`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 //! Create a multipart upload.
 /*!
     \param bucket: The name of the S3 bucket where the object will be uploaded.
@@ -82,7 +81,7 @@ For more information, see [Uploading and copying objects using multipart upload 
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
     // Create a multipart upload. Use UploadPart and CompleteMultipartUpload to
     // upload the file.
     let multipart_upload_res: CreateMultipartUploadOutput = client
@@ -97,7 +96,7 @@ For more information, see [Uploading and copying objects using multipart upload 
     ))?;
 ```
 
-```
+```rust
     let mut upload_parts: Vec<aws_sdk_s3::types::CompletedPart> = Vec::new();
 
     for chunk_index in 0..chunk_count {
@@ -135,7 +134,7 @@ For more information, see [Uploading and copying objects using multipart upload 
     }
 ```
 
-```
+```rust
     // upload_parts: Vec<aws_sdk_s3::types::CompletedPart>
     let completed_multipart_upload: CompletedMultipartUpload = CompletedMultipartUpload::builder()
         .set_parts(Some(upload_parts))

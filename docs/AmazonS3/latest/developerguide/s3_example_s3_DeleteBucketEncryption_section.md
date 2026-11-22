@@ -1,7 +1,6 @@
 
 
 # Use `DeleteBucketEncryption` with a CLI
-<a name="s3_example_s3_DeleteBucketEncryption_section"></a>
 
 The following code examples show how to use `DeleteBucketEncryption`.
 
@@ -26,7 +25,7 @@ For more information, see [Setting default server-side encryption behavior for A
 **Tools for PowerShell V4**  
 **Example 1: This disables the encryption enabled for the S3 bucket provided.**  
 
-```
+```powershell
 Remove-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'
 ```
 **Output:**  
@@ -42,7 +41,7 @@ Performing the operation "Remove-S3BucketEncryption (DeleteBucketEncryption)" on
 **Tools for PowerShell V5**  
 **Example 1: This disables the encryption enabled for the S3 bucket provided.**  
 
-```
+```powershell
 Remove-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'
 ```
 **Output:**  

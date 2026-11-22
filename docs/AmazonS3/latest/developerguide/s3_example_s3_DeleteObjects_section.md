@@ -1,7 +1,6 @@
 
 
 # Use `DeleteObjects` with an AWS SDK or CLI
-<a name="s3_example_s3_DeleteObjects_section"></a>
 
 The following code examples show how to use `DeleteObjects`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete all of the objects stored in an existing Amazon S3 bucket.
     /// </summary>
@@ -55,7 +54,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 Delete multiple objects in a non-versioned S3 bucket.  
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -180,7 +179,7 @@ Delete multiple objects in a non-versioned S3 bucket.
 ```
 Delete multiple objects in a versioned S3 bucket.  
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -443,7 +442,7 @@ Delete multiple objects in a versioned S3 bucket.
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -499,7 +498,7 @@ function delete_items_in_bucket() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::deleteObjects(const std::vector<Aws::String> &objectKeys,
                                const Aws::String &fromBucket,
                                const Aws::S3::S3ClientConfiguration &clientConfig) {
@@ -585,7 +584,7 @@ For more information, see [Deleting multiple objects](https://docs.aws.amazon.co
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -662,7 +661,7 @@ func (actor S3Actions) DeleteObjects(ctx context.Context, bucket string, objects
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -767,7 +766,7 @@ public class DeleteMultiObjects {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Delete multiple objects.  
 
-```
+```javascript
 import {
   DeleteObjectsCommand,
   S3Client,
@@ -827,7 +826,7 @@ export const main = async ({ bucketName, keys }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun deleteBucketObjects(
     bucketName: String,
     objectName: String,
@@ -863,7 +862,7 @@ suspend fun deleteBucketObjects(
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 Delete a set of objects from a list of keys.  
 
-```
+```php
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
 
         try {
@@ -899,37 +898,37 @@ Delete a set of objects from a list of keys.
 **Tools for PowerShell V4**  
 **Example 1: This command removes the object "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**  
 
-```
+```powershell
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt
 ```
 **Example 2: This command removes the specified version of object "sample.txt" from bucket "test-files", assuming the bucket has been configured to enable object versions.**  
 
-```
+```powershell
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -VersionId HLbxnx6V9omT6AQYVpks8mmFKQcejpqt
 ```
 **Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.**  
 
-```
+```powershell
 Remove-S3Object -BucketName amzn-s3-demo-bucket -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" )
 ```
 **Example 4: This example uses an inline expression with the -KeyCollection parameter to obtain the keys of the objects to delete. Get-S3Object returns a collection of Amazon.S3.Model.S3Object instances, each of which has a Key member of type string identifying the object.**  
 
-```
+```powershell
 Remove-S3Object -bucketname "amzn-s3-demo-bucket" -KeyCollection (Get-S3Object "test-files" -KeyPrefix "prefix/subprefix" | select -ExpandProperty Key)
 ```
 **Example 5: This example obtains all objects that have a key prefix "prefix/subprefix" in the bucket and deletes them. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
-```
+```powershell
 Get-S3Object -BucketName "amzn-s3-demo-bucket" -KeyPrefix "prefix/subprefix" | Remove-S3Object -Force
 ```
 **Example 6: This example pipes a collection of Amazon.S3.Model.S3ObjectVersion instances that represent delete markers to the cmdlet for deletion. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
-```
+```powershell
 (Get-S3Version -BucketName "amzn-s3-demo-bucket").Versions | Where {$_.IsDeleteMarker -eq "True"} | Remove-S3Object -Force
 ```
 **Example 7: This script shows how to perform a batch delete of a set of objects (in this case delete markers) by constructing an array of objects to be used with the -KeyAndVersionCollection parameter.**  
 
-```
+```powershell
 $keyVersions = @()
 $markers = (Get-S3Version -BucketName $BucketName).Versions | Where {$_.IsDeleteMarker -eq "True"}
 foreach ($marker in $markers) { $keyVersions += @{ Key = $marker.Key; VersionId = $marker.VersionId } }
@@ -940,37 +939,37 @@ Remove-S3Object -BucketName $BucketName -KeyAndVersionCollection $keyVersions -F
 **Tools for PowerShell V5**  
 **Example 1: This command removes the object "sample.txt" from bucket "amzn-s3-demo-bucket". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**  
 
-```
+```powershell
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt
 ```
 **Example 2: This command removes the specified version of object "sample.txt" from bucket "amzn-s3-demo-bucket", assuming the bucket has been configured to enable object versions.**  
 
-```
+```powershell
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -VersionId HLbxnx6V9omT6AQYVpks8mmFKQcejpqt
 ```
 **Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "amzn-s3-demo-bucket" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet).**  
 
-```
+```powershell
 Remove-S3Object -BucketName amzn-s3-demo-bucket -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" )
 ```
 **Example 4: This example uses an inline expression with the -KeyCollection parameter to obtain the keys of the objects to delete. Get-S3Object returns a collection of Amazon.S3.Model.S3Object instances, each of which has a Key member of type string identifying the object.**  
 
-```
+```powershell
 Remove-S3Object -bucketname "amzn-s3-demo-bucket" -KeyCollection (Get-S3Object "amzn-s3-demo-bucket" -KeyPrefix "prefix/subprefix" | select -ExpandProperty Key)
 ```
 **Example 5: This example obtains all objects that have a key prefix "prefix/subprefix" in the bucket and deletes them. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
-```
+```powershell
 Get-S3Object -BucketName "amzn-s3-demo-bucket" -KeyPrefix "prefix/subprefix" | Remove-S3Object -Force
 ```
 **Example 6: This example pipes a collection of Amazon.S3.Model.S3ObjectVersion instances that represent delete markers to the cmdlet for deletion. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
-```
+```powershell
 (Get-S3Version -BucketName "amzn-s3-demo-bucket").Versions | Where {$_.IsDeleteMarker -eq "True"} | Remove-S3Object -Force
 ```
 **Example 7: This script shows how to perform a batch delete of a set of objects (in this case delete markers) by constructing an array of objects to be used with the -KeyAndVersionCollection parameter.**  
 
-```
+```powershell
 $keyVersions = @()
 $markers = (Get-S3Version -BucketName $BucketName).Versions | Where {$_.IsDeleteMarker -eq "True"}
 foreach ($marker in $markers) { $keyVersions += @{ Key = $marker.Key; VersionId = $marker.VersionId } }
@@ -985,7 +984,7 @@ Remove-S3Object -BucketName $BucketName -KeyAndVersionCollection $keyVersions -F
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 Delete a set of objects by using a list of object keys.  
 
-```
+```python
 class ObjectWrapper:
     """Encapsulates S3 object actions."""
 
@@ -1037,7 +1036,7 @@ class ObjectWrapper:
 ```
 Delete all objects in a bucket.  
 
-```
+```python
 class ObjectWrapper:
     """Encapsulates S3 object actions."""
 
@@ -1066,7 +1065,7 @@ class ObjectWrapper:
 ```
 Permanently delete a versioned object by deleting all of its versions.  
 
-```
+```python
 def permanently_delete_object(bucket, object_key):
     """
     Permanently deletes a versioned object by deleting all of its versions.
@@ -1091,7 +1090,7 @@ def permanently_delete_object(bucket, object_key):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
   # Deletes the objects in an Amazon S3 bucket and deletes the bucket.
   #
   # @param bucket [Aws::S3::Bucket] The bucket to empty and delete.
@@ -1117,7 +1116,7 @@ def permanently_delete_object(bucket, object_key):
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 /// Delete the objects in a bucket.
 pub async fn delete_objects(
     client: &aws_sdk_s3::Client,
@@ -1160,7 +1159,7 @@ pub async fn delete_objects(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->deleteobjects(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name
@@ -1178,7 +1177,7 @@ pub async fn delete_objects(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/DeleteObjects#code-examples). 
 
-```
+```swift
 import AWSS3
 
     public func deleteObjects(bucket: String, keys: [String]) async throws {

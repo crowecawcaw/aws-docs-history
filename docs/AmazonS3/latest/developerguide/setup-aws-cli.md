@@ -1,7 +1,6 @@
 
 
 # Developing with Amazon S3 using the AWS CLI
-<a name="setup-aws-cli"></a>
 
 The Amazon S3 AWS CLI commands are organized into different sets in AWS CLI Command Reference and each has it’s own available commands. If you don't find the command that you're looking for in one set, check one of the other sets. The different sets are as follows:
 +  `s3` – Describes high-level commands for working with objects and buckets. These include copy, list and move actions. For a complete list of commands in this set, see [s3](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html) in the AWS CLI Command Reference.

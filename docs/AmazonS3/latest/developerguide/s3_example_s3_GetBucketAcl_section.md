@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketAcl` with an AWS SDK or CLI
-<a name="s3_example_s3_GetBucketAcl_section"></a>
 
 The following code examples show how to use `GetBucketAcl`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
         /// <summary>
         /// Get the access control list (ACL) for the new bucket.
         /// </summary>
@@ -43,7 +42,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::getBucketAcl(const Aws::String &bucketName,
                               const Aws::S3::S3ClientConfiguration &clientConfig) {
     Aws::S3::S3Client s3Client(clientConfig);
@@ -194,7 +193,7 @@ For more information, see [Access control list (ACL) overview](https://docs.aws.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.s3.model.S3Exception;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -286,7 +285,7 @@ public class GetAcl {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Get the ACL permissions.  
 
-```
+```javascript
 import {
   GetBucketAclCommand,
   S3Client,
@@ -335,7 +334,7 @@ export const main = async ({ bucketName }) => {
 **Tools for PowerShell V5**  
 **Example 1: The command gets the details of the object owner of the S3 object.**  
 
-```
+```powershell
 (Get-S3BucketACL -BucketName 'amzn-s3-demo-bucket' -Select *).Owner
 ```
 **Output:**  
@@ -353,7 +352,7 @@ testusername      9988776a6554433d22f1100112e334acb45566778899009e9887bd7f66c5f5
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -391,7 +390,7 @@ class BucketWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->getbucketacl(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name ).

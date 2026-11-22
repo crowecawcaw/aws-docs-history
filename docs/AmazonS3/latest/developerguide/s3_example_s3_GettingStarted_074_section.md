@@ -1,7 +1,6 @@
 
 
 # Getting started with document text extraction
-<a name="s3_example_s3_GettingStarted_074_section"></a>
 
 The following code example shows how to:
 + Create an S3 bucket
@@ -14,7 +13,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/074-amazon-textract-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon Textract Getting Started Tutorial Script

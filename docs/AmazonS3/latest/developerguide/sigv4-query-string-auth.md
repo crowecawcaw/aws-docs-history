@@ -1,7 +1,6 @@
 
 
 # Authenticating Requests: Using Query Parameters (AWS Signature Version 4)
-<a name="sigv4-query-string-auth"></a>
 
 As described in the authentication overview (see [Authentication Methods](sig-v4-authenticating-requests.md#auth-methods-intro)), you can provide authentication information using query string parameters. Using query parameters to authenticate requests is useful when you want to express a request entirely in a URL. This method is also referred as presigning a URL. 
 
@@ -14,7 +13,7 @@ The following is an example presigned URL.
 
  
 
-```
+```xml
 https://examplebucket.s3.amazonaws.com/test.txt
 ?X-Amz-Algorithm=AWS4-HMAC-SHA256
 &X-Amz-Credential={{<your-access-key-id>}}/20130721/us-east-1/s3/aws4_request
@@ -34,7 +33,7 @@ In the example URL, note the following:
 
    
 
-  ```
+  ```xml
   &X-Amz-Credential={{<your-access-key-id>}}%2F20130721%2Fus-east-1%2Fs3%2Faws4_request
   ```
 
@@ -94,7 +93,7 @@ Suppose you have an object `test.txt` in your `examplebucket` bucket. You want t
 
  
 
-```
+```xml
 https://examplebucket.s3.amazonaws.com/test.txt
 ?X-Amz-Algorithm=AWS4-HMAC-SHA256
 &X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130524%2Fus-east-1%2Fs3%2Faws4_request
@@ -126,7 +125,7 @@ You can use this example as a test case to verify the signature that your code c
 
        
 
-      ```
+      ```java
       GET
       /test.txt
       X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130524%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20130524T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
@@ -159,7 +158,7 @@ You can use this example as a test case to verify the signature that your code c
 
     
 
-   ```
+   ```xml
    signing key = HMAC-SHA256(HMAC-SHA256(HMAC-SHA256(HMAC-SHA256("AWS4" + "{{<YourSecretAccessKey>}}","20130524"),"us-east-1"),"s3"),"aws4_request")
    ```
 
@@ -179,7 +178,7 @@ You can use this example as a test case to verify the signature that your code c
 
    Now you have all information to construct a presigned URL. The resulting URL for this example is shown as follows (you can use this to compare your presigned URL):
 
-   ```
+   ```java
    https://examplebucket.s3.amazonaws.com/test.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130524%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20130524T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=aeeed9bbccd4d02ee5c0109b86d86835f995330da4c265957d157751f604d404
    ```
 
@@ -188,7 +187,7 @@ You can use this example as a test case to verify the signature that your code c
 
 The following is an example (unrelated to the previous example) showing a presigned URL with the `X-Amz-Security-Token` parameter.
 
-```
+```xml
 https://examplebucket.s3.us-east-1.amazonaws.com/test.txt
 ?X-Amz-Algorithm=AWS4-HMAC-SHA256
 &X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130524%2Fus-east-1%2Fs3%2Faws4_request

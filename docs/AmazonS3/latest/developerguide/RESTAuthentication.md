@@ -1,7 +1,6 @@
 
 
 # Signing and authenticating REST requests (AWS signature version 2)
-<a name="RESTAuthentication"></a>
 
 **Topics**
 + [Using temporary security credentials](#UsingTemporarySecurityCredentials)
@@ -29,7 +28,7 @@ This topic explains authenticating requests using Signature Version 2. Amazon S3
 
 **Example Authenticated Amazon S3 REST request**  
 
-```
+```http
 1. GET /photos/puppy.jpg HTTP/1.1
 2. Host: awsexamplebucket1.us-west-1.s3.amazonaws.com
 3. Date: Tue, 27 Mar 2007 19:36:42 +0000
@@ -60,7 +59,7 @@ The `Signature` element is the RFC 2104 HMAC-SHA1 of selected elements from the 
 
 Following is pseudogrammar that illustrates the construction of the `Authorization` request header. (In the example, `\n` means the Unicode code point `U+000A`, commonly called newline). 
 
-```
+```xml
  1. Authorization = "AWS" + " " + AWSAccessKeyId + ":" + Signature;
  2. 
  3. Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of(YourSecretAccessKey), UTF-8-Encoding-Of( StringToSign ) ) );
@@ -181,7 +180,7 @@ This example gets an object from the awsexamplebucket1 bucket.
 **Note**  
 The following Python script calculates the preceding signature, using the provided parameters. You can use this script to construct your own signatures, replacing the keys and StringToSign as appropriate.  
 
-```
+```python
  1. import base64
  2. import hmac
  3. from hashlib import sha1
@@ -304,7 +303,7 @@ For more information about using query parameters to authenticate requests, see 
 
 Following is an example query string authenticated Amazon S3 REST request.
 
-```
+```http
 1. GET /photos/puppy.jpg
 2. ?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Expires=1141889120&Signature=vjbyPxybdZaNmGa%2ByT272YEAiv4%3D HTTP/1.1
 3. Host: awsexamplebucket1.s3.us-west-1.amazonaws.com

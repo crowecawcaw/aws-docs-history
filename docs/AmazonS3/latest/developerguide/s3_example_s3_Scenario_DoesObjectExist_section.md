@@ -1,7 +1,6 @@
 
 
 # Check if an object exists
-<a name="s3_example_s3_Scenario_DoesObjectExist_section"></a>
 
 The following code example shows how to check if an object exists.
 
@@ -12,7 +11,7 @@ The following code example shows how to check if an object exists.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 You can use the following `doesObjectExist` method as a replacement for the SDK for Java V1 [AmazonS3Client\#doesObjectExist(String, String)](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3Client.html#doesObjectExist-java.lang.String-java.lang.String-) method.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.services.s3.S3Client;

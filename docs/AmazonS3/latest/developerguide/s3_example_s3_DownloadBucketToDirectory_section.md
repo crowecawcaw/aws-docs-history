@@ -1,7 +1,6 @@
 
 
 # Download all objects in an Amazon Simple Storage Service (Amazon S3) bucket to a local directory
-<a name="s3_example_s3_DownloadBucketToDirectory_section"></a>
 
 The following code example shows how to download all objects in an Amazon Simple Storage Service (Amazon S3) bucket to a local directory.
 
@@ -12,7 +11,7 @@ The following code example shows how to download all objects in an Amazon Simple
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [download all S3 objects](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadDirectory(software.amazon.awssdk.transfer.s3.DownloadDirectoryRequest)) in the same S3 bucket. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/DownloadToDirectory.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java).  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.sync.RequestBody;

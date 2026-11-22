@@ -1,7 +1,6 @@
 
 
 # Use `GetObjectAcl` with an AWS SDK or CLI
-<a name="s3_example_s3_GetObjectAcl_section"></a>
 
 The following code examples show how to use `GetObjectAcl`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::getObjectAcl(const Aws::String &bucketName,
                               const Aws::String &objectKey,
                               const Aws::S3::S3ClientConfiguration &clientConfig) {
@@ -168,7 +167,7 @@ For more information, see [Access control list (ACL) overview](https://docs.aws.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun getBucketACL(
     objectKey: String,
     bucketName: String,
@@ -195,7 +194,7 @@ suspend fun getBucketACL(
 **Tools for PowerShell V5**  
 **Example 1: The command gets the details of the object owner of the S3 object.**  
 
-```
+```powershell
 (Get-S3ObjectACL -BucketName 'amzn-s3-demo-bucket' -key 'initialize.ps1' -Select *).Owner
 ```
 **Output:**  
@@ -213,7 +212,7 @@ testusername      9988776a6554433d22f1100112e334acb45566778899009e9887bd7f66c5f5
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class ObjectWrapper:
     """Encapsulates S3 object actions."""
 
@@ -253,7 +252,7 @@ class ObjectWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->getobjectacl(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name

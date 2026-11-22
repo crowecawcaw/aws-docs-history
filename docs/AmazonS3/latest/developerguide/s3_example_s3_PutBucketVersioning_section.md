@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketVersioning` with an AWS SDK or CLI
-<a name="s3_example_s3_PutBucketVersioning_section"></a>
 
 The following code examples show how to use `PutBucketVersioning`.
 
@@ -39,7 +38,7 @@ For more information, see [Retaining multiple versions of objects with S3 Versio
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
     /**
      * Enables bucket versioning for the specified S3 bucket.
      *
@@ -68,7 +67,7 @@ For more information, see [Retaining multiple versions of objects with S3 Versio
 **Tools for PowerShell V4**  
 **Example 1: The command enables versioning for the given S3 bucket.**  
 
-```
+```powershell
 Write-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket' -VersioningConfig_Status Enabled
 ```
 +  For API details, see [PutBucketVersioning](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -76,7 +75,7 @@ Write-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket' -VersioningConfig_Sta
 **Tools for PowerShell V5**  
 **Example 1: The command enables versioning for the given S3 bucket.**  
 
-```
+```powershell
 Write-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket' -VersioningConfig_Status Enabled
 ```
 +  For API details, see [PutBucketVersioning](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -87,7 +86,7 @@ Write-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket' -VersioningConfig_Sta
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Example: Enable versioning on a bucket
         " iv_status = 'Enabled'

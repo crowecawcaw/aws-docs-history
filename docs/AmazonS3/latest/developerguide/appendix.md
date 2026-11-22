@@ -1,7 +1,6 @@
 
 
 # Appendix
-<a name="appendix"></a>
 
 **Topics**
 + [Appendix: SelectObjectContent Response](RESTSelectObjectAppendix.md)

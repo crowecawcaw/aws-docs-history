@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Amazon S3 Control with an AWS SDK
-<a name="s3-control_example_s3-control_Basics_section"></a>
 
 The following code examples show how to learn core operations for Amazon S3 Control.
 
@@ -12,7 +11,7 @@ The following code examples show how to learn core operations for Amazon S3 Cont
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples). 
 Learn core operations.  
 
-```
+```java
 package com.example.s3.batch;
 
 import software.amazon.awssdk.services.s3.model.S3Exception;
@@ -249,7 +248,7 @@ public class S3BatchScenario {
 ```
 An action class that wraps operations.  
 
-```
+```java
 public class S3BatchActions {
 
     private static S3ControlAsyncClient asyncClient;
@@ -919,7 +918,7 @@ public class S3BatchActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples). 
 Learn S3 Batch Basics Scenario.  
 
-```
+```python
 class S3BatchScenario:
     """Manages the S3 Batch Operations scenario."""
 
@@ -1077,7 +1076,7 @@ class S3BatchScenario:
 ```
 Create a class that wraps S3 Batch Operations actions.  
 
-```
+```python
 class S3BatchWrapper:
     """Wrapper class for managing S3 Batch Operations."""
 

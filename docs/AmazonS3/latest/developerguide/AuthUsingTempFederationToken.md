@@ -1,7 +1,6 @@
 
 
 # Making requests using federated user temporary credentials
-<a name="AuthUsingTempFederationToken"></a>
 
 You can request temporary security credentials and provide them to your federated users or applications who need to access your AWS resources. This section provides examples of how you can use the AWS SDK to obtain temporary security credentials for your federated users or applications and send authenticated requests to Amazon S3 using those credentials. For a list of available AWS SDKs, see [Sample Code and Libraries](https://aws.amazon.com/code/). 
 
@@ -25,7 +24,7 @@ To provide security credentials and send authenticated request to access resourc
 **Example**  
 The example lists keys in the specified S3 bucket. In the example, you obtain temporary security credentials for a two-hour session for your federated user and use the credentials to send authenticated requests to Amazon S3. To run the example, you need to create an IAM user with an attached policy that allows the user to request temporary security credentials and list your AWS resources. The following policy accomplishes this:  
 
-```
+```json
  1. {
  2.   "Statement":[{
  3.       "Action":["s3:ListBucket",
@@ -40,7 +39,7 @@ The example lists keys in the specified S3 bucket. In the example, you obtain te
 For more information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*.   
 After creating an IAM user and attaching the preceding policy, you can run the following example. For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.  
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -139,7 +138,7 @@ You do the following:
 The following C\# example lists the keys in the specified bucket. In the example, you obtain temporary security credentials for a two-hour session for your federated user (User1), and use the credentials to send authenticated requests to Amazon S3.   
 + For this exercise, you create an IAM user with minimal permissions. Using the credentials of this IAM user, you request temporary credentials for others. This example lists only the objects in a specific bucket. Create an IAM user with the following policy attached: 
 
-  ```
+  ```json
    1. {
    2.   "Statement":[{
    3.       "Action":["s3:ListBucket",
@@ -155,7 +154,7 @@ The following C\# example lists the keys in the specified bucket. In the example
   The policy allows the IAM user to request temporary security credentials and access permission only to list your AWS resources. For more information about how to create an IAM user, see [Creating Your IAM user User and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*. 
 + Use the IAM user security credentials to test the following example. The example sends authenticated request to Amazon S3 using temporary security credentials. The example specifies the following policy when requesting temporary security credentials for the federated user (User1), which restricts access to listing objects in a specific bucket (`YourBucketName`). You must update the policy and provide your own existing bucket name.
 
-  ```
+  ```json
    1. {
    2.   "Statement":[
    3.     {
@@ -172,7 +171,7 @@ The following C\# example lists the keys in the specified bucket. In the example
 
   Update the following sample and provide the bucket name that you specified in the preceding federated user access policy. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-  ```
+  ```cs
   using Amazon;
   using Amazon.Runtime;
   using Amazon.S3;
@@ -284,7 +283,7 @@ For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - V
 The following PHP example lists keys in the specified bucket. In the example, you obtain temporary security credentials for an hour session for your federated user (User1). Then you use the temporary security credentials to send authenticated requests to Amazon S3.   
 For added security when requesting temporary credentials for others, you use the security credentials of an IAM user who has permissions to request temporary security credentials. To ensure that the IAM user grants only the minimum application-specific permissions to the federated user, you can also limit the access permissions of this IAM user. This example lists only objects in a specific bucket. Create an IAM user with the following policy attached:   
 
-```
+```json
  1. {
  2.   "Statement":[{
  3.       "Action":["s3:ListBucket",
@@ -299,7 +298,7 @@ For added security when requesting temporary credentials for others, you use the
 The policy allows the IAM user to request temporary security credentials and access permission only to list your AWS resources. For more information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*.   
 You can now use the IAM user security credentials to test the following example. The example sends an authenticated request to Amazon S3 using temporary security credentials. When requesting temporary security credentials for the federated user (User1), the example specifies the following policy, which restricts access to list objects in a specific bucket. Update the policy with your bucket name.  
 
-```
+```json
  1. {
  2.   "Statement":[
  3.     {
@@ -313,7 +312,7 @@ You can now use the IAM user security credentials to test the following example.
 ```
 In the following example, when specifying the policy resource, replace `YourBucketName` with the name of your bucket.:  
 
-```
+```PHP
  require 'vendor/autoload.php';
 
 use Aws\S3\Exception\S3Exception;
@@ -376,7 +375,7 @@ For added security when you request temporary security credentials for federated
 **Example**  
 The following Ruby code example allows a federated user with a limited set of permissions to lists keys in the specified bucket.   
 
-```
+```ruby
 # Prerequisites:
 #  - An existing Amazon S3 bucket.
 

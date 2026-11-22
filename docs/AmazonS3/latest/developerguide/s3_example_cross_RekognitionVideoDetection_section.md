@@ -1,7 +1,6 @@
 
 
 # Detect people and objects in a video with Amazon Rekognition using an AWS SDK
-<a name="s3_example_cross_RekognitionVideoDetection_section"></a>
 
 The following code examples show how to detect people and objects in a video with Amazon Rekognition.
 

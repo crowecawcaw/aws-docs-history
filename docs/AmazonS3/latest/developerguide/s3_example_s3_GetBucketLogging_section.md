@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketLogging` with a CLI
-<a name="s3_example_s3_GetBucketLogging_section"></a>
 
 The following code examples show how to use `GetBucketLogging`.
 
@@ -35,7 +34,7 @@ For more information, see [Logging requests with server access logging](https://
 **Tools for PowerShell V4**  
 **Example 1: This command returns the logging status for the specified bucket.**  
 
-```
+```powershell
 Get-S3BucketLogging -BucketName 'amzn-s3-demo-bucket'
 ```
 **Output:**  
@@ -50,7 +49,7 @@ testbucket1        {}     testprefix
 **Tools for PowerShell V5**  
 **Example 1: This command returns the logging status for the specified bucket.**  
 
-```
+```powershell
 Get-S3BucketLogging -BucketName 'amzn-s3-demo-bucket'
 ```
 **Output:**  

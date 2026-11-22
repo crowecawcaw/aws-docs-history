@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketPolicy` with an AWS SDK or CLI
-<a name="s3_example_s3_GetBucketPolicy_section"></a>
 
 The following code examples show how to use `GetBucketPolicy`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetBucketPolicy`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::getBucketPolicy(const Aws::String &bucketName,
                                  const Aws::S3::S3ClientConfiguration &clientConfig) {
     Aws::S3::S3Client s3Client(clientConfig);
@@ -110,7 +109,7 @@ For more information, see [Bucket policies for Amazon S3](https://docs.aws.amazo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.s3.model.S3Exception;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -191,7 +190,7 @@ public class GetBucketPolicy {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Get the bucket policy.  
 
-```
+```javascript
 import {
   GetBucketPolicyCommand,
   S3Client,
@@ -239,7 +238,7 @@ export const main = async ({ bucketName }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun getPolicy(bucketName: String): String? {
     println("Getting policy for bucket $bucketName")
 
@@ -262,7 +261,7 @@ suspend fun getPolicy(bucketName: String): String? {
 **Tools for PowerShell V4**  
 **Example 1: This command outputs the bucket policy associated with the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketPolicy -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -270,7 +269,7 @@ Get-S3BucketPolicy -BucketName 'amzn-s3-demo-bucket'
 **Tools for PowerShell V5**  
 **Example 1: This command outputs the bucket policy associated with the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketPolicy -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -281,7 +280,7 @@ Get-S3BucketPolicy -BucketName 'amzn-s3-demo-bucket'
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -319,7 +318,7 @@ class BucketWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
 # Wraps an Amazon S3 bucket policy.
 class BucketPolicyWrapper
   attr_reader :bucket_policy
@@ -350,7 +349,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->getbucketpolicy(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name ).

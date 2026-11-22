@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 dual-stack endpoints
-<a name="dual-stack-endpoints"></a>
 
 Amazon S3 dual-stack endpoints support requests to S3 buckets over IPv6 and IPv4. This section describes how to use dual-stack endpoints.
 
@@ -77,7 +76,7 @@ The following example shows how to enable dual-stack endpoints when creating an 
 
 For instructions on creating and testing a working Java sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -124,7 +123,7 @@ java.net.preferIPv6Addresses=true
 
 When using the AWS SDK for .NET you use the `AmazonS3Config` class to enable the use of a dual-stack endpoint as shown in the following example. 
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;

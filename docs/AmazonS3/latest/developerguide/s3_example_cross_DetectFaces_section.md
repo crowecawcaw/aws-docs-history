@@ -1,7 +1,6 @@
 
 
 # Detect faces in an image using an AWS SDK
-<a name="s3_example_cross_DetectFaces_section"></a>
 
 The following code example shows how to:
 + Save an image in an Amazon S3 bucket.

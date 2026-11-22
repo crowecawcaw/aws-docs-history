@@ -1,7 +1,6 @@
 
 
 # Use `GetObjectAttributes` with an AWS SDK or CLI
-<a name="s3_example_s3_GetObjectAttributes_section"></a>
 
 The following code examples show how to use `GetObjectAttributes`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 // ! Routine which retrieves the hash value of an object stored in an S3 bucket.
 /*!
    \param bucket: The name of the S3 bucket where the object is stored.

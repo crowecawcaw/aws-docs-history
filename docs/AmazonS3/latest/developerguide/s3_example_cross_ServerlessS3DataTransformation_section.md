@@ -1,7 +1,6 @@
 
 
 # Transform data for your application with S3 Object Lambda
-<a name="s3_example_cross_ServerlessS3DataTransformation_section"></a>
 
 The following code example shows how to transform data for your application with S3 Object Lambda.
 

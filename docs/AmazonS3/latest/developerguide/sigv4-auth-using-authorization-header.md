@@ -1,7 +1,6 @@
 
 
 # Authenticating Requests: Using the Authorization Header (AWS Signature Version 4)
-<a name="sigv4-auth-using-authorization-header"></a>
 
 **Topics**
 + [Overview](#sigv4-auth-header-overview)

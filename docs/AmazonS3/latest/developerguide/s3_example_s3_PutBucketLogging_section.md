@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketLogging` with an AWS SDK or CLI
-<a name="s3_example_s3_PutBucketLogging_section"></a>
 
 The following code examples show how to use `PutBucketLogging`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `PutBucketLogging`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
     using System;
     using System.IO;
     using System.Threading.Tasks;

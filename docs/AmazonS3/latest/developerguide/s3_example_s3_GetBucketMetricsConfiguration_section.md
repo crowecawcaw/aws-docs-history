@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketMetricsConfiguration` with a CLI
-<a name="s3_example_s3_GetBucketMetricsConfiguration_section"></a>
 
 The following code examples show how to use `GetBucketMetricsConfiguration`.
 
@@ -38,7 +37,7 @@ For more information, see [CloudWatch metrics configurations](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This command returns the details about the metrics filter named 'testfilter' for the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketMetricsConfiguration -BucketName 'amzn-s3-demo-bucket' -MetricsId 'testfilter'
 ```
 +  For API details, see [GetBucketMetricsConfiguration](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -46,7 +45,7 @@ Get-S3BucketMetricsConfiguration -BucketName 'amzn-s3-demo-bucket' -MetricsId 't
 **Tools for PowerShell V5**  
 **Example 1: This command returns the details about the metrics filter named 'testfilter' for the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketMetricsConfiguration -BucketName 'amzn-s3-demo-bucket' -MetricsId 'testfilter'
 ```
 +  For API details, see [GetBucketMetricsConfiguration](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

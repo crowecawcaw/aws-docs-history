@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketEncryption` with an AWS SDK or CLI
-<a name="s3_example_s3_GetBucketEncryption_section"></a>
 
 The following code examples show how to use `GetBucketEncryption`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetBucketEncryption`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/PutBucketEncryption#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get and print the encryption settings of a bucket.
     /// </summary>
@@ -81,7 +80,7 @@ For more information, see [Setting default server-side encryption behavior for A
 **Tools for PowerShell V4**  
 **Example 1: This command returns all the server side encryption rules associated with the given bucket.**  
 
-```
+```powershell
 Get-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [GetBucketEncryption](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -89,7 +88,7 @@ Get-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'
 **Tools for PowerShell V5**  
 **Example 1: This command returns all the server side encryption rules associated with the given bucket.**  
 
-```
+```powershell
 Get-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [GetBucketEncryption](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

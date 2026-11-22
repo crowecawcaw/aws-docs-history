@@ -1,7 +1,6 @@
 
 
 # Use `DeleteObjectTagging` with a CLI
-<a name="s3_example_s3_DeleteObjectTagging_section"></a>
 
 The following code examples show how to use `DeleteObjectTagging`.
 
@@ -27,7 +26,7 @@ For more information, see [Tagging your objects](https://docs.aws.amazon.com/Ama
 **Tools for PowerShell V4**  
 **Example 1: This command removes all the tags associated with the object with key 'testfile.txt' in the given S3 Bucket.**  
 
-```
+```powershell
 Remove-S3ObjectTagSet -Key 'testfile.txt' -BucketName 'amzn-s3-demo-bucket' -Select '^Key'
 ```
 **Output:**  
@@ -44,7 +43,7 @@ testfile.txt
 **Tools for PowerShell V5**  
 **Example 1: This command removes all the tags associated with the object with key 'testfile.txt' in the given S3 Bucket.**  
 
-```
+```powershell
 Remove-S3ObjectTagSet -Key 'testfile.txt' -BucketName 'amzn-s3-demo-bucket' -Select '^Key'
 ```
 **Output:**  

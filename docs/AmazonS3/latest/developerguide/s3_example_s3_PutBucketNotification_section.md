@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketNotification` with a CLI
-<a name="s3_example_s3_PutBucketNotification_section"></a>
 
 The following code examples show how to use `PutBucketNotification`.
 
@@ -64,7 +63,7 @@ For more information, see [Amazon S3 Event Notifications](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket**  
 
-```
+```powershell
 $topic =  [Amazon.S3.Model.TopicConfiguration] @{
   Id = "delete-event"
   Topic = "arn:aws:sns:eu-west-1:123456789012:topic-1"
@@ -75,7 +74,7 @@ Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -TopicConfiguration $
 ```
 **Example 2: This example enables notifications of ObjectCreatedAll for the given bucket sending it to Lambda function.**  
 
-```
+```powershell
 $lambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
   Events = "s3:ObjectCreated:*"
   FunctionArn = "arn:aws:lambda:eu-west-1:123456789012:function:rdplock"
@@ -94,7 +93,7 @@ Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfig
 ```
 **Example 3: This example creates 2 different Lambda configuration on the basis of different key-suffix and configured both in a single command. **  
 
-```
+```powershell
 #Lambda Config 1
 
 $firstLambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
@@ -134,7 +133,7 @@ Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfig
 **Tools for PowerShell V5**  
 **Example 1: This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket**  
 
-```
+```powershell
 $topic =  [Amazon.S3.Model.TopicConfiguration] @{
   Id = "delete-event"
   Topic = "arn:aws:sns:eu-west-1:123456789012:topic-1"
@@ -145,7 +144,7 @@ Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -TopicConfiguration $
 ```
 **Example 2: This example enables notifications of ObjectCreatedAll for the given bucket sending it to Lambda function.**  
 
-```
+```powershell
 $lambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
   Events = "s3:ObjectCreated:*"
   FunctionArn = "arn:aws:lambda:eu-west-1:123456789012:function:rdplock"
@@ -164,7 +163,7 @@ Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfig
 ```
 **Example 3: This example creates 2 different Lambda configuration on the basis of different key-suffix and configured both in a single command. **  
 
-```
+```powershell
 #Lambda Config 1
 
 $firstLambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{

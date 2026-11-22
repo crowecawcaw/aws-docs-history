@@ -1,7 +1,6 @@
 
 
 # Track an Amazon S3 object upload or download using an AWS SDK
-<a name="s3_example_s3_Scenario_TrackUploadDownload_section"></a>
 
 The following code example shows how to track an Amazon S3 object upload or download.
 
@@ -12,7 +11,7 @@ The following code example shows how to track an Amazon S3 object upload or down
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Track the progress of a file upload.  
 
-```
+```java
     public void trackUploadFile(S3TransferManager transferManager, String bucketName,
                              String key, URI filePathURI) {
         UploadFileRequest uploadFileRequest = UploadFileRequest.builder()
@@ -55,7 +54,7 @@ Track the progress of a file upload.
 ```
 Track the progress of a file download.  
 
-```
+```java
     public void trackDownloadFile(S3TransferManager transferManager, String bucketName,
                              String key, String downloadedFileWithPath) {
         DownloadFileRequest downloadFileRequest = DownloadFileRequest.builder()

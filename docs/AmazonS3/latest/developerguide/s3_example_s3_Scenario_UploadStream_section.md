@@ -1,7 +1,6 @@
 
 
 # Upload a stream of unknown size to an Amazon S3 object using an AWS SDK
-<a name="s3_example_s3_Scenario_UploadStream_section"></a>
 
 The following code examples show how to upload a stream of unknown size to an Amazon S3 object.
 
@@ -12,7 +11,7 @@ The following code examples show how to upload a stream of unknown size to an Am
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Use the [AWS CRT-based S3 Client](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/crt-based-s3-client.html).  
 
-```
+```java
 import com.example.s3.util.AsyncExampleUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,7 +79,7 @@ public class PutObjectFromStreamAsync {
 ```
 Use the standard [ asynchronous S3 client with multipart upload enabled](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/s3-async-client-multipart.html#s3-async-client-mp-on).  
 
-```
+```java
 import com.example.s3.util.AsyncExampleUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -148,7 +147,7 @@ public class PutObjectFromStreamAsyncMp {
 ```
 Use the [Amazon S3 Transfer Manager](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/transfer-manager.html).  
 
-```
+```java
 import com.example.s3.util.AsyncExampleUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -221,7 +220,7 @@ public class UploadStream {
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples). 
 
-```
+```swift
 import ArgumentParser
 import AWSClientRuntime
 import AWSS3

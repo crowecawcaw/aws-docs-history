@@ -1,7 +1,6 @@
 
 
 # Making requests using the AWS SDKs
-<a name="MakingAuthenticatedRequests"></a>
 
 **Topics**
 + [Making requests using AWS account or IAM user credentials](AuthUsingAcctOrUserCredentials.md)

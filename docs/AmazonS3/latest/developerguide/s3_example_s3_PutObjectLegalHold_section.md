@@ -1,7 +1,6 @@
 
 
 # Use `PutObjectLegalHold` with an AWS SDK or CLI
-<a name="s3_example_s3_PutObjectLegalHold_section"></a>
 
 The following code examples show how to use `PutObjectLegalHold`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Set or modify a legal hold on an object in an S3 bucket.
     /// </summary>
@@ -73,7 +72,7 @@ For more information, see [Locking objects with Object Lock](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -130,7 +129,7 @@ func (actor S3Actions) PutObjectLegalHold(ctx context.Context, bucket string, ke
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
     // Set or modify a legal hold on an object in an S3 bucket.
     public void modifyObjectLegalHold(String bucketName, String objectKey, boolean legalHoldOn) {
         ObjectLockLegalHold legalHold ;
@@ -162,7 +161,7 @@ func (actor S3Actions) PutObjectLegalHold(ctx context.Context, bucket string, ke
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 
-```
+```javascript
 import {
   PutObjectLegalHoldCommand,
   S3Client,
@@ -259,7 +258,7 @@ if (isMain(import.meta.url)) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples). 
 Put an object legal hold.  
 
-```
+```python
 def set_legal_hold(s3_client, bucket: str, key: str) -> None:
     """
     Set a legal hold on a specific file in a bucket.
@@ -294,7 +293,7 @@ def set_legal_hold(s3_client, bucket: str, key: str) -> None:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Example: Set legal hold status to ON
         " iv_status = 'ON'

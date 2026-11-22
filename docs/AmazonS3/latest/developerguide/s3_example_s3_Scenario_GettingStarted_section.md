@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Amazon S3 with an AWS SDK
-<a name="s3_example_s3_Scenario_GettingStarted_section"></a>
 
 The following code examples show how to:
 + Create a bucket and upload a file to it.
@@ -17,7 +16,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 Run an interactive scenario demonstrating Amazon S3 features.  
 
-```
+```csharp
 public class S3_Basics
 {
     public static bool IsInteractive = true;
@@ -328,7 +327,7 @@ public class S3_Basics
 ```
 A wrapper class for Amazon S3 SDK methods.  
 
-```
+```csharp
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -622,7 +621,7 @@ public class S3Wrapper
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function s3_getting_started
 #
@@ -738,7 +737,7 @@ function s3_getting_started() {
 ```
 The Amazon S3 functions used in this scenario.  
 
-```
+```bash
 ###############################################################################
 # function create-bucket
 #
@@ -1030,7 +1029,7 @@ function delete_bucket() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 #include <iostream>
 #include <aws/core/Aws.h>
 #include <aws/s3/S3Client.h>
@@ -1313,7 +1312,7 @@ AwsDoc::S3::deleteBucket(const Aws::String &bucketName, Aws::S3::S3Client &clien
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 Define a struct that wraps bucket and object actions used by the scenario.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -1696,7 +1695,7 @@ func (basics BucketBasics) DeleteBucket(ctx context.Context, bucketName string) 
 ```
 Run an interactive scenario that shows you how to work with S3 buckets and objects.  
 
-```
+```go
 import (
 	"context"
 	"fmt"
@@ -1862,7 +1861,7 @@ func RunGetStartedScenario(ctx context.Context, sdkConfig aws.Config, questioner
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 A scenario example.  
 
-```
+```java
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -2177,7 +2176,7 @@ public class S3Scenario {
 ```
 A wrapper class that contains the operations.  
 
-```
+```java
 public class S3Actions {
 
     private static final Logger logger = LoggerFactory.getLogger(S3Actions.class);
@@ -2551,7 +2550,7 @@ public class S3Actions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 First, import all the necessary modules.  
 
-```
+```javascript
 // Used to check if currently running file is this file.
 import { fileURLToPath } from "node:url";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -2574,7 +2573,7 @@ import {
 ```
 The preceding imports reference some helper utilities. These utilities are local to the GitHub repository linked at the start of this section. For your reference, see the following implementations of those utilities.  
 
-```
+```javascript
 export const dirnameFromMetaUrl = (metaUrl) =>
   fileURLToPath(new URL(".", metaUrl));
 
@@ -2635,7 +2634,7 @@ export const wrapText = (text, char = "=") => {
 ```
 Objects are stored in 'buckets'. Let's define a function for creating a new bucket.  
 
-```
+```javascript
 export const createBucket = async () => {
   const bucketName = await prompter.input({
     message: "Enter a bucket name. Bucket names must be globally unique:",
@@ -2648,7 +2647,7 @@ export const createBucket = async () => {
 ```
 Buckets contain 'objects'. This function uploads the contents of a directory to your bucket as objects.  
 
-```
+```javascript
 export const uploadFilesToBucket = async ({ bucketName, folderPath }) => {
   console.log(`Uploading files from ${folderPath}\n`);
   const keys = readdirSync(folderPath);
@@ -2675,7 +2674,7 @@ export const uploadFilesToBucket = async ({ bucketName, folderPath }) => {
 ```
 After uploading objects, check to confirm that they were uploaded correctly. You can use ListObjects for that. You'll be using the 'Key' property, but there are other useful properties in the response also.  
 
-```
+```javascript
 export const listFilesInBucket = async ({ bucketName }) => {
   const command = new ListObjectsCommand({ Bucket: bucketName });
   const { Contents } = await s3Client.send(command);
@@ -2686,7 +2685,7 @@ export const listFilesInBucket = async ({ bucketName }) => {
 ```
 Sometimes you might want to copy an object from one bucket to another. Use the CopyObject command for that.  
 
-```
+```javascript
 export const copyFileFromBucket = async ({ destinationBucket }) => {
   const proceed = await prompter.confirm({
     message: "Would you like to copy an object from another bucket?",
@@ -2728,7 +2727,7 @@ export const copyFileFromBucket = async ({ destinationBucket }) => {
 ```
 There's no SDK method for getting multiple objects from a bucket. Instead, you'll create a list of objects to download and iterate over them.  
 
-```
+```javascript
 export const downloadFilesFromBucket = async ({ bucketName }) => {
   const { Contents } = await s3Client.send(
     new ListObjectsCommand({ Bucket: bucketName }),
@@ -2751,7 +2750,7 @@ export const downloadFilesFromBucket = async ({ bucketName }) => {
 ```
 It's time to clean up your resources. A bucket must be empty before it can be deleted. These two functions empty and delete the bucket.  
 
-```
+```javascript
 export const emptyBucket = async ({ bucketName }) => {
   const listObjectsCommand = new ListObjectsCommand({ Bucket: bucketName });
   const { Contents } = await s3Client.send(listObjectsCommand);
@@ -2773,7 +2772,7 @@ export const deleteBucket = async ({ bucketName }) => {
 ```
 The 'main' function pulls everything together. If you run this file directly the main function will be called.  
 
-```
+```javascript
 const main = async () => {
   const OBJECT_DIRECTORY = `${dirnameFromMetaUrl(
     import.meta.url,
@@ -2828,7 +2827,7 @@ const main = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun main(args: Array<String>) {
     val usage = """
     Usage:
@@ -3021,7 +3020,7 @@ suspend fun deleteBucket(bucketName: String?) {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 
-```
+```php
         echo("\n");
         echo("--------------------------------------\n");
         print("Welcome to the Amazon S3 getting started demo using PHP!\n");
@@ -3153,7 +3152,7 @@ suspend fun deleteBucket(bucketName: String?) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 import io
 import os
 import uuid
@@ -3272,7 +3271,7 @@ if __name__ == "__main__":
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps the getting started scenario actions.
@@ -3437,7 +3436,7 @@ run_scenario(ScenarioGettingStarted.new(Aws::S3::Resource.new)) if $PROGRAM_NAME
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 Code for the binary crate which runs the scenario.  
 
-```
+```rust
 #![allow(clippy::result_large_err)]
 
 //!  Purpose
@@ -3502,7 +3501,7 @@ async fn run_s3_operations(
 ```
 Common actions used by the scenario.  
 
-```
+```rust
 pub async fn create_bucket(
     client: &aws_sdk_s3::Client,
     bucket_name: &str,
@@ -3688,7 +3687,7 @@ pub async fn delete_bucket(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
     DATA(lo_s3) = /aws1/cl_s3_factory=>create( lo_session ).
 
@@ -3813,7 +3812,7 @@ pub async fn delete_bucket(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
-```
+```swift
 import AWSS3
 
 import Foundation
@@ -4099,7 +4098,7 @@ public class ServiceHandler {
 }
 ```
 
-```
+```swift
 import AWSS3
 
 import Foundation

@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketWebsite` with an AWS SDK or CLI
-<a name="s3_example_s3_GetBucketWebsite_section"></a>
 
 The following code examples show how to use `GetBucketWebsite`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetBucketWebsite`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
                 // Get the website configuration.
                 GetBucketWebsiteRequest getRequest = new GetBucketWebsiteRequest()
                 {
@@ -29,7 +28,7 @@ The following code examples show how to use `GetBucketWebsite`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::getWebsiteConfig(const Aws::String &bucketName,
                                   const Aws::S3::S3ClientConfiguration &clientConfig) {
     Aws::S3::S3Client s3Client(clientConfig);
@@ -98,7 +97,7 @@ For more information, see [Hosting a static website using Amazon S3](https://doc
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Get the website configuration.  
 
-```
+```javascript
 import {
   GetBucketWebsiteCommand,
   S3Client,
@@ -147,7 +146,7 @@ export const main = async ({ bucketName }) => {
 **Tools for PowerShell V4**  
 **Example 1: This command returns the details of the static website configurations of the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [GetBucketWebsite](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -155,7 +154,7 @@ Get-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'
 **Tools for PowerShell V5**  
 **Example 1: This command returns the details of the static website configurations of the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [GetBucketWebsite](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

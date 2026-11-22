@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketReplication` with an AWS SDK or CLI
-<a name="s3_example_s3_PutBucketReplication_section"></a>
 
 The following code examples show how to use `PutBucketReplication`.
 
@@ -101,7 +100,7 @@ For more information, see [This is the topic title](https://docs.aws.amazon.com/
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
     /**
      * Sets the replication configuration for an Amazon S3 bucket.
      *
@@ -176,7 +175,7 @@ For more information, see [This is the topic title](https://docs.aws.amazon.com/
 **Tools for PowerShell V4**  
 **Example 1: This example sets a replication configuration with a single rule enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with the key name prefix "TaxDocs" in the bucket 'amzn-s3-demo-bucket'.**  
 
-```
+```powershell
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
 $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
@@ -193,7 +192,7 @@ Write-S3BucketReplication @params
 ```
 **Example 2: This example sets a replication configuration with multiple rules enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with either the key name prefix "TaxDocs" or "OtherDocs". The key prefixes must not overlap.**  
 
-```
+```powershell
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
 $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
@@ -216,7 +215,7 @@ Write-S3BucketReplication @params
 ```
 **Example 3: This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix "TaxDocs" to the bucket 'amzn-s3-demo-bucket'.**  
 
-```
+```powershell
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
 $rule1.ID = "Rule-1"
 $rule1.Status = "Disabled"
@@ -236,7 +235,7 @@ Write-S3BucketReplication @params
 **Tools for PowerShell V5**  
 **Example 1: This example sets a replication configuration with a single rule enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with the key name prefix "TaxDocs" in the bucket 'amzn-s3-demo-bucket'.**  
 
-```
+```powershell
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
 $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
@@ -253,7 +252,7 @@ Write-S3BucketReplication @params
 ```
 **Example 2: This example sets a replication configuration with multiple rules enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with either the key name prefix "TaxDocs" or "OtherDocs". The key prefixes must not overlap.**  
 
-```
+```powershell
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
 $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
@@ -276,7 +275,7 @@ Write-S3BucketReplication @params
 ```
 **Example 3: This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix "TaxDocs" to the bucket 'amzn-s3-demo-bucket'.**  
 
-```
+```powershell
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
 $rule1.ID = "Rule-1"
 $rule1.Status = "Disabled"

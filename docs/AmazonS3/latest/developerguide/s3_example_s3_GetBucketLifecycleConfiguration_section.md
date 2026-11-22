@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketLifecycleConfiguration` with an AWS SDK or CLI
-<a name="s3_example_s3_GetBucketLifecycleConfiguration_section"></a>
 
 The following code examples show how to use `GetBucketLifecycleConfiguration`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetBucketLifecycleConfiguration`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
         /// <summary>
         /// Returns a configuration object for the supplied bucket name.
         /// </summary>
@@ -83,7 +82,7 @@ For more information, see [Managing the lifecycle of objects](https://docs.aws.a
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -125,7 +124,7 @@ class BucketWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->getbucketlifecycleconf(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name ).

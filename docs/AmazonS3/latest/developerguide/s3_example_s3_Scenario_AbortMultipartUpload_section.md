@@ -1,7 +1,6 @@
 
 
 # Delete incomplete multipart uploads to Amazon S3 using an AWS SDK
-<a name="s3_example_s3_Scenario_AbortMultipartUpload_section"></a>
 
 The following code example shows how to how to delete or stop incomplete Amazon S3 multipart uploads.
 
@@ -12,7 +11,7 @@ The following code example shows how to how to delete or stop incomplete Amazon 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 To stop multipart uploads that are in-progress or incomplete for any reason, you can get a list uploads and then delete them as shown in the following example.   
 
-```
+```java
     /**
      * Aborts all incomplete multipart uploads from the specified S3 bucket.
      *
@@ -44,7 +43,7 @@ To stop multipart uploads that are in-progress or incomplete for any reason, you
 ```
 To delete incomplete multipart uploads that were initiated before or after a date, you can selectively delete multipart uploads based on a point in time as shown in the following example.   
 
-```
+```java
     /**
      * Aborts incomplete multipart uploads older than the specified point in time.
      *
@@ -80,7 +79,7 @@ To delete incomplete multipart uploads that were initiated before or after a dat
 ```
 If you have access to the upload ID after you begin a multipart upload, you can delete the in-progress upload by using the ID.  
 
-```
+```java
     /**
      * Aborts a multipart upload using the upload ID.
      *
@@ -101,7 +100,7 @@ If you have access to the upload ID after you begin a multipart upload, you can 
 ```
 To consistently delete incomplete multipart uploads older that a certain number of days, set up a bucket lifecycle configuration for the bucket. The following example shows how to create a rule to delete incomplete uploads older than 7 days.   
 
-```
+```java
     /**
      * Configures a lifecycle rule to abort incomplete multipart uploads after 7 days.
      *

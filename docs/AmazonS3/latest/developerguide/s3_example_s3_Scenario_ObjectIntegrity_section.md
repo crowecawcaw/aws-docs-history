@@ -1,7 +1,6 @@
 
 
 # Work with Amazon S3 object integrity features using an AWS SDK
-<a name="s3_example_s3_Scenario_ObjectIntegrity_section"></a>
 
 The following code example shows how to work with S3 object integrity features.
 
@@ -12,7 +11,7 @@ The following code example shows how to work with S3 object integrity features.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3/s3_object_integrity_workflow#code-examples). 
 Run an interactive scenario demonstrating Amazon S3 object integrity features.  
 
-```
+```cpp
 //! Routine which runs the S3 object integrity workflow.
 /*!
    \param clientConfig: Aws client configuration.

@@ -1,7 +1,6 @@
 
 
 # A web page that lists Amazon S3 objects using an AWS SDK
-<a name="s3_example_s3_Scenario_ListObjectsWeb_section"></a>
 
 The following code example shows how to list Amazon S3 objects in a web page.
 
@@ -12,7 +11,7 @@ The following code example shows how to list Amazon S3 objects in a web page.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/web/s3/list-objects#code-examples). 
 The following code is the relevant React component that makes calls to the AWS SDK. A runnable version of the application containing this component can be found at the preceding GitHub link.  
 
-```
+```javascript
 import { useEffect, useState } from "react";
 import {
   ListObjectsCommand,

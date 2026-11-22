@@ -1,7 +1,6 @@
 
 
 # Signature Calculations for the Authorization Header: Transferring Payload in Multiple Chunks (Chunked Upload) (AWS Signature Version 4)
-<a name="sigv4-streaming"></a>
 
 As described in the [Overview](sigv4-auth-using-authorization-header.md#sigv4-auth-header-overview), when authenticating requests using the `Authorization` header, you have an option of uploading the payload in chunks. You can send data in fixed size or variable size chunks. This section describes the signature calculation process in chunked upload, how you create the chunk body, and how the delayed signing works where you first upload the chunk, and send its signature in the subsequent chunk. The example section (see [Example: PUT Object](#example-signature-calculations-streaming)) shows signature calculations and resulting `Authorization` headers that you can use as a test suite to verify your code.
 
@@ -127,7 +126,7 @@ You can use the examples in this section as a reference to check signature calcu
 + The bucket is assumed to be in the US East (N. Virginia) Region, and the credential `Scope` and the `Signing Key` calculations use `us-east-1` as the Region specifier.  For more information, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the *Amazon Web Services General Reference*. 
 + You can use either path style or virtual-hosted style requests. The following examples use virtual-hosted style requests, for example: 
 
-  ```
+  ```java
   https://examplebucket.s3.amazonaws.com/photos/photo1.jpg
   ```
 
@@ -143,7 +142,7 @@ The following example sends a `PUT` request to upload an object. The signature c
 
 For information about the API action, see [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html). The general request syntax is as follows: 
 
-```
+```http
 PUT /examplebucket/chunkObject.txt HTTP/1.1
 Host: s3.amazonaws.com
 x-amz-date: 20130524T000000Z 
@@ -170,7 +169,7 @@ The following steps show signature calculations.
 
        
 
-      ```
+      ```java
       PUT
       /examplebucket/chunkObject.txt
       
@@ -213,7 +212,7 @@ For information about each of line in the string to sign, see the diagram that e
 
     
 
-   ```
+   ```xml
    signing key = HMAC-SHA256(HMAC-SHA256(HMAC-SHA256(HMAC-SHA256("AWS4" + "{{<YourSecretAccessKey>}}","20130524"),"us-east-1"),"s3"),"aws4_request")						
    ```
 

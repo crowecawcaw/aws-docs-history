@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketEncryption` with an AWS SDK or CLI
-<a name="s3_example_s3_PutBucketEncryption_section"></a>
 
 The following code examples show how to use `PutBucketEncryption`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/PutBucketEncryption#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Set the bucket server side encryption to use AWSKMS with a customer-managed key id.
     /// </summary>
@@ -80,7 +79,7 @@ For more information, see [Setting default server-side encryption behavior for A
 **Tools for PowerShell V4**  
 **Example 1: This command enables default AES256 server side encryption with Amazon S3 Managed Keys(SSE-S3) on the given bucket. **  
 
-```
+```powershell
 $Encryptionconfig = @{ServerSideEncryptionByDefault = @{ServerSideEncryptionAlgorithm = "AES256"}}
 Set-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket' -ServerSideEncryptionConfiguration_ServerSideEncryptionRule $Encryptionconfig
 ```
@@ -89,7 +88,7 @@ Set-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket' -ServerSideEncryptionCo
 **Tools for PowerShell V5**  
 **Example 1: This command enables default AES256 server side encryption with Amazon S3 Managed Keys(SSE-S3) on the given bucket. **  
 
-```
+```powershell
 $Encryptionconfig = @{ServerSideEncryptionByDefault = @{ServerSideEncryptionAlgorithm = "AES256"}}
 Set-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket' -ServerSideEncryptionConfiguration_ServerSideEncryptionRule $Encryptionconfig
 ```

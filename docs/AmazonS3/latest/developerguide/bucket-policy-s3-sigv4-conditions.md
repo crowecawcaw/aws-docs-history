@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Signature Version 4 Authentication Specific Policy Keys
-<a name="bucket-policy-s3-sigv4-conditions"></a>
 
 The following table shows the policy keys related Amazon S3 Signature Version 4 authentication that can be in Amazon S3 policies. In a bucket policy, you can add these conditions to enforce specific behavior when requests are authenticated by using Signature Version 4. For example policies, see [Bucket policy examples using Signature Version 4 related condition keys](#bucket-policy-sig-v4-condition-key-example). 
 
@@ -23,7 +22,7 @@ The following bucket policy denies any Amazon S3 presigned URL request on object
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -52,7 +51,7 @@ The following bucket policy allows only requests that use the `Authorization` he
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -81,7 +80,7 @@ The following bucket policy denies requests that use presigned URLS for request 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -110,7 +109,7 @@ The following bucket policy denies any uploads with unsigned payloads:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

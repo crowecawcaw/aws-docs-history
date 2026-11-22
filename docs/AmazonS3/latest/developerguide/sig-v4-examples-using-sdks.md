@@ -1,7 +1,6 @@
 
 
 # Examples: Signature Calculations in AWS Signature Version 4
-<a name="sig-v4-examples-using-sdks"></a>
 
 **Topics**
 + [Signature Calculation Examples Using Java (AWS Signature Version 4)](#sig-v4-examples-using-sdk-java)
@@ -57,7 +56,7 @@ The examples use a virtual-hosted style request to access the bucket. To avoid p
 
     
 
-   ```
+   ```java
    java com.amazonaws.services.s3.sample.RunAllSamples
    ```
 

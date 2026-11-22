@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketRequestPayment` with a CLI
-<a name="s3_example_s3_GetBucketRequestPayment_section"></a>
 
 The following code examples show how to use `GetBucketRequestPayment`.
 
@@ -32,7 +31,7 @@ For more information, see [Using Requester Pays general purpose buckets for stor
 **Tools for PowerShell V4**  
 **Example 1: Returns the request payment configuration for the bucket named 'amzn-s3-demo-bucket'. By default, the bucket owner pays for downloads from the bucket.**  
 
-```
+```powershell
 Get-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket
 ```
 +  For API details, see [GetBucketRequestPayment](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,7 +39,7 @@ Get-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket
 **Tools for PowerShell V5**  
 **Example 1: Returns the request payment configuration for the bucket named 'amzn-s3-demo-bucket'. By default, the bucket owner pays for downloads from the bucket.**  
 
-```
+```powershell
 Get-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket
 ```
 +  For API details, see [GetBucketRequestPayment](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

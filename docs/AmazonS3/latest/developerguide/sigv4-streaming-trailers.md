@@ -1,7 +1,6 @@
 
 
 # Signature calculations for trailing headers (chunked uploads) (AWS Signature Version 4)
-<a name="sigv4-streaming-trailers"></a>
 
 When authenticating requests using the `Authorization` header, you can also upload the payload in chunks. When you send the data for the object in chunks, you also have the option of including trailing headers. (For more information, see [Signature Calculations for the Authorization Header: Transferring Payload in Multiple Chunks (Chunked Upload) (AWS Signature Version 4)](sigv4-streaming.md).) This section describes the steps you need to take when you want to include a trailing header at the end of your multiple chunk upload.
 
@@ -42,7 +41,7 @@ You can use the examples in this section as a reference to check signature calcu
 + The bucket is assumed to be in the US East (N. Virginia) Region, and the credential `Scope` and the `Signing Key` calculations use `us-east-1` as the Region specifier.  For more information, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the *Amazon Web Services General Reference*. 
 + You can use either path style or virtual-hosted style requests. The following examples use virtual-hosted style requests, for example: 
 
-  ```
+  ```java
   https://examplebucket.s3.amazonaws.com/photos/photo1.jpg
   ```
 
@@ -59,7 +58,7 @@ The following example sends a `PUT` request to upload an object. The signature c
 
 For information about the API action, see [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html). The general request syntax is as follows: 
 
-```
+```http
 PUT /examplebucket/chunkObject.txt HTTP/1.1
 Host: s3.amazonaws.com
 x-amz-date: 20130524T000000Z 
@@ -87,7 +86,7 @@ The following steps show signature calculations.
 
        
 
-      ```
+      ```java
       PUT
       /examplebucket/chunkObject.txt
       
@@ -130,7 +129,7 @@ For information about each of line in the string to sign, see the diagram that e
 
     
 
-   ```
+   ```xml
    signing key = HMAC-SHA256(HMAC-SHA256(HMAC-SHA256(HMAC-SHA256("AWS4" + "{{<YourSecretAccessKey>}}","20130524"),"us-east-1"),"s3"),"aws4_request")						
    ```
 

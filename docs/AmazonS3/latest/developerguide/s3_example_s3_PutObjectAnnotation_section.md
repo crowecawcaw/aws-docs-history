@@ -1,7 +1,6 @@
 
 
 # Use `PutObjectAnnotation` with an AWS SDK
-<a name="s3_example_s3_PutObjectAnnotation_section"></a>
 
 The following code example shows how to use `PutObjectAnnotation`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object_annotations#code-examples). 
 
-```
+```python
     def put_object_annotation(
         self,
         bucket_name: str,

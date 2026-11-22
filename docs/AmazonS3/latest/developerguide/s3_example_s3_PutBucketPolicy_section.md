@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketPolicy` with an AWS SDK or CLI
-<a name="s3_example_s3_PutBucketPolicy_section"></a>
 
 The following code examples show how to use `PutBucketPolicy`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `PutBucketPolicy`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::putBucketPolicy(const Aws::String &bucketName,
                                  const Aws::String &policyBody,
                                  const Aws::S3::S3ClientConfiguration &clientConfig) {
@@ -126,7 +125,7 @@ For more information, see [Bucket policies for Amazon S3](https://docs.aws.amazo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutBucketPolicyRequest;
 import software.amazon.awssdk.services.s3.model.S3Exception;
@@ -249,7 +248,7 @@ public class SetBucketPolicy {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Add the policy.  
 
-```
+```javascript
 import {
   PutBucketPolicyCommand,
   S3Client,
@@ -315,7 +314,7 @@ export const main = async ({ bucketName, iamRoleArn }) => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -350,7 +349,7 @@ class BucketWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
 # Wraps an Amazon S3 bucket policy.
 class BucketPolicyWrapper
   attr_reader :bucket_policy
@@ -380,7 +379,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Example policy JSON string
         " iv_policy = '{"Version":"2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/user"},"Action":["s3:GetObject"],"Resource":["arn:aws:s3:::bucketname/*"]}]}'

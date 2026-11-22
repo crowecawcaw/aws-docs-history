@@ -1,7 +1,6 @@
 
 
 # Specifying the Signature Version in request authentication
-<a name="specify-signature-version"></a>
 
  Amazon S3 supports only AWS Signature Version 4 in most AWS Regions. In some of the older AWS Regions, Amazon S3 supports both Signature Version 4 and Signature Version 2. However, Signature Version 2 is being turned off (deprecated). For more information about the end of support for Signature Version 2, see [AWS Signature Version 2 turned off (deprecated) for Amazon S3](#UsingAWSSDK-sig2-deprecation).
 
@@ -70,12 +69,12 @@ If you currently use Signature Version 2 for Amazon S3 API request authenticatio
 
 For information about using Signature Version 4 with the Amazon S3 REST API, see [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) in the *Amazon Simple Storage Service API Reference*.
 
-The following table lists the SDKs with the necessary minimum version to use Signature Version 4 (SigV4). If you are using presigned URLs with the AWS Java, JavaScript (Node.js), or Python (Boto/CLI) SDKs, you must set the correct AWS Region and set Signature Version 4 in the client configuration. For information about setting `SigV4` in the client configuration, see [Specifying the Signature Version in request authentication](#specify-signature-version).
+The following table lists the SDKs with the necessary minimum version to use Signature Version 4 (SigV4). If you are using presigned URLs with the AWS Java, JavaScript (Node.js), or Python (Boto/CLI) SDKs, you must set the correct AWS Region and set Signature Version 4 in the client configuration. For information about setting `SigV4` in the client configuration, see [Specifying the Signature Version in request authentication](specify-signature-version.md).
 
 
 | If you use this SDK/Product | Upgrade to this SDK version | Code change needed to the client to use Sigv4? | Link to SDK documentation | 
 | --- | --- | --- | --- | 
-| AWS SDK for Java v1 | Upgrade to Java 1.11.201\+ or v2. | Yes | [Specifying the Signature Version in request authentication](#specify-signature-version) | 
+| AWS SDK for Java v1 | Upgrade to Java 1.11.201\+ or v2. | Yes | [Specifying the Signature Version in request authentication](specify-signature-version.md) | 
 | AWS SDK for Java v2 | No SDK upgrade is needed. | No | [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/) | 
 | AWS SDK for .NET v1  | Upgrade to 3.1.10 or later. | Yes | [AWS SDK for .NET](https://github.com/aws/aws-sdk-net/tree/aws-sdk-net-v1/) | 
 | AWS SDK for .NET v2  | Upgrade to 3.1.10 or later. | No | [AWS SDK for .NET v2](https://github.com/aws/aws-sdk-net/tree/aws-sdk-net-v2/) | 

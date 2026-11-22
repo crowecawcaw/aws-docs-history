@@ -1,7 +1,6 @@
 
 
 # POST Object restore
-<a name="RESTObjectPOSTrestore"></a>
 
 ## Description
 <a name="RESTObjectPOSTrestore-description"></a>
@@ -27,17 +26,17 @@ When making a select request, do the following:
 + Define the SQL expression for the `SELECT` type of restoration for your query in the request body's `SelectParameters` structure. You can use expressions like the following examples.
   + The following expression returns all records from the specified object.
 
-    ```
+    ```SQL
     SELECT * FROM Object
     ```
   + Assuming that you are not using any headers for data stored in the object, you can specify columns with positional headers.
 
-    ```
+    ```SQL
     SELECT s._1, s._2 FROM Object s WHERE s._3 > 100
     ```
   + If you have headers and you set the `fileHeaderInfo` in the `CSV` structure in the request body to `USE`, you can specify headers in the query. (If you set the `fileHeaderInfo` field to `IGNORE`, the first row is skipped for the query.) You cannot mix ordinal positions with header column names. 
 
-    ```
+    ```SQL
     SELECT s.Id, s.FirstName, s.SSN FROM S3Object s
     ```
 
@@ -82,7 +81,7 @@ If your bucket has a lifecycle configuration with a rule that includes an expira
 ### Syntax
 <a name="RESTObjectPOSTrestore-requests-syntax"></a>
 
-```
+```http
 1. POST /{{ObjectName}}?restore&versionId={{VersionID}} HTTP/1.1
 2. Host: {{BucketName}}.s3.amazonaws.com
 3. Date: {{date}}
@@ -338,7 +337,7 @@ This operation does not return response elements.
 
 The following restore request restores a copy of the `photo1.jpg` object from Amazon Glacier for a period of two days using the expedited retrieval option.
 
-```
+```http
  1. POST /photo1.jpg?restore HTTP/1.1
  2. Host: examplebucket.s3.amazonaws.com
  3. Date: Mon, 22 Oct 2012 01:49:52 GMT
@@ -355,7 +354,7 @@ The following restore request restores a copy of the `photo1.jpg` object from Am
 
 If the `examplebucket` does not have a restored copy of the object, Amazon S3 returns the following `202 Accepted` response. 
 
-```
+```http
 HTTP/1.1 202 Accepted
 x-amz-id-2: GFihv3y6+kE7KG11GEkQhU7/2/cHR3Yb2fCb2S04nxI423Dqwg2XiQ0B/UZlzYQvPiBlZNRcovw=
 x-amz-request-id: 9F341CD3C4BA79E0
@@ -371,7 +370,7 @@ If a copy of the object is already restored, Amazon S3 returns a `200 OK` respon
 
 The following is an example select restore request.
 
-```
+```http
  1. POST /object-one.csv?restore HTTP/1.1
  2. Host: examplebucket.s3.amazonaws.com
  3. Date: Date: Sat, 20 Oct 2012 23:54:05 GMT
@@ -435,7 +434,7 @@ The following is an example select restore request.
 
  Amazon S3 returns the following `202 Accepted` response. 
 
-```
+```http
 1. HTTP/1.1 202 Accepted
 2. x-amz-id-2: GFihv3y6+kE7KG11GEkQhU7/2/cHR3Yb2fCb2S04nxI423Dqwg2XiQ0B/UZlzYQvPiBlZNRcovw=
 3. x-amz-request-id: 9F341CD3C4BA79E0

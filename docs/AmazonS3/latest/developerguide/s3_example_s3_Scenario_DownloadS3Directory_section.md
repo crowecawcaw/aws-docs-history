@@ -1,7 +1,6 @@
 
 
 # Download S3 'directories' from an Amazon Simple Storage Service (Amazon S3) bucket
-<a name="s3_example_s3_Scenario_DownloadS3Directory_section"></a>
 
 The following code example shows how to download and filter the contents of Amazon S3 bucket 'directories'.
 
@@ -12,7 +11,7 @@ The following code example shows how to download and filter the contents of Amaz
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 This example show how to use the [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) in the AWS SDK for Java 2.x to download 'directories' from an Amazon S3 bucket. It also demonstrates how to use [DownloadFilters](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/config/DownloadFilter.html) in the request.  
 
-```
+```java
     /**
      * For standard buckets, S3 provides the illusion of a directory structure through the use of keys. When you upload
      * an object to an S3 bucket, you specify a key, which is essentially the "path" to the object. The key can contain

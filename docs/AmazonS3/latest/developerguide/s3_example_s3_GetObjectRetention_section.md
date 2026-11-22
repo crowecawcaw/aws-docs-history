@@ -1,7 +1,6 @@
 
 
 # Use `GetObjectRetention` with an AWS SDK or CLI
-<a name="s3_example_s3_GetObjectRetention_section"></a>
 
 The following code examples show how to use `GetObjectRetention`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get the retention period for an S3 object.
     /// </summary>
@@ -77,7 +76,7 @@ For more information, see [Locking objects with Object Lock](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -140,7 +139,7 @@ func (actor S3Actions) GetObjectRetention(ctx context.Context, bucket string, ke
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
     // Get the retention period for an S3 object.
     public ObjectLockRetention getObjectRetention(String bucketName, String key){
         try {
@@ -167,7 +166,7 @@ func (actor S3Actions) GetObjectRetention(ctx context.Context, bucket string, ke
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 
-```
+```javascript
 import {
   GetObjectRetentionCommand,
   S3Client,
@@ -249,7 +248,7 @@ if (isMain(import.meta.url)) {
 **Tools for PowerShell V4**  
 **Example 1: The command returns the mode and date till the object would be retained.**  
 
-```
+```powershell
 Get-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt'
 ```
 +  For API details, see [GetObjectRetention](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -257,7 +256,7 @@ Get-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt'
 **Tools for PowerShell V5**  
 **Example 1: The command returns the mode and date till the object would be retained.**  
 
-```
+```powershell
 Get-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt'
 ```
 +  For API details, see [GetObjectRetention](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

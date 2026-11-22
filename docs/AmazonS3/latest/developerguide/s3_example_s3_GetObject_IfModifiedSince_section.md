@@ -1,7 +1,6 @@
 
 
 # Get an object from an Amazon S3 bucket using an AWS SDK, specifying an If-Modified-Since header
-<a name="s3_example_s3_GetObject_IfModifiedSince_section"></a>
 
 The following code example shows how to read data from an object in an S3 bucket, but only if that bucket has not been modified since the last retrieval time.
 
@@ -11,7 +10,7 @@ The following code example shows how to read data from an object in an S3 bucket
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 use aws_sdk_s3::{
     error::SdkError,
     primitives::{ByteStream, DateTime, DateTimeFormat},

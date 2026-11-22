@@ -1,7 +1,6 @@
 
 
 # Get started with encryption for Amazon S3 objects using an AWS SDK
-<a name="s3_example_s3_Encryption_section"></a>
 
 The following code example shows how to get started with encryption for Amazon S3 objects.
 
@@ -11,7 +10,7 @@ The following code example shows how to get started with encryption for Amazon S
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/SSEClientEncryptionExample#code-examples). 
 
-```
+```csharp
     using System;
     using System.IO;
     using System.Security.Cryptography;

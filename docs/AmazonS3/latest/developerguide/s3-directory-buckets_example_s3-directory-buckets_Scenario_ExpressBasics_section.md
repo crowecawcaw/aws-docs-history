@@ -1,7 +1,6 @@
 
 
 # Learn the basics of S3 Directory Buckets with an AWS SDK
-<a name="s3-directory-buckets_example_s3-directory-buckets_Scenario_ExpressBasics_section"></a>
 
 The following code examples show how to:
 + Set up a VPC and VPC Endpoint.
@@ -20,7 +19,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Run an interactive scenario demonstrating Amazon S3 features.  
 
-```
+```java
 public class S3DirectoriesScenario {
 
     public static final String DASHES = new String(new char[80]).replace("\0", "-");
@@ -590,7 +589,7 @@ public class S3DirectoriesScenario {
 ```
 A wrapper class for Amazon S3 SDK methods.  
 
-```
+```java
 public class S3DirectoriesActions {
 
     private static IamAsyncClient iamAsyncClient;
@@ -1110,7 +1109,7 @@ public class S3DirectoriesActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3/express#code-examples). 
 Run a scenario demonstrating the basics of Amazon S3 directory buckets and S3 Express One Zone.  
 
-```
+```php
         echo "\n";
         echo "--------------------------------------\n";
         echo "Welcome to the Amazon S3 Express Basics demo using PHP!\n";
@@ -1679,7 +1678,7 @@ class S3Service extends AWSServiceClass
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3-directory-buckets/#code-examples). 
 Run a scenario demonstrating the basics of Amazon S3 directory buckets and S3 Express One Zone.   
 
-```
+```python
 class S3ExpressScenario:
     """Runs an interactive scenario that shows how to get started with S3 Express."""
 
@@ -2257,7 +2256,7 @@ creates directories and uses the object "key" as a path to the object.
 ```
 A wrapper class for Amazon S3 Express SDK functions.  
 
-```
+```python
 class S3ExpressWrapper:
     """Encapsulates Amazon S3 Express One Zone actions using the client interface."""
 

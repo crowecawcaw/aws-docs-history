@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketRequestPayment` with a CLI
-<a name="s3_example_s3_PutBucketRequestPayment_section"></a>
 
 The following code examples show how to use `PutBucketRequestPayment`.
 
@@ -37,7 +36,7 @@ For more information, see [Using Requester Pays general purpose buckets for stor
 **Tools for PowerShell V4**  
 **Example 1: Updates the request payment configuration for the bucket named 'amzn-s3-demo-bucket' so that the person requesting downloads from the bucket will be charged for the download. By default the bucket owner pays for downloads. To set the request payment back to the default use 'BucketOwner' for the RequestPaymentConfiguration\_Payer parameter.**  
 
-```
+```powershell
 Write-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket -RequestPaymentConfiguration_Payer Requester
 ```
 +  For API details, see [PutBucketRequestPayment](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -45,7 +44,7 @@ Write-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket -RequestPaymentConf
 **Tools for PowerShell V5**  
 **Example 1: Updates the request payment configuration for the bucket named 'amzn-s3-demo-bucket' so that the person requesting downloads from the bucket will be charged for the download. By default the bucket owner pays for downloads. To set the request payment back to the default use 'BucketOwner' for the RequestPaymentConfiguration\_Payer parameter.**  
 
-```
+```powershell
 Write-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket -RequestPaymentConfiguration_Payer Requester
 ```
 +  For API details, see [PutBucketRequestPayment](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

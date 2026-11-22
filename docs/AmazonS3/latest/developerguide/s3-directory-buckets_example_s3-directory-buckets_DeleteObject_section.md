@@ -1,7 +1,6 @@
 
 
 # Use `DeleteObject` with an AWS SDK
-<a name="s3-directory-buckets_example_s3-directory-buckets_DeleteObject_section"></a>
 
 The following code example shows how to use `DeleteObject`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples). 
 Delete an object in a directory bucket.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.regions.Region;

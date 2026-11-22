@@ -1,7 +1,6 @@
 
 
 # Authenticating requests using the REST API (AWS signature version 2)
-<a name="S3_Authentication2"></a>
 
 When accessing Amazon S3 using REST, you must provide the following items in your request so the request can be authenticated: 
 

@@ -1,7 +1,6 @@
 
 
 # Supported Amazon S3 object-level API operations for S3 Tables
-<a name="developing-s3-tables-APIs"></a>
 
  The following table includes supported S3 object-level API operations and corresponding headers for S3 Tables. For a list of Amazon S3 Tables APIs, see [Amazon S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Operations_Amazon_S3_Tables.html). For more information about Amazon S3 Tables, see [Working with Amazon S3 Tables and table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables.html) in the *Amazon S3 User Guide*.
 

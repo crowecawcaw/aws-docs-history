@@ -1,7 +1,6 @@
 
 
 # Appendix: OPTIONS object
-<a name="RESTOPTIONSobject"></a>
 
 ## Description
 <a name="RESTOPTIONSobject-description"></a>
@@ -20,7 +19,7 @@ If `cors` is not enabled on the bucket, then Amazon S3 returns a `403 Forbidden`
 ### Syntax
 <a name="RESTOPTIONSobject-requests-syntax"></a>
 
-```
+```http
 1. OPTIONS /{{ObjectName}} HTTP/1.1
 2. Host: {{BucketName}}.s3.amazonaws.com 
 3. Origin: {{Origin}}
@@ -79,7 +78,7 @@ This implementation of the operation does not return response elements.
 #### Sample Request
 <a name="RESTOPTIONSobject-examples-example-1-configure-cors---single-rule-sample-request"></a>
 
-```
+```http
 1. OPTIONS /exampleobject HTTP/1.1
 2. Host: examplebucket.s3.amazonaws.com 
 3. Origin: http://www.example.com
@@ -89,7 +88,7 @@ This implementation of the operation does not return response elements.
 #### Sample Response
 <a name="RESTOPTIONSobject-examples-example-1-configure-cors---single-rule-sample-response"></a>
 
-```
+```http
  1. HTTP/1.1 200 OK
  2. x-amz-id-2: 6SvaESv3VULYPLik5LLl7lSPPtSnBvDdGmnklX1HfUl7uS2m1DF6td6KWKNjYMXZ
  3. x-amz-request-id: BDC4B83DF5096BBE

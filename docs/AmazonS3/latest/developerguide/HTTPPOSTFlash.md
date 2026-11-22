@@ -1,7 +1,6 @@
 
 
 # POST with adobe flash (AWS signature version 2)
-<a name="HTTPPOSTFlash"></a>
 
 This section describes how to use `POST` with Adobe Flash.
 
@@ -12,7 +11,7 @@ By default, the Adobe Flash Player security model prohibits Adobe Flash Players 
 
 To override the default, you must upload a publicly readable crossdomain.xml file to the bucket that will accept POST uploads. The following is a sample crossdomain.xml file.
 
-```
+```xml
 1. <?xml version="1.0"?>
 2. <!DOCTYPE cross-domain-policy SYSTEM
 3. "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
@@ -30,7 +29,7 @@ Adding the crossdomain.xml file to your bucket allows any Adobe Flash Player to 
 
  The FileReference API in Adobe Flash adds the `Filename` form field to the POST request. When you build Adobe Flash applications that upload to Amazon S3 by using the FileReference API action, include the following condition in your policy: 
 
-```
+```json
 1. ['starts-with', '$Filename', '']
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Use `DeleteJobTagging` with an AWS SDK
-<a name="s3-control_example_s3-control_DeleteJobTagging_section"></a>
 
 The following code examples show how to use `DeleteJobTagging`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples). 
 
-```
+```java
     /**
      * Asynchronously deletes the tags associated with a specific batch job.
      *
@@ -46,7 +45,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples). 
 
-```
+```python
     def delete_job_tags(self, job_id: str, account_id: str) -> None:
         """
         Delete all tags from a batch job.
@@ -73,7 +72,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_s3c->deletejobtagging(
           iv_accountid = iv_account_id

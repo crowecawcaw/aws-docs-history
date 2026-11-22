@@ -1,7 +1,6 @@
 
 
 # Use `HeadBucket` with an AWS SDK or CLI
-<a name="s3_example_s3_HeadBucket_section"></a>
 
 The following code examples show how to use `HeadBucket`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `HeadBucket`.
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function bucket_exists
 #
@@ -57,6 +56,7 @@ Output:
 
 ```
 {
+    "BucketArn": "arn:aws:s3:::amzn-s3-demo-bucket",
     "BucketRegion": "us-west-2",
     "AccessPointAlias": false
 }
@@ -75,7 +75,7 @@ For more information, see [General purpose buckets overview](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -137,7 +137,7 @@ func (basics BucketBasics) BucketExists(ctx context.Context, bucketName string) 
 **Tools for PowerShell V5**  
 **Example 1: This command returns the output with HTTP status code 200 OK for existing bucket when user has permission to access it. BucketArn parameter is only supported for S3 directory buckets.**  
 
-```
+```powershell
 Get-S3HeadBucket -BucketName amzn-s3-demo-bucket
 ```
 **Output:**  
@@ -154,7 +154,7 @@ HttpStatusCode     : OK
 ```
 **Example 2: This command throws error with HTTP status code NotFound for non-existent bucket.**  
 
-```
+```powershell
 Get-S3HeadBucket -BucketName amzn-s3-non-existing-bucket
 ```
 **Output:**  
@@ -164,7 +164,7 @@ Get-S3HeadBucket: Error making request with Error Code NotFound and Http Status 
 ```
 **Example 3: This command throws error with HTTP status code Forbidden for existing bucket where user does not have permission to access it.**  
 
-```
+```powershell
 Get-S3HeadBucket -BucketName amzn-s3-no-access-bucket
 ```
 **Output:**  
@@ -180,7 +180,7 @@ Get-S3HeadBucket: Error making request with Error Code Forbidden and Http Status
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -219,7 +219,7 @@ class BucketWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->headbucket(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name ).

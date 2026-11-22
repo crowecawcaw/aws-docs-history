@@ -1,7 +1,6 @@
 
 
 # Use `ListObjectsV2` with an AWS SDK or CLI
-<a name="s3_example_s3_ListObjectsV2_section"></a>
 
 The following code examples show how to use `ListObjectsV2`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Shows how to list the objects in an Amazon S3 bucket.
     /// </summary>
@@ -77,7 +76,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 List objects with a paginator.  
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.S3;
@@ -133,7 +132,7 @@ List objects with a paginator.
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -185,7 +184,7 @@ function list_items_in_bucket() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::listObjects(const Aws::String &bucketName,
                              Aws::Vector<Aws::String> &keysResult,
                              const Aws::S3::S3ClientConfiguration &clientConfig) {
@@ -285,7 +284,7 @@ For more information, see [Listing object keys programmatically](https://docs.aw
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -346,7 +345,7 @@ func (basics BucketBasics) ListObjects(ctx context.Context, bucketName string) (
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
     /**
      * Asynchronously lists all objects in the specified S3 bucket.
      *
@@ -373,7 +372,7 @@ func (basics BucketBasics) ListObjects(ctx context.Context, bucketName string) (
 ```
 List objects using pagination.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
@@ -440,7 +439,7 @@ public class ListObjectsPaginated {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 List all of the objects in your bucket. If there is more than one object, IsTruncated and NextContinuationToken will be used to iterate over the full list.  
 
-```
+```javascript
 import {
   S3Client,
   S3ServiceException,
@@ -496,7 +495,7 @@ export const main = async ({ bucketName, pageSize }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun listBucketObjects(bucketName: String) {
     val request =
         ListObjectsRequest {
@@ -524,7 +523,7 @@ private fun calKb(intValue: Long): Long = intValue / 1024
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 List objects in a bucket.  
 
-```
+```php
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
 
         try {
@@ -548,7 +547,7 @@ List objects in a bucket.
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class ObjectWrapper:
     """Encapsulates S3 object actions."""
 
@@ -592,7 +591,7 @@ class ObjectWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 bucket actions.
@@ -642,7 +641,7 @@ run_demo if $PROGRAM_NAME == __FILE__
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 pub async fn list_objects(client: &aws_sdk_s3::Client, bucket: &str) -> Result<(), S3ExampleError> {
     let mut response = client
         .list_objects_v2()
@@ -675,7 +674,7 @@ pub async fn list_objects(client: &aws_sdk_s3::Client, bucket: &str) -> Result<(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->listobjectsv2(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name ).
@@ -692,7 +691,7 @@ pub async fn list_objects(client: &aws_sdk_s3::Client, bucket: &str) -> Result<(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
-```
+```swift
 import AWSS3
 
     public func listBucketFiles(bucket: String) async throws -> [String] {

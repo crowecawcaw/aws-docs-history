@@ -1,7 +1,6 @@
 
 
 # PUT Bucket lifecycle (Deprecated)
-<a name="v1-rel-RESTBucketPUTlifecycle"></a>
 
 ## Description
 <a name="v1-rel-RESTBucketPUTlifecycle-description"></a>
@@ -31,7 +30,7 @@ For more information about permissions, see [Managing Access Permissions to Your
 ### Syntax
 <a name="v1-rel-RESTBucketPUTlifecycle-requests-syntax"></a>
 
-```
+```http
 1. PUT /?lifecycle HTTP/1.1
 2. Host: {{bucketname}}.s3.amazonaws.com
 3. Content-Length: {{length}}
@@ -62,7 +61,7 @@ This implementation of the operation does not use request parameters.
 
 In the request, you specify the lifecycle configuration in the request body. The lifecycle configuration is specified as XML. The following is an example of a basic lifecycle configuration. It specifies one rule. The `Prefix` in the rule identifies objects to which the rule applies. The rule also specifies two actions (`Transition`and `Expiration`). Each action specifies a timeline when Amazon S3 should perform the action. The `Status` indicates whether the rule is enabled or disabled.
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
         <ID>sample-rule</ID>
@@ -81,7 +80,7 @@ In the request, you specify the lifecycle configuration in the request body. The
 
 If the state of your bucket is versioning-enabled or versioning-suspended, you can have many versions of the same object: one current version and zero or more noncurrent versions. The following lifecycle configuration specifies the actions (`NoncurrentVersionTransition`, `NoncurrentVersionExpiration`) that are specific to noncurrent object versions.
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
         <ID>sample-rule</ID>
@@ -102,7 +101,7 @@ You can use the multipart upload API to upload large objects in parts. For more 
 
  
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
         <ID>sample-rule</ID>
@@ -165,7 +164,7 @@ The following lifecycle configuration specifies two rules, each with one action.
 + The Transition action tells Amazon S3 to transition objects with the "documents/" prefix to the storage class 30 days after creation.
 + The Expiration action tells Amazon S3 to delete objects with the "logs/" prefix 365 days after creation.
 
-```
+```xml
  1. <LifecycleConfiguration>
  2.   <Rule>
  3.     <ID>id1</ID>
@@ -189,7 +188,7 @@ The following lifecycle configuration specifies two rules, each with one action.
 
 The following is a sample `PUT /?lifecycle` request that adds the preceding lifecycle configuration to the `examplebucket` bucket.
 
-```
+```http
  1. PUT /?lifecycle HTTP/1.1
  2. Host: examplebucket.s3.amazonaws.com 
  3. x-amz-date: Wed, 14 May 2014 02:11:21 GMT
@@ -222,7 +221,7 @@ The following is a sample response.
 
  
 
-```
+```http
 1. HTTP/1.1 200 OK
 2. x-amz-id-2: r+qR7+nhXtJDDIJ0JJYcd+1j5nM/rUFiiiZ/fNbDOsd3JUE8NWMLNHXmvPfwMpdc
 3. x-amz-request-id: 9E26D08072A8EF9E
@@ -238,7 +237,7 @@ The following lifecycle configuration specifies two rules, each with one action 
 + The `NoncurrentVersionExpiration` action tells Amazon S3 to expire noncurrent versions of objects with the "logs/" prefix 100 days after the objects become noncurrent. 
 + The `NoncurrentVersionTransition` action tells Amazon S3 to transition noncurrent versions of objects with the "documents/" prefix to the storage class 30 days after they become noncurrent.
 
-```
+```xml
  1. <LifeCycleConfiguration>
  2.   <Rule>
  3.     <ID>DeleteAfterBecomingNonCurrent</ID>
@@ -262,7 +261,7 @@ The following lifecycle configuration specifies two rules, each with one action 
 
 The following is a sample `PUT /?lifecycle` request that adds the preceding lifecycle configuration to the `examplebucket` bucket.
 
-```
+```http
  1. PUT /?lifecycle HTTP/1.1
  2. Host: examplebucket.s3.amazonaws.com 
  3. x-amz-date: Wed, 14 May 2014 02:21:48 GMT
@@ -293,7 +292,7 @@ The following is a sample `PUT /?lifecycle` request that adds the preceding life
 
 The following is a sample response.
 
-```
+```http
 1. HTTP/1.1 200 OK
 2. x-amz-id-2: aXQ+KbIrmMmoO//3bMdDTw/CnjArwje+J49Hf+j44yRb/VmbIkgIO5A+PT98Cp/6k07hf+LD2mY=
 3. x-amz-request-id: 02D7EC4C10381EB1

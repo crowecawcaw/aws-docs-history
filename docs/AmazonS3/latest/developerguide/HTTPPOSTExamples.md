@@ -1,7 +1,6 @@
 
 
 # Upload examples (AWS signature version 2)****
-<a name="HTTPPOSTExamples"></a>
 
 **Topics**
 + [File upload](#HTTPPOSTExamplesFileUpload)
@@ -21,7 +20,7 @@ This example shows the complete process for constructing a policy and form that 
 
 The following policy supports uploads to Amazon S3 for the awsexamplebucket1 bucket.
 
-```
+```json
  1. { "expiration": "2007-12-01T12:00:00.000Z",
  2.   "conditions": [
  3.     {"bucket": "awsexamplebucket1"},
@@ -55,7 +54,7 @@ Using your credentials create a signature, for example `0RavWzkygo6QX9caELEqKi9k
 
 The following form supports a POST request to the amzn-s3-demo-bucket bucket that uses this policy.
 
-```
+```xml
  1. <html>
  2.   <head>
  3.     ...
@@ -87,7 +86,7 @@ The following form supports a POST request to the amzn-s3-demo-bucket bucket tha
 
 This request assumes that the image uploaded is 117,108 bytes; the image data is not included.
 
-```
+```http
  1. POST / HTTP/1.1
  2. Host: awsexamplebucket1.s3.us-west-1.amazonaws.com
  3. User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.10) Gecko/20071115 Firefox/2.0.0.10
@@ -151,7 +150,7 @@ This request assumes that the image uploaded is 117,108 bytes; the image data is
 ### Sample response
 <a name="HTTPPOSTExamplesFileUploadResponse"></a>
 
-```
+```http
 1. HTTP/1.1 303 Redirect
 2. x-amz-request-id: 1AEE782442F35865
 3. x-amz-id-2: cxzFLJRatFHy+NGtaDFRR8YvI9BHmgLxjvJzNiGGICARZ/mVXHj7T+qQKhdpzHFh
@@ -177,7 +176,7 @@ The following example shows the complete process for constructing a policy and f
 
 The following policy supports text area uploads to Amazon S3 for the awsexamplebucket1 bucket.
 
-```
+```json
  1. { "expiration": "2007-12-01T12:00:00.000Z",
  2.   "conditions": [
  3.     {"bucket": "awsexamplebucket1"},
@@ -216,7 +215,7 @@ Using your credentials, create a signature. For example, `qA7FWXKq6VvU68lI9KdveT
 
 The following form supports a POST request to the amzn-s3-demo-bucket bucket that uses this policy.
 
-```
+```xml
  1. <html>
  2.   <head>
  3.     ...
@@ -252,7 +251,7 @@ The following form supports a POST request to the amzn-s3-demo-bucket bucket tha
 
 This request assumes that the image uploaded is 117,108 bytes; the image data is not included.
 
-```
+```http
  1. POST / HTTP/1.1
  2. Host: awsexamplebucket1.s3.us-west-1.amazonaws.com
  3. User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.10) Gecko/20071115 Firefox/2.0.0.10
@@ -315,7 +314,7 @@ This request assumes that the image uploaded is 117,108 bytes; the image data is
 ### Sample response
 <a name="HTTPPOSTExamplesTextAreaResponse"></a>
 
-```
+```http
 1. HTTP/1.1 303 Redirect
 2. x-amz-request-id: 1AEE782442F35865
 3. x-amz-id-2: cxzFLJRatFHy+NGtaDFRR8YvI9BHmgLxjvJzNiGGICARZ/mVXHj7T+qQKhdpzHFh

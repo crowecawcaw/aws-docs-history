@@ -1,7 +1,6 @@
 
 
 # Use `DeleteBucketInventoryConfiguration` with a CLI
-<a name="s3_example_s3_DeleteBucketInventoryConfiguration_section"></a>
 
 The following code examples show how to use `DeleteBucketInventoryConfiguration`.
 
@@ -27,7 +26,7 @@ For more information, see [Cataloging and analyzing your data with S3 Inventory]
 **Tools for PowerShell V4**  
 **Example 1: This command removes the invventory named 'testInventoryName' corresponding to the given S3 bucket.**  
 
-```
+```powershell
 Remove-S3BucketInventoryConfiguration -BucketName 'amzn-s3-demo-bucket' -InventoryId 'testInventoryName'
 ```
 **Output:**  
@@ -43,7 +42,7 @@ Performing the operation "Remove-S3BucketInventoryConfiguration (DeleteBucketInv
 **Tools for PowerShell V5**  
 **Example 1: This command removes the invventory named 'testInventoryName' corresponding to the given S3 bucket.**  
 
-```
+```powershell
 Remove-S3BucketInventoryConfiguration -BucketName 'amzn-s3-demo-bucket' -InventoryId 'testInventoryName'
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # POST Object
-<a name="RESTObjectPOST"></a>
 
 ## Description
 <a name="RESTObjectPOST-description"></a>
@@ -28,7 +27,7 @@ When constructing your request, make sure that the `file` field is the last fiel
 ### Syntax
 <a name="RESTObjectPOST-requests-syntax"></a>
 
-```
+```http
  1. POST / HTTP/1.1
  2. Host: {{destinationBucket}}.s3.amazonaws.com
  3. User-Agent: {{browser_data}}
@@ -227,7 +226,7 @@ This implementation of the operation does not return special errors. For general
 ### Sample Request
 <a name="ExampleVersionObjectPost"></a>
 
-```
+```http
 1. POST /Neo HTTP/1.1
 2. Content-Length: 4
 3. Host: quotes.s3.amazonaws.com
@@ -244,7 +243,7 @@ This implementation of the operation does not return special errors. For general
 
 The following is a sample response when bucket versioning is suspended:
 
-```
+```http
  1. HTTP/1.1 100 Continue
  2. HTTP/1.1 200 OK
  3. x-amz-id-2: LriYPLdmOdAiIfgSm/F1YsViT1LW94/xUQxMsF7xiEb1a0wiIOIxl+zbwZ163pt7
@@ -264,7 +263,7 @@ In this response, the version ID is `null`.
 
 The following is a sample response when bucket versioning is enabled.
 
-```
+```http
  1. HTTP/1.1 100 Continue
  2. HTTP/1.1 200 OK
  3. x-amz-id-2: LriYPLdmOdAiIfgSm/F1YsViT1LW94/xUQxMsF7xiEb1a0wiIOIxl+zbwZ163pt7
@@ -280,5 +279,5 @@ The following is a sample response when bucket versioning is enabled.
 ## Related Resources
 <a name="RESTObjectPOST-requests-related-resources"></a>
 +  [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) 
-+  [POST Object](#RESTObjectPOST) 
++  [POST Object](RESTObjectPOST.md) 
 +  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) 

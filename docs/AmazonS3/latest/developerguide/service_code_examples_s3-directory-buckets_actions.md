@@ -1,7 +1,6 @@
 
 
 # Actions for S3 Directory Buckets using AWS SDKs
-<a name="service_code_examples_s3-directory-buckets_actions"></a>
 
 The following code examples demonstrate how to perform individual S3 Directory Buckets actions with AWS SDKs. Each example includes a link to GitHub, where you can find instructions for setting up and running the code. 
 

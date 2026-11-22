@@ -1,7 +1,6 @@
 
 
 # Use `PutBucketWebsite` with an AWS SDK or CLI
-<a name="s3_example_s3_PutBucketWebsite_section"></a>
 
 The following code examples show how to use `PutBucketWebsite`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `PutBucketWebsite`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
                 // Put the website configuration.
                 PutBucketWebsiteRequest putRequest = new PutBucketWebsiteRequest()
                 {
@@ -32,7 +31,7 @@ The following code examples show how to use `PutBucketWebsite`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::putWebsiteConfig(const Aws::String &bucketName,
                                   const Aws::String &indexPage, const Aws::String &errorPage,
                                   const Aws::S3::S3ClientConfiguration &clientConfig) {
@@ -103,7 +102,7 @@ For more information, see [Hosting a static website using Amazon S3](https://doc
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.IndexDocument;
 import software.amazon.awssdk.services.s3.model.PutBucketWebsiteRequest;
@@ -185,7 +184,7 @@ public class SetWebsiteConfiguration {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Set the website configuration.  
 
-```
+```javascript
 import {
   PutBucketWebsiteCommand,
   S3Client,
@@ -249,7 +248,7 @@ export const main = async ({ bucketName }) => {
 **Tools for PowerShell V4**  
 **Example 1: The command enables website hosting for the given bucket with the index document as 'index.html' and error document as 'error.html'.**  
 
-```
+```powershell
 Write-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket' -WebsiteConfiguration_IndexDocumentSuffix 'index.html' -WebsiteConfiguration_ErrorDocument 'error.html'
 ```
 +  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -257,7 +256,7 @@ Write-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket' -WebsiteConfiguration_In
 **Tools for PowerShell V5**  
 **Example 1: The command enables website hosting for the given bucket with the index document as 'index.html' and error document as 'error.html'.**  
 
-```
+```powershell
 Write-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket' -WebsiteConfiguration_IndexDocumentSuffix 'index.html' -WebsiteConfiguration_ErrorDocument 'error.html'
 ```
 +  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -268,7 +267,7 @@ Write-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket' -WebsiteConfiguration_In
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 bucket website actions.

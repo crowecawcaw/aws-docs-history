@@ -1,7 +1,6 @@
 
 
 # Download a stream of unknown size from an Amazon S3 object using an AWS SDK
-<a name="s3_example_s3_Scenario_DownloadStream_section"></a>
 
 The following code example shows how to download a stream of unknown size from an Amazon S3 object.
 
@@ -11,7 +10,7 @@ The following code example shows how to download a stream of unknown size from a
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples). 
 
-```
+```swift
 import ArgumentParser
 import AWSClientRuntime
 import AWSS3

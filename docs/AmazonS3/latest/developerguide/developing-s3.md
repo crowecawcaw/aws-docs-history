@@ -1,7 +1,6 @@
 
 
 # Developing with Amazon S3
-<a name="developing-s3"></a>
 
 This section covers developer-related topics for using Amazon S3. For more information, review the topics below.
 

@@ -1,7 +1,6 @@
 
 
 # Use `GetBucketLocation` with an AWS SDK or CLI
-<a name="s3_example_s3_GetBucketLocation_section"></a>
 
 The following code examples show how to use `GetBucketLocation`.
 
@@ -32,7 +31,7 @@ For more information, see [General purpose buckets overview](https://docs.aws.am
 **Tools for PowerShell V4**  
 **Example 1: This command returns the location constraint for the bucket 'amzn-s3-demo-bucket', if a constraint exists.**  
 
-```
+```powershell
 Get-S3BucketLocation -BucketName 'amzn-s3-demo-bucket'
 ```
 **Output:**  
@@ -47,7 +46,7 @@ ap-south-1
 **Tools for PowerShell V5**  
 **Example 1: This command returns the location constraint for the bucket 'amzn-s3-demo-bucket', if a constraint exists.**  
 
-```
+```powershell
 Get-S3BucketLocation -BucketName 'amzn-s3-demo-bucket'
 ```
 **Output:**  
@@ -65,7 +64,7 @@ ap-south-1
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 async fn show_buckets(
     strict: bool,
     client: &Client,

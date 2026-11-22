@@ -1,7 +1,6 @@
 
 
 # Authenticating Requests: Browser-Based Uploads Using POST (AWS Signature Version 4)
-<a name="sigv4-authentication-HTTPPOST"></a>
 
 Amazon S3 supports HTTP POST requests so that users can upload content directly to Amazon S3. Using HTTP POST to upload content simplifies uploads and reduces upload latency where users upload data to store in Amazon S3. This section describes how you authenticate HTTP POST requests. For more information about HTTP POST requests, how to create a form, create a POST policy, and an example, see [Browser-Based Uploads Using POST (AWS Signature Version 4)](sigv4-UsingHTTPPOST.md).
 

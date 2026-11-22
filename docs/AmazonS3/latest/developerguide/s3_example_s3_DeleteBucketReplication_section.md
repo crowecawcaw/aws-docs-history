@@ -1,7 +1,6 @@
 
 
 # Use `DeleteBucketReplication` with a CLI
-<a name="s3_example_s3_DeleteBucketReplication_section"></a>
 
 The following code examples show how to use `DeleteBucketReplication`.
 
@@ -26,7 +25,7 @@ For more information, see [Replicating objects within and across Regions](https:
 **Tools for PowerShell V4**  
 **Example 1: Deletes the replication configuration associated with the bucket named 'amzn-s3-demo-bucket'. Note that this operation requires permission for the s3:DeleteReplicationConfiguration action. You will be prompted for confirmation before the operation proceeds - to suppress confirmation, use the -Force switch.**  
 
-```
+```powershell
 Remove-S3BucketReplication -BucketName amzn-s3-demo-bucket
 ```
 +  For API details, see [DeleteBucketReplication](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Remove-S3BucketReplication -BucketName amzn-s3-demo-bucket
 **Tools for PowerShell V5**  
 **Example 1: Deletes the replication configuration associated with the bucket named 'amzn-s3-demo-bucket'. Note that this operation requires permission for the s3:DeleteReplicationConfiguration action. You will be prompted for confirmation before the operation proceeds - to suppress confirmation, use the -Force switch.**  
 
-```
+```powershell
 Remove-S3BucketReplication -BucketName amzn-s3-demo-bucket
 ```
 +  For API details, see [DeleteBucketReplication](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

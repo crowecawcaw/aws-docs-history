@@ -1,7 +1,6 @@
 
 
 # Making requests using the REST API
-<a name="RESTAPI"></a>
 
 This section contains information on how to make requests to Amazon S3 endpoints by using the REST API. For a list of Amazon S3 endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) in the *AWS General Reference*.
 
@@ -28,7 +27,7 @@ When making requests by using the REST API, you can use virtual hosted–style o
 **Example Virtual hosted–Style request**  
 Following is an example of a virtual hosted–style request to delete the `puppy.jpg` file from the bucket named `examplebucket` in the US West (Oregon) Region. For more information about virtual hosted-style requests, see [Path-style requests ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted-style-access).   
 
-```
+```http
 1. DELETE /puppy.jpg HTTP/1.1
 2. Host: examplebucket.s3.us-west-2.amazonaws.com
 3. Date: Mon, 11 Apr 2016 12:00:00 GMT
@@ -39,7 +38,7 @@ Following is an example of a virtual hosted–style request to delete the `puppy
 **Example Path-style request**  
 Following is an example of a path-style version of the same request.  
 
-```
+```http
 1. DELETE /examplebucket/puppy.jpg HTTP/1.1
 2. Host: s3.us-west-2.amazonaws.com
 3. Date: Mon, 11 Apr 2016 12:00:00 GMT
@@ -58,7 +57,7 @@ When using the REST API, you can directly access a dual-stack endpoint by using 
 **Example Virtual hosted–Style dual-stack endpoint request**  
 You can use a virtual hosted–style endpoint in your REST request as shown in the following example that retrieves the `puppy.jpg` object from the bucket named `examplebucket` in the US West (Oregon) Region.   
 
-```
+```http
 1. GET /puppy.jpg HTTP/1.1
 2. Host: examplebucket.s3.dualstack.us-west-2.amazonaws.com
 3. Date: Mon, 11 Apr 2016 12:00:00 GMT
@@ -69,7 +68,7 @@ You can use a virtual hosted–style endpoint in your REST request as shown in t
 **Example Path-style dual-stack endpoint request**  
 Or you can use a path-style endpoint in your request as shown in the following example.   
 
-```
+```http
 1. GET /examplebucket/puppy.jpg HTTP/1.1
 2. Host: s3.dualstack.us-west-2.amazonaws.com
 3. Date: Mon, 11 Apr 2016 12:00:00 GMT

@@ -1,7 +1,6 @@
 
 
 # Convert text to speech and back to text using an AWS SDK
-<a name="s3_example_cross_Telephone_section"></a>
 
 The following code example shows how to:
 + Use Amazon Polly to synthesize a plain text (UTF-8) input file to an audio file.

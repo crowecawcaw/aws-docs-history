@@ -1,7 +1,6 @@
 
 
 # Developing with Amazon S3 using the AWS SDKs
-<a name="sdk-general-information-section"></a>
 
 
 

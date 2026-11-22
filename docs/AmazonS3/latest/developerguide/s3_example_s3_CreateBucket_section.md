@@ -1,7 +1,6 @@
 
 
 # Use `CreateBucket` with an AWS SDK or CLI
-<a name="s3_example_s3_CreateBucket_section"></a>
 
 The following code examples show how to use `CreateBucket`.
 
@@ -20,7 +19,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Shows how to create a new Amazon S3 bucket.
     /// </summary>
@@ -53,7 +52,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 Create a bucket with object lock enabled.  
 
-```
+```csharp
     /// <summary>
     /// Create a new Amazon S3 bucket with object lock actions.
     /// </summary>
@@ -91,7 +90,7 @@ Create a bucket with object lock enabled.
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function iecho
 #
@@ -203,7 +202,7 @@ function create_bucket() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::createBucket(const Aws::String &bucketName,
                               const Aws::S3::S3ClientConfiguration &clientConfig) {
     Aws::S3::S3Client client(clientConfig);
@@ -296,7 +295,7 @@ For more information, see [Creating a bucket](https://docs.aws.amazon.com/Amazon
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 Create a bucket with default configuration.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -354,7 +353,7 @@ func (basics BucketBasics) CreateBucket(ctx context.Context, name string, region
 ```
 Create a bucket with object locking and wait for it to exist.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -423,7 +422,7 @@ func (actor S3Actions) CreateBucketWithLock(ctx context.Context, bucket string, 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Create a bucket.  
 
-```
+```java
     /**
      * Creates an S3 bucket asynchronously.
      *
@@ -459,7 +458,7 @@ Create a bucket.
 ```
 Create a bucket with object lock enabled.  
 
-```
+```java
     // Create a new Amazon S3 bucket with object lock options.
     public void createBucketWithLockOptions(boolean enableObjectLock, String bucketName) {
         S3Waiter s3Waiter = getClient().waiter();
@@ -487,7 +486,7 @@ Create a bucket with object lock enabled.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Create the bucket.  
 
-```
+```javascript
 import {
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
@@ -542,7 +541,7 @@ export const main = async ({ bucketName }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun createNewBucket(bucketName: String) {
     val request =
         CreateBucketRequest {
@@ -564,7 +563,7 @@ suspend fun createNewBucket(bucketName: String) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 Create a bucket.  
 
-```
+```php
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
 
         try {
@@ -587,7 +586,7 @@ Create a bucket.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 Create a bucket with default settings.  
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -628,7 +627,7 @@ class BucketWrapper:
 ```
 Create a versioned bucket with a lifecycle configuration.  
 
-```
+```python
 def create_versioned_bucket(bucket_name, prefix):
     """
     Creates an Amazon S3 bucket, enables it for versioning, and configures a lifecycle
@@ -705,7 +704,7 @@ def create_versioned_bucket(bucket_name, prefix):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 bucket actions.
@@ -764,7 +763,7 @@ run_demo if $PROGRAM_NAME == __FILE__
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 pub async fn create_bucket(
     client: &aws_sdk_s3::Client,
     bucket_name: &str,
@@ -803,7 +802,7 @@ pub async fn create_bucket(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         " determine our region from our session
         DATA(lv_region) = CONV /aws1/s3_bucketlocationcnstrnt( lo_session->get_region( ) ).
@@ -834,7 +833,7 @@ pub async fn create_bucket(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
-```
+```swift
 import AWSS3
 
     public func createBucket(name: String) async throws {

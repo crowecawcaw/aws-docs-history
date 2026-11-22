@@ -1,7 +1,6 @@
 
 
 # Use `ListBucketAnalyticsConfigurations` with a CLI
-<a name="s3_example_s3_ListBucketAnalyticsConfigurations_section"></a>
 
 The following code examples show how to use `ListBucketAnalyticsConfigurations`.
 
@@ -38,7 +37,7 @@ For more information, see [Amazon S3 analytics - Storage Class Analysis](https:/
 **Tools for PowerShell V4**  
 **Example 1: This command returns the first 100 analytics configurations of the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketAnalyticsConfigurationList -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -46,7 +45,7 @@ Get-S3BucketAnalyticsConfigurationList -BucketName 'amzn-s3-demo-bucket'
 **Tools for PowerShell V5**  
 **Example 1: This command returns the first 100 analytics configurations of the given S3 bucket.**  
 
-```
+```powershell
 Get-S3BucketAnalyticsConfigurationList -BucketName 'amzn-s3-demo-bucket'
 ```
 +  For API details, see [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

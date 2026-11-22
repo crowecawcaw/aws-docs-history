@@ -1,7 +1,6 @@
 
 
 # Work with Amazon S3 versioned objects using an AWS SDK
-<a name="s3_example_s3_Scenario_ObjectVersioningUsage_section"></a>
 
 The following code example shows how to:
 + Create a versioned S3 bucket.
@@ -17,7 +16,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_versioning#code-examples). 
 Create functions that wrap S3 actions.  
 
-```
+```python
 def create_versioned_bucket(bucket_name, prefix):
     """
     Creates an Amazon S3 bucket, enables it for versioning, and configures a lifecycle
@@ -197,7 +196,7 @@ def permanently_delete_object(bucket, object_key):
 ```
 Upload the stanza of a poem to a versioned object and perform a series of actions on it.  
 
-```
+```python
 def usage_demo_single_object(obj_prefix="demo-versioning/"):
     """
     Demonstrates usage of versioned object functions. This demo uploads a stanza

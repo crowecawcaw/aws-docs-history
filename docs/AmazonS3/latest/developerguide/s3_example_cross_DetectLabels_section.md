@@ -1,7 +1,6 @@
 
 
 # Save EXIF and other image information using an AWS SDK
-<a name="s3_example_cross_DetectLabels_section"></a>
 
 The following code example shows how to:
 + Get EXIF information from a a JPG, JPEG, or PNG file.

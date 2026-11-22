@@ -1,7 +1,6 @@
 
 
 # Browser-based uploads to Amazon S3 using the AWS Amplify library
-<a name="browser-based-uploads-aws-amplify"></a>
 
 This section describes how to upload files to Amazon S3 using the AWS Amplify JavaScript library.
 
@@ -15,7 +14,7 @@ The AWS Amplify library `Storage` module gives a simple browser-based upload mec
 **Example : AWS Amplify Manual Setup**  
 The following example shows the manual setup for using the AWS Amplify Storage module. The default implementation of the Storage module uses Amazon S3.   
 
-```
+```javascript
 import Amplify from 'aws-amplify';
 Amplify.configure(
     Auth: {
@@ -34,14 +33,14 @@ Amplify.configure(
 **Example : Put data into Amazon S3**  
 The following example shows how to `put` public data into Amazon S3.  
 
-```
+```javascript
 Storage.put('test.txt', 'Hello')
         .then (result => console.log(result))
         .catch(err => console.log(err));
 ```
 The following example shows how to `put` private data into Amazon S3.  
 
-```
+```javascript
 Storage.put('test.txt', 'Private Content', {
         level: 'private',
         contentType: 'text/plain'

@@ -1,7 +1,6 @@
 
 
 # Authenticating Requests (AWS Signature Version 4)
-<a name="sig-v4-authenticating-requests"></a>
 
 **Topics**
 + [Authentication Methods](#auth-methods-intro)

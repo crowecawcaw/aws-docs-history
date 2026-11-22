@@ -1,7 +1,6 @@
 
 
 # Use `PutObjectAcl` with an AWS SDK or CLI
-<a name="s3_example_s3_PutObjectAcl_section"></a>
 
 The following code examples show how to use `PutObjectAcl`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::putObjectAcl(const Aws::String &bucketName, const Aws::String &objectKey, const Aws::String &ownerID,
                               const Aws::String &granteePermission, const Aws::String &granteeType,
                               const Aws::String &granteeID, const Aws::String &granteeEmailAddress,
@@ -130,7 +129,7 @@ For more information, see [Access control list (ACL) overview](https://docs.aws.
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class ObjectWrapper:
     """Encapsulates S3 object actions."""
 
@@ -175,7 +174,7 @@ class ObjectWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Example: Grant read access to an AWS user
         " iv_grantread = 'emailAddress=user@example.com'

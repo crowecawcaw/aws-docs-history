@@ -1,7 +1,6 @@
 
 
 # Hello Amazon S3 directory buckets
-<a name="s3-directory-buckets_example_s3-directory-buckets_Hello_section"></a>
 
 The following code example shows how to get started using Amazon S3 directory buckets.
 
@@ -11,7 +10,7 @@ The following code example shows how to get started using Amazon S3 directory bu
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples). 
 
-```
+```java
 package com.example.s3.directorybucket;
 
 

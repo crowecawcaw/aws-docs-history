@@ -1,7 +1,6 @@
 
 
 # Hello Amazon S3 Control
-<a name="s3-control_example_s3-control_Hello_section"></a>
 
 The following code examples show how to get started using Amazon S3 Control.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Amazon S3 Control.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.core.retry.RetryMode;
@@ -136,7 +135,7 @@ public class HelloS3Batch {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples). 
 
-```
+```python
     def list_jobs(self, account_id: str) -> None:
         """
         List all batch jobs for the account.

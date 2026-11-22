@@ -1,7 +1,6 @@
 
 
 # Use `GetObjectLegalHold` with an AWS SDK or CLI
-<a name="s3_example_s3_GetObjectLegalHold_section"></a>
 
 The following code examples show how to use `GetObjectLegalHold`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get the legal hold details for an S3 object.
     /// </summary>
@@ -76,7 +75,7 @@ For more information, see [Locking objects with Object Lock](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -141,7 +140,7 @@ func (actor S3Actions) GetObjectLegalHold(ctx context.Context, bucket string, ke
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
     // Get the legal hold details for an S3 object.
     public ObjectLockLegalHold getObjectLegalHold(String bucketName, String objectKey) {
         try {
@@ -170,7 +169,7 @@ func (actor S3Actions) GetObjectLegalHold(ctx context.Context, bucket string, ke
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 
-```
+```javascript
 import {
   GetObjectLegalHoldCommand,
   S3Client,
@@ -254,7 +253,7 @@ if (isMain(import.meta.url)) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples). 
 Put an object legal hold.  
 
-```
+```python
 def get_legal_hold(s3_client, bucket: str, key: str) -> None:
     """
     Get the legal hold status of a specific file in a bucket.
@@ -291,7 +290,7 @@ def get_legal_hold(s3_client, bucket: str, key: str) -> None:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3->getobjectlegalhold(         " oo_result is returned for testing purposes. "
           iv_bucket = iv_bucket_name

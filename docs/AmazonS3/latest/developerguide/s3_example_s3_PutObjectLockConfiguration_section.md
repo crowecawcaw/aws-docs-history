@@ -1,7 +1,6 @@
 
 
 # Use `PutObjectLockConfiguration` with an AWS SDK or CLI
-<a name="s3_example_s3_PutObjectLockConfiguration_section"></a>
 
 The following code examples show how to use `PutObjectLockConfiguration`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 Set the object lock configuration of a bucket.  
 
-```
+```csharp
     /// <summary>
     /// Enable object lock on an existing bucket.
     /// </summary>
@@ -58,7 +57,7 @@ Set the object lock configuration of a bucket.
 ```
 Set the default retention period of a bucket.  
 
-```
+```csharp
     /// <summary>
     /// Set or modify a retention period on an S3 bucket.
     /// </summary>
@@ -136,7 +135,7 @@ For more information, see [Locking objects with Object Lock](https://docs.aws.am
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 Set the object lock configuration of a bucket.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -200,7 +199,7 @@ func (actor S3Actions) EnableObjectLockOnBucket(ctx context.Context, bucket stri
 ```
 Set the default retention period of a bucket.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -261,7 +260,7 @@ func (actor S3Actions) ModifyDefaultBucketRetention(
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Set the object lock configuration of a bucket.  
 
-```
+```java
     // Enable object lock on an existing bucket.
     public void enableObjectLockOnBucket(String bucketName) {
         try {
@@ -293,7 +292,7 @@ Set the object lock configuration of a bucket.
 ```
 Set the default retention period of a bucket.  
 
-```
+```java
     // Set or modify a retention period on an S3 bucket.
     public void modifyBucketDefaultRetention(String bucketName) {
         VersioningConfiguration versioningConfiguration = VersioningConfiguration.builder()
@@ -339,7 +338,7 @@ Set the default retention period of a bucket.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Set the object lock configuration of a bucket.  
 
-```
+```javascript
 import {
   PutObjectLockConfigurationCommand,
   S3Client,
@@ -413,7 +412,7 @@ if (isMain(import.meta.url)) {
 ```
 Set the default retention period of a bucket.  
 
-```
+```javascript
 import {
   PutObjectLockConfigurationCommand,
   S3Client,
@@ -514,7 +513,7 @@ if (isMain(import.meta.url)) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples). 
 Put object lock configuration.  
 
-```
+```python
         s3_client.put_object_lock_configuration(
             Bucket=bucket,
             ObjectLockConfiguration={"ObjectLockEnabled": "Disabled", "Rule": {}},
@@ -528,7 +527,7 @@ Put object lock configuration.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Example: Enable object lock with default retention
         " iv_enabled = 'Enabled'

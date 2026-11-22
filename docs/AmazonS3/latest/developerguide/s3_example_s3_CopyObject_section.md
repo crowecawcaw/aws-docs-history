@@ -1,7 +1,6 @@
 
 
 # Use `CopyObject` with an AWS SDK or CLI
-<a name="s3_example_s3_CopyObject_section"></a>
 
 The following code examples show how to use `CopyObject`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Copies an object in an Amazon S3 bucket to a folder within the
     /// same bucket.
@@ -59,7 +58,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 Copy an object using a conditional request.  
 
-```
+```csharp
     /// <summary>
     /// Copies an object from one Amazon S3 bucket to another with a conditional request.
     /// </summary>
@@ -133,7 +132,7 @@ Copy an object using a conditional request.
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -183,7 +182,7 @@ function copy_item_in_bucket() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::copyObject(const Aws::String &objectKey, const Aws::String &fromBucket, const Aws::String &toBucket,
                             const Aws::S3::S3ClientConfiguration &clientConfig) {
     Aws::S3::S3Client client(clientConfig);
@@ -242,7 +241,7 @@ For more information, see [Copying, moving, and renaming objects](https://docs.a
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -303,7 +302,7 @@ func (basics BucketBasics) CopyToBucket(ctx context.Context, sourceBucket string
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Copy an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
-```
+```java
     /**
      * Asynchronously copies an object from one S3 bucket to another.
      *
@@ -336,7 +335,7 @@ Copy an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/sof
 ```
 Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [copy an object](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#copy(software.amazon.awssdk.transfer.s3.CopyRequest)) from one bucket to another. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/ObjectCopy.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java).  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.sync.RequestBody;
@@ -376,7 +375,7 @@ import java.util.UUID;
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Copy the object.  
 
-```
+```javascript
 import {
   S3Client,
   CopyObjectCommand,
@@ -429,7 +428,7 @@ export const main = async ({
 ```
 Copy the object on condition its ETag does not match the one provided.  
 
-```
+```javascript
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -521,7 +520,7 @@ if (isMain(import.meta.url)) {
 ```
 Copy the object on condition its ETag does not match the one provided.  
 
-```
+```javascript
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -614,7 +613,7 @@ if (isMain(import.meta.url)) {
 ```
 Copy the object using on condition it has been created or modified in a given timeframe.  
 
-```
+```javascript
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -707,7 +706,7 @@ if (isMain(import.meta.url)) {
 ```
 Copy the object using on condition it has not been created or modified in a given timeframe.  
 
-```
+```javascript
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -805,7 +804,7 @@ if (isMain(import.meta.url)) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun copyBucketObject(
     fromBucket: String,
     objectKey: String,
@@ -838,7 +837,7 @@ suspend fun copyBucketObject(
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 Simple copy of an object.  
 
-```
+```php
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
 
         try {
@@ -862,27 +861,27 @@ Simple copy of an object.
 **Tools for PowerShell V4**  
 **Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -DestinationKey sample-copy.txt
 ```
 **Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-source-bucket -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket amzn-s3-demo-destination-bucket
 ```
 **Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -LocalFile local-sample.txt
 ```
 **Example 4: Downloads the single object to the specified file. The downloaded file will be found at c:\\downloads\\data\\archive.zip**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key data/archive.zip -LocalFolder c:\downloads
 ```
 **Example 5: Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data -LocalFolder c:\downloads
 ```
 +  For API details, see [CopyObject](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -890,52 +889,52 @@ Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data -LocalFolder c:\do
 **Tools for PowerShell V5**  
 **Example 1: This command copies the object "sample.txt" from bucket "amzn-s3-demo-bucket" to the same bucket but with a new key of "sample-copy.txt".**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -DestinationKey sample-copy.txt
 ```
 **Example 2: This command copies the object "sample.txt" from bucket "amzn-s3-demo-source-bucket" to the bucket "amzn-s3-demo-destination-bucket" with a key of "sample-copy.txt".**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-source-bucket -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket amzn-s3-demo-destination-bucket
 ```
 **Example 3: This command downloads the object "sample.txt" from bucket "amzn-s3-demo-bucket" to a local file with name "local-sample.txt".**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -LocalFile local-sample.txt
 ```
 **Example 4: Downloads the single object to the specified file. The downloaded file will be found at c:\\downloads\\data\\archive.zip**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key data/archive.zip -LocalFolder c:\downloads
 ```
 **Example 5: Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data -LocalFolder c:\downloads
 ```
 **Example 6: Downloads a single object to a local file using multipart parallel download for improved performance on large files.**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -LocalFile local-sample.txt -UseMultipartDownload
 ```
 **Example 7: Downloads a large object using RANGE mode with a custom 64MB part size. RANGE mode uses HTTP byte-range requests and works for all objects regardless of how they were uploaded.**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key large-file.zip -LocalFile local-large-file.zip -UseMultipartDownload -MultipartDownloadType RANGE -PartSize 64MB
 ```
 **Example 8: Downloads all objects matching the key prefix to a local folder using multipart download with concurrent file downloads.**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data/ -LocalFolder C:\local-data -UseMultipartDownload -DownloadFilesConcurrently
 ```
 **Example 9: Downloads a single object using multipart download with 20 concurrent connections for maximum throughput on high-bandwidth networks.**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key large-file.zip -LocalFile local-large-file.zip -UseMultipartDownload -ConcurrentServiceRequest 20
 ```
 **Example 10: Downloads all objects matching the key prefix to a local folder using multipart download, continuing past individual file failures instead of aborting.**  
 
-```
+```powershell
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data/ -LocalFolder C:\local-data -UseMultipartDownload -FailurePolicy ContinueOnFailure
 ```
 +  For API details, see [CopyObject](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -946,7 +945,7 @@ Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data/ -LocalFolder C:\l
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class ObjectWrapper:
     """Encapsulates S3 object actions."""
 
@@ -990,7 +989,7 @@ class ObjectWrapper:
 ```
 Copy an object using a conditional request.  
 
-```
+```python
 class S3ConditionalRequests:
     """Encapsulates S3 conditional request operations."""
 
@@ -1055,7 +1054,7 @@ class S3ConditionalRequests:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 Copy an object.  
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 object actions.
@@ -1101,7 +1100,7 @@ run_demo if $PROGRAM_NAME == __FILE__
 ```
 Copy an object and add server-side encryption to the destination object.  
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 object actions.
@@ -1155,7 +1154,7 @@ run_demo if $PROGRAM_NAME == __FILE__
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 /// Copy an object from one bucket to another.
 pub async fn copy_object(
     client: &aws_sdk_s3::Client,
@@ -1192,7 +1191,7 @@ pub async fn copy_object(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_s3->copyobject(
           iv_bucket = iv_dest_bucket
@@ -1213,7 +1212,7 @@ pub async fn copy_object(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
-```
+```swift
 import AWSS3
 
     public func copyFile(from sourceBucket: String, name: String, to destBucket: String) async throws {

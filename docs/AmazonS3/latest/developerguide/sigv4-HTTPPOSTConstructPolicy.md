@@ -1,7 +1,6 @@
 
 
 # POST Policy
-<a name="sigv4-HTTPPOSTConstructPolicy"></a>
 
 **Topics**
 + [Expiration](#sigv4-HTTPPOSTExpiration)
@@ -19,7 +18,7 @@ Although the policy document is optional, we highly recommend that you use one i
 
 The following is an example of a POST policy document.
 
-```
+```json
 1. { "expiration": "2007-12-01T12:00:00.000Z",
 2.   "conditions": [
 3.     {"acl": "public-read" },

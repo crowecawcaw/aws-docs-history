@@ -1,7 +1,6 @@
 
 
 # Use `UpdateJobPriority` with an AWS SDK or CLI
-<a name="s3-control_example_s3-control_UpdateJobPriority_section"></a>
 
 The following code examples show how to use `UpdateJobPriority`.
 
@@ -38,7 +37,7 @@ For more information, see [Assigning job priority](https://docs.aws.amazon.com/A
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples). 
 
-```
+```java
     /**
      * Updates the priority of a job asynchronously.
      *
@@ -76,7 +75,7 @@ For more information, see [Assigning job priority](https://docs.aws.amazon.com/A
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples). 
 
-```
+```python
     def update_job_priority(self, job_id: str, account_id: str) -> None:
         """
         Update the priority of a batch job and start it.
@@ -135,7 +134,7 @@ For more information, see [Assigning job priority](https://docs.aws.amazon.com/A
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_s3c->updatejobpriority(   " oo_result is returned for testing purposes.
           iv_accountid = iv_account_id

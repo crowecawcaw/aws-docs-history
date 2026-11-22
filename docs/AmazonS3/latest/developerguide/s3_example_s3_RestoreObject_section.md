@@ -1,7 +1,6 @@
 
 
 # Use `RestoreObject` with an AWS SDK or CLI
-<a name="s3_example_s3_RestoreObject_section"></a>
 
 The following code examples show how to use `RestoreObject`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `RestoreObject`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon;
@@ -115,7 +114,7 @@ For more information, see [Restoring an archived object](https://docs.aws.amazon
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.RestoreRequest;

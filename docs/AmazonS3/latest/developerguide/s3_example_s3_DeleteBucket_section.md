@@ -1,7 +1,6 @@
 
 
 # Use `DeleteBucket` with an AWS SDK or CLI
-<a name="s3_example_s3_DeleteBucket_section"></a>
 
 The following code examples show how to use `DeleteBucket`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Shows how to delete an Amazon S3 bucket.
     /// </summary>
@@ -49,7 +48,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -93,7 +92,7 @@ function delete_bucket() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::deleteBucket(const Aws::String &bucketName,
                               const Aws::S3::S3ClientConfiguration &clientConfig) {
 
@@ -139,7 +138,7 @@ For more information, see [Deleting a general purpose bucket](https://docs.aws.a
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -199,7 +198,7 @@ func (basics BucketBasics) DeleteBucket(ctx context.Context, bucketName string) 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
-```
+```java
     /**
      * Deletes an S3 bucket asynchronously.
      *
@@ -232,7 +231,7 @@ func (basics BucketBasics) DeleteBucket(ctx context.Context, bucketName string) 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Delete the bucket.  
 
-```
+```javascript
 import {
   DeleteBucketCommand,
   S3Client,
@@ -280,7 +279,7 @@ export const main = async ({ bucketName }) => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 Delete an empty bucket.  
 
-```
+```php
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
 
         try {
@@ -301,7 +300,7 @@ Delete an empty bucket.
 **Tools for PowerShell V4**  
 **Example 1: This command removes all objects and object versions from the bucket 'test-files' and then deletes the bucket. The command will prompt for confirmation before proceeding. Add the -Force switch to suppress confirmation. Note that buckets that are not empty cannot be deleted.**  
 
-```
+```powershell
 Remove-S3Bucket -BucketName amzn-s3-demo-bucket -DeleteBucketContent
 ```
 +  For API details, see [DeleteBucket](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -309,7 +308,7 @@ Remove-S3Bucket -BucketName amzn-s3-demo-bucket -DeleteBucketContent
 **Tools for PowerShell V5**  
 **Example 1: This command removes all objects and object versions from the bucket 'amzn-s3-demo-bucket' and then deletes the bucket. The command will prompt for confirmation before proceeding. Add the -Force switch to suppress confirmation. Note that buckets that are not empty cannot be deleted.**  
 
-```
+```powershell
 Remove-S3Bucket -BucketName amzn-s3-demo-bucket -DeleteBucketContent
 ```
 +  For API details, see [DeleteBucket](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -320,7 +319,7 @@ Remove-S3Bucket -BucketName amzn-s3-demo-bucket -DeleteBucketContent
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -353,7 +352,7 @@ class BucketWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
   # Deletes the objects in an Amazon S3 bucket and deletes the bucket.
   #
   # @param bucket [Aws::S3::Bucket] The bucket to empty and delete.
@@ -379,7 +378,7 @@ class BucketWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 pub async fn delete_bucket(
     client: &aws_sdk_s3::Client,
     bucket_name: &str,
@@ -409,7 +408,7 @@ pub async fn delete_bucket(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
 
         lo_s3->deletebucket(
@@ -427,7 +426,7 @@ pub async fn delete_bucket(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
-```
+```swift
 import AWSS3
 
     public func deleteBucket(name: String) async throws {

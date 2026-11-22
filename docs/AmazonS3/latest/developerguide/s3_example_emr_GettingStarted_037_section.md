@@ -1,7 +1,6 @@
 
 
 # Getting started with big data processing clusters
-<a name="s3_example_emr_GettingStarted_037_section"></a>
 
 The following code example shows how to:
 + Create an EC2 key pair
@@ -14,7 +13,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/037-emr-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # EMR Getting Started Tutorial Script

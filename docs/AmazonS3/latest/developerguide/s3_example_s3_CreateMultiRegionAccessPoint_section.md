@@ -1,7 +1,6 @@
 
 
 # Use `CreateMultiRegionAccessPoint` with an AWS SDK
-<a name="s3_example_s3_CreateMultiRegionAccessPoint_section"></a>
 
 The following code example shows how to use `CreateMultiRegionAccessPoint`.
 
@@ -12,7 +11,7 @@ The following code example shows how to use `CreateMultiRegionAccessPoint`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 Configure the S3 control client to send request to the us-west-2 Region.  
 
-```
+```kotlin
         suspend fun createS3ControlClient(): S3ControlClient {
             // Configure your S3ControlClient to send requests to US West (Oregon).
             val s3Control = S3ControlClient.fromEnvironment {
@@ -23,7 +22,7 @@ Configure the S3 control client to send request to the us-west-2 Region.
 ```
 Create the Multi-Region Access Point.  
 
-```
+```kotlin
     suspend fun createMrap(
         s3Control: S3ControlClient,
         accountIdParam: String,
@@ -69,7 +68,7 @@ Create the Multi-Region Access Point.
 ```
 Wait for the Multi-Region Access Point to become available.  
 
-```
+```kotlin
         suspend fun waitForSucceededStatus(
             s3Control: S3ControlClient,
             requestToken: String,

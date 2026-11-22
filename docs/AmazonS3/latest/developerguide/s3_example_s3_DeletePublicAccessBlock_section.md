@@ -1,7 +1,6 @@
 
 
 # Use `DeletePublicAccessBlock` with a CLI
-<a name="s3_example_s3_DeletePublicAccessBlock_section"></a>
 
 The following code examples show how to use `DeletePublicAccessBlock`.
 
@@ -26,7 +25,7 @@ For more information, see [Blocking public access to your Amazon S3 storage](htt
 **Tools for PowerShell V4**  
 **Example 1: This command turns off the block public access setting for the given bucket.**  
 
-```
+```powershell
 Remove-S3PublicAccessBlock -BucketName 'amzn-s3-demo-bucket' -Force -Select '^BucketName'
 ```
 **Output:**  
@@ -39,7 +38,7 @@ amzn-s3-demo-bucket
 **Tools for PowerShell V5**  
 **Example 1: This command turns off the block public access setting for the given bucket.**  
 
-```
+```powershell
 Remove-S3PublicAccessBlock -BucketName 'amzn-s3-demo-bucket' -Force -Select '^BucketName'
 ```
 **Output:**  

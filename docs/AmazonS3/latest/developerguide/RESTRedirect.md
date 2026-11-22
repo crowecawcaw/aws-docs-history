@@ -1,7 +1,6 @@
 
 
 # Request redirection and the REST API
-<a name="RESTRedirect"></a>
 
 **Topics**
 + [Redirects and HTTP user-agents](#RESTRedirectHTTPUserAgents)
@@ -38,7 +37,7 @@ This section provides an example of client-server interaction using HTTP redirec
 
 Following is a sample PUT to the `quotes.s3.amazonaws.com` bucket.
 
-```
+```http
 1. PUT /nelson.txt HTTP/1.1
 2. Host: quotes.s3.amazonaws.com
 3. Date: Mon, 15 Oct 2007 22:18:46 +0000
@@ -49,7 +48,7 @@ Following is a sample PUT to the `quotes.s3.amazonaws.com` bucket.
 
 Amazon S3 returns the following:
 
-```
+```http
  1. HTTP/1.1 307 Temporary Redirect
  2. Location: http://quotes.s3-4c25d83b.amazonaws.com/nelson.txt?rk=8d47490b
  3. Content-Type: application/xml
@@ -72,7 +71,7 @@ Amazon S3 returns the following:
 
 The client follows the redirect response and issues a new request to the `quotes.s3-4c25d83b.amazonaws.com` temporary endpoint.
 
-```
+```http
 1. PUT /nelson.txt?rk=8d47490b HTTP/1.1
 2. Host: quotes.s3-4c25d83b.amazonaws.com
 3. Date: Mon, 15 Oct 2007 22:18:46 +0000
@@ -83,7 +82,7 @@ The client follows the redirect response and issues a new request to the `quotes
 
 Amazon S3 returns a 100-continue indicating the client should proceed with sending the request body.
 
-```
+```http
 1. HTTP/1.1 100 Continue
 ```
 
@@ -95,7 +94,7 @@ The client sends the request body.
 
 Amazon S3 returns the final response.
 
-```
+```http
 1. HTTP/1.1 200 OK
 2. Date: Mon, 15 Oct 2007 22:18:48 GMT
 3. 
