@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="migration-guide-about"></a>
 
 This guide describes how to upgrade or downgrade a Conductor cluster consisting of AWS Elemental Conductor File nodes and AWS Elemental Server worker nodes. It describes how to perform an upgrade to version 2.18 or higher of the AWS Elemental software, and how to downgrade to a version below 2.18.
 

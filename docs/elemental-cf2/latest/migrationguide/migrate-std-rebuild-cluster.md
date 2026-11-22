@@ -1,7 +1,6 @@
 
 
 # Step F: Rebuild the cluster
-<a name="migrate-std-rebuild-cluster"></a>
 
 1. Restore the database on primary conductor file node.
 

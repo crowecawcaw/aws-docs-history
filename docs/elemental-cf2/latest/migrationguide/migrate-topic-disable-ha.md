@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling high availability (HA)
-<a name="migrate-topic-disable-ha"></a>
 
 Disable high availability prior to performing any changes on the Conductor nodes.
 

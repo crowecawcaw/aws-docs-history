@@ -1,7 +1,6 @@
 
 
 # Backing up data
-<a name="migrate-topic-lifeboat"></a>
 
 You back up data using the special lifeboat script.
 

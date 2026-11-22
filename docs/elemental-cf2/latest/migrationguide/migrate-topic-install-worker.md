@@ -1,7 +1,6 @@
 
 
 # Installing AWS Elemental Server on a worker node
-<a name="migrate-topic-install-worker"></a>
 
 This install procedure isn't the same as the install procedure on a newly obtained appliance. You don't have to configure the node. 
 

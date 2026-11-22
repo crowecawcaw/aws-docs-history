@@ -1,7 +1,6 @@
 
 
 # Updating firmware
-<a name="migrate-topic-firmware"></a>
 
 ## Step 1: Update the firmware
 <a name="migrate-topic-firmware-update"></a>

@@ -1,7 +1,6 @@
 
 
 # Step E: Upgrade nodes
-<a name="migrate-server-218-install-software-cf"></a>
 
 Perform these steps on each node in the cluster, after you've removed all the nodes from the cluster. Before you start, make sure that you've performed the steps in [Step B: Prepare each AWS Elemental Conductor File node for migration](migrate-std-prepare-node.md).
 

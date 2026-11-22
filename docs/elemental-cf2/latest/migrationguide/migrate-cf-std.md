@@ -1,7 +1,6 @@
 
 
 # Performing a standard cluster migration on an AWS Elemental Conductor File cluster
-<a name="migrate-cf-std"></a>
 
 This procedure describes how to take the nodes in a AWS Elemental Conductor File cluster from a version below 2.18 and migrate them to version 2.18 or higher. The nodes in the cluster might be the following:
 + A primary Conductor node and, optionally, a secondary Conductor node.

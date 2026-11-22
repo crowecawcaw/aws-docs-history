@@ -1,7 +1,6 @@
 
 
 # Restoring the database
-<a name="migrate-topic-restore-database"></a>
 
 You restore data using the same lifeboat script that you used to create the backup.
 
