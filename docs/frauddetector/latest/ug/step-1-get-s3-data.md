@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Get and upload example dataset
-<a name="step-1-get-s3-data"></a>
 
 The example dataset you use in this tutorial provides details of online account registrations. The dataset is in a text file that uses comma-separated value (CSV) in the UTF-8 format. The first row of the CSV dataset file contains the headers. The header row is followed by multiple rows of data. Each of these rows consists of data elements from a single account registration. The data is labeled for your convenience. A column in the dataset identifies whether the account registration is fraudulent.
 

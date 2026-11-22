@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Update rule
-<a name="update-rule"></a>
 
 You can update a rule anytime by adding or updating the rule description, updating the rule expression, or adding or removing the outcome for the rule. When you update a rule a new rule version is created.
 

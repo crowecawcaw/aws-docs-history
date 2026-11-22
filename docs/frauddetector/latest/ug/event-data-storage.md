@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Event data storage
-<a name="event-data-storage"></a>
 
 After you've gathered your dataset, you store your dataset internally using Amazon Fraud Detector or externally with Amazon Simple Storage Service (Amazon S3). We recommend that you choose where to store your dataset based on the model you use for generating fraud predictions. The following is a detailed breakdown of these two storage options.
 + **Internal storage- **Your dataset is stored with Amazon Fraud Detector. All event data associated with an event is stored together. You can upload the event dataset that’s stored with Amazon Fraud Detector at any time. You can either stream events one at a time to an Amazon Fraud Detector API, or import large datasets (up to 1GB) using the batch import feature. When you train a model using the dataset stored with Amazon Fraud Detector, you can specify a time range to limit the size of your dataset. 

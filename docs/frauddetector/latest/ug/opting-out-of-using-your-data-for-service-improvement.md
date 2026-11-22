@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Opting out of using your data for service improvement
-<a name="opting-out-of-using-your-data-for-service-improvement"></a>
 
 Historical event data you provide to train models and generate predictions is used solely to provide and maintain your service. This data might also be used to improve the quality of Amazon Fraud Detector. Your trust, privacy, and the security of your content are our highest priority and ensure that our use complies with our commitments to you. See [Data Privacy FAQ ](https://aws.amazon.com/compliance/data-privacy-faq/) for more information
 

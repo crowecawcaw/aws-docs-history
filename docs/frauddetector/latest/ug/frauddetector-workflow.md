@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Detecting fraud with Amazon Fraud Detector
-<a name="frauddetector-workflow"></a>
 
 This section describes a typical workflow for detecting fraud with Amazon Fraud Detector. It also summarizes how you can accomplish those tasks. The following diagram provides a high-level view of the workflow for detecting fraud with Amazon Fraud Detector.
 

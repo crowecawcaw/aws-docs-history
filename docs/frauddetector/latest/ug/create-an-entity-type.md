@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create an entity type
-<a name="create-an-entity-type"></a>
 
 You can create an entity type in the Amazon Fraud Detector console, using the [put-entity-type](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-entity-type.html) command, using the [PutEntityType](https://docs.aws.amazon.com/frauddetector/latest/api/API_PutEntityType.html) API, or using the AWS SDK for Python (Boto3). The examples below creates an entity type `customer` in the Amazon Fraud Detector console and using the SDK for Python (Boto3). If you are creating an entity type to associate with an event type for training a fraud detection model, use the entity type from your event dataset that is appropriate for your use case. 
 
@@ -25,7 +24,7 @@ You can create an entity type in the Amazon Fraud Detector console, using the [p
 
 The following AWS SDK for Python (Boto3) code example uses the `PutEntityType` API to create an entity type `customer`. If you are creating an entity type to associate with an event type for training a fraud detection model, use the entity from your event dataset that is appropriate for your use case. 
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

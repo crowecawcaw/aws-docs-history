@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create a variable
-<a name="create-a-variable"></a>
 
 You can create variables in the Amazon Fraud Detector console, using the [create-variable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-variable.html) command, using the [CreateVariable](https://docs.aws.amazon.com/frauddetector/latest/api/API_CreateVariable.html), or using the AWS SDK for Python (Boto3)
 
@@ -48,7 +47,7 @@ These variables are used as examples. If you are creating variables to use for y
 
 Be sure to specify a variable source. It helps to identify where the variable value is derived. If the variable source is **EVENT**, the variable value is sent as part of the [GetEventPrediction](https://docs.aws.amazon.com/frauddetector/latest/api/API_GetEventPrediction.html) request. If the variable value is `MODEL_SCORE`, it's populated by an Amazon Fraud Detector. If `EXTERNAL_MODEL_SCORE`, the variable value is populated by an imported SageMaker AI model. 
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

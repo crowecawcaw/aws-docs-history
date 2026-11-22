@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Account takeover insights
-<a name="account-takeover-insights"></a>
 
 The Account Takeover Insights (ATI) model type identifies fraudulent online activity by detecting if accounts were compromised through malicious takeovers, phishing, or from credentials being stolen. Account Takeover Insights is a machine learning model that uses login events from your online business to train the model. 
 

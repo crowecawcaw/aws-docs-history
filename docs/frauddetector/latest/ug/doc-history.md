@@ -3,13 +3,12 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Document history
-<a name="doc-history"></a>
 
 The following table describes important changes in Amazon Fraud Detector User Guide. We also update the Amazon Fraud Detector User Guide frequently to address the feedback that you send us.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025.](#doc-history) | Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025. If you would like to use Amazon Fraud Detector, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon Fraud Detector availability change](https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html).  | October 7, 2025 | 
+| [Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025.](doc-history.md) | Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025. If you would like to use Amazon Fraud Detector, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon Fraud Detector availability change](https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html).  | October 7, 2025 | 
 | [New variable and data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html) | Amazon Fraud Detector introduces new variable types and a datatype you can use to extract useful information. | June 5, 2023 | 
 | [Event orchestration](https://docs.aws.amazon.com/frauddetector/latest/ug/event-orchestration.html) | The **Event orchestration** makes it easy for you to send events to AWS services for downstream processing, using Amazon EventBridge.  | May 30, 2023 | 
 | [Lists](https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html) | The **Lists** resource enables you to reference a set of values such as IP addresses or email addresses, as part of a rule. Use lists in a rule to allow or deny access or a transaction. | February 14, 2023 | 

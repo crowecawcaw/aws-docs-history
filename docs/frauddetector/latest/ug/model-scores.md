@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Model scores
-<a name="model-scores"></a>
 
 Amazon Fraud Detector generates model scores differently for different model types. 
 

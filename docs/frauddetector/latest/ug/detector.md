@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Detector
-<a name="detector"></a>
 
 A detector is a container that contains fraud detection logic, such as the models and rules, for one specific business event that you want to evaluate for fraud. You first create a detector by specifying the event that you have already defined and optionally add a model version that is already created and trained by Amazon Fraud Detector for the event.
 

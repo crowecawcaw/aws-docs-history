@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Delete label
-<a name="delete-label"></a>
 
 When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.
 
@@ -31,7 +30,7 @@ You can delete labels in Amazon Fraud Detector console, using the [delete-label]
 
 The following AWS SDK for Python (Boto3) example code deletes a label *legit* using the [DeleteLabel](https://docs.aws.amazon.com/frauddetector/latest/api/API_DeleteLabel.html) API.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

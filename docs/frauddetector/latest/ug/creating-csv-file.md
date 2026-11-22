@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create CSV file
-<a name="creating-csv-file"></a>
 
 Amazon Fraud Detector requires that the first row of your CSV file contain column headers. The column headers in your CSV file must map to the variables that are defined in the event type. For an example dataset, see [Get and upload example dataset](step-1-get-s3-data.md) 
 

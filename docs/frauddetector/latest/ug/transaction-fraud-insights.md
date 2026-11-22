@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Transaction fraud insights
-<a name="transaction-fraud-insights"></a>
 
 The Transaction Fraud Insights model type is designed to detect online, or card-not-present, transaction fraud. Transaction Fraud Insights is a supervised machine learning model, which means that it uses historical examples of fraudulent and legitimate transactions to train the model.
 

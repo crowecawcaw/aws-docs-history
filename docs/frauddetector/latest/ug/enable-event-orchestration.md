@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Enable event orchestration in Amazon Fraud Detector
-<a name="enable-event-orchestration"></a>
 
 You can enable event orchestration for an event either when you are creating your event type or after you have created your event type. Event orchestration can be enabled in the Amazon Fraud Detector console, using the `put-event-type` command, using the `PutEventType` API, or using the AWS SDK for Python (Boto3). 
 
@@ -29,7 +28,7 @@ This example enables event orchestration for an event type that is has already b
 
 The following example shows a sample request for updating an event type `sample_registration` to enable event orchestration. The example uses the `PutEventType` API and assumes you have created the variables `ip_address` and `email_address`, the labels `legit` and `fraud`, and the entity type `sample_customer`. For information on how to create these resources, see [Resources](https://docs.aws.amazon.com/frauddetector/latest/ug/create-resources.html).
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 fraud_detector.put_event_type( 

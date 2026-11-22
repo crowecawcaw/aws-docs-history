@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Online fraud insights
-<a name="online-fraud-insights"></a>
 
 Online Fraud Insights is a supervised machine learning model, which means that it uses historical examples of fraudulent and legitimate transactions to train the model. The Online Fraud Insights model can detect fraud based on little historical data. The model’s inputs are flexible, so you can adapt it to detect a variety of fraud risks including fake reviews, promotion abuse, and guest checkout fraud. 
 

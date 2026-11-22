@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Delete entries from a list
-<a name="delete-entries-list"></a>
 
 You can delete one or more entries from your lists at any time. When you delete entries in your list you don’t need to update the rule the list is associated with. The rule automatically incorporates the updated list.
 
@@ -29,7 +28,7 @@ You can delete entries from a list in the Amazon Fraud Detector console, using t
 
 In the following example the [UpdateList](https://docs.aws.amazon.com/frauddetector/latest/api/API_UpdateList.html) API operation deletes entries from `allow_email_ids` list.
 
-```
+```python
 import boto3
                         fraudDetector = boto3.client('frauddetector')
 fraudDetector.update_list(

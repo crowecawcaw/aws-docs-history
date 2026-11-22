@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Quotas
-<a name="limits"></a>
 
 Your AWS account has default quotas, formerly referred to as *limits*, for each Amazon Web Service. Unless otherwise noted, each quota is Region-specific. You can request a quota increase for all adjustable quotas mentioned in the tables below. For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) 
 

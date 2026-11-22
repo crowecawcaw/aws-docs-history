@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Variables
-<a name="variables"></a>
 
 Variables represent data elements that you want to use in a fraud prediction. These variables can be taken from the event dataset that you prepared for training your model, from your Amazon Fraud Detector model's risk score outputs, or from Amazon SageMaker AI models. For more information about variables taken from the event dataset, see [Get event dataset requirements using the Data models explorer](create-event-dataset.md#prepare-event-dataset).
 

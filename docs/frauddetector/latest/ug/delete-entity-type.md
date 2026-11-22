@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Delete an entity type
-<a name="delete-entity-type"></a>
 
 In Amazon Fraud Detector, you cannot delete an entity type that is included in an event type. You will have to first delete the event type the entity is associated with and then delete the entity type.
 
@@ -31,7 +30,7 @@ An entity type can be deleted in Amazon Fraud Detector console, using the [delet
 
 The following AWS SDK for Python (Boto3) example code deletes the entity type *customer* using the [DeleteEntityType](https://docs.aws.amazon.com/frauddetector/latest/api/API_DeleteEntityType.html) API.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

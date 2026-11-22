@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Setting up event orchestration
-<a name="setting-up-event-orchestration"></a>
 
 Setting up event orchestration for your events requires you to set up processes in your target service, configure Amazon EventBridge to receive and send event data, and create rules in Amazon EventBridge that specifies the conditions for starting the downstream processes. Complete the following steps to set up event orchestration:
 

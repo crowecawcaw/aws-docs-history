@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Manage Amazon Fraud Detector resources using AWS CloudFormation
-<a name="managing-resources-using-cloudformation"></a>
 
 Amazon Fraud Detector is integrated with AWS CloudFormation, a service that helps you to model and set up your Amazon Fraud Detector resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the Amazon Fraud Detector resources that you want (such as Detector, Variables, EntityType, EventType, Outcome, and Label), and CloudFormation provisions and configures those resources for you. You can reuse the template to provision and configure the resources consistently and repeatedly in multiple AWS accounts and Regions.
 

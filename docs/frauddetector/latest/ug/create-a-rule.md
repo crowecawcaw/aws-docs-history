@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create rules
-<a name="create-a-rule"></a>
 
 You can create rules in Amazon Fraud Detector console, using the [create-rule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/create-rule.html) command, using the [CreateRule](https://docs.aws.amazon.com/frauddetector/latest/api/API_CreateRule.html) API, or using the AWS SDK for Python (Boto3).
 
@@ -55,7 +54,7 @@ To use the example code, make sure that you have complete the following before y
 
 If you are creating a detector, rule, and outcome for your use case, replace the example detector name, rule name, rule expression and outcome name with names and expression relevant to your use case.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

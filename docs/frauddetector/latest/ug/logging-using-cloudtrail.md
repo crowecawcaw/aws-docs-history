@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Logging Amazon Fraud Detector API Calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Fraud Detector is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Fraud Detector. CloudTrail captures all API calls for Amazon Fraud Detector as events, including calls from the Amazon Fraud Detector console and calls from code to the Amazon Fraud Detector APIs.
 
@@ -38,7 +37,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `GetDetectors` operation. 
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Benefits
-<a name="frauddetector-benefits"></a>
 
 Amazon Fraud Detector provides the following benefits. These benefits make it possible for you to detect fraud fast without needing to invest the time and resources that are traditionally required to build and maintain a fraud management system.
 

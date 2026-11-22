@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Batch predictions
-<a name="batch-predictions"></a>
 
 You can use a *batch predictions* job in Amazon Fraud Detector to get predictions for a set of events that do not require real-time scoring. For example, you could create a batch predictions job to perform an offline proof-of-concept, or to retrospectively evaluate the risk of events on an hourly, daily, or weekly basis. 
 
@@ -99,7 +98,7 @@ If you receive an error related to your IAM role, verify the following:
 
 The following example shows a sample request for the [CreateBatchPredictionJob](https://docs.aws.amazon.com/frauddetector/latest/api/API_CreateBatchPredictionJob.html) API. A batch prediction job must include the following existing resources: detector, detector version, and event type name. The following example assumes you have created an event type `sample_registration`, a detector `sample_detector`, and a detector version `1`.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

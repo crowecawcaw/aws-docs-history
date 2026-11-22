@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Key management
-<a name="key-management"></a>
 
 Amazon Fraud Detector encrypts your data using one of two types of keys:
 + An AWS owned [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys). This is the default.

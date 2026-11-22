@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Fraud predictions
-<a name="getting-fraud-predictions"></a>
 
 You can use Amazon Fraud Detector to get fraud predictions for single event in real time or get fraud predictions offline for a set of events. To generate fraud predictions for either a single event or a set of events, you will need to provide Amazon Fraud Detector with the following information:
 + Fraud prediction logic

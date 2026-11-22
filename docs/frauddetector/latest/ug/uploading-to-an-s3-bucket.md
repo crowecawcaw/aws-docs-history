@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Upload your event data to an Amazon S3 bucket
-<a name="uploading-to-an-s3-bucket"></a>
 
 After you create a CSV file with your event data, upload the file to your Amazon S3 bucket.
 

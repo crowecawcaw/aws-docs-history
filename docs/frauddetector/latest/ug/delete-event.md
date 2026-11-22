@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Delete an event or event type
-<a name="delete-event"></a>
 
 When you delete an event, Amazon Fraud Detector permanently deletes that event and the data associated with the event is no longer stored in Amazon Fraud Detector.
 

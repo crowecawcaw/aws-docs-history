@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Rules
-<a name="rules"></a>
 
 A rule is a condition that tells Amazon Fraud Detector how to interpret variable values during a fraud prediction. A rule is part of a detector logic and it consists of the following elements:
 + **Variable or List** – Variable represents a data element in your event dataset that you want to use in a fraud prediction. A list is a set of input data elements for a variable in your event dataset. Variables used in a rule must be predefined in the evaluated event type and lists used in a rule must be associated with a variable type. For more information, see [Variables](variables.md) and [Lists](lists.md).

@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Entity
-<a name="entity"></a>
 
 An entity represents a person or thing that's performing the event. An entity type classifies the entity. Example classifications include customer, merchant, user, or account. You provide the entity type (ENTITY\_TYPE) and an entity identifier (ENTITY\_ID) as part of your event dataset to indicate the specific entity that performed the event.
 

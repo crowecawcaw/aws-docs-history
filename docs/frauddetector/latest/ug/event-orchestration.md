@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Event orchestration
-<a name="event-orchestration"></a>
 
 Event orchestration makes it easy for you to send events to AWS services for downstream processing, using [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html). Amazon Fraud Detector provides you with simple rules you can use to automate processing of events after fraud detection. With event orchestration, you can automate downstream event processes such as, sending events to dashboards to get insights from event data, generating notifications based on the fraud detection outcomes, and updating events with a label based on the learning from fraud detection. 
 

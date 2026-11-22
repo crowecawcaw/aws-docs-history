@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create a list
-<a name="create-list"></a>
 
 You can create a list containing input data (entries) of a variable in your event dataset and use the list in rule expression. The entries in the list can be managed dynamically without updating the rule that is using the list. 
 
@@ -46,7 +45,7 @@ If your list contains IP addresses, make sure to assign **IP\_ADDRESS** as the v
 
 The following example uses [CreateList](https://docs.aws.amazon.com/frauddetector/latest/api/API_CreateList.html) API operation to create an `allow_email_ids` list by providing a description, a variable type, and by adding four list entries.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

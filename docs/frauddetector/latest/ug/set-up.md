@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Set up for Amazon Fraud Detector
-<a name="set-up"></a>
 
 To use Amazon Fraud Detector, you first need an Amazon Web Services (AWS) account and then you must set up permissions that give your AWS account access to all interfaces. Later when you start to create your Amazon Fraud Detector resources, you need to grant permissions that allow Amazon Fraud Detector to access your account to perform tasks on your behalf and to access resources that you own. 
 

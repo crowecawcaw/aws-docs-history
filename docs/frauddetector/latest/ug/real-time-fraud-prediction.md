@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Real time prediction
-<a name="real-time-fraud-prediction"></a>
 
 You can evaluate online activities for fraud in real time by calling `GetEventPrediction` API. You provide information about a single event in each request and synchronously receive a model score and an outcome based on the fraud prediction logic associated with the specified detector.
 
@@ -28,7 +27,7 @@ You can optionally send data to invoke an SageMaker AI model by passing the data
 
 To generate a fraud prediction, call the `GetEventPrediction` API. The example below assumes you have completed [Part B: Generate fraud predictions](part-b.md). As part of the response, you will receive a model score as well as any matched rules and corresponding outcomes. You can find additional examples of `GetEventPrediction` requests on the [aws-fraud-detector-samples GitHub repository](https://github.com/aws-samples/aws-fraud-detector-samples). 
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # How Amazon Fraud Detector works
-<a name="how-frauddetector-works"></a>
 
 Amazon Fraud Detector builds a machine learning model that is customized to detect potential fraudulent online activities in your business. To get started, you provide your business use case. Depending on your business use case, Amazon Fraud Detector recommends a model type it will use to create a fraud detection model for you. In addition, it also provides insights into the data elements you need to provide as part of your business’s historical data. Amazon Fraud Detector uses the historical dataset to automatically create and train a customized model for you. 
 

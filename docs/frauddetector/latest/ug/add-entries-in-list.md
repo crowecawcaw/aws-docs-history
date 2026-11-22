@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Add entries in a list
-<a name="add-entries-in-list"></a>
 
 After you created your list you can add or append entries in your list at any time. When you add or append entries in your list, you don’t need to update the rule the list is associated with. The rule automatically incorporates the newly added entries.
 
@@ -33,7 +32,7 @@ You can add entries in the Amazon Fraud Detector console, using the API, using t
 
 The following example uses the [UpdateList](https://docs.aws.amazon.com/frauddetector/latest/api/API_UpdateList.html) API operation to add two new entries in the `allow_email_ids` list. Make sure that the entries you are adding are unique in the list.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

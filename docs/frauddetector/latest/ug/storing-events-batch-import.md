@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Store event data using batch import
-<a name="storing-events-batch-import"></a>
 
 With the batch import feature, you can quickly and easily upload large historical event datasets in Amazon Fraud Detector using the console, the API, or the AWS SDK. To use batch import, create an input file in CSV format that contains all your event data, upload the CSV file onto Amazon S3 bucket, and start an *Import* job. Amazon Fraud Detector first validates the data based on the event type, and then automatically imports the entire dataset. After the data is imported, it’s ready to be used for training new models or for re-training existing models.
 
@@ -166,7 +165,7 @@ If more than 50% of the events (rows) in your dataset failed validation, the imp
 
 The following example shows a sample request for [CreateBatchImportJob](https://docs.aws.amazon.com/frauddetector/latest/api/API_CreateBatchImportJob.html) API. A batch import job must include a **jobID**, **inputPath**, **outputPath**, **eventTypeName** and **iamRoleArn**. The jobID can’t contain the same ID of a past job, unless the job exists in CREATE\_FAILED state. The inputPath and outputPath must be valid S3 paths. You can opt out of specifying the file name in the outputPath, however, you will still need to provide a valid S3 bucket location. The eventTypeName and iamRoleArn must exist. The IAM role must grant read permissions to input Amazon S3 bucket and write permissions to output Amazon S3 bucket. 
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 
@@ -205,7 +204,7 @@ You can cancel an in-progress batch import job at any time in the Amazon Fraud D
 
 The following example shows a sample request for the `CancelBatchImportJob` API. The cancel import job must include the job ID of an in-progress batch import job. 
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 fraudDetector.cancel_batch_import_job (

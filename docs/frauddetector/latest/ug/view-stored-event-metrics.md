@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # View metrics of stored event dataset
-<a name="view-stored-event-metrics"></a>
 
 For each event type, you can view metrics such as, number of stored events, total size of your stored events, and timestamps of the earliest and the latest stored events, in the Amazon Fraud Detector console. 
 

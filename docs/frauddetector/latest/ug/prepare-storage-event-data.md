@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Prepare event data for storage
-<a name="prepare-storage-event-data"></a>
 
 Event data that is stored internally with Amazon Fraud Detector is stored at the `Event Type` resource level. So, all event data that are from the same event are stored in a single `Event Type`. The stored events can later be used to train a new model or re-train an existing model. When training a model using the stored event data, you can optionally specify a time range of events to limit the size of your training dataset. 
 

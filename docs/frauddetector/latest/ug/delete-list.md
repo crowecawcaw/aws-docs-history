@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Delete a list
-<a name="delete-list"></a>
 
 You can delete a list that isn't used in any rule. When you delete a list, Amazon Fraud Detector permanently deletes that list and all entries in the list. 
 
@@ -29,7 +28,7 @@ You can delete a list in the Amazon Fraud Detector console, using the API, using
 
 The following example uses the [DeleteList](https://docs.aws.amazon.com/frauddetector/latest/api/API_DeleteList.html) API operation to delete `allow_email_ids`.
 
-```
+```python
 import boto3
                         fraudDetector = boto3.client('frauddetector')
 fraudDetector.delete_list(

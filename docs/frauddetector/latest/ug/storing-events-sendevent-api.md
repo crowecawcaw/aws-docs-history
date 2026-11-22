@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Store event data using the SendEvent API operation
-<a name="storing-events-sendevent-api"></a>
 
 You can use the `SendEvent` API operation to store events in Amazon Fraud Detector without generating fraud predictions for those events. For example, you can use the `SendEvent` operation to upload a historical dataset, which you can later use to train a model.
 

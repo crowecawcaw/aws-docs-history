@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Rule language reference
-<a name="rule-language-reference"></a>
 
 The following section outlines the expression (that is, rule writing) capabilities in Amazon Fraud Detector.
 

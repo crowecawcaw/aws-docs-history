@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Delete an outcome
-<a name="delete-outcome"></a>
 
 You cannot delete an outcome that is used in a rule version.
 
@@ -31,7 +30,7 @@ You can delete an outcome in the Amazon Fraud Detector console, using the [delet
 
 The following example uses the [DeleteOutcome](https://docs.aws.amazon.com/frauddetector/latest/api/API_DeleteOutcome.html) API to delete the `verify_customer` outcome. After the outcome is deleted, you can no longer assign it to a rule. 
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

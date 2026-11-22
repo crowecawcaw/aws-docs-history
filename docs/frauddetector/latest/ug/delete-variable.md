@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Delete a variable
-<a name="delete-variable"></a>
 
 When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.
 
@@ -33,7 +32,7 @@ You can delete variable in Amazon Fraud Detector console, using the [delete-vari
 
 The following code sample deletes a variable *customer\_name* using the [DeleteVariable](https://docs.aws.amazon.com/frauddetector/latest/api/API_DeleteVariable.html) API.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

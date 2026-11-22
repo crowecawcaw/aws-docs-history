@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Lists
-<a name="lists"></a>
 
 A list is a set of input data for a variable in your event dataset. You use the input data in a rule that’s associated with your detector. A rule is a condition that tells Amazon Fraud Detector how to interpret input data during a fraud prediction. For example, you can create a list of IP addresses and then create a rule to deny access if a specific IP address is in the list. Rules that use lists are expressed in the `$ip_address_value` in `@list_name` format.
 

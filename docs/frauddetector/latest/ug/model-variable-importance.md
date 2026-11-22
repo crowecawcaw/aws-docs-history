@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Model variable importance
-<a name="model-variable-importance"></a>
 
 *Model variable importance* is a feature of Amazon Fraud Detector that ranks model variables within a model version. Each model variable is provided a value based on its relative importance to the overall performance of your model. The model variable with the highest value is more important to the model than the other model variables in the dataset for that model version, and is listed at the top by default. Likewise, the model variable with the lowest value is listed at the bottom by default and is least important compared to the other model variables. Using model variable importance values, you can gain insight into what inputs are driving your model’s performance. 
 

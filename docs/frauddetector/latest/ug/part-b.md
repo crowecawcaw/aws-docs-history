@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Part B: Generate fraud predictions
-<a name="part-b"></a>
 
 Fraud prediction is an evaluation of fraud for a business activity (event). Amazon Fraud Detector uses detectors to generate fraud prediction. A detector contains detection logic, such as models and rules, for a specific event that you want to evaluate for fraud. Detection logic uses rules to tell Amazon Fraud Detector how to interpret the data associated with the model. In this tutorial, you evaluate the account registration event using the account registration example dataset that you uploaded earlier. 
 

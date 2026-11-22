@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create an outcome
-<a name="create-an-outcome"></a>
 
 You can create outcomes in the Amazon Fraud Detector console, using the [put-outcome](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-outcome.html) command, using the [PutOutcome](https://docs.aws.amazon.com/frauddetector/latest/api/API_PutOutcome.html) API, or using the AWS SDK for Python (Boto3).
 
@@ -33,7 +32,7 @@ You can create outcomes in the Amazon Fraud Detector console, using the [put-out
 
 The following example uses the `PutOutcome` API to create three outcomes. They are `verify_customer`, `review`, and `approve`. After the outcomes are created, you can assign them to rules. 
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 

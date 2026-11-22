@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Prediction explanations
-<a name="prediction-explanation"></a>
 
 Prediction explanations provide insight into how each event variable impacted your model’s fraud prediction score, and are automatically generated as part of the fraud prediction. Each fraud prediction comes with a risk score between 1 and 1000. Prediction explanations give you details of the influence of each event variable on the risk scores in terms of magnitude (0-5, 5 being highest) and direction (drove score higher or lower). You can also use prediction explanations for the following tasks:
 + To identify top risk indicators during manual inverstigations when an event is flagged for review.

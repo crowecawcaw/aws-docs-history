@@ -3,7 +3,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create an event type
-<a name="create-event-type"></a>
 
 Before you create your fraud detection model, you must first create an event type. Creating an event type involves defining your business activity (event) to evaluate for fraud. Defining the event involves identifying the event variables in your dataset to include for fraud evaluation, specifying the entity initiating event, and the labels that classify the event. 
 
@@ -63,7 +62,7 @@ The following example shows a sample request for the `PutEventType` API. The exa
 **Note**  
 You must first create variables, entity types, and labels prior to adding them to the event type.
 
-```
+```python
 import boto3
 fraudDetector = boto3.client('frauddetector')
 
