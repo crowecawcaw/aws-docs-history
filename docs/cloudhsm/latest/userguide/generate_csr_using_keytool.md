@@ -1,7 +1,6 @@
 
 
 # Generate an AWS CloudHSM CSR using keytool
-<a name="generate_csr_using_keytool"></a>
 
 You receive the greatest flexibility in generating a certificate signing request (CSR) if you use the [OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl-library.md). The following command uses keytool to generate a CSR for a key pair with the alias, `example-key-pair`.
 

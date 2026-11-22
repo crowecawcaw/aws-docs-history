@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 3 configuration examples
-<a name="configure-tool-examples"></a>
 
 These examples show how to use the **configure** tool for AWS CloudHSM Client SDK 3.
 
@@ -21,7 +20,7 @@ This example uses the `-a` parameter of **configure** to update the HSM data for
 **To get an IP address for an HSM (AWS CLI)**
 + Get the IP address of an HSM by using the **[describe-clusters](https://docs.aws.amazon.com/cli/latest/reference/cloudhsmv2/describe-clusters.html)** command from the AWS CLI. In the output from the command, the IP address of the HSMs are the values of `EniIp` and `EniIpV6` (if it is a dual-stack cluster). 
 
-  ```
+  ```bash
   $ aws cloudhsmv2 describe-clusters
   {
       "Clusters": [
@@ -256,7 +255,7 @@ This example uses the `-a` parameter of **configure** to update the HSM data for
 
 **Example : Update the HSM Data for CMU from client SDK 3.2.1 and earlier**  
 This example uses the `-m` **configure** command to copy the updated HSM data from the `cluster.info` file to the `cloudhsm_mgmt_util.cfg` file that cloudhsm\_mgmt\_util uses. Use this with CMU that ships with Client SDK 3.2.1 and earlier.  
-+ Before running the `-m`, stop the AWS CloudHSM client, run the `-a` command, and then restart the AWS CloudHSM client, as shown in the [previous example](#configure-tool-examples). This ensures that the data copied into the `cloudhsm_mgmt_util.cfg` file from the `cluster.info` file is complete and accurate. 
++ Before running the `-m`, stop the AWS CloudHSM client, run the `-a` command, and then restart the AWS CloudHSM client, as shown in the [previous example](configure-tool-examples.md). This ensures that the data copied into the `cloudhsm_mgmt_util.cfg` file from the `cluster.info` file is complete and accurate. 
 
 ------
 #### [ Linux ]

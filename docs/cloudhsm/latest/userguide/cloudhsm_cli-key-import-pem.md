@@ -1,7 +1,6 @@
 
 
 # Import a PEM format key with CloudHSM CLI
-<a name="cloudhsm_cli-key-import-pem"></a>
 
 Use the **key import pem** command in AWS CloudHSM to import a PEM format key into a hardware security module (HSM). You can use it to import public keys that were generated outside of the HSM.
 

@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM performance information
-<a name="performance"></a>
 
 For production AWS CloudHSM clusters, you should have at least two hardware security module (HSM) instances spread across different availability zones in a region. We recommend load testing your cluster to determine the peak load you should anticipate, and then add one more HSM to it to ensure high availability. For applications requiring durability of newly generated keys, we recommend at least three HSM instances spread across different availability zones in a region.
 

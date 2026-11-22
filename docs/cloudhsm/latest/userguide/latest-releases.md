@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM latest Client SDK release
-<a name="latest-releases"></a>
 
 In March 2021, AWS CloudHSM released Client SDK version 5.0.0, which introduces an all-new Client SDK with different requirements, capabilities, and platform support. 
 

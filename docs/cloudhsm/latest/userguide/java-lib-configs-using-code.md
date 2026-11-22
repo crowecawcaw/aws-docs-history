@@ -1,18 +1,18 @@
 
 
 # Configure the AWS CloudHSM `CloudHsmProvider` class using code
-<a name="java-lib-configs-using-code"></a>
 
 As of Client SDK version 5.8.0, you can also configure the AWS CloudHSM `CloudHsmProvider` class using Java code. The way to do this is using an object of `CloudHsmProviderConfig` class. You can build this object using `CloudHsmProviderConfigBuilder`. 
 
-`CloudHsmProvider` has another constructor which takes the `CloudHsmProviderConfig` object, as the following sample shows.
+You can also use another `CloudHsmProvider` constructor that takes a `CloudHsmProviderConfig` object. The following Java code example builds a `CloudHsmProviderConfig` object and passes it to that constructor:
 
 **Example**  
 
 ```
 CloudHsmProviderConfig config = CloudHsmProviderConfig.builder()  
-                                    .withCluster(  
+                                    .withCluster(
                                         CloudHsmCluster.builder()  
+                                            .withClusterType("hsm2m")
                                             .withHsmCAFilePath(hsmCAFilePath)
                                             .withClusterUniqueIdentifier("CloudHsmCluster1")
         .withServer(CloudHsmServer.builder().withHostIP(hostName).build())  
@@ -20,6 +20,8 @@ CloudHsmProviderConfig config = CloudHsmProviderConfig.builder()
         .build();
 CloudHsmProvider provider = new CloudHsmProvider(config);
 ```
+
+The `withClusterType` method sets the same value as the `type` field in the `cloudhsm-jce.cfg` file. For *hsm2m.medium* clusters, we recommend `hsm2m`. For backward compatibility, the value `hsm1` also works with *hsm2m.medium* clusters.
 
 In this example, the name of the JCE provider is `CloudHsmCluster1`. This is the name that application can then use to interact with JCE:
 

@@ -1,7 +1,6 @@
 
 
 # How AWS CloudHSM works
-<a name="whatis-concepts"></a>
 
 This topic provides an overview of the basic concepts and architecture you use to securely encrypt data and perform cryptographic operations in HSMs. AWS CloudHSM operates in your own Amazon Virtual Private Cloud (VPC). Before you can use AWS CloudHSM, you first create a cluster, add HSMs to it, create users and keys, and then use Client SDKs to integrate your HSMs with your application. Once this is done, you use Client SDK logs, AWS CloudTrail, audit logs, and Amazon CloudWatch to [monitor AWS CloudHSM](get-logs.md).
 

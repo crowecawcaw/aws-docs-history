@@ -1,7 +1,6 @@
 
 
 # Using trusted keys in AWS CloudHSM
-<a name="manage-keys-using-trusted-keys"></a>
 
 AWS CloudHSM supports trusted key wrapping to protect data keys from insider threats. This topic describes how to create trusted keys to secure data.
 

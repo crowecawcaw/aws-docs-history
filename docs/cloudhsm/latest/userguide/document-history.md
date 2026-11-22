@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="document-history"></a>
 
 This topic describes significant updates to the *AWS CloudHSM User Guide*.
 
@@ -67,22 +66,22 @@ For details on new releases, see [Downloads for AWS CloudHSM Client SDK](client-
 | [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/deprecated.html#client-version-3-1-2) | Released AWS CloudHSM client version 3.1.2. | July 30, 2020 | 
 | [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/deprecated.html#client-version-3-1-1) | Released AWS CloudHSM client version 3.1.1. | June 3, 2020 | 
 | [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/deprecated.html#client-version-3-1) | Released AWS CloudHSM client version 3.1.0.  | May 21, 2020 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 3.0.1.  | April 20, 2020 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 3.0.0 for Windows Server platform.  | October 30, 2019 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 3.0.0 for all platforms, except Windows.  | October 22, 2019 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 2.0.4. | August 26, 2019 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 2.0.3. | May 13, 2019 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 2.0.1.  | March 21, 2019 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 2.0.0.  | February 6, 2019 | 
-| [Added region support](#document-history) | Added AWS CloudHSM support for the EU (Stockholm) and AWS GovCloud (US-East) regions. | December 19, 2018 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 1.1.2 for Windows.  | November 20, 2018 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 3.0.1.  | April 20, 2020 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 3.0.0 for Windows Server platform.  | October 30, 2019 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 3.0.0 for all platforms, except Windows.  | October 22, 2019 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 2.0.4. | August 26, 2019 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 2.0.3. | May 13, 2019 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 2.0.1.  | March 21, 2019 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 2.0.0.  | February 6, 2019 | 
+| [Added region support](document-history.md) | Added AWS CloudHSM support for the EU (Stockholm) and AWS GovCloud (US-East) regions. | December 19, 2018 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 1.1.2 for Windows.  | November 20, 2018 | 
 | [Updated known issues](https://docs.aws.amazon.com/cloudhsm/latest/userguide/KnownIssues.html) | New content was added to the Troubleshooting guide. | November 8, 2018 | 
-| [Added new release](#document-history) | Released AWS CloudHSM client version 1.1.2 for Linux platforms.  | November 8, 2018 | 
-| [Added region support](#document-history) | Added AWS CloudHSM support for the EU (Paris) and Asia Pacific (Seoul) regions. | October 24, 2018 | 
+| [Added new release](document-history.md) | Released AWS CloudHSM client version 1.1.2 for Linux platforms.  | November 8, 2018 | 
+| [Added region support](document-history.md) | Added AWS CloudHSM support for the EU (Paris) and Asia Pacific (Seoul) regions. | October 24, 2018 | 
 | [Added new content](https://docs.aws.amazon.com/cloudhsm/latest/userguide/delete-restore-backup.html) | Added the ability to delete and restore AWS CloudHSM backups.  | September 10, 2018 | 
 | [Added new content](https://docs.aws.amazon.com/cloudhsm/latest/userguide/get-hsm-audit-logs-using-cloudwatch.html) | Added automatic audit log delivery to Amazon CloudWatch Logs.  | August 13, 2018 | 
 | [Added new content](https://docs.aws.amazon.com/cloudhsm/latest/userguide/copy-backup-to-region.html) | Added the ability to copy an AWS CloudHSM cluster backup across regions.  | July 30, 2018 | 
-| [Added region support](#document-history) | Added AWS CloudHSM support for the EU (London) region. | June 13, 2018 | 
+| [Added region support](document-history.md) | Added AWS CloudHSM support for the EU (London) region. | June 13, 2018 | 
 | [Added new content](https://docs.aws.amazon.com/cloudhsm/latest/userguide/cmu-install-and-configure-client-linux.html) | Added AWS CloudHSM client and library support for Amazon Linux 2, Red Hat Enterprise Linux (RHEL) 6, Red Hat Enterprise Linux (RHEL) 7, CentOS 6, CentOS 7, and Ubuntu 16.04 LTS.  | May 10, 2018 | 
 | [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library) | Added a Windows AWS CloudHSM client. | April 30, 2018 | 
 

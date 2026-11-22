@@ -1,7 +1,6 @@
 
 
 # Windows support for AWS CloudHSM Client SDK 3
-<a name="sdk3-windows"></a>
 
 AWS CloudHSM Client SDK 3 supports the following versions of Windows Server.
 + Microsoft Windows Server 2012

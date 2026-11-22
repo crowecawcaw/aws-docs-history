@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM command line tools
-<a name="command-line-tools"></a>
 
 In addition to the AWS Command Line Interface (AWS CLI) that you use for managing your AWS resources, AWS CloudHSM offers command-line tools for creating and managing hardware security module (HSM) users and keys on your HSMs. In AWS CloudHSM, you use the familiar CLI to manage your cluster, and the CloudHSM command-line tools to manage your HSM.
 

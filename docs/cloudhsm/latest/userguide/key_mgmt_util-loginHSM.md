@@ -1,7 +1,6 @@
 
 
 # Log in and out of an HSM using AWS CloudHSM KMU
-<a name="key_mgmt_util-loginHSM"></a>
 
 Use the **loginHSM** and **logoutHSM** commands in the AWS CloudHSM key\_mgmt\_util to log in and out of the hardware security modules (HSM) in a cluster. Once logged in to the HSMs, you can use key\_mgmt\_util to perform a variety of key management operations, including public and private key generation, synchronization, and wrapping.
 

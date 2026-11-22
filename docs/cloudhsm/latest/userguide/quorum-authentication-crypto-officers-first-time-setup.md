@@ -1,7 +1,6 @@
 
 
 # Set up quorum authentication for AWS CloudHSM crypto officers
-<a name="quorum-authentication-crypto-officers-first-time-setup"></a>
 
 The following topics describe the steps that you must complete to configure your hardware security module (HSM) so that AWS CloudHSM [crypto officers (COs)](understanding-users-cmu.md#crypto-officer) can use quorum authentication. You need to do these steps only once when you first configure quorum authentication for COs. After you complete these steps, see [User management with quorum authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md).
 

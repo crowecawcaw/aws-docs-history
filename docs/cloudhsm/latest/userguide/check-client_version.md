@@ -1,7 +1,6 @@
 
 
 # Check your AWS CloudHSM Client SDK version
-<a name="check-client_version"></a>
 
 Use the following commands to verify the version of Client SDK that you're using with AWS CloudHSM.
 

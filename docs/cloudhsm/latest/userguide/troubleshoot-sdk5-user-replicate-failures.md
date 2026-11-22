@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 5 user replicate failures
-<a name="troubleshoot-sdk5-user-replicate-failures"></a>
 
 The `user replicate` command in the CloudHSM CLI replicates a user between cloned AWS CloudHSM clusters. This guide addresses failures due to user inconsistencies within the source cluster or between the source and destination clusters. User replicate verifies that users are consistent by checking the following attributes: 
 + User Role

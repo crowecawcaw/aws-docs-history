@@ -1,7 +1,6 @@
 
 
 # Adding an HSM to an AWS CloudHSM cluster
-<a name="add-hsm"></a>
 
 The following figure illustrates the events that occur when you add an HSM to a cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Wrap a key with AES-NO-PAD using CloudHSM CLI
-<a name="cloudhsm_cli-key-wrap-aes-no-pad"></a>
 
 Use the **key wrap aes-no-pad** command in CloudHSM CLI to wrap a payload key using an AES key on the hardware security module (HSM) and the `AES-NO-PAD` wrapping mechanism. The payload key’s `extractable` attribute must be set to `true`.
 

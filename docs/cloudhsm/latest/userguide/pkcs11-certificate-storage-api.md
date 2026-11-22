@@ -1,7 +1,6 @@
 
 
 # Certificate storage API operations
-<a name="pkcs11-certificate-storage-api"></a>
 
  The following PKCS \#11 operations support the certificate object type (`CKO_CERTIFICATE`): 
 

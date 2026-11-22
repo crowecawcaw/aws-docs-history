@@ -1,7 +1,6 @@
 
 
 # Add or update tags for AWS CloudHSM resources
-<a name="add-update-tags"></a>
 
 You can add or update tags from the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/), the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), or the AWS CloudHSM API.
 

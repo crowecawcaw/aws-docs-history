@@ -1,7 +1,6 @@
 
 
 # Generate a signature with the HashEdDSA mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-sign-ed25519ph"></a>
 
 **Important**  
 HashEdDSA signing operations are only supported on hsm2m.medium instances in non-FIPS mode.

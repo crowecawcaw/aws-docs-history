@@ -1,7 +1,6 @@
 
 
 # List all AWS CloudHSM users using CMU
-<a name="cloudhsm_mgmt_util-listUsers"></a>
 
 Use the **listUsers** command in the AWS CloudHSM cloudhsm\_mgmt\_util to get the users in each of the hardware security modules (HSM), along with their user type and other attributes. All types of users can run this command. You do not even need to be logged in to cloudhsm\_mgmt\_util to run this command.
 

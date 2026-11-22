@@ -1,7 +1,6 @@
 
 
 # Supported key types for OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5
-<a name="openssl-key-types"></a>
 
 The AWS CloudHSM OpenSSL Dynamic Engine supports the following key types with Client SDK 5.
 

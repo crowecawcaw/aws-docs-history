@@ -1,7 +1,6 @@
 
 
 # Quorum authentication and 2FA in AWS CloudHSM clusters using AWS CloudHSM Management Utility
-<a name="quorum-2fa"></a>
 
 The cluster uses the same key for quorum authentication and for two-factor authentication 2FA). This means a user with 2FA enabled is effectively registered for M-of-N-access-control (MofN). To successfully use 2FA and quorum authentication for the same HSM user, consider the following points:
 + If you are using quorum authentication for a user today, you should use the same key pair you created for the quorum user to enable 2FA for the user. 

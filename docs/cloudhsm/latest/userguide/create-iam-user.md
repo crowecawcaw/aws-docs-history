@@ -1,7 +1,6 @@
 
 
 # Create IAM administrative groups for AWS CloudHSM
-<a name="create-iam-user"></a>
 
 The first step to getting started with AWS CloudHSM is to set up IAM permissions.
 

@@ -1,7 +1,6 @@
 
 
 # Create new AWS CloudHSM keys with keytool
-<a name="create_key_keytool"></a>
 
 You can use keytool to generate any type of key supported by the AWS CloudHSM JCE SDK. See a full list of keys and lengths in the [ Supported Keys](java-lib-supported.md#java-keys) article in the Java Library.
 

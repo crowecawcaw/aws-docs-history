@@ -1,7 +1,6 @@
 
 
 # NCryptFreeObject with Key storage provider (KSP)
-<a name="ksp-library-apis-free-object"></a>
 
 The `NCryptFreeObject` function releases provider or key handle from the Key Storage Provider (KSP).
 

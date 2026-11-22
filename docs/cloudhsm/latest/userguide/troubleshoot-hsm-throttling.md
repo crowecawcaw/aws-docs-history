@@ -1,7 +1,6 @@
 
 
 # HSM throttling
-<a name="troubleshoot-hsm-throttling"></a>
 
 When your workload exceeds your AWS CloudHSM cluster’s hardware security module (HSM) capacity, you will receive error messages stating HSMs are busy or throttled. When this happens, you may see reduced throughput or an increased rate of rejection requests from HSMs. Additionally, HSMs may send the following busy errors.
 

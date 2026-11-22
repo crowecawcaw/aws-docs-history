@@ -1,7 +1,6 @@
 
 
 # Generate a signature using AWS CloudHSM KMU
-<a name="key_mgmt_util-sign"></a>
 
 Use the **sign** command in the AWS CloudHSM key\_mgmt\_util to use a chosen private key to generate a signature for a file.
 

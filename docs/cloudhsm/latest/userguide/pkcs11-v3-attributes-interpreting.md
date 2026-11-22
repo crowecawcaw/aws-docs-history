@@ -1,7 +1,6 @@
 
 
 # PKCS \#11 library attributes table for AWS CloudHSM Client SDK 3
-<a name="pkcs11-v3-attributes-interpreting"></a>
 
 The PKCS \#11 library table for AWS CloudHSM Client SDK 3 contains a list of attributes that differ by key types. It indicates whether a given attribute is supported for a particular key type when using a specific cryptographic function with AWS CloudHSM.
 

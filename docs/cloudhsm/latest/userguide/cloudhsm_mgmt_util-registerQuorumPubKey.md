@@ -1,7 +1,6 @@
 
 
 # Associate AWS CloudHSM users with keys using CMU
-<a name="cloudhsm_mgmt_util-registerQuorumPubKey"></a>
 
 Use the **registerQuorumPubKey** command in the AWS CloudHSM cloudhsm\_mgmt\_util to associate hardware security module (HSM) users with asymmetric RSA-2048 key pairs. Once you associate HSM users with keys, those users can use the private key to approve quorum requests and the cluster can use the registered public key to verify the signature is from the user. For more information about quorum authentication, see [Managing Quorum Authentication (M of N Access Control)](quorum-authentication.md).
 

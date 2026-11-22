@@ -1,7 +1,6 @@
 
 
 # Wrap a key with CLOUDHSM-AES-GCM using CloudHSM CLI
-<a name="cloudhsm_cli-key-wrap-cloudhsm-aes-gcm"></a>
 
 Use the **key wrap cloudhsm-aes-gcm** command in CloudHSM CLI to wrap a payload key using an AES key on the hardware security module (HSM) and the `CLOUDHSM-AES-GCM` wrapping mechanism. The payload key’s `extractable` attribute must be set to `true`.
 

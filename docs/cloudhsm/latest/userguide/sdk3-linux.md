@@ -1,7 +1,6 @@
 
 
 # Linux support for AWS CloudHSM Client SDK 3
-<a name="sdk3-linux"></a>
 
 AWS CloudHSM Client SDK 3 supports the following Linux operating systems and platforms.
 + Amazon Linux

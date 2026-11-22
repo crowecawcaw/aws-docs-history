@@ -1,7 +1,6 @@
 
 
 # Add a cluster with multi-slot functionality for AWS CloudHSM
-<a name="pkcs11-multi-slot-add-cluster"></a>
 
 When [connecting to multiple slots with PKCS \#11](pkcs11-library-configs-multi-slot.md) for AWS CloudHSM, use the **configure-pkcs11 add-cluster** command to add a cluster to your configuration.
 

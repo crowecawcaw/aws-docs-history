@@ -1,7 +1,6 @@
 
 
 # Resolving AWS CloudHSM cluster creation failures
-<a name="troubleshooting-create-cluster"></a>
 
 When you create a cluster, AWS CloudHSM creates the AWSServiceRoleForCloudHSM service-linked role, if the role does not already exist. If AWS CloudHSM cannot create the service-linked role, your attempt to create a cluster might fail.
 

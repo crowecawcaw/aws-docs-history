@@ -1,7 +1,6 @@
 
 
 # Key attributes in the PKCS \#11 library for AWS CloudHSM Client SDK 5
-<a name="pkcs11-attributes"></a>
 
 An AWS CloudHSM key object can be a public, private, or secret key. Actions permitted on a key object are specified through attributes. Attributes are defined when the key object is created. When you use the PKCS \#11 library for AWS CloudHSM, we assign default values as specified by the PKCS \#11 standard.
 

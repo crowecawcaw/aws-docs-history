@@ -1,7 +1,6 @@
 
 
 # Search for AWS CloudHSM keys by attributes using KMU
-<a name="key_mgmt_util-findKey"></a>
 
 Use the **findKey** command in the AWS CloudHSM key\_mgmt\_util to search for keys by the values of the key attributes. When a key matches all the criteria that you set, **findKey** returns the key handle. With no parameters, **findKey** returns the key handles of all the keys that you can use in the HSM. To find the attribute values of a particular key, use [getAttribute](key_mgmt_util-getAttribute.md).
 

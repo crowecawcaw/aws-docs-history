@@ -1,7 +1,6 @@
 
 
 # List all AWS CloudHSM users with CloudHSM CLI
-<a name="cloudhsm_cli-user-list"></a>
 
 The **user list** command in the CloudHSM CLI lists the user accounts present in your AWS CloudHSM cluster. You do not need to be logged in to CloudHSM CLI to run this command.
 

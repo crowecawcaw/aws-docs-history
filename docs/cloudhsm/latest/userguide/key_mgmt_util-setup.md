@@ -1,7 +1,6 @@
 
 
 # Set up AWS CloudHSM key\_mgmt\_util
-<a name="key_mgmt_util-setup"></a>
 
 Complete the following setup before you use AWS CloudHSM key\_mgmt\_util (KMU).
 

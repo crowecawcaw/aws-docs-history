@@ -1,7 +1,6 @@
 
 
 # Generate a signature with the RSA-PKCS mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-sign-rsa-pkcs"></a>
 
 Use the **crypto sign rsa-pkcs** command in CloudHSM CLI to generate a signature using an RSA private key and the RSA-PKCS signing mechanism.
 

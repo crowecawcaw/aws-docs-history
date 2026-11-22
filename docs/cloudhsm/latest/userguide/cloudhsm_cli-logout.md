@@ -1,7 +1,6 @@
 
 
 # Log out of an HSM using CloudHSM CLI
-<a name="cloudhsm_cli-logout"></a>
 
 Use the **logout** command in CloudHSM CLI to log out of each hardware security module (HSM) in an AWS CloudHSM cluster.
 

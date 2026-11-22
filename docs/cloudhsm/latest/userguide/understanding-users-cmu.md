@@ -1,7 +1,6 @@
 
 
 # HSM user types for AWS CloudHSM Management Utility
-<a name="understanding-users-cmu"></a>
 
  Most operations that you perform on the hardware security module (HSM) require the credentials of an AWS CloudHSM *HSM user*. The HSM authenticates each HSM user and each HSM user has a *type* that determines which operations you can perform on the HSM as that user. 
 

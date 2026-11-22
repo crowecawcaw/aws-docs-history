@@ -1,7 +1,6 @@
 
 
 # Quorum authentication process for CloudHSM CLI
-<a name="key-quorum-auth-chsm-cli-overview"></a>
 
 The following steps summarize the quorum authentication processes for CloudHSM CLI. For the specific steps and tools, see [Key management and usage with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md).
 

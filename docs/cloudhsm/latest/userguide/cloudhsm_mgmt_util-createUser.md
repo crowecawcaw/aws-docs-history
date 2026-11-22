@@ -1,14 +1,13 @@
 
 
 # Create an AWS CloudHSM user with CMU
-<a name="cloudhsm_mgmt_util-createUser"></a>
 
 Use the **createUser** command in cloudhsm\_mgmt\_util (CMU) to create a user on the hardware security modules (HSM) in the AWS CloudHSM cluster. Only crypto officers (COs and PRECOs) can run this command. When the command succeeds, it creates the user in all HSMs in the cluster. 
 
 ## To troubleshoot createUser
 <a name="troubleshoot-createuser"></a>
 
- If your HSM configuration is inaccurate, the user might not be created on all HSMs. To add the user to any HSMs in which it is missing, use the [syncUser](cloudhsm_mgmt_util-syncUser.md) or [createUser](#cloudhsm_mgmt_util-createUser) command only on the HSMs that are missing that user. To prevent configuration errors, run the [configure](configure-tool.md) tool with the `-m` option. 
+ If your HSM configuration is inaccurate, the user might not be created on all HSMs. To add the user to any HSMs in which it is missing, use the [syncUser](cloudhsm_mgmt_util-syncUser.md) or [createUser](cloudhsm_mgmt_util-createUser.md) command only on the HSMs that are missing that user. To prevent configuration errors, run the [configure](configure-tool.md) tool with the `-m` option. 
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be sure that you log in with a user type that can run the commands you plan to use.
 

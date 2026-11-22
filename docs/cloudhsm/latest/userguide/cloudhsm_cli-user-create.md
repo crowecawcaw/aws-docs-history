@@ -1,7 +1,6 @@
 
 
 # Create an AWS CloudHSM user with CloudHSM CLI
-<a name="cloudhsm_cli-user-create"></a>
 
 The **user create** command in CloudHSM CLI creates a user in your AWS CloudHSM cluster. Only user accounts with the admin role can run this command.
 

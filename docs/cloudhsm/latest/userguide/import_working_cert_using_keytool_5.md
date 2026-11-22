@@ -1,7 +1,6 @@
 
 
 # Import a working certificate into AWS CloudHSM key store using keytool
-<a name="import_working_cert_using_keytool_5"></a>
 
 Once a certificate signing request (CSR) is signed, you can import it into the AWS CloudHSM key store and associate it with the appropriate key pair. The following command provides an example. 
 

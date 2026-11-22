@@ -1,7 +1,6 @@
 
 
 # The key category in CloudHSM CLI
-<a name="cloudhsm_cli-key"></a>
 
 In the CloudHSM CLI, **key** is a parent category for a group of commands that, when combined with the parent category, create a command specific to keys. Currently, this category consists of the following commands:
 + [delete](cloudhsm_cli-key-delete.md)

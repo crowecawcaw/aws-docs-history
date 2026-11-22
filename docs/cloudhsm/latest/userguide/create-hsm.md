@@ -1,7 +1,6 @@
 
 
 # Create an HSM in AWS CloudHSM
-<a name="create-hsm"></a>
 
  After you create a cluster in AWS CloudHSM, you can create a hardware security module (HSM). However, before you can create an HSM in your cluster, the cluster must be in the uninitialized state. To determine the cluster's state, view the [clusters page in the AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/home), use the AWS CLI to run the **[describe-clusters](https://docs.aws.amazon.com/cli/latest/reference/cloudhsmv2/describe-clusters.html)** command, or send a [DescribeClusters](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html) request in the AWS CloudHSM API. You can create an HSM from the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/), the [AWS CLI](https://aws.amazon.com/cli/), or the AWS CloudHSM API. 
 

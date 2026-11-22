@@ -1,7 +1,6 @@
 
 
 # How to use trusted keys to wrap data keys in AWS CloudHSM
-<a name="wrap_keys_using_trusted"></a>
 
 To use a trusted key to wrap a data key in AWS CloudHSM, you must complete three basic steps:
 

@@ -1,7 +1,6 @@
 
 
 # Multi-cluster prerequisites for AWS CloudHSM
-<a name="cloudhsm_cli-multi-cluster-prereqs"></a>
 
 Before configuring your cluster in AWS CloudHSM to connect to multiple clusters, you must meet the following prerequisites: 
 + Two or more AWS CloudHSM clusters to which you’d like to connect to, along with their cluster certificates.

@@ -1,7 +1,6 @@
 
 
 # Retrieve attributes with the PKCS \#11 library for AWS CloudHSM Client SDK 5
-<a name="pkcs11-attributes-retrieve"></a>
 
 When your application reads attributes from a key or a certificate object, the PKCS \#11 library sends one request to your cluster for each `C_GetAttributeValue` call. The number of attributes in the template does not change the number of requests. One call that requests ten attributes sends one request. Ten calls that each request one attribute send ten requests.
 
@@ -10,7 +9,7 @@ Each call reads the object's attributes from your cluster in one request, and th
 To reduce the number of requests that your application sends, follow these recommendations:
 + Request every attribute that you need in one template. Build a single template that contains all of the attributes that you want, and pass it to one `C_GetAttributeValue` call. The following example reads three attributes of a key with one call.
 
-  ```
+  ```c
   CK_OBJECT_CLASS obj_class;
   CK_BYTE label[128];
   CK_BYTE id[128];

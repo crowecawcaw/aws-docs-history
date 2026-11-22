@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM key attribute reference for KMU
-<a name="key-attribute-table"></a>
 
 The AWS CloudHSM key\_mgmt\_util commands use constants to represent the attributes of keys in a hardware security module (HSM). This topic can help you to identify the attributes, find the constants that represent them in commands, and understand their values. 
 

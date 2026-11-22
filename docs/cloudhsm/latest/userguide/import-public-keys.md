@@ -1,7 +1,6 @@
 
 
 # Import public keys with the AWS CloudHSM KMU
-<a name="import-public-keys"></a>
 
 Use the [importPubKey](key_mgmt_util-importPubKey.md) command in the AWS CloudHSM key\_mgmt\_util (KMU) to import a public key. To see all available options, use the **importPubKey -h** command.
 

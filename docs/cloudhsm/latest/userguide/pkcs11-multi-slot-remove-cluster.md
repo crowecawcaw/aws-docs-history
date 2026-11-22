@@ -1,7 +1,6 @@
 
 
 # Remove a cluster with multi-slot functionality for AWS CloudHSM
-<a name="pkcs11-multi-slot-remove-cluster"></a>
 
 When [connecting to multiple slots with PKCS\#11](pkcs11-library-configs-multi-slot.md), use the **configure-pkcs11 remove-cluster** command to remove a cluster from available PKCS \#11 slots.
 

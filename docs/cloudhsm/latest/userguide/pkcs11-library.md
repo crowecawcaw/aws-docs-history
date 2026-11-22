@@ -1,7 +1,6 @@
 
 
 # PKCS \#11 library for AWS CloudHSM Client SDK 5
-<a name="pkcs11-library"></a>
 
 PKCS \#11 is a standard for performing cryptographic operations on hardware security modules (HSMs). AWS CloudHSM offers implementations of the PKCS \#11 library that are compliant with PKCS \#11 version 2.40.
 

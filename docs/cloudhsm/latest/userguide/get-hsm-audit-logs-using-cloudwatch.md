@@ -1,7 +1,6 @@
 
 
 # Working with Amazon CloudWatch Logs and AWS CloudHSM Audit Logs
-<a name="get-hsm-audit-logs-using-cloudwatch"></a>
 
 When an HSM in your account receives a command from the AWS CloudHSM [command line tools](command-line-tools.md) or [software libraries](use-hsm.md), it records its execution of the command in audit log form. The HSM audit logs include all client-initiated [management commands](cloudhsm-audit-log-reference.md), including those that create and delete the HSM, log into and out of the HSM, and manage users and keys. These logs provide a reliable record of actions that have changed the state of the HSM.
 

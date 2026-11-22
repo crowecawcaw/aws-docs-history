@@ -1,7 +1,6 @@
 
 
 # Display help information for AWS CloudHSM KMU
-<a name="key_mgmt_util-help"></a>
 
 Use the **help** command in the AWS CloudHSM key\_mgmt\_util to display information about all available key\_mgmt\_util commands.
 

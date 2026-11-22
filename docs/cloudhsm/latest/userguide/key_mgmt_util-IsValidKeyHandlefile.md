@@ -1,7 +1,6 @@
 
 
 # Validate key file using AWS CloudHSM KMU
-<a name="key_mgmt_util-IsValidKeyHandlefile"></a>
 
 Use the **IsValidKeyHandlefile** command in the AWS CloudHSM key\_mgmt\_util to find out whether a key file contains a real private key or a fake RSA PEM key. A fake PEM file does not contain the actual private key material but instead references the private key in the HSM. Such a file can be used to establish SSL/TLS offloading from your web server to AWS CloudHSM. For more information, see [SSL/TLS Offload on Linux using Tomcat](third-offload-linux-jsse.md) or [SSL/TLS Offload on Linux using NGINX or Apache](third-offload-linux-openssl.md).
 

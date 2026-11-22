@@ -1,7 +1,6 @@
 
 
 # Share AWS CloudHSM keys using CMU
-<a name="cloudhsm_mgmt_util-shareKey"></a>
 
 Use the **shareKey** command in the AWS CloudHSM cloudhsm\_mgmt\_util to share and unshare keys that you own with other crypto users. Only the key owner can share and unshare a key. You can also share a key when you create it.
 

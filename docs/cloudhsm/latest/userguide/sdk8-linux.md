@@ -1,7 +1,6 @@
 
 
 # Linux support for AWS CloudHSM Client SDK 5
-<a name="sdk8-linux"></a>
 
  AWS CloudHSM Client SDK 5 supports the following Linux operating systems and platforms. 
 

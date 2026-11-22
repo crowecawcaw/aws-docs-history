@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM cluster modes
-<a name="cluster-hsm-types"></a>
 
 AWS CloudHSM offers clusters in two modes: *FIPS* and *non-FIPS*. In FIPS mode, only Federal Information Processing Standard (FIPS) validated keys and algorithms can be used. Non-FIPS mode offers all the keys and algorithms that are supported by AWS CloudHSM, regardless of FIPS approval.
 

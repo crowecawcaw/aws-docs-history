@@ -1,7 +1,6 @@
 
 
 # Register pre-existing keys with AWS CloudHSM key store
-<a name="register-pre-existing-keys-with-keystore"></a>
 
 For maximum security and flexibility in attributes and labeling, we recommend you generate your AWS CloudHSM signing keys using [key\_mgmt\_util](generate-keys.md). You can also use a Java application to generate the key in AWS CloudHSM.
 

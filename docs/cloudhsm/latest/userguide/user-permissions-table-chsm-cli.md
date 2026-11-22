@@ -1,7 +1,6 @@
 
 
 # HSM user permissions table for CloudHSM CLI
-<a name="user-permissions-table-chsm-cli"></a>
 
 The following table lists hardware security module (HSM) operations sorted by the type of HSM user or session that can perform the operation in AWS CloudHSM.
 

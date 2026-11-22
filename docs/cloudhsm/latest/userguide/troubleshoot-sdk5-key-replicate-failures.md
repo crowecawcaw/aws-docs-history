@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 5 key replicate failures
-<a name="troubleshoot-sdk5-key-replicate-failures"></a>
 
 The `key replicate` command in the CloudHSM CLI replicates a key from a source AWS CloudHSM cluster to a destination AWS CloudHSM cluster. This guide addresses failures caused by inconsistencies within the source cluster or between the source and destination clusters. 
 

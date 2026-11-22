@@ -1,7 +1,6 @@
 
 
 # Generate an AWS CloudHSM ECC key pair using KMU
-<a name="key_mgmt_util-genECCKeyPair"></a>
 
 Use the `genECCKeyPair` command in the AWS CloudHSM key\_mgmt\_util tool to generate an [Elliptic Curve Cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) (ECC) key pair in your hardware security modules (HSM). When running the `genECCKeyPair` command, you must specify the elliptic curve identifier and a label for the key pair. You can also share the private key with other CU users, create non-extractable keys, quorum-controlled keys, and keys that expire when the session ends. When the command succeeds, it returns the key handles that the HSM assigns to the public and private ECC keys. You can use the key handles to identify the keys to other commands.
 

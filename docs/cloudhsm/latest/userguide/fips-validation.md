@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS CloudHSM
-<a name="fips-validation"></a>
 
 For clusters in FIPS mode, AWS CloudHSM provides FIPS-approved HSMs that meet PCI-PIN, PCI-3DS, and SOC2 compliance requirements. AWS CloudHSM also gives customers the option of choosing clusters that are non-FIPS mode. For details on what certification and compliance requirements apply to each, see [AWS CloudHSM cluster modes](cluster-hsm-types.md).
 

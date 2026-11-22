@@ -1,7 +1,6 @@
 
 
 # Add a load balancer with Elastic Load Balancing for AWS CloudHSM(optional)
-<a name="third-offload-add-lb"></a>
 
 After you set up SSL/TLS offload with one web server, you can create more web servers and an Elastic Load Balancing load balancer that routes HTTPS traffic to the web servers. A load balancer can reduce the load on your individual web servers by balancing traffic across two or more servers. It can also increase the availability of your website because the load balancer monitors the health of your web servers and only routes traffic to healthy servers. If a web server fails, the load balancer automatically stops routing traffic to it.
 

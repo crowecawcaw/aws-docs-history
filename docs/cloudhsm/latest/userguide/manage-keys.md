@@ -1,7 +1,6 @@
 
 
 # Keys in AWS CloudHSM
-<a name="manage-keys"></a>
 
 Before you can use your AWS CloudHSM cluster for cryptoprocessing, you must create [users](manage-hsm-users.md) and keys on the hardware security modules (HSM) in your cluster. 
 

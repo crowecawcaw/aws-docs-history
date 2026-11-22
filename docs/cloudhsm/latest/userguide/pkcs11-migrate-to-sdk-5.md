@@ -1,7 +1,6 @@
 
 
 # Migrate your AWS CloudHSM PKCS \#11 library from Client SDK 3 to Client SDK 5
-<a name="pkcs11-migrate-to-sdk-5"></a>
 
 Use this topic to migrate your AWS CloudHSM [PKCS \#11 library](pkcs11-library.md) from Client SDK 3 to Client SDK 5. For benefits on migrating, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md).
 

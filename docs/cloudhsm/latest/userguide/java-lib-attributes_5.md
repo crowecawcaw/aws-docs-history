@@ -1,7 +1,6 @@
 
 
 # Supported Java key attributes for AWS CloudHSM Client SDK 5
-<a name="java-lib-attributes_5"></a>
 
 This topic provides information about supported Java key attributes for AWS CloudHSM Client SDK 5. This topic describes how to use a proprietary extension for the JCE provider to set key attributes. Use this extension to set supported key attributes and their values during these operations:
 + Key generation

@@ -1,7 +1,6 @@
 
 
 # Known issues for the OpenSSL Dynamic Engine for AWS CloudHSM
-<a name="ki-openssl-sdk"></a>
 
 These are the known issues for OpenSSL Dynamic Engine for AWS CloudHSM.
 

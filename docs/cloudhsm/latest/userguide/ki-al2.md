@@ -1,7 +1,6 @@
 
 
 # Known issues for Amazon EC2 instances running Amazon Linux 2 with AWS CloudHSM
-<a name="ki-al2"></a>
 
 The following issues impact AWS CloudHSM and Amazon EC2 instances that are running on Amazon Linux 2.
 

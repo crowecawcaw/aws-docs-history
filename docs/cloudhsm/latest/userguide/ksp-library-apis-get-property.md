@@ -1,7 +1,6 @@
 
 
 # NCryptGetProperty with Key storage provider (KSP)
-<a name="ksp-library-apis-get-property"></a>
 
 The `NCryptGetProperty` function retrieves property values for a key storage object.
 

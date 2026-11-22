@@ -1,7 +1,6 @@
 
 
 # Install the JCE provider for AWS CloudHSM Client SDK 3
-<a name="java-library-install"></a>
 
 Before you can use the JCE provider, you need the AWS CloudHSM client. 
 
@@ -200,14 +199,14 @@ Perform basic operations on the HSM to validate the installation.
 ------
 #### [ Linux (and compatible libraries) ]
 
-   ```
+   ```bash
    $ sudo yum install java-1.8.0-openjdk
    ```
 
 ------
 #### [ Ubuntu ]
 
-   ```
+   ```bash
    $ sudo apt-get install openjdk-8-jre
    ```
 
@@ -274,7 +273,7 @@ HSMs need to authenticate your Java application before the application can use t
   $ java -DHSM_PARTITION=PARTITION_1 -DHSM_USER={{<HSM user name>}} -DHSM_PASSWORD={{<password>}}
   ```
 
-  ```
+  ```java
   System.setProperty("HSM_PARTITION","PARTITION_1");
   System.setProperty("HSM_USER","{{<HSM user name>}}");
   System.setProperty("HSM_PASSWORD","{{<password>}}");

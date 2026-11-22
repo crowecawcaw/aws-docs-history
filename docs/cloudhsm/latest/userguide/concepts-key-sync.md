@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM key concepts
-<a name="concepts-key-sync"></a>
 
 The following are concepts to be aware of when working with keys in AWS CloudHSM.
 

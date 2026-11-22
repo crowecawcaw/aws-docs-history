@@ -1,7 +1,6 @@
 
 
 # Log in and out of an HSM using AWS CloudHSM Management Utility
-<a name="cloudhsm_mgmt_util-loginLogout"></a>
 
 Use the **loginHSM** and **logoutHSM** commands in the AWS CloudHSM cloudhsm\_mgmt\_util to log in and out of each HSM in a cluster. Any user of any type can use these commands.
 

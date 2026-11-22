@@ -1,7 +1,6 @@
 
 
 # Encrypt and decrypt an AWS CloudHSM file using KMU
-<a name="key_mgmt_util-aesWrapUnwrap"></a>
 
 Use the **aesWrapUnwrap** command in AWS CloudHSM key\_mgmt\_util to encrypt or decrypt the contents of a file on disk. This command is designed to wrap and unwrap encryption keys, but you can use it on any file that contains less than 4 KB (4096 bytes) of data.
 

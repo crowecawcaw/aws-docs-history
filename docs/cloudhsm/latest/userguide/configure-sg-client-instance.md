@@ -1,7 +1,6 @@
 
 
 # Configure the Client Amazon EC2 instance security groups for AWS CloudHSM
-<a name="configure-sg-client-instance"></a>
 
 When you launched an Amazon EC2 instance for your cluster in AWS CloudHSM, you associated it with a default Amazon VPC security group. This topic explains how to associate the cluster security group with the EC2 instance. This association allows the AWS CloudHSM client running on your EC2 instance to communicate with your HSMs. To connect your EC2 instance to your AWS CloudHSM cluster, you must properly configure the VPC default security group *and* associate the cluster security group with the instance.
 

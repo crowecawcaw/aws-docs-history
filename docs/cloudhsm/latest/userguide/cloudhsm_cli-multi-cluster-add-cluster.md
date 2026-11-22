@@ -1,7 +1,6 @@
 
 
 # Add a cluster to your AWS CloudHSM configuration
-<a name="cloudhsm_cli-multi-cluster-add-cluster"></a>
 
 When connecting to multiple clusters, use the `configure-cli add-cluster` command to add a cluster to your configuration.
 

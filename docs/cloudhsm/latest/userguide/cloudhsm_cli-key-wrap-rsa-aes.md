@@ -1,7 +1,6 @@
 
 
 # Wrap a key with RSA-AES using CloudHSM CLI
-<a name="cloudhsm_cli-key-wrap-rsa-aes"></a>
 
 Use the **key wrap rsa-aes** command in CloudHSM CLI to wrap a payload key using an RSA public key on the hardware security module (HSM) and the RSA-AES wrapping mechanism. The payload key’s `extractable` attribute must be set to `true`.
 

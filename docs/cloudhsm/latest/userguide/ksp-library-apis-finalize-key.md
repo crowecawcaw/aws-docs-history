@@ -1,7 +1,6 @@
 
 
 # NCryptFinalizeKey with Key storage provider (KSP)
-<a name="ksp-library-apis-finalize-key"></a>
 
 The `NCryptFinalizeKey` function completes a KSP key. You must call this function before you can use the key.
 

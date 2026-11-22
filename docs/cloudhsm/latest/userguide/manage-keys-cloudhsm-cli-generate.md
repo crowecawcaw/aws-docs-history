@@ -1,7 +1,6 @@
 
 
 # Generate keys with CloudHSM CLI
-<a name="manage-keys-cloudhsm-cli-generate"></a>
 
 Before you can generate a key, you must start [CloudHSM CLI](cloudhsm_cli.md) and log in as a crypto user (CU). To generate keys on the HSM, use the command that corresponds to the type of key that you want to generate.
 

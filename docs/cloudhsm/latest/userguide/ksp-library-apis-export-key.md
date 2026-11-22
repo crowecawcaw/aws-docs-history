@@ -1,7 +1,6 @@
 
 
 # NCryptExportKey with Key storage provider (KSP)
-<a name="ksp-library-apis-export-key"></a>
 
 The `NCryptExportKey` function exports a KSP key to a memory BLOB. This function only supports exporting public keys.
 

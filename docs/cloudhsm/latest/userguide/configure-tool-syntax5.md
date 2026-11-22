@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 5 configuration syntax
-<a name="configure-tool-syntax5"></a>
 
  The following table illustrates the syntax for AWS CloudHSM configuration files for Client SDK 5. For more information about the parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md). 
 

@@ -1,7 +1,6 @@
 
 
 # The crypto sign category in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-sign"></a>
 
 In the CloudHSM CLI, **crypto sign** is a parent category for a group of commands that, when combined with the parent category, uses a chosen private key in your AWS CloudHSM cluster to generate a signature. **crypto sign** has the following subcommands:
 + [Generate a signature with the ECDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ecdsa.md)

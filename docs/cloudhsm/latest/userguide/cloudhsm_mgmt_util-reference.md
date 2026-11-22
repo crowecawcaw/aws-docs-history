@@ -1,7 +1,6 @@
 
 
 # Reference for AWS CloudHSM Management Utility commands
-<a name="cloudhsm_mgmt_util-reference"></a>
 
 The AWS CloudHSM cloudhsm\_mgmt\_util command line tool helps crypto officers manage users in the hardware security modules (HSMs) in the AWS CloudHSM cluster. It also includes commands that allow crypto users (CUs) to share keys, and get and set key attributes. These commands complement the primary key management commands in the [key\_mgmt\_util](key_mgmt_util.md) command line tool. 
 

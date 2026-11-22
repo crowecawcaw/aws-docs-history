@@ -1,7 +1,6 @@
 
 
 # Set up mutual TLS between client and AWS CloudHSM (recommended)
-<a name="getting-started-setup-mtls"></a>
 
 The following topics describe the steps that you must complete to enable the mutual Transport Layer Security (mTLS) between client and AWS CloudHSM.
 

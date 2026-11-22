@@ -1,7 +1,6 @@
 
 
 # Supported mechanisms for OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5
-<a name="openssl-mechanisms"></a>
 
 The AWS CloudHSM OpenSSL Dynamic Engine supports the following mechanisms for Sign and Verify functions with Client SDK 5.
 

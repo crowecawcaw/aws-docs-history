@@ -1,7 +1,6 @@
 
 
 # Export a certificate from AWS CloudHSM using keytool
-<a name="export_cert_using_keytool"></a>
 
 The following example generates a certificate in binary X.509 format. To export a human readable certificate from AWS CloudHSM, add `-rfc` to the `-exportcert` command. 
 

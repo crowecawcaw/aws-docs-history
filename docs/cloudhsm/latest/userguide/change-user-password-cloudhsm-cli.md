@@ -1,7 +1,6 @@
 
 
 # Change HSM user passwords using CloudHSM CLI
-<a name="change-user-password-cloudhsm-cli"></a>
 
  Use the **user change-password** command in the CloudHSM CLI to change a hardware security module (HSM) user's password. 
 

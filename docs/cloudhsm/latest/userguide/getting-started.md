@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS CloudHSM
-<a name="getting-started"></a>
 
 The following topics help you create, initialize, and activate a cluster in AWS CloudHSM. After you complete these procedures, you'll be ready to manage users, manage clusters, and use the included software libraries to perform cryptographic operations. For the best experience, follow the topics in the listed order. 
 

@@ -1,7 +1,6 @@
 
 
 # Unwrap a key with RSA-OAEP using CloudHSM CLI
-<a name="cloudhsm_cli-key-unwrap-rsa-oaep"></a>
 
 Use the **key unwrap rsa-oaep** command in CloudHSM CLI to unwrap a payload key using the RSA private key and the `RSA-OAEP` unwrapping mechanism.
 

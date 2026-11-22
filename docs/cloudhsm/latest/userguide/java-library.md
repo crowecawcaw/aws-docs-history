@@ -1,7 +1,6 @@
 
 
 # JCE provider for AWS CloudHSM Client SDK 5
-<a name="java-library"></a>
 
 The AWS CloudHSM JCE provider is a provider implementation built from the Java Cryptographic Extension (JCE) provider framework. The JCE allows you to perform cryptographic operations using the Java Development Kit (JDK). In this guide, the AWS CloudHSM JCE provider is sometimes referred to as the JCE provider. Use the JCE provider and the JDK to offload cryptographic operations to the HSM. For troubleshooting, see [Known issues for the JCE SDK for AWS CloudHSM](ki-jce-sdk.md).
 

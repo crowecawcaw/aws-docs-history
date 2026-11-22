@@ -1,7 +1,6 @@
 
 
 # OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5
-<a name="openssl-library"></a>
 
 The AWS CloudHSM OpenSSL Dynamic Engine allows you to offload cryptographic operations to your CloudHSM cluster through the OpenSSL API.
 

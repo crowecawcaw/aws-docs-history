@@ -1,7 +1,6 @@
 
 
 # HSM compatibility for AWS CloudHSM Client SDK 5
-<a name="sdk5-hsm-types"></a>
 
 The following table describes AWS CloudHSM Client SDK 5 compatibility for HSMs.
 

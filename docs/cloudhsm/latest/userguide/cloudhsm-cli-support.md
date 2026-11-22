@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Command Line Interface (CLI) supported platforms
-<a name="cloudhsm-cli-support"></a>
 
 This topic describes the Linux and Windows platforms that the AWS CloudHSM CLI supports.
 

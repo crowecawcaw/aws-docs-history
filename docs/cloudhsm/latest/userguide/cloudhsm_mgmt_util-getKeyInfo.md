@@ -1,7 +1,6 @@
 
 
 # Get AWS CloudHSM user info about a key using CMU
-<a name="cloudhsm_mgmt_util-getKeyInfo"></a>
 
 Use the **getKeyInfo** command in the AWS CloudHSM key\_mgmt\_util (KMU) to return the hardware security module (HSM) user IDs of users who can use the key, including the owner and crypto users (CU) with whom the key is shared. When quorum authentication is enabled on a key, **getKeyInfo** also returns the number of users who must approve cryptographic operations that use the key. You can run **getKeyInfo** only on keys that you own and keys that are shared with you.
 

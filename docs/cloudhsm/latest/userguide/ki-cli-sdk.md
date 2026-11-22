@@ -1,7 +1,6 @@
 
 
 # Known issues for the CloudHSM CLI for AWS CloudHSM
-<a name="ki-cli-sdk"></a>
 
 The following issues impact the CloudHSM CLI for AWS CloudHSM.
 

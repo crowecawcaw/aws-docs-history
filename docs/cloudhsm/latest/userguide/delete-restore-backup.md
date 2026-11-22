@@ -1,7 +1,6 @@
 
 
 # Delete AWS CloudHSM cluster backups
-<a name="delete-restore-backup"></a>
 
  After you delete an AWS CloudHSM cluster backup, the service holds the backup for seven days, during which time you can restore the backup. After the seven-day period, you can no longer restore the backup. For more information about managing backups, see [Cluster backups](manage-backups.md). 
 

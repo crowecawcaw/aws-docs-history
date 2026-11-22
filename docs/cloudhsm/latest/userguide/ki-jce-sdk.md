@@ -1,7 +1,6 @@
 
 
 # Known issues for the JCE SDK for AWS CloudHSM
-<a name="ki-jce-sdk"></a>
 
 The following issues impact the JCE SDK for AWS CloudHSM.
 

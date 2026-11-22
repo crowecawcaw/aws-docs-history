@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM monitoring best practices
-<a name="bp-monitoring"></a>
 
 This section describes multiple mechanisms you can use to monitor your cluster and application. For additional details on monitoring, see [Monitoring AWS CloudHSM](get-logs.md).
 

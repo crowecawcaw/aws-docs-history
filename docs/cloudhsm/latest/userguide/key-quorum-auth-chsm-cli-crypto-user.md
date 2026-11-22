@@ -1,7 +1,6 @@
 
 
 # Key management and usage with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI
-<a name="key-quorum-auth-chsm-cli-crypto-user"></a>
 
 After you configure quorum authentication for your AWS CloudHSM cluster, crypto users can't perform HSM key management or usage operations on their own if their key has associated quorum values. This topic explains how a crypto-user can get a temporary token to perform an HSM key management or key usage operation.
 

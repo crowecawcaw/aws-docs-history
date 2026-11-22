@@ -1,7 +1,6 @@
 
 
 # Working with AWS CloudHSM cluster backups
-<a name="backups-using"></a>
 
  When you add a hardware security module (HSM) to a cluster in AWS CloudHSM that previously contained one or more active HSMs, the service restores the latest backup onto the new HSM. Use backups to manage HSMs you use infrequently. When you don't need the HSM, delete it to trigger a backup. Later, when you need the HSM, create a new one in the same cluster, and this action will restore the backup you previously created with the delete HSM operation. 
 

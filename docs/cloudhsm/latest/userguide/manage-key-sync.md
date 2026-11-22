@@ -1,7 +1,6 @@
 
 
 # Key synchronization and durability settings in AWS CloudHSM
-<a name="manage-key-sync"></a>
 
 AWS CloudHSM synchronizes every token key you create. Key synchronization is mostly an automatic process, but you can use a minimum of two hardware security modules (HSM) in your cluster to make keys more durable. This topic describes key synchronization settings, common issues customers face working with keys on a cluster, and strategies for making keys more durable.
 

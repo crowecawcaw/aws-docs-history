@@ -1,7 +1,6 @@
 
 
 # List HSMs with CloudHSM CLI
-<a name="cloudhsm_cli-cluster-hsm-info"></a>
 
 Use the **cluster hsm-info** command in CloudHSM CLI to list the hardware security modules (HSMs) in your AWS CloudHSM cluster. You do not need to be logged in to CloudHSM CLI to run this command.
 

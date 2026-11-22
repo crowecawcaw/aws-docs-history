@@ -1,7 +1,6 @@
 
 
 # Generate a signature with the ML-DSA mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-sign-mldsa"></a>
 
 Use the **crypto sign ml-dsa** command in CloudHSM CLI to generate a signature using an ML-DSA private key and the ML-DSA signing mechanism.
 

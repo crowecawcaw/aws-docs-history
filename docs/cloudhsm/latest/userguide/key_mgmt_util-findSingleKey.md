@@ -1,7 +1,6 @@
 
 
 # Verify an AWS CloudHSM key using KMU
-<a name="key_mgmt_util-findSingleKey"></a>
 
 Use the **findSingleKey** command in the AWS CloudHSM key\_mgmt\_util tool to verify that a key exists on all hardware security modules (HSM) in the AWS CloudHSM cluster.
 

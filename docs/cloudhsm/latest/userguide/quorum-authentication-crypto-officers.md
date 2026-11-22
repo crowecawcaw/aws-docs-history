@@ -1,7 +1,6 @@
 
 
 # User management with quorum authentication enabled for AWS CloudHSM Management Utility
-<a name="quorum-authentication-crypto-officers"></a>
 
 An AWS CloudHSM [crypto officer (CO)](understanding-users-cmu.md#crypto-officer) on the hardware security module (HSM) can configure quorum authentication for the following operations on the HSM:
 + Creating HSM users

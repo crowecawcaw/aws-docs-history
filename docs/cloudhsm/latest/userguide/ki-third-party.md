@@ -1,7 +1,6 @@
 
 
 # Known issues for integrating third-party applications with AWS CloudHSM
-<a name="ki-third-party"></a>
 
 The following issues impact AWS CloudHSM when integrating with third-party applications.
 

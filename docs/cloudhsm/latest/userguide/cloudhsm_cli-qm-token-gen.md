@@ -1,7 +1,6 @@
 
 
 # Generate a quorum token using CloudHSM CLI
-<a name="cloudhsm_cli-qm-token-gen"></a>
 
 Use the **quorum token-sign generate** command in CloudHSM CLI to generate a token for a quorum authorized service.
 

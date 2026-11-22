@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Command Line Interface (CLI)
-<a name="cloudhsm_cli"></a>
 
 **CloudHSM CLI** helps admins manage users and crypto users manage keys in their cluster in AWS CloudHSM. The CLI includes tools that can be used to create, delete and list users, change user passwords, update user multi-factor authentication (MFA). It also includes commands that generate, delete, import, and export keys, get and set attributes, find keys, and perform cryptographic operations.
 

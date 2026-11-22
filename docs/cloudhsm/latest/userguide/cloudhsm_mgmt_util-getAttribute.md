@@ -1,13 +1,12 @@
 
 
 # Get an AWS CloudHSM key attribute value using CMU
-<a name="cloudhsm_mgmt_util-getAttribute"></a>
 
 Use the **getAttribute** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to get one attribute value for a key from all hardware security modules (HSM) in the AWS CloudHSM cluster and writes it to stdout (standard output) or to a file. Only crypto users (CUs) can run this command. 
 
 *Key attributes* are properties of a key. They include characteristics, like the key type, class, label, and ID, and values that represent actions that you can perform on the key, like encrypt, decrypt, wrap, sign, and verify. 
 
-You can use **getAttribute** only on keys that you own and key that are shared with you. You can run this command or the [getAttribute](#cloudhsm_mgmt_util-getAttribute) command in key\_mgmt\_util, which writes one or all of the attribute values of a key to a file. 
+You can use **getAttribute** only on keys that you own and key that are shared with you. You can run this command or the [getAttribute](cloudhsm_mgmt_util-getAttribute.md) command in key\_mgmt\_util, which writes one or all of the attribute values of a key to a file. 
 
 To get a list of attributes and the constants that represent them, use the [listAttributes](key_mgmt_util-listAttributes.md) command. To change the attribute values of existing keys, use [setAttribute](key_mgmt_util-setAttribute.md) in key\_mgmt\_util and [setAttribute](cloudhsm_mgmt_util-setAttribute.md) in cloudhsm\_mgmt\_util. For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md).
 

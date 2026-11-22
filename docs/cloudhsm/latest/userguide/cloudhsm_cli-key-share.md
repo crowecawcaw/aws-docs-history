@@ -1,7 +1,6 @@
 
 
 # Share a key using CloudHSM CLI
-<a name="cloudhsm_cli-key-share"></a>
 
 Use the **key share** command in CloudHSM CLI to share a key with other CUs in your AWS CloudHSM cluster.
 

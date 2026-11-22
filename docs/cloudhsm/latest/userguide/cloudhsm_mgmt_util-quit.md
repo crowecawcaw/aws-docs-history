@@ -1,7 +1,6 @@
 
 
 # Exit the CMU
-<a name="cloudhsm_mgmt_util-quit"></a>
 
 Use the **quit** command in the AWS CloudHSM cloudhsm\_mgmt\_util to exit the cloudhsm\_mgmt\_util. Any user of any type can use this command.
 

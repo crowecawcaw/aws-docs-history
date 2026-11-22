@@ -1,7 +1,6 @@
 
 
 # Unwrap an AWS CloudHSM key using KMU
-<a name="key_mgmt_util-unwrapKey"></a>
 
 Use the **unWrapKey** command in the AWS CloudHSM key\_mgmt\_util tool to import a wrapped (encrypted) symmetric or private key from a file into the HSM. It is designed to import encrypted keys that were wrapped by the [wrapKey](key_mgmt_util-wrapKey.md) command in key\_mgmt\_util, but it can also be used to unwrap keys that were wrapped with other tools. However, in those situations, we recommend using the [PKCS\#11](pkcs11-library.md) or [JCE](java-library.md) software libraries to unwrap the key.
 

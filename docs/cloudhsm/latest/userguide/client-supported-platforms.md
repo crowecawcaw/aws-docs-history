@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 5 supported platforms
-<a name="client-supported-platforms"></a>
 
 Base support is different for each version of the AWS CloudHSM Client SDK. Platform support for components in an SDK typically matches base support, but not always. To determine platform support for a given component, first make sure the platform you want appears in the base section for the SDK, then check for any exclusions or any other pertinent information in the component section.
 

@@ -1,7 +1,6 @@
 
 
 # Export an asymmetric key with CloudHSM CLI
-<a name="cloudhsm_cli-key-generate-file"></a>
 
 Use the **key generate-file** command in CloudHSM CLI to export an asymmetric key from the hardware security module (HSM). If the target is a private key, then the reference to the private key will be exported in fake PEM format. If the target is a public key, then the public key bytes will be exported in PEM format.
 

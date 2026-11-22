@@ -1,7 +1,6 @@
 
 
 # List tags for AWS CloudHSM resources
-<a name="list-tags"></a>
 
 You can list tags for a cluster from the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/), the [AWS CLI](https://aws.amazon.com/cli/), or the AWS CloudHSM API.
 

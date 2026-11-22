@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM audit log reference
-<a name="cloudhsm-audit-log-reference"></a>
 
 AWS CloudHSM records HSM management commands in audit log events. Each event has an operation code (`Opcode`) value that identifies the action that occurred and its response. You can use the `Opcode` values to search, sort, and filter the logs.
 

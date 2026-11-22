@@ -1,7 +1,6 @@
 
 
 # How to mark a key as trusted with the AWS CloudHSM Management Utility
-<a name="cloudhsm_using_trusted_keys_control_key_wrap"></a>
 
 The content in this section provides instructions on using the AWS CloudHSM management Utility (CMU) to mark a key as trusted.
 

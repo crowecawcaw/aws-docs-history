@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM user management best practices
-<a name="bp-hsm-user-management"></a>
 
 Follow the best practices in this section to effectively manage users in your AWS CloudHSM cluster. HSM users are distinct from IAM users. IAM users and entities that have an identity-based policy with the appropriate permissions can create HSMs by interacting with resources through the AWS API. After the HSM is created, you must use HSM user credentials to authenticate operations on the HSM. For a detailed guide of HSM users, see [HSM users in AWS CloudHSM](manage-hsm-users.md).
 

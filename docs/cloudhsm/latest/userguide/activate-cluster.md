@@ -1,7 +1,6 @@
 
 
 # Activate the cluster in AWS CloudHSM
-<a name="activate-cluster"></a>
 
 When you activate an AWS CloudHSM cluster, the cluster's state changes from initialized to active. You can then [manage the hardware security module (HSM) users](manage-hsm-users.md) and [use the HSM](use-hsm.md). 
 

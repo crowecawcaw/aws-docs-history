@@ -1,7 +1,6 @@
 
 
 # Filter keys using CloudHSM CLI
-<a name="manage-keys-cloudhsm-cli-filtering"></a>
 
 Use the following key commands to utilize the standardized key filtration mechanisms for [CloudHSM CLI](cloudhsm_cli.md).
 + **key list**

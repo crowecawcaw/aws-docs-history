@@ -1,7 +1,6 @@
 
 
 # Restore AWS CloudHSM backups
-<a name="restore-backup"></a>
 
  AWS CloudHSM holds deleted backups for seven days, during which time you can restore the backup. After the seven-day period, you can no longer restore the backup. For more information about managing backups, see [Cluster backups](manage-backups.md). 
 

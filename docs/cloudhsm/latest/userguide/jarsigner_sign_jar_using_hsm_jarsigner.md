@@ -1,7 +1,6 @@
 
 
 # Sign a JAR file using AWS CloudHSM and Jarsigner
-<a name="jarsigner_sign_jar_using_hsm_jarsigner"></a>
 
 Use the following command to sign a JAR file using AWS CloudHSM and jarsigner: 
 

@@ -1,7 +1,6 @@
 
 
 # Install the PKCS \#11 library for AWS CloudHSM Client SDK 5
-<a name="pkcs11-library-install"></a>
 
 This topic provides instructions for installing the latest version of the PKCS \#11 library for the AWS CloudHSM Client SDK 5 version series. For more information about the Client SDK or PKCS \#11 library, see [Using the Client SDK](use-hsm.md) and [PKCS \#11 library](pkcs11-library.md).
 

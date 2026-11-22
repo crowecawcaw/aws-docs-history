@@ -1,7 +1,6 @@
 
 
 # Set the attributes of keys with CloudHSM CLI
-<a name="cloudhsm_cli-key-set-attribute"></a>
 
 Use the **key set-attribute** command in CloudHSM CLI to set the attributes of keys in your AWS CloudHSM cluster. Only the CU who created the key and consequently owns it can change the key's attributes.
 

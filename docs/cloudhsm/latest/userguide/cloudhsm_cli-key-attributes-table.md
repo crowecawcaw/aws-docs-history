@@ -1,7 +1,6 @@
 
 
 # Supported attributes for CloudHSM CLI
-<a name="cloudhsm_cli-key-attributes-table"></a>
 
 As a best practice, only set values for attributes you wish to make restrictive. If you don’t specify a value, CloudHSM CLI uses the default value specified in the table below.
 

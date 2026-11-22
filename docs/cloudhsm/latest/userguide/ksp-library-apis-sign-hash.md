@@ -1,7 +1,6 @@
 
 
 # NCryptSignHash with Key storage provider (KSP)
-<a name="ksp-library-apis-sign-hash"></a>
 
 The `NCryptSignHash` function creates a signature of a hash value.
 

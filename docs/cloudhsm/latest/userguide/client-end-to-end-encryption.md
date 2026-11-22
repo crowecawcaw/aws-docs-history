@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM client end-to-end encryption
-<a name="client-end-to-end-encryption"></a>
 
 Communication between the client instance and the HSMs in your cluster is encrypted from end to end. Only your client and your HSMs can decrypt the communication.
 

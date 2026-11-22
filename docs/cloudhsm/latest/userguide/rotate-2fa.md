@@ -1,7 +1,6 @@
 
 
 # Manage 2FA for HSM users using AWS CloudHSM Management Utility
-<a name="rotate-2fa"></a>
 
 Use **changePswd** in AWS CloudHSM Management Utility (CMU) to modify two-factor authentication (2FA) for a user. Each time you enable 2FA, you must provide a public key for 2FA logins.
 

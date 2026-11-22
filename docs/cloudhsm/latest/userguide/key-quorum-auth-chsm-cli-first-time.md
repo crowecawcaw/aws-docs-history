@@ -1,7 +1,6 @@
 
 
 # Set up quorum authentication for AWS CloudHSM crypto-users using CloudHSM CLI
-<a name="key-quorum-auth-chsm-cli-first-time"></a>
 
 These topics describe how to configure your CloudHSM for quorum authentication by [crypto-users](understanding-users.md#crypto-user-chsm-cli). Perform these steps once during initial setup. For subsequent key management and usage, refer to [Key management and usage with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md).
 

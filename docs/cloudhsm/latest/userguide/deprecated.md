@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM deprecated Client SDK releases
-<a name="deprecated"></a>
 
 Versions 5.8.0 and earlier are deprecated. We do not recommend using deprecated releases in production workloads. We do not provide backwards compatible updates for deprecated releases, nor do we host deprecated releases for download. If you experience production impact while using deprecated releases, you must upgrade to obtain software fixes. 
 

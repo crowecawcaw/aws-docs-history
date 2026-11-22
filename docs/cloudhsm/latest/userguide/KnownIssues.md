@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM known issues
-<a name="KnownIssues"></a>
 
 AWS CloudHSM has the following known issues. Choose a topic to learn more.
 

@@ -1,7 +1,6 @@
 
 
 # Associate an AWS CloudHSM key with a certificate
-<a name="ksp-library-associate-key-certificate"></a>
 
 Before you can use AWS CloudHSM keys with third-party tools, such as Microsoft's [SignTool](https://docs.microsoft.com/en-us/windows/win32/seccrypto/signtool), you must import the key's metadata into the local certificate store and associate the metadata with a certificate. To import the key's metadata, use the import\_key.exe utility which is included in CloudHSM version 3.0 and higher. The following steps provide additional information, and sample output.
 

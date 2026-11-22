@@ -1,7 +1,6 @@
 
 
 # Remove a cluster from your AWS CloudHSM configuration
-<a name="cloudhsm_cli-multi-cluster-remove-cluster"></a>
 
 When connecting to multiple clusters with CloudHSM CLI, use the `configure-cli remove-cluster` command to remove a cluster from your configuration.
 

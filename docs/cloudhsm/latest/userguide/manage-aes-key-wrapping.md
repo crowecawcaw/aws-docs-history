@@ -1,7 +1,6 @@
 
 
 # AES key wrapping in AWS CloudHSM
-<a name="manage-aes-key-wrapping"></a>
 
 This topic describes the options for AES key wrapping in AWS CloudHSM. AES key wrapping uses an AES key (the wrapping key) to wrap another key of any type (the target key). You use key wrapping to protect stored keys or transmit keys over insecure networks.
 

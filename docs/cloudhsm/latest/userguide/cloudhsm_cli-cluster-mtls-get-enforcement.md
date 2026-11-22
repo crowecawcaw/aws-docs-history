@@ -1,7 +1,6 @@
 
 
 # Get the mTLS enforcement level with CloudHSM CLI
-<a name="cloudhsm_cli-cluster-mtls-get-enforcement"></a>
 
 Use the **cluster mtls get-enforcement** command in CloudHSM CLI to get the enforcement level of the usage of mutual TLS between client and AWS CloudHSM.
 

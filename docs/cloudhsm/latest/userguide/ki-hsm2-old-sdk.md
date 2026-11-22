@@ -1,7 +1,6 @@
 
 
 # Known issues of operation failure using AWS CloudHSM client version 5.12.0 on hsm2.medium
-<a name="ki-hsm2-old-sdk"></a>
 
 The following issues impact AWS CloudHSM when using AWS CloudHSM client version 5.12.0
 

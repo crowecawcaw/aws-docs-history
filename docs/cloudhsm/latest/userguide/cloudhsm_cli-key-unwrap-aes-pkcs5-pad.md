@@ -1,7 +1,6 @@
 
 
 # Unwrap a key with AES-PKCS5-PAD using CloudHSM CLI
-<a name="cloudhsm_cli-key-unwrap-aes-pkcs5-pad"></a>
 
 Use the **key unwrap aes-pkcs5-pad** command in CloudHSM CLI to unwrap a payload key using the AES wrapping key and the `AES-PKCS5-PAD` unwrapping mechanism.
 

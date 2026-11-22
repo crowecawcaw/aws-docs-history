@@ -1,7 +1,6 @@
 
 
 # Copying AWS CloudHSM cluster backups across AWS Regions
-<a name="copy-backup-to-region"></a>
 
  You can copy AWS CloudHSM cluster backups across Regions for many reasons, including cross-region resilience, global workloads, and [disaster recovery](backups-using.md#recovery-backups). After you copy backups, they appear in the destination region with a `CREATE_IN_PROGRESS` status. Upon successful completion of the copy, the status of the backup changes to `READY`. If the copy fails, the status of the backup changes to `DELETED`. Check your input parameters for errors and ensure that the specified source backup is not in a `DELETED` state before rerunning the operation. For information about backups or how to create a cluster from a backup, see [Cluster backups](manage-backups.md) or [Creating clusters from backups](create-cluster-from-backup.md). 
 

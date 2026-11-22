@@ -1,7 +1,6 @@
 
 
 # Other third-party vendor integrations with AWS CloudHSM
-<a name="other-integrations"></a>
 
 Several third-party vendors support AWS CloudHSM as a root of trust. This means that you can utilize a software solution of your choice while creating and storing the underlying keys in your CloudHSM cluster. As a result, your workload in AWS can rely on the latency, availability, reliability, and elasticity benefits of CloudHSM. The following list includes third-party vendors that support CloudHSM.
 

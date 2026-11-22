@@ -1,7 +1,6 @@
 
 
 # List the keys that an AWS CloudHSM crypto user owns using CMU
-<a name="cloudhsm_mgmt_util-findAllKeys"></a>
 
 Use the **findAllKeys** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to get the keys that a specified crypto user (CU) of AWS CloudHSM owns or shares. The command also returns a hash of the user data on each of the HSMs. You can use the hash to determine at a glance whether the users, key ownership, and key sharing data are the same on all HSMs in the cluster. In the output, the keys owned by the user are annotated by `(o)` and shared keys are annotated by `(s)`.
 

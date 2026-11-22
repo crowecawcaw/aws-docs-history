@@ -1,7 +1,6 @@
 
 
 # NCryptFreeBuffer with Key storage provider (KSP)
-<a name="ksp-library-apis-free-buffer"></a>
 
 The `NCryptFreeBuffer` function releases a block of memory that was allocated by the Key Storage Provider (KSP).
 

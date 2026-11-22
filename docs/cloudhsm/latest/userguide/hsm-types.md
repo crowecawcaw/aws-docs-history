@@ -1,7 +1,6 @@
 
 
 # HSM types in AWS CloudHSM
-<a name="hsm-types"></a>
 
 AWS CloudHSM also offers two hardware security module (HSM) types: *hsm1.medium* and *hsm2m.medium*. Review the details on this page before deciding which HSM type is right for your needs. 
 

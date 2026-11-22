@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 5 user or policy contains inconsistent values
-<a name="troubleshoot-sdk5-inconsistent-value"></a>
 
 AWS CloudHSM does not automatically synchronize users or policies (such as mTLS settings) across HSMs in a cluster. The CloudHSM CLI performs best-effort synchronization of these operations across HSMs, but inconsistencies can still occur. This page describes how to identify and resolve inconsistencies for both users and policies. 
 

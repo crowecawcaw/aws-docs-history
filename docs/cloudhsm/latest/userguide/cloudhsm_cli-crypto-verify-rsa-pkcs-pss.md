@@ -1,7 +1,6 @@
 
 
 # Verify a signature signed with the RSA-PKCS-PSS mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-verify-rsa-pkcs-pss"></a>
 
 Use the **crypto sign rsa-pkcs-pss** command in CloudHSM CLI to complete the following operations.
 + Confirm a file has been signed in the HSM by a given public key.

@@ -1,7 +1,6 @@
 
 
 # Certificate storage with the PKCS \#11 library
-<a name="pkcs11-certificate-storage"></a>
 
  The AWS CloudHSM PKCS \#11 library supports storing public key certificates as "public objects" (as defined in PKCS \#11 2.40) on hsm2m.medium clusters. This feature allows both public and private PKCS \#11 sessions to create, retrieve, modify, and delete public key certificates. 
 

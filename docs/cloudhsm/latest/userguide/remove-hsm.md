@@ -1,7 +1,6 @@
 
 
 # Removing an HSM from an AWS CloudHSM cluster
-<a name="remove-hsm"></a>
 
 You can remove an HSM by using the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/), the [AWS CLI](https://aws.amazon.com/cli/), or the AWS CloudHSM API.
 

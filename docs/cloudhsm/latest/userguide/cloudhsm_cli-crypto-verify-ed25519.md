@@ -1,7 +1,6 @@
 
 
 # Verify a signature signed with the PureEdDSA mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-verify-ed25519"></a>
 
 **Important**  
 PureEdDSA signature verification operations are only supported on hsm2m.medium instances in non-FIPS mode.

@@ -1,7 +1,6 @@
 
 
 # Control API access with IAM policies
-<a name="ip-access"></a>
 
 ## Upgrade IAM policies to IPv6
 <a name="ipv6-access"></a>

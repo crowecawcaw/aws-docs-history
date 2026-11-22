@@ -1,7 +1,6 @@
 
 
 # Create and use keys in AWS CloudHSM
-<a name="create-apps"></a>
 
 Before you can create and use keys in your new cluster, create a hardware security module (HSM) user with the AWS CloudHSM CLI For more information, see [Understanding HSM User Management Tasks](understand-users.md), [Getting started with AWS CloudHSM Command Line Interface (CLI)](cloudhsm_cli-getting-started.md), and [How to Manage HSM Users](manage-hsm-users.md).
 

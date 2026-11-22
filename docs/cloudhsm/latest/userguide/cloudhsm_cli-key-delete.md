@@ -1,7 +1,6 @@
 
 
 # Delete a key with CloudHSM CLI
-<a name="cloudhsm_cli-key-delete"></a>
 
 Use the **key delete** command in CloudHSM CLI to delete a key from an AWS CloudHSM cluster. You can only delete one key at a time. Deleting one key in a key pair has no effect on the other key in the pair. 
 

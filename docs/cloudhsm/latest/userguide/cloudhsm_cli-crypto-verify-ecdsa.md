@@ -1,7 +1,6 @@
 
 
 # Verify a signature signed with the ECDSA mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-verify-ecdsa"></a>
 
 Use the **crypto verify ecdsa** command in CloudHSM CLI to complete the following operations:
 + Confirm a file has been signed in the HSM by a given public key.

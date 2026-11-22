@@ -1,7 +1,6 @@
 
 
 # Key storage provider (KSP) for AWS CloudHSM Client SDK 5
-<a name="ksp-library"></a>
 
  Key Storage Provider (KSP) is a cryptographic API specific to the Microsoft Windows operating system. Key Storage Provider (KSP) enables developers to use cryptographic techniques to secure Windows-based applications.
 

@@ -1,7 +1,6 @@
 
 
 # Users in AWS CloudHSM
-<a name="hsm-users"></a>
 
 Unlike most AWS services and resources, you do not use AWS Identity and Access Management (IAM) users or IAM policies to access resources within your AWS CloudHSM cluster. Instead, you use *HSM users* directly on HSMs in your AWS CloudHSM cluster.
 

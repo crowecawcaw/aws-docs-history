@@ -1,7 +1,6 @@
 
 
 # The user change-quorum token-sign category in CloudHSM CLI
-<a name="cloudhsm_cli-user-chqm-token"></a>
 
 In the CloudHSM CLI, **user change-quorum token-sign** is a parent category for commands that, when combined with this parent category, create a command specific to token-sign quorum operations.
 

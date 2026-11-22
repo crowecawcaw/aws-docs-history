@@ -1,7 +1,6 @@
 
 
 # Generate an asymmetric EC key pair with CloudHSM CLI
-<a name="cloudhsm_cli-key-generate-asymmetric-pair-ec"></a>
 
 Use the **key asymmetric-pair ec** command in CloudHSM CLI to generate an asymmetric Elliptic-curve (EC) key pair in your AWS CloudHSM cluster.
 

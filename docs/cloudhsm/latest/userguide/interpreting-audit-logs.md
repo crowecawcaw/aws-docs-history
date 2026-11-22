@@ -1,7 +1,6 @@
 
 
 # Interpreting AWS CloudHSM audit logs
-<a name="interpreting-audit-logs"></a>
 
 The events in the HSM audit logs have standard fields. Some event types have additional fields that capture useful information about the event. For example, user login and user management events include the user name and user type of the user. Key management commands include the key handle.
 

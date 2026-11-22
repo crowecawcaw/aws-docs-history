@@ -1,7 +1,6 @@
 
 
 # Certificate storage attributes
-<a name="pkcs11-certificate-storage-attributes"></a>
 
  The following table lists the supported certificate object attributes and their values: 
 

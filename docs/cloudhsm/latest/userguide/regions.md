@@ -1,7 +1,6 @@
 
 
 # Supported Regions for AWS CloudHSM
-<a name="regions"></a>
 
 For information about the supported Regions for AWS CloudHSM, see [AWS CloudHSM Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/cloudhsm.html) in the *AWS General Reference*, or the [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 

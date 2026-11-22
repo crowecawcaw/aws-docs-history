@@ -1,7 +1,6 @@
 
 
 # Unwrap a key with AES-NO-PAD using CloudHSM CLI
-<a name="cloudhsm_cli-key-unwrap-aes-no-pad"></a>
 
 Use the **key unwrap aes-no-pad** command in CloudHSM CLI to unwrap a payload key into the AWS CloudHSM cluster using the AES wrapping key and the `AES-NO-PAD` unwrapping mechanism.
 

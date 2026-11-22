@@ -1,7 +1,6 @@
 
 
 # Set up quorum authentication for AWS CloudHSM admins using CloudHSM CLI
-<a name="quorum-auth-chsm-cli-first-time"></a>
 
 The following topics describe the steps that you must complete to configure your hardware security module (HSM) so that AWS CloudHSM [admins](understanding-users.md#admin) can use quorum authentication. You need to do these steps only once when you first configure quorum authentication for admins. After you complete these steps, see [User management with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md).
 

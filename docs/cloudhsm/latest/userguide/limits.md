@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM quotas
-<a name="limits"></a>
 
 Quotas, formerly known as limits, are the assigned values for AWS resources. The following quotas apply to your AWS CloudHSM resources per AWS Region and AWS account. The default quota is the initial value applied by AWS, and these values are listed in the table below. An adjustable quota can be increased above the default quota.
 

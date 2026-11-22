@@ -1,7 +1,6 @@
 
 
 # NCryptEnumAlgorithms with Key storage provider (KSP)
-<a name="ksp-library-apis-enum-algorithms"></a>
 
 The `NCryptEnumAlgorithms` function retrieves the names of algorithms that the Key Storage Provider (KSP) supports.
 

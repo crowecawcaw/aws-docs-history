@@ -1,7 +1,6 @@
 
 
 # Unwrap a key with RSA-PKCS using CloudHSM CLI
-<a name="cloudhsm_cli-key-unwrap-rsa-pkcs"></a>
 
 Use the **key unwrap rsa-pkcs** command in CloudHSM CLI to unwrap a payload key using the RSA private key and the `RSA-PKCS` unwrapping mechanism.
 

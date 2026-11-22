@@ -1,7 +1,6 @@
 
 
 # Use the CloudHSM CLI
-<a name="cloudhsm_cli-getting-started-use"></a>
 
 Use the following commands to start and use the CloudHSM CLI.
 

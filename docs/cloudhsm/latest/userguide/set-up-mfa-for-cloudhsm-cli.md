@@ -1,7 +1,6 @@
 
 
 # Set up MFA for CloudHSM CLI
-<a name="set-up-mfa-for-cloudhsm-cli"></a>
 
 Follow these steps to set up multi-factor authentication (MFA) for CloudHSM CLI. 
 

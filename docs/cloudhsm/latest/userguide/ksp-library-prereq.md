@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using the AWS CloudHSM Windows Client
-<a name="ksp-library-prereq"></a>
 
 Before you can start the Windows AWS CloudHSM client and use the KSP and CNG providers, you must set the login credentials for the HSM on your system. You can set credentials through either Windows Credentials Manager or system environment variable. We recommend you use Windows Credential Manager for storing credentials. This option is available with AWS CloudHSM client version 2.0.4 and later. Using environment variable is easier to set up, but less secure than using Windows Credential Manager.
 

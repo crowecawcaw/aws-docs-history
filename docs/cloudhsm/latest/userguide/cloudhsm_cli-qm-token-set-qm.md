@@ -1,7 +1,6 @@
 
 
 # Update a quorum value using CloudHSM CLI
-<a name="cloudhsm_cli-qm-token-set-qm"></a>
 
 Use the **quorum token-sign set-quorum-value** command in CloudHSM CLI to set a new quorum value for a quorum authorized service.
 

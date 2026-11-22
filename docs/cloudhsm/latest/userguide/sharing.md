@@ -1,7 +1,6 @@
 
 
 # Working with shared backups in AWS CloudHSM
-<a name="sharing"></a>
 
 CloudHSM integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. AWS RAM is a service that enables you to share some CloudHSM resources with other AWS accounts or through AWS Organizations. With AWS RAM, you share resources that you own by creating a *resource share*. A resource share specifies the resources to share, and the consumers with whom to share them. Consumers can include:
 + Specific AWS accounts inside or outside of its organization in AWS Organizations
@@ -57,7 +56,7 @@ Use the [put-resource-policy](https://docs.aws.amazon.com/cli/latest/reference/c
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement":[
@@ -85,7 +84,7 @@ Use the [put-resource-policy](https://docs.aws.amazon.com/cli/latest/reference/c
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement":[
@@ -126,7 +125,7 @@ You can only grant permissions to DescribeBackups at the account level. When you
 
    This returns a response similar to this:
 
-   ```
+   ```json
    {
      "resources": [
        {

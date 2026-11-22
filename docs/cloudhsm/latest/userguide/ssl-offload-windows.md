@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM SSL/TLS offload on Windows using IIS with KSP
-<a name="ssl-offload-windows"></a>
 
 This tutorial provides step-by-step instructions for setting up SSL/TLS offload with AWS CloudHSM on a Windows web server.
 

@@ -1,7 +1,6 @@
 
 
 # Configure the CloudHSM CLI for multi-cluster functionality
-<a name="cloudhsm_cli-multi-cluster-config-run"></a>
 
 To configure your CloudHSM CLI for multi-cluster functionality, follow these steps:
 

@@ -1,7 +1,6 @@
 
 
 # Generate a signature with the PureEdDSA mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-sign-ed25519"></a>
 
 **Important**  
 PureEdDSA signing operations are only supported on hsm2m.medium instances in non-FIPS mode.

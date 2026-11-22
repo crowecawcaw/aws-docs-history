@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM cluster backups
-<a name="backups"></a>
 
 AWS CloudHSM makes periodic backups of the users, keys, and policies in the cluster. Backups are secure, durable, and updated on a predictable schedule. The following illustration shows the relationship of your backups to the cluster. 
 

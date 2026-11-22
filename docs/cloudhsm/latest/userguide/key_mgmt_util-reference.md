@@ -1,7 +1,6 @@
 
 
 # Reference for AWS CloudHSM Key Management Utility commands
-<a name="key_mgmt_util-reference"></a>
 
 The **key\_mgmt\_util** command line tool helps you to manage keys in the hardware security modules (HSM) in your AWS CloudHSM cluster, including creating, deleting, and finding keys and their attributes. It includes multiple commands, each of which is described in detail in this topic.
 

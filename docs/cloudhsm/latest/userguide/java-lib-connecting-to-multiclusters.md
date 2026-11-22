@@ -1,7 +1,6 @@
 
 
 # Connect to multiple AWS CloudHSM clusters
-<a name="java-lib-connecting-to-multiclusters"></a>
 
 Each `CloudHsmProvider` represents a connection to your AWS CloudHSM Cluster. If you want to talk to another cluster from the same application, you can create another object of `CloudHsmProvider` with configurations for your other cluster and you can interact with this other cluster either using the provider object or using the provider name, as shown in the following example.
 
@@ -9,7 +8,7 @@ Each `CloudHsmProvider` represents a connection to your AWS CloudHSM Cluster. If
 
 ```
 CloudHsmProviderConfig config = CloudHsmProviderConfig.builder()  
-                                    .withCluster(  
+                                    .withCluster(
                                         CloudHsmCluster.builder()  
                                             .withHsmCAFilePath(hsmCAFilePath)
                                             .withClusterUniqueIdentifier("CloudHsmCluster1")

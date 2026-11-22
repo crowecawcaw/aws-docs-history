@@ -1,7 +1,6 @@
 
 
 # Using Client SDK 5 to work with AWS CloudHSM
-<a name="client-sdk5"></a>
 
  AWS CloudHSM includes two major Client SDK versions: 
 + Client SDK 5: This is our latest and default Client SDK. For information on the benefits and advantages it provides, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md).

@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Key Management Utility (KMU)
-<a name="key_mgmt_util"></a>
 
 The key management utility (KMU) is a command line tool for AWS CloudHSM that helps crypto users (CU) manage keys on the hardware security modules (HSM). KMU includes multiple commands that generate, delete, import, and export keys, get and set attributes, find keys, and perform cryptographic operations. 
 

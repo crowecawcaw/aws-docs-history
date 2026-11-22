@@ -1,7 +1,6 @@
 
 
 # Migrate your Key Storage Provider (KSP) from AWS CloudHSM Client SDK 3 to Client SDK 5
-<a name="ksp-migrate-to-sdk-5"></a>
 
 This topic explains how to migrate your [Key Storage Provider (KSP)](ksp-library.md) from AWS CloudHSM Client SDK 3 to Client SDK 5. The latest version of AWS CloudHSM Client SDK is 5.16. For information about migration benefits, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md).
 

@@ -1,7 +1,6 @@
 
 
 # NCryptSetProperty with Key storage provider (KSP)
-<a name="ksp-library-apis-set-property"></a>
 
 The `NCryptSetProperty` function sets property values for a key storage object.
 

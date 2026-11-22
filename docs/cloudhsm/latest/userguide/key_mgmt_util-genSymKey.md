@@ -1,7 +1,6 @@
 
 
 # Generate an AWS CloudHSM symmetric key using KMU
-<a name="key_mgmt_util-genSymKey"></a>
 
 Use the **genSymKey** command in the AWS CloudHSM key\_mgmt\_util tool to generate a symmetric key in your hardware security modules (HSM). You can specify the key type and size, assign an ID and label, and share the key with other HSM users. You can also create nonextractable keys and keys that expire when the session ends. When the command succeeds, it returns a key handle that the HSM assigns to the key. You can use the key handle to identify the key to other commands.
 

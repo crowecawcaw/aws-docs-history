@@ -1,7 +1,6 @@
 
 
 # Tag AWS CloudHSM resources
-<a name="tag-resources"></a>
 
 A tag is a label that you assign to an AWS resource. You can assign tags to your AWS CloudHSM clusters. Each tag consists of a tag key and a tag value, both of which you define. For example, the tag key might be **Cost Center** and the tag value might be **12345**. Tag keys must be unique for each cluster.
 

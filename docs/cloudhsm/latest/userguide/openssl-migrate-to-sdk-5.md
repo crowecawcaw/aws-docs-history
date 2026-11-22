@@ -1,7 +1,6 @@
 
 
 # Migrate your OpenSSL Dynamic Engine from AWS CloudHSM Client SDK 3 to Client SDK 5
-<a name="openssl-migrate-to-sdk-5"></a>
 
 Use this topic to migrate your [OpenSSL Dynamic Engine](openssl-library.md) from AWS CloudHSM Client SDK 3 to Client SDK 5. For benefits on migrating, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md).
 

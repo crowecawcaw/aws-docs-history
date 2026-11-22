@@ -1,7 +1,6 @@
 
 
 # Create a virtual private cloud (VPC) for AWS CloudHSM
-<a name="create-vpc"></a>
 
 You need a virtual private cloud (VPC) for your cluster in AWS CloudHSM. If you don't already have one, follow the steps in this topic to create a VPC.
 

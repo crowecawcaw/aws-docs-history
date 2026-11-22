@@ -1,7 +1,6 @@
 
 
 # Verify the KSP and CNG Providers for AWS CloudHSM
-<a name="ksp-v3-library-install"></a>
 
 The KSP and CNG providers are installed when you install the Windows AWS CloudHSM client. You can install the client by following the steps at [Install the client (Windows)](kmu-install-and-configure-client-win.md). 
 

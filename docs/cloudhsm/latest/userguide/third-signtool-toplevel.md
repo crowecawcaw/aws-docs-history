@@ -1,7 +1,6 @@
 
 
 # Use Microsoft SignTool with AWS CloudHSM to sign files
-<a name="third-signtool-toplevel"></a>
 
 AWS CloudHSM offers support to use Microsoft Signtool to sign file through Client SDK 3 and Client SDK 5. The steps to use these tools will vary depending on the version of the client SDK in which you currently have downloaded. The following sections provide information to each SDK. 
 

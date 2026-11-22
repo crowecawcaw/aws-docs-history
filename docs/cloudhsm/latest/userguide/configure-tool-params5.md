@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 5 configuration parameters
-<a name="configure-tool-params5"></a>
 
 The following is a list of parameters to configure AWS CloudHSM Client SDK 5.
 

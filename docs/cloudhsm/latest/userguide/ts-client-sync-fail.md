@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM Client SDK 3 key synchronization failures
-<a name="ts-client-sync-fail"></a>
 
 In Client SDK 3, if client-side synchronization fails, AWS CloudHSM makes a best-effort response to clean up any unwanted keys that may have been created (and are now unwanted). This process involves removing unwanted key material immediately or marking unwanted material for later removal. In both these cases, the resolution does not require any action from you. In the rare case that AWS CloudHSM cannot remove *and* cannot mark unwanted key material, you must delete the key material.
 

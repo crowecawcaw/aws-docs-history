@@ -1,7 +1,6 @@
 
 
 # Install the JCE provider for AWS CloudHSM Client SDK 5
-<a name="java-library-install_5"></a>
 
 The JCE provider for AWS CloudHSM Client SDK 5 is compatible with OpenJDK 17, OpenJDK 21, and OpenJDK 25. You can download OpenJDK from the [OpenJDK website](https://openjdk.java.net/).
 
@@ -257,7 +256,7 @@ Before your Java application can use an HSM, the HSM needs to first authenticate
   $ java -DHSM_USER={{<HSM user name>}} -DHSM_PASSWORD={{<password>}}
   ```
 
-  ```
+  ```java
   System.setProperty("HSM_USER","{{<HSM user name>}}");
   System.setProperty("HSM_PASSWORD","{{<password>}}");
   ```
@@ -269,7 +268,7 @@ Before your Java application can use an HSM, the HSM needs to first authenticate
   PS C:\> java -DHSM_USER={{<HSM user name>}} -DHSM_PASSWORD={{<password>}}
   ```
 
-  ```
+  ```java
   System.setProperty("HSM_USER","{{<HSM user name>}}");
   System.setProperty("HSM_PASSWORD","{{<password>}}");
   ```

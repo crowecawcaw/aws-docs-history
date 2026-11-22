@@ -1,7 +1,6 @@
 
 
 # Improve your web server security with SSL/TLS offload in AWS CloudHSM
-<a name="ssl-offload"></a>
 
 Web servers and their clients (web browsers) can use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) protocols to confirm the identity of the web server and establish a secure connection that sends and receives webpages or other data over the internet. This is commonly known as HTTPS. The web server uses a public–private key pair and an SSL/TLS public key certificate to establish an HTTPS session with each client. This process involves a lot of computation for web servers, but you can offload some of this to your AWS CloudHSM cluster, which is referred to as SSL acceleration. Offloading reduces the computational burden on your web servers and provides extra security by storing servers’ private keys in HSMs.
 

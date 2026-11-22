@@ -1,7 +1,6 @@
 
 
 # Manage 2FA for users using AWS CloudHSM Management Utility
-<a name="manage-2fa"></a>
 
 For increased security, you can configure two-factor authentication (2FA) to help protect the AWS CloudHSM cluster. You can only enable 2FA for crypto officers (CO). 
 

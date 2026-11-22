@@ -1,7 +1,6 @@
 
 
 # Export public keys with the AWS CloudHSM KMU
-<a name="export-public-keys"></a>
 
 Use the **exportPubKey** command in the AWS CloudHSM key\_mgmt\_util (KMU) to export a public key. To see all available options, use the **exportPubKey -h** command.
 

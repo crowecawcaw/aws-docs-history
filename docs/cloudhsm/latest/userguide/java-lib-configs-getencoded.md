@@ -1,7 +1,6 @@
 
 
 # Key extraction using JCE for AWS CloudHSM
-<a name="java-lib-configs-getencoded"></a>
 
 The Java Cryptography Extension (JCE) uses an architecture that allows different cryptography implementations to be plugged in. AWS CloudHSM ships one such JCE provider that offloads cryptographic operations to the HSM. For most other JCE providers to work with keys stored in AWS CloudHSM, they must extract the key bytes from your HSMs in clear text into your machine’s memory for their use. HSMs typically only allow keys to be extracted as wrapped objects, not clear text. However, to support inter-provider integration use cases, AWS CloudHSM allows an opt-in configuration option to enable extraction of the key bytes in the clear.
 

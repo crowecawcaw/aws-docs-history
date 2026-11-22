@@ -1,7 +1,6 @@
 
 
 # Known issues for AWS CloudHSM hsm1.medium instances
-<a name="ki-hsm1-medium"></a>
 
 The following issues impact all AWS CloudHSM hsm1.medium instances. 
 

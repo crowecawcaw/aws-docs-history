@@ -1,7 +1,6 @@
 
 
 # NCryptIsAlgSupported with Key storage provider (KSP)
-<a name="ksp-library-apis-is-alg-supported"></a>
 
 NCryptIsAlgSupported function determines if Key Storage Provider (KSP) supports a specific cryptographic algorithm.
 

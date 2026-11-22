@@ -1,7 +1,6 @@
 
 
 # Use keytool to import intermediate and root certificates into AWS CloudHSM key store
-<a name="import_cert_using_keytool"></a>
 
 To import a CA certificate into AWS CloudHSM, you must enable verification of a full certificate chain on a newly imported certificate. The following command shows an example. 
 

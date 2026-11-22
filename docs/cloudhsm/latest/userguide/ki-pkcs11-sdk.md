@@ -1,7 +1,6 @@
 
 
 # Known issues for the PKCS \#11 library for AWS CloudHSM
-<a name="ki-pkcs11-sdk"></a>
 
 The following issues impact the PKCS \#11 library for AWS CloudHSM.
 

@@ -1,7 +1,6 @@
 
 
 # Configure Windows Server as a certificate authority (CA) with Client SDK 3
-<a name="win-ca-overview-sdk3"></a>
 
 In a public key infrastructure (PKI), a certificate authority (CA) is a trusted entity that issues digital certificates. These digital certificates bind a public key to an identity (a person or organization) by means of public key cryptography and digital signatures. To operate a CA, you must maintain trust by protecting the private key that signs the certificates issued by your CA. You can store the private key in the HSM in your AWS CloudHSM cluster, and use the HSM to perform the cryptographic signing operations.
 

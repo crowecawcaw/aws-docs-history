@@ -1,7 +1,6 @@
 
 
 # Supported API operations Key storage provider (KSP) for AWS CloudHSM Client SDK 5
-<a name="ksp-library-apis"></a>
 
 The parameters in the KSP are defined by Microsoft KSP. See the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/api/ncrypt/) for more information.
 

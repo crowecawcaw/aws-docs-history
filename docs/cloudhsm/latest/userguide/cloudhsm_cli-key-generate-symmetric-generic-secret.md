@@ -1,7 +1,6 @@
 
 
 # Generate a symmetric Generic Secret key with CloudHSM CLI
-<a name="cloudhsm_cli-key-generate-symmetric-generic-secret"></a>
 
 Use the **key generate-symmetric generic-secret** command in CloudHSM CLI to generate a symmetric Generic Secret key in your AWS CloudHSM cluster.
 

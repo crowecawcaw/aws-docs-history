@@ -1,7 +1,6 @@
 
 
 # Verify a signature signed with the ML-DSA mechanism in CloudHSM CLI
-<a name="cloudhsm_cli-crypto-verify-mldsa"></a>
 
 Use the **crypto verify ml-dsa** command in CloudHSM CLI to confirm data integrity and authenticity after ML-DSA-based signing. With this command, you can:
 + Confirm that a given public key signed a file in the HSM.

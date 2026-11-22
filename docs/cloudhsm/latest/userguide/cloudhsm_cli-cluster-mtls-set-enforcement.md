@@ -1,7 +1,6 @@
 
 
 # Set the mTLS enforcement level with CloudHSM CLI
-<a name="cloudhsm_cli-cluster-mtls-set-enforcement"></a>
 
 Use the **cluster mtls set-enforcement** command in CloudHSM CLI to set the enforcement level of the usage of mutual TLS between client and AWS CloudHSM.
 

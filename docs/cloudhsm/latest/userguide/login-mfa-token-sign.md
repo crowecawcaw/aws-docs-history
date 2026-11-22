@@ -1,7 +1,6 @@
 
 
 # Manage MFA for HSM users using CloudHSM CLI
-<a name="login-mfa-token-sign"></a>
 
 For increased security, you can configure multi-factor authentication (MFA) for users to help protect the AWS CloudHSM cluster. 
 

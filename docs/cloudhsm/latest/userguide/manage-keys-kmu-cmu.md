@@ -1,7 +1,6 @@
 
 
 # Key management with the AWS CloudHSM KMU
-<a name="manage-keys-kmu-cmu"></a>
 
 If using the [latest SDK version series](use-hsm.md), use [CloudHSM CLI](cloudhsm_cli.md) to manage the keys in your AWS CloudHSM cluster.
 

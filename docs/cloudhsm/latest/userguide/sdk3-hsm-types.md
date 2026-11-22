@@ -1,7 +1,6 @@
 
 
 # HSM compatibility for AWS CloudHSM Client SDK 3
-<a name="sdk3-hsm-types"></a>
 
 The following table describes AWS CloudHSM Client SDK 3 compatibility for HSMs.
 

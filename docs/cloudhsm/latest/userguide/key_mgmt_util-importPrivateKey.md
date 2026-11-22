@@ -1,7 +1,6 @@
 
 
 # Import a private key using AWS CloudHSM KMU
-<a name="key_mgmt_util-importPrivateKey"></a>
 
 Use the **importPrivateKey** command in the AWS CloudHSM key\_mgmt\_util to import an asymmetric private key from a file to a hardware security module (HSM). The HSM does not allow direct import of keys in cleartext. The command encrypts the private key using an AES wrapping key you specify and unwraps the key inside the HSM. If you are trying to associate an AWS CloudHSM key with a certificate, refer to [this topic](ksp-library-associate-key-certificate.md).
 

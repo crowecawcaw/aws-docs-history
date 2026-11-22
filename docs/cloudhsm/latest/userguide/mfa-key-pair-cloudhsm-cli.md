@@ -1,7 +1,6 @@
 
 
 # MFA key pair requirements for AWS CloudHSM using CloudHSM CLI
-<a name="mfa-key-pair-cloudhsm-cli"></a>
 
 To enable multi-factor authentication (MFA) for a hardware security module (HSM) user in AWS CloudHSM, you can create a new key pair or use an existing key that meets the following requirements:
 + **Key type:** Asymmetric

@@ -1,7 +1,6 @@
 
 
 # Supported key types for OpenSSL Provider for AWS CloudHSM Client SDK 5
-<a name="openssl-provider-key-types"></a>
 
 The AWS CloudHSM OpenSSL Provider supports the following key types with Client SDK 5.
 

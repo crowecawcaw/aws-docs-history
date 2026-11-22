@@ -1,7 +1,6 @@
 
 
 # Prerequisites for OpenSSL Dynamic Engine with AWS CloudHSM Client SDK 3
-<a name="openssl3-install-dyn3-prereqs"></a>
 
 For information about platform support, see [AWS CloudHSM Client SDK 3 supported platforms](sdk3-support.md).
 

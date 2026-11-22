@@ -1,7 +1,6 @@
 
 
 # Supported API operations for AWS CloudHSM Client SDK 3
-<a name="pkcs11-v3-apis"></a>
 
 The PKCS \#11 library supports the following PKCS \#11 API operations for AWS CloudHSM Client SDK 3.
 + `C_CloseAllSessions`

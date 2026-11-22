@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM cluster management best practices
-<a name="bp-cluster-management"></a>
 
 Follow the best practices in this section when creating, accessing, and managing your AWS CloudHSM cluster.
 

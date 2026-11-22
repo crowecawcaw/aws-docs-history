@@ -1,7 +1,6 @@
 
 
 # Wrap a key with RSA-OAEP using CloudHSM CLI
-<a name="cloudhsm_cli-key-wrap-rsa-oaep"></a>
 
 Use the **key wrap rsa-oaep** command in CloudHSM CLI to wrap a payload key using an RSA public key on the hardware security module (HSM) and the `RSA-OAEP` wrapping mechanism. The payload key’s `extractable` attribute must be set to `true`.
 

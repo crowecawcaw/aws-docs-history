@@ -1,7 +1,6 @@
 
 
 # Key attributes for CloudHSM CLI
-<a name="cloudhsm_cli-key-attributes"></a>
 
 This topic describes how to use CloudHSM CLI to set key attributes. A key attribute in CloudHSM CLI can define a key’s type, how a key can function, or how a key is labeled. Some attributes define unique characteristics (a key’s type, for example). Other attributes can be set to true or false—changing them either activates or deactivates a part of the key’s functionality.
 

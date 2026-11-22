@@ -1,7 +1,6 @@
 
 
 # Generate an AWS CloudHSM DSA key pair using KMU
-<a name="key_mgmt_util-genDSAKeyPair"></a>
 
 Use the **genDSAKeyPair** command in the AWS CloudHSM key\_mgmt\_util tool to generate a [Digital Signing Algorithm](https://en.wikipedia.org/wiki/Digital_Signature_Algorithm) (DSA) key pair in your hardware security modules (HSM). You must specify the modulus length; the command generates the modulus value. You can also assign an ID, share the key with other HSM users, create nonextractable keys, and create keys that expire when the session ends. When the command succeeds, it returns the *key handles* that the HSM assigns to the public and private keys. You can use the key handles to identify the keys to other commands.
 

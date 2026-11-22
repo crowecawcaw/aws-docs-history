@@ -1,7 +1,6 @@
 
 
 # Configure the AWS CloudHSM `CloudHsmProvider` class with a file (Default configuration)
-<a name="java-lib-configs-default"></a>
 
 The default way to configure the AWS CloudHSM `CloudHsmProvider` class is with a file.
 

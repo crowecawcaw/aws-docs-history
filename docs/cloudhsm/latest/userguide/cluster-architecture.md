@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM cluster architecture
-<a name="cluster-architecture"></a>
 
 When you create a cluster, you specify an Amazon Virtual Private Cloud (VPC) in your AWS account and one or more subnets in that VPC. We recommend that you create one subnet in each Availability Zone (AZ) in your chosen AWS Region. You can create private subnets when you create a VPC. To learn more, see [Create a virtual private cloud (VPC) for AWS CloudHSM](create-vpc.md).
 

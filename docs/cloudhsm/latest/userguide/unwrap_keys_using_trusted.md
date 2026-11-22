@@ -1,7 +1,6 @@
 
 
 # How to unwrap a data key with a trusted key for AWS CloudHSM
-<a name="unwrap_keys_using_trusted"></a>
 
 To unwrap a data key in AWS CloudHSM, you need a trusted key that has `CKA_UNWRAP` set to true. To be such a key, it must also meet the following criteria:
 + The key’s `CKA_TRUSTED` attribute must be set to true.

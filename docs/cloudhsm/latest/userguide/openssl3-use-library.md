@@ -1,7 +1,6 @@
 
 
 # Use the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 3
-<a name="openssl3-use-library"></a>
 
 To use the AWS CloudHSM dynamic engine for OpenSSL from an OpenSSL-integrated application, ensure that your application uses the OpenSSL dynamic engine named `cloudhsm`. The shared library for the dynamic engine is located at `/opt/cloudhsm/lib/libcloudhsm_openssl.so`.
 

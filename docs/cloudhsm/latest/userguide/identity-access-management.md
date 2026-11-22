@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS CloudHSM
-<a name="identity-access-management"></a>
 
 AWS uses security credentials to identify you and to grant you access to your AWS resources. You can use features of AWS Identity and Access Management (IAM) to allow other users, services, and applications to use your AWS resources fully or in a limited way. You can do this without sharing your security credentials.
 
@@ -29,7 +28,7 @@ The following IAM policy example allows users to describe AWS CloudHSM backups i
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -60,13 +59,13 @@ For more information, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/l
 
 In the **Action** element of your IAM policy statement, you can specify any API action that AWS CloudHSM offers. You must prefix the action name with the lowercase string `cloudhsm:`, as shown in the following example.
 
-```
+```json
 "Action": "cloudhsm:DescribeClusters"
 ```
 
 To specify multiple actions in a single statement, enclose them in square brackets and separate them with a comma, as shown in the following example.
 
-```
+```json
 "Action": [
     "cloudhsm:DescribeClusters",
     "cloudhsm:DescribeHsm"
@@ -75,13 +74,13 @@ To specify multiple actions in a single statement, enclose them in square bracke
 
 You can also specify multiple actions using the \* wildcard. The following example specifies all API action names for AWS CloudHSM that start with `List`.
 
-```
+```json
 "Action": "cloudhsm:List*"
 ```
 
 To specify all API actions for AWS CloudHSM, use the \* wildcard, as shown in the following example.
 
-```
+```json
 "Action": "cloudhsm:*"
 ```
 
@@ -123,7 +122,7 @@ The following are example policies for AWS CloudHSM. For information about how t
 This policy allows access to the `DescribeClusters` and `DescribeBackups` API actions. It also includes additional permissions for specific Amazon EC2 API actions. It does not allow the user to delete clusters or HSMs.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": {
@@ -143,7 +142,7 @@ This policy allows access to a subset of the AWS CloudHSM API actions. It also i
 To see the specific permissions for each API, refer to [Actions, resources, and condition keys for AWS CloudHSM](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloudhsm.html) in the *Service Authorization Reference*.  
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": {
@@ -184,7 +183,7 @@ To see the specific permissions for each API, refer to [Actions, resources, and 
 This policy allows access to all AWS CloudHSM API actions, including the actions to delete HSMs and clusters. It also includes additional permissions for specific Amazon EC2 actions. You must include the `iam:CreateServiceLinkedRole` action to allow AWS CloudHSM to automatically create the **AWSServiceRoleForCloudHSM** service-linked role in your account. This role allows AWS CloudHSM to log events. For more information, see [Service-linked roles for AWS CloudHSM](service-linked-roles.md).    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":{

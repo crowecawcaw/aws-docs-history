@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM key management best practices
-<a name="bp-hsm-key-management"></a>
 
 Follow the best practices in this section when managing keys in AWS CloudHSM.
 

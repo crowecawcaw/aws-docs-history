@@ -1,7 +1,6 @@
 
 
 # Known issues for the Key Storage Provider (KSP) for AWS CloudHSM
-<a name="ki-ksp-sdk"></a>
 
 These are the known issues for Key Storage Provider (KSP) for AWS CloudHSM.
 

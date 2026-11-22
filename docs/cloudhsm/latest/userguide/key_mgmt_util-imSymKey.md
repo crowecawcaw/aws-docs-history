@@ -1,7 +1,6 @@
 
 
 # Import a plaintext symmetric key using AWS CloudHSM KMU
-<a name="key_mgmt_util-imSymKey"></a>
 
 Use the **imSymKey** command in the AWS CloudHSM key\_mgmt\_util tool to import a plaintext copy of a symmetric key from a file into the hardware security module (HSM). You can use it to import keys that you generate by any method outside of the HSM and keys that were exported from an HSM, such as the keys that the [exSymKey](key_mgmt_util-exSymKey.md), command writes to a file. 
 

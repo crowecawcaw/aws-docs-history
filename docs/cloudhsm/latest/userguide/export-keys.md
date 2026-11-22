@@ -1,7 +1,6 @@
 
 
 # Export keys with the AWS CloudHSM KMU
-<a name="export-keys"></a>
 
 To export AWS CloudHSM secret keys—that is, symmetric keys and asymmetric private keys—from the hardware security module (HSM) using the AWS CloudHSM key\_mgmt\_util (KMU), you must first create a wrapping key. You can export public keys directly without a wrapping key. 
 

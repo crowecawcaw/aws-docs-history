@@ -1,7 +1,6 @@
 
 
 # Create users with 2FA enabled for AWS CloudHSM Management Utility users
-<a name="create-2fa"></a>
 
 Use AWS CloudHSM Management Utility CMU (CMU) and the key pair to create a new crypto office (CO) user with two-factor authentication (2FA) enabled.
 

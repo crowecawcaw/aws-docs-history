@@ -1,7 +1,6 @@
 
 
 # Synchronize keys across the AWS CloudHSM cluster using CMU
-<a name="cloudhsm_mgmt_util-syncKey"></a>
 
 Use the **syncKey** command in the AWS CloudHSM cloudhsm\_mgmt\_util to manually synchronize keys across HSM instances within a cluster or across cloned clusters. In general, you will not need to use this command, as HSM instances within a cluster sync keys automatically. However, key synchronization across cloned clusters must be done manually. Cloned clusters are usually created in different AWS Regions in order to simplify the global scaling and disaster recovery processes.
 

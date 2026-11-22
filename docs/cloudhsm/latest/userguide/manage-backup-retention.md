@@ -1,7 +1,6 @@
 
 
 # Configure AWS CloudHSM backup retention policy
-<a name="manage-backup-retention"></a>
 
 AWS CloudHSM purges backups based on the backup retention policy you set when you create a cluster. Backup retention policy applies to clusters. If you move a backup to a different region, that backup is no longer associated with a cluster and has no backup retention policy. You must manually delete any backups not associated with a cluster. AWS CloudHSM does not delete a cluster's last backup. For clusters migrated from hsm1.medium, AWS CloudHSM retains the latest hsm1.medium backup until hsm1.medium reaches end of life.
 

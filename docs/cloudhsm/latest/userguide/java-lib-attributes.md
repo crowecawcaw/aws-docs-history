@@ -1,7 +1,6 @@
 
 
 # Supported Java key attributes for AWS CloudHSM Client SDK 3
-<a name="java-lib-attributes"></a>
 
 This topic describes how to use a proprietary extension for the Java library version 3.1 to set key attributes for AWS CloudHSM Client SDK 3. Use this extension to set supported key attributes and their values during these operations:
 + Key generation
@@ -82,7 +81,7 @@ Any attributes you do not explicitly specify are set to the defaults listed in t
 
 Developers will generally find it more convenient to utilize classes through the Builder pattern. As examples:
 
-```
+```java
 import com.amazonaws.cloudhsm.CloudHsmKeyAttributes;
 import com.amazonaws.cloudhsm.CloudHsmKeyAttributesMap;
 import com.amazonaws.cloudhsm.CloudHsmKeyPairAttributesMap;
@@ -109,7 +108,7 @@ CloudHsmKeyAttributesMap keyAttributesTokenWrappingKey =
 
 Developers may also utilize pre-defined attribute sets as a convenient way to enforce best practices in key templates. As an example:
 
-```
+```java
 //best practice template for wrapping keys
 
 CloudHsmKeyAttributesMap commonKeyAttrs = new CloudHsmKeyAttributesMap.Builder()
@@ -144,7 +143,7 @@ To set individual attributes for the public key and private key separately, you 
 
 Developers will generally find it more convenient to set key attributes through the Builder pattern. For example:
 
-```
+```java
 import com.amazonaws.cloudhsm.CloudHsmKeyAttributes;
 import com.amazonaws.cloudhsm.CloudHsmKeyAttributesMap;
 import com.amazonaws.cloudhsm.CloudHsmKeyPairAttributesMap;
@@ -202,7 +201,7 @@ For reference, the following table contains the `Cavium*ParameterSpec` classes a
 
 These brief code samples demonstrate the steps for two different operations: Key Generation and Key Wrapping:
 
-```
+```java
 // Set up the desired key attributes
 
 KeyGenerator keyGen = KeyGenerator.getInstance("AES", "Cavium");

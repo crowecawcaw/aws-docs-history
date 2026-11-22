@@ -1,7 +1,6 @@
 
 
 # Known issues for AWS CloudHSM integration Java Keytool and Jarsigner using Client SDK 3
-<a name="known-issues-keytool-jarsigner"></a>
 
 The following list provides the current list of known issues for integrations with AWS CloudHSM and Java Keytool and Jarsigner using Client SDK 3. 
 + When generating keys using keytool, the first provider in provider configuration cannot be CaviumProvider. 

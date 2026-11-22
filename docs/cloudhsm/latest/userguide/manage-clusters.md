@@ -1,7 +1,6 @@
 
 
 # Clusters in AWS CloudHSM
-<a name="manage-clusters"></a>
 
 A cluster is a collection of individual hardware security modules (HSM) that AWS CloudHSM keeps in sync. When you perform a task or operation on one HSM in a cluster, the other HSMs in that cluster are automatically kept up to date. 
 

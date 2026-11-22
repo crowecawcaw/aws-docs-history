@@ -1,7 +1,6 @@
 
 
 # Creating AWS CloudHSM clusters from backups
-<a name="create-cluster-from-backup"></a>
 
 To restore an AWS CloudHSM cluster from a backup, follow the steps in this topic. Your cluster will contain the same users, key material, certificates, configuration, and policies that were in the backup. For more information about managing backups, see [Cluster backups](manage-backups.md). 
 

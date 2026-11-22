@@ -1,7 +1,6 @@
 
 
 # Delete an AWS CloudHSM user using CMU
-<a name="cloudhsm_mgmt_util-deleteUser"></a>
 
 Use the **deleteUser** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to delete a user from the hardware security modules (HSM) in the AWS CloudHSM cluster. Only crypto officers (CO) can run this command. You cannot delete a user who is currently logged into an HSM. For more information about deleting users, see [How to Delete HSM Users](delete-user.md).
 

@@ -1,7 +1,6 @@
 
 
 # Wrap a key with AES-PKCS5-PAD using CloudHSM CLI
-<a name="cloudhsm_cli-key-wrap-aes-pkcs5-pad"></a>
 
 Use the **key wrap aes-pkcs5-pad** command in CloudHSM CLI to wrap a payload key using an AES key on the hardware security module (HSM) and the `AES-PKCS5-PAD` wrapping mechanism. The payload key's `extractable` attribute must be set to `true`.
 

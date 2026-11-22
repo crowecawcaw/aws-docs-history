@@ -1,7 +1,6 @@
 
 
 # Log in to the HSMs in an AWS CloudHSM cluster using KMU
-<a name="key_mgmt_util-log-in"></a>
 
 Use the **loginHSM** command in key\_mgmt\_util (KMU) to log in to the hardware security modules (HSM) in an AWS CloudHSM cluster. The following command logs in as a [crypto user (CU)](understanding-users-cmu.md) named `example_user`. The output indicates a successful login for all three HSMs in the cluster. 
 

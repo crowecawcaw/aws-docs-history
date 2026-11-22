@@ -1,11 +1,10 @@
 
 
 # List all AWS CloudHSM users using KMU
-<a name="key_mgmt_util-listUsers"></a>
 
 Use the **listUsers** command in the AWS CloudHSM key\_mgmt\_util to get the users in the hardware security modules (HSM), along with their user type and other attributes.
 
-In key\_mgmt\_util, listUsers returns output that represents all HSMs in the cluster, even if they are not consistent. To get information about the users in each HSM, use the [listUsers](#key_mgmt_util-listUsers) command in cloudhsm\_mgmt\_util.
+In key\_mgmt\_util, listUsers returns output that represents all HSMs in the cluster, even if they are not consistent. To get information about the users in each HSM, use the [listUsers](key_mgmt_util-listUsers.md) command in cloudhsm\_mgmt\_util.
 
 The user commands in key\_mgmt\_util, **listUsers** and [getKeyInfo](key_mgmt_util-getKeyInfo.md), are read-only commands that crypto users (CUs) have permission to run. The remaining user management commands are part of cloudhsm\_mgmt\_util. They are run by crypto officers (CO) who have user management permissions.
 
@@ -57,7 +56,7 @@ Required: Yes
 
 ## Related topics
 <a name="listUsers-seealso"></a>
-+ [listUsers](#key_mgmt_util-listUsers) in cloudhsm\_mgmt\_util
++ [listUsers](key_mgmt_util-listUsers.md) in cloudhsm\_mgmt\_util
 + [findKey](key_mgmt_util-findKey.md)
 + [getAttribute](key_mgmt_util-getAttribute.md)
 + [getKeyInfo](key_mgmt_util-getKeyInfo.md)

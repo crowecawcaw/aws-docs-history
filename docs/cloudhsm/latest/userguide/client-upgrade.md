@@ -1,7 +1,6 @@
 
 
 # Upgrade AWS CloudHSM Client SDK 3 on Linux
-<a name="client-upgrade"></a>
 
 ****  
  SDK versions 5.8.0 and earlier have reached their end of support. After March 31, 2025 documentation for SDK versions 3.4.4 and earlier will no longer be available.

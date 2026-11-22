@@ -1,7 +1,6 @@
 
 
 # Wrap a key with RSA-PKCS using CloudHSM CLI
-<a name="cloudhsm_cli-key-wrap-rsa-pkcs"></a>
 
 Use the **key wrap rsa-pkcs** command in CloudHSM CLI to wrap a payload key using an RSA public key on the hardware security module (HSM) and the `RSA-PKCS` wrapping mechanism. The payload key’s `extractable` attribute must be set to `true`.
 

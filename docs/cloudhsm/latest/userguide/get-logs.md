@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS CloudHSM
-<a name="get-logs"></a>
 
 In addition to the logging features built into the Client SDK, you can also use AWS CloudTrail, Amazon CloudWatch Logs, and Amazon CloudWatch to monitor AWS CloudHSM.
 

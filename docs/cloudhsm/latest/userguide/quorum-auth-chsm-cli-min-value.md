@@ -1,7 +1,6 @@
 
 
 # Change the quorum minimum value for AWS CloudHSM using CloudHSM CLI
-<a name="quorum-auth-chsm-cli-min-value"></a>
 
 After [setting the quorum minimum value](quorum-auth-chsm-cli-first-time.md#quorum-admin-set-quorum-minimum-value-chsm-cli) for CloudHSM [admins](understanding-users.md#admin), you might need to adjust the quorum minimum value. The HSM allows changes to the quorum minimum value only when the number of approvers meets or exceeds the current value. For example, with a quorum minimum value of two (2), at least two (2) admins must approve any changes.
 

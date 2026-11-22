@@ -1,7 +1,6 @@
 
 
 # Retrieving AWS CloudHSM client configuration logs
-<a name="troubleshooting-log-collection-script"></a>
 
 AWS CloudHSM offers tools for Client SDK 3 and Client SDK 5 to gather information about your environment for AWS Support to troubleshoot problems. 
 

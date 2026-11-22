@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM extracting keys using JCE
-<a name="troubleshoot-getencoded"></a>
 
 Use the following sections to troubleshoot issues extracting AWS CloudHSM keys using JCE.
 

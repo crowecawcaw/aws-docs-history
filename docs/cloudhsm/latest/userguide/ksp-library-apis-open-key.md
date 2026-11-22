@@ -1,7 +1,6 @@
 
 
 # NCryptOpenKey with Key storage provider (KSP)
-<a name="ksp-library-apis-open-key"></a>
 
 The `NCryptOpenKey` function opens a key that exists in the Key Storage Provider (KSP).
 

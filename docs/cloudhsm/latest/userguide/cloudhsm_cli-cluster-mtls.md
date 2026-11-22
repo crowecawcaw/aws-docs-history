@@ -1,7 +1,6 @@
 
 
 # The cluster mtls category in CloudHSM CLI
-<a name="cloudhsm_cli-cluster-mtls"></a>
 
 In CloudHSM CLI, **cluster mtls** is a parent category for a group of commands that, when combined with the parent category, create a command specific to AWS CloudHSM clusters. Currently, this category consists of the following commands:
 

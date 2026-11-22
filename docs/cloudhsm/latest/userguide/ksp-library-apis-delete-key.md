@@ -1,7 +1,6 @@
 
 
 # NCryptDeleteKey with Key storage provider (KSP)
-<a name="ksp-library-apis-delete-key"></a>
 
 The `NCryptDeleteKey` function deletes a KSP key from the Key Storage Provider (KSP).
 

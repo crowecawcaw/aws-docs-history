@@ -1,7 +1,6 @@
 
 
 # Create a cluster in AWS CloudHSM
-<a name="create-cluster"></a>
 
 A cluster is a collection of individual hardware security modules (HSMs). AWS CloudHSM synchronizes the HSMs in each cluster so that they function as a logical unit. AWS CloudHSM offers two types of HSMs: *hsm1.medium* and *hsm2m.medium*. When you create a cluster, you choose which of the two will be in your cluster. For details on the differences between each HSM type and cluster mode, see [AWS CloudHSM cluster modes](cluster-hsm-types.md).
 

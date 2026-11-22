@@ -1,7 +1,6 @@
 
 
 # Authenticate to the Key storage provider (KSP) for AWS CloudHSM Client SDK 5
-<a name="ksp-library-authentication"></a>
 
 Before you use the Key storage provider (KSP) for AWS CloudHSM Client SDK 5, you must set the login credentials for the HSM on your system. You have two options:
 + Windows Credentials Manager (recommended for better security)
