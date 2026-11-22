@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # DisassociateDiscoveredResource
-<a name="API_DisassociateDiscoveredResource"></a>
 
 Disassociate an Application Discovery Service discovered resource from a migration task.
 

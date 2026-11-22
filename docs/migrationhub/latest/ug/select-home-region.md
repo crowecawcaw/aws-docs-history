@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Choose an AWS Migration Hub home Region
-<a name="select-home-region"></a>
 
 When you first use the AWS Migration Hub console, choose a Migration Hub home Region. If you don't choose a home Region, you’ll be prompted to choose one before you can perform any write action from the console, AWS SDKs, or AWS CLI. 
 

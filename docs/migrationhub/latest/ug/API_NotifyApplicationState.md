@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # NotifyApplicationState
-<a name="API_NotifyApplicationState"></a>
 
 Sets the migration state of an application. For a given application identified by the value passed to `ApplicationId`, its status is set or updated by passing one of three values to `Status`: `NOT_STARTED | IN_PROGRESS | COMPLETED`.
 

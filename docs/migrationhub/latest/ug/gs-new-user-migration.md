@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Migrate to AWS by using AWS Migration Hub migration tools and tracking
-<a name="gs-new-user-migration"></a>
 
 You can start migrating with or without first using the AWS Migration Hub discovery tools. Directly migrating servers is efficient because your servers are migrating while you simultaneously group them into applications.
 

@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Prerequisites for using the network diagram in AWS Migration Hub
-<a name="network-diagram-prerequisites"></a>
 
 The following are the prerequisites for using the network diagram in AWS Migration Hub:
 +  AWS Application Discovery Service Discovery Agent must be running on all of the on-premises servers that you want mapped in the diagram. For more information, see [Setting up Agent Based Discovery](https://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up-agents.html) in the *Application Discovery Service User Guide*.

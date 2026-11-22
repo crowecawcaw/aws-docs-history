@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # IAM roles and permissions for AWS Migration Hub automation units
-<a name="mha-iam-roles"></a>
 
 **Note**  
 The AWS Migration Hub Automation feature is in preview release. It is available in US East (N. Virginia). To use this feature, you must set your AWS Region to US East (N. Virginia). You must also set the AWS Migration Hub home Region to US East (N. Virginia). For instructions on how to set the AWS Migration Hub home Region, see [Managing your AWS Migration Hub home Region](home-region.md).  
@@ -33,7 +32,7 @@ For managed automation units, create an IAM role and give the role any name that
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -76,7 +75,7 @@ If your custom unit uses an AWS Systems Manager document as its target, then the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -110,7 +109,7 @@ For a custom automation unit that uses an AWS Lambda function as its target, you
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

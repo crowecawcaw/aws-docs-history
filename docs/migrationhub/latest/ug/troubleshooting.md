@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Troubleshooting AWS Migration Hub
-<a name="troubleshooting"></a>
 
 This page provides troubleshooting guidance for AWS Migration Hub, as well as links to topics on how to troubleshoot issues with AWS Application Discovery Service, Agentless Collector, and Migration Evaluator.
 

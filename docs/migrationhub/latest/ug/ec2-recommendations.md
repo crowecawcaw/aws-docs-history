@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Amazon EC2 instance recommendations in AWS Migration Hub
-<a name="ec2-recommendations"></a>
 
 Amazon Elastic Compute Cloud (Amazon EC2) instance recommendations provide you with the ability to estimate the cost of running your existing servers in AWS. This feature analyzes the details about each server, including server specification, CPU, and memory utilization data. The compiled data is then used to recommend the least expensive Amazon EC2 instance type that can handle the existing performance workload. Recommendations are returned along with per-hour instance pricing.
 

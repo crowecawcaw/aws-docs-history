@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Tracking metrics in the AWS Migration Hub dashboard
-<a name="dashboards-tracking-wt"></a>
 
 Dashboards provide a way to quickly see status and progress summary data, and also help you navigate to more detailed data.
 

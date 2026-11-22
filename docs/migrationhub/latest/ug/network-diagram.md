@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Viewing network connections in AWS Migration Hub
-<a name="network-diagram"></a>
 
 Viewing network connections in AWS Migration Hub allows you to visualize a server's dependencies. The visualization of these dependencies helps you verify all of the resources required to successfully migrate each of your applications to Amazon Web Services.
 

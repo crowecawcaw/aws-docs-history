@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # AWS Migration Hub roles and policies
-<a name="policy-templates"></a>
 
 Access to AWS Migration Hub requires credentials that AWS can use to authenticate your requests as well as have permissions to access AWS resources. The following sections demonstrate how the various permissions policies can be attached to IAM identities (that is, users, groups, and roles) and thereby grant permissions to perform actions on AWS Migration Hub resources.
 

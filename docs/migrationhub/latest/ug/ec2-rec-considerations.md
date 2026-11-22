@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Additional considerations for Amazon EC2 instance recommendations in AWS Migration Hub
-<a name="ec2-rec-considerations"></a>
 
 Keep the following considerations in mind when generating Amazon EC2 instance recommendations.
 + Burstable instances (T2 and T3) have an additional pricing mechanism that is computed based on CPU credits. For the burstable instances, we use the provided `average` and `peak` CPU data points to compute an estimated number of consumed CPU credits. This is translated into an adjusted overall recommendation.

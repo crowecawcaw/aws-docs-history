@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # AWS Migration Hub Authentication and Access Control Explained
-<a name="auth-and-access-explained"></a>
 
 ## Overview of Managing Access Permissions to Your Resources
 <a name="access-control-overview"></a>
@@ -133,7 +132,7 @@ The following shows an example of a permissions policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -159,7 +158,7 @@ Next, you must define a trust policy that authorizes the migration tool, in this
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # ListProgressUpdateStreams
-<a name="API_ListProgressUpdateStreams"></a>
 
 Lists progress update streams associated with the user account making this call.
 

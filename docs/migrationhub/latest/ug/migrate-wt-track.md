@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Track the status of your migrations in AWS Migration Hub
-<a name="migrate-wt-track"></a>
 
 With a migration underway, you can track its progress status as well as details for each server grouped to the application. This status is communicated to AWS Migration Hub from the migration tool at key points during the migration.
 

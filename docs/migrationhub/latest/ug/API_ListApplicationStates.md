@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # ListApplicationStates
-<a name="API_ListApplicationStates"></a>
 
 Lists all the migration statuses for your applications. If you use the optional `ApplicationIds` parameter, only the migration statuses for those applications will be returned.
 

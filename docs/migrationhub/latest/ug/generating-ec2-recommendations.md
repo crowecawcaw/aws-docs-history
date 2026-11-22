@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Generating Amazon EC2 recommendations in AWS Migration Hub
-<a name="generating-ec2-recommendations"></a>
 
 In the **Export Amazon EC2 instance recommendations** page of the Migration Hub console, you'll choose your recommendation preferences. These preferences include resource sizing, instance type preferences, and instance type exclusions. Use the following procedure to generate your Amazon EC2 instance recommendations.
 

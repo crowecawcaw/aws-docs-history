@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Use `DeleteProgressUpdateStream` with an AWS SDK
-<a name="example_migration-hub_DeleteProgressUpdateStream_section"></a>
 
 The following code example shows how to use `DeleteProgressUpdateStream`.
 
@@ -13,7 +12,7 @@ The following code example shows how to use `DeleteProgressUpdateStream`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/migrationhub#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.migrationhub.MigrationHubClient;
 import software.amazon.awssdk.services.migrationhub.model.DeleteProgressUpdateStreamRequest;

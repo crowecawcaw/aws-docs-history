@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Tracking when you use AWS Application Migration Service to perform discovery first and then migrate
-<a name="updates-tracking-wt-disco-first"></a>
 
 If you started performing discovery using AWS discovery tools, the servers list will likely be populated before you start migrating. Migration Hub attempts to automatically map updates from migration tools to servers in the servers list. If it cannot find a match in the discovered servers list, then Migration Hub will add a server corresponding to the migration update to the servers list and automatically map the update to the server.
 

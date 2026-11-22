@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Understanding your Amazon EC2 recommendations in AWS Migration Hub
-<a name="understanding-ec2-recommendations"></a>
 
 The downloaded `EC2InstanceRecommendations-{type}-{date}.csv` file contains the following information.
 + **Server identification** – This information identifies each server. Each row of the CSV file contains information specific to a single server identified by a `ServerID`, `HostName`, and/or `ExternalId`.

@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Troubleshooting and manually mapping migration updates in AWS Migration Hub
-<a name="updates-tracking-wt-troubleshooting"></a>
 
 You can verify that the migration update is mapped to a server by viewing the update on the **Updates** page. If a server has not been mapped to a migration and you just started the migration task, see if it appears as mapped after waiting five minutes and refreshing the page.
 

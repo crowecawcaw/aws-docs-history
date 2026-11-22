@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Using Roles to Connect Migration Hub to AWS DMS
-<a name="using-service-linked-roles-dms-service-role"></a>
 
 Migration Hub uses the service-linked role named **AWSServiceRoleForMigrationHubDMSAccess** – Allows AWS Database Migration Service (AWS DMS) to send migration tracking information from any supported AWS Region to Migration Hub in US West (Oregon).
 
@@ -20,7 +19,7 @@ The role permissions policy is as follows:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

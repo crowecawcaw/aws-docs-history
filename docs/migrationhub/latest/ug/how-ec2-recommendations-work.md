@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # How Amazon EC2 instance recommendations work in AWS Migration Hub
-<a name="how-ec2-recommendations-work"></a>
 
 This feature recommends the most cost-effective Amazon Elastic Compute Cloud instance type that can satisfy your existing server specifications and utilization requirements while taking into account your selected instance preferences. The server specifications that are used to generate your recommendations are:
 + Number of processors

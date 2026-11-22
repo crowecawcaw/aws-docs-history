@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Discovery with AWS Migration Hub requires the home Region
-<a name="home-region-with-discovery"></a>
 
 To start discovery and planning, you can deploy data collectors, such as AWS Application Discovery Agent (Discovery Agent) or Application Discovery Service Agentless Collector (Agentless Collector), into your data centers. These tools send data to the AWS Migration Hub service in your home Region, and the information is displayed in your home Region in the console.
 

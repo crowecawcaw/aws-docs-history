@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Managing your AWS Migration Hub home Region
-<a name="home-region"></a>
 
 The data stored in the AWS Migration Hub (Migration Hub) home Region provides a single repository of discovery and migration planning information for your entire migration portfolio. The data stored in the home Region from the discovery and migration tools is used to track the progress of your migrations regardless of the migrating application’s target Region. For supported regions, see [AWS Migration Hub endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/migrationhubn.html) in the *Amazon Web Services General Reference*. 
 
