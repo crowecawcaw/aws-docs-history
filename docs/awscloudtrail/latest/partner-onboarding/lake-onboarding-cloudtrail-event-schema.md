@@ -3,7 +3,6 @@
 AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
 
 # Understanding the CloudTrail Lake event schema
-<a name="lake-onboarding-cloudtrail-event-schema"></a>
 
 The tables in this section describe the required and optional schema elements that match those in CloudTrail event records. The contents of `eventData` are provided by customer events; other fields are provided by CloudTrail after customer events are ingested.
 + [Fields that are provided by CloudTrail after ingestion](#fields-cloudtrail)
@@ -56,7 +55,7 @@ The following fields are provided by customer events:
 
 The following example shows the hierarchy of schema elements that match those in CloudTrail event records.
 
-```
+```JSON
 {
     "eventVersion": String,
     "eventCategory": String,

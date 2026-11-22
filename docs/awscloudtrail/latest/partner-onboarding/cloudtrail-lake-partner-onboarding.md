@@ -3,7 +3,6 @@
 AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [CloudTrail Lake availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
 
 # Onboarding partner events to AWS CloudTrail Lake
-<a name="cloudtrail-lake-partner-onboarding"></a>
 
 AWS CloudTrail Lake logs activities across all AWS accounts and Regions, and across a customer's entire IT infrastructure. Customers can configure CloudTrail Lake to log events from any source, immutably store the events for auditing and compliance, and use standard, SQL-based queries to filter and analyze their event logs. CloudTrail Lake accepts activity logs from AWS Partner Network partner solutions, offering customers a comprehensive view of their activity information in the CloudTrail Lake console, or by using API commands.
 
