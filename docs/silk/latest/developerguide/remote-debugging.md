@@ -1,7 +1,6 @@
 
 
 # Learn about remote debugging
-<a name="remote-debugging"></a>
 
 Amazon Silk provides remote debugging through Chrome DevTools. With remote debugging, you can use your development machine to inspect and interact with pages displayed in Silk on a separate device. Remote debugging must be enabled on the device, and Google Chrome must be installed on your development machine.
 

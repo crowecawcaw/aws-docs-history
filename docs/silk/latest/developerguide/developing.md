@@ -1,7 +1,6 @@
 
 
 # Developing web content for Amazon Silk
-<a name="developing"></a>
 
 Web browsers render content in different ways, depending on the platform, content type, browser settings, and other factors. The topics below discuss Amazon Silk features and functionality that can affect the delivery or display of content. You'll find tips on optimizing your website for Silk and also best practices that are applicable to web development in general. To learn about Silk support for HTML5, see [HTML5 API support in Amazon Silk](html5-apis.md).
 

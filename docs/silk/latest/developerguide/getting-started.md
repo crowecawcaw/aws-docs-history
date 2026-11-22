@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Silk
-<a name="getting-started"></a>
 
 This guide provides an overview of the Amazon Silk web browser, with a focus on features and behaviors that are relevant to site owners and web developers. If you're wondering how to optimize your content for Silk, this is the place to start. If you're wondering about supported features and standards, you can find that information here too.
 

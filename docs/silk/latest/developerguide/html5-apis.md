@@ -1,7 +1,6 @@
 
 
 # HTML5 API support in Amazon Silk
-<a name="html5-apis"></a>
 
 Amazon Silk supports many of the HTML5 APIs. Though not intended to be comprehensive, the list below describes supported HTML5 APIs and notes any Amazon Silk-specific implementation details.
 

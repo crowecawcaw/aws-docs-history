@@ -1,7 +1,6 @@
 
 
 # User agent detection
-<a name="ua-detection"></a>
 
 You can use JavaScript to detect the Amazon Silk user agent across various Kindle Fire device families. Unless you want to provide a unique experience for different Kindle Fire devices, we recommend a general match that will work over time as product models and version numbers change. The following examples illustrate best practices for matching the Amazon Silk user agent across Kindle Fire device types.
 

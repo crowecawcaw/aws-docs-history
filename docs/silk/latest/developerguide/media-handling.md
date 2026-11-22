@@ -1,7 +1,6 @@
 
 
 # Learn about media handling
-<a name="media-handling"></a>
 
 Amazon Silk supports a wide range of media types.
 

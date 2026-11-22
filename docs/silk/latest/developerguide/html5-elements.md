@@ -1,7 +1,6 @@
 
 
 # HTML5 elements and attributes support in Amazon Silk
-<a name="html5-elements"></a>
 
 Amazon Silk supports many of the HTML5 elements and attributes. Though not intended to be comprehensive, the list below describes supported elements and attributes and notes Amazon Silk-specific implementation details, if applicable.
 
@@ -141,7 +140,7 @@ Scalable Vector Graphics (SVG) is an XML-based format for describing two-dimensi
 
  
 
-```
+```html
 <html>
   <body>
     <svg width="180" height="120">

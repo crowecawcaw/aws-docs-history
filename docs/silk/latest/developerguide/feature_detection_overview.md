@@ -1,7 +1,6 @@
 
 
 # How to detect a feature
-<a name="feature_detection_overview"></a>
 
 There are several ways to detect features. You can write your own feature detection scripts, or you can use a helper library. Both methods are demonstrated below.
 
@@ -10,7 +9,7 @@ The following code detects support for the HTML5 canvas element by testing one o
 
  
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <body>

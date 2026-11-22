@@ -1,7 +1,6 @@
 
 
 # Detecting the Silk User Agent
-<a name="detecting-silk-ua"></a>
 
 To determine browser support for a given feature, the [Learn about feature detection](feature-detection.md) method is almost always recommended over user agent detection. However, in a few scenarios (for example, performing site analytics) you may need to detect a particular user agent.
 
@@ -9,7 +8,7 @@ If you want to detect version and configuration info in the Amazon Silk user age
 
  
 
-```
+```html
 <html>
   <body>
     <script>

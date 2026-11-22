@@ -1,7 +1,6 @@
 
 
 # Learn about screen resolution
-<a name="screen-size"></a>
 
 When you're developing web content for Amazon Silk (or any other mobile browser), it's a good idea to be aware of devices' screen resolution and related specifications. The following table shows screen size, product model, resolution, and scale factor for Fire tablets and phone. For full device specs, see [Tablet Device Specifications](https://developer.amazon.com/docs/fire-tablets/ft-device-and-feature-specifications.html).
 

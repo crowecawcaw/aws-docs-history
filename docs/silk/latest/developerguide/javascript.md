@@ -1,7 +1,6 @@
 
 
 # Learn about using JavaScript with Amazon Silk
-<a name="javascript"></a>
 
 Amazon Silk uses the [V8 JavaScript engine](https://developers.google.com/v8/intro) to compile and execute JavaScript. 
 
@@ -14,7 +13,7 @@ When JavaScript is disabled, Silk ignores the content of `<script>` tags. You ca
 
  
 
-```
+```html
 <html>
   <body>
     <h1>Test Script</h1>

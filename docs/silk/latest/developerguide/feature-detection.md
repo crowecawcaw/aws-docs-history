@@ -1,7 +1,6 @@
 
 
 # Learn about feature detection
-<a name="feature-detection"></a>
 
 When you build a website, you want to deliver the best possible experience to all of your customers, no matter what browser and platform they're using. You can do this with feature detection. Feature detection is a content-delivery strategy predicated on feature availability, not browser functionality. Instead of checking to see if a customer is using "browser X version 1.1" and then assuming that this version of browser X supports some feature, you test for the feature directly and serve content accordingly. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating drop-down menus for a touch screen
-<a name="tutorials"></a>
 
 Because Amazon Silk runs on a touch-screen device, it doesn't handle the CSS pseudoclass `:hover` the same way that a desktop browser does. On a desktop browser, `:hover` becomes a match when you move the pointer over an element on which `:hover` is set. This behavior is useful for drop-down menus, as you can create a menu that's hidden until the user hovers over the parent element. But on a touch screen, this sort of hover-based menu design can lead to problems.
 
@@ -9,7 +8,7 @@ Let's look at an example. The following HTML document contains two unordered lis
 
  
 
-```
+```html
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="dropdown.css">
@@ -38,7 +37,7 @@ By applying CSS to this markup, we can create a simple drop-down navigation. Her
 
  
 
-```
+```html
 div.nav ul {
     padding: 0;
     margin: 0;        

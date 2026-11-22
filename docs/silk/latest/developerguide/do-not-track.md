@@ -1,7 +1,6 @@
 
 
 # Learn about the Do Not Track header field
-<a name="do-not-track"></a>
 
 Amazon Silk supports the Do Not Track (DNT) header request field, an HTTP header field that specifies a user preference about data collection. Many websites collect information about user browsing behavior, and with the DNT field users can opt out of such data collection.
 

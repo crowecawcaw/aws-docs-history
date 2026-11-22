@@ -1,7 +1,6 @@
 
 
 # Learn about user agent strings
-<a name="user-agent"></a>
 
 In the user agent request header field, Amazon Silk sends one of three user agent strings, depending on the view requested on the device by the customer. If a specific view is not requested, the view defaults to Tablet for Fire tablets, and Mobile for Fire phones. If a site has compatibility issues when rendered in the default view, a different view may be selected by the device. The templates for the Amazon Silk user agents are shown below.
 

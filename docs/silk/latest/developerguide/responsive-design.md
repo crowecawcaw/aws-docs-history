@@ -1,7 +1,6 @@
 
 
 # Learn about responsive web design
-<a name="responsive-design"></a>
 
 Responsive web design is, among other things, a solution to the rapidly increasing demand for websites that look good across a range of display sizes. A few years ago, web designers only had to think about desktop monitors and—perhaps as an afterthought—smart phones. Now designers can count on site visits from mobile, tablet, netbook, laptop, and desktop clients in many different resolutions and aspect ratios. There's device orientation to think about, too, and the size of the browser window (not all users maximize it). With all of these variables, creating targeted content for every popular device is an unwieldy proposition, and one that's unlikely to scale well as device types continue to proliferate.
 
