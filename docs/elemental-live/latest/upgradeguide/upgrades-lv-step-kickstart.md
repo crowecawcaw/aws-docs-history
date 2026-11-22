@@ -1,7 +1,6 @@
 
 
 # Step B: Kickstart the operating system software
-<a name="upgrades-lv-step-kickstart"></a>
 
 Your upgrade might require that you re-install (kickstart) the operating system. You might decide on your own that you want to kickstart, or AWS Elemental Support might recommend that you kickstart to attempt to solve a problem.
 

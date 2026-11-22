@@ -1,7 +1,6 @@
 
 
 # Step C: Copy the AWS Elemental Live installer
-<a name="upgrades-lv-upg-single-locate-sw"></a>
 
 1. From your regular workstation, open a web browser, go to [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations) and download the software for the version that you're going to.
 

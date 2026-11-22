@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="about-lv-cg"></a>
 
 This guide describes how to upgrade or downgrade the software running on an AWS Elemental Live node. It covers versions 2.25.x and lower. These versions run on RHEL 7 (or CentOS 7). It also covers version 2.26.0 and higher. These versions run on RHEL 9.
 

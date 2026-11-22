@@ -1,7 +1,6 @@
 
 
 # Step B: Copy the AWS Elemental installer
-<a name="downgrades-lv-upg-locate-sw-dn"></a>
 
 Locate and copy the installer for Elemental Live.
 

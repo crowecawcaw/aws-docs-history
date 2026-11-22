@@ -1,7 +1,6 @@
 
 
 # Downgrades in Elemental Live
-<a name="downgrades-lv-upg"></a>
 
 This section describes how to downgrade the AWS Elemental Live software version.
 

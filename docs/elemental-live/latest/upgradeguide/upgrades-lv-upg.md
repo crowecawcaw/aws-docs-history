@@ -1,7 +1,6 @@
 
 
 # Upgrades in Elemental Live
-<a name="upgrades-lv-upg"></a>
 
 This section describes how to upgrade to AWS Elemental Live software version to a higher version.
 
