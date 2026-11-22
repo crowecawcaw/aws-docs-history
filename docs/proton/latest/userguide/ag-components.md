@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # AWS Proton components
-<a name="ag-components"></a>
 
 Components are a type of AWS Proton resource. They add flexibility to service templates. Components provide platform teams with a mechanism to extend core infrastructure patterns, and define safeguards that empower developers to manage aspects of their application infrastructure.
 

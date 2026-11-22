@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Delete an environment
-<a name="ag-env-delete"></a>
 
 You can delete an AWS Proton environment by using the AWS Proton console or the AWS CLI.
 
@@ -48,14 +47,14 @@ You can't delete an environment that has any associated component. To delete suc
 
 Run the following command:
 
-```
+```sh
 $ aws proton delete-environment \
     --name "{{MySimpleEnv}}"
 ```
 
 Response:
 
-```
+```json
 {
     "environment": {
         "arn": "arn:aws:proton:region-id:123456789012:environment/MySimpleEnv",

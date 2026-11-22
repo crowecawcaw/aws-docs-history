@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # AWS Proton templates
-<a name="ag-templates"></a>
 
 To add your template bundle to your AWS Proton template library, create a template minor version and register it with AWS Proton. When creating the template, provide the name of the Amazon S3 bucket and path for your template bundle. After templates are published, they can be selected by platform team members and developers. After they're selected, AWS Proton uses the template to create and provision infrastructure and applications.
 

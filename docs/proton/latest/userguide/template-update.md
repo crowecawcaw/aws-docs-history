@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Update a template
-<a name="template-update"></a>
 
 You can update a template as described in the following list.
 + Edit the `description` or `display name` of a template when you use either the console or AWS CLI. You *can't* edit the `name` of a template.
@@ -44,7 +43,7 @@ The following example command and response shows how you can edit the descriptio
 
 Run the following command.
 
-```
+```sh
 $ aws proton update-environment-template \
     --name "{{simple-env}}" \
     --description "{{A single VPC with public access}}"
@@ -52,7 +51,7 @@ $ aws proton update-environment-template \
 
 Response:
 
-```
+```json
 {
     "environmentTemplate": {
         "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env",

@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # AWS Proton objects
-<a name="ag-works-objects"></a>
 
 The following diagram shows the main AWS Proton objects and their relationship to other AWS and third-party objects. The arrows represent the direction of data flow (the inverse direction of dependency).
 

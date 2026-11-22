@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Delete a service
-<a name="ag-svc-delete"></a>
 
 You can delete an AWS Proton service, with its instances and pipeline, by using the AWS Proton console or the AWS CLI.
 
@@ -33,14 +32,14 @@ You can't delete a service that has any service instance with an attached compon
 
 Command:
 
-```
+```sh
 $ aws proton delete-service \
     --name "{{simple-svc}}"
 ```
 
 Response:
 
-```
+```json
 {
     "service": {
         "arn": "arn:aws:proton:region-id:123456789012:service/simple-svc",

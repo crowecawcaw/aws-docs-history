@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Keep infrastructure up to date with the AWS Proton dashboard
-<a name="monitoring-dashboard"></a>
 
 The AWS Proton dashboard provides a summary of AWS Proton resources in your AWS account, with a particular focus on *staleness*—how updated deployed resources are. A deployed resource is up to date when it uses the recommended version of its associated template. An out-of-date deployed resource might need a major or minor template version update.
 

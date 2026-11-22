@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Condition-key based policy examples for AWS Proton
-<a name="security_iam_condition-key-based-policy-examples"></a>
 
 The following example IAM policy denies access to AWS Proton actions that match the templates specified in the `Condition` block. Note that these condition keys are only supported by the actions listed at [Actions, resources, and condition keys for AWS Proton](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsproton.html). To manage permissions on other actions, such as `DeleteEnvironmentTemplate`, you must use Resource-level access control.
 
@@ -14,7 +13,7 @@ The following example IAM policy denies access to AWS Proton actions that match 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -53,7 +52,7 @@ In the next example policy, the first Resource-level statement denies access to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -93,7 +92,7 @@ The final policy example allows developer AWS Proton actions that match the spec
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

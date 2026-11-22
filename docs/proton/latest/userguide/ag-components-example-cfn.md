@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Component CloudFormation example
-<a name="ag-components-example-cfn"></a>
 
 Here is a complete example of an AWS Proton directly defined component and how you can use it in an AWS Proton service. The component provisions an Amazon Simple Storage Service (Amazon S3) bucket and related access policy. The service instance can refer to this bucket and use it. The bucket name is based on the names of the environment, service, service instance, and component, meaning that the bucket is coupled with a specific instance of the component template extending a specific service instance. Developers can create multiple components based on this component template, to provision Amazon S3 buckets for different service instances and functional needs.
 
@@ -24,7 +23,7 @@ The example covers authoring the various required CloudFormation infrastructure 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -81,7 +80,7 @@ The example covers authoring the various required CloudFormation infrastructure 
    The example shows how to write a robust service template that doesn't break if a component isn't attached to the service instance.  
 **Example service CloudFormation IaC file using a component**  
 
-   ```
+   ```yaml
    # service/instance_infrastructure/cloudformation.yaml
    
    Resources: 
@@ -134,7 +133,7 @@ The example covers authoring the various required CloudFormation infrastructure 
 1. Write a component IaC template file that provisions an Amazon S3 bucket and a related access policy and exposes these resources as outputs.  
 **Example component CloudFormation IaC file**  
 
-   ```
+   ```yaml
    # cloudformation.yaml
    
    # A component that defines an S3 bucket and a policy for accessing the bucket.
@@ -166,7 +165,7 @@ The example covers authoring the various required CloudFormation infrastructure 
 1. If you're using the AWS Proton API or AWS CLI, write a manifest file for the component.  
 **Example directly defined component manifest**  
 
-   ```
+   ```yaml
    infrastructure:
      templates:
        - file: "cloudformation.yaml"

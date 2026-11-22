@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Update a service pipeline
-<a name="ag-svc-pipeline-update"></a>
 
 Learn to update an AWS Proton service pipeline and cancel the update.
 
@@ -69,7 +68,7 @@ The following example shows how you can use `"${Proton::CURRENT_VAL}"` in a `spe
 
 Spec:
 
-```
+```yaml
 proton: ServiceSpec
 
 pipeline:
@@ -90,7 +89,7 @@ instances:
 
 Command: to update
 
-```
+```sh
 $ aws proton update-service-pipeline \
     --service-name "{{simple-svc}}" \
     --spec "{{file://service-spec.yaml}}" \
@@ -101,7 +100,7 @@ $ aws proton update-service-pipeline \
 
 Response:
 
-```
+```json
 {
     "pipeline": {
         "arn": "arn:aws:proton:region-id:123456789012:service/simple-svc/pipeline/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -119,14 +118,14 @@ Response:
 
 Command: to get and confirm status
 
-```
+```sh
 $ aws proton get-service \
     --name "{{simple-svc}}"
 ```
 
 Response:
 
-```
+```json
 {
     "service": {
         "arn": "arn:aws:proton:region-id:123456789012:service/simple-svc",
@@ -182,14 +181,14 @@ A wait condition is included in the template used for this example so that the c
 
 Command: to cancel
 
-```
+```sh
 $ aws proton cancel-service-pipeline-deployment \
     --service-name "{{simple-svc}}"
 ```
 
 Response:
 
-```
+```json
 {
     "pipeline": {
         "arn": "arn:aws:proton:region-id:123456789012:service/simple-svc/pipeline",
@@ -206,14 +205,14 @@ Response:
 
 Command: to get and confirm status
 
-```
+```sh
 $ aws proton get-service \
     --name "{{simple-svc}}"
 ```
 
 Response:
 
-```
+```json
 {
     "service": {
         "arn": "arn:aws:proton:region-id:123456789012:service/simple-svc",

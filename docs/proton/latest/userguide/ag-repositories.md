@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Using git repositories with AWS Proton
-<a name="ag-repositories"></a>
 
 AWS Proton uses git repositories for a variety of purposes. The following list categorizes the repository types associated with AWS Proton resources. For AWS Proton features that repeatedly connect to your repository to either push content to it or pull content from it, you have to register a *repository link* with AWS Proton in your AWS account. A repository link is a set of properties that AWS Proton can use when it connects to a repository. AWS Proton currently supports GitHub, GitHub Enterprise, and BitBucket.
 

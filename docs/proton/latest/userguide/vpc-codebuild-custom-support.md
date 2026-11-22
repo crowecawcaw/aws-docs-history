@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # CodeBuild provisioning custom Amazon VPC support
-<a name="vpc-codebuild-custom-support"></a>
 
 AWS Proton CodeBuild Provisioning executes arbitrary customer-supplied CLI commands in a CodeBuild project located in the AWS Proton Environment account. These commands typically manage resource susing an Infrastructure as Code (IaC) tool, such as CDK. If you have resources in a Amazon VPC, CodeBuild may not be able to access them. To enable this, CodeBuild supports the ability to run within a specific Amazon VPC. A few example uses cases include:
 + Retrieve dependencies from self-hosted, internal artifact repositories, such as `PyPI` for Python, `Maven` for Java, and `npm` for Node.js

@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Create an environment
-<a name="ag-create-env"></a>
 
 Learn to create AWS Proton environments.
 
@@ -93,7 +92,7 @@ To create an environment, you specify the [AWS Proton service role](security_iam
 
 The next examples shows a YAML formatted spec file that specifies values for two inputs that are defined in the environment template schema file. You can use the `get-environment-template-minor-version` command to view the environment template schema.
 
-```
+```yaml
 proton: EnvironmentSpec
 spec:
   my_sample_input: "the first"
@@ -104,7 +103,7 @@ Create an environment by running the following command.
 
 
 
-```
+```sh
 $ aws proton create-environment \
     --name "{{MySimpleEnv}}" \
     --template-name {{simple-env}} \
@@ -115,7 +114,7 @@ $ aws proton create-environment \
 
 Response:
 
-```
+```json
 {
     "environment": {
         "arn": "arn:aws:proton:region-id:123456789012:environment/MySimpleEnv",
@@ -133,7 +132,7 @@ After you create a new environment, you can view a list of AWS and customer mana
 
 Command:
 
-```
+```sh
 $ aws proton list-tags-for-resource \
     --resource-arn "arn:aws:proton:{{region-id}}:{{123456789012}}:environment/{{MySimpleEnv}}"
 ```
@@ -215,7 +214,7 @@ Verify that the account ID that's listed in the **Environment account connection
 
 In the environment account, create an environment account connection and request to connect by running the following command.
 
-```
+```sh
 $ aws proton create-environment-account-connection \
     --environment-name "{{simple-env-connected}}" \
     --role-arn "arn:aws:iam::{{222222222222}}:role/service-role/{{env-account-proton-service-role}}" \
@@ -224,7 +223,7 @@ $ aws proton create-environment-account-connection \
 
 Response:
 
-```
+```json
 {
     "environmentAccountConnection": {
         "arn": "arn:aws:proton:region-id:222222222222:environment-account-connection/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -242,14 +241,14 @@ Response:
 
 In the management account, accept the environment account connection request by running the following command.
 
-```
+```sh
 $ aws proton accept-environment-account-connection \
     --id "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"
 ```
 
 Response:
 
-```
+```json
 {
     "environmentAccountConnection": {
         "arn": "arn:aws:proton:region-id:222222222222:environment-account-connection/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -267,14 +266,14 @@ Response:
 
 View your environment account connection by running the following command.
 
-```
+```sh
 $ aws proton get-environment-account-connection \
     --id "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"
 ```
 
 Response:
 
-```
+```json
 {
     "environmentAccountConnection": {
         "arn": "arn:aws:proton:region-id:222222222222:environment-account-connection/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -292,7 +291,7 @@ Response:
 
 In the management account, create an environment by running the following command.
 
-```
+```sh
 $ aws proton create-environment \
     --name "{{simple-env-connected}}" \
     --template-name {{simple-env-template}} \
@@ -304,7 +303,7 @@ $ aws proton create-environment \
 
 Response:
 
-```
+```json
 {
     "environment": {
         "arn": "arn:aws:proton:region-id:111111111111:environment/simple-env-connected",
@@ -393,7 +392,7 @@ When you create an environment using self-managed provisioning, you *add* the `p
 
    Spec:
 
-   ```
+   ```yaml
    proton: EnvironmentSpec
    spec:
      ssm_parameter_value: "test"
@@ -401,7 +400,7 @@ When you create an environment using self-managed provisioning, you *add* the `p
 
    Create an environment by running the following command.
 
-   ```
+   ```sh
    $ aws proton create-environment \
        --name "{{pr-environment}}" \
        --template-name "{{pr-env-template}}" \
@@ -412,7 +411,7 @@ When you create an environment using self-managed provisioning, you *add* the `p
 
    Response:>
 
-   ```
+   ```json
    {
        "environment": {
            "arn": "arn:aws:proton:region-id:123456789012:environment/pr-environment",
@@ -437,7 +436,7 @@ When you create an environment using self-managed provisioning, you *add* the `p
 
 1. Asynchronously provide provisioning status to AWS Proton. The following example notifies AWS Proton of a successful provisioning.
 
-   ```
+   ```sh
    $ aws proton notify-resource-deployment-status-change \
        --resource-arn "arn:aws:proton:{{region-id}}:{{123456789012}}:environment/{{pr-environment}}" \
        --status "{{SUCCEEDED}}"

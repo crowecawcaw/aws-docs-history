@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Parameter filters for CloudFormation IaC files
-<a name="parameter-filters"></a>
 
 When you make references to [AWS Proton parameters](parameters.md) in your AWS CloudFormation IaC files, you can use Jinja modifiers known as *filters* to validate, filter, and format parameter values before they get inserted into the rendered template. Filter validations are particularly useful when referring to [component](ag-components.md) output parameters, because component creation and attachment are done by developers, and an administrator using component outputs in a service instance template might want to verify their existence and validity. However, you can use filters in any Jinja IaC file.
 
@@ -29,7 +28,7 @@ Set `raw` to `False` to also validate the parameter value. In this case, the val
 
 With the following custom component template:
 
-```
+```yaml
 Resources:
   # ...
 Outputs:
@@ -43,7 +42,7 @@ Outputs:
 
 And the following service template:
 
-```
+```yaml
 Resources:
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -59,7 +58,7 @@ Resources:
 
 The rendered service template is as follows:
 
-```
+```yaml
 Resources:
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -95,7 +94,7 @@ Set `raw` to `False` to also validate the parameter value. In this case, the val
 
 With the following custom component template:
 
-```
+```yaml
 Resources:
   # ...
 Outputs:
@@ -109,7 +108,7 @@ Outputs:
 
 And the following service template:
 
-```
+```yaml
 Resources:
   Lambda:
     Type: AWS::Lambda::Function
@@ -122,7 +121,7 @@ Resources:
 
 The rendered service template is as follows:
 
-```
+```yaml
 Resources:
   Lambda:
     Type: AWS::Lambda::Function
@@ -151,7 +150,7 @@ This filter formats a list of outputs to be used in a [ManagedPolicyArns propert
 
 With the following custom component template:
 
-```
+```yaml
 Resources:
   # ...
   ExamplePolicy1:
@@ -182,7 +181,7 @@ Outputs:
 
 And the following service template:
 
-```
+```yaml
 Resources: 
 
   # ...
@@ -205,7 +204,7 @@ Resources:
 
 The rendered service template is as follows:
 
-```
+```yaml
 Resources: 
 
   # ...
@@ -244,7 +243,7 @@ This is a general purpose filter. Use it to validate the safety of a parameter v
 
 With the following custom component template:
 
-```
+```yaml
 Resources:
   # ...
 Outputs:
@@ -260,7 +259,7 @@ Outputs:
 ```
 + The following reference in a service template:
 
-  ```
+  ```yaml
   # ...
     {{ service_instance.components.default.outputs.Output1
       | proton_cfn_sanitize }}
@@ -268,13 +267,13 @@ Outputs:
 
   Renders as follows:
 
-  ```
+  ```yaml
   # ...
     This-is_valid_37
   ```
 + The following reference in a service template:
 
-  ```
+  ```yaml
   # ...
     {{ service_instance.components.default.outputs.Output2
       | proton_cfn_sanitize }}
@@ -282,12 +281,12 @@ Outputs:
 
   Results with the following rendering error:
 
-  ```
+  ```yaml
   Illegal character(s) detected in "this::is::incorrect". Must match regex ^[a-zA-Z0-9_-]*$ or be a valid ARN
   ```
 + The following reference in a service template:
 
-  ```
+  ```yaml
   # ...
     {{ service_instance.components.default.outputs.SomeArn
       | proton_cfn_sanitize }}
@@ -295,7 +294,7 @@ Outputs:
 
   Renders as follows:
 
-  ```
+  ```yaml
   # ...
     arn:aws:{{some-service}}::123456789012:{{some-resource}}/{{resource-name}}
   ```
@@ -312,14 +311,14 @@ The `default` filter provides a default value when a namespace reference doesn't
 
 The following reference in a service template causes template rendering to fail if the service instance doesn't have an attached directly defined (default) component, or if the attached component doesn't have an output named `test`.
 
-```
+```yaml
 # ...
   {{ service_instance.components.default.outputs.test }}
 ```
 
 To avoid this issue, add the `default` filter.
 
-```
+```yaml
 # ...
   {{ service_instance.components.default.outputs.test | default("{{[optional-value]}}") }}
 ```

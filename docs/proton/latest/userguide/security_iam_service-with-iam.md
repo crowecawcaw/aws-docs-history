@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # How AWS Proton works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS Proton, learn what IAM features are available to use with AWS Proton.
 
@@ -62,13 +61,13 @@ To see a list of AWS Proton actions, see [Actions defined by AWS Proton](https:/
 
 Policy actions in AWS Proton use the following prefix before the action:
 
-```
+```text
 proton
 ```
 
 To specify multiple actions in a single statement, separate them with commas.
 
-```
+```json
 "Action": [
       "proton:{{action1}}",
       "proton:{{action2}}"
@@ -77,7 +76,7 @@ To specify multiple actions in a single statement, separate them with commas.
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "proton:List*"
 ```
 

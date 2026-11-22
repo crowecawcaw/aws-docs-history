@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Troubleshooting AWS Proton
-<a name="ag-troubleshooting"></a>
 
 Learn to troubleshoot issues with AWS Proton.
 
@@ -27,7 +26,7 @@ To avoid these misinterpretation errors, Jinja escape your CloudFormation dynami
 
 This example is from the CloudFormation User Guide. The AWS Secrets Manager secret-name and json-key segments can be used to retrieve the sign-in credentials stored in the secret.
 
-```
+```yaml
 MyRDSInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -42,7 +41,7 @@ MyRDSInstance:
 To escape the CloudFormation dynamic parameters you can use two different methods:
 + Enclose a block between `{% raw %} and {% endraw %}`:
 
-  ```
+  ```yaml
   '{% raw %}'
   MyRDSInstance:
     Type: AWS::RDS::DBInstance
@@ -57,7 +56,7 @@ To escape the CloudFormation dynamic parameters you can use two different method
   ```
 + Enclose a parameter between `"{{ }}"`:
 
-  ```
+  ```yaml
   MyRDSInstance:
     Type: AWS::RDS::DBInstance
     Properties:

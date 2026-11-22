@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # CodeBuild provisioning role creation
-<a name="ag-env-codebuild-provisioning-role-creation"></a>
 
 Infrastructure as a Code (IaaC) tools like CloudFormation and Terraform require permissions for the many different types of AWS resources. For example, if an IaaC template declares an Amazon S3 bucket, it needs permissions to create, read, update, and delete Amazon S3 buckets. It's considered a security best practice to limit roles to the minimal permissions required. Given the breadth of AWS resources, it’s challenging to create least-privilege policies for IaaC templates, especially when the resources being managed by those templates can change later. For example, in your latest edits to a template being managed by AWS Proton, you add an RDS database resource.
 

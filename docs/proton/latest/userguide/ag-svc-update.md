@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Edit a service
-<a name="ag-svc-update"></a>
 
 You can make the following edits to an AWS Proton service.
 + Edit the service description.
@@ -54,7 +53,7 @@ You can use the console or the AWS CLI to edit a service description.
 
 Command:
 
-```
+```sh
 $ aws proton update-service \
     --name "{{MySimpleService}}" \
     --description "{{Edit by updating description}}"
@@ -62,7 +61,7 @@ $ aws proton update-service \
 
 Response:
 
-```
+```json
 {
     "service": {
         "arn": "arn:aws:proton:region-id:123456789012:service/MySimpleService",
@@ -132,7 +131,7 @@ The following listing shows the example `spec` before the edit and a list of the
 
 Spec:
 
-```
+```yaml
 proton: ServiceSpec
 
 pipeline:
@@ -155,14 +154,14 @@ The following example CLI `list-service-instances` command and response shows th
 
 Command:
 
-```
+```sh
 $ aws proton list-service-instances \
     --service-name "{{MySimpleService}}"
 ```
 
 Response:
 
-```
+```json
 {
     "serviceInstances": [
         {
@@ -200,7 +199,7 @@ The following listing shows the example edited `spec` used to delete and add an 
 
 Spec:
 
-```
+```yaml
 proton: ServiceSpec
 
 pipeline:
@@ -224,7 +223,7 @@ The following listing shows how you can use `"${Proton::CURRENT_VAL}"` to ensure
 
 Spec:
 
-```
+```yaml
 proton: ServiceSpec
 
 pipeline:
@@ -246,7 +245,7 @@ The next listing shows the CLI command and response to edit the service.
 
 Command:
 
-```
+```sh
 $ aws proton update-service 
     --name "{{MySimpleService}}" \
     --description "{{Edit by adding and deleting a service instance}}" \
@@ -255,7 +254,7 @@ $ aws proton update-service
 
 Response:
 
-```
+```json
 {
     "service": {
         "arn": "arn:aws:proton:region-id:123456789012:service/MySimpleService",
@@ -276,14 +275,14 @@ The following `list-service-instances` command and response confirms that the ex
 
 Command:
 
-```
+```sh
 $ aws proton list-service-instances \
     --service-name "{{MySimpleService}}"
 ```
 
 Response:
 
-```
+```json
 {
     "serviceInstances": [
         {

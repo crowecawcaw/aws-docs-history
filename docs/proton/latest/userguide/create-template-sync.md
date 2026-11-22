@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Create a template sync configuration
-<a name="create-template-sync"></a>
 
 Learn how to create a template sync configuration with AWS Proton.
 
@@ -17,7 +16,7 @@ Learn how to create a template sync configuration with AWS Proton.
 
 Before you create your first template sync configuration, push a template bundle to your repository as shown in the following directory layout.
 
-```
+```txt
  /templates/                                                 # subdirectory (optional)
  /templates/my-env-template/                                 # template name
  /templates/my-env-template/v1/                              # template version
@@ -27,7 +26,7 @@ Before you create your first template sync configuration, push a template bundle
 
 After you create your first template sync configuration, new template versions are automatically created when you push a commit that adds an updated template bundle under a new version (for example, under `/my-env-template/v2/`).
 
-```
+```txt
  /templates/                                                 # subdirectory (optional)
  /templates/my-env-template/                                 # template name
  /templates/my-env-template/v1/                              # template version
@@ -46,7 +45,7 @@ After you set up a template sync configuration, AWS Proton listens for changes t
 
 For example, suppose you have a template that's called `my-env-template` configured to sync from `my-repo/templates` on branch `main` with the following layout.
 
-```
+```txt
  /code
  /code/service.go
  README.md
@@ -130,14 +129,14 @@ The procedure for creating a service template and template sync configuration is
 
    Run the following command.
 
-   ```
+   ```sh
    $ aws proton create-environment-template \
        --name "{{env-template}}"
    ```
 
    The response is as follows.
 
-   ```
+   ```json
    {
        "environmentTemplate": {
            "arn": "arn:aws:proton:us-east-1:123456789012:environment-template/{{env-template}}",
@@ -164,7 +163,7 @@ The procedure for creating a service template and template sync configuration is
 
    Run the following command.
 
-   ```
+   ```sh
    $ aws proton create-template-sync-config \
        --template-name "{{env-template}}" \
        --template-type "{{ENVIRONMENT}}" \
@@ -176,7 +175,7 @@ The procedure for creating a service template and template sync configuration is
 
    The response is as follows.
 
-   ```
+   ```json
    {
        "templateSyncConfigDetails": {
            "branch": "{{main}}",
@@ -198,7 +197,7 @@ The procedure for creating a service template and template sync configuration is
 
 The preceding examples show how you can sync environment templates. Service templates are similar. To sync service templates you add an additional file named `.template-registration.yaml` to each major version directory in your template bundle. This file contains additional details that AWS Proton needs when it creates a service template version for you following a commit. When you explicitly create a service template version using the AWS Proton console or API, you provide these details as inputs, and this file replaces these inputs for template sync.
 
-```
+```txt
 ./templates/                                                 # subdirectory (optional)
  /templates/my-svc-template/                                 # service template name
  /templates/my-svc-template/v1/                              # service template version
@@ -213,7 +212,7 @@ The `.template-registration.yaml` file contains the following details:
 
 The file's YAML syntax is as follows:
 
-```
+```yaml
 compatible_environments:
   - {{env-templ-name}}:{{major-version}}
   - ...
@@ -226,7 +225,7 @@ Specify one or more environment template / major version combinations. Specifyin
 **Example .template-registration.yaml**  
 In this example, the service template version is compatible with major versions 1 and 2 of the `my-env-template` environment template. It's also compatible with the major versions 1 and 3 of the `another-env-template` environment template. The file doesn't specify `supported_component_sources`, so components can't be attached to services based on this service template version.  
 
-```
+```yaml
 compatible_environments:
   - my-env-template:1
   - my-env-template:2

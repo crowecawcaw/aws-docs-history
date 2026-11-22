@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Delete templates
-<a name="template-delete"></a>
 
 Templates can be deleted using the console and AWS CLI.
 
@@ -80,7 +79,7 @@ AWS CLI template delete operations *don't* include the deletion of other version
 
 Run the following command:
 
-```
+```sh
 $ aws proton delete-environment-template-version \
     --template-name "{{simple-env}}" \
     --major-version "{{1}}" \
@@ -89,7 +88,7 @@ $ aws proton delete-environment-template-version \
 
 Response:
 
-```
+```json
 {
     "environmentTemplateVersion": {
         "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env:1.0",
@@ -107,14 +106,14 @@ Response:
 
 Run the following command:
 
-```
+```sh
 $ aws proton delete-environment-template \
     --name "{{simple-env}}"
 ```
 
 Response:
 
-```
+```json
 {
     "environmentTemplate": {
         "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env",
@@ -130,7 +129,7 @@ Response:
 
 Run the following command:
 
-```
+```sh
 $ aws proton delete-service-template-version \
     --template-name "{{fargate-service}}" \
     --major-version "{{1}}" \
@@ -139,7 +138,7 @@ $ aws proton delete-service-template-version \
 
 Response:
 
-```
+```json
 {
     "serviceTemplateVersion": {
         "arn": "arn:aws:proton:region-id:123456789012:service-template/fargate-service:1.0",

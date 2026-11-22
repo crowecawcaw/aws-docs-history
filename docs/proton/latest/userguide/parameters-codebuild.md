@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # CodeBuild provisioning parameter details and examples
-<a name="parameters-codebuild"></a>
 
 You can define parameters in your templates for CodeBuild-based AWS Proton resources and reference these parameters in your provisioning code. For a detailed description of AWS Proton parameters, parameter types, the parameter namespace, and how to use parameters in your IaC files, see [AWS Proton parameters](parameters.md).
 
@@ -22,7 +21,7 @@ The following example is a JSON input file generated during CodeBuild-based prov
 ### Example: using the AWS CDK with CodeBuild provisioning
 <a name="parameters-codebuild.example"></a>
 
-```
+```json
 {
   "service_instance": {
     "name": "my-service-staging",
@@ -49,7 +48,7 @@ The following example is a JSON input file generated during CodeBuild-based prov
 
 To communicate resource provisioning outputs back to AWS Proton, your provisioning code can generate a JSON file named `proton-outputs.json` with values for output parameters defined in your template's [schema file](ag-schema.md). For example, the `cdk deploy` command has the `--outputs-file` argument that instructs the AWS CDK to generate a JSON file with provisioning outputs. If your resource uses the AWS CDK, specify the following command in your CodeBuild template manifest:
 
-```
+```shell
 aws proton notify-resource-deployment-status-change
 ```
 

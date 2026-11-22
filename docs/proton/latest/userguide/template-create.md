@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Register and publish templates
-<a name="template-create"></a>
 
 You can register and publish environment and service templates with AWS Proton, as described in the following sections.
 
@@ -126,7 +125,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
       Run the following command:
 
-      ```
+      ```sh
       $ aws proton create-environment-template \
           --name "{{simple-env}}" \
           --display-name "{{Fargate}}" \
@@ -135,7 +134,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
       Response:
 
-      ```
+      ```json
       {
           "environmentTemplate": {
               "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env",
@@ -152,7 +151,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
       Run the following command:
 
-      ```
+      ```sh
       $ aws proton create-environment-template \
           --name "{{simple-env}}" \
           --display-name "{{Fargate}}" \
@@ -162,7 +161,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
       Response:
 
-      ```
+      ```json
       {
           "environmentTemplate": {
               "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env",
@@ -186,7 +185,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
    Run the following command:
 
-   ```
+   ```sh
    $ aws proton create-environment-template-version \
        --template-name "{{simple-env}}" \
        --description "{{Version 1}}" \
@@ -195,7 +194,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
    Response:
 
-   ```
+   ```json
    {
        "environmentTemplateVersion": {
            "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env:1.0",
@@ -214,7 +213,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
    Run the following command:
 
-   ```
+   ```sh
    $ aws proton get-environment-template-version \
        --template-name "{{simple-env}}" \
        --major-version "{{1}}" \
@@ -223,7 +222,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
    Response:
 
-   ```
+   ```json
    {
        "environment": {
            "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env:1.0",
@@ -245,7 +244,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
    Run the following command:
 
-   ```
+   ```sh
    $ aws proton update-environment-template-version \
        --template-name "{{simple-env}}" \
        --major-version "{{1}}" \
@@ -255,7 +254,7 @@ For more information, see [Versioned templates](ag-template-versions.md).
 
    Response:
 
-   ```
+   ```json
    {
        "environmentTemplateVersion": {
            "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env:1.0",
@@ -277,7 +276,7 @@ After creating a new template using the AWS CLI, you can view a list of AWS and 
 
 Run the following command:
 
-```
+```sh
 $ aws proton list-tags-for-resource \
     --resource-arn "arn:aws:proton:{{region-id}}:{{123456789012}}:environment-template/{{simple-env}}"
 ```
@@ -406,7 +405,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
       Run the following command:
 
-      ```
+      ```sh
       $ aws proton create-service-template \
           --name "{{fargate-service}}" \
           --display-name "{{Fargate}}" \
@@ -415,7 +414,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
       Response:
 
-      ```
+      ```json
       {
           "serviceTemplate": {
               "arn": "arn:aws:proton:region-id:123456789012:service-template/fargate-service",
@@ -436,7 +435,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
       Run the folllowing command:
 
-      ```
+      ```sh
       $ aws proton create-service-template \
           --name "{{fargate-service}}" \
           --display-name "{{Fargate}}" \
@@ -446,7 +445,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
       Response:
 
-      ```
+      ```json
       {
           "serviceTemplate": {
               "arn": "arn:aws:proton:region-id:123456789012:service-template/fargate-service",
@@ -468,7 +467,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Run the following command:
 
-   ```
+   ```sh
    $ aws proton create-service-template-version \
        --template-name "{{fargate-service}}" \
        --description "{{Version 1}}" \
@@ -478,7 +477,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Response:
 
-   ```
+   ```json
    {
        "serviceTemplateMinorVersion": {
            "arn": "arn:aws:proton:region-id:123456789012:service-template/fargate-service:1.0",
@@ -505,7 +504,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Run the folllowing command:
 
-   ```
+   ```sh
    $ aws proton get-service-template-version \
        --template-name "{{fargate-service}}" \
        --major-version "{{1}}" \
@@ -514,7 +513,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Response:
 
-   ```
+   ```json
    {
        "serviceTemplateMinorVersion": {
            "arn": "arn:aws:proton:us-east-1:123456789012:service-template/fargate-service:1.0",
@@ -541,7 +540,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Run the following command:
 
-   ```
+   ```sh
    $ aws proton update-service-template-version \
        --template-name "{{fargate-service}}" \
        --description "{{Version 1}}" \
@@ -552,7 +551,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Response:
 
-   ```
+   ```json
    {
        "serviceTemplateVersion": {
            "arn": "arn:aws:proton:region-id:123456789012:service-template/fargate-service:1.0",
@@ -580,7 +579,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Run the following command:
 
-   ```
+   ```sh
    $ aws proton get-service-template-version \
        --template-name "{{fargate-service}}" \
        --major-version "{{1}}" \
@@ -589,7 +588,7 @@ You can't modify `pipelineProvisioning` after the service template is created.
 
    Response:
 
-   ```
+   ```json
    {
        "serviceTemplateMinorVersion": {
            "arn": "arn:aws:proton:us-east-1:123456789012:service-template/fargate-service:1.0",

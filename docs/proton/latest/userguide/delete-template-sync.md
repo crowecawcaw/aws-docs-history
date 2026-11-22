@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Delete a template sync configuration
-<a name="delete-template-sync"></a>
 
 Delete a template sync configuration using the console or CLI.
 
@@ -23,7 +22,7 @@ Delete a template sync configuration using the console or CLI.
 
 Run the following command.
 
-```
+```sh
 $ aws proton delete-template-sync-config \
     --template-name "{{env-template}}" \
     --template-type "{{ENVIRONMENT}}"
@@ -31,7 +30,7 @@ $ aws proton delete-template-sync-config \
 
 The response is as follows.
 
-```
+```json
 {
     "templateSyncConfig": {
         "templateName": "{{env-template}}",

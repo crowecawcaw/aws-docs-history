@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Environment CloudFormation IaC file parameter details and examples
-<a name="env-parameters"></a>
 
 You can define and reference parameters in your environment infrastructure as code (IaC) files. For a detailed description of AWS Proton parameters, parameter types, the parameter namespace, and how to use parameters in your IaC files, see [AWS Proton parameters](parameters.md).
 
@@ -46,7 +45,7 @@ Note the following in this example:
 + The `MyEnvParameterValue` output exposes the same input parameter concatenation as an output parameter. Three additional output parameters also expose the input parameters individually.
 + Six additional output parameters expose resources that the environment provisions.
 
-```
+```yaml
 Resources:
   StoreInputValue:
     Type: AWS::SSM::Parameter
@@ -89,7 +88,7 @@ Outputs:
 **Example Service CloudFormation IaC file**  
 The `environment.outputs.` namespace refers to environment outputs from an environment IaC file. For example, the name `environment.outputs.ClusterName` reads the value of the `ClusterName` environment output parameter.  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Deploy a service on AWS Fargate, hosted in a public subnet, and accessible via a public load balancer.
 Mappings:

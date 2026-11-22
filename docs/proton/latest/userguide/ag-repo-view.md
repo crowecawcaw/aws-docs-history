@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # View linked repository data
-<a name="ag-repo-view"></a>
 
 You can list and view linked repository details using the console or the AWS CLI. For repository links that are used to sync git repositories with AWS Proton, you can retrieve repository sync definition and status using the AWS CLI.
 
@@ -23,13 +22,13 @@ You can list and view linked repository details using the console or the AWS CLI
 
 Run the following command:
 
-```
+```sh
 $ aws proton list-repositories
 ```
 
 Response:
 
-```
+```json
 {
     "repositories": [
         {
@@ -50,7 +49,7 @@ Response:
 
 Run the following command:
 
-```
+```sh
 $ aws proton get-repository \
     --name {{myrepos/templates}} \
     --provider "{{GITHUB}}"
@@ -58,7 +57,7 @@ $ aws proton get-repository \
 
 Response:
 
-```
+```json
 {
     "repository": {
         "arn": "arn:aws:proton:region-id:123456789012:repository/github:myrepos/templates",
@@ -74,7 +73,7 @@ The following example lists repositories that you configured for template sync.
 
 Run the following command:
 
-```
+```sh
 $ aws proton list-repository-sync-definitions \
     --branch "{{main}}" \
     --repository-name {{myrepos/templates}} \
@@ -88,7 +87,7 @@ The following example retrieves sync status of a template sync repository.
 
 Run the following command:
 
-```
+```sh
 $ aws proton get-repository-sync-status \
     --branch "{{main}}" \
     --repository-name {{myrepos/templates}} \
@@ -98,7 +97,7 @@ $ aws proton get-repository-sync-status \
 
 Response:
 
-```
+```json
 {
     "latestSync": {
         "events": [

@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # AWS Proton services
-<a name="ag-services"></a>
 
 An AWS Proton service is an instantiation of a service template, normally including several service instances and a pipeline. An AWS Proton service instance is an instantiation of a service template in a specific [environment](ag-environments.md). A service template is a complete definition of the infrastructure and optional service pipeline for an AWS Proton service.
 

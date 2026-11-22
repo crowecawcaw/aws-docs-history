@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # IAM Roles
-<a name="ag-environment-roles"></a>
 
 With AWS Proton, you supply the IAM roles and AWS KMS keys for the AWS resources that you own and manage. These are later applied to and used by resources owned and managed by developers. You create an IAM role to control your developer team's access to the AWS Proton API.
 

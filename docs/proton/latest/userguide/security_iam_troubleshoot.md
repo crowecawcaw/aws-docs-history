@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Troubleshooting AWS Proton identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS Proton and IAM.
 
@@ -19,7 +18,7 @@ If the AWS Management Console tells you that you're not authorized to perform an
 
 The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a fictional `{{my-example-widget}}` resource but does not have the fictional `proton:{{GetWidget}}` permissions.
 
-```
+```text
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: proton:{{GetWidget}} on resource: {{my-example-widget}}
 ```
 

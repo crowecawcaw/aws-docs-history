@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Customer-managed environments
-<a name="ag-env-customer-managed"></a>
 
 With customer-managed environments, you can use existing infrastructure, like a VPC, that you already have deployed as your AWS Proton environment. While using customer-managed environments, you can provision your own shared resources outside of AWS Proton. However, you can still allow AWS Proton to consume relevant provisioning outputs as inputs for AWS Proton services when they are deployed. If the outputs can change, AWS Proton is able to accept updates. AWS Proton is unable to change the environment directly, though, since the provisioning is managed outside of AWS Proton.
 

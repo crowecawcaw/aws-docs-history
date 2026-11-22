@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Component infrastructure as code files
-<a name="ag-components-iac"></a>
 
 Component infrastructure as code (IaC) files are similar to those for other AWS Proton resources. Learn here about some details that are specific to components. For complete information about authoring IaC files for AWS Proton, see [Authoring templates and creating bundles for AWS Proton](ag-template-authoring.md).
 

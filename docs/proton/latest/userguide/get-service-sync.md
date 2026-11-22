@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # View configuration details for a service sync
-<a name="get-service-sync"></a>
 
 You can view the configuration details data for a service sync using the console or AWS CLI.
 
@@ -25,14 +24,14 @@ You can view the configuration details data for a service sync using the console
 
 Run the following command.
 
-```
+```sh
 $ aws proton get-service-sync-config \
     --service-name "{{service name}}"
 ```
 
 The response is as follows.
 
-```
+```json
 {
     "serviceSyncConfig": {
         "branch": "main",
@@ -48,7 +47,7 @@ The response is as follows.
 
 Run the following command.
 
-```
+```sh
 $ aws proton get-service-sync-status \
     --service-name "{{service name}}"
 ```

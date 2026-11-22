@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Schema file
-<a name="ag-schema"></a>
 
 As an administrator, when you use the Open API [Data Models (schemas) section](https://swagger.io/docs/specification/data-models/) to define a parameter schema YAML file for your template bundle, AWS Proton can validate parameter value inputs against the requirements that you defined in your schema.
 
@@ -35,7 +34,7 @@ You can create a schema for two types of environment templates. For more informa
 
   Example schema for a *standard* environment template:
 
-  ```
+  ```yaml
   schema:                            # required
     format:                          # required
       openapi: "3.0.0"               # required
@@ -66,7 +65,7 @@ You can create a schema for two types of environment templates. For more informa
 
   Example schema for a *standard* environment template that includes a `required` parameter:
 
-  ```
+  ```yaml
   schema:                            # required
     format:                          # required
       openapi: "3.0.0"               # required
@@ -100,7 +99,7 @@ As an administrator, you must ensure that your provisioned and managed infrastru
 
   Example CloudFormation IaC file outputs for a *customer managed* environment template:
 
-  ```
+  ```yaml
   // Cloudformation Template Outputs
   [...]
   Outputs:
@@ -120,7 +119,7 @@ As an administrator, you must ensure that your provisioned and managed infrastru
 
   Example schema for a *customer managed* environment template:
 
-  ```
+  ```yaml
   schema:                            # required
     format:                          # required
       openapi: "3.0.0"               # required
@@ -171,7 +170,7 @@ If you want to create a service template with a service pipeline, include the `p
 
  This schema example can be used with the AWS Proton IaC files shown in [Example 4](ag-infrastructure-tmp-files-cloudformation.md#ag-proton-svc-cfn-example) and [Example 5](ag-infrastructure-tmp-files-cloudformation.md#ag-proton-pipeline-cfn-example). A service pipeline is included.
 
-```
+```yaml
 schema:                            # required
   format:                          # required
     openapi: "3.0.0"               # required
@@ -238,7 +237,7 @@ If you want to create a service template without a service pipeline, *don't* inc
 
 **Example service schema file for a service that *doesn't* include an AWS Proton service pipeline**
 
-```
+```yaml
 schema:                            # required
   format:                          # required
     openapi: "3.0.0"               # required

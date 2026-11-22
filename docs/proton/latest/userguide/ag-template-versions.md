@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Versioned templates
-<a name="ag-template-versions"></a>
 
 As an administrator or a member of a platform team, you define, create, and manage a library of versioned templates that are used to provision infrastructure resources. There are two types of template versions—minor versions and major versions.
 + *Minor versions* – Changes to the template that have a backward compatible schema. These changes don't require the developer to provide new information when updating to the new template version.

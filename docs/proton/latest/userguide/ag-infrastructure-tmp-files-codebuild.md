@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # CodeBuild provisioning template bundle
-<a name="ag-infrastructure-tmp-files-codebuild"></a>
 
 With CodeBuild provisioning, instead of using IaC templates to render IaC files and run them using an IaC provisioning engine, AWS Proton simply runs your shell commands. To do that, AWS Proton creates an AWS CodeBuild project for the environment, in the environment account, and starts a job to run your commands for each AWS Proton resource creation or update. When you author a template bundle, you provide a manifest that specifies infrastructure provisioning and deprovisioning commands, and any programs, scripts, and other files that these commands may need. Your commands can read inputs that AWS Proton provides, and are responsible for provisioning or deprovisioning infrastructure and generating output values.
 
@@ -26,7 +25,7 @@ The following manifest file specifies CodeBuild provisioning, and includes the c
 
 **Example infrastructure/manifest.yaml**  
 
-```
+```yaml
 infrastructure:
   templates:
     - rendering_engine: codebuild
@@ -59,7 +58,7 @@ The following schema file defines parameters for the environment. Your AWS CDK c
 
 **Example schema/schema.yaml**  
 
-```
+```yaml
 schema:
   format:
     openapi: "3.0.0"
@@ -87,7 +86,7 @@ The following files are an example to a Node.js CDK project.
 
 **Example infrastructure/package.json**  
 
-```
+```json
 {
   "name": "ProtonEnvironment",
   "version": "0.1.0",
@@ -119,7 +118,7 @@ The following files are an example to a Node.js CDK project.
 
 **Example infrastructure/tsconfig.json**  
 
-```
+```json
 {
   "compilerOptions": {
     "target": "ES2018",
@@ -156,7 +155,7 @@ The following files are an example to a Node.js CDK project.
 
 **Example infrastructure/cdk.json**  
 
-```
+```json
 {
   "app": "npx ts-node --prefer-ts-exts bin/ProtonEnvironment.ts",
   "outputsFile": "proton-outputs.json",
@@ -194,7 +193,7 @@ The following files are an example to a Node.js CDK project.
 
 **Example infrastructure/bin/ProtonEnvironment.ts**  
 
-```
+```js
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
@@ -206,7 +205,7 @@ new ProtonEnvironmentStack(app, 'ProtonEnvironmentStack', {});
 
 **Example infrastructure/lib/ProtonEnvironmentStack.ts**  
 
-```
+```js
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as cdk from 'aws-cdk-lib';
@@ -239,7 +238,7 @@ When you create an environment using a CodeBuild-based provisioning template, AW
 
 **Example infrastructure/proton-inputs.json**  
 
-```
+```json
 {
   "environment": {
     "name": "myenv",

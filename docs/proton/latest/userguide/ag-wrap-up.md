@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Wrap up template files for AWS Proton
-<a name="ag-wrap-up"></a>
 
 After preparing your environment and service infrastructure as code (IaC) files and their respective schema files, you must organize them in directories. You must also create a manifest YAML file. The manifest file lists the IaC files in a directory, the rendering engine, and the template language used to develop the IaC in this template.
 
@@ -16,7 +15,7 @@ The manifest file needs to adhere to the format and content shown in the followi
 
 With CloudFormation, you list a single file.
 
-```
+```yaml
 infrastructure:
   templates:
     - file: "cloudformation.yaml"
@@ -31,7 +30,7 @@ With terraform, you can explicitly list a single file or use the wildcard `*` to
 **Note**  
 The wildcard only includes files whose names end with `.tf`. Other files are ignored.
 
-```
+```yaml
 infrastructure:
   templates:
     - file: "*"
@@ -50,7 +49,7 @@ The following example manifest uses CodeBuild-based provisioning to provision (*
 
 During provisioning, AWS Proton creates an input file with values for input parameters that you defined in the template's schema with the name `proton-input.json`.
 
-```
+```yaml
 infrastructure:
   templates:
     - rendering_engine: codebuild
@@ -91,7 +90,7 @@ For more information, see [Register and publish templates](template-create.md).
 
 CloudFormation environment template bundle directory structure:
 
-```
+```text
  /schema
    schema.yaml
  /infrastructure
@@ -101,7 +100,7 @@ CloudFormation environment template bundle directory structure:
 
 Terraform environment template bundle directory structure:
 
-```
+```text
  /schema
    schema.yaml
  /infrastructure
@@ -123,7 +122,7 @@ For more information, see [Register and publish templates](template-create.md).
 
 CloudFormation service template bundle directory structure:
 
-```
+```text
  /schema
    schema.yaml
  /instance_infrastructure
@@ -136,7 +135,7 @@ CloudFormation service template bundle directory structure:
 
 Terraform service template bundle directory structure:
 
-```
+```text
  /schema
    schema.yaml
  /instance_infrastructure

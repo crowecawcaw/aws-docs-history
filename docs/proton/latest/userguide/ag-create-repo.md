@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Create a link to your repository
-<a name="ag-create-repo"></a>
 
 You can create a link to your repository using the console or CLI. When you create a repository link, AWS Proton creates a [service linked role](using-service-linked-roles.md) for you.
 
@@ -37,7 +36,7 @@ You can create a link to your repository using the console or CLI. When you crea
 
 Run the following command:
 
-```
+```sh
 $ aws proton create-repository \
     --name {{myrepos/environments}} \
     --connection-arn "arn:aws:codestar-connections:{{region-id}}:{{123456789012}}:connection/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}" \
@@ -50,7 +49,7 @@ The last two parameters, **--encryption-key** and **--tags**, are optional.
 
 Response:
 
-```
+```json
 {
     "repository": {
         "arn": "arn:aws:proton:region-id:123456789012:repository/github:myrepos/environments",
@@ -66,7 +65,7 @@ After you create a repository link, you can view a list of AWS and customer mana
 
 Command:
 
-```
+```sh
 $ aws proton list-tags-for-resource \
     --resource-arn "arn:aws:proton:{{region-id}}:{{123456789012}}:repository/{{github:myrepos/environments}}"
 ```

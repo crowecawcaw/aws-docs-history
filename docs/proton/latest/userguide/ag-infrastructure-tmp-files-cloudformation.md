@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # CloudFormation IaC files
-<a name="ag-infrastructure-tmp-files-cloudformation"></a>
 
 Learn how to use AWS CloudFormation infrastructure as code files with AWS Proton. CloudFormation is an infrastructure as code (IaC) service that helps you model and set up your AWS resources. You define your infrastructure resources in templates, using Jinja on top of the CloudFormation template file format for parametrization. AWS Proton expands parameters and renders the full CloudFormation template. CloudFormation provisions the defined resources as CloudFormation stack. For more information, see [What is CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) in *the CloudFormation User Guide*.
 
@@ -23,7 +22,7 @@ In [Example 2](#ag-svc-cfn-example), the CloudFormation IaC file is configured t
 ### Example 1: CloudFormation IaC file
 <a name="ag-env-cfn-example"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: AWS Fargate cluster running containers in a public subnet. Only supports
              public facing load balancer, and public service discovery namespaces.
@@ -176,7 +175,7 @@ Outputs:
 ### Example 2: CloudFormation IaC file
 <a name="ag-svc-cfn-example"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Deploy a service on AWS Fargate, hosted in a public subnet, and accessible via a public load balancer.
 Parameters:
@@ -547,7 +546,7 @@ With these modifications, your CloudFormation IaC files can be used by AWS Proto
 ### Example 3: AWS Proton environment infrastructure as code file
 <a name="ag-proton-env-cfn-example"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: AWS Fargate cluster running containers in a public subnet. Only supports
              public facing load balancer, and public service discovery prefixes.
@@ -681,7 +680,7 @@ In [Example 4](#ag-proton-svc-cfn-example), the AWS Proton service IaC file corr
 ### Example 4: AWS Proton service instance IaC file
 <a name="ag-proton-svc-cfn-example"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Deploy a service on AWS Fargate, hosted in a public subnet, and accessible via a public load balancer.
 Mappings:
@@ -992,7 +991,7 @@ In [Example 5](#ag-proton-pipeline-cfn-example), the AWS Proton pipeline IaC fil
 ### Example 5: AWS Proton service pipeline IaC file
 <a name="ag-proton-pipeline-cfn-example"></a>
 
-```
+```yaml
 Resources:
   ECRRepo:
     Type: AWS::ECR::Repository

@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Authoring templates and creating bundles for AWS Proton
-<a name="ag-template-authoring"></a>
 
 AWS Proton provisions resources for you based on infrastructure as code (IaC) files. You describe infrastructure in reusable IaC files. To make the files reusable for different environments and applications, you author them as *templates*, define input parameters, and use these parameters in IaC definitions. When you later create a provisioning resource (environment, service instance, or component), AWS Proton uses a rendering engine, which combines input values with a template to create an IaC file that is ready to provision.
 

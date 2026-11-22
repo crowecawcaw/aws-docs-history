@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Service CloudFormation IaC file parameter details and examples
-<a name="svc-parameters"></a>
 
 You can define and reference parameters in your service and pipeline infrastructure as code (IaC) files. For a detailed description of AWS Proton parameters, parameter types, the parameter namespace, and how to use parameters in your IaC files, see [AWS Proton parameters](parameters.md).
 
@@ -39,7 +38,7 @@ You can read parameters related to the service and to other resources in service
 
 The following example is a snippet from a service CloudFormation IaC file. The `environment.outputs.` namespace refers to outputs from the environment IaC file. The `service_instance.inputs.` namespace refers to service instance input parameters. The `service_instance.name` property refers to an AWS Proton resource parameter.
 
-```
+```yaml
 Resources:
   StoreServiceInstanceInputValue:
     Type: AWS::SSM::Parameter

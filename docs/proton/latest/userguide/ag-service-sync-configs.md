@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Service sync configurations
-<a name="ag-service-sync-configs"></a>
 
 With service sync, you can configure and deploy your AWS Proton services using Git. You can use service sync to manage initial deployments and updates to your AWS Proton service with a configuration defined in a Git repository. Through Git, you can use features like version tracking and pull requests to configure, manage, and deploy your services. Service sync combines AWS Proton and Git to help you provision standardized infrastructure that is defined and managed through AWS Proton templates. It manages service definitions in your Git repository and reduces tool switching. Compared to using Git alone, the standardization of templates and deployment in AWS Proton helps you spend less time managing your infrastructure. AWS Proton also provides higher transparency and auditability for both developers and platform teams.
 

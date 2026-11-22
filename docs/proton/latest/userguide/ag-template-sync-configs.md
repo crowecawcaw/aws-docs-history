@@ -3,7 +3,6 @@
 End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Template sync configurations
-<a name="ag-template-sync-configs"></a>
 
 Learn how to configure a template to let AWS Proton sync from template bundles located in registered git repositories that you define. When a commit is pushed to your repository, AWS Proton checks for changes to your repository template bundles. If it detects a template bundle change, a new minor or major version of its template is created, if the version doesn’t already exist. AWS Proton currently supports GitHub, GitHub Enterprise, and BitBucket.
 
