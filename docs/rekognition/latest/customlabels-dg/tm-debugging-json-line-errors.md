@@ -1,7 +1,6 @@
 
 
 # Non-Terminal JSON Line Validation Errors
-<a name="tm-debugging-json-line-errors"></a>
 
 This topic lists the non-terminal JSON Line validation errors reported by Amazon Rekognition Custom Labels during training. The errors are reported in the training and testing validation manifest. For more information, see [Understanding training and testing validation result manifests](tm-debugging-scope-json-line.md). You can fix a non-terminal JSON Line error by updating the JSON Line in the training or test manifest file. You can also remove the JSON Line from the manifest, but doing so might reduce the quality of your model. If there are many non-terminal validation errors, you might find it easier to recreate the manifest file. Validation errors typically occur in manually created manifest files. For more information, see [Creating a manifest file](md-create-manifest-file.md). For information about fixing validation errors, see [Fixing training errors](tm-debugging-fixing-validation-errors.md). Some errors can be fixed by using the Amazon Rekognition Custom Labels console. 
 

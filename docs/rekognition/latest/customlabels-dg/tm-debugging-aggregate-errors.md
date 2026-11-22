@@ -1,7 +1,6 @@
 
 
 # Terminal manifest content errors
-<a name="tm-debugging-aggregate-errors"></a>
 
 This topic describes the [List of terminal manifest content errors](tm-debugging.md#tm-error-category-combined-terminal) reported in the manifest summary. The manifest summary includes an error code and message for each detected error. For more information, see [Understanding the manifest summary](tm-debugging-summary.md). Terminal manifest content errors don't stop the reporting of [List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors). 
 
@@ -344,6 +343,6 @@ You can't use the Amazon Rekognition Custom Labels console to fix this error.
 There are too many JSON lines with terminal content errors.
 
 **To fix `ERROR_TOO_MANY_RECORDS_IN_ERROR`**
-+ Reduce the number of JSON Lines (images) with terminal content errors. For more information, see [Terminal manifest content errors](#tm-debugging-aggregate-errors). 
++ Reduce the number of JSON Lines (images) with terminal content errors. For more information, see [Terminal manifest content errors](tm-debugging-aggregate-errors.md). 
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.

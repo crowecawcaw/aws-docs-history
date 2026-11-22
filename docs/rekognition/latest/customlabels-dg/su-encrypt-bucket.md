@@ -1,7 +1,6 @@
 
 
 # Step 5: (Optional) Encrypt training files
-<a name="su-encrypt-bucket"></a>
 
 You can choose one of the following options to encrypt the Amazon Rekognition Custom Labels manifest files and image files that are in a console bucket or an external Amazon S3 bucket.
 + Use an Amazon S3 key (SSE-S3).
@@ -29,7 +28,7 @@ To train your model, Amazon Rekognition Custom Labels makes a copy of your sourc
 + kms:CreateGrant
 + kms:DescribeKey
 
-You optionally specify the KMS key when you train the model with the console or when you call the `CreateProjectVersion` operation. The KMS key you use doesn't need to be the same KMS key that you use to encrypt manifest and image files in your Amazon S3 bucket. For more information, see [Step 5: (Optional) Encrypt training files](#su-encrypt-bucket). 
+You optionally specify the KMS key when you train the model with the console or when you call the `CreateProjectVersion` operation. The KMS key you use doesn't need to be the same KMS key that you use to encrypt manifest and image files in your Amazon S3 bucket. For more information, see [Step 5: (Optional) Encrypt training files](su-encrypt-bucket.md). 
 
 For more information, see [AWS Key Management Service concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys). Your source images are unaffected.
 

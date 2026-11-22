@@ -1,7 +1,6 @@
 
 
 # Purposing datasets
-<a name="md-dataset-purpose"></a>
 
 How you label the training and test datasets in your project determines the type of model that you create. With Amazon Rekognition Custom Labels you can create models that do the following.
 + [Find objects, scenes, and concepts](#md-dataset-purpose-classification)

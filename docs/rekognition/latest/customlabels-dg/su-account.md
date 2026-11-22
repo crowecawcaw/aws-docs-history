@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an AWS account
-<a name="su-account"></a>
 
 In this step, you create an AWS account, create an administrative user, and learn about granting programmatic access to the AWS SDK. 
 

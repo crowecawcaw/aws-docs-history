@@ -1,7 +1,6 @@
 
 
 # Detecting Custom Labels in videos
-<a name="ex-video-extraction"></a>
 
 The following example shows how you can use `DetectCustomLabels` with frames extracted from a video. The code has been tested with video files in *mov* and *mp4* format.
 
@@ -13,7 +12,7 @@ The following example shows how you can use `DetectCustomLabels` with frames ext
 
 1. Use the following example code. Change the value of `videoFile` to the name of a video file. Change the value of `projectVersionArn` to the Amazon Resource Name (ARN) of your Amazon Rekognition Custom Labels model. 
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    

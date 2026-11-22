@@ -1,7 +1,6 @@
 
 
 # Validation rules for manifest files
-<a name="md-create-manifest-file-validation-rules"></a>
 
  When you import a manifest file, Amazon Rekognition Custom Labels applies validation rules for limits, syntax, and semantics. The SageMaker AI Ground Truth schema enforces syntax validation. For more information, see [Output](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data-output.html). The following are the validation rules for limits and semantics.
 

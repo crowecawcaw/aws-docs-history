@@ -1,7 +1,6 @@
 
 
 # Reporting running duration and inference units used
-<a name="rm-model-usage"></a>
 
 If you trained and started your model after August 2022, you can use the `InServiceInferenceUnits` Amazon CloudWatch metric to determine how many hours a model has run for and the number of [inference units](running-model.md#running-model-inference-units) used during those hours.
 

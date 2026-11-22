@@ -1,7 +1,6 @@
 
 
 # Metrics for evaluating your model
-<a name="im-metrics-use"></a>
 
 After your model is trained, Amazon Rekognition Custom Labels returns metrics from model testing, which you can use to evaluate the performance of your model. This topic describes the metrics available to you, and how to understand if your trained model is performing well. 
 

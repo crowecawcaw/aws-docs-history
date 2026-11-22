@@ -1,7 +1,6 @@
 
 
 # Custom Labels Examples
-<a name="examples"></a>
 
 This section contains examples that show you how you make use Amazon Rekognition Custom Labels's capabilities.
 

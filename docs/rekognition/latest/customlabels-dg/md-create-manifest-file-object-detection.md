@@ -1,7 +1,6 @@
 
 
 # Object localization in manifest files
-<a name="md-create-manifest-file-object-detection"></a>
 
 You can import images labeled with object localization information by adding SageMaker AI Ground Truth [Bounding Box Job Output](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data-output.html#sms-output-box) format JSON lines to a manifest file. 
 

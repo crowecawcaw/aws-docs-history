@@ -1,7 +1,6 @@
 
 
 # Training an Amazon Rekognition Custom Labels model
-<a name="training-model"></a>
 
 You can train a model by using the Amazon Rekognition Custom Labels console, or by the Amazon Rekognition Custom Labels API. If model training fails, use the information in [Debugging a failed model training](tm-debugging.md) to find the cause of the failure.
 
@@ -146,7 +145,7 @@ The following example shows how to train a model by using the training and test 
    + `tag` – a tag name of your choosing that you want to attach to the model.
    + `tag_value` the tag value. 
 
-   ```
+   ```python
    #Copyright 2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-custom-labels-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -314,7 +313,7 @@ The following example shows how to train a model by using the training and test 
    + `output_bucket` – the name of the Amazon S3 bucket where Amazon Rekognition Custom Labels saves the training results.
    + `output_folder` – the name of the folder where the training results are saved.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

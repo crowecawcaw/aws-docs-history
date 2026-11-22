@@ -1,7 +1,6 @@
 
 
 # Improving a trained Amazon Rekognition Custom Labels model
-<a name="improving-model"></a>
 
 When training completes, you evaluate the performance of the model. To help you, Amazon Rekognition Custom Labels provides summary metrics and evaluation metrics for each label. For information about the available metrics, see [Metrics for evaluating your model](im-metrics-use.md). To improve your model using metrics, see [Improving an Amazon Rekognition Custom Labels model](tr-improve-model.md). 
 

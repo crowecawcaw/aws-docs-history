@@ -1,7 +1,6 @@
 
 
 # Debugging non-terminal dataset errors
-<a name="debugging-datasets-non-terminal-errors"></a>
 
 The following are non-terminal errors that can occur during dataset creation or update. These errors can invalidate an entire JSON Line or invalidate annotations within a JSON Line. If a JSON Line has an error, it is not used for training. If an annotation within a JSON Line has an error, the JSON Line is still used for training, but without the broken annotation. For more information about JSON Lines, see [Creating a manifest file](md-create-manifest-file.md).
 

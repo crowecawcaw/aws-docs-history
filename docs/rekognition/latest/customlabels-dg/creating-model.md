@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Rekognition Custom Labels model
-<a name="creating-model"></a>
 
 A model is the software that you train to find the concepts, scenes, and objects that are unique to your business. You can create a model with the Amazon Rekognition Custom Labels console or with the AWS SDK. Before creating an Amazon Rekognition Custom Labels model, we recommend that you read [Understanding Amazon Rekognition Custom Labels](understanding-custom-labels.md). 
 

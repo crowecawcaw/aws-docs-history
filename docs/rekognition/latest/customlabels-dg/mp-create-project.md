@@ -1,7 +1,6 @@
 
 
 # Creating a project
-<a name="mp-create-project"></a>
 
 A project manages the model versions, training dataset, and test dataset for a model. You can create a project with the Amazon Rekognition Custom Labels console or with the API. For other project tasks, such deleting a project, see [Managing an Amazon Rekognition Custom Labels project](managing-project.md).
 
@@ -63,7 +62,7 @@ You create an Amazon Rekognition Custom Labels project by calling [CreateProject
    The following example creates a project and displays its ARN. Supply the following command line arguments:
    + `project_name` – the name of the project you want to create.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -148,7 +147,7 @@ You create an Amazon Rekognition Custom Labels project by calling [CreateProject
    Supply the following command line argument:
    + `project_name` – the name of the project you want to create.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

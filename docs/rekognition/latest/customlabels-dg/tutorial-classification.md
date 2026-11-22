@@ -1,7 +1,6 @@
 
 
 # Classifying images
-<a name="tutorial-classification"></a>
 
 This tutorial shows you how to create the project and datasets for a model that classifies objects, scenes, and concepts found in an image. The model classifies the entire image. For example, by following this tutorial, you can train a model to recognize household locations such as a living room or kitchen. The tutorial also shows you how to use the model to analyze images. 
 
@@ -278,7 +277,7 @@ For more information, see [Analyzing an image with a trained model](detecting-cu
 
    The JSON output from the AWS CLI command should look similar to the following. `Name` is the name of the image-level label that the model found. `Confidence` (0-100) is the model's confidence in the accuracy of the prediction.
 
-   ```
+   ```json
    {
        "CustomLabels": [
            {

@@ -1,7 +1,6 @@
 
 
 # Guidelines and quotas in Amazon Rekognition Custom Labels
-<a name="limits"></a>
 
 The following sections provide guidelines and quotas when using Amazon Rekognition Custom Labels.
 

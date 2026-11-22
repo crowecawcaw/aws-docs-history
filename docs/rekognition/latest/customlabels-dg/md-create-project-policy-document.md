@@ -1,7 +1,6 @@
 
 
 # Creating a project policy document
-<a name="md-create-project-policy-document"></a>
 
 Rekognition Custom Labels uses a resource-based policy, known as *project policy*, to manage copy permissions for a model version. A project policy is a JSON format document.
 
@@ -14,7 +13,7 @@ The following example allows the principal `arn:aws:iam::111111111111:role/Admin
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[

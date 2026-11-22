@@ -1,7 +1,6 @@
 
 
 # Understanding the manifest summary
-<a name="tm-debugging-summary"></a>
 
 The manifest summary contains the following information.
 + Error information about [List of terminal manifest content errors](tm-debugging.md#tm-error-category-combined-terminal) encountered during validation. 

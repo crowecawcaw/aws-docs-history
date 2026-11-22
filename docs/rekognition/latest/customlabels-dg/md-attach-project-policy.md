@@ -1,7 +1,6 @@
 
 
 # Attaching a project policy (SDK)
-<a name="md-attach-project-policy"></a>
 
 You attach a project policy to an Amazon Rekognition Custom Labels project by calling the [PutProjectpolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy) operation. 
 
@@ -51,7 +50,7 @@ To remove a project policy from a project, call [DeleteProjectPolicy](https://do
    + `project_policy` – The file that contains the project policy document,.
    + `policy_revision_id` – (Optional). If you want to update an existing revision of a project policy, specify the revision ID of the project policy.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -197,7 +196,7 @@ To remove a project policy from a project, call [DeleteProjectPolicy](https://do
    + `project_policy_document` – The file that contains the project policy document.
    + `project_policy_revision_id` – (Optional). If you want to update an existing revision of a project policy, specify the revision ID of the project policy.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

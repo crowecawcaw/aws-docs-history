@@ -1,7 +1,6 @@
 
 
 # Describing a project (SDK)
-<a name="md-describing-project-sdk"></a>
 
 You can use the `DescribeProjects` API to get information about your projects.
 
@@ -25,7 +24,7 @@ You can use the `DescribeProjects` API to get information about your projects.
    Use the following code. Supply the following command line parameters:
    + project\_name``— the name of the project that you want to describe. If you don't specify a name, descriptions for all projects are returned.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -156,7 +155,7 @@ You can use the `DescribeProjects` API to get information about your projects.
    Use the following code. Supply the following command line parameters:
    + `project_name` — the ARN of the project that you want to describe. If you don't specify a name, descriptions for all projects are returned.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

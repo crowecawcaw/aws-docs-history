@@ -1,7 +1,6 @@
 
 
 # Distributing a training dataset (SDK)
-<a name="md-distributing-datasets"></a>
 
 Amazon Rekognition Custom Labels requires a training dataset and a test dataset to train your model. 
 
@@ -39,7 +38,7 @@ If you are using the Amazon Rekognition Custom Labels console and start with a s
    + training\_dataset\_arn — the ARN of the training dataset that you distribute entries from.
    + test\_dataset\_arn — the ARN of the test dataset that you distribute entries to.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -204,7 +203,7 @@ If you are using the Amazon Rekognition Custom Labels console and start with a s
    + training\_dataset\_arn — the ARN of the training dataset that you distribute entries from.
    + test\_dataset\_arn — the ARN of the test dataset that you distribute entries to.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

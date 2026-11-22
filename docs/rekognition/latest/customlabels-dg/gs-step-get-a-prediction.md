@@ -1,7 +1,6 @@
 
 
 # Step 4: Analyze an image with your model
-<a name="gs-step-get-a-prediction"></a>
 
 You analyze an image by calling the [DetectCustomLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels) API. In this step, you use the `detect-custom-labels` AWS Command Line Interface (AWS CLI) command to analyze an example image. You get the AWS CLI command from the Amazon Rekognition Custom Labels console. The console configures the AWS CLI command to use your model. You only need to supply an image that's stored in an Amazon S3 bucket. This topic provides an image that you can use for each example project. 
 
@@ -48,7 +47,7 @@ For more information, see [Analyzing an image with a trained model](detecting-cu
 
    If the model finds objects, scenes, and concepts, the JSON output from the AWS CLI command should look similar to the following. `Name` is the name of the image-level label that the model found. `Confidence` (0-100) is the model's confidence in the accuracy of the prediction.
 
-   ```
+   ```json
    {
        "CustomLabels": [
            {
@@ -61,7 +60,7 @@ For more information, see [Analyzing an image with a trained model](detecting-cu
 
    If the model finds object locations or finds brand, labeled bounding boxes are returned. `BoundingBox` contains the location of a box that surrounds the object. `Name` is the object that the model found in the bounding box. `Confidence` is the model's confidence that the bounding box contains the object. 
 
-   ```
+   ```json
    {
        "CustomLabels": [
            {

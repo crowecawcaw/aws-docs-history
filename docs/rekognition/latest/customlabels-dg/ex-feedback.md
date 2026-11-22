@@ -1,7 +1,6 @@
 
 
 # Improving a model with Model feedback
-<a name="ex-feedback"></a>
 
 The Model Feedback solution enables you to give feedback on your model's predictions and make improvements by using human verification. Depending on the use case, you can be successful with a training dataset that has only a few images. A larger annotated training set might be required to build a more accurate model. Using the Model Feedback solution, you can create a larger dataset through model assistance.
 

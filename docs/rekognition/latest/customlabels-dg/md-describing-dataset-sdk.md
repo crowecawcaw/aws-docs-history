@@ -1,7 +1,6 @@
 
 
 # Describing a dataset (SDK)
-<a name="md-describing-dataset-sdk"></a>
 
 You can use the `DescribeDataset` API to get information about a dataset.
 
@@ -27,7 +26,7 @@ You can use the `DescribeDataset` API to get information about a dataset.
    Use the following code. Supply the following command line parameters:
    + dataset\_arn — the ARN of the dataset that you want to describe.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -130,7 +129,7 @@ You can use the `DescribeDataset` API to get information about a dataset.
 #### [ Java V2 ]
    + dataset\_arn — the ARN of the dataset that you want to describe.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

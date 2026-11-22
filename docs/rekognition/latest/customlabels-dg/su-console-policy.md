@@ -1,7 +1,6 @@
 
 
 # Step 2: Set up Amazon Rekognition Custom Labels console permissions
-<a name="su-console-policy"></a>
 
 To use the Amazon Rekognition console you need add to have appropriate permissions. If you want to store your training files in a bucket other than the [console bucket](su-create-console-bucket.md), you need additional permissions.
 
@@ -20,7 +19,7 @@ To use the Amazon Rekognition Custom Labels console, you need the following IAM 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Copying an Amazon Rekognition Custom Labels model (SDK)
-<a name="md-copy-model-overview"></a>
 
 You can use the [CopyProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion) operation to copy an Amazon Rekognition Custom Labels model version from a source Amazon Rekognition Custom Labels project to a destination project. The destination project can be in a different AWS account, or in the same AWS account. A typical scenario is copying a tested model from a development AWS account to a production AWS account. 
 

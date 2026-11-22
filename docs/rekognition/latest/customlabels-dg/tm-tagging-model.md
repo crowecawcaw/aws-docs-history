@@ -1,7 +1,6 @@
 
 
 # Tagging a model
-<a name="tm-tagging-model"></a>
 
 You can identify, organize, search for, and filter your Amazon Rekognition models by using tags. Each tag is a label consisting of a user-defined key and value. For example, to help determine billing for your models, tag your models with a `Cost center` key and add the appropriate cost center number as a value. For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
 
@@ -163,7 +162,7 @@ The following Python 3 example shows you how search all your projects for a spec
 
 1. Save the following code to a file named `find_tag.py`.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    """

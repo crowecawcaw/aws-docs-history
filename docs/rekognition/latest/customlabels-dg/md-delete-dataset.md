@@ -1,7 +1,6 @@
 
 
 # Deleting a dataset
-<a name="md-delete-dataset"></a>
 
 You can delete the training and test datasets from a project. 
 
@@ -69,7 +68,7 @@ If you delete the training dataset, you need to create a new training dataset fo
    Use the following code. Supply the following command line parameters:
    + dataset\_arn — the ARN of the dataset that you want to delete.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -176,7 +175,7 @@ If you delete the training dataset, you need to create a new training dataset fo
    Use the following code. Supply the following command line parameters:
    + dataset\_arn — the ARN of the dataset that you want to delete.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

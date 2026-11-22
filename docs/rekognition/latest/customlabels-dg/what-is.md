@@ -1,7 +1,6 @@
 
 
 # What is Amazon Rekognition Custom Labels?
-<a name="what-is"></a>
 
 With Amazon Rekognition Custom Labels, you can identify the objects, logos, and scenes in images that are specific to your business needs. For example, you can find your logo in social media posts, identify your products on store shelves, classify machine parts in an assembly line, distinguish healthy and infected plants, or detect animated characters in images.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a dataset using an existing dataset (SDK)
-<a name="md-create-dataset-existing-dataset-sdk"></a>
 
 The following procedure shows you how to create a dataset from an existing dataset by using the [CreateDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset) operation.
 
@@ -34,7 +33,7 @@ The following procedure shows you how to create a dataset from an existing datas
    + `dataset_type` — the type of the project dataset you want to create (`train` or `test`). 
    + `dataset_arn` — the ARN of the dataset that you want to create the dataset from. 
 
-   ```
+   ```python
    # Copyright 2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-custom-labels-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -181,7 +180,7 @@ The following procedure shows you how to create a dataset from an existing datas
    + `dataset_type` — the type of the project dataset you want to create (`train` or `test`). 
    + `dataset_arn` — the ARN of the dataset that you want to create the dataset from. 
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

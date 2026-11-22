@@ -1,7 +1,6 @@
 
 
 # Assigning image-level labels to an image
-<a name="md-assign-image-level-labels"></a>
 
 You use image-level labels to train models that classify images into categories. An image-level label indicates that an image contains an object, scene or concept. For example, the following image shows a river. If your model classifies images as containing rivers, you would add a *river* image-level label. For more information, see [Purposing datasets](md-dataset-purpose.md). 
 
@@ -53,7 +52,7 @@ A dataset that contains image-level labels, needs at least two labels defined. E
 
 You can use the `UpdateDatasetEntries` API to add or update the image-level labels that are assigned to an image. `UpdateDatasetEntries` takes one or more JSON lines. Each JSON Line represents a single image. For an image with an image-level label, the JSON Line looks similar to the following. 
 
-```
+```json
 {"source-ref":"s3://custom-labels-console-us-east-1-nnnnnnnnnn/gt-job/manifest/IMG_1133.png","TestCLConsoleBucket":0,"TestCLConsoleBucket-metadata":{"confidence":0.95,"job-name":"labeling-job/testclconsolebucket","class-name":"Echo Dot","human-annotated":"yes","creation-date":"2020-04-15T20:17:23.433061","type":"groundtruth/image-classification"}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="sc-introduction"></a>
 
 You can secure the management of your projects, models, and the `DetectCustomLabels` operation that your customers use to detect custom labels. 
 
@@ -31,7 +30,7 @@ The following example policy shows how to give an identity permission to:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -88,7 +87,7 @@ You can secure access an identity’s access to `DetectCustomLabels` by applying
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

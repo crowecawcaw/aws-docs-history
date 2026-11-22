@@ -1,7 +1,6 @@
 
 
 # Starting an Amazon Rekognition Custom Labels model
-<a name="rm-start"></a>
 
 You can start running an Amazon Rekognition Custom Labels model by using the console or by using the [StartProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion) operation.
 
@@ -103,7 +102,7 @@ A model might take a while to start. The Python and Java examples in this topic 
    + `min_inference_units` – the number of inference units that you want to use.
    + (Optional) `--max_inference_units` The maximum number of inference units that Amazon Rekognition Custom Labels can use to auto-scale the model. 
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -254,7 +253,7 @@ A model might take a while to start. The Python and Java examples in this topic 
    + `min_inference_units` – the number of inference units that you want to use.
    + (Optional)`max_inference_units` – the maximum number of inference units that Amazon Rekognition Custom Labels can use to automatically scale the model. If you don't specify a value, automatic scaling doesn't happen.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

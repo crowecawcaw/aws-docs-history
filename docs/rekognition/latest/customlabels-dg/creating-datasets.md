@@ -1,7 +1,6 @@
 
 
 # Creating training and test datasets
-<a name="creating-datasets"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Preparing images
-<a name="md-prepare-images"></a>
 
  The images in your training and test dataset contain the objects, scenes, or concepts that you want your model to find. 
 

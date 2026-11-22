@@ -1,7 +1,6 @@
 
 
 # Transforming a COCO dataset into a manifest file format
-<a name="md-transform-coco"></a>
 
 [COCO](http://cocodataset.org/#home) is a format for specifying large-scale object detection, segmentation, and captioning datasets. This Python [example](md-coco-transform-example.md) shows you how to transform a COCO object detection format dataset into an Amazon Rekognition Custom Labels [bounding box format manifest file](md-create-manifest-file-object-detection.md). This section also includes information that you can use to write your own code.
 

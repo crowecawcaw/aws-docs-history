@@ -1,7 +1,6 @@
 
 
 # Step 2: Train your model
-<a name="gs-step-train-model"></a>
 
 In this step you train your model. The training and test datasets are automatically configured for you. After training successfully completes, you can see the overall evaluation results, and evaluation results for individual test images. For more information, see [Training an Amazon Rekognition Custom Labels model](training-model.md). 
 

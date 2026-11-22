@@ -1,7 +1,6 @@
 
 
 # Deleting an Amazon Rekognition Custom Labels project
-<a name="mp-delete-project"></a>
 
 You can delete a project by using the Amazon Rekognition console or by calling the [DeleteProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject) API. To delete a project, you must first delete each associated model. A deleted project or model can't be undeleted. 
 
@@ -85,7 +84,7 @@ The project might take a few moments to delete. During that time, the status of 
    Use the following code. Supply the following command line parameters:
    + `project_arn`— the ARN of the project that you want to delete.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -219,7 +218,7 @@ The project might take a few moments to delete. During that time, the status of 
    Use the following code. Supply the following command line parameters:
    + `project_arn`— the ARN of the project that you want to delete.
 
-   ```
+   ```java
    /*
    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    SPDX-License-Identifier: Apache-2.0

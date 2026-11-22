@@ -1,7 +1,6 @@
 
 
 # Call an Amazon Rekognition Custom Labels operation
-<a name="su-sdk-list-projects"></a>
 
 Run the following code to confirm that you can make calls to the Amazon Rekognition Custom Labels API. The code lists the projects in your AWS account, in the current AWS Region. If you haven't previously created a project, the response is empty, but does confirm that you can call the `DescribeProjects` operation. 
 
@@ -28,7 +27,7 @@ If the code fails, check that the user that you use has the correct permissions.
 ------
 #### [ Python ]
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -78,7 +77,7 @@ If the code fails, check that the user that you use has the correct permissions.
 ------
 #### [ Java V2 ]
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

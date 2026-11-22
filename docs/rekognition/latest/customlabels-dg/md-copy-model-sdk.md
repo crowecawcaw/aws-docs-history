@@ -1,7 +1,6 @@
 
 
 # Copying a model (SDK)
-<a name="md-copy-model-sdk"></a>
 
 You can use the `CopyProjectVersion` API to copy a model version from a source project to a destination project. The destination project can be in a different AWS account but must be the same AWS Region. If the destination project is in a different AWS account (or if you want to grant specific permissions for a model version copied within an AWS account), you must attach a project policy to the source project. For more information, see [Creating a project policy document](md-create-project-policy-document.md). The `CopyProjectVersion` API requires access to your Amazon S3 bucket. 
 
@@ -58,7 +57,7 @@ The source AWS account has no ownership over the model copied into a destination
    + (Optional) `tag_name` to a tag key of your choosing. 
    + (Optional) `tag_value` to a tag value of your choosing. 
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -221,7 +220,7 @@ The source AWS account has no ownership over the model copied into a destination
    + `output_bucket` — the S3 bucket that you want the training results for the source model version copied to. 
    + `output_folder` — the folder in the S3 that you want the training results for the source model version copied to. 
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

@@ -1,7 +1,6 @@
 
 
 # Step 3: Create the console bucket
-<a name="su-create-console-bucket"></a>
 
 You use an Amazon Rekognition Custom Labels project to create and manage your models. When you first open the Amazon Rekognition Custom Labels console in a new AWS Region, Amazon Rekognition Custom Labels creates an Amazon S3 bucket (console bucket) to store your projects. You should note the console bucket name somewhere where you can refer to it later because you might need to use the bucket name in AWS SDK operations or console tasks, such as creating a dataset.
 

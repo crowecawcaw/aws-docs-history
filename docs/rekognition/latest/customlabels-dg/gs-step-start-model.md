@@ -1,7 +1,6 @@
 
 
 # Step 3: Start your model
-<a name="gs-step-start-model"></a>
 
 In this step you start your model. After your model starts, you can use it to analyze images.
 

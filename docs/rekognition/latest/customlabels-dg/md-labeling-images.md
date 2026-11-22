@@ -1,7 +1,6 @@
 
 
 # Labeling images
-<a name="md-labeling-images"></a>
 
 A label identifies an object, scene, concept, or bounding box around an object in an image. For example, if your dataset contains images of dogs, you might add labels for breeds of dogs. 
 

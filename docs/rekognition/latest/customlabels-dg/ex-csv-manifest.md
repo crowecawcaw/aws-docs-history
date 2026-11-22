@@ -1,7 +1,6 @@
 
 
 # Creating a manifest file from a CSV file
-<a name="ex-csv-manifest"></a>
 
 This example Python script simplifies the creation of a manifest file by using a Comma Separated Values (CSV) file to label images. You create the CSV file. The manifest file is suitable for [Multi-label image classification](getting-started.md#gs-multi-label-image-classification-example) or [Multi-label image classification](getting-started.md#gs-multi-label-image-classification-example). For more information, see [Find objects, scenes, and concepts](understanding-custom-labels.md#tm-classification). 
 
@@ -68,7 +67,7 @@ The script records the first entry for each image in a deduplicated image CSV fi
    + `manifest_file` – The name of the manifest file that you want to create.
    + (Optional)`--s3_path {{s3://path_to_folder/}}` – The Amazon S3 path to add to the image file names (field 1). Use `--s3_path` if the images in field 1 don't already contain an S3 path.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier:  Apache-2.0
    

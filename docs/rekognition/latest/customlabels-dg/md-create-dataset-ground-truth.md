@@ -1,7 +1,6 @@
 
 
 # Using a manifest file to import images
-<a name="md-create-dataset-ground-truth"></a>
 
 You can create a dataset using an Amazon SageMaker AI Ground Truth format manifest file. You can use the manifest file from an Amazon SageMaker AI Ground Truth job. If your images and labels aren't in the format of a SageMaker AI Ground Truth manifest file, you can create a SageMaker AI format manifest file and use it to import your labeled images. 
 
@@ -116,7 +115,7 @@ You can use an existing manifest file, such as the output from an [SageMaker AI 
    + `bucket` — the bucket that contains the manifest file for the dataset.
    + `manifest_file` — the path and file name of the manifest file.
 
-   ```
+   ```python
    #Copyright 2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-custom-labels-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -263,7 +262,7 @@ You can use an existing manifest file, such as the output from an [SageMaker AI 
    + `bucket` — the bucket that contains the manifest file for the dataset.
    + `manifest_file` — the path and file name of the manifest file.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

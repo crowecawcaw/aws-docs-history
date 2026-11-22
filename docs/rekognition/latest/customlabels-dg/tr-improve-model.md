@@ -1,7 +1,6 @@
 
 
 # Improving an Amazon Rekognition Custom Labels model
-<a name="tr-improve-model"></a>
 
 The performance of machine learning models is largely dependent on factors such as the complexity and variability of your custom labels (the specific objects and scenes that you're interested in), the quality and representative power of the training dataset you provide, and the model frameworks and machine learning methods used to train the model. 
 

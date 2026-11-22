@@ -1,7 +1,6 @@
 
 
 # Labeling objects with bounding boxes
-<a name="md-localize-objects"></a>
 
 If you want your model to detect the location of objects within an image, you must identify what the object is and where it is in the image. A bounding box is a box that isolates an object in an image. You use bounding boxes to train a model to detect different objects in the same image. You identify the object by assigning a label to the bounding box. 
 
@@ -67,7 +66,7 @@ Before you can add bounding boxes, you must add at least one label to the datase
 
 You can use the `UpdateDatasetEntries` API to add or update object location information for an image. `UpdateDatasetEntries` takes one or more JSON lines. Each JSON Line represents a single image. For object localization, a JSON Line looks similar to the following. 
 
-```
+```json
 {"source-ref": "s3://bucket/images/IMG_1186.png", "bounding-box": {"image_size": [{"width": 640, "height": 480, "depth": 3}], "annotations": [{ "class_id": 1,	"top": 251,	"left": 399, "width": 155, "height": 101}, {"class_id": 0, "top": 65, "left": 86, "width": 220,	"height": 334}]}, "bounding-box-metadata": {"objects": [{ "confidence": 1}, {"confidence": 1}],	"class-map": {"0": "Echo",	"1": "Echo Dot"}, "type": "groundtruth/object-detection", "human-annotated": "yes",	"creation-date": "2013-11-18T02:53:27", "job-name": "my job"}}
 ```
 

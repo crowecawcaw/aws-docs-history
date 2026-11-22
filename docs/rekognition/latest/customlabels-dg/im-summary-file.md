@@ -1,7 +1,6 @@
 
 
 # Reference: Training results summary file
-<a name="im-summary-file"></a>
 
 The training results summary contains metrics you can use to evaluate your model. The summary file is also used to display metrics in the console training results page. The summary file is stored in an Amazon S3 bucket after training. To get the summary file, call `DescribeProjectVersion`. For example code, see [Accessing the summary file and evaluation manifest snapshot (SDK)](im-access-summary-evaluation-manifest.md). 
 
@@ -23,7 +22,7 @@ You can use `labelEvaluationResults` to evaluate the performance of individual l
 
 The file name is formatted as follows: `EvaluationSummary-ProjectName-VersionName.json`.
 
-```
+```json
 {
   "Version": "integer",
   // section-3

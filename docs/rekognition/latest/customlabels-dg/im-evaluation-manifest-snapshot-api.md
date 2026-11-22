@@ -1,7 +1,6 @@
 
 
 # Interpreting the evaluation manifest snapshot
-<a name="im-evaluation-manifest-snapshot-api"></a>
 
 The evaluation manifest snapshot contains detailed information about the test results. The snapshot includes the confidence rating for each prediction. It also includes the classification of the prediction compared to the actual classification of the image (true positive, true negative, false positive, or false negative). 
 

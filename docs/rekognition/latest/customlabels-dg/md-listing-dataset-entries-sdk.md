@@ -1,7 +1,6 @@
 
 
 # Listing dataset entries (SDK)
-<a name="md-listing-dataset-entries-sdk"></a>
 
 You can use the `ListDatasetEntries` API to list the JSON lines for each image in a dataset. For more information, see [Creating a manifest file](md-create-manifest-file.md).
 
@@ -36,7 +35,7 @@ You can use the `ListDatasetEntries` API to list the JSON lines for each image i
    + dataset\_arn — the ARN of the dataset that you want to list.
    + show\_errors\_only — specify `true` if you want to see errors only. `false` otherwise.
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -161,7 +160,7 @@ You can use the `ListDatasetEntries` API to list the JSON lines for each image i
    + dataset\_arn — the ARN of the dataset that you want to list.
    + show\_errors\_only — specify `true` if you want to see errors only. `false` otherwise.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0

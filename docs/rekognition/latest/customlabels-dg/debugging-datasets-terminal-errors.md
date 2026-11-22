@@ -1,7 +1,6 @@
 
 
 # Debugging terminal dataset errors
-<a name="debugging-datasets-terminal-errors"></a>
 
  There are two types of terminal errors — file errors that cause dataset creation to fail, and content errors that Amazon Rekognition Custom Labels removes from the dataset. Dataset creation fails if there are too many content errors.
 

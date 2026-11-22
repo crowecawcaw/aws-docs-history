@@ -1,7 +1,6 @@
 
 
 # Running a trained Amazon Rekognition Custom Labels model
-<a name="running-model"></a>
 
 When you're satisfied with the performance of the model, you can start to use it. You can start and stop a model by using the console or the AWS SDK. The console also includes example SDK operations that you can use.
 

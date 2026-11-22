@@ -1,7 +1,6 @@
 
 
 # Importing images from an Amazon S3 bucket
-<a name="md-create-dataset-s3"></a>
 
 The images are imported from an Amazon S3 bucket. You can use the console bucket, or another Amazon S3 bucket in your AWS account. If you are using the console bucket, the required permissions are already set up. If you are not using the console bucket, see [Accessing external Amazon S3 Buckets](su-console-policy.md#su-external-buckets).
 

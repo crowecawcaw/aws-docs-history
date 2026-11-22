@@ -1,7 +1,6 @@
 
 
 # Creating training and test datasets with images
-<a name="md-create-dataset"></a>
 
 You can start with a project that has a single dataset, or a project that has separate training and test datasets. If you start with a single dataset, Amazon Rekognition Custom Labels splits your dataset during training to create a training dataset (80%) and a test dataset (%20) for your project. Start with a single dataset if you want Amazon Rekognition Custom Labels to decide where images are used for training and testing. For complete control over training, testing, and performance tuning, we recommend that you start your project with separate training and test datasets. 
 

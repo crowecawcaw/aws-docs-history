@@ -1,7 +1,6 @@
 
 
 # Getting the validation results
-<a name="tm-debugging-getting-validation-data"></a>
 
 The validation results contain error information for [List of terminal manifest content errors](tm-debugging.md#tm-error-category-combined-terminal) and [List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors). There are three validation results files.
 + *training\_manifest\_with\_validation.json* – A copy of the training dataset manifest file with JSON Line error information added.

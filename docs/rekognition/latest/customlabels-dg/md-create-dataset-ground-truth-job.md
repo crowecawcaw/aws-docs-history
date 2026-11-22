@@ -1,7 +1,6 @@
 
 
 # Labeling images with an Amazon SageMaker AI Ground Truth job
-<a name="md-create-dataset-ground-truth-job"></a>
 
 With Amazon SageMaker AI Ground Truth, you can use workers from either Amazon Mechanical Turk, a vendor company that you choose, or an internal, private workforce along with machine learning that allows you to create a labeled set of images. Amazon Rekognition Custom Labels imports SageMaker AI Ground Truth manifest files from an Amazon S3 bucket that you specify.
 

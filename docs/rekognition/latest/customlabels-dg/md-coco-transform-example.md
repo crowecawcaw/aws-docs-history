@@ -1,7 +1,6 @@
 
 
 # Transforming a COCO dataset
-<a name="md-coco-transform-example"></a>
 
 Use the following Python example to transform bounding box information from a COCO format dataset into an Amazon Rekognition Custom Labels manifest file. The code uploads the created manifest file to your Amazon S3 bucket. The code also provides an AWS CLI command that you can use to upload your images. 
 
@@ -23,7 +22,7 @@ Use the following Python example to transform bounding box information from a CO
    + `cl_manifest_file` – A name for the manifest file created by the example. The file is saved at the location specified by `local_path`. By convention, the file has the extension `.manifest`, but this is not required.
    + `job_name` – A name for the Custom Labels job.
 
-   ```
+   ```python
    import json
    import os
    import random

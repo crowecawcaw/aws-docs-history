@@ -1,7 +1,6 @@
 
 
 # Importing images from a local computer
-<a name="md-create-dataset-computer"></a>
 
 The images are loaded directly from your computer. You can upload up to 30 images at a time.
 

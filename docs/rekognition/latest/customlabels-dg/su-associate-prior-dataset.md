@@ -1,7 +1,6 @@
 
 
 # Step 6: (Optional) Associate prior datasets with new projects
-<a name="su-associate-prior-dataset"></a>
 
 Amazon Rekognition Custom Labels now manages datasets with projects. Earlier (prior) datasets that you created are read-only and must be associated with a project before you can use them. When you open the details page for a project with the console, we automatically associate the datasets that trained the latest version of the project's model with the project. Automatic association of a dataset with a project doesn't happen if you are using the AWS SDK.
 
@@ -34,7 +33,7 @@ You can use a prior dataset as the test dataset for an existing project by first
 
 **To use a prior dataset as a test dataset**
 
-1. Follow the instructions at [Step 6: (Optional) Associate prior datasets with new projects](#su-associate-prior-dataset) to associate the prior dataset with a new project. 
+1. Follow the instructions at [Step 6: (Optional) Associate prior datasets with new projects](su-associate-prior-dataset.md) to associate the prior dataset with a new project. 
 
 1. Create the test dataset in the existing project by using copying the training dataset from the new project. For more information, see [Copying content from an existing dataset](md-create-dataset-existing-dataset.md).
 

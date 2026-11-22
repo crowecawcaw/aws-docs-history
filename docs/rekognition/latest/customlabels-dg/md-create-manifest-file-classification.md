@@ -1,7 +1,6 @@
 
 
 # Importing image-level labels in manifest files
-<a name="md-create-manifest-file-classification"></a>
 
 To import image-level labels (images labeled with scenes, concepts, or objects that don't require localization information), you add SageMaker AI Ground Truth [Classification Job Output](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data-output.html#sms-output-class) format JSON lines to a manifest file. A manifest file is made of one or more JSON lines, one for each image that you want to import. 
 
