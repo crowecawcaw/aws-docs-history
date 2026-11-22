@@ -1,7 +1,6 @@
 
 
 # Renaming your AWS Managed Microsoft AD directory's site name
-<a name="ms_ad_rename_site"></a>
 
 You can rename your AWS Managed Microsoft AD directory's default site name so that it matches with your existing Microsoft Active Directory (AD) site names. This makes it faster for AWS Managed Microsoft AD to find and authenticate your existing AD users in your on-premises directory. The result is a better experience when users login to AWS resources such as [Amazon EC2](https://aws.amazon.com/ec2/) and [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/) instances that you have joined to your AWS Managed Microsoft AD directory.
 

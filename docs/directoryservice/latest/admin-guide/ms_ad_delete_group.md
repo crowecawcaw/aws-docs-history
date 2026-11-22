@@ -1,7 +1,6 @@
 
 
 # Deleting an AWS Managed Microsoft AD group
-<a name="ms_ad_delete_group"></a>
 
 Use the following procedure to delete an AWS Managed Microsoft AD group with AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
@@ -41,7 +40,7 @@ When you delete a group, all information about the group is removed, including a
 **To delete an AWS Managed Microsoft AD group with the AWS CLI**
 +  Open the AWS CLI, and run the following command with your Directory ID and group name: 
 
-```
+```bash
 aws ds-data delete-group --directory-id {{d-1234567890}} --sam-account-name "{{your-group-name}}"
 ```
 
@@ -55,7 +54,7 @@ For more information, see [`delete-group`](https://docs.aws.amazon.com/cli/lates
 **To delete an AWS Managed Microsoft AD group with the AWS Tools for PowerShell**
 +  Open PowerShell, and run the following command with your Directory ID and group name: 
 
-```
+```ps
 Remove-DSDGroup -DirectoryId {{d-1234567890}} -SAMAccountName "{{your-group-name}}"
 ```
 

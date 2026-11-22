@@ -1,7 +1,6 @@
 
 
 # Launching a directory administration instance in your AWS Managed Microsoft AD Active Directory
-<a name="console_instance"></a>
 
 This procedure launches an Amazon EC2 directory administration Windows instance in the AWS Management Console using AWS Systems Manager Automation to manage your directories. You can also accomplish this by running the automation [AWS-CreateDSManagementInstance](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awssupport-create-ds-management-instance.html) in the AWS Systems Manager Automation console directly.
 

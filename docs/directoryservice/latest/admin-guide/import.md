@@ -1,7 +1,6 @@
 
 
 # Step 2: Import your LDIF file
-<a name="import"></a>
 
 You can extend your schema by importing an LDIF file from either the AWS Directory Service console or by using the API. For more information about how to do this with the schema extension APIs, see the [*AWS Directory Service API Reference*](https://docs.aws.amazon.com/directoryservice/latest/devguide/). At this time, AWS does not support external applications, such as Microsoft Exchange, to perform schema updates directly. 
 

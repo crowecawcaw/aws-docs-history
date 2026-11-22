@@ -1,7 +1,6 @@
 
 
 # Simple AD availability changes
-<a name="simple-ad-availability-change"></a>
 
 This guide provides information about the Simple AD changes and recommended alternatives for AWS Directory Service Simple AD customers.
 

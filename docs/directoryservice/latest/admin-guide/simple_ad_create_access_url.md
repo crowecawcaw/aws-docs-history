@@ -1,7 +1,6 @@
 
 
 # Creating an access URL for Simple AD
-<a name="simple_ad_create_access_url"></a>
 
 An access URL is used with AWS applications and services, such as Amazon WorkDocs, to reach a login page that is associated with your directory. The URL must be unique globally. You can create an access URL for your directory by performing the following steps.
 

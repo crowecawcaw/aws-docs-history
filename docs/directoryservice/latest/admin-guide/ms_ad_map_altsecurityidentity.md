@@ -1,7 +1,6 @@
 
 
 # Enable Public Key Cryptography for Initial Authentication (PKINIT) for your AWS Managed Microsoft AD users
-<a name="ms_ad_map_altsecurityidentity"></a>
 
 AWS Managed Microsoft AD directories use strong certificate binding by default, which requires explicit mapping between certificates and AD objects. The following mappings are considered strong for AWS Managed Microsoft AD:
 + `altSecurityIdentities` Issuer and Serial Number
@@ -29,7 +28,7 @@ For more information, see [Microsoft KB5014754: Certificate-based authentication
 
      For SHA1 hash mapping, extract the certificate hash and apply it to the user object:
 
-     ```
+     ```powershell,ps
      $Username = 'YourUsername'
      $cert = certutil -dump "YourCertificate.cer"
      $certHash = ($cert | Select-String -Pattern "(sha1):*" | 
@@ -40,7 +39,7 @@ For more information, see [Microsoft KB5014754: Certificate-based authentication
 
      For Issuer and Serial Number mapping, use the certificate's issuer and serial number:
 
-     ```
+     ```powershell,ps
      $Username = 'YourUsername'
      $IssuerName = 'YourCertificateIssuer'
      $SerialNumber = 'YourCertificateSerialNumber'
@@ -50,7 +49,7 @@ For more information, see [Microsoft KB5014754: Certificate-based authentication
 
      For Subject Key Identifier mapping, use the certificate's subject key identifier:
 
-     ```
+     ```powershell,ps
      $Username = 'YourUsername'
      $SubjectKeyIdentifier = 'YourSubjectKeyIdentifier'
      Set-ADUser -Identity $Username -Add @{'altSecurityIdentities'="X509:<SKI>$SubjectKeyIdentifier"}
@@ -58,7 +57,7 @@ For more information, see [Microsoft KB5014754: Certificate-based authentication
 
 1. Verify the mapping was applied successfully:
 
-   ```
+   ```powershell,ps
    Get-ADUser -Identity $Username -Properties altSecurityIdentities | 
        Select-Object -ExpandProperty altSecurityIdentities
    ```
@@ -70,7 +69,7 @@ For more information, see [Microsoft KB5014754: Certificate-based authentication
 
 The following example demonstrates how to map `AltSecurityIdentity` attribute for multiple user certificates from a certificate authority:
 
-```
+```powershell,ps
 $CertificateTemplateName = 'User'
 $Now = $((Get-Date).ToString($(Get-culture).DateTimeFormat.ShortDatePattern))
 $Restrict = "Disposition=20,NotAfter>=$Now,Certificate Template=$CertificateTemplateName"

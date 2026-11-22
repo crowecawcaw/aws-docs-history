@@ -1,7 +1,6 @@
 
 
 # Editing the trust relationship for an existing IAM role
-<a name="edit_trust"></a>
 
 You can assign your existing IAM roles to your Directory Service users and groups. To do this, however, the role must have a trust relationship with Directory Service. When you use Directory Service to create a role using the procedure in [Creating a new IAM role](create_role.md), this trust relationship is automatically set.
 
@@ -27,7 +26,7 @@ You only need to establish this trust relationship for IAM roles that are not cr
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

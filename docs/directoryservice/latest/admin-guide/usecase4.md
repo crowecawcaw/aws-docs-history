@@ -1,7 +1,6 @@
 
 
 # Use Case 4: AWS IAM Identity Center to Office 365 and other cloud applications
-<a name="usecase4"></a>
 
 You can use AWS Managed Microsoft AD to provide AWS IAM Identity Center services for cloud applications. You can use Microsoft Entra Connect (formerly known as Azure Active Directory Connect) to synchronize your users into Microsoft Entra (formerly known as Azure Active Directory (Azure AD)), and then use Active Directory Federation Services (AD FS) so that your users can access [Microsoft Office 365](https://aws.amazon.com/blogs/security/how-to-enable-your-users-to-access-office-365-with-aws-microsoft-active-directory-credentials/) and other SAML 2.0 cloud applications by using their Active Directory credentials.
 

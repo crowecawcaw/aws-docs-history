@@ -1,7 +1,6 @@
 
 
 # Step 4: Test seamlessly joining an EC2 instance for Windows Server to a domain
-<a name="step4_test_ec2_access"></a>
 
 You can use either of the following two methods to test seamlessly joining an EC2 instance to a domain. 
 

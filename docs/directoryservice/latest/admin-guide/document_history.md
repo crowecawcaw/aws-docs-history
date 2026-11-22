@@ -1,12 +1,12 @@
 
 
 # Document history
-<a name="document_history"></a>
 
 The following table describes the important changes since the last release of the *AWS Directory Service Administrator Guide*. 
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added FAQ page for supported protocols](document_history.md) | Added a new FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/cbor-faq.html). | November 10, 2026 | 
 | [Simple AD is no longer open to new customers.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple-ad-availability-change.html) | Simple AD is no longer open to new customers. For more information, see [Simple AD availability changes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple-ad-availability-change.html). | July 30, 2026 | 
 | [Simple AD availability changes](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple-ad-availability-change.html) | AWS Directory Service Simple AD will no longer be open to new customers starting July 30, 2026. Existing customers retain full functionality. | June 30, 2026 | 
 | [Dual-stack network type support](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_update-directory-type.html) | AWS Directory Service now supports upgrading directory network type from IPv4 to dual stack (IPv4 and IPv6). This feature provides a larger address space and enables IPv6 connectivity for your directories. You can also update your [AD Connector directories](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_update-directory-type.html) and [Simple AD directories](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_update-directory-type.html) with dual stack support. | September 30, 2025 | 

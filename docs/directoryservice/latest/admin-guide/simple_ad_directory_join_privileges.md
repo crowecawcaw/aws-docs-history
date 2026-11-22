@@ -1,7 +1,6 @@
 
 
 # Delegating directory join privileges for Simple AD
-<a name="simple_ad_directory_join_privileges"></a>
 
 To join a computer to your directory, you need an account that has privileges to join computers to the directory. 
 

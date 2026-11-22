@@ -1,7 +1,6 @@
 
 
 # Removing a user or group from an IAM role
-<a name="remove_role_users"></a>
 
 To remove an AWS Managed Microsoft AD user or group from an IAM role, perform the following steps.
 

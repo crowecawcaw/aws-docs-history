@@ -1,7 +1,6 @@
 
 
 # AWS Managed Microsoft AD key concepts
-<a name="ms_ad_key_concepts"></a>
 
 You will get more out of AWS Managed Microsoft AD if you become familiar with the following key concepts.
 

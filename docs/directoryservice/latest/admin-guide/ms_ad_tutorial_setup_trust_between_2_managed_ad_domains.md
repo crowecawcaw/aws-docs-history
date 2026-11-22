@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a trust relationship between two AWS Managed Microsoft AD domains
-<a name="ms_ad_tutorial_setup_trust_between_2_managed_ad_domains"></a>
 
 This tutorial walks you through all the steps necessary to set up a trust relationship between two AWS Directory Service for Microsoft Active Directory domains. 
 

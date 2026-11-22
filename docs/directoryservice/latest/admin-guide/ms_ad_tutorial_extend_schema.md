@@ -1,7 +1,6 @@
 
 
 # Tutorial: Extending your AWS Managed Microsoft AD schema
-<a name="ms_ad_tutorial_extend_schema"></a>
 
 In this tutorial, you will learn how to extend the schema for your AWS Directory Service for Microsoft Active Directory directory, also known as AWS Managed Microsoft AD, by adding unique *attributes* and *classes* that meet your specific requirements. AWS Managed Microsoft AD schema extensions can only be uploaded and applied using a valid LDIF (Lightweight Directory Interchange Format) script file.
 

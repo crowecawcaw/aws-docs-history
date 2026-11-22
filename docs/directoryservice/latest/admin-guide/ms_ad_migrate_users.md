@@ -1,7 +1,6 @@
 
 
 # Migrating Active Directory users to AWS Managed Microsoft AD
-<a name="ms_ad_migrate_users"></a>
 
 You can use the Active Directory Migration Toolkit  (ADMT) along with the Password Export Service (PES) to migrate users from your self-managed Active Directory to your AWS Managed Microsoft AD directory. This enables you to migrate Active Directory objects and encrypted passwords for your users more easily.
 

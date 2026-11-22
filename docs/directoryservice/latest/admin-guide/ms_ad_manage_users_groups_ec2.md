@@ -1,7 +1,6 @@
 
 
 # Manage users and groups with an Amazon EC2 instance
-<a name="ms_ad_manage_users_groups_ec2"></a>
 
  This section includes procedures for managing users and groups with an Amazon EC2 instance that's joined to your AWS Managed Microsoft AD. 
 

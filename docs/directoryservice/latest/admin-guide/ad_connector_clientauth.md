@@ -1,7 +1,6 @@
 
 
 # Enabling mTLS authentication in AD Connector for use with smart cards
-<a name="ad_connector_clientauth"></a>
 
 You can use certificate-based mutual Transport Layer Security (mTLS) authentication with smart cards to authenticate users into Amazon WorkSpaces through your self-managed Active Directory (AD) and AD Connector. When enabled, users select their smart card at the WorkSpaces login screen and enter a PIN to authenticate, instead of using a username and password. From there, the Windows or Linux virtual desktop uses the smart card to authenticate into AD from the native desktop OS. 
 

@@ -1,7 +1,6 @@
 
 
 # Installing Active Directory Administration Tools for AWS Managed Microsoft AD
-<a name="ms_ad_install_ad_tools"></a>
 
 You can manage your AWS Managed Microsoft AD Active Directory using Active Directory Domain Services and Active Directory Lightweight Directory Services Tools. To use Active Directory Domain Services and Active Directory Lightweight Directory Services Tools, you will need to install them. The following procedures walks you through how you can install these tools on an Amazon EC2 Windows Server instance or with a PowerShell command. Alternatively, you can launch a directory administration EC2 instance which already has these tools installed.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring DNS Server with Microsoft Event Viewer
-<a name="ms_ad_dns_event_viewer"></a>
 
 You can audit your AWS Managed Microsoft AD DNS events, making it easier to identify and troubleshoot DNS issues. For example, if a DNS record is missing, you can use the DNS audit event log to help identify the root cause and fix the issue. You can also use DNS audit event logs to improve security by detecting and blocking requests from suspicious IP addresses.
 

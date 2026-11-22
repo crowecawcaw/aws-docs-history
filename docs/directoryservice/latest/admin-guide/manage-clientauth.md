@@ -1,7 +1,6 @@
 
 
 # Managing smart card authentication settings
-<a name="manage-clientauth"></a>
 
 You can use two different methods to manage smart card settings. You can use either the AWS Management Console method or the AWS CLI method.
 

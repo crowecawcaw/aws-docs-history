@@ -1,7 +1,6 @@
 
 
 # What gets created with your AD Connector
-<a name="create_details_ad_connector"></a>
 
 When you create an AD Connector, Directory Service automatically creates and associates an elastic network interface (ENI) with each of your AD Connector instances. Each of these ENIs are essential for connectivity between your VPC and Directory Service AD Connector and should never be deleted. You can identify all network interfaces reserved for use with Directory Service by the description: "AWS created network interface for directory *directory-id*". For more information, see [Elastic Network Interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in the Amazon EC2 User Guide.
 

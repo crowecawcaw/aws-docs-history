@@ -1,7 +1,6 @@
 
 
 # Directory Service Data condition keys
-<a name="iam_dsdata-condition-keys"></a>
 
 Use [Directory Service Data](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/welcome.html) condition keys to add specific statements to users and group level access. This allows users to decide which principals can perform actions on what resources and under what conditions. 
 
@@ -31,7 +30,7 @@ The following policy denies the IAM principal from describing the user `joe` or 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -75,7 +74,7 @@ The following policy allows the IAM principal to update the user `joe`.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -118,7 +117,7 @@ The following policy allows the IAM principal to perform `AddGroupMember` on mem
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -162,7 +161,7 @@ The following example uses only the `ds-data:MemberName` context key.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -201,7 +200,7 @@ The following policy denies the IAM principal from calling `ListUsers` on the re
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

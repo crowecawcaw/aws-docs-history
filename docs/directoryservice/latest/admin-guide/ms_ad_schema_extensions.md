@@ -1,7 +1,6 @@
 
 
 # Extend your AWS Managed Microsoft AD schema
-<a name="ms_ad_schema_extensions"></a>
 
 AWS Managed Microsoft AD uses schemas to organize and enforce how directory data is stored. The process of adding definitions to the schema is referred to as "extending the schema." Schema extensions make it possible for you to modify the schema of your AWS Managed Microsoft AD directory using a valid LDAP Data Interchange Format (LDIF) file. For more information about AD schemas and how to extend your schema, see the topics listed below.
 
@@ -18,7 +17,7 @@ To get started, see [Tutorial: Extending your AWS Managed Microsoft AD schema](m
 
 ### Related topics
 <a name="schemaextend_related"></a>
-+ [Extend your AWS Managed Microsoft AD schema](#ms_ad_schema_extensions)
++ [Extend your AWS Managed Microsoft AD schema](ms_ad_schema_extensions.md)
 + [Schema elements](ms_ad_key_concepts.md#ms_ad_schema_elements)
 
 **Topics**

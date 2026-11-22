@@ -1,7 +1,6 @@
 
 
 # Delegating who can manage your AWS Managed Microsoft AD password policies
-<a name="delegatepasswordpolicies"></a>
 
 You can delegate permissions to manage password policies to specific user accounts you created in your AWS Managed Microsoft AD by adding the accounts to the **AWS Delegated Fine Grained Password Policy Administrators** security group. When an account becomes a member of this group, the account has permissions to edit and configure any of the password policies listed [previously](ms_ad_password_policies.md#supportedpwdpolicies). 
 

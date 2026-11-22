@@ -1,7 +1,6 @@
 
 
 # Viewing directory assessments
-<a name="viewing_hybrid_dir_assessment"></a>
 
 You can view directory assessments in the AWS Management Console to review assessment results and manage your assessment reports.
 

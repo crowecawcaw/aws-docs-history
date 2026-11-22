@@ -1,7 +1,6 @@
 
 
 # Enabling access to AWS applications and services for your Simple AD
-<a name="simple_ad_enable_apps_services"></a>
 
 Users can authorize Simple AD to give AWS applications and services, such as Amazon WorkSpaces, access to your Active Directory. The following AWS applications and services can be enabled or disabled to work with Simple AD.
 

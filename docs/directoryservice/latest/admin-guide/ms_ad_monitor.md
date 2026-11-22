@@ -1,7 +1,6 @@
 
 
 # Monitor your AWS Managed Microsoft AD
-<a name="ms_ad_monitor"></a>
 
 You can get the most out of your AWS Managed Microsoft AD by learning more about the different AWS Managed Microsoft AD statuses and what they mean for your AWS Managed Microsoft AD. You can also use AWS services like Amazon Simple Notification Service and Amazon CloudWatch to monitor your AWS Managed Microsoft AD. Amazon Simple Notification Service can send you notifications of your AWS Managed Microsoft AD directory status. Amazon CloudWatch can monitor the performance of your AWS Managed Microsoft AD domain controllers.
 

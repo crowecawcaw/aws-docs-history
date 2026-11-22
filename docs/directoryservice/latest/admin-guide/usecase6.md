@@ -1,7 +1,6 @@
 
 
 # Use Case 6: Share your directory to seamlessly join Amazon EC2 instances to a domain across AWS accounts
-<a name="usecase6"></a>
 
 Sharing your directory across multiple AWS accounts enables you to manage AWS services such as [Amazon EC2](https://aws.amazon.com/ec2/) easily without the need to operate a directory for each account and each VPC. You can use your directory from any AWS account and from any [Amazon VPC](https://aws.amazon.com/vpc/) within an AWS Region. This capability makes it easier and more cost effective to manage directory-aware workloads with a single directory across accounts and VPCs. For example, you can now manage your [Windows workloads](https://aws.amazon.com/windows/) deployed in EC2 instances across multiple accounts and VPCs easily by using a single AWS Managed Microsoft AD directory. 
 

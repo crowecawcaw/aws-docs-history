@@ -1,7 +1,6 @@
 
 
 # Application compatibility policy for AD Connector
-<a name="ad_connector_app_compatibility"></a>
 
 As an alternative to AWS Directory Service for Microsoft Active Directory ([AWS Managed Microsoft AD](directory_microsoft_ad.md)), AD Connector is an Active Directory proxy for AWS created applications and services only. You configure the proxy to use a specified Active Directory domain. When the application must look up a user or group in Active Directory, AD Connector proxies the request to the directory. Similarly, when a user logs in to the application, AD Connector proxies the authentication request to the directory. There are no third-party applications that work with AD Connector.
 

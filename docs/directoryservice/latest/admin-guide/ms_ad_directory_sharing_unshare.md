@@ -1,7 +1,6 @@
 
 
 # Unsharing your directory
-<a name="ms_ad_directory_sharing_unshare"></a>
 
 Use the following procedure to unshare an AWS Managed Microsoft AD directory.
 

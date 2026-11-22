@@ -1,7 +1,6 @@
 
 
 # Upgrading your AWS Managed Microsoft AD
-<a name="ms_ad_upgrade_edition"></a>
 
 You can upgrade your Standard edition AWS Managed Microsoft AD to Enterprise edition. The following outlines the differences between Standard and Enterprise editions:
 + **Standard Edition: **AWS Managed Microsoft AD (Standard Edition) is optimized to be a primary directory for small and midsize businesses with up to 5,000 employees. It provides you enough storage capacity to support up to 30,000\* directory objects, such as users, groups, and computers.

@@ -1,7 +1,6 @@
 
 
 # Use Case 2: Manage Amazon EC2 instances
-<a name="usecase2"></a>
 
 Using familiar Active Directory administration tools, you can apply Active Directory group policy objects (GPOs) to centrally manage your Amazon EC2 for Windows or Linux instances by [joining your instances to your AWS Managed Microsoft AD domain](https://docs.aws.amazon.com/en_us/directoryservice/latest/admin-guide/ms_ad_join_instance.html).
 

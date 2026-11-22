@@ -1,7 +1,6 @@
 
 
 # Viewing Simple AD directory information
-<a name="simple_ad_view_directory_info"></a>
 
 **To view detailed directory information**
 

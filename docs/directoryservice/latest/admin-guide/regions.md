@@ -1,7 +1,6 @@
 
 
 # Region availability for Directory Service
-<a name="regions"></a>
 
 The following table provides a list describing which Region-specific endpoints are supported by directory type.
 

@@ -1,7 +1,6 @@
 
 
 # Disabling Amazon CloudWatch log forwarding for AWS Managed Microsoft AD
-<a name="ms_ad_disable_log_forwarding_with_console"></a>
 
 You can disable CloudWatch Logs log forwarding for your AWS Managed Microsoft AD in the AWS Management Console. For more information on log forwarding, see [Using CloudWatch to monitor the performance of your AWS Managed Microsoft AD domain controllers](ms_ad_monitor_dc_performance.md).
 

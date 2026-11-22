@@ -1,7 +1,6 @@
 
 
 # Manage compliance for AWS Managed Microsoft AD
-<a name="ms_ad_compliance"></a>
 
 You can use AWS Managed Microsoft AD to support your Active Directory–aware applications, in the AWS Cloud, that are subject to the following compliance requirements. However, your applications will not adhere to compliance requirements if you use Simple AD.
 

@@ -1,7 +1,6 @@
 
 
 # Key concepts and best practices for AWS Managed Microsoft AD
-<a name="ms_ad_key_concepts_best_practices"></a>
 
 You can get more out of your AWS Managed Microsoft AD by becoming familiar with key concepts and best practices. Key concepts help you understand how AWS Managed Microsoft AD works. Key concepts include learning more about Active Directory schema, patching schedule, and Group Managed Service Accounts. Active Directory schema includes elements like attributes, classes, and objects that make up AWS Managed Microsoft AD. AWS patches your AWS Managed Microsoft AD domain controllers with Microsoft updates on your behalf. You can also learn more about group Managed Service Accounts (gMSAs) and use them with your AWS Managed Microsoft AD.
 

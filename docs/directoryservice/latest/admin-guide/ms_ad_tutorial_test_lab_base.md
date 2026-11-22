@@ -1,7 +1,6 @@
 
 
 # Tutorial: Setting up your base AWS Managed Microsoft AD test lab in AWS
-<a name="ms_ad_tutorial_test_lab_base"></a>
 
 This tutorial teaches you how to set up your AWS environment to prepare for a new AWS Managed Microsoft AD installation that uses a new Amazon EC2 instance running Windows Server 2019. It then teaches you to use typical Active Directory administration tools to manage your AWS Managed Microsoft AD environment from your EC2 Windows instance. By the time you complete the tutorial, you will have set up the network prerequisites and have configured a new AWS Managed Microsoft AD forest. 
 

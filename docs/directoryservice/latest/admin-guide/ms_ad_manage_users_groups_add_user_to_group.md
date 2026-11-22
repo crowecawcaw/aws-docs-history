@@ -1,7 +1,6 @@
 
 
 # Adding an AWS Managed Microsoft AD user to a group
-<a name="ms_ad_manage_users_groups_add_user_to_group"></a>
 
 You can add AWS Managed Microsoft AD users to a group. Use the following procedure to add a user to a security group with an Amazon EC2 instance that is joined to your AWS Managed Microsoft AD directory.
 

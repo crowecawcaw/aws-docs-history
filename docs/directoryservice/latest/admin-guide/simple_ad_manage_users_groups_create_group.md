@@ -1,7 +1,6 @@
 
 
 # Creating a Simple AD group
-<a name="simple_ad_manage_users_groups_create_group"></a>
 
 Use the following procedure to create a security group with an Amazon EC2 instance that is joined to your Simple AD directory. Before you can create security groups, you need to complete the procedures in [Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_install_ad_tools.html).
 

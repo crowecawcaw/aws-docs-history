@@ -1,7 +1,6 @@
 
 
 # Editing AWS Managed Microsoft AD directory security settings
-<a name="ms_ad_directory_settings"></a>
 
 You can configure fine-grained directory settings for your AWS Managed Microsoft AD to meet your compliance and security requirements without any increase in operational workload. In directory settings, you can update secure channel configuration for protocols and ciphers used in your directory. For example, you have the flexibility to disable individual legacy ciphers, such as RC4 or DES, and protocols, such as SSL 2.0/3.0 and TLS 1.0/1.1. AWS Managed Microsoft AD then deploys the configuration to all domain controllers in your directory, manages domain controller reboots, and maintains this configuration as you scale out or deploy additional AWS Regions. For all available settings, see [List of directory security settings](#list-ds-settings).
 

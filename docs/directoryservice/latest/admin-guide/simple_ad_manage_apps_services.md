@@ -1,7 +1,6 @@
 
 
 # Access to AWS applications and services from your Simple AD
-<a name="simple_ad_manage_apps_services"></a>
 
 **Important Notice**  
 Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md).

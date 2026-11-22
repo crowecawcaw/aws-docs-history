@@ -1,7 +1,6 @@
 
 
 # AWS Managed Microsoft AD best practices
-<a name="ms_ad_best_practices"></a>
 
 Here are some suggestions and guidelines you should consider to avoid problems and get the most out of AWS Managed Microsoft AD.
 

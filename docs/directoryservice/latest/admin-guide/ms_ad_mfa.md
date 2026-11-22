@@ -1,7 +1,6 @@
 
 
 # Enabling multi-factor authentication for AWS Managed Microsoft AD
-<a name="ms_ad_mfa"></a>
 
 You can enable multi-factor authentication (MFA) for your AWS Managed Microsoft AD directory to increase security when your users specify their AD credentials to access Supported Amazon Enterprise applications. When you enable MFA, your users enter their username and password (first factor) as usual, and they must also enter an authentication code (the second factor) they obtain from your virtual or hardware MFA solution. These factors together provide additional security by preventing access to your Amazon Enterprise applications, unless users supply valid user credentials and a valid MFA code. 
 

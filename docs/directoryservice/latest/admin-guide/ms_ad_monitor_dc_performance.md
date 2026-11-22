@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch to monitor the performance of your AWS Managed Microsoft AD domain controllers
-<a name="ms_ad_monitor_dc_performance"></a>
 
 Directory Service integrates with Amazon CloudWatch to help provide you with important performance metrics for each domain controller in your Active Directory. This means that you can monitor domain controller performance counters, such as CPU and memory utilization. You can also configure alarms and initiate automated actions to respond to periods of high utilization. For example, you can configure an alarm for domain controller CPU utilization above 70 percent and create an SNS topic to notify you when this occurs. You can use this SNS topic to initiate automation, such as AWS Lambda functions, to increase the number of domain controllers to your Active Directory.
 

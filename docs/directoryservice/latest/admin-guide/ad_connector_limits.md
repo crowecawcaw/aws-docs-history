@@ -1,7 +1,6 @@
 
 
 # AD Connector quotas
-<a name="ad_connector_limits"></a>
 
 The following are the default quotas for AD Connector. Each quota is per Region unless otherwise noted.
 

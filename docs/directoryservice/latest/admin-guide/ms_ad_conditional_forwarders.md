@@ -1,7 +1,6 @@
 
 
 # Managing DNS conditional forwarders for your directory
-<a name="ms_ad_conditional_forwarders"></a>
 
 A conditional forwarder is a DNS setting you configure in Active Directory to route queries for a specific domain to a defined set of DNS servers. Conditional forwarders are required for Active Directory trusts and are also used to support private DNS domains. Each conditional forwarder consists of the fully qualified domain name (FQDN) of the remote domain and one or more DNS server IP addresses.
 
@@ -38,7 +37,7 @@ You can list conditional forwarders on your directory by using the AWS CLI or Po
 **To list conditional forwarders on your directory**
 + Run the following command, replacing the example value with your own:
 
-  ```
+  ```ps
   Get-DSConditionalForwarder `
     -DirectoryId {{d-123456abcd}}
   ```
@@ -73,7 +72,7 @@ You can create a conditional forwarder for your directory by using the AWS CLI o
 **To create a conditional forwarder for your directory**
 + Run the following command, replacing the example values with your own:
 
-  ```
+  ```ps
   New-DSConditionalForwarder `
     -DirectoryId {{d-123456abcd}} `
     -RemoteDomainName {{company.example.com}} `
@@ -110,7 +109,7 @@ To update the DNS servers for an existing conditional forwarder, use the same re
 **To update a conditional forwarder on your directory**
 + Run the following command, replacing the example values with your own:
 
-  ```
+  ```ps
   Update-DSConditionalForwarder `
     -DirectoryId {{d-123456abcd}} `
     -RemoteDomainName {{company.example.com}} `
@@ -146,7 +145,7 @@ You can remove a conditional forwarder from your directory by using the AWS CLI 
 **To remove a conditional forwarder from your directory**
 + Run the following command, replacing the example values with your own:
 
-  ```
+  ```ps
   Remove-DSConditionalForwarder `
     -DirectoryId {{d-123456abcd}} `
     -RemoteDomainName {{company.example.com}}

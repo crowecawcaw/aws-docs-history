@@ -1,7 +1,6 @@
 
 
 # Enable Secure LDAP or LDAPS
-<a name="ms_ad_ldap"></a>
 
 Lightweight Directory Access Protocol (LDAP) is a standard communications protocol used to read and write data to and from Active Directory. Some applications use LDAP to add, remove, or search users and groups in Active Directory or to transport credentials for authenticating users in Active Directory. Every LDAP communication includes a client (such as an application) and a server (such as Active Directory).
 

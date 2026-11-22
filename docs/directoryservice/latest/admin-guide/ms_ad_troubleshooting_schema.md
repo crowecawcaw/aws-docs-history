@@ -1,7 +1,6 @@
 
 
 # Schema extension errors
-<a name="ms_ad_troubleshooting_schema"></a>
 
 The following can help you troubleshoot some error messages you might encounter when extending the schema for your AWS Managed Microsoft AD directory.
 

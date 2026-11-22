@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AD Connector
-<a name="ad_connector_troubleshooting"></a>
 
 The following can help you troubleshoot some common issues you might encounter when creating or using your AD Connector.
 
@@ -66,7 +65,7 @@ You can use [network packet capture](https://techcommunity.microsoft.com/blog/ii
 ### I receive a "Connectivity issues detected" error when I try to connect to my on-premises directory
 <a name="connectivity_issues_detected"></a>
 
-You receive an error message similar to the following when connecting to your on-premises directory: Connectivity issues detected: LDAP unavailable (TCP port 389) for IP: {{<IP address>}} Kerberos/authentication unavailable (TCP port 88) for IP: {{<IP address>}} Please ensure that the listed ports are available and retry the operation.
+You receive an error message similar to the following when connecting to your on-premises directory: `Connectivity issues detected: LDAP unavailable (TCP port 389) for IP: {{<IP address>}} Kerberos/authentication unavailable (TCP port 88) for IP: {{<IP address>}} Please ensure that the listed ports are available and retry the operation.`
 
 AD Connector must be able to communicate with your on-premises domain controllers via TCP and UDP over the following ports. Verify that your security groups and on-premises firewalls allow TCP and UDP communication over these ports. For more information, see [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector).
 + 88 (Kerberos)
@@ -113,7 +112,7 @@ AD Connector needs to obtain the `_ldap._tcp.{{<DnsDomainName>}}` and `_kerberos
 ### I receive a "Certificate Validation failed" error when I try to sign in to Amazon WorkSpaces with a smart card
 <a name="cert_validation_failure"></a>
 
-You receive an error message similar to the following when you try to sign in to your WorkSpaces with a smart card: **ERROR**: Certificate Validation failed. Please try again by restarting your browser or application and make sure you select the correct certificate. The error occurs if the smart card's certificate is not properly stored on the client that uses the certificates. For more information on AD Connector and smart card requirements, see [Prerequisites](ad_connector_clientauth.md#prereqs-clientauth).
+You receive an error message similar to the following when you try to sign in to your WorkSpaces with a smart card: `ERROR: Certificate Validation failed. Please try again by restarting your browser or application and make sure you select the correct certificate.` The error occurs if the smart card's certificate is not properly stored on the client that uses the certificates. For more information on AD Connector and smart card requirements, see [Prerequisites](ad_connector_clientauth.md#prereqs-clientauth).
 
 **Use the following procedures to troubleshoot the smart card's ability to store certificates in the user's certificate store:**
 
@@ -192,12 +191,12 @@ This can occur if the hard drive on your domain controller runs out of space. En
 <a name="error_unexpected_error"></a>
 
  The following errors or symptoms occur while searching users in AWS Enterprise Applications such as [Amazon WorkSpaces Console Launch Wizard](https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspace-ad-connector.html#create-workspace-ad-connector):
-+ An Error Has Occurred. If you continue to experience an issue contact the AWS Support Team on the community forums and via AWS Premium Support.
-+ An Error Has Occurred. Your directory needs a credential update. Please update the directory credentials.
++ `An Error Has Occurred. If you continue to experience an issue contact the AWS Support Team on the community forums and via AWS Premium Support.`
++ `An Error Has Occurred. Your directory needs a credential update. Please update the directory credentials.`
 
  If you try to update your AD Connector service account credentials in AD Connector, you might receive the following errors messages:
-+ Unexpected error. An unexpected error occurred.
-+ An error occurred. There was an error with the service account/password combination. Please try again.
++ `Unexpected error. An unexpected error occurred.`
++ `An error occurred. There was an error with the service account/password combination. Please try again.`
 
 The AD Connector directory's service account resides in the customer managed Active Directory. The account is used as an identity to perform queries and operations on the customer managed Active Directory domain through the AD Connector on behalf of AWS Enterprise Applications. AD Connector uses Kerberos and LDAP to perform these operations.
 
@@ -274,7 +273,7 @@ You may experience errors when searching for users or logging into AWS applicati
 
 You receive an error message similar to one or more of the following when trying to update the AD Connector service account:
 
-Message:An Error Has Occurred Your directory needs a credential update. Please update the directory credentials. An Error Has Occurred Your directory needs a credential update. Please update the directory credentials following Update your AD Connector Service Account Credentials Message: An Error Has Occurred Your request has a problem. Please see the following details. There was an error with the service account/password combination
+`Message:An Error Has Occurred Your directory needs a credential update. Please update the directory credentials.` `An Error Has Occurred Your directory needs a credential update. Please update the directory credentials following Update your AD Connector Service Account Credentials` `Message: An Error Has Occurred Your request has a problem. Please see the following details. There was an error with the service account/password combination`
 
 There could be an issue with the time synchronization and Kerberos. AD Connector sends Kerberos authentication requests to Active Directory. These requests are time sensitive and if the requests are delayed, they will fail. To resolve this issue, see [Recommendation - Configure the Root PDC with an Authoritative Time Source and Avoid Widespread Time Skew](https://learn.microsoft.com/en-us/services-hub/unified/health/remediation-steps-ad/configure-the-root-pdc-with-an-authoritative-time-source-and-avoid-widespread-time-skew) in Microsoft documentation. For more information about time service and synchronization, see below:
 + [How the Windows Time Service Works](https://learn.microsoft.com/en-us/windows-server/networking/windows-time-service/how-the-windows-time-service-works)

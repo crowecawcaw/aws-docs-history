@@ -1,7 +1,6 @@
 
 
 # Trust creation status reasons
-<a name="ms_ad_troubleshooting_trusts"></a>
 
 When trust creation fails for AWS Managed Microsoft AD, the status message contains additional information. The following can help you understand what those messages mean.
 

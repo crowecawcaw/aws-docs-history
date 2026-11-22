@@ -1,7 +1,6 @@
 
 
 # Directory Status Errors
-<a name="hybrid_directory_status_errors"></a>
 
 Directory Service directories can encounter various states that indicate different types of issues. Understanding these states helps you determine the appropriate troubleshooting steps.
 

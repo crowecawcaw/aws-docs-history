@@ -1,7 +1,6 @@
 
 
 # Share your AWS Managed Microsoft AD
-<a name="ms_ad_directory_sharing"></a>
 
 AWS Managed Microsoft AD integrates tightly with AWS Organizations to allow seamless directory sharing across multiple AWS accounts. You can share a single directory with other trusted AWS accounts within the same organization or share the directory with other AWS accounts that are outside your organization. You can also share your directory when your AWS account is not currently a member of an organization. 
 

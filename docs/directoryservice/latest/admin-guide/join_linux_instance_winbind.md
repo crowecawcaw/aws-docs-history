@@ -1,7 +1,6 @@
 
 
 # Manually joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory using Winbind
-<a name="join_linux_instance_winbind"></a>
 
 You can use the Winbind service to manually join your Amazon EC2 Linux instances to an AWS Managed Microsoft AD Active Directory domain. This enables your existing on-premises Active Directory users to use their Active Directory credentials when accessing the Linux instances joined to your AWS Managed Microsoft AD Active Directory. The following Linux instance distributions and versions are supported:
 + Amazon Linux AMI 2018.03.0

@@ -1,7 +1,6 @@
 
 
 # Managing client-side LDAPS
-<a name="manage-ldap-client-side"></a>
 
 Use these commands to manage your LDAPS configuration.
 

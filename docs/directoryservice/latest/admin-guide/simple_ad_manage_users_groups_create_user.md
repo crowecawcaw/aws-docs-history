@@ -1,7 +1,6 @@
 
 
 # Creating a Simple AD user
-<a name="simple_ad_manage_users_groups_create_user"></a>
 
 Use the following procedure to create a user with an Amazon EC2 instance that is joined to your Simple AD directory. Before you can create users, you need to complete the procedures in [Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_install_ad_tools.html).
 

@@ -1,7 +1,6 @@
 
 
 # Updating your AD Connector service account credentials in AWS Management Console
-<a name="ad_connector_update_creds"></a>
 
 The AD Connector credentials you provide in Directory Service represent the service account that is used to access your existing on-premises directory. You can modify the service account credentials in Directory Service by performing the following steps.
 

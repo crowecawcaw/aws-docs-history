@@ -1,7 +1,6 @@
 
 
 # Creating an AWS Managed Microsoft AD user
-<a name="ms_ad_manage_users_groups_create_user"></a>
 
 You can create AWS Managed Microsoft AD users with the Active Directory Administration Tools and PowerShell. Before you can create user with the Active Directory Administration Tools, you will need to complete the procedure in [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md).
 
@@ -45,7 +44,7 @@ Use the following procedure to create an AWS Managed Microsoft AD user with Powe
 
 1. Type the following command replacing the username **jane.doe** with the username of the user you want to create. You will be prompted by PowerShell to provide a password for the new user. For more information on Active Directory password complexity requirements, see [Microsoft documentation](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements). For more information on the New-ADUser command, see [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/activedirectory/new-aduser?view=windowsserver2022-ps).
 
-```
+```powershell
 New-ADUser -Name "{{jane.doe}}" -Enabled $true -AccountPassword (Read-Host -AsSecureString 'Password')
 ```
 

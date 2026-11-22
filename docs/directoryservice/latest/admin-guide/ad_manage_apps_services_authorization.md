@@ -1,7 +1,6 @@
 
 
 # Authorization for AWS applications and services using Directory Service
-<a name="ad_manage_apps_services_authorization"></a>
 
  This topic describes authorization for AWS applications and services using AWS Directory Service and AWS Directory Service Data 
 
@@ -42,7 +41,7 @@ For more information about Directory Service API permissions, see [Directory Ser
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -66,7 +65,7 @@ For more information about Directory Service API permissions, see [Directory Ser
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

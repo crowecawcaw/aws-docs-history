@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="before_you_start"></a>
 
 This tutorial assumes you already have the following:
 

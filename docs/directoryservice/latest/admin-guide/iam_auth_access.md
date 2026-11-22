@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Directory Service
-<a name="iam_auth_access"></a>
 
 Access to Directory Service requires credentials that AWS can use to authenticate your requests. Those credentials must have permissions to access AWS resources, such as an Directory Service directory. The following sections provide details on how you can use [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and Directory Service to help secure your resources by controlling who can access them:
 

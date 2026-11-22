@@ -1,7 +1,6 @@
 
 
 # AWS Directory Service Data
-<a name="ms_ad_getting_started_directory_service_data"></a>
 
  AWS Directory Service Data is an extension of AWS Directory Service. You can create, read, update, and Active Directory (AD) users, groups, and memberships from an AWS Directory Service for Microsoft Active Directory without deploying dedicated AD management instances on an Amazon EC2 instance. You can also perform built-in object management tasks across directories without any direct network connectivity. This simplifies provisioning and access management to achieve fully automated deployments. For more information, see the [AWS Directory Service Data API Reference ](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html). 
 

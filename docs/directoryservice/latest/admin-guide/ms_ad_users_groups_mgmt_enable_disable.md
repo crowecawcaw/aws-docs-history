@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling user and group management or AWS Directory Service Data
-<a name="ms_ad_users_groups_mgmt_enable_disable"></a>
 
 To use user and group management or AWS Directory Service Data, it must be enabled. Once enabled, you can manage users and groups from the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
@@ -39,7 +38,7 @@ This command uses the [`aws ds`](https://docs.aws.amazon.com/cli/latest/referenc
 **To enable AWS Directory Service Data CLI**
 +  Open the AWS CLI, and run the following command with your Directory ID: 
 
-```
+```bash
 aws ds enable-directory-data-access --directory-id {{d-1234567890}}
 ```
 
@@ -54,7 +53,7 @@ This command uses the [`AWS.Tools.DirectoryService`](https://docs.aws.amazon.com
 **To enable Directory Service Data with Tools for PowerShell**
 +  Open PowerShell, and run the following command with your Directory ID: 
 
-```
+```ps
 Enable-DSDirectoryDataAccess -DirectoryId {{d-1234567890}}
 ```
 
@@ -91,7 +90,7 @@ This command uses the [`aws ds`](https://docs.aws.amazon.com/cli/latest/referenc
 **To disable AWS Directory Service Data CLI**
 +  Open the AWS CLI, and run the following command with your Directory ID: 
 
-```
+```bash
 aws ds disable-directory-data-access --directory-id {{d-1234567890}}
 ```
 
@@ -106,7 +105,7 @@ This command uses the [`AWS.Tools.DirectoryService`](https://docs.aws.amazon.com
 **To disable Directory Service Data with Tools for PowerShell**
 +  Open PowerShell, and run the following command with your Directory ID: 
 
-```
+```ps
 Disable-DSDirectoryDataAccess -DirectoryId {{d-123456789}}
 ```
 

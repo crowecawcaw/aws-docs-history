@@ -1,7 +1,6 @@
 
 
 # Understanding your directory status
-<a name="ad_connector_directory_status"></a>
 
 The following are the various statuses for a directory.
 

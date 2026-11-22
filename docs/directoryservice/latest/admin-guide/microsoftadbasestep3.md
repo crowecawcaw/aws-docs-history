@@ -1,7 +1,6 @@
 
 
 # Step 3: Deploy an Amazon EC2 instance to manage your AWS Managed Microsoft AD Active Directory
-<a name="microsoftadbasestep3"></a>
 
 For this lab, we are using Amazon EC2 instances that have public IP addresses to make it easy to access the management instance from anywhere. In a production setting, you can use instances that are in a private VPC that are only accessible through a VPN or Direct Connect link. There is no requirement the instance have a public IP address.
 

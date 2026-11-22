@@ -1,7 +1,6 @@
 
 
 # Step 3: Verify if the schema extension was successful
-<a name="verify"></a>
 
 After you have finished the import process, it is important to verify that schema updates were applied to your directory. This is especially critical before you migrate or update any application that relies on the schema update. You can do this using a variety of different LDAP tools or by writing a test tool that issues the appropriate LDAP commands. 
 

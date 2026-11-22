@@ -1,7 +1,6 @@
 
 
 # Deleting your AWS Managed Microsoft AD
-<a name="ms_ad_delete"></a>
 
 When a AWS Managed Microsoft AD, Simple AD, or hybrid directory is deleted, all of the directory data and snapshots are deleted and cannot be recovered. After the directory is deleted, all instances that are joined to the directory remain intact. You cannot, however, use your directory credentials to log in to these instances. You need to log in to these instances with a user account that is local to the instance.
 

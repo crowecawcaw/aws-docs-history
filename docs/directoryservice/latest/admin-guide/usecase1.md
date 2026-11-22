@@ -1,7 +1,6 @@
 
 
 # Use Case 1: Sign in to AWS applications and services with Active Directory credentials
-<a name="usecase1"></a>
 
 You can enable multiple AWS applications and services such as [AWS Client VPN](https://aws.amazon.com/vpn/), [AWS Management Console](https://aws.amazon.com/console/), [AWS IAM Identity Center](https://aws.amazon.com/single-sign-on/), [Amazon Chime](https://aws.amazon.com/chime/), [Connect Customer](https://aws.amazon.com/connect), [Amazon FSx](https://aws.amazon.com/fsx/windows/), [Quick](https://aws.amazon.com/quicksight/), [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/), [WorkDocs](https://aws.amazon.com/workdocs), [Amazon WorkMail](https://aws.amazon.com/workmail/), and [WorkSpaces](https://aws.amazon.com/workspaces/) to use your AWS Managed Microsoft AD directory. When you enable an AWS application or service in your directory, your users can access the application or service with their Active Directory credentials.
 

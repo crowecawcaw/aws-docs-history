@@ -1,7 +1,6 @@
 
 
 # AWS Managed Microsoft AD Administrator account and group permissions
-<a name="ms_ad_getting_started_admin_account"></a>
 
 When you create an AWS Directory Service for Microsoft Active Directory directory, AWS creates an organizational unit (OU) to store all AWS related groups and accounts. For more information about this OU, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md). This includes the Admin account. The Admin account has permissions to perform the following common administrative activities for your OU:
 + Add, update, or delete users, groups, and computers. For more information, see [User and group management in AWS Managed Microsoft AD](ms_ad_manage_users_groups.md). 

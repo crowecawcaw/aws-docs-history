@@ -1,7 +1,6 @@
 
 
 # Secure your Simple AD directory
-<a name="simple_ad_security"></a>
 
 **Important Notice**  
 Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md).

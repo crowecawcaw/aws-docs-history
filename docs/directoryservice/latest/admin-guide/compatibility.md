@@ -1,7 +1,6 @@
 
 
 # Browser compatibility for AWS Directory Service
-<a name="compatibility"></a>
 
 AWS applications and services such as WorkSpaces, Amazon WorkMail, Connect Customer, Amazon Chime, WorkDocs, and AWS IAM Identity Center all require valid sign-in credentials from a compatible browser before you can access them. The following table describes only the browsers and browser versions that are compatible for sign-ins.
 

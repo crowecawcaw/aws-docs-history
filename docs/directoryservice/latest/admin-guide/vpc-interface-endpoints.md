@@ -1,7 +1,6 @@
 
 
 # Directory Service API and interface Amazon VPC endpoints using AWS PrivateLink
-<a name="vpc-interface-endpoints"></a>
 
  You can use AWS PrivateLink to create a private connection between your VPC and Directory Service and Directory Service Data APIs. This allows you to access Directory Service and Directory Service Data APIs like they were in your VPC and without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your Amazon VPC don't require public IP addresses to access Directory Service and Directory Service Data APIs. 
 
@@ -62,7 +61,7 @@ An endpoint policy specifies the following information:
 
  Replace {{action-1}}, {{action-2}}, and {{action-3}} with the required permissions for the Directory Service APIs that you want to include in your policy. For a full list, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md). 
 
-```
+```json
 {
    "Statement": [
       {
@@ -84,7 +83,7 @@ An endpoint policy specifies the following information:
 
  Replace {{action-1}}, {{action-2}}, and {{action-3}} with the required permissions for the Directory Service Data APIs that you want to include in your policy. For a full list, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md). 
 
-```
+```json
 {
    "Statement": [
       {

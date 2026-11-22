@@ -1,7 +1,6 @@
 
 
 # Tagging your directory
-<a name="tag_directory"></a>
 
 Tags are key-value pairs that you can assign to your Directory Service directories to help you organize and manage your resources. You can use tags to categorize directories by purpose, environment, cost allocation, and other criteria. Each tag consists of a required tag key and an optional tag value. Tag keys must be unique for each directory.
 
@@ -39,7 +38,7 @@ You can add tags to your directory using the AWS CLI or PowerShell:
 **To add tags to your directory with PowerShell**
 + Run the following command, replacing the directory ID and tag values with your own:
 
-  ```
+  ```ps
   Add-DSResourceTag `
     -ResourceId {{d-1234567890}} `
     -Tag @{Key="{{MyTagName1}}"; Value="{{MyTagValue1}}"}, `
@@ -74,7 +73,7 @@ You can list existing tags on your directory using the AWS CLI or PowerShell:
 **To list tags on your directory with PowerShell**
 + Run the following command, replacing the directory ID with your own:
 
-  ```
+  ```ps
   Get-DSResourceTag `
     -ResourceId {{d-1234567890}}
   ```
@@ -108,7 +107,7 @@ To update the value of an existing tag, use the same add command with the existi
 **To update a tag on your directory with PowerShell**
 + Run the following command, replacing the directory ID, tag key, and new value with your own:
 
-  ```
+  ```ps
   Add-DSResourceTag `
     -ResourceId {{d-1234567890}} `
     -Tag @{Key="{{MyTagName1}}"; Value="{{MyNewTagValue1}}"}
@@ -143,7 +142,7 @@ You can remove tags from your directory using the AWS CLI or PowerShell:
 **To remove tags from your directory with PowerShell**
 + Run the following command, replacing the directory ID and tag key names with your own:
 
-  ```
+  ```ps
   Remove-DSResourceTag `
     -ResourceId {{d-1234567890}} `
     -TagKey "{{MyTagName1}}", `

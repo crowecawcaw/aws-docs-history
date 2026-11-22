@@ -1,7 +1,6 @@
 
 
 # DNS `_msdcs` zone modernization
-<a name="hybrid_directory_msdcs"></a>
 
 Modernizing a DNS `_msdcs` zone is a mandatory prerequisite before Hybrid AD directory creation. In modern Active Directory environments, `_msdcs.<ForestRoot>` is created as a separate, forest-wide replicated zone stored in the ForestDnsZones application partition. In legacy environments originally built on Windows NT 4.0 or Windows 2000 (and subsequently upgraded), `_msdcs` was never separated; it exists simply as a standard subdomain (subfolder) directly inside the parent domain zone file.
 
@@ -25,7 +24,7 @@ You can identify your `_msdcs` zone design by running the following on any Domai
 
 1. **List all DNS zones and look for `_msdcs`:**
 
-   ```
+   ```powershell
    Get-DnsServerZone | Where-Object { $_.ZoneName -like "*_msdcs*" }
    ```
 
@@ -39,7 +38,7 @@ You can identify your `_msdcs` zone design by running the following on any Domai
 
    **Legacy design (conversion required)** — `_msdcs.<forest-name>` will NOT appear in the zone list. Instead, `_msdcs` exists only as a delegated subdomain under your forest zone. You can confirm this by checking for the delegation NS records:
 
-   ```
+   ```powershell
    Get-DnsServerResourceRecord -ZoneName "<forest-name>" -Name "_msdcs" -RRType NS
    ```
 
@@ -47,7 +46,7 @@ You can identify your `_msdcs` zone design by running the following on any Domai
 
 1. **Additional validation — confirm the zone type:**
 
-   ```
+   ```powershell
    # This will succeed on modern design
    Get-DnsServerZone -Name "_msdcs.<forest-name>"
    
@@ -63,7 +62,7 @@ These steps must be performed before initiating the AWS Managed Microsoft AD Hyb
 
    On an existing self-managed Domain Controller:
 
-   ```
+   ```powershell
    dnscmd localhost /ZoneAdd "_msdcs.<forest-name>" /DsPrimary /dp /forest
    ```
 
@@ -71,13 +70,13 @@ These steps must be performed before initiating the AWS Managed Microsoft AD Hyb
 
    Wait for AD replication to propagate:
 
-   ```
+   ```powershell
    repadmin /syncall /AeD
    ```
 
    Verify the zone exists (run on multiple DCs):
 
-   ```
+   ```powershell
    Get-DnsServerZone -Name "_msdcs.<forest-name>"
    ```
 
@@ -85,7 +84,7 @@ These steps must be performed before initiating the AWS Managed Microsoft AD Hyb
 
    The old `_msdcs` subdomain node and its records still exist in the parent zone. These must be removed so that DNS queries are served exclusively from the new standalone zone.
 
-   ```
+   ```powershell
    # Remove the _msdcs subtree (NS delegation + all child records) from the parent zone
    dnscmd localhost /NodeDelete <forest-name> _msdcs /tree /f
    ```
@@ -98,7 +97,7 @@ Only perform this step after confirming the standalone zone was created successf
 
    Run the following on every on-premises Domain Controller:
 
-   ```
+   ```powershell
    # Flush DNS cache
    ipconfig /flushdns
    
@@ -116,7 +115,7 @@ Only perform this step after confirming the standalone zone was created successf
 
    Confirm records populated in the new standalone zone:
 
-   ```
+   ```powershell
    Get-DnsServerResourceRecord -ZoneName "_msdcs.<forest-name>" -RRType SRV
    ```
 
@@ -124,7 +123,7 @@ Only perform this step after confirming the standalone zone was created successf
 
    Confirm DNS resolution works end-to-end:
 
-   ```
+   ```powershell
    Resolve-DnsName "_ldap._tcp.dc._msdcs.<forest-name>" -Type SRV
    Resolve-DnsName "_kerberos._tcp.dc._msdcs.<forest-name>" -Type SRV
    ```
@@ -133,7 +132,7 @@ Only perform this step after confirming the standalone zone was created successf
 
    Confirm the old delegation is gone from the parent zone:
 
-   ```
+   ```powershell
    Get-DnsServerResourceRecord -ZoneName "<forest-name>" -Name "_msdcs" -RRType NS -ErrorAction SilentlyContinue
    ```
 
@@ -148,7 +147,7 @@ If the new standalone zone remains empty after Step 3:
 
 Netlogon may not re-register if it believes records already exist. Force a clean re-registration:
 
-```
+```powershell
 # Delete the Netlogon DNS registration cache
 Remove-Item "HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\DnsAvoidRegisterRecords" -ErrorAction SilentlyContinue
 
@@ -159,7 +158,7 @@ net start netlogon
 
 If records still don't appear, manually create the critical records using the values from the old parent zone (available from backup or from other DCs that cached them):
 
-```
+```powershell
 # Example: SRV record for LDAP DC locator
 Add-DnsServerResourceRecord -ZoneName "_msdcs.<forest-name>" -Name "_ldap._tcp.dc" -Srv -DomainName "dc1.<forest-name>" -Priority 0 -Weight 100 -Port 389
 
@@ -171,7 +170,7 @@ If applications are still failing after conversion:
 
 Flush DNS caches on affected application servers and client machines:
 
-```
+```powershell
 ipconfig /flushdns
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Using Windows LAPS with AWS Managed Microsoft AD
-<a name="ms_using_windows_laps"></a>
 
 Windows Local Administrator Password Solution (Windows LAPS) automatically manages and backs up local administrator passwords on domain-joined Windows machines. Passwords are stored securely in Active Directory and rotated on a configurable schedule, eliminating the security risk of shared or static local administrator passwords across your fleet.
 
@@ -60,7 +59,7 @@ Before configuring LAPS, verify that the required schema attributes are present 
 
 1. Open PowerShell and run the following command to confirm the Windows LAPS schema attributes are available:
 
-   ```
+   ```powershell
    Get-ADObject -SearchBase ((Get-ADRootDSE).SchemaNamingContext) `
        -LDAPFilter "(lDAPDisplayName=computer)" `
        -Properties mayContain |
@@ -86,7 +85,7 @@ Create a new GPO and link it to the organizational unit (OU) containing your com
 **To create and link a LAPS GPO**
 + Run the following PowerShell command:
 
-  ```
+  ```powershell
   New-GPO -Name "LAPS Policy" |
       New-GPLink -Target "OU=Computers,OU=corp,DC=corp,DC=example,DC=com"
   ```
@@ -101,7 +100,7 @@ After creating the GPO, configure the LAPS policy settings. At minimum, you must
 **To configure the backup directory**
 + 
 
-  ```
+  ```powershell
   Set-GPRegistryValue -Name "LAPS Policy" `
       -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS" `
       -ValueName "BackupDirectory" -Type DWord -Value 2
@@ -115,7 +114,7 @@ Password encryption protects stored passwords so that only authorized principals
 **To enable password encryption**
 + 
 
-  ```
+  ```powershell
   Set-GPRegistryValue -Name "LAPS Policy" `
       -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS" `
       -ValueName "ADPasswordEncryptionEnabled" -Type DWord -Value 1
@@ -127,7 +126,7 @@ When you enable encryption, you must also configure the encryption principal. By
 **To configure the encryption principal**
 + 
 
-  ```
+  ```powershell
   Set-GPRegistryValue -Name "LAPS Policy" `
       -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS" `
       -ValueName "ADPasswordEncryptionPrincipal" -Type String -Value "corp\AWS Delegated LAPS Administrators"
@@ -140,7 +139,7 @@ When you enable encryption, you must also configure the encryption principal. By
 
 You can customize the password length, age, and complexity.
 
-```
+```powershell
 # Password length (default: 14, range: 8-64)
 Set-GPRegistryValue -Name "LAPS Policy" `
     -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS" `
@@ -162,7 +161,7 @@ Set-GPRegistryValue -Name "LAPS Policy" `
 
 By default, LAPS manages the built-in Administrator account (RID 500). To manage a different local account, configure the account name.
 
-```
+```powershell
 Set-GPRegistryValue -Name "LAPS Policy" `
     -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS" `
     -ValueName "AdministratorAccountName" -Type String -Value "LocalAdmin"
@@ -179,7 +178,7 @@ After configuring the GPO, apply the policy on each managed computer and trigger
 **To apply the policy and trigger password rotation**
 + Run the following commands on each managed computer:
 
-  ```
+  ```powershell
   gpupdate /force
   Invoke-LapsPolicyProcessing
   ```
@@ -194,7 +193,7 @@ Members of AWS Delegated LAPS Administrators or AWS Delegated Administrators can
 **To retrieve a LAPS password**
 + 
 
-  ```
+  ```powershell
   Get-LapsADPassword -Identity <ComputerName> -AsPlainText
   ```
 
@@ -220,7 +219,7 @@ To immediately rotate a computer's password (for example, after a security incid
 **To force password rotation from the management instance**
 + 
 
-  ```
+  ```powershell
   Set-LapsADPasswordExpirationTime -Identity <ComputerName>
   ```
 
@@ -229,13 +228,13 @@ To immediately rotate a computer's password (for example, after a security incid
 **To force immediate rotation on the managed computer**
 + Run one of the following commands on the managed computer:
 
-  ```
+  ```powershell
   Invoke-LapsPolicyProcessing
   ```
 
   Or:
 
-  ```
+  ```powershell
   Reset-LapsPassword
   ```
 
@@ -247,7 +246,7 @@ By default, the Admin account and members of AWS Delegated Administrators can re
 **To delegate LAPS password retrieval access**
 + 
 
-  ```
+  ```powershell
   Add-ADGroupMember -Identity "AWS Delegated LAPS Administrators" -Members "HelpDeskTeam"
   ```
 
@@ -263,7 +262,7 @@ You can verify that LAPS is functioning correctly by checking event logs on mana
 
 LAPS writes events to the `Microsoft-Windows-LAPS/Operational` log.
 
-```
+```powershell
 Get-WinEvent -LogName 'Microsoft-Windows-LAPS/Operational' -MaxEvents 5 | Format-List TimeCreated, Id, Message
 ```
 
@@ -275,7 +274,7 @@ Key event IDs:
 ### Verifying LAPS from the management instance
 <a name="ms_laps_verify_from_mgmt"></a>
 
-```
+```powershell
 Get-ADComputer <ComputerName> -Properties msLAPS-PasswordExpirationTime |
     Select-Object Name, 'msLAPS-PasswordExpirationTime'
 ```

@@ -1,7 +1,6 @@
 
 
 # Enabling single sign-on
-<a name="simple_ad_single_sign_on"></a>
 
 AWS Directory Service provides the ability to allow your users to access WorkDocs from a computer joined to the directory without having to enter their credentials separately. 
 

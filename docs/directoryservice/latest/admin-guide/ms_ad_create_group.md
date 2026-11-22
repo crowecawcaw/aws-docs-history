@@ -1,7 +1,6 @@
 
 
 # Creating an AWS Managed Microsoft AD group
-<a name="ms_ad_create_group"></a>
 
 Use the following procedure to create an AWS Managed Microsoft AD group with AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
@@ -64,7 +63,7 @@ The group name cannot be changed after the group is created.
 **To create an AWS Managed Microsoft AD group with the AWS CLI**
 +  Open the AWS CLI, and run the following command with your Directory ID, group name, and display name: 
 
-```
+```bash
 aws ds-data create-group \
     --directory-id {{d-1234567890}} \
     --sam-account-name "{{your-group-name}}" \
@@ -84,7 +83,7 @@ For more information, see [`create-group`](https://docs.aws.amazon.com/cli/lates
 **To create an AWS Managed Microsoft AD group with AWS Tools for PowerShell**
 +  Open PowerShell, and run the following command with your Directory ID, group name, and display name:
 
-```
+```ps
 New-DSDGroup `
     -DirectoryId {{d-1234567890}} `
     -SAMAccountName "{{your-group-name}}" `

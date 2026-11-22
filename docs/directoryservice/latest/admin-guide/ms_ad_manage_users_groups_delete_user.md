@@ -1,7 +1,6 @@
 
 
 # Delete a user's account with an Amazon EC2 instance
-<a name="ms_ad_manage_users_groups_delete_user"></a>
 
  You can use the following procedure to delete a user with an Amazon EC2 instance that's joined to your AWS Managed Microsoft AD. 
 

@@ -1,7 +1,6 @@
 
 
 # Step 2: Share your directory
-<a name="step2_share_directory"></a>
 
 Use the following procedures to begin the directory sharing workflow from within the directory owner account. 
 

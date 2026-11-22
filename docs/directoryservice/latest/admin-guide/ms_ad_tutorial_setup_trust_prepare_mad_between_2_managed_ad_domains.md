@@ -1,7 +1,6 @@
 
 
 # Step 1: Prepare your AWS Managed Microsoft AD
-<a name="ms_ad_tutorial_setup_trust_prepare_mad_between_2_managed_ad_domains"></a>
 
 In this section, you will get your AWS Managed Microsoft AD ready for the trust relationship with another AWS Managed Microsoft AD. Many of the following steps are almost identical to what you completed in [Tutorial: Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](ms_ad_tutorial_setup_trust.md). This time, however, you are configuring your AWS Managed Microsoft AD environments to work with each other.
 

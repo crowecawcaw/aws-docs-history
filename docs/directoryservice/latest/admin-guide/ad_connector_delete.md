@@ -1,7 +1,6 @@
 
 
 # Deleting your AD Connector
-<a name="ad_connector_delete"></a>
 
 When an AD Connector is deleted, your on-premises directory remains intact. All instances that are joined to the directory also remain intact and remain joined to your on-premises directory. You can still use your directory credentials to log in to these instances.
 

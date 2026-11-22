@@ -1,12 +1,11 @@
 
 
 # Troubleshooting hybrid directory and directory assessment
-<a name="hybrid_directory_troubleshooting"></a>
 
-A directory assessment is required to create a hybrid directory. Assessment tests run on each domain controller. The assessment tests examines different areas and result in a Passed or Failed status. If your directory assessment fails, you can view the assessment tests of your domain controllers to identify what issues caused the failure.
+A directory assessment is required to create a hybrid directory. Assessment tests run on each domain controller. The assessment tests examines different areas and result in a `Passed` or `Failed` status. If your directory assessment fails, you can view the assessment tests of your domain controllers to identify what issues caused the failure.
 
 **Important**  
-A hybrid directory can be created when the directory assessment's status is Passed with warning. We recommend you address the issue causing the warning prior to creating a hybrid directory
+A hybrid directory can be created when the directory assessment's status is `Passed with warning`. We recommend you address the issue causing the warning prior to creating a hybrid directory
 
 **Topics**
 + [Troubleshooting failed hybrid directory assessment](#hybrid_directory_troubleshooting_steps)

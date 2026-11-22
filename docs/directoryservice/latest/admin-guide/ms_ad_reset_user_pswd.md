@@ -1,7 +1,6 @@
 
 
 # Resetting and enabling an AWS Managed Microsoft AD user's password
-<a name="ms_ad_reset_user_pswd"></a>
 
 Use the following procedure to reset an AWS Managed Microsoft AD user's password to enable their account with AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
@@ -63,7 +62,7 @@ This command uses the [`aws ds`](https://docs.aws.amazon.com/cli/latest/referenc
 **To reset an AWS Managed Microsoft AD user's password with the AWS CLI**
 +  To reset a user's password, open the AWS CLI, and run the following command with your Directory ID, username, and password: 
 
-```
+```bash
 aws ds reset-user-password \
   --directory-id {{d-1234567890}} \
   --user-name "{{jane.doe}}" \
@@ -83,7 +82,7 @@ This command uses the [`AWS.Tools.DirectoryService`](https://docs.aws.amazon.com
 **To reset an AWS Managed Microsoft AD user's password with AWS Tools for PowerShell**
 +  To reset a user's password, open PowerShell, and run the following command with your Directory ID, username, and password: 
 
-```
+```ps
 Reset-DSUserPassword `
     -DirectoryId {{d-1234567890}} `
     -UserName "{{jane.doe}}" `

@@ -1,7 +1,6 @@
 
 
 # Manually join an Amazon EC2 Linux instance to your Simple AD Active Directory
-<a name="simple_ad_join_linux_instance"></a>
 
 In addition to Amazon EC2 Windows instances, you can also join certain Amazon EC2 Linux instances to your Simple AD Active Directory. The following Linux instance distributions and versions are supported:
 + Amazon Linux AMI 2018.03.0

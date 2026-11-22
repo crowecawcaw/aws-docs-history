@@ -1,7 +1,6 @@
 
 
 # AWS Managed Microsoft AD quotas
-<a name="ms_ad_limits"></a>
 
 The following are the default quotas for AWS Managed Microsoft AD. Each quota is per Region unless otherwise noted.
 

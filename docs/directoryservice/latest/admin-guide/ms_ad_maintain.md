@@ -1,7 +1,6 @@
 
 
 # Maintain your AWS Managed Microsoft AD
-<a name="ms_ad_maintain"></a>
 
 You can use the AWS Management Console to maintain your AWS Managed Microsoft AD and complete day-to-day administrative tasks. Ways you can maintain your directory include:
 +  [View your AWS Managed Microsoft AD directory details](ms_ad_view_directory_info.md) to learn your AWS Managed Microsoft AD directory type, directory ID, directory status, and networking details such as its Amazon VPC, subnets, and Availability zones.

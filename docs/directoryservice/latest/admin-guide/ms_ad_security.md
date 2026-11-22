@@ -1,7 +1,6 @@
 
 
 # Secure your AWS Managed Microsoft AD
-<a name="ms_ad_security"></a>
 
 You can use password policies, features like multi-factor authentication (MFA), and settings to secure your AWS Managed Microsoft AD. Ways you can secure your directory include:
 + [Understand how the password policies in Active Directory works](ms_ad_password_policies.md) so they can be applied to AWS Managed Microsoft AD users. You can also delegate which user can manage your AWS Managed Microsoft AD password policies.

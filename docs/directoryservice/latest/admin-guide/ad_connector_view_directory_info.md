@@ -1,7 +1,6 @@
 
 
 # Viewing AD Connector directory information
-<a name="ad_connector_view_directory_info"></a>
 
 **To view detailed directory information**
 

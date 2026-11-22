@@ -1,7 +1,6 @@
 
 
 # Enabling AD Connector directory status notifications with Amazon SNS
-<a name="ad_connector_enable_notifications"></a>
 
 Using Amazon Simple Notification Service (Amazon SNS), you can receive email or text (SMS) messages when the status of your directory changes. You get notified if your directory goes from an Active status to an [Impaired or Inoperable status](ad_connector_directory_status.md). You also receive a notification when the directory returns to an Active status.
 

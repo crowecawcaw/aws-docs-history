@@ -1,7 +1,6 @@
 
 
 # Manage AWS Managed Microsoft AD users and groups with the AWS Management Console, AWS CLI, or AWS Tools for PowerShell
-<a name="ms_ad_manage_users_groups_procedures"></a>
 
 You can use the AWS Management Console, AWS CLI, or AWS Tools for PowerShell to manage your AWS Managed Microsoft AD users and groups with [AWS Directory Service Data](ms_ad_getting_started_directory_service_data.md). The AWS CLI commands use the `ds-data` namespace. The PowerShell commands use the `AWS.Tools.DirectoryServiceData` module. For more information, see [Getting started with AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) and [Getting started with AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html).
 

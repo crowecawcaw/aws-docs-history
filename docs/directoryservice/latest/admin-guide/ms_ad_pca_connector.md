@@ -1,7 +1,6 @@
 
 
 # Set up AWS Private CA Connector for AD for AWS Managed Microsoft AD
-<a name="ms_ad_pca_connector"></a>
 
 You can integrate your AWS Managed Microsoft AD with [AWS Private Certificate Authority (CA)](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.html) to issue and manage certificates for your Active Directory domain controllers, domain joined users, groups, and machines. AWS Private CA Connector for Active Directory allows you to use a fully managed AWS Private CA drop-in replacement for your self-managed enterprise CAs without the need to deploy, patch, or update local agents or proxy servers. 
 
@@ -110,7 +109,7 @@ To change your issuing AWS Private CA for domain controller certificates, first 
 
 1. Under **Forest and Domains**, find your subdomain organizational unit (OU) (for example, `corp` is your subdomain organizational unit if you followed the procedures outlined in [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory)) and right-click on your subdomain OU. Choose **Create a GPO in this domain, and link it here** and enter PCA GPO for the name. Choose **OK**.
 
-1. The newly created GPO appears following your subdomain name. Right-click on `PCA GPO` and choose **Edit**. If a dialog box opens with an alert message stating This is a link and that changes are globally propagated, acknowledge the message by choosing **OK** to continue. The **Group Policy Management Editor** window opens.
+1. The newly created GPO appears following your subdomain name. Right-click on `PCA GPO` and choose **Edit**. If a dialog box opens with an alert message stating `This is a link and that changes are globally propagated`, acknowledge the message by choosing **OK** to continue. The **Group Policy Management Editor** window opens.
 
 1. In the **Group Policy Management Editor** window, go to **Computer Configuration > Policies > Windows Settings > Security Settings > Public Key Policies** (choose the folder).
 
@@ -154,6 +153,6 @@ You can do one of the following:
 + You can restart the AWS Managed Microsoft AD domain joined machines that were configured to receive certificates from the AWS Private CA. Then you can confirm the AWS Private CA has issued certificates to members of your AWS Managed Microsoft AD domain by following the procedure in [Microsoft documentation](https://learn.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
 + You can use the following PowerShell command to update the certificates for your AWS Managed Microsoft AD:
 
-  ```
+  ```powershell
   certutil -pulse
   ```

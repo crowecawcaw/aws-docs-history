@@ -1,7 +1,6 @@
 
 
 # Secure your AD Connector directory
-<a name="ad_connector_security"></a>
 
 You can use features like multi-factor authentication (MFA), client-side Lightweight Directory Access Protocol over Secure Sockets Layer (SSL)/Transport Layer Security (TLS) (LDAPS), and AWS Private Certificate Authority to secure your AD Connector. Ways you can secure your AD Connector include:
 + Enable MFA which increases your AD Connector security.

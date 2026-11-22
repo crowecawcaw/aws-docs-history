@@ -1,7 +1,6 @@
 
 
 # Primary vs additional Regions
-<a name="multi-region-global-primary-additional"></a>
 
 With multi-Region replication, AWS Managed Microsoft AD uses the following two types of Regions to differentiate how global or Regional features should be applied across your directory.
 

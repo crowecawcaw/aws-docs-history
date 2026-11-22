@@ -1,7 +1,6 @@
 
 
 # AWS Managed Microsoft AD
-<a name="directory_microsoft_ad"></a>
 
 *AWS Directory Service for Microsoft Active Directory*, also referred to as AWS Managed Microsoft AD, runs Microsoft Active Directory as a managed service powered by Windows Server 2019. It creates a highly available pair of domain controllers in your Amazon VPC across different Availability Zones, with AWS automatically managing host monitoring, recovery, data replication, snapshots, and software updates. This service enables you to run directory-aware workloads, manage users and groups, provide single sign-on, create and apply group policies, and securely connect to Amazon EC2 instances.
 

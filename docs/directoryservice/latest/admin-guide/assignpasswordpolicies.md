@@ -1,7 +1,6 @@
 
 
 # Assigning password policies to your AWS Managed Microsoft AD users
-<a name="assignpasswordpolicies"></a>
 
 User accounts that are a member of the **AWS Delegated Fine Grained Password Policy Administrators** security group can use the following procedure to assign policies to users and security groups.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding AWS Managed Microsoft AD (Hybrid Edition)
-<a name="aws-hybrid-directory"></a>
 
 *AWS Managed Microsoft AD (Hybrid Edition)* allows you to extend your existing Active Directory to the AWS Cloud with AWS Managed Microsoft AD. This feature makes it easier to move your AD–dependent workloads to AWS, adopt AWS services, and increase your Active Directory redundancy. AWS will periodically run directory assessments on your hybrid directory which you can view in the Directory Service console.
 

@@ -1,7 +1,6 @@
 
 
 # Step 1: Prepare your self-managed AD Domain
-<a name="ms_ad_tutorial_setup_trust_prepare_onprem"></a>
 
 First you need to complete several prerequisite steps on your self-managed (on-premises) domain.
 

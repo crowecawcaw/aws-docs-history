@@ -1,7 +1,6 @@
 
 
 # Connecting your AWS Managed Microsoft AD to Microsoft Entra Connect Sync
-<a name="ms_ad_connect_ms_entra_sync"></a>
 
 This tutorial walks you through the necessary steps to install [Microsoft Entra Connect Sync](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sync-whatis) to sync your [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) to your AWS Managed Microsoft AD.
 
@@ -48,16 +47,16 @@ Do not open or run Entra Connect Sync at this point. The next steps will provisi
 See the following for more information on running the script:  
 You can save the script with the `ps1` extension to a folder like **temp**. Then, you can use the following PowerShell command to load the script:  
 
-    ```
+    ```powershell
     import-module "c:\temp\entra.ps1"
     ```
 After loading the script, you can use the following command to set the necessary permissions to run the script, replacing {{Entra\_Service\_Account\_Name}} with your Entra service account name:  
 
-    ```
+    ```powershell
     Set-EntraConnectSvcPerms -ServiceAccountName {{Entra_Service_Account_Name}}
     ```
 
-```
+```powershell
 $modulePath = "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
 
 try {

@@ -1,7 +1,6 @@
 
 
 # Restoring your AWS Managed Microsoft AD with snapshots
-<a name="ms_ad_snapshots"></a>
 
 AWS Directory Service provides automated daily snapshots and the ability to take manual snapshots of data for your AWS Managed Microsoft AD Active Directory. These snapshots can be used to perform a point-in-time restore for your Active Directory. You are limited to five manual snapshots for each AWS Managed Microsoft AD Active Directory. If you have already reached this limit, you must delete one of your existing manual snapshots before you can create another. You cannot take snapshots of AD Connector directories.
 
@@ -44,7 +43,7 @@ Use the following procedure to create a manual snapshot of your AWS Managed Micr
 **To create a manual snapshot with AWS CLI**
 + Open the AWS CLI. To create a snapshot of your AWS Managed Microsoft AD, run the following command, replacing the Directory ID with your AWS Managed Microsoft AD Directory ID: 
 
-  ```
+  ```langcode
   aws ds create-snapshot --directory-id {{d-1234567890}} --name ManualSnapshot
   ```
 
@@ -56,7 +55,7 @@ Use the following procedure to create a manual snapshot of your AWS Managed Micr
 **To create a manual snapshot with PowerShell**
 +  Open PowerShell. To create a snapshot of your AWS Managed Microsoft AD, run the following command, replacing the Directory ID with your AWS Managed Microsoft AD Directory ID:
 
-  ```
+  ```ps
   New-DSSnapshot -DirectoryId {{d-1234567890}} -Name ManualSnapshot
   ```
 
@@ -98,7 +97,7 @@ Use the following procedure to restore your directory from a snapshot using the 
 
 1.  Open the AWS CLI. To list the snapshots for your AWS Managed Microsoft AD, run the following command, replacing the Directory ID with your AWS Managed Microsoft AD Directory ID: 
 
-   ```
+   ```langcode
    aws ds describe-snapshots --directory-id {{d-1234567890}} \
      --query '(sort_by(Snapshots[*].{ID:SnapshotId,Status:Status,Type:Type,StartTime:StartTime}, &StartTime))' \
      --output table
@@ -106,7 +105,7 @@ Use the following procedure to restore your directory from a snapshot using the 
 
 1. To restore your AWS Managed Microsoft AD from a snapshot, you can use the [`restore-from-snapshot`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ds/restore-from-snapshot.html) command. Ensure you replace the `snapshot-id` parameter with the snapshot ID you want to use to restore your AWS Managed Microsoft AD:
 
-   ```
+   ```langcode
    aws ds restore-from-snapshot --snapshot-id {{s-1234567890}}
    ```
 
@@ -117,13 +116,13 @@ Use the following procedure to restore your directory from a snapshot using the 
 
 1.  Open PowerShell. To list the snapshots for your AWS Managed Microsoft AD, run the following command, replacing the Directory ID with your AWS Managed Microsoft AD Directory ID: 
 
-   ```
+   ```ps
    Get-DSSnapshot -DirectoryId {{d-1234567890}} | Sort-Object StartTime | Format-Table  
    ```
 
 1. To restore your AWS Managed Microsoft AD from a snapshot, you can use the [`Restore-DSFromSnapshot`](https://docs.aws.amazon.com/powershell/latest/reference/items/Restore-DSFromSnapshot.html) command. Ensure you replace the `snapshot-id` parameter with the snapshot ID you want to use to restore your AWS Managed Microsoft AD:
 
-   ```
+   ```ps
    Restore-DSFromSnapshot -SnapshotId {{s-1234567890}}
    ```
 
@@ -158,7 +157,7 @@ Use the following procedure to delete a snapshot of your AWS Managed Microsoft A
 
 1.  Open the AWS CLI. To list the snapshots for your AWS Managed Microsoft AD, run the following command, replacing the Directory ID with your AWS Managed Microsoft AD Directory ID: 
 
-   ```
+   ```langcode
    aws ds describe-snapshots --directory-id {{d-1234567890}} \
      --query '(sort_by(Snapshots[*].{ID:SnapshotId,Status:Status,Type:Type,StartTime:StartTime}, &StartTime))' \
      --output table
@@ -166,7 +165,7 @@ Use the following procedure to delete a snapshot of your AWS Managed Microsoft A
 
 1. To delete a snapshot of your AWS Managed Microsoft AD, you can use the [`delete-snapshot`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ds/delete-snapshot.html) command. Ensure you replace the `snapshot-id` parameter with the snapshot ID of the snapshot you want to delete:
 
-   ```
+   ```langcode
    aws ds delete-snapshot --snapshot-id {{s-1234567890}}
    ```
 
@@ -177,13 +176,13 @@ Use the following procedure to delete a snapshot of your AWS Managed Microsoft A
 
 1.  Open PowerShell. To list the snapshots for your AWS Managed Microsoft AD, run the following command, replacing the Directory ID with your AWS Managed Microsoft AD Directory ID: 
 
-   ```
+   ```ps
    Get-DSSnapshot -DirectoryId {{d-1234567890}} | Sort-Object StartTime | Format-Table  
    ```
 
 1. To restore your AWS Managed Microsoft AD from a snapshot, you can use the [`Remove-DSnapshot`](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-DSSnapshot.html) command. Ensure you replace the `snapshot-id` parameter with the snapshot ID of the snapshot you want to delete:
 
-   ```
+   ```ps
    Remove-DSSnapshot -SnapshotId {{s-1234567890}}
    ```
 

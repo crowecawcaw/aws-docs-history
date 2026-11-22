@@ -1,7 +1,6 @@
 
 
 # Access to AWS applications and services from your AWS Managed Microsoft AD
-<a name="ms_ad_manage_apps_services"></a>
 
 You can grant access to your AWS Managed Microsoft AD users to access AWS applications and services. Some of these AWS applications and services include:
 + Amazon Chime

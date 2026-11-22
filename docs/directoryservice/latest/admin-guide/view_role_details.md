@@ -1,7 +1,6 @@
 
 
 # Viewing users and groups assigned to a role
-<a name="view_role_details"></a>
 
 To view the AWS Managed Microsoft AD users and groups assigned to an IAM role, perform the following steps.
 

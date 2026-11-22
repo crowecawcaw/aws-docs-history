@@ -1,7 +1,6 @@
 
 
 # Joining an Amazon EC2 Mac instance to your AWS Managed Microsoft AD Active Directory
-<a name="join_mac_instance"></a>
 
 This procedure manually joins an Amazon EC2 Mac instance to your AWS Managed Microsoft AD Active Directory.
 
@@ -18,13 +17,13 @@ Dedicated Host pricing varies by the payment option that you select. For more in
 
 1. Use the following SSH command to connect to your Mac instance. For more information about connecting to your Mac instance, see [Connect to your Mac instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html#connect-to-mac-instance)
 
-   ```
+   ```literal
    ssh -i {{/path/key-pair-name}}.pem ec2-user@{{my-instance-public-dns-name}}
    ```
 
 1. After you connect to your Mac instance, create a password for the {{ec2-user}} account using the following command:
 
-   ```
+   ```literal
    sudo passwd {{ec2-user}}
    ```
 
@@ -34,19 +33,19 @@ Dedicated Host pricing varies by the payment option that you select. For more in
 **Warning**  
 The computer name shouldn't contain a hyphen. Hyphens might prevent the bind to the AWS Managed Microsoft AD Active Directory.
 
-   ```
+   ```literal
    sudo dsconfigad -add {{domainName}} -computer {{computerName}} -username {{Username}} -ou {{"Your-AWS-Delegated-Organizational-Unit"}}
    ```
 
    The following example is what the command should look like when joining an administrative user on a Mac instance named **myec2mac01** to the **example.com** domain:
 
-   ```
+   ```literal
    sudo dsconfigad -add {{example.com}} -computer {{myec2mac01}} -username {{admin}} -ou {{"OU=Computers,OU=Example,DC=Example,DC=com"}}
    ```
 
 1. Use the following command to add the **AWS Delegated Administrators** to the administrative user on your Mac instance:
 
-   ```
+   ```literal
    sudo dsconfigad -group {{"EXAMPLE\aws delegated administrators}}
    ```
 

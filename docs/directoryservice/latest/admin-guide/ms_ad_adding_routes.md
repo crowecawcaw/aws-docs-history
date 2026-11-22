@@ -1,7 +1,6 @@
 
 
 # Adding IP routes when using public IP addresses with your AWS Managed Microsoft AD
-<a name="ms_ad_adding_routes"></a>
 
 You can use AWS Directory Service for Microsoft Active Directory to take advantage of many powerful Active Directory features, including establishing trusts with other directories. However, if the DNS servers for the networks of the other directories use public (non-RFC 1918) IP addresses, you must specify those IP addresses as part of configuring the trust. Instructions for doing this can be found in [Creating a trust relationship between your AWS Managed Microsoft AD and self-managed AD](ms_ad_setup_trust.md).
 

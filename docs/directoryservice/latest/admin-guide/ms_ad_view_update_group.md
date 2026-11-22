@@ -1,7 +1,6 @@
 
 
 # Viewing and updating an AWS Managed Microsoft AD group's details
-<a name="ms_ad_view_update_group"></a>
 
 Use the following procedure to view or update an AWS Managed Microsoft AD group's details with AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
@@ -42,14 +41,14 @@ You can view or update a group's details in the AWS Management Console, AWS CLI,
  You can view an AWS Managed Microsoft AD group's details with the AWS Directory Service Data CLI. 
 +  To view a group's details, open the AWS CLI, and run the following command with your Directory ID and group name: 
 
-```
+```bash
 aws ds-data describe-group --directory-id {{d-1234567890}} --sam-account-name "{{your-group-name}}"
 ```
 
 For more information, see [`describe-group`](https://docs.aws.amazon.com/cli/latest/reference/ds-data/describe-group.html).
 +  To view a group's members, open the AWS CLI, and run the following command with your Directory ID and group name: 
 
-```
+```bash
 aws ds-data list-group-members --directory-id {{d-1234567890}} --sam-account-name "{{your-group-name}}"
 ```
 
@@ -61,14 +60,14 @@ For more information, see [`list-group-members`](https://docs.aws.amazon.com/cli
  You can view an AWS Managed Microsoft AD group's details with AWS Tools for PowerShell. 
 + To view a group's details, open PowerShell, and run the following command with your Directory ID and group name: 
 
-```
+```ps
 Get-DSDGroup -DirectoryId {{d-1234567890}} -SAMAccountName "{{your-group-name}}"
 ```
 
 For more information, see [`Get-DSDGroup`](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-DSDGroup.html).
 +  To view a group's members, open PowerShell, and run the following command with your Directory ID and group name: 
 
-```
+```ps
 (Get-DSDGroupMemberList -DirectoryId {{d-1234567890}} -SAMAccountName "{{your-group-name}}").Members
 ```
 
@@ -116,7 +115,7 @@ You can update a group's details with the AWS Management Console. For more infor
 
    To update a group's details, open the AWS CLI, and run the following command with your Directory ID, group name, update type, and attribute: 
 
-```
+```bash
 aws ds-data update-group \
   --directory-id {{d-1234567890}} \
   --sam-account-name "{{your-group-name}}" \
@@ -138,7 +137,7 @@ For more information, see [`update-group`](https://docs.aws.amazon.com/cli/lates
 
    To update a group's details, open PowerShell, and run the following command with your Directory ID, group name, update type, and attribute: 
 
-```
+```ps
 Update-DSDGroup `
     -DirectoryId {{d-1234567890}} `
     -SAMAccountName "{{your-group-name}}" `

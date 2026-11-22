@@ -1,7 +1,6 @@
 
 
 # Enhancing your AWS Managed Microsoft AD network security configuration
-<a name="ms_ad_network_security"></a>
 
 The AWS Security Group that is provisioned for the AWS Managed Microsoft AD directory is configured with the minimum inbound network ports required to support all known use cases for your AWS Managed Microsoft AD directory. For more information on the provisioned AWS Security Group, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md).
 

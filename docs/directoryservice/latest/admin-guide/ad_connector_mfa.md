@@ -1,7 +1,6 @@
 
 
 # Enabling multi-factor authentication for AD Connector
-<a name="ad_connector_mfa"></a>
 
 You can enable multi-factor authentication for AD Connector when you have Active Directory running on-premises or in Amazon EC2 instances. For more information about using multi-factor authentication with Directory Service, see [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector).
 

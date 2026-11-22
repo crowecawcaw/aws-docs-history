@@ -1,7 +1,6 @@
 
 
 # Seamlessly joining an Amazon EC2 Linux instance to a shared AWS Managed Microsoft AD
-<a name="seamlessly_join_linux_to_shared_MAD"></a>
 
 In this procedure, you will seamlessly join an Amazon EC2 Linux instance to a shared AWS Managed Microsoft AD. To do this, you will create an AWS Secrets Manager IAM read policy in the EC2 instance role in the account where you wish to launch the EC2 Linux instance. This will be referred to as `Account 2` in this procedure. This instance will be using the AWS Managed Microsoft AD that is being shared from the other account which is referred to as `Account 1`.
 
@@ -78,7 +77,7 @@ The following steps allow you to create the resource policies to enable users to
 
 ****  
 
-     ```
+     ```json
      {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -108,7 +107,7 @@ The following steps allow you to create the resource policies to enable users to
 
 1. The following key policy statement allows `ApplicationRole` in `Account 2` to use the KMS key in `Account 1` to decrypt the secret in `Account 1`. To use this statement, add it to the key policy for your KMS key. For more information, see [Changing a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html).
 
-   ```
+   ```json
    {
    {
      "Effect": "Allow",
@@ -138,7 +137,7 @@ The following steps allow you to create the resource policies to enable users to
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

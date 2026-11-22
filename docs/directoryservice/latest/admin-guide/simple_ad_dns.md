@@ -1,7 +1,6 @@
 
 
 # Configuring DNS servers for Simple AD
-<a name="simple_ad_dns"></a>
 
 You can configure DNS for Simple AD in two ways depending on your network architecture and requirements.
 

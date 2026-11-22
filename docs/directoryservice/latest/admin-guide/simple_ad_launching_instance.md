@@ -1,7 +1,6 @@
 
 
 # Joining an Amazon EC2 Windows instance to your Simple AD Active Directory
-<a name="simple_ad_launching_instance"></a>
 
 You can launch and join an Amazon EC2 Windows instance to a Simple AD. Alternatively, you can manually join an existing EC2 Windows instance to a Simple AD
 
@@ -135,7 +134,7 @@ Select the delete the existing SSM document here link to delete the SSM document
 ------
 #### [ Manually join an EC2 Windows ]
 
-To manually join an existing Amazon EC2 Windows instance to a Simple AD Active Directory, the instance must be launched using the parameters as specified in [Joining an Amazon EC2 Windows instance to your Simple AD Active Directory](#simple_ad_launching_instance).
+To manually join an existing Amazon EC2 Windows instance to a Simple AD Active Directory, the instance must be launched using the parameters as specified in [Joining an Amazon EC2 Windows instance to your Simple AD Active Directory](simple_ad_launching_instance.md).
 
 You will need the IP addresses of the Simple AD DNS servers. This information can be found under **Directory Services** > **Directories** > the **Directory ID ** link for your directory > **Directory details** and **Networking & Security** sections.
 

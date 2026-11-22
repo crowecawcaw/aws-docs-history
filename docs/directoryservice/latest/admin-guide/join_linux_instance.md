@@ -1,7 +1,6 @@
 
 
 # Manually joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory
-<a name="join_linux_instance"></a>
 
 In addition to Amazon EC2 Windows instances, you can also join certain Amazon EC2 Linux instances to your AWS Managed Microsoft AD Active Directory. The following Linux instance distributions and versions are supported:
 + Amazon Linux AMI 2018.03.0
@@ -623,7 +622,7 @@ Since all accounts are defined in Active Directory, by default, all the users in
 
 For example:
 
-```
+```literal
 ad_access_filter = (memberOf=cn=admins,ou=Testou,dc=example,dc=com)
 ```
 
@@ -646,13 +645,13 @@ You must manually add **ad\_access\_filter** to your **/etc/sssd/sssd.conf**.
 
 1. Open the **/etc/sssd/sssd.conf** file in a text editor.
 
-   ```
+   ```literal
    sudo vi /etc/sssd/sssd.conf
    ```
 
 1. After you do this, your **sssd.conf** might look like this:
 
-   ```
+   ```literal
    [sssd]
    domains = example.com
    config_file_version = 2
@@ -675,13 +674,13 @@ You must manually add **ad\_access\_filter** to your **/etc/sssd/sssd.conf**.
 
 1. In order for the configuration to take effect, you need to restart the sssd service:
 
-   ```
+   ```literal
    sudo systemctl restart sssd.service
    ```
 
    Alternatively, you could use:
 
-   ```
+   ```literal
    sudo service sssd restart
    ```
 

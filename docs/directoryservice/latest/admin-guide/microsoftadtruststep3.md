@@ -1,7 +1,6 @@
 
 
 # Step 3: Verify the trust
-<a name="microsoftadtruststep3"></a>
 
 In this section, you test whether the trusts were set up successfully between AWS and Active Directory on Amazon EC2.
 

@@ -1,7 +1,6 @@
 
 
 # Step 2: Create the trust relationship with another AWS Managed Microsoft AD domain
-<a name="ms_ad_tutorial_setup_trust_create_between_2_managed_ad_domains"></a>
 
 Now that the preparation work is complete, the final steps are to create the trusts between your two AWS Managed Microsoft AD domains. If you have any issues during the trust creation process, see [Trust creation status reasons](ms_ad_troubleshooting_trusts.md) for assistance.
 

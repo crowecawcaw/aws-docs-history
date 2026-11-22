@@ -1,7 +1,6 @@
 
 
 # Deleting a Simple AD user
-<a name="simple_ad_manage_users_groups_delete_user"></a>
 
 Use the following procedure to delete a user with an Amazon EC2 Windows instance that is joined to your Simple AD directory.
 

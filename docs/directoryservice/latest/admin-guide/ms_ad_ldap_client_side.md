@@ -1,7 +1,6 @@
 
 
 # Enabling client-side LDAPS using AWS Managed Microsoft AD
-<a name="ms_ad_ldap_client_side"></a>
 
 Client-side Lightweight Directory Access Protocol Secure Sockets Layer (SSL)/Transport Layer Security (TLS) (LDAPS) support in AWS Managed Microsoft AD encrypts communications between self-managed (on-premises) Microsoft Active Directory (AD) and AWS applications. Examples of such applications include WorkSpaces, AWS IAM Identity Center, Quick, and Amazon Chime. This encryption helps you to better protect your organization's identity data and meet your security requirements.
 

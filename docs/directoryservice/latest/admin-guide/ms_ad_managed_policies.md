@@ -1,7 +1,6 @@
 
 
 # Using AWS managed policies with Directory Service
-<a name="ms_ad_managed_policies"></a>
 
 Directory Service provides the following AWS managed policies to give your users and groups access to AWS services and resources, such as access to the Amazon EC2 console. You must log in to the AWS Management Console before you can view these policies. 
 + [Read only access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/ReadOnlyAccess)

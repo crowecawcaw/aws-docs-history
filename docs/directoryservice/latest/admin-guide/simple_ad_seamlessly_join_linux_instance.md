@@ -1,7 +1,6 @@
 
 
 # Seamlessly join an Amazon EC2 Linux instance to your Simple AD Active Directory
-<a name="simple_ad_seamlessly_join_linux_instance"></a>
 
 This procedure seamlessly joins an Amazon EC2 Linux instance to your Simple AD Active Directory.
 

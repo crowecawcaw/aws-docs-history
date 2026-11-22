@@ -1,7 +1,6 @@
 
 
 # Creating a hybrid directory
-<a name="hybrid_directory_create"></a>
 
 Before creating a hybrid directory, you must create and successfully pass a directory assessment that verifies connectivity and interoperability with your self-managed Active Directory
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Sharing your AWS Managed Microsoft AD directory for seamless EC2 domain-join
-<a name="ms_ad_tutorial_directory_sharing"></a>
 
 This tutorial shows you how to share your AWS Managed Microsoft AD directory (the directory owner account) with another AWS account (the directory consumer account). Once the networking prerequisites have been completed, you will share a directory between two AWS accounts. Then you will learn how to seamlessly join an EC2 instance to a domain in the directory consumer account.
 

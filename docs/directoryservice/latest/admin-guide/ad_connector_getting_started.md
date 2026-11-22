@@ -1,7 +1,6 @@
 
 
 # Getting started with AD Connector
-<a name="ad_connector_getting_started"></a>
 
 With AD Connector you can connect Directory Service to your existing enterprise Active Directory. When connected to your existing directory, all of your directory data remains on your domain controllers. Directory Service does not replicate any of your directory data.
 
@@ -211,7 +210,7 @@ The IP address of a domain controller in your existing domain. The ports will be
 
 The following is the source code for the **DirectoryServicePortTest** application.
 
-```
+```dotnet
 using System;
 using System.Collections.Generic;
 using System.IO;

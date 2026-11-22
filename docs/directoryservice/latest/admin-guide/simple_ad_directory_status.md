@@ -1,7 +1,6 @@
 
 
 # Understanding your Simple AD directory status
-<a name="simple_ad_directory_status"></a>
 
 The following are the various statuses for a directory.
 

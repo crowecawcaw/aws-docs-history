@@ -1,7 +1,6 @@
 
 
 # Enabling access to AWS applications and services from AD Connector
-<a name="ad_connector_enable_apps_services"></a>
 
 Users can authorize AD Connector to give AWS applications and services, such as Amazon WorkSpaces, access to your Active Directory. The following AWS applications and services can be enabled or disabled to work with AD Connector.
 

@@ -1,7 +1,6 @@
 
 
 # Creating an AWS Managed Microsoft AD user
-<a name="ms_ad_create_user"></a>
 
 Use the following procedure to create a new AWS Managed Microsoft AD user with AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
@@ -80,7 +79,7 @@ The user logon name cannot be changed after the user is created.
 **To create an AWS Managed Microsoft AD user with AWS CLI**
 +  Open the AWS CLI, and run the following command with your Directory ID, username, and display name: 
 
-```
+```bash
 aws ds-data create-user \
   --directory-id {{d-1234567890}} \
   --sam-account-name "{{jane.doe}}" \
@@ -100,7 +99,7 @@ For more information, see [`create-user`](https://docs.aws.amazon.com/cli/latest
 **To create an AWS Managed Microsoft AD user with Tools for PowerShell**
 +  Open PowerShell, and run the following command with your Directory ID, username, and display name: 
 
-```
+```ps
 New-DSDUser `
     -DirectoryId {{d-1234567890}} `
     -SAMAccountName "{{jane.doe}}" `

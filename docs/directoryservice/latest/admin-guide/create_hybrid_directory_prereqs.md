@@ -1,7 +1,6 @@
 
 
 # Hybrid directory prerequisites
-<a name="create_hybrid_directory_prereqs"></a>
 
 Hybrid directory extends your self-managed Active Directory to the AWS Cloud. Before creating a hybrid directory, ensure your environment meets these requirements:
 

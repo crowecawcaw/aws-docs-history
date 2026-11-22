@@ -1,7 +1,6 @@
 
 
 # Enabling server-side LDAPS using AWS Managed Microsoft AD
-<a name="ms_ad_ldap_server_side"></a>
 
 Server-side Lightweight Directory Access Protocol Secure Sockets Layer (SSL)/Transport Layer Security (TLS) (LDAPS) support encrypts LDAP communications between your commercial or homegrown LDAP-aware applications and your AWS Managed Microsoft AD directory. This helps to improve security across the wire and meet compliance requirements using the Secure Sockets Layer (SSL) cryptographic protocol.
 

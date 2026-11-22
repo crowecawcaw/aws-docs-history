@@ -1,7 +1,6 @@
 
 
 # Adding a replicated Region for AWS Managed Microsoft AD
-<a name="multi-region-add-region"></a>
 
 When you add a Region using the [Configure Multi-Region replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md) feature, AWS Managed Microsoft AD creates two domain controllers in the selected AWS Region, Amazon Virtual Private Cloud (VPC), and subnet. AWS Managed Microsoft AD also creates the related security groups that enable Windows workloads to connect to your directory in the new Region. It also creates these resources using the same AWS account where your directory is already deployed. You do this by choosing the Region, specifying the VPC, and providing the configurations for the new Region.
 

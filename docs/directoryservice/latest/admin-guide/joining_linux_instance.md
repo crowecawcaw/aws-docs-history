@@ -1,7 +1,6 @@
 
 
 # Joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory
-<a name="joining_linux_instance"></a>
 
 You can launch and join an EC2 Linux instance to your AWS Managed Microsoft AD in the AWS Management Console. You can also manually join EC2 Linux instance to your AWS Managed Microsoft AD. Tools like Winbind can also be used so you can domain join an EC2 Linux instance to your AWS Managed Microsoft AD.
 

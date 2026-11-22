@@ -1,7 +1,6 @@
 
 
 # Directory assessments for hybrid directories
-<a name="hybrid_directory_assessment"></a>
 
 A directory assessment examines your self-managed Active Directory environment to make sure it meets the requirements for creating a hybrid directory. This assessment verifies network connectivity, domain controller configuration, and required services to help identify and resolve potential issues before establishing a connection between your self-managed AD and Directory Service.
 

@@ -1,7 +1,6 @@
 
 
 # Deleting a replicated Region for AWS Managed Microsoft AD
-<a name="multi-region-delete-region"></a>
 
 Use the following procedure to delete a Region for your AWS Managed Microsoft AD directory. Before you delete a Region, make sure it does not have either of the following:
 + Authorized applications attached to it.

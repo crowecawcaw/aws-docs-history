@@ -1,7 +1,6 @@
 
 
 # Step 1: Set up your networking environment
-<a name="step1_setup_networking"></a>
 
 You will need to establish an Amazon VPC peering connection to share your AWS Managed Microsoft AD directory (directory account owner) with another AWS account (directory consumer account). See the following procedures for steps to set up your networking environment for a shared AWS Managed Microsoft AD. 
 

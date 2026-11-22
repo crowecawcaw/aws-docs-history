@@ -1,7 +1,6 @@
 
 
 # What gets created with your AWS Managed Microsoft AD
-<a name="ms_ad_getting_started_what_gets_created"></a>
 
 When you create an Active Directory with AWS Managed Microsoft AD, Directory Service performs the following tasks on your behalf:
 + Automatically creates and associates an elastic network interface (ENI) with each of your domain controllers. Each of these ENIs are essential for connectivity between your VPC and Directory Service domain controllers and should never be deleted. You can identify all network interfaces reserved for use with Directory Service by the description: "AWS created network interface for directory *directory-id*". For more information, see [Elastic Network Interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in the *Amazon EC2 User Guide*. The default DNS Server of the AWS Managed Microsoft AD Active Directory is the VPC DNS server at Classless Inter-Domain Routing (CIDR)\+2. For more information, see [Amazon DNS server](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#AmazonDNS) in *Amazon VPC User Guide*.

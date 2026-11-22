@@ -1,7 +1,6 @@
 
 
 # Enabling access to AWS applications and services for your AWS Managed Microsoft AD
-<a name="ms_ad_enable_apps_services"></a>
 
 Users can authorize AWS Managed Microsoft AD to give AWS applications and services, such as Amazon WorkSpaces, access to your Active Directory. The following AWS applications and services can be enabled or disabled to work with AWS Managed Microsoft AD.
 

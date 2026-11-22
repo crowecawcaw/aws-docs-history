@@ -1,7 +1,6 @@
 
 
 # Logging AWS Directory Service API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail-ads"></a>
 
 The AWS Managed Microsoft AD API is integrated with AWS CloudTrail, a service that captures API calls made by or on behalf of AWS Managed Microsoft AD in your AWS account and delivers the log files to an Amazon S3 bucket that you specify. CloudTrail captures API calls from the AWS Managed Microsoft AD console and from code calls to the AWS Managed Microsoft AD APIs. Using the information collected by CloudTrail, you can determine what request was made to AWS Managed Microsoft AD, the source IP address from which the request was made, who made the request, when it was made, and so on. To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 

@@ -1,7 +1,6 @@
 
 
 # Ways to join an Amazon EC2 instance to your Active Directory
-<a name="ad_connector_join_instance"></a>
 
 AD Connector is a directory gateway with which you can redirect directory requests to your on-premises Microsoft Active Directory without caching any information in the cloud. Here's more information on how you can join an Amazon EC2 to an Active Directory domain:
 + You can seamlessly join an Amazon EC2 instance to your Active Directory domain when the instance is launched. For more information on joining an EC2 Windows instance to an AWS Managed Microsoft AD, see [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](launching_instance.md).

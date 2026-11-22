@@ -1,7 +1,6 @@
 
 
 # Creating a trust relationship between your AWS Managed Microsoft AD and self-managed AD
-<a name="ms_ad_setup_trust"></a>
 
 You can configure one and two-way external and forest trust relationships between your AWS Directory Service for Microsoft Active Directory and self-managed (on-premises) directories, as well as between multiple AWS Managed Microsoft AD directories in the AWS cloud. AWS Managed Microsoft AD supports all three trust relationship directions: Incoming, Outgoing and Two-way (Bi-directional).
 

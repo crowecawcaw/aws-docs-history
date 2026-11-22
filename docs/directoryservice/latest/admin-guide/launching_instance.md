@@ -1,7 +1,6 @@
 
 
 # Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory
-<a name="launching_instance"></a>
 
 You can launch and join an Amazon EC2 Windows instance to an AWS Managed Microsoft AD. Alternatively, you can manually join an existing EC2 Windows instance to an AWS Managed Microsoft AD.
 
@@ -139,7 +138,7 @@ Select the delete the existing SSM document here link to delete the SSM document
 ------
 #### [ Manually join EC2 Windows instance ]
 
-To manually join an existing Amazon EC2 Windows instance to an AWS Managed Microsoft AD Active Directory, the instance must be launched using the parameters as specified in [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](#launching_instance).
+To manually join an existing Amazon EC2 Windows instance to an AWS Managed Microsoft AD Active Directory, the instance must be launched using the parameters as specified in [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](launching_instance.md).
 
 You will need the IP addresses of the AWS Managed Microsoft AD DNS servers. This information can be found under **Directory Services** > **Directories** > the **Directory ID ** link for your directory > **Directory details** and **Networking & Security** sections.
 

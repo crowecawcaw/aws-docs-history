@@ -1,7 +1,6 @@
 
 
 # What gets created with your hybrid directory
-<a name="hybrid_directory_what_gets_created"></a>
 
 When you create an Active Directory with AWS Managed Microsoft AD (Hybrid Edition), Directory Service performs several tasks automatically on your behalf. This topic provides a comprehensive reference of every resource, account, organizational unit, delegated group, and group policy object that AWS creates during directory provisioning.
 
