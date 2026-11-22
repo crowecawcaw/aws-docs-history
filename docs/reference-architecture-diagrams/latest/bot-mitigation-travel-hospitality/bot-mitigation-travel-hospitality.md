@@ -1,7 +1,6 @@
 
 
 # Bot Mitigation for Travel and Hospitality
-<a name="bot-mitigation-travel-hospitality"></a>
 
 Publication date: **October 12, 2020 ([Diagram history](#botmit-history))**
 
