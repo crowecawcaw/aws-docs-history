@@ -1,7 +1,6 @@
 
 
 # Validating your migration to Amazon MQ
-<a name="testing-and-validation"></a>
 
  Learn how to test and validate the availbability of your brokers using the following procedure. 
 

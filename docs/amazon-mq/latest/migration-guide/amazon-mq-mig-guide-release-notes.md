@@ -1,7 +1,6 @@
 
 
 # Amazon MQ Migration Guide document history
-<a name="amazon-mq-mig-guide-release-notes"></a>
 
 The following table lists changes to the *Amazon MQ Amazon MQ Migration Guide*. For Amazon MQ feature releases and improvements, see [Amazon MQ Release Notes](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-release-notes.html).
 

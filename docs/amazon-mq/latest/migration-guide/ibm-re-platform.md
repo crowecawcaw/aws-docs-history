@@ -1,7 +1,6 @@
 
 
 # Re-platforming IBM MQ to Amazon MQ
-<a name="ibm-re-platform"></a>
 
  The following procedure shows how you can migrate an [IBM MQ](ibm-mq-typical-architecture.md) to an equivalent Amazon MQ without impacting *App 1* or *App 2*: 
 
@@ -9,7 +8,7 @@
 
 1. Create a *Network Bridge* between 2 brokers by adding a duplex network connector definition to one of the queues:
 
-   ```
+   ```xml
    <networkConnectors> 
        <networkConnector duplex="true" name="connector_AMQ_ORANGE_to_AMQ_APPLE" uri="masterslave:(ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-1.mq.us-east-2.amazonaws.com:61617,ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-2.mq.us-east-2.amazonaws.com:61617)" userName="amqadmin"/> 
    </networkConnectors>
@@ -31,7 +30,7 @@ Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more in
 
     The output: 
 
-   ```
+   ```bash
    DEFINE QREMOTE('Q1') RQMNAME('QM_APPLE') RNAME('Q1') XMITQ('QM_APPLE') REPLACE 
    DEFINE QLOCAL('Q2') DISTL(NO) MAXDEPTH(5000) REPLACE 
    DEFINE QLOCAL('QM_APPLE') GET(DISABLED) MAXDEPTH(5000) USAGE(XMITQ) REPLACE
@@ -41,7 +40,7 @@ Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more in
 
     `Q1` is a local queue on `QM_APPLE` and `Q2` is a local queue in `QM_ORANGE`. You can configure these resources accordingly in **AMQ\_APPLE** and **AMQ\_ORANGE** by using the following configuration 
 
-   ```
+   ```xml
    <destinations>
        <queue physicalName="localQ1"/>
    </destinations>
@@ -53,7 +52,7 @@ Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more in
 
     The defaultdead letter queue in ActiveMQ is called `ActiveMQ.DLQ`. All un-deliverable messages will get routed to this queue. To streamline this process, you can set up an `individualDeadLetterStrategy` in the destination policy map of the `activemq.xml` configuration file, allowing you to specify a specific dead letter queue prefix for a given queue or topic. You can apply this strategy using a wild-card so that all queues can be set up with their own dead-letter queues, as is shown in the example below: 
 
-   ```
+   ```xml
    <broker> 
        <destinationPolicy>
            <policyMap>
@@ -73,7 +72,7 @@ Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more in
 **Note**  
  **Dead-Letter queue expiration - **By default, ActiveMQ will **never** expire messages sent to a Dead-Letter Queue (DLQ). However, beginning with ActiveMQ 5.12, the `deadLetterStrategy` supports an expiration attribute whose value is given in milliseconds as shown below:   
 
-   ```
+   ```xml
    <broker>    
        <destinationPolicy>
            <policyMap>

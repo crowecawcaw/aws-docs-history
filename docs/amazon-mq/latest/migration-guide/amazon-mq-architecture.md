@@ -1,7 +1,6 @@
 
 
 # Replicating IBM MQ architecture with Amazon MQ
-<a name="amazon-mq-architecture"></a>
 
  Amazon MQ provides a variety of broker configurations, various instance sizes for different workloads, and broker options such as single instance, single instance mesh, active/standby instance or active/standby mesh for high availabilty and message durability. To learn more about supported broker options, see [Amazon MQ Broker Architecture](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-architecture). 
 

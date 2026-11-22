@@ -1,7 +1,6 @@
 
 
 # Re-platforming TIBCO EMS to Amazon MQ
-<a name="tibco-re-platform"></a>
 
  You can use the following procedure to migrate the TIBCO EMS architecture shown [here](tibco-ems-typical-architecture.md) to an equivalent Amazon MQ architecture without impacting *App 1* or *App 2*: 
 
@@ -9,7 +8,7 @@
 
 1. Create a *Network Bridge* between 2 brokers by adding a duplex network connector definition to one of the queues:
 
-   ```
+   ```xml
    <networkConnectors> 
        <networkConnector duplex="true" name="connector_AMQ_ORANGE_to_AMQ_APPLE" uri="masterslave:(ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-1.mq.us-east-2.amazonaws.com:61617,ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-2.mq.us-east-2.amazonaws.com:61617)" userName="amqadmin"/> 
    </networkConnectors>
@@ -28,7 +27,7 @@ Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more in
 
     When finished, update the Amazon MQ broker **AMQ\_ORANGE** configuration file to add startup destinations as shown here: 
 
-   ```
+   ```xml
    <destinations>
        <queue physicalName="FOO.BAR"/>
        <topic physicalName="SOME.TOPIC"/>
@@ -39,7 +38,7 @@ Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more in
 
 1.  Retrieve the list of TIBCO EMS Bridges from `bridges.conf`. For example, the Bridge from source topic `NOTIFY.FOOBAR` to target queues `FOO ` and `BAR` is shown as: 
 
-   ```
+   ```apache
    [topic:NOTIFY.FOOBAR]
    queue=FOO
    queue=BAR

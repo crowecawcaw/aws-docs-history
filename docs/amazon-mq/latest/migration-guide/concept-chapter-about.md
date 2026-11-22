@@ -1,7 +1,6 @@
 
 
 # What is the Amazon MQ migration guide?
-<a name="concept-chapter-about"></a>
 
 Amazon MQ is a managed message broker service that makes it easy to migrate to a message broker in the cloud. Amazon MQ currently supports [Apache ActiveMQ](https://activemq.apache.org/) and [RabbitMQ](https://www.rabbitmq.com/) engines. Amazon MQ for ActiveMQ simplifies the migration of commercial brokers, such as IBM MQ and TIBCO Enterprise Management Service (EMS), to the cloud. Amazon MQ for ActiveMQ brokers are compatible with popular APIs and protocols, such as Java Message Service (JMS), allowing you to migrate applications with minimal code changes. Amazon MQ for RabbitMQ offers cross-region data replication capabilities. 
 

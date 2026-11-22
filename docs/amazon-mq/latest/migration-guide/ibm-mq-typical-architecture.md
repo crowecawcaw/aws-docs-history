@@ -1,7 +1,6 @@
 
 
 # Which IBM MQ architectures are used for migrating to Amazon MQ?
-<a name="ibm-mq-typical-architecture"></a>
 
  You can migrate from IBM MQ to Amazon MQ using IBM MQ high availability topology running on AWS or IBM MQ HA/DR topology running on-premises. 
 
