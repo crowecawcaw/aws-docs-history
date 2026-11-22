@@ -1,7 +1,6 @@
 
 
 # Send Messages Between Distributed Applications
-<a name="send-messages-distributed-applications"></a>
 
 
 |  |  | 
