@@ -1,7 +1,6 @@
 
 
 # Edit a listener rule for your Application Load Balancer
-<a name="edit-rule"></a>
 
 You can edit the action and conditions for a listener rule at any time. Rule updates do not take effect immediately, so requests could be routed using the previous rule configuration for a short time after you update a rule. Any in-flight requests are completed.
 
@@ -67,7 +66,7 @@ aws elbv2 modify-listener \
 **To modify the default action**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource.
 
-```
+```yaml
 Resources:
     myHTTPlistener:
       Type: 'AWS::ElasticLoadBalancingV2::Listener'
@@ -123,7 +122,7 @@ aws elbv2 set-rule-priorities \
 **To update rule priorities**  
 Update the [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenerrule.html) resource.
 
-```
+```yaml
 Resources:
     myListenerRule:
      Type: 'AWS::ElasticLoadBalancingV2::ListenerRule'
@@ -251,7 +250,7 @@ aws elbv2 remove-tags \
 **To add tags to a rule**  
 Update the [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenerrule.html) resource.
 
-```
+```yaml
 Resources:
     myListenerRule:
      Type: 'AWS::ElasticLoadBalancingV2::ListenerRule'

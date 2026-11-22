@@ -1,7 +1,6 @@
 
 
 # Listeners for your Application Load Balancers
-<a name="load-balancer-listeners"></a>
 
 A *listener* is a process that checks for connection requests, using the protocol and port that you configure. Before you start using your Application Load Balancer, you must add at least one listener. If your load balancer has no listeners, it can't receive traffic from clients. The rules that you define for your listeners determine how the load balancer routes requests to the targets that you register, such as EC2 instances.
 

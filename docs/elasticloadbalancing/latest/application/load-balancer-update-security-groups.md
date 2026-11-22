@@ -1,7 +1,6 @@
 
 
 # Security groups for your Application Load Balancer
-<a name="load-balancer-update-security-groups"></a>
 
 The security group for your Application Load Balancer controls the traffic that is allowed to reach and leave the load balancer. You must ensure that your load balancer can communicate with registered targets on both the listener port and the health check port. Whenever you add a listener to your load balancer or update the health check port for a target group used by the load balancer to route requests, you must verify that the security groups associated with the load balancer allow traffic on the new port in both directions. If they don't, you can edit the rules for the currently associated security groups or associate different security groups with the load balancer. You can choose the ports and protocols to allow. For example, you can open Internet Control Message Protocol (ICMP) connections for the load balancer to respond to ping requests (however, ping requests are not forwarded to any instances).
 
@@ -100,7 +99,7 @@ aws elbv2 set-security-groups \
 **To update security groups**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

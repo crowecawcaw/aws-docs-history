@@ -1,7 +1,6 @@
 
 
 # View the Application Load Balancer resource map
-<a name="view-resource-map"></a>
 
 The Application Load Balancer resource map provides an interactive display of your load balancer's architecture, including its associated listeners, rules, target groups, and targets. The resource map also highlights the relationships and routing paths between all resources, producing a visual representation of your load balancer's configuration.
 

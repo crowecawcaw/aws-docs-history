@@ -1,7 +1,6 @@
 
 
 # Create an HTTPS listener for your Application Load Balancer
-<a name="create-https-listener"></a>
 
 A listener checks for connection requests. You define a listener when you create your load balancer, and you can add listeners to your load balancer at any time.
 
@@ -91,7 +90,7 @@ aws elbv2 create-listener \
 **To create an HTTPS listener**  
 Define a resource of type [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html). The following example creates an HTTPS listener with a default rule that forwards traffic to the specified target group.
 
-```
+```yaml
 Resources:
   myHTTPSListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'

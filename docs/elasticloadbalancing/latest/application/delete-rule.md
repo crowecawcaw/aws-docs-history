@@ -1,7 +1,6 @@
 
 
 # Delete a listener rule for your Application Load Balancer
-<a name="delete-rule"></a>
 
 You can delete the nondefault rules for a listener at any time. You can't delete the default rule for a listener. When you delete a listener, all its rules are deleted.
 

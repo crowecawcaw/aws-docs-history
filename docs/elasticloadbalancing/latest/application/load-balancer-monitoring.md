@@ -1,7 +1,6 @@
 
 
 # Monitor your Application Load Balancers
-<a name="load-balancer-monitoring"></a>
 
 You can use the following features to monitor your load balancers, analyze traffic patterns, and troubleshoot issues with your load balancers and targets.
 

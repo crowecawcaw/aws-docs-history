@@ -1,7 +1,6 @@
 
 
 # Create an Application Load Balancer
-<a name="create-application-load-balancer"></a>
 
 An Application Load Balancer takes requests from clients and distributes them across targets in a target group, such as EC2 instances. For more information, see [How Elastic Load Balancing works.](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html) in the *Elastic Load Balancing User Guide*.
 
@@ -97,7 +96,7 @@ As part of creating an Application Load Balancer, you'll create the load balance
 
 1. **Summary**
 
-   Review your configuration, and choose **Create load balancer**. A few default attributes are applied to your Network Load Balancer during creation. You can view and edit them after creating the Network Load Balancer. For more information, see [Load balancer attributes](application-load-balancers.md#load-balancer-attributes).
+   Review your configuration, and choose **Create load balancer**. A few default attributes are applied to your Application Load Balancer during creation. You can view and edit them after creating the Application Load Balancer. For more information, see [Load balancer attributes](application-load-balancers.md#load-balancer-attributes).
 
 ------
 #### [ AWS CLI ]
@@ -148,7 +147,7 @@ Use the [create-listener](https://docs.aws.amazon.com/cli/latest/reference/elbv2
 **To create an Application Load Balancer**  
 Define a resource of type [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html).
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

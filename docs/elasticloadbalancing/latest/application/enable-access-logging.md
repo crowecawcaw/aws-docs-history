@@ -1,7 +1,6 @@
 
 
 # Enable access logs for your Application Load Balancer
-<a name="enable-access-logging"></a>
 
 When you enable access logs for your load balancer, you must specify the name of the S3 bucket where the load balancer will store the logs. The bucket must have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.
 
@@ -51,7 +50,7 @@ This policy grants permissions to the log delivery service.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -133,7 +132,7 @@ Previously, for Regions available before August 2022, we required a policy that 
 
 The following policy grants permissions to the specified log delivery service. Use this policy for load balancers in Outposts Zones.
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {
@@ -171,12 +170,12 @@ arn:aws:s3:::amzn-s3-demo-logging-bucket/AWSLogs/123456789012/*
 <a name="bucket-policy-security-best-practices"></a>
 + Use the full resource path, including the account ID portion of the S3 bucket ARN. Don't use wildcards (\*) in the account ID portion of the S3 bucket ARN.
 
-  ```
+  ```json
   "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/{{prefix}}/AWSLogs/{{123456789012}}/*"
   ```
 + Use `aws:SourceArn` to ensure that only load balancers from the specified Region and account can use your bucket.
 
-  ```
+  ```json
   "Condition": {
       "ArnLike": {
           "aws:SourceArn": "arn:aws:elasticloadbalancing:{{region}}:{{123456789012}}:loadbalancer/*"
@@ -185,7 +184,7 @@ arn:aws:s3:::amzn-s3-demo-logging-bucket/AWSLogs/123456789012/*
   ```
 + Use `aws:SourceOrgId` with `aws:SourceArn` to ensure that only load balancers from the specified organization can use your bucket.
 
-  ```
+  ```json
   "Condition": {
       "StringEquals": {
           "aws:SourceOrgId": "{{o-1234567890}}"
@@ -197,7 +196,7 @@ arn:aws:s3:::amzn-s3-demo-logging-bucket/AWSLogs/123456789012/*
   ```
 + If you have a `Deny` statement to prevent access to service principals except those explicitly allowed, be sure to add `logdelivery.elasticloadbalancing.amazonaws.com` to the list of allowed service principals. For example, if you used the `aws:PrincipalServiceNamesList` condition, add `logdelivery.elasticloadbalancing.amazonaws.com` as follows:
 
-  ```
+  ```json
   {
     "Effect": "Deny",
     "Principal": "*",
@@ -214,7 +213,7 @@ arn:aws:s3:::amzn-s3-demo-logging-bucket/AWSLogs/123456789012/*
 
   If you used the `NotPrincipal` element, add `logdelivery.elasticloadbalancing.amazonaws.com` as follows. Note that we recommend that you use the `aws:PrincipalServiceName` or `aws:PrincipalServiceNamesList` condition key to explicitly allow service principals instead of using the `NotPrincipal` element. For more information, see [NotPrincipal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html).
 
-  ```
+  ```json
   {
     "Effect": "Deny",
     "NotPrincipal": {
@@ -310,7 +309,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To enable access logs**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the related attributes.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

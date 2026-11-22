@@ -1,7 +1,6 @@
 
 
 # Health check logs
-<a name="load-balancer-health-check-logs"></a>
 
 Elastic Load Balancing provides health check logs that capture detailed information about the health check status of your registered targets, including failure reasons when health checks fail. Health check logs are supported for EC2 instances, IP address, and Lambda function targets. Each log entry contains information such as the health check request type or connection, timestamp, target address, target group ID, health status and reason code. You can use these health check logs to analyze target health patterns, monitor health transitions, and troubleshoot issues.
 

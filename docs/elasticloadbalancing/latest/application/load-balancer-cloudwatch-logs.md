@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs for your Application Load Balancer
-<a name="load-balancer-cloudwatch-logs"></a>
 
 Amazon CloudWatch Logs support Application Load Balancer logs as vended logs, improving observability and simplifying debugging for network traffic patterns. You can analyze Application Load Balancer logs directly in CloudWatch to gain insights into client connections, traffic distribution, connection status, and target health, helping you identify and troubleshoot network and target issues faster.
 

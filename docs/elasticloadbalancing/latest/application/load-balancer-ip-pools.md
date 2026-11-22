@@ -1,7 +1,6 @@
 
 
 # Update the IPAM IP address pools for your Application Load Balancer
-<a name="load-balancer-ip-pools"></a>
 
 IPAM IP address pools must first be created within IPAM before they can be used by your Application Load Balancer. For more information, see [Bring your IP addresses to IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html).
 
@@ -40,7 +39,7 @@ aws elbv2 modify-ip-pools \
 **To update the IPAM IP address pool**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

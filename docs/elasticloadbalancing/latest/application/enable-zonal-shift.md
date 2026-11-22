@@ -1,7 +1,6 @@
 
 
 # Enable zonal shift for your Application Load Balancer
-<a name="enable-zonal-shift"></a>
 
 Zonal shift is disabled by default and must be enabled on each Application Load Balancer. This ensures that you can start a zonal shift using only the specific Application Load Balancers that you want. For more information, see [Zonal shift for your Application Load Balancer](zonal-shift.md).
 
@@ -40,7 +39,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To enable zonal shift**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `zonal_shift.config.enabled` attribute.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
@@ -55,8 +54,8 @@ Resources:
       SecurityGroups: 
         - !Ref mySecurityGroup
       LoadBalancerAttributes:
-        -Key: "zonal_shift.config.enabled"
-         Value: "{{true}}"
+        - Key: "zonal_shift.config.enabled"
+          Value: "{{true}}"
 ```
 
 ------

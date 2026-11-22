@@ -1,7 +1,6 @@
 
 
 # Check the health of your Application Load Balancer targets
-<a name="check-target-health"></a>
 
 You can check the health status of the targets registered with your target groups. For help with health check failures, see [Troubleshooting: A registered target is not in service](load-balancer-troubleshooting.md#target-not-inservice).
 

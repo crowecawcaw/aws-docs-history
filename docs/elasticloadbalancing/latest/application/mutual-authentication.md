@@ -1,7 +1,6 @@
 
 
 # Mutual authentication with TLS in Application Load Balancer
-<a name="mutual-authentication"></a>
 
 Mutual TLS authentication is a variation of transport layer security (TLS). Traditional TLS establishes secure communications between a server and client, where the server needs to provide its identity to its clients. With mutual TLS, a load balancer negotiates mutual authentication between the client and the server while negotiating TLS. When you use mutual TLS with your Application Load Balancer, you simplify authentication management and reduce the load on your applications.
 

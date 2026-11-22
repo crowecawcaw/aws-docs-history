@@ -1,7 +1,6 @@
 
 
 # Register targets with your Application Load Balancer target group
-<a name="target-group-register-targets"></a>
 
 You register your targets with a target group. When you create a target group, you specify its target type, which determines how you register its targets. For example, you can register instance IDs, IP addresses, or Lambda functions. For more information, see [Target groups for your Application Load Balancers](load-balancer-target-groups.md).
 
@@ -157,7 +156,7 @@ aws elbv2 register-targets \
 **To register targets**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the new targets. The following example registers two targets by instance ID.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'

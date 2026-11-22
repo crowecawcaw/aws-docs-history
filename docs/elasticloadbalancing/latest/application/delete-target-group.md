@@ -1,7 +1,6 @@
 
 
 # Delete an Application Load Balancer target group
-<a name="delete-target-group"></a>
 
 You can delete a target group if it is not referenced by the forward actions of any listener rules. Deleting a target group does not affect the targets registered with the target group. If you no longer need a registered EC2 instance, you can stop or terminate it.
 

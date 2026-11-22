@@ -1,7 +1,6 @@
 
 
 # Connection logs for your Application Load Balancer
-<a name="load-balancer-connection-logs"></a>
 
 Elastic Load Balancing provides connection logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the client's IP address and port, listener port, the TLS cipher and protocol used, TLS handshake latency, connection status, and client certificate details. You can use these connection logs to analyze request patterns and troubleshoot issues.
 

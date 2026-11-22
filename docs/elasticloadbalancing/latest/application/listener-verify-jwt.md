@@ -1,7 +1,6 @@
 
 
 # Verify JWTs using an Application Load Balancer
-<a name="listener-verify-jwt"></a>
 
 You can configure an Application Load Balancer (ALB) to verify JSON Web Tokens (JWT) provided by clients for secure service-to-service (S2S) or machine-to-machine (M2M) communications. The load balancer can verify a JWT no matter how it was issued and without human interaction. 
 
@@ -103,7 +102,7 @@ aws elbv2 create-rule \
 
 The following is an example of the `actions.json` file that specifies a `jwt-validation` action and a `forward` action. Please follow documentation provided by your identity provider to determine the fields that are supported 
 
-```
+```json
 --actions '[
     {
         "Type":"jwt-validation",
@@ -123,7 +122,7 @@ The following is an example of the `actions.json` file that specifies a `jwt-val
 
 The following example specifies an additional claim to validate.
 
-```
+```json
 --actions '[
     {
         "Type":"jwt-validation",

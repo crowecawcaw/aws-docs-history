@@ -1,7 +1,6 @@
 
 
 # Health checks for Application Load Balancer target groups
-<a name="target-group-health-checks"></a>
 
 Your Application Load Balancer periodically sends requests to its registered targets to test their status. These tests are called *health checks*.
 

@@ -1,7 +1,6 @@
 
 
 # Target groups for your Application Load Balancers
-<a name="load-balancer-target-groups"></a>
 
 Target groups route requests to individual registered targets, such as EC2 instances, using the protocol and port number that you specify. You can register a target with multiple target groups. You can configure health checks on a per target group basis. Health checks are performed on all targets registered to a target group that is specified in a listener rule for your load balancer.
 

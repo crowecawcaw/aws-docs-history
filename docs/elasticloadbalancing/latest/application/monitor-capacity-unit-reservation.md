@@ -1,7 +1,6 @@
 
 
 # Monitor Load Balancer Capacity Unit reservation for your Application Load Balancer
-<a name="monitor-capacity-unit-reservation"></a>
 
 **Reservation status**
 

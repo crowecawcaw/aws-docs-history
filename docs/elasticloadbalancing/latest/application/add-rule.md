@@ -1,7 +1,6 @@
 
 
 # Add a listener rule for your Application Load Balancer
-<a name="add-rule"></a>
 
 You define a default rule when you create a listener. You can define additional rules at any time. Each rule must specify an action and a condition, and can optionally specify transforms. For more information, see the following:
 + [Action types](rule-action-types.md)
@@ -132,7 +131,7 @@ Define a resource of type [AWS::ElasticLoadBalancingV2::ListenerRule](https://do
 
 The following example creates a rule with a `forward` action and a `host-header` condition. The rule sends traffic to the specified target group when the condition is met.
 
-```
+```yaml
 Resources:
     myForwardListenerRule:
      Type: 'AWS::ElasticLoadBalancingV2::ListenerRule'
@@ -151,7 +150,7 @@ Resources:
 
 Alternatively, to create a forward action that distributes traffic between two target groups when the condition is met, define `Actions` as follows.
 
-```
+```yaml
        Actions:
          - Type: forward
            ForwardConfig:
@@ -164,7 +163,7 @@ Alternatively, to create a forward action that distributes traffic between two t
 
 The following example creates a rule with a `fixed-response` action and a `source-ip` condition.
 
-```
+```yaml
 Resources:
     myFixedResponseListenerRule:
      Type: 'AWS::ElasticLoadBalancingV2::ListenerRule'
@@ -187,7 +186,7 @@ Resources:
 
 The following example creates a rule with a `redirect` action and an `http-header` condition.
 
-```
+```yaml
 Resources:
     myRedirectListenerRule:
      Type: 'AWS::ElasticLoadBalancingV2::ListenerRule'

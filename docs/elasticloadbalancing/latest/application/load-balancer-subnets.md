@@ -1,7 +1,6 @@
 
 
 # Update the Availability Zones for your Application Load Balancer
-<a name="load-balancer-subnets"></a>
 
 You can enable or disable the Availability Zones for your load balancer at any time. After you enable an Availability Zone, the load balancer starts routing requests to the registered targets in that Availability Zone. Application Load Balancers have cross-zone load balancing on by default, resulting in requests being routed to all registered targets across all Availability Zones. When cross-zone load balancing is off, the load balancer only routes request to targets in the same Availability Zone. For more information, see [Cross-zone load balancing](application-load-balancers.md#cross-zone-load-balancing). Your load balancer is most effective if you ensure that each enabled Availability Zone has at least one registered target.
 
@@ -48,7 +47,7 @@ aws elbv2 set-subnets \
 **To update Availability Zones**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

@@ -1,7 +1,6 @@
 
 
 # Share your Elastic Load Balancing trust store for Application Load Balancers
-<a name="trust-store-sharing"></a>
 
 Elastic Load Balancing integrates with AWS Resource Access Manager (AWS RAM) to enable trust store sharing. AWS RAM is a service that enables you to securely share your Elastic Load Balancing trust store resources across AWS accounts and within your organization or organizational units (OUs). If you have multiple accounts, you can create a trust store once and use AWS RAM to make it usable by other accounts. If your account is managed by AWS Organizations, you can share trust stores with all the accounts in the organization or only accounts within specified organizational units (OUs).
 
@@ -106,7 +105,7 @@ You can share a trust store that you own using the Amazon EC2 console, AWS RAM c
 1. Select **Share trust store**.
 
 **To share a trust store that you own using the AWS RAM console**  
-See [Creating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-create) in the *AWS RAM User Guide*.
+See [Creating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-create.html) in the *AWS RAM User Guide*.
 
 **To share a trust store that you own using the AWS CLI**  
 Use the [create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command.
@@ -134,7 +133,7 @@ You can stop sharing a trust store using the Amazon EC2 console, AWS RAM console
 1. Choose **Remove**.
 
 **To stop sharing a trust store that you own using the AWS RAM console**  
-See [Updating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-update) in the *AWS RAM User Guide*.
+See [Updating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-update.html) in the *AWS RAM User Guide*.
 
 **To stop sharing a trust store that you own using the AWS CLI**  
 Use the [disassociate-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/disassociate-resource-share.html) command.

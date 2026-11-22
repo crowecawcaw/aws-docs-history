@@ -1,7 +1,6 @@
 
 
 # Update a zonal shift for your Application Load Balancer
-<a name="update-zonal-shift"></a>
 
 You can update a zonal shift to set a new expiration, or edit or replace the comment for the zonal shift.
 

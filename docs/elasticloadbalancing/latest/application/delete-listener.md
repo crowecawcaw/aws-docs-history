@@ -1,7 +1,6 @@
 
 
 # Delete a listener for your Application Load Balancer
-<a name="delete-listener"></a>
 
 Before you delete a listener, consider the impact on your application:
 + The load balancer immediately stops accepting new connections on the listener port.

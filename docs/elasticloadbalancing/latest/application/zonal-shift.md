@@ -1,7 +1,6 @@
 
 
 # Zonal shift for your Application Load Balancer
-<a name="zonal-shift"></a>
 
 Zonal shift and zonal autoshift are features of Amazon Application Recovery Controller (ARC). With zonal shift, you can shift traffic away from an impaired Availability Zone with a single action. This way, you can continue operating from other healthy Availability Zones in an AWS Region.
 

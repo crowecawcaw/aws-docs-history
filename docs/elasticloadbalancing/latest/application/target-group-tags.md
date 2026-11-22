@@ -1,7 +1,6 @@
 
 
 # Tags for your Application Load Balancer target group
-<a name="target-group-tags"></a>
 
 Tags help you to categorize your target groups in different ways, for example, by purpose, owner, or environment.
 
@@ -64,7 +63,7 @@ aws elbv2 remove-tags \
 **To add tags**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `Tags` property.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'

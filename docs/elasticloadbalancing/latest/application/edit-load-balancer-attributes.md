@@ -1,7 +1,6 @@
 
 
 # Edit attributes for your Application Load Balancer
-<a name="edit-load-balancer-attributes"></a>
 
 After you create an Application Load Balancer, you can edit its attributes.
 
@@ -58,7 +57,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To update the connection idle timeout value**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `idle_timeout.timeout_seconds` attribute. The valid range is 1 to 4000 seconds.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
@@ -131,7 +130,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To update the client keepalive duration**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `client_keep_alive.seconds` attribute. The valid range is 60 to 604800 seconds.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
@@ -193,7 +192,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To enable or disable deletion protection**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `deletion_protection.enabled` attribute.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
@@ -280,7 +279,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To update desync mitigation mode**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `routing.http.desync_mitigation_mode` attribute. The possible values are `monitor`, `defensive`, or `strictest`. The default is `defensive`.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
@@ -357,7 +356,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To enable host header preservation**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `routing.http.preserve_host_header.enabled` attribute.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

@@ -1,7 +1,6 @@
 
 
 # Update an HTTPS listener for your Application Load Balancer
-<a name="listener-update-certificates"></a>
 
 After you create an HTTPS listener, you can replace the default certificate, update the certificate list, or replace the security policy.
 
@@ -56,7 +55,7 @@ aws elbv2 modify-listener \
 **To replace the default certificate**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html).
 
-```
+```yaml
 Resources:
   myHTTPSListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'
@@ -127,7 +126,7 @@ aws elbv2 add-listener-certificates \
 **To add certificates to the certificate list**  
 Define a resource of type [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenercertificate.html).
 
-```
+```yaml
 Resources: 
   myCertificateList:
     Type: 'AWS::ElasticLoadBalancingV2::ListenerCertificate'
@@ -230,7 +229,7 @@ aws elbv2 modify-listener \
 **To update the security policy**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource with the new security policy.
 
-```
+```yaml
 Resources:
   myHTTPSListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'

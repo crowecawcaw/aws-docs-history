@@ -1,7 +1,6 @@
 
 
 # Authenticate users using an Application Load Balancer
-<a name="listener-authenticate-users"></a>
 
 You can configure an Application Load Balancer to securely authenticate users as they access your applications. This enables you to offload the work of authenticating users to your load balancer so that your applications can focus on their business logic.
 
@@ -104,7 +103,7 @@ Set the `OnUnauthenticatedRequest` field as appropriate for your application. Fo
 + **Applications that provide a personalized view to a user that is logged in or a general view to a user that is not logged in**—To support this type of application, use the `allow` option. If the user is logged in, the load balancer provides the user claims and the application can provide a personalized view. If the user is not logged in, the load balancer forwards the request without the user claims and the application can provide the general view.
 + **Single-page applications with JavaScript that loads every few seconds**—If you use the `deny` option, the load balancer returns an HTTP 401 Unauthorized error to AJAX calls that have no authentication information. But if the user has expired authentication information, it redirects the client to the IdP authorization endpoint. 
 
-The load balancer must be able to communicate with the IdP token endpoint (`TokenEndpoint`) and the IdP user info endpoint (`UserInfoEndpoint`). Application Load Balancers only support IPv4 when communicating with these endpoints. If your IdP uses public addresses, ensure the security groups for your load balancer and the network ACLs for your VPC allow access to the endpoints. When using an internal load balancer or the **IP address type** `dualstack-without-public-ipv4`, a NAT gateway can enable the load balancer to communicate with the endpoints. For more information, see [NAT gateway basics](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-basics) in the *Amazon VPC User Guide*.
+The load balancer must be able to communicate with the IdP token endpoint (`TokenEndpoint`) and the IdP user info endpoint (`UserInfoEndpoint`). Application Load Balancers only support IPv4 when communicating with these endpoints. If your IdP uses public addresses, ensure the security groups for your load balancer and the network ACLs for your VPC allow access to the endpoints. When using an internal load balancer or the **IP address type** `dualstack-without-public-ipv4`, a NAT gateway can enable the load balancer to communicate with the endpoints. For more information, see [NAT gateway basics](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html) in the *Amazon VPC User Guide*.
 
 Use the following [create-rule](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-rule.html) command to configure user authentication.
 
@@ -118,7 +117,7 @@ aws elbv2 create-rule \
 
 The following is an example of the `actions.json` file that specifies an `authenticate-oidc` action and a `forward` action. `AuthenticationRequestExtraParams` allows you to pass extra parameters to an IdP during authentication. Please follow documentation provided by your identity provider to determine the fields that are supported 
 
-```
+```json
 [{
     "Type": "authenticate-oidc",
     "AuthenticateOidcConfig": {
@@ -148,7 +147,7 @@ The following is an example of the `actions.json` file that specifies an `authen
 
 The following is an example of the `actions.json` file that specifies an `authenticate-cognito` action and a `forward` action.
 
-```
+```json
 [{
     "Type": "authenticate-cognito",
     "AuthenticateCognitoConfig": {
@@ -245,7 +244,7 @@ These tokens follow the JWT format but are not ID tokens. The JWT format include
 
 The JWT header is a JSON object with the following fields:
 
-```
+```json
 {
    "alg": "{{algorithm}}",
    "kid": "{{12345678}}-{{1234}}-{{1234}}-{{1234}}-{{123456789012}}",
@@ -258,7 +257,7 @@ The JWT header is a JSON object with the following fields:
 
 The JWT payload is a JSON object that contains the user claims received from the IdP user info endpoint.
 
-```
+```json
 {
    "sub": "{{1234567890}}",
    "name": "{{name}}",

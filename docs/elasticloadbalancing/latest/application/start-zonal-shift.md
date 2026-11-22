@@ -1,12 +1,11 @@
 
 
 # Start a zonal shift for your Application Load Balancer
-<a name="start-zonal-shift"></a>
 
 Zonal shift in ARC enables you to temporarily move traffic for supported resources away from an Availability Zone so that your application can continue to operate normally with other Availability Zones in an AWS Region.
 
 **Prerequisite**  
-Before you begin, verify that you [enabled zonal shift](enable-zonal-shift.md#enable-zonal-shift.title) for the load balancer.
+Before you begin, verify that you [enabled zonal shift](enable-zonal-shift.md) for the load balancer.
 
 ------
 #### [ Console ]

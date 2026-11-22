@@ -1,7 +1,6 @@
 
 
 # HTTP headers and Application Load Balancers
-<a name="x-forwarded-headers"></a>
 
 HTTP requests and HTTP responses use header fields to send information about the HTTP messages. HTTP headers are added automatically. Header fields are colon-separated name-value pairs that are separated by a carriage return (CR) and a line feed (LF). A standard set of HTTP header fields is defined in RFC 2616, [Message Headers](https://datatracker.ietf.org/doc/html/rfc2616). There are also non-standard HTTP headers available that are automatically added and widely used by the applications. Some of the non-standard HTTP headers have an `X-Forwarded` prefix. Application Load Balancers support the following `X-Forwarded` headers.
 
@@ -128,7 +127,7 @@ aws elbv2 modify-load-balancer-attributes \
 **To manage the X-Forwarded-For header**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `routing.http.xff_header_processing.mode` attribute. The possible values are `append`, `preserve`, and `remove`. The default is `append`.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer

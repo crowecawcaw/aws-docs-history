@@ -1,7 +1,6 @@
 
 
 # Enable HTTP header modification for your Application Load Balancer
-<a name="enable-header-modification"></a>
 
 Header modification is turned off by default and must be enabled on each listener. For more information, see [HTTP header modification](header-modification.md).
 
@@ -58,7 +57,7 @@ aws elbv2 modify-listener-attributes \
 **To enable header modification**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource to include the attributes. For the list of attributes, see [Header modification attributes](#header-modification-attributes).
 
-```
+```yaml
 Resources:
   myHTTPlistener:
   Type: 'AWS::ElasticLoadBalancingV2::Listener'

@@ -1,7 +1,6 @@
 
 
 # Create a target group for your Application Load Balancer
-<a name="create-target-group"></a>
 
 You register your targets with a target group. By default, the load balancer sends requests to registered targets using the port and protocol that you specified for the target group. You can override this port when you register each target with the target group.
 
@@ -94,7 +93,7 @@ Use the [register-targets](https://docs.aws.amazon.com/cli/latest/reference/elbv
 **To create a target group**  
 Define a resource of type [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html). The following example creates a target group with the HTTP protocol, targets registered by IP address, one tag, default health check settings, and two registered targets.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'

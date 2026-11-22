@@ -1,7 +1,6 @@
 
 
 # Cancel a zonal shift for your Application Load Balancer
-<a name="cancel-zonal-shift"></a>
 
 You can cancel a zonal shift any time before it expires. You can cancel zonal shifts that you initiate, or zonal shifts that AWS starts for a resource for a practice run for zonal autoshift.
 

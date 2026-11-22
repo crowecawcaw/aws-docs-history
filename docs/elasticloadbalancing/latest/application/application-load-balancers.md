@@ -1,7 +1,6 @@
 
 
 # Application Load Balancers
-<a name="application-load-balancers"></a>
 
 A *load balancer* serves as the single point of contact for clients. Clients send requests to the load balancer, and the load balancer sends them to targets, such as EC2 instances. To configure your load balancer, you create [target groups](load-balancer-target-groups.md), and then register targets with your target groups. You also create [listeners](load-balancer-listeners.md) to check for connection requests from clients, and listener rules to route requests from clients to the targets in one or more target groups.
 
@@ -195,6 +194,10 @@ Indicates whether the Application Load Balancer should preserve the `Host` heade
 `routing.http.x_amzn_tls_version_and_cipher_suite.enabled`  
 Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. The `x-amzn-tls-version` header has information about the TLS protocol version negotiated with the client, and the `x-amzn-tls-cipher-suite` header has information about the cipher suite negotiated with the client. Both headers are in OpenSSL format. The possible values for the attribute are `true` and `false`. The default is `false`.
 
+`routing.http.x_amzn_tls_kx.enabled`  
+Indicates whether the `x-amzn-tls-kx` header, which contains information about the negotiated key exchange group, is added to the client request before sending it to the target. The `x-amzn-tls-kx` header uses the IANA TLS Supported Groups registry naming. The possible values for the attribute are `true` and `false`. The default is `false`.  
+This attribute is independent of the `routing.http.x_amzn_tls_version_and_cipher_suite.enabled` attribute, so you can enable either or both.
+
 `routing.http.xff_client_port.enabled`  
 Indicates whether the `X-Forwarded-For` header should preserve the source port that the client used to connect to the load balancer. The possible values are `true` and `false`. The default is `false`.
 
@@ -240,7 +243,7 @@ For more information, see [Update the IP address types for your Application Load
 ## Application Load Balancer IP Address Management
 <a name="w2aab7c21"></a>
 
- Application Load Balancers use Public Elastic IPv4 addresses from [EC2's public IPv4 address pool. ](https://docs.aws.amazon.com/awsec2/latest/userguide/using-instance-addresing.html) These IP addresses are visible in your AWS account when using the [describe-addresses ](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-addresses.html) CLI, API or viewing the Elastic IPs (EIP) section in the AWS Console. Each ALB-associated IP address is marked with a service\_managed attribute set to "ALB". 
+ Application Load Balancers use Public Elastic IPv4 addresses from [EC2's public IPv4 address pool. ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html) These IP addresses are visible in your AWS account when using the [describe-addresses ](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-addresses.html) CLI, API or viewing the Elastic IPs (EIP) section in the AWS Console. Each ALB-associated IP address is marked with a service\_managed attribute set to "ALB". 
 
 While these IPs are visible in your account, they remain fully managed by the Application Load Balancer service and cannot be modified or released. Application Load Balancer releases IPs back into the public IPv4 address pool when no longer in use. 
 

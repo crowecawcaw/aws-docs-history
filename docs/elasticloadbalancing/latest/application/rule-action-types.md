@@ -1,7 +1,6 @@
 
 
 # Action types for listener rules
-<a name="rule-action-types"></a>
 
 Actions determine how a load balancer handles requests when the conditions for a listener rule are satisfied. Each rule must have at least one action that specifies how to handle the matching requests. Each rule action has a type and configuration information. Application Load Balancers support the following action types for listener rules.Action types
 
@@ -39,7 +38,7 @@ When a `fixed-response` action is taken, the action and the URL of the redirect 
 **Example fixed response action**  
 You can specify an action when you create or modify a rule. For more information, see the [create-rule](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-rule.html) and [modify-rule](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-rule.html) commands. The following action sends a fixed response with the specified status code and message body.  
 
-```
+```json
 [
   {
       "Type": "fixed-response",
@@ -76,7 +75,7 @@ With CORS (cross-origin resource sharing) requests, some browsers require `SameS
 
 You can specify an action when you create or modify a rule. For more information, see the [create-rule](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-rule.html) and [modify-rule](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-rule.html) commands. The following action forwards requests to the specified target group.
 
-```
+```json
 [
   {
       "Type": "forward",
@@ -96,7 +95,7 @@ You can specify an action when you create or modify a rule. For more information
 
 The following action forwards requests to the two specified target groups, based on the weight of each target group.
 
-```
+```json
 [
   {
       "Type": "forward",
@@ -123,7 +122,7 @@ If you have a forward action with multiple target groups and one or more of the 
 
 The following action forwards requests to the two specified target groups, with target group stickiness enabled. Requests that do not contain the stickiness cookies are routed based on the weight of each target group.
 
-```
+```json
 [
   {
       "Type": "forward",
@@ -205,7 +204,7 @@ The following rule sets up a permanent redirect to a URL that retains the origin
 **Redirect using HTTPS and port 40443**  
 You can specify an action when you create or modify a rule. For more information, see the [create-rule](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-rule.html) and [modify-rule](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-rule.html) commands. The following action redirects an HTTP request to an HTTPS request on port 443, with the same host name, path, and query string as the HTTP request.
 
-```
+```json
   --actions '[{
       "Type": "redirect",
       "RedirectConfig": {

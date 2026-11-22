@@ -1,7 +1,6 @@
 
 
 # Listener rules for your Application Load Balancer
-<a name="listener-rules"></a>
 
 The listener rules for your Application Load Balancer determine how it routes requests to targets. When a listener receives a request, it evaluates the request against each rule in priority order, starting with the lowest numbered rule. Each rule includes conditions to be met and the actions to perform when the conditions for the rule are met. This flexible routing mechanism allows you to implement sophisticated traffic distribution patterns, support multiple applications or microservices behind a single load balancer, and customize request handling based on your application's specific requirements.
 

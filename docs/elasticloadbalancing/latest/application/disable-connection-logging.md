@@ -1,7 +1,6 @@
 
 
 # Disable connection logs for your Application Load Balancer
-<a name="disable-connection-logging"></a>
 
 You can disable connection logs for your load balancer at any time. After you disable connection logs, your connection logs remain in your S3 bucket until you delete them. For more information, see [Creating, configuring, and working with buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the *Amazon S3 User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Request tracing for your Application Load Balancer
-<a name="load-balancer-request-tracing"></a>
 
 When the load balancer receives a request from a client, it adds or updates the **X-Amzn-Trace-Id** header before sending the request to the target. Any services or applications between the load balancer and the target can also add or update this header.
 
