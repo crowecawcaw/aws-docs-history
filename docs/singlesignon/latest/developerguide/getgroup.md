@@ -1,7 +1,6 @@
 
 
 # GetGroup
-<a name="getgroup"></a>
 
 Information about an existing group can be retrieved by making a request to the `/Groups` endpoint with the group ID.
 

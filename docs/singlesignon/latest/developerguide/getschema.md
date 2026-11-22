@@ -1,7 +1,6 @@
 
 
 # GetSchema
-<a name="getschema"></a>
 
 Information about supported SCIM schemas can be retrieved by making a request to the `/Schemas` endpoint. See the Examples section.
 

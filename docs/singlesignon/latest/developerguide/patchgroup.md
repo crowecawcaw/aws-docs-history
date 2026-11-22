@@ -1,7 +1,6 @@
 
 
 # PatchGroup
-<a name="patchgroup"></a>
 
 Existing groups can be updated by calling upon the PATCH operation to replace specific attribute values. For more information, see the **Examples** section.
 

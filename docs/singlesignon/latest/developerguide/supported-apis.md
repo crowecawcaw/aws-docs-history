@@ -1,7 +1,6 @@
 
 
 # Supported API operations
-<a name="supported-apis"></a>
 
 The following API operations are supported by the IAM Identity Center SCIM implementation:
 

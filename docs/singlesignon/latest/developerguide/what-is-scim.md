@@ -1,7 +1,6 @@
 
 
 # What is the IAM Identity Center SCIM implementation?
-<a name="what-is-scim"></a>
 
 This reference guide helps software developers build custom integrations to provision (synchronize) users and groups into AWS IAM Identity Center using the System for Cross-domain Identity Management (SCIM) v2.0 protocol. This guide will also be useful to IT administrators who need to understand or debug an existing SCIM implementation.
 

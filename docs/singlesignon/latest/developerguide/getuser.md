@@ -1,7 +1,6 @@
 
 
 # GetUser
-<a name="getuser"></a>
 
 Existing users can be retrieved by making a `GET` request to the IAM Identity Center SCIM implementation `/Users` endpoint with a user ID.
 

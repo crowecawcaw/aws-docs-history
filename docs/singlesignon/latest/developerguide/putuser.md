@@ -1,7 +1,6 @@
 
 
 # PutUser
-<a name="putuser"></a>
 
 An existing user can be overwritten by making a `PUT` request to the `/Users` endpoint with the user ID.
 

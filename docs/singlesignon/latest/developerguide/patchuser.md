@@ -1,7 +1,6 @@
 
 
 # PatchUser
-<a name="patchuser"></a>
 
 The `/Users` endpoint allows a `PATCH` request to be made for partial changes to an existing user. In the body of the request, the target attribute and its new value must be specified as shown in the Examples section.
 

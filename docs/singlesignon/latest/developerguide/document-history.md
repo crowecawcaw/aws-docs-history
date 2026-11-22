@@ -1,7 +1,6 @@
 
 
 # Document History
-<a name="document-history"></a>
 
 The following table describes the important changes to the documentation in this release of the *IAM Identity Center SCIM Implementation Developer Guide*.
 + **Latest documentation update: **July 26, 2022

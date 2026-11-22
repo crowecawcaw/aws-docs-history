@@ -1,7 +1,6 @@
 
 
 # CreateUser
-<a name="createuser"></a>
 
 You can create new users from a POST request using the IAM Identity Center SCIM implementation `/Users` endpoint. See the Examples section.
 

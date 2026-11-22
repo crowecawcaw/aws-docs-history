@@ -1,7 +1,6 @@
 
 
 # DeleteGroup
-<a name="deletegroup"></a>
 
 The `DELETE` request is also available for the `/Groups` endpoint to delete existing groups using the value of the `id`.
 

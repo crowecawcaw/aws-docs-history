@@ -1,7 +1,6 @@
 
 
 # ListGroups
-<a name="listgroups"></a>
 
 You can use the `/Groups` endpoint to filter queries on a list of existing groups by making a `GET` request with additional filter information. A maximum of 100 results can be returned per page. See the **Constraints** section for a list of available filters.
 

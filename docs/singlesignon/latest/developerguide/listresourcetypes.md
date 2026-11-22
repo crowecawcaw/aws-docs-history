@@ -1,7 +1,6 @@
 
 
 # ListResourceTypes
-<a name="listresourcetypes"></a>
 
  Information about supported resource types can be retrieved by making a request to the `/ResourceTypes` endpoint.
 
