@@ -1,7 +1,6 @@
 
 
 # AWS Landing Zone and AWS Backup reference architecture
-<a name="data-protection-landing-zone"></a>
 
 This reference architecture aligns to the design tenants of a well-architected, secure, and scalable multi-account AWS implementation with the integration of AWS Backup for data protection. You can use or a similar landing zone framework to standardize your data protection strategy.
 

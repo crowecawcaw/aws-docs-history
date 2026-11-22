@@ -1,7 +1,6 @@
 
 
 # Cross-account and Region data protection with AWS Backup and AWS Organizations
-<a name="data-protection-cross-account"></a>
 
 This reference architecture shows how to implement a consistent backup strategy through multiple AWS accounts and Regions, and copy backups between them through an automated, policy-driven approach.
 

@@ -1,7 +1,6 @@
 
 
 # Cloud-native data protection with AWS Backup
-<a name="data-protection-cloud-native"></a>
 
 This reference architecture describes how [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html) is implemented in a single AWS account to protect multiple services in an automated way.
 

@@ -1,7 +1,6 @@
 
 
 # Creating immutable backups with AWS Backup Vault Lock
-<a name="data-protection-vault-lock"></a>
 
 This architecture details the key steps involved in setting up a central immutable backup data bunker that follows the principle of least privilege in a multi-account AWS Organization.
 
