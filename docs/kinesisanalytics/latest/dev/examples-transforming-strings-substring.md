@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Extracting a Portion of a String (SUBSTRING Function)
-<a name="examples-transforming-strings-substring"></a>
 
 This example uses the `SUBSTRING` function to transform a string in Amazon Kinesis Data Analytics. The `SUBSTRING` function extracts a portion of a source string starting at a specific position. For more information, see [SUBSTRING](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-substring.html) in the *Amazon Managed Service for Apache Flink SQL Reference*. 
 
@@ -53,7 +52,7 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
 
 1. Run the following Python code to populate sample log records. This simple code continuously writes the same log record to the stream.
 
-   ```
+   ```python
     
    import json
    import boto3

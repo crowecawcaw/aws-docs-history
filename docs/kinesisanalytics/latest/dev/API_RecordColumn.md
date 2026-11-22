@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # RecordColumn
-<a name="API_RecordColumn"></a>
 
 Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 

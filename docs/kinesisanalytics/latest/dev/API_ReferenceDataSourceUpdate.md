@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # ReferenceDataSourceUpdate
-<a name="API_ReferenceDataSourceUpdate"></a>
 
 When you update a reference data source configuration for an application, this object provides all the updated values (such as the source bucket name and object key name), the in-application table name that is created, and updated mapping information that maps the data in the Amazon S3 object to the in-application reference table that is created.
 

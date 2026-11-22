@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Aggregating Partial Results from a Query
-<a name="examples-window-partialresults"></a>
 
 If an Amazon Kinesis data stream contains records that have an event time that does not exactly match ingestion time, a selection of results in a tumbling window contains records that arrived, but did not necessarily occur, within the window. In this case, the tumbling window contains only a partial set of the results that you want. There are several approaches that you can use to correct this issue:
 + Use a tumbling window only, and aggregate partial results in post processing through a database or data warehouse using upserts. This approach is efficient in processing an application. It handles the late data indefinitely for aggregate operators (`sum`, `min`, `max`, and so on). The downside to this approach is that you must develop and maintain additional application logic in the database layer.

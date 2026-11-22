@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Parallelizing Input Streams for Increased Throughput
-<a name="input-parallelism"></a>
 
 **Note**  
 After September 12, 2023, you will not able to create new applications using Kinesis Data Firehose as a source if you do not already use Kinesis Data Analytics for SQL. For more information, see [Limits](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html).
@@ -60,7 +59,7 @@ The following example demonstrates how to use the `CreateApplication` API action
 
 For more information about `CreateApplication`, see [CreateApplication](API_CreateApplication.md).
 
-```
+```json
 {
    "ApplicationCode": "{{<The SQL code the new application will run on the input stream>}}",
    "ApplicationDescription": "{{<A friendly description for the new application>}}",
@@ -106,7 +105,7 @@ In the following example, each source stream is first aggregated using [COUNT](h
 **Note**  
 To run this example and get results from both in-application input streams, update both the number of shards in your source stream and the `InputParallelism` parameter in your application.
 
-```
+```SQL
 CREATE OR REPLACE STREAM in_application_stream_001 (
     ticker VARCHAR(64),
     ticker_count INTEGER

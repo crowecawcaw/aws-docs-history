@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Creating Throttled Alerts
-<a name="app-throttled-alerts"></a>
 
 In this Kinesis Data Analytics application, the query runs continuously on the in-application stream created over the demo stream. For more information, see [Continuous Queries](continuous-queries-concepts.md). If any rows show that the stock price change is greater than 1 percent, those rows are inserted into another in-application stream. The application throttles the alerts such that an alert is sent immediately when the stock price changes. However, no more than one alert per minute per stock symbol is sent to the in-application stream.
 

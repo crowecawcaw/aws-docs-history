@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Parsing Web Logs (W3C\_LOG\_PARSE Function)
-<a name="examples-transforming-strings-w3clogparse"></a>
 
 This example uses the `W3C_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics. You can use `W3C_LOG_PARSE` to format Apache logs quickly. For more information, see [W3C\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-w3c-log-parse.html) in the *Amazon Managed Service for Apache Flink SQL Reference*.
 
@@ -51,7 +50,7 @@ Create an Amazon Kinesis data stream, and populate the log records as follows:
 
 1. Run the following Python code to populate the sample log records. This simple code continuously writes the same log record to the stream.
 
-   ```
+   ```python
     
    import json
    import boto3

@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Troubleshooting Amazon Kinesis Data Analytics for SQL Applications
-<a name="troubleshooting"></a>
 
 The following can help you troubleshoot problems that you might encounter with Amazon Kinesis Data Analytics for SQL Applications. 
 

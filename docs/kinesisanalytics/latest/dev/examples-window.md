@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Examples: Windows and Aggregation
-<a name="examples-window"></a>
 
 This section provides examples of Amazon Kinesis Data Analytics applications that use windowed and aggregate queries. (For more information, see [Windowed Queries](windowed-sql.md).) Each example provides step-by-step instructions and example code for setting up the Kinesis Data Analytics application. 
 

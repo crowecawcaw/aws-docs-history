@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Transforming DateTime Values
-<a name="app-string-datetime-manipulation"></a>
 
 Amazon Kinesis Data Analytics supports converting columns to time stamps. For example, you might want to use your own time stamp as part of a `GROUP BY` clause as another time-based window, in addition to the `ROWTIME` column. Kinesis Data Analytics provides operations and SQL functions for working with date and time fields. 
 + **Date and time operators** – You can perform arithmetic operations on dates, times, and interval data types. For more information, see [Date, Timestamp, and Interval Operators](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-timestamp-interval.html) in the *Amazon Managed Service for Apache Flink SQL Reference*.
@@ -79,7 +78,7 @@ Create an Amazon Kinesis data stream and populate it with event time and ticker 
 
 1. Run the following Python code to populate the stream with sample data. This simple code continuously writes a record with a random ticker symbol and the current time stamp to the stream.
 
-   ```
+   ```python
     
    import datetime
    import json

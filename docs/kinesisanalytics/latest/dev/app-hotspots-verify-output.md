@@ -9,13 +9,12 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 4: Verify the Application Output
-<a name="app-hotspots-verify-output"></a>
 
 In this section of the [Hotspots example](app-hotspots-detection.md), you set up a web application that displays the hotspot information in a Scalable Vector Graphics (SVG) control.
 
 1. Create a file named `index.html` with the following contents:
 
-   ```
+   ```html
    <!doctype html>
    <html lang=en>
    <head>
@@ -59,7 +58,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
 
 1. Create a file in the same directory named `hotspots_viewer.js` with the following contents. Provide your , credentials, and output stream name in the variables provided.
 
-   ```
+   ```Javascript
    // Visualize example output from the Kinesis Analytics hotspot detection algorithm.
    // This script assumes that the output stream has a single shard.
    

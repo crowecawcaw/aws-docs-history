@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 1: Prepare the Data
-<a name="tworecordtypes-prepare"></a>
 
 In this section, you create a Kinesis data stream, and then populate order and trade records on the stream. This is your streaming source for the application that you create in the next step.
 
@@ -45,7 +44,7 @@ Run the following Python script to populate sample records on the `OrdersAndTrad
 
 1. Run the following Python code. The `put-record` command in the code writes the JSON records to the stream.
 
-   ```
+   ```python
     
    import json
    import random

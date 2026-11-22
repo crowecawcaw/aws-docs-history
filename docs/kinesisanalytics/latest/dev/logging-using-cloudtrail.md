@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Logging API Calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
  is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in . CloudTrail captures all API calls for as events. The calls captured include calls from the console and code calls to the API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for . If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to , the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -42,7 +41,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the [AddApplicationCloudWatchLoggingOption](/kinesisanalytics/latest/dev/API_AddApplicationCloudWatchLoggingOption.html) and [DescribeApplication](/kinesisanalytics/latest/dev/API_DescribeApplication.html) actions.
 
-```
+```json
 {
     "Records": [
         {

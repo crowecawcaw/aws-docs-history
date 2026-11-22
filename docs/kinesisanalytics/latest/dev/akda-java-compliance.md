@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Compliance Validation for Amazon Kinesis Data Analytics for SQL Applications
-<a name="akda-java-compliance"></a>
 
 Third-party auditors assess the security and compliance of Amazon Kinesis Data Analytics as part of multiple AWS compliance programs. These include SOC, PCI, HIPAA, and others.
 

@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Identity and Access Management in Kinesis Data Analytics
-<a name="iam-role"></a>
 
 Amazon Kinesis Data Analytics needs permissions to read records from a streaming source that you specify in your application input configuration. Amazon Kinesis Data Analytics also needs permissions to write your application output to streams that you specify in your application output configuration. 
 
@@ -39,7 +38,7 @@ To grant Amazon Kinesis Data Analytics permissions to assume a role to access a 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -71,7 +70,7 @@ If you are creating an IAM role to allow Amazon Kinesis Data Analytics to read f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -102,7 +101,7 @@ If you are creating an IAM role to allow Amazon Kinesis Data Analytics to read f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -136,7 +135,7 @@ If you direct Amazon Kinesis Data Analytics to write output to external destinat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -168,7 +167,7 @@ If you direct Amazon Kinesis Data Analytics to write output to external destinat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -200,7 +199,7 @@ If you direct Amazon Kinesis Data Analytics to write output to external destinat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

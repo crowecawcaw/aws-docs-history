@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Examples: Transforming String Values
-<a name="examples-transforming-strings"></a>
 
 Amazon Kinesis Data Analytics supports formats such as JSON and CSV for records on a streaming source. For details, see [RecordFormat](API_RecordFormat.md). These records then map to rows in an in-application stream as per the input configuration. For details, see [Configuring Application Input](how-it-works-input.md). The input configuration specifies how record fields in the streaming source map to columns in an in-application stream. 
 

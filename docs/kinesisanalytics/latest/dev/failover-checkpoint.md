@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Delivery Model for Persisting Application Output to an External Destination
-<a name="failover-checkpoint"></a>
 
 Amazon Kinesis Data Analytics uses an "at least once" delivery model for application output to the configured destinations. When an application is running, Kinesis Data Analytics takes internal checkpoints. These checkpoints are points in time when output records have been delivered to the destinations without data loss. The service uses the checkpoints as needed to ensure that your application output is delivered at least once to the configured destinations.
 

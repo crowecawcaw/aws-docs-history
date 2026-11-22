@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Retrieving the Most Frequently Occurring Values (TOP\_K\_ITEMS\_TUMBLING)
-<a name="examples-window-topkitems"></a>
 
 This Amazon Kinesis Data Analytics example demonstrates how to use the `TOP_K_ITEMS_TUMBLING` function to retrieve the most frequently occurring values in a tumbling window. For more information, see [`TOP_K_ITEMS_TUMBLING` function](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/top-k.html) in the *Amazon Managed Service for Apache Flink SQL Reference*. 
 
@@ -58,7 +57,7 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
 1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html). For simplicity, this example uses the following Python script to generate records. Run the code to populate the sample ticker records. This simple code continuously writes a random ticker record to the stream. Leave the script running so that you can generate the application schema in a later step.
 
-   ```
+   ```python
     
    import datetime
    import json

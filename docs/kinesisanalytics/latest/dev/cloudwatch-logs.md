@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Working with Amazon CloudWatch Logs
-<a name="cloudwatch-logs"></a>
 
 If an application is misconfigured, it can transition to a running state during application start. Or it can update but not process any data into the in-application input stream. By adding a CloudWatch log option to the application, you can monitor for application configuration problems.
 
@@ -39,7 +38,7 @@ To grant permissions to assume an IAM role, you can attach the following trust p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -66,7 +65,7 @@ To grant an application permissions to write log events to CloudWatch from a res
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

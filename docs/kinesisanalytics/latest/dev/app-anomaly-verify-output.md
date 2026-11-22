@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 4: Verify Output
-<a name="app-anomaly-verify-output"></a>
 
 After configuring the application output in [Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md), use the following AWS CLI commands to read records in the destination stream that is written by the application:
 

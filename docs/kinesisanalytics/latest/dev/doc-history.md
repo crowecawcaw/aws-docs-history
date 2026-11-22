@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Document History for Amazon Kinesis Data Analytics
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon Kinesis Data Analytics.
 + **API version: 2015-08-14** 

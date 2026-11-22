@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Monitoring with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor applications using Amazon CloudWatch. CloudWatch collects and processes raw data from into readable, near real-time metrics. These statistics are retained for a period of two weeks. You can access the historical information and gain a better perspective on how your web application or service is performing. By default, metric data is automatically sent to CloudWatch. For more information, see [What Is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*.
 

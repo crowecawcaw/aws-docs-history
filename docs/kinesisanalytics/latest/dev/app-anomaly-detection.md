@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Detecting Data Anomalies on a Stream (RANDOM\_CUT\_FOREST Function)
-<a name="app-anomaly-detection"></a>
 
 Amazon Kinesis Data Analytics provides a function (`RANDOM_CUT_FOREST`) that can assign an anomaly score to each record based on values in the numeric columns. For more information, see [`RANDOM_CUT_FOREST` Function](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html) in the *Amazon Managed Service for Apache Flink SQL Reference*. 
 

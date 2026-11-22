@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Working with JSONPath
-<a name="about-json-path"></a>
 
 **Note**  
 After September 12, 2023, you will not able to create new applications using Kinesis Data Firehose as a source if you do not already use Kinesis Data Analytics for SQL. For more information, see [Limits](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html).
@@ -25,7 +24,7 @@ For more information about how to map streaming data to your application's input
 
 Following, you can find how to use JSONPath expressions to access various elements in JSON-formatted data. For the examples in this section, assume that the source stream contains the following JSON record:
 
-```
+```xml
 {
   "customerName":"John Doe",
   "address":
@@ -51,19 +50,19 @@ Following, you can find how to use JSONPath expressions to access various elemen
 
 To query an element in JSON data using JSONPath, use the following syntax. Here, `$` represents the root of the data hierarchy and `elementName` is the name of the element node to query.
 
-```
+```xml
 $.{{elementName}}
 ```
 
 The following expression queries the `customerName` element in the preceding JSON example.
 
-```
+```xml
 $.customerName
 ```
 
 The preceding expression returns the following from the preceding JSON record.
 
-```
+```json
 John Doe
 ```
 

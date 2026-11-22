@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 1: Create the Input and Output Streams
-<a name="app-hotspots-prepare"></a>
 
 Before you create an Amazon Kinesis Data Analytics application for the [Hotspots example](app-hotspots-detection.md), you create two Kinesis data streams. Configure one of the streams as the streaming source for your application, and the other stream as the destination where Kinesis Data Analytics persists your application output. 
 
@@ -54,7 +53,7 @@ Create these data streams using the console or the AWS CLI.
 
 In this step, you run Python code to continuously generate sample records and write to the `ExampleInputStream` stream.
 
-```
+```json
 {"x": 7.921782426109737, "y": 8.746265312709893, "is_hot": "N"}
 {"x": 0.722248626580026, "y": 4.648868803193405, "is_hot": "Y"}
 ```
@@ -72,7 +71,7 @@ In this step, you run Python code to continuously generate sample records and wr
 **Important**  
 Do not upload this file to a web server because it contains your AWS credentials.
 
-   ```
+   ```python
     
    import json
    from pprint import pprint

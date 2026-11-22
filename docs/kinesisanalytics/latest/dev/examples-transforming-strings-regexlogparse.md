@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Example: Parsing Log Strings Based on Regular Expressions (REGEX\_LOG\_PARSE Function)
-<a name="examples-transforming-strings-regexlogparse"></a>
 
 This example uses the `REGEX_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics. `REGEX_LOG_PARSE` parses a string based on default Java regular expression patterns. For more information, see [REGEX\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-regex-log-parse.html) in the *Amazon Managed Service for Apache Flink SQL Reference*.
 
@@ -53,7 +52,7 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
 
 1. Run the following Python code to populate sample log records. This simple code continuously writes the same log record to the stream.
 
-   ```
+   ```python
     
    import json
    import boto3

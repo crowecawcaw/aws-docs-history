@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 2: Create an Analytics Application
-<a name="app-anom-with-exp-create-app"></a>
 
 In this section, you create an Amazon Kinesis Data Analytics application and configure it to use the Kinesis data stream that you created as the streaming source in [Step 1: Prepare the Data](app-anomaly-with-ex-prepare.md). You then run application code that uses the `RANDOM_CUT_FOREST_WITH_EXPLANATION` function.
 

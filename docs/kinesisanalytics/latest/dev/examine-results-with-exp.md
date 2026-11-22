@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 3: Examine the Results
-<a name="examine-results-with-exp"></a>
 
 When you run the SQL code for this [example](app-anomaly-detection-with-explanation.md), you first see rows with an anomaly score equal to zero. This happens during the initial learning phase. Then you get results similar to the following:
 

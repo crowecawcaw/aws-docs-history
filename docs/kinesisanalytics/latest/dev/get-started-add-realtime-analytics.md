@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 3.3: Add Real-Time Analytics (Add Application Code)
-<a name="get-started-add-realtime-analytics"></a>
 
 You can write your own SQL queries against the in-application stream, but for the following step you use one of the templates that provides sample code.
 

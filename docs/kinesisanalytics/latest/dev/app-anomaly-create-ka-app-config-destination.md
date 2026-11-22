@@ -9,7 +9,6 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Step 3: Configure Application Output
-<a name="app-anomaly-create-ka-app-config-destination"></a>
 
 After completing [Step 2: Create an Application](app-anom-score-create-app.md), you have application code that is reading heart rate data from a streaming source and assigning an anomaly score to each. 
 
