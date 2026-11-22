@@ -1,7 +1,6 @@
 
 
 # Lodging Data Platform
-<a name="lodging-data-platform"></a>
 
 Publication date: **October 7, 2022 ([Diagram history](#ldp-history))**
 
