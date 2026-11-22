@@ -1,7 +1,6 @@
 
 
 # Migrate from RDS MySQL to Aurora MySQL in near zero downtime
-<a name="migrate-rdsmysql-to-auroramysql"></a>
 
 
 |  |  | 
