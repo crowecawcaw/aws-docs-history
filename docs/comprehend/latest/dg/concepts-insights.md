@@ -1,7 +1,6 @@
 
 
 # Insights
-<a name="concepts-insights"></a>
 
 Amazon Comprehend can analyze a document or set of documents to gather insights about it. Some of the insights that Amazon Comprehend develops about a document include:
 + [Entities](how-entities.md) – Amazon Comprehend returns a list of entities, such as people, places, and locations, identified in a document. 

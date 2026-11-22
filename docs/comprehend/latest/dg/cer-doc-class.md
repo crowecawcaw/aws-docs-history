@@ -1,7 +1,6 @@
 
 
 # Custom classifier metrics
-<a name="cer-doc-class"></a>
 
 Amazon Comprehend provides metrics to help you estimate how well a custom classifier performs. Amazon Comprehend calculates the metrics using the test data from the classifier training job. The metrics accurately represent the performance of the model during training, so they approximate the model performance for classification of similar data. 
 

@@ -1,7 +1,6 @@
 
 
 # Detecting PII entities
-<a name="how-pii"></a>
 
 You can use Amazon Comprehend to detect *PII entities* in English or Spanish text documents. A PII entity is a specific type of personally identifiable information (PII). Use PII detection to locate the PII entities or redact the PII entities in the text.
 
@@ -31,7 +30,7 @@ The output includes the information that "Paul Santos" has the type `NAME`, "111
 
  For example, the input text mentioned previously produces the following response:
 
-```
+```json
 {
     "Entities": [
         {

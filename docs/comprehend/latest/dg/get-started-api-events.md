@@ -1,7 +1,6 @@
 
 
 # Async analysis for event detection
-<a name="get-started-api-events"></a>
 
 **Topics**
 + [Before you start](#events-before)
@@ -82,7 +81,7 @@ aws comprehend list-events-detection-jobs --region {{region}}
 
 You will get JSON similar to the following in response:
 
-```
+```json
 {
  "EventsDetectionJobPropertiesList": [
     {
@@ -173,7 +172,7 @@ You will get the following JSON in response:
 
 The following is an example an output file from an analysis job that detected events in documents. The format of the input is one document per line. 
 
-```
+```json
 {"Entities": [{"Mentions": [{"BeginOffset": 12, "EndOffset": 27, "GroupScore": 1.0, "Score": 0.916355, "Text": "over a year ago", "Type": "DATE"}]}, {"Mentions": [{"BeginOffset": 33, "EndOffset": 39, "GroupScore": 1.0, "Score": 0.996603, "Text": "Amazon", "Type": "ORGANIZATION"}]}, {"Mentions": [{"BeginOffset": 66, "EndOffset": 77, "GroupScore": 1.0, "Score": 0.999283, "Text": "Whole Foods", "Type": "ORGANIZATION"}]}], "Events": [{"Arguments": [{"EntityIndex": 2, "Role": "INVESTEE", "Score": 0.999283}, {"EntityIndex": 0, "Role": "DATE", "Score": 0.916355}, {"EntityIndex": 1, "Role": "INVESTOR", "Score": 0.996603}], "Triggers": [{"BeginOffset": 373, "EndOffset": 380, "GroupScore": 0.999984, "Score": 0.999955, "Text": "acquire", "Type": "CORPORATE_ACQUISITION"}], "Type": "CORPORATE_ACQUISITION"}, {"Arguments": [{"EntityIndex": 2, "Role": "PARTICIPANT", "Score": 0.999283}], "Triggers": [{"BeginOffset": 115, "EndOffset": 123, "GroupScore": 1.0, "Score": 0.999967, "Text": "combined", "Type": "CORPORATE_MERGER"}], "Type": "CORPORATE_MERGER"}], "File": "doc.txt", "Line": 0}
 ```
 

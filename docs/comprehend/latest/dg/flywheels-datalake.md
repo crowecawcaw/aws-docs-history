@@ -1,7 +1,6 @@
 
 
 # Flywheel data lakes
-<a name="flywheels-datalake"></a>
 
 When you create a flywheel, Amazon Comprehend creates a data lake in your account to contain all the flywheel data, such as the input and output data required for the model versions. 
 

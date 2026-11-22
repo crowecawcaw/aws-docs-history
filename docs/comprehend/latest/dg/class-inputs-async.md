@@ -1,7 +1,6 @@
 
 
 # File formats for async analysis
-<a name="class-inputs-async"></a>
 
 When you run async analysis with your model, you have a choice of formats for input documents: `One document per line` or `one document per file`. The format you use depends on the type of documents you want to analyze, as described in the following table.
 

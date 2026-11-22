@@ -1,7 +1,6 @@
 
 
 # Scheduled scaling
-<a name="ScheduledScaling"></a>
 
 With scheduled scaling, you can adjust endpoint provisioning to fit your capacity needs on a specified schedule. Scheduled scaling automatically adjusts the number of inference units to accommodate surges of use at specific times. You can use scheduled scaling for document classification endpoints and entity recognizer endpoints. For additional information about scheduled scaling, see [Scheduled scaling for Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html).
 

@@ -1,7 +1,6 @@
 
 
 # Real-time analysis for custom classification (API)
-<a name="class-sync-api"></a>
 
 You can use the Amazon Comprehend API to run real-time classification with a custom model. First, you create an endpoint to run the real-time analysis. After you create the endpoint, you run the real-time classification.
 

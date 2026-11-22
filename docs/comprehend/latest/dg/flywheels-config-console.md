@@ -1,7 +1,6 @@
 
 
 # Configuring flywheels using the console
-<a name="flywheels-config-console"></a>
 
 You can use the Amazon Comprehend console to create, update, and delete flywheels. 
 

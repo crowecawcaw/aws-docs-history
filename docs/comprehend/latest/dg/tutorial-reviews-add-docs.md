@@ -1,7 +1,6 @@
 
 
 # Step 1: Adding documents to Amazon S3
-<a name="tutorial-reviews-add-docs"></a>
 
 Before starting the Amazon Comprehend analysis jobs, you need to store a sample dataset of customer reviews in Amazon Simple Storage Service (Amazon S3). Amazon S3 hosts your data in containers called buckets. Amazon Comprehend can analyze documents stored in a bucket and it sends results of the analysis to a bucket. In this step, you create an S3 bucket, create input and output folders in the bucket, and upload a sample dataset to the bucket.
 

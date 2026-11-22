@@ -1,7 +1,6 @@
 
 
 # Labeling PII entities
-<a name="how-pii-labels"></a>
 
 When you run PII detection, Amazon Comprehend returns the labels of identified PII entity types. For example, if you submit the following input text to Amazon Comprehend:
 
@@ -15,7 +14,7 @@ Amazon Comprehend provides the following information for each label:
 
 The input text example above results in the following JSON output.
 
-```
+```json
 {
     "Labels": [
         {

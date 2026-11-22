@@ -1,7 +1,6 @@
 
 
 # Using Trusted Advisor with Amazon Comprehend
-<a name="manage-endpoints-trusted-advisor"></a>
 
 AWS Trusted Advisor is an online tool that provides recommendations to help you provision your resources following AWS best practices.
 

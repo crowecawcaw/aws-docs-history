@@ -1,7 +1,6 @@
 
 
 # Using flywheels for analysis
-<a name="flywheels-inference"></a>
 
 You can use the flywheel's active model version to run analysis for custom classification or entity recognition. The active model version is configurable. You can use the [ console](flywheels-iterate.md#flywheels-iterate-console-promote) or the [UpdateFlywheel](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_UpdateFlywheel.html) API operation to set a new version of the model to be the active model version. 
 

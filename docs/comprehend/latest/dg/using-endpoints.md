@@ -1,7 +1,6 @@
 
 
 # Using Amazon Comprehend endpoints
-<a name="using-endpoints"></a>
 
 You create an endpoint to run real-time analysis using a custom model. An endpoint includes managed resources that makes your custom model available for real-time inference. 
 

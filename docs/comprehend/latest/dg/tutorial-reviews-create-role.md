@@ -1,7 +1,6 @@
 
 
 # Step 2: (CLI only) creating an IAM role for Amazon Comprehend
-<a name="tutorial-reviews-create-role"></a>
 
 This step is necessary only if you are using the AWS Command Line Interface (AWS CLI) to complete this tutorial. If you are using the Amazon Comprehend console to run the analysis jobs, skip to [Step 3: Running analysis jobs on documents in Amazon S3](tutorial-reviews-analysis.md).
 
@@ -39,7 +38,7 @@ The Amazon Comprehend console lets you select roles where the role name contains
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -63,7 +62,7 @@ The Amazon Comprehend console lets you select roles where the role name contains
    --assume-role-policy-document file://{{path/}}comprehend-trust-policy.json
    ```
 **Tip**  
-If you get an Error parsing parameter message, the path to your JSON trust policy file is probably incorrect. Provide the relative path to the file based on your home directory.
+If you get an `Error parsing parameter` message, the path to your JSON trust policy file is probably incorrect. Provide the relative path to the file based on your home directory.
 
 1. Copy the Amazon Resource Name (ARN) and save it in a text editor. The ARN has a format similar to `{{arn:aws:iam::123456789012:role/AmazonComprehendServiceRole-access-role}}`. You need this ARN to run Amazon Comprehend analysis jobs.
 
@@ -81,7 +80,7 @@ To access your Amazon S3 bucket, Amazon Comprehend needs permissions to list, re
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

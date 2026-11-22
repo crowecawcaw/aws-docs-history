@@ -1,7 +1,6 @@
 
 
 # Managing Amazon Comprehend endpoints
-<a name="manage-endpoints"></a>
 
 In Amazon Comprehend, endpoints make your custom models available for real-time classification or entity detection. After you create an endpoint, you can make changes to it as your business needs evolve. For example, you can monitor your endpoint utilization and apply auto scaling to automatically set endpoint provisioning to fit your capacity needs. You can manage all your endpoints from a single view, and when you no longer need an endpoint you can delete it to save costs. 
 

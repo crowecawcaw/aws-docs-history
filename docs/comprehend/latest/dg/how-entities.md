@@ -1,7 +1,6 @@
 
 
 # Entities
-<a name="how-entities"></a>
 
 An *entity* is a textual reference to the unique name of a real-world object such as people, places, and commercial items, and to precise references to measures such as dates and quantities.
 
@@ -35,7 +34,7 @@ The operations return a list of [API Entity](https://docs.aws.amazon.com/compreh
 
 The following example is the response from the `DetectEntities` operation.
 
-```
+```json
 {
     "Entities": [
         {

@@ -1,7 +1,6 @@
 
 
 # Analysis jobs for custom classification (console)
-<a name="analysis-jobs-custom-classifier"></a>
 
 After you create and train a [custom document classifier](), you can use the console to run custom classification jobs with the model.
 

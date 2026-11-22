@@ -1,7 +1,6 @@
 
 
 # Viewing, editing, and deleting tags associated with a resource
-<a name="tagging-existingtags"></a>
 
 You can view tags associated with an **Analysis job**, a **Custom classification** model, or a **Custom entity recognition** model.
 

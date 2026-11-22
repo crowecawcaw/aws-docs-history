@@ -1,7 +1,6 @@
 
 
 # Training custom entity recognizer models
-<a name="training-recognizers"></a>
 
 A custom entity recognizer identifies only the entity types that you include when you train the model. It does not automatically include the preset entity types. If you want to also identify the preset entity types,such as LOCATION, DATE, or PERSON, you need to provide additional training data for those entities.
 

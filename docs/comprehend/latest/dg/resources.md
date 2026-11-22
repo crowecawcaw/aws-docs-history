@@ -1,7 +1,6 @@
 
 
 # Tutorials and other resources
-<a name="resources"></a>
 
 Tutorials and other resources for Amazon Comprehend.
 

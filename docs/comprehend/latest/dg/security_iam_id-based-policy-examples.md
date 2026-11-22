@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon Comprehend
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Comprehend resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -49,7 +48,7 @@ To use the Amazon Comprehend console, you also need permissions for the actions 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -81,7 +80,7 @@ When you create an asynchronous batch job or a topic modeling job using the cons
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":
@@ -118,7 +117,7 @@ The Amazon Comprehend console needs these additional permissions for the followi
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -163,7 +162,7 @@ The following example policy grants permissions to use the Amazon Comprehend doc
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
  "Statement": [{
@@ -205,7 +204,7 @@ To fully use Amazon Key Management Service (KMS) for data and job encryption in 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -259,7 +258,7 @@ You need to apply the following additional policy to any user that will use Amaz
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -296,7 +295,7 @@ The following shows an example trust policy for the role that you create. To hel
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -335,7 +334,7 @@ You might choose to create a user who has permissions for all Amazon Comprehend 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":
@@ -389,7 +388,7 @@ The following permissions policy grants user permissions to perform the Amazon C
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

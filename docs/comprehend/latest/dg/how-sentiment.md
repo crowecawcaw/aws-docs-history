@@ -1,7 +1,6 @@
 
 
 # Sentiment
-<a name="how-sentiment"></a>
 
 Use Amazon Comprehend to determine the sentiment of content in UTF-8 encoded text documents. For example, you can use sentiment analysis to determine the sentiments of comments on a blog posting to determine if your readers liked the post.
 
@@ -24,7 +23,7 @@ The `DetectSentiment` operation returns an object that contains the detected sen
 
 The following example is the response from the `DetectSentiment` operation.
 
-```
+```json
 {
 "SentimentScore": {
         "Mixed": 0.030585512690246105,

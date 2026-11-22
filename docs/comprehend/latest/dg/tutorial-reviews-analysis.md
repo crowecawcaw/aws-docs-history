@@ -1,7 +1,6 @@
 
 
 # Step 3: Running analysis jobs on documents in Amazon S3
-<a name="tutorial-reviews-analysis"></a>
 
 After storing the data in Amazon S3, you can begin running Amazon Comprehend analysis jobs. A *sentiment* analysis job determines the overall mood of a document (positive, negative, neutral, or mixed). An *entities* analysis job extracts the names of real-world objects from a document. These objects include people, places, titles, events, dates, quantities, products, and organizations. In this step, you run two Amazon Comprehend analysis jobs to extract the sentiment and entities from the sample dataset.
 

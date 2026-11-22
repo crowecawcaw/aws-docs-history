@@ -1,7 +1,6 @@
 
 
 # Document processing
-<a name="idp"></a>
 
 Amazon Comprehend supports one-step document processing for custom classification and custom entity recognition. For example, you can input a mix of plain text documents and semi-structured documents (such as PDF documents, Microsoft Word documents, and images) to a custom analysis job.
 

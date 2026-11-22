@@ -1,7 +1,6 @@
 
 
 # Outputs for real-time analysis
-<a name="outputs-class-sync"></a>
 
 ## Outputs for text inputs
 <a name="outputs-class-sync-text"></a>
@@ -36,7 +35,7 @@ For more details about these output fields, see [ClassifyDocument](https://docs.
 
 The following example shows the output for a one-page native PDF input document.
 
-```
+```json
 {
   "Classes": [
       {

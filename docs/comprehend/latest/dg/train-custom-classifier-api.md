@@ -1,7 +1,6 @@
 
 
 # Train custom classifiers (API)
-<a name="train-custom-classifier-api"></a>
 
 To create and train a custom classifier, use the [CreateDocumentClassifier](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateDocumentClassifier.html) operation.
 

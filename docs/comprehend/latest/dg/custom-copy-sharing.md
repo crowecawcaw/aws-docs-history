@@ -1,7 +1,6 @@
 
 
 # Sharing a custom model with another AWS account
-<a name="custom-copy-sharing"></a>
 
 With Amazon Comprehend, you can share your custom models with others, so they can import your models into their AWS accounts. When a user imports one of your custom models, they create a new custom model in their account. Their new model duplicates the one that you shared.
 
@@ -31,7 +30,7 @@ Before you can add a resource-based policy to a custom model, you require permis
 
 **Example IAM policy to manage resource-based policies for custom models**  
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -67,7 +66,7 @@ In the following example, the policy authorizes AWS account `444455556666` to us
 **Example KMS key policy to access a specific classifier model version**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -116,7 +115,7 @@ The following example policy authorizes AWS account `444455556666` to access thi
 **Example KMS key policy to allow access to the Amazon Comprehend service (alternative 2).**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -154,7 +153,7 @@ When you attach a resource policy to a custom model version, the policy authoriz
 This example specifies the authorized entities in the `Principal` attribute. Resource "\*" refers to the specific model version that you attach the policy to.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -252,7 +251,7 @@ The JSON file for the resource policy contains the following contents:
 + *Principal* – The policy authorizes user `jane` from AWS account 444455556666 and all users from AWS account 123456789012.  
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
  "Statement":[

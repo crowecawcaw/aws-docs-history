@@ -1,7 +1,6 @@
 
 
 # Test the training data
-<a name="testing-the-model"></a>
 
 After training the model, Amazon Comprehend tests the custom classifier model. If you don't provide a test dataset, Amazon Comprehend trains the model with 90 percent of the training data. It reserves 10 percent of the training data to use for testing. If you do provide a test dataset, the test data must include at least one example for each unique label in the training dataset. 
 

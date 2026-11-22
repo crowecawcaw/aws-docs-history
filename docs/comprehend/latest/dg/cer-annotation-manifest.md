@@ -1,7 +1,6 @@
 
 
 # PDF annotation files
-<a name="cer-annotation-manifest"></a>
 
 For PDF annotations, you use SageMaker AI Ground Truth to create a labeled dataset in an augmented manifest file. Ground Truth is a data labeling service that helps you (or a workforce that you employ) to build training datasets for machine learning models. Amazon Comprehend accepts augmented manifest files as training data for custom models. You can provide these files when you create a custom entity recognizer by using the Amazon Comprehend console or the [CreateEntityRecognizer](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateEntityRecognizer.html) API action. 
 
@@ -12,7 +11,7 @@ Using Ground Truth, you can define overlapping labels (text that you associate w
 
 Augmented manifest files are in JSON lines format. In these files, each line is a complete JSON object that contains a training document and its associated labels. The following example is an augmented manifest file that trains an entity recognizer to detect the professions of individuals who are mentioned in the text:
 
-```
+```json
 {"source":"Diego Ramirez is an engineer in the high tech industry.","NamedEntityRecognitionDemo":{"annotations":{"entities":[{"endOffset":13,"startOffset":0,"label":"ENGINEER"}],"labels":[{"label":"ENGINEER"}]}},"NamedEntityRecognitionDemo-metadata":{"entities":[{"confidence":0.92}],"job-name":"labeling-job/namedentityrecognitiondemo","type":"groundtruth/text-span","creation-date":"2020-05-14T21:45:27.175903","human-annotated":"yes"}}
 {"source":"J Doe is a judge on the Washington Supreme Court.","NamedEntityRecognitionDemo":{"annotations":{"entities":[{"endOffset":5,"startOffset":0,"label":"JUDGE"}],"labels":[{"label":"JUDGE"}]}},"NamedEntityRecognitionDemo-metadata":{"entities":[{"confidence":0.72}],"job-name":"labeling-job/namedentityrecognitiondemo","type":"groundtruth/text-span","creation-date":"2020-05-14T21:45:27.174910","human-annotated":"yes"}}
 {"source":"Our latest new employee, Mateo Jackson, has been a manager in the industry for 4 years.","NamedEntityRecognitionDemo":{"annotations":{"entities":[{"endOffset":38,"startOffset":26,"label":"MANAGER"}],"labels":[{"label":"MANAGER"}]}},"NamedEntityRecognitionDemo-metadata":{"entities":[{"confidence":0.91}],"job-name":"labeling-job/namedentityrecognitiondemo","type":"groundtruth/text-span","creation-date":"2020-05-14T21:45:27.174035","human-annotated":"yes"}}
@@ -20,7 +19,7 @@ Augmented manifest files are in JSON lines format. In these files, each line is 
 
 Each line in this JSON lines file is a complete JSON object, where the attributes include the document text, the annotations, and other metadata from Ground Truth. The following example is a single JSON object in the augmented manifest file, but it's formatted for readability: 
 
-```
+```json
 {
   "source": "Diego Ramirez is an engineer in the high tech industry.",
   "NamedEntityRecognitionDemo": {

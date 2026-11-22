@@ -1,7 +1,6 @@
 
 
 # Targeted sentiment
-<a name="how-targeted-sentiment"></a>
 
 *Targeted sentiment* provides a granular understanding of the sentiments associated with specific entities (such as brands or products) in your input documents. 
 
@@ -82,7 +81,7 @@ If targeted sentiment doesn't identify any entities in the input text, it return
 
 The following example shows **Entities** for an input file with three lines of input. The input format is **ONE\_DOC\_PER\_LINE**, so each line of input is a document.
 
-```
+```json
 { "Entities":[
     {entityA},
     {entityB},
@@ -111,7 +110,7 @@ The following example shows **Entities** for an input file with three lines of i
 
 An entity in the **Entities** array includes a logical grouping (called a co-reference group) of the entity mentions detected in the document. Each entity has the following overall structure:
 
-```
+```json
 {"DescriptiveMentionIndex": [0],
   "Mentions": [
      {mentionD},
@@ -229,7 +228,7 @@ The burger was cooked perfectly but it was cold. The service was OK.
 
 The targeted sentiment analysis of this input file produces the following output.
 
-```
+```json
   {"Entities":[
     {
       "DescriptiveMentionIndex": [

@@ -1,7 +1,6 @@
 
 
 # Train custom classifiers (console)
-<a name="create-custom-classifier-console"></a>
 
 You can create and train a custom classifier using the console, and then use the custom classifier to analyze your documents.
 

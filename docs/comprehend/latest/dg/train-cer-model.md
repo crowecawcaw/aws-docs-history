@@ -1,7 +1,6 @@
 
 
 # Train custom entity recognizers (API)
-<a name="train-cer-model"></a>
 
 To create and train a custom entity recognition model, use the Amazon Comprehend [CreateEntityRecognizer](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateEntityRecognizer.html) API operation
 
@@ -56,7 +55,7 @@ For Amazon Comprehend examples that use Java, see [Amazon Comprehend Java exampl
 
 Instantiate Boto3 SDK: 
 
-```
+```python
 import boto3
 import uuid
 comprehend = boto3.client("comprehend", region_name="{{region}}")
@@ -64,7 +63,7 @@ comprehend = boto3.client("comprehend", region_name="{{region}}")
 
 Create entity recognizer: 
 
-```
+```python
 response = comprehend.create_entity_recognizer(
     RecognizerName="Recognizer-Name-Goes-Here-{}".format(str(uuid.uuid4())),
     LanguageCode="en",
@@ -88,13 +87,13 @@ recognizer_arn = response["EntityRecognizerArn"]
 
 List all recognizers: 
 
-```
+```python
 response = comprehend.list_entity_recognizers()
 ```
 
 Wait for recognizer to reach TRAINED status: 
 
-```
+```python
 while True:
     response = comprehend.describe_entity_recognizer(
         EntityRecognizerArn=recognizer_arn

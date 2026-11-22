@@ -1,7 +1,6 @@
 
 
 # Creating and managing custom models
-<a name="manage-models"></a>
 
 Amazon Comprehend includes built-in NLP (natural language processing) models that you can use for analyzing insights or topic modeling. You can also use Amazon Comprehend to create custom models for entity recognition and document classification. 
 

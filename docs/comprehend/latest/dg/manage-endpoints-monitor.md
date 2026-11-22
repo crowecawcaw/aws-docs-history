@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Comprehend endpoints
-<a name="manage-endpoints-monitor"></a>
 
 You can adjust the throughput of your endpoint by increasing or decreasing the number of inference units (IUs). For more information on updating your endpoint, see [Updating Amazon Comprehend endpoints](manage-endpoints-update.md).
 

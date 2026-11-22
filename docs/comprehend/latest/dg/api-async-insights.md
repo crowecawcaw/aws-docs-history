@@ -1,7 +1,6 @@
 
 
 # Async analysis for Amazon Comprehend insights
-<a name="api-async-insights"></a>
 
 The following sections use the Amazon Comprehend API to run asynchronous operations to analyze Amazon Comprehend insights.
 
@@ -87,14 +86,14 @@ Each of the following sections shows examples of output for the two input format
 
 The following is an example of an output file from an analysis that detected the dominant language. The format of the input is one document per line. For more information, see the [DetectDominantLanguage](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectDominantLanguage.html) operation.
 
-```
+```json
 {"File": "0_doc", "Languages": [{"LanguageCode": "en", "Score": 0.9514502286911011}, {"LanguageCode": "de", "Score": 0.02374090999364853}, {"LanguageCode": "nl", "Score": 0.003208699868991971}, "Line": 0}
 {"File": "1_doc", "Languages": [{"LanguageCode": "en", "Score": 0.9822712540626526}, {"LanguageCode": "de", "Score": 0.002621392020955682}, {"LanguageCode": "es", "Score": 0.002386554144322872}], "Line": 1}
 ```
 
 The following is an example of output from an analysis where the format of the input is one document per file:
 
-```
+```json
 {"File": "small_doc", "Languages": [{"LanguageCode": "en", "Score": 0.9728053212165833}, {"LanguageCode": "de", "Score": 0.007670710328966379}, {"LanguageCode": "es", "Score": 0.0028472368139773607}]}
 {"File": "huge_doc", "Languages": [{"LanguageCode": "en", "Score": 0.984955906867981}, {"LanguageCode": "de", "Score": 0.0026436643674969673}, {"LanguageCode": "fr", "Score": 0.0014206881169229746}]}
 ```
@@ -104,7 +103,7 @@ The following is an example of output from an analysis where the format of the i
 
 The following is an example of an output file from an analysis that detected entities in documents. The format of the input is one document per line. For more information, see the [DetectEntities](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectEntities.html) operation. The output contains two error messages, one for a document that is too long and one for a document that isn't in UTF-8 format.
 
-```
+```json
 {"File": "50_docs", "Line": 0, "Entities": [{"BeginOffset": 0, "EndOffset": 22, "Score": 0.9763959646224976, "Text": "Cluj-NapocaCluj-Napoca", "Type": "LOCATION"}"]}
 {"File": "50_docs", "Line": 1, "Entities": [{"BeginOffset": 11, "EndOffset": 15, "Score": 0.9615424871444702, "Text": "Maat", "Type": "PERSON"}}]}
 {"File": "50_docs", "Line": 2, "ErrorCode": "DOCUMENT_SIZE_EXCEEDED", "ErrorMessage": "Document size exceeds maximum size limit 102400 bytes."}
@@ -113,7 +112,7 @@ The following is an example of an output file from an analysis that detected ent
 
 The following is an example of output from an analysis where the format of the input is one document per file. The output contains two error messages, one for a document that is too long and one for a document that isn't in UTF-8 format. 
 
-```
+```json
 {"File": "non_utf8.txt", "ErrorCode": "UNSUPPORTED_ENCODING", "ErrorMessage": "Document is not in UTF-8 format and all subsequent line are ignored."}
 {"File": "small_doc", "Entities": [{"BeginOffset": 0, "EndOffset": 4, "Score": 0.645766019821167, "Text": "Maat", "Type": "PERSON"}]}
 {"File": "huge_doc", "ErrorCode": "DOCUMENT_SIZE_EXCEEDED", "ErrorMessage": "Document size exceeds size limit 102400 bytes."}
@@ -124,13 +123,13 @@ The following is an example of output from an analysis where the format of the i
 
 The following is an example of an output file from an analysis that detected key phrases in a document. The format of the input is one document per line. For more information, see the [DetectKeyPhrases](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectKeyPhrases.html) operation.
 
-```
+```json
 {"File": "50_docs", "KeyPhrases": [{"BeginOffset": 0, "EndOffset": 22, "Score": 0.8948641419410706, "Text": "Cluj-NapocaCluj-Napoca"}, {"BeginOffset": 45, "EndOffset": 49, "Score": 0.9989854693412781, "Text": "Cluj"}], "Line": 0}            
 ```
 
 The following is an example of the output from an analysis where the format of the input is one document per file.
 
-```
+```json
 {"File": "1_doc", "KeyPhrases": [{"BeginOffset": 0, "EndOffset": 22, "Score": 0.8948641419410706, "Text": "Cluj-NapocaCluj-Napoca"}, {"BeginOffset": 45, "EndOffset": 49, "Score": 0.9989854693412781, "Text": "Cluj"}]}            
 ```
 
@@ -139,14 +138,14 @@ The following is an example of the output from an analysis where the format of t
 
 The following is an example an output file from an analysis job that detected PII entities in documents. The format of the input is one document per line. 
 
-```
+```json
 {"Entities":[{"Type":"NAME","BeginOffset":40,"EndOffset":69,"Score":0.999995},{"Type":"ADDRESS","BeginOffset":247,"EndOffset":253,"Score":0.998828},{"Type":"BANK_ACCOUNT_NUMBER","BeginOffset":406,"EndOffset":411,"Score":0.693283}],"File":"doc.txt","Line":0}
 {"Entities":[{"Type":"SSN","BeginOffset":1114,"EndOffset":1124,"Score":0.999999},{"Type":"EMAIL","BeginOffset":3742,"EndOffset":3775,"Score":0.999993},{"Type":"PIN","BeginOffset":4098,"EndOffset":4102,"Score":0.999995}],"File":"doc.txt","Line":1}
 ```
 
 The following is an example of output from an analysis where the format of the input is one document per file.
 
-```
+```json
 {"Entities":[{"Type":"NAME","BeginOffset":40,"EndOffset":69,"Score":0.999995},{"Type":"ADDRESS","BeginOffset":247,"EndOffset":253,"Score":0.998828},{"Type":"BANK_ROUTING","BeginOffset":279,"EndOffset":289,"Score":0.999999}],"File":"doc.txt"}
 ```
 
@@ -155,7 +154,7 @@ The following is an example of output from an analysis where the format of the i
 
 The following is an example of an output file from an analysis that detected the sentiment expressed in a document. It includes an error message because one document is too long. The format of the input is one document per line. For more information, see the [DetectSentiment](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectSentiment.html) operation.
 
-```
+```json
 {"File": "50_docs", "Line": 0, "Sentiment": "NEUTRAL", "SentimentScore": {"Mixed": 0.002734508365392685, "Negative": 0.008935936726629734, "Neutral": 0.9841893315315247, "Positive": 0.004140198230743408}}
 {"File": "50_docs", "Line": 1, "ErrorCode": "DOCUMENT_SIZE_EXCEEDED", "ErrorMessage": "Document size is exceeded maximum size limit 5120 bytes."}
 {"File": "50_docs", "Line": 2, "Sentiment": "NEUTRAL", "SentimentScore": {"Mixed": 0.0023119584657251835, "Negative": 0.0029857370536774397, "Neutral": 0.9866572022438049, "Positive": 0.008045154623687267}}
@@ -163,7 +162,7 @@ The following is an example of an output file from an analysis that detected the
 
 The following is an example of the output from an analysis where the format of the input is one document per file.
 
-```
+```json
 {"File": "small_doc", "Sentiment": "NEUTRAL", "SentimentScore": {"Mixed": 0.0023450672160834074, "Negative": 0.0009663937962614, "Neutral": 0.9795311689376831, "Positive": 0.017157377675175667}}
 {"File": "huge_doc", "ErrorCode": "DOCUMENT_SIZE_EXCEEDED", "ErrorMessage": "Document size is exceeds the limit of 5120 bytes."}
 ```

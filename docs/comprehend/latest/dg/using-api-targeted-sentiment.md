@@ -1,7 +1,6 @@
 
 
 # Async analysis for targeted sentiment
-<a name="using-api-targeted-sentiment"></a>
 
 For information about real-time analysis for Targeted sentiment, see [Real-time analysis for targeted sentiment](using-api-sync.md#get-started-api-targeted-sentiment).
 
@@ -53,7 +52,7 @@ For the `cli-input-json` parameter you supply the path to a JSON file that conta
 
 If the request to start the job was successful, you will receive the following response:
 
-```
+```json
 {
     "JobStatus": "SUBMITTED",
     "JobArn": "{{job ARN}}"

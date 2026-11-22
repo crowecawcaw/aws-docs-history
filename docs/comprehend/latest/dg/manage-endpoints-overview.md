@@ -1,7 +1,6 @@
 
 
 # Overview of Amazon Comprehend endpoints
-<a name="manage-endpoints-overview"></a>
 
 The endpoints page from Amazon Comprehend console provides you a global view of your endpoints. From the endpoints overview page, you can view all of your endpoints in one place to understand your endpoint usage versus your actual resource usage. On the top right of the endpoints page you can specify what endpoints you want to view— all of them, custom classifier endpoints, or your custom entity endpoints.
 

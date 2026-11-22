@@ -1,7 +1,6 @@
 
 
 # Importing a custom model from another AWS account
-<a name="custom-copy-importing"></a>
 
 In Amazon Comprehend, you can import a custom model that's in another AWS account. When you import a model, you create a new custom model in your account. Your new custom model is a fully-trained duplicate of the model that you imported.
 
@@ -37,7 +36,7 @@ Your user, group or role must have a policy attached that allows the `ImportMode
 
 **Example IAM policy to import a custom model**  
 
-```
+```json
 { 
   "Effect": "Allow",
   "Action": [
@@ -68,7 +67,7 @@ The following permissions policy allows the AWS KMS operations that Amazon Compr
 + The other KMS key is in the AWS account that imports the model. Amazon Comprehend uses this key to encrypt the new custom model that is created by the import.  
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -113,7 +112,7 @@ The following trust policy allows Amazon Comprehend to assume the role and gain 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Step 5: Visualizing Amazon Comprehend output in Quick
-<a name="tutorial-reviews-visualize"></a>
 
 After storing the Amazon Comprehend results in tables, you can connect to and visualize the data with Quick. Quick is an AWS managed business intelligence (BI) tool for visualizing data. Quick makes it easy to connect to your data source and create powerful visuals. In this step, you connect Quick to your data, create visualizations that extract insights from the data, and publish a dashboard of visualizations.
 

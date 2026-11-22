@@ -1,7 +1,6 @@
 
 
 # Topic modeling
-<a name="topic-modeling"></a>
 
 **Note**  
 Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer available to new customers. No action is required for accounts that have used these features within the last 12 months. For more information, see [Amazon Comprehend feature availability change](comprehend-availability-change.md).

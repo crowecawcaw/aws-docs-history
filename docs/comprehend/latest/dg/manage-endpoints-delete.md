@@ -1,7 +1,6 @@
 
 
 # Deleting Amazon Comprehend endpoints
-<a name="manage-endpoints-delete"></a>
 
 Once you no longer need your endpoint, you should delete it so that you stop incurring costs from it. You can easily create another endpoint whenever you need it from the **Endpoints** section.
 

@@ -1,7 +1,6 @@
 
 
 # Starting a custom entity detection job (console)
-<a name="detecting-cer-async-console"></a>
 
 You can use the console to start and monitor an async analysis job for custom entity recognition.
 

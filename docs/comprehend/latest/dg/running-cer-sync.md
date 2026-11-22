@@ -1,7 +1,6 @@
 
 
 # Running real-time custom recognizer analysis
-<a name="running-cer-sync"></a>
 
 Real-time analysis is useful for applications that process small documents as they arrive. For example, you can detect custom entities in social media posts, support tickets, or customer reviews. 
 

@@ -1,7 +1,6 @@
 
 
 # Use `DetectSentiment` with an AWS SDK or CLI
-<a name="example_comprehend_DetectSentiment_section"></a>
 
 The following code examples show how to use `DetectSentiment`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Comprehend;
@@ -85,7 +84,7 @@ For more information, see [Sentiment](https://docs.aws.amazon.com/comprehend/lat
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.comprehend.ComprehendClient;
 import software.amazon.awssdk.services.comprehend.model.ComprehendException;
@@ -138,7 +137,7 @@ public class DetectSentiment {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
-```
+```python
 class ComprehendDetect:
     """Encapsulates Comprehend detection functions."""
 
@@ -177,7 +176,7 @@ class ComprehendDetect:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_cpd->detectsentiment(
           iv_text = iv_text

@@ -1,7 +1,6 @@
 
 
 # Real-time analysis for custom classification (console)
-<a name="custom-sync"></a>
 
 You can use the Amazon Comprehend console to run real-time analysis using a custom classification model.
 

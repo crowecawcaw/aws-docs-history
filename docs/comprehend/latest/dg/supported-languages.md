@@ -1,7 +1,6 @@
 
 
 # Languages supported in Amazon Comprehend
-<a name="supported-languages"></a>
 
 Amazon Comprehend supports a wide variety of languages for its various features. The languages supported and the features that support them can be seen in the following tables.
 

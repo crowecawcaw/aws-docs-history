@@ -1,7 +1,6 @@
 
 
 # PII real-time analysis (API)
-<a name="realtime-pii-api"></a>
 
 Amazon Comprehend provides real-time synchronous API operations to analyze personally identifiable information (PII) in a document.
 

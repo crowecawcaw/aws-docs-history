@@ -1,7 +1,6 @@
 
 
 # Target tracking
-<a name="targettracking"></a>
 
 With target tracking, you can adjust endpoint provisioning to fit your capacity needs based on usage. The number of inference units automatically adjust so that the utilized capacity is within a target percentage of the provisioned capacity. You can use target tracking to accommodate temporary surges of use for your document classification endpoints and entity recognizer endpoints. For more information, see [Target tracking scaling policies for Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html).
 
@@ -49,7 +48,7 @@ To set up target tracking for an endpoint, you use AWS CLI commands to register 
 
 1. Create a target tracking configuration for the scaling policy and save the configuration in a file called `config.json`. The following is an example of a target tracking configuration for a document classification endpoint that targets keeping the InferenceUtilization metric at 70%.
 
-   ```
+   ```json
    {
      "TargetValue": 70,
      "CustomizedMetricSpecification": {
@@ -69,7 +68,7 @@ To set up target tracking for an endpoint, you use AWS CLI commands to register 
 
    The following is an example for an entity recognizer endpoint:
 
-   ```
+   ```json
    {
      "TargetValue": 70,
      "CustomizedMetricSpecification": {

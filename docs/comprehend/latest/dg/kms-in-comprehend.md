@@ -1,7 +1,6 @@
 
 
 # KMS encryption in Amazon Comprehend
-<a name="kms-in-comprehend"></a>
 
 Amazon Comprehend works with AWS Key Management Service (AWS KMS) to provide enhanced encryption for your data. Amazon S3 already enables you to encrypt your input documents when creating a text analysis, topic modeling, or custom Amazon Comprehend job. Integration with AWS KMS enables you to encrypt the data in the storage volume for Start\* and Create\* jobs, and it encrypts the output results of Start\* jobs using your own KMS key.
 

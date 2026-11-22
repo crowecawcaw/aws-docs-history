@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="how-it-works"></a>
 
 Amazon Comprehend uses a pre-trained model to gather **insights** about a document or a set of documents. This model is continuously trained on a large body of text so that there is no need for you to provide training data. 
 

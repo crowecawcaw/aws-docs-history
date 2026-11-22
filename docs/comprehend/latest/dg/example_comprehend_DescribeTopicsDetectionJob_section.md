@@ -1,7 +1,6 @@
 
 
 # Use `DescribeTopicsDetectionJob` with an AWS SDK or CLI
-<a name="example_comprehend_DescribeTopicsDetectionJob_section"></a>
 
 The following code examples show how to use `DescribeTopicsDetectionJob`.
 
@@ -50,7 +49,7 @@ For more information, see [Async analysis for Amazon Comprehend insights](https:
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
-```
+```python
 class ComprehendTopicModeler:
     """Encapsulates a Comprehend topic modeler."""
 
@@ -88,7 +87,7 @@ class ComprehendTopicModeler:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_cpd->describetopicsdetectionjob(
           iv_jobid = iv_job_id

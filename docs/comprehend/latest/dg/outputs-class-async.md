@@ -1,7 +1,6 @@
 
 
 # Outputs for asynchronous analysis jobs
-<a name="outputs-class-async"></a>
 
 After an analysis job completes, it stores the results in the S3 bucket that you specified in the request.
 
@@ -96,7 +95,7 @@ For more details about these output fields, see [ClassifyDocument](https://docs.
 
 The following example shows output for a two-page scanned PDF file.
 
-```
+```json
 [{ #First page output
     "Classes": [
         {

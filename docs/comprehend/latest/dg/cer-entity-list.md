@@ -1,7 +1,6 @@
 
 
 # Entity lists (plaintext only)
-<a name="cer-entity-list"></a>
 
 To train a model using an entity list, you provide two pieces of information: a list of the entity names with their corresponding custom entity types and a collection of unannotated documents in which you expect your entities to appear. 
 
@@ -44,7 +43,7 @@ We highly recommended that CSV input files are generated programmatically to avo
 
 The following example uses Python to generate a CSV for the annotations shown above:
 
-```
+```python
 import csv 
 with open("./entitylist/entitylist.csv", "w", encoding="utf-8") as csv_file:
     csv_writer = csv.writer(csv_file)

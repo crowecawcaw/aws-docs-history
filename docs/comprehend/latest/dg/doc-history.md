@@ -1,14 +1,14 @@
 
 
 # Document history for Amazon Comprehend
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of Amazon Comprehend.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer available to new customers.](#doc-history) | Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer available to new customers. For more information, see [Amazon Comprehend feature availability change](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-availability-change.html). | April 30, 2026 | 
-| [Feature availability change](#doc-history) | Amazon Comprehend topic modeling, event detection, and prompt safety classification features will no longer be available to new customers, effective April 30, 2026. For more information, see [Amazon Comprehend feature availability change](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-availability-change.html). | March 31, 2026 | 
+| [Added FAQ page for supported protocols](doc-history.md) | Added a new FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/comprehend/latest/dg/cbor-faq.html). | November 10, 2026 | 
+| [Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer available to new customers.](doc-history.md) | Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer available to new customers. For more information, see [Amazon Comprehend feature availability change](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-availability-change.html). | April 30, 2026 | 
+| [Feature availability change](doc-history.md) | Amazon Comprehend topic modeling, event detection, and prompt safety classification features will no longer be available to new customers, effective April 30, 2026. For more information, see [Amazon Comprehend feature availability change](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-availability-change.html). | March 31, 2026 | 
 | [Custom classifier training with native documents](https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html) |  Amazon Comprehend now supports custom classifier training with native documents. For more information, see [Training classification models in Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html). | April 19, 2023 | 
 | [Flywheels for managing custom models](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels.html) |  Amazon Comprehend now supports flywheels to help you manage the training and tracking of model versions for custom models. For more information, see [Flywheels in Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels.html). | February 28, 2023 | 
 | [Updated IAM security topics](https://docs.aws.amazon.com/comprehend/latest/dg/security-iam..html) | Updated the IAM security topics to include federated identities. For more information, see [Identity and Access Management for Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/security-iam..html). | December 22, 2022 | 
@@ -53,4 +53,4 @@ The following table describes the documentation for this release of Amazon Compr
 | [Region expansion](https://docs.aws.amazon.com/general/latest/gr/rande.html#comprehend_region) | Amazon Comprehend is now available in Asia Pacific (Sydney) (ap-southeast-2). | August 15, 2018 | 
 | [New feature](https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html) | Amazon Comprehend now parses documents to discover the syntax of a document and the part of speech for each word. For more information, see [ Syntax](https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html).  | July 17, 2018 | 
 | [New feature](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html) | Amazon Comprehend now supports asynchronous batch processing for language, key phrase, entity, and sentiment detection. For more information, see [ Asynchronous batch processing ](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html).  | June 27, 2018 | 
-| [New guide](#doc-history) | This is the first release of the *Amazon Comprehend Developer Guide*. | November 29, 2017 | 
+| [New guide](doc-history.md) | This is the first release of the *Amazon Comprehend Developer Guide*. | November 29, 2017 | 

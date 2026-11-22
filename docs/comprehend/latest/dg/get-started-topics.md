@@ -1,7 +1,6 @@
 
 
 # Async analysis for topic modeling
-<a name="get-started-topics"></a>
 
  To determine the topics in a document set, use the [StartTopicsDetectionJob](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartTopicsDetectionJob.html) to start an asynchronous job. You can monitor topics in documents written in English or Spanish.
 
@@ -49,7 +48,7 @@ For the `cli-input-json` parameter you supply the path to a JSON file that conta
 
 If the request to start the topic detection job was successful, you will receive the following response:
 
-```
+```json
 {
     "JobStatus": "SUBMITTED",
     "JobId": "{{job ID}}"
@@ -64,7 +63,7 @@ aws comprehend list-topics-detection-jobs \-- {{region}}
 
 You will get JSON similar to the following in response:
 
-```
+```json
 {
     "TopicsDetectionJobPropertiesList": [
         {

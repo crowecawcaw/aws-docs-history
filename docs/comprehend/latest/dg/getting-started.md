@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Comprehend
-<a name="getting-started"></a>
 
 The following exercise uses the Amazon Comprehend console to create and run an asynchronous entity detection job. This exercise assumes that you are familiar with Amazon Simple Storage Service (Amazon S3). For a simpler example, see [Real-time analysis using the built-in models](realtime-console-analysis.md).
 

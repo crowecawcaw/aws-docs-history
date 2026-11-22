@@ -1,7 +1,6 @@
 
 
 # Use `ListDocumentClassificationJobs` with an AWS SDK or CLI
-<a name="example_comprehend_ListDocumentClassificationJobs_section"></a>
 
 The following code examples show how to use `ListDocumentClassificationJobs`.
 
@@ -69,7 +68,7 @@ For more information, see [Custom Classification](https://docs.aws.amazon.com/co
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
-```
+```python
 class ComprehendClassifier:
     """Encapsulates an Amazon Comprehend custom classifier."""
 
@@ -107,7 +106,7 @@ class ComprehendClassifier:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_cpd->listdocclassificationjobs( ).
         MESSAGE 'Document classification jobs listed.' TYPE 'I'.

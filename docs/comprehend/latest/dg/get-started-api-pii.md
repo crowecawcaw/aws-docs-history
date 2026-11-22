@@ -1,7 +1,6 @@
 
 
 # PII asynchronous analysis jobs (API)
-<a name="get-started-api-pii"></a>
 
 PII async analysis (API) 
 

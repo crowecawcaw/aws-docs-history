@@ -1,7 +1,6 @@
 
 
 # Training classification models
-<a name="training-classifier-model"></a>
 
 To train a model for custom classification, you define the categories and provide example documents to train the custom model. You train the model in either multi-class or multi-label mode. Multi-class mode associates a single class with each document. Multi-label mode associates one or more classes with each document.
 

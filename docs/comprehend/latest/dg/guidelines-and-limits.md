@@ -1,7 +1,6 @@
 
 
 # Guidelines and quotas
-<a name="guidelines-and-limits"></a>
 
 Unless otherwise specified, the Amazon Comprehend quotas are per region. You can request an increase to adjustable quotas if needed for your applications. For information about quotas and to request a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). 
 

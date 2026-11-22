@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 object Lambda access points for personally identifiable information (PII)
-<a name="using-access-points"></a>
 
 Use Amazon S3 Object Lambda Access Points for personally identifiable information (PII) to configure how documents are retrieved from your Amazon S3 bucket. You can control access to documents that contain PII and redact PII from documents. For more information on how Amazon Comprehend can detect PII in your documents, see [Detecting PII entities](how-pii.md). Amazon S3 Object Lambda Access Points use AWS Lambda functions to automatically transform the output of a standard Amazon S3 GET request. For more information see, [Transforming objects with S3 object Lambda](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html) in the *Amazon Simple Storage Service User Guide*. 
 
@@ -40,7 +39,7 @@ The following example creates an Amazon S3 Object Lambda Access Point to control
 
 Create an Amazon S3 Object Lambda Access Point configuration and save the configuration in a file called **config.json**.
 
-```
+```json
 {
     "SupportingAccessPoint": "{{s3-default-access-point-name-arn}}",
     "TransformationConfigurations": [
@@ -111,7 +110,7 @@ The following example creates an Amazon S3 Object Lambda Access Point to redeact
 
 Create an Amazon S3 Object Lambda Access Point configuration and save the configuration in a file called `config.json`.
 
-```
+```json
 {
     "SupportingAccessPoint": "{{s3-default-access-point-name-arn}}",
     "TransformationConfigurations": [

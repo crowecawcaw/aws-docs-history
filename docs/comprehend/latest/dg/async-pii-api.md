@@ -1,7 +1,6 @@
 
 
 # Locating PII entities with asynchronous jobs (API)
-<a name="async-pii-api"></a>
 
 Run an asynchronous batch job to locate PII in a collection of documents. To run the job, upload your documents to Amazon S3, and submit an [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartPiiEntitiesDetectionJob.html) request.
 
@@ -49,7 +48,7 @@ For additional details about the steps to follow for Amazon Comprehend async ana
 
 The following is an example an output file from an analysis job that detected PII entities in documents. The format of the input is one document per line. 
 
-```
+```json
 {
   "Entities": [
     {
@@ -102,7 +101,7 @@ The following is an example an output file from an analysis job that detected PI
 
 The following is an example of output from an analysis where the format of the input is one document per file.
 
-```
+```json
 {
   "Entities": [
     {
@@ -161,7 +160,7 @@ For the `cli-input-json` parameter you supply the path to a JSON file that conta
 
 If the request to start the events detection job was successful, you will receive a response similar to the following:
 
-```
+```json
 {
   "JobId": "5d2fbe6e...e2c"
   "JobArn":  "arn:aws:comprehend:us-west-2:123456789012:pii-entities-detection-job/5d2fbe6e...e2c" 
@@ -179,7 +178,7 @@ aws comprehend describe-pii-entities-detection-job \
 
 When the job completes successfully, you receive a response similar to the following:
 
-```
+```json
 {
     "PiiEntitiesDetectionJobProperties": {
   "JobId": "5d2fbe6e...e2c"

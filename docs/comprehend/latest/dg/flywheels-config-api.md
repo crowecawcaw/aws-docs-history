@@ -1,7 +1,6 @@
 
 
 # Configuring flywheels using the API
-<a name="flywheels-config-api"></a>
 
 You can use the Amazon Comprehend API to create, update, and delete flywheels. 
 

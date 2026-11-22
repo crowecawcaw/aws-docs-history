@@ -1,7 +1,6 @@
 
 
 # Custom entity recognition
-<a name="custom-entity-recognition"></a>
 
 Custom entity recognition extends the capability of Amazon Comprehend by helping you identify your specific new entity types that are not in the preset [generic entity types](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html). This means that you can analyze documents and extract entities like product codes or business-specific entities that fit your particular needs.
 

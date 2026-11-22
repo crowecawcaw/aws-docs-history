@@ -1,7 +1,6 @@
 
 
 # Redacting PII entities with asynchronous jobs (API)
-<a name="redact-api-pii"></a>
 
 To redact the PII entities in your text, you start an asynchronous batch job. To run the job, upload your documents to Amazon S3, and submit a [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartPiiEntitiesDetectionJob.html) request. 
 
@@ -90,7 +89,7 @@ For the `cli-input-json` parameter you supply the path to a JSON file that conta
 
 If the request to start the events detection job was successful, you will receive a response similar to the following:
 
-```
+```json
 {
   "JobId": "7c4fbe6e...e5b"
   "JobArn":  "arn:aws:comprehend:us-west-2:123456789012:pii-entities-detection-job/7c4fbe6e...e5b" 
@@ -108,7 +107,7 @@ aws comprehend describe-pii-entities-detection-job \
 
 When the job completes successfully, you receive a response similar to the following:
 
-```
+```json
 {
   "PiiEntitiesDetectionJobProperties": {
      "JobId": "7c4fbe6e...e5b"

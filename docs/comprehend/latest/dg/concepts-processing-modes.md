@@ -1,7 +1,6 @@
 
 
 # Document processing modes
-<a name="concepts-processing-modes"></a>
 
 Amazon Comprehend supports three document processing modes. Your choice of mode depends on the number documents you need to process and how immediately you need to view the results:
 + **Single-document synchronous** – You call Amazon Comprehend with a single document and receive a synchronous response, delivered to your application (or the console) right away. 
@@ -29,7 +28,7 @@ Using the `Batch*` operations is identical to calling the single document APIs f
 
 The input to each of the APIs is a JSON structure containing the documents to process. For all operations except `BatchDetectDominantLanguage`, you must set the input language. You can set only one input language for each request. For example, the following is the input to the `BatchDetectEntities` operation. It contains two documents and is in English.
 
-```
+```json
 {
    "LanguageCode": "en",
    "TextList": [
@@ -41,7 +40,7 @@ The input to each of the APIs is a JSON structure containing the documents to pr
 
 The response from a `Batch*` operation contains two lists, the `ResultList` and the `ErrorList`. The `ResultList` contains one record for each document that was successfully processed. The result for each document in the request is identical to the result you would get if you ran a single document operation on the document. The results for each document are assigned an index based on the order of the documents in the input file. The response from the `BatchDetectEntities` operation is:
 
-```
+```json
 {
    "ResultList"  : [
       {
@@ -89,7 +88,7 @@ The response from a `Batch*` operation contains two lists, the `ResultList` and 
 
 When an error occurs in the request the response contains an `ErrorList` that identifies the documents that contained an error. The document is identified by its index in the input list. For example, the following input to the `BatchDetectLanguage` operation contains a document that cannot be processed:
 
-```
+```json
 {
    "TextList": [
      "hello friend", 
@@ -101,7 +100,7 @@ When an error occurs in the request the response contains an `ErrorList` that id
 
 The response from Amazon Comprehend includes an error list that identifies the document that contained an error:
 
-```
+```json
 {
     "ResultList": [
         {

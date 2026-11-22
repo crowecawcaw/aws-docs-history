@@ -1,7 +1,6 @@
 
 
 # Inputs for real-time custom analysis
-<a name="idp-inputs-sync"></a>
 
 Real-time analysis using custom models takes a single document as input. The following topics describe the input document types that you can use.
 

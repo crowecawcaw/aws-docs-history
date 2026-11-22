@@ -1,7 +1,6 @@
 
 
 # Custom entity recognizer metrics
-<a name="cer-metrics"></a>
 
 Amazon Comprehend provides you with metrics to help you estimate how well an entity recognizer should work for your job. They are based on training the recognizer model, and so while they accurately represent the performance of the model during training, they are only an approximation of the API performance during entity discovery. 
 

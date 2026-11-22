@@ -1,7 +1,6 @@
 
 
 # Updating Amazon Comprehend endpoints
-<a name="manage-endpoints-update"></a>
 
 Frequently, the level of throughput you need changes after creating an endpoint, or your first estimation of your needs changes. When this happens, it may be necessary to update your endpoint to adjust the throughput up or down. Throughput is governed by the number of inference units with which you've provisioned your endpoint. Each inference unit represents a throughput of 100 characters per second for up to 2 documents per second. You might also want to update the version of the model associated with the endpoint. When you edit an endpoint, you can choose a different version of the model for the endpoint.
 

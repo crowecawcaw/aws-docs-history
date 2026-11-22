@@ -1,7 +1,6 @@
 
 
 # Protect jobs by using an Amazon Virtual Private Cloud
-<a name="usingVPC"></a>
 
 Amazon Comprehend uses a variety of security measures to ensure the safety of your data with our job containers where it's stored while being used by Amazon Comprehend. However, job containers access AWS resources—such as the Amazon S3 buckets where you store data and model artifacts—over the internet. 
 
@@ -105,7 +104,7 @@ The following policy allows access to S3 buckets. Edit this policy to allow acce
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -183,7 +182,7 @@ The following policy provides the access needed to the `DataAccessRole` used for
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Starting a custom entity detection job (API)
-<a name="detecting-cer-async-api"></a>
 
 You can use the API to start and monitor an async analysis job for custom entity recognition.
 
@@ -43,7 +42,7 @@ This example creates a custom entity recognizer, trains the model, and then runs
 
 Instantiate the SDK for Python (Boto3). 
 
-```
+```python
 import boto3
 import uuid
 comprehend = boto3.client("comprehend", region_name="{{region}}")
@@ -51,7 +50,7 @@ comprehend = boto3.client("comprehend", region_name="{{region}}")
 
 Create an entity recognizer: 
 
-```
+```python
 response = comprehend.create_entity_recognizer(
     RecognizerName="Recognizer-Name-Goes-Here-{}".format(str(uuid.uuid4())),
     LanguageCode="en",
@@ -75,13 +74,13 @@ recognizer_arn = response["EntityRecognizerArn"]
 
 List all recognizers: 
 
-```
+```python
 response = comprehend.list_entity_recognizers()
 ```
 
 Wait for the entity recognizer to reach TRAINED status: 
 
-```
+```python
 while True:
     response = comprehend.describe_entity_recognizer(
         EntityRecognizerArn=recognizer_arn
@@ -98,7 +97,7 @@ while True:
 
 Start a custom entities detection job: 
 
-```
+```python
 response = comprehend.start_entities_detection_job(
     EntityRecognizerArn=recognizer_arn,
     JobName="Detection-Job-Name-{}".format(str(uuid.uuid4())),
@@ -136,7 +135,7 @@ The following example defines a JSON file named myInputDataConfig.json to set th
 
 In the `StartEntitiesDetectionJob` operation, specify the myInputDataConfig.json file as the `InputDataConfig` parameter:
 
-```
+```bash
   --input-data-config file://myInputDataConfig.json  
 ```
 

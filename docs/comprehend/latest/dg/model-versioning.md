@@ -1,7 +1,6 @@
 
 
 # Model versioning with Amazon Comprehend
-<a name="model-versioning"></a>
 
 Artificial intelligence and machine learning (AI/ML) is all about rapid experimentation. With Amazon Comprehend, you train and build out models which you use to gain insight on your data. With model versioning you can keep track of your modeling history and scores associated with running results of your models as you provide more or different sets of data. You can use versioning with your custom classification models or your custom entity recognition models. Taking a look at your different versions over time you can gain insight on how successful they've performed and gain insight on what parameters you used to get to your state of success. 
 

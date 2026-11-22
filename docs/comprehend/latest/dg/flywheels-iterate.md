@@ -1,7 +1,6 @@
 
 
 # Flywheel iterations
-<a name="flywheels-iterate"></a>
 
 Use flywheel iterations to help you create and manage new model versions. 
 

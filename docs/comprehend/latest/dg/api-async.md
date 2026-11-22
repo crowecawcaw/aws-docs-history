@@ -1,7 +1,6 @@
 
 
 # Async analysis jobs using the API
-<a name="api-async"></a>
 
 The following examples use the Amazon Comprehend asynchronous APIs to create and manage analysis jobs, using the AWS CLI.
 

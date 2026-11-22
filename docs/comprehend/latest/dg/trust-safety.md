@@ -1,7 +1,6 @@
 
 
 # Trust and safety
-<a name="trust-safety"></a>
 
 Users generate large amounts of text content through online applications (such as peer-to-peer chats and forum discussions), comments posted on websites, and through generative AI applications (input prompts and outputs from generative AI models). The Amazon Comprehend Trust and Safety features can help you moderate this content, to provide a safe and inclusive environment for your users. 
 
@@ -149,7 +148,7 @@ The AWS CLI responds with the following results:
 
 The following example demonstrates how to detect toxic content using Python:
 
-```
+```python
 import boto3
 client = boto3.client(
     service_name='comprehend',
@@ -225,7 +224,7 @@ ap-southeast-2
 
 The following example demonstrates how to use the prompt safety classifier with Python:
 
-```
+```python
 import boto3
 client = boto3.client(service_name='comprehend', region_name='us-west-2')
 
