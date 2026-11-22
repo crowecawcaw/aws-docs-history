@@ -1,7 +1,6 @@
 
 
 # Module 2: Initialize Amplify
-<a name="module-two"></a>
 
 
 |  |  | 

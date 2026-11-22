@@ -1,7 +1,6 @@
 
 
 # Module 1: Create an iOS app
-<a name="module-one"></a>
 
 
 |  |  | 

@@ -1,7 +1,6 @@
 
 
 # Build an iOS Application
-<a name="build-ios-app-amplify"></a>
 
 
 |  |  | 

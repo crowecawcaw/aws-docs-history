@@ -1,7 +1,6 @@
 
 
 # Module 5: Add the Ability to Store Images
-<a name="module-five"></a>
 
 
 |  |  | 

@@ -1,7 +1,6 @@
 
 
 # Module 3: Add Authentication
-<a name="module-three"></a>
 
 
 |  |  | 

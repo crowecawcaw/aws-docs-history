@@ -1,7 +1,6 @@
 
 
 # Module 4: Add a GraphQL API service and a database
-<a name="module-four"></a>
 
 
 |  |  | 
