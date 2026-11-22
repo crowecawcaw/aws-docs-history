@@ -1,7 +1,6 @@
 
 
 # Airport Terminal Optimizer
-<a name="airport-terminal-optimizer"></a>
 
 Publication date: **April 16, 2020 ([Diagram history](#terminal-optimizer-history))**
 
