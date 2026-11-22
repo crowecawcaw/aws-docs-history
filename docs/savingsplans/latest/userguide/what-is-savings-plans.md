@@ -1,7 +1,6 @@
 
 
 # What are Savings Plans?
-<a name="what-is-savings-plans"></a>
 
 Savings Plans provide savings beyond On-Demand rates in exchange for a commitment of using a specified amount of compute power (measured per hour) for a one or three year period.
 + **One year:** A year is defined as 365 days (31,536,000 seconds).

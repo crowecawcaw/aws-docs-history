@@ -1,7 +1,6 @@
 
 
 # Completing your Savings Plan purchase analysis
-<a name="sp-purchase-analysis-next-steps"></a>
 
 Once you've modeled purchase scenarios, you can choose to download your Savings Plan analysis in CSV file format, which is useful to review or share, or add your Savings Plan to cart.
 

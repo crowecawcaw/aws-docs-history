@@ -1,7 +1,6 @@
 
 
 # Quotas and restrictions
-<a name="sp-quotas"></a>
 
 The following table describes the current quotas and restrictions within Savings Plans features.
 

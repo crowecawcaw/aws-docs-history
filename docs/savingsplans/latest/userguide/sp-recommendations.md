@@ -1,7 +1,6 @@
 
 
 # Understanding Savings Plans recommendations
-<a name="sp-recommendations"></a>
 
 To help you save money, AWS provides customized Savings Plans recommendations based on your past usage. You can use these recommendations to understand what you can save, how the commitment will be used, and more.
 

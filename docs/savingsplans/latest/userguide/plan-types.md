@@ -1,7 +1,6 @@
 
 
 # Savings Plans types
-<a name="plan-types"></a>
 
 AWS offers four types of Savings Plans: Compute Savings Plans, Database Savings Plans, EC2 Instance Savings Plans, and SageMaker AI Savings Plans.
 + **Compute Savings Plans** provide the most flexibility and prices that are up to 66% off of On-Demand rates. These plans automatically apply to your EC2 instance usage, regardless of instance family (for example, m5, c5, etc.), instance size (for example, c5.large, c5.xlarge, etc.), Region (for example, us-east-1, us-east-2, etc.), operating system (for example, Windows, Linux, etc.), or tenancy (for example, Dedicated, default, Dedicated Host). They also apply to your Fargate and Lambda usage. With Compute Savings Plans, you can move a workload from c5 to m5, shift your usage from EU (Ireland) to EU (London), or migrate your application from Amazon EC2 to Amazon ECS using Fargate at any time. You can continue to benefit from the low prices provided by Compute Savings Plans as you make these changes.

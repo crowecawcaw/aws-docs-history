@@ -1,7 +1,6 @@
 
 
 # Automating Savings Plans with Amazon EventBridge
-<a name="automating-savingsplans-with-eventbridge"></a>
 
 EventBridge helps you automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near-real time. Events are emitted on a best-effort basis. Based on the rules you create, EventBridge calls one or more target actions when an event matches the values that you specify in a rule. 
 

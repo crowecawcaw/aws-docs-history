@@ -1,7 +1,6 @@
 
 
 # Customizing Savings Plans recommendations
-<a name="sp-rec-customizing"></a>
 
 You can customize your Savings Plans recommendations using parameters shown on the **Recommendations** page.<a name="sp-rec-customize-howto"></a>
 

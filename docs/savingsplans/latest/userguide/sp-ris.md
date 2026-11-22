@@ -1,7 +1,6 @@
 
 
 # Compute Savings Plans and Reserved Instances
-<a name="sp-ris"></a>
 
 Compute Savings Plans are a flexible pricing model that offers low prices, just like Amazon EC2 Reserved Instances (RI), but with added flexibility. With Savings Plans, you can reduce your bill by committing to a consistent amount of compute usage (measured in $/hour), instead of specific instance configurations. Savings Plans give you the flexibility to use the compute option that best suits your needs at low prices, without having to perform exchanges or modifications.
 

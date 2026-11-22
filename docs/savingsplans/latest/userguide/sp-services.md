@@ -1,7 +1,6 @@
 
 
 # Services eligible for Savings Plans benefits
-<a name="sp-services"></a>
 
 AWS offers three types of Savings Plans: Compute Savings Plans, EC2 Instance Savings Plans, and SageMaker Savings Plans. Compute Savings Plans apply to usage across Amazon EC2, AWS Lambda, and AWS Fargate. EC2 Instance Savings Plans apply to EC2 usage and SageMaker AI Savings Plans apply to SageMaker AI usage.
 

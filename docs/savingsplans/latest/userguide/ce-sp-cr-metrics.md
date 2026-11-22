@@ -1,7 +1,6 @@
 
 
 # Understanding coverage metrics and calculations
-<a name="ce-sp-cr-metrics"></a>
 
 You can find the following high-level metrics in the **Coverage report** section:
 + **On-Demand spend not covered** – The amount of eligible savings spend that was not covered by Savings Plans or Reserved Instances over the lookback period.

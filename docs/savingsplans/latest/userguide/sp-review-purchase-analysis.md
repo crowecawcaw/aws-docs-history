@@ -1,7 +1,6 @@
 
 
 # Reviewing your Savings Plan purchase analysis
-<a name="sp-review-purchase-analysis"></a>
 
 After setting parameters and running the analysis, Purchase Analyzer applies the resulting Savings Plan to each hour of the historical lookback period. This process takes into account the composition of usage across different services and Regions, as well as the Savings Plans inventory after removing any Savings Plans that were excluded. This allows you to review the impact of a purchase on your unique environment. The data is presented in three charts: cost, coverage, and utilization. You can switch between tabs to view the different metrics and hover over data points for detailed hourly information.
 

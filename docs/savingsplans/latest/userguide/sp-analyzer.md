@@ -1,7 +1,6 @@
 
 
 # Deciding which Savings Plans to purchase
-<a name="sp-analyzer"></a>
 
 Savings Plans Purchase Analyzer is a feature that allows you to model and evaluate potential Savings Plans purchases. You can calculate these purchases by using the recommended purchase amount, targeting a coverage percentage, or entering your own custom amount to see the impact on savings, coverage, and utilization. You can fine-tune the results by adjusting the lookback period or removing expiring Savings Plans from the analysis. Purchase Analyzer helps you in the decision-making process by enabling you to evaluate key metrics, including estimated monthly savings and coverage percentage.
 

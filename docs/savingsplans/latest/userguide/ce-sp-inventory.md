@@ -1,7 +1,6 @@
 
 
 # Viewing your Savings Plans inventory
-<a name="ce-sp-inventory"></a>
 
 The Savings Plans **Inventory** page shows a detailed overview of the Savings Plans that you own, or have queued for future purchase.
 

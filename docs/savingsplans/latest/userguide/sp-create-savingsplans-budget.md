@@ -1,7 +1,6 @@
 
 
 # Customizing a Savings Plans budget
-<a name="sp-create-savingsplans-budget"></a>
 
 Use the following procedure to create a customized budget for Savings Plans utilization or Savings Plans coverage.
 

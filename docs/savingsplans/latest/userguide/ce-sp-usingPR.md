@@ -1,7 +1,6 @@
 
 
 # Using the Savings Plans utilization report
-<a name="ce-sp-usingPR"></a>
 
 Savings Plans utilization shows you the percentage of your Savings Plans commitment that you're using across your On-Demand usage. You can use your Savings Plans utilization report to visually understand how your Savings Plans apply to your usage over the configured time period. Along with a visualized graph, the report shows high-level metrics based on your selected Savings Plan, filters, and lookback periods. Utilization is calculated based on how your Savings Plans applied to your usage over the lookback period.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with Savings Plans
-<a name="get-started"></a>
 
 To get started with Savings Plans, you'll need to enable Cost Explorer. Cost Explorer helps you optimize your costs with Savings Plans. In Cost Explorer, you can access customized purchase recommendations based on your past AWS usage, purchase Savings Plans, and easily manage your purchased Savings Plans.
 

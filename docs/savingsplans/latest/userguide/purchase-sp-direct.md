@@ -1,7 +1,6 @@
 
 
 # Purchasing a custom Savings Plan commitment
-<a name="purchase-sp-direct"></a>
 
 You can purchase a Savings Plan with a commitment amount that is different from the recommended commitment. Purchase a commitment of your choice on the **Purchase Savings Plans** page.<a name="ce-sp-compute-howto"></a>
 

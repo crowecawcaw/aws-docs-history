@@ -1,7 +1,6 @@
 
 
 # Returning a purchased Savings Plan
-<a name="return-sp"></a>
 
 When you purchase a Savings Plan, you make a commitment for one or three years. However, in the case that you purchase a Savings Plan and quickly identify a purchase error that you want to rectify, you'll have a limited time period to do so. Any Savings Plan with an hourly commitment of $100 or less that has been purchased in the last seven days and in the same calendar month can be returned, provided you haven't reached your return limit. Once the calendar month ends (UTC time), these purchased Savings Plans can no longer be returned. For more information about quotas, see [Quotas and restrictions](https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-quotas.html).
 

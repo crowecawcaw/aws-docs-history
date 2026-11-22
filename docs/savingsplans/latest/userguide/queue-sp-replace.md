@@ -1,7 +1,6 @@
 
 
 # Renewing a Savings Plan
-<a name="queue-sp-replace"></a>
 
 If your active Savings Plans are nearing expiration, you can queue a purchase to start as soon as the active Savings Plans expire. This helps ensure that you have continuous Savings Plans coverage.<a name="queue-sp-replace-howto"></a>
 

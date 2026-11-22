@@ -1,7 +1,6 @@
 
 
 # Running a Savings Plan purchase analysis
-<a name="sp-purchase-analysis"></a>
 
 Use Purchase Analyzer to configure multiple parameters for your planned Savings Plan purchase analysis.<a name="sp-rec-customize-howto"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Purchasing Savings Plans
-<a name="sp-purchase"></a>
 
 You can access Savings Plans in the AWS Billing and Cost Management console. You can add your selection to your Savings Plans cart from the **Recommendations** page or from the **Purchase Savings Plans** page. We suggest that you use the **Recommendations** page to see Savings Plans recommendations based on your past usage. You can also use **Purchase Analyzer** to estimate the cost, coverage, and utilization impact of your next Savings Plan purchase.
 

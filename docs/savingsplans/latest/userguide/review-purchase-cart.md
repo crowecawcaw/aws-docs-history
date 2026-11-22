@@ -1,7 +1,6 @@
 
 
 # Reviewing and finalizing Savings Plans purchases
-<a name="review-purchase-cart"></a>
 
 The Savings Plans **Carts** page keeps your commitments until you're ready to make a purchase.<a name="review-cart-howto"></a>
 

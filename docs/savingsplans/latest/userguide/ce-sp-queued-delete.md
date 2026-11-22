@@ -1,7 +1,6 @@
 
 
 # Deleting a queued Savings Plan
-<a name="ce-sp-queued-delete"></a>
 
 You can use queued Savings Plans to have continued coverage for your On-Demand usage. However, we understand that your preferences might change as the start date approaches. You can delete your queued purchased using the following process.<a name="ce-sp-queued-delete-howto"></a>
 

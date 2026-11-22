@@ -1,7 +1,6 @@
 
 
 # Viewing Savings Plans details
-<a name="sp-overview-details"></a>
 
 After you purchase Savings Plans, you see a **Details** section in your **Overview** page. The **Details** section shows the following metrics related to your purchased Savings Plans:
 + **Type** – Determines the summary by Savings Plans type.

@@ -1,7 +1,6 @@
 
 
 # Understanding how Savings Plans apply to your usage
-<a name="sp-applying"></a>
 
 If you have active Savings Plans, they apply automatically to your eligible AWS usage to reduce your bill.
 
@@ -12,9 +11,14 @@ Savings Plans apply to your usage after the Amazon EC2 Reserved Instances (RI) a
 
 Your current Savings Plans are grouped together and applied to the eligible usage. **EC2 Instance Savings Plans** are applied before **Compute Savings Plans** because **Compute Savings Plans** have broader applicability. 
 
-In a *Consolidated Billing Family*, Savings Plans are applied first to the owner account's usage, and then to other accounts' usage. This occurs only if you have sharing enabled.
+In a consolidated billing family, Savings Plans apply first to usage in the account that owns them. Any remaining commitment applies to other accounts according to your sharing preferences:
++ **Open sharing (default)** – All sharing-activated accounts in the organization.
++ **Group sharing** – Accounts in the owner's sharing group first. With prioritized group sharing, other sharing-activated accounts in the organization next. With restricted group sharing, the Savings Plan doesn't apply outside the group.
++ **Level sharing** – The accounts defined for that specific Savings Plan first. With prioritized mode, other sharing-activated accounts in the organization next. With restricted mode, the Savings Plan doesn't apply outside those accounts. A level sharing preference overrides the organization's group sharing preference.
 
-We calculate your potential savings percentages of each combination of eligible usage. This percentage compares the Savings Plans rates with your current On-Demand rates. Your Savings Plans are applied to your highest savings percentage first. If there are multiple usages with equal savings percentages, Savings Plans are applied to the first usage with the lowest Savings Plans rate. Savings Plans continue to apply until there are no more remaining usages, or your commitment is exhausted. Any remaining usage is charged at the On-Demand rates.
+You set sharing preferences in the Billing and Cost Management console. For more information, see [Reserved Instances and Savings Plans discount sharing](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ri-turn-off.html) in the *AWS Billing and Cost Management User Guide*.
+
+Within each set of eligible accounts, we calculate the potential savings percentage for each combination of eligible usage, comparing the Savings Plans rate with your current On-Demand rate. Your Savings Plans apply to the usage with the highest savings percentage first. If several usages have the same savings percentage, Savings Plans apply first to the usage with the lowest Savings Plans rate. Savings Plans continue to apply until no eligible usage remains or the commitment is used up. Any remaining usage is charged at On-Demand rates.
 
 ## Savings Plans example
 <a name="sp-example"></a>
@@ -45,6 +49,7 @@ This example assumes one-year duration, partial upfront Savings Plans matching t
 + [Scenario 3: Savings Plans apply to some usage, across products](#scenario-3)
 + [Scenario 4: Savings Plans and EC2 reserved instances apply to the usage](#scenario-4)
 + [Scenario 5: Multiple Savings Plans apply to the usage](#scenario-5)
++ [Scenario 6: Savings Plans with level sharing](#scenario-6)
 
 ### Scenario 1: Savings Plans apply to all usage
 <a name="scenario-1"></a>
@@ -99,5 +104,13 @@ Your EC2 Instance Family Savings Plan (`r5`, us-east-1) covers all of the `r5.4x
 Next, the Compute Savings Plan is applied to the Fargate usage because it has the highest discount percentage (25 percent) of the remaining usage. Savings Plans apply to memory (GB) before compute (vCPU) because memory has the lower Savings Plans rate. The hourly commitment of $16.80 is met, and the remaining usage is charged at On-Demand rates. 
 
 The `m5.24xlarge` and Lambda usage On-Demand charges are $32.70.
+
+### Scenario 6: Savings Plans with level sharing
+<a name="scenario-6"></a>
+
+The management account owns a $10.00/hour Compute Savings Plan. The Savings Plan has a restricted level sharing preference that includes only the Analytics and Data accounts. In a given hour, the management account has no eligible usage.
++ The Savings Plan applies to eligible usage in the Analytics and Data accounts, starting with the usage that has the highest savings percentage.
++ Eligible usage in other member accounts is charged at On-Demand rates, even if part of the commitment is unused.
++ If the level sharing preference were prioritized instead, any unused commitment would apply to eligible usage in other sharing-activated accounts in the organization.
 
 For more information, see [Understanding Consolidated Bills](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/con-bill-blended-rates.html#cb_savingsplans) in the *AWS Billing and Cost Management User Guide*.
