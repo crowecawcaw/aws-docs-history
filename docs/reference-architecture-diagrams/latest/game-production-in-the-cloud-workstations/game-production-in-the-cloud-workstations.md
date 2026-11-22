@@ -1,7 +1,6 @@
 
 
 # Game Production in the Cloud - Workstations
-<a name="game-production-in-the-cloud-workstations"></a>
 
 Publication date: **December 1, 2021 ([Diagram history](#diagram-history))**
 
