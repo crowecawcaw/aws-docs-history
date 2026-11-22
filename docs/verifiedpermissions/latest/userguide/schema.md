@@ -1,7 +1,6 @@
 
 
 # Amazon Verified Permissions policy store schema
-<a name="schema"></a>
 
 A *[schema](https://docs.cedarpolicy.com/overview/terminology.html#schema)* is a declaration of the structure of the entity types supported by your application, and the actions your application may provide in authorization requests. To see the difference between how Verified Permissions and Cedar handles schemas, see [Schema support](terminology-differences-avp-cedar.md#differences-templates).
 
@@ -59,14 +58,14 @@ You must first escape the JSON into a single line string, and preface it with a 
 **Note**  
 The example here is line wrapped for readability. You must have the entire file on a single line for the command to accept it.
 
-```
+```JSON
 {"cedarJson": "{\"MySampleNamespace\": {\"actions\": {\"remoteAccess\": {\"appliesTo\": 
 {\"principalTypes\": [\"Employee\"]}}},\"entityTypes\": {\"Employee\": {\"shape\": 
 {\"attributes\": {\"jobLevel\": {\"type\": \"Long\"},\"name\": {\"type\": \"String\"}},
 \"type\": \"Record\"}}}}}"}
 ```
 
-```
+```bash
 $ aws verifiedpermissions put-schema \
     --definition file://schema.json \
     --policy-store PSEXAMPLEabcdefg111111

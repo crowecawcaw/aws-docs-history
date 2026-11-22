@@ -1,7 +1,6 @@
 
 
 # Create your first Amazon Verified Permissions policy store
-<a name="getting-started-first-policy-store"></a>
 
 For this tutorial, let's assume you're the developer of a photo sharing application and you are looking for a way to control what actions the users of the application can perform. You want to control who can add, delete, or view photos and photo albums. You also want to control what actions a user can take on their account. Can they manage their account, how about the account of a friend? To control these actions you would create policies that permit or forbid these actions based on the identity of the user. Verified Permissions offers [policy stores](terminology.md#term-policy-store), or containers, to house these policies.
 

@@ -1,7 +1,6 @@
 
 
 # Making API requests
-<a name="making-api-requests"></a>
 
 Query requests for the Amazon Verified Permissions are HTTP or HTTPS requests that use the `POST` method.
 
@@ -59,7 +58,7 @@ If you don't use one of the AWS SDKs, you can make Verified Permissions requests
 
 The following is an example header for an HTTP request to return a list of all policies in the specified policy store in the AWS account where the `Principal` references a `User` named `alice`. In this example, the `Authorization` line is word-wrapped here for easier reading. Don't word wrap it in your actual request.
 
-```
+```HTTP
 POST / HTTP/1.1
 Host: verifiedpermissions.us-east-1.amazonaws.com
 X-Amz-Date: 20230101T200059Z

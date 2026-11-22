@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Verified Permissions API calls using AWS CloudTrail
-<a name="monitoring-cloudtrail"></a>
 
 Amazon Verified Permissions is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Verified Permissions. CloudTrail captures all API calls for Verified Permissions as events. The calls captured include calls from the Verified Permissions console and code calls to the Verified Permissions API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Verified Permissions. If you don't configure a trail, you can still view the most recent management action events in the CloudTrail console in **Event history**, but not events for API calls such as `isAuthorized`. Using the information collected by CloudTrail, you can determine the request that was made to Verified Permissions, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -63,7 +62,7 @@ Some fields have been redacted from the examples for data privacy.
 
 The following example shows a CloudTrail log entry for an `IsAuthorized` API call:
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -120,7 +119,7 @@ The following example shows a CloudTrail log entry for an `IsAuthorized` API cal
 
 The following example shows a CloudTrail log entry for an `IsAuthorizedWithToken` API call:
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -177,7 +176,7 @@ The following example shows a CloudTrail log entry for an `IsAuthorizedWithToken
 
 The following example shows a CloudTrail log entry for a `BatchIsAuthorized` API call:
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -287,7 +286,7 @@ The following example shows a CloudTrail log entry for a `BatchIsAuthorized` API
 
 The following example shows a CloudTrail log entry for a `BatchIsAuthorizedWithToken` API call:
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -385,7 +384,7 @@ The following example shows a CloudTrail log entry for a `BatchIsAuthorizedWithT
 
 The following example shows a CloudTrail log entry for a `CreatePolicyStore` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -428,7 +427,7 @@ The following example shows a CloudTrail log entry for a `CreatePolicyStore` API
 
 The following example shows a CloudTrail log entry for a `ListPolicyStores` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -463,7 +462,7 @@ The following example shows a CloudTrail log entry for a `ListPolicyStores` API 
 
 The following example shows a CloudTrail log entry for a `DeletePolicyStore` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -505,7 +504,7 @@ The following example shows a CloudTrail log entry for a `DeletePolicyStore` API
 
 The following example shows a CloudTrail log entry for a `PutSchema` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -552,7 +551,7 @@ The following example shows a CloudTrail log entry for a `PutSchema` API call:
 
 The following example shows a CloudTrail log entry for a `GetSchema` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -594,7 +593,7 @@ The following example shows a CloudTrail log entry for a `GetSchema` API call:
 
 The following example shows a CloudTrail log entry for a `CreatePolicyTemplate` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -641,7 +640,7 @@ The following example shows a CloudTrail log entry for a `CreatePolicyTemplate` 
 
 The following example shows a CloudTrail log entry for a `DeletePolicyTemplate` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -684,7 +683,7 @@ The following example shows a CloudTrail log entry for a `DeletePolicyTemplate` 
 
 The following example shows a CloudTrail log entry for a `CreatePolicy` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -741,7 +740,7 @@ The following example shows a CloudTrail log entry for a `CreatePolicy` API call
 
 The following example shows a CloudTrail log entry for a `GetPolicy` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -784,7 +783,7 @@ The following example shows a CloudTrail log entry for a `GetPolicy` API call:
 
 The following example shows a CloudTrail log entry for a `CreateIdentitySource` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -838,7 +837,7 @@ The following example shows a CloudTrail log entry for a `CreateIdentitySource` 
 
 The following example shows a CloudTrail log entry for a `GetIdentitySource` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -881,7 +880,7 @@ The following example shows a CloudTrail log entry for a `GetIdentitySource` API
 
 The following example shows a CloudTrail log entry for a `ListIdentitySources` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -923,7 +922,7 @@ The following example shows a CloudTrail log entry for a `ListIdentitySources` A
 
 The following example shows a CloudTrail log entry for a `DeleteIdentitySource` API call:
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Creating Amazon Verified Permissions Amazon Cognito identity sources
-<a name="cognito-create"></a>
 
 The following procedure adds an identity source to an existing policy store.
 
@@ -51,7 +50,7 @@ You can an create an identity source by using the [CreateIdentitySource](https:/
 
 1. Create a `config.txt` file that contains the following details of the Amazon Cognito user pool for use by the `--configuration` parameter in the `create-identity-source` command.
 
-   ```
+   ```json
    {
        "cognitoUserPoolConfiguration": {
            "userPoolArn": "arn:aws:cognito-idp:us-west-2:123456789012:userpool/us-west-2_1a2b3c4d5",
@@ -65,7 +64,7 @@ You can an create an identity source by using the [CreateIdentitySource](https:/
 
 1. Run the following command to create an Amazon Cognito identity source.
 
-   ```
+   ```bash
    $ aws verifiedpermissions create-identity-source \
        --configuration file://config.txt \
        --principal-entity-type "User" \

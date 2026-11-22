@@ -1,7 +1,6 @@
 
 
 # Testing your authorization model
-<a name="authorization-testing"></a>
 
 To understand the effect of Amazon Verified Permissions authorization decision when you deploy your application, you can evaluate your policies as you develop them with the [Using the Amazon Verified Permissions test bench](test-bench.md) and with HTTPS REST API requests to Verified Permissions. The test bench is a tool in the AWS Management Console to evaluate authorization requests and responses in your policy store.
 

@@ -1,7 +1,6 @@
 
 
 # Secure your applications with identity sources and tokens
-<a name="identity-sources"></a>
 
 Secure you applications quickly by creating an *identity source* to represent an external identity provider (IdP) in Amazon Verified Permissions. Identity sources provide information from a user who authenticated with an IdP that has a trust relationship with your policy store. When your application makes an authorization request with a token from an identity source, your policy store can make authorization decisions from user properties and access permissions. You can add an Amazon Cognito user pool or a custom OpenID Connect (OIDC) IdP as your identity source.
 

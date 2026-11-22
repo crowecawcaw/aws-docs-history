@@ -1,7 +1,6 @@
 
 
 # Amazon Verified Permissions upgrade to Cedar 4 FAQ
-<a name="cedar4-faq"></a>
 
  Amazon Verified Permissions is upgrading the version of Cedar it uses from version 2 to version 4. Cedar is the open-source language you use to write the policies, policy templates and schemas in your policy stores. With Cedar 4 support in Verified Permissions, you can use new features such as the `is` operator and entity tags to write more expressive policies. 
 

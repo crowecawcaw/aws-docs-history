@@ -1,7 +1,6 @@
 
 
 # Best practices for designing an authorization model
-<a name="design-authz-strategy"></a>
 
 As you prepare to use the Amazon Verified Permissions service within a software application, it can be challenging to leap immediately into writing policy statements as a first step. This would be similar to beginning development of other portions of an application by writing SQL statements or API specifications before fully deciding what the application should do. Instead, you should begin with a user experience. Then, work backwards from that experience to arrive at an implementation approach.
 

@@ -1,7 +1,6 @@
 
 
 # Working with Amazon Cognito identity sources
-<a name="identity-sources-cognito"></a>
 
 Verified Permissions works closely with Amazon Cognito user pools. Amazon Cognito JWTs have a predictable structure. Verified Permissions recognizes this structure and draws maximum benefit from the information that it contains. For example, you can implement a role-based access control (RBAC) authorization model with either ID tokens or access tokens.
 
@@ -31,7 +30,7 @@ Although you can revoke Amazon Cognito tokens before they expire, JWTs are consi
 
 This following example shows how you might create a policy that references some of the Amazon Cognito user pools claims associated with a principal.
 
-```
+```cedar
 permit(
      principal, 
      action, 
@@ -45,7 +44,7 @@ when {
 
 This following example shows how you might create a policy that references a principal that's a user in a Cognito user pool. Note that the principal ID takes the form of `"<userpool-id>|<sub>"`.
 
-```
+```cedar
 permit(
      principal == ExampleCo::User::"us-east-1_example|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", 
      action, 

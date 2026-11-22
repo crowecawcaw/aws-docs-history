@@ -1,7 +1,6 @@
 
 
 # Deleting Amazon Verified Permissions policy store aliases
-<a name="policy-store-aliases-delete"></a>
 
 You can delete a policy store alias when it is no longer needed. Deleting a policy store alias does not affect the associated policy store. Deleting a policy store deletes all policy store aliases associated with that policy store.
 
@@ -20,14 +19,14 @@ By default, deleting a policy store alias performs a soft delete. The policy sto
 **To soft delete a policy store alias**  
 You can soft delete a policy store alias by using the [DeletePolicyStoreAlias](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_DeletePolicyStoreAlias.html) operation. The following example soft deletes a policy store alias with the name `example-policy-store`.
 
-```
+```bash
 $ aws verifiedpermissions delete-policy-store-alias \
     --alias-name policy-store-alias/example-policy-store
 ```
 
 You can also explicitly specify the soft delete mode.
 
-```
+```bash
 $ aws verifiedpermissions delete-policy-store-alias \
     --alias-name policy-store-alias/example-policy-store \
     --deletion-mode SoftDelete
@@ -51,7 +50,7 @@ Amazon Verified Permissions is eventually consistent. If you hard delete a polic
 **To hard delete a policy store alias**  
 You can hard delete a policy store alias by using the [DeletePolicyStoreAlias](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_DeletePolicyStoreAlias.html) operation with the `deletion-mode` parameter set to `HardDelete`. The following example immediately deletes a policy store alias with the name `example-policy-store`.
 
-```
+```bash
 $ aws verifiedpermissions delete-policy-store-alias \
     --alias-name policy-store-alias/example-policy-store \
     --deletion-mode HardDelete

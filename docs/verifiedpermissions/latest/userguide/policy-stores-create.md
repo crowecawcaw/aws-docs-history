@@ -1,7 +1,6 @@
 
 
 # Creating Verified Permissions policy stores
-<a name="policy-stores-create"></a>
 
 You can create a policy store using the following methods:
 + **Follow a guided setup** – You will define a resource type with valid actions and a principal type before creating your first policy.
@@ -199,7 +198,7 @@ To add schema, see [Amazon Verified Permissions policy store schema](schema.md).
  To add policies, see [Creating Amazon Verified Permissions static policies](policies-create.md).
 To add policy templates, see [Creating Amazon Verified Permissions policy templates](policy-templates-create.md).
 
-```
+```bash
 $ aws verifiedpermissions create-policy-store \
     --validation-settings "mode=STRICT"
 {

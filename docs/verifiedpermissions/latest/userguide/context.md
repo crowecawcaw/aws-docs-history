@@ -1,7 +1,6 @@
 
 
 # Adding context
-<a name="context"></a>
 
 *Context* is the information that's relevant to policy decisions, but not part of the identity of your principal, action, or resource. Access token claim are context. You might want to allow an action only from a set of source IP addresses, or only if your user has signed in with MFA. Your application has access to this contextual session data and must populate it to authorization requests. The context data in a Verified Permissions authorization request must be JSON-formatted in a `contextMap` element.
 
@@ -9,7 +8,7 @@ The examples that illustrate this content come from a [sample policy store](poli
 
 The following context object declares one of each Cedar data type for an application based on the sample **DigitalPetStore** policy store.
 
-```
+```json
 "context": {
   "contextMap": {
     "AccountCodes": {
@@ -87,7 +86,7 @@ Initially, **DigitalPetStore** is not a very complex policy store. It doesn't in
 
 Apply the following updates to your policy store schema to support the new context attributes. Update `GetOrder` in `actions` as follows.
 
-```
+```json
 "GetOrder": {
   "memberOf": [],
   "appliesTo": {
@@ -136,7 +135,7 @@ Apply the following updates to your policy store schema to support the new conte
 
 To reference the `record` data type named `NetworkInfo` in your request context, create a [commonType](https://docs.cedarpolicy.com/schema/schema.html#schema-commonTypes) construct in your schema by adding the following to your schema before `actions`. A `commonType` construct is a shared set of attributes that you can apply to different entities.
 
-```
+```json
 "commonTypes": {
   "NetworkInfo": {
     "attributes": {
@@ -163,7 +162,7 @@ To reference the `record` data type named `NetworkInfo` in your request context,
 
 The following policy sets up conditions that must be fulfilled by each of the provided context elements. It builds on the existing static policy with the description **Customer Role - Get Order**. This policy initially only requires that the principal that makes a request is the owner of the resource.
 
-```
+```cedar
 permit (
     principal in DigitalPetStore::Role::"Customer",
     action in [DigitalPetStore::Action::"GetOrder"],
@@ -200,7 +199,7 @@ We have now required that the request to retrieve an order meets the additional 
 
 After you configure your policy store with the appropriate schema and policy, you can present this authorization request to the Verified Permissions API operation [IsAuthorized](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html). Note that the `entities` segment contains a definition of `Bob`, a user with a role of `Employee`.
 
-```
+```json
 {
   "principal": {
     "entityType": "DigitalPetStore::User",

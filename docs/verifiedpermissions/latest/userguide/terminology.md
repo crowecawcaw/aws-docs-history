@@ -1,7 +1,6 @@
 
 
 # Amazon Verified Permissions and Cedar policy language terms and concepts
-<a name="terminology"></a>
 
 You should understand the following concepts to use Amazon Verified Permissions.
 

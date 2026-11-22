@@ -1,7 +1,6 @@
 
 
 # API-linked policy stores
-<a name="policy-stores-api-userpool"></a>
 
 A common use case is to use Amazon Verified Permissions to authorize user access to APIs hosted on Amazon API Gateway. Using a wizard in the AWS console, you can create role-based access policies for users managed in [Amazon Cognito](https://aws.amazon.com/cognito), or any OIDC identity provider (IdP), and deploy an AWS Lambda Authorizer that calls Verified Permissions to evaluate these policies.
 

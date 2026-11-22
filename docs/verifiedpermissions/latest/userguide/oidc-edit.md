@@ -1,7 +1,6 @@
 
 
 # Editing Amazon Verified Permissions OIDC identity sources
-<a name="oidc-edit"></a>
 
 You can edit some parameters of your identity source after you create it. You can't change the type of identity source, you have to delete the identity source and create a new one to switch from Amazon Cognito to OIDC or OIDC to Amazon Cognito. If your policy store schema matches your identity source attributes, note that you must update your schema separately to reflect the changes that you make to your identity source.
 
@@ -36,7 +35,7 @@ You can update an identity source by using the [UpdateIdentitySource](https://do
 
 1. Create a `config.txt` file that contains the following details of an OIDC IdP for use by the `--configuration` parameter of the `update-identity-source` command.
 
-   ```
+   ```json
    {
        "openIdConnectConfiguration": {
            "issuer": "https://auth2.example.com",
@@ -57,7 +56,7 @@ You can update an identity source by using the [UpdateIdentitySource](https://do
 
 1. Run the following command to update an OIDC identity source.
 
-   ```
+   ```bash
    $ aws verifiedpermissions update-identity-source \
        --update-configuration file://config.txt \
        --policy-store-id 123456789012

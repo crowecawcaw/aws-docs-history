@@ -1,7 +1,6 @@
 
 
 # Policy size per resource
-<a name="policy-size-per-resource"></a>
 
 Verified Permissions limits the total size of all policies that reference the same resource. This limit is the *Policy size per resource* quota, and its default value is 1 MB. When you call `CreatePolicy` or `UpdatePolicy`, Verified Permissions calculates the new total for the referenced resource. If the new total exceeds the quota, the request fails with a `ServiceQuotaExceededException`.
 
@@ -41,7 +40,7 @@ To find how template-linked policies contribute to the *Policy size per resource
 
 Review the following template:
 
-```
+```cedar
 permit (
   principal in ?principal,
   action in
@@ -59,7 +58,7 @@ when {
 
 Create the following policies from that template:
 
-```
+```cedar
 TemplateLinkedPolicy {
   policyId: "policy1",
   templateId: "template1",

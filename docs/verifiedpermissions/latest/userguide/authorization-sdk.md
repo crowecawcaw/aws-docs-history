@@ -1,7 +1,6 @@
 
 
 # Integrating your authorization models with applications
-<a name="authorization-sdk"></a>
 
 To implement Amazon Verified Permissions in your application, you must define the policies and schema that you want your app to enforce. With your authorization model in place and tested, your next step is to start generating API requests from the point of enforcement. To do this, you must set up application logic to collect user data and populate it to authorization requests.
 
@@ -34,7 +33,7 @@ The following are links to documentation for Verified Permissions resources in v
 
 The following AWS SDK for JavaScript example for `IsAuthorized` originates from [Simplify fine-grained authorization with Amazon Verified Permissions and Amazon Cognito](https://aws.amazon.com/blogs/security/simplify-fine-grained-authorization-with-amazon-verified-permissions-and-amazon-cognito/).
 
-```
+```python
 const authResult = await avp.isAuthorized({
     principal: 'User::"alice"',
     action: 'Action::"view"',

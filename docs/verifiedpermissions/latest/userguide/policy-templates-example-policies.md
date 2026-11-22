@@ -1,7 +1,6 @@
 
 
 # Amazon Verified Permissions example template-linked policies
-<a name="policy-templates-example-policies"></a>
 
 When you create a policy store in Verified Permissions using the **Sample policy store** method, your policy store is created with predefined policies, policy templates, and a schema for the sample project you chose. The following Verified Permissions template-linked policy examples can be used with the sample policy stores and their respective policies, policy templates, and schemas.
 
@@ -13,7 +12,7 @@ The following example shows how you might create a template-linked policy that u
 **Note**  
 Cedar policy language considers an entity to be `in` itself. Therefore, `principal in User::"Alice"` is equivalent to `principal == User::"Alice"`.
 
-```
+```cedar
 permit (
  principal in PhotoFlash::User::"Alice",
  action in PhotoFlash::Action::"SharePhotoLimitedAccess",
@@ -23,7 +22,7 @@ permit (
 
 The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared photos** with an individual user and album.
 
-```
+```cedar
 permit (
  principal in PhotoFlash::User::"Alice",
  action in PhotoFlash::Action::"SharePhotoLimitedAccess",
@@ -33,7 +32,7 @@ permit (
 
 The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared photos** with a friend group and individual photo.
 
-```
+```cedar
 permit (
  principal in PhotoFlash::FriendGroup::"Jane::MySchoolFriends",
  action in PhotoFlash::Action::"SharePhotoLimitedAccess",
@@ -43,7 +42,7 @@ permit (
 
 The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared photos** with a friend group and album.
 
-```
+```cedar
 permit (
  principal in PhotoFlash::FriendGroup::"Jane::MySchoolFriends",
  action in PhotoFlash::Action::"SharePhotoLimitedAccess",
@@ -53,7 +52,7 @@ permit (
 
 The following example shows how you might create a template-linked policy that uses the policy template **Grant full access to non-private shared photos** with a friend group and an individual photo.
 
-```
+```cedar
 permit (
  principal in PhotoFlash::UserGroup::"Jane::MySchoolFriends",
  action in PhotoFlash::Action::"SharePhotoFullAccess",
@@ -63,7 +62,7 @@ permit (
 
 The following example shows how you might create a template-linked policy that uses the policy template **Block user from an account**.
 
-```
+```cedar
 forbid(
  principal == PhotoFlash::User::"Bob",
  action,
@@ -81,7 +80,7 @@ The DigitalPetStore sample policy store does not include any policy templates. Y
 
 The following example shows how you might create a template-linked policy that uses the policy template that gives viewer access for an individual user and task list.
 
-```
+```cedar
 permit (
     principal == TinyTodo::User::"https://cognito-idp.us-east-1.amazonaws.com/us-east-1_h2aKCU1ts|5ae0c4b1-6de8-4dff-b52e-158188686f31|bob",
     action in [TinyTodo::Action::"ReadList", TinyTodo::Action::"ListTasks"],
@@ -91,7 +90,7 @@ permit (
 
 The following example shows how you might create a template-linked policy that uses the policy template that gives editor access for an individual user and task list.
 
-```
+```cedar
 permit (
     principal == TinyTodo::User::"https://cognito-idp.us-east-1.amazonaws.com/us-east-1_h2aKCU1ts|5ae0c4b1-6de8-4dff-b52e-158188686f31|bob",
     action in [

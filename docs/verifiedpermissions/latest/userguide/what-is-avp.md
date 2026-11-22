@@ -1,7 +1,6 @@
 
 
 # What is Amazon Verified Permissions?
-<a name="what-is-avp"></a>
 
 Amazon Verified Permissions is a scalable, fine-grained permissions management and authorization service for custom applications built by you. Verified Permissions enables your developers to build secure applications faster by externalizing authorization and centralizing policy management and administration. Verified Permissions uses the Cedar policy language to define fine-grained permissions to protect your application's resources.
 

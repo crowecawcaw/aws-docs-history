@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Verified Permissions
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -33,7 +32,7 @@ The `AmazonVerifiedPermissionsFullAccess` managed policy grants full access to V
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -77,7 +76,7 @@ Access to `BatchIsAuthorized` and `BatchIsAuthorizedWithToken` are granted autom
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

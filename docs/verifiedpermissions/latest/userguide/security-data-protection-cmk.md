@@ -1,7 +1,6 @@
 
 
 # Encrypting Resources in Amazon Verified Permissions
-<a name="security-data-protection-cmk"></a>
 
 Amazon Verified Permissions provides encryption by default to protect sensitive customer data at rest using AWS owned encryption keys. As an extra layer of protection, Amazon Verified Permissions allows you to encrypt your policy stores using AWS Key Management Service (AWS KMS) customer managed keys (CMK). This functionality ensures protection of sensitive data via encryption at rest, which helps you:
 + Reduce the operational burden on your application's end to protect sensitive data

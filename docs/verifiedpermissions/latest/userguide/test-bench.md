@@ -1,7 +1,6 @@
 
 
 # Using the Amazon Verified Permissions test bench
-<a name="test-bench"></a>
 
 Use the Verified Permissions test bench to test and troubleshoot Verified Permissions policies by running [authorization requests](terminology.md#term-authorization-request) against them. The test bench uses the parameters that you specify to determine whether the Cedar policies in your policy store would authorize the request. You can toggle between **Visual mode** and **JSON mode** while testing authorization requests. For more information about how Cedar policies are structured and evaluated, see [Basic policy construction in Cedar](https://docs.cedarpolicy.com/policies/syntax-policy.html) in the Cedar policy language Reference Guide.
 

@@ -1,7 +1,6 @@
 
 
 # Document history for the Amazon Verified Permissions User Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for Verified Permissions.
 
@@ -17,4 +16,4 @@ The following table describes the documentation releases for Verified Permission
 | [Context concepts and example](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/context.html) | Added information about context in authorization requests with Verified Permissions. | February 1, 2024 | 
 | [Authorization concepts and example](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/authorization.html) | Added information about authorization requests with Verified Permissions. | February 1, 2024 | 
 | [AWS CloudFormation integration](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/cloudformation-verified-permissions.html) | Verified Permissions supports creating identity sources, policies, policy stores, and policy templates in CloudFormation. | June 30, 2023 | 
-| [Initial release](#doc-history) | Initial release of the Amazon Verified Permissions User Guide | June 13, 2023 | 
+| [Initial release](doc-history.md) | Initial release of the Amazon Verified Permissions User Guide | June 13, 2023 | 

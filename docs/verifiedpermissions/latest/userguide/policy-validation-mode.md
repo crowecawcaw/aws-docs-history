@@ -1,7 +1,6 @@
 
 
 # Enabling Amazon Verified Permissions policy validation mode
-<a name="policy-validation-mode"></a>
 
 You can set the policy validation mode in Verified Permissions to control whether policy changes are validated against the [schema](schema.md) in your policy store.
 
@@ -31,7 +30,7 @@ When you turn on policy validation, all new attempts to create or update a polic
 **To set the validation mode for a policy store**  
 You can change the validation mode for a policy store by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore.html) operation and specifying a different value for the [ValidationSettings](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore.html#amazonverifiedpermissions-UpdatePolicyStore-request-ValidationSettings) parameter.
 
-```
+```bash
 $ aws verifiedpermissions update-policy-store \
     --validation-settings "mode=OFF",
     --policy-store-id PSEXAMPLEabcdefg111111

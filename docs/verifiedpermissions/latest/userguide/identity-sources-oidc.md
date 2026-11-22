@@ -1,7 +1,6 @@
 
 
 # Working with OIDC identity sources
-<a name="identity-sources-oidc"></a>
 
 You can also configure any compliant OpenID Connect (OIDC) IdP as the identity source of a policy store. OIDC providers are similar to Amazon Cognito user pools: they produce JWTs as the product of authentication. To add an OIDC provider, you must provide an issuer URL
 
@@ -20,7 +19,7 @@ This following example shows how you might create a policy that permits access t
 
 Note that when referencing a group in the principal, you must use the `in` operator for the policy to be evaluated correctly.
 
-```
+```cedar
 permit(
      principal in MyCorp::UserGroup::"MyOIDCProvider|Accounting", 
      action, 

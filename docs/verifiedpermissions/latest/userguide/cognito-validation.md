@@ -1,7 +1,6 @@
 
 
 # Client and audience validation for Amazon Cognito
-<a name="cognito-validation"></a>
 
 When you add an identity source to a policy store, Verified Permissions has configuration options that validate the client ID and audience of ID and access tokens, and verify the `token_use` claim. This validation happens in the processing of `IsAuthorizedWithToken` and `BatchIsAuthorizedWithToken` API requests. The behavior differs between ID and access tokens, and between Amazon Cognito and OIDC identity sources. With Amazon Cognito user pools providers, Verified Permissions can validate the client ID in both ID and access tokens. With OIDC providers, Verified Permissions can validate the client ID in ID tokens, and the audience in access tokens.
 
@@ -18,7 +17,7 @@ You might want to process JSON web tokens in your application and pass their cla
 
 This example shows how you might call Verified Permissions from an application using a JWT.¹
 
-```
+```javascript
 async function authorizeUsingJwtToken(jwtToken) {
   
     const payload = await verifier.verify(jwtToken);

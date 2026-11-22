@@ -1,7 +1,6 @@
 
 
 # Creating Amazon Verified Permissions OIDC identity sources
-<a name="oidc-create"></a>
 
 The following procedure adds an identity source to an existing policy store.
 
@@ -51,7 +50,7 @@ You can an create an identity source by using the [CreateIdentitySource](https:/
 
 1. Create a `config.txt` file that contains the following details of an OIDC IdP for use by the `--configuration` parameter of the `create-identity-source` command.
 
-   ```
+   ```json
    {
        "openIdConnectConfiguration": {
            "issuer": "https://auth.example.com",
@@ -72,7 +71,7 @@ You can an create an identity source by using the [CreateIdentitySource](https:/
 
 1. Run the following command to create an OIDC identity source.
 
-   ```
+   ```bash
    $ aws verifiedpermissions create-identity-source \
        --configuration file://config.txt \
        --principal-entity-type "User" \

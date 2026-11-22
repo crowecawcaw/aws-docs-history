@@ -1,7 +1,6 @@
 
 
 # Using Amazon Verified Permissions policy store aliases in API operations
-<a name="policy-store-aliases-using"></a>
 
 Any Amazon Verified Permissions operation that accepts a `policyStoreId` parameter, such as [IsAuthorized](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html), [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html), and [GetPolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetPolicyStore.html), can accept a policy store alias name in place of the policy store ID.
 
@@ -16,7 +15,7 @@ The following `IsAuthorized` command uses a policy store alias with the name `ex
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 $ aws verifiedpermissions is-authorized \
     --policy-store-id policy-store-alias/example-policy-store \
     --principal entityType=User,entityId=alice \
@@ -41,7 +40,7 @@ You could create a different version of your application in each Region or use a
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 $ aws --region us-east-1 verifiedpermissions create-policy-store-alias \
     --alias-name policy-store-alias/my-app \
     --policy-store-id PSEXAMPLEabcdefg111111
@@ -58,7 +57,7 @@ Then, use the policy store alias in your code. When your code runs in each Regio
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 $ aws verifiedpermissions is-authorized \
     --policy-store-id policy-store-alias/my-app \
     --principal entityType=User,entityId=alice \

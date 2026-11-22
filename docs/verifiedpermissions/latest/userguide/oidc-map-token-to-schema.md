@@ -1,7 +1,6 @@
 
 
 # Mapping OIDC tokens to schema
-<a name="oidc-map-token-to-schema"></a>
 
 You might find that you want to add an identity source to a policy store and map provider claims, or tokens, to your policy store schema. You can automate this process, by using the [Guided setup](policy-stores-create.md) to create your policy store with an identity source, or update your schema manually after the policy store is created. Once you have mapped the tokens to the schema you can create policies that reference them.
 
@@ -29,7 +28,7 @@ For more information, see [Creating Verified Permissions policy stores](policy-s
 
 The following is an example schema for a policy store with an OIDC identity source.
 
-```
+```JSON
 "User": {
    "shape": {
       "type": "Record",
@@ -84,7 +83,7 @@ Most access tokens from external OIDC providers align closely with Amazon Cognit
 
 The following example shows how to reflect the attributes from the example access token in your Verified Permissions schema. For more information about editing your schema, see [Editing policy store schemas](schema-edit.md).
 
-```
+```JSON
 {
    "MyApplication": {
       "actions": {
@@ -165,7 +164,7 @@ Policies typically reference schema attributes in a format like `principal.usern
 
 A partial example schema for a principal attribute of this type looks like the following:
 
-```
+```json
 "User": {
    "shape": {
       "type": "Record",
@@ -189,7 +188,7 @@ A partial example schema for a principal attribute of this type looks like the f
 
 A partial example schema for a context attribute of this type looks like the following:
 
-```
+```json
 "GetOrder": {
    "memberOf": [],
    "appliesTo": {

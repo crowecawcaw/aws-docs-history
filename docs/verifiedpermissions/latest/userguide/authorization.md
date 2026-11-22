@@ -1,7 +1,6 @@
 
 
 # Implementing authorization in Amazon Verified Permissions
-<a name="authorization"></a>
 
 After you build your policy store, policies, templates, schema, and authorization model, you're ready to start authorizing requests using Amazon Verified Permissions. To implement Verified Permissions authorization, you must combine configuration of authorization policies in AWS with integration in an application. To integrate Verified Permissions with your application, add an AWS SDK and implement the methods that invoke the Verified Permissions API and generate authorization decisions against your policy store.
 

@@ -1,7 +1,6 @@
 
 
 # Implementing Amazon Verified Permissions in Rust with the AWS SDK
-<a name="code-samples-rust"></a>
 
 This topic provides a practical example of implementing Amazon Verified Permissions in Rust with the AWS SDK. This example shows how to develop an authorization model that can test whether a user is able to view a photo. The sample code uses the [aws-sdk-verifiedpermissions](https://docs.rs/aws-sdk-verifiedpermissions/latest/aws_sdk_verifiedpermissions/) crate from the [AWS SDK for Rust](https://github.com/awslabs/aws-sdk-rust), which offers a robust set of tools for interacting with AWS services.
 
@@ -31,7 +30,7 @@ The sample code does the following:
 
 1. Replace any existing code in `main.rs` with the following code:
 
-   ```
+   ```rust
    use std::time::Duration;
    use std::thread::sleep;
    use aws_config::BehaviorVersion;
@@ -186,7 +185,7 @@ After you have finished exploring your policy store, delete it.
 **To delete a policy store**  
 You can delete a policy store by using the `delete-policy-store` operation, replacing `{{PSEXAMPLEabcdefg111111}}` with the policy store ID you want to delete.
 
-```
+```bash
 $ aws verifiedpermissions delete-policy-store \
     --policy-store-id {{PSEXAMPLEabcdefg111111}}
 ```
