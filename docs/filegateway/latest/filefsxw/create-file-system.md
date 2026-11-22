@@ -3,7 +3,6 @@
 Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
 
 # Create an Amazon FSx for Windows File Server file system
-<a name="create-file-system"></a>
 
 To create an Amazon FSx File Gateway in AWS Storage Gateway, the first step is to create an Amazon FSx for Windows File Server file system. If you've already created an Amazon FSx file system, go to the next step, [Create and activate an Amazon FSx File Gateway](create-gateway-file.md).
 

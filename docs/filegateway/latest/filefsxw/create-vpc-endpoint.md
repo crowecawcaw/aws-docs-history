@@ -3,7 +3,6 @@
 Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
 
 # Create a VPC endpoint for Storage Gateway
-<a name="create-vpc-endpoint"></a>
 
 Follow these instructions to create a VPC endpoint. If you already have a VPC endpoint for Storage Gateway, you can use it.<a name="create-vpc-steps"></a>
 

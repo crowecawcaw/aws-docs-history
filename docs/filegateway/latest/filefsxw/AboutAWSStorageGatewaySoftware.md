@@ -3,7 +3,6 @@
 Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
 
 # Working with open-source components for AWS Storage Gateway
-<a name="AboutAWSStorageGatewaySoftware"></a>
 
 This section describes the third-party tools and licenses that we depend on to deliver AWS Storage Gateway functionality. 
 

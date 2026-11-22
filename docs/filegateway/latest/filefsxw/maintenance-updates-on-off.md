@@ -3,7 +3,6 @@
 Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
 
 # Turn maintenance updates on or off
-<a name="maintenance-updates-on-off"></a>
 
 When maintenance updates are turned on, your gateway automatically applies these updates according to the configured maintenance window schedule. For more information, see [Modify the gateway maintenance window schedule](https://docs.aws.amazon.com/filegateway/latest/filefsxw/MaintenanceManagingUpdate-common.html#configure-maintenance-window-schedule).
 

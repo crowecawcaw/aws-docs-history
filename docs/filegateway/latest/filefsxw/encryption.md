@@ -3,7 +3,6 @@
 Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
 
 # Data encryption using AWS KMS
-<a name="encryption"></a>
 
 Amazon FSx File Gateway supports SMB encryption up to the latest SMB v3.1.1 specification, including AES 128 CCM and AES 128 GCM. Compatible clients will connect using encryption automatically. Additionally, FSx File Gateway uses SMB encryption when it communicates with FSx for Windows File Server in AWS. You must configure an Direct Connect link to AWS, and set appropriate policies to allow SMB traffic and management traffic to pass through to AWS.
 

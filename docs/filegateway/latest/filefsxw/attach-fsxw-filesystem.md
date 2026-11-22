@@ -3,7 +3,6 @@
 Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
 
 # Attach an Amazon FSx for Windows File Server file system
-<a name="attach-fsxw-filesystem"></a>
 
 You must have an FSx for Windows File Server file system before you can attach it to an FSx File Gateway. If you don't have a file system, you must create one. For instructions, see [Step 1: Create Your File System](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started-step1.html) in the *Amazon FSx for Windows File Server User Guide*.
 

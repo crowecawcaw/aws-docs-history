@@ -3,7 +3,6 @@
 Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
 
 # Testing your gateway's network connectivity
-<a name="EC2_MaintenanceTestGatewayConnectivity-fgw"></a>
 
 You can use your gateway's local console to test your network connectivity. This test can be useful when you are troubleshooting network issues with your gateway.
 
