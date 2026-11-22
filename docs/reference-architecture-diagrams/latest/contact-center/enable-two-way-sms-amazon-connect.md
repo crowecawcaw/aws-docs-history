@@ -1,7 +1,6 @@
 
 
 # Enable Two-Way SMS in Amazon Connect Customer
-<a name="enable-two-way-sms-amazon-connect"></a>
 
 Publication date: **November 23, 2021 ([Diagram history](diagram-history.md))**
 

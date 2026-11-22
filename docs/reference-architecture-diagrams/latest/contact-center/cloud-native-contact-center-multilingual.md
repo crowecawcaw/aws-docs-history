@@ -1,7 +1,6 @@
 
 
 # Cloud-native Contact Center for Multilingual IT Service Desk
-<a name="cloud-native-contact-center-multilingual"></a>
 
 Publication date: **January 6, 2021 ([Diagram history](diagram-history.md))**
 

@@ -1,7 +1,6 @@
 
 
 # Architecture for Unified Communications
-<a name="architecture-unified-communications"></a>
 
 Publication date: **November 1, 2021 ([Diagram history](diagram-history.md))**
 

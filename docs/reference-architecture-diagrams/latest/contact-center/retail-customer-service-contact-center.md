@@ -1,7 +1,6 @@
 
 
 # Retail Customer Service Contact Center Using Amazon Connect Customer
-<a name="retail-customer-service-contact-center"></a>
 
 Publication date: **December 9, 2021 ([Diagram history](diagram-history.md))**
 
