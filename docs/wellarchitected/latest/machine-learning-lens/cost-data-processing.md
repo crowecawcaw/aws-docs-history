@@ -1,7 +1,6 @@
 
 
 # Data processing
-<a name="cost-data-processing"></a>
 
 **Topics**
 + [MLCOST03-BP01 Use managed data labeling](mlcost03-bp01.md)

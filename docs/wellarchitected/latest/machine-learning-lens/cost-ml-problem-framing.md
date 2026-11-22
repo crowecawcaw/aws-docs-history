@@ -1,7 +1,6 @@
 
 
 # ML problem framing
-<a name="cost-ml-problem-framing"></a>
 
 **Topics**
 + [MLCOST02-BP01 Identify if machine learning is the right solution](mlcost02-bp01.md)

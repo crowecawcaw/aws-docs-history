@@ -1,7 +1,6 @@
 
 
 # Deployment
-<a name="sus-deployment"></a>
 
 **Topics**
 + [MLSUS05-BP01 Align SLAs with sustainability goals](mlsus05-bp01.md)

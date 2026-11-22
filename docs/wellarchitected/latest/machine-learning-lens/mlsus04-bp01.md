@@ -1,7 +1,6 @@
 
 
 # MLSUS04-BP01 Define sustainable performance criteria
-<a name="mlsus04-bp01"></a>
 
  Creating machine learning models that balance accuracy with environmental impact is essential for sustainable AI development. When we focus exclusively on model accuracy, we overlook the economic, environmental, and social costs of achieving marginal performance improvements. Since the relationship between model accuracy and complexity is logarithmic at best, continuing to train a model longer or searching extensively for better hyperparameters often yields only minimal gains while significantly increasing resource consumption. 
 

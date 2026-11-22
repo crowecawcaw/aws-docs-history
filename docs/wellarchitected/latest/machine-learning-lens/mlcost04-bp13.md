@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP13 Enable data and compute proximity
-<a name="mlcost04-bp13"></a>
 
  Positioning data and compute resources in the same AWS Region reduces data transfer costs and improves processing speeds for machine learning workloads. By minimizing the physical distance between data storage and compute resources, you can significantly decrease latency and avoid cross-region data transfer fees. 
 

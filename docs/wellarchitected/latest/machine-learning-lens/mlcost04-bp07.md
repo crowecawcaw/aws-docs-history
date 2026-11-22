@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP07 Use distributed training
-<a name="mlcost04-bp07"></a>
 
  Accelerate your machine learning model training process by utilizing distributed computing resources, which can significantly reduce training time and optimize costs. Amazon SageMaker AI distributed training capabilities enable efficient processing of large models and datasets across multiple compute instances. 
 

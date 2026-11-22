@@ -1,7 +1,6 @@
 
 
 # MLCOST01-BP01 Define overall return on investment (ROI) and opportunity cost
-<a name="mlcost01-bp01"></a>
 
  Machine learning projects require careful evaluation of their business value and resource requirements. By analyzing the ROI and opportunity costs of ML implementations, you can make informed decisions that optimize resource allocation while delivering maximum business impact. 
 

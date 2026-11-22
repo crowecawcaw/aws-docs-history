@@ -1,7 +1,6 @@
 
 
 # MLREL03-BP04 Establish data bias detection and mitigation
-<a name="mlrel03-bp04"></a>
 
  Detect and mitigate bias to avoid inaccurate model results. Establish bias detection methodologies at data preparation stage before training starts. Monitor, detect, and mitigate bias after the model is in production. Establish feedback loops to track the drift over time and initiate a re-training. 
 

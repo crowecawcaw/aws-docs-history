@@ -1,7 +1,6 @@
 
 
 # Well-Architected machine learning lifecycle
-<a name="machine-learning-lifecycle"></a>
 
  The ML lifecycle is the cyclic iterative process with instructions and best practices to use across defined phases while developing an ML workload. The ML lifecycle adds clarity and structure for making a machine learning project successful. The end-to-end machine learning lifecycle process illustrated in Figure 1 includes the following phases: 
 +  Business goal identification 
@@ -14,6 +13,8 @@
  The phases of the ML lifecycle are not necessarily sequential in nature and can have feedback loops, a few of which are illustrated in Figure 1, to interrupt the cycle across the lifecycle phases. 
 
 ![Machine learning lifecycle](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle.png)
+
+*Figure 1: Machine learning lifecycle*
 
 
  The following is a quick introduction to each phase, which will be expanded upon later in this paper. 

@@ -1,7 +1,6 @@
 
 
 # MLPERF02-BP01 Define relevant evaluation metrics
-<a name="mlperf02-bp01"></a>
 
  Establishing clear, meaningful evaluation metrics is essential for validating machine learning model performance against business objectives. By selecting metrics that directly relate to your key performance indicators (KPIs), you can verify that your ML solutions deliver measurable business value. 
 

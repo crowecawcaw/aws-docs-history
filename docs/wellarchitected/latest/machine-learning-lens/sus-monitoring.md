@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="sus-monitoring"></a>
 
 **Topics**
 + [MLSUS06-BP01 Measure material efficiency](mlsus06-bp01.md)

@@ -1,7 +1,6 @@
 
 
 # MLCOST05-BP01 Use an appropriate deployment option
-<a name="mlcost05-bp01"></a>
 
  Use the right deployment option for your machine learning models to optimize cost and performance based on your specific use case requirements. Select real-time inference for low latency applications, batch transform for large datasets, or edge deployment for applications that require local processing. 
 

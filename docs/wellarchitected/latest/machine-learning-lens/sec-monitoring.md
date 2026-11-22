@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="sec-monitoring"></a>
 
 **Topics**
 + [MLSEC06-BP01 Restrict access to intended legitimate consumers](mlsec06-bp01.md)

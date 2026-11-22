@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP09 Start training with small datasets
-<a name="mlcost04-bp09"></a>
 
  Start experimentation with smaller datasets on a small compute instance or local system. This approach allows you to iterate quickly at low cost. After the experimentation period, scale up to train with the full dataset available on a separate compute cluster. Choose the appropriate storage layer for training data based on the performance requirements. 
 

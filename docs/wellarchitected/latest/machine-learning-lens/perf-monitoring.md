@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="perf-monitoring"></a>
 
 **Topics**
 + [MLPERF06-BP01 Include human-in-the-loop monitoring](mlperf06-bp01.md)

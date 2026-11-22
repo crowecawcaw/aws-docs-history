@@ -1,7 +1,6 @@
 
 
 # Model development
-<a name="rel-model-development"></a>
 
 **Topics**
 + [MLREL03-BP01 Enable CI/CD/CT automation with traceability](mlrel03-bp01.md)

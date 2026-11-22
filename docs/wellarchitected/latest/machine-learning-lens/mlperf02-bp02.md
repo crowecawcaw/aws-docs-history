@@ -1,7 +1,6 @@
 
 
 # MLPERF02-BP02 Use purpose-built AI and ML services and resources
-<a name="mlperf02-bp02"></a>
 
  Consider how the workload could be handled by pre-built AI services or ML resources. Better performance can often be delivered more efficiently by using pre-optimized components included in AI and ML managed services. Select an optimal mix of bespoke and pre-built components to meet the workload requirements. 
 

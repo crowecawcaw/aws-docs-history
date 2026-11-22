@@ -1,7 +1,6 @@
 
 
 # Business goal identification
-<a name="business-goal-identification"></a>
 
  Business goal identification is the most important phase of the ML lifecycle. An organization considering ML should have a clear idea of the problem to be solved, and the business value to be gained. You must be able to measure business value against specific business objectives and success criteria. While this holds true for technical solutions, this step is particularly challenging when considering ML solutions because ML is a constantly evolving technology.  
 

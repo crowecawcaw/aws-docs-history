@@ -1,7 +1,6 @@
 
 
 # MLOPS04-BP02 Establish reliable packaging patterns to access approved public libraries
-<a name="mlops04-bp02"></a>
 
  Establishing reliable packaging patterns enables data scientists to access approved public libraries efficiently and consistently. By implementing structured access to public libraries and creating separate kernels for common ML frameworks, organizations can have both flexibility and security in their machine learning development environments. 
 

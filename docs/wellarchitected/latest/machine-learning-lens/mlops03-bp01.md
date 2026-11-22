@@ -1,7 +1,6 @@
 
 
 # MLOPS03-BP01 Profile data to improve quality
-<a name="mlops03-bp01"></a>
 
  Data profiling is essential for understanding data characteristics such as distribution, descriptive statistics, data types, and patterns. By systematically reviewing source data for content and quality, you can filter out or correct problematic data, leading to significant quality improvements in your machine learning workflows. 
 

@@ -1,7 +1,6 @@
 
 
 # MLPERF06-BP06 Review for updated data and features for retraining
-<a name="mlperf06-bp06"></a>
 
  Establishing a framework to regularly review and update your machine learning model's data and features is essential for maintaining model accuracy. As business environments evolve, new data patterns emerge that can impact your model's performance. By systematically reviewing your data and features at appropriate intervals, you can keep your models accurate and reliable. 
 

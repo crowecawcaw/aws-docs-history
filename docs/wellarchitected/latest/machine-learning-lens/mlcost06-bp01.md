@@ -1,7 +1,6 @@
 
 
 # MLCOST06-BP01 Monitor usage and cost by ML activity
-<a name="mlcost06-bp01"></a>
 
  Use cloud resource tagging to manage, identify, organize, search for, and filter resources. Tags categorize resources by purpose, owner, environment, or other criteria. Associate costs with resources using ML activity categories, such as re-training and hosting, by using tagging to manage and optimize cost in deployment phases. Tagging can be useful for generating billing reports with breakdown of cost by associated resources. 
 

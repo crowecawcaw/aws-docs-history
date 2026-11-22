@@ -1,7 +1,6 @@
 
 
 # MLPERF01-BP01 Determine key performance indicators
-<a name="mlperf01-bp01"></a>
 
  Use guidance from business stakeholders to capture key performance indicators (KPIs) relevant to the business use case. The KPIs should be directly linked to business value to guide acceptable model performance. Consider that machine learning inferences are probabilistic and will not provide exact results. Identify a minimum acceptable accuracy and maximum acceptable error in the KPIs. This enables you to achieve the required business value and manage the risk of variable results. 
 

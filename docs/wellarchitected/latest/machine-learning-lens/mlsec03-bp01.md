@@ -1,7 +1,6 @@
 
 
 # MLSEC03-BP01 Provide least privilege access
-<a name="mlsec03-bp01"></a>
 
  Protect resources across various phases of the ML lifecycle using the principle of least privilege. These resources include: data, algorithms, code, hyperparameters, trained model artifacts, and infrastructure. Provide dedicated network environments with dedicated resources and services to operate individual projects. 
 

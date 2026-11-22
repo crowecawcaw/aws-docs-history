@@ -1,7 +1,6 @@
 
 
 # MLOPS06-BP02 Enable model observability and tracking
-<a name="mlops06-bp02"></a>
 
  Establish model monitoring mechanisms to identify and proactively avoid inference issues. ML models can degrade in performance over time due to drifts. Monitor metrics that are attributed to your model's performance. For real time inference endpoints, measure the operational health of the underlying compute resources hosting the endpoint and the health of endpoint responses. Establish lineage to trace hosted models back to versioned inputs and model artifacts for analysis. 
 

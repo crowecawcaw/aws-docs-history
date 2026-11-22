@@ -1,7 +1,6 @@
 
 
 # MLREL01-BP01 Use APIs to abstract change from model consuming applications
-<a name="mlrel01-bp01"></a>
 
  APIs abstract changes from model-consuming applications, keeping machine learning solutions flexible and resilient. Establishing an abstraction layer between ML models and consuming applications enables model updates, replacements, or enhancements without disrupting existing workloads. 
 

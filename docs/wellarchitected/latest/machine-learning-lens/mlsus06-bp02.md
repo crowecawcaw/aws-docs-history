@@ -1,7 +1,6 @@
 
 
 # MLSUS06-BP02 Retrain only when necessary
-<a name="mlsus06-bp02"></a>
 
  Because of model drift, robustness requirements, or new ground truth data being available, models usually need to be retrained. Instead of retraining arbitrarily, monitor your ML model in production, automate your model drift detection and only retrain when your model's predictive performance has fallen below defined KPIs. 
 

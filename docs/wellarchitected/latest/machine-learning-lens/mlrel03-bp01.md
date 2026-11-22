@@ -1,7 +1,6 @@
 
 
 # MLREL03-BP01 Enable CI/CD/CT automation with traceability
-<a name="mlrel03-bp01"></a>
 
  Enable source code, data, and artifact version control of ML workloads to enable roll back to a specific version. Incorporate continuous integration (CI), continuous delivery (CD), and continuous training (CT) practices to ML workload operations, providing automation with added traceability. 
 

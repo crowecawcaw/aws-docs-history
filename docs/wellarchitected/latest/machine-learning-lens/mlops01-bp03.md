@@ -1,7 +1,6 @@
 
 
 # MLOPS01-BP03 Monitor model adherence to business requirements
-<a name="mlops01-bp03"></a>
 
  Machine learning models degrade over time due to changes in the real world, such as *data drift* and *concept drift*. If not monitored, these changes could lead to models becoming inaccurate or even obsolete over time. It's important to have a periodic monitoring process in place to make sure that your ML models continue to comply to your business requirements and that deviations are captured and acted upon promptly. 
 

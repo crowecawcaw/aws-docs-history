@@ -1,7 +1,6 @@
 
 
 # Data processing
-<a name="data-processing"></a>
 
  In ML workloads, the data (inputs and corresponding desired output) serves important functions including: 
 +  Defining the goal of the system: the output representation and the relationship of each output to each input, by means of the input and output pairs. 
@@ -14,6 +13,8 @@
  It is important to note that the same sequence of data processing steps that is applied to the training data needs to also be applied to the inference requests. 
 
 ![Figure showing data processing components](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/data-processing-components.png)
+
+*Figure 6: Data processing components*
 
 
 **Topics**

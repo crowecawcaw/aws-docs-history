@@ -1,7 +1,6 @@
 
 
 # Model development
-<a name="cost-model-development"></a>
 
 **Topics**
 + [MLCOST04-BP01 Select optimal computing instance size](mlcost04-bp01.md)

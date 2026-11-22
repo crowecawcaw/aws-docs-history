@@ -1,7 +1,6 @@
 
 
 # MLPERF04-BP03 Establish a model performance evaluation pipeline
-<a name="mlperf04-bp03"></a>
 
  Establish an end-to-end model performance evaluation pipeline that captures key metrics to evaluate your model's success, align with business KPIs, and automatically test performance when models or data are updated. 
 

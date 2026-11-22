@@ -1,7 +1,6 @@
 
 
 # MLOPS04-BP01 Automate operations through MLOps and CI/CD
-<a name="mlops04-bp01"></a>
 
  Automate ML workload operations using infrastructure as code (IaC) and configuration as code (CaC). Select appropriate MLOps mechanisms to orchestrate your ML workflows and integrate with CI/CD pipelines for automated deployments. This approach creates consistency across your staging and production deployment environments. Enable model observability and version control across your hosting infrastructure. 
 

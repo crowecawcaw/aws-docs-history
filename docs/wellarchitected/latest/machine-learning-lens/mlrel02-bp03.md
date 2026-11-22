@@ -1,7 +1,6 @@
 
 
 # MLREL02-BP03 Automate managing data changes
-<a name="mlrel02-bp03"></a>
 
  Effective management of machine learning training data changes is crucial for maintaining model reproducibility and providing consistent performance over time. By implementing automated version control for training data, you can precisely recreate a model version when needed and maintain a clear audit trail of data transformations. 
 

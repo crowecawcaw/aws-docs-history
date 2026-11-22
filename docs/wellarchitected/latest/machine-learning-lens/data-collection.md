@@ -1,16 +1,19 @@
 
 
 # Data collection
-<a name="data-collection"></a>
 
  Important steps in the ML lifecycle are to identify the data needed, followed by the evaluation of the various means available for collecting that data to train your model. 
 
 ![Figure showing the main components of data collection.](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/data-collection-main-components.png)
 
+*Figure 7: Main components of data collection*
+
 +  **Label:** *Labeled data* is a group of samples that have been tagged with one or more labels. If labels are missing, then some effort is required to label it (either manual or automated). 
 +  **Ingest and aggregate:** Data collection includes ingesting and aggregating data from multiple data sources. 
 
 ![Figure showing how data sources lead to data ingestion means and then into data technologies.](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/data-sources-ingestion-technologies.png)
+
+*Figure 8: Data sources, data ingestion, and data technologies*
 
 
  The sub-components of the *ingest and aggregate* component (shown in Figure 8) are as follows: 

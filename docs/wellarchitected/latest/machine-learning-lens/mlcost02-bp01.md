@@ -1,7 +1,6 @@
 
 
 # MLCOST02-BP01 Identify if machine learning is the right solution
-<a name="mlcost02-bp01"></a>
 
  Evaluating whether machine learning is the appropriate solution for your business problem is crucial for cost optimization. Not every problem requires ML solutions, and sometimes simpler approaches may be more effective and less costly. By thoroughly evaluating alternatives against ML approaches, you can make informed decisions that optimize both your technical resources and business outcomes. 
 

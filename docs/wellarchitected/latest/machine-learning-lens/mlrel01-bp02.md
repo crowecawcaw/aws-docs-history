@@ -1,7 +1,6 @@
 
 
 # MLREL01-BP02 Adopt a machine learning microservice strategy
-<a name="mlrel01-bp02"></a>
 
  Machine learning systems can be effectively implemented through a microservice architecture that breaks down complex business problems into smaller, loosely coupled components. This approach enables distributed development, improves scalability, and facilitates change management while reducing the impact of single failures on the overall workload. 
 

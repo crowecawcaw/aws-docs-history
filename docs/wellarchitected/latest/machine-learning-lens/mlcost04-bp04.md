@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP04 Select an optimal ML framework
-<a name="mlcost04-bp04"></a>
 
  Selecting the most cost-effective machine learning (ML) framework for your requirements can significantly impact your operational efficiency and return on investment. By systematically comparing frameworks like TensorFlow, PyTorch, and Scikit-learn, you can determine which delivers the best performance for your specific use cases at the optimal cost. 
 

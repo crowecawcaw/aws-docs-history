@@ -1,7 +1,6 @@
 
 
 # MLSUS03-BP02 Implement data lifecycle policies aligned with your sustainability goals
-<a name="mlsus03-bp02"></a>
 
  Classify your data to identify its business relevance and implement efficient storage strategies that support your sustainability goals. By understanding your data's importance, you can appropriately tier storage, implement retention policies, and manage the entire lifecycle to reduce your environmental footprint while meeting business requirements. 
 

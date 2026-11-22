@@ -1,7 +1,6 @@
 
 
 # Data preparation
-<a name="data-preparation"></a>
 
  ML models are only as good as the data that is used to train them. Verify that suitable training data is available and is optimized for learning and generalization. Data preparation includes data preprocessing and feature engineering. 
 

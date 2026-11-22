@@ -1,7 +1,6 @@
 
 
 # MLOPS02-BP04 Establish a lineage tracker system
-<a name="mlops02-bp04"></a>
 
  Maintain a system that tracks changes for each release to enable reproducibility, speed up problem diagnosis, and improve regulatory adherence. Tracking lineage for model development includes changes in documentation, environment, model, data, code, and infrastructure. 
 

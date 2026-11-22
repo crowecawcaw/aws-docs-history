@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP08 Stop resources when not in use
-<a name="mlcost04-bp08"></a>
 
  Stop resources that are not in use to reduce cost. For example, hosted Jupyter environments used to explore small samples of data can be stopped when not actively in use. Where practical, commit the work, stop them, and restart when needed. The same approach can be used to stop the computing and the data storage services. 
 

@@ -1,7 +1,6 @@
 
 
 # MLCOST06-BP03 Monitor endpoint usage and right-size the instance fleet
-<a name="mlcost06-bp03"></a>
 
  Use efficient compute resources to run models in production. Monitor your endpoint usage and right-size the instance fleet. Use automatic scaling (auto scaling) for your hosted models. *Auto scaling* dynamically adjusts the number of instances provisioned for a model in response to changes in your workload. 
 

@@ -1,7 +1,6 @@
 
 
 # MLPERF06-BP02 Evaluate model explainability
-<a name="mlperf06-bp02"></a>
 
  Model explainability allows you to understand and interpret how your machine learning models arrive at their decisions. By evaluating model explainability, you gain insights into the factors that influence predictions to build trustworthy AI systems that meet business requirements and regulatory standards. 
 

@@ -1,7 +1,6 @@
 
 
 # MLCOST03-BP04 Enable feature reusability
-<a name="mlcost03-bp04"></a>
 
  Reduce duplication and the rerunning of feature engineering code across teams and projects by using feature storage. The store should have online and offline storage, and data encryption capabilities. An online store with low-latency retrieval capabilities is ideal for real-time inference. An offline store maintains a history of feature values and is suited for training and batch scoring. 
 

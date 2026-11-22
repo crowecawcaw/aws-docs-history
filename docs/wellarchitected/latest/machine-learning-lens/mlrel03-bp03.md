@@ -1,7 +1,6 @@
 
 
 # MLREL03-BP03 Validate models with relevant data
-<a name="mlrel03-bp03"></a>
 
  Testing and validating machine learning models with appropriate data is essential for reliable performance in production. Use real and representative data that covers many possible patterns and scenarios to avoid model failures when deployed in real-world environments. 
 

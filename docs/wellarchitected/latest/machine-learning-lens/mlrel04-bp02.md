@@ -1,7 +1,6 @@
 
 
 # MLREL04-BP02 Use an appropriate deployment and testing strategy
-<a name="mlrel04-bp02"></a>
 
  Select the right deployment and testing strategy for your machine learning models to create smoother transitions to production, minimize disruption, and allow for careful evaluation of model performance before full implementation. 
 

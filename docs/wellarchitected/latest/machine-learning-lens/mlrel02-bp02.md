@@ -1,7 +1,6 @@
 
 
 # MLREL02-BP02 Use a data pipeline
-<a name="mlrel02-bp02"></a>
 
  Automate the processing, movement, and transformation of data between different compute and storage services. This automation enables data processing that is fault tolerant, repeatable, and highly available. 
 

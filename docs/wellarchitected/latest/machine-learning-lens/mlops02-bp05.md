@@ -1,7 +1,6 @@
 
 
 # MLOPS02-BP05 Establish feedback loops across ML lifecycle phases
-<a name="mlops02-bp05"></a>
 
  Establishing feedback loops across machine learning (ML) lifecycle phases is essential for continuous improvement of ML workloads. By implementing robust mechanisms to share successful experiments, analyze failures, and document operational activities, you can enhance model performance and adapt to changing data patterns over time. Feedback loops can identify model drifts and enable practitioners to refine monitoring and retraining strategies, allowing for experimentation with data augmentation and different algorithms until optimal outcomes are achieved. 
 

@@ -1,7 +1,6 @@
 
 
 # MLSEC04-BP03 Protect against data poisoning threats
-<a name="mlsec04-bp03"></a>
 
  Protect your machine learning models and data by implementing security measures against data poisoning attacks, which can compromise model performance and accuracy. Data poisoning occurs through data injection (adding corrupt training data) or data manipulation (changing existing data like labels), resulting in inaccurate and weakened predictive capabilities. By identifying and addressing corrupt data using security methods and anomaly detection algorithms, you can maintain data integrity and protect against threats including ransomware and malicious code in third-party packages. 
 

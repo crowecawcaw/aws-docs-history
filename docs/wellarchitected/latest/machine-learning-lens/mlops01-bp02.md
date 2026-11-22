@@ -1,7 +1,6 @@
 
 
 # MLOPS01-BP02 Discuss and agree on the level of model explainability
-<a name="mlops01-bp02"></a>
 
  Establish clear expectations with business stakeholders about the level of model explainability needed for your machine learning use case. Explainability provides an understanding of how and why a model makes predictions, which builds trust, enables auditing, and supports adherence to regulatory requirements. 
 

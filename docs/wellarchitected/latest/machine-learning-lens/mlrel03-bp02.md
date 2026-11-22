@@ -1,7 +1,6 @@
 
 
 # MLREL03-BP02 Verify feature consistency across training and inference
-<a name="mlrel03-bp02"></a>
 
  Provide consistent, scalable, and highly available features between training and inference using a feature storage. This results in reducing the training-serving skew by keeping feature consistency between training and inference. 
 

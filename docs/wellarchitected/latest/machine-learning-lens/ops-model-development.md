@@ -1,7 +1,6 @@
 
 
 # Model development
-<a name="ops-model-development"></a>
 
 **Topics**
 + [MLOPS04-BP01 Automate operations through MLOps and CI/CD](mlops04-bp01.md)

@@ -1,7 +1,6 @@
 
 
 # MLCOST06-BP04 Enable debugging and logging
-<a name="mlcost06-bp04"></a>
 
  Implementing comprehensive logging and debugging capabilities for your machine learning workflows assists you to understand resource consumption patterns and identify optimization opportunities. By collecting and analyzing runtime metrics, you can reduce costs and enhance the efficiency of your ML training operations. 
 

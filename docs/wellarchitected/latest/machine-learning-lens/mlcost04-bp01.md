@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP01 Select optimal computing instance size
-<a name="mlcost04-bp01"></a>
 
  Right size your machine learning training instances according to the algorithm and workload requirements to maximize efficiency and reduce costs. By selecting the most appropriate computing resources, you can improve performance while minimizing unnecessary expenses. 
 

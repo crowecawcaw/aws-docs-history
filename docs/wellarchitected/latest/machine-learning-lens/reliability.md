@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  The reliability pillar encompasses the ability of a workload to perform its intended function correctly and consistently when it’s expected to. 
 

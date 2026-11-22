@@ -1,7 +1,6 @@
 
 
 # MLSEC03-BP03 Protect sensitive data privacy
-<a name="mlsec03-bp03"></a>
 
  Protect sensitive data used in training against unintended disclosure by implementing appropriate identification, classification, and handling strategies. This practice improves data privacy while maintaining model utility through techniques such as data removal, masking, tokenization, and principal component analysis (PCA). 
 

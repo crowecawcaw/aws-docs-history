@@ -1,7 +1,6 @@
 
 
 # MLPERF06-BP01 Include human-in-the-loop monitoring
-<a name="mlperf06-bp01"></a>
 
  Including human-in-the-loop monitoring is an effective method for efficiently tracking and maintaining model performance. By incorporating human review into automated decision processes, organizations can establish a reliable quality assurance mechanism that validates model inferences and detects performance degradation over time. 
 

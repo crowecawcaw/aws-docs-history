@@ -1,7 +1,6 @@
 
 
 # MLSEC06-BP02 Monitor human interactions with data for anomalous activity
-<a name="mlsec06-bp02"></a>
 
  Implement comprehensive monitoring of data access events to detect unauthorized or suspicious activities. By auditing user interactions with data, you can identify potential security threats such as unusual access patterns, abnormal locations, or activity that exceeds normal baselines. Use specialized AWS services for anomaly detection alongside data classification to assess risks and protect your machine learning assets. 
 

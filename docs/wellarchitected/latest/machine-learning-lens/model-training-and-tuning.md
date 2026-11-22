@@ -1,11 +1,12 @@
 
 
 # Model training and tuning
-<a name="model-training-and-tuning"></a>
 
  In this phase, you select a machine learning algorithm that is appropriate for your problem and then train the ML model. You provide the algorithm with the training data, set an objective metric for the ML model to optimize on, and set the hyperparameters to optimize the training process. 
 
 ![Chart displaying ML model training and tuning main components](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/training-tuning-components.png)
+
+* Figure 11: ML model training and tuning main components *
 
 
  Model training, tuning, and evaluation require prepared data and engineered features. The following are the main activities in this stage, as listed in Figure 11: 
@@ -23,6 +24,8 @@
 +  **Visualization:** Enables exploring and understanding data during metrics validation, debugging, profiling, and hyperparameter tuning. 
 
 ![ML lifecycle with pre-production pipelines](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-preproduction-pipelines.png)
+
+* Figure 12: ML lifecycle with pre-production pipelines *
 
 
  Figure 12 shows the pre-production pipelines. The *data prepare* pipeline automates data preparation tasks. The feature pipeline automates the storing, fetching, and copying of the features into and from online/offline store. The CI/CD/CT pipeline automates the build, train, and release to staging and production environments. 

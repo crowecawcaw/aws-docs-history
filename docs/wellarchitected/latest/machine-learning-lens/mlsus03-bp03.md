@@ -1,7 +1,6 @@
 
 
 # MLSUS03-BP03 Adopt sustainable storage options
-<a name="mlsus03-bp03"></a>
 
  Reduce the volume of data to be stored and adopt sustainable storage options to limit the carbon impact of your workload. For artifacts like models and log files that must be kept for long-term regulatory and audit requirements, use efficient compression algorithms and use energy efficient cold storage. 
 

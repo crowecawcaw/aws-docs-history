@@ -1,7 +1,6 @@
 
 
 # MLPERF05-BP02 Choose an optimal deployment option in the cloud
-<a name="mlperf05-bp02"></a>
 
  When deploying machine learning models in the cloud, selecting the right deployment option is crucial for performance efficiency. By matching your deployment method to your use case requirements for request frequency, latency, and runtime, you can optimize both performance and cost. 
 

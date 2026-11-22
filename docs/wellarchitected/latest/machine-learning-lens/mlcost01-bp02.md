@@ -1,7 +1,6 @@
 
 
 # MLCOST01-BP02 Use managed services to reduce total cost of ownership (TCO)
-<a name="mlcost01-bp02"></a>
 
  Using managed machine learning services enables organizations to operate more efficiently with reduced resources and costs compared to self-managed options. This approach reduces undifferentiated heavy lifting, reduces operational burden, and allows teams to focus on delivering business value. 
 

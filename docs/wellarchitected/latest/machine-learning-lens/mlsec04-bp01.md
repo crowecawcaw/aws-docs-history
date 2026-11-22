@@ -1,7 +1,6 @@
 
 
 # MLSEC04-BP01 Secure governed ML environment
-<a name="mlsec04-bp01"></a>
 
  Creating a secure and governed ML environment allows you to protect valuable data and models while enabling teams to innovate efficiently. By implementing proper guardrails, monitoring, and security practices, you maintain control while providing the flexibility ML practitioners need to deliver business value. 
 

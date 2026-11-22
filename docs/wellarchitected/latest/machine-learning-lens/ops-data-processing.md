@@ -1,7 +1,6 @@
 
 
 # Data processing
-<a name="ops-data-processing"></a>
 
 **Topics**
 + [MLOPS03-BP01 Profile data to improve quality](mlops03-bp01.md)

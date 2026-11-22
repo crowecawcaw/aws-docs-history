@@ -1,7 +1,6 @@
 
 
 # Model development
-<a name="model-development"></a>
 
  Model development consists of model building, training, tuning, and evaluation. 
 

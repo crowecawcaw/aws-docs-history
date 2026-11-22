@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP02 Use managed build environments
-<a name="mlcost04-bp02"></a>
 
  Using managed build environments for machine learning development instead of local setups provides significant cost, time, and resource advantages. Managed notebooks come pre-configured with security, networking, storage, and compute capabilities that would otherwise require extensive development and maintenance effort. These environments also offer flexible machine selection, including access to powerful GPUs and high-memory instances that may be impractical in local setups. 
 

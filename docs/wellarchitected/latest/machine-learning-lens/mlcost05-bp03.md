@@ -1,7 +1,6 @@
 
 
 # MLCOST05-BP03 Right-size the model hosting instance fleet
-<a name="mlcost05-bp03"></a>
 
  Use efficient compute resources to run models in production. In many cases, up to 90% of the infrastructure spend for developing and running an ML application is on inference, making it critical to use high-performance, cost-effective ML inference infrastructure. Selecting the right way to host and the right type of instance can have a large impact on the total cost of ML projects. Use automatic scaling for your hosted models. Auto scaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload. 
 

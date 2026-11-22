@@ -1,7 +1,6 @@
 
 
 # MLSUS03-BP01 Minimize idle resources
-<a name="mlsus03-bp01"></a>
 
  Minimize your environmental impact by efficiently managing compute resources in your ML data pipeline. Use serverless architectures that provision resources only when needed, reducing energy consumption and carbon footprint. 
 

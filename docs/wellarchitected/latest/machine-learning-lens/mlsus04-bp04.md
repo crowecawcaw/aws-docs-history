@@ -1,7 +1,6 @@
 
 
 # MLSUS04-BP04 Use efficient model tuning methods
-<a name="mlsus04-bp04"></a>
 
  Optimize your machine learning model's hyperparameters with resource-efficient strategies that minimize computational needs while improving performance. Efficient tuning methods can significantly reduce costs, energy consumption, and time-to-market compared to resource-intensive brute force approaches. 
 

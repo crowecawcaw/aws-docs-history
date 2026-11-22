@@ -1,7 +1,6 @@
 
 
 # Model development
-<a name="perf-model-development"></a>
 
 **Topics**
 + [MLPERF04-BP01 Optimize training and inference instance types](mlperf04-bp01.md)

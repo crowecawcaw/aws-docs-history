@@ -1,11 +1,12 @@
 
 
 # Monitoring
-<a name="monitoring"></a>
 
  The model monitoring system must capture data, compare that data to the training set, define rules to detect issues, and send alerts. This process repeats on a defined schedule, when initiated by an event, or when initiated by human intervention. The issues detected in the monitoring phase include: data quality, model quality, bias drift, and feature attribution drift.  
 
 ![Chart displaying model monitoring main components](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/key-components-monitor-phase.png)
+
+*Figure 17: Post-deployment monitoring main components*
 
 
  Figure 17 lists key components of monitoring, including: 
@@ -14,3 +15,5 @@
 +  **Model update pipeline:** If the alarm manager identifies violations, it launches the model update pipeline for a re-train. This can be seen in Figure 18. The *Data prepare*, *CI/CD/CT*, and *Feature* pipelines will also be active during this process. 
 
 ![ML lifecycle with model update, retrain, and batch or real-time inference pipelines](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-model-update-inference-pipelines.png)
+
+*Figure 18: ML lifecycle with model update, retrain, and batch or real-time inference pipelines*

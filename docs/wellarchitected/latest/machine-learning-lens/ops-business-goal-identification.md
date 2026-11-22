@@ -1,7 +1,6 @@
 
 
 # Business goal identification
-<a name="ops-business-goal-identification"></a>
 
 **Topics**
 + [MLOPS01-BP01 Develop the right skills with accountability and empowerment](mlops01-bp01.md)

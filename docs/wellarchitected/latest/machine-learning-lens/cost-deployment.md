@@ -1,7 +1,6 @@
 
 
 # Deployment
-<a name="cost-deployment"></a>
 
 **Topics**
 + [MLCOST05-BP01 Use an appropriate deployment option](mlcost05-bp01.md)

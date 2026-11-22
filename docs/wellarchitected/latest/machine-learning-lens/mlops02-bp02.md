@@ -1,7 +1,6 @@
 
 
 # MLOPS02-BP02 Prepare an ML profile template
-<a name="mlops02-bp02"></a>
 
  Creating an ML profile template allows you to systematically capture machine learning workload characteristics across different lifecycle phases. Use this template to evaluate your ML workload's current maturity status and strategically plan for improvements that align with your business requirements. 
 

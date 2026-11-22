@@ -1,7 +1,6 @@
 
 
 # MLCOST04-BP03 Select local training for small scale experiments
-<a name="mlcost04-bp03"></a>
 
  When developing machine learning models, choosing the right training environment is crucial for both cost efficiency and rapid experimentation. By evaluating whether to train your ML model locally or in the cloud, you can optimize your development workflow and appropriately match resources to the scale of your experiment. 
 
@@ -37,7 +36,7 @@
 
 1.  **Set up Amazon SageMaker AI local mode**. When experimenting with small datasets, use Amazon SageMaker AI's local mode to train models directly on your notebook instance. This approach allows you to test and iterate on your code without provisioning separate training clusters. To implement local mode: 
 
-   ```
+   ```python
    from sagemaker.estimator import Estimator
    
    estimator = Estimator(
@@ -52,7 +51,7 @@
 
 1.  **Use local development environment with SageMaker AI SDK**. For development outside of SageMaker AI notebooks, install the SageMaker AI Python SDK on your local machine. This allows you to develop and test locally while still having the ability to deploy models to AWS: 
 
-   ```
+   ```bash
    pip install sagemaker
    ```
 

@@ -1,7 +1,6 @@
 
 
 # MLOPS01-BP01 Develop the right skills with accountability and empowerment
-<a name="mlops01-bp01"></a>
 
  Artificial intelligence (AI) has many different and growing branches, such as machine learning, deep learning, and computer vision. Given the complexity and fast-growing nature of ML technologies, plan to hire specialists with the understanding that additional training will be needed as ML evolves. Keep teams learning new skills, engaged, and motivated while encouraging accountability and empowerment. Building ML models is a complex and iterative process that can infuse bias or unfair predictions against a certain entity. It's important to promote and enforce the ethical use of AI across enterprises. AWS provides clear guidance to customers for [responsible AI practices](https://aws.amazon.com/ai/responsible-ai/). 
 

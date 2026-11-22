@@ -1,7 +1,6 @@
 
 
 # MLSEC03-BP04 Enforce data lineage
-<a name="mlsec03-bp04"></a>
 
  Data lineage tracking allows you to monitor and track data origins and transformations over time, enabling better visibility into your machine learning workflows. By enforcing data lineage, you can trace the root cause of data processing errors and and protect the integrity of your ML models. 
 

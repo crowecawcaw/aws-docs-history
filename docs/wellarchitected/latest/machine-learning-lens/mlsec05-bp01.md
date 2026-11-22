@@ -1,7 +1,6 @@
 
 
 # MLSEC05-BP01 Protect against adversarial and malicious activities
-<a name="mlsec05-bp01"></a>
 
  Machine learning systems must be robust against adversarial inputs designed to manipulate their behavior. Implementing protection mechanisms both inside and outside of your deployed models can detect malicious inputs that could lead to incorrect predictions, allowing you to automatically identify unauthorized changes, repair compromised inputs, and validate data before it's used for further training. 
 

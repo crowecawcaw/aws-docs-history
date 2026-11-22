@@ -1,7 +1,6 @@
 
 
 # Sustainability
-<a name="sustainability"></a>
 
  The sustainability pillar focuses on environmental impacts, especially energy consumption and efficiency, since they are important levers for architects to guide direct action on how to reduce resource usage. 
 
