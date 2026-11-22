@@ -1,7 +1,6 @@
 
 
 # Naïve modulo mapping or fixed partition number
-<a name="naive-modulo-mapping-or-fixed-partition-number"></a>
 
  Naïve modulo mapping uses modular arithmetic to map keys to cells, typically on a cryptographic hash of the key. This scheme has an effective zero peak-to-average ratio (very even distribution) and requires minimal state (just the count of cells). But it suffers from high churn (cell reassignment) when adding or removing cells. 
 

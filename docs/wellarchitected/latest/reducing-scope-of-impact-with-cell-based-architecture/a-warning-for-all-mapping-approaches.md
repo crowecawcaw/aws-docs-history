@@ -1,7 +1,6 @@
 
 
 # A warning for all mapping approaches
-<a name="a-warning-for-all-mapping-approaches"></a>
 
  Regardless of partition mapping approach, it's important to also use an override table to force specific keys to specific cells (except for [full mapping](full-mapping.md), which natively provides this support). This can be useful for testing, quarantining, and special-case routing for particularly heavy partition keys. 
 

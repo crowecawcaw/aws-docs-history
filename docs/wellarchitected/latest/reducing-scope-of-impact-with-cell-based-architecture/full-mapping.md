@@ -1,11 +1,12 @@
 
 
 # Full mapping
-<a name="full-mapping"></a>
 
  A highly flexible yet expensive approach is to explicitly map every key to a cell. This comes with the downsides of a critical read and write dependency on the mapping table, a read-your-writes consistency requirement, and a large amount of state. 
 
 ![Diagram showing a full mapping.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/full-mapping.jpg)
+
+*Full mapping*
 
 
  Advantages: 

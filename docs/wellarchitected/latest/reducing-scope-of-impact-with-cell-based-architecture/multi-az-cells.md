@@ -1,11 +1,12 @@
 
 
 # Multi-AZ cells
-<a name="multi-az-cells"></a>
 
  A way to reduce the scope of impact of a service is to introduce Multi-AZ cells. In this approach, cells are Multi-AZ or Regional, and can take advantage of all the resiliency and availability of Regional and Multi-AZ services already offered by AWS, thus abstracting the great complexity that this management requires. Each replica of your workload (cell) will continue to running even if an AZ is unavailable for the subset of clients or traffic you have defined. 
 
 ![Diagram showing the use of Multi-AZ cells.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/multi-az-cells.png)
+
+*Multi-AZ cells*
 
 
  Advantages of this approach: 

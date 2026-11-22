@@ -1,11 +1,12 @@
 
 
 # What is a cell-based architecture?
-<a name="what-is-a-cell-based-architecture"></a>
 
  A cell-based architecture comes from the concept of a [bulkhead in a ship](https://en.wikipedia.org/wiki/Bulkhead_%28partition%29), where vertical partition walls subdivide the ship's interior into self-contained, watertight compartments. Bulkheads reduce the extent of seawater flooding in case of damage and provide additional stiffness to the hull girder. 
 
 ![Diagram of a ship showing how a bulkhead isolates a failure.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/failure-isolation-using-bulkheads.jpg)
+
+*Isolating failures using bulkheads*
 
 
  On a ship, bulkheads ensure that a hull breach is contained within one section of the ship. In complex systems, this pattern is often replicated to allow fault isolation. *Fault isolated boundaries* restrict the effect of a failure within a workload to a limited number of components. Components outside of the boundary are unaffected by the failure.
@@ -25,6 +26,8 @@ Using multiple fault isolated boundaries, you can limit the impact on your workl
 
 ![A reference architecture diagram showing a typical workload.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/typical-workload.jpg)
 
+*A typical workload*
+
 
 ## A workload with cell-based architecture
 <a name="a-workload-with-cell-based-architecture"></a>
@@ -32,6 +35,8 @@ Using multiple fault isolated boundaries, you can limit the impact on your workl
  Rather than build out services as single-image systems, we propose a different approach: break your services down internally into cells and build thin layers to route traffic to the right cells. This type of architecture can be zonal, regional, or global. 
 
 ![Reference architecture diagram showing a cell-based architecture.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-based-architecture.jpg)
+
+*A cell-based architecture*
 
 
  The cell-based architecture has the following components, which will be further explored later in this guidance: 

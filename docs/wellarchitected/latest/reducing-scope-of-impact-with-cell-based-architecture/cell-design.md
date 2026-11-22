@@ -1,7 +1,6 @@
 
 
 # Cell design
-<a name="cell-design"></a>
 
  A cell is an instance of your complete workload, with everything needed to operate independently. As an example, consider an application that is comprised by an Application Load Balancer, some EC2 instances, and an Amazon RDS database. In this case, all components are in your cell, for example, `cell 1`. If you need another cell, `cell 2`, you will have to create another deployment of these three components. 
 

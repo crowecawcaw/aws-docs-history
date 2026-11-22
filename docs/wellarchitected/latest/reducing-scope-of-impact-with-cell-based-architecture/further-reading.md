@@ -1,7 +1,6 @@
 
 
 # Further reading
-<a name="further-reading"></a>
 
  For additional information, refer to: 
 +  *AWS Well-Architected Framework Reliability Pillar* whitepaper, specifically [REL10-BP04 Use bulkhead architectures to limit scope of impact](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_fault_isolation_use_bulkhead.html).

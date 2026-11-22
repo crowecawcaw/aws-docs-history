@@ -1,7 +1,6 @@
 
 
 # Cell routing
-<a name="cell-routing"></a>
 
  The router layer is a shared component between cells, and therefore cannot follow the same compartmentalization strategy as with cells. 
 
@@ -10,6 +9,8 @@ For the router layer, it's recommended that you distribute requests to individua
  To avoid multi-cell impacts, the routing layer must remain as simple and horizontally scalable as possible, which necessitates avoiding complex business logic within this layer. This has the added benefit of making it easy to understand its expected [behavior at all times, allowing for thorough testability.](https://aws.amazon.com/builders-library/reliability-and-constant-work/) As explained by Colm MacCárthaigh in [Reliability, constant work, and a good cup of coffee](https://aws.amazon.com/builders-library/reliability-and-constant-work/), simple designs and constant work patterns produce reliable systems and reduce anti-fragility. 
 
 ![Diagram showing how to avoid multi-cell impacts](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/avoid-multi-cell-impacts.jpg)
+
+*Avoiding multi-cell impacts*
 
 
  Cell router features to keep in mind: 

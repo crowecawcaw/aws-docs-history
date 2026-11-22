@@ -1,7 +1,6 @@
 
 
 # Cell sizing
-<a name="cell-sizing"></a>
 
  Cell-based architectures benefit from capping the maximum size of a cell, and using consistent cell sizes across different installations (for example, AZ or Regions). When thinking about small or large cells there are three opposing forces on choosing a cell size: 
 +  Big enough to fit the largest workloads. 
@@ -9,6 +8,8 @@
 +  Big enough to gain economies of scale benefits. 
 
 ![Diagram showing cell sizing](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-sizing.jpg)
+
+*Cell sizing*
 
 
  The maximum cell size will vary per-service. The optimum point will depend on the service and customer behavior, but needn't be extremely large for any service. There are tradeoffs to be considered in how to select the maximum size of a cell: 

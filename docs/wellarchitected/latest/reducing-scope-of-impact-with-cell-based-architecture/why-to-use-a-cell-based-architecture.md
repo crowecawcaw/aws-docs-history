@@ -1,7 +1,6 @@
 
 
 # Why use a cell-based architecture?
-<a name="why-to-use-a-cell-based-architecture"></a>
 
 These are the main advantages of a cell-based architecture.
 
@@ -22,6 +21,8 @@ These are the main advantages of a cell-based architecture.
 
 ![Diagram showing how a cell-based architecture can reduce the scope of impact.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scope-of-impact.jpg)
 
+*Cell-based architectures can reduce scope of impact*
+
 
 ## Higher scalability or cells as a unit scale
 <a name="higher-scalability-or-cells-as-a-unit-scale"></a>
@@ -29,6 +30,8 @@ These are the main advantages of a cell-based architecture.
  As recommended in [Manage service quotas and constraints](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/manage-service-quotas-and-constraints.html) in the Well-Architected Framework, for your workloads, defining, testing, and managing the limits and capacity of a cell is also essential. Knowing and monitoring this capacity, it's possible to define limits, and scale your workload by adding new cells to your architecture, thus scaling it out. 
 
 ![Diagram showing how scale-out with multiple cells works](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scale-out-with-cells.jpg)
+
+*Scale-out with multiple cells*
 
 
  Cell-based architectures scale-out rather than scale-up, and are inherently more scalable. This is because when scaling up, you can reach the resource limits of a particular service, instance, or AWS account. However, scaling out your workload within an Availability Zone, Region, and AWS account, you can avoid reaching the limits of a specific service or resource. When building cells with a fixed size and known and testable limits, it is possible to add new cells that are in accordance with the limits of the same cited resources. 

@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
 ## Your current instance/stack is your cell zero
 <a name="your-current-instancestack-is-your-cell-zero"></a>

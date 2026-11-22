@@ -1,7 +1,6 @@
 
 
 # Consistent hashing
-<a name="consistent-hashing"></a>
 
  Consistent hashing is a family of algorithms that map keys to buckets (cells) with a small amount of fairly stable state and a minimal amount of churn when adding or removing buckets. 
 
@@ -14,6 +13,8 @@
  A general use of consistent hash in cell mapping is a system that is configured with a fixed large number (for example, tens of thousands) of logical buckets which are explicitly mapped to much smaller number of physical cells. Mapping a key to a cell is a two-step process. First, the key is mapped to its logical bucket using naïve module mapping. Then the cell for that bucket is located using a bucket to cell mapping table. 
 
 ![Diagram showing consistent hashing.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/consistent-hashing.jpg)
+
+*Consistent hashing*
 
 
  Advantages: 

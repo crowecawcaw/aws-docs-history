@@ -1,7 +1,6 @@
 
 
 # When to use a cell-based architecture?
-<a name="when-to-use-a-cell-based-architecture"></a>
 
  There are applications that serve such a large number of customers that interruption of all customers is unacceptable, either for reputation, or financial reasons, where every unavailable second has a big impact. Workloads that have the following characteristics can benefit from a cell-based architecture: 
 +  Applications where any downtime can have a huge negative impact on customers.
