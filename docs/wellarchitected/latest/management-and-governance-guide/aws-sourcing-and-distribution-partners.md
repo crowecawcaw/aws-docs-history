@@ -1,7 +1,6 @@
 
 
 # AWS sourcing and distribution partners
-<a name="aws-sourcing-and-distribution-partners"></a>
 
  The M&G Guide recommends you consider the following questions when choosing an AWS Partner solution for integrated sourcing solutions: 
 +  Does the procurement solution support using cXML? 

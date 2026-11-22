@@ -1,7 +1,6 @@
 
 
 # Service management
-<a name="servicemanagement"></a>
 
  The IT service management (ITSM) framework enables enterprises to align the relationship between people, process, and tooling needed through the lifecycle of IT services. The service management framework is also used to create evidentiary support for compliance and risk audits, Cloud Financial Management (CFM) capabilities, and business service requests. Enterprises also use ITSM tools to track business approvals, capture service issue resolutions, inventory technical assets, identify customer technical inquiries, and capture data points to make business decisions. These ITSM tools not only handle the daily operations for business services and applications (incidents/tickets, and CMDB transparency) but also enable everyday workflow and approvals of business requests (for example, facilities, HR, marketing, etc.). Integrating your service management framework to managing and governing your cloud capabilities will increase your operational excellence and agility. 
 

@@ -1,7 +1,6 @@
 
 
 # Interoperable functions
-<a name="interoperable-functions"></a>
 
  The eight management and governance functions work together and interoperate to reduce complexity. Outputs from these functions are used to inform or integrate with other functions. 
 

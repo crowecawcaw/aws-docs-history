@@ -1,7 +1,6 @@
 
 
 # AWS network connectivity management tools
-<a name="aws-network-connectivity-management-tools"></a>
 
  The following AWS services can be used to help you follow the guidance provided by the M&G Guide: 
 

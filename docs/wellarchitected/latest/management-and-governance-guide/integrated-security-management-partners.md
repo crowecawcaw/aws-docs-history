@@ -1,7 +1,6 @@
 
 
 # Integrated security management partners
-<a name="integrated-security-management-partners"></a>
 
  The M&G Guide recommends you consider the following questions when choosing an AWS Partner solution for security management functions: 
 +  Is the solution from an AWS Security Competency Partner? 

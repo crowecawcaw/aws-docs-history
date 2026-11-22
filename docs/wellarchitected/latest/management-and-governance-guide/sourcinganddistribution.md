@@ -1,7 +1,6 @@
 
 
 # Sourcing and distribution
-<a name="sourcinganddistribution"></a>
 
  Your sourcing and distribution strategy defines how you procure and deploy software and distribute infrastructure as code in a hub-and-spoke model across your cloud environment. Integration between sourcing systems, like AWS Marketplace, and your procurement system helps centralize governance for your software purchasing. With this integration, you can also use your existing workflows for procurement approval. AWS Marketplace provides for this integration using Commerce XML (cXML), an open standard communication protocol. With this feature, builders can find, buy, and deploy solutions, where IT administrators and procurement teams streamline approvals and spend directly from their procurement systems. We recommend that you further simplify your software procurement to work with your distribution systems so that software can be provisioned across your environments. This can be achieved by distributing infrastructure as code templates via a hub and spoke model. 
 

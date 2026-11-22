@@ -1,7 +1,6 @@
 
 
 # Manage and govern with a multi-account point of view
-<a name="manage-and-govern-with-a-multi-account-point-of-view"></a>
 
  AWS helps enable you to experiment, innovate, and scale more quickly, while providing flexible and secure cloud environments. An AWS account provides natural security, access, and billing boundaries for your AWS resources. The AWS account as a boundary helps you to achieve resource isolation as described in the [Security Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html). The Security Pillar specifically recommends the following best practices: separate workloads using accounts, secure AWS accounts, manage accounts centrally, set controls centrally, configure services and resources centrally. 
 

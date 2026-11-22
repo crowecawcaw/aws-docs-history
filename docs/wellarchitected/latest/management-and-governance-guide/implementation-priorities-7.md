@@ -1,7 +1,6 @@
 
 
 # Implementation priorities
-<a name="implementation-priorities-7"></a>
 
 ## Implement a hub and spoke catalog model
 <a name="source-hub"></a>
@@ -15,6 +14,8 @@ This distributed model is an effective mechanism for scale, as it allows builder
 Depending on your requirements, you may elect to implement more than one version of the hub and spoke model. For example, for templates that are regulated or have strict enterprise requirements, the deviation from the approved template may not be allowed for higher-level environments. In this case, a mix of the restricted catalog distribution might be necessary for higher environments, where a team contribution approach would make sense for lower-level environments.
 
 ![Distribution models for catalog sharing](https://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/images/catalog-sharing-options.png)
+
+*Distribution models for catalog sharing*
 
 
 ## Curate templates for reuse

@@ -1,7 +1,6 @@
 
 
 # AWS security management services
-<a name="aws-security-management-services"></a>
 
  The following AWS services can be used to help you meet the prescribed benefits of the M&G Guide: 
 

@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following organizations and individuals contributed to this document: 
 +  AWS Well-Architected Management & Governance Guidance 

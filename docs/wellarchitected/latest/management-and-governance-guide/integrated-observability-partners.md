@@ -1,7 +1,6 @@
 
 
 # Integrated observability partners
-<a name="integrated-observability-partners"></a>
 
  The M&G Guide recommends you consider the following questions when choosing an AWS Partner solution for observability: 
 +  Does it continually monitor security risk? Does it provide or implement configuration changes across cloud environments? 

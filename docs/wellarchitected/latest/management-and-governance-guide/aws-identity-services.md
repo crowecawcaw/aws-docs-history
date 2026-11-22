@@ -1,7 +1,6 @@
 
 
 # AWS identity services
-<a name="aws-identity-services"></a>
 
  Effective identity management is provided by AWS services, solutions, and AWS Partners that permit you to securely manage identities, resources, and permissions at scale. AWS identity services provide flexible options for where and how you manage your employee, partner, and customer identities. The following AWS services can be used to help you meet the prescribed benefits of the M&G Guide: 
 

@@ -1,7 +1,6 @@
 
 
 # AWS sourcing and distribution tools
-<a name="aws-sourcing-and-distribution-tools"></a>
 
  The following AWS services can be used to help you meet the prescribed benefits of the M&G Guide: 
 

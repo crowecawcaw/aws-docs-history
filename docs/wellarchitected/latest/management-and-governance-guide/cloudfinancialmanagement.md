@@ -1,7 +1,6 @@
 
 
 # Cloud Financial Management
-<a name="cloudfinancialmanagement"></a>
 
  Managing cloud finance requires evolving your existing finance processes to establish and operate with cost transparency, control, planning, and optimization for your AWS environments. Cloud Financial Management (CFM) involves more than just reining in costs. It is about how to embrace the agility, innovation, and scale of AWS to maximize the value that the cloud provides to your business. 
 

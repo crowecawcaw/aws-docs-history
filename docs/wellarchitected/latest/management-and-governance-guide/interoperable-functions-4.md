@@ -1,7 +1,6 @@
 
 
 # Interoperable functions
-<a name="interoperable-functions-4"></a>
 
  The eight management and governance functions, supported by AWS services and AWS Partner solutions, work together and interoperate to reduce complexity. Outputs from these functions are used to inform or integrate with other functions. 
 

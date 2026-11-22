@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The M&G Guide recommends a foundational set of eight functions that are needed to configure and build cloud-ready environments. We believe that by following the recommendations outlined in this guide, you will be able to set up your cloud environment for scalability and create what we call migration-ready environments. Deploying the eight capabilities covered in this guide in an interoperable manner will also enable you to realize cost-efficiencies while scaling workloads on AWS. This will help you improve your cloud value, and more importantly increase the speed to achieving value for your customers. 
 

@@ -1,7 +1,6 @@
 
 
 # Integrated service management partners
-<a name="integrated-service-management-partners"></a>
 
  The M&G Guide recommends you consider the following questions when choosing an AWS Partner solution for service management: 
 +  Does it provide ITSM process enablement? 

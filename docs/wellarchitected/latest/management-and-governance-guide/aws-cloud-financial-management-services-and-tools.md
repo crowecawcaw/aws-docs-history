@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Financial Management services and tools
-<a name="aws-cloud-financial-management-services-and-tools"></a>
 
  The following AWS services can be used to help you meet the prescribed benefits of the M&G Guide: 
 

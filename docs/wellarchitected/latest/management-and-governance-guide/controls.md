@@ -1,7 +1,6 @@
 
 
 # Controls
-<a name="controls"></a>
 
  A *control* is a means of mitigating or detecting an issue that is a consequence of risk being realized, while *guardrails* are a technical implementation to meet those controls. More specifically, controls provide instruction for configuring resources to mitigate or address specific risks. We recommend you start their multi-account environment with AWS Control Tower, which offers predefined baseline preventive and detective guardrails that can be enabled at an environment, resource, account, or Organizational Unit (OU) level. Guardrails are an essential part of managing your AWS environments as they provide an automated way to deliver on policy intentions. Two kinds of guardrails exist: preventive and detective. 
 

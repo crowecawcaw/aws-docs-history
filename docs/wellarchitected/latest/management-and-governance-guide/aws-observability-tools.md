@@ -1,7 +1,6 @@
 
 
 # AWS observability tools
-<a name="aws-observability-tools"></a>
 
  The following AWS services can be used to help you meet the prescribed benefits of the M&G Guide: 
 

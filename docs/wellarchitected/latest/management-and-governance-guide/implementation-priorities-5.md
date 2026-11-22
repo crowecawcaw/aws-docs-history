@@ -1,7 +1,6 @@
 
 
 # Implementation priorities
-<a name="implementation-priorities-5"></a>
 
 ## Collect, aggregate, and protect event and log data
 <a name="mon-coll"></a>

@@ -1,7 +1,6 @@
 
 
 # Network connectivity
-<a name="networkconnectivity"></a>
 
  Workloads often exist in multiple locations or environments, both publicly accessible and private. Managing networks in AWS might require connecting many AWS-hosted VPCs from many accounts to specific enterprise networks, and to the internet. Your network strategy must allow for the interoperability of workloads while also aligning to your security architecture. The careful planning and management of your network design forms the foundation of how you provide isolation and resource boundaries within your workload. We think of network connectivity in three different groupings: connectivity between your on-premises network and your AWS environment, connectivity to and from the internet, and connectivity across your AWS environments—primarily between VPCs. 
 

@@ -1,7 +1,6 @@
 
 
 # Integrated identity partners
-<a name="integrated-identity-partners"></a>
 
  The M&G Guide recommends you consider at a minimum the following questions when choosing an AWS Partner solution for identity management: 
 +  Does it integrate with a single sign-on provider such as AWS SSO? 

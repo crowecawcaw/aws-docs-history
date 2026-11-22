@@ -1,7 +1,6 @@
 
 
 # Implementation priorities
-<a name="implementation-priorities-3"></a>
 
  For security management, we recommend that you deploy your security capabilities (XDR, CSPM, etc.) using the same mechanisms as the base foundation of capabilities for each of your accounts. In the [Controls](controls.md) section, we recommend that you begin with assessing your risk posture and [developing a threat model](https://aws.amazon.com/blogs/security/how-to-approach-threat-modeling/), and thereafter selecting appropriate controls for each environment. In addition, you should set a foundation with specific security tools aligned to your environments and accounts, additional logging, and integration to your incident management and security analytics capabilities. 
 

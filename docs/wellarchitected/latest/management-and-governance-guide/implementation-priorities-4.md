@@ -1,7 +1,6 @@
 
 
 # Implementation priorities
-<a name="implementation-priorities-4"></a>
 
  Implementation priorities for service management include incorporating or establishing policies and procedures to account for cloud services. It is a best practice to involve your operations teams early in a preparation phase before migrating production workloads using iterative production readiness criteria and checklists. Use of ITSM tools and integration with AWS services can be accomplished in an iterative manner. For example, initially tooling and integration can be implemented manually and progressing to full automation in later phases. The M&G Guide recommends that you implement service management framework processes in a phased approach that establishes a cloud operational baseline and connects with your system of record declared ITSM tools. 
 

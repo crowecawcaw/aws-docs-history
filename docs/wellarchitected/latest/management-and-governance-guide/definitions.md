@@ -1,7 +1,6 @@
 
 
 # Definitions: Vocabulary
-<a name="definitions"></a>
 
 ## Application
 <a name="id-4c9859db-c2d2-4e3d-d991-597c16da5529"></a>

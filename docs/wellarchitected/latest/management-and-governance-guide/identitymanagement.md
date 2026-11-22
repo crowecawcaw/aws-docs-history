@@ -1,7 +1,6 @@
 
 
 # Identity management
-<a name="identitymanagement"></a>
 
  As you scale your use of the AWS Cloud, you need robust identity and permission management processes to help ensure that you follow the standard security advice of granting least privilege, or granting only the permissions required to perform a task. Robust identity management helps ensure that the right systems and people have access to the right resources under the right conditions. This also needs to be done while not overburdening operations capabilities with too many, too granular or too complex permission or identity constructs. The M&G Guide includes the recommendations of the [Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/identity-management.html) for managing identities and access permissions across all cloud resources in your multi-account strategy in order to be migration ready, scale ready, and operating efficiently. 
 

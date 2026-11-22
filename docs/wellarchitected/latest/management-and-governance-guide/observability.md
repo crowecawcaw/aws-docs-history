@@ -1,7 +1,6 @@
 
 
 # Monitoring and observability
-<a name="observability"></a>
 
  Like security, monitoring and observability are required for all teams who operate and administer cloud applications and services. As described in the [Operational Excellence Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html), your teams must define, capture, and analyze operations metrics to gain visibility into workload events so that you can take appropriate action. In the management layer, this also means understanding operational metrics as you provide guardrails, network, security, and identity services in your management platform. 
 

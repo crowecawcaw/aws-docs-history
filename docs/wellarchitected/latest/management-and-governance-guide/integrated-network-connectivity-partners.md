@@ -1,7 +1,6 @@
 
 
 # Integrated network connectivity partners
-<a name="integrated-network-connectivity-partners"></a>
 
  The M&G Guide recommends you consider the following questions when choosing an AWS Partner solution for network and connectivity: 
 +  Does it support features you are considering using from Amazon VPC and Amazon EC2 instances? 

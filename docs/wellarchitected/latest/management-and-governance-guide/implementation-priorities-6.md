@@ -1,7 +1,6 @@
 
 
 # Implementation priorities
-<a name="implementation-priorities-6"></a>
 
  The M&G Guide recommends that you implement your Cloud Financial Management capabilities with transparency in mind. This includes enabling your builder teams to see the financial impact of their cloud usage for the resources they provision, as well as to define specific controls related to the financial governance of your resources. 
 

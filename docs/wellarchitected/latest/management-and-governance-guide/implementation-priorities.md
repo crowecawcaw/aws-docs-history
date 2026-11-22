@@ -1,7 +1,6 @@
 
 
 # Implementation priorities
-<a name="implementation-priorities"></a>
 
  Using a centralized mechanism like AWS Control Tower to create accounts that are pre-configured for compliance can help you adjust to your changing scale needs. Having a multi-account strategy helps raise your security posture with the necessary separation of workloads and networks through logical and physical boundaries. As such, the following controls solutions should be prioritized: 
 

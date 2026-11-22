@@ -1,7 +1,6 @@
 
 
 # Management and Governance Cloud Environment Guide
-<a name="management-and-governance-cloud-environment-guide"></a>
 
 Publication date: **November 22, 2021** ([Document history](document-history.md))
 
@@ -25,3 +24,5 @@ Publication date: **November 22, 2021** ([Document history](document-history.md)
 +  Turnkey complementary solutions and consulting services from [Built on Control Tower - AWS Partners](https://aws.amazon.com/controltower/partners/). 
 
 ![Diagram showing how the Well-Architected Framework pillars and the eight management and governance functions interoperate to provide a migration ready, scale ready, innovation ready, optimized, and efficient AWS environment.](https://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/images/how-to-prepare-aws-environments.png)
+
+*How to prepare AWS environments*

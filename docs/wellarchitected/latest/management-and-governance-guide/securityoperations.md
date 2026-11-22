@@ -1,7 +1,6 @@
 
 
 # Security management
-<a name="securityoperations"></a>
 
  Security plays a key role and is foundational to all functions of the M&G Guide. Security management is the process of setting up, measuring, and improving security processes and tools. The M&G Guide focuses on cloud-ready environments so that you are well prepared to host your workloads. We recommend following the security best practices described in the [Well-Architected Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html) whitepaper for each type of workload you run on AWS. You will find that the same principles for well-architected workloads apply for how you effectively secure and manage cloud-ready environments. Specifically, the security pillar includes a comprehensive view of the best practices for management and governance of security capabilities, some of which are highlighted later in this guide. Further information on cloud adoption best practices that align with the Security Pillar can also be found in [AWS CAF](https://aws.amazon.com/professional-services/CAF/). 
 
