@@ -1,7 +1,6 @@
 
 
 # Serverless Strategy for Dynamic Pricing
-<a name="serverless-dynamic-pricing"></a>
 
 Publication date: **June 28, 2021 ([Diagram history](#diagram-history))**
 
