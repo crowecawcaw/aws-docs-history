@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  Change implementation can have a direct impact on the availability of workloads and the ability to recover from major incidents or disasters. Change automation is foremost in maximizing application availability. If you have any manual processes, you lose critical time awaiting those manual actions. Theoretically, the smaller in size a change is, the lower the potential impact of that change on the business. 
 

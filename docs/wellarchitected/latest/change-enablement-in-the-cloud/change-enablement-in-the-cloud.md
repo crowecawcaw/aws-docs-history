@@ -1,7 +1,6 @@
 
 
 # Change Enablement in the Cloud
-<a name="change-enablement-in-the-cloud"></a>
 
 Publication date: **June 27, 2024** ([Document revisions](document-revisions.md))
 

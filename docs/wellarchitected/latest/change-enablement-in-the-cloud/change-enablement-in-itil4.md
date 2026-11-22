@@ -1,7 +1,6 @@
 
 
 # Change enablement in ITIL®4
-<a name="change-enablement-in-itil4"></a>
 
  ITIL®4 defines a service change as "the addition, modification, or removal of anything that could have a direct or indirect effect on services (ITIL®4 Change Enablement Practice Guide, PeopleCert\+)." 
 

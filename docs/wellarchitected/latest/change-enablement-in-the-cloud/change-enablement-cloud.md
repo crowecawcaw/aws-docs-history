@@ -1,7 +1,6 @@
 
 
 # Change enablement in the cloud
-<a name="change-enablement-cloud"></a>
 
  All changes should be delivering business value. The change enablement practice should focus on optimizing business risk, maximizing productivity, and minimizing wasted effort and cost. The AWS Cloud enhances a change enablement practice by: 
 +  Minimizing the possibility of human error with workflow automation and integration 

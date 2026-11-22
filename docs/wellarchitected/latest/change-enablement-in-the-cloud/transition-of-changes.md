@@ -1,7 +1,6 @@
 
 
 # Transition of changes
-<a name="transition-of-changes"></a>
 
  After approval of a release using the change enablement process and following the appropriate project management, release, and deployment management steps, deploying the release causes you to validate and test your change. Guidance on transitioning changes is also provided in the [Operational Excellence Pillar](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html) of the AWS Well-Architected Framework. 
 

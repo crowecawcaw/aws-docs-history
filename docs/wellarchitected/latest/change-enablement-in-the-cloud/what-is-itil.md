@@ -1,7 +1,6 @@
 
 
 # What is ITIL?
-<a name="what-is-itil"></a>
 
  The framework operated by PeopleCert\+ defines an internationally recognized approach to IT service management ([ITSM](https://www.axelos.com/certifications/itil-service-management/what-is-it-service-management)). ITIL enhances [ISO 20000](https://www.iso.org/standard/70636.html), which provides a formal and universal standard for organizations seeking to have their service management capabilities audited and certified. ITIL®4 goes one step further than previous versions to define IT practices necessary to achieve the standard through use of the latest industry methodologies of DevOps, LEAN, and agile. ITIL®4 provides a solid foundation for defining and maturing cloud capabilities. ITIL and the AWS Cloud Adoption Framework (CAF) are compatible. Like ITIL, CAF organizes and describes the activities and processes involved in planning, creating, managing, and supporting modern IT services. The operations perspective in CAF offers practical guidance and comprehensive guidelines for establishing, developing, and operating your cloud-based IT capabilities. 
 

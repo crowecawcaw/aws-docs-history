@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Contributors to this document include: 
 +  Alex Livingstone, Principal WW CloudOps Specialist Solutions Architect, Amazon Web Services 

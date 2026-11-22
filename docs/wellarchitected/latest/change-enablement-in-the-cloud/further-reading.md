@@ -1,7 +1,6 @@
 
 
 # Further reading
-<a name="further-reading"></a>
 
  For additional information, see: 
 +  [AWS Whitepapers & Guides](https://aws.amazon.com/whitepapers/) 
