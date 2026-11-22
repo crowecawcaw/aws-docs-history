@@ -1,7 +1,6 @@
 
 
 # Key concepts
-<a name="mwaas-concepts"></a>
 
  Understanding Amazon MWAA Serverless concepts helps you design, deploy, and manage your workflow orchestration solutions. This section explains the core concepts and how they relate to traditional Apache Airflow terminology. 
 +  **Workflow**: The Amazon MWAA Serverless resource that represents your orchestration logic. A workflow is created through the Amazon MWAA Serverless API, or CLI. It contains metadata about scheduling, execution roles, and the orchestrated data processing steps (tasks). 
@@ -71,7 +70,7 @@ Example YAML structure:
 ------
 #### [ YAML ]
 
-```
+```yaml
 dag_id: my_data_pipeline
 description: "Process daily data from S3 to Redshift"
 schedule_interval: "0 2 * * *"  # Daily at 2 AM
@@ -103,5 +102,6 @@ You can observe your Amazon MWAA Serverless resources using AWS native services:
 + **CloudWatch logs**: Access your workflow and task logs in CloudWatch for analysis and troubleshooting.
 + **CloudTrail integration**: API calls and workflow management actions are logged in CloudTrail for audit and compliance.
 + **Console**: View workflow status using the Amazon MWAA Serverless console.
++ **Apache Airflow UI**: Open the native Apache Airflow UI to browse workflows, inspect workflow runs and task instances, and read task logs. With Amazon MWAA Serverless, you don't need to run or manage a web server because the UI is hosted for you. For more information, see [Access the Airflow UI](workflows-airflow-ui.md).
 
-Unlike traditional Amazon MWAA, you don't have direct access to the Apache Airflow web interface. Instead, you can build your custom monitoring and observability using AWS native tools.
+The Apache Airflow UI in Amazon MWAA Serverless supports a subset of the features available in the Apache Airflow UI for traditional Amazon MWAA. For example, admin features such as connections, variables, and pools aren't available. You can also build your custom monitoring and observability using AWS native tools.

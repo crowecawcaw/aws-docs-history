@@ -1,7 +1,6 @@
 
 
 # Observability with CloudWatch
-<a name="observe-with-cloudwatch"></a>
 
 You may view and manage your workflows on the [Amazon MWAA Serverless Console](https://us-east-2.console.aws.amazon.com/mwaa/home#serverlessWorkflows) however, for advanced observability Amazon MWAA Serverless Serverless provides integration with Amazon CloudWatch where tasks logs are stored in a log group provided by you. If you do not provide a log group name while creating a workflow, Amazon MWAA Serverless will create a new log group. 
 
@@ -10,7 +9,7 @@ You may view and manage your workflows on the [Amazon MWAA Serverless Console](h
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "WorkflowVersion": "7bcd36ce4d42f5cf23bfee67a0f816c6",
   "RunId": "d58cxqdClpTVjeN",
@@ -31,7 +30,7 @@ You may view and manage your workflows on the [Amazon MWAA Serverless Console](h
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "WorkflowVersion": "0ad517eb5e33deca45a2514c0569079d",
   "RunId": "ABC123456789def",
@@ -57,7 +56,7 @@ You may view and manage your workflows on the [Amazon MWAA Serverless Console](h
 ------
 #### [ CLI ]
 
-```
+```bash
 aws mwaa-serverless list-task-instances 
 --workflow-arn arn:aws:airflow-serverless:us-east-2:111122223333:workflow/simple_s3_test-abc1234def 
 --run-id ABC123456789def 
@@ -78,7 +77,7 @@ aws mwaa-serverless list-task-instances
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "Status": "SUCCESS",
   "StartedAt": "2025-10-28T21:21:31.753447+00:00",

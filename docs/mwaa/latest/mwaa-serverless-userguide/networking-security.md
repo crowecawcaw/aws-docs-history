@@ -1,7 +1,6 @@
 
 
 # Security in your VPC on Amazon MWAA Serverless
-<a name="networking-security"></a>
 
 Learn about the Amazon VPC components used to secure your Amazon MWAA Serverless workflow and the configurations needed for these components.
 

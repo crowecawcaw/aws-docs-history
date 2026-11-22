@@ -1,7 +1,6 @@
 
 
 # Infrastructure Security in Amazon MWAA Serverless
-<a name="infrastructure-security"></a>
 
 For information about AWS security services and how AWS protects infrastructure, [see AWS Cloud Security](https://aws.amazon.com/security/). To design your workflows using the best practices for infrastructure security, see [ Infrastructure Protectiony](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html)) in Security Pillar AWS Well‐Architected Framework.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon MWAA Serverless
-<a name="monitoring"></a>
 
 Monitoring helps maintain the reliability, availability, and performance of Amazon MWAA Serverless and your other AWS solutions. Amazon MWAA Serverless uses CloudTrail and CloudWatch to capture different logs and metrics. You can provide an option loggorup while creating Amazon MWAA Serverless workflows. If you do not provide a loggoroup name, Amazon MWAA Serverless will create a new loggroup where all the logs for the workflows are published. 
 

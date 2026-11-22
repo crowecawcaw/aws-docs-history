@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon MWAA Serverless
-<a name="get-started"></a>
 
 To create a workflow in Amazon MWAA Serverless you need an Amazon S3 Bucket and an Execution role. You can choose to provide optional KMS key, Amazon VPC and VPC Security groups.
 + The **Amazon S3 bucket** stores your workflow files. Your Amazon S3 bucket must block all public access and have versioning enabled. When you upload workflow files, Amazon MWAA Serverless parses these files before scheduling tasks. To learn more, refer to [Create an Amazon S3 bucket for Amazon MWAA Serverless](mwaas-s3-bucket.md).

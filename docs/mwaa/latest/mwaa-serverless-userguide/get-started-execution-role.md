@@ -1,7 +1,6 @@
 
 
 # Execution roles
-<a name="get-started-execution-role"></a>
 
  An execution role is an AWS Identity and Access Management (IAM) role with a permissions policy that grants Amazon MWAA Serverless permission to invoke the resources of other AWS services on your behalf. This can include resources such as your Amazon S3 bucket, [AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk), and CloudWatch Logs. Amazon MWAA Serverless needs one execution role per workflow. This topic describes how to use and configure the execution role to allow Amazon MWAA Serverless to access other AWS resources that are required by the workflow. 
 
@@ -74,7 +73,7 @@ To view the execution role and update the JSON policy for the role on the IAM co
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -147,7 +146,7 @@ To attach a policy to your execution role:
 ------
 #### [ JSON ]
 
-```
+```json
     {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -190,7 +189,7 @@ To attach a policy to your execution role:
 ------
 #### [ JSON ]
 
-```
+```json
     {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

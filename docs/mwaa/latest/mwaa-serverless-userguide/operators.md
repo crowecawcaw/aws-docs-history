@@ -1,7 +1,6 @@
 
 
 # Supported operators
-<a name="operators"></a>
 
 With Amazon MWAA Serverless, you can use a specific set of [Apache Airflow operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/9.38.0/index.html) out of the box. These operators are optimized for AWS service integration. You can also run Python and Bash operators, operators from Apache Airflow provider packages, and operators that you write yourself. To run them, provide a code package when you create or update a workflow. For more information, see [Running custom code with Python, Bash, and custom operators](custom-code-operators.md).
 

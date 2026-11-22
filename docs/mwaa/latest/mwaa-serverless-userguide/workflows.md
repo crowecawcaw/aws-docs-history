@@ -1,7 +1,6 @@
 
 
 # Workflows
-<a name="workflows"></a>
 
  To use Amazon MWAA Serverless for orchestration, first create a workflow as a YAML definition file. If you already have a Python DAG file, convert it to YAML with the [DAG converter](https://pypi.org/project/python-to-yaml-dag-converter-mwaa-serverless/) tool. For instructions, refer to [Convert Python DAG to YAML definition](workflows-migrate.md). 
 
@@ -22,6 +21,7 @@ Each workflow needs an IAM role. This role defines what AWS resources the workfl
 + [Convert Python DAG to YAML definition](workflows-migrate.md)
 + [Tag a workflow](workflows-tags.md)
 + [Access the Airflow UI](workflows-airflow-ui.md)
++ [Start workflow runs with Amazon EventBridge events](workflows-event-driven.md)
 + [Using environment variables in Amazon MWAA Serverless workflows](workflows-environment-variables.md)
 + [Managing connections and variables](connections.md)
 

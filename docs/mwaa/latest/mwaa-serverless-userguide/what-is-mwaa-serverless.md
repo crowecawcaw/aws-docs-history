@@ -1,7 +1,6 @@
 
 
 # What is Amazon MWAA Serverless?
-<a name="what-is-mwaa-serverless"></a>
 
  Amazon MWAA Serverless is a deployment option for MWAA that eliminates the operational overhead of managing Apache Airflow environments while providing cost-effective serverless scaling. This solution simplifies managing operational scale, optimizing costs, and handling access control. 
 
@@ -49,7 +48,7 @@ The following are key features of Amazon MWAA Serverless:
 | Workflow isolation |  Each workflow has its own execution role and access permissions. Tasks each run in isolated compute assuming the workflow's execution role.  |  Each MWAA environment provides the same access to all tasks. Airflow's role-based authentication supports UI-level level isolation within an environment  | 
 | Startup time | Each task provisions its own compute before execution | Environment always running, fast execution of tasks when worker capacity exists | 
 | Workflow definition | YAML workflow definitions using the directed acyclic graph (DAG) factory format, supporting AWS operators, Python and Bash operators, operators from provider packages, and custom operators supplied in a code package, with the option to convert Python definitions | Python DAG support with AWS and custom operators | 
-| Airflow UI access | No direct Airflow UI access (monitoring via logs) | Airflow web interface access | 
+| Airflow UI access | The native Airflow UI is hosted by Amazon MWAA Serverless and supports a subset of features. You can also monitor workflows with logs. | You get full access to the Airflow web interface. | 
 
 ### When to use Amazon MWAA Serverless
 <a name="mwaas-use-cases"></a>
@@ -63,7 +62,7 @@ Choose Amazon MWAA Serverless when you want to focus on workflow logic rather th
 
 Consider provisioned Amazon MWAA in the following cases:
 + You author DAGs directly as Python files, such as DAGs with dynamic or complex logic that you can't express in a YAML workflow definition.
-+ You need direct access to the Airflow web interface.
++ You need the full Airflow web interface, including admin features such as connections, variables, and pools.
 + You run consistently high-volume workloads that benefit from always-on infrastructure.
 + You need specific Airflow plugins or configurations that the serverless model doesn't support.
 

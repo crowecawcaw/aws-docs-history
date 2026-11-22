@@ -1,7 +1,6 @@
 
 
 # Networking
-<a name="networking"></a>
 
 **Note**  
 Creating a VPC network is **optional** with Amazon MWAA Serverless.

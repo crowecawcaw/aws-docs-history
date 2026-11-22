@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon MWAA Serverless
-<a name="using-service-linked-roles"></a>
 
  Amazon MWAA Serverless uses an AWS Identity and Access Management (IAM) [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) named `AWSServiceRoleForAmazonMWAAServerless`. This service-linked role is an (IAM) role that's linked directly to Amazon MWAA Serverless. It's predefined by Amazon MWAA Serverless, and it includes all the permissions that Amazon MWAA Serverless requires to call other AWS services and monitor AWS resources on your behalf. Amazon MWAA Serverless uses this service-linked role in all the AWS Regions where Amazon MWAA Serverless is available. 
 
@@ -29,7 +28,7 @@
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [

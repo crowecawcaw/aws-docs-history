@@ -1,7 +1,6 @@
 
 
 # Access Amazon MWAA Serverless using an interface endpoint (AWS PrivateLink)
-<a name="networking-privatelink"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and Amazon MWAA Serverless. You can access Amazon MWAA Serverless as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access Amazon MWAA Serverless.
 
@@ -46,7 +45,7 @@ For more information, refer to [Control access to services using endpoint polici
 **Example: VPC endpoint policy for Amazon MWAA Serverless actions**  
 The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it grants access to the listed Amazon MWAA Serverless actions for all principals on all resources.
 
-```
+```json
 {
   "Statement": [
     {

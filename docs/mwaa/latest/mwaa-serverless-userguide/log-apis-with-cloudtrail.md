@@ -1,7 +1,6 @@
 
 
 # Logging Amazon MWAA Serverless APIs with CloudTrail
-<a name="log-apis-with-cloudtrail"></a>
 
  Amazon MWAA Serverless is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in the Amazon MWAA Serverless. AWS CloudTrail captures API calls for Amazon MWAA Serverless as events including calls from Amazon MWAA Serverless console and code calls to the Amazon MWAA Serverless API operations. If you create a trail, you can enable continuous delivery of AWS CloudTrail events to an Amazon S3 bucket, including events for Amazon MWAA Serverless. If you don't configure a trail, you can still view the most recent events in the AWS CloudTrail console in Event history. Using the information collected by AWS CloudTrail, you can determine the request that was made to Amazon MWAA Serverless, the IP address it was made from, who made it, when it was made, and additional details. 
 
@@ -43,7 +42,7 @@
 ------
 #### [ CLI ]
 
-```
+```json
 {
   "eventVersion": "1.11",
   "userIdentity": {

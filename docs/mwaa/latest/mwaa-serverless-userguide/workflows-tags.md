@@ -1,7 +1,6 @@
 
 
 # Tag a workflow
-<a name="workflows-tags"></a>
 
 You can assign tags to each Amazon MWAA Serverless workflow to help you manage resources. This section provides an overview of the tag functions and shows you how to create tags.
 
@@ -64,7 +63,7 @@ The following command tags an existing workflow.
 ------
 #### [ CLI ]
 
-```
+```bash
 aws mwaa-serverless tag-resource --resource-arn {{workflow-arn}} --tags {{your-tag-key}}={{your-tag-value}}
 ```
 
@@ -77,7 +76,7 @@ The following command deletes a tag from an existing workflow.
 ------
 #### [ CLI ]
 
-```
+```bash
 aws mwaa-serverless untag-resource --resource-arn {{workflow-arn}} --tag-keys {{your-tag-key}}
 ```
 
@@ -90,7 +89,7 @@ The following command lists the tags associated with an existing workflow.
 ------
 #### [ CLI ]
 
-```
+```bash
 aws mwaa-serverless list-tags-for-resource --resource-arn {{workflow-arn}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Apache Airflow Parameter Support
-<a name="supported-airflow-parameters"></a>
 
  This topic describes which Apache Airflow directed acyclic graph (DAG) and task parameters Amazon MWAA Serverless validates and which it doesn't support. It also compares AWS base operator attributes in Amazon MWAA and Amazon MWAA Serverless. Use this information to build workflow definitions that Amazon MWAA Serverless accepts. 
 
@@ -32,7 +31,7 @@
 
  The following YAML example defines a workflow that runs every 5 minutes by using a direct Amazon EventBridge rate expression for the `schedule` parameter. 
 
-```
+```yaml
 rate_schedule_test:
   dag_id: rate_schedule_test
   schedule: rate(5 minutes)

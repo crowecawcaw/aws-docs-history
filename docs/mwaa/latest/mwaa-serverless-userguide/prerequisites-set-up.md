@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using Amazon MWAA Serverless
-<a name="prerequisites-set-up"></a>
 
 Learn about the prerequisites you need before using Amazon MWAA Serverless. These include account setup and permissions management. You must have an AWS account before completing these tasks.
 
@@ -23,7 +22,7 @@ We recommend that you use finer-grained policies. For policy setup, refer to [Ho
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "Version":"2012-10-17", 		 	 	                    
   "Statement": [
@@ -167,7 +166,7 @@ If you prefer to use Amazon MWAA Serverless with SDKs, you can access AWS builde
 ------
 #### [ CLI ]
 
-   ```
+   ```bash
    [profile mwaa-serverless]
    aws_access_key_id = {{ACCESS-KEY-ID-OF-IAM-USER}}
    aws_secret_access_key = {{SECRET-ACCESS-KEY-ID-OF-IAM-USER}}
