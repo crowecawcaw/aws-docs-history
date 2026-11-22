@@ -1,9 +1,8 @@
 
 
-# Analyzing Lending Documents
-<a name="lending-document-classification-extraction"></a>
+# Analyzing lending documents
 
-Analyze Lending is a document processing API for mortgage documents. With Analyze Lending, you can automatically extract, classify, and validate information in mortgage-related documents. Analyze Lending receives a loan document and then splits it into pages, classifying them according to the type of document. The document pages are then automatically routed to Amazon Textract text processing operations for accurate data extraction and analysis.
+Analyze Lending is a document processing API for mortgage documents. With Analyze Lending, you can automatically extract, classify, and validate information in mortgage-related documents. Analyze Lending receives a loan document and then splits it into pages, classifying them according to the type of document. The document pages are then automatically routed to Amazon Textract Core text processing operations for accurate data extraction and analysis.
 
 [StartLendingAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartLendingAnalysis.html) initiates the classification and analysis of a packet of lending documents. StartLendingAnalysis operates on a document file located in an Amazon S3 bucket.
 
@@ -249,6 +248,6 @@ For a sample of the output for a GetLendingAnalysisSummary operation, see the fo
 }
 ```
 
-For descriptions of the response objects, see [Analyze Lending Response Objects](lending-response-objects.md).
+For descriptions of the response objects, see [Analyze Lending response objects](lending-response-objects.md).
 
-Consult the file included with the assets folder for a list of all possible recognized classes. 
+For a list of all document types recognized by Analyze Lending, see [Document types](lending-response-objects.md#lending-document-types).

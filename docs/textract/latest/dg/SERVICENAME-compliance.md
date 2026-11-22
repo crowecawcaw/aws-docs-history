@@ -1,12 +1,11 @@
 
 
-# Compliance Validation for Amazon Textract
-<a name="SERVICENAME-compliance"></a>
+# Compliance validation for Amazon Textract
 
 Third-party auditors assess the security and compliance of Amazon Textract as part of multiple AWS compliance programs. These include HIPAA, SOC, ISO, and PCI. 
 
 **Note**  
-If you are processing data through Textract service that is subject to PCI DSS compliance then you must opt out your account by contacting AWS Support and following the process provided to you.
+If you are processing data through an Amazon Textract service that is subject to PCI DSS compliance, then you must opt out your account by contacting AWS Support and following the process provided to you.
 
 For a list of AWS services in scope of specific compliance programs, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/). For general information, see [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/).
 

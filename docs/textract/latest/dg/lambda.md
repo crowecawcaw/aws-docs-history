@@ -1,9 +1,8 @@
 
 
 # Detecting text with an AWS Lambda function
-<a name="lambda"></a>
 
-AWS Lambda is a compute service that you can use to run code without provisioning or managing servers. You can call Amazon Textract API operations from within an AWS Lambda function. The following instructions show how to create a Lambda function in Python that calls [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html). 
+AWS Lambda is a compute service that you can use to run code without provisioning or managing servers. You can call Amazon Textract Core API operations from within an AWS Lambda function. The following instructions show how to create a Lambda function in Python that calls [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html). 
 
 The Lambda function returns a list of [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects with information about the detected words and lines of text. The instructions include example Python code that shows you how to call the Lambda function with a document supplied from an Amazon S3 bucket or your local computer. Images stored in Amazon S3 must be in single-page PDF or TIFF document format, or in JPEG or PNG format. Local images must be in single-page PDF or TIFF format. The Python code returns part of the JSON response for each Block type detected in the document.
 
@@ -24,7 +23,7 @@ Later you add the source code and optionally add a layer to the Lambda function.
 
 **To create an AWS Lambda function (console)**
 
-1. Sign in to the AWS Management Console and open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/).
+1. Log in to the AWS Management Console and open the [AWS Lambda console](https://console.aws.amazon.com/lambda/).
 
 1. Choose **Create function**. For more information, see [Create a Lambda Function with the Console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html).
 
@@ -49,7 +48,7 @@ Later you add the source code and optionally add a layer to the Lambda function.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -71,7 +70,7 @@ Later you add the source code and optionally add a layer to the Lambda function.
 
 1. Choose **Create policy**.
 
-1. If you are storing documents for analysis in an Amazon S3 bucket, you must add an Amazon S3 access policy. To do this, repeat steps 7 to 11 in the AWS Lambda console and make the following changes. 
+1. If you are storing documents for analysis in an Amazon S3 bucket, you must add an Amazon S3 access policy. To do this, repeat steps 7 to 11 in the AWS Lambda console and make the following changes:
 
    1. For step 8, use the following policy. Replace {{bucket/folder path}} with the Amazon S3 bucket and folder path to the documents that you want to analyze. 
 
@@ -80,7 +79,7 @@ Later you add the source code and optionally add a layer to the Lambda function.
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -103,20 +102,20 @@ Later you add the source code and optionally add a layer to the Lambda function.
 
 To run this example, you don't need to perform this step. The `DetectDocumentText` operation is included in the default Lambda Python environment as part of AWS SDK for Python (Boto3). If other parts of your Lambda function require recent AWS service updates that aren't in the default Lambda Python environment, then perform this step to add the most recent Boto3 SDK release as a layer to your function. 
 
-First, you create a zip file archive that contains the Boto3 SDK. Then, you create a layer and add the zip file archive to the layer. For more information, see [Using layers with your Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html#invocation-layers-using).
+First, you create a ZIP file archive that contains the Boto3 SDK. Then, you create a layer and add the ZIP file archive to the layer. For more information, see [Using layers with your Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html#invocation-layers-using).
 
 **To create and add a layer (console)**
 
-1. Open a command prompt and enter the following commands to create a deployment package with the most recent version of the AWS SDK.
+1. Open a command prompt and enter the following commands to create a deployment package with the most recent version of the AWS SDK:
 
    ```
    pip install boto3 --target python/.
    zip boto3-layer.zip -r python/
    ```
 
-1. Note the name of the zip file (boto3-layer.zip), which you use in step 8 of this procedure.
+1. Note the name of the ZIP file (boto3-layer.zip), which you use in step 8 of this procedure.
 
-1. Open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/).
+1. Open the [AWS Lambda console](https://console.aws.amazon.com/lambda/).
 
 1. In the navigation pane, choose **Layers**. 
 
@@ -126,13 +125,13 @@ First, you create a zip file archive that contains the Boto3 SDK. Then, you crea
 
 1. For **Code entry type**, choose **Upload a .zip file** and select **Upload**.
 
-1. In the dialog box, choose the zip file archive (boto3-layer.zip) that you created in step 1 of this procedure.
+1. In the dialog box, choose the ZIP file archive (boto3-layer.zip) that you created in step 1 of this procedure.
 
 1. For **Compatible runtimes**, choose **Python 3.9**.
 
 1. Choose **Create** to create the layer.
 
-1. Choose the navigation pane menu icon.
+1. Choose the navigation pane **menu icon**.
 
 1. In the navigation pane, choose **Functions**.
 
@@ -153,7 +152,7 @@ First, you create a zip file archive that contains the Boto3 SDK. Then, you crea
 ## Step 3: Add Python code (console)
 <a name="example-lambda-add-code"></a>
 
-In this step, you add Python code to your Lambda function by using the Lambda console code editor. The code detects text in a document with `DetectDocumentText` and returns a list of Block objects with information about the detected text. The document can be located in an Amazon S3 bucket or a local computer. Images stored in Amazon S3 must be single-page PDF or TIFF format documents or in JPEG or PNG format. Local images must be in single-page PDF or TIFF format. 
+In this step, you add Python code to your Lambda function by using the Lambda console code editor. The code detects text in a document with `DetectDocumentText` and returns a list of Block objects with information about the detected text. The document can be located in an Amazon S3 bucket or a local computer. Images stored in Amazon S3 must be single-page PDF or TIFF documents or in JPEG or PNG format. Local images must be in single-page PDF or TIFF format. 
 
 **To add Python code (console)**
 
@@ -161,7 +160,7 @@ In this step, you add Python code to your Lambda function by using the Lambda co
 
 1. In the code editor, replace the code in **lambda\_function.py** with the following code: 
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -257,7 +256,7 @@ In this step, you add Python code to your Lambda function by using the Lambda co
 ## Step 4: Try your Lambda function
 <a name="example-lambda-test"></a>
 
-Now that you’ve created your Lambda function, you can invoke it to detect text in a document. In this step, you use Python code on your computer to pass a local document or a document in an Amazon S3 bucket to your Lambda function. Documents passed from a local computer must be smaller than 6291456 bytes. If your documents are larger, upload them to an Amazon S3 bucket and call the script with the Amazon S3 path to the image. For information about uploading image files to an Amazon S3 bucket, see [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html).
+Now that you've created your Lambda function, you can invoke it to detect text in a document. In this step, you use Python code on your computer to pass a local document or a document in an Amazon S3 bucket to your Lambda function. Documents passed from a local computer must be smaller than 6,291,456 bytes. If your documents are larger, upload them to an Amazon S3 bucket and call the script with the Amazon S3 path to the image. For information about uploading image files to an Amazon S3 bucket, see [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html).
 
 Make sure you run the code in the same [AWS Region](https://docs.aws.amazon.com/general/latest/gr/rande.html) in which you created the Lambda function. You can view the AWS Region for your Lambda function in the navigation bar of the function details page in the [Lambda console](https://console.aws.amazon.com/lambda/).
 
@@ -284,11 +283,11 @@ For more information about invoking a Lambda function from your code, see [Invok
         + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*.
         + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
 
-   1. Install and configure AWS SDK for Python. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
+   1. Install and configure AWS SDK for Python. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
 1. Save the following code to a file named `client.py`: 
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    
@@ -340,7 +339,7 @@ For more information about invoking a Lambda function from your code, see [Invok
    
                lambda_payload = {"image": data}
    
-       # Call the lambda function with the document.
+       # Call the Lambda function with the document.
    
        response = lambda_client.invoke(FunctionName=function_name,
                                        Payload=json.dumps(lambda_payload))
@@ -409,12 +408,12 @@ For more information about invoking a Lambda function from your code, see [Invok
        main()
    ```
 
-1. Run the code. For the command line argument, supply the Lambda function name and the document that you want to analyze. You can supply a path to a local document, or you can use the Amazon S3 path to an document stored in an Amazon S3 bucket. For example:
+1. Run the code. For the command line argument, supply the Lambda function name and the document that you want to analyze. You can supply a path to a local document, or you can use the Amazon S3 path to a document stored in an Amazon S3 bucket. For example:
 
    ```
    python client.py {{function_name s3://bucket/path/document.jpg}}
    ```
 
-   If the document is in an Amazon S3 bucket. make sure that it is the same bucket that you specified previously in step 12 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function).
+   If the document is in an Amazon S3 bucket, make sure that it is the same bucket that you specified previously in step 12 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function).
 
    If successful, your code returns a partial JSON response for each Block type detected in the document.

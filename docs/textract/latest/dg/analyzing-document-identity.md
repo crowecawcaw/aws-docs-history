@@ -1,19 +1,18 @@
 
 
-# Analyzing Identity Documentation with Amazon Textract
-<a name="analyzing-document-identity"></a>
+# Analyzing identity documentation with Amazon Textract Core
 
-To analyze identity documents, you use the AnalyzeID API operation, and pass a document file as input. `AnalyzeID` returns a JSON structure that contains the analyzed text. For more information, see [Analyzing Identity Documents](how-it-works-identity.md).
+To analyze identity documents, you use the AnalyzeID API operation, and pass a document file as input. `AnalyzeID` returns a JSON structure that contains the analyzed text. For more information, see [Analyzing identity documents](how-it-works-identity.md).
 
-You can provide an input document as an image byte array (base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name.
+You can provide an input document as an image byte array (Base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name.
 
 **To analyze an identity document (API)**
 
 1. If you haven't already:
 
-   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set Up an AWS Account and Create a User](setting-up.md).
+   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set up an AWS account and create a user](setting-up.md).
 
-   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
+   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
 1. Upload an image that contains a document to your S3 bucket. 
 
@@ -46,7 +45,7 @@ You can provide an input document as an image byte array (base64-encoded image b
        --region {{region}}
    ```
 
-   If you are accessing the CLI on a Windows device, use double quotes instead of single quotes and escape the inner double quotes by backslash (\\) to address any parser errors you might encounter. For an example, see the following:
+   If you are accessing the CLI on a Windows device, use double quotes instead of single quotes and escape the inner double quotes with a backslash (\\) to address any parser errors you might encounter. For an example, see the following:
 
    ```
    aws textract analyze-id --document-pages "[{\"S3Object\":{\"Bucket\":\"{{bucket}}\",\"Name\":\"{{name}}\"}}]" --region {{region}}
@@ -57,7 +56,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    The following example takes in an input file from an S3 bucket and runs the `AnalyzeID` operation on it, returning the detected key-value pairs. In the following code, replace the value of `bucket_name` with the name of your S3 bucket and the value of `file_name` with the name of the file in your bucket. Replace `profile-name` with the name of a profile that can assume the role and `region` with the region in which you want to run the code.
 
-   ```
+   ```python
    import boto3
    
    def analyze_id(client, bucket_name, file_name):
@@ -94,7 +93,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    The following example takes in an input file from an S3 bucket and runs the `AnalyzeID` operation on it, returning the detected data. In the function main, replace the values of `s3bucket` and `sourceDoc` with the names of the Amazon S3 bucket and document image that you used in step 2. Replace the value of `credentialsProvider` with the name of your developer profile.
 
-   ```
+   ```java
    /*
       Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
       SPDX-License-Identifier: Apache-2.0
@@ -182,7 +181,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    Replace `profile-name` in the line that creates the `TextractClient` with the name of your developer profile.
 
-   ```
+   ```java
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.core.SdkBytes;
    import software.amazon.awssdk.regions.Region;

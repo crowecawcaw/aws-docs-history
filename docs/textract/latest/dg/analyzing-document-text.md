@@ -1,19 +1,18 @@
 
 
-# Analyzing Document Text with Amazon Textract
-<a name="analyzing-document-text"></a>
+# Analyzing document text with Amazon Textract Core
 
-To analyze text in a document, you use the [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) operation, and pass a document file as input. `AnalyzeDocument` returns a JSON structure that contains the analyzed text. For more information, see [Analyzing Documents](how-it-works-analyzing.md). 
+To analyze text in a document, you use the [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) operation, and pass a document file as input. `AnalyzeDocument` returns a JSON structure that contains the analyzed text. For more information, see [Analyzing documents](how-it-works-analyzing.md). 
 
-You can provide an input document as an image byte array (base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name. 
+You can provide an input document as an image byte array (Base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name. 
 
 **To analyze text in a document (API)**
 
 1. If you haven't already:
 
-   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set Up an AWS Account and Create a User](setting-up.md).
+   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set up an AWS account and create a user](setting-up.md).
 
-   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
+   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
 1. Upload an image that contains a document to your S3 bucket. 
 
@@ -28,7 +27,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document image that you used in step 2. Replace the value of `credentialsProvider` with the name of your developer profile.
 
-   ```
+   ```java
    //Loads document from S3 bucket. Displays the document and polygon around detected lines of text.
    import java.awt.*;
    import java.awt.image.BufferedImage;
@@ -267,7 +266,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document that you used in step 2. Replace `profile-name` in the line that creates the `TextractClient` with the name of your developer profile.
 
-   ```
+   ```java
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.core.SdkBytes;
    import software.amazon.awssdk.regions.Region;
@@ -380,7 +379,7 @@ You can provide an input document as an image byte array (base64-encoded image b
        --region {{region}}
    ```
 
-   In order to use the Queries feature, include the '`QUERIES`' value in the '`feature-types`' parameter and then provide a `Queries` object to the '`queries-config`' parameter. To use an adapter, include any `AdapterId`s and `Version`s in a list of `Adapters` provided to the `AdapterConfig` parameter.
+   In order to use the Queries feature, include the "`QUERIES`" value in the "`feature-types`" parameter and then provide a `Queries` object to the "`queries-config`" parameter. To use an adapter, include any `AdapterId`s and `Version`s in a list of `Adapters` provided to the `AdapterConfig` parameter.
 
    ```
    aws textract analyze-document \
@@ -399,7 +398,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document that you used in step 2. Replace `profile-name` with the name of a profile that can assume the role and `region` with the region in which you want to run the code. To use an adapter, include any `AdapterId`s and `Version`s in a list of `Adapters` provided to the `AdapterConfig` parameter.
 
-   ```
+   ```python
    #Analyzes text in a document stored in an S3 bucket. Display polygon box around text and angled text 
    import boto3
    import io
@@ -526,7 +525,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In order to use different features of the `AnalyzeDocument` operation, you provide the proper feature type to the `features-type` parameter. For example, to use the Queries feature, include the `QUERIES` value in the `feature-types` parameter and then provide a `Queries` object to the `queries-config` parameter. To query your document, add the `query_document` function in the following code to the preceding code example. Then, include the `question` variable and line that invokes the `query_document` function to the preceding `main` function.
 
-   ```
+   ```python
    def query_document(client, bucket, document, question):
        # Analyze the document
        response = client.analyze_document(Document={'S3Object': {'Bucket': bucket, 'Name': document}},
@@ -554,7 +553,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the following code, replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and document that you used in step 2. Replace the value of `region` with the region associated with your account. Replace the value of `credentials` with the name of your developer profile.
 
-   ```
+   ```javascript
    // Import required AWS SDK clients and commands for Node.js
    import { AnalyzeDocumentCommand } from  "@aws-sdk/client-textract";
    import  { TextractClient } from "@aws-sdk/client-textract";
@@ -638,7 +637,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    Replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document image that you used in step 2. 
 
-   ```
+   ```cs
    using System;
    using System.Linq;
    using System.Reflection.Emit;

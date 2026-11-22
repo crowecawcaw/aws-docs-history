@@ -1,13 +1,12 @@
 
 
-# Analyze Lending Response Objects
-<a name="lending-response-objects"></a>
+# Analyze Lending response objects
 
-When you submit a document to the Analyze Lending workflow, the document is split apart into individual pages and the pages are classified. The individual pages are then sent to the appropriate Amazon Textract operation for further analysis, depending on their classification. Amazon Textract analyzes the data and returns the relevant information extracted from the documents, such as detected signatures, identity information, forms, expense values, and queries data.
+When you submit a document to the Analyze Lending workflow, the document is split apart into individual pages and the pages are classified. The individual pages are then sent to the appropriate Amazon Textract Core operation for further analysis, depending on their classification. Amazon Textract Core analyzes the data and returns the relevant information extracted from the documents, such as detected signatures, identity information, forms, expense values, and queries data.
 
 After processing a document with [StartLendingAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartLendingAnalysis.html), you can obtain analysis results for individual pages by using [GetLendingAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetLendingAnalysis.html), or you can get a summary of the information in the document with [GetLendingAnalysisSummary](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetLendingAnalysisSummary.html). The returned summary includes information about documents grouped together by a common document type. 
 
- The results for the analysis of individual pages follow one general structure, regardless of the class of the document. The response from `GetLendingAnalysis` contains information regarding the page number and page classification, along with the information extracted by one of Amazon Textract ’s analysis operations. For the general structure of the analysis results, see the following example : 
+ The results for the analysis of individual pages follow one general structure, regardless of the class of the document. The response from `GetLendingAnalysis` contains information regarding the page number and page classification, along with the information extracted by one of Amazon Textract Core's analysis operations. For the general structure of the analysis results, see the following example: 
 
 ```
 {
@@ -205,23 +204,23 @@ After processing a document with [StartLendingAnalysis](https://docs.aws.amazon.
 ```
 
  Responses from `GetLendingAnalysis` may include the following attributes: 
-+ Text – The detected text.
-+ Confidence – The Confidence score for the detected text.
-+ Geometry – Location information for the detected text.
-+ LendingDocument – Holds the structured data returned by Analyze Lending for lending documents.
-+ LendingField – Holds the normalized key-value pairs returned by Analyze Lending, including the normalized key for the detection, detected text, and geometry.
-+ LendingFields – An array of LendingField objects.
-+ Type – The normalized value associated with a detection. For a list of all possible document types, click [here](samples/textract_AnalyzeLending_keys.zip).
-+ ValueDetections – An array of LendingDetection objects.
-+ LendingDetection – The results extracted for a lending document.
-+ SelectionStatus – The selection status of a selection element, such as an option button or check box.
-+ KeyDetection – Object containing information about the detected key.
-+ SignatureDetections – An array of SignatureDetection objects, which contain information regarding detected signatures.
-+ SignatureDetection – Information regarding the confidence and geometry for the detected signatures.
++ Text — The detected text.
++ Confidence — The Confidence score for the detected text.
++ Geometry — Location information for the detected text.
++ LendingDocument — Holds the structured data returned by Analyze Lending for lending documents.
++ LendingField — Holds the normalized key-value pairs returned by Analyze Lending, including the normalized key for the detection, detected text, and geometry.
++ LendingFields — An array of LendingField objects.
++ Type — The normalized value associated with a detection. For a list of all possible document types, click [here](samples/textract_AnalyzeLending_keys.zip).
++ ValueDetections — An array of LendingDetection objects.
++ LendingDetection — The results extracted for a lending document.
++ SelectionStatus — The selection status of a selection element, such as an option button or check box.
++ KeyDetection — Object containing information about the detected key.
++ SignatureDetections — An array of SignatureDetection objects, which contain information regarding detected signatures.
++ SignatureDetection — Information regarding the confidence and geometry for the detected signatures.
 
-ExpenseDocument extractions contain structures defined in [Invoice and Receipt Response Objects](expensedocuments.md). 
+ExpenseDocument extractions contain structures defined in [Invoice and receipt response objects](expensedocuments.md). 
 
-IdentityDocument extractions contain structures defined in [Identity Documentation Response Objects](identitydocumentfields.md). 
+IdentityDocument extractions contain structures defined in [Identity documentation response objects](identitydocumentfields.md). 
 
 For an example of the summary returned by the `GetLendingAnalysisSummary` operation, see the following: 
 
@@ -294,33 +293,33 @@ For an example of the summary returned by the `GetLendingAnalysisSummary` operat
 ```
 
  The response elements returned by `GetLendingAnalysisSummary` include: 
-+ LendingSummary - Contains information regarding DocumentGroups and UndetectedDocumentTypes.
-+ DocumentGroup - Contains information about all the documents grouped by the same document type.
-+ DocumentGroups - Contains an array of all DocumentGroup objects.
-+ Type - The type of the documents in a DocumentGroup.
-+ SplitDocument - Contains information about the pages of a document, defined by logical boundary with regard to document type. 
-+ SplitDocuments - An array of SplitDocument objects.
-+ Index - The index for a given document in a DocumentGroup of a specific Type.
-+ Pages - An array of page numbers for a given document, ordered by a logical boundary with regard to document type.
-+ UndetectedDocumentTypes - An array of strings, in which each string represents an undetected document type.
++ LendingSummary — Contains information regarding DocumentGroups and UndetectedDocumentTypes.
++ DocumentGroup — Contains information about all the documents grouped by the same document type.
++ DocumentGroups — Contains an array of all DocumentGroup objects.
++ Type — The type of the documents in a DocumentGroup.
++ SplitDocument — Contains information about the pages of a document, defined by logical boundary with regard to document type. 
++ SplitDocuments — An array of SplitDocument objects.
++ Index — The index for a given document in a DocumentGroup of a specific Type.
++ Pages — An array of page numbers for a given document, ordered by a logical boundary with regard to document type.
++ UndetectedDocumentTypes — An array of strings, in which each string represents an undetected document type.
 
 For documents that have a signature field, the following structures are included in the response:
-+ DetectedSignature – Contains information about the page where a signature was found.
-+ DetectedSignatures –An array of DetectedSignature objects.
-+ Page (within DetectedSignature and UndetectedSignature objects) – Physical page number in the document.
-+ UndetectedSignature – Contains information about the page where a signature was expected, but was not found. Refer this list <add link> to understand where a signature is expected.
-+ UndetectedSignatures – An array of UndetectedSignature objects.
++ DetectedSignature — Contains information about the page where a signature was found.
++ DetectedSignatures — An array of DetectedSignature objects.
++ Page (within DetectedSignature and UndetectedSignature objects) — Physical page number in the document.
++ UndetectedSignature — Contains information about the page where a signature was expected, but was not found.
++ UndetectedSignatures — An array of UndetectedSignature objects.
 
-## Document Types
+## Document types
 <a name="lending-document-types"></a>
 
 The following table contains a list of all document types recognized by Analyze Lending. Also indicated is whether the document has a signature field:
 
-## Document Types
+## Document types
 <a name="lending-document-types-list"></a>
 
 
-| Type | Signature | 
+| **Type** | **Signature** | 
 | --- | --- | 
 | 1003 | YES | 
 | 1005 | YES | 

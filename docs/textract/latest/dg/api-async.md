@@ -1,28 +1,27 @@
 
 
-# Calling Amazon Textract Asynchronous Operations
-<a name="api-async"></a>
+# Calling Amazon Textract Core asynchronous operations
 
-Amazon Textract provides an asynchronous API that you can use to process multipage documents in PDF or TIFF format. You can also use asynchronous operations to process single-page documents that are in JPEG, PNG, TIFF, or PDF format. 
+Amazon Textract Core provides an asynchronous API that you can use to process multipage documents in PDF or TIFF format. You can also use asynchronous operations to process single-page documents that are in JPEG, PNG, TIFF, or PDF format. 
 
-The information in this topic uses text detection operations to show how you to use Amazon Textract asynchronous operations. You can use the same approach with the text analysis operations of [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html). It also works the same with [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) and [GetExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetExpenseAnalysis.html). 
+The information in this topic uses text detection operations to show how to use Amazon Textract Core asynchronous operations. You can use the same approach with the text analysis operations of [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html). It also works the same with [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) and [GetExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetExpenseAnalysis.html). 
 
-For an example, see [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md).
+For an example, see [Detecting or analyzing text in a multipage document](async-analyzing-with-sqs.md).
 
-If you are analyzing lending documents, you can use the `StartLendingAnalysis` operation to classify document pages and send the classified pages to an Amazon Textract analysis operation. The pages are routed to analysis operations depending on their assigned class. 
+If you are analyzing lending documents, you can use the `StartLendingAnalysis` operation to classify document pages and send the classified pages to an Amazon Textract Core analysis operation. The pages are routed to analysis operations depending on their assigned class. 
 
-You can retreive results for individual pages by using the `GetLendingAnalysis` operation, or retrieve a summary of the analysis with `GetLendingAnalysisSummary`.
+You can retrieve results for individual pages by using the `GetLendingAnalysis` operation, or retrieve a summary of the analysis with `GetLendingAnalysisSummary`.
 
-Amazon Textract asynchronously processes a document stored in an Amazon S3 bucket. You start processing by calling a `Start` operation, such as [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentTextDetection.html). The completion status of the request is published to an Amazon Simple Notification Service (Amazon SNS) topic. To get the completion status from the Amazon SNS topic, you can use an Amazon Simple Queue Service (Amazon SQS) queue or an AWS Lambda function. After you have the completion status, you call a `Get` operation, such as [GetDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentTextDetection.html), to get the results of the request. 
+Amazon Textract Core asynchronously processes a document stored in an Amazon S3 bucket. You start processing by calling a `Start` operation, such as [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentTextDetection.html). The completion status of the request is published to an Amazon SNS topic. To get the completion status from the Amazon SNS topic, you can use an Amazon SQS queue or an AWS Lambda function. After you have the completion status, you call a `Get` operation, such as [GetDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentTextDetection.html), to get the results of the request. 
 
-Results of asynchronous calls are encrypted and stored for 7 days in a Amazon Textract owned bucket by default, unless you specify an Amazon S3 bucket using an operation's `OutputConfig` argument. For information on how to let Amazon Textract send encrypted documents to your Amazon S3 bucket, see [Permissions for Output Configuration](api-async-roles.md#async-output-config).
+Results of asynchronous calls are encrypted and stored for 7 days in an Amazon Textract Core–owned bucket by default, unless you specify an Amazon S3 bucket using an operation's `OutputConfig` argument. For information on how to let Amazon Textract Core send encrypted documents to your Amazon S3 bucket, see [Permissions for output configuration](api-async-roles.md#async-output-config).
 
-The following table shows the corresponding Start and Get operations for the different types of asynchronous processing supported by Amazon Textract:
+The following table shows the corresponding Start and Get operations for the different types of asynchronous processing supported by Amazon Textract Core:
 
 
-**Start/Get API Operations for Amazon Textract Asynchronous Operations**  
+**Start/Get API operations for Amazon Textract Core asynchronous operations**  
 
-| Processing Type | Start API | Get API | 
+| **Processing Type** | **Start API** | **Get API** | 
 | --- | --- | --- | 
 | Text Detection | StartDocumentTextDetection | GetDocumentTextDetection | 
 | Text Analysis | StartDocumentAnalysis | GetDocumentAnalysis | 
@@ -36,12 +35,12 @@ The following diagram shows the process for detecting document text in a documen
 ![Diagram showing an Amazon Textract workflow with key steps: start and return job ID, process document in S3 bucket, publish completion status to SNS topic, monitor SQS queue for completion status, call GetDocumentTextDetection to get analysis results.](https://docs.aws.amazon.com/textract/latest/dg/images/asynchronous.png)
 
 
-The process displayed by the preceeding diagram is the same for analyzing text and invoices/receipts. You start analyzing text by calling [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) and start analyzing invoices/receipts by calling [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) You get the results by calling [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) or [GetExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetExpenseAnalysis.html) respectively.
+The process displayed by the preceding diagram is the same for analyzing text and invoices/receipts. You start analyzing text by calling [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) and start analyzing invoices/receipts by calling [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html). You get the results by calling [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) or [GetExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetExpenseAnalysis.html) respectively.
 
-## Starting Text Detection
+## Starting text detection
 <a name="api-async-start"></a>
 
-You start an Amazon Textract text detection request by calling [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentTextDetection.html). The following is an example of a JSON request that's passed by `StartDocumentTextDetection`.
+You start an Amazon Textract Core text detection request by calling [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentTextDetection.html). The following is an example of a JSON request that's passed by `StartDocumentTextDetection`.
 
 ```
 {
@@ -60,34 +59,37 @@ You start an Amazon Textract text detection request by calling [StartDocumentTex
 }
 ```
 
-The input parameter `DocumentLocation` provides the document file name and the Amazon S3 bucket to retrieve it from. `NotificationChannel` contains the Amazon Resource Name (ARN) of the Amazon SNS topic that Amazon Textract notifies when the text detection request finishes. The Amazon SNS topic must be in the same AWS Region as the Amazon Textract endpoint that you're calling. `NotificationChannel` also contains the ARN for a role that allows Amazon Textract to publish to the Amazon SNS topic. You give Amazon Textract publishing permissions to your Amazon SNS topics by creating an IAM service role. For more information, see [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md).
+**Note**  
+In the preceding example, `nnnnnnnnnn` represents your AWS account ID.
+
+The input parameter `DocumentLocation` provides the document file name and the Amazon S3 bucket to retrieve it from. `NotificationChannel` contains the Amazon Resource Name (ARN) of the Amazon SNS topic that Amazon Textract Core notifies when the text detection request finishes. The Amazon SNS topic must be in the same AWS Region as the Amazon Textract Core endpoint that you're calling. `NotificationChannel` also contains the ARN for a role that allows Amazon Textract Core to publish to the Amazon SNS topic. You give Amazon Textract Core publishing permissions to your Amazon SNS topics by creating an IAM service role. For more information, see [Configuring Amazon Textract Core for asynchronous operations](api-async-roles.md).
 
 You can also specify an optional input parameter, `JobTag`, that enables you to identify the job, or groups of jobs, in the completion status that's published to the Amazon SNS topic. For example, you can use `JobTag` to identify the type of document being processed, such as a tax form or receipt.
 
 To prevent accidental duplication of analysis jobs, you can optionally provide an idempotent token, `ClientRequestToken`. If you supply a value for `ClientRequestToken`, the `Start` operation returns the same `JobId` for multiple identical calls to the `Start` operation, such as `StartDocumentTextDetection`. A `ClientRequestToken` token has a lifetime of 7 days. After 7 days, you can reuse it. If you reuse the token during the token lifetime, the following happens: 
-+ If you reuse the token with same `Start` operation and the same input parameters, the same `JobId` is returned. The job isn't performed again and Amazon Textract doesn't send a completion status to the registered Amazon SNS topic.
++ If you reuse the token with the same `Start` operation and the same input parameters, the same `JobId` is returned. The job isn't performed again and Amazon Textract Core doesn't send a completion status to the registered Amazon SNS topic.
 + If you reuse the token with the same `Start` operation and a minor input parameter change, you get an `idempotentparametermismatchexception` (HTTP status code: 400) exception raised.
 + If you reuse the token with a different `Start` operation, the operation succeeds.
 
-Another optional parameter available is `OutputConfig`, which lets you adjust where your output will be placed. By default, Amazon Textract will store the results internally, and can only be accessed by the Get API operations. With `OutputConfig` enabled, you can set the name of the bucket the output will be sent to, and the file prefix of the results, where you can download your results. Additionally, you can set the `KMSKeyID` parameter to a customer managed key to encrypt your output. Without this parameter set Amazon Textract will encrypt server-side using the AWS managed key for Amazon S3
+Another optional parameter available is `OutputConfig`, which lets you adjust where your output will be placed. By default, Amazon Textract Core will store the results internally, and they can only be accessed by the Get API operations. With `OutputConfig` enabled, you can set the name of the bucket the output will be sent to, and the file prefix of the results, where you can download your results. Additionally, you can set the `KMSKeyID` parameter to a customer managed key to encrypt your output. Without this parameter set, Amazon Textract Core will encrypt server-side using the AWS managed key for Amazon S3.
 
 **Note**  
 Before using this parameter, ensure you have the PutObject permission for the output bucket. Additionally, ensure you have the Decrypt, ReEncrypt, GenerateDataKey, and DescribeKey permissions for the AWS KMS key if you decide to use it.
 
-The response to the `StartDocumentTextDetection` operation is a job identifier (`JobId`). Use `JobId` to track requests and get the analysis results after Amazon Textract has published the completion status to the Amazon SNS topic. The following is an example:
+The response to the `StartDocumentTextDetection` operation is a job identifier (`JobId`). Use `JobId` to track requests and get the analysis results after Amazon Textract Core has published the completion status to the Amazon SNS topic. The following is an example:
 
 ```
 {"JobId":"270c1cc5e1d0ea2fbc59d97cb69a72a5495da75851976b14a1784ca90fc180e3"}
 ```
 
-If you start too many jobs concurrently, calls to `StartDocumentTextDetection` raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit. 
+If you start too many jobs concurrently, calls to `StartDocumentTextDetection` raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract Core service limit. 
 
 If you find that LimitExceededException exceptions are raised with bursts of activity, consider using an Amazon SQS queue to manage incoming requests. Contact AWS Support if you find that your average number of concurrent requests can't be managed by an Amazon SQS queue and you're still receiving `LimitExceededException` exceptions. 
 
-## Getting the Completion Status of an Amazon Textract Analysis Request
+## Getting the completion status of an Amazon Textract Core analysis request
 <a name="api-async-get-status"></a>
 
-Amazon Textract sends an analysis completion notification to the registered Amazon SNS topic. The notification includes the job identifier and the completion status of the operation in a JSON string. A successful text detection request has a `SUCCEEDED` status. For example, the following result shows the successful processing of a text detection job.
+Amazon Textract Core sends an analysis completion notification to the registered Amazon SNS topic. The notification includes the job identifier and the completion status of the operation in a JSON string. A successful text detection request has a `SUCCEEDED` status. For example, the following result shows the successful processing of a text detection job:
 
 ```
 {
@@ -103,18 +105,18 @@ Amazon Textract sends an analysis completion notification to the registered Amaz
 }
 ```
 
-For more information, see [Amazon Textract Results Notification](async-notification-payload.md).
+For more information, see [Amazon Textract Core results notification](async-notification-payload.md).
 
-To get the status information published to the Amazon SNS topic by Amazon Textract, use one of the following options:
-+ **AWS Lambda** – You can subscribe an AWS Lambda function that you write to an Amazon SNS topic. The function is called when Amazon Textract notifies the Amazon SNS topic that the request has completed. Use a Lambda function if you want server-side code to process the results of a text detection request. For example, you might want to use server-side code to annotate the image or create a report on the detected text before returning the information to a client application.
-+ **Amazon SQS** – You can subscribe an Amazon SQS queue to an Amazon SNS topic. You then poll the Amazon SQS queue to retrieve the completion status published by Amazon Textract when a text detection request completes. For more information, see [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md). Use an Amazon SQS queue if you want to call Amazon Textract operations only from a client application. 
+To get the status information published to the Amazon SNS topic by Amazon Textract Core, use one of the following options:
++ **AWS Lambda** – You can subscribe an AWS Lambda function that you write to an Amazon SNS topic. The function is called when Amazon Textract Core notifies the Amazon SNS topic that the request has completed. Use a Lambda function if you want server-side code to process the results of a text detection request. For example, you might want to use server-side code to annotate the image or create a report on the detected text before returning the information to a client application.
++ **Amazon SQS** – You can subscribe an Amazon SQS queue to an Amazon SNS topic. You then poll the Amazon SQS queue to retrieve the completion status published by Amazon Textract Core when a text detection request completes. For more information, see [Detecting or analyzing text in a multipage document](async-analyzing-with-sqs.md). Use an Amazon SQS queue if you want to call Amazon Textract Core operations only from a client application. 
 
 **Important**  
-We don't recommend getting the request completion status by repeatedly calling the Amazon Textract `Get` operation. This is because Amazon Textract throttles the `Get` operation if too many requests are made. If you're processing multiple documents at the same time, it's simpler and more efficient to monitor one SQS queue for the completion notification than to poll Amazon Textract for the status of each job individually.
+Avoid getting the request completion status by repeatedly calling the Amazon Textract Core `Get` operation. This is because Amazon Textract Core throttles the `Get` operation if too many requests are made. If you're processing multiple documents at the same time, it's simpler and more efficient to monitor one SQS queue for the completion notification than to poll Amazon Textract Core for the status of each job individually.
 
-If you have configured your account to receive a results notification from an Amazon Simple Notification Service (Amazon SNS) topic or through an Amazon SQS queue, you should ensure that your account is secure by limiting the scope of Amazon Textract's access to just the resources you are using. This can be done by attaching a trust policy to your IAM service role. For information on how to do this, see [Cross-service confused deputy prevention](https://docs.aws.amazon.com/textract/latest/dg/cross-service-confused-deputy-prevention.html).
+If you have configured your account to receive a results notification from an Amazon SNS topic or through an Amazon SQS queue, you should ensure that your account is secure by limiting the scope of Amazon Textract Core's access to just the resources you are using. This can be done by attaching a trust policy to your IAM service role. For information on how to do this, see [Cross-service confused deputy prevention](https://docs.aws.amazon.com/textract/latest/dg/cross-service-confused-deputy-prevention.html).
 
-## Getting Amazon Textract Text Detection Results
+## Getting Amazon Textract Core text detection results
 <a name="api-async-get"></a>
 
 To get the results of a text detection request, first ensure that the completion status that's retrieved from the Amazon SNS topic is `SUCCEEDED`. Then call `GetDocumentTextDetection`, which passes the `JobId` value that's returned from `StartDocumentTextDetection`. The request JSON is similar to the following example:
@@ -127,14 +129,14 @@ To get the results of a text detection request, first ensure that the completion
 }
 ```
 
-`JobId` is the identifier for the text detection operation. Because text detection can generate large amounts of data, use `MaxResults` to specify the maximum number of results to return in a single `Get`operation. The default value for `MaxResults` is 1,000. If you specify a value greater than 1,000, only 1,000 results are returned. If the operation doesn't return all of the results, a pagination token for the next page is returned. To get the next page of results, specify the token in the `NextToken` parameter. 
+`JobId` is the identifier for the text detection operation. Because text detection can generate large amounts of data, use `MaxResults` to specify the maximum number of results to return in a single `Get` operation. The default value for `MaxResults` is 1,000. If you specify a value greater than 1,000, only 1,000 results are returned. If the operation doesn't return all of the results, a pagination token for the next page is returned. To get the next page of results, specify the token in the `NextToken` parameter. 
 
 **Note**  
 Results can be retrieved only up to 7 days of job initialization time.
 
-The `GetDocumentTextDetection` operation response JSON is similar to the following. The total number of pages that are detected is returned in `DocumentMetadata`. The detected text is returned in the `Blocks` array. For information about `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md).
+The `GetDocumentTextDetection` operation response JSON is similar to the following. The total number of pages that are detected is returned in `DocumentMetadata`. The detected text is returned in the `Blocks` array. For information about `Block` objects, see [Text detection and document analysis response objects](how-it-works-document-layout.md).
 
-```
+```json
 {
     "DocumentMetadata": {
         "Pages": 1
@@ -520,7 +522,7 @@ The `GetDocumentTextDetection` operation response JSON is similar to the followi
 ## Using an adapter
 <a name="async-using-adapters"></a>
 
-With Amazon Textract, you can use an adapter when calling the [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) operation. To use an adapter, you must first create and train an adapter by using the Amazon Textract console. To apply your adapter, provide its ID when calling the [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) API operation. When calling the [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) operation, you can use up to one adapter per page.
+With Amazon Textract Core, you can use an adapter when calling the [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) operation. To use an adapter, you must first create and train an adapter by using the Amazon Textract Core console. To apply your adapter, provide its ID when calling the [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) API operation. When calling the [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) operation, you can use up to one adapter per page.
 
 ```
 "AdaptersConfig": { 

@@ -1,7 +1,6 @@
 
 
-# Using Adapters during Inference
-<a name="textract-adapter-inference"></a>
+# Using adapters during inference
 
 After creating an adapter, you are provided with an ID and version for your custom adapter. You can provide this ID and version to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) for synchronous document analysis, or the [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) operation for asynchronous analysis. Providing the Adapter ID will automatically integrate the adapter into the analysis process and use it to enhance predictions for your documents. 
 

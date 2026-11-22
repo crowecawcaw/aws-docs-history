@@ -1,19 +1,18 @@
 
 
-# Detecting Document Text with Amazon Textract
-<a name="detecting-document-text"></a>
+# Detecting document text with Amazon Textract Core
 
-To detect text in a document, you use the [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) operation, and pass a document file as input. `DetectDocumentText` returns a JSON structure that contains lines and words of detected text, the location of the text in the document, and the relationships between detected text. For more information, see [Detecting Text](how-it-works-detecting.md). 
+To detect text in a document, you use the [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) operation, and pass a document file as input. `DetectDocumentText` returns a JSON structure that contains lines and words of detected text, the location of the text in the document, and the relationships between detected text. For more information, see [Detecting text](how-it-works-detecting.md). 
 
-You can provide an input document as an image byte array (base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name. 
+You can provide an input document as an image byte array (Base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name. 
 
 **To detect text in a document (API)**
 
 1. If you haven't already:
 
-   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set Up an AWS Account and Create a User](setting-up.md).
+   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set up an AWS account and create a user](setting-up.md).
 
-   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
+   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
 1. Upload a document to your S3 bucket. 
 
@@ -28,7 +27,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document that you used in step 2. Replace the value of `credentialsProvider` with the name of your developer profile.
 
-   ```
+   ```java
    //Calls DetectDocumentText.
    //Loads document from S3 bucket. Displays the document and bounding boxes around detected lines/words of text.
    import java.awt.*;
@@ -239,7 +238,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document that you used in step 2. Replace `profile-name` in the line that creates the `TextractClient` with the name of your developer profile.
 
-   ```
+   ```java
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.textract.model.S3Object;
@@ -346,7 +345,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document that you used in step 2. Replace `profile-name` with the name of a profile that can assume the role and `region` with the region in which you want to run the code. 
 
-   ```
+   ```python
    #Detects text in a document stored in an S3 bucket. Display polygon box around text and angled text 
    import boto3
    import io
@@ -440,7 +439,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document that you used in step 2. Replace the value of `regionConfig` with the name of the region your account is in. Replace the value of `credentials`with the name of your developer profile.
 
-   ```
+   ```javascript
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -544,7 +543,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    The following example provides detected text as a list. Replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document image that you used in step 2. 
 
-   ```
+   ```cs
    using System;
    using System.Linq;
    using Amazon.Textract;

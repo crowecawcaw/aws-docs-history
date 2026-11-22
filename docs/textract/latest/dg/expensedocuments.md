@@ -1,11 +1,10 @@
 
 
-# Invoice and Receipt Response Objects
-<a name="expensedocuments"></a>
+# Invoice and receipt response objects
 
 When you submit an invoice or a receipt to the AnalyzeExpense API, it returns a series of ExpenseDocuments objects. Each ExpenseDocument is further separated into `LineItemGroups` and `SummaryFields`. Most invoices and receipts contain information such as the vendor name, receipt number, receipt date, or total amount. AnalyzeExpense returns this information under `SummaryFields`. Receipts and invoices also contain details about the items purchased. The AnalyzeExpense API returns this information under `LineItemGroups`. The `ExpenseIndex` field uniquely identifies the expense, and associates the appropriate `SummaryFields` and `LineItemGroups` detected in that expense. Finally, expense analysis will return a `Block` object, giving you the same information as text detection would on your document.
 
-Certain information, such as addresses and names, can be difficult to discern between based on a single response. Expense Analysis uses the object `ExpenseGroupProperties` to help distinguish nebulous responses. This object contains a type from the following list:
+Certain information, such as addresses and names, can be difficult to discern based on a single response. Expense Analysis uses the object `ExpenseGroupProperties` to help distinguish nebulous responses. This object contains a type from the following list:
 + VENDOR\_REMIT\_TO
 + RECEIVER\_SHIP\_TO
 + RECEIVER\_SOLD\_TO
@@ -23,17 +22,16 @@ The AnalyzeExpense API also detects `ITEM`, `QUANTITY`, and `PRICE` within line 
 
 ```
                {
-                                    "Type": {
-                                        "Text": "EXPENSE_ROW",
-                                        "Confidence": 99.95216369628906
-                                    },
-                                    "ValueDetection": {
-                                        "Text": "Banana 5 $2.5",
-                                        "Geometry": {
-                                          …
-                                        },
-                                        "Confidence": 98.11214447021484
-                                    }
+                    "Type": {
+                        "Text": "EXPENSE_ROW",
+                        "Confidence": 99.95216369628906
+                    },
+                    "ValueDetection": {
+                        "Text": "Banana 5 $2.5",
+                        "Geometry": { ... },
+                        "Confidence": 98.11214447021484
+                    }
+                }
 ```
 
 The preceding example shows how the AnalyzeExpense API operation returns the entire row on a receipt that contains line item information about 5 bananas sold for $2.5. 
@@ -58,7 +56,7 @@ Following is an example of the standard or normalized type of the key-value pair
                 }
 ```
 
-The receipt did not have “Vendor Name” explicitly listed. However, the Analyze Expense API recognized the value "AMAZON" as Type `VENDOR_NAME`. 
+The receipt did not have "Vendor Name" explicitly listed. However, the Analyze Expense API recognized the value "AMAZON" as Type `VENDOR_NAME`. 
 
 ## LabelDetection
 <a name="how-it-works-labeldetection"></a>
@@ -85,12 +83,12 @@ Following is an example of text as it is shown on a customer document page:
                 }
 ```
 
-The example document contained “CASHIER Mina.” The Analyze Expense API extracted the as-is value and returns it under `LabelDetection`. For implied values such as “Invoice Date,” where the “key” is not explicitly shown in the receipt, `LabelDetection` will not be included in the AnalyzeExpense element. In such cases, the AnalyzeExpense API operation does not return `LabelDetection`. 
+The example document contained "CASHIER Mina". The Analyze Expense API extracted the as-is value and returned it under `LabelDetection`. For implied values such as "Invoice Date", where the "key" is not explicitly shown in the receipt, `LabelDetection` will not be included in the AnalyzeExpense element. In such cases, the AnalyzeExpense API operation does not return `LabelDetection`. 
 
 ## ValueDetection
 <a name="how-it-works-valuedetection"></a>
 
-The following is an example that shows the “value” of the key-value pair.
+The following is an example that shows the "value" of the key-value pair.
 
 ```
                {
@@ -112,4 +110,4 @@ The following is an example that shows the “value” of the key-value pair.
                 }
 ```
 
-In the example, the document contained “CASHIER Mina”. The AnalyzeExpense API detected the Cashier value as Mina and returned it under `ValueDetection`. 
+In the example, the document contained "CASHIER Mina". The AnalyzeExpense API detected the Cashier value as Mina and returned it under `ValueDetection`. 

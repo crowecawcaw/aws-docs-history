@@ -1,11 +1,10 @@
 
 
-# Identity Documentation Response Objects
-<a name="identitydocumentfields"></a>
+# Identity documentation response objects
 
- When you submit an identity document to the AnalyzeID API, it returns a series of `IdentityDocumentField` objects. Each of these objects contains `Type`, and `Value`. `Type` records the normalized field that Amazon Textract detects, and `Value` records the text associated with the normalized field. 
+ When you submit an identity document to the AnalyzeID API, it returns a series of `IdentityDocumentField` objects. Each of these objects contains `Type` and `Value`. `Type` records the normalized field that Amazon Textract Core detects, and `Value` records the text associated with the normalized field. 
 
- Following is an example of an `IdentityDocumentField`, shortened for brevity. 
+ Following is an example of an `IdentityDocumentField`, shortened for brevity: 
 
 ```
 {
@@ -33,9 +32,9 @@
         },
 ```
 
-These are two examples of IdentityDocumentFields cut from a longer response. There is a separation between the type detected and the value for that type. Here, it is the first and last name respectively. This structure repeats with all contained information. If a type is not recognized as a normalized field, it will be listed as "other." Additionally, AnalyzeID returns a Blocks object, the same as document text detection so you can have access to the full text of the document.
+These are two examples of IdentityDocumentFields cut from a longer response. There is a separation between the type detected and the value for that type. Here, it is the first and last name respectively. This structure repeats with all contained information. If a type is not recognized as a normalized field, it will be listed as "other". Additionally, AnalyzeID returns a Blocks object, the same as document text detection so you can have access to the full text of the document.
 
-Following is a list of normalized fields for Driver's Licenses:
+Following is a list of normalized fields for driver's licenses:
 + First Name — FIRST\_NAME
 + Last Name — LAST\_NAME 
 + Middle Name — MIDDLE\_NAME 
@@ -58,12 +57,12 @@ Following is a list of normalized fields for Driver's Licenses:
 
   
 
-Following is a list of normalized fields for U.S Passports:
+Following is a list of normalized fields for U.S. passports:
 + First Name — FIRST\_NAME
 + Last Name — LAST\_NAME 
 + Middle Name — MIDDLE\_NAME 
 + Document Number — DOCUMENT\_NUMBER
-+ Expiration Date — EXPIRATON\_DATE
++ Expiration Date — EXPIRATION\_DATE
 + Date of Birth — DATE\_OF\_BIRTH
 + Place of Birth — PLACE\_OF\_BIRTH
 + Date of Issue — DATE\_OF\_ISSUE

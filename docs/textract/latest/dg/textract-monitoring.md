@@ -1,20 +1,19 @@
 
 
 # Monitoring Amazon Textract
-<a name="textract-monitoring"></a>
 
-With CloudWatch, you can get metrics for individual Amazon Textract operations or global Amazon Textract metrics for your account. You can use metrics to track the health of your Amazon Textract–based solution, and set up alarms to notify you when one or more metrics fall outside a defined threshold. For example, you can see metrics for the number of server errors that have occurred. You can also see metrics for the number of times a specific Amazon Textract operation has succeeded. To see metrics, you can use [Amazon CloudWatch](https://console.aws.amazon.com/cloudwatch/), the [AWS CLI](https://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/), or the [CloudWatch API](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/).
-
+With CloudWatch, you can get metrics for individual Amazon Textract Core operations or global Amazon Textract Core metrics for your account. You can use metrics to track the health of your Amazon Textract Core–based solution, and set up alarms to notify you when one or more metrics fall outside a defined threshold. For example, you can see metrics for the number of server errors that have occurred. You can also see metrics for the number of times a specific Amazon Textract Core operation has succeeded. To see metrics, you can use [Amazon CloudWatch](https://console.aws.amazon.com/cloudwatch/), the [AWS CLI](https://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/), or the [CloudWatch API](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/).
 
 
-## Using CloudWatch Metrics for Amazon Textract
+
+## Using CloudWatch metrics for Amazon Textract
 <a name="using-metrics"></a>
 
 To use metrics, you must specify the following information:
-+ The metric dimension or no dimension. A *dimension* is a name-value pair that helps you to uniquely identify a metric. Amazon Textract has one dimension, named *Operation*. It provides metrics for a specific operation. If you don't specify a dimension, the metric is scoped to all Amazon Textract operations within your account.
++ The metric dimension or no dimension. A *dimension* is a name-value pair that helps you to uniquely identify a metric. Amazon Textract Core has one dimension, named *Operation*. It provides metrics for a specific operation. If you don't specify a dimension, the metric is scoped to all Amazon Textract Core operations within your account.
 + The metric name, such as `UserErrorCount`.
 
-You can get monitoring data for Amazon Textract by using the AWS Management Console, the AWS CLI, or the CloudWatch API. You can also use the CloudWatch API through one of the Amazon AWS Software Development Kits (SDKs) or the CloudWatch API tools. The console displays a series of graphs based on the raw data from the CloudWatch API. Depending on your needs, you might prefer to use either the graphs displayed in the console or retrieved from the API.
+You can get monitoring data for Amazon Textract Core by using the AWS Management Console, the AWS CLI, or the CloudWatch API. You can also use the CloudWatch API through one of the AWS Software Development Kits (SDKs) or the CloudWatch API tools. The console displays a series of graphs based on the raw data from the CloudWatch API. Depending on your needs, you might prefer to use either the graphs displayed in the console or those retrieved from the API.
 
 ### 
 <a name="how-do-i"></a>
@@ -22,23 +21,23 @@ You can get monitoring data for Amazon Textract by using the AWS Management Cons
 The following list shows some common uses for the metrics. These are suggestions to get you started, not a comprehensive list.
 
 
-| How Do I? | Relevant Metrics | 
+| **Common use** | **Relevant Metrics** | 
 | --- | --- | 
 | How do I know if my application has reached the maximum number of requests per second? | Monitor the `Sum` statistic of the `ThrottledCount` metric. | 
 | How can I monitor the request errors? | Use the `Sum` statistic of the `UserErrorCount` metric. | 
 | How can I find the total number of requests? | Use the `SampleCount` statistic of the `ResponseTime` metric. This includes any request that results in an error. If you want to see only successful operation calls, use the `SuccessfulRequestCount` metric. | 
-| How can I monitor the latency of Amazon Textract operation calls? | Use the `ResponseTime` metric. | 
+| How can I monitor the latency of Amazon Textract Core operation calls? | Use the `ResponseTime` metric. | 
 
-You must have the appropriate CloudWatch permissions to monitor Amazon Textract with CloudWatch. For more information, see [Authentication and Access Control for Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html).
+You must have the appropriate CloudWatch permissions to monitor Amazon Textract Core with CloudWatch. For more information, see [Authentication and Access Control for Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html).
 
-## Access Amazon Textract Metrics
+## Access Amazon Textract metrics
 <a name="how-to-access"></a>
 
-The following examples show how to access Amazon Textract metrics using the CloudWatch console, the AWS CLI, and the CloudWatch API.
+The following examples show how to access Amazon Textract Core metrics using the CloudWatch console, the AWS CLI, and the CloudWatch API.
 
 **To view metrics (console)**
 
-1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch).
+1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
 
 1. Choose **Metrics**, choose the **All Metrics** tab, and then choose **Amazon Textract**.
 
@@ -46,7 +45,7 @@ The following examples show how to access Amazon Textract metrics using the Clou
 
    For example, choose the **StartDocumentAnalysis** metric to measure how many times asynchronous document analysis has been started.
 
-1. Choose a value for the date range. The metric count displayed in the graph. 
+1. Choose a value for the date range. The metric count is displayed in the graph. 
 
 **To view metrics for successful `StartDocumentAnalysis` operation calls that have been made over a period of time (CLI)**
 + Open the AWS CLI and enter the following command:
@@ -67,7 +66,7 @@ The following examples show how to access Amazon Textract metrics using the Clou
 **To access metrics (CloudWatch API)**
 +  Call `[GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html)`. For more information, see the [Amazon CloudWatch API Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/). 
 
-## Create an Alarm
+## Create an alarm
 <a name="alarms"></a>
 
 You can create a CloudWatch alarm that sends an Amazon Simple Notification Service (Amazon SNS) message when the alarm changes state. An alarm watches a single metric over a time period that you specify. It performs one or more actions based on the value of the metric relative to a given threshold over a number of time periods. The action is a notification sent to an Amazon SNS topic or an Auto Scaling policy.
@@ -78,7 +77,7 @@ Alarms invoke actions for sustained state changes only. CloudWatch alarms don't 
 
 **To set an alarm (console)**
 
-1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+1. Log in to the AWS Management Console and open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
 
 1. In the navigation pane, choose **Alarms**, and choose **Create Alarm**. This opens the **Create Alarm Wizard**. 
 
@@ -110,7 +109,7 @@ If you use **New list** to create a new Amazon SNS topic, the email addresses mu
   ```
   aws cloudwatch put-metric-alarm \
       --alarm-name StartDocumentAnalysisUserErrors \
-      --alarm-description "Alarm when more than 10 StartDocumentAnalysys user errors occur within 5 minutes" \
+      --alarm-description "Alarm when more than 10 StartDocumentAnalysis user errors occur within 5 minutes" \
       --metric-name UserErrorCount \
       --namespace AWS/Textract \
       --statistic Sum \
@@ -127,3 +126,8 @@ If you use **New list** to create a new Amazon SNS topic, the email addresses mu
 
 **To set an alarm (CloudWatch API)**
 + Call `[PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)`. For more information, see *[Amazon CloudWatch API Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/)*.
+
+## Monitoring Amazon Textract Insights jobs
+<a name="textract-monitoring-insights"></a>
+
+`StartDocumentInsights` doesn't publish to Amazon SNS. To learn when a job finishes, enable Amazon EventBridge notifications with `NotificationConfiguration` (recommended), or poll `GetDocumentInsights` with the `JobArn` until `Status` is `SUCCEEDED` or `FAILED`. When a job fails, read `ErrorType` and `ErrorMessage` for the cause. For a complete polling example, see [Running and monitoring Document Insights jobs](insights-running-monitoring.md).

@@ -1,23 +1,22 @@
 
 
-# Layout Response Objects
-<a name="layoutresponse"></a>
+# Layout response objects
 
-When using Layout on a document with Amazon Textract, the different layout elements are returned as a BlockType in the Block object. These elements correspond to the different portions of the layout, and are:
+When using Layout on a document with Amazon Textract Core, the different layout elements are returned as a BlockType in the Block object. These elements correspond to the different portions of the layout, and are:
 + Title — The main title of the document. Returned as `LAYOUT_TITLE`.
 + Header — Text located in the top margin of the document. Returned as `LAYOUT_HEADER`.
 + Footer — Text located in the bottom margin of the document. Returned as `LAYOUT_FOOTER`.
 + Section Title — The titles for individual document sections. Returned as `LAYOUT_SECTION_HEADER`.
-+ Page Number — The page number of the documents. Returned as `LAYOUT_PAGE_NUMBER`.
++ Page Number — The page number of the document. Returned as `LAYOUT_PAGE_NUMBER`.
 + List — Any information grouped together in list form. Returned as `LAYOUT_LIST`.
 + Figure — Indicates the location of an image in a document. Returned as `LAYOUT_FIGURE`.
 + Table — Indicates the location of a table in the document. Returned as `LAYOUT_TABLE`.
 + Key Value — Indicates the location of form key-values in a document. Returned as `LAYOUT_KEY_VALUE`.
-+ Text — Text that is present typically as a part of paragraphs in documents. Returned as `LAYOUT_TEXT`
++ Text — Text that is present typically as a part of paragraphs in documents. Returned as `LAYOUT_TEXT`.
 
-Each element returns two key pieces of information. First is the bounding box of the layout element, which shows its location. Second, the element contains a list of IDs. These IDs point to the components of the layout element, often lines of text represented by `LINE` objects. Layout elements can also point to different objects, such as `TABLE` objects, Key-Value pairs, or `LAYOUT_TEXT` elements in the case of `LAYOUT_LIST`. 
+Each element returns two key pieces of information. First is the bounding box of the layout element, which shows its location. Second, the element contains a list of IDs. These IDs point to the components of the layout element, often lines of text represented by `LINE` objects. Layout elements can also point to different objects, such as `TABLE` objects, key-value pairs, or `LAYOUT_TEXT` elements in the case of `LAYOUT_LIST`. 
 
-Elements are returned in implied reading order. This means layout elements will be returned by document analysis left to right, top to bottom. For multicolumn pages, elements are returned from the top of the leftmost column, moving left to right until the bottom of the column is reached. Then, the elements from the next leftmost column are returned in the same way.
+Elements are returned in implied reading order. This means layout elements will be returned by document analysis left to right, then top to bottom. For multi-column pages, elements are returned from the top of the leftmost column, moving left to right until the bottom of the column is reached. Then, the elements from the next leftmost column are returned in the same way.
 
 Below is an example of a `LAYOUT_TITLE` response element, with the bounding box geometry section removed. The three IDs point towards the three `LINE` objects representing the three lines of text in the title.
 
@@ -42,7 +41,7 @@ Below is an example of a `LAYOUT_TITLE` response element, with the bounding box 
         },
 ```
 
-When Amazon Textract detects a list in a document's layout, instead of the IDs pointing directly to the `LINE` objects, it instead points to the `LAYOUT_TEXT` objects located within the list. Below is a shortened example response displaying this relationship. Within the `LAYOUT_TEXT` objects you can see the IDs corresponding to the IDs in the `LAYOUT_LIST` response object. These `LAYOUT_TEXT` objects then contain their own list of IDs, which correspond to the `LINE` objects for each line of text in the layout element. 
+When Amazon Textract Core detects a list in a document's layout, instead of the IDs pointing directly to the `LINE` objects, it points to the `LAYOUT_TEXT` objects located within the list. Below is a shortened example response displaying this relationship. Within the `LAYOUT_TEXT` objects you can see the IDs corresponding to the IDs in the `LAYOUT_LIST` response object. These `LAYOUT_TEXT` objects then contain their own list of IDs, which correspond to the `LINE` objects for each line of text in the layout element. 
 
 ```
 {

@@ -1,14 +1,13 @@
 
 
 # Pages
-<a name="how-it-works-pages"></a>
 
 A document consists of one or more pages. A [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) object of type `PAGE` exists for each page of the document. A `PAGE` block object contains a list of the child IDs for the lines of text, key-value pairs, tables, Queries, and Query Results that are detected on the document page. 
 
 ![Document structure diagram showing Page containing Line, Table, Key-Value Set, Query, and Queries Result components.](https://docs.aws.amazon.com/textract/latest/dg/images/pages-image.png)
 
 
-The JSON for a `PAGE` block looks similar to the following.
+The JSON for a `PAGE` block looks similar to the following:
 
 ```
 {
@@ -32,4 +31,4 @@ The JSON for a `PAGE` block looks similar to the following.
 
 If you're using asynchronous operations with a multipage document that's in PDF format, you can determine the page that a block is located on by inspecting the `Page` field of the `Block` object. A scanned image (an image in JPEG, PNG, PDF, or TIFF format) is considered to be a single-page document, even if there's more than one document page on the image. Asynchronous operations always return a `Page` value of 1 for scanned images.
 
-The total number of pages is returned in the `Pages` field of `DocumentMetadata`. `DocumentMetadata` is returned with each list of `Block` objects returned by an Amazon Textract operation.
+The total number of pages is returned in the `Pages` field of `DocumentMetadata`. `DocumentMetadata` is returned with each list of `Block` objects returned by an Amazon Textract Core operation.

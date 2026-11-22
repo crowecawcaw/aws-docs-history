@@ -1,14 +1,13 @@
 
 
 # Copying adapters
-<a name="textract-copy-adapters"></a>
 
-Adapter Versions can be copied from one AWS account to another within AWS Regions. 
+Adapter versions can be copied from one AWS account to another within the same AWS Region. 
 
-In order to copy an adapter, you must have created an adapter in the destination AWS account using the Console or API. You are not required to train an adapter version, but the meta data (Adapter name and description) for the adapter must exist. This is to ensure you/your organization have access to the destination account. 
+In order to copy an adapter, you must have created an adapter in the destination AWS account using the console or API. You are not required to train an adapter version, but the metadata (Adapter name and description) for the adapter must exist. This is to ensure you/your organization have access to the destination account. 
 
 **Note**  
-Your source and destination AWS accounts must be in the same AWS region to successfully copy an adapter. Please check the account regions before attempting to copy.
+Your source and destination AWS accounts must be in the same AWS Region to successfully copy an adapter. Please check the account regions before attempting to copy.
 
 Once you have created an adapter, submit a support ticket with the following details. You will need a support subscription before submitting the ticket:
 

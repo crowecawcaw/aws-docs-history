@@ -1,14 +1,13 @@
 
 
-# Interpreting Amazon Textract Responses
-<a name="document-response"></a>
+# Interpreting Amazon Textract Core responses
 
-Amazon Textract operations return different types of objects depending on the operations run. Response objects are structured JSON outputs, with various elements that can be searched for within a response. For more information about these response objects, see the following sections:
+Amazon Textract Core operations return different types of objects depending on the operations run. Response objects are structured JSON outputs, with various elements that can be searched for within a response. For more information about these response objects, see the following sections:
 
 **Topics**
-+ [Locating Items on a Document Page](text-location.md)
-+ [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md)
-+ [Layout Response Objects](layoutresponse.md)
-+ [Invoice and Receipt Response Objects](expensedocuments.md)
-+ [Identity Documentation Response Objects](identitydocumentfields.md)
-+ [Analyze Lending Response Objects](lending-response-objects.md)
++ [Locating items on a document page](text-location.md)
++ [Text detection and document analysis response objects](how-it-works-document-layout.md)
++ [Layout response objects](layoutresponse.md)
++ [Invoice and receipt response objects](expensedocuments.md)
++ [Identity documentation response objects](identitydocumentfields.md)
++ [Analyze Lending response objects](lending-response-objects.md)

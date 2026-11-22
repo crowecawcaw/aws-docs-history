@@ -1,11 +1,10 @@
 
 
-# Text Detection and Document Analysis Response Objects
-<a name="how-it-works-document-layout"></a>
+# Text detection and document analysis response objects
 
-When Amazon Textract processes a document, it creates a list of [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects for the detected or analyzed text. Each block contains information about a detected item, where it's located, and the confidence that Amazon Textract has in the accuracy of the processing.
+When Amazon Textract Core processes a document, it creates a list of [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects for the detected or analyzed text. Each block contains information about a detected item, where it's located, and the confidence that Amazon Textract Core has in the accuracy of the processing.
 
-A document is made up from the following types of `Block` objects.
+A document is made up of the following types of `Block` objects:
 + [Pages](how-it-works-pages.md)
 +  [Lines and words of text](how-it-works-lines-words.md) 
 +  [Form Data (Key-value pairs)](how-it-works-kvp.md) 
@@ -14,16 +13,16 @@ A document is made up from the following types of `Block` objects.
 + [Queries](queryresponse.md)
 + [Layout](layoutresponse.md)
 
-The contents of a block depend on the operation you call. If you call one of the text detection operations, the pages, lines, and words of detected text are returned. For more information, see [Detecting Text](how-it-works-detecting.md). If you call one of the document analysis operations, information about detected pages, key-value pairs, tables, selection elements, and text is returned. For more information, see [Analyzing Documents](how-it-works-analyzing.md).
+The contents of a block depend on the operation you call. If you call one of the text detection operations, the pages, lines, and words of detected text are returned. For more information, see [Detecting text](how-it-works-detecting.md). If you call one of the document analysis operations, information about detected pages, key-value pairs, tables, selection elements, and text is returned. For more information, see [Analyzing documents](how-it-works-analyzing.md).
 
 Some `Block` object fields are common to both types of processing. For example, each block has a unique identifier.
 
 For examples that show how to use `Block` objects, see [Tutorials](examples-blocks.md).
 
-## Document Layout
+## Document layout
 <a name="hows-it-works-blocks-types.title"></a>
 
-Amazon Textract returns a representation of a document as a list of different types of `Block` objects that are linked in a parent-to-child relationship or a key-value pair. Metadata that provides the number of pages in a document is also returned. The following is the JSON for a typical `Block` object of type `PAGE`.
+Amazon Textract Core returns a representation of a document as a list of different types of `Block` objects that are linked in a parent-to-child relationship or a key-value pair. Metadata that provides the number of pages in a document is also returned. The following is the JSON for a typical `Block` object of type `PAGE`.
 
 ```
 {
@@ -85,14 +84,14 @@ A `Block` object contains a list of related `Block` objects in the `Relationship
 
 Child blocks don't have information about their parent Block objects.
 
-For examples that show `Block` information, see [Processing Documents Synchronously](sync.md).
+For examples that show `Block` information, see [Processing documents synchronously](sync.md).
 
 ## Confidence
 <a name="how-it-works-confidence"></a>
 
-Amazon Textract operations return the percentage confidence that Amazon Textract has in the accuracy of the detected item. To get the confidence, use the `Confidence` field of the `Block` object. A higher value indicates a higher confidence. Depending on the scenario, detections with a low confidence might need visual confirmation by a human.
+Amazon Textract Core operations return the percentage confidence that Amazon Textract Core has in the accuracy of the detected item. To get the confidence, use the `Confidence` field of the `Block` object. A higher value indicates a higher confidence. Depending on the scenario, detections with a low confidence might need visual confirmation by a human.
 
 ## Geometry
 <a name="how-it-works-geometry"></a>
 
-Amazon Textract operations (except for identity analysis) return location information about the location of detected items on a document page. To get the location, use the `Geometry` field of the `Block` object. For more information, see [Locating Items on a Document Page](text-location.md). 
+Amazon Textract Core operations (except for identity analysis) return location information about detected items on a document page. To get the location, use the `Geometry` field of the `Block` object. For more information, see [Locating items on a document page](text-location.md). 

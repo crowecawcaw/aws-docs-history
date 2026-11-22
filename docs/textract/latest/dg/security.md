@@ -1,21 +1,22 @@
 
 
 # Security in Amazon Textract
-<a name="security"></a>
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that are built to meet the requirements of the most security-sensitive organizations.
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that is built to meet the requirements of the most security-sensitive organizations.
+
+The topics in this chapter apply to the Amazon Textract Core APIs and to Amazon Textract Insights. Where Amazon Textract Insights works differently, for example in how it encrypts projects and blueprints or where it processes your data, the topic describes the difference. For more information about Amazon Textract Insights features, see [Amazon Textract Insights](amazon-textract-insights.md).
 
 Use the following topics to learn how to secure your Amazon Textract resources.
 
 **Topics**
-+ [Data Protection in Amazon Textract](data-protection.md)
++ [Data protection in Amazon Textract](data-protection.md)
 + [Identity and Access Management for Amazon Textract](security-iam.md)
-+ [Logging and Monitoring](textract_monitoring.md)
-+ [Logging Amazon Textract API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
++ [Logging and monitoring](textract_monitoring.md)
++ [Logging Amazon Textract API calls with AWS CloudTrail](logging-using-cloudtrail.md)
 + [Tagging resources](tagging-adapters.md)
-+ [Compliance Validation for Amazon Textract](SERVICENAME-compliance.md)
++ [Compliance validation for Amazon Textract](SERVICENAME-compliance.md)
 + [Resilience in Amazon Textract](disaster-recovery-resiliency.md)
 + [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md)
-+ [Infrastructure Security in Amazon Textract](infrastructure-security.md)
-+ [Configuration and Vulnerability Analysis in Amazon Textract](vulnerability-analysis-and-management.md)
++ [Infrastructure security in Amazon Textract](infrastructure-security.md)
++ [Configuration and vulnerability analysis in Amazon Textract](vulnerability-analysis-and-management.md)
 + [Amazon Textract and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md)

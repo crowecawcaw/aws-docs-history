@@ -1,22 +1,25 @@
 
 
-# Amazon Textract Identity-Based Policy Examples
-<a name="security_iam_id-based-policy-examples"></a>
+# Amazon Textract identity-based policy examples
 
-By default, users and roles don't have permission to create or modify Amazon Textract resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator then grants a user access to a role via temporary security credentials.
+By default, users and roles don't have permission to create or modify Amazon Textract Core resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator then grants a user access to a role via temporary security credentials.
 
 To learn how to create an IAM identity-based policy using these example JSON policy documents, see [Creating Policies on the JSON Tab](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*.
 
 **Topics**
-+ [Policy Best Practices](#security_iam_service-with-iam-policy-best-practices)
-+ [Allow Users to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions)
-+ [Giving Access to Synchronous Operations in Amazon Textract](#security_iam_sync-actions)
-+ [Giving Access to Asynchronous Operations in Amazon Textract](#security_iam_async-actions)
-+ [Giving access to specific adapters in inference operations in Amazon Textract](#security_iam_adapter-inference)
++ [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
++ [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
++ [Giving access to synchronous operations in Amazon Textract Core](#security_iam_sync-actions)
++ [Giving access to asynchronous operations in Amazon Textract Core](#security_iam_async-actions)
++ [Giving access to specific adapters in inference operations in Amazon Textract Core](#security_iam_adapter-inference)
 + [Disallow user to use adapters in inference operations](#security_iam_disallow-inference)
 + [Allow user to only use a specific group of adapters in inference operations, or no adapters](#security_iam_adapter-groups)
++ [Giving access to Amazon Textract Insights operations](#security_iam_insights-operations)
++ [Allowing a user to run Amazon Textract Insights jobs on existing projects only](#security_iam_insights-existing-projects)
++ [Allowing Amazon Textract Insights jobs only with projects that have a specific tag](#security_iam_insights-tag-scoped)
++ [Allowing Amazon Textract Insights jobs with cross-Region inference](#security_iam_insights-cris)
 
-## Policy Best Practices
+## Policy best practices
 <a name="security_iam_service-with-iam-policy-best-practices"></a>
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Textract resources in your account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and recommendations:
@@ -28,12 +31,12 @@ Identity-based policies determine whether someone can create, access, or delete 
 
 For more information about best practices in IAM, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
 
-## Allow Users to View Their Own Permissions
+## Allow users to view their own permissions
 <a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -68,10 +71,10 @@ This example shows how you might create a policy that allows IAM users to view t
 }
 ```
 
-## Giving Access to Synchronous Operations in Amazon Textract
+## Giving access to synchronous operations in Amazon Textract Core
 <a name="security_iam_sync-actions"></a>
 
-This example policy grants access to the synchronous actions in Amazon Textract to an IAM user in your AWS account.
+This example policy grants access to the synchronous actions in Amazon Textract Core to an IAM user in your AWS account.
 
 ```
 "Version": "2012-10-17",		 	 	 
@@ -87,17 +90,17 @@ This example policy grants access to the synchronous actions in Amazon Textract 
     ]
 ```
 
-## Giving Access to Asynchronous Operations in Amazon Textract
+## Giving access to asynchronous operations in Amazon Textract Core
 <a name="security_iam_async-actions"></a>
 
-The following example policy gives an IAM user on your AWS account access to all asynchronous operations used in Amazon Textract.
+The following example policy gives an IAM user on your AWS account access to all asynchronous operations used in Amazon Textract Core.
 
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +120,7 @@ The following example policy gives an IAM user on your AWS account access to all
 
 ------
 
-## Giving access to specific adapters in inference operations in Amazon Textract
+## Giving access to specific adapters in inference operations in Amazon Textract Core
 <a name="security_iam_adapter-inference"></a>
 
 Although you can use `*` to access all resources in inference operations, you can control a user's access to specific adapters.
@@ -137,3 +140,91 @@ Tag the specific adapters that you want to control by using the `TagResource` op
 <a name="security_iam_create-adapter-version"></a>
 
 In addition to `"textract:CreateAdapterVersion"` permission, the caller identity also needs Amazon S3 and AWS Key Management Service (AWS KMS) permission to your training data in Amazon S3 and the KMS key used to encrypt your data. 
+
+## Giving access to Amazon Textract Insights operations
+<a name="security_iam_insights-operations"></a>
+
+A Amazon Textract Insights workflow needs three kinds of permissions:
++ The Amazon Textract Insights actions that it calls. A job needs both `textract:StartDocumentInsights` and `textract:GetDocumentInsights`. Managing projects and blueprints needs the matching project and blueprint actions.
++ `s3:GetObject` on the input location and `s3:PutObject` on the output location.
++ Permission to use your customer managed AWS KMS key, if you use one.
+
+Grant only what your workflow uses. For example, leave out the blueprint actions if you don't create custom blueprints, and the tagging actions if you don't tag resources.
+
+For a complete policy that covers the full workflow, see [Prerequisites and setup](insights-prerequisites.md). For the AWS KMS permissions and an example key policy, see [Data protection and encryption](insights-data-protection.md).
+
+## Allowing a user to run Amazon Textract Insights jobs on existing projects only
+<a name="security_iam_insights-existing-projects"></a>
+
+To let an application submit jobs and read the results without creating, changing, or deleting projects or blueprints, start from the full workflow policy in [Prerequisites and setup](insights-prerequisites.md) and keep only the following:
++ `textract:StartDocumentInsights` and `textract:GetDocumentInsights`.
++ `textract:GetProject` and `textract:ListProjects`, if the application looks up projects.
++ `s3:GetObject` on the input location and `s3:PutObject` on the output location.
++ Permission to use the customer managed AWS KMS key, if the project uses one. See [Data protection and encryption](insights-data-protection.md).
+
+`StartDocumentInsights` doesn't require `GetProject` or `GetBlueprint`. When you pass a project, Amazon Textract Insights checks `textract:StartDocumentInsights` only on the project ARN and on `job/*`. To limit the application to specific projects, allow it on those project ARNs and on `job/*`. If the application tags jobs when it starts them, it also needs `textract:TagResource` on `job/*`.
+
+## Allowing Amazon Textract Insights jobs only with projects that have a specific tag
+<a name="security_iam_insights-tag-scoped"></a>
+
+The following policy lets a user start jobs only with projects tagged `env=prod`. The user can read the status of any job in the account.
+
+```json
+{
+    "Version": "2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "StartJobsOnProdProjects",
+            "Effect": "Allow",
+            "Action": "textract:StartDocumentInsights",
+            "Resource": "arn:aws:textract:us-east-1:111122223333:project/*",
+            "Condition": {
+                "StringEquals": { "aws:ResourceTag/env": "prod" }
+            }
+        },
+        {
+            "Sid": "CreateJobs",
+            "Effect": "Allow",
+            "Action": "textract:StartDocumentInsights",
+            "Resource": "arn:aws:textract:us-east-1:111122223333:job/*"
+        },
+        {
+            "Sid": "ReadJobStatus",
+            "Effect": "Allow",
+            "Action": "textract:GetDocumentInsights",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+Amazon Textract Insights also checks `textract:StartDocumentInsights` on `job/*` because each request creates a new job, so the policy allows it separately. The user also needs `s3:GetObject` on the input location and `s3:PutObject` on the output location. See [Prerequisites and setup](insights-prerequisites.md).
+
+## Allowing Amazon Textract Insights jobs with cross-Region inference
+<a name="security_iam_insights-cris"></a>
+
+The following example IAM policy processes documents for `us-east-1`.
+
+```json
+{
+    "Version": "2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "RunTextractInsightsJobs",
+            "Effect": "Allow",
+            "Action": [
+                "textract:StartDocumentInsights",
+                "textract:GetDocumentInsights"
+            ],
+            "Resource": [
+                "arn:aws:textract:us-east-1:111122223333:project/*",
+                "arn:aws:textract:us-east-1:111122223333:blueprint/*",
+                "arn:aws:textract:us-east-1:aws:blueprint/*",
+                "arn:aws:textract:us-east-1:111122223333:job/*"
+            ]
+        }
+    ]
+}
+```
+
+`arn:aws:textract:us-east-1:aws:blueprint/*` allows public blueprints owned by Amazon Textract. Include it if you pass public blueprints in the `Blueprints` parameter of the request.

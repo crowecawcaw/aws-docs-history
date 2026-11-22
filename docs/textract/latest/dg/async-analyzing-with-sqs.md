@@ -1,11 +1,10 @@
 
 
-# Detecting or Analyzing Text in a Multipage Document
-<a name="async-analyzing-with-sqs"></a>
+# Detecting or analyzing text in a multipage document
 
-This procedure shows you how to detect or analyze text in a multipage document by using Amazon Textract detection operations, a document stored in an Amazon S3 bucket, an Amazon SNS topic, and an Amazon SQS queue. Multipage document processing is an asynchronous operation. For more information, see [Calling Amazon Textract Asynchronous Operations](api-async.md).
+This procedure shows you how to detect or analyze text in a multipage document by using Amazon Textract Core detection operations, a document stored in an Amazon S3 bucket, an Amazon SNS topic, and an Amazon SQS queue. Multipage document processing is an asynchronous operation. For more information, see [Calling Amazon Textract Core asynchronous operations](api-async.md).
 
-You can choose the type of processing that you want the code to do: text detection, text analysis, or expense analysis. 
+You can choose the type of processing that you want the code to do: Text detection, text analysis, or expense analysis. 
 
 The processing results are returned in an array of [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects, which differ depending on the type of processing you use.
 
@@ -13,7 +12,7 @@ The processing results are returned in an array of [Block](https://docs.aws.amaz
 
 1. Create the Amazon SNS topic and the Amazon SQS queue.
 
-1. Subscribe the queue the topic.
+1. Subscribe the queue to the topic.
 
 1. Give the topic permission to send messages to the queue.
 
@@ -31,21 +30,19 @@ The processing results are returned in an array of [Block](https://docs.aws.amaz
 
 1. Delete the Amazon SNS topic and the Amazon SQS queue.
 
-## Performing Asynchronous Operations
+## Performing asynchronous operations
 <a name="async-prerequisites"></a>
 
-The example code for this procedure is provided in Java, Python, and the AWS CLI. Before you begin, install the appropriate AWS SDK. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md). 
+The example code for this procedure is provided in Java, Python, and the AWS CLI. Before you begin, install the appropriate AWS SDK. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md). 
 
 **To detect or analyze text in a multipage document**
 
-1. Configure user access to Amazon Textract, and configure Amazon Textract access to Amazon SNS. For more information, see [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md). To complete this procedure, you need a multipage document ﬁle in PDF format. Skip steps 3 – 6 because the example code creates and configures the Amazon SNS topic and Amazon SQS queue. If completing the CLI example, you don't need to set up an SQS queue. 
+1. Configure user access to Amazon Textract Core, and configure Amazon Textract Core access to Amazon SNS. For more information, see [Configuring Amazon Textract Core for asynchronous operations](api-async-roles.md). To complete this procedure, you need a multipage document file in PDF format. Skip steps 3 – 6 because the example code creates and configures the Amazon SNS topic and Amazon SQS queue. If completing the CLI example, you don't need to set up an Amazon SQS queue. 
 
-1. Upload a multipage document file in PDF or TIFF format to your Amazon S3 bucket. (Single-page documents in JPEG, PNG, TIFF, or PDF format can also be processed). 
-
-   For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*.
+1. Upload a multipage document file in PDF or TIFF format to your Amazon S3 bucket. (Single-page documents in JPEG, PNG, TIFF, or PDF format can also be processed). For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*.
 
 1. Use the following AWS SDK for Java, AWS SDK for Python (Boto3), or AWS CLI code to either detect text or analyze text in a multipage document. In the `main` function:
-   + Replace the value of `roleArn` with the IAM role ARN that you saved in [Giving Amazon Textract Access to Your Amazon SNS Topic](api-async-roles.md#api-async-roles-all-topics). 
+   + Replace the value of `roleArn` with the IAM role ARN that you saved in [Giving Amazon Textract Core access to your Amazon SNS topic](api-async-roles.md#api-async-roles-all-topics). 
    + Replace the values of `bucket` and `document` with the bucket and document file name that you specified in step 2. 
    + Replace the value of the `type` input parameter of the `ProcessDocument` function with the type of processing that you want to do. Use `ProcessType.DETECTION` to detect text. Use `ProcessType.ANALYSIS` to analyze text. 
    + For the Python example, replace the value of `region_name` with the region your client is operating in.
@@ -59,7 +56,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 
    Replace the value of `credentialsProvider` with the name of your developer profile.
 
-   ```
+   ```java
    import java.util.Arrays;
    import java.util.HashMap;
    import java.util.List;
@@ -280,7 +277,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
    
                        else{
                            System.out.println("Job received was not job " +  startJobId);
-                           //Delete unknown message. Consider moving message to dead letter queue
+                           //Delete unknown message. Consider moving message to dead-letter queue
                            sqs.deleteMessage(sqsQueueUrl,message.getReceiptHandle());
                        }
                    }
@@ -461,7 +458,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 
    Replace the value of `profile-name` in the line that creates the `TextractClient` with the name of your developer profile.
 
-   ```
+   ```java
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.textract.model.S3Object;
@@ -590,20 +587,20 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 ------
 #### [ AWS CLI ]
 
-   This AWS CLI command starts the asynchronous detection of text in a specified document. It returns a `job-id` that can be used to retreive the results of the detection. 
+   This AWS CLI command starts the asynchronous detection of text in a specified document. It returns a `job-id` that can be used to retrieve the results of the detection. 
 
    ```
    aws textract start-document-text-detection --document-location 
    "{\"S3Object\":{\"Bucket\":\"{{bucket-name}}\",\"Name\":\"{{file-name}}\"}}" --region {{region-name}}
    ```
 
-   This AWS CLI command returns the results for an Amazon Textract asynchronous operation when provided with a `job-id`. 
+   This AWS CLI command returns the results for an Amazon Textract Core asynchronous operation when provided with a `job-id`. 
 
    ```
    aws textract get-document-text-detection --region {{region-name}} --job-id {{job-id-number}}
    ```
 
-   If you are accessing the CLI on a Windows device, use double quotes instead of single quotes and escape the inner double quotes by backslash (i.e. \\) to address any parser errors you may encounter. For an example, see below
+   If you are accessing the CLI on a Windows device, use double quotes instead of single quotes and escape the inner double quotes with a backslash (that is, \\) to address any parser errors you may encounter. For an example, see below.
 
    ```
    aws textract start-document-text-detection --document-location "{\"S3Object\":{\"Bucket\":\"{{bucket}}\",\"Name\":\"{{document}}\"}}" --region {{region-name}}
@@ -623,7 +620,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 
     Replace `profile-name` in the line that creates the TextractClient with the name of your developer profile. 
 
-   ```
+   ```python
    import boto3
    import json
    import sys
@@ -717,7 +714,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
                        else:
                            print("Job didn't match:" +
                                  str(textMessage['JobId']) + ' : ' + str(response['JobId']))
-                       # Delete the unknown message. Consider sending to dead letter queue
+                       # Delete the unknown message. Consider sending to dead-letter queue
                        self.sqs.delete_message(QueueUrl=self.sqsQueueUrl,
                                                ReceiptHandle=message['ReceiptHandle'])
    
@@ -916,7 +913,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 
    In order to use different features of the `AnalyzeDocument` operation, you provide the proper feature type to the `features-type` parameter. For example, to use the Queries feature, include the `QUERIES` value in the `feature-types` parameter and then provide a `Queries` object to the `queries-config` parameter. To query your document, replace the code block that makes a request to the `StartDocumentAnalysis` operation with the code block below, and enter your query.
 
-   ```
+   ```python
    if self.processType == ProcessType.ANALYSIS:
                response = self.textract.start_document_analysis(
                    DocumentLocation={'S3Object': {'Bucket': self.bucket, 'Name': self.document}},
@@ -930,9 +927,9 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 ------
 #### [ Node.JS ]
 
-   In this example, replace the value of `roleArn` with the IAM role ARN that you saved in [Giving Amazon Textract Access to Your Amazon SNS Topic](api-async-roles.md#api-async-roles-all-topics). Replace the values of `bucket` and `document` with the bucket and document file name you specified in step 2 above. Replace the value of `processType` with the type of processing you'd like to use on the input document. Finally, replace the value of `REGION` with the region your client is operating in. Replace the value of `profileName` with the name of your developer profile.
+   In this example, replace the value of `roleArn` with the IAM role ARN that you saved in [Giving Amazon Textract Core access to your Amazon SNS topic](api-async-roles.md#api-async-roles-all-topics). Replace the values of `bucket` and `document` with the bucket and document file name you specified in step 2 above. Replace the value of `processType` with the type of processing you'd like to use on the input document. Finally, replace the value of `REGION` with the region your client is operating in. Replace the value of `profileName` with the name of your developer profile.
 
-   ```
+   ```javascript
    // snippet-start:[sqs.JavaScript.queues.createQueueV3]
    // Import required AWS SDK clients and commands for Node.js
    import { CreateQueueCommand, GetQueueAttributesCommand, GetQueueUrlCommand, 
@@ -1044,7 +1041,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
                jobFound = true
                // GET RESUlTS FUNCTION HERE
                var operationResults = await GetResults(processType, rekMessage.JobId)
-               //GET RESULTS FUMCTION HERE
+               //GET RESULTS FUNCTION HERE
                console.log(rekMessage.Status)
            if (String(rekMessage.Status).includes(String("SUCCEEDED"))){
                succeeded = true
@@ -1064,14 +1061,14 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
      }
    }
    
-   // Create the SNS topic and SQS Queue
+   // Create the SNS topic and SQS queue
    const createTopicandQueue = async () => {
    try {
      // Create SNS topic
      const topicResponse = await snsClient.send(new CreateTopicCommand(snsTopicParams));
      const topicArn = topicResponse.TopicArn
      console.log("Success", topicResponse);
-     // Create SQS Queue
+     // Create SQS queue
      const sqsResponse = await sqsClient.send(new CreateQueueCommand(sqsParams));
      console.log("Success", sqsResponse);
      const sqsQueueCommand = await sqsClient.send(new GetQueueUrlCommand({QueueName: sqsQueueName}))
@@ -1227,4 +1224,4 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 
 ------
 
-1. Run the code. The operation might take a while to finish. After it's finished, a list of blocks for detected or analyzed text is displayed.
+1. Run the code. The operation might take a while to finish. After it's finished, a list of Blocks for detected or analyzed text is displayed.

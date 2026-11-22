@@ -1,21 +1,20 @@
 
 
-# Analyzing Invoices and Receipts with Amazon Textract
-<a name="analyzing-document-expense"></a>
+# Analyzing invoices and receipts with Amazon Textract Core
 
-To analyze invoice and receipt documents, use the AnalyzeExpense API operations and pass a document file as input. `AnalyzeExpense` is a synchronous operation that returns a JSON structure that contains the analyzed text. For more information, see [Analyzing Invoices and Receipts](invoices-receipts.md).
+To analyze invoice and receipt documents, use the AnalyzeExpense API operations and pass a document file as input. `AnalyzeExpense` is a synchronous operation that returns a JSON structure that contains the analyzed text. For more information, see [Analyzing invoices and receipts](invoices-receipts.md).
 
-To analyze invoice and receipts asynchronously, use `StartExpenseAnalysis` to start processing an input document file and use `GetExpenseAnalysis` to get the results. 
+To analyze invoices and receipts asynchronously, use `StartExpenseAnalysis` to start processing an input document file and use `GetExpenseAnalysis` to get the results. 
 
-You can provide an input document as an image byte array (base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name.
+You can provide an input document as an image byte array (Base64-encoded image bytes), or as an Amazon S3 object. In this procedure, you upload an image file to your S3 bucket and specify the file name.
 
 **To analyze an invoice or receipt (API)**
 
 1. If you haven't already:
 
-   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set Up an AWS Account and Create a User](setting-up.md).
+   1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set up an AWS account and create a user](setting-up.md).
 
-   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
+   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
 1. Upload an image that contains a document to your S3 bucket. 
 
@@ -44,7 +43,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document that you used in step 2. Replace `profile-name` with the name of a profile that can assume the role and `region` with the region in which you want to run the code.
 
-   ```
+   ```python
                        import boto3
    import io
    from PIL import Image, ImageDraw
@@ -146,7 +145,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `document` with the names of the Amazon S3 bucket and document image that you used in step 2. 
 
-   ```
+   ```java
                        
    package com.amazonaws.samples;
    
@@ -496,7 +495,7 @@ You can provide an input document as an image byte array (base64-encoded image b
 
    In the function `main`, replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and document that you used in step 2. Replace `profileName` with the name of a profile that can assume the role and `region` with the region in which you want to run the code.
 
-   ```
+   ```javascript
                        // Import required AWS SDK clients and commands for Node.js
    import { AnalyzeExpenseCommand } from  "@aws-sdk/client-textract";
    import  { TextractClient } from "@aws-sdk/client-textract";

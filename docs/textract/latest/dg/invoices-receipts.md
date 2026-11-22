@@ -1,19 +1,18 @@
 
 
-# Analyzing Invoices and Receipts
-<a name="invoices-receipts"></a>
+# Analyzing invoices and receipts
 
-Amazon Textract extracts relevant data such as vendor and receiver contact information, from almost any invoice or receipt without the need for any templates or configuration. Invoices and receipts often use various layouts, making it difficult and time-consuming to manually extract data at scale. Amazon Textract uses ML to understand the context of invoices and receipts. It automatically extracts data such as invoice or receipt date, invoice or receipt number, item prices, total amount, and payment terms.
+Amazon Textract Core extracts relevant data such as vendor and receiver contact information from almost any invoice or receipt without the need for any templates or configuration. Invoices and receipts often use various layouts, making it difficult and time-consuming to manually extract data at scale. Amazon Textract Core uses machine learning (ML) to understand the context of invoices and receipts. It automatically extracts data such as invoice or receipt date, invoice or receipt number, item prices, total amount, and payment terms.
 
-Amazon Textract also identifies vendor names that are critical for your workflows but may not be explicitly labeled. For example, Amazon Textract can find the vendor name on a receipt even if it's only indicated within a logo at the top of the page without an explicit key-value pair combination. 
+Amazon Textract Core also identifies vendor names that are critical for your workflows but may not be explicitly labeled. For example, Amazon Textract Core can find the vendor name on a receipt even if it's only indicated within a logo at the top of the page without an explicit key-value pair combination. 
 
-Amazon Textract also makes it easy for you to consolidate input from diverse receipts and invoices that use different words for the same concept. For example, Amazon Textract maps relationships between field names in different documents such as bill number, invoice number, receipt number, outputting standard taxonomy as `INVOICE_RECEIPT_ID`. In this case, Amazon Textract represents data consistently across different document types. The address fields are categorized as 'receiver', 'supplier', 'vendor', 'bill to', 'ship to', and 'remit to'. When expense documents do not have unique values for each of these categories, Amazon Textract will return only the categories with unique values. 
+Amazon Textract Core also makes it easy for you to consolidate input from diverse receipts and invoices that use different words for the same concept. For example, Amazon Textract Core maps relationships between field names in different documents such as bill number, invoice number, receipt number, outputting standard taxonomy as `INVOICE_RECEIPT_ID`. In this case, Amazon Textract Core represents data consistently across different document types. The address fields are categorized as "receiver", "supplier", "vendor", "bill to", "ship to", and "remit to". When expense documents do not have unique values for each of these categories, Amazon Textract Core will return only the categories with unique values. 
 
  Fields that do not align with the standard taxonomy are categorized as `OTHER`. 
 
-Following is a list of standard fields supported by expense analysis operations.
+Expand the following section for a list of standard fields supported by expense analysis operations.
 
-## List of Expense Analysis Standard Fields
+## List of expense analysis standard fields
 <a name="Analyze-Expense-List"></a>
 + Invoice Receipt Date — `INVOICE_RECEIPT_DATE`
 + Invoice Receipt ID — `INVOICE_RECEIPT_ID`
@@ -75,7 +74,7 @@ The AnalyzeExpense API returns the following elements for a given document page:
 + The confidence score associated with each piece of data detected on the document, represented as `Confidence`
 + The entire row of individual line items purchased, represented as `EXPENSE_ROW`
 
-The following is a portion of the API output for a receipt processed by AnalyzeExpense that shows the Total: $55.64 in the document extracted as standard field `TOTAL`. Actual text on the document appears as “Total,” Confidence Score as “97.1,” Page Number as “1,” and the total value as “$55.64.” This also includes the bounding box and polygon coordinates: 
+The following is a portion of the API output for a receipt processed by AnalyzeExpense that shows the Total: $55.64 in the document extracted as standard field `TOTAL`. Actual text on the document appears as "Total," Confidence Score as "97.1," Page Number as "1," and the total value as "$55.64." This also includes the bounding box and polygon coordinates: 
 
 ```
 {
@@ -150,6 +149,6 @@ The following is a portion of the API output for a receipt processed by AnalyzeE
 }
 ```
 
-You can use synchronous operations to analyze an invoice or receipt. To analyze these documents, you use the AnalyzeExpense operation and pass a receipt or invoice to it. `AnalyzeExpense` returns the entire set of results. For more information, see [Analyzing Invoices and Receipts with Amazon Textract](analyzing-document-expense.md).
+You can use synchronous operations to analyze an invoice or receipt. To analyze these documents, you use the AnalyzeExpense operation and pass a receipt or invoice to it. `AnalyzeExpense` returns the entire set of results. For more information, see [Analyzing invoices and receipts with Amazon Textract Core](analyzing-document-expense.md).
 
-To analyze invoices and receipts asynchronously, use [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) to start processing an input document file. To get the results, call [GetExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetExpenseAnalysis.html). The results for a given call to [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) are returned by `GetExpenseAnalysis`. For more information and an example, see [Processing Documents Asynchronously](async.md). 
+To analyze invoices and receipts asynchronously, use [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) to start processing an input document file. To get the results, call [GetExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetExpenseAnalysis.html). The results for a given call to [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) are returned by `GetExpenseAnalysis`. For more information and an example, see [Processing documents asynchronously](async.md). 

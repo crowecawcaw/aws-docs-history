@@ -1,11 +1,10 @@
 
 
-# Locating Items on a Document Page
-<a name="text-location"></a>
+# Locating items on a document page
 
-Amazon Textract operations return the location and geometry of items found on a document page. [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) and [GetDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentTextDetection.html) return the location and geometry for lines and words, while [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) return the location and geometry of key-value pairs, tables, cells, and selection elements.
+Amazon Textract Core operations return the location and geometry of items found on a document page. [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) and [GetDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentTextDetection.html) return the location and geometry for lines and words, while [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) return the location and geometry of key-value pairs, tables, cells, and selection elements.
 
-To determine where an item is on a document page, use the bounding box ([Geometry](https://docs.aws.amazon.com/textract/latest/APIReference/API_Geometry.html)) information returned by the Amazon Textract operation in a [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) object. The `Geometry` object contains two types of location and geometric information for detected items:
+To determine where an item is on a document page, use the bounding box ([Geometry](https://docs.aws.amazon.com/textract/latest/APIReference/API_Geometry.html)) information returned by the Amazon Textract Core operation in a [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) object. The `Geometry` object contains two types of location and geometric information for detected items:
 + An axis-aligned [BoundingBox](https://docs.aws.amazon.com/textract/latest/APIReference/API_BoundingBox.html) object that contains the top-left coordinate and the width and height of the item.
 + A polygon object that describes the outline of the item, specified as an array of [Point](https://docs.aws.amazon.com/textract/latest/APIReference/API_Point.html) objects that contain `X` (horizontal axis) and `Y` (vertical axis) document page coordinates of each point.
 
@@ -47,12 +46,12 @@ The JSON for a `Block` object looks similar to the following. Note the `Bounding
 },
 ```
 
-You can use geometry information to draw bounding boxes around detected items. For an example that uses `BoundingBox` and `Polygon` information to draw boxes around lines and vertical lines at the start and end of each word, see [Detecting Document Text with Amazon Textract](detecting-document-text.md). The example output is similar to the following.
+You can use geometry information to draw bounding boxes around detected items. For an example that uses `BoundingBox` and `Polygon` information to draw boxes around lines and vertical lines at the start and end of each word, see [Detecting document text with Amazon Textract Core](detecting-document-text.md). The example output is similar to the following:
 
 ![Form with fields for Name, Address, and Birthdate displaying personal information of Jane Doe with address 123 Any Street, Anytown, USA and birthdate 12-26-1980.](https://docs.aws.amazon.com/textract/latest/dg/images/janedoe.png)
 
 
-## Bounding Box
+## Bounding box
 <a name="bounding-box"></a>
 
 A bounding box (`BoundingBox`) has the following properties:
@@ -167,7 +166,7 @@ The following example shows how to display the vertical lines of a polygon.
     }
 ```
 
-## Rotation Angle
+## Rotation angle
 <a name="rotation"></a>
 
-The final part of the Geometry object is the rotation angle of the text. Rotation angle is a number between 0 and 360 that respresents the degree the text is rotated. 
+The final part of the Geometry object is the rotation angle of the text. Rotation angle is a number between 0 and 360 that represents the degree the text is rotated. 

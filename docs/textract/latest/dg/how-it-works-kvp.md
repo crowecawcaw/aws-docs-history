@@ -1,21 +1,20 @@
 
 
-# Form Data (Key-Value Pairs)
-<a name="how-it-works-kvp"></a>
+# Form data (key-value pairs)
 
-Amazon Textract can extract form data from documents as key-value pairs. For example, in the following text, Amazon Textract can identify a key (*Name:*) and a value (*Ana Carolina*).
+Amazon Textract Core can extract form data from documents as key-value pairs. For example, in the following text, Amazon Textract Core can identify a key (*Name:*) and a value (*Ana Carolina*).
 
 *Name: Ana Carolina*
 
-Detected key-value pairs are returned as [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects in the responses from [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html). You can use the `FeatureTypes` input parameter to retrieve information about key-value pairs, tables, or both. For key-value pairs only, use the value `FORMS`. For an example, see [Extracting Key-Value Pairs from a Form Document](examples-extract-kvp.md). For general information about how a document is represented by `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md). 
+Detected key-value pairs are returned as [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects in the responses from [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html). You can use the `FeatureTypes` input parameter to retrieve information about key-value pairs, tables, or both. For key-value pairs only, use the value `FORMS`. For an example, see [Extracting key-value pairs from a form document](examples-extract-kvp.md). For general information about how a document is represented by `Block` objects, see [Text detection and document analysis response objects](how-it-works-document-layout.md). 
 
 Dates found through key-value pair detection are returned exactly as detected on the input document, with most date formats supported.
 
 Block objects with the type KEY\_VALUE\_SET are the containers for KEY or VALUE Block objects that store information about linked text items detected in a document. You can use the `EntityType` attribute to determine if a block is a KEY or a VALUE. 
 + A *KEY* object contains information about the key for linked text. For example, *Name:*. A KEY block has two relationship lists. A relationship of type VALUE is a list that contains the ID of the VALUE block associated with the key. A relationship of type CHILD is a list of IDs for the WORD blocks that make up the text of the key.
-+ A *VALUE* object contains information about the text associated with a key. In the preceding example, *Ana Carolina* is the value for the key *Name:*. A VALUE block has a relationship with a list of CHILD blocks that identify WORD blocks. Each WORD block contains one of the words that make up the text of the value. A `VALUE` object can also contain information about selected elements. For more information, see [Selection Elements](how-it-works-selectables.md).
++ A *VALUE* object contains information about the text associated with a key. In the preceding example, *Ana Carolina* is the value for the key *Name:*. A VALUE block has a relationship with a list of CHILD blocks that identify WORD blocks. Each WORD block contains one of the words that make up the text of the value. A `VALUE` object can also contain information about selected elements. For more information, see [Selection elements](how-it-works-selectables.md).
 
-Amazon Textract returns the same confidence value for both KEY and VALUE in a KEY\_VALUE\_SET, as both KEY and VALUE are evaluated as a pair. It returns a different confidence value for a word in WORD blocks. 
+Amazon Textract Core returns the same confidence value for both KEY and VALUE in a KEY\_VALUE\_SET, as both KEY and VALUE are evaluated as a pair. It returns a different confidence value for a word in WORD blocks. 
 
 Each instance of a KEY\_VALUE\_SET `Block` object is a child of the PAGE `Block` object that corresponds to the current page.
 
@@ -38,7 +37,7 @@ The PAGE block has CHILD blocks of type `KEY_VALUE_SET` for each KEY and VALUE b
                 "2602b0a6-20e3-4e6e-9e46-3be57fd0844b", 
                 "82aedd57-187f-43dd-9eb1-4f312ca30042", 
                 "52be1777-53f7-42f6-a7cf-6d09bdc15a30", // Key - Name:
-                "7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c"  // Value - Ana Caroline 
+                "7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c"  // Value - Ana Carolina 
             ]
         }
     ], 

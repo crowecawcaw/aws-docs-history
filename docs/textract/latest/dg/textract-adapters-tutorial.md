@@ -1,18 +1,17 @@
 
 
 # Custom Queries tutorial
-<a name="textract-adapters-tutorial"></a>
 
 This tutorial shows you how to create, train, evaluate, use, and manage adapters. 
 
-With adapters, you can improve the accuracy of the Amazon Textract API operations, customizing the model’s behavior to fit your own needs and use cases. After you create an adapter with this tutorial, you can use it when analyzing your own documents with the [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html)API operation, and also retrain the adapter for future improvements. 
+With adapters, you can improve the accuracy of the Amazon Textract Core API operations, customizing the model's behavior to fit your own needs and use cases. After you create an adapter with this tutorial, you can use it when analyzing your own documents with the [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) API operation, and also retrain the adapter for future improvements. 
 
- In this tutorial you’ll learn how to: 
+ In this tutorial you'll learn how to: 
 + Create an adapter using the AWS Management Console.
 + Create a dataset for training your adapter.
 + Annotate your training data.
 + Train your adapter on your training dataset.
-+ Review your adapter’s performance.
++ Review your adapter's performance.
 + Retrain your adapter.
 + Use your adapter for document analysis.
 + Delete your adapter.
@@ -22,7 +21,7 @@ With adapters, you can improve the accuracy of the Amazon Textract API operation
 
 Before you begin, we recommend that you read [Creating adapters](textract-creating-using-adapters.md). 
 
-You must also set up your AWS account and install and configure an AWS SDK. For the SDK setup instructions, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md). 
+You must also set up your AWS account and install and configure an AWS SDK. For the SDK setup instructions, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md). 
 
 ## Create an adapter
 <a name="textract-adapters-tutorial-create-adapter"></a>
@@ -34,10 +33,10 @@ Before you can train or use an adapter you must create one. To create an adapter
 1. In the left pane, choose Custom Queries. The Amazon Textract Custom Queries landing page is shown.  
 ![Self-service interface showing the Amazon Textract Custom Queries feature for improving information extraction accuracy on business documents, with icons depicting its benefits and workflow steps such as creating adapters, uploading samples, labeling, training models, and checking performance metrics.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_1.png)
 
-1. The Custom Queries landing page show you a list of all your adapters, and there is also a button to create an adapter. Choose **Create adapter** to create your adapter. The number of successful trainings that can be performed per month is limited per AWS account. Refer to [Set Quotas in Amazon Textract](limits-quotas-explained.md) for more information regarding limits.  
+1. The Custom Queries landing page shows you a list of all your adapters, and there is also a button to create an adapter. Choose **Create adapter** to create your adapter. The number of successful trainings that can be performed per month is limited per AWS account. Refer to [Set quotas in Amazon Textract Core](limits-quotas-explained.md) for more information regarding limits.  
 ![Your adapters list is empty with a "No adapters" message and a "Create adapter" button.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_2.png)
 
-1. On the following page, enter the adapter name, choose whether to automatically update your adapter, and optionally add tags to it. Then, select **Create adapter**. When you choose 'auto-update' Amazon Textract will automatically update your adapter when the pretrained Queries feature is updated. 
+1. On the following page, enter the adapter name, choose whether to automatically update your adapter, and optionally add tags to it. Then, select **Create adapter**. When you choose "auto-update", Amazon Textract will automatically update your adapter when the pretrained Queries feature is updated. 
 
 After you create your adapter, you will be able to see the details for that adapter, including adapter name and the Adapter ID. The presence of these details verifies that the adapter has successfully been created. 
 
@@ -46,15 +45,15 @@ You can now create the datasets that will be used to train and test your adapter
 ## Dataset creation
 <a name="textract-adapters-tutorial-dataset"></a>
 
-In this step, you create a training dataset and a test dataset by uploading images from your local computer or from an Amazon S3 bucket. For more information about datasets, see [Detecting Text](how-it-works-detecting.md) [Preparing training and testing datasets](textract-preparing-training-testing.md) 
+In this step, you create a training dataset and a test dataset by uploading images from your local computer or from an Amazon S3 bucket. For more information about datasets, see [Detecting text](how-it-works-detecting.md) and [Preparing training and testing datasets](textract-preparing-training-testing.md). 
 
 When uploading images from your local computer, you can upload up to 30 images at one time. If you have a large number of images to upload, consider creating the datasets by importing the images from an Amazon S3 bucket. 
 
 1. To start creating your dataset, choose your adapter from the list of adapters, and then choose **Create dataset**.  
-![Textract Custom Queries page for my-test-adapter showing steps to create dataset, queries, verify documents, train adapter, check performance metrics, and improve adapter.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_3.png)
+![Amazon Textract Custom Queries page for my-test-adapter showing steps to create dataset, queries, verify documents, train adapter, check performance metrics, and improve adapter.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_3.png)
 
 1. In the **Dataset configuration** section, choose either **Manual split** or **Autosplit**. With manual split, you can specify individual images as part of your training and testing datasets. If you choose Autosplit, it will define your training and testing sets automatically when you upload all of your images. Manual split is recommended for people who are training adapters for the first time. For now, choose **Autosplit**.   
-![Interface showing options to create a dataset for Amazon Textract - either Manual split to provide train and test sets yourself, or Autosplit to let Textract automatically split into training and test sets. Import documents from S3 bucket or local files.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_4.png)
+![Interface showing options to create a dataset for Amazon Textract - either Manual split to provide train and test sets yourself, or Autosplit to let Amazon Textract automatically split into training and test sets. Import documents from S3 bucket or local files.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_4.png)
 
 1. In the Training dataset details section, you can choose **Upload documents from your computer** or **Import documents from S3 bucket**. If you choose to import your documents from an Amazon S3 bucket, provide the path to the bucket and folder that contains your training images. If you upload your documents directly from your computer, note that you can only upload 30 documents at one time. For the purposes of this tutorial, choose Upload documents from your computer.
 
@@ -84,26 +83,26 @@ In this step, you assign Queries and labels to each document you uploaded to you
  To assign queries and answers to your documents:
 
 1. Select Create queries from the Adapter landing page.   
-![To auto-annotate documents, create queries for use by Textract's pre-trained model by selecting "Create queries" button.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_5-CreateQueries.png)
+![To auto-annotate documents, create queries for use by Amazon Textract's pre-trained model by selecting "Create queries" button.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_5-CreateQueries.png)
 
 1. Add a query by entering it in the text box.   
-![Interface for creating queries on Amazon Textract, with a text box to "Specify queries that Textract can use to extract the information you need." The example query shown is "What is the check amount?"](https://docs.aws.amazon.com/textract/latest/dg/images/proteus-ImageCreateQueries.jpg)
+![Interface for creating queries on Amazon Textract, with a text box to "Specify queries that Amazon Textract can use to extract the information you need." The example query shown is "What is the check amount?"](https://docs.aws.amazon.com/textract/latest/dg/images/proteus-ImageCreateQueries.jpg)
 
-1. To add more queries, choose Add new query. Queries can have a 'raw text' response or a 'binary - Yes/No' response. To created a query with a binary response use the advanced setting.  
+1. To add more queries, choose Add new query. Queries can have a "raw text" response or a "binary - Yes/No" response. To create a query with a binary response, use the advanced setting.  
 ![Interface for creating text extraction queries on document files. Allows specifying raw text or binary (yes/no) response types for each query prompt. Interface has fields for entering query text, selecting response type, and adding new queries.](https://docs.aws.amazon.com/textract/latest/dg/images/proteus-ImageCreateQueriesYesNo.jpg)
 
 1. After creating your queries, you must assign labels to your documents. To set labels for your documents, select **Auto-labeling** or **Manual labeling**. Auto-labeling is recommended for your first time training the adapter. Select the **Auto-labelling** option, and then choose Start auto-labeling.   
 ![Auto-labeling option selected with Recommended badge and Start auto-labeling button.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_6-Choose%20labelling%20type.png)
 
-1. The auto-labeling process will take some time to complete. When it's done, you're notified that “Auto-labeling is now completed.” After the labeling process is complete, you must verify the accuracy of the labeling. Select **Verify documents** in the Adapter details panel on the Details page, and then choose **Start reviewing** from the Dataset page.  
+1. The auto-labeling process will take some time to complete. When it's done, you're notified that "Auto-labeling is now completed." After the labeling process is complete, you must verify the accuracy of the labeling. Select **Verify documents** in the Adapter details panel on the Details page, and then choose **Start reviewing** from the Dataset page.  
 ![Overview of dataset split showing 16 total documents, with 10 in the training set and 6 in the test set. No invalid files. Status indicates dataset is ready for review.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image_7-StartReviewing.png)
 
-1. In the annotation tool, you can select individual documents and view individual pages within those documents. Under the “Review responses” section, select a query that was assigned to your document page. If the answer to the query is incorrect, you can edit the response by clicking the **Edit** button for the query.   
+1. In the annotation tool, you can select individual documents and view individual pages within those documents. Under the "Review responses" section, select a query that was assigned to your document page. If the answer to the query is incorrect, you can edit the response by clicking the **Edit** button for the query.   
 ![Review responses screen showing example customer name John Doe and prompt to enter amortization type. Includes Apply and Cancel buttons.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image7_EditAnnotations.png)
 
    For queries with Yes/No answers, select Yes, No, or Empty. Then, choose **Apply**. 
 
-   When editing the OCR for the label assigned to a query, choose the provided response and then draw a bounding box around part of the document image. To do so, use the “B” shortcut key or the bounding box tool on the tool bar at the bottom of the annotation tool. Then, choose **Apply**. 
+   When editing the OCR for the label assigned to a query, choose the provided response and then draw a bounding box around part of the document image. To do so, use the "B" shortcut key or the bounding box tool on the tool bar at the bottom of the annotation tool. Then, choose **Apply**. 
 
    If a query should have more than one response element (answer), you can add additional responses. To do so, select the query and then choose **Add a response**. You are then prompted to draw a bounding box on the area of the document that has the answer. Confirm that the label for your bounding box is correct. 
 
@@ -126,13 +125,13 @@ To train the adapter:
 1. Start by clicking **Train adapter** on the Dataset management page.   
 ![Notification indicating you have enough documents in your dataset to train an adapter, with a "Train adapter" button.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image9_TrainButton.png)
 
-1. While initiating the training process, you can specify an Amazon S3 bucket that will contain the output of your adapter training job. If you specify an Amazon S3 bucket location that doesn’t exist yet, the bucket path will be created for you. You can also add tags to your adapter to track it, and customize your encryption settings. Customize the adapter training to fit your needs and then choose **Train Adapter**. 
+1. While initiating the training process, you can specify an Amazon S3 bucket that will contain the output of your adapter training job. If you specify an Amazon S3 bucket location that doesn't exist yet, the bucket path will be created for you. You can also add tags to your adapter to track it, and customize your encryption settings. Customize the adapter training to fit your needs and then choose **Train Adapter**. 
 
 1. On the following page, choose **Train Adapter** to confirm that you want to start the training process. This will create your first version of your adapter.
 
 After the training process starts, you can monitor the training process status on the Adapter landing page. 
 
-You're notified when the training process completes. Then, you can evaluate the adapter’s performance by inspecting metrics. 
+You're notified when the training process completes. Then, you can evaluate the adapter's performance by inspecting metrics. 
 
 ## Evaluating adapter performance
 <a name="textract-adapters-tutorial-metrics"></a>
@@ -142,25 +141,25 @@ To evaluate model performance, use the left navigation pane to select the adapte
 ![Adapter performance metrics showing F1 score, Precision, and Recall all at 94.4 percent.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image10_Evaluating%20adapter%20performance.png)
 
 
-By examining your adapter’s metrics, you can determine how your adapter is performing on the documents in your dataset and the queries you have defined. You can see the F1 Score, Precision, and Recall for your adapter across different elements of the training data: queries, documents, and pages. To switch between performance for these elements, choose the different tabs below the metrics display pane. 
+By examining your adapter's metrics, you can determine how your adapter is performing on the documents in your dataset and the queries you have defined. You can see the F1 Score, Precision, and Recall for your adapter across different elements of the training data: queries, documents, and pages. To switch between performance for these elements, choose the different tabs below the metrics display pane. 
 
 You can also view baseline metrics at any time by toggling the **Switch to baseline metrics** switch. 
 
-The summary of your adapter version’s performance also contains some tips on how to improve your adapter’s performance. You can review these tips at any time to improve your adapter. For more information about how to manage and improve your adapter, see [Evaluating and improving your adapters](textract-evaluating-improving-adapters.md). 
+The summary of your adapter version's performance also contains some tips on how to improve your adapter's performance. You can review these tips at any time to improve your adapter. For more information about how to manage and improve your adapter, see [Evaluating and improving your adapters](textract-evaluating-improving-adapters.md). 
 
 To demo your adapter and see its performance on a document:
 
 1.  Choose **Try Adapter**.   
 ![Try Adapter button and Ver. 1 dropdown menu.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image11_try%20adapter.png)
 
-1. On the **Try adapter** page, you can choose a document to analyze with your adapter. Select the **Choose document** button and browse to the document’s location on your device. Alternatively, drag and drop the document into the **Upload a document** pane.
+1. On the **Try Adapter** page, you can choose a document to analyze with your adapter. Select the **Choose document** button and browse to the document's location on your device. Alternatively, drag and drop the document into the **Upload a document** pane.
 
-After uploading a document, the Try Adapter page will update to display the results of the adapter’s analysis, including queries, query answers, and confidence levels. If you are satisfied with your adapter’s performance you can proceed to inference, using your adapter in a call to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) or [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) . Otherwise, you can improve your adapter’s performance by retraining your adapter with additional documents. 
+After uploading a document, the Try Adapter page will update to display the results of the adapter's analysis, including queries, query answers, and confidence levels. If you are satisfied with your adapter's performance you can proceed to inference, using your adapter in a call to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) or [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html). Otherwise, you can improve your adapter's performance by retraining your adapter with additional documents. 
 
 ## Improving an adapter
 <a name="textract-adapters-tutorial-improving"></a>
 
-To improve your adapter’s performance:
+To improve your adapter's performance:
 
 1. Choose **Modify the dataset** on the Adapter details page.   
 ![Workflow diagram showing steps to create, verify, train, and improve a custom dataset for text extraction: 1. Create dataset, 2. Create queries, 3. Verify documents, 4. Train adapter, 5. Check performance metrics, 6. Improve adapter.](https://docs.aws.amazon.com/textract/latest/dg/images/TP-Image12_improveadapter.png)
@@ -182,11 +181,9 @@ After creating an adapter, you are provided with an ID for your custom adapter. 
 
 Providing the Adapter ID automatically integrates the adapter into the analysis process and uses it to enhance predictions for your documents. This way, you can leverage the capabilities of AnalyzeDocument while customizing it to fit your needs. 
 
-For an example of how to run inference using your adapter and the AnalyzeDocument API operation, see [Analyzing Document Text with Amazon Textract](analyzing-document-text.md).
+For an example of how to run inference using your adapter and the AnalyzeDocument API operation, see [Analyzing document text with Amazon Textract Core](analyzing-document-text.md).
 
 When multiple adapters must be applied to different pages in the same document, you can specify one or more adapter(s) and their respective adapter versions as part of the API request. You can use the Page parameter to specify which pages to apply an adapter to.
-
-Note the following:
 
 This is similar to how the `Page` parameter for Queries works. Note the following:
 + If a page is not specified, it is set to `["1"]` by default.

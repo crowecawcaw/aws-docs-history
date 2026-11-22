@@ -1,12 +1,11 @@
 
 
-# Extracting and Sending Text to AWS Comprehend for Analysis
-<a name="textract-to-comprehend"></a>
+# Extracting and sending text to Amazon Comprehend for analysis
 
-Amazon Textract lets you include document text detection and analysis in your applications. With Amazon Textract you can extract text from a variety of different document types using both synchronous and asynchronous document processing. The extracted text can then be saved to a file or database, or sent to another AWS service for further processing. 
+Amazon Textract Core lets you include document text detection and analysis in your applications. With Amazon Textract Core you can extract text from a variety of different document types using both synchronous and asynchronous document processing. The extracted text can then be saved to a file or database, or sent to another AWS service for further processing. 
 
-In this tutorial you carry out a common end-to-end workflow. This workflow involves:
-+ Processing numerous input documents with Amazon Textract
+In this tutorial, you carry out a common end-to-end workflow. This workflow involves:
++ Processing numerous input documents with Amazon Textract Core
 + Providing the extracted text to Amazon Comprehend for analysis
 + Saving both the analyzed text and the analysis data to an Amazon Simple Storage Service (S3) bucket
 
@@ -15,26 +14,26 @@ You use the [AWS SDK for Python](https://aws.amazon.com/sdk-for-python/) for thi
 ## Prerequisites
 <a name="tutorial-prerequisites"></a>
 
-Before you begin this tutorial, you’ll need to install Python and complete the steps required to [set up the Python AWS SDK](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html). Beyond this, ensure that you have:
+Before you begin this tutorial, you'll need to install Python and complete the steps required to [set up the Python AWS SDK](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html). Beyond this, ensure that you have:
 + [Created an AWS account and an IAM role](https://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html)
 + [Properly configured your AWS access credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
 + [Created an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)
-+ [ Configured Amazon Textract for Asynchronous processing](https://docs.aws.amazon.com/en_us/textract/latest/dg/api-async-roles.html), copying down the Amazon Resource Number (ARN) of the IAM role you configured for use with Amazon Textract
++ [ Configured Amazon Textract Core for Asynchronous processing](https://docs.aws.amazon.com/en_us/textract/latest/dg/api-async-roles.html), copying down the Amazon Resource Name (ARN) of the IAM role you configured for use with Amazon Textract Core
 + [Granted your IAM role access to Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/security-iam.html#security_iam_access-manage) 
-+ Selected a few documents for the purposes of text extraction/analysis and uploaded the document to Amazon S3. Ensure that the files you select for analysis are of the formats supported by Amazon Textract.
++ Selected a few documents for the purposes of text extraction/analysis and uploaded the document to Amazon S3. Ensure that the files you select for analysis are of the formats supported by Amazon Textract Core.
 
-## Starting Asynchronous Document Text Detection
+## Starting asynchronous document text detection
 <a name="tutorial-step-1"></a>
 
-You can extract the text from your documents and then analyze the extracted text with a service like Amazon Comprehend. Textract supports the extraction of text from multipage documents through asynchronous operations, which are for processing large, multipage documents. Processing a PDF file asynchronously allows your application to complete other tasks while it waits for the process to complete. This section will demonstrate how to import your documents from an Amazon S3 bucket and provide them to Textract’s asynchronous text detection operation. 
+You can extract the text from your documents and then analyze the extracted text with a service like Amazon Comprehend. Amazon Textract Core supports the extraction of text from multipage documents through asynchronous operations, which are for processing large, multipage documents. Processing a PDF file asynchronously allows your application to complete other tasks while it waits for the process to complete. This section will demonstrate how to import your documents from an Amazon S3 bucket and provide them to Amazon Textract Core's asynchronous text detection operation. 
 
-This tutorial assumes that you will be using Amazon S3 to store the files you want to extract text from. You’ll start by creating a class and functions that detect the text in your input documents. Your application will need to connect to the Textract client, as well as the Amazon SQS and Amazon SNS clients for the purposes of monitoring the completion status of the asynchronous job.
+This tutorial assumes that you will be using Amazon S3 to store the files you want to extract text from. You'll start by creating a class and functions that detect the text in your input documents. Your application will need to connect to the Amazon Textract Core client, as well as the Amazon SQS and Amazon SNS clients for the purposes of monitoring the completion status of the asynchronous job.
 
 1. Start by writing the code to create an Amazon SNS topic and Amazon SQS queue.
 
    The following code sample creates a `DocumentProcessor` class that connects to the three required services and then creates both an Amazon SQS queue and Amazon SNS topic. The Amazon SNS topic is used to provide information about the job completion status to an Amazon SQS queue, which will be polled to obtain the completion status of a job. There are also methods to delete the Amazon SQS queue and Amazon SNS topic once the job has been completed and the resources are no longer needed.
 
-   ```
+   ```python
    import boto3
    import json
    import sys
@@ -131,14 +130,14 @@ This tutorial assumes that you will be using Amazon S3 to store the files you wa
 
    The following code creates the `ProcessDocument` and `GetResults` methods that call `StartDocumentTextDetection` and gets the extracted text, respectively.
 
-   ```
+   ```python
        def ProcessDocument(self):
        
                # Checks if job found
                jobFound = False
        
                # Starts the text detection operation on the documents in the provided bucket
-               # Sends status to supplied SNS topic arn
+               # Sends status to supplied SNS topic ARN
                response = self.textract.start_document_text_detection(
                        DocumentLocation={'S3Object': {'Bucket': self.bucket, 'Name': self.document}},
                        NotificationChannel={'RoleArn': self.roleArn, 'SNSTopicArn': self.snsTopicArn})
@@ -178,7 +177,7 @@ This tutorial assumes that you will be using Amazon S3 to store the files you wa
                            else:
                                print("Job didn't match:" +
                                    str(textMessage['JobId']) + ' : ' + str(response['JobId']))
-                           # Delete the unknown message. Consider sending to dead letter queue
+                           # Delete the unknown message. Consider sending to dead-letter queue
                            self.sqs.delete_message(QueueUrl=self.sqsQueueUrl,
                                                    ReceiptHandle=message['ReceiptHandle'])
        
@@ -224,13 +223,13 @@ This tutorial assumes that you will be using Amazon S3 to store the files you wa
 
    You use this file in the next section to handle the detection of text in your input documents.
 
-## Processing Your Documents and Sending the Text to Comprehend
+## Processing your documents and sending the text to Amazon Comprehend
 <a name="tutorial-step-2"></a>
 
-Your application will use the class you created in the proceeding section to:
-+ read documents from your Amazon S3 bucket
-+ extract the text in those documents
-+ send the text to Amazon Comprehend for analysis
+Your application will use the class you created in the preceding section to:
++ Read documents from your Amazon S3 bucket
++ Extract the text in those documents
++ Send the text to Amazon Comprehend for analysis
 
 You start by creating some functions that utilize Amazon Comprehend to analyze the text detected in your input documents. A common type of text analysis is sentiment analysis, which aims to capture the affect of a statement (whether it is positive, negative, or neutral). You can also carry out entity detection and key phrase detection on the data.
 
@@ -238,7 +237,7 @@ The code below takes in the detected text and invokes the `BatchDetectSentiment`
 
 1. Write the code to carry out sentiment analysis on your detected text.
 
-   ```
+   ```python
    from detectFileAsync import DocumentProcessor
    import boto3
    import pandas as pd
@@ -258,7 +257,7 @@ The code below takes in the detected text and invokes the `BatchDetectSentiment`
        neutral_score = []
        mixed_score = []
    
-       # for all results add the Sentiment label and sentiment scores to lists
+       # For all results add the Sentiment label and sentiment scores to lists
        for res in detect_sent_response['ResultList']:
            sentiments.append(res['Sentiment'])
            print(res['SentimentScore'])
@@ -276,11 +275,11 @@ The code below takes in the detected text and invokes the `BatchDetectSentiment`
        return sentiments, pos_score, neg_score, neutral_score, mixed_score
    ```
 
-   You may also want to perform other analysis operations, such as entity detection or key phrase detection, on your detected text. You can write the functions to carry out these analysis operations on your text, just like you did for the proceeding sentiment analysis operation.
+   You may also want to perform other analysis operations, such as entity detection or key phrase detection, on your detected text. You can write the functions to carry out these analysis operations on your text, just like you did for the preceding sentiment analysis operation.
 
 1. Write the code to carry out entity detection on your detected text.
 
-   ```
+   ```python
    # detect entities
    def entity_detection(detected_text, lang):
    
@@ -314,7 +313,7 @@ The code below takes in the detected text and invokes the `BatchDetectSentiment`
 
 1.  Write the code to carry out key phrase detection on your detected text.
 
-   ```
+   ```python
    # Detect key phrases
    def key_phrases_detection(detected_text, lang):
    
@@ -335,15 +334,15 @@ The code below takes in the detected text and invokes the `BatchDetectSentiment`
        return key_phrases
    ```
 
-   You need to create a function that invokes all of the code you’ve created so far. The function will use the `DocumentProcessor` class you created in your `DetectAnalyzeFileAsync.py` file, and then save the detected text to a variable for input into the three functions utilizing Amazon Comprehend that you previously wrote. The function will also need to construct a Pandas dataframe, into which the detected text and analysis data will be inserted. Finally, the Pandas dataframe will be saved as a CSV file.
+   You need to create a function that invokes all of the code you've created so far. The function will use the `DocumentProcessor` class you created in your *DetectAnalyzeFileAsync.py* file, and then save the detected text to a variable for input into the three functions utilizing Amazon Comprehend that you previously wrote. The function will also need to construct a Pandas dataframe, into which the detected text and analysis data will be inserted. Finally, the Pandas dataframe will be saved as a CSV file.
 
-1. Write the code to process your input documents with Textract and pass the detected text to Comprehend.
+1. Write the code to process your input documents with Amazon Textract Core and pass the detected text to Amazon Comprehend.
 
-   ```
+   ```python
    def process_document(roleArn, bucket, document, region_name):
    
-       # Create analyzer class from DocumentProcessor, create a topic and queue, use Textract to get text,
-       # then delete topica and queue
+       # Create analyzer class from DocumentProcessor, create a topic and queue, use Amazon Textract Core to get text,
+       # then delete topic and queue
        analyzer = DocumentProcessor(roleArn, bucket, document, region_name)
        analyzer.CreateTopicandQueue()
        extracted_text = analyzer.ProcessDocument()
@@ -430,9 +429,9 @@ The code below takes in the detected text and invokes the `BatchDetectSentiment`
        return extracted_text, analysis_results
    ```
 
-1. Write the code to process your documents and upload the resulting data to S3. In the code sample below, replace the value of `roleArn` with the ARN of the role you configured for use with Amazon Textract. Replace the value of `region_name` with the region your account is operating in. Finally, replace the value `bucket_name` with the name of the S3 bucket containing your documents.
+1. Write the code to process your documents and upload the resulting data to S3. In the code sample below, replace the value of `roleArn` with the ARN of the role you configured for use with Amazon Textract Core. Replace the value of `region_name` with the region your account is operating in. Finally, replace the value `bucket_name` with the name of the S3 bucket containing your documents.
 
-   ```
+   ```python
    def main():
    
        # Initialize S3 client and set RoleArn, region name, and bucket name
@@ -471,6 +470,6 @@ The code below takes in the detected text and invokes the `BatchDetectSentiment`
        main()
    ```
 
-1. Put the proceeding code in the section into a Python file and run it. 
+1. Put the preceding code in the section into a Python file and run it. 
 
-You have successfully extracted text using Amazon Textract, sent the text to Amazon Comprehend for analysis, and then saved the results in a Amazon S3 bucket.
+You have successfully extracted text using Amazon Textract Core, sent the text to Amazon Comprehend for analysis, and saved the results in an Amazon S3 bucket.

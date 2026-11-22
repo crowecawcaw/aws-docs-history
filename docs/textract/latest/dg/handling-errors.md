@@ -1,38 +1,37 @@
 
 
-# Handling Connection Errors
-<a name="handling-errors"></a>
+# Handling connection errors
 
-An Amazon Textract operation can fail if you exceed the maximum number of transactions per second (TPS), causing the service to throttle your application, or when your connection drops. For example, if you make too many calls to Amazon Textract operations in a short period of time, it throttles your calls and sends a `ProvisionedThroughputExceededException` error in the operation response. For information about Amazon Textract TPS quotas, see [Amazon Textract Quotas](https://docs.aws.amazon.com/general/latest/gr/textract.html). To change a limit, you can access the Amazon Textract option in the Service Quotas console.
+An Amazon Textract Core operation can fail if you exceed the maximum number of transactions per second (TPS), causing the service to throttle your application, or when your connection drops. For example, if you make too many calls to Amazon Textract Core operations in a short period of time, it throttles your calls and sends a `ProvisionedThroughputExceededException` error in the operation response. For information about Amazon Textract Core TPS quotas, see [Amazon Textract Quotas](https://docs.aws.amazon.com/general/latest/gr/textract.html). To change a limit, you can access the Amazon Textract Core option in the Service Quotas console.
 
-You can manage throttling and dropped connections by automatically retrying the operation. You can specify the number of retries by including the `Config` parameter when you create the Amazon Textract client. We recommend a retry count of 5. The AWS SDK retries an operation the specified number of times before failing and throwing an exception. For more information, see [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html).
+You can manage throttling and dropped connections by automatically retrying the operation. You can specify the number of retries by including the `Config` parameter when you create the Amazon Textract Core client. A retry count of 5 is recommended. The AWS SDK retries an operation the specified number of times before failing and throwing an exception. For more information, see [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html).
 
 **Note**  
-Automatic retries work for both synchronous and asynchronous operations. Before specifying automatic retries, make sure you have the most recent version of the AWS SDK. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
+Automatic retries work for both synchronous and asynchronous operations. Before specifying automatic retries, make sure you have the most recent version of the AWS SDK. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
-The following example shows how to automatically retry Amazon Textract operations when you're processing multiple documents. 
+The following example shows how to automatically retry Amazon Textract Core operations when you're processing multiple documents. 
 
 **Prerequisites**
 + If you haven't already:
 
-  1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set Up an AWS Account and Create a User](setting-up.md).
+  1. Give a user the `AmazonTextractFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set up an AWS account and create a user](setting-up.md).
 
-  1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
+  1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
 **To automatically retry operations**
 
-1. Upload multiple document images to your S3 bucket to run the Synchronous example. Upload a multi-page document to your S3 bucket and run `StartDocumentTextDetection` on it to run the Asynchronous example.
+1. Upload multiple document images to your S3 bucket to run the synchronous example. Upload a multipage document to your S3 bucket and run `StartDocumentTextDetection` on it to run the asynchronous example.
 
    For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*.
 
-1. The following examples demonstrate how to use the `Config` parameter to automatically retry an operation. The Synchronous example calls the `DetectDocumentText` operation, while the Asynchronous example calls the `GetDocumentTextDetection` operation. 
+1. The following examples demonstrate how to use the `Config` parameter to automatically retry an operation. The synchronous example calls the `DetectDocumentText` operation, while the asynchronous example calls the `GetDocumentTextDetection` operation. 
 
 ------
 #### [ Sync Example ]
 
-   Use the following examples to call the `DetectDocumentText` operation on the documents in your Amazon S3 bucket. In `main`, change the value of `bucket` to your S3 bucket. Change the value of `documents` to the names of the document images that you uploaded in step 2.
+   Use the following example to call the `DetectDocumentText` operation on the documents in your Amazon S3 bucket. In `main`, change the value of `bucket` to your S3 bucket. Change the value of `documents` to the names of the document images that you uploaded in step 2.
 
-   ```
+   ```python
    import boto3
    from botocore.client import Config
    # Documents
@@ -79,9 +78,9 @@ The following example shows how to automatically retry Amazon Textract operation
 ------
 #### [ Async Example ]
 
-   Use the following examples to call the `GetDocumentTextDetection` operation. It assumes you have already called `StartDocumentTextDetection` on the documents in your Amazon S3 bucket and obtained a `JobId`. In `main`, change the value of `bucket` to your S3 bucket and the value of `roleArn` to the Arn assigned to your Textract role. You'll also need to change the value of `document` to the name of your multi-page document in your Amazon S3 bucket. Finally, replace the value of `region_name` with the name of your region and provide the `GetResults` function with the name of your `jobId`.
+   Use the following example to call the `GetDocumentTextDetection` operation. It assumes you have already called `StartDocumentTextDetection` on the documents in your Amazon S3 bucket and obtained a `JobId`. In `main`, change the value of `bucket` to your S3 bucket and the value of `roleArn` to the ARN assigned to your Amazon Textract Core role. You'll also need to change the value of `document` to the name of your multipage document in your Amazon S3 bucket. Finally, replace the value of `region_name` with the name of your AWS Region and provide the `GetResults` function with the name of your `jobId`.
 
-   ```
+   ```python
    import boto3
    from botocore.client import Config
    

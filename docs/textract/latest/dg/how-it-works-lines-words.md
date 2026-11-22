@@ -1,21 +1,20 @@
 
 
-# Lines and Words of Text
-<a name="how-it-works-lines-words"></a>
+# Lines and words of text
 
-Detected text that's returned by Amazon Textract operations is returned in a list of [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects. These objects represent lines of text or textual words that are detected on a document page. The following text shows two lines of text that are made from multiple words.
+Detected text that's returned by Amazon Textract Core operations is returned in a list of [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects. These objects represent lines of text or textual words that are detected on a document page. The following text shows two lines of text that are made from multiple words.
 
-This is text.
+*This is text.*
 
-In two separate lines.
+*In two separate lines.*
 
 Detected text is returned in the `Text` field of a `Block` object. The `BlockType` field determines if the text is a line of text (LINE) or a word (WORD). A *WORD* is one or more ISO basic Latin script characters that aren't separated by spaces. A *LINE* is a string of tab-delimited and contiguous words.
 
- Additionally, Amazon Textract will determine if a piece of text was handwritten or printed using the `TextTypes` field. These return as HANDWRITING and PRINTED respectively. 
+ Additionally, Amazon Textract Core will determine if a piece of text was handwritten or printed using the `TextType` field. These return as HANDWRITING and PRINTED respectively. 
 
-The other `Block` properties are common to all block types, such as the ID, confidence, and geometry information. For more information, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md). 
+The other `Block` properties are common to all block types, such as the ID, confidence, and geometry information. For more information, see [Text detection and document analysis response objects](how-it-works-document-layout.md). 
 
-To detect only lines and words, you can use [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) or [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentTextDetection.html). For more information, see [Detecting Text](how-it-works-detecting.md). To get the detected text (lines and words) and information about how it relates to other parts of the document, such as tables, you can use [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) or [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html). For more information, see [Analyzing Documents](how-it-works-analyzing.md).
+To detect only lines and words, you can use [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) or [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentTextDetection.html). For more information, see [Detecting text](how-it-works-detecting.md). To get the detected text (lines and words) and information about how it relates to other parts of the document, such as tables, you can use [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) or [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html). For more information, see [Analyzing documents](how-it-works-analyzing.md).
 
 `PAGE`, `LINE`, and `WORD` blocks are related to each other in a parent-to-child relationship. A `PAGE` block is the parent for all `LINE` block objects on a document page. Because a LINE can have one or more words, the `Relationships` array for a LINE block stores the IDs for child WORD blocks that make up the line of text. 
 

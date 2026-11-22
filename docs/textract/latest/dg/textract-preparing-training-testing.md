@@ -1,23 +1,22 @@
 
 
 # Preparing training and testing datasets
-<a name="textract-preparing-training-testing"></a>
 
-**Training and Testing Datasets**  
+**Training and testing datasets**  
 The training dataset is the basis for creating an adapter. You must provide an annotated training dataset to train an adapter. This training dataset consists of user uploaded document pages, queries, and annotated query answers. The model learns from this dataset to improve its performance on the type of documents you provide.
 
-The testing dataset is used to evaluate the adapter’s performance. The testing dataset is created by using a slice of the original dataset that the model hasn’t seen before. This process assesses the adapter’s performance with new data, creating accurate measurements and metrics. 
+The testing dataset is used to evaluate the adapter's performance. The testing dataset is created by using a slice of the original dataset that the model hasn't seen before. This process assesses the adapter's performance with new data, creating accurate measurements and metrics. 
 
 You must divide all of your documents into training and test sets. The training set is used to train the adapter. The adapter learns the patterns contained in these annotated documents. The test set is used to evaluate the adapter performance. If you upload fewer than 20 documents, split them equally between train and test. If you upload more than 20 documents, assign 70% of data to training and 30% to testing. When splitting documents in the AWS Management Console, you can let Amazon Textract automatically split your documents. Alternatively, you can manually divide your documents into training and testing sets. 
 
 **Dataset components**  
-Datasets contain the four following components, which you must prepare yourself or by using the AWS Management Console: 
+Datasets contain the four following components, which you must prepare yourself or by using the [Amazon Textract console](https://console.aws.amazon.com/textract/): 
 + Images - Images can be JPEG, PNG, 1-page PDF, or 1-page TIFF. If you are submitting multipage documents, the AWS Management Console will visualize each page separately for annotation.
-+ Annotation file - The annotation file follows the Amazon Textract Block structure, though it contains only QUERY and QUERY\_RESULT blocks.
-+ Prelabeling files - This is the Block structure from the Amazon Textract current API response, pulled from the result of either the [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) or [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) operations. If you have already called Amazon Textract before and stored the result of the operation, you can provide the references to those results. Amazon Textract accepts multiple prelabeling files in case your document page has multiple response files exported from an asynchronous API.
++ Annotation file - The annotation file follows the Amazon Textract Core Block structure, though it contains only QUERY and QUERY\_RESULT blocks.
++ Prelabeling files - This is the Block structure from the Amazon Textract Core current API response, pulled from the result of either the [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) or [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) operations. If you have already called Amazon Textract Core before and stored the result of the operation, you can provide the references to those results. Amazon Textract Core accepts multiple prelabeling files in case your document page has multiple response files exported from an asynchronous API.
 + Manifest file - A JSONL-based file where each line points to an annotation file, the prelabeling file, or an image or single-page PDF. Refer to this manifest file format when structuring your manifest file. 
 
-Manifest files are contain one or more JSON lines, with each line containing information for a single image. What follows is a single line in a manifest file:
+Manifest files contain one or more JSON lines, with each line containing information for a single image. What follows is a single line in a manifest file:
 
 ```
 {
@@ -44,26 +43,26 @@ Manifest files are contain one or more JSON lines, with each line containing inf
  Note that the manifest file contains the following info: 
 +  **source-ref: ** (Required) The Amazon S3 location of the image or single page file. The format is "s3://BUCKET/OBJECT\_PATH". 
 +  **source-ref-version: ** (Optional) The Amazon S3 object version of the image or single page file. 
-+  **source-ref-metadata: ** (Optional) Metadata about the **source-ref** when this image of single page file should is part of a multipage document. This information is helpful when you want to evaluate the adapter on multipage documents. When not specified, we consider each **source-ref** as a standalone document. 
-+  *origin-ref: * (Required) The Amazon S3 location to the original multipage document. 
-+  *page-number: * (Required) Page number of the **source-ref** in the original document. 
-+  **annotations-ref: ** (Required) The Amazon S3 location of the customer performed annotations on the image. The format is "s3://BUCKET/OBJECT\_PATH". 
-+  **annotations-ref-metadata: ** (Required) Metadata about the annotations attribute. Holds prelabeling references, along with assignment type of the manifest line item, and if to include/exclude the document from training. 
-+  *prelabeling-refs: * (Required) An list of files from the Amazon Textract asynchronous API response of the source-ref file. Each file in prelabeling-refs should contain a Block property, with at most of 1000 blocks. 
-+  *prelabeling-ref * (Required) The Amazon S3 location of the automatic annotations on the image using the Amazon Textract API. 
-+  *prelabeling-ref-version * (Optional) The Amazon S3 object version of the prelabeling file. 
-+  *assignment: * (Required) Specify "TRAINING" if the image belongs to the training dataset. Otherwise, use "TESTING". 
-+  *include: * (Required) Specify true to include the line item for training. Otherwise, use false. 
++  **source-ref-metadata: ** (Optional) Metadata about the **source-ref** when this image or single page file is part of a multipage document. This information is helpful when you want to evaluate the adapter on multipage documents. When not specified, we consider each **source-ref** as a standalone document. 
++  **origin-ref: ** (Required) The Amazon S3 location to the original multipage document. 
++  **page-number: ** (Required) Page number of the **source-ref** in the original document. 
++  **annotations-ref: ** (Required) The Amazon S3 location of the annotations you performed on the image. The format is "s3://BUCKET/OBJECT\_PATH". 
++  **annotations-ref-metadata: ** (Required) Metadata about the annotations attribute. Holds prelabeling references, along with assignment type of the manifest line item, and whether to include/exclude the document from training. 
++  **prelabeling-refs: ** (Required) A list of files from the Amazon Textract Core asynchronous API response of the source-ref file. Each file in prelabeling-refs should contain a Block property, with at most 1,000 blocks. 
++  **prelabeling-ref ** (Required) The Amazon S3 location of the automatic annotations on the image using the Amazon Textract Core API. 
++  **prelabeling-ref-version ** (Optional) The Amazon S3 object version of the prelabeling file. 
++  **assignment: ** (Required) Specify "TRAINING" if the image belongs to the training dataset. Otherwise, use "TESTING". 
++  **include: ** (Required) Specify true to include the line item for training. Otherwise, use false. 
 +  **schema-version: ** (Optional) Version of the manifest file. The valid value is 1.0. 
 
-For optimal accuracy improvements, see [Best practices for Amazon Textract Custom Queries](best-practices-adapters.md).
+For optimal accuracy improvements, see [Best practices for Amazon Textract Core Custom Queries](best-practices-adapters.md).
 
 **Annotating the documents with queries and responses**  
 When annotating your documents, you can choose to auto-label your documents using the pretrained Queries feature and then edit the labels where needed. Alternatively, you can manually label responses for each of your document queries. 
 
-When manually labeling your documents, Amazon Textract extracts the raw text from the document. After the raw text is extracted, you can use the AWS Management Console annotation interface to create queries for your documents. Link these queries to the relevant answers in your documents to establish a "ground truth" for training. 
+When manually labeling your documents, Amazon Textract Core extracts the raw text from the document. After the raw text is extracted, you can use the AWS Management Console annotation interface to create queries for your documents. Link these queries to the relevant answers in your documents to establish a ground truth for training. 
 
-When auto-labeling your documents, you specify the appropriate queries for your document. When you finish adding queries to your documents, Amazon Textract attempts to extract the proper elements from your documents, generating annotations. You must then verify the accuracy of these annotations, correcting any that are incorrect. By linking queries to answers, you teach the model what information is important in your documents. 
+When auto-labeling your documents, you specify the appropriate queries for your document. When you finish adding queries to your documents, Amazon Textract Core attempts to extract the proper elements from your documents, generating annotations. You must then verify the accuracy of these annotations, correcting any that are incorrect. By linking queries to answers, you teach the model what information is important in your documents. 
 
 When creating queries, consider the types of questions you will have to ask to retrieve the relevant data in your documents. For more information about this response structure, see [Query Response Structures](https://docs.aws.amazon.com/en_us/textract/latest/dg/queryresponse.html). For more information on best practices for queries, see [Best Practices for Queries](https://docs.aws.amazon.com/en_us/textract/latest/dg/bestqueries.html). 
 

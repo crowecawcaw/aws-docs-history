@@ -1,11 +1,10 @@
 
 
-# Exporting Tables into a CSV File
-<a name="examples-export-table-csv"></a>
+# Exporting tables into a CSV file
 
 These Python examples show how to export tables from an image of a document into a comma-separated values (CSV) file.
 
-The example for synchronous document analysis collects table information from a call to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html). The example for asynchronous document analysis makes a call to [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) and then retrives the results from [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) as `Block` objects.
+The example for synchronous document analysis collects table information from a call to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html). The example for asynchronous document analysis makes a call to [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) and then retrieves the results from [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) as `Block` objects.
 
 Table information is returned as [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects from a call to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html). For more information, see [Tables](how-it-works-tables.md). The `Block` objects are stored in a map structure that's used to export the table data into a CSV file. 
 
@@ -24,7 +23,7 @@ In this example, you will use the functions:
 
 1. Save the following example code to a file named *textract\_python\_table\_parser.py*. In the function `get_table_csv_results`, replace `profile-name` with the name of a profile that can assume the role and `region` with the region in which you want to run the code.
 
-   ```
+   ```python
    import webbrowser, os
    import json
    import boto3
@@ -163,19 +162,19 @@ When you run the example, the CSV output is saved in a file named `output.csv`.
 ------
 #### [ Asynchronous ]
 
-In this example, you will use make use of two different scripts. The first script starts the process of asynchronoulsy analyzing documents with `StartDocumentAnalysis` and gets the `Block` information returned by `GetDocumentAnalysis`. The second script takes the returned `Block` information for each page, formats the data as a table, and saves the tables to a CSV file.
+In this example, you will use two different scripts. The first script starts the process of asynchronously analyzing documents with `StartDocumentAnalysis` and gets the `Block` information returned by `GetDocumentAnalysis`. The second script takes the returned `Block` information for each page, formats the data as a table, and saves the tables to a CSV file.
 
 **To export tables into a CSV file**
 
 1. Configure your environment. For more information, see [Prerequisites](examples-blocks.md#examples-prerequisites).
 
-1. Ensure that you have followed the instructions given at see [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md). The process documented on that page enables you to send and receive messages about the completion status of asynchronous jobs.
+1. Ensure that you have followed the instructions given at [Configuring Amazon Textract Core for asynchronous operations](api-async-roles.md). The process documented on that page enables you to send and receive messages about the completion status of asynchronous jobs.
 
-1. In the following code example, replace the value of `roleArn` with the Arn assigned to the role that you created in Step 2. Replace the value of `bucket` with the name of the S3 bucket containing your document. Replace the value of `document` with the name of the document in your S3 bucket. Replace the value of `region_name` with the name of your bucket's region.
+1. In the following code example, replace the value of `roleArn` with the ARN assigned to the role that you created in Step 2. Replace the value of `bucket` with the name of the S3 bucket containing your document. Replace the value of `document` with the name of the document in your S3 bucket. Replace the value of `region_name` with the name of your bucket's region.
 
-   Save the following example code to a file named *start\_doc\_analysis\_for\_table\_extraction.py.*.
+   Save the following example code to a file named *start\_doc\_analysis\_for\_table\_extraction.py*.
 
-   ```
+   ```python
    import boto3
    import time
    
@@ -278,9 +277,9 @@ In this example, you will use make use of two different scripts. The first scrip
 
 1. Run the code. The code will print a JobId. Copy this JobId down.
 
-1.  Wait for your job to finish processing, and after it has finished, copy the following code to a file named *get\_doc\_analysis\_for\_table\_extraction.py*. Replace the value of `jobId` with the Job ID you copied down earlier. Replace the value of `region_name` with the name of the region associated with your Textract role. Replace the value of `file_name` with the name you want to give the output CSV.
+1.  Wait for your job to finish processing, and after it has finished, copy the following code to a file named *get\_doc\_analysis\_for\_table\_extraction.py*. Replace the value of `jobId` with the Job ID you copied down earlier. Replace the value of `region_name` with the name of the region associated with your Amazon Textract role. Replace the value of `file_name` with the name you want to give the output CSV.
 
-   ```
+   ```python
    import boto3
    from pprint import pprint
    
@@ -434,6 +433,6 @@ In this example, you will use make use of two different scripts. The first scrip
 
 1. Run the code.
 
-   After you have obtained you results, be sure to delete the associated SNS and SQS resources, or else you may accrue charges for them.
+   After you have obtained your results, be sure to delete the associated SNS and SQS resources, or you may accrue charges for them.
 
 ------

@@ -1,13 +1,12 @@
 
 
-# Using the Analyze Lending Workflow
-<a name="async-using-lending"></a>
+# Using the Analyze Lending workflow
 
  To detect text in, or analyze multipage lending documents, using the Analyze Lending workflow, you do the following:
 
 1. Create the Amazon SNS topic and the Amazon SQS queue.
 
-1. Subscribe the queue the topic.
+1. Subscribe the queue to the topic.
 
 1. Give the topic permission to send messages to the queue.
 
@@ -15,39 +14,37 @@
 
 1. Get the completion status from the Amazon SQS queue. The example code tracks the job identifier (`JobId`) that's returned by the `Start` operation. The example code only gets the results for matching job identifiers that are read from the completion status. This is important if other applications are using the same queue and topic. For simplicity, the example code deletes jobs that don't match. Consider adding the deleted jobs to an Amazon SQS dead-letter queue for further investigation.
 
-   The results of the StartLendingAnalysis operation can be sent to an Amazon S3 bucket of your choice by using the OutputConfig feature. If you use this feature, you may have to do some additional configuration of your User and Service Role. For information on how to let Amazon Textract send encrypted documents to your Amazon S3 bucket, see [Permissions for Output Configuration](api-async-roles.md#async-output-config).
+   The results of the StartLendingAnalysis operation can be sent to an Amazon S3 bucket of your choice by using the OutputConfig feature. If you use this feature, you may have to do some additional configuration of your User and Service Role. For information on how to let Amazon Textract Core send encrypted documents to your Amazon S3 bucket, see [Permissions for output configuration](api-async-roles.md#async-output-config).
 
 1. Get and display the processing results by calling the `GetLendingAnalysis` operation or the `GetLendingAnalysisSummary` operation.
 
 1. Once you are finished processing documents, be sure to delete the Amazon SNS topic and the Amazon SQS queue. If you need to process additional documents, you can leave the Amazon SNS topic and Amazon SQS queue as they are and reuse them for the other documents.
 
-## Performing Asynchronous Lending Analysis
+## Performing asynchronous lending analysis
 <a name="async-using-lending-analysis"></a>
 
-The example code for this procedure is provided for Python and the AWS CLI. Before you begin, install the appropriate AWS SDK. For more information, see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md). 
+The example code for this procedure is provided for Python and the AWS CLI. Before you begin, install the appropriate AWS SDK. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md). 
 
-1. Configure user access to Amazon Textract, and configure Amazon Textract access to Amazon SNS. For more information, see [Configuring Amazon Textract for Asynchronous Operations](https://docs.aws.amazon.com/en_us/textract/latest/dg/api-async-roles.html). To complete this procedure, you need a multipage document ﬁle in PDF format. You can skip steps 3 – 6 in the configuration instructions, because the example code creates and configures the Amazon SNS topic and Amazon SQS queue. If completing the CLI example, you don't need to set up an SQS queue. 
+1. Configure user access to Amazon Textract Core, and configure Amazon Textract Core access to Amazon SNS. For more information, see [Configuring Amazon Textract Core for asynchronous operations](https://docs.aws.amazon.com/en_us/textract/latest/dg/api-async-roles.html). To complete this procedure, you need a multipage document file in PDF format. You can skip steps 3 – 6 in the configuration instructions, because the example code creates and configures the Amazon SNS topic and Amazon SQS queue. If completing the CLI example, you don't need to set up an SQS queue. 
 
-1. Upload a multipage document file in PDF or TIFF format to your Amazon S3 bucket (you can also process single-page documents in JPEG, PNG, TIFF, or PDF formats). For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.html)in the *Amazon Simple Storage Service User Guide*. 
+1. Upload a multipage document file in PDF or TIFF format to your Amazon S3 bucket (you can also process single-page documents in JPEG, PNG, TIFF, or PDF formats). For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*. 
 
 1. Use the following AWS SDK for Python (Boto3) or AWS CLI code to analyze text in a multipage lending document. In the main function: 
-   + Replace the value of `roleArn` with the IAM role ARN that you saved in [Giving Amazon Textract Access to Your Amazon SNS Topic](https://docs.aws.amazon.com/en_us/textract/latest/dg/api-async-roles.html#api-async-roles-all-topics).
-   + Replace the values of `bucket` and `document` with the bucket and document file name that you previously specified in the proceeding Step 2.
+   + Replace the value of `roleArn` with the IAM role ARN that you saved in [Giving Amazon Textract Core access to your Amazon SNS Topic](https://docs.aws.amazon.com/en_us/textract/latest/dg/api-async-roles.html#api-async-roles-all-topics).
+   + Replace the values of `bucket` and `document` with the bucket and document file name that you previously specified in the preceding step 2.
    + Replace the value of the `type` input parameter of the `ProcessDocument` function with the type of processing that you want to use. For example, use `ProcessType.DETECTION` to detect text, or use `ProcessType.ANALYSIS` to analyze text.
    + For the Python example, replace the value of `region_name` with the region your client is operating in.
 
     For the upcoming AWS CLI example code, do the following: 
-   + When calling the [StartLendingAnalysis](https://docs.aws.amazon.com/en_us/textract/latest/dg/API_StartLendingAnalysis.html) operation, replace the value of `bucket-name` with the name of your S3 bucket, and replace `FileName` with the name of the file you specified in step 2. Specify the region of your bucket by replacing `region-name` with the name of your region. Take note that the CLI example does not make use of SQS.
+   + When calling the [StartLendingAnalysis](https://docs.aws.amazon.com/en_us/textract/latest/dg/API_StartLendingAnalysis.html) operation, replace the value of `bucket-name` with the name of your S3 bucket, and replace `FileName` with the name of the file you specified in step 2. Specify the region of your bucket by replacing `region-name` with the name of your region. Note that the CLI example does not make use of Amazon SQS.
    + When calling the [GetLendingAnalysis](https://docs.aws.amazon.com/en_us/textract/latest/dg/API_GetLendingAnalysis.html) operation or the [GetLendingAnalysisSummary](https://docs.aws.amazon.com/en_us/textract/latest/dg/API_GetLendingAnalysisSummary.html) operation, replace `jobId` with the `jobId` returned by [StartLendingAnalysis](https://docs.aws.amazon.com/en_us/textract/latest/dg/API_StartLendingAnalysis.html). Specify the region of your bucket by replacing `region-name` with the name of your region.
 
-1. Run the code for your chosen SDK or the AWS CLI. 
-
-   The operation might take a while to finish. After it's finished, a list of blocks for detected or analyzed text is displayed by the follwing examples:
+1. Run the code for your chosen SDK or the AWS CLI. The operation might take a while to finish.
 
 ------
 #### [ AWS CLI ]
 
-   To start the lending document analysis use the following CLI command. If you want to see splitted documents, use the `output-config` argument, otherwise you can remove it : 
+   To start the lending document analysis use the following CLI command. If you want to see split documents, use the `output-config` argument; otherwise, you can remove it: 
 
    ```
    aws textract start-lending-analysis \
@@ -77,7 +74,7 @@ The example code for this procedure is provided for Python and the AWS CLI. Befo
 ------
 #### [ Python ]
 
-   ```
+   ```python
    import boto3
    import json
    import sys
@@ -271,3 +268,5 @@ The example code for this procedure is provided for Python and the AWS CLI. Befo
    ```
 
 ------
+
+   After it's finished, a list of Blocks for detected or analyzed text is displayed.

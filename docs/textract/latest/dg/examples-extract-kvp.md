@@ -1,9 +1,8 @@
 
 
-# Extracting Key-Value Pairs from a Form Document
-<a name="examples-extract-kvp"></a>
+# Extracting key-value pairs from a form document
 
-The following Python example shows how to extract key-value pairs in form documents from [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects that are stored in a map. Block objects are returned from a call to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html). For more information, see [Form Data (Key-Value Pairs)](how-it-works-kvp.md).
+The following Python example shows how to extract key-value pairs in form documents from [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects that are stored in a map. Block objects are returned from a call to [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html). For more information, see [Form data (key-value pairs)](how-it-works-kvp.md).
 
 You use the following functions: 
 + `get_kv_map` – Calls [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html), and stores the KEY and VALUE BLOCK objects in a map.
@@ -15,7 +14,7 @@ You use the following functions:
 
 1. Save the following example code to a file named *textract\_python\_kv\_parser.py*. In the function `get_kv_map`, replace `profile-name` with the name of a profile that can assume the role and `region` with the region in which you want to run the code.
 
-   ```
+   ```python
    import boto3
    import sys
    import re

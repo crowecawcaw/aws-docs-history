@@ -1,42 +1,46 @@
 
 
 # What is Amazon Textract?
-<a name="what-is"></a>
 
-Amazon Textract helps you add document text detection and analysis to your applications. Using Amazon Textract, you can do the following:
-+ Detect typed and handwritten text in a variety of documents, including financial reports, medical records, and tax forms.
-+ Extract text, forms, and tables from documents with structured data, using the Amazon Textract Document Analysis API.
-+ Specify and extract information from documents using the Queries feature within the Amazon Textract Analyze Document API.
-+ Process invoices and receipts with the AnalyzeExpense API.
-+ Process ID documents such as drivers licenses and passports issued by U.S. government, using the AnalyzeID API.
-+ Upload and process mortgage loan packages, through automatic routing of the the document pages to the appropriate Amazon Textract analysis operations using the Analyze Lending workflow. You can retrieve analysis results for each document page or you can retrieve summarized results for a set of document pages.
-+ Use Custom Queries to customize the pretrained Queries feature using your data to support your down stream processing needs.
+Amazon Textract is a document analysis service that helps you add document text detection and analysis to your applications. It is available as Amazon Textract Core and Amazon Textract Insights, a generative AI capability. You can use either one, or both together, depending on your needs, without machine learning (ML) expertise, through simple API operations.
 
-Amazon Textract is based on the same proven, highly scalable, deep-learning technology that was developed by Amazon's computer vision scientists to analyze billions of images and videos daily. You don't need any machine learning expertise to use it, as Amazon Textract includes simple, easy-to-use API operations that can analyze image files and PDF files. Amazon Textract is always learning from new data, and Amazon is continually adding new features to the service.
+## Amazon Textract Core
+<a name="textract-core"></a>
 
-The following are common use cases for using Amazon Textract:
-+ **Creating an intelligent search index** – Using Amazon Textract you can create libraries of text that is detected in image and PDF files.
-+ **Using intelligent text extraction for natural language processing (NLP)** – Amazon Textract provides you with control over how text is grouped as an input for NLP applications. It can extract text as words and lines. It also groups text by table cells if Amazon Textract document table analysis is enabled.
-+ **Accelerating the capture and normalization of data from different sources** – Amazon Textract enables text and tabular data extraction from a wide variety of documents, such as financial documents, research reports, and medical notes. With Amazon Textract Analyze Document APIs, you can easily and quickly extract unstructured and structured data from your documents.
-+ **Automating data capture from forms** – Amazon Textract enables structured data to be extracted from forms. With Amazon Textract Analysis APIs, you can build extraction capabilities into existing business workflows so that user data submitted through forms can be extracted into a usable format.
-+ **Automating document classification and extraction** – With Amazon Textract's Analyze Lending document processing API, you can automate the classification of lending documents into various document classes, and then automatically route the classified pages to the correct analysis operation for further processing.
+Amazon Textract Core detects and extracts printed text, handwriting, forms, tables, and layout information from images and scans of documents. It also includes specialized processing for invoices and receipts, identity documents, and mortgage loan packages. It provides a separate API for each task and returns results as building blocks, such as words, lines, and cells, or as a fixed set of fields for supported document types. You can use it synchronously for single-page documents or asynchronously for multi-page documents. For more information about Amazon Textract Core, see [Amazon Textract Core](amazon-textract-core.md).
 
-Some of the benefits of using Amazon Textract include:
-+ **Integration of document text detection into your apps** – Amazon Textract removes the complexity of building text detection capabilities into your applications by making powerful and accurate analysis available with a simple API. You don’t need computer vision or deep learning expertise to use Amazon Textract to detect document text. With Amazon Textract Text APIs, you can easily build text detection into any web, mobile, or connected device application.
-+ **Scalable document analysis** – Amazon Textract enables you to analyze and extract data quickly from millions of documents, which can accelerate decision making.
-+ **Low cost** – With Amazon Textract, you only pay for the documents you analyze. There are no minimum fees or upfront commitments. You can get started for free, and save more as you grow with our tiered pricing model.
+## Amazon Textract Insights
+<a name="textract-insights"></a>
 
-With synchronous processing, Amazon Textract can analyze single-page documents for applications where latency is critical. Amazon Textract also provides asynchronous operations to extend support to multipage documents. 
+Amazon Textract Insights builds on the text and layout extraction from Amazon Textract Core. It uses generative AI to turn unstructured documents into structured data. In a single asynchronous request, it can split a file that contains several documents and match each document to a blueprint. It extracts the fields you define, each with a confidence score and its location on the page. It can also return Markdown, HTML, and plain text for large language model (LLM) and retrieval-augmented generation (RAG) applications. It can generate document summaries and figure captions, and detect and redact personally identifiable information (PII). You can use Amazon Textract Insights in the US East (N. Virginia) and US West (Oregon) AWS Regions. For more information about Amazon Textract Insights, see [Amazon Textract Insights](amazon-textract-insights.md).
 
-Amazon Textract's API operations have quotas that limit how quickly and how often you can use them. If the limit set for your account is frequently exceeded, you can request a limit increase. To change a limit, select the Amazon Textract option in the Service Quotas console. You can use the Quotas Calculator in the Amazon Textract console to determine your quota requirements. To learn more about default quotas that can be changed, see [Information on Default Quotas in Amazon Textract](limits-quotas-explained.md).
+## Choosing between Amazon Textract Core and Amazon Textract Insights
+<a name="choosing-core-insights"></a>
 
-Other quotas, like file size and languages supported by Amazon Textract, cannot be changed. For more information on set quotas, see [Set Quotas in Amazon Textract](limits-document.md).
+Choose Amazon Textract Core if you need synchronous responses, cell-level table detail, every key-value pair on a form, or only the raw text. Choose Amazon Textract Insights if you feed documents into an LLM or RAG pipeline, need specific fields in your own schema, process files that contain several documents, or need to redact personal data. Forms, Queries, and Custom Queries are available in Amazon Textract Core only. For more information about the differences, see [Amazon Textract Insights compared with Amazon Textract Core APIs](insights-compared-core.md).
 
-## First-Time Amazon Textract Users
-<a name="first-time-user"></a>
+**Note**  
+Before you choose Amazon Textract Insights, confirm that it is available in the AWS Region you plan to use. Amazon Textract Insights is currently available only in the US East (N. Virginia) and US West (Oregon) AWS Regions.
 
-If this is your first time using Amazon Textract, we recommend that you read the following sections in order:
+## Common use cases
+<a name="common-use-cases"></a>
 
-1. **[Identifying Your Amazon Textract Use Case](how-it-works.md)** – This section introduces the Amazon Textract components and how they work together for an end-to-end experience. 
+Common use cases for Amazon Textract Core include the following:
++ Creating an intelligent search index from text detected in image and PDF files
++ Extracting text for natural language processing (NLP), grouped as words, lines, or table cells
++ Capturing and normalizing text and tabular data from a wide variety of documents, such as financial documents, research reports, and medical notes
++ Automating data capture from forms
++ Automating the classification and extraction of lending documents
 
-1. **[Getting Started with Amazon Textract](getting-started.md)** – In this section, you set up your account and test the Amazon Textract API.
+Common use cases for Amazon Textract Insights include the following:
++ Splitting, classifying, and extracting data from mixed document packets, such as loan files, claims files, and onboarding packages
++ Turning invoices, tax forms, bank statements, pay stubs, and identity documents into structured records for downstream systems
++ Preparing documents for generative AI and RAG applications
++ Detecting and redacting PII before extracted content reaches downstream systems
+
+## Where to start
+<a name="where-to-start"></a>
+
+To get started with Amazon Textract, see the following resources:
++ To start with Amazon Textract Core, see [First-time Amazon Textract Core users](first-time-user.md).
++ To start with Amazon Textract Insights, see [Getting started with Amazon Textract Insights](insights-getting-started.md).

@@ -1,9 +1,8 @@
 
 
-# Selection Elements
-<a name="how-it-works-selectables"></a>
+# Selection elements
 
-Amazon Textract can detect selection elements such as option buttons (radio buttons), check boxes, underlined, and circled text on a document page. Selection elements can be detected in [form data](how-it-works-kvp.md) and in [tables](how-it-works-tables.md). For example, when the following table is detected on a form, Amazon Textract detects the check boxes in the table cells.
+Amazon Textract Core can detect selection elements such as option buttons (radio buttons), checkboxes, underlined, and circled text on a document page. Selection elements can be detected in [form data](how-it-works-kvp.md) and in [tables](how-it-works-tables.md). For example, when the following table is detected on a form, Amazon Textract Core detects the checkboxes in the table cells.
 
 
 |  |  |  |  | 
@@ -15,7 +14,7 @@ Amazon Textract can detect selection elements such as option buttons (radio butt
 
 Detected selection elements are returned as [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects in the responses from [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html).
 
-Below is a table that provides examples of the different selectable types supported by Amazon Textract.
+Below is a table that provides examples of the different selectable types supported by Amazon Textract Core.
 
 
 |  |  | 
@@ -27,7 +26,7 @@ Below is a table that provides examples of the different selectable types suppor
 | Circled Words |  ![Two buttons labeled "Yes" and "No" for making a binary choice.](https://docs.aws.amazon.com/textract/latest/dg/images/circleclickable.png) | 
 | Crossed Out Words | ![Two buttons labeled "Yes" and "No", with "No" crossed out in blue.](https://docs.aws.amazon.com/textract/latest/dg/images/cutclickable.png) | 
 
-Additionally Amazon Textract can detect implicit clickables, or clickables that are structured as questions and answered by marking one of several answers. These are returned the same way clickables are.
+Additionally, Amazon Textract Core can detect implicit clickables, or clickables that are structured as questions and answered by marking one of several answers. These are returned the same way clickables are.
 
 **Note**  
 You can use the `FeatureTypes` input parameter to retrieve information about key-value pairs, tables, or both. For example, if you filter on tables, the response includes the selection elements that are detected in tables. Selection elements that are detected in key-value pairs aren't included in the response.
@@ -36,7 +35,7 @@ Information about a selection element is contained in a `Block` object of type `
 
 A `SELECTION_ELEMENT` `Block` object is associated with either a key-value pair or a table cell. A `SELECTION_ELEMENT` `Block` object contains bounding box information for a selection element in the `Geometry` field. A `SELECTION_ELEMENT` `Block` object isn't a child of a `PAGE` `Block` object.
 
-## Form Data (Key-Value Pairs)
+## Form data (key-value pairs)
 <a name="how-it-works-selectable-kvp"></a>
 
 A key-value pair is used to represent a selection element that's detected on a form. The `KEY` block contains the text for the selection element. The `VALUE` block contains the SELECTION\_ELEMENT block. The following diagram shows how selection elements are represented by [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects.
@@ -44,7 +43,7 @@ A key-value pair is used to represent a selection element that's detected on a f
 ![Diagram depicting the representation of a selection element on a form using a key-value pair data structure, with KEY containing the text, VALUE containing the SELECTION_ELEMENT, and PAGE as the parent object.](https://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-key-value-set-selectable.png)
 
 
-For more information about key-value pairs, see [Form Data (Key-Value Pairs)](how-it-works-kvp.md).
+For more information about key-value pairs, see [Form data (key-value pairs)](how-it-works-kvp.md).
 
 The following JSON snippet shows the key for a key-value pair that contains a selection element (**male ☑**). The child ID (Id bd14cfd5-9005-498b-a7f3-45ceb171f0ff) is the ID of the WORD block that contains the text for the selection element (*male*). The value ID (Id 24aaac7f-fcce-49c7-a4f0-3688b05586d4) is the ID of the `VALUE` block that contains the `SELECTION_ELEMENT` block object.
 
@@ -184,7 +183,7 @@ The VALUE block has a child (Id f2f5e8cd-e73a-4e99-a095-053acd3b6bfb) that is th
 }
 ```
 
-The following JSON is the SELECTION\_ELEMENT block. The value of `SelectionStatus` indicates that the check box is selected.
+The following JSON is the SELECTION\_ELEMENT block. The value of `SelectionStatus` indicates that the checkbox is selected.
 
 ```
 {
@@ -221,10 +220,10 @@ The following JSON is the SELECTION\_ELEMENT block. The value of `SelectionStatu
 }
 ```
 
-## Table Cells
+## Table cells
 <a name="how-it-works-selectable-table"></a>
 
-Amazon Textract can detect selection elements inside a table cell. For example, the cells in the following table have check boxes.
+Amazon Textract Core can detect selection elements inside a table cell. For example, the cells in the following table have checkboxes.
 
 
 |  |  |  |  | 
@@ -275,7 +274,7 @@ The TABLE `Block` object for the previous table looks similar to this.
 }
 ```
 
-The CELL `BLOCK` object (Id c63ad40d-5a14-4646-a8df-2d4304213dbc) for the cell that contains the check box *Good Service* looks like the following. It includes a child `Block` (Id = 26d122fd-c5f4-4b53-92c4-0ae92730ee1e) that is the `SELECTION_ELEMENT` `Block` object for the check box.
+The CELL `BLOCK` object (Id c63ad40d-5a14-4646-a8df-2d4304213dbc) for the cell that contains the checkbox *Good Service* looks like the following. It includes a child `Block` (Id = 26d122fd-c5f4-4b53-92c4-0ae92730ee1e) that is the `SELECTION_ELEMENT` `Block` object for the checkbox.
 
 ```
 {
@@ -298,7 +297,7 @@ The CELL `BLOCK` object (Id c63ad40d-5a14-4646-a8df-2d4304213dbc) for the cell t
 }
 ```
 
-The SELECTION\_ELEMENT `Block` object for the check box is as follows. The value of `SelectionStatus` indicates that the check box is selected.
+The SELECTION\_ELEMENT `Block` object for the checkbox is as follows. The value of `SelectionStatus` indicates that the checkbox is selected.
 
 ```
 {
