@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  Reliable and resilient data infrastructure is critical for manufacturing organizations to drive sustained innovation, operational excellence, and product quality. MIDA is designed with reliability as a core principle, verifying that data is consistently available, processed correctly, and recoverable even in the face of disruptions. 
 

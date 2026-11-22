@@ -1,7 +1,6 @@
 
 
 # MIDASEC03-BP01 Integrate and enforce privacy by design principles
-<a name="midasec03-bp01"></a>
 
  Apply privacy-by-design principles in the architecture of manufacturing data environments to help you comply with privacy regulations from the outset. This includes minimizing data collection, embedding access controls, and anonymizing personal data. 
 

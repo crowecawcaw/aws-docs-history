@@ -1,7 +1,6 @@
 
 
 # MIDASEC01-BP03 Secure machine-to-machine and human-to-machine access
-<a name="midasec01-bp03"></a>
 
  Help protect communication between devices and systems in industrial settings by securing machine-to-machine (M2M) and human-to-machine (H2M) access using authentication, authorization, and encryption methods tailored to industrial protocols and devices. 
 

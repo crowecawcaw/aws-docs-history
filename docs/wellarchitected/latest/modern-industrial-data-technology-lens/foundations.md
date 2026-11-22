@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 |  MIDAREL01: How do you manage service quotas and constraints with real-time data processing and critical operations?  | 

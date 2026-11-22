@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
  The operational excellence pillar focuses on the ability to run and evolve reliable and high-performing manufacturing data infrastructure that support critical operational functions while continuously improving over time. It includes practices that help organizations monitor system health, respond to incidents, and optimize processes, all while aligning with business objectives and production demands. 
 

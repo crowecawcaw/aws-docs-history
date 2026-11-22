@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="data-protection"></a>
 
 
 |  MIDASEC05: How do you manage access to industrial data within your workloads?  | 

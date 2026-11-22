@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
 
 |  MIDAOPS01: How do you assess your industrial data workload against compliance requirements?  | 

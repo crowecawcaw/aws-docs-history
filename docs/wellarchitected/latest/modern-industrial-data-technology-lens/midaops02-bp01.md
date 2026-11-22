@@ -1,7 +1,6 @@
 
 
 # MIDAOPS02-BP01 Use enhanced monitoring and alerting in the cloud and at the edge
-<a name="midaops02-bp01"></a>
 
  Comprehensive observability is crucial for manufacturing teams to proactively monitor the health and performance of the data infrastructure. 
 

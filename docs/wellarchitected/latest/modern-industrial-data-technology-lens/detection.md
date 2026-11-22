@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="detection"></a>
 
 
 |  MIDASEC03: How do you design your manufacturing data environments for governance and compliance?  | 

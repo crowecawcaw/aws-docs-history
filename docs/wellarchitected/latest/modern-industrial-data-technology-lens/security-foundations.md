@@ -1,7 +1,6 @@
 
 
 # Security foundations
-<a name="security-foundations"></a>
 
 
 |  MIDASEC01: How do you verify governance and compliance with security standards?  | 

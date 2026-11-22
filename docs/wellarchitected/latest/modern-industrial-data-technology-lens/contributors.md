@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Contributors to this version of the Well-Architected Modern Industrial Technology Lens document include: 
 +  Akash Bhatia, Principal Solutions Architect, Amazon Web Services 

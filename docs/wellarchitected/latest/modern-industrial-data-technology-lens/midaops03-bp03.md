@@ -1,7 +1,6 @@
 
 
 # MIDAOPS03-BP03 Implement predictive analytics and proactive anomaly detection
-<a name="midaops03-bp03"></a>
 
  Use machine learning capabilities to analyse historical data patterns and identify potential issues before they impact your industrial operations. 
 

@@ -1,7 +1,6 @@
 
 
 # Data lifecycle
-<a name="data-lifecycle"></a>
 
 
 |  MIDACOST02: How does your organization manage the full lifecycle of manufacturing data resources?  | 

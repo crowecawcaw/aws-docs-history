@@ -1,7 +1,6 @@
 
 
 # Event-driven architecture
-<a name="event-driven-architecture"></a>
 
 
 | MIDAPERF02: How do integrate event-driven architecture into your data processing system? | 

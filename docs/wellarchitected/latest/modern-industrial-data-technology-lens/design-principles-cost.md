@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-cost"></a>
 
  In addition to the [design principles](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/design-principles.html) described in the cost optimization pillar of the AWS Well-Architected Framework whitepaper, the following design principles can help manufacturing customers build and operate cost-aware workloads that achieve business outcomes while minimizing costs and allowing their organizations to maximize the return on investment: 
 +  **Use managed services:** Manufacturing companies can leverage managed services to quickly implement industrial data management, supply chain optimization, and other critical capabilities without the overhead of building and maintaining the underlying infrastructure. This helps them focus their engineering efforts on driving business value rather than managing complex IT systems, ultimately reducing costs. 

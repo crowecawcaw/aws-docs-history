@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 |  MIDAOPS03: How do you understand the health of your industrial data workload?  | 

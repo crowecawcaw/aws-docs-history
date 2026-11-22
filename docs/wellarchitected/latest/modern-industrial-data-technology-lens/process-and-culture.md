@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
 
 | MIDASUS06: How do you integrate sustainability into manufacturing processes and culture? | 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sec"></a>
 
  In addition to the [design principles](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/security.html) found in the security pillar of the AWS Well-Architected Framework, the following security design principles can help you improve the security posture of your manufacturing data workloads: 
 +  **Security by design**: Manufacturers must consider a security by design (SbD) approach to implement architectures that are pre-tested from a security perspective. SbD helps implement the control objectives, security baselines, security configurations, and audit capabilities for applications running on AWS. Standardized, automated, prescriptive, and repeatable design templates help accelerate the deployment of common use cases as well as help align with security standards across multiple workloads. For example, to protect customer data and mitigate the risk of data disclosure or alteration of sensitive information by unauthorized parties, financial institutions need to employ encryption and carefully manage access to encryption keys. You can use SbD to turn on encryption for data at rest, in transit, and if necessary, at the application level by default. 

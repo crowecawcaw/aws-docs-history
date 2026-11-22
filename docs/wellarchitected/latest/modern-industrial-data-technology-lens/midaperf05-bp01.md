@@ -1,7 +1,6 @@
 
 
 # MIDAPERF05-BP01 Implement edge data pre-processing
-<a name="midaperf05-bp01"></a>
 
  In manufacturing settings, industrial devices and sensors often generate massive volumes of raw data that may not all be valuable for cloud-based analytics. Implementing edge pre-processing capabilities enables local summarization, filtering, and aggregation of data before transmission, significantly reducing bandwidth requirements, cloud processing needs, and storage costs while still preserving analytical value. 
 

@@ -1,7 +1,6 @@
 
 
 # MIDASEC08-BP02 Conduct regular security awareness programs
-<a name="midasec08-bp02"></a>
 
  Develop training and awareness programs for industrial application teams to reinforce best practices, policy understanding, and threat awareness. 
 

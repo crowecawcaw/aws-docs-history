@@ -1,7 +1,6 @@
 
 
 # MIDACOST05-BP01 Implement a buffering or throttling approach
-<a name="midacost05-bp01"></a>
 
  Implement balanced resource utilization that handles varying workload demands while maintaining cost efficiency for manufacturing systems. This includes prioritizing critical processes while queuing less time-sensitive tasks and implementing appropriate scaling triggers aligned with production cycles. 
 

@@ -1,7 +1,6 @@
 
 
 # MIDAREL02-BP01 Design resilient industrial integration patterns
-<a name="midarel02-bp01"></a>
 
  Implement redundant and fault-tolerant architectural patterns that maintain operational continuity during system failures. Your manufacturing data architecture should include local processing capabilities, data buffering, and automatic recovery mechanisms to verify that critical production processes continue even when cloud connectivity or key systems fail. 
 

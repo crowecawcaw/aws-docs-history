@@ -1,7 +1,6 @@
 
 
 # MIDAREL05-BP01 Design a multi-Region disaster recovery strategy
-<a name="midarel05-bp01"></a>
 
  Manufacturing operations require high availability of systems that control production lines, inventory management, and supply chain logistics. A multi-Region disaster recovery strategy means that if one Region experiences an outage, manufacturing systems can continue operating from another region with minimal disruption. 
 

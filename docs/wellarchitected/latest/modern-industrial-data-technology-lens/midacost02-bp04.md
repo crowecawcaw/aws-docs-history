@@ -1,7 +1,6 @@
 
 
 # MIDACOST02-BP04 Implement manufacturing-specific data retention policies
-<a name="midacost02-bp04"></a>
 
  Implement cost-effective industrial data management that balances retention requirements for production data, quality records, and compliance needs with optimized storage costs. This includes implementing tiered storage strategies and automated archival processes. 
 

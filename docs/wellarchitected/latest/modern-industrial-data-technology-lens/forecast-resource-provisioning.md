@@ -1,7 +1,6 @@
 
 
 # Forecast resource provisioning
-<a name="forecast-resource-provisioning"></a>
 
 
 | MIDACOST04: How do you leverage historical manufacturing data to forecast resource provisioning? | 

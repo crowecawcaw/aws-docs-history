@@ -1,7 +1,6 @@
 
 
 # MIDAPERF05-BP02 Optimize storage and access for current manufacturing data
-<a name="midaperf05-bp02"></a>
 
  In manufacturing environments, rapid access to recent operational data is critical for real-time monitoring, anomaly detection, and immediate decision-making. Implementing specialized time series database solutions for current data while leveraging cost-effective storage for historical information creates an optimal balance between performance and cost, verifying that dashboards and analytics remain responsive for operational needs. 
 

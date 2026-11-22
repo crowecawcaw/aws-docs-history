@@ -1,7 +1,6 @@
 
 
 # MIDAPERF03-BP02 Implement comprehensive performance measurement for manufacturing data infrastructure
-<a name="midaperf03-bp02"></a>
 
  Understanding the performance characteristics of data processing infrastructure is essential for maintaining performance efficiency and planning for growth. Implementing robust measurement frameworks with appropriate metrics, dashboards, and alerting enables organizations to proactively manage performance, optimize resource utilization, and justify infrastructure investments with quantifiable data. 
 

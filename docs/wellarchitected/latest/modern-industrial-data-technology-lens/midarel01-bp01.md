@@ -1,7 +1,6 @@
 
 
 # MIDAREL01-BP01 Monitor manufacturing-specific service quotas
-<a name="midarel01-bp01"></a>
 
  Implement proactive monitoring and management of service quotas that are critical to manufacturing operations. Manufacturing workloads often have unique patterns of resource consumption based on production cycles, which require specialized monitoring approaches. 
 

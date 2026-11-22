@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="failure-management"></a>
 
 
 |  MIDAREL04: How do you back up data?  | 

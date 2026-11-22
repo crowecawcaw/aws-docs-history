@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sus"></a>
 
  The following section defines a set of high-level design principles for manufacturing sustainability in AWS cloud environments. 
 +  **Implement real-time monitoring and control only for critical production processes:** High-precision and complex manufacturing generally requires high performance computing, networks, and storage for real-time process monitoring and control. However, less complex production lines and operations typically do not require such intensive real-time capabilities. Manufacturers should evaluate their processes, risk profiles, and requirements to make the optimal real-time monitoring investment choices. But being thoughtful in implementing real-time monitoring generally provides sustainability and cost/efficiency benefits by avoiding over investment in capabilities that aren't needed across all operations. 

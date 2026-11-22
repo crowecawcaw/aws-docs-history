@@ -1,7 +1,6 @@
 
 
 # MIDASUS04-BP01 Design backup strategies that focus on critical data
-<a name="midasus04-bp01."></a>
 
  Manufacturing data varies in criticality from essential production recipes and regulatory compliance records to temporary operational logs. Design backup strategies that prioritize truly valuable data while minimizing resource consumption. 
 

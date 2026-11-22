@@ -1,7 +1,6 @@
 
 
 # MFGSCE3: Industrial data mesh
-<a name="mfgsce3-industrial-data-mesh"></a>
 
  Industrial data mesh is an architectural concept that provides decentralized ownership and governed sharing of data across the disparate data sources. Data meshes are natively supported by multiple AWS Services. For large-scale organizations, using multiple AWS accounts and sharing data across them is a common approach. 
 
@@ -32,10 +31,14 @@
 
 ![https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2021/07/08/bdb1297-image005.png](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image3.png)
 
+*ADD FIGURE CAPTION HERE*
+
 
  With this design, you can connect multiple data lakehouses to a centralized governance account that stores the metadata from each environment. The strength of this approach is that it integrates the metadata and stores it in one meta model schema that can be accessed through AWS services for various consumers. You can extend this architecture to register new data lake catalogs and share resources across consumer accounts. The following diagram illustrates a cross-account data mesh architecture. 
 
 ![https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2021/07/08/bdb1297-image007.png](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image4.png)
+
+*ADD FIGURE CAPTION HERE*
 
 
 ## Access patterns
@@ -65,6 +68,8 @@
  This approach allows manufacturers to perform predictive maintenance, enhance operational efficiency, and improve decision-making by using real-time data analytics and machine learning. By integrating ISBs with both on-premises and cloud environments, manufacturers can achieve scalable, flexible, and secure data integration, paving the way for digital transformation initiatives such as smart factories and the Industry 4.0. 
 
 ![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image5.png)
+
+*ADD FIGURE CAPTION HERE*
 
 
  As an example, AWS IoT Core serves as a cloud-based ISB, supporting protocols like MQTT, HTTPS, and WebSockets to enable secure, low-latency, and reliable bi-directional communication between industrial equipment and cloud services. 

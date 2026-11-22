@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="change-management"></a>
 
 
 |  MIDAREL03: How do you design your workload to adapt to changes in demand?  | 

@@ -1,7 +1,6 @@
 
 
 # MIDASEC05-BP01 Define access permissions
-<a name="midasec05-bp01"></a>
 
  Establish clear and granular access permissions to control who can access industrial data, based on job roles and operational responsibilities. 
 

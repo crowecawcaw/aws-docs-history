@@ -1,7 +1,6 @@
 
 
 # MIDASUS05-BP01 Implement optimized compute, storage and networking hardware
-<a name="midasus05-bp01."></a>
 
  Manufacturing workloads have diverse requirements - from compute intensive simulations, storage to real time shop floor systems. Choosing the right hardware architecture and service models helps minimize environmental impact while meeting manufacturing performance demands. 
 

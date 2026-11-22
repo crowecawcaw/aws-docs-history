@@ -1,7 +1,6 @@
 
 
 # Hardware and services
-<a name="hardware-and-services"></a>
 
 
 | MIDASUS05: How do you optimize hardware resources for manufacturing workloads? | 

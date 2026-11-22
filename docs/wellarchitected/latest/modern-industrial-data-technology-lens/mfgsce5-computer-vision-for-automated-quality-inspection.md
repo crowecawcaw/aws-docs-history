@@ -1,7 +1,6 @@
 
 
 # MFGSCE5: Computer vision for automated quality inspection
-<a name="mfgsce5-computer-vision-for-automated-quality-inspection"></a>
 
  In manufacturing quality control, the transition from manual inspection to automated computer vision systems represents a significant advancement. However, the journey from raw image capture to reliable defect detection is complex, particularly from a data management and ML operations perspective. 
 
@@ -157,6 +156,8 @@
 <a name="automated-quality-inspection-architecture"></a>
 
 ![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image9.png)
+
+*ADD FIGURE CAPTION HERE*
 
 
 1.  Automatically upload training images from the manufacturing line camera to [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/). 

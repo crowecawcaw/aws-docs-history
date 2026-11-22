@@ -1,7 +1,6 @@
 
 
 # MIDASEC02-BP03 Use centralized access management tools
-<a name="midasec02-bp03"></a>
 
  Consolidate identity and access management using centralized tools to streamline permission handling and improve visibility across multi-site operations. 
 

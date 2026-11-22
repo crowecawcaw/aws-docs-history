@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="infrastructure-protection"></a>
 
 
 |  MIDASEC04: How do you enable network segmentation and access controls for industrial data?  | 

@@ -1,7 +1,6 @@
 
 
 # MIDAPERF01-BP01 Use time series database for real-time analytics and data lake for long-term storage
-<a name="midaperf01-bp01"></a>
 
  In manufacturing environments, access patterns for operational data vary significantly based on data age. Current data requires high-performance, low-latency access for real-time decision making, while historical data typically serves longer-term analysis with less stringent performance requirements. Implementing a tiered storage architecture with time series databases for recent data and data lakes for historical information helps optimize both performance and cost. 
 

@@ -1,7 +1,6 @@
 
 
 # MIDAREL04-BP01 Implement a multi-layered backup strategy
-<a name="midarel04-bp01"></a>
 
  Manufacturing environments require comprehensive backup solutions that account for both on-premises equipment data and cloud-based systems. A multi-layered approach helps protect critical production data against various failure scenarios, from local hardware failures to Regional disruptions. 
 

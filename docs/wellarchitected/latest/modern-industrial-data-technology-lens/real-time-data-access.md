@@ -1,7 +1,6 @@
 
 
 # Real-time data access
-<a name="real-time-data-access"></a>
 
 
 | MIDAPERF01: How does your architecture support high-performance access to real-time data? | 

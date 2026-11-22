@@ -1,7 +1,6 @@
 
 
 # Identity and access management
-<a name="identity-and-access-management"></a>
 
 
 |  MIDASEC02: How do you establish identity controls and access management patterns between industrial systems and humans?  | 

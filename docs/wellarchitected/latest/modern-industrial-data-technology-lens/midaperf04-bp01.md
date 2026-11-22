@@ -1,7 +1,6 @@
 
 
 # MIDAPERF04-BP01 Implement end-to-end observability for manufacturing data pipelines
-<a name="midaperf04-bp01"></a>
 
  In manufacturing environments, comprehensive visibility into data processing and ingestion infrastructures is critical for maintaining operational excellence and providing timely delivery of production insights. Implementing robust observability solutions enables rapid identification and resolution of issues that could impact data quality, processing efficiency, or analytical outcomes. 
 

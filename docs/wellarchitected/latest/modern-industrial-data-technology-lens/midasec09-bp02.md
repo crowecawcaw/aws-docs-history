@@ -1,7 +1,6 @@
 
 
 # MIDASEC09-BP02 Perform regular vulnerability scans and penetration tests
-<a name="midasec09-bp02"></a>
 
  Identify and mitigate vulnerabilities in applications and environments by conducting recurring scans and authorized penetration testing. 
 

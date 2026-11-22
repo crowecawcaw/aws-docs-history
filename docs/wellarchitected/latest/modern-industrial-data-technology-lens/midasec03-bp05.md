@@ -1,7 +1,6 @@
 
 
 # MIDASEC03-BP05 Implement data retention policies for each data class
-<a name="midasec03-bp05"></a>
 
  Define and enforce data retention rules based on classification and regulatory requirements to reduce storage costs and minimize compliance risks. 
 

@@ -1,7 +1,6 @@
 
 
 # Performance efficiency
-<a name="performance-efficiency"></a>
 
  The performance efficiency pillar includes the ability to use cloud resources efficiently to meet performance requirements, and to maintain that efficiency as demand changes and technologies evolve. This component establishes quantifiable metrics and standardized methodologies to achieve optimal throughput-to-cost ratios across the entire data infrastructure to meet performance goals. By continuously benchmarking workload performance against established baselines, users can identify and reduce computational bottlenecks that directly impact cycle times in production data processing. 
 

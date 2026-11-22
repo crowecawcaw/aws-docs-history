@@ -1,7 +1,6 @@
 
 
 # MFGSCE1: Modern Industrial Data Architecture (MIDA)
-<a name="mfgsce1-modern-industrial-data-architecture-mida"></a>
 
  AWS industrial customers serving multiple industries have production facilities across the globe. They generate massive amounts of data from the various industrial machines, sensors, and equipment on their factory floors. This includes real-time telemetry data on equipment performance, quality control measurements, maintenance logs, and supply chain information. 
 
@@ -51,6 +50,8 @@
  The MIDA provides the foundation for manufacturers to build data capabilities while maintaining operational excellence and security. Its flexible, scalable design supports both current needs and future innovation in manufacturing analytics and automation. 
 
 ![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image1.png)
+
+*ADD FIGURE CAPTION HERE*
 
 
 1.  Identify information related to industrial activities from on-premises equipment. 

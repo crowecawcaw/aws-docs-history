@@ -1,7 +1,6 @@
 
 
 # Region selection
-<a name="region-selection"></a>
 
 
 | MIDASUS01: How do you select a Region to optimize Manufacturing workloads for sustainability? | 

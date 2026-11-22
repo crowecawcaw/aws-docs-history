@@ -1,7 +1,6 @@
 
 
 # MIDASEC01-BP05 Implement incident response playbooks
-<a name="midasec01-bp05"></a>
 
  Develop and test incident response playbooks for common OT/IT scenarios such as device compromise, unauthorized access, and data exfiltration. Verify your cross-functional coordination and readiness to minimize downtime and safety risks. 
 

@@ -1,7 +1,6 @@
 
 
 # MIDAPERF03-BP01 Use cloud observability tools for manufacturing systems
-<a name="midaperf03-bp01"></a>
 
  In manufacturing environments, comprehensive visibility into system performance, data processing pipelines, and infrastructure health is critical for maintaining operational excellence. Implementing cloud-native observability tools provides unified monitoring, actionable alerting, and diagnostic capabilities across the entire manufacturing technology stack. This integrated approach enables rapid identification and resolution of performance issues before they impact production operations. 
 

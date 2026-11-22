@@ -1,7 +1,6 @@
 
 
 # Balancing resources
-<a name="balancing-resources"></a>
 
  **MIDACOST05: How do you balance resource provisioning to optimize costs while meeting manufacturing demands?** 
 

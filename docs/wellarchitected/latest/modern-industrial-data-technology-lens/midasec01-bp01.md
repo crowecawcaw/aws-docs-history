@@ -1,7 +1,6 @@
 
 
 # MIDASEC01-BP01 Create a security Shared Responsibility Model
-<a name="midasec01-bp01"></a>
 
  Define and document a customized Shared Responsibility Model (SRM) that explicitly separates the security responsibilities between cloud environment, IT, and OT stakeholders. This provides clarity when managing security across cloud, edge, and on-premises industrial assets. 
 

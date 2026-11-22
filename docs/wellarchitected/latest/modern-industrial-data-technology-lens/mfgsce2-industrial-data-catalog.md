@@ -1,7 +1,6 @@
 
 
 # MFGSCE2: Industrial data catalog
-<a name="mfgsce2-industrial-data-catalog"></a>
 
  In modern manufacturing (industry 4.0), organizations collect massive volumes of data from disparate sources, like IoT sensors and control systems on the shop floor, MES and ERP applications, and even vision systems. Without a unified catalog and governance, this data often ends up in silos, making it difficult for engineers and analysts to find, trust, and use the right data. An industrial data catalog addresses this challenge by cataloging the data assets (with metadata) in one place so that OT and IT professionals can discover what data exists, understand its context, and access it for analytics or machine learning. In an Industry 4.0 data environment, the data requires cataloging so that consumers can identify what is available. 
 
@@ -25,6 +24,8 @@
  To implement an industrial data catalog, we must ingest and catalog data from diverse OT and IT sources. AWS offers scalable ingestion services to collect factory data into a central data lake, where it can be cataloged. The following diagram illustrates a reference architecture for an Industry 4.0 data environment on AWS, highlighting how data flows from edge devices to the cloud data lake and into the AWS AWS Glue Data Catalog: 
 
 ![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image2.png)
+
+*ADD FIGURE CAPTION HERE*
 
 
  Data ingestion from the factory floor can be achieved using multiple services, depending on data type and latency requirements: 

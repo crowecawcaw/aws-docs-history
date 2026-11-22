@@ -1,7 +1,6 @@
 
 
 # MIDAREL04-BP02 Use cloud replication for manufacturing data resilience
-<a name="midarel04-bp02"></a>
 
  Implement automated, multi-Region cloud replication to maintain manufacturing operational data integrity across production systems, quality control databases, and equipment monitoring systems. Establish consistent backup patterns that align with recovery time objectives (RTOs) critical to manufacturing operations. 
 

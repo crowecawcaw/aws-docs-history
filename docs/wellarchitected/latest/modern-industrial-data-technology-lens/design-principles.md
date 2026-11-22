@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The modern industrial data architecture (MIDA) establishes a comprehensive framework for managing manufacturing data across the enterprise. These design principles address the unique challenges of industrial environments while enabling digital transformation initiatives. 
 +  **Systematically contextualize data:** Manufacturing environments traditionally maintain separate IT and OT data infrastructures, creating operational silos that limit visibility and insights. MIDA addresses this through systematic data contextualization that bridges these domains. This involves mapping relationships between equipment telemetry, production metrics, quality data, and business KPIs. For example, sensor data from manufacturing equipment is automatically enriched with metadata about the production line, product being manufactured, and current process parameters. This contextual integration enables root cause analysis of quality issues, predictive maintenance optimization, and real-time production monitoring with full business context. 

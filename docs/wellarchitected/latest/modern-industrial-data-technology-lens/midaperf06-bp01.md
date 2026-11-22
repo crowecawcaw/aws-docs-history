@@ -1,7 +1,6 @@
 
 
 # MIDAPERF06-BP01 Implement efficient storage and access for historical manufacturing data
-<a name="midaperf06-bp01"></a>
 
  In manufacturing environments, historical data serves critical functions beyond immediate operational needs, supporting long-term trend analysis, root cause investigations, and business performance validation. Implementing properly structured data lakes or warehouses for historical manufacturing data improves cost-effective storage at scale while maintaining analytical capabilities for deriving strategic insights from extended operational timelines. 
 

@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="incident-response"></a>
 
 
 |  **MIDASEC07**: How do you implement monitoring and threat detection for industrial systems?  | 

@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="data-management"></a>
 
 
 | MIDASUS03: How do you optimize data movement and access patterns? | 

@@ -1,7 +1,6 @@
 
 
 # MIDASEC04-BP01 Segment OT networks from IT systems
-<a name="midasec04-bp01"></a>
 
  Establish clear segmentation between OT networks and IT systems to limit the scope of impact and reduce risk of lateral movement between environments. 
 

@@ -1,7 +1,6 @@
 
 
 # MIDACOST02-BP01 Track resources over their lifetime
-<a name="midacost02-bp01"></a>
 
  Implement complete visibility and control over resource lifecycle costs from creation to deletion, with comprehensive tagging aligned to manufacturing processes. This includes monitoring resource utilization against production metrics, implementing clear ownership and purpose documentation, and regularly reviewing resource usage patterns. Essential for understanding total cost of ownership and identifying optimization opportunities. 
 

@@ -1,7 +1,6 @@
 
 
 # MIDASEC03-BP02 Implement industrial data classifications and protection policies
-<a name="midasec03-bp02"></a>
 
  Define classification tiers for industrial data (for example, public, internal, confidential, and restricted), and apply policies to control access, visibility, and protection levels accordingly. 
 

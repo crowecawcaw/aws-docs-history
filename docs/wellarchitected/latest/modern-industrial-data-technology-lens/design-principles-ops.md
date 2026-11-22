@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-ops"></a>
 
  The operational excellence pillar in the MIDA Lens is concerned with enabling manufacturing organizations to achieve reliable, high-performing, and continuously improving data infrastructure to support their operational needs. By emphasizing proactive monitoring, automated incident response, continuous optimization, and thorough documentation, MIDA empowers manufacturing teams to rapidly detect, diagnose, and resolve issues that could impact production, quality, or maintenance. 
 

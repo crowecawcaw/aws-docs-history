@@ -1,7 +1,6 @@
 
 
 # Alignment to demand
-<a name="alignment-to-demand"></a>
 
 
 | MIDASUS02: How do you optimize manufacturing workloads to align with production demands? | 

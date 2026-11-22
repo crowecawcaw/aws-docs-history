@@ -1,7 +1,6 @@
 
 
 # MIDAREL02-BP03 Enable automated recovery mechanisms
-<a name="midarel02-bp03"></a>
 
  Design your manufacturing workloads with automated recovery processes that allow production to continue despite OT and IT system failures. Implement edge processing capabilities that can operate independently when disconnected from central IT systems. 
 

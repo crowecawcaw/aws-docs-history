@@ -1,7 +1,6 @@
 
 
 # Migration optimization
-<a name="migration-optimization"></a>
 
 
 | MIDACOST03: How do you optimize your migration strategy to reduce infrastructure costs for manufacturing-specific workloads? | 

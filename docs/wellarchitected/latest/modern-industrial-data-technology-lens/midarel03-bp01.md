@@ -1,7 +1,6 @@
 
 
 # MIDAREL03-BP01 Implement dynamic scaling for shop floor data ingestion pipelines
-<a name="midarel03-bp01"></a>
 
  Manufacturing operations generate varying volumes of data from machines, sensors, and production lines. Dynamic scaling verifies that your data ingestion pipelines can handle peak production times without overprovisioning during slower periods. 
 

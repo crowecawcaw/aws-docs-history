@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  This section provides key terminology used throughout this lens, focusing specifically on modern industrial data concepts and manufacturing-specific definitions. These definitions complement the standard AWS Well-Architected Framework terminology.
 +  **Operational technology (OT)**: Systems and equipment used to monitor and control industrial processes on the shop floor, such as sensors, PLCs, and SCADA systems 

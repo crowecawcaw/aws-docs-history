@@ -1,7 +1,6 @@
 
 
 # MIDASEC07-BP02 Implement SIEM systems
-<a name="midasec07-bp02"></a>
 
  Aggregate and analyze logs from industrial and cloud systems using a security information and event management (SIEM) system to help detect and respond to threats efficiently. 
 

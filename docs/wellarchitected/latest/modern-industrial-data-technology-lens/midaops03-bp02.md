@@ -1,7 +1,6 @@
 
 
 # MIDAOPS03-BP02 Implement real-time monitoring and alerting capabilities
-<a name="midaops03-bp02"></a>
 
  Establish comprehensive monitoring of your industrial data infrastructure with automated alerts to quickly identify and respond to operational issues before they impact manufacturing processes. Configure appropriate thresholds and notification channels to quickly alert the right teams about system health, data quality, and performance anomalies. 
 

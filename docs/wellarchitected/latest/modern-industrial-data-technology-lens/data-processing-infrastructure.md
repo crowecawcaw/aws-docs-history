@@ -1,7 +1,6 @@
 
 
 # Data processing infrastructure
-<a name="data-processing-infrastructure"></a>
 
 
 | MIDAPERF03: How do you measure performance of infrastructure that processes your data? | 

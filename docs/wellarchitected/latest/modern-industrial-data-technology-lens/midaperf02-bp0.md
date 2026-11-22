@@ -1,7 +1,6 @@
 
 
 # MIDAPERF02-BP02 Use historical cloud usage data aligned with production schedules and business forecasts
-<a name="midaperf02-bp0"></a>
 
  Aligning cloud resource allocation with production schedules and business forecasts enables organizations to optimize system performance during critical periods while helping prevent resource constraints that could impact throughput and quality. By analyzing patterns in historical cloud usage alongside manufacturing cycles, plant managers can anticipate processing requirements for data-intensive operations like quality inspection systems, predictive maintenance algorithms, and real-time production monitoring, providing optimal performance when manufacturing demands are highest. 
 

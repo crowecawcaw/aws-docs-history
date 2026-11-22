@@ -1,7 +1,6 @@
 
 
 # MIDAPERF02-BP01 Implement event-driven architectures for manufacturing systems
-<a name="midaperf02-bp01"></a>
 
  In manufacturing environments, operational data is generated based on specific events such as equipment state changes, threshold violations, or production milestones. Implementing event-driven architectures allows systems to respond efficiently to these events rather than constantly polling for changes, significantly improving resource utilization and system responsiveness. This approach aligns perfectly with IoT communication patterns while enabling scalable, loosely-coupled manufacturing systems. 
 

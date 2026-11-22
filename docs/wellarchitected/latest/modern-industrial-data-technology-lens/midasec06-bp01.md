@@ -1,7 +1,6 @@
 
 
 # MIDASEC06-BP01 Use secure data exchange protocols
-<a name="midasec06-bp01"></a>
 
  Use secure and standardized protocols for sharing industrial data internally and externally, helping protect integrity and confidentiality. 
 

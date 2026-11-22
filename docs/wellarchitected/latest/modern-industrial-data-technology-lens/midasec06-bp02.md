@@ -1,7 +1,6 @@
 
 
 # MIDASEC06-BP02 Establish clear data ownership and sharing agreements
-<a name="midasec06-bp02"></a>
 
  Define clear ownership responsibilities and data sharing rules to guide access and usage across internal teams and partner organizations. 
 

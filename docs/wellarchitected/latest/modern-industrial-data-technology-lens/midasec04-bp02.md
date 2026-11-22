@@ -1,7 +1,6 @@
 
 
 # MIDASEC04-BP02 Use firewalls, perimeter networks, and dedicated network zones
-<a name="midasec04-bp02"></a>
 
  Implement perimeter defenses such as firewalls, perimeter networks and dedicated network zones to manage and secure traffic flows between cloud, IT, and OT systems. 
 

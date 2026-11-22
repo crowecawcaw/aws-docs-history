@@ -1,7 +1,6 @@
 
 
 # MIDASUS01-BP01 Select Regions that offer services required by Manufacturing organizations that maximizes the reduction of your carbon footprint
-<a name="midasus01-bp01"></a>
 
  Choose Regions with lower carbon footprint for your manufacturing workloads while meeting technical, compliance, and performance requirements. 
 

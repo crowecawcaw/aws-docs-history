@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-rel"></a>
 
  The following design principles can help you implement reliable manufacturing data architectures in the cloud: 
 +  **Design for edge resilience:** Manufacturing operations require continuous data collection and control capabilities even during network disruptions. Implement robust edge processing capabilities that can operate autonomously during cloud connectivity issues. Use local data buffering, edge analytics, and automated synchronization mechanisms to maintain operational continuity while upkeeping data consistency when connectivity is restored. This approach helps prevent production disruptions and maintains data integrity across the manufacturing environment. 

@@ -1,7 +1,6 @@
 
 
 # MIDACOST05-BP02 Implement dynamic resource provisioning
-<a name="midacost05-bp02"></a>
 
  Enable automated resource scaling that matches manufacturing workload demands while optimizing costs. This includes implementing warm pools for faster scaling, considering application warm-up times, and aligning scaling policies with production schedules and peak processing times. 
 
