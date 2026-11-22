@@ -1,7 +1,6 @@
 
 
 # AWS Certified Solutions Architect - Professional (SAP-C03)
-<a name="solutions-architect-professional-03"></a>
 
 The AWS Certified Solutions Architect - Professional (SAP-C03) exam is intended for individuals who perform a solutions architect role. The exam validates a candidate's advanced technical skills and experience designing optimized AWS solutions that are based on the AWS Well-Architected Framework.
 
@@ -69,7 +68,7 @@ The exam includes 10 unscored questions that do not affect your score. AWS colle
 
 The AWS Certified Solutions Architect - Professional (SAP-C03) exam has a pass or fail designation. The exam is scored against a minimum standard established by AWS professionals who follow certification industry best practices and guidelines.
 
-Your results for the exam are reported as a scaled score of 100–1,000. The minimum passing score is 720. Your score shows how you performed on the exam as a whole and whether you passed. Scaled scoring models help equate scores across multiple exam forms that might have slightly different difficulty levels.
+Your results for the exam are reported as a scaled score of 100–1,000. The minimum passing score is 750. Your score shows how you performed on the exam as a whole and whether you passed. Scaled scoring models help equate scores across multiple exam forms that might have slightly different difficulty levels.
 
 Your score report could contain a table of classifications of your performance at each section level. The exam uses a compensatory scoring model, which means that you do not need to achieve a passing score in each section. You need to pass only the overall exam.
 

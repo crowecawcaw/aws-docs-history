@@ -1,7 +1,6 @@
 
 
 # Comparison of SAP-C02 and SAP-C03
-<a name="sap-03-comparison"></a>
 
 **Topics**
 + [Side-by-side comparison](#sap-03-comparison-side-by-side)

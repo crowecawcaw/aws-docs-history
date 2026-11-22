@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Cost-Optimized Architecture Design
-<a name="solutions-architect-professional-03-domain3"></a>
 
 **Topics**
 + [Task 3.1: Design architectures based on AWS pricing models.](#solutions-architect-professional-03-domain3-task1)

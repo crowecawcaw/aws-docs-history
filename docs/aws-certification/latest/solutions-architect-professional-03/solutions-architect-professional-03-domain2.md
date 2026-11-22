@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: Security, Compliance, and Governance
-<a name="solutions-architect-professional-03-domain2"></a>
 
 **Topics**
 + [Task 2.1: Design identity security architectures.](#solutions-architect-professional-03-domain2-task1)
