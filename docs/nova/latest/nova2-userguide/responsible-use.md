@@ -1,7 +1,6 @@
 
 
 # Responsible use
-<a name="responsible-use"></a>
 
 Building safety, security and trust measures with AI models is a shared responsibility between AWS and our customers. Our goal is to align our models to the [AWS Acceptable Use Policy](https://aws.amazon.com/aup/) and mitigate undesired outcomes while providing a delightful customer experience. Our approach to Responsible AI (RAI) is structured around our [core dimensions of responsible AI](https://aws.amazon.com/ai/responsible-ai/), which are covered in the following list. For each of these dimensions, we developed guidelines that govern our decision-making throughout the entire model development life cycle. This life cycle encompasses every stage, from initial data collection and pre-training, to the implementation of post-deployment runtime mitigations.
 + *Fairness* - Considering impacts on different groups of stakeholders

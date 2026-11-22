@@ -1,7 +1,6 @@
 
 
 # Extended thinking in Amazon Nova 2
-<a name="extended-thinking"></a>
 
 Amazon Nova 2 Lite introduces **extended thinking** capabilities that enable the model to engage in deeper reasoning for complex problems. This optional feature gives you control over when and how the model allocates additional computational resources to think through challenging tasks.
 
@@ -89,7 +88,7 @@ For full examples of code that utilizes extended thinking, see [Code library](co
 
 When you enable extended thinking, responses include `reasoningContent` blocks followed by `text` content blocks:
 
-```
+```python
 {
     "output": {
         "message": {
@@ -120,7 +119,7 @@ With Amazon Nova 2, reasoning content displays as `[REDACTED]`. You're still cha
 
 Amazon Nova 2 introduces a new `reasoningConfig` parameter that you can add to your existing converse request structure to enable reasoning:
 
-```
+```python
 additionalModelRequestFields={
     "reasoningConfig": {
         "type": "enabled",  # or "disabled" (default)
@@ -164,7 +163,7 @@ Extended thinking tokens are billed as output tokens:
 
 All three token types are included in your usage metrics and billing. Reasoning tokens are priced the same as output tokens and will appear as "REDACTED" in the model response".
 
-```
+```python
   {
   "usage": {
     "inputTokens": 45,

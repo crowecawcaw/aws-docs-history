@@ -1,7 +1,6 @@
 
 
 # Data mixing on SageMaker HyperPod
-<a name="nova-forge-sft-datamix-smhp"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -53,7 +52,7 @@ To mix in Nova data, you simply need to add a data\_mixing block as a top-level 
 ### Nova 2.0 configuration example
 <a name="nova-2-configuration"></a>
 
-```
+```yaml
 run:
   name: my-lora-sft-run
   model_type: amazon.nova-2-lite-v1:0:256k
@@ -90,7 +89,7 @@ training_config:
 ### Nova 2.0 text data mixing
 <a name="nova-2-text-mixing"></a>
 
-```
+```yaml
 data_mixing:
   dataset_catalog: sft_1p5_text_chat
   sources:
@@ -125,7 +124,7 @@ data_mixing:
 ### Nova 2.0 multimodal data mixing
 <a name="nova-2-multimodal-mixing"></a>
 
-```
+```yaml
 data_mixing:
   dataset_catalog: sft_1p5_mm_chat
   sources:
@@ -233,7 +232,7 @@ Reasoning content captures the model's intermediate thinking steps before genera
 
 Full set of hyper-parameters other than data mixing:
 
-```
+```yaml
 ## Run config
 run:
   name: my-lora-sft-run
@@ -285,7 +284,7 @@ The following table describes each available Nova data category.
 ### Nova 2.0 configuration with data mixing
 <a name="nova-2-config-data-mixing"></a>
 
-```
+```yaml
 data_mixing:
   dataset_catalog: sft_1p5_text_chat       # Nova text dataset catalog
   sources:
@@ -351,7 +350,7 @@ The following table describes each available Nova data category.
 ### Multimodal data mixing (Nova 2.0)
 <a name="nova-2-mm-data-mixing"></a>
 
-```
+```yaml
 data_mixing:
   dataset_catalog: sft_1p5_mm_chat       # Nova multimodal dataset catalog
   sources:
@@ -420,7 +419,7 @@ For Nova 2.0 sft:
 
 The data mixing configuration file includes an additional `data_mixing` section, as shown in the following example.
 
-```
+```yaml
 data_mixing:
   dataset_catalog: sft_1p5_text_chat
   sources:
@@ -660,7 +659,7 @@ You can also supply your custom data by formatting them in the following format 
 
 Create jsonl per task with the following structure:
 
-```
+```json
 {
   "metadata": "{key:4, category:'apple'}",
   "system": "arithmetic-patterns, please answer the following with no other words: ",
@@ -671,7 +670,7 @@ Create jsonl per task with the following structure:
 
 Outputs generated during inference phase of the evaluation job will have following structure:
 
-```
+```json
 {
   "prompt": "[{'role': 'system', 'content': 'arithmetic-patterns, please answer the following with no other words: '}, {'role': 'user', 'content': 'What is the next number in this series? 1, 2, 4, 8, 16, ?'}]",
   "inference": "['32']",

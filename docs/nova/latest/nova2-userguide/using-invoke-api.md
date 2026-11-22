@@ -1,7 +1,6 @@
 
 
 # Using the Invoke API
-<a name="using-invoke-api"></a>
 
  The Invoke API provides direct access to Amazon Nova models with more ability to control the request and response format. Unlike the Converse API which abstracts model-specific details, the Invoke API allows you to work directly with the model's native request and response structures. 
 
@@ -13,7 +12,7 @@ The Invoke API supports the same features as the Converse API except for documen
 
 An Invoke API request requires the model ID and a JSON request body:
 
-```
+```Python
 import boto3
 import json
 

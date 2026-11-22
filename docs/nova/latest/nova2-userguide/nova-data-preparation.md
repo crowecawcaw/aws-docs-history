@@ -1,7 +1,6 @@
 
 
 # Data preparation
-<a name="nova-data-preparation"></a>
 
 This section provides data preparation guides for each training technique and model version.
 

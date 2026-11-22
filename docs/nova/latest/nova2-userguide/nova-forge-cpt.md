@@ -1,7 +1,6 @@
 
 
 # Continued Pre-Training and Mid-Training
-<a name="nova-forge-cpt"></a>
 
 **Note**  
 Detailed documentation is provided once subscribed
@@ -87,7 +86,7 @@ Add the `data_mixing` section to your recipe with the appropriate percentage dis
 #### Nova 2.0 Configuration with data mixing
 <a name="nova-forge-cpt-nova2-config"></a>
 
-```
+```yaml
 # Note:
 # This recipe can run on p5.48xlarge
 
@@ -218,7 +217,7 @@ The curated data, mix ratios, and dataset composition are identical to the defau
 
 In the `data_mixing` section of your CPT recipe, change `dataset_catalog` to `cpt_text_lite_s3`. Everything else in your recipe stays the same.
 
-```
+```yaml
 run:
   name: my-cpt-run
   model_type: amazon.nova-2-lite-v1:0:256k

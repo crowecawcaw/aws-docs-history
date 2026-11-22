@@ -1,7 +1,6 @@
 
 
 # What is Amazon Nova 2?
-<a name="what-is-nova-2"></a>
 
 Amazon Nova provides multimodal foundation models that process text, images, video, documents and speech. With support for up to 1 million tokens of context and advanced reasoning capabilities, Amazon Nova 2 models enable you to build sophisticated AI applications that understand complex inputs and generate accurate responses.
 

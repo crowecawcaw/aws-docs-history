@@ -1,7 +1,6 @@
 
 
 # Preparing data for RFT on Amazon Nova 2
-<a name="nova-data-prep-rft-2"></a>
 
 RFT on Amazon Nova 2 currently supports text-based training data. This page describes the data format, supported features, constraints, and best practices for preparing RFT training data for Amazon Nova 2 Understanding models.
 
@@ -30,7 +29,7 @@ Required. An array of conversational turns using `system`, `user`, and optionall
 + **role** – Required. Common values: `system` (instructions for the model) and `user` (the task or input).
 + **content** – Required. The text content of the message. For system turns this is instructions; for user turns this is the task or input.
 
-```
+```json
 "messages": [
     {
         "role": "system",
@@ -48,7 +47,7 @@ Required. An array of conversational turns using `system`, `user`, and optionall
 
 Required. The expected output or evaluation criteria that your reward function uses to score the model's response. This field is not limited to structured outputs — it can contain any format that helps your reward function evaluate quality.
 
-```
+```json
 "reference_answer": {
     "{{field}}": "{{value}}"
 }
@@ -59,7 +58,7 @@ Required. The expected output or evaluation criteria that your reward function u
 
 Optional. An array of tool specifications available to the model during this example. Each item defines a tool's interface and metadata. For a complete example, see [Tool calling](#rft-tool-calling).
 
-```
+```json
 "tools": [
     {
         "type": "function",
@@ -104,7 +103,7 @@ The following are complete example JSON objects showing how to combine the field
 ------
 #### [ Chemistry problem ]
 
-```
+```json
 {
     "id": "chem-01",
     "messages": [
@@ -128,7 +127,7 @@ The following are complete example JSON objects showing how to combine the field
 ------
 #### [ Math problem ]
 
-```
+```json
 {
     "id": "math-001",
     "messages": [
@@ -151,7 +150,7 @@ The following are complete example JSON objects showing how to combine the field
 ------
 #### [ Code problem ]
 
-```
+```json
 {
     "id": "code-002",
     "messages": [
@@ -192,7 +191,7 @@ The following are complete example JSON objects showing how to combine the field
 ------
 #### [ Tool usage ]
 
-```
+```json
 {
     "id": "tool-001",
     "messages": [
@@ -239,7 +238,7 @@ The following are complete example JSON objects showing how to combine the field
 
 The following example includes custom metadata fields that are passed to your reward function during evaluation, enabling sophisticated scoring logic tailored to your specific use case.
 
-```
+```json
 {
     "messages": [
         {
@@ -312,7 +311,7 @@ This section summarizes the general constraints and best practices for preparing
 ### Text-only sample
 <a name="rft-general-sample"></a>
 
-```
+```json
 {
     "id": "math-001",
     "messages": [
@@ -358,7 +357,7 @@ RFT supports training models on tool calling patterns, enabling your model to le
 ### Tool usage sample
 <a name="rft-tool-sample"></a>
 
-```
+```json
 {
     "id": "tool-001",
     "messages": [

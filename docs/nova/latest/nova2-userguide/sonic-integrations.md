@@ -1,7 +1,6 @@
 
 
 # Integrations
-<a name="sonic-integrations"></a>
 
 Amazon Nova 2 Sonic can be integrated with various frameworks and platforms to build conversational AI applications. These integrations provide pre-built components and simplified APIs for common use cases.
 
@@ -34,7 +33,7 @@ pip install strands-agents strands-agents-tools
 
 Run this example:
 
-```
+```Python
 import asyncio
 from strands.experimental.bidi.agent import BidiAgent
 from strands.experimental.bidi.io.audio import BidiAudioIO

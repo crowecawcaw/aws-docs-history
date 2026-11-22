@@ -1,7 +1,6 @@
 
 
 # Using Amazon Nova embeddings
-<a name="embeddings"></a>
 
 Amazon Nova Multimodal Embeddings is a multimodal embeddings model for agentic RAG and semantic search applications. It supports text, documents, images, video and audio through a single model, enabling cross-modal retrieval. Nova Multimodal Embeddings maps each of these content types into a unified semantic space, enabling you to conduct unimodal, cross-modal and multimodal vector operations.
 
@@ -31,7 +30,7 @@ When a piece of content is passed through Nova embeddings, the model converts th
 
 Synchronous embedding for text: 
 
-```
+```Python
 import boto3
 import json
 
@@ -74,7 +73,7 @@ print(json.dumps(response_body, indent=2))
 
  try: 
 
-```
+```Python
 response = bedrock_runtime.invoke_model( 
         body=json.dumps(request_body, indent=2), 
         modelId='amazon.nova-2-multimodal-embeddings-v1:0', 
@@ -91,7 +90,7 @@ print(json.dumps(response_body, indent=2))
 
  Asynchronous embedding for video: 
 
-```
+```Python
  import boto3 
  
 bedrock_runtime = boto3.client( 
@@ -120,7 +119,7 @@ model_input = {
 
  try: 
 
-```
+```Python
 response = bedrock_runtime.start_async_invoke( 
         modelId='amazon.nova-2-multimodal-embeddings-v1:0', 
         modelInput=model_input, 
@@ -151,7 +150,7 @@ You must add your batch inference data to an S3 location that you'll choose or s
 
  At least one JSONL file that defines the model inputs. A JSONL contains rows of JSON objects. Your JSONL file must end in the extension .jsonl and be in the following format: 
 
-```
+```JSON
 {
     "recordId": "record001",
     "modelInput": {

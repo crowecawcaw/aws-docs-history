@@ -1,7 +1,6 @@
 
 
 # Handling input events with the bidirectional API
-<a name="sonic-input-events"></a>
 
 The bidirectional Stream API uses an event-driven architecture with structured input and output events. Understanding the correct event ordering is crucial for implementing successful conversational applications and maintaining the proper conversation state throughout interactions.
 
@@ -57,7 +56,7 @@ The session start event initializes the conversation with inference configuratio
 + `MEDIUM`: Balanced sensitivity for most conversational scenarios (recommended default)
 + `LOW`: Waits longer before detecting end of speech, better for thoughtful or hesitant speakers
 
-```
+```json
 {
     "event": {
         "sessionStart": {
@@ -76,7 +75,7 @@ The session start event initializes the conversation with inference configuratio
 
 **Example:**
 
-```
+```json
 {
     "event": {
         "sessionStart": {
@@ -100,7 +99,7 @@ The prompt start event defines the conversation configuration including output f
 
 For a list of available voice IDs, refer to [Language support and multilingual capabilities](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-language-support.html)
 
-```
+```json
 {
     "event": {
         "promptStart": {
@@ -157,7 +156,7 @@ The text content start event is used for system prompts, conversation history, a
 + `ASSISTANT`: Assistant responses in conversation history
 + `SYSTEM_SPEECH`: Controls transcription formatting for Hindi code-switching (Latin/Devanagari/mixed scripts)
 
-```
+```json
 {
     "event": {
         "contentStart": {
@@ -176,7 +175,7 @@ The text content start event is used for system prompts, conversation history, a
 
 **Example - System Prompt:**
 
-```
+```json
 {
     "event": {
         "contentStart": {
@@ -195,7 +194,7 @@ The text content start event is used for system prompts, conversation history, a
 
 **Example - Cross-modal Input:**
 
-```
+```json
 {
     "event": {
         "contentStart": {
@@ -215,7 +214,7 @@ The text content start event is used for system prompts, conversation history, a
 #### Audio
 <a name="sonic-content-start-audio"></a>
 
-```
+```json
 {
     "event": {
         "contentStart": {
@@ -240,7 +239,7 @@ The text content start event is used for system prompts, conversation history, a
 #### Tool
 <a name="sonic-content-start-tool"></a>
 
-```
+```json
 {
     "event": {
         "contentStart": {
@@ -264,7 +263,7 @@ The text content start event is used for system prompts, conversation history, a
 ### 4. TextInputContent
 <a name="sonic-text-input-event"></a>
 
-```
+```json
 {
     "event": {
         "textInput": {
@@ -279,7 +278,7 @@ The text content start event is used for system prompts, conversation history, a
 ### 5. AudioInputContent
 <a name="sonic-audio-input-event"></a>
 
-```
+```json
 {
     "event": {
         "audioInput": {
@@ -294,7 +293,7 @@ The text content start event is used for system prompts, conversation history, a
 ### 6. ToolResultContentEvent
 <a name="sonic-tool-result-event"></a>
 
-```
+```json
 "event": {
     "toolResult": {
         "promptName": "string", // same unique identifier from promptStart event
@@ -307,7 +306,7 @@ The text content start event is used for system prompts, conversation history, a
 ### 7. InputContentEndEvent
 <a name="sonic-content-end-event"></a>
 
-```
+```json
 {
     "event": {
         "contentEnd": {
@@ -321,7 +320,7 @@ The text content start event is used for system prompts, conversation history, a
 ### 8. PromptEndEvent
 <a name="sonic-prompt-end-event"></a>
 
-```
+```json
 {
     "event": {
         "promptEnd": {
@@ -334,7 +333,7 @@ The text content start event is used for system prompts, conversation history, a
 ### 9. RequestEndEvent
 <a name="sonic-session-end-event"></a>
 
-```
+```json
 {
     "event": {
         "sessionEnd": {}

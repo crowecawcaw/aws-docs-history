@@ -1,7 +1,6 @@
 
 
 # Voice conversation prompts
-<a name="sonic-system-prompts"></a>
 
 Nova 2 introduces **Speech Prompts** – a specialized prompting capability designed to control speech-specific transcription formatting for Hindi. Speech prompts work alongside your system prompt but serve a distinct purpose:
 + **System Prompt**: Controls your assistant's behavior, personality, and response style

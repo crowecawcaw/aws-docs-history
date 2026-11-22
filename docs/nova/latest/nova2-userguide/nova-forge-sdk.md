@@ -1,7 +1,6 @@
 
 
 # Customizing with SageMaker Python SDK
-<a name="nova-forge-sdk"></a>
 
 The SageMaker Python SDK v3 introduces a modern, modular API for training, fine-tuning, deploying, and managing models on SageMaker. The SDK supports multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), reinforcement fine-tuning (RFT), and multi-turn reinforcement learning (MTRL). You can run training jobs on SageMaker Training Jobs and SageMaker HyperPod.
 
@@ -35,7 +34,7 @@ The SageMaker Python SDK supports Python 3.10 and later.
 
 To install the SageMaker Python SDK, run the following command:
 
-```
+```bash
 pip install "sagemaker>=3.19.0"
 ```
 
@@ -82,7 +81,7 @@ The SDK supports three compute platforms. Pass the appropriate configuration to 
 
 **SageMaker HyperPod**
 
-```
+```python
 from sagemaker.core.training.configs import HyperPodCompute
 
 compute = HyperPodCompute(
@@ -94,7 +93,7 @@ compute = HyperPodCompute(
 
 **SageMaker Training Jobs (Serverful)**
 
-```
+```python
 from sagemaker.core.training.configs import TrainingJobCompute
 
 compute = TrainingJobCompute(
@@ -107,7 +106,7 @@ compute = TrainingJobCompute(
 
 Fully managed and no compute configuration required. Omit the `compute` parameter and the SDK uses serverless by default:
 
-```
+```python
 # No compute parameter needed as serverless is the default
 trainer = SFTTrainer(
     model="nova-textgeneration-lite-v2",
@@ -121,7 +120,7 @@ trainer = SFTTrainer(
 
 Start supervised fine-tuning with the `SFTTrainer` class. Provide your model, compute configuration, training dataset, and output path.
 
-```
+```python
 from sagemaker.train import SFTTrainer
 from sagemaker.core.training.configs import HyperPodCompute
 
@@ -148,7 +147,7 @@ The SDK also provides `CPTTrainer` for continued pre-training, `RLVRTrainer` for
 
 Track your training progress directly from the SDK. Use `stream_logs()` to stream Amazon CloudWatch logs in real-time, or `show_metrics()` to plot training metrics such as loss and learning rate after job completion.
 
-```
+```python
 # Stream CloudWatch logs in real-time (blocks until job completes)
 trainer.stream_logs(poll=5)
 
@@ -164,7 +163,7 @@ df = trainer.show_metrics()
 
 Evaluate your trained model against built-in benchmark tasks using the `BenchMarkEvaluator` class. Supported benchmarks include MMLU (Massive Multitask Language Understanding), BBH (Advanced Reasoning Tasks), and GPQA (Graduate-Level Google-Proof Q&A). For other evaluation options, see [Evaluators](#nova-forge-sdk-evaluation).
 
-```
+```python
 from sagemaker.train.evaluate import BenchMarkEvaluator, get_benchmarks
 
 # Get the trained model s3 path from the completed training job
@@ -190,7 +189,7 @@ After training, deploy your customized model to production. With the SageMaker P
 
 Deploy to a SageMaker Real-time Inference endpoint for full control over instance types, scaling policies, and endpoint configuration. Use `ModelBuilder` to create and deploy an SageMaker endpoint:
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 # Get the trained model checkpoint path
@@ -213,7 +212,7 @@ builder.build().deploy()  # Build the model and deploy to an endpoint
 
 On-Demand inference provides pay-per-use pricing without provisioned capacity. This option is applicable to LoRA-based customizations. Use On-Demand when you have variable or unpredictable traffic patterns:
 
-```
+```python
 from sagemaker.serve import BedrockModelBuilder
 
 # Deploy with Bedrock On-Demand
@@ -241,7 +240,7 @@ The SageMaker Python SDK uses a layered configuration system for training recipe
 
 For example, to override the maximum training steps and learning rate while using Hub defaults for all other parameters:
 
-```
+```python
 from sagemaker.train import SFTTrainer
 from sagemaker.core.training.configs import HyperPodCompute
 
@@ -305,7 +304,7 @@ The SageMaker Python SDK provides the `DataMixingConfig` class to configure data
 
 Use `DataMixingConfig` with your trainer to specify the percentage of customer data and the distribution across Nova data categories:
 
-```
+```python
 from sagemaker.train import SFTTrainer
 from sagemaker.train.data_mixing_config import DataMixingConfig
 from sagemaker.core.training.configs import HyperPodCompute

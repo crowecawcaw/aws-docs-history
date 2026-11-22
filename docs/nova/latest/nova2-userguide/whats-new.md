@@ -1,7 +1,6 @@
 
 
 # What's new in Amazon Nova 2
-<a name="whats-new"></a>
 
 Amazon Nova 2 introduces significant enhancements across understanding, creative and speech capabilities. The following sections describe the key new features and improvements.
 

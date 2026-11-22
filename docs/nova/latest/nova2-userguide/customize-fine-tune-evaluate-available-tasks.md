@@ -1,7 +1,6 @@
 
 
 # Available benchmark tasks
-<a name="customize-fine-tune-evaluate-available-tasks"></a>
 
 A sample code package is available that demonstrates how to calculate benchmark metrics using the SageMaker AI model evaluation feature for Amazon Nova. To access the code packages, see [sample-Nova-lighteval-custom-task](https://github.com/aws-samples/sample-Nova-lighteval-custom-task/).
 

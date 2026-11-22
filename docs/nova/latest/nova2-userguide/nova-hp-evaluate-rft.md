@@ -1,7 +1,6 @@
 
 
 # RFT evaluation
-<a name="nova-hp-evaluate-rft"></a>
 
 **Note**  
 Evaluation via remote reward functions in your own AWS environment is only available if you are Amazon Nova Forge customer.

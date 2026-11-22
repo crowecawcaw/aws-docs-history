@@ -1,7 +1,6 @@
 
 
 # Model Merge
-<a name="nova-model-merge"></a>
 
 **Important**  
  Throughout this doc, we will reference "base model" as one of the two models. It can be the original foundation model (e.g. Nova Lite 2.0) if no [iterative training](nova-iterative-training.md) was run, or the output of the previous [iterative training](nova-iterative-training.md) run. 
@@ -39,7 +38,7 @@ You may **not need** model merging when:
 
 You can control how the final model balances specialization versus general knowledge by setting the `model_importance_score` in your [ hyperparameters](nova-sft-2-smtj.md#nova-2-selecting-hyperparameters). For example:
 
-```
+```yaml
     training_config:
     # ...
       model_importance_score:
@@ -83,7 +82,7 @@ After training completes, evaluate the merged model to confirm the merge weight 
 
  Full-rank training produces a complete set of model weights. During merging, each parameter is computed as a weighted blend: 
 
-```
+```python
 # Weighted interpolation
 Merged Model = (1 - model_importance_score.fine_tuned_model) * Base Model + model_importance_score.fine_tuned_model * Fine-Tuned Model
 ```
@@ -97,7 +96,7 @@ Merged Model = (1 - model_importance_score.fine_tuned_model) * Base Model + mode
 
  Note that, at this point, the A and B matrices only contains knowledge from the latest fine-tuning run. It has no knowledge of previous training runs. The knowledge from previous training runs will come from the model merge with "base model" or the previous stage LoRA adapter merge described below. 
 
-```
+```python
 Scaled_A = sqrt(model_importance_score.fine_tuned_model) * sqrt(alpha/rank) * A
 Scaled_B = sqrt(model_importance_score.fine_tuned_model) * sqrt(alpha/rank) * B
 ```
@@ -108,7 +107,7 @@ Scaled_B = sqrt(model_importance_score.fine_tuned_model) * sqrt(alpha/rank) * B
 
 The LoRA update is scaled and added to the "base model":
 
-```
+```python
 Merged Model = Base Model + (Scaled_B @ Scaled_A)
 ```
 
@@ -120,7 +119,7 @@ How the LoRA adapters are merged depends on whether you are performing single-st
 +  For single-stage LoRA training (no iterative training), the fine-tuned LoRA adapters are saved directly without merging, because there isn't a previous set of LoRA adapters to merge with. 
 +  In [iterative all-LoRA workflows](nova-iterative-training.md#nova-iterative-technique-consistency), the adapters from each stage are merged into a single set:
 
-  ```
+  ```python
   Merged = Stage1_Scaled_B @ Stage1_Scaled_A + Stage2_Scaled_B @ Stage2_Scaled_A
   ```
 

@@ -1,7 +1,6 @@
 
 
 # Limitations of customizing Amazon Nova models
-<a name="nova-model-limitations"></a>
 
 Amazon Nova customization doesn't support the following capabilities on SageMaker.
 + **SSH into the instance to find the metrics**

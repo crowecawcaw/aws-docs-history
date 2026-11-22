@@ -1,7 +1,6 @@
 
 
 # Security use cases
-<a name="prompting-security"></a>
 
 This guide provides best practices for prompting Nova 2 Lite to perform security operations tasks focused on analysis use cases. It covers two examples: [converting a threat intelligence report into a structured hunt plan](#sec-threat-intelligence) for a Security Operations Center (SOC) team, and [reviewing source code for security vulnerabilities](#sec-secure-code-review). Nova 2 Lite is not designed to generate malicious code or perform offensive security operations. The prompting techniques shown here produce structured, repeatable output that integrates into existing security workflows.
 

@@ -1,7 +1,6 @@
 
 
 # Evaluating your SageMaker AI-trained model
-<a name="nova-model-evaluation"></a>
 
 The purpose of the evaluation process is to assess trained-model performance against benchmarks or custom dataset. The evaluation process typically involves steps to create evaluation recipe pointing to the trained model, specify evaluation datasets and metrics, submit a separate job for the evaluation, and evaluate against standard benchmarks or custom data. The evaluation process will output performance metrics stored in your Amazon S3 bucket.
 
@@ -68,7 +67,7 @@ Below is a breakdown of the key components in the recipe and guidance on how to 
 
 **General run configuration**
 
-```
+```yaml
 run:
   name: eval_job_name 
   model_type: amazon.nova-2-lite-v1:0:256k 
@@ -102,7 +101,7 @@ To evaluate a post-trained model after a Nova SFT training job, follow these ste
 
 **Evaluation configuration**
 
-```
+```yaml
 evaluation:
   task: mmlu 
   strategy: zs_cot 
@@ -167,7 +166,7 @@ evaluation:
 
 **Inference configuration (optional)**
 
-```
+```yaml
 inference:
   max_new_tokens: 2048 
   top_k: -1 
@@ -188,7 +187,7 @@ inference:
 
 When `top_logprobs` is configured in your inference settings, the evaluation output includes token-level log probabilities in the parquet files. Each token position contains a dictionary of the top candidate tokens with their log probabilities in the following structure:
 
-```
+```json
 {
 "Ġint": {"logprob_value": -17.8125, "decoded_value": " int"},
 "Ġthe": {"logprob_value": -2.345, "decoded_value": " the"}
@@ -245,7 +244,7 @@ Schema format requirements - Each line in the `.jsonl` file must be a JSON objec
 
 **Example entry**
 
-```
+```jsonl
 {
 "system":"You are an English major with top marks in class who likes to give minimal word responses: ",
    "query":"What is the symbol that ends the sentence as a question",
@@ -272,7 +271,7 @@ Schema format requirements - Each line in the `.jsonl` file must be a JSON objec
 
 To use your custom dataset, modify your evaluation recipe by adding the following required fields without changing the existing configuration:
 
-```
+```json
 evaluation:
   task: gen_qa 
   strategy: gen_qa 
@@ -307,7 +306,7 @@ Follow these steps to bring your own metrics with custom evaluation SDK.
 
 1. Update your Lambda code using the provided example, modifying the code as needed. This example code creates a Lambda function for Nova's custom evaluation with preprocessing and postprocessing steps for model evaluation.
 
-   ```
+   ```Python
    from nova_custom_evaluation_sdk.processors.decorators import preprocess, postprocess
    from nova_custom_evaluation_sdk.lambda_handler import build_lambda_handler
    
@@ -358,7 +357,7 @@ Follow these steps to bring your own metrics with custom evaluation SDK.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -411,7 +410,7 @@ Follow these steps to bring your own metrics with custom evaluation SDK.
 
 1. Modify the recipe file. Here is an example. 
 
-   ```
+   ```YAML
    processor:
      lambda_arn: arn:aws:lambda:us-east-1:111122223333:function:name
      lambda_type: "custom_metrics"
@@ -626,7 +625,7 @@ CPT evaluation takes advantage of the existing [Bring Your Own Dataset](#nova-mo
 
 An example of a dataset with 4 entries in it:
 
-```
+```json
 {"query": "The capital of France is", "response": "Paris"}
 {"query": "2 + 2 =", "response": "4"}
 {"query": "The mitochondria is the powerhouse of the", "response": "cell"}
@@ -644,7 +643,7 @@ The model will receive raw text input without chat formatting. CPT models are ty
 
 Here is an example of a recipe which is configured for evaluating a CPT model:
 
-```
+```yaml
 run:
   name: cpt_eval_job
   model_type: amazon.nova-2-lite-v1:0:256k
@@ -713,7 +712,7 @@ Before running the notebook, refer to the following reference tables to select i
 
 The following sample notebook demonstrates how to run an evaluation training job.
 
-```
+```python
 # install python SDK
 
 # Do not use sagemaker v3, as sagemaker v3 introduced breaking changes

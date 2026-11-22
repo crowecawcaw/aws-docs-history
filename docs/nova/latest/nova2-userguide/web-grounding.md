@@ -1,7 +1,6 @@
 
 
 # Web Grounding
-<a name="web-grounding"></a>
 
 Web Grounding enables Amazon Nova to search the web for current information and provide responses with citations. This feature is useful for queries requiring up-to-date information beyond the model's training data.
 
@@ -23,7 +22,7 @@ For full examples of code that utilizes Web Grounding, see the Code Samples sect
 
 To include Web Grounding in your results, specify the following `systemTool` parameter in your toolConfig block:
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -78,7 +77,7 @@ Web Grounding is currently only available in US regions and supported only by US
 
 The following is an example response. The response has been shortened for brevity:
 
-```
+```json
 {
   "output": {
     "message": {
@@ -135,7 +134,7 @@ To ensure your role can access Web Grounding on Amazon Bedrock, you have two opt
 
 1. **Add Specific Permissions (if needed)**: If you require more granular access control, add this policy to your role's IAM policy, replacing the account ID with your AWS account ID:
 
-```
+```json
 {
     "Statement": [ 
         { 

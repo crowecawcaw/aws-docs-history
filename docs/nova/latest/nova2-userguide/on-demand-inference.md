@@ -1,7 +1,6 @@
 
 
 # On-demand inference
-<a name="on-demand-inference"></a>
 
 On-demand inference provides serverless access to Amazon Nova models without requiring provisioned capacity. This mode automatically scales to handle your workload and charges based on usage.
 
@@ -19,7 +18,7 @@ On-demand inference offers several advantages:
 
 On-demand inference is the default mode for Amazon Nova models. Simply specify the model ID when making API calls:
 
-```
+```Python
 import boto3
 
 bedrock = boto3.client('bedrock-runtime', region_name='us-east-1')

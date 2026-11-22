@@ -1,7 +1,6 @@
 
 
 # Language support and multilingual capabilities
-<a name="sonic-language-support"></a>
 
 Amazon Nova 2 Sonic provides a diverse selection of voices across multiple languages, enabling you to create conversational AI applications that feel natural and culturally appropriate for your users. Each language offers both feminine-sounding and masculine-sounding voice options.
 
@@ -26,7 +25,7 @@ The following table lists all available voices and their corresponding language 
 
 You can specify the voice ID in the `audioOutputConfiguration` when starting a prompt in the `promptStart` event:
 
-```
+```json
 "event": {
         "promptStart": {
             "promptName": "string",

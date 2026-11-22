@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Nova 2
-<a name="getting-started-nova-2"></a>
 
 You can invoke Amazon Nova 2 models through the following methods:
 + Amazon Bedrock [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API operations

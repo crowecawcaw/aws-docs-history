@@ -1,7 +1,6 @@
 
 
 # Prompt engineering guide
-<a name="prompt-engineering-guide"></a>
 
 Prompt engineering is the practice of designing instructions to effectively communicate with large language models (LLMs) like Amazon Nova. Prompt engineering allows you to control model behavior, improve output quality and build reliable AI-powered applications.
 

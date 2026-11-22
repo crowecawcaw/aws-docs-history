@@ -1,7 +1,6 @@
 
 
 # Iterative Training
-<a name="nova-iterative-training"></a>
 
 ## Overview
 <a name="nova-iterative-overview"></a>
@@ -31,7 +30,7 @@ After each training job completes, a manifest file is generated in the output lo
 
 **Example manifest.json structure**
 
-```
+```json
 {  
   "checkpoint_s3_bucket": "s3://customer-escrow-<account-number>-smtj-<unique-identifier>/<job-name>/stepID",  
   ...  
@@ -54,7 +53,7 @@ You can use the escrow bucket path as the `model_name_or_path` in your next trai
 
 Configure your next training job to use the previous checkpoint as the base model:
 
-```
+```yaml
 run:  
   name: "my-iterative-training-job"  
   model_type: amazon.nova-2-lite-v1:0:256k  
@@ -109,7 +108,7 @@ This example demonstrates a common iterative training pattern for reasoning mode
 
 Configure and launch your SFT training job with your dataset:
 
-```
+```yaml
 run:  
   name: "initial-sft-training"  
   model_type: amazon.nova-2-lite-v1:0:256k  
@@ -131,7 +130,7 @@ run:
 
 Create a new RFT training job using the SFT checkpoint:
 
-```
+```yaml
 run:  
   name: "rft-on-sft-checkpoint"  
   model_type: amazon.nova-2-lite-v1:0:256k  
@@ -147,7 +146,7 @@ run:
 
 Run evaluation on the RFT checkpoint to assess performance:
 
-```
+```yaml
 run:  
   name: "evaluate-rft-checkpoint"  
   model_type: amazon.nova-2-lite-v1:0:256k  
@@ -178,7 +177,7 @@ You can track metrics via MLflow by [setting up MLflow](nova-model-monitor.md#no
 
 **Using CLI**: If you use the CLI, you must create an MLflow app and pass it as an input to the training job API request.
 
-```
+```bash
 mlflow_app_name="<enter your MLflow app name>"  
 role_arn="<enter your role ARN>"   
 bucket_name="<enter your bucket name>"   
@@ -196,7 +195,7 @@ mlflow_app_arn=$(aws sagemaker create-mlflow-app \
 
 **Using CLI**: Create a presigned URL to access the MLflow app UI:
 
-```
+```bash
 aws sagemaker create-presigned-mlflow-app-url \  
   --arn $mlflow_app_arn \  
   --region $region \  
@@ -301,7 +300,7 @@ If an iteration introduces regressions:
 
 **Example rollback**
 
-```
+```yaml
 run:  
   name: "rollback-to-iteration-2"  
   model_type: amazon.nova-2-lite-v1:0:256k  
@@ -333,7 +332,7 @@ When iteratively training, you must use the **same model type** throughout all i
 
 **Initial training**
 
-```
+```yaml
 run:  
   model_type: amazon.nova-2-lite-v1:0:256k  
   model_name_or_path: "nova-lite-2/prod"
@@ -341,7 +340,7 @@ run:
 
 **Subsequent iterations must use the same model\_type**
 
-```
+```yaml
 run:  
   model_type: amazon.nova-2-lite-v1:0:256k  # Must match original  
   model_name_or_path: "s3://customer-escrow-<account-number>-smtj-<unique-identifier>/<job-name>"
@@ -399,7 +398,7 @@ The training technique must remain consistent across iterations:
 
 **Example of correct configuration**
 
-```
+```yaml
 run:  
   model_type: amazon.nova-2-lite-v1:0:256k  # Must match checkpoint's model  
   model_name_or_path: "s3://customer-escrow-<account-number>-smtj-<unique-identifier>/<job-name>"

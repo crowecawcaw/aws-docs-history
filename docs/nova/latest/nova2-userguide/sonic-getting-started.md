@@ -1,7 +1,6 @@
 
 
 # Getting started with speech-to-speech
-<a name="sonic-getting-started"></a>
 
 The following sections provide an example and step-by-step explanation of how to implement a simple, real-time audio streaming application using Amazon Nova 2 Sonic. This simplified version demonstrates the core functionality needed to create an audio conversation with the Amazon Nova 2 Sonic model.
 
@@ -19,7 +18,7 @@ This section imports necessary libraries and sets audio configuration parameters
 + Amazon Bedrock SDK components for streaming
 + Audio constants define the format of audio capture (16kHz sample rate, mono channel)
 
-```
+```python
 import os
 import asyncio
 import base64
@@ -48,7 +47,7 @@ The `SimpleNovaSonic` class is the main class that handles the Amazon Nova Sonic
 + Unique IDs for prompt and content tracking
 + An asynchronous queue for audio playback
 
-```
+```python
 class SimpleNovaSonic:
     def __init__(self, model_id='amazon.nova-2-sonic-v1:0', region='us-east-1'):
         self.model_id = model_id
@@ -72,7 +71,7 @@ This method configures the Amazon Bedrock client with the following:
 + Authentication information using environment variables for AWS credentials
 + The SigV4 authentication scheme for the AWS API calls
 
-```
+```python
     def _initialize_client(self):
         """Initialize the Bedrock client."""
         config = Config(
@@ -90,7 +89,7 @@ This method configures the Amazon Bedrock client with the following:
 
 This helper method sends JSON events to the bidirectional stream, which is used for all communication with the Amazon Nova Sonic model:
 
-```
+```python
     async def send_event(self, event_json):
         """Send an event to the stream."""
         event = InvokeModelWithBidirectionalStreamInputChunk(
@@ -104,7 +103,7 @@ This helper method sends JSON events to the bidirectional stream, which is used 
 
 This method initiates the session and setups the remaining events to start audio streaming. These events need to be sent in the same order.
 
-```
+```python
     async def start_session(self):
         """Start a new session with Nova Sonic."""
         if not self.client:
@@ -220,7 +219,7 @@ These methods handle the audio input lifecycle:
 + `send_audio_chunk`: Encodes and sends audio chunks to the model
 + `end_audio_input`: Properly closes the audio input stream
 
-```
+```python
     async def start_audio_input(self):
         """Start audio input stream."""
         audio_content_start = f'''
@@ -288,7 +287,7 @@ This method properly closes the session by:
 + Sending a `sessionEnd` event
 + Closing the input stream
 
-```
+```python
     async def end_session(self):
         """End the session."""
         if not self.is_active:
@@ -326,7 +325,7 @@ This method continuously processes responses from the model and does the followi
 + Handles text output by printing to the console with automatic speech recognition and transcription.
 + Handles audio output by decoding and queuing for playback.
 
-```
+```python
     async def _process_responses(self):
         """Process responses from the stream."""
         try:
@@ -379,7 +378,7 @@ This method will perform the following tasks:
 + Plays the audio through the speakers
 + Properly cleans up resources when done
 
-```
+```python
     async def play_audio(self):
         """Play audio responses."""
         p = pyaudio.PyAudio()
@@ -393,7 +392,7 @@ This method will perform the following tasks:
 
 try:
 
-```
+```python
             while self.is_active:
                 audio_data = await self.audio_queue.get()
                 stream.write(audio_data)
@@ -415,7 +414,7 @@ This method will perform the following tasks:
 + Sends each chunk to the Amazon Nova Sonic model
 + Properly cleans up resources when done
 
-```
+```python
     async def capture_audio(self):
         """Capture audio from microphone and send to Nova Sonic."""
         p = pyaudio.PyAudio()
@@ -435,7 +434,7 @@ This method will perform the following tasks:
 
 try:
 
-```
+```python
             while self.is_active:
                 audio_data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
                 await self.send_audio_chunk(audio_data)
@@ -460,7 +459,7 @@ The main function orchestrates the entire process by performing the following:
 + Waits for the user to press **Enter** to stop
 + Properly ends the session and cleans up tasks
 
-```
+```python
 async def main():
     # Create Nova Sonic client
     nova_client = SimpleNovaSonic()

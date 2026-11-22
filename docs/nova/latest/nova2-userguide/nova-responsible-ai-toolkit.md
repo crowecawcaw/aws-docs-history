@@ -1,7 +1,6 @@
 
 
 # Responsible AI Toolkit and content moderation
-<a name="nova-responsible-ai-toolkit"></a>
 
 ## Responsible AI toolkit
 <a name="nova-responsible-ai-toolkit-overview"></a>

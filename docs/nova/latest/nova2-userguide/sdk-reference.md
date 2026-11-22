@@ -1,7 +1,6 @@
 
 
 # SDK reference
-<a name="sdk-reference"></a>
 
 AWS software development kits (SDKs) are available for many popular programming languages. Each SDK provides an API, code examples and documentation that make it easier for developers to build applications in their preferred language.
 

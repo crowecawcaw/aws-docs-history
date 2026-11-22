@@ -1,7 +1,6 @@
 
 
 # Code examples
-<a name="sonic-code-examples"></a>
 
 These code examples help you quickly get started with Amazon Nova 2 Sonic. You can access the complete list of examples in the [Amazon Nova Sonic GitHub samples](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic) page.
 

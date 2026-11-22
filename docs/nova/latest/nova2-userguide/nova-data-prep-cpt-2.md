@@ -1,7 +1,6 @@
 
 
 # Preparing data for CPT on Amazon Nova 2
-<a name="nova-data-prep-cpt-2"></a>
 
 CPT on Amazon Nova 2 trains on raw text to help the model acquire deeper knowledge of specific domains, terminology, and writing patterns. This page describes the data format, supported features, constraints, and best practices for preparing CPT training data for Amazon Nova 2 models.
 
@@ -27,7 +26,7 @@ CPT training and validation datasets must be JSONL files, where each line is a J
 
 Required. A string containing the training content for this example.
 
-```
+```json
 {"text": "{{training content}}"}
 ```
 
@@ -39,7 +38,7 @@ When using datamixing, run the first job with `max_steps=2`. This will help crea
 
 The following shows a basic CPT JSONL dataset with multiple text samples:
 
-```
+```json
 {"text": "AWS stands for Amazon Web Services"}
 {"text": "Amazon SageMaker is a fully managed machine learning service"}
 {"text": "Amazon Bedrock is a fully managed service for foundation models"}
@@ -88,7 +87,7 @@ This section summarizes the general constraints and best practices for preparing
 ### Text-only sample
 <a name="cpt-general-sample"></a>
 
-```
+```json
 {"text": "AWS stands for Amazon Web Services"}
 {"text": "Amazon SageMaker is a fully managed machine learning service"}
 {"text": "Amazon Bedrock is a fully managed service for foundation models"}
@@ -143,6 +142,6 @@ To pack multiple samples, concatenate multiple training samples with a `[DOC]` s
 
 An example packed document looks like this:
 
-```
+```json
 {"text": "training sample 1 [DOC] training sample 2 [DOC] training sample 3"}
 ```

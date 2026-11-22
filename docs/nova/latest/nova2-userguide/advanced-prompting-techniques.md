@@ -1,7 +1,6 @@
 
 
 # Advanced prompting techniques
-<a name="advanced-prompting-techniques"></a>
 
 These sections provide advanced guidance for how to improve the quality of your prompts and leverage key features like extended thinking.
 
@@ -51,7 +50,7 @@ Not all tasks require CoT. For simpler tasks, allow the model to use its own rea
 
 **Guiding the model's CoT direction:**
 
-```
+```Markdown
 {{User query}} Please follow these steps:
 
 1. {{Step 1}}
@@ -71,7 +70,7 @@ Amazon Nova 2 models have a supported context length of 1 million tokens and exc
 
 **Example Template:**
 
-```
+```Python
 // Provide your long inputs at the top of your prompt
 BEGIN INPUT DOCUMENTS
 
@@ -101,7 +100,7 @@ We recommend that you provide the model with trusted information relevant to the
 
 Prompt template
 
-```
+```Python
 System:
 In this session, the model has access to search results and a user's question, your job is to answer the user's question using only information from the search results. 
 
@@ -119,13 +118,13 @@ This example shows how grounding context can prevent the model from hallucinatin
 
 System:
 
-```
+```Markdown
 In this session, the model has access to search results and a user's question, your job is to answer the user's question using only information from the search results. Model Instructions:- DO NOT USE INFORMATION THAT IS NOT IN SEARCH RESULTS!
 ```
 
 User:
 
-```
+```Markdown
 What were the economic impacts of the COVID-19 pandemic on the United States in 2020?
 
 Resource: Search Results: In 2020, the United States experienced significant economic impacts due to the COVID-19 pandemic. The U.S. economy contracted by 3.5% in 2020, according to the Bureau of Economic Analysis. Unemployment rates surged to 14.7% in April 2020, the highest since the Great Depression, before gradually declining. Small businesses faced severe challenges, with millions of firms closing permanently. Additionally, consumer spending dropped sharply as people reduced non-essential expenditures and saved more. Government intervention played a critical role in mitigating these impacts through stimulus packages and support programs, such as the Paycheck Protection Program (PPP) for small businesses and direct payments to individuals. Despite these measures, the economic recovery remained uneven across different sectors and regions.
@@ -143,7 +142,7 @@ This approach helps the model focus on the most pertinent information and avoid 
 
 **Example Citation markers prompt**  
 
-```
+```Markdown
 You are an AI financial assistant. Your task is to find patterns and insights from multi-year financial documents 
 
 Passage %[1]%
@@ -175,7 +174,7 @@ After you extract key information based on the user's task, you can use the extr
 
 **Example Follow-up analysis with extracted metrics**  
 
-```
+```Markdown
 ## Task
 Analyze my LLC's financial reports across multiple years to identify significant performance trends, segment growth patterns and strategic shifts.
 
@@ -227,7 +226,7 @@ The following are examples of common formatting schemas.
 ------
 #### [ JSON ]
 
-```
+```JSON
 JSON_format = """Write your response following the JSON format below:
 
 ```json
@@ -244,7 +243,7 @@ key3: [{
 ------
 #### [ XML ]
 
-```
+```XML
 XML_format = """Write your response following the XML format below:
 
 <output>
@@ -268,7 +267,7 @@ XML_format = """Write your response following the XML format below:
 ------
 #### [ Markdown ]
 
-```
+```Markdown
 markdown_schema = """Write your response following the markdown format below:
 
 
@@ -303,7 +302,7 @@ If you are explicitly looking for extracting JSON, a common pattern is to prefil
 **Example Prefill assistant content**  
 The following code demonstrates how to prefill with the API:  
 
-```
+```Python
 import boto3
 import json
 
@@ -359,14 +358,14 @@ Adding the Output Schema section with the appropriate schema makes the model pre
 
 User:
 
-```
+```Markdown
 Provide details about the best selling full-frame cameras in past three years.
 Answer in JSON format with keys like name, brand, price and a summary.
 ```
 
 Assistant:
 
-```
+```JSON
 ```json
  [
  {
@@ -402,7 +401,7 @@ Assistant:
 
 User:
 
-```
+```Markdown
 Provide details about the best selling full-frame cameras in past three years.
 You MUST answer in JSON format only. Write your response following the the format below:
 [{
@@ -415,7 +414,7 @@ You MUST answer in JSON format only. Write your response following the the forma
 
 Assistant:
 
-```
+```JSON
 [
  {
  "name": "Nikon D850",
@@ -461,20 +460,20 @@ Another approach is to prefill the model's response by including the desired ini
 
 User:
 
-```
+```Markdown
 Provide details about the best selling full-frame cameras in past three years.
 Your response should be in JSON format, with the following keys: name, brand, year, price, summary.
 ```
 
 Assistant (Prefilling):
 
-```
+```JSON
 ```json
 ```
 
 Assistant:
 
-```
+```JSON
 {
  "cameras": [
  {
@@ -524,7 +523,7 @@ As an alternative to using the prefill technique for structured output, you can 
 
 User:
 
-```
+```Markdown
 From the below provided Query, extract the relevent entities
 
 Query:
@@ -535,7 +534,7 @@ Use the extract_ner tool.
 
 ToolConfig:
 
-```
+```JSON
 {
         "tools": [
             {
@@ -604,15 +603,15 @@ To leverage this capability for short form translations (a few sentences) you ca
 
 **Example Translation prompts**  
 
-```
+```Markdown
 Translate the following text into {target language}. Please output only the translated text with no prefix or introduction: {text}
 ```
 
-```
+```Markdown
 Translate the following sentence from {source_language} to {target language}: {text}
 ```
 
-```
+```Markdown
 {text} How do you say this sentence in {target_language}
 ```
 
@@ -623,7 +622,7 @@ In character-based languages, the Amazon Nova 2 models may utilize the character
 
 **Example Enforce writing conventions**  
 
-```
+```Markdown
 When translating, ensure to use the correct orthography / script / writing convention of the target language, not the source language's characters
 ```
 

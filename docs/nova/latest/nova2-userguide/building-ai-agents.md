@@ -1,7 +1,6 @@
 
 
 # Building AI agents
-<a name="building-ai-agents"></a>
 
 Amazon Nova models are optimized for building AI agents with Amazon Nova Act. The models provide improved tool use, better reasoning for multi-step tasks, enhanced ability to maintain context across complex agent workflows and support for remote MCP tools.
 
@@ -23,7 +22,7 @@ When designing agents with Nova:
 ### Multi-tool agent example
 <a name="multi-tool-agent-example"></a>
 
-```
+```Python
 tool_config = { 
     "tools": [ 
         { 
@@ -94,7 +93,7 @@ Agent invocation involves managing the conversation flow, processing tool calls,
 
 Stream responses to provide real-time visibility into the agent's reasoning and actions:
 
-```
+```Python
 import boto3
 response = client.converse_stream( 
     modelId=" us.amazon.nova-2-lite-v1:0", 
@@ -137,7 +136,7 @@ Final Architecture Design:
 
 Maintain conversation history and tool results to preserve context; the example below demonstrates this for a single turn, but the developer can determine how to orchestrate overall agent system based on workflow requirements. In addition, Amazon Web Services tools such as Strands manage agent context and tool state on behalf of the developer.
 
-```
+```Python
 messages = []
 
 messages = [] 

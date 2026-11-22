@@ -1,7 +1,6 @@
 
 
 # Data mixing on SageMaker Training Jobs
-<a name="nova-forge-sft-datamix-smtj"></a>
 
 With Amazon Nova Forge data mixing, you can combine your custom training data with Amazon Nova's proprietary training data during supervised fine-tuning (SFT). This helps preserve the model's general capabilities while specializing it to your target domain.
 
@@ -39,7 +38,7 @@ When you customize category percentages, you must specify values for *all 23 cat
 
 **Example: default category distribution**
 
-```
+```json
 {
   "customer_data_percent": "50",
   "nova_agents_percent": "1",
@@ -137,7 +136,7 @@ The following parameters apply to both LoRA and full-rank fine-tuning unless not
 
 You can submit serverless SFT jobs with data mixing using the SageMaker Python SDK `SFTTrainer` class with `DataMixingConfig`. For installation instructions, see [Installation](nova-forge-sdk.md#nova-forge-sdk-installation).
 
-```
+```python
 from sagemaker.train import SFTTrainer
 from sagemaker.train.data_mixing_config import DataMixingConfig
 
@@ -169,7 +168,7 @@ When `nova_data_percentages` is provided, only the specified categories are used
 
 The following command structure shows how to submit a serverless SFT job with data mixing using the AWS CLI.
 
-```
+```bash
 aws sagemaker create-training-job \
   --region <region> \
   --training-job-name <job-name> \
@@ -187,7 +186,7 @@ aws sagemaker create-training-job \
 
 Pass the following JSON as the value of `--serverless-job-config`. This tells Amazon Nova Forge which model to fine-tune and which training method to use.
 
-```
+```json
 {
   "BaseModelArn": "<base-model-arn>",
   "AcceptEula": true,
@@ -211,7 +210,7 @@ Pass the following JSON as the value of `--serverless-job-config`. This tells Am
 
 Pass the following JSON as the value of `--model-package-config`. The trained model checkpoint is registered as a model package version in the specified group.
 
-```
+```json
 {
   "ModelPackageGroupArn": "arn:aws:sagemaker:<region>:<account>:model-package-group/<group-name>"
 }
@@ -225,7 +224,7 @@ Data mixing on SageMaker Training Jobs (serverless) only supports text-only conv
 
 Pass the following JSON as the value of `--input-data-config`.
 
-```
+```json
 [{
   "ChannelName": "train",
   "DataSource": {
@@ -244,7 +243,7 @@ Pass the following JSON as the value of `--input-data-config`.
 
 The following complete example submits a LoRA SFT job with 50% data mixing.
 
-```
+```bash
 aws sagemaker create-training-job \
   --region us-east-1 \
   --training-job-name "my-sft-datamix-lora" \
@@ -295,7 +294,7 @@ For full-rank fine-tuning, omit `"Peft": "LORA"` from `--serverless-job-config` 
 
 **Check job status**
 
-```
+```bash
 aws sagemaker describe-training-job \
   --region us-east-1 \
   --training-job-name "my-sft-datamix-lora" \

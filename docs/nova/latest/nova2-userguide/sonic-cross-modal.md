@@ -1,7 +1,6 @@
 
 
 # Cross-modal input
-<a name="sonic-cross-modal"></a>
 
 Amazon Nova 2 Sonic now supports cross-modal input, allowing you to send text messages in addition to voice input during a conversation session. While speech remains the primary mode of interaction, text input provides flexibility for scenarios where typing is more convenient or appropriate.
 
@@ -34,7 +33,7 @@ All three events must use the same promptName and contentName to maintain the se
 
 Initiates the text input sequence with configuration details:
 
-```
+```json
 {
   "event": {
     "contentStart": {
@@ -64,7 +63,7 @@ Initiates the text input sequence with configuration details:
 
 Contains the actual text message content:
 
-```
+```json
 {
   "event": {
     "textInput": {
@@ -86,7 +85,7 @@ Contains the actual text message content:
 
 Signals the completion of the text input:
 
-```
+```json
 {
   "event": {
     "contentEnd": {

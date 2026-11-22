@@ -1,7 +1,6 @@
 
 
 # Using the system role
-<a name="prompting-system-role"></a>
 
 The *System Role* is a role where you can provide instructions to the model that define how it will respond to end users of your application. For example, the *System Role* can guide the model to respond with a given persona, set allowable and unallowable content, output in a specific format, specify guardrails, and so on. Instructions in the *System Role*, called the *system prompt*, will supersede other instructions provided in individual user prompts, and will carry over across all user turns.
 
@@ -10,7 +9,7 @@ The *System Role* is a role where you can provide instructions to the model that
 
 To give the model a customized role, you can set the `system` parameter in the API as below:
 
-```
+```JSON
 {
   "system": [
     {
@@ -38,7 +37,7 @@ To further restrict the model to a hierarchy structure, you can add the followin
 
 The following items are some things that you can add in a system prompt template:
 
-```
+```Python
 # Define a persona
 persona = """You are {{Persona}}
 """
@@ -82,19 +81,19 @@ After adding the system prompt, the models responses are highly stylized towards
 
 System:
 
-```
+```Markdown
 NA
 ```
 
 User:
 
-```
+```Markdown
 Explain the modern concept of hotel loyalty programs and their benefits.
 ```
 
 Assistant:
 
-```
+```Markdown
 Hotel loyalty programs have evolved significantly in the modern hospitality industry, becoming sophisticated tools for enhancing customer retention and satisfaction. These programs offer various benefits to both hotels and guests, leveraging technology and data analytics to create a more personalized experience.
 
  ### Key Components of Modern Hotel Loyalty Programs:
@@ -173,19 +172,19 @@ Hotel loyalty programs have evolved significantly in the modern hospitality indu
 
 System:
 
-```
+```Markdown
 Provide answers in the style of a medieval scroll, using old English vocabulary and phrases.
 ```
 
 User:
 
-```
+```Markdown
 Explain the modern concept of hotel loyalty programs and their benefits.
 ```
 
 Assistant:
 
-```
+```Markdown
 Here followeth a detailed exposition of the modern concept known as hotel loyalty programs, penned in the venerable style befitting such an arcane and wondrous subject.
 
  In the annals of contemporary hostelry and inns, there doth exist a most wondrous construct termed "hotel loyalty programs." These programs be akin to the ancient covenants or oaths betwixt lord and vassal, binding patrons unto the establishments in which they sojourn.
@@ -219,19 +218,19 @@ With the addition of the *system prompt*, users can add guardrails for their app
 
 System:
 
-```
+```Markdown
 NA
 ```
 
 User:
 
-```
+```Markdown
 Write a one-page business plan for a cooperative bike-sharing program in urban centers aiming to lower traffic congestion and promote eco-friendly transportation. (Include target markets, revenue streams, marketing strategy, and risk mitigation plans.)
 ```
 
 Assistant:
 
-```
+```Markdown
 **Urban EcoCycle: A Cooperative Bike-Sharing Program**
 
  **Executive Summary:**

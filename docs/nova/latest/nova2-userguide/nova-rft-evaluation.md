@@ -1,7 +1,6 @@
 
 
 # RFT evaluation
-<a name="nova-rft-evaluation"></a>
 
 ## What is RFT evaluation?
 <a name="nova-rft-eval-what-is"></a>
@@ -42,7 +41,7 @@ RFT evaluation input data must follow the OpenAI Reinforcement Fine-Tuning forma
 ### Data format example
 <a name="nova-rft-eval-data-example"></a>
 
-```
+```json
 {  
   "messages": [  
     {  
@@ -79,7 +78,7 @@ For a complete example, see [Evaluation notebooks](https://docs.aws.amazon.com/s
 ### Sample recipe configuration
 <a name="nova-rft-eval-sample-recipe"></a>
 
-```
+```yaml
 run:  
   name: nova-lite-rft-eval-job    
   model_type: amazon.nova-lite-v1:0:300k    
@@ -127,7 +126,7 @@ These preset functions provide out-of-the-box evaluation capabilities for:
 
 1. Publish Lambda layer using AWS Command Line Interface (AWS CLI):
 
-   ```
+   ```bash
    aws lambda publish-layer-version \
        --layer-name preset-function-layer \
        --description "Preset reward function layer with dependencies" \
@@ -140,7 +139,7 @@ These preset functions provide out-of-the-box evaluation capabilities for:
 
 1. Import and use in your Lambda code:
 
-   ```
+   ```python
    from prime_code import compute_score  # For code evaluation
    from prime_math import compute_score  # For math evaluation
    ```
@@ -152,7 +151,7 @@ Evaluates Python code generation tasks by executing code against test cases and 
 
 **Example input dataset format**
 
-```
+```json
 {"messages":[{"role":"user","content":"Write a function that returns the sum of two numbers."}],"reference_answer":{"inputs":["3\n5","10\n-2","0\n0"],"outputs":["8","8","0"]}}
 {"messages":[{"role":"user","content":"Write a function to check if a number is even."}],"reference_answer":{"inputs":["4","7","0","-2"],"outputs":["True","False","True","True"]}}
 ```
@@ -171,7 +170,7 @@ Evaluates mathematical reasoning and problem-solving capabilities with symbolic 
 
 **Input format**
 
-```
+```json
 {"messages":[{"role":"user","content":"What is the derivative of x^2 + 3x?."}],"reference_answer":"2*x + 3"}
 ```
 
@@ -235,7 +234,7 @@ If the Lambda does not have this naming scheme, the job will fail with this erro
 
 Your Lambda function receives data in this format:
 
-```
+```json
 [  
   {  
     "id": "sample-001",  
@@ -275,7 +274,7 @@ The message structure includes the nested `content` array, matching the input da
 
 Your Lambda function must return data in this format:
 
-```
+```json
 [  
   {  
     "id": "sample-001",  
@@ -312,7 +311,7 @@ Your Lambda function must return data in this format:
 
 Your SageMaker execution role must have permissions to invoke your Lambda function. Add this policy to your SageMaker execution role:
 
-```
+```json
 {  
   "Version": "2012-10-17",		 	 	   
   "Statement": [  
@@ -332,7 +331,7 @@ Your SageMaker execution role must have permissions to invoke your Lambda functi
 
 Your Lambda function's execution role needs basic Lambda execution permissions:
 
-```
+```json
 {  
   "Version": "2012-10-17",		 	 	   
   "Statement": [  
@@ -379,7 +378,7 @@ If your Lambda function accesses other AWS services (e.g., S3 for reference data
 
 The evaluation job outputs results to your specified S3 location in JSONL format. Each line contains the evaluation results for one sample:
 
-```
+```json
 {  
   "id": "sample-001",  
   "aggregate_reward_score": 0.75,  

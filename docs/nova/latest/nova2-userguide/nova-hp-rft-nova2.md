@@ -1,7 +1,6 @@
 
 
 # Reinforcement fine-tuning (RFT) on Nova 2.0 on SageMaker HyperPod
-<a name="nova-hp-rft-nova2"></a>
 
 This section covers the sample recipe, starting a fine-tuning job, hyperparameter guidance, and training monitoring for RFT on Nova 2.0 Lite on SageMaker HyperPod. For information about the data format, supported features, constraints, and best practices for preparing RFT training data, see [Preparing data for RFT on Amazon Nova 2](nova-data-prep-rft-2.md).
 
@@ -15,7 +14,7 @@ To determine whether RFT is a good fit for your use case, see [Reinforcement fin
 ## Sample RFT recipe
 <a name="nova-rft-2-sample-recipe"></a>
 
-```
+```yaml
 # Note:
 # This recipe can run on p5.48xlarge, p5e.48xlarge, and p5en.48xlarge instance types.
 run:

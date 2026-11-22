@@ -1,7 +1,6 @@
 
 
 # Create precise prompts
-<a name="create-precise-prompts"></a>
 
 Crafting specific user queries is crucial in prompt engineering. Well-crafted queries direct Amazon Nova text understanding models to generate accurate and pertinent responses. To craft such queries, it is essential to start by providing contextual information in the query. The context provided helps situate the model better by aligning to clear target-user scenarios, thereby enhancing the relevance and coherence of the output.
 
@@ -12,7 +11,7 @@ Models work best if the instructions are clear, well structured, short, and spec
 
 **Prompt template**
 
-```
+```python
 # Use this to clearly define the task and job needed by the model
 task_summary = f"""
 ## Task Summary:
@@ -59,13 +58,13 @@ Here is an example of a prompt that is rewritten with specific and contextual in
 
 `User:`
 
-```
+```Markdown
 Write me a meeting invite to the project team
 ```
 
 `Assistant:`
 
-```
+```Markdown
 Certainly! Here's a sample meeting invite for your project team:
 
  ---
@@ -133,13 +132,13 @@ Certainly! Here's a sample meeting invite for your project team:
 
 `User:`
 
-```
+```Markdown
 Write me a meeting invite to the project team. The meeting is about project planning, and should be held on October 16th, from 10 AM to 11 AM in Conference Room B. Please include an agenda that covers our progress on the project thus far, as well as any upcoming milestones and deadlines.
 ```
 
 `Assistant:`
 
-```
+```Markdown
 **Meeting Invitation: Project Planning Session**
 
  **Date:** October 16th 
@@ -198,13 +197,13 @@ Adding extra details on the response formatting can help the model accomplish th
 
 `User:`
 
-```
+```Markdown
 Outline the different types of rooms available in a typical 4-star hotel, including their features.
 ```
 
 `Assistant:`
 
-```
+```Markdown
 In a typical 4-star hotel, you'll find a range of room types, each designed to cater to different guest needs and preferences. Here's an outline of the different types of rooms available along with their features:
 
  ### 1. **Standard Room**
@@ -308,7 +307,7 @@ In a typical 4-star hotel, you'll find a range of room types, each designed to c
 
 `User:`
 
-```
+```Markdown
 Outline the different types of rooms available in a typical 4-star hotel, including their features. All responses MUST be in YAML format.
 ```
 
@@ -392,13 +391,13 @@ In this case, the prompt with style constraints provides comprehensive informati
 
 `User:`
 
-```
+```Markdown
 Explain the process of checking in a guest at a luxury resort.
 ```
 
 `Assistant:`
 
-```
+```Markdown
 Checking in a guest at a luxury resort involves a meticulous and personalized process designed to ensure a seamless and memorable start to their stay. Here’s a detailed overview of the steps involved:
 
  ### Pre-Arrival Preparation
@@ -471,13 +470,13 @@ Checking in a guest at a luxury resort involves a meticulous and personalized pr
 
 `User:`
 
-```
+```Markdown
 Explain the process of checking in a guest at a luxury resort. Provide all answers in a numbered list format, with each point containing no more than 15 words, and no more than 6 bullet points.
 ```
 
 `Assistant:`
 
-```
+```Markdown
 1. Greet guest warmly with a smile and offer assistance.
 2. Verify reservation details and check guest's identification.
 3. Confirm room assignment and amenities provided.
@@ -505,7 +504,7 @@ Text: Johangsan is a mountain of South Korea. It has an elevation of 954 metres.
 
 `Assistant:`
 
-```
+```Markdown
 To classify the topic of the given text, let's analyze the content step-by-step:
 
  1. The text mentions "Johangsan," which appears to be a specific name.
@@ -524,7 +523,7 @@ To classify the topic of the given text, let's analyze the content step-by-step:
 
 `User:`
 
-```
+```Markdown
 In this task, you are given a text which is the body of a document. Your job is to classify the topic of the document into these categories: 1)Company, 2)Educational Institution, 3)Artist, 4)Athlete, 5)Office Holder, 6)Mean of transportation, 7)Building, 8)Natural place, 9)Village, 10)Animal. Your output should be the category number. DO NOT generate anything apart from numbers 1-10.
 Text: Johangsan is a mountain of South Korea. It has an elevation of 954 metres.
 ```
@@ -552,13 +551,13 @@ Notice how in the Sectioned Prompt column, the prompt is clearer and has delinea
 
 `User:`
 
-```
+```Markdown
 Write an article about climate change for high school students explaining basic concepts, current impacts, and individual actions to mitigate it. Make it informative and engaging with simple language, including statistics and real-world examples.
 ```
 
 `Assistant:`
 
-```
+```Markdown
 ### Understanding Climate Change: What It Is, What It’s Doing, and What You Can Do About It
 
  #### Introduction
@@ -622,7 +621,7 @@ Write an article about climate change for high school students explaining basic 
 
 `User:`
 
-```
+```Markdown
 **Task:**
 Write an article 
 
@@ -644,7 +643,7 @@ Purpose: Educational Article
 
 `Assistant:`
 
-```
+```Markdown
 # Understanding Climate Change: A Guide for High School Students
 
  ## Introduction

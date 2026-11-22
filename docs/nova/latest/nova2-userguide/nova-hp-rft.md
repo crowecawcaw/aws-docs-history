@@ -1,7 +1,6 @@
 
 
 # Reinforcement fine-tuning (RFT)
-<a name="nova-hp-rft"></a>
 
 Reinforcement Fine-Tuning (RFT) is a technique that improves model performance through feedback signals — measurable scores or rewards indicating response quality — rather than direct supervision with exact correct answers. Unlike SFT that learns from input-output pairs, RFT uses reward functions to evaluate model responses and iteratively optimizes the model to maximize these rewards. RFT supports both single-turn and multi-turn training:
 + **Single-turn RFT**: The model generates a single response to a prompt, and a reward function scores that response. Best for tasks with clear per-response quality metrics such as math, code generation, and structured reasoning.

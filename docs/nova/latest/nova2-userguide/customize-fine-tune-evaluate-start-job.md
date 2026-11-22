@@ -1,7 +1,6 @@
 
 
 # Starting an evaluation job
-<a name="customize-fine-tune-evaluate-start-job"></a>
 
 The following provides a suggested evaluation instance type and model type configuration:
 

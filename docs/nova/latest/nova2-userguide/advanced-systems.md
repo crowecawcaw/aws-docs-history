@@ -1,7 +1,6 @@
 
 
 # Advanced systems with Amazon Nova
-<a name="advanced-systems"></a>
 
 ## Overview
 <a name="advanced-systems-overview"></a>

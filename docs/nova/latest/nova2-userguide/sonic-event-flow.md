@@ -1,7 +1,6 @@
 
 
 # Event flow sequence
-<a name="sonic-event-flow"></a>
 
 A typical conversation follows this event sequence:
 

@@ -1,7 +1,6 @@
 
 
 # Request and response schema
-<a name="request-response-schema"></a>
 
 The request schema is nearly identical between the Invoke API and Converse API. The primary difference is how binary data (images, video, audio) is encoded: the Converse API uses binary arrays while the Invoke API uses Base64-encoded strings.
 
@@ -10,7 +9,7 @@ The request schema is nearly identical between the Invoke API and Converse API. 
 
 The following shows the complete request structure for Amazon Nova models. All fields are optional unless marked as required:
 
-```
+```JSON
 {
   "system": [
     {
@@ -179,7 +178,7 @@ For Converse API, pass `reasoningConfig` in `additionalModelRequestFields`.
 
 The following shows the complete response structure for Amazon Nova models:
 
-```
+```JSON
 {
   "ResponseMetadata": {
     "RequestId": "string",

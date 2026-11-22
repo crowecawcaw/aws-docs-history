@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This section provides solutions to common issues when working with Amazon Nova models.
 
@@ -40,7 +39,7 @@ Missing permissions
 **Cause:** Default timeout too short for complex operations  
 **Solution:** Configure extended timeout settings  
 
-```
+```python
 from botocore.config import Config
 
 bedrock = boto3.client(
@@ -99,7 +98,7 @@ Insufficient tokens for reasoning
 **Error:** "maxTokens is insufficient"  
 **Solution:** Automatically retry with increased limit  
 
-```
+```python
 token_limits = {
     "low": 15000,
     "medium": 30000,
@@ -148,7 +147,7 @@ Model not using tools correctly
 Inconsistent tool calling behavior  
 **Solution:** Set temperature to 0 for tool calling:  
 
-```
+```python
 inferenceConfig={
     "temperature": 0,
     "maxTokens": 10000
@@ -160,7 +159,7 @@ Tool choice conflicts
 **Problem:** Error when using custom tools with web search or code interpreter  
 **Solution:** Do not include a custom toolSpec with name `nova_grounding` - this conflicts with the system tool. Use the system tool configuration instead:  
 
-```
+```python
 # Correct - use system tool
 tool_config = {
     "tools": [{
@@ -183,7 +182,7 @@ Access control problems
 **Problem:** Web Grounding and Code Interpreter not working  
 **Solution:** Ensure your IAM policy includes:  
 
-```
+```json
 {
   "Statement": [
     {

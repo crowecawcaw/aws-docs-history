@@ -1,7 +1,6 @@
 
 
 # Supervised Fine-Tuning
-<a name="nova-forge-sft"></a>
 
 Amazon Nova Forge data mixing allows you to combine your custom training data with Amazon Nova's proprietary training data during supervised fine-tuning (SFT). This helps preserve the model's general capabilities while specializing it for your target domain. Data mixing is available on two platforms:
 + **SageMaker HyperPod** – Use YAML recipe files to configure data mixing with both text and multimodal data. Supports LoRA and full-rank SFT.

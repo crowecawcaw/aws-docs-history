@@ -1,7 +1,6 @@
 
 
 # Fine-tuning for Amazon Nova models
-<a name="smtj-fine-tuning"></a>
 
 Fine-tuning Amazon Nova models on SageMaker Training Jobs supports Supervised Fine-Tuning (SFT) and Reinforcement Fine-Tuning (RFT). Each technique serves different customization needs and can be applied to different Amazon Nova model versions.
 

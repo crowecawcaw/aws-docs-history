@@ -1,7 +1,6 @@
 
 
 # Using tools (function calling)
-<a name="using-tools"></a>
 
 Tools extend Amazon Nova capabilities by connecting the model to external functionality such as APIs, databases and code execution environments. Tool use enables Amazon Nova to access real-time information, perform calculations and interact with external systems.
 
@@ -30,7 +29,7 @@ Define tools using a tool configuration that includes an array of tools and opti
 
 **Example Tool configuration example**  
 
-```
+```python
 tool_config = {
     "tools": [
         {
@@ -72,7 +71,7 @@ Amazon Nova models leverage constrained decoding to ensure high reliability in g
 
 **Example Structured output example**  
 
-```
+```python
 tool_config = {
     "tools": [
         {
@@ -143,7 +142,7 @@ Run following code sections sequentially (Calling a tool → Processing tool cal
 
 **Example Calling a tool**  
 
-```
+```python
 import boto3
 import json
 
@@ -203,7 +202,7 @@ print(f"Expression: {tool['input']['expression']}")
 
 Extract the tool name and arguments from the message, then invoke the tool:
 
-```
+```python
 def calculate(expression):
     """Evaluate mathematical expression"""
     print(f"Calculating: {expression}")
@@ -226,7 +225,7 @@ if stop_reason == "tool_use":
 
 Return tool results using the ToolResultBlock schema:
 
-```
+```python
 messages.append(response["output"]["message"])
 
 # Add the tool result
@@ -263,7 +262,7 @@ print(f"\nFinal Response:\n{final_text}")
 
 Report errors back to Amazon Nova to allow request modification and retry:
 
-```
+```python
 tool_result_message = {
     "role": "user",
     "content": [
@@ -301,7 +300,7 @@ Code Interpreter is available in the IAD, PDX, and NRT AWS Regions. To ensure yo
 
 Enable Code Interpreter by specifying the systemTool parameter:
 
-```
+```python
 import boto3
 import json
 
@@ -363,7 +362,7 @@ The interpreter runs code in a sandbox and returns results in a standard schema:
 
 Web grounding enables Amazon Nova to access real-time information from the internet, providing up-to-date responses and reducing hallucinations. Enable by specifying the nova\_grounding system tool:
 
-```
+```python
 tool_config = {
     "tools": [{
         "systemTool": {"name": "nova_grounding"}

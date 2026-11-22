@@ -1,7 +1,6 @@
 
 
 # Managing chat history
-<a name="sonic-chat-history"></a>
 
 Amazon Nova 2 Sonic responses include ASR (Automatic Speech Recognition) transcripts for both user and assistant voices. Storing chat history is a best practice—not only for logging purposes but also for resuming sessions when the connection is unexpectedly closed. This allows the client to send context back to Nova Sonic to continue the conversation seamlessly.
 
@@ -24,7 +23,7 @@ Each historical message requires three events: `contentStart`, `textInput` and `
 **Event schema per message:**
 + `contentStart` - Defines the message role and configuration
 
-  ```
+  ```json
   {
     "event": {
       "contentStart": {
@@ -42,7 +41,7 @@ Each historical message requires three events: `contentStart`, `textInput` and `
   ```
 + `textInput` - Contains the actual message content. One textInput cannot be larger than 50KB. If so, split into multiple textInputs in the same content block. If the conversation is larger than 200KB, trim the overall chat history.
 
-  ```
+  ```json
   {
     "event": {
       "textInput": {
@@ -55,7 +54,7 @@ Each historical message requires three events: `contentStart`, `textInput` and `
   ```
 + `contentEnd` - Marks the end of the message
 
-  ```
+  ```json
   {
     "event": {
       "contentEnd": {
@@ -84,7 +83,7 @@ During a conversation, Amazon Nova 2 Sonic sends ASR transcripts through output 
 
 1. contentStart - Indicates the beginning of a transcript:
 
-```
+```json
 {
   "event": {
     "contentStart": {
@@ -105,7 +104,7 @@ During a conversation, Amazon Nova 2 Sonic sends ASR transcripts through output 
 
 2. textOutput - Contains the actual transcript content:
 
-```
+```json
 {
   "event": {
     "textOutput": {
@@ -122,7 +121,7 @@ During a conversation, Amazon Nova 2 Sonic sends ASR transcripts through output 
 
 3. contentEnd - Marks the end of the transcript:
 
-```
+```json
 {
   "event": {
     "contentEnd": {
@@ -155,7 +154,7 @@ Always save the FINAL text output to your chat history, as it represents the acc
 
 Example of FINAL output (save this to chat history):
 
-```
+```json
 ContentStart event: { 
   "additionalModelFields": "{\"generationStage\":\"FINAL\"}", 
   "completionId": "<completion-id>", 
@@ -168,7 +167,7 @@ ContentStart event: {
 
 Example of SPECULATIVE output (optional preview, not for history):
 
-```
+```json
 ContentStart event: { 
   "additionalModelFields": "{\"generationStage\":\"SPECULATIVE\"}", 
   "completionId": "<completion-id>", 

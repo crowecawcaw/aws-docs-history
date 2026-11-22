@@ -1,7 +1,6 @@
 
 
 # Amazon Nova customization on SageMaker Training Jobs
-<a name="nova-model-training-job"></a>
 
 SageMaker Training Jobs is an environment that enables you to train machine learning models at scale. It automatically provisions and scales compute resources, loads training data from sources like Amazon S3, executes your training code, and stores the resulting model artifacts.
 

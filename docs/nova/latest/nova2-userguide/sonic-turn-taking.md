@@ -1,7 +1,6 @@
 
 
 # Turn-taking controllability
-<a name="sonic-turn-taking"></a>
 
 Turn-taking is a fundamental aspect of natural conversation. Amazon Nova 2 Sonic provides fine-grained control over when the AI takes its turn to speak through the turnDetectionConfiguration parameter. This allows you to optimize the conversation flow for different use cases, balancing responsiveness with accuracy. The endpointingSensitivity parameter controls how quickly Amazon Nova 2 Sonic detects the end of a user's turn and begins responding. This setting affects both the latency of responses and the likelihood of interrupting users who are still speaking.
 
@@ -10,7 +9,7 @@ Turn-taking is a fundamental aspect of natural conversation. Amazon Nova 2 Sonic
 
 Configure turn detection sensitivity in the sessionStart event:
 
-```
+```json
                 {
     "event": {
         "sessionStart": {

@@ -1,7 +1,6 @@
 
 
 # Bring focus to sections of the prompt
-<a name="prompting-bring-focus"></a>
 
 Amazon Nova 2 models can pay close attention to specific parts in the prompt by formatting instructions in sections and then referring to those specific sections. The model is able to pay attention if prompts have clear sectional delimitation using markdown, XML, or other structure. For example, you can define the name of the section, use `##Section Name##`, then refer to that section in your prompt with `##Section Name##`.
 
@@ -12,7 +11,7 @@ You can also utilize this strategy to restrict the model from revealing parts of
 
 User:
 
-```
+```Markdown
 You're an expert Prompts creator. Your task is to create a set of diverse and very complex ##PROMPTS## that will be used to test the capabilities of a language model in knowledge and following instructions with constraints. Please create 10 ##PROMPTS##. You must strictly follow ##GUIDELINES##:
 
 ##GUIDELINES##

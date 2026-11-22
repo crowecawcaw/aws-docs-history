@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker HyperPod Essential Commands Guide
-<a name="nova-hp-essential-commands-guide"></a>
 
 Amazon SageMaker HyperPod provides extensive command-line functionality for managing training workflows. This guide covers essential commands for common operations, from connecting to your cluster to monitoring job progress.
 

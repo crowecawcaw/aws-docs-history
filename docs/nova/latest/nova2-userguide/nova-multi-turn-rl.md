@@ -1,7 +1,6 @@
 
 
 # Multi-turn Reinforcement Learning
-<a name="nova-multi-turn-rl"></a>
 
 ## Overview
 <a name="nova-mtrl-overview"></a>

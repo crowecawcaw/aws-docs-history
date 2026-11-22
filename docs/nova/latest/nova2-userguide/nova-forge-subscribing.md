@@ -1,7 +1,6 @@
 
 
 # Subscribe to Amazon Nova Forge
-<a name="nova-forge-subscribing"></a>
 
 To access Amazon Nova Forge features, complete the following steps:
 

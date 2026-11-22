@@ -1,7 +1,6 @@
 
 
 # Supervised fine-tuning (SFT) on Nova 2.0 on SageMaker HyperPod
-<a name="nova-sft-2-smhp"></a>
 
 Amazon Nova Lite 2.0 brings enhanced capabilities for supervised fine-tuning, including advanced reasoning mode, improved multimodal understanding, and extended context handling. SFT on Nova Lite 2.0 enables you to adapt these powerful capabilities to your specific use cases while maintaining the model's superior performance on complex tasks.
 
@@ -20,7 +19,7 @@ To determine whether SFT is a good fit for your use case, see [Supervised fine-t
 
 Below is a sample recipe for SFT. You can find this recipe and others in the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/fine-tuning/nova) repository on GitHub.
 
-```
+```yaml
 run:
   name: my-full-rank-sft-run
   model_type: amazon.nova-2-lite-v1:0:256k

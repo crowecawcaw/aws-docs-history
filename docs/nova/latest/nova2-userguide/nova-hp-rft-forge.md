@@ -1,7 +1,6 @@
 
 
 # Reinforcement Learning
-<a name="nova-hp-rft-forge"></a>
 
 **Note**  
 Detailed documentation is provided once subscribed

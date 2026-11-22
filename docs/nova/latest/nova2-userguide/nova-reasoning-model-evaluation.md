@@ -1,7 +1,6 @@
 
 
 # Reasoning model evaluation
-<a name="nova-reasoning-model-evaluation"></a>
 
 ## Overview
 <a name="nova-reasoning-overview"></a>
@@ -16,7 +15,7 @@ Reasoning model support enables evaluation with reasoning-capable Nova models th
 
 Enable reasoning by adding the `reasoning_effort` parameter to the `inference` section of your recipe:
 
-```
+```yaml
 run:  
   name: reasoning-eval-job-name                          # [MODIFIABLE] Unique identifier for your evaluation job  
   model_type: amazon.nova-2-lite-v1:0:256k               # [FIXED] Must be a reasoning-supported model  

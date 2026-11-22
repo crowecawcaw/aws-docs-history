@@ -1,7 +1,6 @@
 
 
 # Monitoring RFT training
-<a name="nova-hp-rft-monitoring"></a>
 
 Monitor key metrics during training to ensure effective learning and identify potential issues early.
 
@@ -68,7 +67,7 @@ After training completes, locate your checkpoint:
 
 Use the checkpoint S3 path for inference or further training:
 
-```
+```yaml
 run:
     model_type: amazon.nova-2-lite-v1:0:256k
     model_name_or_path: "s3://customer-escrow-<account-number>-smtj-<unique-identifier>/<job-name>"
