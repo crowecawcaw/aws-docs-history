@@ -1,7 +1,6 @@
 
 
 # Upload resources to the AWS IoT TwinMaker Resource Library
-<a name="scenes-using-resource-library"></a>
 
 You can use the Resource Library to control and manage any resource you want to place into scenes for your digital twin application. To make AWS IoT TwinMaker aware of the resources, upload them using the Resource Library console page.
 

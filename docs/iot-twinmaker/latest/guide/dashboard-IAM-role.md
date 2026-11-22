@@ -1,7 +1,6 @@
 
 
 # Creating a dashboard IAM role
-<a name="dashboard-IAM-role"></a>
 
 With AWS IoT TwinMaker, you can control data access on your Grafana dashboards. Grafana dashboard users should have different permission scopes to view data, and in some cases, write data. For example, an alarm operator might not have permission to view videos, while an admin has permission for all resources. Grafana defines the permissions through datasources, where credentials and an IAM role are provided. The AWS IoT TwinMaker datasource fetches AWS credentials with permissions for that role. If an IAM role isn't provided, Grafana uses the scope of the credentials, which can't be reduced by AWS IoT TwinMaker.
 
@@ -16,7 +15,7 @@ Create an IAM policy called `{{YourWorkspaceId}}DashboardPolicy` in the IAM Cons
 If you don't want to use the Grafana [Video Player panel](https://github.com/grafana/grafana-iot-twinmaker-app/blob/main/src/panels/video-player/README.md), create the policy using the following template.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -59,7 +58,7 @@ If you don’t want to group your videos, you can make them all accessible from 
 Create the policy with the following template:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -146,7 +145,7 @@ This is the maximum permissive policy you can have on your dashboard role for an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -226,7 +225,7 @@ To edit the trust policy of the dashboard role, you must give permission for the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

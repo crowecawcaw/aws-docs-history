@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS IoT TwinMaker
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -54,7 +53,7 @@ The role permissions policy named AWSIoTTwinMakerServiceRolePolicy allows AWS Io
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

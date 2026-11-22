@@ -1,7 +1,6 @@
 
 
 # Developing AWS IoT TwinMaker time-series data connectors
-<a name="time-series-data-connectors"></a>
 
 This section explains how to develop a time-series data connector in a step-by-step process. Additionally, we present an example time-series data connector based of the entire cookie factory sample, which includes 3D models, entities, components, alarms, and connectors. The cookie factory sample source is available on the [AWS IoT TwinMaker samples GitHub repository ]( https://github.com/aws-samples/aws-iot-twinmaker-samples).
 
@@ -68,7 +67,7 @@ The following procedure outlines a development model that incrementally builds u
 
    The following example shows a Timestream template component type with one property:
 
-   ```
+   ```json
    {"componentTypeId": "com.example.timestream-telemetry",
        "workspaceId": "MyWorkspace",
        "functions": {
@@ -132,7 +131,7 @@ The following procedure outlines a development model that incrementally builds u
 
    The Lambda connector needs to access the data source and generate the query statement based on the input and forward it to the data source. The following example shows a JSON request template that does this. 
 
-   ```
+   ```json
    {
      "workspaceId": "MyWorkspace",
      "entityId": "MyEntity",
@@ -198,7 +197,7 @@ The following procedure outlines a development model that incrementally builds u
 
    In the preceding example request, we would expect to get a series of samples for the selected properties during the given time window for the given item, with the selected time order. The response statement can be summarized as the following:
 
-   ```
+   ```json
    {
      "propertyValues": [
        {
@@ -237,7 +236,7 @@ The following procedure outlines a development model that incrementally builds u
 
    The following JSON template shows a valid component type with two properties:
 
-   ```
+   ```json
    {
        "componentTypeId": "com.example.timestream-telemetry",
        "workspaceId": "MyWorkspace",
@@ -289,7 +288,7 @@ The following procedure outlines a development model that incrementally builds u
 
    The following JSON request shows a modified template that now supports a request for two properties.
 
-   ```
+   ```json
    {
      "workspaceId": "MyWorkspace",
      "entityId": "MyEntity",
@@ -360,7 +359,7 @@ The following procedure outlines a development model that incrementally builds u
 
    Similarly, the corresponding response is also updated, as shown in the following example:
 
-   ```
+   ```json
    {
      "propertyValues": [
        {

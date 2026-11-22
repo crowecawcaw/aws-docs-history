@@ -1,7 +1,6 @@
 
 
 # How to Run AWS IoT TwinMaker knowledge graph queries
-<a name="tm-knowledge-graph-use"></a>
 
 Before you use the AWS IoT TwinMaker knowledge graph, make sure you have completed the following prerequisites:
 + Create an AWS IoT TwinMaker workspace. You can create a workspace in the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/).

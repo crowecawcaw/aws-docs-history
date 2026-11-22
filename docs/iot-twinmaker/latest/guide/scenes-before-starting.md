@@ -1,7 +1,6 @@
 
 
 # Before you create your first scene
-<a name="scenes-before-starting"></a>
 
  Scenes rely on resources to represent your digital twin. These resources are made up of 3D models, data, or texture files. The size and complexity of your resources, elements in the scene such as lighting, and your computer hardware, impact the performance of AWS IoT TwinMaker scenes. Use the information in this topic to reduce lag, loading times, and improve the frame rate of your scenes.
 

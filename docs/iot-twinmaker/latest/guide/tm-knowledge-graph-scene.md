@@ -1,7 +1,6 @@
 
 
 # Knowledge graph scene integration
-<a name="tm-knowledge-graph-scene"></a>
 
 You can use AWS IoT app kit components to build a web application that integrates knowledge graph into your AWS IoT TwinMaker scenes. This allows you to generate graphs based on the 3D nodes (the 3D models which represent your equipment or systems) that are present within your scene. To create an application that graphs 3D nodes from your scene, first bind the 3D nodes to entities in your workspace. With this mapping, AWS IoT TwinMaker graphs the relationships between the 3D models present in your scene and the entities in your workspace. Then you can create a web application, select 3D models with your scene, and explore their relationships to other entities in a graph format.
 

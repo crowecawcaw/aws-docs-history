@@ -1,7 +1,6 @@
 
 
 # Create a customized web application using AWS IoT TwinMaker UI Components
-<a name="tm-app-kit"></a>
 
 AWS IoT TwinMaker provides open-source UI components for AWS IoT Application developers. Using those UI components, developers can build customized web applications with AWS IoT TwinMaker feature enabled for their digital twins. 
 

@@ -1,7 +1,6 @@
 
 
 # Create your first entity
-<a name="twinmaker-gs-entity"></a>
 
 To create your first entity, use the following steps.
 

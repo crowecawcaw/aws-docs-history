@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker data connectors
-<a name="data-connector-interfaces"></a>
 
 Connectors need access to your underlying data store to resolve sent queries and to return either results or an error.
 
@@ -29,7 +28,7 @@ You can use the schema initializer in the component type or entity lifecycle to 
 ### SchemaInitializer request interface
 <a name="SchemaInitializer-request-interface"></a>
 
-```
+```json
 {
   "workspaceId": "string",
   "entityId": "string",
@@ -48,7 +47,7 @@ The map of properties in this request interface is a `PropertyRequest`. For more
 ### SchemaInitializer response interface
 <a name="SchemaInitializer-response-interface"></a>
 
-```
+```json
 {
   "properties": {
     // property name as key,
@@ -71,7 +70,7 @@ For information about the property types, syntax, and format of this connector, 
 ### DataReaderByEntity request interface
 <a name="DataReaderByEntity-request-interface"></a>
 
-```
+```json
 {
   "startDateTime": long, // In epoch sec, deprecated
   "startTime": "string", // ISO-8601 timestamp format
@@ -99,7 +98,7 @@ For information about the property types, syntax, and format of this connector, 
 ### DataReaderByEntity response interface
 <a name="DataReaderByEntity-response-interface"></a>
 
-```
+```json
 {
   "propertyValues": [
     {
@@ -127,7 +126,7 @@ For information about the property types, syntax, and format of this connector, 
 ### DataReaderByComponentType request interface
 <a name="DataReaderByComponentType-request-interface"></a>
 
-```
+```json
 {
   "startDateTime": long, // In epoch sec, deprecated
   "startTime": "string", // ISO-8601 timestamp format
@@ -152,7 +151,7 @@ For information about the property types, syntax, and format of this connector, 
 ### DataReaderByComponentType response interface
 <a name="DataReaderByComponentType-response-interface"></a>
 
-```
+```json
 {
   "propertyValues": [
     {
@@ -184,7 +183,7 @@ For information about the property types, syntax, and format of this connector, 
 
  The `EntityId` and `componentName` are optional.
 
-```
+```json
 {
   "startDateTime": long, // In epoch sec, deprecated
   "startTime": "string", // ISO-8601 timestamp format
@@ -212,7 +211,7 @@ For information about the property types, syntax, and format of this connector, 
 ### DataReader response interface
 <a name="DataReader-response-interface"></a>
 
-```
+```json
 {
   "propertyValues": [
     {
@@ -240,7 +239,7 @@ For information about the property types, syntax, and format of this connector, 
 ### AttributePropertyValueReaderByEntity request interface
 <a name="AttributePropertyValueReaderByEntity-request-interface"></a>
 
-```
+```json
 {
   "properties": {
     // property name as key,
@@ -258,7 +257,7 @@ For information about the property types, syntax, and format of this connector, 
 ### AttributePropertyValueReaderByEntity response interface
 <a name="AttributePropertyValueReaderByEntity-response-interface"></a>
 
-```
+```json
 {
   "propertyValues": {
     "string": { // property name as key
@@ -278,7 +277,7 @@ For information about the property types, syntax, and format of this connector, 
 ### DataWriter request interface
 <a name="DataWriter-request-interface"></a>
 
-```
+```json
 {
   "workspaceId": "string",
   "properties": {
@@ -308,7 +307,7 @@ For information about the property types, syntax, and format of this connector, 
 ### DataWriter response interface
 <a name="DataWriter-response-interface"></a>
 
-```
+```json
 {
   "errorEntries": [
     {
@@ -328,7 +327,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Request**:
 
-  ```
+  ```json
   {
     "workspaceId": "myWorkspace",
     "properties": {
@@ -374,7 +373,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Response**:
 
-  ```
+  ```json
   {
     "properties": {
       "myProperty1": {
@@ -405,7 +404,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Request**:
 
-  ```
+  ```json
   {
     "workspaceId": "myWorkspace",
     "entityId": "myEntity",
@@ -447,7 +446,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Response**:
 
-  ```
+  ```json
   {
     "properties": {
       "myProperty1": {
@@ -478,7 +477,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Request**:
 
-  ```
+  ```json
   {
     "workspaceId": "myWorkspace",
     "entityId": "myEntity",
@@ -549,7 +548,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Response**:
 
-  ```
+  ```json
   {
     "propertyValues": [
       {
@@ -581,7 +580,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Request**:
 
-  ```
+  ```json
   {
     "workspaceId": "myWorkspace",
     "entityId": "myEntity",
@@ -626,7 +625,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Response**:
 
-  ```
+  ```json
   {
     "propertyValues": {
       "manufacturer": {
@@ -646,7 +645,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Request**:
 
-  ```
+  ```json
   {
     "workspaceId": "myWorkspaceId",
     "properties": {
@@ -700,7 +699,7 @@ The following JSON samples are examples of response and request syntax for multi
 
   **Response**:
 
-  ```
+  ```json
   {
       "errorEntries": [
           {

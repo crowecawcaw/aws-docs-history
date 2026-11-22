@@ -1,7 +1,6 @@
 
 
 # Using a custom workspace
-<a name="tm-sw-custom-ws"></a>
 
 Review these prerequisites before turning on asset sync.
 
@@ -29,7 +28,7 @@ Before using AWS IoT SiteWise, the following must be completed:
 
   Use the following IAM role as a template for the required role:
 
-  ```
+  ```json
                               
   // trust relationships
    {

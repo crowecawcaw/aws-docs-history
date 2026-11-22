@@ -1,7 +1,6 @@
 
 
 # CORS configuration for Grafana scene viewer
-<a name="cors-configuration-grafana"></a>
 
  The AWS IoT TwinMaker Grafana plugin requires a CORS (cross-origin resource sharing) configuration, which allows the Grafana user interface to load resources from the Amazon S3 bucket. Without the CORS configuration, you will receive an error message as "Load 3D Scene failed with Network Failure" on the Scene viewer since the Grafana domain can't access the resources in the Amazon S3 bucket. 
 
@@ -19,7 +18,7 @@ To configure your Amazon S3 bucket with CORS, use the following steps:
 **Note**  
 You need to keep the asterisk `*` character at the beginning of the `"AllowedOrigins":` JSON element.
 
-   ```
+   ```json
            [
        {
            "AllowedHeaders": [

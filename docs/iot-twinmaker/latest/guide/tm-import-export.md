@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker bulk operations
-<a name="tm-import-export"></a>
 
 Use a metadataTransferJob to transfer and manage your AWS IoT TwinMaker resources at scale. A metadataTransferJob allows you to perform bulk operations and transfer resources between AWS IoT TwinMaker and AWS IoT SiteWise and Amazon S3.
 

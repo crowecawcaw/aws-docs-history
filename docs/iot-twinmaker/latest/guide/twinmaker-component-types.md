@@ -1,7 +1,6 @@
 
 
 # Using and creating component types
-<a name="twinmaker-component-types"></a>
 
 This topic walks you through the values and structures that you use to create an AWS IoT TwinMaker component type. It shows you how to create a request object that you can pass to the [CreateComponentType](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateComponentType.html) API or by using the component type editor in the AWS IoT TwinMaker console.
 

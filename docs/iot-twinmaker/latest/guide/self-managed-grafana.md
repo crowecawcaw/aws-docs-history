@@ -1,7 +1,6 @@
 
 
 # Self-managed Grafana
-<a name="self-managed-grafana"></a>
 
 You can choose to host your own infrastructure to run Grafana. For information about running Grafana locally on your machine, see [Install Grafana](https://grafana.com/docs/grafana/latest/installation/). The AWS IoT TwinMaker plugin is available on the public Grafana catalog. For information about installing this plugin in your Grafana environment, see [AWS IoT TwinMaker App](https://grafana.com/grafana/plugins/grafana-iot-twinmaker-app/?tab=installation).
 

@@ -1,7 +1,6 @@
 
 
 # How to use AWS IoT TwinMaker knowledge graph with Grafana
-<a name="tm-knowledge-Grafana-panel"></a>
 
 This section shows you how to add a query editor panel to your AWS IoT TwinMaker Grafana dashboard to run and display queries.
 
@@ -25,7 +24,7 @@ To use the AWS IoT TwinMaker query editor in Grafana, you must have an IAM role 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

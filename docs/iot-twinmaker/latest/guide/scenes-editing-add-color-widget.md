@@ -1,7 +1,6 @@
 
 
 # Add model shader augmented UI widgets to your scene
-<a name="scenes-editing-add-color-widget"></a>
 
 Model shader widgets can change the color of an object under conditions that you define. For example, you can create a color widget that changes the color of a cookie mixer in your scene based on the mixer's temperature data.
 

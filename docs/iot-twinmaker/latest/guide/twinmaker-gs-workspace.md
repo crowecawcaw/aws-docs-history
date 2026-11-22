@@ -1,7 +1,6 @@
 
 
 # Create a workspace
-<a name="twinmaker-gs-workspace"></a>
 
 To create and configure your first workspace, use the following steps.
 
@@ -34,7 +33,7 @@ This topic shows you how to create a simple workspace with a single resource. Fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

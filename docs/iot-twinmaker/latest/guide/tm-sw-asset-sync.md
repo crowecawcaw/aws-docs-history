@@ -1,7 +1,6 @@
 
 
 # Asset synchronization with AWS IoT SiteWise
-<a name="tm-sw-asset-sync"></a>
 
 AWS IoT TwinMaker supports asset synchronization (asset sync) for your AWS IoT SiteWise assets and asset models. Using the AWS IoT SiteWise component type, asset sync takes existing AWS IoT SiteWise assets and asset models and converts these resources into AWS IoT TwinMaker entities, components, and component types. The following sections walk you through how to configure asset sync and which AWS IoT SiteWise assets and asset models can be synced to your AWS IoT TwinMaker workspace.
 

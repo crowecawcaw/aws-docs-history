@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker Athena tabular data connector
-<a name="athena-tabular-data-connector"></a>
 
 With the Athena tabular data connector, you can access and use your Athena data stores in AWS IoT TwinMaker. You can use your Athena data to build digital twins without an intensive data migration effort. You can either use the prebuilt connector or create a custom Athena connector to access data from your Athena data sources.
 
@@ -79,7 +78,7 @@ You have now successfully created a component with the Athena data connector as 
 
 The following example is the full the JSON reference for the Athena tabular data connector. Use this as a resource to create custom data connectors and component types.
 
-```
+```JSON
 {
     "componentTypeId": "com.amazon.athena.connector",
     "description": "Athena connector for syncing tabular data",

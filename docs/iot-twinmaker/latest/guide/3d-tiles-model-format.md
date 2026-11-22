@@ -1,7 +1,6 @@
 
 
 # 3D Tiles model format
-<a name="3d-tiles-model-format"></a>
 
 ## Using 3D Tiles in your scene
 <a name="scenes-3dtiles-using"></a>

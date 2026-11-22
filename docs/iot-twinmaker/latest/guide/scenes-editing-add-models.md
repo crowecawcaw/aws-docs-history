@@ -1,7 +1,6 @@
 
 
 # Add models to your scenes
-<a name="scenes-editing-add-models"></a>
 
 To add models to your scene, use the following procedure.
 

@@ -1,7 +1,6 @@
 
 
 # Create your scenes
-<a name="scenes-creation"></a>
 
 In this section, you'll set up a scene so that you can edit your digital twin. You can import a 3D model that was uploaded to the [resource library](scenes-using-resource-library.md), then add widgets and bind property data to objects to complete your digital twin. Scene objects can include an entire building or space, or individual pieces of equipment positioned in their physical location. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker knowledge graph
-<a name="tm-knowledge-graph"></a>
 
 The AWS IoT TwinMaker knowledge graph organizes all the information contained within your AWS IoT TwinMaker workspaces and presents it in a visual graph format. You can run queries against your entities, components, and component types to generate visual graphs that show you the relationships between your AWS IoT TwinMaker resources.
 

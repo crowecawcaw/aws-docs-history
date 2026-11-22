@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS IoT TwinMaker
-<a name="twinmaker-gs"></a>
 
 The topics in this section describe how to do the following.
 + Create and set up a new workspace.

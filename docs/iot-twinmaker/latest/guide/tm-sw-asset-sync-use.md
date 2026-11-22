@@ -1,7 +1,6 @@
 
 
 # Using asset sync with AWS IoT SiteWise
-<a name="tm-sw-asset-sync-use"></a>
 
 This topic shows you how to turn on and configure AWS IoT SiteWise asset sync. Follow the appropriate procedures based on which type of workspace you're using.
 

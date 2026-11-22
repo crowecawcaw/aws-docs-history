@@ -1,7 +1,6 @@
 
 
 # Endpoints and quotas
-<a name="endpionts-and-quotas"></a>
 
 ## AWS IoT TwinMaker endpoints and quotas
 <a name="w2aac53b5"></a>

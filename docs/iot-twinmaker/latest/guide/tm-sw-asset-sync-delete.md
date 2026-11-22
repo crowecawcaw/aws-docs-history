@@ -1,7 +1,6 @@
 
 
 # Delete a sync job
-<a name="tm-sw-asset-sync-delete"></a>
 
 Use the following procedure to delete a sync job.
 

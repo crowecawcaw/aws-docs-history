@@ -1,7 +1,6 @@
 
 
 # Creating tags for your scenes
-<a name="scenes-editing-add-tags"></a>
 
 A tag is an annotation added to a specific `x,y,z` coordinate position of a scene. The tag uses an entity property to connect a scene part to the knowledge graph. You can use a tag to configure the behavior or visual appearance of an item in the scene, such as an alarm.
 

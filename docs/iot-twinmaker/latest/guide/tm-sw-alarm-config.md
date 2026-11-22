@@ -1,7 +1,6 @@
 
 
 # Connect AWS IoT SiteWise Alarms to AWS IoT TwinMaker Grafana dashboards
-<a name="tm-sw-alarm-config"></a>
 
 **Note**  
 This feature is in **public preview** and is subject to change.
@@ -24,7 +23,7 @@ Before creating alarms and integrating them into your Grafana dashboard, make su
 
 AWS IoT TwinMaker uses the workspace IAM role to query and configure the alarm threshold in Grafana. The following permissions are required in the AWS IoT TwinMaker workspace role, in order to interact with AWS IoT SiteWise alarms in Grafana:
 
-```
+```json
 {
 "Effect": "Allow",
     "Action": [
@@ -56,7 +55,7 @@ After creating alarm components, you can query the alarm status, threshold, and 
 
 Below is a sample request to query alarm status:
 
-```
+```json
 aws iottwinmaker get-property-value-history --cli-input-json \
 '{
     "workspaceId": "{workspaceId}",
@@ -70,7 +69,7 @@ aws iottwinmaker get-property-value-history --cli-input-json \
 
 Below is a sample request to query the alarm threshold.
 
-```
+```json
 aws iottwinmaker get-property-value-history --cli-input-json \
 '{
     "workspaceId": "{workspaceId}",
@@ -84,7 +83,7 @@ aws iottwinmaker get-property-value-history --cli-input-json \
 
 Below is a sample request to update the alarm threshold:
 
-```
+```json
 aws iottwinmaker batch-put-property-values --cli-input-json \
 '{
     "workspaceId": "{workspaceId}",
@@ -118,7 +117,7 @@ A second write enabled dashboard IAM role needs to be created , that is a normal
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -147,7 +146,7 @@ A second write enabled dashboard IAM role needs to be created , that is a normal
 
 Alternatively you can add this statement at the end of your IAM role instead:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

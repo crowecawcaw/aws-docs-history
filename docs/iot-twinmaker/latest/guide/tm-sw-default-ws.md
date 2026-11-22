@@ -1,7 +1,6 @@
 
 
 # Using the IoTSiteWiseDefaultWorkspace
-<a name="tm-sw-default-ws"></a>
 
 When you opt in to the [AWS IoT SiteWiseAWS IoT TwinMaker integration](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/integrate-tm.html), a default workspace named `IoTSiteWiseDefaultWorkspace` is created and automatically synced with AWS IoT SiteWise.
 
@@ -23,7 +22,7 @@ Before creating `IoTSiteWiseDefaultWorkspace`, make sure you have done the follo
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

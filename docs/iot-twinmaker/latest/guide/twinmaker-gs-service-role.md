@@ -1,7 +1,6 @@
 
 
 # Create and manage a service role for AWS IoT TwinMaker
-<a name="twinmaker-gs-service-role"></a>
 
 AWS IoT TwinMaker requires that you use a service role to allow it to access resources in other services on your behalf. This role must have a trust relationship with AWS IoT TwinMaker. When you create a workspace, you must assign this role to the workspace. This topic contains example policies that show you how to configure permissions for common scenarios.
 
@@ -15,7 +14,7 @@ The following policy establishes a trust relationship between your role and AWS 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -42,7 +41,7 @@ The following policy allows your role to read and delete from and write to an Am
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -109,7 +108,7 @@ The following policy allows your role to read and delete from and write to a spe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -156,7 +155,7 @@ The following example shows how to include AWS IoT SiteWise in your policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -204,7 +203,7 @@ The following example shows how to include AWS IoT SiteWise in your policy.
 
 If you use the **com.amazon.iotsitewise.connector** component type and need to read property data from AWS IoT SiteWise, you must include the following permission in your policy.
 
-```
+```json
 ...
 {
     "Action": [
@@ -220,7 +219,7 @@ If you use the **com.amazon.iotsitewise.connector** component type and need to r
 
 If you use the **com.amazon.iotsitewise.connector** component type and need to write property data to AWS IoT SiteWise, you must include the following permission in your policy.
 
-```
+```json
 ...
 {
     "Action": [
@@ -236,7 +235,7 @@ If you use the **com.amazon.iotsitewise.connector** component type and need to w
 
 If you use the **com.amazon.iotsitewise.connector.edgevideo** component type, you must include permissions for AWS IoT SiteWise and Kinesis Video Streams. The following example policy shows how to include AWS IoT SiteWise and Kinesis Video Streams permissions in your policy. 
 
-```
+```json
 ...
 {
     "Action": [
@@ -281,7 +280,7 @@ The following example gives permission to your service role to use a Lambda func
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -332,7 +331,7 @@ To use the [AWS IoT TwinMaker Athena tabular data connector](https://docs.aws.am
 **Note**  
 This IAM change only works for Athena tabular data stored with AWS Glue and Amazon S3. To use Athena with other data sources, you must configure an IAM role for Athena, see [Identity and access management in Athena](https://docs.aws.amazon.com/athena/latest/ug/security-iam-athena.html).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

@@ -1,7 +1,6 @@
 
 
 # Analyze sync status and errors
-<a name="tm-sw-asset-sync-ts"></a>
 
 This topic provides guidance on how to analyze sync errors and statuses.
 

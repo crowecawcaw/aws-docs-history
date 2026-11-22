@@ -1,7 +1,6 @@
 
 
 # What is AWS IoT TwinMaker?
-<a name="what-is-twinmaker"></a>
 
 AWS IoT TwinMaker is an AWS IoT service that you can use to build operational digital twins of physical and digital systems. AWS IoT TwinMaker creates digital visualizations using measurements and analysis from a variety of real-world sensors, cameras, and enterprise applications to help you keep track of your physical factory, building, or industrial plant. You can use this real-world data to monitor operations, diagnose and correct errors, and optimize operations.
 

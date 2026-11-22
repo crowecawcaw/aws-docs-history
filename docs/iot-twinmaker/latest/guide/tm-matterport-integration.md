@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker Matterport integration
-<a name="tm-matterport-integration"></a>
 
 Matterport provides a variety of capture options to scan real-world environments and create immersive 3D models, also known as Matterport digital twins. These models are called Matterport spaces. AWS IoT TwinMaker supports Matterport integration, allowing you to import your Matterport digital twins into your AWS IoT TwinMaker scenes. By pairing Matterport digital twins with AWS IoT TwinMaker, you can visualize and monitor your digital twin system in a virtual environment.
 
@@ -52,7 +51,7 @@ Before integrating Matterport with AWS IoT TwinMaker please make sure you meet t
 
   Add the following to your workspace role:
 
-  ```
+  ```json
   {
     "Effect": "Allow",
     "Action": "secretsmanager:GetSecretValue",

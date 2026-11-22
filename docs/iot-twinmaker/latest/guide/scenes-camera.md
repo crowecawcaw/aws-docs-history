@@ -1,7 +1,6 @@
 
 
 # Add fixed cameras to entities
-<a name="scenes-camera"></a>
 
 You can attach fixed camera views to your entities within your AWS IoT TwinMaker scenes. These cameras provide a fixed perspective on a 3d model, allowing you to quickly and easily shift your perspective in a scene to a targeted entity. 
 

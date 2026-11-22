@@ -1,7 +1,6 @@
 
 
 # Setting up an AWS account
-<a name="set-up-aws-account"></a>
 
 If you do not have an AWS account, complete the following steps to create one.
 

@@ -1,7 +1,6 @@
 
 
 # Scene enhanced editing
-<a name="scenes-ee"></a>
 
 AWS IoT TwinMaker scenes feature a set of tools for enhanced and editing and manipulation of resources present in your scene.
 

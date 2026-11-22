@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker knowledge graph additional resources
-<a name="tm-knowledge-graph-resources"></a>
 
 This section provides basic examples of the PartiQL syntax used to write queries in the knowledge graph, as well as links to PartiQL documentation that provide information on the knowledge graph data model.
 + [ PartiQL graph data model documentation](https://partiql.org/gpml/graph_model.html)
@@ -30,7 +29,7 @@ This set of examples shows basic queries with their responses. Use this as a ref
 
   **Response:**
 
-  ```
+  ```json
   {
     "columnDescriptions": [
       {
@@ -97,7 +96,7 @@ Unlike SQL where you can only return scalar values, you can return an object (as
 
   **Response**
 
-  ```
+  ```json
   {
       "columnDescriptions": [{
           "name": "relationship",

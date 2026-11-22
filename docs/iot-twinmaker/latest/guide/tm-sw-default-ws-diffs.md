@@ -1,7 +1,6 @@
 
 
 # Differences between custom and default workspaces
-<a name="tm-sw-default-ws-diffs"></a>
 
 **Important**  
 New AWS IoT SiteWise features, such as [`CompositionModel`](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html), are only available in `IoTSiteWiseDefaultWorkspace`. We encourage you to use a default workspace instead of custom workspace.
