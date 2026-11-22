@@ -1,7 +1,6 @@
 
 
 # How to onboard with managed external secrets
-<a name="mes-onboarding-steps"></a>
 
 To onboard your secrets, you must:
 

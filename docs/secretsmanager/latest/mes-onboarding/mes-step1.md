@@ -1,7 +1,6 @@
 
 
 # Step 1: Discuss your integration with Secrets Manager
-<a name="mes-step1"></a>
 
 *Duration: approximately one week*
 

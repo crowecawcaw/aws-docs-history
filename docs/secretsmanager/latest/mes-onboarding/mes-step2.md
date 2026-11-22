@@ -1,7 +1,6 @@
 
 
 # Step 2: Provide integration specifications
-<a name="mes-step2"></a>
 
 *Duration: Typically one to two weeks.*
 
@@ -21,7 +20,7 @@ Share the following details with the Secrets Manager team:
 + A 50-word summary of your secret type to help customers identify the secret that they are generating. If your service supports more than one secret type, each must be onboarded separately.
 + The format of your secret. Secrets Manager uses the format to validate that customer provided secret metadata complies with your specific format. For example:
 
-  ```
+  ```json
   {
     "consumerKey":"<client ID>", 
     "consumerSecret":"<client secret>", 

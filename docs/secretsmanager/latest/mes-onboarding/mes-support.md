@@ -1,7 +1,6 @@
 
 
 # Support
-<a name="mes-support"></a>
 
 After the integration launches, customers can use managed external secrets to secure credentials for your service. The AWS Secrets Manager team is the first point of contact for troubleshooting customer issues. We contact your team for additional support in the troubleshooting process.
 
