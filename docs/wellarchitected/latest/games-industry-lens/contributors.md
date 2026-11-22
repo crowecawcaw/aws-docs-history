@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals contributed to this document: 
 +  Adam Hatfield, Senior Solutions Architect, Amazon Web Services 

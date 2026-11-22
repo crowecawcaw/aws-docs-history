@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="gamesec06"></a>
 
  Refer to the Well-Architected Framework whitepaper for best practices in [infrastructure protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html) for security that apply to games workloads. 
 

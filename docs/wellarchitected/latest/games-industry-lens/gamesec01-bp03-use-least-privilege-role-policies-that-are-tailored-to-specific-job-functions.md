@@ -1,7 +1,6 @@
 
 
 # GAMESEC01-BP03 Use least privilege role policies that are tailored to specific job functions
-<a name="gamesec01-bp03-use-least-privilege-role-policies-that-are-tailored-to-specific-job-functions"></a>
 
  Configuring IAM policies is an essential part of establishing a strong security foundation. When you set permissions with IAM policies, grant only the permissions required to perform a task. You do this by defining the actions that can be taken on specific resources under specific conditions, also known as least-privilege permissions. For example, QA teams need access to change things in the testing environments but should not have the ability to modify the production environment. 
 

@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="gamerel02"></a>
 
 
 |  GAMEREL02: How do you scale your stateful games to accommodate changes in demand?  | 

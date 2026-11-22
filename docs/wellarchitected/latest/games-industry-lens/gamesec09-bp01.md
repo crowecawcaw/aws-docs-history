@@ -1,7 +1,6 @@
 
 
 # GAMESEC09-BP01 Integrate tooling and automation to reduce the mean time of security reviews
-<a name="gamesec09-bp01"></a>
 
  To identify security vulnerabilities, organizations can use a variety of different tools and services like Static Application Security Testing (SAST) and Dynamic Application Security Testing (DAST). SAST is a way to review the source code and determine security vulnerability. DAST is a black box way of testing your code which tests your applications without looking at the source code. 
 

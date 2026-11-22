@@ -1,7 +1,6 @@
 
 
 # Game deployments
-<a name="gameops03"></a>
 
 
 |  GAMEOPS03: How do you manage game deployments?  | 

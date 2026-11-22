@@ -1,7 +1,6 @@
 
 
 # GAMESEC01-BP05 Use a central identity provider
-<a name="gamesec01-bp05"></a>
 
  A central identity provider acts as a single source for storing and managing user credentials, identities, permissions, and authentication. 
 

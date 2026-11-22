@@ -1,7 +1,6 @@
 
 
 # GAMEOPS05-BP01 Choose the right stage, architecture, and load testing framework to meet your goals
-<a name="gameops05-bp01"></a>
 
  The approach to load testing a game can vary significantly depending on many factors, including the stage of the development process it is performed in, the architecture of the load-generating system itself, and the choice of load testing framework. The timing of when it is conducted, whether in the early phases, during iterative sprints, prior to production deployment, or post-deployment, will shape the goals and focus of the testing efforts. Different designs of load-generating infrastructure have their own pros and cons, and the selection of the load testing framework greatly influences the capabilities, ease of use, and integrations available for the testing process. By thoughtfully aligning these elements, development teams can tailor the load testing approach to the unique characteristics of the game, extract the most valuable performance insights, and provide a smooth experience for their players. 
 

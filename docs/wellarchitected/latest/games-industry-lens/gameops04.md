@@ -1,7 +1,6 @@
 
 
 # Health monitoring
-<a name="gameops04"></a>
 
 
 |  GAMEOPS04: How do you monitor the health of the game?  | 

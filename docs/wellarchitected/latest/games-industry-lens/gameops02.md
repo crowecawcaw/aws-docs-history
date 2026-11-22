@@ -1,7 +1,6 @@
 
 
 # Account structure
-<a name="gameops02"></a>
 
 
 |  GAMEOPS02: How do you structure your AWS accounts for hosting your game environments?  | 

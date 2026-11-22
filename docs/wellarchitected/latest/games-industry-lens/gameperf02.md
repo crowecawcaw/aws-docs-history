@@ -1,7 +1,6 @@
 
 
 # Region selection
-<a name="gameperf02"></a>
 
 
 |  GAMEPERF02: How do you determine which geographic Regions to host your game infrastructure?  | 

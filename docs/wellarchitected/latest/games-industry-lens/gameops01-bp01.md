@@ -1,7 +1,6 @@
 
 
 # GAMEOPS01-BP01 Use game objectives and business performance metrics to develop your live operations strategy
-<a name="gameops01-bp01"></a>
 
  Consult business stakeholders, such as game producers and publishing partners, to determine objectives and performance metrics for a game. This can assist you develop plans for how you will manage the game, including defining your maintenance windows, software and infrastructure update schedules, and system reliability and recoverability goals. 
 

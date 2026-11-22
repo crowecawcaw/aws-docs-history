@@ -1,7 +1,6 @@
 
 
 # GAMECOST02-BP01 Optimize the cost of data transfer across the internet
-<a name="gamecost02-bp01"></a>
 
  While AWS primarily charges for outbound (egress) data transfer from your AWS resources to the internet, game companies can face high costs related to data transfer through AWS Direct Connect or AWS Gateway load balancers, which may charge for both inbound (ingress) and outbound data. Implement solutions that reduce the overall cost of transferring data from your game's AWS backend to your players, focusing on minimizing egress charges from your AWS resources as well as evaluating options to manage ingress and egress fees through AWS connectivity services. 
 

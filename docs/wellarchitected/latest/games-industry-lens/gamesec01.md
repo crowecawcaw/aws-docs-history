@@ -1,7 +1,6 @@
 
 
 # Security foundations
-<a name="gamesec01"></a>
 
 
 |  GAMESEC01: How do you implement security fundamentals for game development?  | 

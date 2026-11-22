@@ -1,7 +1,6 @@
 
 
 # GAMEOPS03-BP03 Load test early and often
-<a name="gameops03-bp03"></a>
 
  Load testing is the process of simulating real-world traffic on a system to assess its reliability and performance. 
 

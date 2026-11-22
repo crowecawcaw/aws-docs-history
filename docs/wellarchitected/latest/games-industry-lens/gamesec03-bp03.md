@@ -1,7 +1,6 @@
 
 
 # GAMESEC03-BP03 Use your game backend service to validate player requests to join a multiplayer game
-<a name="gamesec03-bp03"></a>
 
  Typically, in multiplayer games, a player will join a game session by selecting an option directly from a list of available sessions, or they will submit a request to find a match. The latter approach places the responsibility on the game developer to locate an eligible game session and provide the connection information (usually an IP address and port number) back to the player's game client. The implementation may vary depending on the genre of game you are developing, but regardless, it is a security best practice to perform server-side validation of a player's request to join a game. 
 

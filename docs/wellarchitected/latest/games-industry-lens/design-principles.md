@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The AWS Well-Architected Framework identifies the following general design principles to facilitate good design in the cloud for games workloads: 
 +  **Understand player behavior and usage patterns to evolve the game and help protect players:** To drive improvement continually to your game and effectively manage the player experience, it is important to have visibility into how players interact with game itself and with the rest of the players. This assists you understand how to improve the game, manage costs, and monitor and react to unauthorized usage activity that poses risks to the player experience. 

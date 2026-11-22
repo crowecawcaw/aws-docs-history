@@ -1,7 +1,6 @@
 
 
 # Game backends
-<a name="game-backends"></a>
 
  Game backends are used to manage game and player state, as well as integrate social and system-level features into the game that support the gaming experience. Player profile management, item and inventory storage, and stats and leaderboards are examples of services hosted in game backends. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMEPERF02-BP02 Design an approach that supports placing latency-sensitive game infrastructure close to players to improve performance
-<a name="gameperf02-bp02"></a>
 
  Separate placement for latency sensitive infrastructure like game servers minimizes the impact of long network routes. Repeatable deployments can make it simple to maintain multiple locations that are more performant for your players. Ping is a common metric that is surfaced in game UI and low ping can be a differentiating capability. 
 

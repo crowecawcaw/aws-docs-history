@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sus"></a>
 
  Sustainability for the games industry is evolving at diverse rates in different Regions of the world. With sustainable power in large swaths of North America and sustainability mandates in EU and UK, architects have several approaches to achieving greener workloads in the near future. The Well-Architected [sustainability pillar](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html) can be used to achieve these measures for a wide variety of workloads. 
 

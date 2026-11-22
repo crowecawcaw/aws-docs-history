@@ -1,7 +1,6 @@
 
 
 # GAMESEC04-BP04 Restrict access to content with digital rights management (DRM) solutions
-<a name="gamesec04-bp04"></a>
 
  Consider restricting access to your game content by using strong encryption tools such as a [digital rights management (DRM)](https://aws.amazon.com/marketplace/solutions/media-entertainment/drm/) solution. This type of solution can be used to encrypt your private content and distribute the decryption keys to authorized players. 
 

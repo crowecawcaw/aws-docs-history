@@ -1,7 +1,6 @@
 
 
 # Compute selection
-<a name="gameperf05"></a>
 
 
 |  GAMEPERF05: How do you select the appropriate compute solution for your game?  | 

@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="gameperf08"></a>
 
 
 |  GAMEPERF08: How do you align the performance bar for your game with player and developer expectations?  | 

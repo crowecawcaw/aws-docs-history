@@ -1,7 +1,6 @@
 
 
 # GAMEPERF07-BP04 Regularly monitor networking performance
-<a name="gameperf07-bp04"></a>
 
  For competitive games, it is important to have a consistent player experience. 
 

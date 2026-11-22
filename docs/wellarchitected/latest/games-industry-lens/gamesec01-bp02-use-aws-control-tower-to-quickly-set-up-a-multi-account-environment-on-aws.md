@@ -1,7 +1,6 @@
 
 
 # GAMESEC01-BP02 Use AWS Control Tower to quickly set up a multi-account environment on AWS
-<a name="gamesec01-bp02-use-aws-control-tower-to-quickly-set-up-a-multi-account-environment-on-aws"></a>
 
  If you start using AWS with just a single account, you might find your game studio growing out of it as your game development process advances. For example, with a single AWS account, you might begin to reach service limits, or your costs for different projects and workloads may become more complex. Creating different accounts for different game titles and environments allows teams to experiment with new features, bypass service limits, and maintain security posture and compliance. By implementing a multi-account strategy in AWS, you can benefit from distributing service limits across multiple accounts and gain insights into your AWS costs. 
 

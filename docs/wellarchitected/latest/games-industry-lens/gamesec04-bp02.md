@@ -1,7 +1,6 @@
 
 
 # GAMESEC04-BP02 Limit origin access to authorized content delivery networks (CDNs)
-<a name="gamesec04-bp02"></a>
 
  Block users from circumventing your content delivery networks to directly access content from your origin, such as your Amazon S3 buckets. It is important to restrict access to your origin to only your authorized CDNs, which reduces data transfer costs from unnecessarily serving content out of the origin. It also improves your security posture by flowing public access to your origin content through the same entry point, where you can deploy edge security controls such as AWS WAF layer 7 filtering, injection and inspection of security-related HTTP request parameters, and distributed denial of service (DDoS) protections. 
 

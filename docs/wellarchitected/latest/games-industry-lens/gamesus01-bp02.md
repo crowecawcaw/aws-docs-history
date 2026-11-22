@@ -1,7 +1,6 @@
 
 
 # GAMESUS01-BP02 Use lifecycle policies or TTL expiration to delete unnecessary games user data, log files, or deprecated assets
-<a name="gamesus01-bp02"></a>
 
  You can use tags and data type to create lifecycle policies or TTL's to move data to archival storage or remove completely from the service. This may include temporary configurations, expired archived content, and historical logs that are no longer needed. Most services support tagging. 
 

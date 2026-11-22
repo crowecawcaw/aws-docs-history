@@ -1,7 +1,6 @@
 
 
 # GAMESUS01-BP01 Use storage technologies that fit the patterns adapted to user content, subscriber information, and in-game purchases
-<a name="gamesus01-bp01"></a>
 
  You should classify your data by type, retention need and frequency of access. This enables you to select the most optimized storage solution for the myriad data types of your game or backend services produce. Fast changing data should be stored in key-value or in-memory database services. Transactional data should be store in relational database services. Large files, game assets, or user-generated content should be stored in object storage services. 
 

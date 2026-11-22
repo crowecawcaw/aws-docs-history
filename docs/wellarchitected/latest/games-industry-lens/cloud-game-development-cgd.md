@@ -1,7 +1,6 @@
 
 
 # Cloud game development (CGD)
-<a name="cloud-game-development-cgd"></a>
 
  Cloud game development (CGD) refers to the infrastructure and tools that are required for the game development lifecycle to build, test, and develop a game. Game development is collaborative between users and the infrastructure requirements frequently change throughout the stages of development. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMESEC04-BP01 Restrict access of downloadable content to authorized clients and users
-<a name="gamesec04-bp01"></a>
 
  Restrict access to game content by authorized applications and clients. Consider using Amazon S3 as a cost-effective and scalable origin for storing downloadable game content and Amazon CloudFront to provide globally performant content delivery to players. Both services provide built-in mechanisms for restricting access to data that is stored, such as restricting access to authenticated users. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMESUS02-BP01 Select managed services for appropriate compute workloads
-<a name="gamesus02-bp01"></a>
 
  Architect your game backend services to use managed services for event driven or highly variable traffic workloads. Managed services shift the management of infrastructure to AWS and distributes the environmental impact across multiple users because of the multi-tenanted control planes. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMEPERF07-BP05 Use network acceleration technology to improve performance across the internet
-<a name="gameperf07-bp05"></a>
 
  In addition to physically placing latency-sensitive game infrastructure closer to players, you can also improve the player experience by optimizing the network performance for your game. AWS uses the BGP protocol to influence [internet routing](https://aws.amazon.com/blogs/architecture/internet-routing-and-traffic-engineering/) to use the fastest path to our border network from Internet Service Providers. If you operate your own network and need more control and observability over routing behavior and BGP advertisement, you can use private [Peering](https://aws.amazon.com/peering/) or Direct Connect to route traffic from the internet to your game running on AWS. 
 

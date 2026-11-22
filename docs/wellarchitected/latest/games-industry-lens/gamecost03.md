@@ -1,7 +1,6 @@
 
 
 # Data transfer costs
-<a name="gamecost03"></a>
 
 
 |  GAMECOST03: How are you optimizing the data transfer costs for your game infrastructure?  | 

@@ -1,7 +1,6 @@
 
 
 # Threat modeling
-<a name="gamesec10"></a>
 
 
 |  GAMESEC10: How do you integrate threat modeling into your organization's application development lifecycle?  | 

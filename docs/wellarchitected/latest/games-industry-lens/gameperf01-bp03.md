@@ -1,7 +1,6 @@
 
 
 # GAMEPERF01-BP03 Evaluate integration with other AWS services, development environments, target CPU architectures, and features
-<a name="gameperf01-bp03"></a>
 
  Evaluate how well each hosting option integrates with other AWS services your game relies on, such as databases, analytics, or content delivery services. 
 

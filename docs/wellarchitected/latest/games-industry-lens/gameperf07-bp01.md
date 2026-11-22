@@ -1,7 +1,6 @@
 
 
 # GAMEPERF07-BP01 Define network latency thresholds for your game
-<a name="gameperf07-bp01"></a>
 
  When developing a multiplayer game, verify that your game infrastructure does not introduce unnecessary latency for players. If your game is sensitive to network latency, then you should set latency thresholds in your matchmaking logic to prioritize placing players on game server sessions that are hosted in nearby game server locations or AWS Regions that meet your objective for ideal player experience. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMESEC05-BP01 Implement a comprehensive data collection strategy to monitor player behavior
-<a name="gamesec05-bp01"></a>
 
  To maintain a positive player experience, implement a comprehensive data collection and analysis strategy. Capturing, storing, and analyzing relevant data provides insights into how players interact with your game's features and with each other. This data-driven approach can guide decision-making, enhance player engagement and retention, optimize monetization strategies, and ultimately improve the overall player experience. 
 

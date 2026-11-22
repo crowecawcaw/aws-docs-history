@@ -1,7 +1,6 @@
 
 
 # Sustainability
-<a name="sustainability"></a>
 
  The sustainability pillar provides design principles, operational guidance, best-practices, and improvement plans to help meet sustainability targets for your AWS workloads. 
 

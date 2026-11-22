@@ -1,7 +1,6 @@
 
 
 # GAMEPERF03-BP03 Optimize resource utilization of GameLift containers
-<a name="gameperf03-bp03"></a>
 
  To optimize resource utilization of GameLift containers, design your container fleet effectively and set precise resource limits. 
 

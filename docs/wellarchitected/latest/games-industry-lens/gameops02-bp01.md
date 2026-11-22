@@ -1,7 +1,6 @@
 
 
 # GAMEOPS02-BP01 Adopt a multi-account strategy to isolate different games and applications into their own accounts
-<a name="gameops02-bp01"></a>
 
  Design an account structure that would guide the infrastructure deployment to comply to each environment's security, isolation, and operational needs. Environment isolation by restricting access to it and permitting only requisite AWS services to be used in them is essential, with production environments being locked down, while development and testing environments are lenient to permit experimentation. Further isolation of major sub-systems in each environment, and common services that are used by multiple environments to be hosted and managed out of their own AWS accounts is highly recommended. 
 
@@ -47,3 +46,5 @@
  In addition to these game-centric environment OUs, there are also the shared services OU and security OU. These OUs should be organization-wide, not for each individual game. That way the games would consume the shared services for development tools and data and analytics as in this example. Then, send application and system logs to the AWS account set up for logs in the security OU.  
 
 ![Example of account structure for game environments](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image9.jpeg)
+
+Example of account structure for game environments

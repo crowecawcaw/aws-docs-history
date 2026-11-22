@@ -1,7 +1,6 @@
 
 
 # GAMESEC04-BP03 Implement geographic restrictions to limit unauthorized access
-<a name="gamesec04-bp03"></a>
 
  When a player requests your content, Amazon CloudFront serves the requested content from the nearest edge location, regardless of where the player is located. However, there may be scenarios in which you need to restrict how your content is accessible by users in specific parts of the world. For example, you may have a rolling game deployment strategy that releases content in phases on a country-by-country basis, or you may have to abide by country-specific access controls.  
 

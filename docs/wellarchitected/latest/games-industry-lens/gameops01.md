@@ -1,7 +1,6 @@
 
 
 # Live operations
-<a name="gameops01"></a>
 
 
 |  GAMEOPS01: How do you define your game's live operations (Live Ops) strategy?   | 

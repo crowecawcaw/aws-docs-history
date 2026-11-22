@@ -1,7 +1,6 @@
 
 
 # GAMESEC06-BP02 Use artificial intelligence and machine learning tools to automate aspects of your infrastructure protection strategy
-<a name="gamesec06-bp02"></a>
 
  [Amazon Lookout for Metrics](https://aws.amazon.com/lookout-for-metrics/) uses machine learning to automatically detect and diagnose anomalies in your business and operational data and monitors the metrics that are most important to your businesses with greater speed and accuracy. The service also makes it straightforward to diagnose the root cause of anomalies, such as a sudden dip in revenue, logins, transactions, or retention. It does not require game developers to have ML experience to set up and can connect to popular data sources including Amazon S3, Amazon CloudWatch, Amazon RDS, Amazon Redshift, as well as many SaaS applications. For example, you can [integrate Amazon Lookout for Metrics with the Game Analytics Pipeline](https://aws.amazon.com/blogs/gametech/detect-game-anomalies-amazon-lookout-for-metrics-game-analytics-pipeline/) and other data sources to begin analyzing behavior to detect anomalies. 
 

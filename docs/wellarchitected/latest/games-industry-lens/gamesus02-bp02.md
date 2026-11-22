@@ -1,7 +1,6 @@
 
 
 # GAMESUS02-BP02 Right-size your compute and deploy GPU performance only where needed
-<a name="gamesus02-bp02"></a>
 
  Architect your game servers and backend to efficiently utilize compute resources. Over-provisioning compute can lead to unnecessary costs and minimizes the amount of idle or under-utilized resources. GPU instances should be used to support specific development efforts like HLOD rebuilds in Unreal, or if you game servers require them by design. This greatly reduces the environmental impact and costs of your workloads. 
 

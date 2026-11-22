@@ -1,7 +1,6 @@
 
 
 # Game analytics pipeline
-<a name="game-analytics-pipeline"></a>
 
  Game developers are increasingly looking for ways to better understand player behavior so that they can improve the gameplay experience to retain and grow their player base. Game analytics represents the technical infrastructure and processes that is required to understand and analyze the data that is generated from the game and related services. This typically requires the use of an analytics pipeline architecture that can support this end-to-end process, such as the [Game Analytics Pipeline](https://aws.amazon.com/solutions/implementations/game-analytics-pipeline/) solution implementation. 
 
@@ -12,6 +11,8 @@
 +  Provide support for both real-time and batch reporting use cases. For example, real-time dashboards and alerts are typically used by live ops teams to monitor game infrastructure and player behavior to detect issues. Data analyst teams typically rely on as-necessary and batch reporting to understand trends over time. 
 
 ![Serverless game analytics pipeline for gameplay telemetry](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image8.jpeg)
+
+*Serverless game analytics pipeline for gameplay telemetry*
 
 
  Game data is ingested from game clients, game servers, and other applications. The streaming data is ingested into Amazon S3 for data lake integration and interactive analytics. Streaming analytics processes real-time events and generates metrics. Data consumers analyze metrics data in Amazon CloudWatch and raw events in Amazon S3. 

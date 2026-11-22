@@ -1,11 +1,12 @@
 
 
 # Multi-Region and hybrid architecture for low-latency games
-<a name="multi-region-and-hybrid-architecture-for-low-latency-games"></a>
 
  This section describes a multi-Region and hybrid architecture for low-latency games. 
 
 ![Reducing latency with network acceleration and game servers deployed globally](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image3.jpeg)
+
+*Reducing latency with network acceleration and game servers deployed globally*
 
 
 1.  Players in a globally available game can originate from anywhere. When a player requests a game session or match, their game client sends a request to the game backend service registered with Amazon Route 53. Route 53 latency-based routing can be used to route the player to the closest available game backend. 

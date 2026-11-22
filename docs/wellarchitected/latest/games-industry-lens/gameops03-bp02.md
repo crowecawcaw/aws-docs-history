@@ -1,7 +1,6 @@
 
 
 # GAMEOPS03-BP02 Conduct performance engineering before every release (or at least for major releases)
-<a name="gameops03-bp02"></a>
 
  Performance engineering is the process of monitoring multiple key operational metrics of an app to discover optimization opportunities that can further improve the application's performance. This is an iterative process that starts with testing, followed by optimizing code, its dependencies, associated processes, its host operating system, and the underlying infrastructure. 
 

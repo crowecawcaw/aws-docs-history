@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-perf"></a>
 
  In addition to the design principles in the AWS Well-Architected Framework whitepaper, the following design principles can achieve performance efficiency for your games: 
 +  **Measure game performance from end-to-end:** It is important to measure performance as it is perceived from the perspective of your players. This means you should measure the performance of the game client, your game infrastructure, and the internet connectivity that connects your players to the infrastructure. This will assist in understanding where you can make performance improvements within your architecture. 

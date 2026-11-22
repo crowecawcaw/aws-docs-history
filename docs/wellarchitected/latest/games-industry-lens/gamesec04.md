@@ -1,7 +1,6 @@
 
 
 # Access control
-<a name="gamesec04"></a>
 
 
 |  GAMESEC04: How do you block unauthorized access to game content?  | 

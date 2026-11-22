@@ -1,13 +1,14 @@
 
 
 # Session-based game server hosting with serverless backend
-<a name="session-based-game-server-hosting-with-serverless-backend"></a>
 
  When developing an architecture for your game, consider the features and capabilities you need and the level of operational management overhead that you are prepared to own. To provide the best balance between ease of operations and flexibility, you can build your game using managed services from cloud providers. Managed services give you the control to develop and customize your own custom game features, while also reducing your burden to deploy and manage infrastructure. 
 
  Hosting a session-based multiplayer game requires having server infrastructure to host the game server processes as well as a scalable backend for matchmaking and session management. The following reference architecture shows how Amazon GameLift managed hosting and a serverless backend can be used to manage your session-based games. 
 
 ![Amazon GameLift managed hosting for session-based games](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image2.png)
+
+*Amazon GameLift managed hosting for session-based games*
 
 
  The diagram describes the process of getting players into games running on GameLift managed game hosting. It includes the following steps: 

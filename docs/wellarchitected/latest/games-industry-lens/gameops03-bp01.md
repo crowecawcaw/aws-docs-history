@@ -1,7 +1,6 @@
 
 
 # GAMEOPS03-BP01 Validate and test your existing core game systems and infrastructure before reusing it in your game
-<a name="gameops03-bp01"></a>
 
  Organizations tend to reuse existing components and source code from previous games to save on development time and cost. These legacy components and code may not be subjected to a thorough review or have detailed integration testing and instead rely on their past performance. 
 

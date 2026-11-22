@@ -1,7 +1,6 @@
 
 
 # GAMESEC02-BP01 Use ready to deploy templates for standard security practices
-<a name="gamesec02-bp01"></a>
 
  Ready-to-deploy templates provide a proactive and agile way to assess your security posture in the cloud. Pre-configured templates evaluate your cloud security and implement necessary changes promptly. The templates encompass a wide range of best practices across various technologies and widely accepted security frameworks. Using templates can assist game studios to maintain consistent infrastructure configurations, especially as they may scale and add additional AWS accounts to support new workloads. 
 

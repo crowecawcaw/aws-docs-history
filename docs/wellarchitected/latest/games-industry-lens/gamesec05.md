@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="gamesec05"></a>
 
 
 |  GAMESEC05: How do you monitor and analyze player usage behavior within your game?  | 

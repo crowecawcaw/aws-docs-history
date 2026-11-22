@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="gamerel03"></a>
 
 
 |  GAMEREL03: How do you persist game state during infrastructure disruptions?  | 

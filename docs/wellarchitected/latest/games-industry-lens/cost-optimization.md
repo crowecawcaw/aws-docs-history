@@ -1,7 +1,6 @@
 
 
 # Cost optimization
-<a name="cost-optimization"></a>
 
  The cost optimization pillar includes the continual process of refinement and improvement of a system over its entire lifecycle. This process spans from the initial design of your first proof of concept to the ongoing operation of production workloads. By adopting the practices outlines in this paper, you can build and operate cost-aware systems that achieve desired business outcomes at a lowest price point. Implementing these cost optimization practices can allow your business to maximize the value of your cloud investment. 
 

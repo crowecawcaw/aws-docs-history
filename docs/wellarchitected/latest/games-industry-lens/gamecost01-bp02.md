@@ -1,7 +1,6 @@
 
 
 # GAMECOST01-BP02 Discover opportunities for optimization
-<a name="gamecost01-bp02"></a>
 
  Game developers and publishers can use AWS FinOps practices to help optimize their cloud costs and gain better visibility into their cloud spending. By doing so, game producers can align the average cost required to maintain infrastructure for the players with the financial results delivered by the game. 
 

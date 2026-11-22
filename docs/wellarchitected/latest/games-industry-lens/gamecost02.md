@@ -1,7 +1,6 @@
 
 
 # Cost-effective resources
-<a name="gamecost02"></a>
 
 
 |  GAMECOST02: How are you choosing the right compute solution for your game servers?  | 

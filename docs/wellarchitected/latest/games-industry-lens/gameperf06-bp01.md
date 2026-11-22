@@ -1,7 +1,6 @@
 
 
 # GAMEPERF06-BP01 Centralize log collection and storage
-<a name="gameperf06-bp01"></a>
 
  Implement a centralized log collection and storage solution to gather logs from game server instances and GameLift. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMEOPS02-BP02 Organize infrastructure resources using resource tagging
-<a name="gameops02-bp02"></a>
 
  To effectively manage and track your [infrastructure resources](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-laying-the-foundation/tagging.html) in AWS, use proper [resource tagging](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) and [grouping](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html) to identify each resource's owner, project, application, cost center, and other data. Tagged resources can be grouped together using [resource groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html), which assists with operational support. 
 

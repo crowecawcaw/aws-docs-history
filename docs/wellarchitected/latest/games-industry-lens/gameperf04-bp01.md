@@ -1,7 +1,6 @@
 
 
 # GAMEPERF04-BP01 Monitor game server processes to detect issues
-<a name="gameperf04-bp01"></a>
 
  You might run multiple game server processes per instance to efficiently utilize the resources on your game server instances. If so, design your architecture so that an individual game server process hosting a game session cannot cause adverse impact to other game sessions hosted on the same instance. Use metrics to understand how game placement and game mode type can impact the performance of game server instances. Incorporate a mix of low load (lobby, shop, or single player tutorial) and high load (ranked, multi-player, or high skill gameplay) processes to avoid hot spotting the game server instance. 
 

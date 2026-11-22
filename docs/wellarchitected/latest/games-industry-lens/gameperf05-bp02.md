@@ -1,7 +1,6 @@
 
 
 # GAMEPERF05-BP02 Move non-latency-sensitive compute tasks to asynchronous workflows
-<a name="gameperf05-bp02"></a>
 
  When you are optimizing the performance for your game, it is important to keep in mind that only some of the interactions between the client and the game backend must be performed in a synchronous manner. You should consider each feature from the perspective of the player experience and determine whether certain interactions require synchronous communications, which are blocking and resource intensive, or whether those features can be implemented in an asynchronous manner. When you implement network calls, use an asynchronous, non-blocking approach. Additionally, your game backend should also be configured to perform work in an efficient manner by offloading tasks to queues and prioritizing fast responses to clients where possible. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMESEC06-BP01 Use tools for detecting and responding to threats to your infrastructure
-<a name="gamesec06-bp01"></a>
 
  To continuously monitor for malicious activities and unauthorized behaviors within your AWS environment, consider using [Amazon GuardDuty](https://aws.amazon.com/guardduty/). GuardDuty identifies threats by monitoring account behavior, network activity, and data access patterns within your environment. It analyzes events across multiple data sources, such as CloudTrail event logs, Amazon VPC Flow Logs, and DNS logs for potential threats. By integrating with Amazon CloudWatch Events and Lambda, GuardDuty alerts can be automatically forwarded to relevant security teams for further analysis. 
 

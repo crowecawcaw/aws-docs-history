@@ -1,7 +1,6 @@
 
 
 # GAMECOST03-BP02 Optimize databases for game backends
-<a name="gamecost03-bp02"></a>
 
  Games rely heavily on databases to store a wide range of critical data, from player profiles and inventories to in-game micro transactions and progression metrics. Databases also play a crucial role in managing the social aspects of games, such as creating and maintaining player groups, parties, and enforcing moderation policies. As the player base of a game grows, the associated database costs will inevitably rise to accommodate the increasing data and usage demands. 
 

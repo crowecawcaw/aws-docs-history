@@ -1,7 +1,6 @@
 
 
 # GAMEOPS03-BP04 Adopt a deployment strategy that minimizes impact to players
-<a name="gameops03-bp04"></a>
 
  Incorporate a deployment strategy for your game software and infrastructure that minimizes the amount of downtime that keeps players out of your game. While certain types of updates might require installing new updates to the game client, design the game to minimize or avoid the need for downtime during deployments. 
 

@@ -1,7 +1,6 @@
 
 
 # GAMESEC03-BP04 Enforce a strict security policy for player user accounts by requiring a strong password
-<a name="gamesec03-bp04"></a>
 
  If a game provides players with the ability to create a user account with a password, you should require players' passwords to adhere to strong policies. For example, Amazon Cognito user pools provide you with the ability to [define password requirements](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-policies.html) for user accounts. Establishing a strong password policy can protect your players' accounts from being overtaken through social engineering and brute force attacks. 
 

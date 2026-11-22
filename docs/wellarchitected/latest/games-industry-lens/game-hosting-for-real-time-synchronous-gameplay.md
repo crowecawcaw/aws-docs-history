@@ -1,7 +1,6 @@
 
 
 # Game hosting for real-time synchronous gameplay
-<a name="game-hosting-for-real-time-synchronous-gameplay"></a>
 
  Real-time synchronous gameplay allows for two or more players to participate and interact in a game simultaneously where the state of the gameplay is shared between the connected players to create as close to a real-time experience as possible. Examples of synchronous games include first-person shooters, massively multiplayer online games (MMOG), sports and action games, or an online game where two or more players must be connected to share the play experience in near real time. 
 

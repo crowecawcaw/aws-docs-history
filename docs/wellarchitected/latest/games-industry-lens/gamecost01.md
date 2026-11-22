@@ -1,7 +1,6 @@
 
 
 # Expenditure and usage awareness
-<a name="gamecost01"></a>
 
 
 |  GAMECOST01: How do you measure the cost of your game environments?  | 

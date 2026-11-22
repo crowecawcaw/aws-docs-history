@@ -1,7 +1,6 @@
 
 
 # Iterative development
-<a name="gameperf03"></a>
 
 
 |  GAMEPERF03: How can you use Amazon GameLift for iterative development performance efficiency?   | 

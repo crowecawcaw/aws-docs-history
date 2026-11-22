@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="gamesus01"></a>
 
 
 |  GAMESUS01: How do you manage user and game data in your game system?   | 

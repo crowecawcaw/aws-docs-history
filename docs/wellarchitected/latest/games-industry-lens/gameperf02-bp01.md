@@ -1,7 +1,6 @@
 
 
 # GAMEPERF02-BP01 Select a home Region that is near your players
-<a name="gameperf02-bp01"></a>
 
  For an initial game launch, you should determine where to deploy infrastructure based on discussions with your business stakeholders, such as publishing teams who determine where the game is expected to be made available to players, and where they are focusing their pre-launch marketing and advertising efforts. 
 

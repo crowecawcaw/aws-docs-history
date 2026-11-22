@@ -1,7 +1,6 @@
 
 
 # Optimizing over time
-<a name="gamecost-oot"></a>
 
  There are no optimizing over time best practices specific to the Games Lens. 
 

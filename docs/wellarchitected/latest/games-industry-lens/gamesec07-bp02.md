@@ -1,7 +1,6 @@
 
 
 # GAMESEC07-BP02 Ban accounts that are associated with bad actors
-<a name="gamesec07-bp02"></a>
 
  If left unmitigated, abusive behaviors in a game can continue to have a negative impact on the gaming experience for others and should be mitigated as soon as possible. Implement a process to impose bans or other forms of restrictions on bad actors who are confirmed to be in violation of your terms of service.  
 

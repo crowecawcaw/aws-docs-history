@@ -1,7 +1,6 @@
 
 
 # GAMEPERF06-BP05 Use monitoring and visualization tools
-<a name="gameperf06-bp05"></a>
 
  Use monitoring and visualization tools to gain insights into your game server performance and identify optimization opportunities. 
 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-ops"></a>
 
  In addition to the design principles from the Well-Architected Framework whitepaper, the following design principles can assist you to achieve operational excellence in building and operating games: 
 +  **Define measurable and achievable objectives for game operations teams and adapt as necessary:** Due to the hits-driven nature of games, it is difficult to determine ahead of time how many players will play your game when it launches or what expectations players will have for your ongoing game operations. It is important to set ambitious but achievable goals with stakeholders and design an approach that can be scaled up if your game exceeds projections and scaled down while game development teams optimize the player experience. Adequately prepare and test ahead of time to meet these requirements and align your business and technical stakeholders on target objectives for operating the game. With targets defined, the game teams can achieve an appropriate balance between cost and performance during planning, designing, provisioning, testing, deploying, and operating the game backend infrastructure. 

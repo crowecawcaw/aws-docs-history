@@ -1,7 +1,6 @@
 
 
 # GAMEREL03-BP01 Monitor game server disruptions, and use the data to improve hosting architecture to achieve reliability goals
-<a name="gamerel03-bp01"></a>
 
  Monitor game server metrics and the impact of failures or degradations in performance, such as increased latency under load, on player behavior over time so that you can adjust your game server hosting strategy to meet your game's reliability requirements. Game server infrastructure to be degraded should be removed from service immediately if it is impacting players or proactively replaced when there are no active player sessions hosted on the server. 
 

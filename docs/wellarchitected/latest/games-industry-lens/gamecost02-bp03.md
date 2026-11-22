@@ -1,7 +1,6 @@
 
 
 # GAMECOST02-BP03 Select the appropriate compute pricing option to reduce costs
-<a name="gamecost02-bp03"></a>
 
  Run performance tests of your game server software across a variety of instance types and compute options to determine which option is most cost-effective for your game. 
 
@@ -39,6 +38,8 @@
  The following diagram provides an example to illustrate the use of multiple compute pricing options for game server workloads: 
 
 ![Hosting game servers with multiple EC2 pricing options](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image10.jpeg)
+
+*Hosting game servers with multiple EC2 pricing options*
 
 
  In the diagram, the player concurrency fluctuates over time which makes it difficult to manage utilization and achieve cost optimization. To address this fluctuation, consider adopting a mixture of different compute pricing options, using Savings Plans for EC2 to meet the needs of your minimum usage requirements while relying on EC2 On-Demand and EC2 Spot Instances to meet the needs of your player demand. 

@@ -1,7 +1,6 @@
 
 
 # Application security
-<a name="gamesec08"></a>
 
 
 |  GAMESEC08: How do you secure your CI/CD pipeline?  | 

@@ -1,7 +1,6 @@
 
 
 # GAMEOPS06-BP02 Update and adapt the load testing approach as the game changes
-<a name="gameops06-bp02"></a>
 
  Optimizing the load testing approach is a continuous process that should evolve alongside the game development cycle. As the game grows in complexity, user base, and feature set, the load testing strategy must adapt to verify that it accurately simulates real-world conditions and provides actionable insights. 
 

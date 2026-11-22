@@ -1,7 +1,6 @@
 
 
 # GAMEOPS06-BP01 Monitor key game metrics to identify player trends and patterns, and use the information to improve the game
-<a name="gameops06-bp01"></a>
 
  In addition to game client system usage, app usage, exceptions, and crash data, capture game telemetry data that is sent to a game backend system. This data should represent player activity so that you can understand how players interact with various features in the game. 
 

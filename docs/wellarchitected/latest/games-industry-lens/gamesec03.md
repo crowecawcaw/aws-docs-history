@@ -1,7 +1,6 @@
 
 
 # Identity and access management
-<a name="gamesec03"></a>
 
 
 |  GAMESEC03: How do you manage player identity and access management?  | 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-rel"></a>
 
  In addition to the design principles in the AWS Well-Architected Framework whitepaper, the following are design principles that can increase reliability in the cloud for games workloads: 
 +  **Establish the baseline for the peak player concurrency and system scalability targets required to meet business projections:** Prior to launching a game and during live game operations, develop estimates for the number of concurrent players expected at peak to establish target goals for system scalability to meet these projections. This assists creating a baseline for your game's reliability. Define scaling policies to accommodate changes in demand automatically without impact availability by verifying that your scaling systems gracefully manage active player sessions. 

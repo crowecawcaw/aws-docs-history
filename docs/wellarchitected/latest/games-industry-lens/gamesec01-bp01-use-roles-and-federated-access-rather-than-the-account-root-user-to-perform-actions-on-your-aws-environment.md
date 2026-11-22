@@ -1,7 +1,6 @@
 
 
 # GAMESEC01-BP01 Use roles and federated access, rather than the account root user, to perform actions on your AWS environment
-<a name="gamesec01-bp01-use-roles-and-federated-access-rather-than-the-account-root-user-to-perform-actions-on-your-aws-environment"></a>
 
  When you first create an AWS account, you begin with an identity known as the root user, which is accessed using the email address and password associated with the account. The root user has complete access to AWS services and resources within that account. In most cases, you should avoid using the root user for day-to-day tasks. When root-level access is required, confirm that it's absolutely necessary and verify that additional logging and guardrails are in place to track its use. 
 

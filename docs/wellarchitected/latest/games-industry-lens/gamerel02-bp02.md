@@ -1,7 +1,6 @@
 
 
 # GAMEREL02-BP02 Support the use of multiple EC2 instance types for your game
-<a name="gamerel02-bp02"></a>
 
  When hosting your game using EC2 instances, or if you use containers hosted on EC2 instances in your AWS account, use multiple instance types in your hosting strategy. By using multiple instance types, you can increase the number of compute options that can be used when your game is scaling to add more servers to support player growth, which improves reliability in case your preferred instance type is unavailable. 
 

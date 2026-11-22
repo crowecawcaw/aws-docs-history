@@ -1,7 +1,6 @@
 
 
 # GAMEPERF07-BP02 Run a separate matchmaking service for each gameplay mode and game hosting Region
-<a name="gameperf07-bp02"></a>
 
  If your game offers multiple gameplay modes for players to choose from, you should separate the matchmaking systems for each of them so that you can independently tune the performance for each gameplay mode based on its unique requirements and reduce resource contention. Each gameplay mode will likely have unique requirements for acceptable latency, match size, as well as other customize game-specific matchmaking logic. They will also likely attract different types of players. Run each game mode's matchmaking service as a separate software deployment so that you can performance test and operate the game modes independently. 
 
