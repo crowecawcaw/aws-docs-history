@@ -1,7 +1,6 @@
 
 
 # Step C: Install the AWS Elemental Software
-<a name="install-vm-cl3-ig-install-sw"></a>
 
 1. Use SCP to move each AWS Elemental software installer (`.run` file) to the `/home/elemental` directory on the appropriate virtual machine (VM). Use the *elemental* user credentials.
 

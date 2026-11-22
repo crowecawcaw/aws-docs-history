@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="about-cl3-ig"></a>
 
 This guide describes how to install AWS Elemental Conductor Live software for the first time. (To perform a kickstart and fresh install on a node that you have already deployed, see the [AWS Elemental Conductor Live Upgrade Guide](https://docs.aws.amazon.com/elemental-cl3/latest/upgradeguide/).)
 

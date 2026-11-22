@@ -1,7 +1,6 @@
 
 
 # Step C: Install the Conductor Live software
-<a name="install-cl3-ig-install-sw"></a>
 
 Perform these on the Conductor Live appliance, either directly at the appliance or from your workstation via SSH. 
 

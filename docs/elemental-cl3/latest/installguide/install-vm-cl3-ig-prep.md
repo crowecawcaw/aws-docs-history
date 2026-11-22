@@ -1,7 +1,6 @@
 
 
 # Step A: Prepare the hardware and download files
-<a name="install-vm-cl3-ig-prep"></a>
 
 ## Install the hardware units
 <a name="install-vml-cl3-install-hardware"></a>

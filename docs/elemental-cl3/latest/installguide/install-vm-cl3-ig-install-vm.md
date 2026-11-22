@@ -1,7 +1,6 @@
 
 
 # Step B: Deploy the VM
-<a name="install-vm-cl3-ig-install-vm"></a>
 
 Perform these steps from your workstation.
 

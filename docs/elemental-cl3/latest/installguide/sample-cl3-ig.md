@@ -1,7 +1,6 @@
 
 
 # Sample install of AWS Elemental Conductor Live
-<a name="sample-cl3-ig"></a>
 
 Following is a screen printout of a typical install of AWS Elemental Conductor Live, showing the prompts and possible responses.
 

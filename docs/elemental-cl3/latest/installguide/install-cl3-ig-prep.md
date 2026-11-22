@@ -1,7 +1,6 @@
 
 
 # Step A: Prepare the hardware and download files
-<a name="install-cl3-ig-prep"></a>
 
 ## Prepare the hardware and network
 <a name="install-cl3-ig-prep-hw"></a>

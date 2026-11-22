@@ -1,7 +1,6 @@
 
 
 # Installing Conductor Live on a virtual machine (VM)
-<a name="install-vm-cl3-ig"></a>
 
 This section is for IT administrators who perform the first-time installation of AWS Elemental Conductor Live software on a VM .
 

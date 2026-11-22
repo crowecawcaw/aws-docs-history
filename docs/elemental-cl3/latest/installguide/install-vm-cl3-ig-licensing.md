@@ -1,7 +1,6 @@
 
 
 # Step D: Set up licenses
-<a name="install-vm-cl3-ig-licensing"></a>
 
 At this point, the software is installed but it is not yet enabled. 
 
