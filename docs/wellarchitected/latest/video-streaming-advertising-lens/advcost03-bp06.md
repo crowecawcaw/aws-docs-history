@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP06 Maximize partner traffic routed inside a managed connectivity fabric
-<a name="advcost03-bp06"></a>
 
  Traffic between two RTB Fabric customers costs far less than traffic sent externally, roughly 6.7 to 10 times less per billion transactions depending on Region and volume tier (about 7.5 times for US and EU traffic at the first tier). When you encourage partners to adopt RTB Fabric, both sides save, and those savings grow as more partners join. 
 

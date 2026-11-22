@@ -1,7 +1,6 @@
 
 
 # ADVOPS04-BP01 Create runbooks for the most common operational events and incidents that can impact your advertising workload
-<a name="advops04-bp01"></a>
 
  Develop structured procedures to manage operational events and incidents in your advertising workloads. Runbooks provide step-by-step procedures for well-understood, routine operations, while playbooks guide your response to incidents with less predictable outcomes. For a publisher workload, runbooks cover Prebid adapter timeout escalation, SGAI manifest errors, FAST channel outages, converged linear and digital incident scenarios, and infrastructure capacity events ahead of high-traffic advertising moments. 
 

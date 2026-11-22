@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="advsec02"></a>
 
  Advertising data moves through auctions, media workflows, shared analysis environments, and measurement systems operated by separate organizations. Data protection keeps that information confidential and unaltered while preserving the latency, availability, and collaboration properties that advertising workloads require. 
 

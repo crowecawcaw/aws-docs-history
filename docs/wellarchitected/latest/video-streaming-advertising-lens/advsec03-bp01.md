@@ -1,7 +1,6 @@
 
 
 # ADVSEC03-BP01 Protect advertising endpoints against volumetric and application-layer attacks
-<a name="advsec03-bp01"></a>
 
  Advertising platforms process variable traffic loads that can spike by orders of magnitude during live events or tentpole programming. Outside parties might exploit this variability by disguising volumetric events as legitimate bid request traffic. Without threat-aware protection tuned to advertising traffic patterns, systems can't distinguish a real traffic spike from unauthorized traffic without dropping legitimate revenue-generating requests. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL06-BP02 Implement fallback ad pod strategies for unfilled ad breaks
-<a name="advrel06-bp02"></a>
 
  When an ad decision server times out or returns no ads, the break still has to play something. If you plan only for the success path, you lose the monetization tier you could have served and control over what the viewer sees. With a deliberate fallback order, an ad-serving failure degrades to a known revenue floor. 
 

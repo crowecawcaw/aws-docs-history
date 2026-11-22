@@ -1,7 +1,6 @@
 
 
 # Compute and hardware
-<a name="advperf02"></a>
 
  The optimal compute choice for a particular workload can vary based on application design, usage patterns, and configuration settings. Advertising architectures use different compute choices for various components (ad serving, bidding, data processing, and AI agent orchestration) and allow different features to improve performance. Selecting the right compute for each advertising workload component is a prerequisite for meeting sub-millisecond to single-digit-millisecond latency targets at scale. 
 

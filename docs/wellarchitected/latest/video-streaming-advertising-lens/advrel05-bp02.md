@@ -1,7 +1,6 @@
 
 
 # ADVREL05-BP02 Monitor Availability Zone-level health and detect asymmetric failures
-<a name="advrel05-bp02"></a>
 
  Partial degradation (increased latency, packet loss, or intermittent errors in a single Availability Zone) can erode bid win rates without triggering a full failover. Use Availability Zone-aware monitoring to detect these conditions. 
 

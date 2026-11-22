@@ -1,7 +1,6 @@
 
 
 # ADVCOST05-BP03 Implement prompt caching and optimize prompt design to minimize token consumption
-<a name="advcost05-bp03"></a>
 
  Advertising agents frequently process similar campaign briefs, audience data schemas, and inventory structures. You reduce token consumption and inference costs by caching common context blocks and designing concise prompts. Prompt caching can reduce costs for cached tokens by up to 90% compared to standard input token pricing. 
 

@@ -1,7 +1,6 @@
 
 
 # Data management design
-<a name="advperf04"></a>
 
  Advertising workloads have different data classification, availability, and access latency needs based on their subsystems. Implement a strategy to identify an appropriate AWS data store service option, along with scaling and monitoring considerations. The optimal data management solution for a particular system varies based on data type, access patterns, required throughput, frequency of access, frequency of update, and availability and durability constraints. 
 

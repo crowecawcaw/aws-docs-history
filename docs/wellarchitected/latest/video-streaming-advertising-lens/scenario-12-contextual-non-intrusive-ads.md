@@ -1,7 +1,6 @@
 
 
 # Scenario 12: Implementation of contextual advertising with non-intrusive ads on AWS
-<a name="scenario-12-contextual-non-intrusive-ads"></a>
 
  Contextual advertising delivers relevant ads based on content analysis rather than user-level tracking, making it privacy-safe while maintaining advertising effectiveness. Non-intrusive ad formats (squeezebacks, overlays, pause ads, and shoppable ads) appear alongside content without interrupting playback. They create ad inventory where none existed before, with higher viewer engagement than interruptive formats. 
 
@@ -18,6 +17,8 @@
 <a name="s12-reference-architecture"></a><a name="scenario-12-fig1"></a>
 
 ![Contextual advertising with non-intrusive ads architecture on AWS showing the asynchronous content classification pipeline, auction-time signal retrieval, non-intrusive ad rendering using IAB SIMID, and shoppable ad matching pipeline](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-12-contextual-non-intrusive-ads.jpg)
+
+*Contextual advertising with non-intrusive ads architecture on AWS showing the asynchronous content classification pipeline, auction-time signal retrieval, non-intrusive ad rendering using IAB SIMID, and shoppable ad matching pipeline*
 
 
  The architecture consists of the following components: 

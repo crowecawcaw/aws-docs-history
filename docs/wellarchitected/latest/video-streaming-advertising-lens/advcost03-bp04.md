@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP04 Shape outbound traffic and optimize no-bid handling
-<a name="advcost03-bp04"></a>
 
  SSPs pay for every bid request sent regardless of whether a DSP responds with a bid. DSPs pay for every no-bid response returned. Both costs are avoidable when historical data can predict which requests will not generate bids. Shape outbound request traffic by suppressing low-probability requests before transmission, and coordinate with partners to reduce non-viable traffic volume at the source. 
 

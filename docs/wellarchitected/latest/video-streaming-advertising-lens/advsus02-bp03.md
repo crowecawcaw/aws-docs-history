@@ -1,7 +1,6 @@
 
 
 # ADVSUS02-BP03 Suppress low-probability outbound bid requests to avoid needless compute and network draw
-<a name="advsus02-bp03"></a>
 
  You can predict which requests will likely receive bids by mining historical bid and no-bid patterns per DSP. Suppressing them before transmission cuts unnecessary infrastructure use and energy expenditure. 
 

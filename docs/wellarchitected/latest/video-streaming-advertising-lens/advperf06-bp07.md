@@ -1,7 +1,6 @@
 
 
 # ADVPERF06-BP07 Pre-classify publisher content for contextual targeting at ingest time
-<a name="advperf06-bp07"></a>
 
  Move contextual classification out of the auction path by classifying content at ingest time, before any viewer arrives. When you trigger classification asynchronously as new content is published, you keep synchronous foundation model inference off the bid evaluation path, where it would add 50–200 ms and push response times beyond the auction deadline. 
 

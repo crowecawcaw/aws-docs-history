@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  This lens provided architectural guidance for designing and building efficient, cost-effective, and scalable video streaming advertising workloads in the cloud. We captured common architectures and overarching design tenets for video advertising workload needs. The lens addressed the AWS Well-Architected Framework pillars through an advertising lens, providing a set of questions and best practices to consider for new or existing workloads. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP02 Implement Availability Zone affinity across the RTB data path
-<a name="advcost03-bp02"></a>
 
  Cross-AZ data transfer charges accumulate at RTB scale into one of the largest line items on an advertising infrastructure bill. Availability Zone affinity keeps all components of a bid request's processing path within a single Availability Zone (such as SSP-to-DSP communication, bidder-to-database queries, caching lookups, and RTB Fabric gateway routing). Intra-AZ traffic over private IP addresses incurs no data transfer charges and has sub-millisecond latency. 
 

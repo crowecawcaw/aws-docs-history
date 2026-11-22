@@ -1,7 +1,6 @@
 
 
 # ADVSUS05-BP02 Optimize fraud detection systems for resource efficiency
-<a name="advsus05-bp02"></a>
 
  Fraud detection runs continuously against every impression, click, and conversion, so treating all traffic identically provisions compute for the worst case. When you match the intensity and placement of detection to each segment's risk, the workload consumes fewer resources without weakening its controls. 
 

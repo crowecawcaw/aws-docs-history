@@ -1,7 +1,6 @@
 
 
 # ADVREL10-BP01 Design independent failure domains for linear log ingestion and digital event streams with reliable convergence
-<a name="advrel10-bp01"></a>
 
  Linear TV log files (typically batch-delivered hourly or daily from broadcast traffic systems) and digital ad event streams (real-time impression data) must converge for unified reporting. A failure in one pipeline should never corrupt or halt the other. 
 

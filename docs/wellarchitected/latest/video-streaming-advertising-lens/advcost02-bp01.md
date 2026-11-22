@@ -1,7 +1,6 @@
 
 
 # ADVCOST02-BP01 Use ARM processors for faster and more cost-effective bidder nodes
-<a name="advcost02-bp01"></a>
 
  For RTB bidder nodes, ARM-based instances cost less than comparable x86 instances and deliver up to 40% better price-performance for supported workloads. 
 

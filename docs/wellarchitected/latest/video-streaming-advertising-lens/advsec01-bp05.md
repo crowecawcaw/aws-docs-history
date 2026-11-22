@@ -1,7 +1,6 @@
 
 
 # ADVSEC01-BP05 Implement cross-platform identity governance for converged linear and digital operations
-<a name="advsec01-bp05"></a>
 
  The unified platform of linear television and digital advertising means that identity governance must cover two unique data models: household panels and user-level impressions. Without it, identity resolution can expose viewer data across consent boundaries or reveal panel membership to unauthorized parties. 
 

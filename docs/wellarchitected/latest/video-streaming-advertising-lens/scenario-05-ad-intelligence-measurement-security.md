@@ -1,7 +1,6 @@
 
 
 # Scenario 5: Ad intelligence, measurement, and security
-<a name="scenario-05-ad-intelligence-measurement-security"></a>
 
  Publishers and advertisers need to help protect the advertising supply chain from fraud, maintain brand safety for ad placements, generate contextual intelligence from content analysis, and validate creative integrity, all at the speed and scale required for programmatic advertising. 
 
@@ -18,9 +17,13 @@
 <a name="s05-reference-architecture"></a><a name="scenario-05-fig1"></a>
 
 ![Contextual intelligence advertising using GenAI on AWS, part 1, showing pre-ingest content classification with Bedrock Data Automation and cached IAB taxonomy signals available at auction time](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-05a-contextual-intelligence-1.jpg)
+
+*Contextual intelligence advertising using GenAI on AWS, part 1*
 <a name="scenario-05-fig2"></a>
 
 ![Contextual intelligence advertising using GenAI on AWS, part 2, showing the auction-time retrieval path, non-intrusive ad rendering, and attribution feedback loop](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-05b-contextual-intelligence-2.jpg)
+
+*Contextual intelligence advertising using GenAI on AWS, part 2*
 
 
  The architecture consists of the following components: 
@@ -46,6 +49,8 @@
 <a name="creative-validation"></a><a name="scenario-05-fig3"></a>
 
 ![Ad creatives generation and quality-control workflow on AWS using Amazon Bedrock for generation, a validation pipeline for brand-safety and policy checks, and quarantine routing for flagged creatives](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-05a-ad-creatives-generation-qc.jpg)
+
+*Ad creatives generation and quality control on AWS*
 
 
  Configure S3 event notifications on your creative storage bucket to trigger validation on every upload. Route flagged creatives to a quarantine prefix with the creative ID, scan results, and disposition logged to DynamoDB with retention aligned to TAG certification audit period. Re-scan active creatives weekly that reference external JavaScript or CSS resources. These can be replaced with malicious content after initial approval. 

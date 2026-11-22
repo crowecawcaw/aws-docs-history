@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP07 Optimize bid request and response payload sizes to reduce data transfer costs
-<a name="advcost03-bp07"></a>
 
  Each RTB transaction includes 2 KiB (2,048 bytes) of data at no charge. Excess payload charges apply only for bytes above this threshold and can be significant at scale. Keeping payloads under 2 KiB avoids excess data transfer charges entirely. 
 

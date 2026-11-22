@@ -1,7 +1,6 @@
 
 
 # Release notes
-<a name="release-notes"></a>
 
 ## New lens version (11-10-2026)
 <a name="update-2026-11-10"></a>

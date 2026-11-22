@@ -1,7 +1,6 @@
 
 
 # ADVREL05-BP03 Deploy partner-facing bid gateways in multiple AWS Regions
-<a name="advrel05-bp03"></a>
 
  A single-Region gateway deployment means all bid traffic terminates in one Region. If that Region becomes unavailable, your exchange partners can't reach your gateways and bid connectivity is lost. To survive a Regional failure, deploy RTB Fabric gateways in at least two Regions. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVOPS02-BP05 Monitor partner connectivity health and traffic management effectiveness across your advertising network
-<a name="advops02-bp05"></a>
 
  Advertising workloads depend on low-latency connectivity with tens to hundreds of external partners. Monitor the health, latency, and throughput of each partner connection in both your network and application. When traffic management modules such as rate limiting and request filtering are applied in the connectivity path, monitor their effectiveness to validate that controls work as intended and to distinguish between network-generated and application-generated responses. 
 

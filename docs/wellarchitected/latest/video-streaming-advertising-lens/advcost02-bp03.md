@@ -1,7 +1,6 @@
 
 
 # ADVCOST02-BP03 Use provisioned resource allocation for campaigns with predictable capacity, and use dynamic allocation for unexpected capacity
-<a name="advcost02-bp03"></a>
 
  Provisioned and on-demand pricing give advertising workloads different cost profiles. Provisioned capacity reserves dedicated resources at a lower cost for each unit and suits predictable workloads. On-demand and serverless capacity cost more per unit but scale freely, which suits unpredictable workloads. Match each component to a suitable model to avoid both overspending and under-provisioning. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL04-BP01 Create disaster recovery (DR) runbooks, and regularly test documented backup and restoration processes
-<a name="advrel04-bp01"></a>
 
  Document backup, restoration, and failover processes for your data, and test them regularly. A slow or failed data restore harms the advertising workload. 
 

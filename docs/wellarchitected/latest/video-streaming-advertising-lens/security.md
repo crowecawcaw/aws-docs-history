@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
 The security pillar encompasses the ability to protect data, systems, and assets to take advantage of cloud technologies to improve your security.
 

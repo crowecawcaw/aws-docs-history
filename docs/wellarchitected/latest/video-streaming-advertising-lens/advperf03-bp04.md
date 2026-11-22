@@ -1,7 +1,6 @@
 
 
 # ADVPERF03-BP04 Use single-zone high-performance object storage for latency-sensitive ad serving and model artifact retrieval
-<a name="advperf03-bp04"></a>
 
  Use high-performance single-zone object storage when your advertising workloads need single-digit-millisecond data access. This storage keeps data within a single zone and delivers lower latency than standard multi-zone storage for read and write operations. It fits bid evaluation engines that load model artifacts, dynamic creative optimization services retrieving assets, and audience processing pipelines that consume intermediate data with tight latency requirements. 
 

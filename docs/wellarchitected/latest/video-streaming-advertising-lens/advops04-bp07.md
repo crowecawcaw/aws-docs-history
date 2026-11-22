@@ -1,7 +1,6 @@
 
 
 # ADVOPS04-BP07 Standardize incident response and escalation procedures across linear playout and digital ad serving
-<a name="advops04-bp07"></a>
 
  Establish a unified incident response framework with consistent classification, escalation, and remediation procedures that apply across linear broadcast playout and digital ad serving infrastructure. Use automated detection, tiered escalation, and runbook automation to minimize MTTR across converged operations. 
 

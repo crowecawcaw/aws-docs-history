@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP01 Consider private communication channels between SSP and DSP
-<a name="advcost03-bp01"></a>
 
  Private communication channels keep traffic secure and reduce internet egress charges. When you connect supply-side and demand-side platforms over private endpoints, bid data stays off the public internet. This practice can improve performance while simplifying network architecture. 
 

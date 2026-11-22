@@ -1,7 +1,6 @@
 
 
 # ADVPERF05-BP02 Use edge services for static content caching and dynamic request acceleration
-<a name="advperf05-bp02"></a>
 
  Cache static advertising content from edge locations near viewers and to route dynamic requests over a backbone network. This reduces latency for ad creative delivery and provides more consistent performance for dynamic advertising requests globally. 
 

@@ -1,7 +1,6 @@
 
 
 # Cost measurement and financial management
-<a name="advcost01"></a>
 
  Maintaining a cost-efficient infrastructure is essential for the profitability of advertising workloads. With fluctuations in usage over time, the costs associated with real-time bidding workloads can vary significantly. Continually monitoring costs is the best way to keep them under control. Evaluate resiliency needs against the cost of downtime for ad delivery and bidding to make proportional investments in reliability. Fragmented measurement across linear TV and digital forces publishers to maintain separate measurement stacks, pay multiple vendors for overlapping capabilities, and run redundant identity resolution processes. Unifying measurement reduces infrastructure duplication while enabling complete reach, frequency, and attribution analysis. 
 

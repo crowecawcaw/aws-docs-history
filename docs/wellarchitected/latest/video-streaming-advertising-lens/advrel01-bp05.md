@@ -1,7 +1,6 @@
 
 
 # ADVREL01-BP05 Through your CI/CD pipeline, implement regression, performance, and canary tests
-<a name="advrel01-bp05"></a>
 
  Integrate holistic regression, performance, and canary tests into your CI/CD pipeline for advertising workloads. Monitor 5xx errors and latency in RTB systems, and roll back quickly when they breach thresholds. 
 

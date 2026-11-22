@@ -1,7 +1,6 @@
 
 
 # ADVOPS01-BP03 Establish performance metrics by defining key performance indicators (KPIs) and service-level objectives (SLOs)
-<a name="advops01-bp03"></a>
 
  Establishing a set of operational performance metrics helps organizations monitor and validate the performance of advertising operations. KPIs and SLOs must extend beyond infrastructure availability to cover publisher yield health (eCPM, fill rate, bids per auction, ad break completion, and identity-signal match rates) and tie operational health directly to revenue outcomes. 
 

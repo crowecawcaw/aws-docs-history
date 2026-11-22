@@ -1,13 +1,14 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  The following terms are used throughout this lens. They represent the key concepts and personas in programmatic advertising that inform the best practices in each pillar. 
 
  Digital advertising (ads) refers to marketing through online channels, like websites and streaming content, as well as linear channels, like cable television. Digital ads span media formats, including text, image, audio, and video. They can help you achieve a variety of business goals, ranging from brand awareness to customer engagement. They can also help you launch new products and drive repeat sales. <a name="definitions-fig1"></a>
 
 ![Online video advertising logical environment showing the buy side (advertiser, agency, DSP), sell side (publisher, ad network, SSP, ad server), and technology intermediaries (ad exchange, DMP, CDP) and the data and bid flows between them](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/definitions-online-video-advertising-environment.jpg)
+
+*Online video advertising logical environment*
 
 
 ## Digital advertising formats

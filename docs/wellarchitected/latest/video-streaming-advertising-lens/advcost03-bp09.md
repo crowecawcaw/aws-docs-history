@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP09 Use built-in fabric load balancing instead of dedicated load balancers
-<a name="advcost03-bp09"></a>
 
  A managed bidding fabric can distribute traffic to compute instances and container platforms through DNS-based routing. This removes the need for dedicated load balancers, along with their hourly fees and per-LCU charges at high RTB-scale QPS. 
 

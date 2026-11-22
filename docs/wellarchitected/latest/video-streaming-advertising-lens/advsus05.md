@@ -1,7 +1,6 @@
 
 
 # Trust, safety, and privacy workload efficiency
-<a name="advsus05"></a>
 
  Privacy collaboration, fraud detection, and content moderation are the data-intensive trust-and-safety workloads that run alongside advertising delivery. Each analyzes large volumes of impression, click, content, or partner data on an ongoing basis, so each carries a resource and carbon footprint that grows with advertising activity. The sustainability levers are shared across all three: scale compute to actual demand rather than provisioning for peak, run ongoing work on energy-efficient processors, defer and batch work that has no real-time requirement, and analyze data where it resides to avoid moving it across Regions. 
 

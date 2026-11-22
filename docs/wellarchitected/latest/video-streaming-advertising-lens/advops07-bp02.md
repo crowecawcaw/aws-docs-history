@@ -1,7 +1,6 @@
 
 
 # ADVOPS07-BP02 Conduct game days and failure injection exercises
-<a name="advops07-bp02"></a>
 
  Regular game days with realistic failure scenarios (SSP adapter outages, manifest generation failures, FAST channel playout interruptions, and innovative ad format rendering degradation) expose monitoring and runbook gaps before they cost revenue. 
 

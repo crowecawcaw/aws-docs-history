@@ -1,7 +1,6 @@
 
 
 # ADVREL06-BP07 Implement capability detection and fallback creative mapping for all innovative format campaigns
-<a name="advrel06-bp07"></a>
 
  Not all player environments support innovative ad formats. A squeeze-back instruction sent to an incompatible player results in no ad display and zero revenue. Every innovative format campaign must have a fallback creative that is served automatically to incompatible players. 
 

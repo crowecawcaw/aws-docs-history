@@ -1,7 +1,6 @@
 
 
 # ADVREL06-BP04 Implement automated input failover and slate injection for continuous channel playout
-<a name="advrel06-bp04"></a>
 
  A FAST channel relies on an ongoing stream of scheduled content assets. If the current asset becomes unavailable, the channel must automatically switch to backup content without viewer-visible disruption. 
 

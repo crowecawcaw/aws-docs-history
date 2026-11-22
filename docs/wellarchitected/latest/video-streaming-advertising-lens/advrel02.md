@@ -1,7 +1,6 @@
 
 
 # Latency-sensitive advertising
-<a name="advrel02"></a>
 
  Consider strategies for managing latency-sensitive advertising workloads through throttling and rate-limiting implementations. Avoid traditional retry mechanisms for fast-failing services, implement effective caching strategies, and proportionally scale across all system components to maintain consistent performance. In real-time bidding, the workload must handle failures in latency-sensitive services within the 100 ms bid response window. There is no room for exponential backoff or deep retry queues. 
 

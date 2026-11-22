@@ -1,7 +1,6 @@
 
 
 # ADVOPS03-BP02 Establish operational readiness reviews for publisher launches
-<a name="advops03-bp02"></a>
 
  New SSP adapter integrations, SGAI pipeline deployments, FAST channel launches, and innovative ad format rollouts must undergo an operational readiness review before entering production. The review is a formal gate. A workload that fails any checklist item must not activate. 
 

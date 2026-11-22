@@ -1,7 +1,6 @@
 
 
 # ADVREL06-BP03 Design player-side resilience for SGAI manifest and ad stream retrieval
-<a name="advrel06-bp03"></a>
 
  In SGAI, the player fetches personalized ad streams after receiving the manifest with SCTE-35 markers. If the player can't retrieve the ad stream, the ad break fails. 
 

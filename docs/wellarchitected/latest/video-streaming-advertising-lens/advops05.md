@@ -1,7 +1,6 @@
 
 
 # SGAI operations
-<a name="advops05"></a>
 
  Server-Guided Ad Insertion (SGAI) has two patterns with materially different operational characteristics: hybrid and personalized. 
 

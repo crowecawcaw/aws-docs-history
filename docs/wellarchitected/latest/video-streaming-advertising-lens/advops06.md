@@ -1,7 +1,6 @@
 
 
 # FAST channel operations
-<a name="advops06"></a>
 
  Free Ad-Supported Streaming TV (FAST) channels turn back-catalog content into ad-supported linear channels that run around the clock, so their operational health has to be tracked continuously. This capability covers the operational demands of linear streaming infrastructure: intelligent scheduling, content licensing workflows, ad fill optimization, and playout monitoring. It spans continuous readiness, observability for scheduling, fill, and playout, and ongoing KPI tracking and operational cadences. 
 

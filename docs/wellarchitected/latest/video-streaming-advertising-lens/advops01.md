@@ -1,7 +1,6 @@
 
 
 # Operational governance and accountability
-<a name="advops01"></a>
 
  Advertising workloads require clear decision rights across architecture, data, campaign operations, and revenue protection. Linear and digital teams need shared accountability for technical health and campaign outcomes, especially when one commercial commitment crosses several delivery systems. This capability defines the organizational mechanisms and common operating model for those decisions. 
 

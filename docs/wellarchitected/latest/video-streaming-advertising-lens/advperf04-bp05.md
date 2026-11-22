@@ -1,7 +1,6 @@
 
 
 # ADVPERF04-BP05 Manage high-volume user profile data
-<a name="advperf04-bp05"></a>
 
  User profile databases are typically large (100 million to 5 billion profiles) and require managing retention, geographic placement, and caching to control storage costs and maintain sub-millisecond bid path performance. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL04-BP05 Back up data in multiple locations with consideration for regulatory requirements
-<a name="advrel04-bp05"></a>
 
  Select geographic regions for backup locations that satisfy your legal and business requirements. Consumer privacy laws might restrict where you can replicate data that contains personal data. Countries where your workload operates might also regulate advertising and related data. 
 

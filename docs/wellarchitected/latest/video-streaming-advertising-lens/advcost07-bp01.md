@@ -1,7 +1,6 @@
 
 
 # ADVCOST07-BP01 Consolidate inventory data into a unified data lakehouse to reduce redundant storage and ETL pipelines
-<a name="advcost07-bp01"></a>
 
  Publishers maintaining separate data pipelines for linear logs, digital impressions, and audience data run redundant ETL jobs, duplicate storage, and parallel analytics infrastructure. A unified data lakehouse consolidates these into a single processing and storage layer, reducing 40–60% of ETL compute. 
 

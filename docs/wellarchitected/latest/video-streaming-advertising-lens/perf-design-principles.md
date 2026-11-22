@@ -1,7 +1,6 @@
 
 
 # Performance efficiency design principles
-<a name="perf-design-principles"></a>
 
  These design principles help you achieve and maintain efficient performance for advertising workloads in the cloud. They extend the [lens-wide design principles](design-principles.md) with guidance specific to using cloud computing resources efficiently to meet system requirements as demand changes and technologies evolve. 
 +  **Design for data volume and query processing considerations for [AWS Clean Rooms](https://aws.amazon.com/clean-rooms/) collaboration:** Large datasets can impact query performance. Consider data partitioning, aggregations, and filters to reduce result sets. Complex joins across multiple tables and number of collaborators can impact processing time. The optimal design for collaborators uses one-to-many collaboration channels along with optimized pre-compiled query templates. Avoid running unbounded queries against large unpartitioned datasets that hit service limits. 

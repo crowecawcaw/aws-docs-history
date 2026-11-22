@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP03 Filter inbound bid requests at the network layer to reduce compute costs
-<a name="advcost03-bp03"></a>
 
  Most DSP bidders respond with no-bid to 70% or more of incoming requests. Each no-bid still consumes compute. The request traverses the network, gets deserialized, gets evaluated against targeting logic, and produces a response with zero revenue. If you filter predictably non-viable requests at the network layer before they reach application compute, you avoid that cost entirely. The built-in OpenRTB Filter and Rate Limiter modules in RTB Fabric run this filtering at no additional charge. 
 

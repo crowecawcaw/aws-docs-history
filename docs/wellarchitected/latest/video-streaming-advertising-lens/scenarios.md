@@ -1,7 +1,6 @@
 
 
 # Scenarios
-<a name="scenarios"></a>
 
  The following scenarios describe common architectures and use cases for advertising workloads on AWS. Each scenario includes characteristics that define when it applies, a reference architecture, and configuration guidance. See the individual scenario files for complete details. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVSUS03-BP02 Route more partner traffic internally to share infrastructure and energy savings
-<a name="advsus03-bp02"></a>
 
  Traffic exchanged between RTB Fabric customers requires less infrastructure overhead than externally routed traffic. When more partners join RTB Fabric, all participants share the resulting infrastructure and energy savings. 
 

@@ -1,7 +1,6 @@
 
 
 # RTB connectivity, traffic, and compute cost
-<a name="advcost03"></a>
 
  Communication between SSPs and DSPs can be significant and can lead to high communication costs. Cross-AZ data transfer charges, internet egress fees, and NAT Gateway processing charges accumulate rapidly at RTB scale. Using private communication channels, co-locating SSP and DSP platforms, and co-locating bidder and database nodes reduces these costs while also improving latency. Beyond connectivity architecture, filtering invalid or non-matching bid requests at the network layer before they reach application compute avoids wasted processing costs. SSPs can shape outbound traffic to suppress requests unlikely to generate bids, and DSPs can optimize no-bid response handling to reduce infrastructure demand. AWS RTB Fabric provides purpose-built infrastructure with transaction-based pricing, built-in traffic filtering modules, Availability Zone affinity, and auto-scaling compute that compounds these savings. 
 

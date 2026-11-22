@@ -1,7 +1,6 @@
 
 
 # Scenario 3: Multi-region advertising workloads
-<a name="scenario-03-multi-region"></a>
 
  Global advertising platforms serve publishers and demand partners across continents with different latency requirements, data residency regulations, and resilience goals. The architecture must balance performance, compliance, and cost, routing traffic to the right region while keeping data in the right jurisdiction. 
 
@@ -19,6 +18,8 @@
 <a name="s03-reference-architecture"></a><a name="scenario-03-fig1"></a>
 
 ![Ad insertion live media workflow on AWS showing multi-region live stream origination, ad decision servicing, and ad insertion for continuous live advertising](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-03a-ad-insertion-live-media.jpg)
+
+*Ad insertion live media workflow on AWS*
 
 
  The architecture consists of the following components: 
@@ -42,9 +43,13 @@
 <a name="geographic-routing"></a><a name="scenario-03-fig2"></a>
 
 ![Intake traffic distribution across continents using Route 53 geolocation routing, directing publisher ad request traffic from EU, Americas, and APAC origins to the nearest regional ad serving workloads](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-03b-ads-traffic-distribution-1.jpg)
+
+*Intake traffic distribution across continents*
 <a name="scenario-03-fig3"></a>
 
 ![Intra-continent traffic distribution with Route 53 weighted routing between regional endpoints, including health-check-driven failover between us-east and us-west](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-03b-ads-traffic-distribution-2.jpg)
+
+*Intra-continent traffic distribution with weighted routing and failover*
 
 
  Configure Amazon Route 53 with continent-based geolocation routing as the first-level policy. Within each continent, use latency-based routing to select the lowest-latency regional endpoint. Add health checks on regional ALBs so that failover activates automatically when a region is degraded. Test routing behavior by simulating requests from each geographic origin before go-live. 
@@ -53,6 +58,8 @@
 <a name="data-residency-enforcement"></a><a name="scenario-03-fig4"></a>
 
 ![Regional ad serving workload interacting with multiple DSPs at a Regional level on AWS, keeping bidding traffic local to the Region to meet latency budgets and residency constraints](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-03c-regional-ad-serving.jpg)
+
+*Regional ad serving workload with multi-DSP interaction at a Regional level*
 
 
  Activate Service Control Policies that deny resource creation outside permitted regions for accounts processing EU or California personal data. Test SCPs in non-production before applying to production. Use Amazon Macie to regularly verify that personal data has not drifted outside permitted regional boundaries. 

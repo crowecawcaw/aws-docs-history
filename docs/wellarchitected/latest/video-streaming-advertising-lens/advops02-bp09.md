@@ -1,7 +1,6 @@
 
 
 # ADVOPS02-BP09 Implement centralized observability for campaign delivery pacing and fulfillment across linear and digital channels
-<a name="advops02-bp09"></a>
 
  Deploy a unified observability stack that provides real-time visibility into campaign delivery, pacing, and fulfillment metrics across both linear TV schedules and digital programmatic pipelines. Use KPI-driven monitoring with anomaly detection to identify delivery issues before they impact campaign outcomes. 
 

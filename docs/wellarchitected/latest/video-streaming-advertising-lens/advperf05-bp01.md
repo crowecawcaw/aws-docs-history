@@ -1,7 +1,6 @@
 
 
 # ADVPERF05-BP01 Establish private connections between your VPC and AWS services to improve performance
-<a name="advperf05-bp01"></a>
 
  Establish private connections between your virtual network and managed cloud services such as object storage, databases, caching, and streaming. Keeping this traffic off the public internet improves security and reduces network hops and latency variability on the critical bid path. 
 

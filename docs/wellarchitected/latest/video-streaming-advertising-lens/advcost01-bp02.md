@@ -1,7 +1,6 @@
 
 
 # ADVCOST01-BP02 Evaluate resiliency needs against the cost of downtime for ad delivery and bidding
-<a name="advcost01-bp02"></a>
 
  Compare the cost of running resilient infrastructure against the cost of going without it. With those numbers, you can choose Multi-Region deployments, backup strategies, and recovery approaches that balance cost against business continuity. 
 

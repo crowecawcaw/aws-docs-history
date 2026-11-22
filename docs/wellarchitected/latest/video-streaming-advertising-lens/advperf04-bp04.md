@@ -1,7 +1,6 @@
 
 
 # ADVPERF04-BP04 Enable detailed performance and observability monitoring to tune queries and refine compute and storage
-<a name="advperf04-bp04"></a>
 
  Provide tools and metric granularity for performance debugging and compute and storage optimization, because of the low-latency requirements for advertising workloads. In programmatic advertising, infrastructure metrics alone are insufficient. Auction-level application metrics (bid timeout rate, auction completion rate, and win rate) reflect the business impact of database and container performance before user-facing degradation appears. 
 

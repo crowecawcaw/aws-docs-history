@@ -1,7 +1,6 @@
 
 
 # Scenario 2: Data pipelines architecture
-<a name="scenario-02-data-pipelines"></a>
 
  Advertising analytics systems ingest, transform, and analyze petabytes of bid events, impressions, clicks, and conversion data. They support campaign measurement, audience intelligence, attribution modeling, and real-time reporting across multiple downstream consumers with different latency requirements. 
 
@@ -19,6 +18,8 @@
 <a name="s02-reference-architecture"></a><a name="scenario-02-fig1"></a>
 
 ![Analytics logical architecture showing ingestion, data processing, lakehouse storage, data warehouse, and reporting layers for an advertising analytics platform](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-02a-analytics-logical-architecture.jpg)
+
+*Advertising analytics logical architecture*
 
 
  The architecture consists of the following components: 
@@ -40,6 +41,8 @@
 1.  **AWS Key Management Service (AWS KMS)**: Encrypts data at rest in Kinesis, S3, DynamoDB, and Redshift. Maintains encryption key audit trails for compliance. <a name="scenario-02-fig2"></a>
 
 ![Advertising data pipeline architecture on AWS showing the flow from data ingestion through processing, lakehouse storage, and analytics consumption layers](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-02b-data-pipeline-architecture.jpg)
+
+*Advertising data pipeline architecture on AWS*
 
 
 ## Configuration notes

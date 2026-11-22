@@ -1,7 +1,6 @@
 
 
 # Agentic AI sustainability
-<a name="advsus04"></a>
 
  Agentic AI advertising workloads on Amazon Bedrock draw resources through foundation model inference, knowledge base retrieval, and multi-agent orchestration, and those resources grow with campaign activity. Operating them sustainably means measuring resource consumption per advertising outcome, assigning each agent the least resource-intensive model that meets its quality bar, and matching inference capacity to each agent's campaign-cycle invocation pattern. Energy is reported as a proxy estimate derived from these resource metrics. The generative AI mechanisms that are not specific to advertising, such as prompt caching, knowledge base retrieval tuning, orchestration patterns, and inference pricing models, are covered by the Sustainability pillar of the Generative AI Lens and by the agentic AI cost practices in ADVCOST05. 
 

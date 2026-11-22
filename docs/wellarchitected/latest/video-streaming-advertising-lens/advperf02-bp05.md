@@ -1,7 +1,6 @@
 
 
 # ADVPERF02-BP05 Evaluate ARM architecture for performance considerations
-<a name="advperf02-bp05"></a>
 
  To address the low-latency and high-throughput needs of advertising workloads, evaluate ARM-based processors for improved performance and cost optimization. In programmatic advertising, the price-performance advantage compounds differently than in most industries. Cost scales with bid volume, and latency determines auction win rates. Advertising ISVs have published ad tech-specific benchmarks that validate the gains on advertising workload patterns. 
 

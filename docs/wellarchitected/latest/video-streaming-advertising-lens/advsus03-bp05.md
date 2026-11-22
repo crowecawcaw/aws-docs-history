@@ -1,7 +1,6 @@
 
 
 # ADVSUS03-BP05 Remove dedicated load balancers from the bid path to reduce their idle energy draw
-<a name="advsus03-bp05"></a>
 
  A managed bidding fabric can distribute traffic directly to healthy compute targets, using DNS-based routing for compute hosts and managed endpoints for container pods. This removes the need for dedicated load balancers and their ongoing energy draw. 
 

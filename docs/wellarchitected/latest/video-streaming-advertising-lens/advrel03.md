@@ -1,7 +1,6 @@
 
 
 # Single and Multi-Region deployments
-<a name="advrel03"></a>
 
  There are multiple strategies for achieving reliability in single and Multi-Region deployments. Implement full regional deployment using auto scaling and container orchestration. Select AWS Regions based on legal and disaster recovery requirements. Configure databases with appropriate reliability and recovery strategies. Manage service capacity through proper resource reservation and load testing. Focus on building resilient architectures that balance performance, compliance, and cost considerations. 
 

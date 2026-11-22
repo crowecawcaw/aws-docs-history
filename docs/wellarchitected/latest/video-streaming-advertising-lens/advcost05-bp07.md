@@ -1,7 +1,6 @@
 
 
 # ADVCOST05-BP07 Continuously evaluate new models, features, and pricing options to optimize agentic AI advertising costs over time
-<a name="advcost05-bp07"></a>
 
  Managed model services release new foundation models and cost optimization features regularly. Newer models often match or beat older ones on quality at lower cost. Ongoing evaluation limits resource consumption drift and keeps your advertising agent architecture current. 
 

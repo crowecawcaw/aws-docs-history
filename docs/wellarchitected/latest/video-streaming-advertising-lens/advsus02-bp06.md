@@ -1,7 +1,6 @@
 
 
 # ADVSUS02-BP06 Reduce per-auction network overhead by consolidating bid request fan-out and reusing transport connections
-<a name="advsus02-bp06"></a>
 
  Programmatic advertising auctions generate network traffic that scales with both the number of concurrent users and the number of demand partners in each auction. How bid requests reach demand partners, and how you manage transport connections, determines whether per-auction network overhead grows with business volume or stays bounded. 
 

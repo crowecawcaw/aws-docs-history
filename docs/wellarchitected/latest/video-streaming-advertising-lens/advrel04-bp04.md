@@ -1,7 +1,6 @@
 
 
 # ADVREL04-BP04 Design your workloads to withstand failures of individual components
-<a name="advrel04-bp04"></a>
 
  Determine which components are in the critical path for real-time bidding, ad serving, and other revenue-critical functions. Identify AWS services that provide built-in fault tolerance within your workload's response time and RTO targets. Use cell-based architectures with resources spread across multiple Availability Zones to reduce the scope of disruptive events. 
 

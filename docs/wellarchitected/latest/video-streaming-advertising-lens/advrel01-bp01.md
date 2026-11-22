@@ -1,7 +1,6 @@
 
 
 # ADVREL01-BP01 Use loosely-coupled architectures to enable graceful recovery from failures
-<a name="advrel01-bp01"></a>
 
  Use architecture patterns like service-oriented architecture (SOA), microservices, and event-driven architecture (EDA) to recover quickly from failure. These patterns enable failure recovery through loosely coupled designs and enhance system resilience and component self-sufficiency. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP10 Right-size compute with auto-scaling and serverless containers
-<a name="advcost03-bp10"></a>
 
  RTB traffic follows daily patterns and spikes during major content events. Fixed-capacity infrastructure wastes money during low-traffic periods and drops auctions during spikes. Scalable containers match capacity to demand in near real-time, so you pay less for idle compute during nights and weekends. 
 

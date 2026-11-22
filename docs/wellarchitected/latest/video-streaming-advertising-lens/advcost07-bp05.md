@@ -1,7 +1,6 @@
 
 
 # ADVCOST07-BP05 Implement cross-platform yield optimization to maximize revenue per infrastructure dollar
-<a name="advcost07-bp05"></a>
 
  Without unified inventory visibility, publishers can't shift demand to the highest-yielding channel in real time. When you over-allocate linear inventory, you owe makegoods, and the digital inventory you could have sold goes unused. 
 

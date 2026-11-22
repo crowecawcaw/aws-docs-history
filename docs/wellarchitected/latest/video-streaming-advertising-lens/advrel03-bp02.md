@@ -1,7 +1,6 @@
 
 
 # ADVREL03-BP02 Choose AWS Regions that meet your legal and disaster recovery requirements
-<a name="advrel03-bp02"></a>
 
  Select AWS Regions based on compliance and disaster recovery needs, including data jurisdiction requirements (for example, GDPR and CCPA) and system redundancy for advertising audience data. 
 

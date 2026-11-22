@@ -1,7 +1,6 @@
 
 
 # ADVPERF04-BP06 Optimize privacy-enhanced collaboration queries for performance and service limits
-<a name="advperf04-bp06"></a>
 
  [AWS Clean Rooms](https://aws.amazon.com/clean-rooms/) has query result size limits (for example, a 5 GB limit) and query performance that depends on data design. Use partitioning, aggregations, and filters to optimize queries, and account for the processing overhead of cryptographic operations. 
 

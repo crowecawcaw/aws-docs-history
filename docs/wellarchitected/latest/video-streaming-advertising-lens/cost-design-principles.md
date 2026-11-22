@@ -1,7 +1,6 @@
 
 
 # Cost optimization design principles
-<a name="cost-design-principles"></a>
 
  These design principles help you achieve and maintain cost-efficient advertising workloads in the cloud. They extend the [lens-wide design principles](design-principles.md) with guidance specific to maintaining profitable campaigns through a system that accurately tracks campaign costs against value. 
 +  **Maintain profitable campaigns through complete cost tracking:** Cost optimization for advertising workloads depends on keeping campaigns profitable through a system that accurately tracks campaign costs against value. Focus optimization efforts on minimizing unnecessary infrastructure costs and providing sufficient but not excessive capacity through intelligent auto scaling. Implement effective anti-fraud solutions to reduce costs and process and store data only from valid consumers, customers, and partners. 

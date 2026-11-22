@@ -1,7 +1,6 @@
 
 
 # ADVPERF05-BP04 Provide dedicated network connection between your on-premises, multicloud environment and AWS
-<a name="advperf05-bp04"></a>
 
  Use a dedicated private connection to provide stable and high-speed data communication between on-premises advertising infrastructure and the cloud. Advertising platforms move data at volumes and under regulatory constraints that make public internet transfers inadequate. Behavioral data falls under private network path requirements. Hybrid architectures need on-premises bid decisioning to query cloud-hosted audience data without internet latency variability. For cross-cloud workflows, equivalent private connectivity links separate cloud environments. 
 

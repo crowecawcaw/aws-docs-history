@@ -1,7 +1,6 @@
 
 
 # ADVCOST05-BP01 Design fraud detection pipelines to minimize redundant processing and optimize inference costs
-<a name="advcost05-bp01"></a>
 
  Design fraud detection workflows that avoid repeated evaluations. Cache known outcomes, filter threats as early as possible, and run only the necessary inference steps on cost-efficient compute resources. 
 

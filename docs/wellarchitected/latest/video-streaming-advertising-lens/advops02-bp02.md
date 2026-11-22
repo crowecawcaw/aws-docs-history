@@ -1,7 +1,6 @@
 
 
 # ADVOPS02-BP02 Collect and analyze detailed metrics for successful operations and ad campaigns
-<a name="advops02-bp02"></a>
 
  Advertising workloads spike in traffic and resource use, and both performance and yield vary with them. To keep observability across shifting workloads, collect granular, near-real-time metrics across every tier: infrastructure, application, partner connectivity, database, agentic AI, and (for publisher workloads) monetization, SGAI delivery, and FAST playout. Segment metrics by partner and adapter, apply anomaly detection, and tier alarms to business outcomes so issues surface before they hit bid win rate or campaign delivery. 
 

@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
 The operational excellence pillar provides guidance on running and monitoring systems to deliver business value and continually improving supporting processes and procedures. Operational excellence includes the ability to support development, and run workloads effectively. It also helps to gain insight into operations, so that supporting processes and procedures can be improved continuously to deliver business value.
 

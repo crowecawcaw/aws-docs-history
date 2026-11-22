@@ -1,7 +1,6 @@
 
 
 # ADVPERF06-BP01 Adopt a chipset-agnostic workload design for best availability of cloud resources and cost
-<a name="advperf06-bp01"></a>
 
  Implement an x86 chipset-agnostic design for advertising workloads to optimize Spot Instance compute costs. Spot Instance pricing for AMD and Intel x86 instances fluctuates independently based on capacity supply and demand. Workloads that can run on either chipset consistently select the lower-cost option, which maximizes Spot savings without sacrificing instance availability. 
 

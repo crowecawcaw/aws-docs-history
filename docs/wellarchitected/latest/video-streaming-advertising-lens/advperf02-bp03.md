@@ -1,7 +1,6 @@
 
 
 # ADVPERF02-BP03 Consider low-latency node provisioning tools to improve startup and scaling time
-<a name="advperf02-bp03"></a>
 
  Integrate observability metrics to initiate scaling of compute resources. Use just-in-time node provisioning and event-driven automatic scaling, which provide low-startup-latency scaling for container workloads. Traditional cluster automatic scaling with standard warm-up times introduces node provisioning delays that cause pods to queue during advertising traffic bursts. 
 

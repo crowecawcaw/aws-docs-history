@@ -1,7 +1,6 @@
 
 
 # ADVPERF02-BP04 Use a specialized instance family and features
-<a name="advperf02-bp04"></a>
 
  For advertising workloads, use specialized instance families: compute-optimized for ad serving and bidding, storage-optimized for in-memory databases, ML training accelerators for model training, ML inference accelerators for inference, and hardware-isolated enclaves for processing sensitive audience data. Each purpose-built instance family delivers better performance per dollar than general-purpose alternatives for its target workload type. 
 

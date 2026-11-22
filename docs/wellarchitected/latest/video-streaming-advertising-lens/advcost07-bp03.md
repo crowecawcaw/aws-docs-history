@@ -1,7 +1,6 @@
 
 
 # ADVCOST07-BP03 Remove redundant order management systems by unifying campaign booking across buying models
-<a name="advcost07-bp03"></a>
 
  Publishers maintaining separate OMS systems for linear and digital incur duplicate licensing, hosting, and integration maintenance costs. A unified OMS supporting both buying models reduces this duplication. 
 

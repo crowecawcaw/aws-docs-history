@@ -1,7 +1,6 @@
 
 
 # ADVSUS05-BP01 Optimize privacy workload processing patterns and resource allocation for sustainability
-<a name="advsus05-bp01"></a>
 
  Privacy-enhanced collaboration introduces sustainability considerations for advertising workloads that combine first-party and third-party customer data. The processing patterns and resource allocation you choose for data matching and cleansing influence the energy and carbon footprint of the workload. 
 

@@ -1,7 +1,6 @@
 
 
 # Security design principles
-<a name="sec-design-principles"></a>
 
  These design principles help you achieve and maintain security for advertising workloads in the cloud. They extend the [lens-wide design principles](design-principles.md) with guidance specific to protecting advertising data, systems, and assets. 
 +  **Protect the advertising pipeline:** Control access to and from your demand-side platform (DSP) using identity management and network access control. Protect data in transit using encryption. 

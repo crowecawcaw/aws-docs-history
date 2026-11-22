@@ -1,7 +1,6 @@
 
 
 # ADVPERF06-BP06 Architect real-time bid stream processing pipeline for publisher yield analytics
-<a name="advperf06-bp06"></a>
 
  Make bid-level yield data, such as win rate, CPM by SSP, and fill rate, available for query within 60 seconds of auction completion, so teams can adjust floor prices dynamically. Dedicate a streaming pipeline to yield analytics that runs independently of the auction hot path so analytics compute doesn't compete with bid evaluation for resources. 
 

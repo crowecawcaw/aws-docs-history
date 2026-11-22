@@ -1,7 +1,6 @@
 
 
 # ADVSUS01-BP05 Serve cacheable ad manifests to reduce origin requests and server-side compute at scale
-<a name="advsus01-bp05"></a>
 
  Server-guided ad insertion (SGAI) generates non-personalized media manifests with standard ad markers that a content delivery network can cache and reuse across many viewers. Server-side ad insertion (SSAI), by contrast, stitches a viewer-specific manifest for each session, which defeats shared caching and makes origin load grow with the audience. At live FAST-channel scale, choosing cacheable manifests reduces origin requests and the server-side compute behind them. 
 

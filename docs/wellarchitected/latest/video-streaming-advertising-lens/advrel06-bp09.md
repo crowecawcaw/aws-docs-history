@@ -1,7 +1,6 @@
 
 
 # ADVREL06-BP09 Monitor format-specific error rates and implement automated format suspension
-<a name="advrel06-bp09"></a>
 
  Innovative ad format failures can be intermittent and device-specific. Without format-level monitoring, a rendering issue affecting 20% of viewers on a specific device type might go undetected for hours, costing ad revenue for that segment. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVOPS01-BP06 Implement a unified campaign management interface across linear and digital operations
-<a name="advops01-bp06"></a>
 
  Establish a single, integrated campaign management system that provides unified visibility and control across linear TV scheduling and digital and CTV programmatic operations. This removes the need for parallel ad ops teams running disconnected workflows by converging campaign booking, trafficking, delivery monitoring, and reconciliation into one operational interface. 
 

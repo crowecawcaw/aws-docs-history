@@ -1,7 +1,6 @@
 
 
 # ADVCOST04-BP02 Consider multi-level caching for user profile data
-<a name="advcost04-bp02"></a>
 
  A caching layer is a cost-effective way to serve user profile data because it reduces read latency and cuts direct database operations. An in-memory cache holds frequently retrieved items and returns them in microseconds. 
 

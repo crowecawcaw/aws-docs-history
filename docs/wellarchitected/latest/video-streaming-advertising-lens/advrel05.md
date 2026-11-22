@@ -1,7 +1,6 @@
 
 
 # RTB Fabric resilience
-<a name="advrel05"></a>
 
  RTB Fabric defaults to single-AZ, single-Region deployment. A failure at either scope, whether an Availability Zone impairment or a regional outage, causes a complete loss of bid connectivity unless every layer of the stack (gateways, compute, and stateful dependencies) is explicitly deployed for multi-AZ and multi-Region availability. Every layer must hold for the design to work. Multi-AZ gateways provide no protection if the bid-processing pipeline depends on a single-AZ database, and a second Region provides no protection if partner failover is undefined or capacity is under-provisioned. 
 

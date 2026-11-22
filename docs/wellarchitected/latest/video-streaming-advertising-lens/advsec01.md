@@ -1,7 +1,6 @@
 
 
 # Identity and access management
-<a name="advsec01"></a>
 
  Access management for an advertising platform protects sensitive data, financial information, and programmatic access while keeping permissions appropriate for authorized users. Advertising platforms face a dual authentication challenge. Human users (campaign managers, traffickers, and analysts) need interactive identity flows, while machine-to-machine traffic (bid requests, creative syncs, and reporting APIs) requires low-latency token validation that doesn't exceed the 100 ms bid response window. Additional challenges arise from converged linear and digital environments, where panel data and census-level data must be governed with strict consent and identity boundaries. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVCOST01-BP01 Continually measure costs of advertising workloads, and adjust resource and model allocation accordingly
-<a name="advcost01-bp01"></a>
 
  With fluctuations in usage over time, the costs associated with advertising workloads can vary significantly. RTB infrastructure costs scale with bid volume and campaign mix. Agentic AI costs scale with agent invocations and token consumption. To keep both under control, monitor them continually with dashboards that correlate spending to business outcomes. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVPERF01-BP01 Design geographical affinity architecture with external entities (DSPs and SSPs)
-<a name="advperf01-bp01"></a>
 
  Design for the least-network path between publishers, SSPs, DSPs, and data partners. Route traffic over the AWS backbone network using geographic proximity and keep same-cloud partner traffic off the public internet. 
 

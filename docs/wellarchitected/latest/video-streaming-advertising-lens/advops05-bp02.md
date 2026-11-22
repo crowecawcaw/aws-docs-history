@@ -1,7 +1,6 @@
 
 
 # ADVOPS05-BP02 Implement observability for ad break orchestration across server and client
-<a name="advops05-bp02"></a>
 
  Because SGAI is hybrid, failures can occur at the server manifest, CDN caching, or client ad fetch layer, so you need cross-component observability to distinguish between failure origins. To identify root causes quickly, maintain full visibility from server-side manifest generation through CDN-cached delivery to client-side personalized ad fetching. 
 

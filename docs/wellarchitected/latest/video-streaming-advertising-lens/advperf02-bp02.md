@@ -1,7 +1,6 @@
 
 
 # ADVPERF02-BP02 Consider containerization for scalability, low latency, and cost optimization
-<a name="advperf02-bp02"></a>
 
  Use containers to run advertising workloads at scale with low latency and lower infrastructure cost. Containers start faster than virtual machines, run at higher density on shared hosts, and isolate processes from each other. They also support microservices patterns, so each component of an advertising workload scales independently. 
 

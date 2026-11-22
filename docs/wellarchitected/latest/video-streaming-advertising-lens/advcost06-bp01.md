@@ -1,7 +1,6 @@
 
 
 # ADVCOST06-BP01 Use programmatic channel assembly to remove dedicated encoding infrastructure
-<a name="advcost06-bp01"></a>
 
  Traditional linear channels require live encoding infrastructure that runs around the clock regardless of viewership. Programmatic channel assembly creates linear channels from existing VOD assets without ongoing encoding, which removes the most expensive infrastructure component for back-catalog FAST channels. 
 

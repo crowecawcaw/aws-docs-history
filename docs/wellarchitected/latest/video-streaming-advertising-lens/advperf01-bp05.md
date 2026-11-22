@@ -1,7 +1,6 @@
 
 
 # ADVPERF01-BP05 Benchmark managed and self-hosted services for latency-sensitive bid paths
-<a name="advperf01-bp05"></a>
 
  Before committing to a managed service or self-managed open-source deployment for any component on the advertising bid path, run performance benchmarks under realistic advertising traffic conditions. After the bidding infrastructure is built around a service that fails to meet latency or throughput requirements in production, migrating away is expensive and disruptive. 
 

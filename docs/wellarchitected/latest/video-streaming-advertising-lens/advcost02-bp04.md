@@ -1,7 +1,6 @@
 
 
 # ADVCOST02-BP04 Use interruptible spare capacity to reduce compute cost for fault-tolerant bidding workloads
-<a name="advcost02-bp04"></a>
 
  For workloads that can be interrupted, Spot Instances provide the same performance as On-Demand at 60–90% lower cost. Advertising workloads include many interruptible components (batch bid log processing, audience model training, report generation, and A/B test analytics) where Spot Instances save substantial cost when you pair them with fault-tolerance mechanisms. 
 

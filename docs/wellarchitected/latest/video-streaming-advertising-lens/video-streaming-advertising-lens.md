@@ -1,7 +1,6 @@
 
 
 # Video Streaming Advertising Lens - AWS Well-Architected Framework
-<a name="video-streaming-advertising-lens"></a>
 
  Last update **November 10, 2026** ([Release notes](release-notes.md)) 
 

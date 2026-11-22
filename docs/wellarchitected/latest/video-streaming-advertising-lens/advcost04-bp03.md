@@ -1,7 +1,6 @@
 
 
 # ADVCOST04-BP03 Store profiles in a single Region and replicate asynchronously
-<a name="advcost04-bp03"></a>
 
  Users are generally in one Region at a time, so their profiles update in only one Region. You can schedule replication a few times a day using serverless functions and workflow orchestration. This meets resiliency requirements while reducing the replicated write capacity that ongoing cross-region replication consumes. 
 

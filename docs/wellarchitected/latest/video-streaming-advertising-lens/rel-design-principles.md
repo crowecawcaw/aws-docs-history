@@ -1,7 +1,6 @@
 
 
 # Reliability design principles
-<a name="rel-design-principles"></a>
 
  These design principles help you achieve and maintain reliability for advertising workloads in the cloud. They extend the [lens-wide design principles](design-principles.md) with guidance specific to the three key reliability dimensions that define advertising systems: latency, uptime, and data security. 
 +  **Design for reliability across the three key dimensions of advertising:** Evaluate architectural approaches for building resilient systems through loosely coupled designs including SOA, microservices, and event-driven patterns. The three key dimensions that define reliability in the advertising industry are latency, uptime, and data security. While this is similar to the range of criticality in transactional systems found in the financial industry, there are unique expectations of resiliency for SSPs, exchanges, and DSPs. 

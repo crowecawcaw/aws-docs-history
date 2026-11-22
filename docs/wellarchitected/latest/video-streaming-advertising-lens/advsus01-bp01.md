@@ -1,7 +1,6 @@
 
 
 # ADVSUS01-BP01 Run advertising fleets on multiple chipsets, including ARM, to lower energy intensity
-<a name="advsus01-bp01"></a>
 
  Advertising workloads such as real-time bidding and creative rendering run on large, elastic, interruption-tolerant fleets. With multi-architecture design, your workload absorbs spare capacity that is already provisioned and powered, instead of triggering new dedicated capacity at a peak. It also runs on the most energy-efficient processor it has a validated build for, where AWS reports that Graviton-based instances use up to 60% less energy than comparable EC2 instances for the same performance. 
 

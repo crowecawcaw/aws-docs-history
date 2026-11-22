@@ -1,7 +1,6 @@
 
 
 # ADVSEC04-BP01 Validate and sanitize ad creative content before campaign activation
-<a name="advsec04-bp01"></a>
 
  Unauthorized ad creatives (malvertising) are a direct security threat to viewers and publishers. Compromised creatives can contain JavaScript-based issues, redirect chains to fraudulent sites, cryptomining code, or forced downloads. Without pre-activation scanning, your service can serve one compromised creative millions of times before you detect it. 
 

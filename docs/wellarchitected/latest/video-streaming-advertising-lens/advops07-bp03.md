@@ -1,7 +1,6 @@
 
 
 # ADVOPS07-BP03 Establish A/B testing frameworks for ad format experimentation
-<a name="advops07-bp03"></a>
 
  With an A/B testing framework, you can safely test new ad formats (such as overlays, squeezebacks, pause ads, and shoppable ads), placement strategies, and auction configurations. 
 

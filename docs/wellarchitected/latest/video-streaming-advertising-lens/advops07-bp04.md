@@ -1,7 +1,6 @@
 
 
 # ADVOPS07-BP04 Conduct post-incident reviews for revenue-affecting events
-<a name="advops07-bp04"></a>
 
  Many publisher operations teams conduct post-incident reviews only for availability incidents while revenue-affecting events that did not cause visible downtime go unreviewed. Yield-affecting failure patterns repeat without systematic analysis or improvement. The operational excellence pillar specifies that post-incident analysis should review customer-affecting events, identify contributing factors and preventative actions, and develop mitigations to limit recurrence. 
 

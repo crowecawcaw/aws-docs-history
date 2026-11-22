@@ -1,7 +1,6 @@
 
 
 # ADVPERF01-BP02 Use appropriate scaling to handle burst traffic with cost considerations
-<a name="advperf01-bp02"></a>
 
  Consider start-up latency and scaling needs to handle burst traffic across networking, compute, and storage. Advertising workloads face sudden, order-of-magnitude traffic spikes during live events, programmatic campaign launches, and peak dayparts. Your infrastructure must absorb these spikes without dropped connections or latency degradation. 
 

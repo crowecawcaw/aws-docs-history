@@ -1,7 +1,6 @@
 
 
 # ADVOPS06-BP03 Establish FAST channel KPI dashboards and operational cadences
-<a name="advops06-bp03"></a>
 
  Without dedicated KPI tracking and regular operational reviews, FAST channel performance degrades undetected until revenue drops or viewers churn. Dedicated dashboards and weekly cross-functional reviews create the visibility and accountability to maintain monetization health across continual linear streaming operations. 
 

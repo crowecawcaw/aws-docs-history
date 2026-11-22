@@ -1,7 +1,6 @@
 
 
 # Incident response and operational process management
-<a name="advops04"></a>
 
  Advertising operations must match response mechanisms to failure predictability, data urgency, and revenue impact while maintaining one incident process across linear and digital channels. Teams need documented and automated response paths, measurement of process effectiveness, and controlled real-time decisions that remain correct under load. This capability covers production operations after launch rather than change readiness. 
 

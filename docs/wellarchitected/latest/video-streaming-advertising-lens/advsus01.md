@@ -1,7 +1,6 @@
 
 
 # Software and architecture efficiency
-<a name="advsus01"></a>
 
  Design and implement architectures that minimize the average resources (compute, storage, and network) required per unit of work for your advertising workloads. Software and architecture choices directly determine how many resources are consumed to process each bid, deliver each impression, and serve each ad creative. Optimizing these choices reduces environmental impact proportionally with the scale of advertising operations. 
 

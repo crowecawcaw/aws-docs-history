@@ -1,7 +1,6 @@
 
 
 # ADVSUS01-BP07 Classify content once at ingest to remove repeat inference from the auction path
-<a name="advsus01-bp07"></a>
 
  Content classification results don't change between one bid request and the next. A classifier invoked during bid evaluation recomputes them anyway, so inference load grows with ad traffic. Classifying each item once at publish time decouples inference from ad traffic. 
 

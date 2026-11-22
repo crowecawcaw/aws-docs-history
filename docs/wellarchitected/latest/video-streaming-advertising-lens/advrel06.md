@@ -1,7 +1,6 @@
 
 
 # Media playout and format resilience
-<a name="advrel06"></a>
 
  Advertising media delivery spans three distinct surface types, each with its own failure characteristics. Server-Guided Ad Insertion (SGAI) combines server-side manifest manipulation with client-side ad fetching. FAST channels require continuous linear playout where any interruption is visible to all concurrent viewers at once. Innovative ad formats (overlays, squeeze-backs, and shoppable ads) introduce experimental rendering paths that can fail on specific device and player combinations without showing a visible error. A failure in any surface translates directly into blank ad breaks, frozen channels, or invisible format rendering errors, all of which erode publisher revenue and viewer experience. 
 

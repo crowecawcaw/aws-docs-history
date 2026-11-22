@@ -1,7 +1,6 @@
 
 
 # Cost optimization
-<a name="cost-optimization"></a>
 
 The cost optimization pillar includes the ability to run systems to deliver business value at the lowest price point.
 

@@ -1,7 +1,6 @@
 
 
 # ADVSUS03-BP04 Carry only the OpenRTB fields the bidding logic uses to reduce bytes on the wire
-<a name="advsus03-bp04"></a>
 
  Excess payload adds network bandwidth and energy consumption at scale. Many requests exceed 2 kibibytes (KiB), especially rich video and connected-TV (CTV) bids. The objective is to carry only the fields the bidding logic uses and to reduce payload above the per-transaction allowance. 
 

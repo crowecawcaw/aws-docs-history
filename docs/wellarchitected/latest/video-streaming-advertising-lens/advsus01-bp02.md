@@ -1,7 +1,6 @@
 
 
 # ADVSUS01-BP02 Choose HTTP/2 or HTTP/3 to lower bytes transferred and connection overhead
-<a name="advsus01-bp02"></a>
 
  Use next-generation networking protocols to address low-latency needs and reduce connection overhead. HTTP/3 with QUIC avoids TCP head-of-line blocking and reduces connection establishment overhead, lowering the compute work and bytes transferred per ad creative delivery. Those quantities are the proxy for the energy attributable to that delivery. 
 

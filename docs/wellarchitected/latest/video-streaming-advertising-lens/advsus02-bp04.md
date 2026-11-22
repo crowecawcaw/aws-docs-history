@@ -1,7 +1,6 @@
 
 
 # ADVSUS02-BP04 Reduce no-bid response volume to lower infrastructure demand and energy draw
-<a name="advsus02-bp04"></a>
 
  Real-time bidding produces both winning bids and no-bid responses. Reducing unnecessary no-bid traffic lowers DSP infrastructure demand and energy draw without compromising win rates. 
 

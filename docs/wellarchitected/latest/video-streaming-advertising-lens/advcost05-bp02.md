@@ -1,7 +1,6 @@
 
 
 # ADVCOST05-BP02 Select the right foundation model for each advertising agent's task complexity
-<a name="advcost05-bp02"></a>
 
  Not every advertising agent requires the most capable and expensive foundation model. Matching model capability to task complexity is a high impact cost optimization for agentic AI advertising workloads. Basic classification tasks such as brand safety detection and ad format matching can run on lightweight models at a fraction of the cost of flagship models. 
 

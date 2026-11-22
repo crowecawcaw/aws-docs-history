@@ -1,7 +1,6 @@
 
 
 # Scenario 11: Implementation of FAST Channel for VOD workflows on AWS
-<a name="scenario-11-fast-channel"></a>
 
  Free Ad-Supported Streaming TV (FAST) channels transform dormant back-catalog VOD content into around-the-clock ad-supported linear streaming channels. Publishers create new revenue streams from existing content libraries without broadcast infrastructure investment. Distributors expand their channel lineups with free ad-supported tiers that attract cost-conscious viewers. 
 
@@ -18,6 +17,8 @@
 <a name="s11-reference-architecture"></a><a name="scenario-11-fig1"></a>
 
 ![FAST Channel VOD workflow architecture on AWS showing the content pipeline from mezzanine asset ingest through transcoding, packaging, linear channel assembly with dynamic ad insertion, and CDN delivery to viewers](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-11-fast-channel-vod.jpg)
+
+*FAST Channel VOD workflow architecture on AWS showing the content pipeline from mezzanine asset ingest through transcoding, packaging, linear channel assembly with dynamic ad insertion, and CDN delivery to viewers*
 
 
  The architecture consists of the following components: 

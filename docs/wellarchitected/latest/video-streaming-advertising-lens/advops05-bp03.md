@@ -1,7 +1,6 @@
 
 
 # ADVOPS05-BP03 Create SGAI-specific runbooks and playbooks for manifest and player failures
-<a name="advops05-bp03"></a>
 
  Without documented response procedures, SGAI incidents require unplanned troubleshooting across multiple system layers (manifest generation, CDN caching, and client-side ad fetching), which extends MTTR and compounds revenue impact. Use runbooks for known failure modes and playbooks for novel failure patterns. 
 

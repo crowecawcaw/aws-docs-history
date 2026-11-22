@@ -1,7 +1,6 @@
 
 
 # ADVREL02-BP01 To allow fast and graceful failure of latency-sensitive services, avoid exponential backoff and retry
-<a name="advrel02-bp01"></a>
 
  With real-time bidding, your workload must handle failures in latency-sensitive services within the 100 ms bid response window. Avoid exponential backoff and retry. Use fast-fail approaches and rate limiting to keep services responsive. 
 

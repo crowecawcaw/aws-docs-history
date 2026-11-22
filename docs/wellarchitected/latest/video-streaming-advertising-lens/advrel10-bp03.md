@@ -1,7 +1,6 @@
 
 
 # ADVREL10-BP03 Architect fault-tolerant unified ad sales and fulfillment with graceful degradation per channel
-<a name="advrel10-bp03"></a>
 
  Unified ad sales systems manage campaign booking, inventory allocation, and fulfillment across both linear TV schedules and digital programmatic channels. A failure must not stop either channel from serving ads. 
 

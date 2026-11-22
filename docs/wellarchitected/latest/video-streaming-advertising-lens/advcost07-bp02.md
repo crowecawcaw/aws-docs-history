@@ -1,7 +1,6 @@
 
 
 # ADVCOST07-BP02 Replace dedicated forecasting infrastructure with serverless ML-based inventory prediction
-<a name="advcost07-bp02"></a>
 
  Separate persistent forecasting infrastructure for linear and digital duplicates training compute, model serving endpoints, and data science operational overhead. A single serverless ML forecasting pipeline reduces idle compute costs during off-peak periods. 
 

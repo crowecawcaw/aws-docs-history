@@ -1,7 +1,6 @@
 
 
 # ADVCOST05-BP05 Design small, focused agents and use appropriate orchestration patterns to minimize multi-agent collaboration costs
-<a name="advcost05-bp05"></a>
 
  Each inter-agent call in a multi-agent advertising system incurs additional inference costs. A poorly configured agentic architecture creates excessive handoffs, when instead a deterministic workflow would work better. Design small, focused agents with bounded iteration limits, and replace supervisor agent overhead with deterministic workflows. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL09-BP01 Deploy Prebid Server across multiple Availability Zones with health-checked load balancing
-<a name="advrel09-bp01"></a>
 
  A single-AZ Prebid Server deployment means an Availability Zone impairment removes all server-side header bidding capability for the publisher. Deploy Prebid Server instances distributed across at least two Availability Zones behind a load balancer with active health checks. 
 

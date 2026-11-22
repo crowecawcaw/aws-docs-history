@@ -1,7 +1,6 @@
 
 
 # ADVREL02-BP02 Implement a caching strategy
-<a name="advrel02-bp02"></a>
 
  A caching strategy improves system reliability and performance. Evaluate different caching levels (from client-side to server-side) and explore various caching solutions including ElastiCache, third-party databases, and CDNs for optimizing ad payload delivery and reducing backend load. 
 

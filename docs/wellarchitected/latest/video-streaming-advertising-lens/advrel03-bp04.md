@@ -1,7 +1,6 @@
 
 
 # ADVREL03-BP04 Reserve appropriate capacity of services in the supported regions
-<a name="advrel03-bp04"></a>
 
  Manage service capacity across multiple Regions. Load-test regularly at five times your baseline RTB traffic to validate capacity requirements. Reserve capacity to handle normal operations, peak loads, and potential disruptions. 
 

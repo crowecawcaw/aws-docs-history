@@ -1,7 +1,6 @@
 
 
 # Scenario 10: Implementation of SGAI (Server-Guided Ad Insertion) on AWS
-<a name="scenario-10-sgai"></a>
 
  Server-Guided Ad Insertion (SGAI) is a hybrid approach combining server-side manifest intelligence with client-side ad execution. The server generates manifests with SCTE-35 markers that CDN caches as non-viewer-specific content, while the client device handles personalized ad fetching. This architecture enables CDN-cacheable manifests that scale to millions of concurrent viewers while maintaining per-viewer ad personalization and client-side measurement accuracy. 
 
@@ -18,6 +17,8 @@
 <a name="s10-reference-architecture"></a><a name="scenario-10-fig1"></a>
 
 ![SGAI and SSAI parallel deployment architecture on AWS showing the shared MediaLive/MediaPackage origin, CloudFront CDN layer, and the divergent paths for SGAI players (cacheable manifests + client-side personalization) and SSAI players (personalized manifests + server-side stitching)](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-10-sgai-implementation.jpg)
+
+*SGAI and SSAI parallel deployment architecture on AWS showing the shared MediaLive/MediaPackage origin, CloudFront CDN layer, and the divergent paths for SGAI players (cacheable manifests \+ client-side personalization) and SSAI players (personalized manifests \+ server-side stitching)*
 
 
  The architecture consists of the following components: 

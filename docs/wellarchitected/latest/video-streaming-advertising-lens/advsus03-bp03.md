@@ -1,7 +1,6 @@
 
 
 # ADVSUS03-BP03 Shed predictably low-value traffic at the network layer to reduce the compute footprint
-<a name="advsus03-bp03"></a>
 
  Built-in network-layer modules can filter unwanted traffic without additional infrastructure. Filtering low-value requests early reduces compute resource demand and energy consumption. 
 

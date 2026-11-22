@@ -1,7 +1,6 @@
 
 
 # ADVCOST06-BP04 Use device capability filtering to avoid wasted spend on unsupported formats
-<a name="advcost06-bp04"></a>
 
  Sending rich-media creatives to devices that can't render them wastes bandwidth, compute, and ad spend with zero viewer engagement. Capability detection and graceful fallback runs every impression with the best format the device can render. 
 

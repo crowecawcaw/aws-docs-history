@@ -1,7 +1,6 @@
 
 
 # Scenario 4: Privacy-enhanced collaboration
-<a name="scenario-04-privacy-enhanced-collaboration"></a>
 
  Publishers, advertisers, and measurement providers need to collaborate on audience analysis, campaign attribution, and reach measurement without sharing raw personal data across organizational boundaries. Privacy-enhancing technologies (PETs) enable these insights while maintaining individual privacy. 
 
@@ -19,6 +18,8 @@
 <a name="s04-reference-architecture"></a><a name="scenario-04-fig1"></a>
 
 ![Privacy-enhanced collaboration architecture on AWS showing publisher and advertiser data connecting through AWS Clean Rooms for privacy-preserved analysis, with Nitro Enclaves for computations requiring cryptographic isolation and AWS Entity Resolution for cross-platform identity resolution](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-04a-cdp-datalake-cleanrooms.jpg)
+
+*Privacy-enhanced collaboration architecture on AWS showing publisher and advertiser data connecting through AWS Clean Rooms for privacy-preserved analysis, with Nitro Enclaves for computations requiring cryptographic isolation and AWS Entity Resolution for cross-platform identity resolution*
 
 
  The architecture consists of the following components: 

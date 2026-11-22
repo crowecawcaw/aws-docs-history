@@ -1,7 +1,6 @@
 
 
 # ADVSEC02-BP01 Encrypt DSP to SSP communication in transit using TLS
-<a name="advsec02-bp01"></a>
 
  Programmatic advertising bid traffic crosses organizational and network boundaries between independent companies with their own infrastructure. Application-layer encryption is the only mechanism that can protect this traffic across those boundaries. Network-layer controls that secure traffic within one organization do not address the cross-organization threat model. 
 

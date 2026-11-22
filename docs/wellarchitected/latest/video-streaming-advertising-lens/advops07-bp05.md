@@ -1,7 +1,6 @@
 
 
 # ADVOPS07-BP05 Share operational knowledge across publisher workload teams
-<a name="advops07-bp05"></a>
 
  Siloed teams operating Prebid, SGAI, FAST channel, and ad format workloads miss opportunities to apply cross-organization operational improvements. Many operational patterns, such ascanary deployment strategies, automated rollback procedures, yield anomaly detection approaches, apply across multiple publisher workload types. Systematic knowledge sharing helps your teams apply organizationally-tested outcomes, which improves time and revenue cost. 
 

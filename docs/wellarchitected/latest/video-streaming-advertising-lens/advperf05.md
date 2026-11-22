@@ -1,7 +1,6 @@
 
 
 # Networking and content delivery
-<a name="advperf05"></a>
 
  The optimal networking solution for an advertising workload varies based on latency, throughput requirements, jitter, and bandwidth. AWS offers networking features including [Amazon Route 53](https://aws.amazon.com/route53/) latency routing, [Amazon VPC](https://aws.amazon.com/vpc/) endpoints, [AWS Direct Connect](https://aws.amazon.com/directconnect/), [Amazon CloudFront](https://aws.amazon.com/cloudfront/), and [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/) to reduce network latency and jitter. For advertising workloads, network architecture is more important than in most systems because every ad request depends on a stable network path. A well-designed network directly affects both the performance and the viewer experience of advertising workloads on AWS. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL08-BP02 Establish reliable data collection and validation pipelines for measurement accuracy
-<a name="advrel08-bp02"></a>
 
  Build reliable data collection and validation pipelines with real-time monitoring, automated reconciliation, and recovery procedures to maintain measurement accuracy in advertising systems. 
 

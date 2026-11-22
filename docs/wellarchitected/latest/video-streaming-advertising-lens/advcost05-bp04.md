@@ -1,7 +1,6 @@
 
 
 # ADVCOST05-BP04 Optimize knowledge base indexing frequency and retrieval strategies to minimize costs
-<a name="advcost05-bp04"></a>
 
  Advertising agents rely on knowledge bases to hold campaign intelligence, performance analytics, viewer monetization data, and brand safety guidelines. Frequent re-indexing and over-retrieval drive up costs. Configure knowledge bases to sync only when data changes, and keep chunk sizes and retrieval counts at the minimum that maintains quality. 
 

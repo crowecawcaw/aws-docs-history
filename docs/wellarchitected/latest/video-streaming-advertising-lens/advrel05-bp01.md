@@ -1,7 +1,6 @@
 
 
 # ADVREL05-BP01 Deploy partner-facing bid gateways across multiple Availability Zones
-<a name="advrel05-bp01"></a>
 
  RTB Fabric defaults to single-AZ gateway deployment. To survive an Availability Zone failure, you must deploy gateways in at least two Availability Zones, colocate with the Availability Zones where your DSP and SSP compute runs. Each subnet must have sufficient IPv4 capacity for gateway ENIs. 
 

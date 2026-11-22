@@ -1,7 +1,6 @@
 
 
 # ADVSEC01-BP02 Restrict DSP access to allow only authorized SSPs
-<a name="advsec01-bp02"></a>
 
  In programmatic advertising, DSPs receive bid requests from dozens to hundreds of SSP partners. Without ingress controls that validate each SSP connection, unauthorized parties can submit fraudulent bid requests, access bidding signals, or send invalid traffic. That traffic consumes compute resources without generating revenue. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVCOST06-BP03 Pre-cache creative assets at the CDN edge to avoid redundant origin fetches
-<a name="advcost06-bp03"></a>
 
  Innovative ad formats (such as interactive overlays, shoppable ads, and 360 video) have larger creative payloads than standard ads. Fetching the same creative from origin on every impression wastes bandwidth and increases latency. CDN edge caching and pre-fetching avoids redundant origin fetches. 
 

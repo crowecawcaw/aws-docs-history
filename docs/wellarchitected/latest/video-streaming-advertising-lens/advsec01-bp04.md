@@ -1,7 +1,6 @@
 
 
 # ADVSEC01-BP04 Implement least privilege access to protect programmatic workloads
-<a name="advsec01-bp04"></a>
 
  Ad tech systems process data across organizational boundaries where advertisers, publishers, agencies, and measurement vendors each require different access scopes. Without authorization policies that reflect advertising-specific data boundaries, authenticated users can access campaign data, audience segments, or financial information outside their business relationship. 
 

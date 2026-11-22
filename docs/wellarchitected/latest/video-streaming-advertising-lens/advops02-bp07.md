@@ -1,7 +1,6 @@
 
 
 # ADVOPS02-BP07 Implement observability for bot and agent traffic in AI content licensing
-<a name="advops02-bp07"></a>
 
  AI search agents are reducing direct traffic to publisher sites and cutting ad revenue, while AI-powered bots can generate false impressions that constitute ad tech fraud. You need real-time visibility into bot and agent traffic volumes, classification accuracy, and revenue impact. Automated detection identifies anomalous bot behavior patterns that may indicate ad fraud or unauthorized content crawling. 
 

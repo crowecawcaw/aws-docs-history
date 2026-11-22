@@ -1,7 +1,6 @@
 
 
 # ADVSEC02-BP02 Protect linear distribution feeds and ad signaling in converged delivery
-<a name="advsec02-bp02"></a>
 
  When linear broadcast workflows converge with cloud-based ad insertion, SCTE-35 markers move from physically secured facilities to IP contribution links and programmable control planes. Without transport and control-plane integrity, unauthorized parties can insert or suppress ad breaks and affect monetization. 
 

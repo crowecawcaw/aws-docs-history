@@ -1,7 +1,6 @@
 
 
 # ADVPERF02-BP06 Use a managed serverless runtime for AI agent compute
-<a name="advperf02-bp06"></a>
 
  Run AI agent workloads on a managed serverless runtime instead of self-managed containers, so agent sessions scale automatically with request volume and you avoid provisioning and operating the underlying compute. On AWS, [Amazon Bedrock AgentCore Runtime](https://aws.amazon.com/bedrock/agentcore/) provides this model, with serverless execution, built-in session management, automatic scaling, and deployment workflows. This removes the operational overhead of running AI advertising agents on self-managed containers. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL01-BP06 Deploy new code or resources in staggered phases, separated by sufficient time, to verify that the changes are successful
-<a name="advrel01-bp06"></a>
 
  When deploying new code to a programmatic bidder, use phased deployment (for example, blue/green or rolling) and gate each phase on auction-side signals rather than on fleet percentages. A bidder that breaks under deployment misses the exchange's tmax, returns a well-formed no-bid from a cold index, or loses budget pacing state. Derive phase boundaries, validation windows, and rollback triggers from auction and billing quantities. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVSUS03-BP06 Continuously measure fabric utilization and retire unjustified capacity
-<a name="advsus03-bp06"></a>
 
  RTB traffic volume, bid rates, and partner mix fluctuate over time, so resource consumption varies with them. Ongoing monitoring shows where you can reduce resources to lower environmental impact. 
 

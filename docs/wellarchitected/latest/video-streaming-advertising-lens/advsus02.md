@@ -1,7 +1,6 @@
 
 
 # Bid stream efficiency
-<a name="advsus02"></a>
 
  Waste accumulates on both legs of the bid stream. Some inbound requests a bidder can never act on, some outbound requests a seller should never have sent, most responses carry no bid at all, and every message on the path tends to carry fields and connection overhead that no counterparty needs. Most bid requests never convert to wins: mismatched targeting, depleted budgets, and unsuitable inventory mean these requests consume compute, memory, and network resources without generating value. Each processed request requires energy to power the infrastructure with no environmental return. 
 

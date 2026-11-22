@@ -1,7 +1,6 @@
 
 
 # ADVOPS04-BP02 Automate runbooks to gain operational efficiency
-<a name="advops04-bp02"></a>
 
  Document runbooks for failover, capacity scaling, and incident response workflows, then encode them as executable automation documents. For publisher workloads, automate high-frequency responses including adapter failover, SGAI manifest regeneration, FAST channel content gap remediation, and ad pod backfill. 
 

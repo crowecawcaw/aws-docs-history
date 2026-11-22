@@ -1,7 +1,6 @@
 
 
 # ADVPERF01-BP04 Evaluate AI/ML-based architecture for optimization
-<a name="advperf01-bp04"></a>
 
  Use AWS services to implement a low-latency, high-throughput inference and MLOps framework for advertising workloads. AI/ML is central to advertising. Contextual targeting, dynamic creative optimization, bid price prediction, and fraud detection all rely on model inference that must complete within auction deadlines. 
 

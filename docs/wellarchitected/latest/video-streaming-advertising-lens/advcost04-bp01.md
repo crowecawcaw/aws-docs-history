@@ -1,7 +1,6 @@
 
 
 # ADVCOST04-BP01 Consider lower-cost storage for older user profile data
-<a name="advcost04-bp01"></a>
 
  Recent user profile data drives bid evaluation, so the last 30 days belong in high-performance storage. Archiving older profiles to low-cost object storage can reduce costs. High-performance database storage costs substantially more per gigabyte than object storage, making tiered storage effective for large-scale user profile stores. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL06-BP01 Deploy Ad Decision Server infrastructure across multiple Availability Zones with automated failover
-<a name="advrel06-bp01"></a>
 
  The Ad Decision Server (ADS) receives personalized ad requests from the player during SCTE-35 signaled breaks. Single-AZ ADS deployment means Availability Zone failure removes personalized ad delivery for all viewers. 
 

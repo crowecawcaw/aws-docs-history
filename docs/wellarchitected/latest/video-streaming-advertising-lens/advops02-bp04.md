@@ -1,7 +1,6 @@
 
 
 # ADVOPS02-BP04 Instrument your advertising application code and infrastructure to emit detailed, structured logs and metrics
-<a name="advops02-bp04"></a>
 
  Instrument your advertising application code and infrastructure to emit detailed, structured logs and metrics. Operations teams can then see into every tier of the ad-serving stack. Structured instrumentation helps teams detect and resolve issues quickly, and scales with complex systems such as managed connectivity and agent-based decision-making. Extend instrumentation to capture the correlation between network events and application outcomes. 
 

@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Contributors to this document include: 
 +  Abraham Lobo, Principal Technical Account Manager, Amazon Web Services 

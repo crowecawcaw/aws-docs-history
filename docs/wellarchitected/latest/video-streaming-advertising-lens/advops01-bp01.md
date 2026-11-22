@@ -1,7 +1,6 @@
 
 
 # ADVOPS01-BP01 Assess trade-offs between ad serving architecture options and associated risks
-<a name="advops01-bp01"></a>
 
  When you design ad-serving infrastructure, evaluate the trade-offs between architectural options and their risks. Consider performance, scalability, availability, security, and cost. For publisher workloads, also evaluate server-guided ad insertion (SGAI) patterns, prebid deployment topologies, and free ad-supported streaming TV (FAST) channel assembly approaches. Do this through structured trade-off workshops that produce documented architecture decision records (ADRs). 
 

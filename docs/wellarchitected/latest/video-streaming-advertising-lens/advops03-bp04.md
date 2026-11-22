@@ -1,7 +1,6 @@
 
 
 # ADVOPS03-BP04 Establish third-party DSP integration operations for Prebid Server
-<a name="advops03-bp04"></a>
 
  Third-party DSP integrations require dedicated operational management beyond standard adapter onboarding. Each DSP can support different identity frameworks (UID2, LiveRamp, and ID5) with varying signal fidelity. The operational health of these integrations affects bid response rates and publisher yield in a multi-identity-provider environment. 
 

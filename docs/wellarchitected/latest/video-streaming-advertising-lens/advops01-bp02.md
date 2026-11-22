@@ -1,7 +1,6 @@
 
 
 # ADVOPS01-BP02 Create RACI matrices that define the roles and responsibilities for each key advertising process
-<a name="advops01-bp02"></a>
 
  Define stakeholder roles so key advertising processes run without handoff gaps. Use RACI (responsible, accountable, consulted, and informed) matrices to assign accountability and decisions for publisher-specific workloads (SGAI manifest pipelines, prebid adapter onboarding, and FAST channel scheduling) and for converged linear and digital operations. 
 

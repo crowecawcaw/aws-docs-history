@@ -1,7 +1,6 @@
 
 
 # ADVOPS01-BP04 Establish data governance and compliance operations
-<a name="advops01-bp04"></a>
 
  Advertising data management requires governance and compliance procedures for Multi-Region environments, where regional privacy laws vary by jurisdiction. Procedures must cover application logs, managed connectivity service logs, and agentic AI agent traces. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL03-BP01 Use a full regional deployment for compute resources through Auto Scaling groups and compute container orchestrators
-<a name="advrel03-bp01"></a>
 
  Deploy compute resources across multiple Availability Zones and Regions to improve application resilience. Implement zone-aware architectures to optimize performance and manage costs, and focus on intra-AZ communication and load balancing configurations. 
 

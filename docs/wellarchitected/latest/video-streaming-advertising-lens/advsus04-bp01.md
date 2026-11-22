@@ -1,7 +1,6 @@
 
 
 # ADVSUS04-BP01 Continually measure resource consumption of agentic AI advertising workloads, and adjust model and agent allocation accordingly
-<a name="advsus04-bp01"></a>
 
  Agent invocation volumes fluctuate over time, so resource consumption for agentic AI advertising workloads varies with them. Foundation model inference uses compute for each token, and multi-agent orchestration compounds that usage. Ongoing monitoring shows where to reduce consumption. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVREL05-BP05 Maintain independent operational readiness in each Region
-<a name="advrel05-bp05"></a>
 
  During a Regional event, the control plane you rely on to deploy and manage RTB Fabric gateways can be impaired in the affected Region. If your operational tooling or deployment artifacts are centralized there, you lose the ability to scale, reconfigure, or redeploy gateways in the surviving Region. A Region can hold every template and enough instances to serve peak QPS and still be commercially unready, because cold targeting indexes can miss tmax, a stale line-item index can bid on paused campaigns, an unregistered endpoint can receive no traffic, and independently maintained pacing state can spend duplicated advertiser budgets the moment both Regions serve. 
 

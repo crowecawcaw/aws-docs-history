@@ -1,7 +1,6 @@
 
 
 # ADVPERF05-BP05 Use a managed low-latency fabric for real-time bidding infrastructure
-<a name="advperf05-bp05"></a>
 
  Traditional RTB setups use NLB or HA Proxy along with an ingress setup for request forwarding to application pods. [AWS RTB Fabric](https://aws.amazon.com/rtb-fabric/) offloads client-side load balancing, TLS termination, and observability to the RTB Fabric Service itself. With Managed Endpoints, RTB Fabric routes bid traffic directly from the responder gateway to individual bidder pod IPs, bypassing the NLB, TLS termination layer, and ingress controller that traditional architectures place on the critical path. 
 

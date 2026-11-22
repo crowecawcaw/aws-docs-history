@@ -1,7 +1,6 @@
 
 
 # ADVPERF04-BP01 Choose a data management strategy that matches your availability, latency, and access requirements
-<a name="advperf04-bp01"></a>
 
  Advertising workloads need a data management strategy that matches each datastore to the requirements of its data. When you choose a datastore because of familiarity rather than based on your workload requirements, you risk degraded performance for latency-sensitive workloads and wasted cost on overprovisioned storage. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVOPS06-BP02 Implement observability for scheduling, ad fill, and playout health
-<a name="advops06-bp02"></a>
 
  FAST channel operations require observability across scheduling accuracy (is content playing as scheduled), ad fill health (are ad pods being filled at expected rates), and playout continuity (is the stream available and playing without interruption). Each of these areas requires its own metrics and alerts, and correlating signals across the three areas identifies the root cause when problems occur. 
 

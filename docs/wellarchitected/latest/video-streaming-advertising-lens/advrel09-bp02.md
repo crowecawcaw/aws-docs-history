@@ -1,7 +1,6 @@
 
 
 # ADVREL09-BP02 Implement per-adapter circuit breakers and bulkhead isolation
-<a name="advrel09-bp02"></a>
 
  Prebid Server communicates with multiple SSP and DSP adapters concurrently. A slow or failing adapter can consume shared thread pool resources and starve healthy adapters, causing cascading auction failures. Isolate each demand partner adapter into its own failure domain. 
 

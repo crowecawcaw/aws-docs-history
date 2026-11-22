@@ -1,7 +1,6 @@
 
 
 # Scenario 8: Implementation of advertising agents with IAB Tech Labs Agentic RTB Framework (ARTF)
-<a name="scenario-08-advertising-agents-artf"></a>
 
  The Agentic Real-Time Bidding Framework (ARTF), published by IAB Tech Lab, defines a containerized execution model for real-time bidding. Third-party agent services run as OCI-compliant containers within the host provider's infrastructure, communicating through gRPC with Protocol Buffers. Agents propose mutations to the bidstream through OpenRTB Patch responses tagged with declared intents. The host controls which mutations to apply. This model targets approximately 80% latency reduction compared to traditional server-to-server integrations. 
 
@@ -18,6 +17,8 @@
 <a name="s08-reference-architecture"></a><a name="scenario-08-fig1"></a>
 
 ![ARTF agent deployment architecture on AWS showing the layered architecture within the host provider's VPC, with the auction engine, agent orchestration, ARTF agent fleet, data/ML layer, observability, and security layers, plus Amazon Bedrock AgentCore as a managed alternative](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/scenario-08-artf-agent-deployment.jpg)
+
+*ARTF agent deployment architecture on AWS showing the layered architecture within the host provider's VPC, with the auction engine, agent orchestration, ARTF agent fleet, data/ML layer, observability, and security layers, plus Amazon Bedrock AgentCore as a managed alternative*
 
 
  The architecture consists of the following components: 

@@ -1,7 +1,6 @@
 
 
 # ADVSUS02-BP05 Minimize bid response payload sizes
-<a name="advsus02-bp05"></a>
 
  Oversized bid responses increase network bandwidth demand and processing overhead. Reducing payload sizes lowers data transfer energy consumption and improves system-wide efficiency. 
 

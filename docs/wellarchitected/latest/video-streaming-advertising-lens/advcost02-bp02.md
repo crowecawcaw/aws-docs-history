@@ -1,7 +1,6 @@
 
 
 # ADVCOST02-BP02 Use compression to reduce network traffic and storage costs
-<a name="advcost02-bp02"></a>
 
  Compression reduces the amount of data you transfer and store, which lowers network and storage costs. Advertising workloads handle large volumes of bid events, impression logs, and creative assets, so applying compression consistently across data paths lowers costs at scale. 
 

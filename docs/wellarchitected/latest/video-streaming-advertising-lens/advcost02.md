@@ -1,7 +1,6 @@
 
 
 # Cost-effective resources
-<a name="advcost02"></a>
 
  Cost optimization means providing the performance a workload requires at the lowest possible price point, not just reducing spend. For advertising workloads, this means using ARM processors for faster and more cost-effective bidder nodes, compression to reduce network traffic and storage costs, provisioned capacity for predictable workloads, and Spot Instances for fault-tolerant bidding-as-a-service workloads. 
 

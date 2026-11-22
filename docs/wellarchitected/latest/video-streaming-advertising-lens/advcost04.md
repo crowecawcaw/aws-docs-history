@@ -1,7 +1,6 @@
 
 
 # Data storage and collaboration cost
-<a name="advcost04"></a>
 
  User profile databases tend to be large, holding anywhere from 100-200 million to 5 billion user profiles, and they contain a wide range of data about users' online activities and interactions. Storing and accessing this data can increase cost substantially. How you store, cache, and replicate user profile data directly affects the largest database cost components in RTB architectures. Privacy-enhanced collaboration adds another cost dimension. Collaborative analytics environments price queries by bytes scanned, so data format, partitioning strategy, and query patterns have a direct and multiplicative effect on spend. 
 

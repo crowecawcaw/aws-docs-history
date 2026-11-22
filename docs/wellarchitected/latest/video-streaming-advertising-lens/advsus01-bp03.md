@@ -1,7 +1,6 @@
 
 
 # ADVSUS01-BP03 Reduce CPU time per bid in agent containers to lower fleet energy intensity
-<a name="advsus01-bp03"></a>
 
  ARTF agent containers process bid requests and return OpenRTB Patch mutations under strict auction deadlines. Inefficiency in container image size, memory allocation, serialization, or inference execution increases the CPU time and compute resources each bid consumes. Because compute resource use is the practical proxy for the energy and carbon cost of this workload, containers that complete work in fewer CPU cycles reduce that footprint while also meeting auction deadlines. 
 

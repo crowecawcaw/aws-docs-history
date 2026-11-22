@@ -1,7 +1,6 @@
 
 
 # ADVSEC02-BP04 Implement confidential computing for cross-party measurement without exposing raw viewer data
-<a name="advsec02-bp04"></a>
 
  Cross-party advertising measurement requires combining datasets from competing parties to answer questions about deduplicated reach, frequency, and attribution. Even with AWS Clean Rooms access controls, some measurement computations require temporary processing of raw data. Confidential computing cryptographically protects raw data during computation. Attestation proves to all parties which code processed their data. 
 

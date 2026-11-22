@@ -1,7 +1,6 @@
 
 
 # ADVPERF06-BP04 Optimize Prebid Server adapter concurrency and timeout budgets
-<a name="advperf06-bp04"></a>
 
  Prebid Server completes unified header bidding auctions within the publisher-configured auction timeout while maximizing bid density from connected demand partners. Parallel adapter fan-out with derived per-adapter timeouts and circuit breakers maximizes bid competition within the auction window without penalizing the auction for slow adapters. 
 

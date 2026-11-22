@@ -1,7 +1,6 @@
 
 
 # ADVREL02-BP03 Avoid scale mismatch of both internal services and external partners
-<a name="advrel02-bp03"></a>
 
  Implement proportional scaling across all system components in advertising workloads. Balance service capacities, particularly in DSP to SSP integrations, and use pub/sub patterns to reliably distribute load and avoid service overload in microservices architectures. 
 

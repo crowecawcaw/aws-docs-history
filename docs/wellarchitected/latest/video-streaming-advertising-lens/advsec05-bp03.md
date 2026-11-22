@@ -1,7 +1,6 @@
 
 
 # ADVSEC05-BP03 Enable privacy-preserving advertising capabilities while protecting user data
-<a name="advsec05-bp03"></a>
 
  Advertising platforms need targeting and measurement that don't depend on cross-site or cross-application identification. The migration itself creates risk, as legacy tracking and its replacement can expose the same people through separate data paths. 
 

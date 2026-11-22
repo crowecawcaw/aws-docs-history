@@ -1,7 +1,6 @@
 
 
 # Privacy and regulatory adherence
-<a name="advsec05"></a>
 
  Advertising data can be subject to different requirements based on jurisdiction, collection context, consent, processing purpose, and business agreement. Privacy and regulatory adherence helps you transition requirements into approved decisions that remain attached to data as it moves and changes. 
 

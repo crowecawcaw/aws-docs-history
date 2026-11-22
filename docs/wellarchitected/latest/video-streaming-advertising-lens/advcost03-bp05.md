@@ -1,7 +1,6 @@
 
 
 # ADVCOST03-BP05 Replace per-gigabyte egress with transaction-priced partner connectivity
-<a name="advcost03-bp05"></a>
 
  NAT Gateways charge per GB of data processed plus an hourly fee, and that cost compounds at RTB scale. RTB Fabric prices by transaction instead, which matches how RTB revenue works and can cut networking costs by up to 80% compared to NAT Gateway-based architectures. Workloads that keep most of their traffic inside the fabric can save at the top of that range or beyond, depending on traffic mix and average bid payload size. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVOPS04-BP05 Implement event-driven automation for ad placement decisions across linear logs and digital bid streams
-<a name="advops04-bp05"></a>
 
  Deploy event-driven architectures that react to state changes in linear broadcast schedules and digital programmatic bid streams to automate ad placement decisions in real time. Use loosely coupled microservices with asynchronous event processing for deterministic, scalable ad serving across converged environments. 
 

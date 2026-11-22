@@ -1,7 +1,6 @@
 
 
 # ADVOPS02-BP08 Monitor server-side auction health and demand partner yield across your header bidding infrastructure
-<a name="advops02-bp08"></a>
 
  Server-side header bidding runs a parallel auction among configured demand partners, replacing the sequential waterfall model with a single, instrumentable decision point. Monitor auction-level health and yield by demand partner to determine whether your demand configuration maximizes publisher revenue. 
 

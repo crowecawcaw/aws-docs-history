@@ -1,7 +1,6 @@
 
 
 # ADVREL05-BP04 Monitor partner-facing bid gateway health independently per Region
-<a name="advrel05-bp04"></a>
 
  During a Regional impairment, you need visibility in each Region into gateway health to confirm the failure, watch the surviving Region absorb traffic, and judge when the impaired Region has recovered. Infrastructure metrics can't determine these aspects of an impairment. For example, a gateway can report healthy connections and sub-budget latency while bid responses arrive after the exchange's tmax and are discarded upstream. Region-specific monitoring must include auction-side signals, break down per exchange partner endpoint, and reconcile against the exchange's own view of your availability. 
 

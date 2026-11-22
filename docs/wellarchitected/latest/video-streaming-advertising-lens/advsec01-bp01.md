@@ -1,7 +1,6 @@
 
 
 # ADVSEC01-BP01 Implement user authentication and access control to protect bidding process and content
-<a name="advsec01-bp01"></a>
 
  Programmatic advertising platforms process authentication decisions for bid requests, creative uploads, and reporting interfaces. These decisions occur at high volume and within strict bid-response deadlines. Without authentication patterns designed for real-time bidding, unauthorized parties might access bid streams, campaign data, or audience segments. 
 

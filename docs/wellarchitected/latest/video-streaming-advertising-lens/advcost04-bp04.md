@@ -1,7 +1,6 @@
 
 
 # ADVCOST04-BP04 Use cost-efficient data types and configurations for collaborative data environments
-<a name="advcost04-bp04"></a>
 
  Use efficient storage formats and query patterns to reduce data scanning, duplication, and transfer costs in collaborative analytics environments for advertising measurement and audience analysis. 
 

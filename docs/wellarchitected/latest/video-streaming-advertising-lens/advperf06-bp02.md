@@ -1,7 +1,6 @@
 
 
 # ADVPERF06-BP02 Optimize your intake request format (HTTP/2 or HTTP/3) for faster processing
-<a name="advperf06-bp02"></a>
 
  HTTP/3 with QUIC addresses two performance limitations for advertising workloads that HTTP/1.1 and HTTP/2 can't solve in transport: connection setup overhead and head-of-line blocking during parallel ad creative delivery. 
 

@@ -1,7 +1,6 @@
 
 
 # ADVSUS01-BP08 Identify and remove redundant data across advertising storage infrastructure
-<a name="advsus01-bp08"></a>
 
  Participants in the real-time advertising supply chain accrue large volumes of data, much of which serves no lasting purpose. Redundant creatives, expired logs, and superseded artifacts consume storage and the resources behind it long after their value ends. Retaining advertising data only as long as its purpose requires reduces the storage footprint and the energy and carbon associated with it. 
 

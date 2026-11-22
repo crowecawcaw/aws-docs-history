@@ -1,7 +1,6 @@
 
 
 # Failure, recovery, and capacity management
-<a name="advrel04"></a>
 
  Advertising systems operate at the intersection of owned infrastructure and external partner dependencies (DSPs, SSPs, measurement providers, and CDN origins). A failure in any layer, whether an internal component, an external partner, or a data store, translates directly into lost auction revenue or measurement gaps. This capability addresses how you detect, contain, and recover from failures across all three dimensions: proactive DR readiness, defensive architecture against external failures, and data recovery within regulatory constraints. 
 

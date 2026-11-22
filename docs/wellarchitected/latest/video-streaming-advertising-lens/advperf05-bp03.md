@@ -1,7 +1,6 @@
 
 
 # ADVPERF05-BP03 Use load balancers to improve high availability and load distribution
-<a name="advperf05-bp03"></a>
 
  Use an elastic load balancer to distribute advertising traffic across healthy targets using algorithms matched to your request patterns. Advertising platforms serve traffic types with different latency and volume characteristics (bid requests, creative assets, and tracking beacons). Isolate these traffic types at the load balancer layer to keep high-volume, latency-tolerant tracking traffic from competing with latency-sensitive bid evaluation for compute. 
 

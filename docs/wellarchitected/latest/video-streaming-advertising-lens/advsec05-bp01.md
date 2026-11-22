@@ -1,7 +1,6 @@
 
 
 # ADVSEC05-BP01 Verify that your advertising workload meets applicable data protection obligations
-<a name="advsec05-bp01"></a>
 
  Advertising platforms process data across many jurisdictions, business relationships, and delivery channels, and each has obligations from law, contracts, and voluntary frameworks. Adherence to obligations requires tracing each obligation to the data it affects, the purpose it governs, the control that enforces it, and the evidence you kept. 
 

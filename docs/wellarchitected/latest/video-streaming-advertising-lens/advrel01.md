@@ -1,7 +1,6 @@
 
 
 # Design for reliability and change management
-<a name="advrel01"></a>
 
  Advertising systems require architectural decisions that determine how failures propagate, how quickly revenue recovers, and whether code changes introduce new failure modes under production traffic. Architecture choices (event-driven compared to synchronous, per-component recovery objectives, and elastic scaling) directly affect whether a single partner outage cascades into total auction failure or is absorbed without revenue impact. Change management choices (testing depth, deployment topology, and rollback authority) determine whether a new release improves reliability or degrades it undetected during peak campaign hours. 
 

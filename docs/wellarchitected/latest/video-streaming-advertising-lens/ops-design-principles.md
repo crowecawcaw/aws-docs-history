@@ -1,7 +1,6 @@
 
 
 # Operational excellence design principles
-<a name="ops-design-principles"></a>
 
  These design principles help you achieve and maintain operational excellence for advertising workloads in the cloud. They extend the [lens-wide design principles](design-principles.md) with guidance specific to running, monitoring, and improving advertising operations. 
 +  **Automate operational processes:** Advertising workloads depend on extensive automation to keep operations consistent, reliable, and scalable. Automating advertising-specific processes reduces the human errors that lead to ad serving failures, data quality problems, or compliance violations. Automation should span adapter onboarding for Prebid Server, SCTE-35 marker validation for SGAI, EPG schedule management for FAST channels, and rendering pipeline orchestration for innovative ad formats. 

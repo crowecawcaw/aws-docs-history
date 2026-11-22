@@ -1,7 +1,6 @@
 
 
 # ADVCOST06-BP02 Optimize VOD storage costs for FAST channel source content
-<a name="advcost06-bp02"></a>
 
  FAST channels draw from a VOD library with highly variable access patterns. Some titles play daily while others remain idle for weeks. Automatic storage tiering moves objects between access tiers based on access patterns, so storage costs drop without manual management. 
 

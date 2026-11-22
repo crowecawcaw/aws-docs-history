@@ -1,7 +1,6 @@
 
 
 # Sustainability design principles
-<a name="sus-design-principles"></a>
 
 These design principles help you minimize the environmental impact of advertising workloads in the cloud. They extend the [lens-wide design principles](design-principles.md) with guidance specific to reducing the energy and resource consumption required to process each bid, deliver each impression, and serve each ad creative.
 +  **Set sustainability goals internally and with advertising partners:** Establish and communicate sustainability targets that support business objectives. Work with advertising partners, including SSPs, DSPs, measurement vendors, and publishers, to define shared sustainability expectations. Sustainability progress should be measured and reported using the AWS Sustainability service (formerly the AWS Customer Carbon Footprint Tool) alongside traditional operational KPIs. 
