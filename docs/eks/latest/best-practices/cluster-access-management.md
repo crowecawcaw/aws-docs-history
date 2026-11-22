@@ -1,7 +1,6 @@
 
 
 # Cluster access management
-<a name="cluster-access-management"></a>
 
 Effective access management is crucial for maintaining the security and integrity of your Amazon EKS clusters. This guide explores various options for EKS access management, with a focus on using AWS IAM Identity Center (formerly AWS SSO). We’ll compare different approaches, discuss their trade-offs, and highlight known limitations and considerations.
 

@@ -1,7 +1,6 @@
 
 
 # Custom Networking
-<a name="custom-networking"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.

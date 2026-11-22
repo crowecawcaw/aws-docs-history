@@ -1,7 +1,6 @@
 
 
 # Running kube-proxy in nftables Mode
-<a name="nftables"></a>
 
 With `kube-proxy` in nftables mode, Amazon EKS can resolve the [network latency issue](https://docs.aws.amazon.com/eks/latest/best-practices/control-plane.html#reliability_cprunning_large_clusters) common in large clusters with over 1,000 services running kube-proxy in iptables mode. Iptables mode processes packet filtering rules sequentially for the first packet of each connection, which causes this performance issue. nftables is the successor to iptables, and the nftables `kube-proxy` backend addresses this latency issue by processing packets in near-constant time regardless of cluster size. To avoid this issue, configure your cluster to run `kube-proxy` in nftables mode.
 
@@ -36,7 +35,7 @@ This is a disruptive change. We recommend performing it in off-hours or during i
 
 You can issue an AWS Command Line Interface (AWS CLI) command to enable nftables by updating the `kube-proxy` EKS Add-on. This requires an EKS cluster running Kubernetes 1.33 or later.
 
-```
+```bash
 aws eks update-addon --cluster-name $CLUSTER_NAME --addon-name kube-proxy \
   --configuration-values '{"mode": "nftables"}' \
   --resolve-conflicts OVERWRITE
@@ -44,13 +43,13 @@ aws eks update-addon --cluster-name $CLUSTER_NAME --addon-name kube-proxy \
 
 Or you can do this by modifying the `kube-proxy-config` ConfigMap in your cluster.
 
-```
+```bash
 kubectl -n kube-system edit cm kube-proxy-config
 ```
 
 Find the `mode` setting, which defaults to `iptables`, and change the value to `nftables`. The result of either option should look similar to the following configuration.
 
-```
+```yaml
   mode: "nftables"
   nftables:
     masqueradeAll: false
@@ -66,7 +65,7 @@ Find the `mode` setting, which defaults to `iptables`, and change the value to `
 
 If your worker nodes were joined to your cluster before you made these changes, restart the kube-proxy DaemonSet.
 
-```
+```bash
 kubectl -n kube-system rollout restart ds kube-proxy
 ```
 

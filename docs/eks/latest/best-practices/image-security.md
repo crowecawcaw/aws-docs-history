@@ -1,7 +1,6 @@
 
 
 # Image security
-<a name="image-security"></a>
 
 You should consider the container image as your first line of defense against an attack. An insecure, poorly constructed image can allow an attacker to escape the bounds of the container and gain access to the host. Once on the host, an attacker can gain access to sensitive information or move laterally within the cluster or with your AWS account. The following best practices will help mitigate risk of this happening.
 
@@ -13,13 +12,13 @@ You should consider the container image as your first line of defense against an
 
 Start by removing all extraneous binaries from the container image. If you’re using an unfamiliar image from Dockerhub, inspect the image using an application like [Dive](https://github.com/wagoodman/dive) which can show you the contents of each of the container’s layers. Remove all binaries with the SETUID and SETGID bits as they can be used to escalate privilege and consider removing all shells and utilities like nc and curl that can be used for nefarious purposes. You can find the files with SETUID and SETGID bits with the following command:
 
-```
+```bash
 find / -perm /6000 -type f -exec ls -ld {} \;
 ```
 
 To remove the special permissions from these files, add the following directive to your container image:
 
-```
+```docker
 RUN find / -xdev -perm /6000 -type f -exec chmod a-s {} \; || true
 ```
 
@@ -75,7 +74,7 @@ Attestations help users to validate that an artifact comes from a trusted source
 
 Nowadays, it is not uncommon for an organization to have multiple development teams operating independently within a shared AWS account. If these teams don’t need to share assets, you may want to create a set of IAM policies that restrict access to the repositories each team can interact with. A good way to implement this is by using ECR [namespaces](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html#repository-concepts). Namespaces are a way to group similar repositories together. For example, all of the registries for team A can be prefaced with the team-a/ while those for team B can use the team-b/ prefix. The policy to restrict access might look like the following:
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -109,7 +108,7 @@ The ECR API has a public endpoint. Consequently, ECR registries can be accessed 
 
 The default endpoint policy for allows access to all ECR repositories within a region. This might allow an attacker/insider to exfiltrate data by packaging it as a container image and pushing it to a registry in another AWS account. Mitigating this risk involves creating an endpoint policy that limits API access to ECR repositories. For example, the following policy allows all AWS principles in your account to perform all actions against your and only your ECR repositories:
 
-```
+```json
 {
   "Statement": [
     {
@@ -167,7 +166,7 @@ Linting can be used to verify that your Dockerfiles are adhering to a set of pre
 
 Reducing the attack surface of your container images should be primary aim when building images. The ideal way to do this is by creating minimal images that are devoid of binaries that can be used to exploit vulnerabilities. Fortunately, Docker has a mechanism to create images from [`scratch`](https://docs.docker.com/develop/develop-images/baseimages/#create-a-simple-parent-image-using-scratch). With languages like Go, you can create a static linked binary and reference it in your Dockerfile as in this example:
 
-```
+```docker
 ############################
 # STEP 1 build executable binary
 ############################
@@ -225,7 +224,7 @@ You should include RUN `apt-get update && apt-get upgrade` in your Dockerfiles t
 
 Run `apt-get clean` to delete the installer files from `/var/cache/apt/archives/`. You can also run `rm -rf /var/lib/apt/lists/*` after installing packages. This removes the index files or the lists of packages that are available to install. Be aware that these commands may be different for each package manager. For example:
 
-```
+```docker
 RUN apt-get update && apt-get install -y \
     curl \
     git \

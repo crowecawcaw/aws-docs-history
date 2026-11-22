@@ -1,7 +1,6 @@
 
 
 # Multi Account Strategy
-<a name="multi-account-strategy"></a>
 
 AWS recommends using a [multi account strategy](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html) and AWS organizations to help isolate and manage your business applications and data. There are [many benefits](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/benefits-of-using-multiple-aws-accounts.html) to using a multi account strategy:
 + Increased AWS API service quotas. Quotas are applied to AWS accounts, and using multiple accounts for your workloads increases the overall quota available to your workloads.
@@ -92,7 +91,7 @@ When using EKS Pod Identities to assume roles (role chaining) in other accounts 
 
 To use ABAC to control what service accounts can assume a role into another account with role chaining, you create a role trust policy statement that only allows a role to be assumed by the pod IAM role from the EKS cluster account (account ID 111122223333) when the expected values are present. The following role trust policy will only let the pod IAM role from the EKS cluster account assume a role if the `kubernetes-service-account`, `eks-cluster-arn` and `kubernetes-namespace` tags all have the expected value.
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [

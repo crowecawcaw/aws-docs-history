@@ -1,7 +1,6 @@
 
 
 # Kubernetes Control Plane
-<a name="scale-control-plane"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -349,7 +348,7 @@ On clusters with thousands of nodes, creating a new DaemonSet, updating a Daemon
 
 In normal operation, you can use a `RollingUpdate` to ensure a gradual rollout of new DaemonSet pods. With a `RollingUpdate` update strategy, after you update a DaemonSet template, the controller kills old DaemonSet pods and creates new DaemonSet pods automatically in a controlled fashion. At most one pod of the DaemonSet will be running on each node during the whole update process. You can perform a gradual rollout by setting `maxUnavailable` to 1, `maxSurge` to 0, and `minReadySeconds` to 60. If you do not specify an update strategy, Kubernetes will default to a creating a `RollingUpdate` with `maxUnavailable` as 1, `maxSurge` as 0, and `minReadySeconds` as 0.
 
-```
+```yaml
 minReadySeconds: 60
 strategy:
   type: RollingUpdate

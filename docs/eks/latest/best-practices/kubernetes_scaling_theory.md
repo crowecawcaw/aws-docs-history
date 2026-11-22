@@ -1,7 +1,6 @@
 
 
 # Kubernetes Scaling Theory
-<a name="kubernetes_scaling_theory"></a>
 
 ## Nodes vs. Churn Rate
 <a name="_nodes_vs_churn_rate"></a>

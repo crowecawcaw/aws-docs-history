@@ -1,7 +1,6 @@
 
 
 # Expenditure awareness
-<a name="cost-opt-awareness"></a>
 
 Expenditure awareness is understanding who, where and what is causing expenditures in your EKS cluster. Getting an accurate picture of this data will help raise awareness of your spend and highlight areas to remediate.
 
@@ -142,7 +141,7 @@ Third party tools like [kubecost](https://kubecost.com/) can also be deployed on
 
 Deploying kubecost using Helm 3:
 
-```
+```console
 $ curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 $ helm version --short
 v3.2.1+gfe51cd1

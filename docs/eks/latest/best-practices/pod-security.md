@@ -1,7 +1,6 @@
 
 
 # Pod Security
-<a name="pod-security"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -102,7 +101,7 @@ To implement the controls defined by the PSS, PSA operates in three modes:
 
 These modes and the profile (restriction) levels are configured at the Kubernetes Namespace level, using labels, as seen in the below example.
 
-```
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -115,7 +114,7 @@ When used independently, these operational modes have different responses that r
 
 This is a difficult user experience, as there is no immediate indication that the successfully applied Deployment object belies failed pod creation. The offending podSpecs will not create pods. Inspecting the Deployment resource with `kubectl get deploy <DEPLOYMENT_NAME> -oyaml` will expose the message from the failed pod(s) `.status.conditions` element, as seen below.
 
-```
+```yaml
 ...
 status:
   conditions:
@@ -135,7 +134,7 @@ status:
 
 In both the *audit* and *warn* modes, the pod restrictions do not prevent violating pods from being created and started. However, in these modes audit annotations on API server audit log events and warnings to API server clients, such as *kubectl*, are triggered, respectively, when pods, as well as objects that create pods, contain podSpecs with violations. A `kubectl` *Warning* message is seen below.
 
-```
+```bash
 Warning: would violate PodSecurity "restricted:latest": allowPrivilegeEscalation != false (container "test" must set securityContext.allowPrivilegeEscalation=false), unrestricted capabilities (container "test" must set securityContext.capabilities.drop=["ALL"]), runAsNonRoot != true (pod or container "test" must set securityContext.runAsNonRoot=true), seccompProfile (pod or container "test" must set securityContext.seccompProfile.type to "RuntimeDefault" or "Localhost")
 deployment.apps/test created
 ```
@@ -144,7 +143,7 @@ The PSA *audit* and *warn* modes are useful when introducing the PSS without neg
 
 The PSA operational modes are not mutually exclusive, and can be used in a cumulative manner. As seen below, the multiple modes can be configured in a single namespace.
 
-```
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -157,7 +156,7 @@ metadata:
 
 In the above example, the user-friendly warnings and audit annotations are provided when applying Deployments, while the enforce of violations are also provided at the pod level. In fact multiple PSA labels can use different profile levels, as seen below.
 
-```
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -174,7 +173,7 @@ In the above example, PSA is configured to allow the creation of all pods that s
 
 If a namespace with existing pods is modified to use a more restrictive PSS profile, the *audit* and *warn* modes will produce appropriate messages; however, *enforce* mode will not delete the pods. The warning messages are seen below.
 
-```
+```bash
 Warning: existing pods in namespace "policy-test" violate the new PodSecurity enforce level "restricted:latest"
 Warning: test-688f68dc87-htm8x: allowPrivilegeEscalation != false, unrestricted capabilities, runAsNonRoot != true, seccompProfile
 namespace/policy-test configured
@@ -192,7 +191,7 @@ These exemptions are applied statically in the [PSA admission controller configu
 
 In the *Validating Webhook* implementation the exemptions can be configured within a Kubernetes [ConfigMap](https://github.com/kubernetes/pod-security-admission/blob/master/webhook/manifests/20-configmap.yaml) resource that gets mounted as a volume into the [pod-security-webhook](https://github.com/kubernetes/pod-security-admission/blob/master/webhook/manifests/50-deployment.yaml) container.
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -220,7 +219,7 @@ data:
 
 As seen in the above ConfigMap YAML the cluster-wide default PSS level has been set to *restricted* for all PSA modes, *audit*, *enforce*, and *warn*. This affects all namespaces, except those exempted: `namespaces: ["kube-system","policy-test1"]`. Additionally, in the *ValidatingWebhookConfiguration* resource, seen below, the *pod-security-webhook* namespace is also exempted from configured PSS.
 
-```
+```yaml
 ...
 webhooks:
   # Audit annotations will be prefixed with this name
@@ -296,7 +295,7 @@ If you currently do not have a pod security solution, beyond PSP, and your requi
 
 As mentioned earlier, PSA *enforce* mode prevents pods with PSS violations from being applied, but does not stop higher-level controllers, such as Deployments. In fact, the Deployment will be applied successfully without any indication that the pods failed to be applied. While you can use *kubectl* to inspect the Deployment object, and discover the failed pods message from the PSA, the user experience could be better. To make the user experience better, multiple PSA modes (audit, enforce, warn) should be used.
 
-```
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -337,7 +336,7 @@ Kubernetes clusters used for CICD processing, such as building container images,
 
  `hostPath` is a volume that mounts a directory from the host directly to the container. Rarely will pods need this type of access, but if they do, you need to be aware of the risks. By default pods that run as root will have write access to the file system exposed by hostPath. This could allow an attacker to modify the kubelet settings, create symbolic links to directories or files not directly exposed by the hostPath, e.g. /etc/shadow, install ssh keys, read secrets mounted to the host, and other malicious things. To mitigate the risks from hostPath, configure the `spec.containers.volumeMounts` as `readOnly`, for example:
 
-```
+```yaml
 volumeMounts:
 - name: hostPath-volume
     readOnly: true
@@ -397,7 +396,7 @@ For pods that do not need to access the Kubernetes API, you can disable the auto
 
 **Example**  
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -406,7 +405,7 @@ spec:
   automountServiceAccountToken: false
 ```
 
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -421,7 +420,7 @@ For pods that do not need to lookup or call in-cluster services, you can reduce 
 
 **Example**  
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -436,7 +435,7 @@ spec:
 
 Configuring your images with a read-only root file system prevents an attacker from overwriting a binary on the file system that your application uses. If your application has to write to the file system, consider writing to a temporary directory or attach and mount a volume. You can enforce this by setting the pod’s SecurityContext as follows:
 
-```
+```yaml
 ...
 securityContext:
   readOnlyRootFilesystem: true

@@ -1,7 +1,6 @@
 
 
 # Amazon EKS optimized Windows AMI management
-<a name="windows-ami"></a>
 
 Windows Amazon EKS optimized AMIs are built on top of Windows Server 2019 and Windows Server 2022. They are configured to serve as the base image for Amazon EKS nodes. By default, the AMIs include the following components:
 +  [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) 
@@ -14,7 +13,7 @@ You can programmatically retrieve the Amazon Machine Image (AMI) ID for Amazon E
 
 The following example retrieves the AMI ID for the latest Amazon EKS optimized AMI for Windows Server 2019 LTSC Core. The version number listed in the AMI name relates to the corresponding Kubernetes build it is prepared for.
 
-```
+```bash
 aws ssm get-parameter --name /aws/service/ami-windows-latest/Windows_Server-2019-English-Core-EKS_Optimized-1.21/image_id --region us-east-1 --query "Parameter.Value" --output text
 ```
 

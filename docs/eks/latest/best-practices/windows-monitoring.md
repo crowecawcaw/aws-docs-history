@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="windows-monitoring"></a>
 
 Prometheus, a [graduated CNCF project](https://www.cncf.io/projects/) is by far the most popular monitoring system with native integration into Kubernetes. Prometheus collects metrics around containers, pods, nodes, and clusters. Additionally, Prometheus leverages AlertsManager which lets you program alerts to warn you if something in your cluster is going wrong. Prometheus stores the metric data as a time series data identified by metric name and key/value pairs. Prometheus includes away to query using a language called PromQL, which is short for Prometheus Query Language.
 
@@ -26,7 +25,7 @@ The windows\_exporter will expose all metrics from enabled collectors by default
 
 The default install steps for Windows include downloading and starting the exporter as a service during the bootstrapping process with arguments, such as the collectors you want to filter.
 
-```
+```powershell
 > Powershell Invoke-WebRequest https://github.com/prometheus-community/windows_exporter/releases/download/v0.13.0/windows_exporter-0.13.0-amd64.msi -OutFile <DOWNLOADPATH>
 
 > msiexec /i <DOWNLOADPATH> ENABLED_COLLECTORS="cpu,cs,logical_disk,net,os,system,container,memory"
@@ -34,7 +33,7 @@ The default install steps for Windows include downloading and starting the expor
 
 By default, the metrics can be scraped at the /metrics endpoint on port 9182. At this point, Prometheus can consume the metrics by adding the following scrape\_config to the Prometheus configuration
 
-```
+```yaml
 scrape_configs:
     - job_name: "prometheus"
       static_configs:
@@ -48,7 +47,7 @@ scrape_configs:
 
 Prometheus configuration is reloaded using
 
-```
+```bash
 > ps aux | grep prometheus
 > kill HUP <PID>
 ```
@@ -59,7 +58,7 @@ The ServiceMonitor, which declaratively specifies how groups of Kubernetes servi
 
 In order to leverage the ServiceMonitor, create an Endpoint object pointing to specific Windows targets, a headless service and a ServiceMontor for the Windows nodes.
 
-```
+```yaml
 apiVersion: v1
 kind: Endpoints
 metadata:

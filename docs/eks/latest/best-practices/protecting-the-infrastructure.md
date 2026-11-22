@@ -1,7 +1,6 @@
 
 
 # Protecting the infrastructure (hosts)
-<a name="protecting-the-infrastructure"></a>
 
 Inasmuch as it’s important to secure your container images, it’s equally important to safeguard the infrastructure that runs them. This section explores different ways to mitigate risks from attacks launched directly against the host. These guidelines should be used in conjunction with those outlined in the [Runtime Security](runtime-security.md) section.
 
@@ -52,7 +51,7 @@ The `AmazonSSMManagedInstanceCore` AWS managed policy contains a number of permi
 
 The following IAM policy contains the minimal set of permissions to enable node access via SSM Systems Manager.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -88,7 +87,7 @@ The following IAM policy contains the minimal set of permissions to enable node 
 
 With this policy in place and the [Session Manager plugin](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html) installed, you can then run
 
-```
+```bash
 aws ssm start-session --target [INSTANCE_ID_OF_EKS_NODE]
 ```
 
@@ -138,7 +137,7 @@ SELinux for Containers has a set of options that can be configured to modify the
 
 By default, containers are allowed to read/execute under `/usr` and read most content from `/etc`. The files under `/var/lib/docker` and `/var/lib/containers` have the label `container_var_lib_t`. To view a full list of default, labels see the [container.fc](https://github.com/containers/container-selinux/blob/master/container.fc) file.
 
-```
+```bash
 docker container run -it \
   -v /var/lib/docker/image/overlay2/repositories.json:/host/repositories.json \
   centos:7 cat /host/repositories.json
@@ -154,7 +153,7 @@ Files labeled with `container_file_t` are the only files that are writable by co
 +  `:z` will re-label the files so that the container can read/write
 +  `:Z` will re-label the files so that **only** the container can read/write
 
-```
+```bash
 ls -Z /var/lib/misc
 # -rw-r--r--. root root system_u:object_r:var_lib_t:s0   postfix.aliasesdb-stamp
 
@@ -166,7 +165,7 @@ ls -Z /var/lib/misc
 #-rw-r--r--. root root system_u:object_r:container_file_t:s0 postfix.aliasesdb-stamp
 ```
 
-```
+```bash
 docker container run -it \
   -v /var/log:/host/var/log:Z \
   fluentbit:latest
@@ -174,7 +173,7 @@ docker container run -it \
 
 In Kubernetes, relabeling is slightly different. Rather than having Docker automatically relabel the files, you can specify a custom MCS label to run the pod. Volumes that support relabeling will automatically be relabeled so that they are accessible. Pods with a matching MCS label will be able to access the volume. If you need strict isolation, set a different MCS label for each pod.
 
-```
+```yaml
 securityContext:
   seLinuxOptions:
     # Provide a unique MCS label per container

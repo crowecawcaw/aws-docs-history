@@ -1,7 +1,6 @@
 
 
 # Configure gMSA for Windows Pods and containers
-<a name="windows-gmsa"></a>
 
 ## What is a gMSA account
 <a name="_what_is_a_gmsa_account"></a>
@@ -17,6 +16,8 @@ However, administrators can leverage [gMSA Active Directory](https://docs.micros
 
 Applications that leverage on Windows authentication, and run as Windows containers, benefit from gMSA because the Windows Node is used to exchange the Kerberos ticket on behalf of the container.There are two options available to setup the Windows worker node to support gMSA integration:
 
+<a name="_1_domain_joined_windows_worker_nodes"></a>**1 - Domain-joined Windows worker nodes**
+
 In this setup, the Windows worker node is domain-joined in the Active Directory domain, and the AD Computer account of the Windows worker nodes is used to authenticate against Active Directory and retrieve the gMSA identity to be used with the pod.
 
 In the domain-joined approach, you can easily manage and harden your Windows worker nodes using existing Active Directory GPOs; however, it generates additional operational overhead and delays during Windows worker node joining in the Kubernetes cluster, as it requires additional reboots during node startup and Active Directory garage cleaning after the Kubernetes cluster terminates nodes.
@@ -24,6 +25,8 @@ In the domain-joined approach, you can easily manage and harden your Windows wor
 In the following blog post, you will find a detailed step-by-step on how to implement the Domain-joined Windows worker node approach:
 
  [Windows Authentication on Amazon EKS Windows pods](https://aws.amazon.com/blogs/containers/windows-authentication-on-amazon-eks-windows-pods/) 
+
+<a name="_2_domainless_windows_worker_nodes"></a>**2 - Domainless Windows worker nodes**
 
 In this setup, the Windows worker node isn’t joined in the Active Directory domain, and a "portable" identity (user/password) is used to authenticate against Active Directory and retrieve the gMSA identity to be used with the pod.
 
@@ -38,9 +41,11 @@ In the following blog post, you will find a detailed step-by-step on how to impl
 
  [Domainless Windows Authentication for Amazon EKS Windows pods](https://aws.amazon.com/blogs/containers/domainless-windows-authentication-for-amazon-eks-windows-pods/) 
 
+<a name="_important_note"></a>**Important note**
+
 Despite the pod being able to use a gMSA account, it is necessary to also setup the application or service accordingly to support Windows authentication, for instance, in order to setup Microsoft IIS to support Windows authentication, you should prepared it via dockerfile:
 
-```
+```dockerfile
 RUN Install-WindowsFeature -Name Web-Windows-Auth -IncludeAllSubFeature
 RUN Import-Module WebAdministration; Set-ItemProperty 'IIS:\AppPools\SiteName' -name processModel.identityType -value 2
 RUN Import-Module WebAdministration; Set-WebConfigurationProperty -Filter '/system.webServer/security/authentication/anonymousAuthentication' -Name Enabled -Value False -PSPath 'IIS:\' -Location 'SiteName'

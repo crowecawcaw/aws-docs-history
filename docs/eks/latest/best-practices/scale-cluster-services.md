@@ -1,7 +1,6 @@
 
 
 # Cluster Services
-<a name="scale-cluster-services"></a>
 
 Cluster services run inside an EKS cluster, but they are not user workloads. If you have a Linux server you often need to run services like NTP, syslog, and a container runtime to support your workloads. Cluster services are similar, supporting services that help you automate and operate your cluster. In Kubernetes these are usually run in the kube-system namespace and some are run as [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
 
@@ -74,7 +73,7 @@ We recommend using `/ready` instead of `/health` for CoreDNS’s readiness probe
 
 In alignment with the earlier recommendation to set the lameduck duration to 30 seconds, providing ample time for the node’s iptables rules to be updated before pod termination, employing `/ready` instead of `/health` for the CoreDNS readiness probe ensures that the CoreDNS pod is fully prepared at startup to promptly respond to DNS requests.
 
-```
+```yaml
 readinessProbe:
   httpGet:
     path: /ready

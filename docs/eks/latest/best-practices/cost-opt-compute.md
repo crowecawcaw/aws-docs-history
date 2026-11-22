@@ -1,7 +1,6 @@
 
 
 # Compute and Autoscaling
-<a name="cost-opt-compute"></a>
 
 As a developer, you’ll make estimates about your application’s resource requirements, e.g. CPU and memory, but if you’re not continually adjusting them they may become outdated which could increase your costs and worsen performance and reliability. Continually adjusting an application’s resource requirements is more important than getting them right the first time.
 
@@ -60,7 +59,7 @@ You can have multiple node groups and the Cluster Autoscaler can be configured t
 
 Below is an example of a snippet of cluster configuration that uses a `ConfigMap`` to prioritize reserved capacity before using on-demand instances. You can use the same technique to prioritize Graviton or Spot Instances over other types.
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
@@ -76,7 +75,7 @@ managedNodeGroups:
     instanceType: c5.2xlarge
 ```
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -110,7 +109,7 @@ Bin packing is the practice of utilizing more of the instance’s resources by p
 
 Karpenter can continuously monitor and binpack to improve instance resource utilization and lower your compute costs. Karpenter can also select a more cost efficient worker node for your workload. This can be achieved by turning on "consolidation" flag to true in the provisioner (sample code snippet below). The example below shows an example provisioner that enables consolidation. At the time of writing this guide, Karpenter won’t replace a running Spot instance with a cheaper Spot instance. For further details on Karpenter consolidation, refer to [this blog](https://aws.amazon.com/blogs/containers/optimizing-your-kubernetes-compute-costs-with-karpenter-consolidation/).
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: Provisioner
 metadata:
@@ -122,7 +121,7 @@ spec:
 
 For workloads that might not be interruptible e.g. long running batch jobs without checkpointing, consider annotating pods with the `do-not-evict` annotation. By opting pods out of eviction, you are telling Karpenter that it should not voluntarily remove nodes containing this pod. However, if a `do-not-evict` pod is added to a node while the node is draining, the remaining pods will still evict, but that pod will block termination until it is removed. In either case, the node will be cordoned to prevent additional work from being scheduled on the node. Below is an example showing how set the annotation:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -146,7 +145,7 @@ Node utilization is defined as the sum of requested resources divided by capacit
 
 You can prevent scale down from happening by ensuring that pods that are expensive to evict are protected by a label recognized by the Cluster Autoscaler. To do this, ensure that pods that are expensive to evict have the annotation `cluster-autoscaler.kubernetes.io/safe-to-evict=false`. Below is an example yaml to set the annotation:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -282,7 +281,7 @@ EKS has the ability to run clusters with mixed architecture (e.g. amd64 and arm6
 
 Provisioners can be configured with multiple architectures and workloads can also request specific architectures in their workload specification.
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: Provisioner
 metadata:
@@ -298,7 +297,7 @@ With Cluster Autoscaler you will need to create a node group for Graviton instan
 
 GPUs and FPGAs can greatly increase the performance for your workload, but the workload will need to be optimized to use the accelerator. Many workload types for machine learning and artificial intelligence can use GPUs for compute and instances can be added to a cluster and mounted into a workload using resource requests.
 
-```
+```yaml
 spec:
   template:
     spec:

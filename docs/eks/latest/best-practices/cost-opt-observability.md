@@ -1,7 +1,6 @@
 
 
 # Observability
-<a name="cost-opt-observability"></a>
 
 ## Introduction
 <a name="_introduction"></a>
@@ -109,13 +108,13 @@ public static void main(String[] args) {
 
 In a development environment, change your log level to `DEBUG`, as this can help you debug issues or catch potential ones before they get into production.
 
-```
+```java
       log.setLevel(Level.DEBUG);
 ```
 
 In a production environment, consider modifying your log level to `ERROR` or `FATAL`. This will output log only when your application has errors, reducing the log output and help you focus on important data about your application status.
 
-```
+```java
       log.setLevel(Level.ERROR);
 ```
 
@@ -200,7 +199,7 @@ The first cost reduction strategy is to reduce the number of metrics you are col
 
 Here is an example prometheus scrape config where we are using the `relabel_config` to keep only kubelet metrics and `metric_relabel_config` to drop all container metrics.
 
-```
+```yaml
   kubernetes_sd_configs:
   - role: endpoints
     namespaces:
@@ -231,13 +230,13 @@ In EKS environments with many metrics and dimensions/labels per metric (Cluster,
 
 In order to identify high cardinality metrics in prometheus you can run the following PROMQL query to determine which scrape targets have the highest number of metrics (cardinality):
 
-```
+```promql
 topk_max(5, max_over_time(scrape_samples_scraped[1h]))
 ```
 
 and the following PROMQL query can help you determine which scrape targets have the highest metrics churn (how many new metrics series were created in a given scrape) rates :
 
-```
+```promql
 topk_max(5, max_over_time(scrape_series_added[1h]))
 ```
 
@@ -291,7 +290,7 @@ For example, you have java application that you want to debug the traces of all 
 
  **Configure via the SDK to load sampling rules from a JSON document** 
 
-```
+```json
 {
 "version": 2,
   "rules": [

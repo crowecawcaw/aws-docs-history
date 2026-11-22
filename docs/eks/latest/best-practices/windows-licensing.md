@@ -1,7 +1,6 @@
 
 
 # Windows Server version and License
-<a name="windows-licensing"></a>
 
 ## Windows Server version
 <a name="_windows_server_version"></a>

@@ -1,7 +1,6 @@
 
 
 # Best Practices for Running AI/ML Workloads
-<a name="aiml"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.

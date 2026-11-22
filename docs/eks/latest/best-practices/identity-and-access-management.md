@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management
-<a name="identity-and-access-management"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -17,13 +16,13 @@ The webhook authentication strategy calls a webhook that verifies bearer tokens.
 
 To manually generate a authentication token, type the following command in a terminal window:
 
-```
+```bash
 aws eks get-token --cluster-name <cluster_name> --region <region>
 ```
 
 The output should resemble this:
 
-```
+```json
 {
     "kind": "ExecCredential",
     "apiVersion": "client.authentication.k8s.io/v1alpha1",
@@ -37,7 +36,7 @@ The output should resemble this:
 
 You can also get a token programmatically. Below is an example written in Go:
 
-```
+```golang
 package main
 
 import (
@@ -58,7 +57,7 @@ func main()  {
 
 The output should resemble this:
 
-```
+```json
 {
   "kind": "ExecCredential",
   "apiVersion": "client.authentication.k8s.io/v1alpha1",
@@ -72,7 +71,7 @@ The output should resemble this:
 
 Each token starts with `k8s-aws-v1.` followed by a base64 encoded string. The string, when decoded, should resemble to something similar to this:
 
-```
+```bash
 https://sts.amazonaws.com/?Action=GetCallerIdentity&Version=2011-06-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=XXXXJPFRILKNSRC2W5QA%2F20200219%2Fus-xxxx-1%2Fsts%2Faws4_request&X-Amz-Date=20200219T155427Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host%3Bx-k8s-aws-id&X-Amz-Signature=XXXf8f3285e320ddb5e683a5c9a405301ad76546f24f28111fdad09cf648a393
 ```
 
@@ -118,7 +117,7 @@ With this feature, Amazon EKS supports three modes of authentication:
 
 To get started, cluster administrators can create or update Amazon EKS clusters, setting the preferred authentication to `API_AND_CONFIG_MAP` or `API` method and define Access Entries to grant access the desired AWS IAM principals.
 
-```
+```bash
 $ aws eks create-cluster \
     --name <CLUSTER_NAME> \
     --role-arn <CLUSTER_ROLE_ARN> \
@@ -131,7 +130,7 @@ The above command is an example to create an Amazon EKS cluster already without 
 
 It is possible to update Amazon EKS clusters configuration to enable `API` authenticationMode using the `update-cluster-config` command, to do that on existing clusters using `CONFIG_MAP` you will have to first update to `API_AND_CONFIG_MAP` and then to `API`. **These operations cannot be reverted**, meaning that’s not possible to switch from `API` to `API_AND_CONFIG_MAP` or `CONFIG_MAP`, and also from `API_AND_CONFIG_MAP` to `CONFIG_MAP`.
 
-```
+```bash
 $ aws eks update-cluster-config \
     --name <CLUSTER_NAME> \
     --access-config authenticationMode=API
@@ -147,7 +146,7 @@ The API support commands to add and revoke access to the cluster, as well as val
 | AmazonEKSEditPolicy | edit | 
 | AmazonEKSViewPolicy | view | 
 
-```
+```bash
 $ aws eks list-access-policies
 {
     "accessPolicies": [
@@ -186,13 +185,13 @@ One way Kubernetes integration with AWS authentication can be done is via the `a
 
 To check your cluster’s `aws-auth` ConfigMap, you can use the following command.
 
-```
+```bash
 kubectl -n kube-system get configmap aws-auth -o yaml
 ```
 
 This is a sample of a default configuration of the `aws-auth` ConfigMap.
 
-```
+```yaml
 apiVersion: v1
 data:
   mapRoles: |
@@ -265,7 +264,7 @@ By default Amazon EKS clusters are created with a permanent `cluster-admin` perm
 
 The API gives you flexibility to only disassociate an IAM principal from an Access Policy, in this case the `AmazonEKSClusterAdminPolicy`.
 
-```
+```bash
 $ aws eks list-associated-access-policies \
     --cluster-name <CLUSTER_NAME> \
     --principal-arn <IAM_PRINCIPAL_ARN>
@@ -277,7 +276,7 @@ $ aws eks disassociate-access-policy --cluster-name <CLUSTER_NAME> \
 
 Or completely removing the Access Entry associated with the `cluster-admin` permission.
 
-```
+```bash
 $ aws eks list-access-entries --cluster-name <CLUSTER_NAME>
 
 {
@@ -302,7 +301,7 @@ When accessing the EKS cluster with the IAM entity mapped by `aws-auth` ConfigMa
 
 If still using the `aws-auth` configMap as the authentication method, when assigning K8s RBAC permissions to an IAM role, you should include \\{{SessionName}} in your username. That way, the audit log will record the session name so you can track who the actual user assume this role along with the CloudTrail log.
 
-```
+```yaml
 - rolearn: arn:aws:iam::XXXXXXXXXXXX:role/testRole
   username: testRole:{{SessionName}}
   groups:
@@ -340,14 +339,14 @@ An improperly formatted aws-auth ConfigMap may cause you to lose access to the c
 
 View CLI Help:
 
-```
+```bash
 $ eksctl create iamidentitymapping --help
 ...
 ```
 
 Check the identities mapped to your Amazon EKS Cluster.
 
-```
+```bash
 $ eksctl get iamidentitymapping --cluster $CLUSTER_NAME --region $AWS_REGION
 ARN                                                                   USERNAME                        GROUPS                                                  ACCOUNT
 arn:aws:iam::788355785855:role/kube-system-<SELF_GENERATED_UUID>      system:node:{{SessionName}}     system:bootstrappers,system:nodes,system:node-proxier
@@ -355,7 +354,7 @@ arn:aws:iam::788355785855:role/kube-system-<SELF_GENERATED_UUID>      system:nod
 
 Make an IAM Role a Cluster Admin:
 
-```
+```bash
 $ eksctl create iamidentitymapping --cluster  <CLUSTER_NAME> --region=<region> --arn arn:aws:iam::123456:role/testing --group system:masters --username admin
 ...
 ```
@@ -368,7 +367,7 @@ For more information, review [`eksctl` docs](https://eksctl.io/usage/iam-identit
 
 Download and view help CLI help:
 
-```
+```bash
 $ go get github.com/keikoproj/aws-auth
 ...
 $ aws-auth help
@@ -377,7 +376,7 @@ $ aws-auth help
 
 Alternatively, install `aws-auth` with the [krew plugin manager](https://krew.sigs.k8s.io) for kubectl.
 
-```
+```bash
 $ kubectl krew install aws-auth
 ...
 $ kubectl aws-auth
@@ -394,7 +393,7 @@ The `aws-iam-authenticator` project includes a CLI for updating the ConfigMap.
 
 Add cluster permissions to an IAM Role:
 
-```
+```bash
 $ ./aws-iam-authenticator add role --rolearn arn:aws:iam::185309785115:role/lil-dev-role-cluster --username lil-dev-user --groups system:masters --kubeconfig ~/.kube/config
 ...
 ```
@@ -421,7 +420,7 @@ Certain applications that run within a Kubernetes cluster need permission to cal
 
 A service account is a special type of object that allows you to assign a Kubernetes RBAC role to a pod. A default service account is created automatically for each Namespace within a cluster. When you deploy a pod into a Namespace without referencing a specific service account, the default service account for that Namespace will automatically get assigned to the Pod and the Secret, i.e. the service account (JWT) token for that service account, will get mounted to the pod as a volume at `/var/run/secrets/kubernetes.io/serviceaccount`. Decoding the service account token in that directory will reveal the following metadata:
 
-```
+```json
 {
   "iss": "kubernetes/serviceaccount",
   "kubernetes.io/serviceaccount/namespace": "default",
@@ -434,7 +433,7 @@ A service account is a special type of object that allows you to assign a Kubern
 
 The default service account has the following permissions to the Kubernetes API.
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -478,7 +477,7 @@ When using IRSA, it is important to [reuse AWS SDK sessions](#iam-reuse-sessions
 
 Decoding the (JWT) token for IRSA will produce output similar to the example you see below:
 
-```
+```json
 {
   "aud": [
     "sts.amazonaws.com"
@@ -504,7 +503,7 @@ Decoding the (JWT) token for IRSA will produce output similar to the example you
 
 This particular token grants the Pod view-only privileges to S3 by assuming an IAM role. When the application attempts to read from S3, the token is exchanged for a temporary set of IAM credentials that resembles this:
 
-```
+```json
 {
     "AssumedRoleUser": {
         "AssumedRoleId": "AROA36C6WWEJULFUYMPB6:abc",
@@ -524,7 +523,7 @@ This particular token grants the Pod view-only privileges to S3 by assuming an I
 
 A mutating webhook that runs as part of the EKS control plane injects the AWS Role ARN and the path to a web identity token file into the Pod as environment variables. These values can also be supplied manually.
 
-```
+```bash
 AWS_ROLE_ARN=arn:aws:iam::AWS_ACCOUNT_ID:role/IAM_ROLE_NAME
 AWS_WEB_IDENTITY_TOKEN_FILE=/var/run/secrets/eks.amazonaws.com/serviceaccount/token
 ```
@@ -548,7 +547,7 @@ You do not have to make any modifications to your application code to use EKS Po
 + Each Service Account may only have one IAM role associated with it through EKS Pod Identities, however you can associate the same IAM role with multiple service accounts.
 + IAM roles used with EKS Pod Identities must allow the `pods.eks.amazonaws.com` Service Principal to assume them, *and* set session tags. The following is an example role trust policy which allows EKS Pod Identities to use an IAM role:
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -594,7 +593,7 @@ For example, if you wanted to grant access to only a specific service account to
 
 This example S3 Bucket policy only grants access to objects in the S3 bucket it’s attached to, only if `kubernetes-service-account`, `kubernetes-namespace`, `eks-cluster-arn` all meet their expected values, where the EKS cluster is hosted in the AWS account `111122223333`.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -656,7 +655,7 @@ Blocking access to instance metadata will prevent pods that do not use IRSA or E
 
 You can block access to instance metadata by requiring the instance to use IMDSv2 only and updating the hop count to 1 as in the example below. You can also include these settings in the node group’s launch template. Do **not** disable instance metadata as this will prevent components like the node termination handler and other things that rely on instance metadata from working properly.
 
-```
+```bash
 $ aws ec2 modify-instance-metadata-options --instance-id <value> --http-tokens required --http-put-response-hop-limit 1
 ...
 ```
@@ -676,7 +675,7 @@ The trust policy can be scoped to a Namespace or a specific service account with
 
 When working with IAM directly, this is adding condition into the role’s trust policy that uses conditions to ensure the `:sub` claim are the namespace and service account you expect. As an example, before we had an IRSA token with a sub claim of "system:serviceaccount:default:s3-read-only" . This is the `default` namespace and the service account is `s3-read-only`. You would use a condition like the following to ensure that only your service account in a given namespace from your cluster can assume that role:
 
-```
+```json
   "Condition": {
       "StringEquals": {
           "oidc.eks.us-west-2.amazonaws.com/id/D43CF17C27A865933144EA99A26FB128:aud": "sts.amazonaws.com",
@@ -702,7 +701,7 @@ When using ABAC with EKS Pod Identity, you may use a common IAM role across mult
 
 If your application doesn’t need to call the Kubernetes API set the `automountServiceAccountToken` attribute to `false` in the PodSpec for your application or patch the default service account in each namespace so that it’s no longer mounted to pods automatically. For example:
 
-```
+```bash
 kubectl patch serviceaccount default -p $'automountServiceAccountToken: false'
 ```
 
@@ -721,7 +720,7 @@ Containers run as root by default. While this allows them to read the web identi
 
 In the following example, all processes within the Pod will run under the user ID specified in the `runAsUser` field.
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -738,7 +737,7 @@ spec:
 
 When you run a container as a non-root user, it prevents the container from reading the IRSA service account token because the token is assigned 0600 [root] permissions by default. If you update the securityContext for your container to include fsgroup=65534 [Nobody] it will allow the container to read the token.
 
-```
+```yaml
 spec:
   securityContext:
     fsGroup: 65534
@@ -758,7 +757,7 @@ Consider setting a [permissions boundary](https://docs.aws.amazon.com/IAM/latest
 
 Ideally anonymous access should be disabled for all API actions. Anonymous access is granted by creating a RoleBinding or ClusterRoleBinding for the Kubernetes built-in user system:anonymous. You can use the [rbac-lookup](https://github.com/FairwindsOps/rbac-lookup) tool to identify permissions that system:anonymous user has on your cluster:
 
-```
+```bash
 ./rbac-lookup | grep -P 'system:(anonymous)|(unauthenticated)'
 system:anonymous               cluster-wide        ClusterRole/system:discovery
 system:unauthenticated         cluster-wide        ClusterRole/system:discovery
@@ -771,19 +770,19 @@ There may be some legitimate reasons to enable anonymous access on specific APIs
 
 Prior to Kubernetes/EKS Version 1.14, system:unauthenticated group was associated to system:discovery and system:basic-user ClusterRoles by default. Note that even if you have updated your cluster to version 1.14 or higher, these permissions may still be enabled on your cluster, since cluster updates do not revoke these permissions. To check which ClusterRoles have "system:unauthenticated" except system:public-info-viewer you can run the following command (requires jq util):
 
-```
+```bash
 kubectl get ClusterRoleBinding -o json | jq -r '.items[] | select(.subjects[]?.name =="system:unauthenticated") | select(.metadata.name != "system:public-info-viewer") | .metadata.name'
 ```
 
 And "system:unauthenticated" can be removed from all the roles except "system:public-info-viewer" using:
 
-```
+```bash
 kubectl get ClusterRoleBinding -o json | jq -r '.items[] | select(.subjects[]?.name =="system:unauthenticated") | select(.metadata.name != "system:public-info-viewer") | del(.subjects[] | select(.name =="system:unauthenticated"))' | kubectl apply -f -
 ```
 
 Alternatively, you can check and remove it manually by kubectl describe and kubectl edit. To check if system:unauthenticated group has system:discovery permissions on your cluster run the following command:
 
-```
+```bash
 kubectl describe clusterrolebindings system:discovery
 
 Name:         system:discovery
@@ -801,7 +800,7 @@ Subjects:
 
 To check if system:unauthenticated group has system:basic-user permission on your cluster run the following command:
 
-```
+```bash
 kubectl describe clusterrolebindings system:basic-user
 
 Name:         system:basic-user
@@ -819,13 +818,13 @@ Subjects:
 
 If system:unauthenticated group is bound to system:discovery and/or system:basic-user ClusterRoles on your cluster, you should disassociate these roles from system:unauthenticated group. Edit system:discovery ClusterRoleBinding using the following command:
 
-```
+```bash
 kubectl edit clusterrolebindings system:discovery
 ```
 
 The above command will open the current definition of system:discovery ClusterRoleBinding in an editor as shown below:
 
-```
+```yaml
 # Please edit the object below. Lines beginning with a '#' will be ignored,
 # and an empty file will abort the edit. If an error occurs while saving this file will be
 # reopened with the relevant failures.
@@ -868,7 +867,7 @@ To avoid this scenario, we recommend reusing AWS SDK sessions within your applic
 
 In the following example code, a session is created using the boto3 python SDK, and that same session is used to create clients and interact with both Amazon S3 and Amazon SQS. `AssumeRoleWithWebIdentity` is only called once, and the AWS SDK will refresh the credentials of `my_session` when they expire automatically.
 
-```
+```python
 import boto3
 
 = Create your own session

@@ -1,7 +1,6 @@
 
 
 # Windows worker nodes hardening
-<a name="windows-hardening"></a>
 
 OS Hardening is a combination of OS configuration, patching, and removing unnecessary software packages, which aim to lock down a system and reduce the attack surface. It is a best practice to prepare your own EKS Optimized Windows AMI with the hardening configurations required by your company.
 
@@ -25,7 +24,7 @@ As a best practice, you should treat your Windows worker nodes as if they were e
 
 Disable RDP connections on Windows nodes during the deployment by passing the value **false** on the ssh property, as the example below:
 
-```
+```yaml
 nodeGroups:
 - name: windows-ng
   instanceType: c5.xlarge
@@ -40,7 +39,7 @@ If access to the Windows node is needed, use [AWS System Manager Session Manager
 
 In order to use System Manager Session Manager an additional IAM policy must be applied to the IAM role used to launch the Windows worker node. Below is an example where the **AmazonSSMManagedInstanceCore** is specified in the `eksctl` cluster manifest:
 
-```
+```yaml
  nodeGroups:
 - name: windows-ng
   instanceType: c5.xlarge

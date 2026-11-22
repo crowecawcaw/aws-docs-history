@@ -1,7 +1,6 @@
 
 
 # Workloads
-<a name="scale-workloads"></a>
 
 Workloads have an impact on how large your cluster can scale. Workloads that use the Kubernetes APIs heavily will limit the total amount of workloads you can have in a single cluster, but there are some defaults you can change to help reduce the load.
 

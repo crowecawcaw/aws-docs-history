@@ -1,7 +1,6 @@
 
 
 # Running highly-available applications
-<a name="application"></a>
 
 Your customers expect your application to be always available, including when you’re making changes and especially during spikes in traffic. A scalable and resilient architecture keeps your applications and services running without disruptions, which keeps your users happy. A scalable infrastructure grows and shrinks based on the needs of the business. Eliminating single points of failure is a critical step towards improving an application’s availability and making it resilient.
 
@@ -187,7 +186,7 @@ Having an undo button can evade disasters. It is a best practice to test deploym
 
 You can use Deployments to update a running application. This is typically done by updating the container image. You can use `kubectl` to update a Deployment like this:
 
-```
+```bash
 kubectl --record deployment.apps/nginx-deployment set image nginx-deployment nginx=nginx:1.16.1
 ```
 

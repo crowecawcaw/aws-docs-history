@@ -1,7 +1,6 @@
 
 
 # Tenant Isolation
-<a name="tenant-isolation"></a>
 
 When we think of multi-tenancy, we often want to isolate a user or application from other users or applications running on a shared infrastructure.
 
@@ -130,7 +129,7 @@ Restricting tenant workloads to run on specific nodes can be used to increase is
 
 Kubernetes [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) is used to target nodes for scheduling, based on node [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/). With node affinity rules, the pods are attracted to specific nodes that match the selector terms. In the below pod specification, the `requiredDuringSchedulingIgnoredDuringExecution` node affinity is applied to the respective pod. The result is that the pod will target nodes that are labeled with the following key/value: `node-restriction.kubernetes.io/tenant: tenants-x`.
 
-```
+```yaml
 ...
 spec:
   affinity:
@@ -158,7 +157,7 @@ Instead of node affinity, we could have used the [node selector](https://kuberne
 
 Attracting pods to nodes is just the first part of this three-part approach. For this approach to work, we must repel pods from scheduling onto nodes for which the pods are not authorized. To repel unwanted or unauthorized pods, Kubernetes uses node [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). Taints are used to place conditions on nodes that prevent pods from being scheduled. The below taint uses a key-value pair of `tenant: tenants-x`.
 
-```
+```yaml
 ...
     taints:
       - key: tenant
@@ -169,7 +168,7 @@ Attracting pods to nodes is just the first part of this three-part approach. For
 
 Given the above node `taint`, only pods that *tolerate* the taint will be allowed to be scheduled on the node. To allow authorized pods to be scheduled onto the node, the respective pod specifications must include a `toleration` to the taint, as seen below.
 
-```
+```yaml
 ...
   tolerations:
   - effect: NoSchedule
@@ -191,7 +190,7 @@ There are several tools that can be used to help manage the node affinity and to
 
 For example, pods destined for the *tenants-x* namespace can be *stamped* with the correct node affinity and toleration to permit scheduling on the *tenants-x* nodes. Utilizing policy-management tools configured using the Kubernetes [Mutating Admission Webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), policies can be used to mutate the inbound pod specifications. The mutations add the needed elements to allow desired scheduling. An example OPA/Gatekeeper policy that adds a node affinity is seen below.
 
-```
+```yaml
 apiVersion: mutations.gatekeeper.sh/v1alpha1
 kind: Assign
 metadata:
@@ -221,7 +220,7 @@ The above policy is applied to a Kubernetes API server request, to apply a pod t
 
 A second policy, seen below, adds the toleration to the same pod specification, using the same matching criteria of target namespace and groups, kinds, and versions.
 
-```
+```yaml
 apiVersion: mutations.gatekeeper.sh/v1alpha1
 kind: Assign
 metadata:
@@ -250,7 +249,7 @@ The above policies are specific to pods; this is due to the paths to the mutated
 
 The result of these two mutations is that pods are attracted to the desired node, while at the same time, not repelled by the specific node taint. To verify this, we can see the snippets of output from two `kubectl` calls to get the nodes labeled with `tenant=tenants-x`, and get the pods in the `tenants-x` namespace.
 
-```
+```bash
 kubectl get nodes -l tenant=tenants-x
 NAME
 ip-10-0-11-255...
@@ -270,7 +269,7 @@ As we can see from the above outputs, all the pods are scheduled on the nodes la
 
 An example mutated pod specification is seen below.
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:

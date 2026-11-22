@@ -1,7 +1,6 @@
 
 
 # Storage
-<a name="cost-opt-storage"></a>
 
 ## Overview
 <a name="_overview"></a>

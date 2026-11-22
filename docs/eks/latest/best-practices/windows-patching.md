@@ -1,7 +1,6 @@
 
 
 # Patching Windows Servers and Containers
-<a name="windows-patching"></a>
 
 Patching Windows Server is a standard management task for Windows Administrators. This can be accomplished using different tools like Amazon System Manager - Patch Manager, WSUS, System Center Configuration Manager, and many others. However, Windows nodes in an Amazon EKS cluster should not be treated as an ordinary Windows servers. They should be treated as an immutable server. Simply put, avoid updating an existing node, just launch a new one based on an new updated AMI.
 
@@ -42,7 +41,7 @@ The output below from `docker image ls` , the size of the fluentd v1.14-windows-
 
 In practice, during the pull operation only the **compressed 533.05MB** will be downloaded and extracted.
 
-```
+```bash
 REPOSITORY                                                              TAG                        IMAGE ID       CREATED         SIZE
 111122223333.dkr.ecr.us-east-1.amazonaws.com/fluentd-windows-coreltsc   latest                     721afca2c725   7 weeks ago     6.96GB
 fluent/fluentd                                                          v1.14-windows-ltsc2019-1   721afca2c725   7 weeks ago     6.96GB

@@ -1,7 +1,6 @@
 
 
 # Karpenter
-<a name="karpenter"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -40,7 +39,7 @@ The following best practices cover topics related to Karpenter itself.
 
 We strongly recommend that you pin well-known Amazon Machine Images (AMIs) used by Karpenter for production clusters. Using `amiSelector` with an alias set to `@latest`, or using some other method that results in deploying untested AMIs as they are released, offers the risk of workload failures and downtime in your production clusters. As a result, we strongly recommend pinning tested working versions of AMIs for your production clusters while you test newer versions in non-production clusters. For example, you could set an alias in your NodeClass as follows:
 
-```
+```yaml
 amiSelectorTerms
   - alias: al2023@v20240807
 ```
@@ -76,7 +75,7 @@ Consider excluding specific instances types with the `node.kubernetes.io/instanc
 
 The following example shows how to avoid provisioning large Graviton instances.
 
-```
+```yaml
 - key: node.kubernetes.io/instance-type
   operator: NotIn
   values:
@@ -99,7 +98,7 @@ Pods that require checkpointing or other forms of graceful draining, requiring t
 
 When provisioning an EKS Cluster into a VPC with no route to the internet, you have to make sure you’ve configured your environment in accordance with the private cluster [requirements](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html#private-cluster-requirements) that appear in EKS documentation. In addition, you need to make sure you’ve created an STS VPC regional endpoint in your VPC. If not, you will see errors similar to those that appear below.
 
-```
+```console
 {"level":"FATAL","time":"2024-02-29T14:28:34.392Z","logger":"controller","message":"Checking EC2 API connectivity, WebIdentityErr: failed to retrieve credentials\ncaused by: RequestError: send request failed\ncaused by: Post \"https://sts.<region>.amazonaws.com/\": dial tcp 54.239.32.126:443: i/o timeout","commit":"596ea97"}
 ```
 
@@ -107,7 +106,7 @@ These changes are necessary in a private cluster because the Karpenter Controlle
 
 Private clusters also require you to create a ** *VPC endpoint for SSM* **. When Karpenter tries to provision a new node, it queries the Launch template configs and an SSM parameter. If you do not have a SSM VPC endpoint in your VPC, it will cause the following error:
 
-```
+```console
 {"level":"ERROR","time":"2024-02-29T14:28:12.889Z","logger":"controller","message":"Unable to hydrate the AWS launch template cache, RequestCanceled: request context canceled\ncaused by: context canceled","commit":"596ea97","tag-key":"karpenter.k8s.aws/cluster","tag-value":"eks-workshop"}
 ...
 {"level":"ERROR","time":"2024-02-29T15:08:58.869Z","logger":"controller.nodeclass","message":"discovering amis from ssm, getting ssm parameter \"/aws/service/eks/optimized-ami/1.27/amazon-linux-2/recommended/image_id\", RequestError: send request failed\ncaused by: Post \"https://ssm.<region>.amazonaws.com/\": dial tcp 67.220.228.252:443: i/o timeout","commit":"596ea97","ec2nodeclass":"default","query":"/aws/service/eks/optimized-ami/1.27/amazon-linux-2/recommended/image_id"}
@@ -115,7 +114,7 @@ Private clusters also require you to create a ** *VPC endpoint for SSM* **. When
 
 There is no ** *VPC endpoint for the [Price List Query API](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/using-pelong.html) * **. As a result, pricing data will go stale over time. Karpenter gets around this by including on-demand pricing data in its binary, but only updates that data when Karpenter is upgraded. Failed requests for pricing data will result in the following error messages:
 
-```
+```console
 {"level":"ERROR","time":"2024-02-29T15:08:58.522Z","logger":"controller.pricing","message":"retreiving on-demand pricing data, RequestError: send request failed\ncaused by: Post \"https://api.pricing.<region>.amazonaws.com/\": dial tcp 18.196.224.8:443: i/o timeout; RequestError: send request failed\ncaused by: Post \"https://api.pricing.<region>.amazonaws.com/\": dial tcp 18.185.143.117:443: i/o timeout","commit":"596ea97"}
 ```
 
@@ -138,7 +137,7 @@ It is recommended to create NodePools that are either mutually exclusive or weig
 
 Creating a NodePool with GPU and only allowing special workloads to run on these (expensive) nodes:
 
-```
+```yaml
 # NodePool for GPU Instances with Taints
 apiVersion: karpenter.sh/v1
 kind: NodePool
@@ -182,7 +181,7 @@ spec:
 
 Deployment with toleration for the taint:
 
-```
+```yaml
 # Deployment of GPU Workload will have tolerations defined
 apiVersion: apps/v1
 kind: Deployment
@@ -198,7 +197,7 @@ spec:
 
 For a general deployment for another team, the NodePool spec could include nodeAffinity. A Deployment could then use nodeSelectorTerms to match `billing-team`.
 
-```
+```yaml
 # NodePool for regular EC2 instances
 apiVersion: karpenter.sh/v1
 kind: NodePool
@@ -244,7 +243,7 @@ spec:
 
 Deployment using nodeAffinity:
 
-```
+```yaml
 # Deployment will have spec.affinity.nodeAffinity defined
 kind: Deployment
 metadata:
@@ -272,7 +271,7 @@ You can use timers on provisioned nodes to set when to delete nodes that are dev
 
 When using Spot, Karpenter uses the [Price Capacity Optimized](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html) allocation strategy to provision EC2 instances. This strategy instructs EC2 to provision instances from the deepest pools for the number of instances that you are launching and have the lowest risk of interruption. EC2 Fleet then requests Spot instances from the lowest priced of these pools. The more instance types you allow Karpenter to utilize, the better EC2 can optimize your spot instance’s runtime. By default, Karpenter will use all Instance Types EC2 offers in the region and availability zones your cluster is deployed in. Karpenter intelligently chooses from the set of all instance types based on pending pods to make sure your pods are scheduled onto appropriately sized and equipped instances. For example, if your pod does not require a GPU, Karpenter will not schedule your pod to an EC2 instance type supporting a GPU. When you’re unsure about which instance types to use, you can run the Amazon [ec2-instance-selector](https://github.com/aws/amazon-ec2-instance-selector) to generate a list of instance types that match your compute requirements. For example, the CLI takes memory vCPU, architecture, and region as input parameters and provides you with a list of EC2 instances that satisfy those constraints.
 
-```
+```console
 $ ec2-instance-selector --memory 4 --vcpus 2 --cpu-architecture x86_64 -r ap-southeast-1
 c5.large
 c5a.large
@@ -315,7 +314,7 @@ The snippet below tells Karpenter to only provision a maximum of 1000 CPU cores 
 
 For further information using limits with Karpenter, see [Setting Resource Limits](https://karpenter.sh/docs/concepts/nodepools/#speclimits) in the Karpenter documentation.
 
-```
+```yaml
 spec:
   limits:
     cpu: 1000

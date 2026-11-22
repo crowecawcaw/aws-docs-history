@@ -1,7 +1,6 @@
 
 
 # Kubernetes pod failover through network disconnections
-<a name="hybrid-nodes-kubernetes-pod-failover"></a>
 
 We begin with a review of the key concepts, components, and settings that influence how Kubernetes behaves during network disconnections between nodes and the Kubernetes control plane. EKS is upstream Kubernetes conformant, so all the Kubernetes concepts, components, and settings described here apply to EKS and EKS Hybrid Nodes deployments.
 

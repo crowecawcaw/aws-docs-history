@@ -1,7 +1,6 @@
 
 
 # Application network traffic through network disconnections
-<a name="hybrid-nodes-app-network-traffic"></a>
 
 The topics on this page are related to Kubernetes cluster networking and the application traffic during network disconnections between nodes and the Kubernetes control plane.
 
@@ -14,11 +13,11 @@ The base of the Cilium install consists of the Cilium operator and Cilium agents
 
 Generally, the in-cluster routing configured by Cilium remains available and in-place during network disconnections, which can be confirmed by observing the in-cluster traffic flows and IP table (iptables) rules for the pod network.
 
-```
+```bash
 ip route show table all | grep cilium
 ```
 
-```
+```bash
 10.86.2.0/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
 10.86.2.64/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
 10.86.2.128/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
@@ -30,7 +29,7 @@ ip route show table all | grep cilium
 
 However, during network disconnections, the Cilium operator and Cilium agents restart due to the coupling of their health checks with the health of the connection with the Kubernetes API server. It is expected to see the following in the logs of the Cilium operator and Cilium agents during network disconnections. During the network disconnections, you can use tools such as the `crictl` CLI to observe the restarts of these components including their logs.
 
-```
+```bash
 msg="Started gops server" address="127.0.0.1:9890" subsys=gops
 msg="Establishing connection to apiserver" host="https://<k8s-cluster-ip>:443" subsys=k8s-client
 msg="Establishing connection to apiserver" host="https://<k8s-cluster-ip>:443" subsys=k8s-client
@@ -61,11 +60,11 @@ In EKS clusters, kube-proxy runs as a DaemonSet on each node and is responsible 
 
 You can observe the kube-proxy rules with the following iptables commands. The first command shows packets going through the `PREROUTING` chain get directed to the `KUBE-SERVICES` chain.
 
-```
+```bash
 iptables -t nat -L PREROUTING
 ```
 
-```
+```bash
 Chain PREROUTING (policy ACCEPT)
 target         prot opt source      destination
 KUBE-SERVICES  all  --  anywhere    anywhere      /* kubernetes service portals */
@@ -73,7 +72,7 @@ KUBE-SERVICES  all  --  anywhere    anywhere      /* kubernetes service portals 
 
 Inspecting the `KUBE-SERVICES` chain we can see the rules for the various cluster services.
 
-```
+```bash
 Chain KUBE-SERVICES (2 references)
 target                     prot opt source      destination
 KUBE-SVL-NZTS37XDTDNXGCKJ  tcp  --  anywhere    172.16.189.136  /* kube-system/hubble-peer:peer-service cluster IP /
@@ -92,11 +91,11 @@ KUBE-NODEPORTS             all  --  anywhere    anywhere        / kubernetes ser
 
 Inspecting the chain of the frontend service for the application we can see the pod IP addresses backing the service.
 
-```
+```bash
 iptables -t nat -L KUBE-SVC-ENODL3HWJ5BZY56Q
 ```
 
-```
+```bash
 Chain KUBE-SVC-ENODL3HWJ5BZY56Q (2 references)
 target                     prot opt source    destination
 KUBE-SEP-EKXE7ASH7Y74BGBO  all  --  anywhere  anywhere    /* default/frontend -> 10.86.2.103:80 / statistic mode random probability 0.33333333349
@@ -106,7 +105,7 @@ KUBE-SEP-6GJJR3EF5AUP2WBU  all  --  anywhere  anywhere    / default/frontend -> 
 
 The following kube-proxy log messages are expected during network disconnections as it attempts to watch the Kubernetes API server for updates to node and endpoint resources.
 
-```
+```bash
 "Unhandled Error" err="k8s.io/client-go/informers/factory.go:160: Failed to watch *v1.Node: failed to list *v1.Node: Get \"https://<k8s-endpoint>/api/v1/nodes?fieldSelector=metadata.name%3D<node-name>&resourceVersion=2241908\": dial tcp <k8s-ip>:443: i/o timeout" logger="UnhandledError"
 "Unhandled Error" err="k8s.io/client-go/informers/factory.go:160: Failed to watch *v1.EndpointSlice: failed to list *v1.EndpointSlice: Get \"https://<k8s-endpoint>/apis/discovery.k8s.io/v1/endpointslices?labelSelector=%21service.kubernetes.io%2Fheadless%2C%21service.kubernetes.io%2Fservice-proxy-name&resourceVersion=2242090\": dial tcp <k8s-ip>:443: i/o timeout" logger="UnhandledError"
 ```
@@ -118,7 +117,7 @@ By default, pods in EKS clusters use the CoreDNS cluster IP address as the name 
 
 The following CoreDNS log messages are expected during network disconnections as it attempts to list objects from the Kubernetes API server.
 
-```
+```bash
 Failed to watch *v1.Namespace: failed to list *v1.Namespace: Get "https://<k8s-cluster-ip>:443/api/v1/namespaces?resourceVersion=2263964": dial tcp <k8s-cluster-ip>:443: i/o timeout
 Failed to watch *v1.Service: failed to list *v1.Service: Get "https://<k8s-cluster-ip>:443/api/v1/services?resourceVersion=2263966": dial tcp <k8s-cluster-ip>:443: i/o timeout
 Failed to watch *v1.EndpointSlice: failed to list *v1.EndpointSlice: Get "https://<k8s-cluster-ip>:443/apis/discovery.k8s.io/v1/endpointslices?resourceVersion=2263896": dial tcp <k8s-cluster-ip>: i/o timeout

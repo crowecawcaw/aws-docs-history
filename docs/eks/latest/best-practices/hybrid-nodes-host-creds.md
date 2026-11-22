@@ -1,7 +1,6 @@
 
 
 # Host credentials through network disconnections
-<a name="hybrid-nodes-host-creds"></a>
 
 EKS Hybrid Nodes is integrated with AWS Systems Manager (SSM) hybrid activations and AWS IAM Roles Anywhere for temporary IAM credentials that are used to authenticate the node with the EKS control plane. Both SSM and IAM Roles Anywhere automatically refresh the temporary credentials that they manage on on-premises hosts. It is recommended to use a single credential provider across the hybrid nodes in your cluster—either SSM hybrid activations or IAM Roles Anywhere, but not both.
 
@@ -14,7 +13,7 @@ SSM uses exponential backoff for credential refresh retries if it is unable to c
 
 Get the SSM agent version. You can also check the Fleet Manager section of the SSM console:
 
-```
+```bash
 # AL2023, RHEL
 yum info amazon-ssm-agent
 # Ubuntu
@@ -23,7 +22,7 @@ snap list amazon-ssm-agent
 
 Restart the SSM agent:
 
-```
+```bash
 # AL2023, RHEL
 systemctl restart amazon-ssm-agent
 # Ubuntu
@@ -32,13 +31,13 @@ systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
 
 View SSM agent logs:
 
-```
+```bash
 tail -f /var/log/amazon/ssm/amazon-ssm-agent.log
 ```
 
 Expected log messages during network disconnections:
 
-```
+```bash
 INFO [CredentialRefresher] Credentials ready
 INFO [CredentialRefresher] Next credential rotation will be in 29.995040663666668 minutes
 ERROR [CredentialRefresher] Retrieve credentials produced error: RequestError: send request failed

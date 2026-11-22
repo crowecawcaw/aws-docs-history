@@ -1,7 +1,6 @@
 
 
 # Runtime security
-<a name="runtime-security"></a>
 
 Runtime security provides active protection for your containers while they’re running. The idea is to detect and/or prevent malicious activity from occurring inside the container. This can be achieved with a number of mechanisms in the Linux kernel or kernel extensions that are integrated with Kubernetes, such as Linux capabilities, secure computing (seccomp), AppArmor, or SELinux. There are also options like Amazon GuardDuty and third party tools that can assist with establishing baselines and detecting anomalous activity with less manual configuration of Linux kernel mechanisms.
 
@@ -25,7 +24,7 @@ With secure computing (seccomp) you can prevent a containerized application from
 
 Seccomp works by intercepting syscalls and only allowing those that have been allowlisted to pass through. Docker has a [default](https://github.com/moby/profiles/blob/main/seccomp/default.json) seccomp profile which is suitable for a majority of general purpose workloads, and other container runtimes like containerd provide comparable defaults. You can configure your container or Pod to use the container runtime’s default seccomp profile by adding the following to the `securityContext` section of the Pod spec:
 
-```
+```yaml
 securityContext:
   seccompProfile:
     type: RuntimeDefault

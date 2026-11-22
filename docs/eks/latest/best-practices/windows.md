@@ -1,7 +1,6 @@
 
 
 # Best Practices for Windows
-<a name="windows"></a>
 
 This guide provides advice about running windows containers and nodes.
 

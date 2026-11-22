@@ -1,7 +1,6 @@
 
 
 # Kubernetes Data Plane
-<a name="scale-data-plane"></a>
 
 Selecting EC2 instance types is possibly one of the hardest decisions customers face because in clusters with multiple workloads. There is no one-size-fits all solution. Here are some tips to help you avoid common pitfalls with scaling compute.
 
@@ -235,7 +234,7 @@ When using a [custom AMI with Karpenter](https://karpenter.sh/docs/concepts/node
 
 To address this, the recommended best practice is to thoroughly specify the [kubelet settings in the `NodeClass` configuration](https://karpenter.sh/docs/concepts/nodeclasses/#speckubelet) when using a custom AMI. This includes setting appropriate values for `system-reserved` and `kube-reserved` resource requests based on the specific OS and packages installed on the custom AMI. Additionally, carefully configure the eviction thresholds to ensure the `kubelet` can effectively manage pod evictions under resource pressure. Refer to the `spec.kubelet` section in the Karpenter documentation for the available configuration options and guidance on setting these values correctly. Monitoring the node’s resource utilization after deployment is also crucial to validate the `kubelet` settings and make any necessary adjustments. By following these best practices, you can ensure the `kubelet` is properly configured to handle the workload requirements on nodes provisioned with a custom AMI.
 
-```
+```yaml
 kubelet:
   podsPerCore: 2
   maxPods: 20

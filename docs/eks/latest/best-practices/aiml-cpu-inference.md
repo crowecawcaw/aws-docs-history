@@ -1,7 +1,6 @@
 
 
 # CPU Inference and Orchestration
-<a name="aiml-cpu-inference"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -187,7 +186,7 @@ Base your `requests` on observed p50-p90 usage under realistic load. Use Goldilo
 
 ML libraries (PyTorch, ONNX Runtime, MKL, OpenBLAS) spawn as many threads as they can see vCPUs on the node, not the CPUs allocated to the pod. On a dense node with 20 pods, every pod tries to spawn 32 threads. The node thrashes on context switching and p99 latency spikes. Fix this explicitly:
 
-```
+```yaml
 env:
   - name: OMP_NUM_THREADS
     value: "2"          # match your cpu request (2000m = 2 threads)
@@ -249,7 +248,7 @@ Queue depth (requests deferred/waiting) is a leading indicator. It rises *before
 
 KEDA supports combining multiple metrics into a single scaling formula using `scalingModifiers` (requires KEDA 2.12\+). The recommended pattern for inference workloads is to combine in-flight requests with queued requests, weighting the queue metric heavily:
 
-```
+```yaml
 advanced:
   scalingModifiers:
     formula: "running + (waiting * 10)"

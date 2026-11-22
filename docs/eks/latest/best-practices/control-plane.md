@@ -1,7 +1,6 @@
 
 
 # EKS Control Plane
-<a name="control-plane"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -42,7 +41,7 @@ Kubernetes exposes control plane metrics at the `/metrics` endpoint.
 
 You can view the metrics exposed using `kubectl`:
 
-```
+```shell
 kubectl get --raw /metrics
 ```
 

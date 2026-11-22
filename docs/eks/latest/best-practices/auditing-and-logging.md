@@ -1,14 +1,13 @@
 
 
 # Auditing and logging
-<a name="auditing-and-logging"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
 
 Collecting and analyzing [audit] logs is useful for a variety of different reasons. Logs can help with root cause analysis and attribution, i.e. ascribing a change to a particular user. When enough logs have been collected, they can be used to detect anomalous behaviors too. On EKS, the audit logs are sent to Amazon Cloudwatch Logs. The audit policy for EKS is as follows:
 
-```
+```yaml
 apiVersion: audit.k8s.io/v1beta1
 kind: Policy
 rules:
@@ -201,7 +200,7 @@ Use CloudWatch Log Insights to monitor changes to RBAC objects, e.g. Roles, Rol
 
 Lists updates to the `aws-auth` ConfigMap:
 
-```
+```bash
 fields @timestamp, @message
 | filter @logStream like "kube-apiserver-audit"
 | filter verb in ["update", "patch"]
@@ -211,7 +210,7 @@ fields @timestamp, @message
 
 Lists creation of new or changes to validation webhooks:
 
-```
+```bash
 fields @timestamp, @message
 | filter @logStream like "kube-apiserver-audit"
 | filter verb in ["create", "update", "patch"] and responseStatus.code = 201
@@ -221,7 +220,7 @@ fields @timestamp, @message
 
 Lists create, update, delete operations to Roles:
 
-```
+```bash
 fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
@@ -230,7 +229,7 @@ fields @timestamp, @message
 
 Lists create, update, delete operations to RoleBindings:
 
-```
+```bash
 fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
@@ -239,7 +238,7 @@ fields @timestamp, @message
 
 Lists create, update, delete operations to ClusterRoles:
 
-```
+```bash
 fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
@@ -248,7 +247,7 @@ fields @timestamp, @message
 
 Lists create, update, delete operations to ClusterRoleBindings:
 
-```
+```bash
 fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
@@ -257,7 +256,7 @@ fields @timestamp, @message
 
 Plots unauthorized read operations against Secrets:
 
-```
+```bash
 fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
@@ -267,7 +266,7 @@ fields @timestamp, @message
 
 List of failed anonymous requests:
 
-```
+```bash
 fields @timestamp, @message, sourceIPs.0
 | sort @timestamp desc
 | limit 100

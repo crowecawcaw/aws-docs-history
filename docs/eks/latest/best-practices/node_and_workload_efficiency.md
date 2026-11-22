@@ -1,7 +1,6 @@
 
 
 # Node and Workload Efficiency
-<a name="node_and_workload_efficiency"></a>
 
 Being efficient with our workloads and nodes reduces complexity/cost while increasing performance and scale. There are many factors to consider when planning this efficiency, and it’s easiest to think in terms of trade offs vs. one best practice setting for each feature. Let’s explore these tradeoffs in depth in the following section.
 
@@ -177,7 +176,7 @@ As an example, we can scaling on the highest of three values (see below). We sca
 **Note**  
 This is just to show the flexibility of the auto-scaling API, we recommend against overly complex rules that can be difficult to troubleshoot in production.
 
-```
+```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:

@@ -1,7 +1,6 @@
 
 
 # EKS Auto Mode - Security
-<a name="autosecure"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -54,7 +53,7 @@ EKS Auto Mode introduces improvements to cluster access management through the C
 
 Access Entries can be created to manage cluster access:
 
-```
+```bash
 aws eks create-access-entry \
     --cluster-name ${EKS_CLUSTER_NAME} \
     --principal-arn arn:aws:iam::${ACCOUNT_ID}:role/${IAM_ROLE_NAME} \
@@ -72,7 +71,7 @@ EKS Auto Mode comes with Pod Identity Agent already deployed, allowing a streaml
 + Reduced operational overhead compared to IRSA
 + Enhanced security through session tagging and ABAC support
 
-```
+```bash
 aws eks create-pod-identity-association \
   --cluster-name ${EKS_CLUSTER_NAME} \
   --role-arn arn:aws:iam::${AWS_ACCOUNT_ID}:role/${IAM_ROLE_NAME} \
@@ -141,7 +140,7 @@ EKS Auto Mode leverages the native Kubernetes Network Policy support of the Amaz
 
 To enable network policy support in EKS Auto Mode, you need to configure the VPC CNI add-on with a `configMap` manifest. Here is an example:
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -153,7 +152,7 @@ data:
 
 It’s also required to define the Network Policy support is configured in the Node Class, as illustrated here:
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -165,7 +164,7 @@ spec:
 
 Once enabled, you can create network policies to control traffic:
 
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -245,7 +244,7 @@ EKS Auto Mode clusters seamlessly integrate with Amazon GuardDuty for enhanced t
 
 To enable EKS Auto Mode protection on Amazon GuardDuty for Kubernetes Audit Logs, you can run the following command:
 
-```
+```bash
 aws guardduty update-detector \
     --detector-id 12abc34d567e8fa901bc2d34e56789f0 \
     --data-sources '{"Kubernetes":{"AuditLogs":{"Enable":true}}}'
@@ -277,7 +276,7 @@ Amazon GuardDuty provides essential runtime security monitoring for EKS Auto Mod
 
 To enable EKS Auto Mode protection on Amazon GuardDuty for Kubernetes Audit Logs and Runtime Monitoring, you can run the following command:
 
-```
+```bash
 aws guardduty update-detector \
     --detector-id 12abc34d567e8fa901bc2d34e56789f0 \
     --data-sources '{
@@ -350,7 +349,7 @@ Q: Can I still use existing security tools and policies with EKS Auto Mode? A: Y
 
 Q: How do I deploy security agents and monitoring tools in EKS Auto Mode? A: In EKS Auto Mode, security agents and monitoring tools should be deployed as Kubernetes workloads (typically DaemonSets, which deploys one instance of the Pod on every node by default) rather than installed directly on the node OS. This approach aligns with the immutable infrastructure model of EKS Auto Mode. Example:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:

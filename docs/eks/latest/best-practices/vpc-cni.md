@@ -1,12 +1,11 @@
 
 
 # Amazon VPC CNI
-<a name="vpc-cni"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
 
-[![AWS Videos](https://img.youtube.com/vi/RBE3yk2UlYA?rel=0/0.jpg)](https://www.youtube.com/watch?v=RBE3yk2UlYA?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/RBE3yk2UlYA/0.jpg)](https://www.youtube.com/watch?v=RBE3yk2UlYA)
 
 
 Amazon EKS implements cluster networking through the [Amazon VPC Container Network Interface](https://github.com/aws/amazon-vpc-cni-k8s) plugin, also known as VPC CNI. The CNI plugin allows Kubernetes Pods to have the same IP address as they do on the VPC network. More specifically, all containers inside the Pod share a network namespace, and they can communicate with each-other using local ports.

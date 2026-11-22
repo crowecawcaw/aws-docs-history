@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="aiml-security"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -20,7 +19,7 @@ Note that [Amazon S3 Express One Zone](https://aws.amazon.com/s3/storage-classes
 
 **Example**  
 
-```
+```bash
 aws s3api put-bucket-encryption --bucket my-directory-bucket --server-side-encryption-configuration \
    '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "aws:kms", "KMSMasterKeyID": "1234abcd-12ab-34cd-56ef-1234567890ab"}}]}'
 ```

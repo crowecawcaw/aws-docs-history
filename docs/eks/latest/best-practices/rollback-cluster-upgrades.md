@@ -1,7 +1,6 @@
 
 
 # Best Practices for Cluster Version Rollback
-<a name="rollback-cluster-upgrades"></a>
 
 With Amazon Elastic Kubernetes Service (Amazon EKS) version rollback, you can revert your cluster’s Kubernetes control plane to the previous minor version within 7 days of an in-place upgrade. This page describes best practices for planning, executing, and operationalizing rollback as part of your upgrade workflow.
 

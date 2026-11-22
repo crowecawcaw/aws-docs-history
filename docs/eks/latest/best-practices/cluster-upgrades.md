@@ -1,7 +1,6 @@
 
 
 # Best Practices for Cluster Upgrades
-<a name="cluster-upgrades"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -167,7 +166,7 @@ Please consider associating additional CIDR blocks if the IP addresses in the ex
 
 To verify that the IAM role is available and has the correct assume role policy in your account you can run the following commands:
 
-```
+```json
 CLUSTER=<cluster name>
 ROLE_ARN=$(aws eks describe-cluster --name ${CLUSTER} \
   --query 'cluster.roleArn' --output text)

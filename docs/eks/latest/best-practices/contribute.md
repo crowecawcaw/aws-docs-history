@@ -1,7 +1,6 @@
 
 
 # Contribute to this guide
-<a name="contribute"></a>
 
 Anyone can contribute to the best practices guide. The EKS Best Practices Guide is written in the AsciiDoc format on GitHub.
 
@@ -114,7 +113,7 @@ When creating a new page, you need to set the page ID in the source file. The pa
 
 1. At the top of the file, add the following line. It should be above the first heading.
 
-   ```
+   ```asciidoc
    [#my-new-page]
    ```
 
@@ -215,7 +214,7 @@ Learn how create a new page and update the guide table of contents.
 ### Basic Formatting
 <a name="_basic_formatting"></a>
 
-```
+```asciidoc
 *bold text*
 _italic text_
 `monospace text`
@@ -224,7 +223,7 @@ _italic text_
 ### Headers
 <a name="_headers"></a>
 
-```
+```asciidoc
 = Document Title (Header 1)
 == Header 2
 === Header 3
@@ -238,7 +237,7 @@ _italic text_
 
 Unordered Lists:
 
-```
+```asciidoc
 - Item 1
 - Item 2
 -- Subitem 2.1
@@ -248,7 +247,7 @@ Unordered Lists:
 
 Ordered Lists:
 
-```
+```asciidoc
 . First item
 . Second item
 .. Subitem 2.1
@@ -259,7 +258,7 @@ Ordered Lists:
 ### Links
 <a name="_links"></a>
 
-```
+```asciidoc
 External link:  https://example.com[Link text]
 Internal link: <<page-id>>
 Internal link: xref:page-id[Link text]
@@ -268,14 +267,14 @@ Internal link: xref:page-id[Link text]
 ### Images
 <a name="_images"></a>
 
-```
+```asciidoc
 image::image-file.jpg[Alt text]
 ```
 
 ### Code Blocks
 <a name="_code_blocks"></a>
 
-```
+```asciidoc
  [source,python]
  ----
  def hello_world():
@@ -288,7 +287,7 @@ image::image-file.jpg[Alt text]
 
  [Learn how to build a basic table.](https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/) 
 
-```
+```asciidoc
 [cols="1,1"]
 |===
 |Cell in column 1, row 1
@@ -305,7 +304,7 @@ image::image-file.jpg[Alt text]
 ### Admonitions
 <a name="_admonitions"></a>
 
-```
+```asciidoc
 NOTE: This is a note admonition.
 
 WARNING: This is a warning admonition.
@@ -325,6 +324,6 @@ This is a note admonition.
 ### Includes
 <a name="_includes"></a>
 
-```
+```asciidoc
  include::filename.adoc[]
 ```

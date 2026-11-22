@@ -1,7 +1,6 @@
 
 
 # Running Heterogeneous workloads
-<a name="windows-scheduling"></a>
 
 Kubernetes has support for heterogeneous clusters where you can have a mixture of Linux and Windows nodes in the same cluster. Within that cluster, you can have a mixture of Pods that run on Linux and Pods that run on Windows. You can even run multiple versions of Windows in the same cluster. However, there are several factors (as mentioned below) that will need to be accounted for when making this decision.
 
@@ -28,7 +27,7 @@ For example: `--register-with-taints='os=windows:NoSchedule'`
 
 If you are using EKS, eksctl offers ways to apply taints through clusterConfig:
 
-```
+```yaml
 NodeGroups:
   - name: windows-ng
     amiFamily: WindowsServer2022FullContainer
@@ -41,7 +40,7 @@ NodeGroups:
 
 Adding a taint to all Windows nodes, the scheduler will not schedule pods on those nodes unless they tolerate the taint. Pod manifest example:
 
-```
+```yaml
 nodeSelector:
     kubernetes.io/os: windows
 tolerations:
@@ -70,13 +69,13 @@ It’s important to note that Windows Server is moving to the Long-Term Servicin
 
 It is possible to check the OS build version through the following command:
 
-```
+```bash
 kubectl get nodes -o wide
 ```
 
 The KERNEL-VERSION output matches the Windows OS build version.
 
-```
+```bash
 NAME                          STATUS   ROLES    AGE   VERSION                INTERNAL-IP   EXTERNAL-IP     OS-IMAGE                         KERNEL-VERSION                  CONTAINER-RUNTIME
 ip-10-10-2-235.ec2.internal   Ready    <none>   23m   v1.24.7-eks-fb459a0    10.10.2.235   3.236.30.157    Windows Server 2022 Datacenter   10.0.20348.1607                 containerd://1.6.6
 ip-10-10-31-27.ec2.internal   Ready    <none>   23m   v1.24.7-eks-fb459a0    10.10.31.27   44.204.218.24   Windows Server 2019 Datacenter   10.0.17763.4131                 containerd://1.6.6
@@ -85,7 +84,7 @@ ip-10-10-7-54.ec2.internal    Ready    <none>   31m   v1.24.11-eks-a59e1f0   10.
 
 The example below applies an additional nodeSelector to the pod manifest in order to match the correct Windows-build version when running different Windows node groups OS versions.
 
-```
+```yaml
 nodeSelector:
     kubernetes.io/os: windows
     node.kubernetes.io/windows-build: '10.0.20348'
@@ -103,7 +102,7 @@ You can also make use of RuntimeClass to simplify the process of using taints an
 
 Create a RuntimeClass by running the following manifest:
 
-```
+```yaml
 apiVersion: node.k8s.io/v1beta1
 kind: RuntimeClass
 metadata:
@@ -123,7 +122,7 @@ scheduling:
 
 Once the Runtimeclass is created, assign it using as a Spec on the Pod manifest:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -1,7 +1,6 @@
 
 
 # Network security
-<a name="network-security"></a>
 
 **Tip**  
  [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
@@ -41,7 +40,7 @@ When you first provision an EKS cluster, VPC CNI Network Policy functionality is
 
 As with RBAC policies, it is recommended to follow least privileged access principles with network policies. Start by creating a deny all policy that restricts all inbound and outbound traffic with in a namespace.
 
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -67,7 +66,7 @@ The image above was created by the network policy viewer from [Tufin](https://or
 
 Once you have the default deny all rule in place, you can begin layering on additional rules, such as a rule that allows pods to query CoreDNS for name resolution.
 
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -101,7 +100,7 @@ spec:
 
 Understand the application requirements and create fine-grained ingress and egress rules as needed. Below example shows how to restrict ingress traffic on port 80 to `app-one` from `client-one`. This helps minimize the attack surface and reduces the risk of unauthorized access.
 
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -146,7 +145,7 @@ spec:
 +  **Ensure Network Policies exists using Open Policy Agent (OPA)** 
   + Use OPA Policy like shown below to ensure Network Policy always exists before onboarding application pods. This policy denies onboarding k8s pods with a label `k8s-app: sample-app` if corresponding network policy does not exist.
 
-```
+```rego
 package kubernetes.admission
 import data.kubernetes.networkpolicies
 
@@ -175,7 +174,7 @@ In addition, Amazon VPC CNI allows you to enable the collection and export of po
 
 Amazon VPC CNI also ships an SDK that provides an interface to interact with eBPF programs on the node. The SDK is installed when the `aws-node` is deployed onto the nodes. You can find the SDK binary installed under `/opt/cni/bin` directory on the node. At launch, the SDK provides support for fundamental functionalities such as inspecting eBPF programs and maps.
 
-```
+```shell
 sudo /opt/cni/bin/aws-eks-na-cli ebpf progs
 ```
 
@@ -337,7 +336,7 @@ Ingress controllers are a way for you to intelligently route HTTP/S traffic that
 
 The [AWS Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) (ALB) and [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) (NLB) both have support for transport encryption (SSL and TLS). The `alb.ingress.kubernetes.io/certificate-arn` annotation for the ALB lets you to specify which certificates to add to the ALB. If you omit the annotation the controller will attempt to add certificates to listeners that require it by matching the available [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) certificates using the host field. Starting with EKS v1.15 you can use the `service.beta.kubernetes.io/aws-load-balancer-ssl-cert` annotation with the NLB as shown in the example below.
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -410,7 +409,7 @@ Start by creating a Private CA by following procedures provided in the [ACM Priv
 
 Now that you have a Private CA and an EKS cluster with cert-manager and the plugin installed, it’s time to set permissions and create the issuer. Update IAM permissions of the EKS node role to allow access to ACM Private CA. Replace the `<CA_ARN>` with the value from your Private CA:
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -432,7 +431,7 @@ Now that you have a Private CA and an EKS cluster with cert-manager and the plug
 
 Create an Issuer in Amazon EKS by creating a Custom Resource Definition file named cluster-issuer.yaml with the following text in it, replacing `<CA_ARN>` and `<Region>` information with your Private CA.
 
-```
+```yaml
 apiVersion: awspca.cert-manager.io/v1beta1
 kind: AWSPCAClusterIssuer
 metadata:
@@ -444,7 +443,7 @@ spec:
 
 Deploy the Issuer you created.
 
-```
+```bash
 kubectl apply -f cluster-issuer.yaml
 ```
 
@@ -494,7 +493,7 @@ image::istio-csr-with-acm-private-ca.png[Flow for Istio Certificate Signing Requ
 
 1. Install Istio CSR configured with AWS Private CA Issuer Plugin. You can preserve the certificate signing requests for workloads to verify that they get approved and signed (`preserveCertificateRequests=true`).
 
-   ```
+   ```bash
    helm install -n cert-manager cert-manager-istio-csr jetstack/cert-manager-istio-csr \
    --set "app.certmanager.issuer.group=awspca.cert-manager.io" \
    --set "app.certmanager.issuer.kind=AWSPCAClusterIssuer" \
@@ -512,7 +511,7 @@ image::istio-csr-with-acm-private-ca.png[Flow for Istio Certificate Signing Requ
 
 1. Install Istio with custom configurations to replace `istiod` with `cert-manager istio-csr` as the certificate provider for the mesh. This process can be carried out using the [Istio Operator](https://tetrate.io/blog/what-is-istio-operator/).
 
-   ```
+   ```yaml
    apiVersion: install.istio.io/v1alpha1
    kind: IstioOperator
    metadata:
@@ -572,7 +571,7 @@ image::istio-csr-with-acm-private-ca.png[Flow for Istio Certificate Signing Requ
 
 1. Deploy the above custom resource you created.
 
-   ```
+   ```bash
    istioctl operator init
    kubectl apply -f istio-custom-config.yaml
    ```

@@ -1,7 +1,6 @@
 
 
 # Cost Optimization - Networking
-<a name="cost-opt-networking"></a>
 
 Architecting systems for high availability (HA) is a best practice in order to accomplish resilience and fault-tolerance. In practice, this means spreading your workloads and the underlying infrastructure across multiple Availability Zones (AZs) in a given AWS Region. Ensuring these characteristics are in place for your Amazon EKS environment will enhance the overall reliability of your system. In conjunction with this, your EKS environments will likely also be composed of a variety of constructs (i.e. VPCs), components (i.e. ELBs), and integrations (i.e. ECR and other container registries).
 
@@ -43,7 +42,7 @@ In some cases, the EndpointSlice controller may apply a *hint* for a different z
 
 Below is a code snippet on how to enable *topology aware routing* for a Service.
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -79,7 +78,7 @@ In Kubernetes 1.35 ([KEP-3015](https://github.com/kubernetes/enhancements/issues
 
 Below is a code snippet on how to enable *traffic distribution* for a Service.
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -120,7 +119,7 @@ This is particularly useful for:
 
 The following code example shows how to enable same-node traffic distribution for a Service:
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -175,7 +174,7 @@ To run all your Pods in the same AZ, either provision the worker nodes in the sa
 
  **Karpenter** 
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: Provisioner
 metadata:
@@ -190,7 +189,7 @@ values: ["us-west-2a"]
 
  **Cluster Autoscaler (CA)** 
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
@@ -215,7 +214,7 @@ desiredCapacity: 1
 
 Alternatively, if you have worker nodes running in multiple AZs, each node would have the label * [topology.kubernetes.io/zone](http://topology.kubernetes.io/zone%E2%80%9D) * with the value of its AZ (such as us-west-2a or us-west-2b). You can utilize `nodeSelector` or `nodeAffinity` to schedule Pods to the nodes in a single AZ. For example, the following manifest file will schedule the Pod inside a node running in AZ us-west-2a.
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -249,7 +248,7 @@ It’s important to note that this feature cannot be combined with topology awar
 
 Below is a code snippet on how to set the *internal traffic policy* for a Service.
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -289,7 +288,7 @@ In some scenarios, an isolated replica like the one depicted in the above diagra
 
 Using the *internal traffic policy* in conjunction with *topology spread constraints* can be useful to ensure that you have the right number of replicas for communicating microservices on different nodes.
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -318,7 +317,7 @@ spec:
 
 Another approach is to make use of Pod affinity rules when using the Service internal traffic policy. With Pod affinity, you can influence the scheduler to co-locate certain Pods because of their frequent communication. By applying strict scheduling constraints (`requiredDuringSchedulingIgnoredDuringExecution`) on certain Pods, this will give you better results for Pod co-location when the Scheduler is placing Pods on nodes.
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -464,7 +463,7 @@ The Istio Destination Rules detailed above can also be applied to manage traffic
 
 Below is a code block example of a Destination Rule resource in Istio. As can be seen below, this resource specifies weighted configurations for incoming traffic from 3 different AZs in the `eu-west-1` region. These configurations declare that a majority of the incoming traffic (70% in this case) from a given AZ should be proxied to a destination in the same AZ from which it originates.
 
-```
+```yaml
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
@@ -547,11 +546,11 @@ The screenshots below are captured from a live example of this approach. The fir
 
 With Istio, you can verify and export the statistics of any [upstream clusters](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology) and endpoints that your proxies are aware of. This can help provide a picture of the network flow as well as the share of distribution among the services of a workload. Continuing with the same example, the `orders` endpoints that the `graphql` proxy is aware of can be obtained using the following command:
 
-```
+```bash
 kubectl exec -it deploy/graphql -n ecommerce -c istio-proxy -- curl localhost:15000/clusters | grep orders
 ```
 
-```
+```bash
 ...
 orders-service.ecommerce.svc.cluster.local::10.0.1.33:3003::**rq_error::0**
 orders-service.ecommerce.svc.cluster.local::10.0.1.33:3003::**rq_success::119**
@@ -567,7 +566,7 @@ In this case, the `graphql` proxy is only aware of the `orders` endpoint for the
 
 As mentioned in a previous section above, you can co-locate frequently communicating Pods by making use of pod-affinity.
 
-```
+```yaml
 ...
 spec:
 ...

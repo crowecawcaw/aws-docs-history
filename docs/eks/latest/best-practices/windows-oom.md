@@ -1,7 +1,6 @@
 
 
 # Avoiding OOM errors
-<a name="windows-oom"></a>
 
 Windows does not have an out-of-memory process killer as Linux does. Windows always treats all user-mode memory allocations as virtual, and pagefiles are mandatory. The net effect is that Windows won’t reach out of memory conditions the same way Linux does. Processes will page to disk instead of being subject to out of memory (OOM) termination. If memory is over-provisioned and all physical memory is exhausted, then paging can slow down performance.
 
@@ -16,7 +15,7 @@ On Windows nodes, a best practice is to reserve at least 2GB of memory for the O
 
 Following the [Amazon EKS Self-managed Windows nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-windows-workers.html) documentation, use the CloudFormation template to launch a new Windows node group with customizations to kubelet configuration. The CloudFormation has an element called `BootstrapArguments` which is the same as `KubeletExtraArgs`. Use with the following flags and values:
 
-```
+```bash
 --kube-reserved memory=0.5Gi,ephemeral-storage=1Gi --system-reserved memory=1.5Gi,ephemeral-storage=1Gi --eviction-hard memory.available<200Mi,nodefs.available<10%"
 ```
 
@@ -31,7 +30,7 @@ It is essential for you to know the minimum amount of memory required by your Wi
 
 In the example below, when the Kubernetes scheduler tries to place a pod on a node, the pod’s requests are used to determine which node has sufficient resources available for scheduling.
 
-```
+```yaml
  spec:
   - name: iis
     image: mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019

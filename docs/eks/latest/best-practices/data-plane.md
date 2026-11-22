@@ -1,7 +1,6 @@
 
 
 # EKS Data Plane
-<a name="data-plane"></a>
 
 To operate high-available and resilient applications, you need a highly-available and resilient data plane. An elastic data plane ensures that Kubernetes can scale and heal your applications automatically. A resilient data plane consists of two or more worker nodes, can grow and shrink with the workload, and automatically recover from failures.
 

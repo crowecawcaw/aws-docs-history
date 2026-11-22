@@ -1,7 +1,6 @@
 
 
 # EKS Hybrid Nodes and network disconnections
-<a name="hybrid-nodes-network-disconnections"></a>
 
 The EKS Hybrid Nodes architecture can be new to customers who are accustomed to running local Kubernetes clusters entirely in their own data centers or edge locations. With EKS Hybrid Nodes, the Kubernetes control plane runs in an AWS Region and only the nodes run on-premises, resulting in a “stretched” or “extended” Kubernetes cluster architecture.
 

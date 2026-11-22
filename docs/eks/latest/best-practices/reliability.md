@@ -1,7 +1,6 @@
 
 
 # Best Practices for Reliability
-<a name="reliability"></a>
 
 This section provides guidance about making workloads running on EKS resilient and highly-available
 
