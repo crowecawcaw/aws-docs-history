@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Step A: Prepare Hardware and Download Files
-<a name="install-vm-srvr-ig-prep"></a>
 
 ## Prepare Hardware and Network
 <a name="install-vm-srvr-ig-prep-hw"></a>

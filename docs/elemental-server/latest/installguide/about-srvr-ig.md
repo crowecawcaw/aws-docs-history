@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # About This Guide
-<a name="about-srvr-ig"></a>
 
 This guide describes how to install AWS Elemental Server software for the first time. The reference documents for the different types of installation are listed in the following table.
 

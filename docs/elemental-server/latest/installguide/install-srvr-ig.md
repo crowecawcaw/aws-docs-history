@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Installing AWS Elemental Server Node-locked Licenses on Qualified Hardware
-<a name="install-srvr-ig"></a>
 
 This section is for IT administrators who perform the first-time installation of AWS Elemental Server software on a hardware unit that is considered qualified hardware.
 

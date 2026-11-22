@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Step c: Download Licenses from the AWS Elemental User Community
-<a name="install-kvm-srvr-ig-licensing-dl-lic"></a>
 
 1. Follow the instructions in [Downloading AWS Elemental Server Software](detailed-dl-srvr-ig.md) to get to the **Order Detail** page on the [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations).
 

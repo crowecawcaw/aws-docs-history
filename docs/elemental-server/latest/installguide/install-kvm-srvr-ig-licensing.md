@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Step E: Set-up Licensing
-<a name="install-kvm-srvr-ig-licensing"></a>
 
 Install a valid license file for each AWS Elemental system using the following steps described in the following table. Detailed instructions for each step follow.
 
