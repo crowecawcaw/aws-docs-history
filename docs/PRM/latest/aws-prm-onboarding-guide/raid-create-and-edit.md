@@ -1,14 +1,13 @@
 
 
 # Create and Edit Revenue Attribution IDs
-<a name="raid-create-and-edit"></a>
 
-This section covers how to create a Revenue Attribution ID, add and edit monthly cost allocation percentages, and implement PRM using the Revenue Attribution ID as the unique identifier.
+This section covers how to create a Revenue Attribution ID, add and edit monthly cost allocation percentages, and implement AWS Revenue Measurement using the Revenue Attribution ID as the unique identifier.
 
 ## Creating a Revenue Attribution ID
 <a name="raid-creating"></a>
 
-The Revenue Attribution ID creation flow guides you through three steps. To get started, navigate to the [Revenue attribution](https://us-east-1.console.aws.amazon.com/partnercentral/revenue-attr?region=us-east-1) under Sell menu in AWS Partner Central Console.
+The Revenue Attribution ID creation flow guides you through three steps. To get started, navigate to the [Revenue attribution](https://us-east-1.console.aws.amazon.com/partnercentral/revenue-attr?region=us-east-1) tab under the "Sell" menu in AWS Partner Central.
 
 ### Step 1: Select your AWS Marketplace Product
 <a name="raid-step1"></a>
@@ -17,7 +16,9 @@ On this page, select the AWS Marketplace product you want to associate with the 
 
 If you want to associate a product owned by a subsidiary AWS account that is not directly available in the dropdown, you can manually enter the Marketplace product ID within the wizard.
 
-Alternatively, if multiple AWS Marketplace products share the same underlying AWS resources — for example, a single deployment that spans more than one AWS Marketplace product listing — you can proceed without selecting a specific product. In this case, attribution applies across all consumption measured under the Revenue Attribution ID, regardless of which product you purchased.
+If multiple AWS Marketplace products share the same underlying AWS resources (for example, a single deployment that spans more than one product listing), you can proceed without selecting a specific product. In this case, attribution applies across all consumption measured under the Revenue Attribution ID, regardless of which product the customer purchased.
+
+Alternatively, to receive automated deal-level attribution for products that share backend infrastructure, group them under one Marketplace Revenue Share (see [Additional capabilities](raid-marketplace-revenue-share.md#raid-mrs-capabilities)). A Revenue Attribution ID created without a product isn't linked to a Marketplace Revenue Share, so you manually enter cost allocation percentages for every associated offer and opportunity.
 
 ### Step 2: Associate offers or opportunities
 <a name="raid-step2"></a>
@@ -29,7 +30,7 @@ Each entry includes the following information:
 + **Name:** A descriptive name for the associated entry to help you identify it in your dashboard.
 + **Customer AWS Account ID:** The AWS account where the customer consumes your product. Required for multi-tenant SaaS products.
 + **Billing Month:** The calendar month (for example, April 2026) for which the cost allocation percentage applies.
-+ **Cost Allocation %:** The portion of your product's total AWS consumption attributable to this deal for the specified billing month. Required for multi-tenant SaaS deployments and for any case where two or more deal associations are concurrently active in the same billing month.
++ **Cost Allocation %:** The portion of your product's attributed revenue that applies to this deal for the specified billing month. Required for opportunities, for offer overrides, and when two or more deal associations are active in the same billing month. If the product has a Marketplace Revenue Share, enter it only for the offers you want to override.
 
 To cover a deal that spans multiple billing months, add one entry per month. Each (Offer ID or Opportunity ID, Billing Month) combination is a separate entry. This per-month design allows you to adjust cost allocation percentages as deal economics change and ensures the prior month's allocation matches actual measured consumption.
 
@@ -48,4 +49,4 @@ Cost allocation entries are managed per billing month. You can:
 + **Update a monthly entry** for the current or a future billing month at any time.
 + **Update last month's entry** until the 7th of the current month. This window gives you time to review actual usage in AWS Cost Explorer before finalizing the prior month's allocation.
 
-After the 7th of the current month, attribution for the prior billing month can no longer be modified. Updates to a current or future month's entry apply from the next monthly billing cycle. Historical attribution for prior months is not retroactively recalculated.
+After the 7th of the current month, attribution for the prior billing month can no longer be modified. Entries for the current and future billing months are used when those months are processed on the 8th of the following month. Historical attribution for processed months is not recalculated.

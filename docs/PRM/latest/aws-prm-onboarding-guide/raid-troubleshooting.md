@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Revenue Attribution IDs
-<a name="raid-troubleshooting"></a>
 
 This section describes common issues you might encounter when creating or managing Revenue Attribution IDs, and provides steps to resolve them.
 
@@ -12,7 +11,7 @@ If you are unable to create a Revenue Attribution ID:
 + Verify that you have migrated to AWS Partner Central in the AWS Console.
 + Confirm that you have at least one AWS Marketplace product listing.
 + Ensure that you are selecting a product from your own account or a connected subsidiary account.
-+ Check that all required fields are completed (Marketplace product, at least one offer or opportunity association, billing month, and cost allocation percentage).
++ Check that all required fields are completed: at least one offer or opportunity association, billing month, and cost allocation percentage. A Marketplace product is required unless the Revenue Attribution ID covers products that share the same underlying AWS resources.
 
 ## Cost allocation percentage entry rejected
 <a name="raid-troubleshooting-cost-allocation"></a>
@@ -40,6 +39,36 @@ If your offer or opportunity association fails:
 + For ACE opportunity associations, confirm that the opportunity is in Launched stage with a customer AWS Account ID specified.
 + Verify that the Offer ID or Opportunity ID exists in AWS systems and belongs to your partner account.
 + If an AWS Marketplace Offer is already linked to an ACE opportunity, you only need to provide the Offer ID.
+
+## Troubleshooting Marketplace Revenue Share
+<a name="raid-troubleshooting-mrs"></a>
+
+**No attributed revenue appears for an offer**
+
+Confirm that:
++ The product has product-level AWS Revenue Measurement implemented (for example, Resource Tagging, User Agent String, AWS Marketplace Metering, Account Tagging for SaaS products, or Identity Tagging).
++ The product is generating revenue and has active offers.
++ The product is a SaaS listing, including a limited listing or a product in a seller account with an active Subsidiary Account Connection.
++ A Marketplace revenue share allocation is in effect for that month.
++ The offer was active that month.
+
+Results appear in the deal-level table on the 17th of the following month.
+
+**A product shows Action required**
+
+No allocation is in effect for the current month or a future month. This includes when your last allocation's end month has passed. Open the product, choose Edit, add an allocation, and save.
+
+**Calculated offer amounts look wrong**
+
+Confirm that the offers belong to the product. To correct a specific offer, add it to the product's Revenue Attribution ID with a cost allocation percentage. You don't need to change offers that are already correct.
+
+**You can't edit an allocation**
+
+You can edit allocations on the Active allocations tab. After a month is processed on the 8th of the following month, its allocation moves to the Processed allocations tab and can't be changed. Make corrections in the current or a future month.
+
+**A subsidiary product is missing or not attributed**
+
+Confirm that the Subsidiary Account Connection is active. If the connection changed during the month, that product's revenue isn't attributed for that month. Re-establish the connection and add the product ID again if needed.
 
 ## Common implementation errors
 <a name="raid-troubleshooting-common-errors"></a>

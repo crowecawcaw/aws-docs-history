@@ -1,10 +1,9 @@
 
 
 # Manual Implementation
-<a name="manual-tagging"></a>
 
 **Note**  
-Partner Revenue Measurement is intended to measure production workloads. Dev/test/staging environments can be used for validating your implementation before rolling out to production.
+AWS Revenue Measurement is intended to measure production workloads. Dev/test/staging environments can be used for validating your implementation before rolling out to production.
 
 ## Constructing Your Tag Key and Value
 <a name="tag-key-construction"></a>
@@ -21,7 +20,7 @@ You need two components to construct your resource tag:
    + Example: `pc:5ugbbrmu7ud3u5hsipfzug61p`
    + Where to find it: See [Retrieve your product code](product-code-retrieval.md).
 
-**Alternative:** Use the Partner Revenue Measurement agent in the Partner Central dashboard in AWS console to look up the correct tag key name and value for your listing.
+**Alternative:** Use the AWS Revenue Measurement agent in the Partner Central dashboard in AWS console to look up the correct tag key name and value for your listing.
 
 **Note**  
 The existing `aws-apn-id` key continues to work, and resources tagged with it require no additional changes. Use the new `aws-apn-id-{{partner-central-aws-account-id}}` tag key for all future attributions, including single-partner scenarios. When more than one Partner tags the same resource, each tagged Partner receives revenue attribution.

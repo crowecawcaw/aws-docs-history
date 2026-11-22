@@ -1,16 +1,18 @@
 
 
-# Getting started with Partner Revenue Measurement
-<a name="getting-started"></a>
+# Getting started with AWS Revenue Measurement
 
-Partner Revenue Measurement measures AWS service consumption driven by partner products. This enables AWS to attribute revenue to partner solutions and provide aggregated consumption data back to partners.
+AWS Revenue Measurement measures AWS service consumption driven by partner products. This enables AWS to attribute revenue to partner solutions and provide aggregated consumption data back to partners.
 
-Partner Revenue Measurement supports three implementation methods:
-+ [AWS Marketplace Metering](marketplace-metering.md) — Zero-touch revenue attribution for Amazon Machine Image (AMI) and Machine Learning (ML) products listed on AWS Marketplace
+AWS Revenue Measurement supports partner, product/solution, and deal level revenue attribution via the following implementation methods:
++ [Marketplace Metering](marketplace-metering.md) — Zero-touch revenue attribution for Amazon Machine Image (AMI) and Machine Learning (ML) products listed on AWS Marketplace
 + [Resource Tagging](resource-tagging.md) — Tag AWS resources with your product code for revenue attribution
 + [User Agent String](user-agent-string.md) — Include a User Agent string in regular AWS API/CLI calls for revenue attribution
++ [Identity Tagging](identity-tagging.md) — Tag the IAM role or user your organization operates with for revenue attribution based on API actions performed on billable AWS resources
++ [Account Tagging for SaaS products](account-tagging.md) — Tag partner-owned AWS accounts supporting a single SaaS product with your product code using AWS Organizations for revenue attribution of all consumption within those accounts
++ [Revenue Attribution IDs](revenue-attribution-id.md) — Associate AWS revenue to specific AWS Marketplace offers and/or ACE opportunities for deal-level revenue attribution
 
-To implement Partner Revenue Measurement, consider the following requirements:
+To implement AWS Revenue Measurement, consider the following to implement the best method for you:
 
 
 + What AWS services does your product use (Amazon EC2, Amazon S3, Amazon ECS, Amazon RDS)?
@@ -20,9 +22,12 @@ To implement Partner Revenue Measurement, consider the following requirements:
 
 
 **Note**  
-Partner Revenue Measurement requires implementation of one or more methods to enable revenue attribution for [supported AWS services](included-aws-services.md).
+AWS Revenue Measurement requires implementation of one or more methods to enable revenue attribution for [supported AWS services](included-aws-services.md).
 
-## Partner Revenue Measurement Architecture Patterns
+**Tip**  
+To check your readiness and compliance status, retrieve your product code, get a recommended implementation method, and view your attributed revenue, ask the [AWS Revenue Measurement Advisor](aws-revenue-measurement-advisor.md) in AWS Partner Central console or through the MCP server.
+
+## AWS Revenue Measurement Architecture Patterns
 <a name="prm-architecture-patterns"></a>
 
 **Pattern \#1 - Partner Account:** All components reside within the partner's AWS account or VPC.
@@ -33,7 +38,7 @@ Partner Revenue Measurement requires implementation of one or more methods to en
 
 
 
-![Partner Revenue Measurement architecture patterns showing partner account, customer account, and hybrid deployment models](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-architecture-patterns.png)
+![AWS Revenue Measurement architecture patterns showing partner account, customer account, and hybrid deployment models](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-architecture-patterns.png)
 
 
 
@@ -41,7 +46,7 @@ Partner Revenue Measurement requires implementation of one or more methods to en
 ## Implementation Steps
 <a name="implementation-steps"></a>
 
-**Partner Revenue Measurement Implementation Process**
+**AWS Revenue Measurement Implementation Process**
 
 1. **Step 1: Complete Prerequisites**
 

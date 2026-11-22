@@ -1,9 +1,8 @@
 
 
 # Manual Implementation
-<a name="user-agent-implementation"></a>
 
-Follow these steps to implement User Agent strings in your regular AWS API/CLI calls for Partner Revenue Measurement:
+Follow these steps to implement User Agent strings in your regular AWS API/CLI calls for AWS Revenue Measurement:
 
 1. [Retrieve your product code from AWS Marketplace Management Portal](product-code-retrieval.md).
 
@@ -59,7 +58,7 @@ Replace `5ugbbrmu7ud3u5hsipfzug61p` with your actual AWS Marketplace product cod
 User Agent strings must be implemented consistently across all regular AWS API/CLI calls to ensure accurate revenue attribution. For multi-region deployments, ensure the User Agent string is included in regular AWS API/CLI calls across all regions where your solution operates.
 
 **Note**  
-Partner Revenue Measurement is intended to measure production workloads. Dev/test/staging environments can be used for validating your implementation before rolling out to production.
+AWS Revenue Measurement is intended to measure production workloads. Dev/test/staging environments can be used for validating your implementation before rolling out to production.
 
 **Important**  
 User Agent based attribution is evaluated monthly. Your partner solution must make at least one regular AWS API/CLI call per resource per month for continued attribution. If no calls are made on a resource in a given month, that resource does not contribute to revenue attribution for that month.  

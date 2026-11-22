@@ -1,7 +1,6 @@
 
 
 # Resource Tagging
-<a name="resource-tagging"></a>
 
 Partner product resource tagging enables AWS Partners to demonstrate how their products drive service consumption and AWS revenue by tagging resources with partner product identifiers.
 

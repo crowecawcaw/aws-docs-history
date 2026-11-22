@@ -1,7 +1,6 @@
 
 
 # Implementation Samples
-<a name="user-agent-samples"></a>
 
 This section provides code samples for implementing User Agent strings across different programming languages and AWS SDKs. Each sample demonstrates how to configure the User Agent string format `APN_1.1/pc_<YOUR-PRODUCT-CODE>$` for AWS services.
 
@@ -101,24 +100,24 @@ const { S3Client } = require("@aws-sdk/client-s3");
 const PRODUCT_CODE = "5ugbbrmu7ud3u5hsipfzug61p";
 const REGION = "us-west-2";
 
-function addPRMUserAgent(client, productCode) {
+function addAWSRevenueMeasurementUserAgent(client, productCode) {
     client.middlewareStack.add(
         (next) => async (args) => {
             if (!args.request.headers) args.request.headers = {};
             const existing = args.request.headers["User-Agent"] || "";
-            const prmUAString = `APN_1.1/pc_${productCode}$`;
+            const AWSRevenueMeasurementUAString = `APN_1.1/pc_${productCode}$`;
             args.request.headers["User-Agent"] = existing 
-                ? `${existing} ${prmUAString}`
-                : prmUAString;
+                ? `${existing} ${AWSRevenueMeasurementUAString}`
+                : AWSRevenueMeasurementUAString;
             return next(args);
         },
-        { step: "finalizeRequest", name: "prmUserAgent" }
+        { step: "finalizeRequest", name: "AWSRevenueMeasurementUserAgent" }
     );
     return client;
 }
 
-const ec2Client = addPRMUserAgent(new EC2Client({ region: REGION }), PRODUCT_CODE);
-const s3Client = addPRMUserAgent(new S3Client({ region: REGION }), PRODUCT_CODE);
+const ec2Client = addAWSRevenueMeasurementUserAgent(new EC2Client({ region: REGION }), PRODUCT_CODE);
+const s3Client = addAWSRevenueMeasurementUserAgent(new S3Client({ region: REGION }), PRODUCT_CODE);
 ```
 
 ## Go (AWS SDK v2)
@@ -137,11 +136,11 @@ import (
 
 const UA_STRING = "APN_1.1/pc_5ugbbrmu7ud3u5hsipfzug61p$"
 
-type PRMUserAgentTransport struct {
+type AWSRevenueMeasurementUserAgentTransport struct {
     Transport http.RoundTripper
 }
 
-func (t *PRMUserAgentTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+func (t *AWSRevenueMeasurementUserAgentTransport) RoundTrip(req *http.Request) (*http.Response, error) {
     req.Header.Set("User-Agent", UA_STRING)
     return t.Transport.RoundTrip(req)
 }
@@ -150,7 +149,7 @@ func main() {
     cfg, _ := config.LoadDefaultConfig(context.TODO(),
         config.WithRegion("us-east-2"),
         config.WithHTTPClient(&http.Client{
-            Transport: &PRMUserAgentTransport{
+            Transport: &AWSRevenueMeasurementUserAgentTransport{
                 Transport: http.DefaultTransport,
             },
         }),
@@ -195,7 +194,7 @@ The Terraform AWS provider supports three ways to inject custom User Agent infor
 
 **Prerequisites:** Terraform >= 1.0 and AWS provider **>= 6.27.0** (or AWSCC provider **>= 1.67.0**).
 
-In your module's `terraform` block, add the `provider_meta "aws"` block with the PRM User Agent string:
+In your module's `terraform` block, add the `provider_meta "aws"` block with the AWS Revenue Measurement User Agent string:
 
 ```
 terraform {

@@ -1,7 +1,6 @@
 
 
 # Method-Specific Requirements
-<a name="user-agent-prerequisites"></a>
 
 In addition to the general [prerequisites](resource-tagging-prerequisites.md), ensure you meet the following requirements for User Agent string implementation:
 + Product listing on AWS Marketplace. See the [AWS Marketplace Seller Guide](https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html) for general information. For product-specific listing guide instructions:

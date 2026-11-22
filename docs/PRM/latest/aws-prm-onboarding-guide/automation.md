@@ -1,9 +1,8 @@
 
 
 # Automation
-<a name="automation"></a>
 
-Partner Revenue Measurement supports automation for each implementation method. Choose the automation approach that matches your implementation method.
+AWS Revenue Measurement supports automation for each implementation method. Choose the automation approach that matches your implementation method.
 
 ## AWS Marketplace Metering
 <a name="automation-marketplace-metering"></a>

@@ -1,12 +1,12 @@
 
 
-# Troubleshooting Partner Revenue Measurement
-<a name="troubleshooting"></a>
+# Troubleshooting AWS Revenue Measurement
 
-This section provides troubleshooting guidance for each Partner Revenue Measurement implementation method:
+This section provides troubleshooting guidance for each AWS Revenue Measurement implementation method:
 + [AWS Marketplace Metering Issues](#marketplace-metering-troubleshooting)
 + [Resource Tagging Issues](#resource-tagging-troubleshooting)
 + [User Agent String Issues](#user-agent-troubleshooting)
++ [Identity Tagging Issues](#identity-tagging-troubleshooting)
 
 ## AWS Marketplace Metering Issues
 <a name="marketplace-metering-troubleshooting"></a>
@@ -97,6 +97,61 @@ aws logs filter-log-events \
 
 Look for the `userAgent` field in CloudTrail events. The format should match: `APN_1.1/pc_<YOUR-PRODUCT-CODE>$`
 
+## Identity Tagging Issues
+<a name="identity-tagging-troubleshooting"></a>
+
+### Tag not generating revenue attribution
+<a name="identity-tag-not-working"></a>
+
+If your Identity Tagging tag is not generating revenue attribution:
++ **Verify tag key format:** Confirm the tag key matches the format `aws-apn-id-{{partner-central-aws-account-id}}` (e.g., `aws-apn-id-123456789012`). Ensure your Partner Central AWS account ID is correct.
++ **Verify tag value format:** Confirm the tag value is `pc:{{product-code}}` and that the product code matches your AWS Marketplace listing.
++ **Confirm product listing:** The product code must correspond to a product listing on AWS Marketplace for your partner account. Tags referencing a product code without a matching listing are rejected for attribution.
++ **Confirm supported principal type:** Identity Tagging supports IAM roles (cross-account and same-account) and IAM users only. Federated users via AWS IAM Identity Center (permission sets) are not supported at launch.
++ **Confirm activity on billable resources:** Attribution requires that the tagged principal perform API actions on billable AWS resources. Account-level operations that do not reference a billable resource (e.g., `sts:AssumeRole`, `iam:ListRoles`) do not generate attribution. Ensure your tagged identity is performing operations on resources that incur AWS charges.
++ **Check attribution timing:** Attribution does not begin in the same billing month the tag is detected. Attribution starts from the billing month following tag detection. The detection SLA is five calendar days.
+
+### Verification steps
+<a name="identity-verification-steps"></a>
+
+Verify your tag is correctly applied using the AWS CLI:
+
+For IAM roles:
+
+```
+aws iam list-role-tags --role-name MyPartnerRole
+```
+
+For IAM users:
+
+```
+aws iam list-user-tags --user-name MyPartnerUser
+```
+
+Confirm the output includes your tag key (`aws-apn-id-{{partner-central-aws-account-id}}`) and value (`pc:{{product-code}}`).
+
+To verify your tagged identity's activity on billable resources, search CloudTrail for API events from your tagged principal ARN and confirm the events reference billable resource ARNs.
+
+### Multi-partner Identity Tagging scenarios
+<a name="identity-multi-partner"></a>
+
+Multiple partners can independently tag the same IAM principal using their own partner-scoped keys. Each partner receives attribution when their tagged identity performs API actions on billable resources. If you are not receiving attribution in a multi-partner scenario, confirm your tag key uses the exact format `aws-apn-id-{{partner-central-aws-account-id}}` and that the value is `pc:{{product-code}}`.
+
+### Common implementation errors
+<a name="identity-common-errors"></a>
+
+
+**Common Identity Tagging Implementation Issues**  
+
+| Issue | Cause | Solution | 
+| --- | --- | --- | 
+| Tag key missing account ID | Used aws-apn-id without the partner account ID suffix | Use the full format: aws-apn-id-<partner-central-aws-account-id> | 
+| Product code mismatch | Product code in tag value does not match any Marketplace listing | Verify your product code in the AWS Marketplace Management Portal | 
+| Unsupported principal type | Tag applied to an IAM Identity Center permission set or federated session | Use an IAM role (cross-account or same-account) or IAM user instead | 
+| No billable resource activity | Tagged identity only performs non-billable operations (e.g., sts:AssumeRole) | Ensure the tagged identity performs API actions on resources that incur AWS charges | 
+| Attribution not appearing | Tag was applied in the current billing month | Wait for the following billing month — attribution begins the month after tag detection | 
+| Tag removed by customer | Customer or another user removed the tag from the IAM principal | Re-apply the tag; attribution is retained for the month of removal and stops the following month | 
+
 ## Validation and Testing
 <a name="validation-troubleshooting"></a>
 
@@ -112,7 +167,7 @@ For official validation, contact your AWS partner management team or [APN Suppor
 <a name="common-errors"></a>
 
 
-**Common Partner Revenue Measurement Implementation Issues**  
+**Common AWS Revenue Measurement Implementation Issues**  
 
 | Method | Issue | Cause | Solution | 
 | --- | --- | --- | --- | 
@@ -126,4 +181,4 @@ For official validation, contact your AWS partner management team or [APN Suppor
 ## Contact Information
 <a name="contact-information"></a>
 
-For any further questions about Partner Revenue Measurement (PRM) compliance requirements, please contact your AWS Partner Development team or [AWS Partner Network support](https://partnercentral.awspartner.com/partnercentral2/s/support).
+For any further questions about AWS Revenue Measurement compliance requirements, please contact your AWS Partner Development team or [AWS Partner Network support](https://partnercentral.awspartner.com/partnercentral2/s/support).

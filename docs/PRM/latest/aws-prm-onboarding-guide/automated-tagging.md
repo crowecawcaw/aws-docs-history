@@ -1,7 +1,6 @@
 
 
 # Automated Tagging
-<a name="automated-tagging"></a>
 
 We encourage you to automate your tagging resources as much as possible. You can automate your tagging by adding a tag line to your AWS CloudFormation template, AWS Cloud Development Kit (AWS CDK), Terraform, or by using the AWS Tag Editor.
 

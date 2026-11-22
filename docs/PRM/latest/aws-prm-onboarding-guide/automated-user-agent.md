@@ -1,7 +1,6 @@
 
 
 # Automated User Agent
-<a name="automated-user-agent"></a>
 
 For partner solutions that make multiple regular AWS API/CLI calls, you can automate User Agent string inclusion using AWS SDK Application ID settings instead of instrumenting every call individually.
 
@@ -9,7 +8,7 @@ For partner solutions that make multiple regular AWS API/CLI calls, you can auto
 Only configure User Agent strings for regular AWS API/CLI calls that are directly made by your partner solution. Do not configure User Agent strings for customer-initiated calls that are independent of your solution.
 
 **Note**  
-If an Application ID is already configured, you can append your Partner Revenue Measurement User Agent string using a space as a delimiter. For example: `EXISTING_APP_ID APN_1.1/pc_5ugbbrmu7ud3u5hsipfzug61p$`
+If an Application ID is already configured, you can append your AWS Revenue Measurement User Agent string using a space as a delimiter. For example: `EXISTING_APP_ID APN_1.1/pc_5ugbbrmu7ud3u5hsipfzug61p$`
 
 ## Shared AWS Config File
 <a name="config-file-method"></a>
