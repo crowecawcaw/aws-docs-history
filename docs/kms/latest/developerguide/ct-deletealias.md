@@ -1,13 +1,12 @@
 
 
 # DeleteAlias
-<a name="ct-deletealias"></a>
 
 The following example shows an AWS CloudTrail log entry for the [DeleteAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html) operation. For information about deleting aliases, see [Delete an alias](alias-delete.md).
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 
-```
+```json
 {
     "eventVersion": "1.02",
     "userIdentity": {

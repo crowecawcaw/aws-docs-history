@@ -1,7 +1,6 @@
 
 
 # Troubleshooting a custom key store
-<a name="fix-keystore"></a>
 
 AWS CloudHSM key stores are designed to be available and resilient. However, there are some error conditions that you might have to repair to keep your AWS CloudHSM key store operational.
 
@@ -99,7 +98,7 @@ When you [connect an AWS CloudHSM key store](connect-keystore.md), AWS KMS logs 
 
 If you disconnect the AWS CloudHSM key store and change the `kmsuser` password, AWS KMS cannot log into the AWS CloudHSM cluster with the credentials of the `kmsuser` CU account. As a result, all attempts to connect the AWS CloudHSM key store fail. The `DescribeCustomKeyStores` response shows a `ConnectionState` of `FAILED` and `ConnectionErrorCode` value of `INVALID_CREDENTIALS`, as shown in the following example.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleKeyStore}}
 {
    "CustomKeyStores": [
@@ -118,7 +117,7 @@ Also, after five failed attempts to log into the cluster with an incorrect passw
 
 If AWS KMS gets a lockout response when it tries to log into the cluster as the `kmsuser` CU, the request to connect the AWS CloudHSM key store fails. The [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) response includes a `ConnectionState` of `FAILED` and `ConnectionErrorCode` value of `USER_LOCKED_OUT`, as shown in the following example.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleKeyStore}}
 {
    "CustomKeyStores": [
@@ -154,7 +153,7 @@ When you create a KMS key in an AWS CloudHSM key store, AWS KMS creates the KMS 
 
 AWS KMS reports the results of its attempt to delete the key material from the cluster in the `DeleteKey` event entry of your AWS CloudTrail logs. It appears in the `backingKeysDeletionStatus` element of the `additionalEventData` element, as shown in the following example entry. The entry also includes the KMS key ARN, the AWS CloudHSM cluster ID, and the ID (`backing-key-id`) of the key material.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -240,7 +239,7 @@ Use the following process to recover the key material.
 
    Use the [DescribeBackups](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeBackups.html) operation to list the backups for a cluster. Then use the backup timestamp to help you select a backup. To limit the output to the cluster that is associated with the AWS CloudHSM key store, use the `Filters` parameter, as shown in the following example. 
 
-   ```
+   ```bash
    $ aws cloudhsmv2 describe-backups --filters clusterIds={{<cluster ID>}}
    {
        "Backups": [
@@ -294,7 +293,7 @@ On January 1, 2025, AWS CloudHSM will end support for the Client SDK 3 command l
 
    For example, this command uses [DisconnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisconnectCustomKeyStore.html) to disconnect an example key store. Replace the example AWS CloudHSM key store ID with a valid one.
 
-   ```
+   ```bash
    $ aws kms disconnect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
    ```
 
@@ -353,7 +352,7 @@ On January 1, 2025, AWS CloudHSM will end support for the Client SDK 3 command l
 
    For example, this command tells AWS KMS that the current password is `tempPassword`. Replace the example password with the actual one. 
 
-   ```
+   ```bash
    $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} --key-store-password {{tempPassword}}
    ```
 
@@ -361,7 +360,7 @@ On January 1, 2025, AWS CloudHSM will end support for the Client SDK 3 command l
 
    The [ConnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/APIReference/API_ConnectCustomKeyStore.html) operation returns quickly, but the connection process can take an extended period of time. The initial response does not indicate the success of the connection process.
 
-   ```
+   ```bash
    $ aws kms connect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
    ```
 
@@ -369,7 +368,7 @@ On January 1, 2025, AWS CloudHSM will end support for the Client SDK 3 command l
 
    In this example, the connection state field shows that the AWS CloudHSM key store is now connected.
 
-   ```
+   ```bash
    $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcdef0}}
    {
       "CustomKeyStores": [

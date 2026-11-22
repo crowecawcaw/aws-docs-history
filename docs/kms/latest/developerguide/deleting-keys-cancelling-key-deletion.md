@@ -1,7 +1,6 @@
 
 
 # Cancel key deletion
-<a name="deleting-keys-cancelling-key-deletion"></a>
 
 After you [schedule a KMS key for deletion](deleting-keys-scheduling-key-deletion.md), you can cancel the key deletion while it is still in the [pending deletion](key-state.md) state. You can cancel key deletion in the AWS KMS console or by using the [CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html) operation. After you cancel the pending deletion of a KMS key, the key state of the KMS key is `Disabled`. For more information on enabling the KMS key, see [Enable and disable keys](enabling-keys.md).
 
@@ -33,7 +32,7 @@ $ aws kms cancel-key-deletion --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 
 When used successfully, the AWS CLI returns output like the output shown in the following example:
 
-```
+```json
 {
     "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
 }

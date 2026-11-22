@@ -1,7 +1,6 @@
 
 
 # Step 3: Encrypt the key material
-<a name="importing-keys-encrypt-key-material"></a>
 
 After you [download the public key and import token](importing-keys-get-public-key-and-token.md), encrypt your key material using the public key that you downloaded and the wrapping algorithm that you specified. If you need to replace the public key or import token, or change the wrapping algorithm, you must download a new public key and import token. For information about the public keys and wrapping algorithms that AWS KMS supports, see [Select a wrapping public key spec](importing-keys-get-public-key-and-token.md#select-wrapping-key-spec) and [Select a wrapping algorithm](importing-keys-get-public-key-and-token.md#select-wrapping-algorithm).
 
@@ -24,7 +23,7 @@ The following OpenSSL commands generate key material of each supported type for 
 
 To convert the private keys of asymmetric key pairs into DER-encoded format, pipe the key material generation command to the following `openssl pkcs8` command. The `topk8` parameter directs OpenSSL to take a private key as input and return a PKCS\#8 formatted key. (The default behavior is the opposite.) 
 
-```
+```bash
 openssl pkcs8 -topk8 -outform der -nocrypt
 ```
 
@@ -33,13 +32,13 @@ The following commands generate test key material for each of the supported key 
 
   This command generates a 256-bit symmetric key (32-byte random string) and saves it in the `PlaintextKeyMaterial.bin` file. You do not need to encode this key material. 
 
-  ```
+  ```bash
   openssl rand -out PlaintextKeyMaterial.bin 32
   ```
 
   In China Regions only, you must generate a 128-bit symmetric key (16-byte random string).
 
-  ```
+  ```bash
   openssl rand -out PlaintextKeyMaterial.bin 16
   ```
 + HMAC keys
@@ -59,7 +58,7 @@ The following commands generate test key material for each of the supported key 
   ```
 + RSA private keys
 
-  ```
+  ```bash
   openssl genpkey -algorithm rsa -pkeyopt rsa_keygen_bits:2048 | openssl pkcs8 -topk8 -outform der -nocrypt > RSA_2048_PrivateKey.der
   
   openssl genpkey -algorithm rsa -pkeyopt rsa_keygen_bits:3072 | openssl pkcs8 -topk8 -outform der -nocrypt > RSA_3072_PrivateKey.der
@@ -68,7 +67,7 @@ The following commands generate test key material for each of the supported key 
   ```
 + ECC private keys
 
-  ```
+  ```bash
   openssl genpkey -algorithm ec -pkeyopt ec_paramgen_curve:P-256 | openssl pkcs8 -topk8 -outform der -nocrypt > ECC_NIST_P256_PrivateKey.der
   
   openssl genpkey -algorithm ec -pkeyopt ec_paramgen_curve:P-384 | openssl pkcs8 -topk8 -outform der -nocrypt > ECC_NIST_P384_PrivateKey.der
@@ -79,7 +78,7 @@ The following commands generate test key material for each of the supported key 
   ```
 + SM2 private keys (China Regions only)
 
-  ```
+  ```bash
   openssl genpkey -algorithm ec -pkeyopt ec_paramgen_curve:sm2 | openssl pkcs8 -topk8 -outform der -nocrypt > SM2_PrivateKey.der
   ```
 
@@ -106,7 +105,7 @@ In this example:
 + {{`WrappingPublicKey.bin`}} is the file that contains the downloaded wrapping public key. 
 + {{`PlaintextKeyMaterial.bin`}} is the file that contains the key material that you are encrypting, such as `PlaintextKeyMaterial.bin`, `HMAC_384_PlaintextKey.bin` or `ECC_NIST_P521_PrivateKey.der`.
 
-```
+```bash
 $ openssl pkeyutl \
     -encrypt \
     -in {{PlaintextKeyMaterial.bin}} \
@@ -131,7 +130,7 @@ In this example:
 + {{`WrappingPublicKey.bin`}} is the file that contains the downloaded public wrapping key. If you downloaded the public key from the console, this file is named `wrappingKey_{{KMS key_key_ID}}_{{timestamp}}` (for example, `wrappingKey_f44c4e20-f83c-48f4-adc6-a1ef38829760_0809092909`). 
 + {{`PlaintextKeyMaterial.bin`}} is the file that contains the key material that you are encrypting, such as `PlaintextKeyMaterial.bin`, `HMAC_384_PlaintextKey.bin`, or `ECC_NIST_P521_PrivateKey.der`.
 
-```
+```bash
 $ openssl pkeyutl \
     -encrypt \
     -in {{PlaintextKeyMaterial.bin}} \
@@ -161,7 +160,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_1 wrapping algorithm requires OpenSSL version 3.*x
 
    This command generates an AES symmetric encryption key consisting of 256 random bits, and saves it in the `aes-key.bin` file
 
-   ```
+   ```bash
    # Generate a 32-byte AES symmetric encryption key
    $ openssl rand -out aes-key.bin 32
    ```
@@ -176,7 +175,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_1 wrapping algorithm requires OpenSSL version 3.*x
    + {{`PlaintextKeyMaterial.bin`}} is the file that contains the key material that you are importing, such as `PlaintextKeyMaterial.bin`, `HMAC_384_PlaintextKey.bin`, `RSA_3072_PrivateKey.der`, or `ECC_NIST_P521_PrivateKey.der`.
    + {{`aes-key.bin`}} is the file that contains 256-bit AES symmetric encryption key that you generated in the previous command.
 
-   ```
+   ```bash
    # Encrypt your key material with the AES symmetric encryption key
    $ openssl enc -id-aes256-wrap-pad \
            -K "$(xxd -p < {{aes-key.bin}} | tr -d '\n')" \
@@ -195,7 +194,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_1 wrapping algorithm requires OpenSSL version 3.*x
    + {{`WrappingPublicKey.bin`}} is the file that contains the downloaded public wrapping key. If you downloaded the public key from the console, this file is named `wrappingKey_{{KMS key_key_ID}}_{{timestamp}}` (for example, `wrappingKey_f44c4e20-f83c-48f4-adc6-a1ef38829760_0809092909`
    + {{`aes-key.bin`}} is the file that contains 256-bit AES symmetric encryption key that you generated in the first command in this example sequence.
 
-   ```
+   ```bash
    # Encrypt your AES symmetric encryption key with the downloaded public key
    $ openssl pkeyutl \
        -encrypt \
@@ -219,7 +218,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_1 wrapping algorithm requires OpenSSL version 3.*x
    + {{`key-material-wrapped.bin`}} is the file that contains your encrypted key material.
    + {{`aes-key-wrapped.bin`}} is the file that contains the encrypted AES encryption key.
 
-   ```
+   ```bash
    # Combine the encrypted AES key and encrypted key material in a file
    $ cat {{aes-key-wrapped.bin}} {{key-material-wrapped.bin}} > {{EncryptedKeyMaterial.bin}}
    ```
@@ -241,7 +240,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_256 wrapping algorithm requires OpenSSL version 3.
 
    This command generates an AES symmetric encryption key consisting of 256 random bits, and saves it in the `aes-key.bin` file
 
-   ```
+   ```bash
    # Generate a 32-byte AES symmetric encryption key
    $ openssl rand -out aes-key.bin 32
    ```
@@ -256,7 +255,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_256 wrapping algorithm requires OpenSSL version 3.
    + {{`PlaintextKeyMaterial.bin`}} is the file that contains the key material that you are importing, such as `PlaintextKeyMaterial.bin`, `HMAC_384_PlaintextKey.bin`, `RSA_3072_PrivateKey.der`, or `ECC_NIST_P521_PrivateKey.der`.
    + {{`aes-key.bin`}} is the file that contains 256-bit AES symmetric encryption key that you generated in the previous command.
 
-   ```
+   ```bash
    # Encrypt your key material with the AES symmetric encryption key
    $ openssl enc -id-aes256-wrap-pad \
            -K "$(xxd -p < {{aes-key.bin}} | tr -d '\n')" \
@@ -275,7 +274,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_256 wrapping algorithm requires OpenSSL version 3.
    + {{`WrappingPublicKey.bin`}} is the file that contains the downloaded public wrapping key. If you downloaded the public key from the console, this file is named `wrappingKey_{{KMS key_key_ID}}_{{timestamp}}` (for example, `wrappingKey_f44c4e20-f83c-48f4-adc6-a1ef38829760_0809092909`
    + {{`aes-key.bin`}} is the file that contains 256-bit AES symmetric encryption key that you generated in the first command in this example sequence.
 
-   ```
+   ```bash
    # Encrypt your AES symmetric encryption key with the downloaded public key
    $ openssl pkeyutl \
        -encrypt \
@@ -299,7 +298,7 @@ The RSA\_AES\_KEY\_WRAP\_SHA\_256 wrapping algorithm requires OpenSSL version 3.
    + {{`key-material-wrapped.bin`}} is the file that contains your encrypted key material.
    + {{`aes-key-wrapped.bin`}} is the file that contains the encrypted AES encryption key.
 
-   ```
+   ```bash
    # Combine the encrypted AES key and encrypted key material in a file
    $ cat {{aes-key-wrapped.bin}} {{key-material-wrapped.bin}} > {{EncryptedKeyMaterial.bin}}
    ```

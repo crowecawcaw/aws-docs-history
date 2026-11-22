@@ -1,7 +1,6 @@
 
 
 # Disable automatic key rotation
-<a name="rotating-keys-disable"></a>
 
 After enabling automatic key rotation on a customer managed key, you can choose to disable it at any time.
 
@@ -45,7 +44,7 @@ The [DisableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API
 
 The following example disables automatic key rotation on the specified symmetric encryption KMS key and uses the [GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html) operation to see the result.
 
-```
+```bash
 $ aws kms disable-key-rotation --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 
 $ aws kms get-key-rotation-status --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}

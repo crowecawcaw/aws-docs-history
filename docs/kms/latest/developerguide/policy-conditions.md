@@ -1,7 +1,6 @@
 
 
 # Condition keys for AWS KMS
-<a name="policy-conditions"></a>
 
 You can specify conditions in the [key policies](key-policies.md) and [IAM policies](iam-policies.md) that control access to AWS KMS resources. The policy statement is effective only when the conditions are true. For example, you might want a policy statement to take effect only after a specific date. Or, you might want a policy statement to control access only when a specific value appears in an API request.
 

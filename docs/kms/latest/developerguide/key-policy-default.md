@@ -1,7 +1,6 @@
 
 
 # Default key policy
-<a name="key-policy-default"></a>
 
 When you create a KMS key, you can specify the key policy for the new KMS key. If you don't provide one, AWS KMS creates one for you. The default key policy that AWS KMS uses differs depending on whether you create the key in the AWS KMS console or you use the AWS KMS API.
 
@@ -32,7 +31,7 @@ The following default key policy statement is critical.
 
 The following key policy statement is the entire default key policy for KMS keys created programmatically. It's the first policy statement in the default key policy for KMS keys created in the AWS KMS console.
 
-```
+```json
 {
   "Sid": "Enable IAM User Permissions",
   "Effect": "Allow",
@@ -52,7 +51,8 @@ When the principal in a key policy statement is the account principal, the polic
 ** Reduces the risk of the KMS key becoming unmanageable.**  
 Unlike other AWS resource policies, an AWS KMS key policy does not automatically give permission to the account or any of its principals. To give permission to any principal, including the [account principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-accounts), you must use a key policy statement that provides the permission explicitly. You are not required to give the account principal, or any principal, access to the KMS key. However, giving access to the account principal helps you prevent the key from becoming unmanageable.  
 For example, suppose you create a key policy that gives only one user access to the KMS key. If you then delete that user, the key becomes unmanageable and you must [contact AWS Support](https://console.aws.amazon.com/support/home#/case/create) to regain access to the KMS key.   
-The key policy statement shown above gives the [account principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-accounts) permission to control the key. The account principal represents the AWS account and its administrators, including the [account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html). The account root user is the only principal that cannot be deleted unless you delete the AWS account. IAM best practices discourage acting on behalf of the account root user, except in an emergency. However, you might need to act as the account root user if you delete all other users and roles with access to the KMS key. 
+The key policy statement shown above gives the [account principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-accounts) permission to control the key. The account principal represents the AWS account and its administrators, including the [account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html). The account root user is the only principal that cannot be deleted unless you delete the AWS account. IAM best practices discourage acting on behalf of the account root user, except in an emergency. However, you might need to act as the account root user if you delete all other users and roles with access to the KMS key.   
+When you create a KMS key or change its key policy, AWS KMS runs a *policy lockout safety check*. It rejects a key policy that doesn't allow the principal making the request to call PutKeyPolicy on the KMS key later, unless you set the `BypassPolicyLockoutSafetyCheck` parameter to `true`. For a KMS key that you share through AWS RAM, the check considers only the `default` key policy: permissions in the `AWS_RAM` key policy don't count. For more information about how AWS KMS evaluates the two key policies, see [How permissions are evaluated](key-sharing-ram.md#key-sharing-ram-evaluation).
 
 ## Allows key administrators to administer the KMS key
 <a name="key-policy-default-allow-administrators"></a>
@@ -76,7 +76,7 @@ The following is an example key administrators statement in the policy view of t
 **Note**  
 The AWS KMS console adds key administrators to the key policy under the statement identifier `"Allow access for Key Administrators"`. Modifying this statement identifier might impact how the console displays updates that you make to the statement.
 
-```
+```json
 {
   "Sid": "Allow access for Key Administrators",
   "Effect": "Allow",
@@ -190,7 +190,7 @@ When you use the AWS KMS console to create a KMS key, the console adds the users
 **Note**  
 The AWS KMS console adds key users to the key policy under the statement identifiers `"Allow use of the key"` and `"Allow attachment of persistent resources"`. Modifying these statement identifiers might impact how the console displays updates that you make to the statement.
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",
@@ -234,7 +234,7 @@ By default, the AWS KMS console adds key users statements like those in the foll
 **Symmetric encryption KMS keys**  
 The console adds the following statement to the key policy for symmetric encryption KMS keys.  
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",  
@@ -253,7 +253,7 @@ The console adds the following statement to the key policy for symmetric encrypt
 **HMAC KMS keys**  
 The console adds the following statement to the key policy for HMAC KMS keys.  
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",  
@@ -270,7 +270,7 @@ The console adds the following statement to the key policy for HMAC KMS keys.
 **Asymmetric KMS keys for public key encryption**  
 The console adds the following statement to the key policy for asymmetric KMS keys with a key usage of **Encrypt and decrypt**.  
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",
@@ -291,7 +291,7 @@ The console adds the following statement to the key policy for asymmetric KMS ke
 **Asymmetric KMS keys for signing and verification**  
 The console adds the following statement to the key policy for asymmetric KMS keys with a key usage of **Sign and verify**.  
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",
@@ -309,7 +309,7 @@ The console adds the following statement to the key policy for asymmetric KMS ke
 **Asymmetric KMS keys for deriving shared secrets**  
 The console adds the following statement to the key policy for asymmetric KMS keys with a key usage of **Key agreement**.  
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",
@@ -326,7 +326,7 @@ The console adds the following statement to the key policy for asymmetric KMS ke
 **Asymmetric KMS keys for encapsulation and decapsulation**  
 The console adds the following statement to the key policy for asymmetric KMS keys with a key usage of **Encapsulate and decapsulate**.  
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",
@@ -391,7 +391,7 @@ This key policy statement allows the key user to create, view, and revoke grants
 
 Key users require these grant permissions to use their KMS key with integrated services, but these permissions are not sufficient. Key users also need permission to use the integrated services. For details about giving users access to an AWS service that integrates with AWS KMS, consult the documentation for the integrated service.
 
-```
+```json
 {
   "Sid": "Allow attachment of persistent resources",
   "Effect": "Allow",

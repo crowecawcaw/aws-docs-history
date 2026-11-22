@@ -1,7 +1,6 @@
 
 
 # How unusable KMS keys affect data keys
-<a name="unusable-kms-keys"></a>
 
 When a KMS key becomes unusable, the effect is almost immediate (subject to eventual consistency). The [key state](key-state.md) of the KMS key changes to reflect its new condition, and all requests to use the KMS key in [cryptographic operations](kms-cryptography.md#cryptographic-operations) fail.
 

@@ -1,7 +1,6 @@
 
 
 # Use `DeleteAlias` with an AWS SDK or CLI
-<a name="example_kms_DeleteAlias_section"></a>
 
 The following code examples show how to use `DeleteAlias`.
 
@@ -26,7 +25,7 @@ For more information, see [Deleting an alias](https://docs.aws.amazon.com/kms/la
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
-```
+```java
     /**
      * Deletes a specific KMS alias asynchronously.
      *
@@ -55,7 +54,7 @@ For more information, see [Deleting an alias](https://docs.aws.amazon.com/kms/la
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
-```
+```php
     /***
      * @param string $aliasName
      * @return void
@@ -80,7 +79,7 @@ For more information, see [Deleting an alias](https://docs.aws.amazon.com/kms/la
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class AliasManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -121,7 +120,7 @@ class AliasManager:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_alias_name = 'alias/my-key-alias'
         lo_kms->deletealias( iv_aliasname = iv_alias_name ).

@@ -1,7 +1,6 @@
 
 
 # Control access to your AWS CloudHSM key store
-<a name="authorize-key-store"></a>
 
 You use IAM policies to control access to your AWS CloudHSM key store and your AWS CloudHSM cluster. You can use key policies, IAM policies, and grants to control access to the AWS KMS keys in your AWS CloudHSM key store. We recommend that you provide users, groups, and roles only the permissions that they require for the tasks that they are likely to perform.
 

@@ -1,7 +1,6 @@
 
 
 # Disconnect an AWS CloudHSM key store
-<a name="disconnect-keystore"></a>
 
 When you disconnect an AWS CloudHSM key store, AWS KMS logs out of the AWS CloudHSM client, disconnects from the associated AWS CloudHSM cluster, and removes the network infrastructure that it created to support the connection.
 
@@ -54,13 +53,13 @@ The examples in this section use the [AWS Command Line Interface (AWS CLI)](http
 
 This example disconnects an AWS CloudHSM key store. Before running this example, replace the example ID with a valid one.
 
-```
+```bash
 $ aws kms disconnect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
 To verify that the AWS CloudHSM key store is disconnected, use the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) operation. By default, this operation returns all custom keys stores in your account and Region. But you can use either the `CustomKeyStoreId` and `CustomKeyStoreName` parameter (but not both) to limit the response to particular custom key stores. The `ConnectionState` value of `DISCONNECTED` indicates that this example AWS CloudHSM key store is not connected to its AWS CloudHSM cluster.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcdef0}}
 {
    "CustomKeyStores": [

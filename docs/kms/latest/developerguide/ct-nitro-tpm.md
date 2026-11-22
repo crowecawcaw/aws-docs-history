@@ -1,7 +1,6 @@
 
 
 # Monitoring requests for NitroTPM
-<a name="ct-nitro-tpm"></a>
 
 For NitroTPM attestation, the CloudTrail log includes the module ID (`attestationDocumentModuleId`) and platform configuration registers (PCRs) from the attestation document. 
 
@@ -14,7 +13,7 @@ This section shows an example CloudTrail log entry for each of the supported Nit
 
 The following example shows an AWS CloudTrail log entry of a [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation for a NitroTPM.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -67,7 +66,7 @@ The following example shows an AWS CloudTrail log entry of a [Decrypt](https://d
 
 The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation for a NitroTPM.
 
-```
+```json
 {
     "eventVersion": "1.02",
     "userIdentity": {
@@ -117,7 +116,7 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](h
 
 The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) operation for a NitroTPM.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -173,7 +172,7 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPai
 
 The following example shows an AWS CloudTrail log entry of a [GenerateRandom](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html) operation for a NitroTPM.
 
-```
+```json
 {
     "eventVersion": "1.02",
     "userIdentity": {

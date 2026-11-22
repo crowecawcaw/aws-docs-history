@@ -1,7 +1,6 @@
 
 
 # Testing your permissions
-<a name="testing-permissions"></a>
 
 To use AWS KMS, you must have credentials that AWS can use to authenticate your API requests. The credentials must include the permission to access KMS keys and aliases. The permissions are determined by key policies, IAM policies, grants, and cross-account access controls. In addition to controlling access to KMS keys, you can control access to your CloudHSM, and to your custom key stores.
 
@@ -51,7 +50,7 @@ To use `DryRun`, specify the `—dry-run` parameter in AWS CLI commands and AWS 
 
 For example, the following command uses the [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) operation and creates a grant that allows users who are authorized to assume the `keyUserRole` role to call the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation on a specified [symmetric KMS key](symm-asymm-choose-key-spec.md#symmetric-cmks). The `DryRun` parameter is specified.
 
-```
+```bash
 $  aws kms create-grant \
     --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
     --grantee-principal arn:aws:iam::111122223333:role/keyUserRole \

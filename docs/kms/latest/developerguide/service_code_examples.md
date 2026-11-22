@@ -1,7 +1,6 @@
 
 
 # Code examples for AWS KMS using AWS SDKs
-<a name="service_code_examples"></a>
 
 The following code examples show how to use AWS KMS with an AWS software development kit (SDK). 
 

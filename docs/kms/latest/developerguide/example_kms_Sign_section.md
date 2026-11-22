@@ -1,7 +1,6 @@
 
 
 # Use `Sign` with an AWS SDK or CLI
-<a name="example_kms_Sign_section"></a>
 
 The following code examples show how to use `Sign`.
 
@@ -67,7 +66,7 @@ For more information about using asymmetric KMS keys in AWS KMS, see [Asymmetric
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
-```
+```java
     /**
      * Asynchronously signs and verifies data using AWS KMS.
      *
@@ -134,7 +133,7 @@ For more information about using asymmetric KMS keys in AWS KMS, see [Asymmetric
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
-```
+```php
     /***
      * @param string $keyId
      * @param string $message
@@ -163,7 +162,7 @@ For more information about using asymmetric KMS keys in AWS KMS, see [Asymmetric
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class KeyEncrypt:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -208,7 +207,7 @@ class KeyEncrypt:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab' (asymmetric key)
         " iv_message contains the message to sign

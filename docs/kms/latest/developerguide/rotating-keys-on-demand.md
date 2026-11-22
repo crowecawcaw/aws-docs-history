@@ -1,7 +1,6 @@
 
 
 # Perform on-demand key rotation
-<a name="rotating-keys-on-demand"></a>
 
 You can perform on-demand rotation of the key material in customer managed KMS keys, regardless of whether or not automatic key rotation is enabled. Disabling automatic rotation ([DisableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html)) does not impact your ability to perform on-demand rotations, nor does it cancel any in progress on-demand rotations. On-demand rotations do not change existing automatic rotation schedules. For example, consider a KMS key that has automatic key rotation enabled with a rotation period of 730 days. If the key is scheduled to automatically rotate on April 14, 2024, and you perform an on-demand rotation on April 10, 2024, the key will automatically rotate, as scheduled, on April 14, 2024 and every 730 days thereafter.
 
@@ -51,7 +50,7 @@ The [RotateKeyOnDemand](https://docs.aws.amazon.com/kms/latest/APIReference/API_
 
 The following example initiates on-demand key rotation on the specified symmetric encryption KMS key and uses the [GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html) operation to verify that the on-demand rotation is in progress. The `OnDemandRotationStartDate` in the `kms:GetKeyRotationStatus` response identifies the date and time that an in progress on-demand rotation was initiated. In this example, the KMS key also has automatic rotation enabled with a period of 365 days.
 
-```
+```bash
 $ aws kms rotate-key-on-demand --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 {
     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"    
@@ -69,7 +68,7 @@ $ aws kms get-key-rotation-status --key-id {{1234abcd-12ab-34cd-56ef-1234567890a
 
 If the KMS key does not support automatic rotation or does not have automatic rotation enabled, the `kms:GetKeyRotationStatus` response would have fewer fields as shown in the following example:
 
-```
+```bash
 $ aws kms rotate-key-on-demand --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 {
     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"

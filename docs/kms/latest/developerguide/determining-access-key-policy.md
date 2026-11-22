@@ -1,9 +1,8 @@
 
 
 # Examining the key policy
-<a name="determining-access-key-policy"></a>
 
-[Key policies](key-policies.md) are the primary way to control access to KMS keys. Every KMS key has exactly one key policy.
+[Key policies](key-policies.md) are the primary way to control access to KMS keys. Every KMS key has a `default` key policy. A KMS key that you share through AWS Resource Access Manager (AWS RAM) also has an `AWS_RAM` key policy, and AWS KMS evaluates both key policies together. To determine access to a shared KMS key, examine both key policies. For more information about how AWS KMS evaluates the two key policies, see [How permissions are evaluated](key-sharing-ram.md#key-sharing-ram-evaluation).
 
 When a key policy consists of or includes the [default key policy](key-policy-default.md#key-policy-default-allow-root-enable-iam), the key policy allows IAM administrators in the account to use IAM policies to control access to the KMS key. Also, if the key policy gives [another AWS account](key-policy-modifying-external-accounts.md) permission to use the KMS key, the IAM administrators in the external account can use IAM policies to delegate those permissions. To determine the complete list of principals that can access the KMS key, [examine the IAM policies](determining-access-iam-policies.md). 
 
@@ -18,7 +17,7 @@ The following examples use the policy statements found in the [default key polic
 
 **Example Policy statement 1**  
 
-```
+```json
 {
   "Sid": "Enable IAM User Permissions",
   "Effect": "Allow",
@@ -32,7 +31,7 @@ A key policy document with a statement that allows access to the AWS account ena
 
 **Example Policy statement 2**  
 
-```
+```json
 {
   "Sid": "Allow access for Key Administrators",
   "Effect": "Allow",
@@ -58,7 +57,7 @@ In policy statement 2, `arn:aws:iam::111122223333:role/KMSKeyAdmins` refers to t
 
 **Example Policy statement 3**  
 
-```
+```json
 {
   "Sid": "Allow use of the key",
   "Effect": "Allow",
@@ -77,7 +76,7 @@ In policy statement 3, `arn:aws:iam::111122223333:role/EncryptionApp` refers to 
 
 **Example Policy statement 4**  
 
-```
+```json
 {
   "Sid": "Allow attachment of persistent resources",
   "Effect": "Allow",

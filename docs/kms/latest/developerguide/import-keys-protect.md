@@ -1,7 +1,6 @@
 
 
 # Protecting imported key material
-<a name="import-keys-protect"></a>
 
 The key material that you import is protected in transit and at rest. Before importing the key material, you encrypt (or "wrap") the key material with the public key of an RSA key pair generated in AWS KMS hardware security modules (HSMs) validated under the [FIPS 140-3 Cryptographic Module Validation Program](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884). You can encrypt the key material directly with the wrapping public key, or encrypt the key material with an AES symmetric key, and then encrypt the AES symmetric key with the RSA public key.
 

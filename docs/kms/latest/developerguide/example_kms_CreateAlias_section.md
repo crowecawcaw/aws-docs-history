@@ -1,7 +1,6 @@
 
 
 # Use `CreateAlias` with an AWS SDK or CLI
-<a name="example_kms_CreateAlias_section"></a>
 
 The following code examples show how to use `CreateAlias`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.KeyManagementService;
@@ -82,7 +81,7 @@ For more information, see [Using aliases](https://docs.aws.amazon.com/kms/latest
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
-```
+```java
     /**
      * Creates a custom alias for the specified target key asynchronously.
      *
@@ -122,7 +121,7 @@ For more information, see [Using aliases](https://docs.aws.amazon.com/kms/latest
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples). 
 
-```
+```kotlin
 suspend fun createCustomAlias(
     targetKeyIdVal: String?,
     aliasNameVal: String?,
@@ -147,7 +146,7 @@ suspend fun createCustomAlias(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
-```
+```php
     /***
      * @param string $keyId
      * @param string $alias
@@ -176,7 +175,7 @@ suspend fun createCustomAlias(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class AliasManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -222,7 +221,7 @@ class AliasManager:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_alias_name = 'alias/my-key-alias'
         " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'

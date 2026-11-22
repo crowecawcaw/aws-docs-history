@@ -1,7 +1,6 @@
 
 
 # Logging AWS KMS API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS KMS is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/), a service that records all calls to AWS KMS by users, roles, and other AWS services. CloudTrail captures all API calls to AWS KMS as events, including calls from the AWS KMS console, AWS KMS APIs, CloudFormation templates, the AWS Command Line Interface (AWS CLI), and AWS Tools for PowerShell.
 

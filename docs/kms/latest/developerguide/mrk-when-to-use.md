@@ -1,7 +1,6 @@
 
 
 # Security considerations for multi-Region keys
-<a name="mrk-when-to-use"></a>
 
 Use an AWS KMS multi-Region key only when you need one. Multi-Region keys provide a flexible and scalable solution for workloads that move encrypted data between AWS Regions or need cross-Region access. Consider a multi-Region key if you must share, move, or back up protected data across Regions or need to create identical digital signatures of applications operating in different Regions.
 

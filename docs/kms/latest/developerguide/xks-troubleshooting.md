@@ -1,7 +1,6 @@
 
 
 # Troubleshooting external key stores
-<a name="xks-troubleshooting"></a>
 
 The resolution for most problems with external key stores are indicated by the error message that AWS KMS displays with each exception, or by the [connection error code](#fix-xks-connection) that AWS KMS returns when an attempt to [connect the external key store](xks-connect-disconnect.md) to its external key store proxy fails. However, some issues are a bit more complex. 
 

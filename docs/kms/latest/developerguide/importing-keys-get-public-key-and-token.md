@@ -1,7 +1,6 @@
 
 
 # Step 2: Download the wrapping public key and import token
-<a name="importing-keys-get-public-key-and-token"></a>
 
 After you [create a AWS KMS key with no key material](importing-keys-create-cmk.md), download a wrapping public key and an import token for that KMS key by using the AWS KMS console or the [GetParametersForImport](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetParametersForImport.html) API. The wrapping public key and import token are an indivisible set that must be used together.
 
@@ -136,7 +135,7 @@ You can't import key material for ML-DSA or ML-KEM KMS keys.
 
 This example specifies the `RSA_AES_KEY_WRAP_SHA_256` wrapping algorithm, the RSA\_3072 wrapping public key spec, and an example key ID. Replace these example values with valid values for your download. For the key ID, you can use a [key ID](concepts.md#key-id-key-id) or [key ARN](concepts.md#key-id-key-ARN), but you cannot use an [alias name](concepts.md#key-id-alias-name) or [alias ARN](concepts.md#key-id-alias-ARN) in this operation.
 
-```
+```bash
 $ aws kms get-parameters-for-import \
     --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
     --wrapping-algorithm {{RSA_AES_KEY_WRAP_SHA_256}} \
@@ -145,7 +144,7 @@ $ aws kms get-parameters-for-import \
 
 When the command is successful, you see output similar to the following:
 
-```
+```json
 {
     "ParametersValidTo": 1568290320.0,
     "PublicKey": "{{public key (base64 encoded)}}",
@@ -162,7 +161,7 @@ To base64 decode the public key and import token:
 
 1. Use [OpenSSL](https://openssl.org/) to base64 decode the file's contents and save the decoded data to a new file. The following example decodes the data in the file that you saved in the previous step (`PublicKey.b64`) and saves the output to a new file named `WrappingPublicKey.bin`.
 
-   ```
+   ```bash
    $ openssl enc -d -base64 -A -in PublicKey.b64 -out WrappingPublicKey.bin
    ```
 
@@ -170,7 +169,7 @@ To base64 decode the public key and import token:
 
 1. Use [OpenSSL](https://openssl.org/) to base64 decode the file's contents and save the decoded data to a new file. The following example decodes the data in the file that you saved in the previous step (`ImportToken.b64`) and saves the output to a new file named `ImportToken.bin`.
 
-   ```
+   ```bash
    $ openssl enc -d -base64 -A -in importtoken.b64 -out ImportToken.bin
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Find the KMS key for an AWS CloudHSM key
-<a name="find-label-for-key-handle"></a>
 
 If you know the key reference or ID of a key that the `kmsuser` owns in the cluster, you can use that value to identify the associated KMS key in your AWS CloudHSM key store.
 

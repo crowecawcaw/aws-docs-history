@@ -1,7 +1,6 @@
 
 
 # Use tags to control access to KMS keys
-<a name="tag-authorization"></a>
 
 You can control access to AWS KMS keys based on the tags on the KMS key. For example, you can write an IAM policy that allows principals to enable and disable only the KMS keys that have a particular tag. Or you can use an IAM policy to prevent principals from using KMS keys in cryptographic operations unless the KMS key has a particular tag. 
 
@@ -30,7 +29,7 @@ For example, consider the following IAM policy. It allows the principals to call
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -61,7 +60,7 @@ The following example IAM policy allows the principals to use any KMS key in the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

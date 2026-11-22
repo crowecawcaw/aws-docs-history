@@ -1,12 +1,13 @@
 
 
 # KMS key access and permissions
-<a name="control-access"></a>
 
 To use AWS KMS, you must have credentials that AWS can use to authenticate your requests. The credentials must include permissions to access AWS resources: AWS KMS keys and [aliases](kms-alias.md). No AWS principal has any permissions to a KMS key unless that permission is provided explicitly and never denied. There are no implicit or automatic permission to use or manage a KMS key. 
 
 To control access to your KMS keys, you can use the following policy mechanisms.
 + [Key policy](key-policies.md) – Every KMS key has a key policy. It is the primary mechanism for controlling access to a KMS key. You can use the key policy alone to control access, which means the full scope of access to the KMS key is defined in a single document (the key policy). For more information about using key policies, see [Key policies](key-policies.md).
+
+  A KMS key that you share through AWS Resource Access Manager (AWS RAM) also has an `AWS_RAM` key policy, which AWS RAM creates and manages, and AWS KMS evaluates both key policies. For more information about sharing KMS keys through AWS RAM, see [Sharing KMS keys with AWS RAM](key-sharing-ram.md).
 + [IAM policies](iam-policies.md) – You can use IAM policies in combination with the key policy and grants to control access to a KMS key. Controlling access this way enables you to manage all of the permissions for your IAM identities in IAM. To use an IAM policy to allow access to a KMS key, the key policy must explicitly allow it. For more information about using IAM policies, see [IAM policies](iam-policies.md). 
 + [Grants](grants.md) – You can use grants in combination with the key policy and IAM policies to allow access to a KMS key. Controlling access this way enables you to allow access to the KMS key in the key policy, and to allow identities to delegate their access to others. For more information about using grants, see [Grants in AWS KMS](grants.md).
 

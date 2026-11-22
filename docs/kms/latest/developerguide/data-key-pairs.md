@@ -1,7 +1,6 @@
 
 
 # Generate data key pairs
-<a name="data-key-pairs"></a>
 
 An asymmetric KMS key represents a *data key pair*. Data key pairs are asymmetric data keys consisting of a mathematically-related public key and private key. They are designed for use in client-side encryption and decryption, signing and verification outside of AWS KMS, or to establish a shared secret between two peers. 
 

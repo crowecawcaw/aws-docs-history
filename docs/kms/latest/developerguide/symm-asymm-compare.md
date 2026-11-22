@@ -1,7 +1,6 @@
 
 
 # Key type reference
-<a name="symm-asymm-compare"></a>
 
 AWS KMS supports different features for different *types* of KMS keys. For example, you can only use [symmetric encryption KMS keys](symm-asymm-choose-key-spec.md#symmetric-cmks) to [generate symmetric data keys](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) and [asymmetric data key pairs](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPairs.html). Also, [importing key material](importing-keys.md) and [automatic key rotation](rotate-keys.md) are supported only for symmetric encryption KMS keys, and you can create only symmetric encryption KMS keys in a [custom key store](key-store-overview.md#custom-key-store-overview). 
 

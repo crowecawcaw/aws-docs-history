@@ -1,7 +1,6 @@
 
 
 # Identify and view keys
-<a name="viewing-keys"></a>
 
 You can use [AWS Management Console](https://console.aws.amazon.com/kms) or the [AWS Key Management Service (AWS KMS) API](https://docs.aws.amazon.com/kms/latest/APIReference/) to view AWS KMS keys in each account and Region, including KMS keys that you manage and KMS keys that are managed by AWS.
 

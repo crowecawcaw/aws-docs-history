@@ -1,13 +1,13 @@
 
 
 # Logging and monitoring in AWS Key Management Service
-<a name="security-logging-monitoring"></a>
 
 Monitoring is an important part of understanding the availability, state, and usage of your AWS KMS keys in AWS KMS. Monitoring helps maintain the security, reliability, availability, and performance of your AWS solutions. AWS provides several tools for monitoring your KMS keys.
 
 **AWS CloudTrail Logs**  
 Every call to an AWS KMS API operation is captured as an event in an AWS CloudTrail log. These logs record all API calls from the AWS KMS console, and calls made by AWS KMS and other AWS services. Cross-account API calls, such as a call to use a KMS key in a different AWS account, are recorded in the CloudTrail logs of both accounts.  
-When troubleshooting or auditing, you can use the log to reconstruct the lifecycle of a KMS key. You can also view its management and use of the KMS key in cryptographic operations. For more information, see [Logging AWS KMS API calls with AWS CloudTrail](logging-using-cloudtrail.md).
+When troubleshooting or auditing, you can use the log to reconstruct the lifecycle of a KMS key. You can also view its management and use of the KMS key in cryptographic operations. For more information, see [Logging AWS KMS API calls with AWS CloudTrail](logging-using-cloudtrail.md).  
+When you share a KMS key through AWS Resource Access Manager (AWS RAM), CloudTrail records the AWS RAM operations that create and change the resource share. AWS KMS records a `PutKeyPolicy` entry in your account each time AWS RAM writes the `AWS_RAM` key policy of the KMS key. For more information about monitoring shared KMS keys, see [Detective best practices](key-sharing-ram.md#key-sharing-ram-security-detective).
 
 **Amazon CloudWatch Logs**  
 Monitor, store, and access your log files from AWS CloudTrail and other sources. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).  

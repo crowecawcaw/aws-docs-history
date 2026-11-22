@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="dochistory"></a>
 
 This topic describes significant updates to the *AWS Key Management Service Developer Guide*.
 
@@ -18,6 +17,7 @@ You might need to scroll horizontally or vertically to see all of the data in th
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Sharing KMS keys with AWS RAM](https://docs.aws.amazon.com/kms/latest/developerguide/key-sharing-ram.html) | You can now share customer managed keys with other AWS accounts by adding them to resource shares in AWS Resource Access Manager (AWS RAM). When you share a KMS key, AWS RAM creates and manages a second key policy for the KMS key, named `AWS_RAM`. Use the new `ResourceOwners` parameter of the `ListKeys` operation to list KMS keys that are shared with you, and the new `kms:PolicyName` condition key to control access to the `GetKeyPolicy` and `PutKeyPolicy` operations based on the key policy name. | November 16, 2026 | 
 | [ML-KEM key support](https://docs.aws.amazon.com/kms/latest/developerguide/pqkeys.html#mlkem) | With AWS KMS, you can now create post-quantum ML-KEM keys (ML\_KEM\_512, ML\_KEM\_768, and ML\_KEM\_1024) for key establishment. Use the new Encapsulate and Decapsulate operations to generate and recover a shared secret. You can also generate ML-KEM data key pairs with the GenerateDataKeyPair and GenerateDataKeyPairWithoutPlaintext operations. | October 23, 2026 | 
 | [Documentation update](https://docs.aws.amazon.com/kms/latest/developerguide/supported-algorithms.html) | Updated the [Supported cryptographic algorithms](https://docs.aws.amazon.com/kms/latest/developerguide/supported-algorithms.html) page to accurately list the cryptographic algorithms that AWS KMS supports. | September 29, 2026 | 
 | [Service principal grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) | AWS KMS now supports creating grants for AWS service principals. You can use the new `GranteeServicePrincipal` and `RetiringServicePrincipal` parameters in the `CreateGrant` operation to specify a service principal as the grantee or retiring principal of a grant. This release also introduces the `SourceArn` grant constraint, which restricts grant permissions to requests made on behalf of a specific AWS resource. Three new condition keys are available for `CreateGrant` requests: `kms:GranteeServicePrincipal`, `kms:RetiringServicePrincipal`, and `kms:GrantConstraintSourceArn`. For more information, see [Grants in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html). | March 6, 2026 | 
@@ -58,7 +58,7 @@ You might need to scroll horizontally or vertically to see all of the data in th
 | [New console](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-keys-console) | Explains how to use the new AWS KMS console, which is independent of the IAM console. The original console, and instructions for using it, will remain available for a brief period to give you time to familiarize yourself with the new console. | November 7, 2018 | 
 | [Quota change](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second) | Changed the shared [request quota](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second) for use of AWS KMS keys. | August 21, 2018 | 
 | [New content](https://docs.aws.amazon.com/kms/latest/developerguide/services-secrets-manager.html) | Explains [how AWS Secrets Manager uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-secrets-manager.html) keys to encrypt the secret value in a secret. | July 13, 2018 | 
-| [New content](#dochistory) | Explains how DynamoDB uses AWS KMS AWS KMS keys to support its server-side encryption option. | May 23, 2018 | 
+| [New content](dochistory.md) | Explains how DynamoDB uses AWS KMS AWS KMS keys to support its server-side encryption option. | May 23, 2018 | 
 | [New feature](https://docs.aws.amazon.com/kms/latest/developerguide/kms-vpc-endpoint.html) | Explains how to [use a private endpoint in your VPC](https://docs.aws.amazon.com/kms/latest/developerguide/kms-vpc-endpoint.html) to connect directly to AWS KMS, instead of connecting over the internet. | January 22, 2018 | 
 
 ## Earlier updates

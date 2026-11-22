@@ -1,7 +1,6 @@
 
 
 # Disconnect an external key store
-<a name="about-xks-disconnecting"></a>
 
 When you disconnect an external key store with [VPC endpoint service connectivity](choose-xks-connectivity.md#xks-vpc-connectivity) from its external key store proxy, AWS KMS deletes its interface endpoint to the VPC endpoint service and removes the network infrastructure that it created to support the connection. No equivalent process is required for external key stores with public endpoint connectivity. This action does not affect the VPC endpoint service or any of its supporting components, and it does not affect the external key store proxy or any external components.
 
@@ -51,13 +50,13 @@ The examples in this section use the [AWS Command Line Interface (AWS CLI)](http
 
 This example disconnects an external key store with VPC endpoint service connectivity. Before running this example, replace the example custom key store ID with a valid one.
 
-```
+```bash
 $ aws kms disconnect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
 To verify that the external key store is disconnected, use the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) operation. By default, this operation returns all custom keys stores in your account and Region. But you can use either the `CustomKeyStoreId` and `CustomKeyStoreName` parameter (but not both) to limit the response to particular custom key stores. The `ConnectionState` value of `DISCONNECTED` indicates that this example external key store is no longer connected to its external key store proxy.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleXksVpc}}
 {
     "CustomKeyStores": [

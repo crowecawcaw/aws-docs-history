@@ -1,7 +1,6 @@
 
 
 # Key states of AWS KMS keys
-<a name="key-state"></a>
 
 An AWS KMS key always has a key state. Operations on the KMS key and its environment can change the key state. The key state can change either transiently, or until another operation changes its key state. These operations are done either asynchronously, or by an API call.
 

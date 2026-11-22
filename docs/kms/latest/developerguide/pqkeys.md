@@ -1,7 +1,6 @@
 
 
 # Post-quantum keys in AWS KMS
-<a name="pqkeys"></a>
 
 Most of the public-key cryptography in use today, such as RSA and elliptic curve cryptography (ECC), relies on mathematical problems that are computationally infeasible for classical computers to solve. A sufficiently large, fault-tolerant quantum computer could use [Shor's algorithm](https://en.wikipedia.org/wiki/Shor's_algorithm) to solve these problems efficiently. This would let an adversary recover private keys. It would also defeat the confidentiality and authenticity that these algorithms provide. Although no such quantum computer exists today, an adversary could record protected data and attack it later once quantum computers become available. This strategy is known as *harvest now, decrypt later*. The risk is particularly relevant to data that must remain secure for many years.
 

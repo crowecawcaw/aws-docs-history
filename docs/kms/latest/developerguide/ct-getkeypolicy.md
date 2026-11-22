@@ -1,11 +1,10 @@
 
 
 # GetKeyPolicy
-<a name="ct-getkeypolicy"></a>
 
 The following example shows an AWS CloudTrail log entry for the [GetKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html) operation. For information about viewing the key policy for a KMS key, see [View a key policies](key-policy-viewing.md).
 
-```
+```json
 {
     "eventVersion": "1.02",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Controlling access to aliases
-<a name="alias-access"></a>
 
 When you create or change an alias, you affect the alias and its associated KMS key. Therefore, principals who manage aliases must have permission to call the alias operation on the alias and on all affected KMS keys. You can provide these permissions by using [key policies](key-policies.md), [IAM policies](iam-policies.md) and [grants](grants.md). 
 
@@ -20,7 +19,7 @@ To create an alias, the principal needs the following permissions for both the a
 
   The following example policy statement specifies a particular alias in a `Resource` element. But you can list multiple alias ARNs or specify an alias pattern, such as "test\*". You can also specify a `Resource` value of `"*"` to allow the principal to create any alias in the account and Region. Permission to create an alias can also be included in a `kms:Create*` permission for all resources in an account and Region.
 
-  ```
+  ```json
   {
     "Sid": "IAMPolicyForAnAlias",
     "Effect": "Allow",
@@ -34,7 +33,7 @@ To create an alias, the principal needs the following permissions for both the a
   ```
 + `kms:CreateAlias` for the KMS key. This permission must be provided in a key policy or in an IAM policy that is delegated from the key policy. 
 
-  ```
+  ```json
   {
     "Sid": "Key policy for 1234abcd-12ab-34cd-56ef-1234567890ab",
     "Effect": "Allow",
@@ -61,7 +60,7 @@ For example, the following IAM policy statement gives the principal permission t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -85,7 +84,7 @@ To change the KMS key that is associated with an alias, the principal needs thre
 For example, suppose you want to change the `test-key` alias from the KMS key with key ID 1234abcd-12ab-34cd-56ef-1234567890ab to the KMS key with key ID 0987dcba-09fe-87dc-65ba-ab0987654321. In that case, include policy statements similar to the examples in this section.
 + `kms:UpdateAlias` for the alias. You provide this permission in an IAM policy that is attached to the principal. The following IAM policy specifies a particular alias. But you can list multiple alias ARNs or specify an alias pattern, such as `"test*"`. You can also specify a `Resource` value of `"*"` to allow the principal to update any alias in the account and Region.
 
-  ```
+  ```json
   {
     "Sid": "IAMPolicyForAnAlias",
     "Effect": "Allow",
@@ -99,7 +98,7 @@ For example, suppose you want to change the `test-key` alias from the KMS key wi
   ```
 + `kms:UpdateAlias` for the KMS key that is currently associated with the alias. This permission must be provided in a key policy or in an IAM policy that is delegated from the key policy.
 
-  ```
+  ```json
   {
     "Sid": "Key policy for 1234abcd-12ab-34cd-56ef-1234567890ab",
     "Effect": "Allow",
@@ -113,7 +112,7 @@ For example, suppose you want to change the `test-key` alias from the KMS key wi
   ```
 + `kms:UpdateAlias` for the KMS key that the operation associates with the alias. This permission must be provided in a key policy or in an IAM policy that is delegated from the key policy.
 
-  ```
+  ```json
   {
     "Sid": "Key policy for 0987dcba-09fe-87dc-65ba-ab0987654321",
     "Effect": "Allow",
@@ -138,7 +137,7 @@ As always, you should exercise caution when giving principals permission to dele
 
   The following example policy statement specifies the alias in a `Resource` element. But you can list multiple alias ARNs or specify an alias pattern, such as `"test*"`, You can also specify a `Resource` value of `"*"` to allow the principal to delete any alias in the account and Region.
 
-  ```
+  ```json
   {
     "Sid": "IAMPolicyForAnAlias",
     "Effect": "Allow",
@@ -152,7 +151,7 @@ As always, you should exercise caution when giving principals permission to dele
   ```
 + `kms:DeleteAlias` for the associated KMS key. This permission must be provided in a key policy or in an IAM policy that is delegated from the key policy.
 
-  ```
+  ```json
   {
     "Sid": "Key policy for 1234abcd-12ab-34cd-56ef-1234567890ab",
     "Effect": "Allow",

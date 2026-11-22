@@ -1,7 +1,6 @@
 
 
 # Use `CreateGrant` with an AWS SDK or CLI
-<a name="example_kms_CreateGrant_section"></a>
 
 The following code examples show how to use `CreateGrant`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples). 
 
-```
+```csharp
         public static async Task Main()
         {
             var client = new AmazonKeyManagementServiceClient();
@@ -84,7 +83,7 @@ For more information, see [Grants in AWS KMS](https://docs.aws.amazon.com/kms/la
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
-```
+```java
     /**
      * Grants permissions to a specified principal on a customer master key (CMK) asynchronously.
      *
@@ -131,7 +130,7 @@ For more information, see [Grants in AWS KMS](https://docs.aws.amazon.com/kms/la
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples). 
 
-```
+```kotlin
 suspend fun createNewGrant(
     keyIdVal: String?,
     granteePrincipalVal: String?,
@@ -162,7 +161,7 @@ suspend fun createNewGrant(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
-```
+```php
     /***
      * @param string $keyId
      * @param string $granteePrincipal
@@ -198,7 +197,7 @@ suspend fun createNewGrant(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class GrantManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -248,7 +247,7 @@ class GrantManager:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
         " iv_grantee_principal = 'arn:aws:iam::123456789012:role/my-role'

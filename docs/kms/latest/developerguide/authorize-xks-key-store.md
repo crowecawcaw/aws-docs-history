@@ -1,7 +1,6 @@
 
 
 # Control access to your external key store
-<a name="authorize-xks-key-store"></a>
 
 All AWS KMS access control features — [key policies](key-policies.md), [IAM policies](iam-policies.md), and [grants](grants.md) — that you use with standard KMS keys, work the same way for KMS keys in an external key store. You can use IAM policies to control access to the API operations that create and manage external key stores. You use IAM policies and key policies to control access to the AWS KMS keys in your external key store. You can also use [service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) for your AWS organization and [VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html#edit-vpc-endpoint-policy) to control access to KMS keys in your external key store. 
 
@@ -45,7 +44,7 @@ Principals who use the KMS keys in your custom key store for [cryptographic oper
 
 To set a permission that applies only to KMS keys in an external key store, use the [`kms:KeyOrigin`](conditions-kms.md#conditions-kms-key-origin) policy condition with a value of `EXTERNAL_KEY_STORE`. You can use this condition to limit the [kms:CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) permission or any permission that is specific to a KMS key resource. For example, the following IAM policy allows the identity to which it is attached to call the specified operations on all KMS keys in the account, provided that the KMS keys are in an external key store. Notice that you can limit the permission to KMS keys in an external key store, and KMS keys in an AWS account, but not to any particular external key store in the account.
 
-```
+```json
 {
   "Sid": "AllowKeysInExternalKeyStores",
   "Effect": "Allow",

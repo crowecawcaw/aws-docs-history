@@ -1,7 +1,6 @@
 
 
 # Permissions for AWS services in key policies
-<a name="key-policy-services"></a>
 
 Many AWS services use AWS KMS keys to protect the resources they manage. When a service uses [AWS owned keys](concepts.md#aws-owned-key) or [AWS managed keys](concepts.md#aws-managed-key), the service establishes and maintains the key policies for these KMS keys. 
 

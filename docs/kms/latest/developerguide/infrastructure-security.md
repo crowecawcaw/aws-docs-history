@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Key Management Service
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS Key Management Service (AWS KMS) is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf).
 
@@ -18,7 +17,7 @@ For example, the following key policy statement allows users who can assume the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

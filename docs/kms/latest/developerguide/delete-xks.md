@@ -1,7 +1,6 @@
 
 
 # Delete an external key store
-<a name="delete-xks"></a>
 
 When you delete an external key store, AWS KMS deletes all metadata about the external key store from AWS KMS, including information about its external key store proxy. This operation does not affect the [external key store proxy](keystore-external.md#concept-xks-proxy), [external key manager](keystore-external.md#concept-ekm), [external keys](keystore-external.md#concept-external-key), or any AWS resources that you created to support the external key store, such as an Amazon VPC or a VPC endpoint service.
 
@@ -37,19 +36,19 @@ To delete an external key store, use the [DeleteCustomKeyStore](https://docs.aws
 
 To begin, disconnect the external key store. Before running this command, replace the example custom key store ID with a valid one.
 
-```
+```bash
 $ aws kms disconnect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
 After the external key store is disconnected, you can use the [DeleteCustomKeyStore](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteCustomKeyStore.html) operation to delete it. 
 
-```
+```bash
 $ aws kms delete-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
 To confirm that the external key store is deleted, use the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) operation.
 
-```
+```bash
 $ aws kms describe-custom-key-stores
             
 {
@@ -59,7 +58,7 @@ $ aws kms describe-custom-key-stores
 
 If you specify a custom key store name or ID that no longer exists, AWS KMS returns a `CustomKeyStoreNotFoundException` exception.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcdef0}}
 
 An error occurred (CustomKeyStoreNotFoundException) when calling the DescribeCustomKeyStore operation:

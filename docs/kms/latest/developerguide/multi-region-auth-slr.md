@@ -1,7 +1,6 @@
 
 
 # Authorizing AWS KMS to synchronize multi-Region keys
-<a name="multi-region-auth-slr"></a>
 
 To support [multi-Region keys](multi-region-keys-auth.md), AWS KMS needs permission to synchronize the [shared properties](multi-region-keys-overview.md#mrk-sync-properties) of a multi-Region primary key with its replica keys. To get these permissions, AWS KMS creates the **AWSServiceRoleForKeyManagementServiceMultiRegionKeys** service-linked role in your AWS account. Users who create multi-Region keys must have the `iam:CreateServiceLinkedRole` permission that allows them to create service-linked roles.
 
@@ -31,7 +30,7 @@ For more information about how AWS services use service-linked roles, see [Using
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [

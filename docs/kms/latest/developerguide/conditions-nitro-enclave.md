@@ -1,7 +1,6 @@
 
 
 # Condition keys for Nitro Enclaves and Nitro Sandboxes
-<a name="conditions-nitro-enclave"></a>
 
 The following condition keys are specific to Nitro Enclaves and Nitro Sandboxes attestation:
 
@@ -21,7 +20,7 @@ For example, the following key policy statement allows the `data-processing` rol
 
 If the request does not include a valid attestation document from an AWS Nitro Enclave or Nitro Sandbox, permission is denied because this condition is not satisfied.
 
-```
+```json
 {
   "Sid" : "Enable Enclave data processing",
   "Effect" : "Allow",
@@ -58,13 +57,13 @@ This value is also included in [CloudTrail events](ct-nitro-enclave.md) that rep
 
 To specify a PCR value, use the following format. Concatenate the PCR ID to the condition key name. You can specify a PCR ID that identifies one of the [six Enclave measurements](https://docs.aws.amazon.com/enclaves/latest/user/set-up-attestation.html#where) or a custom PCR ID that you defined for a specific use case. The PCR value must be a lower-case hexadecimal string of up to 96 bytes.
 
-```
+```json
 "kms:RecipientAttestation:PCR{{PCR_ID}}": "{{PCR_value}}"
 ```
 
 For example, the following condition key specifies a particular value for PCR1, which corresponds to the hash of the kernel used for the Enclave and the bootstrap process.
 
-```
+```json
 kms:RecipientAttestation:PCR1: "abc1abcdef2abcdef3abcdef4abcdef5abcdef6abcdef7abcdef8abcdef9abcdef8abcdef7abcdef6abcdef5abcdef4abcdef3abcdef2abcdef1abcdef0abcde"
 ```
 
@@ -74,7 +73,7 @@ The `kms:RecipientAttestation:PCR` condition key in this statement allows the op
 
 If the request does not include an attestation document, permission is denied because this condition is not satisfied.
 
-```
+```json
 {
   "Sid" : "Enable Enclave data processing",
   "Effect" : "Allow",
@@ -113,7 +112,7 @@ This value is also included in [CloudTrail events](ct-nitro-enclave.md) for requ
 
 For example, the following key policy statement allows the `data-processing` role to use the KMS key for the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation. The `kms:RecipientAttestation:PCR8:ServiceName` condition key allows the operation only when the EIF signing certificate in the attestation document is registered to Amazon ECS. Use the `StringEquals` policy operator for an exact match on the service name. If the request does not include a valid attestation document from an AWS Nitro Enclave or Nitro Sandbox, or if PCR8 is not registered to the specified service name, permission is denied because this condition is not satisfied.
 
-```
+```json
 {
   "Sid" : "Enable attested data processing for an Enclave signed by Amazon ECS",
   "Effect" : "Allow",

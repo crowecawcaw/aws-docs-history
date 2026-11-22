@@ -1,7 +1,6 @@
 
 
 # Monitor AWS KMS keys
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of understanding the availability, state, and usage of your AWS KMS keys in AWS KMS and maintaining the reliability, availability, and performance of your AWS solutions. Collecting monitoring data from all the parts of your AWS solution will help you debug a multipoint failure if one occurs. Before you start monitoring your KMS keys, however, create a monitoring plan that includes answers to the following questions:
 + What are your monitoring goals?

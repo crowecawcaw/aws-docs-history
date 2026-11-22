@@ -1,10 +1,10 @@
 
 
 # Troubleshooting AWS KMS permissions
-<a name="policy-evaluation"></a><a name="security_iam_troubleshoot"></a>
+<a name="security_iam_troubleshoot"></a>
 
 When authorizing access to a KMS key, AWS KMS evaluates the following:
-+ The [key policy](determining-access-key-policy.md) that is attached to the KMS key. The key policy is always defined in the AWS account and Region that owns the KMS key. 
++ The [key policies](determining-access-key-policy.md) of the KMS key. Every KMS key has a `default` key policy. A KMS key that is shared through AWS Resource Access Manager (AWS RAM) also has an `AWS_RAM` key policy, which AWS RAM creates and manages. AWS KMS evaluates both key policies together. For more information about how AWS KMS evaluates the two key policies, see [How permissions are evaluated](key-sharing-ram.md#key-sharing-ram-evaluation). Key policies are always defined in the AWS account and Region that owns the KMS key. 
 + All [IAM policies](determining-access-iam-policies.md) that are attached to the user or role making the request. IAM policies that govern a principal's use of a KMS key are always defined in the principal's AWS account.
 + All [grants](determining-access-grants.md) that apply to the KMS key.
 + Other types of policies that might apply to the request to use the KMS key, such as [AWS Organizations service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_type-auth.html#orgs_manage_policies_scp) and [VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html#edit-vpc-endpoint-policy). These policies are optional and allow all actions by default, but you can use them to restrict permissions otherwise given to principals.
@@ -15,10 +15,26 @@ AWS KMS evaluates these policy mechanisms together to determine whether access t
 
 
 This flowchart is divided into two parts. The parts appear to be sequential, but they are typically evaluated at the same time.
-+ *Use authorization* determines whether you are permitted to use a KMS key based on its key policy, IAM policies, grants, and other applicable policies.
++ *Use authorization* determines whether you are permitted to use a KMS key based on its key policies, IAM policies, grants, and other applicable policies.
 + *Key trust* determines whether you should trust a KMS key that you are permitted to use. In general, you trust the resources in your AWS account. But, you can also feel confident about using KMS keys in a different AWS account if a grant or IAM policy in your account allows you to use the KMS key.
 
 You can use this flowchart to discover why a caller was allowed or denied permission to use a KMS key. You can also use it to evaluate your policies and grants. For example, the flowchart shows that a caller can be denied access by an explicit `DENY` statement, or by the absence of an explicit `ALLOW` statement, in the key policy, IAM policy, or grant.
+
+If a KMS key has an `AWS_RAM` key policy, an explicit `Deny` statement in the `default` key policy overrides an `Allow` statement in the `AWS_RAM` key policy. For example, suppose that the `default` key policy denies `kms:Encrypt` to an account that the `AWS_RAM` key policy allows to use the KMS key. Principals in that account can't use the KMS key to encrypt data. The `AWS_RAM` key policy contains only `Allow` statements, because AWS RAM managed permissions can only allow actions. Changes to key policies are eventually consistent, so a change might take a short time to take effect. For more information about eventual consistency, see [AWS KMS eventual consistency](accessing-kms.md#programming-eventual-consistency).
+
+If you are denied access to a KMS key that is shared through AWS RAM, also check the following:
+
+**The resource share**  
+Consumers of a resource share can use the permissions in the managed permission of the resource share, which AWS RAM adds to the `AWS_RAM` key policy. Make sure that the KMS key and the caller's account are in a resource share, and that its managed permission includes the action. If the KMS key was shared with an account outside the owner's organization, the account must accept the invitation from AWS RAM. For more information about sharing KMS keys through AWS RAM, see [Sharing KMS keys with AWS RAM](key-sharing-ram.md).
+
+**The `AWS_RAM` key policy**  
+Principals in the account that owns the KMS key can view the `AWS_RAM` key policy by calling `GetKeyPolicy` with the `PolicyName` parameter set to `AWS_RAM`. Principals in other accounts can't view the key policies of the KMS key.
+
+**IAM policies in the consumer account**  
+Like any KMS key in another account, a shared KMS key requires IAM policies in the consumer account that allow its principals to use the KMS key. The IAM policies are effective only for actions that the key's key policies allow the consumer account. For more information about IAM policies for KMS keys in other accounts, see [Step 2: Add IAM policies in the external account](key-policy-modifying-external-accounts.md#cross-account-iam-policy).
+
+**Recent changes**  
+Like other changes to AWS KMS resources, changes to a resource share, and to the `AWS_RAM` key policy that AWS RAM writes, are eventually consistent. A change might not take effect immediately. For more information about eventual consistency, see [AWS KMS eventual consistency](accessing-kms.md#programming-eventual-consistency).
 
 The flowchart can explain some common permission scenarios.
 
@@ -44,7 +60,7 @@ Consider the relevant policies for this example.
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Id" : "key-test-1",
@@ -89,7 +105,7 @@ Consider the policies that let Bob, a user in account 1, use the KMS key in acco
 
 ****  
 
-  ```
+  ```json
   {
       "Id": "key-policy-acct-2",
       "Version":"2012-10-17",		 	 	 
@@ -136,7 +152,7 @@ Consider the policies that let Bob, a user in account 1, use the KMS key in acco
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -162,7 +178,7 @@ Consider the policies that let Bob, a user in account 1, use the KMS key in acco
 ------
 + The last required element is the definition of the `Engineering` role in account 1. The `AssumeRolePolicyDocument` in the role allows Bob to assume the `Engineering` role.
 
-  ```
+  ```json
   {
       "Role": {
           "Arn": "arn:aws:iam::111122223333:role/Engineering",

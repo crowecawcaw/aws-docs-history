@@ -1,9 +1,10 @@
 
 
 # Allowing users in other accounts to use a KMS key
-<a name="key-policy-modifying-external-accounts"></a>
 
 You can allow users or roles in a different AWS account to use a KMS key in your account. Cross-account access requires permission in the key policy of the KMS key and in an IAM policy in the external user's account.
+
+You can give the external account permission in a key policy in two ways. You can add a statement to the `default` key policy, as described in this topic. Or, you can share a customer managed key with other AWS accounts by using AWS Resource Access Manager (AWS RAM). AWS RAM then creates and manages a second key policy for the KMS key, named `AWS_RAM`. With the `AWS_RAM` key policy, the accounts can use the KMS key. In both cases, principals in the external account also need IAM policies that allow them to use the KMS key. For more information about sharing KMS keys through AWS RAM, see [Sharing KMS keys with AWS RAM](key-sharing-ram.md).
 
 Cross-account permission is effective only for the following operations:
 + [Cryptographic operations](kms-cryptography.md#cryptographic-operations)
@@ -43,6 +44,7 @@ You can view the resulting cross-account AWS KMS operations on the KMS key in yo
 + [Step 2: Add IAM policies in the external account](#cross-account-iam-policy)
 + [Allowing use of external KMS keys with AWS services](#cross-account-service)
 + [Using KMS keys in other accounts](#cross-account-use)
++ [Sharing KMS keys with AWS RAM](key-sharing-ram.md)
 
 **Note**  
 The examples in this topic show how to use a key policy and IAM policy together to provide and limit access to a KMS key. These generic examples are not intended to represent the permissions that any particular AWS service requires on a KMS key. For information about the permissions that an AWS service requires, see the encryption topic in the service documentation.
@@ -63,7 +65,7 @@ For example, suppose you want to allow account `444455556666` to use a symmetric
 **Note**  
 The following example represents a sample key policy for sharing a KMS key with another account. Replace the example `Sid`, `Principal`, and `Action` values with valid values for the intended use of your KMS key. 
 
-```
+```json
 {
     "Sid": "{{Allow an external account to use this KMS key}}",
     "Effect": "Allow",
@@ -94,7 +96,7 @@ For example, the following example key policy statement allows `ExampleRole` in 
 **Note**  
 The following example represents a sample key policy for sharing a KMS key with another account. Replace the example `Sid`, `Principal`, and `Action` values with valid values for the intended use of your KMS key. 
 
-```
+```json
 {
     "Sid": "{{Allow an external account to use this KMS key}}",
     "Effect": "Allow",
@@ -137,7 +139,7 @@ The following example IAM policy allows the principal to use the KMS key in acco
 **Note**  
 The following example represents a sample IAM policy for sharing a KMS key with another account. Replace the example `Sid`, `Resource`, and `Action` values with valid values for the intended use of your KMS key.
 
-```
+```json
 {
     "Sid": "{{AllowUseOfKeyInAccount111122223333}}",
     "Effect": "Allow",
@@ -178,6 +180,6 @@ To identify a KMS key in a different account in a shell command or API request, 
 
 If you enter only a key ID or alias name, AWS assumes the KMS key is in your account.
 
-The AWS KMS console does not display KMS keys in other accounts, even if you have permission to use them. Also, the lists of KMS keys displayed in the consoles of other AWS services do not include KMS keys in other accounts. 
+The AWS KMS console displays KMS keys in other accounts only when they are shared with you through AWS RAM. Those KMS keys appear on the **Keys shared with me** page. For more information about identifying KMS keys that are shared with you, see [Identifying a shared KMS key](key-sharing-ram.md#key-sharing-ram-identify). KMS keys in other accounts that you have permission to use through a statement in the `default` key policy or through a grant don't appear in the AWS KMS console.
 
 To specify a KMS key in a different account in the console of an AWS service, you must enter the key ARN or alias ARN of the KMS key. The required key identifier varies with the service, and might differ between the service console and its API operations. For details, see the service documentation.

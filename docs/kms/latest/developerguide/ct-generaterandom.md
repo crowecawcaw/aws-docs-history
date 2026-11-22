@@ -1,11 +1,10 @@
 
 
 # GenerateRandom
-<a name="ct-generaterandom"></a>
 
 The following example shows an AWS CloudTrail log entry for the [GenerateRandom](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html) operation. Because this operation doesn't use an AWS KMS key, the `resources` field is empty.
 
-```
+```json
 {
     "eventVersion": "1.02",
     "userIdentity": {

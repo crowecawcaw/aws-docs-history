@@ -1,7 +1,6 @@
 
 
 # Example offline operations
-<a name="offline-operations"></a>
 
 After [downloading the public key](download-public-key.md) of your asymmetric KMS key pair, you can share it with others and use it to perform offline operations.
 
@@ -24,7 +23,7 @@ The following [OpenSSL](https://openssl.org/) walkthrough demonstrates one metho
 
 1. Create an ECC key pair in OpenSSL and prepare it for use with AWS KMS.
 
-   ```
+   ```bash
    // Create an ECC key pair in OpenSSL and save the private key in openssl_ecc_key_priv.pem
    export OPENSSL_CURVE_NAME="P-256"
    export KMS_CURVE_NAME="ECC_NIST_P256"
@@ -45,7 +44,7 @@ The following [OpenSSL](https://openssl.org/) walkthrough demonstrates one metho
 
 1. Create an ECC key agreement key pair in AWS KMS and prepare it for use with OpenSSL.
 
-   ```
+   ```bash
    // Create a KMS key on the same curve as the key pair from step 1 
    // with a key usage of KEY_AGREEMENT
    // Save its ARN in KMS_KEY1_ARN.
@@ -65,7 +64,7 @@ The following [OpenSSL](https://openssl.org/) walkthrough demonstrates one metho
 
 1. Derive shared secret in OpenSSL using the private key in OpenSSL and the public KMS key.
 
-   ```
+   ```bash
    export OPENSSL_SHARED_SECRET1_BIN="openssl_shared_secret1.bin"
    openssl pkeyutl -derive -inkey ${OPENSSL_KEY1_PRIV_PEM} \
        -peerkey ${KMS_KEY1_PUB_PEM} -out ${OPENSSL_SHARED_SECRET1_BIN}
@@ -83,7 +82,7 @@ ML-KEM encapsulation in OpenSSL requires OpenSSL 3.5 or later.
 
 1. Download the public key of the ML-KEM KMS key
 
-   ```
+   ```bash
    // Save the ARN of your ML-KEM KMS key in MLKEM_KEY_ARN
    export MLKEM_KEY_ARN=_<1234abcd-12ab-34cd-56ef-1234567890ab>_
    
@@ -96,14 +95,14 @@ ML-KEM encapsulation in OpenSSL requires OpenSSL 3.5 or later.
 
 1. Encapsulate a shared secret in OpenSSL using the public key. This produces the shared secret (`openssl_shared_secret.bin`) and its encapsulated form (`openssl_ciphertext.bin`).
 
-   ```
+   ```bash
    openssl pkeyutl -encap -inkey mlkem_pub.der -keyform DER -pubin \
        -secret openssl_shared_secret.bin -out openssl_ciphertext.bin
    ```
 
 1. Recover the same shared secret in AWS KMS by calling [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) with the encapsulated ciphertext. This operation uses the private key, which never leaves AWS KMS.
 
-   ```
+   ```bash
    aws kms decapsulate \
        --key-id ${MLKEM_KEY_ARN} \
        --encapsulation-algorithm ML_KEM \
@@ -113,7 +112,7 @@ ML-KEM encapsulation in OpenSSL requires OpenSSL 3.5 or later.
 
 1. Confirm that the shared secrets match. The [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) response encodes the shared secret in Base64, so Base64-encode the shared secret produced by OpenSSL and compare the two values.
 
-   ```
+   ```bash
    base64 openssl_shared_secret.bin
    ```
 
@@ -137,7 +136,7 @@ The following sections demonstrate how to sign messages using AWS KMS and verify
 
 For both examples, first get the public key from AWS KMS. Use the following AWS CLI command:
 
-```
+```bash
 aws kms get-public-key \
     --key-id _<1234abcd-12ab-34cd-56ef-1234567890ab>_ \
     --output text \
@@ -151,7 +150,7 @@ For messages under 4 KB, use the `RAW` message type with AWS KMS. While you can 
 
 Use the following AWS CLI command to sign the message:
 
-```
+```bash
 aws kms sign \
     --key-id _<1234abcd-12ab-34cd-56ef-1234567890ab>_ \
     --message '{{your message}}' \
@@ -163,7 +162,7 @@ aws kms sign \
 
 To verify this message using OpenSSL use the following command:
 
-```
+```bash
 echo -n 'your message' | ./openssl dgst -verify public_key.der -signature ExampleSignature.bin
 ```
 
@@ -182,7 +181,7 @@ To sign messages larger than 4KB, use the `EXTERNAL_MU` message type. When you u
 
 The following example uses OpenSSL 3.5 to construct the `EXTERNAL_MU`:
 
-```
+```bash
 {
     openssl asn1parse -inform DER -in public_key.der -strparse 17 -noout -out - 2>/dev/null |
     openssl dgst -provider default -shake256 -xoflen 64 -binary;
@@ -193,7 +192,7 @@ The following example uses OpenSSL 3.5 to construct the `EXTERNAL_MU`:
 
 After you create the `mu.bin` file, call the AWS KMS API with the following command to sign the message:
 
-```
+```bash
 aws kms sign \
     --key-id _<1234abcd-12ab-34cd-56ef-1234567890ab>_ \
     --message fileb://mu.bin \
@@ -205,7 +204,7 @@ aws kms sign \
 
 The resulting signature is the same as a `RAW` signature on the original message. You can use the same OpenSSL 3.5 command to verify the message:
 
-```
+```bash
 echo -n 'your message' | ./openssl dgst -verify public_key.der -signature ExampleSignature.bin
 ```
 
@@ -244,7 +243,7 @@ If you're unsure whether you need to perform the conversion, use the following O
 
 By default, the `SM2OfflineOperationHelper` class uses the default distinguishing ID, `1234567812345678`, when generating message digests for SM2DSA operations.
 
-```
+```java
 package com.amazon.kms.utils;
 
 import javax.crypto.BadPaddingException;

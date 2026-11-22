@@ -1,7 +1,6 @@
 
 
 # Monitor external key stores
-<a name="xks-monitoring"></a>
 
 AWS KMS collects metrics for each interaction with an external key store and publishes them in your CloudWatch account. These metrics are used to generate the graphs in the monitoring section of the detail page for each external key store. The following topic details how to use the graphs to identify and troubleshoot operational and configuration issues impacting your external key store. We recommend using the CloudWatch metrics to set alarms that notify you when your external key store isn't performing as expected. For more information, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md).
 

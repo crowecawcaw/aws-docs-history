@@ -1,7 +1,6 @@
 
 
 # Monitoring requests for Nitro enclaves
-<a name="ct-nitro-enclave"></a>
 
 For Nitro enclave attestation, the CloudTrail log includes the module ID (`attestationDocumentModuleId`), image digest (`attestationDocumentEnclaveImageDigest`), and platform configuration registers (PCRs) from the attestation document.
 
@@ -14,7 +13,7 @@ This section shows an example CloudTrail log entry for each of the supported Nit
 
 The following example shows an AWS CloudTrail log entry of a [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation for an AWS Nitro Enclave.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -69,7 +68,7 @@ The following example shows an AWS CloudTrail log entry of a [Decrypt](https://d
 
 The following example shows an AWS CloudTrail log entry of a [DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html) operation for an AWS Nitro Enclave.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -123,7 +122,7 @@ The following example shows an AWS CloudTrail log entry of a [DeriveSharedSecret
 
 The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation for an AWS Nitro Enclave.
 
-```
+```json
 {
     "eventVersion": "1.02",
     "userIdentity": {
@@ -175,7 +174,7 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](h
 
 The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) operation for an AWS Nitro Enclave.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -233,7 +232,7 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPai
 
 The following example shows an AWS CloudTrail log entry of a [GenerateRandom](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html) operation for an AWS Nitro Enclave.
 
-```
+```json
 {
     "eventVersion": "1.02",
     "userIdentity": {

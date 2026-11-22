@@ -1,7 +1,6 @@
 
 
 # Use `GenerateDataKeyWithoutPlaintext` with an AWS SDK or CLI
-<a name="example_kms_GenerateDataKeyWithoutPlaintext_section"></a>
 
 The following code examples show how to use `GenerateDataKeyWithoutPlaintext`.
 
@@ -38,7 +37,7 @@ For more information, see [Data keys](https://docs.aws.amazon.com/kms/latest/dev
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples). 
 
-```
+```rust
 async fn make_key(client: &Client, key: &str) -> Result<(), Error> {
     let resp = client
         .generate_data_key_without_plaintext()

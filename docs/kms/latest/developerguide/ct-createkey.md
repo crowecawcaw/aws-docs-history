@@ -1,7 +1,6 @@
 
 
 # CreateKey
-<a name="ct-createkey"></a>
 
 These examples show AWS CloudTrail log entries for the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation.
 
@@ -9,7 +8,7 @@ A `CreateKey` log entry can result from a `CreateKey` request or the `CreateKey`
 
 The following example shows an CloudTrail log entry for a [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation that creates a [symmetric encryption KMS key](symm-asymm-choose-key-spec.md#symmetric-cmks). For information about creating KMS keys, see [Create a KMS key](create-keys.md).
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -73,7 +72,7 @@ The following example shows an CloudTrail log entry for a [CreateKey](https://do
 
 The following example shows the CloudTrail log of a `CreateKey` operation that creates a symmetric encryption KMS key in an [AWS CloudHSM key store](keystore-cloudhsm.md).
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -143,7 +142,7 @@ The following example shows the CloudTrail log of a `CreateKey` operation that c
 
 The following example shows the CloudTrail log of a `CreateKey` operation that creates a symmetric encryption KMS key in an [external key store](keystore-external.md).
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

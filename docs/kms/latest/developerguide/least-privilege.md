@@ -1,7 +1,6 @@
 
 
 # Least-privilege permissions
-<a name="least-privilege"></a>
 
 Since your KMS keys protect sensitive information, we recommend following the principle of least-privileged access. Delegate the minimum permissions required to perform a task when you define your key policies. Only allow all actions (`kms:*`) on a KMS key policy if you plan to further restrict permissions with additional IAM policies. If you plan to manage permissions with IAM policies, limit who has the ability to create and attach IAM policies to IAM principals and [monitor for policy changes](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html#cloudwatch-alarms-for-cloudtrail-iam-policy-changes).
 
@@ -78,7 +77,7 @@ Before using this key policy, replace the example account ID, Region, and trail 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

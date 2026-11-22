@@ -1,11 +1,10 @@
 
 
 # Decapsulate
-<a name="ct-decapsulate"></a>
 
 The following example shows an AWS CloudTrail log entry for the [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) operation. The encapsulated shared secret passed in the request is omitted from the log entry.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

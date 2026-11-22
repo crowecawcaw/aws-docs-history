@@ -1,7 +1,6 @@
 
 
 # Create an HMAC KMS key
-<a name="hmac-create-key"></a>
 
 You can create HMAC KMS keys in the AWS KMS console, by using the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) API, or by using the [AWS::KMS::Key CloudFormation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html).
 
@@ -104,7 +103,7 @@ If you try to create an HMAC KMS key in an AWS Region in which HMAC keys are not
 
 The following example uses the `CreateKey` operation to create a 512-bit HMAC KMS key.
 
-```
+```bash
 $ aws kms create-key --key-spec HMAC_512 --key-usage GENERATE_VERIFY_MAC
 {
     "KeyMetadata": {

@@ -1,11 +1,10 @@
 
 
 # GetKeyLastUsage
-<a name="ct-getkeylastusage"></a>
 
 The following example shows an AWS CloudTrail log entry for the [GetKeyLastUsage](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyLastUsage.html) operation. AWS KMS records an entry like the following one when you call the `GetKeyLastUsage` operation, or [view KMS key details](finding-keys.md) in the AWS KMS console.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

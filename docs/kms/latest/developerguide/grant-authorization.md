@@ -1,7 +1,6 @@
 
 
 # Controlling access to grants
-<a name="grant-authorization"></a>
 
 You can control access to the operations that create and manage grants in key policies, IAM policies, and in grants. Principals who get `CreateGrant` permission from a grant have [more limited grant permissions](create-grant-overview.md#grant-creategrant). 
 

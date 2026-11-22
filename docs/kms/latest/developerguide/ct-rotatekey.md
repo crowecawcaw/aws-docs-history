@@ -1,7 +1,6 @@
 
 
 # RotateKey
-<a name="ct-rotatekey"></a>
 
 These examples show the AWS CloudTrail log entries for the operations that rotate AWS KMS keys. For information about rotating KMS keys, see [Rotate AWS KMS keys](rotate-keys.md).
 
@@ -9,7 +8,7 @@ The following example shows a CloudTrail log entry for the operation that rotate
 
 For an example of the CloudTrail log entry that records the `EnableKeyRotation` operation, see [EnableKeyRotation](ct-enablekeyrotation.md). 
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -51,7 +50,7 @@ The following example shows a CloudTrail log entry for an on-demand rotation ini
 
 For an example of the CloudTrail log entry that records the `RotateKeyOnDemand` operation, see [RotateKeyOnDemand](ct-rotatekeyondemand.md). 
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

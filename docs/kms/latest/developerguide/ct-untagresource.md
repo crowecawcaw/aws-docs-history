@@ -1,7 +1,6 @@
 
 
 # UntagResource
-<a name="ct-untagresource"></a>
 
 The following example shows an AWS CloudTrail log entry of a call to the [UntagResource](https://docs.aws.amazon.com/kms/latest/APIReference/API_UntagResource.html) operation to delete a tag with a tag key of `Dept`.
 
@@ -9,7 +8,7 @@ CloudTrail log entries for this operation recorded on or after December 2022 inc
 
 For an example of an `TagResource` CloudTrail log entry, see [TagResource](ct-tagresource.md). For information about tagging AWS KMS keys, see [Tags in AWS KMS](tagging-keys.md).
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

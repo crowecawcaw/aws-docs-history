@@ -1,7 +1,6 @@
 
 
 # Decrypt
-<a name="ct-decrypt"></a>
 
 These examples show AWS CloudTrail log entries for the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation.
 
@@ -20,7 +19,7 @@ The CloudTrail log entry for a `Decrypt` operation always includes the `encrypti
 
 The following is an example CloudTrail log entry for a `Decrypt` operation with a standard symmetric encryption key. 
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -78,7 +77,7 @@ The following example CloudTrail log entry records a failed `Decrypt` operation 
 
 In this case, the symmetric encryption KMS key specified in the `Decrypt` request was not the symmetric encryption KMS key that was used to encrypt the data.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -126,7 +125,7 @@ In this case, the symmetric encryption KMS key specified in the `Decrypt` reques
 
 The following example CloudTrail log entry records a `Decrypt` operation with a KMS key in an [AWS CloudHSM key store](keystore-cloudhsm.md). All log entries for cryptographic operations with a KMS key in a custom key store include an `additionalEventData` field with the `customKeyStoreId` and `backingKeyId`. The value returned in the `backingKeyId` field is the CloudHSM key `id` attribute. The `additionalEventData` isn't specified in the request.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -176,7 +175,7 @@ The following example CloudTrail log entry records a `Decrypt` operation with a 
 
 The following example CloudTrail log entry records a `Decrypt` operation with a KMS key in an [external key store](keystore-external.md). In addition to the `customKeyStoreId`, the `additionalEventData` field includes the [external key ID](keystore-external.md#concept-external-key) (`XksKeyId`). The `additionalEventData` isn't specified in the request.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -231,7 +230,7 @@ If the failed request reached your external key store proxy, as in this example,
 
 For help with `Decrypt` requests in external key stores, see [Decryption errors](xks-troubleshooting.md#fix-xks-decrypt).
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -285,7 +284,7 @@ For help with `Decrypt` requests in external key stores, see [Decryption errors]
 
 The following is an example CloudTrail log entry for a `Decrypt` operation with a standard symmetric encryption key over a post-quantum TLS connection. The keyExchange field in the `tlsDetails` section mentions `X25519MLKEM768`. This is a *hybrid* algorithm that combines [Elliptic Curve Diffie-Hellman](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) (ECDH) over [Curve 25519](https://en.wikipedia.org/wiki/Curve25519), a classic key exchange algorithm used today in TLS, with [Module-Lattice-Based Key-Encapsulation Mechanism](https://csrc.nist.gov/pubs/fips/203/final) (ML-KEM), a public-key encryption and key-establishment algorithm that the National Institute for Standards and Technology (NIST) [ has designated as its first standard](https://csrc.nist.gov/pubs/fips/203/final) post-quantum key-agreement algorithm.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

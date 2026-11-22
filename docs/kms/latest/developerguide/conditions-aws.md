@@ -1,7 +1,6 @@
 
 
 # AWS global condition keys
-<a name="conditions-aws"></a>
 
 AWS defines [global condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys), a set of policy conditions keys for all AWS services that use IAM for access control. AWS KMS supports all global condition keys. You can use them in AWS KMS key policies and IAM policies.
 
@@ -11,12 +10,13 @@ To help prevent an AWS service from being used as a confused deputy in a policy 
 
 For information about AWS global condition keys, including the types of requests in which they are available, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*. For examples of using global condition keys in IAM policies, see [Controlling Access to Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-requests) and [Controlling Tag Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-tag-keys) in the *IAM User Guide*.
 
-The following topics provide special guidance for using condition keys based on IP addresses and VPC endpoints.
+The following topics provide special guidance for using condition keys based on IP addresses, VPC endpoints, and session-specific context.
 
 **Topics**
 + [Using the IP address condition in policies with AWS KMS permissions](#conditions-aws-ip-address)
 + [Using VPC endpoint conditions in policies with AWS KMS permissions](#conditions-aws-vpce)
 + [Using IPv6 addresses in IAM and AWS KMS key policies](#KMS-IPv6-policies)
++ [Using session-specific context with AWS services that cache data keys](#conditions-aws-session-data-key-caching)
 
 ## Using the IP address condition in policies with AWS KMS permissions
 <a name="conditions-aws-ip-address"></a>
@@ -54,7 +54,7 @@ These statements do not allow any actions. Use these statements in combination w
 
 The following statement explicitly denies access to all KMS permissions for requests originating from the `192.0.2.*` range of IPv4 addresses. Any IP addresses outside of this range are not explicitly denied KMS permissions. Since all IPv6 addresses are outside of the denied range, this statement does not explicitly deny KMS permissions for any IPv6 addresses.
 
-```
+```JSON
 {
      "Sid": "DenyKMSPermissions",
      "Effect": "Deny",
@@ -74,7 +74,7 @@ The following statement explicitly denies access to all KMS permissions for requ
 
 You can modify the `Condition` element to deny both IPv4 (`192.0.2.0/24`) and IPv6 (`2001:db8:1234::/32`) address ranges as shown in the following example.
 
-```
+```JSON
 {
     "Sid": "DenyKMSPermissions",
     "Effect": "Deny",
@@ -92,3 +92,44 @@ You can modify the `Condition` element to deny both IPv4 (`192.0.2.0/24`) and IP
     }
 }
 ```
+
+## Using session-specific context with AWS services that cache data keys
+<a name="conditions-aws-session-data-key-caching"></a>
+
+[AWS services integrated with AWS KMS](service-integration.md) can use [forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html) (FAS) to call AWS KMS on your behalf. Some of these services temporarily cache [data keys](data-keys.md) to limit their volume of FAS requests, which helps you avoid throttling and high API charges. Services derive a cache lookup key from request context to determine which requests can reuse a cached data key without calling AWS KMS. To keep their caches efficient, services might not include all session context in their cache lookup key. The cache lookup key usually includes the IAM role or user that makes a request, but not session-specific context. As a result, different sessions of the same role, user, or root user might reuse the same cached data key without authorizing every session to a KMS key.
+
+**Important**  
+To control access with session-specific conditions, add those conditions to the policies of the integrated service, such as an Amazon S3 bucket policy. The integrated service evaluates its own policies on every request. AWS KMS evaluates conditions in your key policy only when the service calls AWS KMS.
+
+The cache lookup key implementation varies by service. Amazon SQS, DynamoDB, and Amazon S3 with [S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html) enabled are examples of services that cache data keys to limit FAS requests.
+
+Consider the following example key policy statements for a KMS key that encrypts an Amazon S3 bucket with S3 Bucket Key enabled. In this policy example, the `AllowedUser` session of the `ExampleRole` role can use the KMS key, but the `DeniedUser` session of the same role cannot.
+
+```JSON
+{
+    "Sid": "AllowSession",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:sts::{{111122223333}}:assumed-role/{{ExampleRole}}/{{AllowedUser}}"
+    },
+    "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+    ],
+    "Resource": "*"
+},
+{
+    "Sid": "DenySession",
+    "Effect": "Deny",
+    "Principal": {
+        "AWS": "arn:aws:sts::{{111122223333}}:assumed-role/{{ExampleRole}}/{{DeniedUser}}"
+    },
+    "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+    ],
+    "Resource": "*"
+}
+```
+
+Because S3 Bucket Key doesn't include the session name in its cache lookup key, the `DeniedUser` session might be able to read and write objects in the bucket. When the `AllowedUser` session makes a request, Amazon S3 caches the bucket key for `ExampleRole`. Until that cache entry expires, Amazon S3 can serve requests from the `DeniedUser` session without calling AWS KMS. To reliably deny the `DeniedUser` session, restrict its access to Amazon S3 API operations through other relevant policy types.

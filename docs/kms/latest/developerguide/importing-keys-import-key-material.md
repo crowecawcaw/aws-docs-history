@@ -1,7 +1,6 @@
 
 
 # Step 4: Import the key material
-<a name="importing-keys-import-key-material"></a>
 
 After you [encrypt your key material](importing-keys-encrypt-key-material.md), you can import the key material to use with an AWS KMS key. To import key material, you upload the encrypted key material from [Step 3: Encrypt the key material](importing-keys-encrypt-key-material.md) and the import token that you downloaded at [Step 2: Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md). You must import key material into the same KMS key that you specified when you [downloaded the public key and import token](importing-keys-get-public-key-and-token.md). When key material is successfully imported, the [key state](key-state.md) of the KMS key changes to `Enabled`, and you can use the KMS key in cryptographic operations.
 
@@ -127,7 +126,7 @@ To use this example:
 
 1. If you want the imported key material to expire, set the value of the `expiration-model` parameter to its default value, `KEY_MATERIAL_EXPIRES`, or omit the `expiration-model` parameter. Then, replace the value of the `valid-to` parameter with the date and time that you want the key material to expire. The date and time can be up to 365 days from the time of the request. 
 
-   ```
+   ```bash
    $ aws kms import-key-material --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --encrypted-key-material fileb://{{EncryptedKeyMaterial.bin}} \
        --import-token fileb://{{ImportToken.bin}} \
@@ -137,7 +136,7 @@ To use this example:
 
    If you do not want the imported key material to expire, set the value of the `expiration-model` parameter to `KEY_MATERIAL_DOES_NOT_EXPIRE` and omit the `valid-to` parameter from the command.
 
-   ```
+   ```bash
    $ aws kms import-key-material --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --encrypted-key-material fileb://{{EncryptedKeyMaterial.bin}} \
        --import-token fileb://{{ImportToken.bin}} \
@@ -146,7 +145,7 @@ To use this example:
 
 1. If you want to import new key material, not previously associated with the KMS key, set the `ImportType` parameter to `NEW_KEY_MATERIAL`. This option can only be used with symmetric encryption keys. For these keys, you can also use the optional `KeyMaterialDescription` parameter to set a description for the imported key material in the following command line example: 
 
-   ```
+   ```bash
    $ aws kms import-key-material --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --encrypted-key-material fileb://{{EncryptedKeyMaterial.bin}} \
        --import-token fileb://{{ImportToken.bin}} \

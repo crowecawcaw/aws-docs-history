@@ -1,7 +1,6 @@
 
 
 # Create an asymmetric KMS key
-<a name="asymm-create-key"></a>
 
 You can create [asymmetric KMS keys](symmetric-asymmetric.md) in the AWS KMS console, by using the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) API, or by using the [AWS::KMS::Key CloudFormation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html). An asymmetric KMS key represents a public and private key pair that can be used for encryption, signing, or deriving shared secrets. The private key remains within AWS KMS. To download the public key for use outside of AWS KMS, see [Download public key](download-public-key.md).
 
@@ -105,7 +104,7 @@ Do not include confidential or sensitive information in the `Description` or `Ta
 **Create an asymmetric KMS key pair for public encryption**  
 The following example uses the `CreateKey` operation to create an asymmetric KMS key of 4096-bit RSA keys designed for public key encryption.
 
-```
+```bash
 $ aws kms create-key --key-spec RSA_4096 --key-usage ENCRYPT_DECRYPT
 {
     "KeyMetadata": {
@@ -133,7 +132,7 @@ $ aws kms create-key --key-spec RSA_4096 --key-usage ENCRYPT_DECRYPT
 **Create an asymmetric KMS key pair for signing and verification**  
 The following example command creates an asymmetric KMS key that represents a pair of ECC keys used for signing and verification. You cannot create an elliptic curve key pair for encryption and decryption.
 
-```
+```bash
 $ aws kms create-key --key-spec ECC_NIST_P521 --key-usage SIGN_VERIFY
 {
     "KeyMetadata": {
@@ -160,7 +159,7 @@ $ aws kms create-key --key-spec ECC_NIST_P521 --key-usage SIGN_VERIFY
 **Create an asymmetric KMS key pair for deriving shared secrets**  
 The following example command creates an asymmetric KMS key that represents a pair of ECDH keys used for deriving shared secrets. You cannot create an elliptic curve key pair for encryption and decryption.
 
-```
+```bash
 $ aws kms create-key --key-spec ECC_NIST_P256 --key-usage KEY_AGREEMENT
 {
     "KeyMetadata": {
@@ -187,7 +186,7 @@ $ aws kms create-key --key-spec ECC_NIST_P256 --key-usage KEY_AGREEMENT
 **Create an asymmetric KMS key pair for post-quantum key establishment**  
 The following example command creates an asymmetric KMS key that represents a pair of ML-KEM keys used for encapsulating and decapsulating shared secrets.
 
-```
+```bash
 $ aws kms create-key --key-spec ML_KEM_1024 --key-usage ENCAPSULATE_DECAPSULATE
 {
     "KeyMetadata": {

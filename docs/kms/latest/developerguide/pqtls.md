@@ -1,7 +1,6 @@
 
 
 # Using hybrid post-quantum TLS with AWS KMS
-<a name="pqtls"></a>
 
 The data that you send to AWS Key Management Service (AWS KMS) is protected in transit by the encryption provided by a Transport Layer Security (TLS) connection. The classic cipher suites that AWS KMS supports for TLS sessions make brute force attacks on the key exchange mechanisms infeasible with current technology. However, if large-scale quantum computing becomes practical, the classic cipher suites used in TLS key exchange mechanisms will be susceptible to these attacks.
 

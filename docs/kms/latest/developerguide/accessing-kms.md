@@ -1,7 +1,6 @@
 
 
 # Accessing AWS Key Management Service
-<a name="accessing-kms"></a>
 
 You can work with AWS KMS in the following ways:
 

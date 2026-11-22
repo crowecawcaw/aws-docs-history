@@ -1,7 +1,6 @@
 
 
 # Best practices for AWS KMS grants
-<a name="grant-best-practices"></a>
 
 AWS KMS recommends the following best practices when creating, using, and managing grants.
 + Limit the permissions in the grant to those that the grantee requires. Use the principle of [least privileged access](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege). Be as specific as possible in all grant parameters:

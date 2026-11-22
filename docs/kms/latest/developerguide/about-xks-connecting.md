@@ -1,7 +1,6 @@
 
 
 # Connect an external key store
-<a name="about-xks-connecting"></a>
 
 When your external key store is connected to its external key store proxy, you can [create KMS keys in your external key store](create-cmk-keystore.md) and use its existing KMS keys in [cryptographic operations](manage-cmk-keystore.md#use-cmk-keystore). 
 
@@ -56,13 +55,13 @@ The examples in this section use the [AWS Command Line Interface (AWS CLI)](http
 
 To identify the external key store, use its custom key store ID. You can find the ID on the **Custom key stores** page in the console or by using the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) operation. Before running this example, replace the example ID with a valid one.
 
-```
+```bash
 $ aws kms connect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
 The `ConnectCustomKeyStore` operation does not return the `ConnectionState` in its response. To verify that the external key store is connected, use the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) operation. By default, this operation returns all custom keys stores in your account and Region. But you can use either the `CustomKeyStoreId` or `CustomKeyStoreName` parameter (but not both) to limit the response to particular custom key stores. A `ConnectionState` value of `CONNECTED` indicates that the external key store is connected to its external key store proxy.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleXksVpc}}
 {
     "CustomKeyStores": [
@@ -88,7 +87,7 @@ If the `ConnectionState` value in the `DescribeCustomKeyStores` response is `FAI
 
 In the following example, the `XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND` value for the `ConnectionErrorCode` indicates that AWS KMS can't find the VPC endpoint service that it uses to communicate with the external key store proxy. Verify that the `XksProxyVpcEndpointServiceName` is correct, the AWS KMS service principal is an allowed principal on the Amazon VPC endpoint service, and that the VPC endpoint service does not require acceptance of connection requests. For help responding to a connection error code, see [Connection error codes for external key stores](xks-troubleshooting.md#xks-connection-error-codes).
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleXksVpc}}
 {
     "CustomKeyStores": [

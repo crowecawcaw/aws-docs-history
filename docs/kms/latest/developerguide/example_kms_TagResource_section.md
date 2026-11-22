@@ -1,7 +1,6 @@
 
 
 # Use `TagResource` with an AWS SDK or CLI
-<a name="example_kms_TagResource_section"></a>
 
 The following code examples show how to use `TagResource`.
 
@@ -31,7 +30,7 @@ For more information about using tags in AWS KMS, see [Tagging keys](https://doc
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
-```
+```java
     /**
      * Asynchronously tags a KMS key with a specific tag.
      *
@@ -66,7 +65,7 @@ For more information about using tags in AWS KMS, see [Tagging keys](https://doc
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
-```
+```php
     /***
      * @param string $keyId
      * @param array $tags
@@ -93,7 +92,7 @@ For more information about using tags in AWS KMS, see [Tagging keys](https://doc
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class KeyManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -138,7 +137,7 @@ class KeyManager:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     DATA lt_tags TYPE /aws1/cl_kmstag=>tt_taglist.
 
     TRY.

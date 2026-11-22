@@ -1,7 +1,6 @@
 
 
 # Using a grant token
-<a name="using-grant-token"></a>
 
 The AWS KMS API follows an [eventual consistency](grants.md#terms-eventual-consistency) model. When you create a grant, the grant might not be effective immediately. There might be a brief delay before the change is available throughout AWS KMS. It typically takes less than a few seconds for the change to propagate throughout the system, but in some cases it can take several minutes. Once the change has fully propagated throughout the system, the grantee principal can use the permissions in the grant without specifying the grant token or any evidence of the grant. However, if a grant that is so new that it is not yet known to all of AWS KMS, the request might fail with an `AccessDeniedException` error.
 
@@ -11,7 +10,7 @@ To use the permissions in a new grant immediately, use the [grant token](grants.
 
 The following example uses the `CreateGrant` operation to create a grant that allows the [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) and [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operations. It saves the grant token that `CreateGrant` returns in the `token` variable. Then, in a call to the `GenerateDataKey` operation, it uses the grant token in the `token` variable.
 
-```
+```json
 # Create a grant; save the grant token 
 $ token=$(aws kms create-grant \
     --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
@@ -30,7 +29,7 @@ $ aws kms generate-data-key \
 
 Principals with permission can also use a grant token to retire a new grant even before the grant is available throughout AWS KMS. (The `RevokeGrant` operation doesn't accept a grant token.) For details, see [Retiring and revoking grants](grant-delete.md).
 
-```
+```bash
 # Retire the grant
 $ aws kms retire-grant --grant-token $token
 ```

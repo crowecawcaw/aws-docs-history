@@ -1,7 +1,6 @@
 
 
 # Use `RetireGrant` with an AWS SDK or CLI
-<a name="example_kms_RetireGrant_section"></a>
 
 The following code examples show how to use `RetireGrant`.
 
@@ -28,7 +27,7 @@ For more information, see [Retiring and revoking grants](https://docs.aws.amazon
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class GrantManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -69,7 +68,7 @@ class GrantManager:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_grant_token = 'AQpAM2RhZ...'
         lo_kms->retiregrant( iv_granttoken = iv_grant_token ).

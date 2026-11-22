@@ -1,7 +1,6 @@
 
 
 # Schedule key deletion
-<a name="deleting-keys-scheduling-key-deletion"></a>
 
 The following procedures describe how to schedule key deletion and cancel key deletion of AWS KMS keys (KMS keys) in AWS KMS using the AWS Management Console and the AWS KMS API.
 
@@ -56,7 +55,7 @@ $ aws kms schedule-key-deletion --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}
 
 When used successfully, the AWS CLI returns output like the output shown in the following example:
 
-```
+```json
 {
     "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
     "DeletionDate": 1598304792.0,

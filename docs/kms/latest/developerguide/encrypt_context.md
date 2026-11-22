@@ -1,7 +1,6 @@
 
 
 # Encryption context
-<a name="encrypt_context"></a>
 
 **Note**  
 You cannot specify an encryption context in a cryptographic operation with an [asymmetric KMS key](symmetric-asymmetric.md) or an [HMAC KMS key](hmac.md). Asymmetric algorithms and MAC algorithms do not support an encryption context.
@@ -44,7 +43,7 @@ The [kms:EncryptionContext:](conditions-kms.md#conditions-kms-encryption-context
 
 For example, the following key policy statement allows the `RoleForExampleApp` role to use the KMS key in `Decrypt` operations. It uses the `kms:EncryptionContext:context-key` condition key to allow this permission only when the encryption context in the request includes an `AppName:ExampleApp` encryption context pair.
 
-```
+```json
 {
   "Effect": "Allow",
   "Principal": {
@@ -65,7 +64,7 @@ For more information about these encryption context condition keys, see [Conditi
 ## Encryption context in grants
 <a name="encryption-context-grants"></a>
 
-When you [create a grant](grants.md), you can include [grant constraints](https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html) that establish conditions for the grant permissions. AWS KMS supports two encryption context grant constraints, `EncryptionContextEquals` and `EncryptionContextSubset`, both of which involve the [encryption context](#encrypt_context) in a request for a cryptographic operation. When you use these grant constraints, the permissions in the grant are effective only when the encryption context in the request for the cryptographic operation satisfies the requirements of the grant constraints. 
+When you [create a grant](grants.md), you can include [grant constraints](https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html) that establish conditions for the grant permissions. AWS KMS supports two encryption context grant constraints, `EncryptionContextEquals` and `EncryptionContextSubset`, both of which involve the [encryption context](encrypt_context.md) in a request for a cryptographic operation. When you use these grant constraints, the permissions in the grant are effective only when the encryption context in the request for the cryptographic operation satisfies the requirements of the grant constraints. 
 
 For example, you can add an `EncryptionContextEquals` grant constraint to a grant that allows the [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation. With this constraint, the grant allows the operation only when the encryption context in the request is a case-sensitive match for the encryption context in the grant constraint.
 
@@ -80,7 +79,7 @@ $ aws kms create-grant \
 
 A request like the following from the grantee principal would satisfy the `EncryptionContextEquals` constraint.
 
-```
+```bash
 $ aws kms generate-data-key \
     --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
     --key-spec AES_256 \

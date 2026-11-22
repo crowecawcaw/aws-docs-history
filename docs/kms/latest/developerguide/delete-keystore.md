@@ -1,7 +1,6 @@
 
 
 # Delete an AWS CloudHSM key store
-<a name="delete-keystore"></a>
 
 When you delete an AWS CloudHSM key store, AWS KMS deletes all metadata about the AWS CloudHSM key store from KMS, including information about its association with an AWS CloudHSM cluster. This operation does not affect the AWS CloudHSM cluster, its HSMs, or its users. You can create a new AWS CloudHSM key store that is associated with the same AWS CloudHSM cluster, but you cannot undo the delete operation.
 
@@ -44,7 +43,7 @@ To begin, verify that the AWS CloudHSM key store does not contain any AWS KMS ke
 ------
 #### [ Bash ]
 
-```
+```bash
 for key in $(aws kms list-keys --query 'Keys[*].KeyId' --output text) ; 
 do aws kms describe-key --key-id $key | 
 grep '"CustomKeyStoreId": "{{cks-1234567890abcdef0}}"' --context 100; done
@@ -53,7 +52,7 @@ grep '"CustomKeyStoreId": "{{cks-1234567890abcdef0}}"' --context 100; done
 ------
 #### [ PowerShell ]
 
-```
+```powershell
 PS C:\> Get-KMSKeyList | Get-KMSKey | where CustomKeyStoreId -eq '{{cks-1234567890abcdef0}}'
 ```
 
@@ -64,7 +63,7 @@ Next, disconnect the AWS CloudHSM key store. This example command uses the [Disc
 ------
 #### [ Bash ]
 
-```
+```bash
 $ aws kms disconnect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
@@ -82,7 +81,7 @@ After the custom key store is disconnected, you can use the [DeleteCustomKeyStor
 ------
 #### [ Bash ]
 
-```
+```bash
 $ aws kms delete-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 

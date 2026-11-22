@@ -1,7 +1,6 @@
 
 
 # Creating grants
-<a name="create-grant-overview"></a>
 
 Before creating a grant, learn about the options for customizing your grant. You can use *grant constraints* to limit the permissions in the grant. Also, learn about granting `CreateGrant` permission. Principals who get permission to create grants from a grant are limited in the grants that they can create.
 
@@ -20,7 +19,7 @@ When you create, retire, or revoke a grant, there might be a brief delay, usuall
 
 For example, the following `CreateGrant` command creates a grant that allows users who are authorized to assume the `keyUserRole` role to call the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation on the specified [symmetric KMS key](symm-asymm-choose-key-spec.md#symmetric-cmks). The grant uses the `RetiringPrincipal` parameter to designate a principal that can retire the grant. It also includes a grant constraint that allows the permission only when the [encryption context](encrypt_context.md) in the request includes `"Department": "IT"`.
 
-```
+```bash
 $  aws kms create-grant \
     --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
     --grantee-principal arn:aws:iam::111122223333:role/keyUserRole \
@@ -34,7 +33,7 @@ If your code retries the `CreateGrant` operation, or uses an [AWS SDK that autom
 **Important**  
 Do not include confidential or sensitive information in the grant name. It may appear in plain text in CloudTrail logs and other output.
 
-```
+```bash
 $ aws kms create-grant \
     --name IT-1234abcd-keyUserRole-decrypt \
     --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
@@ -116,7 +115,7 @@ $ aws kms list-grants --key-id 1234abcd-12ab-34cd-56ef-1234567890ab
 
 To satisfy the `EncryptionContextEquals` grant constraint, the encryption context in the request for the `Decrypt` operation must be a `"Department": "IT"` pair. A request like the following from the grantee principal would satisfy the `EncryptionContextEquals` grant constraint.
 
-```
+```bash
 $ aws kms decrypt \
     --key-id arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\
     --ciphertext-blob fileb://encrypted_msg \
@@ -135,7 +134,7 @@ When the grant constraint is `EncryptionContextSubset`, the encryption context p
 
 The following request from the grantee principal would satisfy both of the `EncryptionContextEqual` and `EncryptionContextSubset` grant constraints in this example.
 
-```
+```bash
 $ aws kms decrypt \
     --key-id arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab \
     --ciphertext-blob fileb://encrypted_msg \
@@ -144,7 +143,7 @@ $ aws kms decrypt \
 
 However, a request like the following from the grantee principal would satisfy the `EncryptionContextSubset` grant constraint, but it would fail the `EncryptionContextEquals` grant constraint.
 
-```
+```bash
 $ aws kms decrypt \
     --key-id arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab \
     --ciphertext-blob fileb://encrypted_msg \
@@ -198,7 +197,7 @@ Unlike encryption context constraints, the `SourceArn` constraint is supported o
 
 To specify a `SourceArn` constraint in a grant, use the `Constraints` parameter in the [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) operation. The following example creates a grant that allows an AWS service principal to call the `Encrypt` and `Decrypt` operations, but only when the request is made on behalf of the specified DynamoDB table. The `SourceArn` constraint is required when the grant specifies a `GranteeServicePrincipal`.
 
-```
+```bash
 $ aws kms create-grant \
     --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
     --grantee-service-principal {{service-name}}.amazonaws.com \
@@ -241,7 +240,7 @@ When `GranteeServicePrincipal` is specified, the `SourceArn` constraint is requi
 
 The following example creates a grant with `GranteeServicePrincipal` and `RetiringServicePrincipal`, and includes both an `EncryptionContextSubset` constraint and a `SourceArn` constraint.
 
-```
+```bash
 $ aws kms create-grant \
     --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
     --grantee-service-principal {{service-name}}.amazonaws.com \
@@ -292,7 +291,7 @@ These limitations don't apply to principals who get `CreateGrant` permission fro
 
 For example, consider a grant that allows the grantee principal to call the `GenerateDataKey`, `Decrypt`, and `CreateGrant` operations. We call a grant that allow `CreateGrant` permission a *parent grant*.
 
-```
+```json
 # The original grant in a ListGrants response.
 {
     "Grants": [
@@ -327,7 +326,7 @@ IAM best practices discourage the use of IAM users with long-term credentials. W
 
 For example, the grantee principal can use the `CreateGrant` permission that it got from the parent grant to create the following child grant. The operations in the child grant are a subset of the operations in the parent grant and the grant constraints are more restrictive.
 
-```
+```json
 # The child grant in a ListGrants response.
 {
     "Grants": [

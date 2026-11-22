@@ -1,13 +1,12 @@
 
 
 # Verify
-<a name="ct-verify"></a>
 
 These examples show AWS CloudTrail log entries for the [Verify](https://docs.aws.amazon.com/kms/latest/APIReference/API_Verify.html) operation.
 
 The following example shows an CloudTrail log entry for a [Verify](https://docs.aws.amazon.com/kms/latest/APIReference/API_Verify.html) operation that uses an asymmetric RSA KMS key to verify a digital signature.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Create a KMS key
-<a name="create-keys"></a>
 
 You can create AWS KMS keys in the AWS Management Console, or by using the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation or the [AWS::KMS::Key AWS CloudFormation resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html). During this process, you set the key policy for the KMS key, which you can change at any time. You also select the following values that define the type of KMS key that you create. You cannot change these properties after the KMS key is created. 
 

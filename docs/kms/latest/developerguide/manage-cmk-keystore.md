@@ -1,7 +1,6 @@
 
 
 # KMS keys in a CloudHSM key store
-<a name="manage-cmk-keystore"></a>
 
 You can create, view, manage, use, and schedule deletion of the AWS KMS keys in an AWS CloudHSM key store. The procedures that you use are very similar to those you use for other KMS keys. The only difference is that you specify an AWS CloudHSM key store when you create the KMS key. Then, AWS KMS creates non-extractable key material for the KMS key in the AWS CloudHSM cluster that is associated with the AWS CloudHSM key store. When you use a KMS key in an AWS CloudHSM key store, the [cryptographic operations](#use-cmk-keystore) are performed in the HSMs in the cluster.
 

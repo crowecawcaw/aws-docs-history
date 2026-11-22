@@ -1,7 +1,6 @@
 
 
 # SynchronizeMultiRegionKey
-<a name="ct-synchronize-multi-region-key"></a>
 
 The following example shows an AWS CloudTrail log entry generated when AWS KMS synchronizes a [multi-Region key](multi-region-keys-overview.md). Synchronizing involves cross-Region calls to copy the [shared properties](multi-region-keys-overview.md#mrk-sync-properties) of a multi-Region primary key to its replica keys. AWS KMS synchronizes multi-Region keys periodically to assure that all related multi-Region keys have the same key material.
 
@@ -9,7 +8,7 @@ The `resources` element of the CloudTrail log entry includes the key ARN of the 
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

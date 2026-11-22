@@ -1,11 +1,10 @@
 
 
 # Encapsulate
-<a name="ct-encapsulate"></a>
 
 The following example shows an AWS CloudTrail log entry for the [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html) operation. The shared secret and its encapsulated (ciphertext) form returned in the response are omitted from the log entry.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

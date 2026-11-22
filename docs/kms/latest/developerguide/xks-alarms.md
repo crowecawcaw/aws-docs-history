@@ -1,7 +1,6 @@
 
 
 # Create CloudWatch alarms for external key stores
-<a name="xks-alarms"></a>
 
 You can create Amazon CloudWatch alarms based on external key store metrics to notify you when a metric value exceeds a threshold you specified. The alarm can send the message to an [Amazon Simple Notification Service (Amazon SNS) topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html) or an [Amazon EC2 Auto Scaling policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html#as-how-scaling-policies-work). For detailed information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
 

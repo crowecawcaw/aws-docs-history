@@ -1,7 +1,6 @@
 
 
 # Determine past usage of a KMS key
-<a name="monitoring-keys-determining-usage"></a>
 
 For monitoring and auditing purposes, you may want to know how a KMS key has been used in the past. For example, you may want to determine whether a KMS key is still actively used before disabling or scheduling it for deletion, or identify unused keys in your account. The following strategies can help you determine the past usage of a KMS key.
 
@@ -118,7 +117,7 @@ All AWS KMS API activity is recorded in AWS CloudTrail log files. If you have [c
 
 The following examples show CloudTrail log entries that are generated when a KMS key is used to protect an object stored in Amazon Simple Storage Service (Amazon S3). In this example, the object is uploaded to Amazon S3 using [Protecting data using server-side encryption with KMS keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html). When you upload an object to Amazon S3 with SSE-KMS, you specify the KMS key to use for protecting the object. Amazon S3 uses the AWS KMS [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation to request a unique data key for the object, and this request event is logged in CloudTrail with an entry similar to the following:
 
-```
+```json
 {
   "eventVersion": "1.02",
   "userIdentity": {
@@ -168,7 +167,7 @@ The following examples show CloudTrail log entries that are generated when a KMS
 
 When you later download this object from Amazon S3, Amazon S3 sends a `Decrypt` request to AWS KMS to decrypt the object's data key using the specified KMS key. When you do this, your CloudTrail log files include an entry similar to the following:
 
-```
+```json
 {
   "eventVersion": "1.02",
   "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # External key stores
-<a name="keystore-external"></a>
 
 External key stores allow you to protect your AWS resources using cryptographic keys outside of AWS. This advanced feature is designed for regulated workloads that you must protect with encryption keys stored in an external key management system that you control. External key stores support the [AWS digital sovereignty pledge](https://aws.amazon.com/blogs/security/aws-digital-sovereignty-pledge-control-without-compromise/) to give you sovereign control over your data in AWS, including the ability to encrypt with key material that you own and control outside of AWS.
 

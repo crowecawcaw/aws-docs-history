@@ -1,7 +1,6 @@
 
 
 # AWS KMS access control glossary
-<a name="access-glossary"></a>
 
 The following topic describes important terms and concepts in AWS KMS access control.
 

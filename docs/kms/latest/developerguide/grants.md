@@ -1,7 +1,6 @@
 
 
 # Grants in AWS KMS
-<a name="grants"></a>
 
 A *grant* is a policy instrument that allows [AWS principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) or AWS [service principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) to use KMS keys in cryptographic operations. It also can let them view a KMS key (`DescribeKey`) and create and manage grants. When authorizing access to a KMS key, grants are considered along with [key policies](key-policies.md) and [IAM policies](iam-policies.md). Grants are often used for temporary permissions because you can create one, use its permissions, and delete it without changing your key policies or IAM policies.
 
@@ -69,7 +68,7 @@ A *grant token* is a unique, nonsecret, variable-length, base64-encoded string t
 A grant token is designed to be used only until the grant has fully propagated throughout AWS KMS. After that, the [grantee principal](#terms-grantee-principal) can use the permission in the grant without providing a grant token or any other evidence of the grant. You can use a grant token at any time, but once the grant is eventually consistent, AWS KMS uses the grant to determine permissions, not the grant token.  
 For example, the following command calls the [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation. It uses a grant token to represent the grant that gives the caller (the grantee principal) permission to call `GenerateDataKey` on the specified KMS key.  
 
-```
+```bash
 $ aws kms generate-data-key \
         --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
         --key-spec AES_256 \

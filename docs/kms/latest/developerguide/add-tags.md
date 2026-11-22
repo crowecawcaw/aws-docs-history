@@ -1,7 +1,6 @@
 
 
 # Add tags to a KMS key
-<a name="add-tags"></a>
 
 Tags help identify and organize your AWS resources. You can add tags to a customer managed key when you [create the KMS key](create-keys.md), or add tags to existing KMS keys. You cannot tag AWS managed keys.
 
@@ -44,7 +43,7 @@ The value of the `Tags` parameter of `CreateKey` is a collection of case-sensiti
 
 For example, the following AWS CLI command creates a symmetric encryption KMS key with a `Project:Alpha` tag. When specifying more than one key-value pair, use a space to separate each pair.
 
-```
+```bash
 $ aws kms create-key --tags TagKey=Project,TagValue=Alpha
 ```
 
@@ -87,7 +86,7 @@ To add a tag, specify a new tag key and a tag value. Each tag on a KMS key must 
 
 For example, the following command adds **Purpose** and **Department** tags to an example KMS key.
 
-```
+```bash
 $ aws kms tag-resource \
          --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
          --tags TagKey=Purpose,TagValue=Pretest TagKey=Department,TagValue=Finance

@@ -1,7 +1,6 @@
 
 
 # How Amazon Elastic Block Store (Amazon EBS) uses AWS KMS
-<a name="services-ebs"></a>
 
 This topic discusses in detail how [Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) uses AWS KMS to encrypt volumes and snapshots. For basic instructions about encrypting Amazon EBS volumes, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
 

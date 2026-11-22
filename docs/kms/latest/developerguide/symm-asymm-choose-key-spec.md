@@ -1,7 +1,6 @@
 
 
 # Key spec reference
-<a name="symm-asymm-choose-key-spec"></a>
 
 When you create an asymmetric KMS key or an HMAC KMS key, you select its [key spec](create-keys.md#key-spec). The *key spec*, which is a property of every AWS KMS key, represents the cryptographic configuration of your KMS key. You choose the key spec when you create the KMS key, and you cannot change it. If you've selected the wrong key spec, [delete the KMS key](deleting-keys.md), and create a new one.
 

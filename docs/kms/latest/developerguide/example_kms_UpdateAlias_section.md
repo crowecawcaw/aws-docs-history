@@ -1,7 +1,6 @@
 
 
 # Use `UpdateAlias` with an AWS SDK or CLI
-<a name="example_kms_UpdateAlias_section"></a>
 
 The following code examples show how to use `UpdateAlias`.
 
@@ -28,7 +27,7 @@ For more information, see [Updating aliases](https://docs.aws.amazon.com/kms/lat
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class AliasManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -79,7 +78,7 @@ class AliasManager:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_alias_name = 'alias/my-key-alias'
         " iv_target_key_id = 'arn:aws:kms:us-east-1:123456789012:key/5678dcba-56cd-78ef-90ab-5678901234cd'

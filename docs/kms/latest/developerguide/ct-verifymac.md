@@ -1,11 +1,10 @@
 
 
 # VerifyMac
-<a name="ct-verifymac"></a>
 
 The following example shows an AWS CloudTrail log entry for the [VerifyMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_VerifyMac.html) operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

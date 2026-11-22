@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Key Management Service
-<a name="data-protection"></a>
 
 AWS Key Management Service stores and protects your encryption keys to make them highly available while providing you with strong and flexible access control.
 
@@ -19,6 +18,8 @@ By default, AWS KMS generates and protects the cryptographic key material for KM
 <a name="kms-key-material"></a>
 
 When you create a KMS key, by default, AWS KMS generates and protects the cryptographic material for the KMS key.
+
+When you share a KMS key with other AWS accounts through AWS Resource Access Manager (AWS RAM), AWS KMS doesn't copy or move the KMS key or its key material. The KMS key stays in your AWS account and Region, and consumers can use it only by calling AWS KMS operations that its key policies allow. For more information, see [Sharing KMS keys with AWS RAM](key-sharing-ram.md).
 
 To safeguard key material for KMS keys, AWS KMS relies on a distributed fleet of [FIPS 140-3 Security Level 3–validated](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884) hardware security modules (HSMs). Each AWS KMS HSM is a dedicated, standalone hardware appliance designed to provide dedicated cryptographic functions to meet the security and scalability requirements of AWS KMS. (The HSMs that AWS KMS uses in China Regions are certified by [OSCCA](https://www.oscca.gov.cn/) and comply with all pertinent Chinese regulations, but are not validated under the FIPS 140-3 Cryptographic Module Validation Program.) 
 

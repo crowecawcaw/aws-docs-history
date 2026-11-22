@@ -1,7 +1,6 @@
 
 
 # Create a VPC endpoint for AWS KMS
-<a name="vpce-create-endpoint"></a>
 
 You can create a VPC endpoint for AWS KMS by using the Amazon VPC console or the Amazon VPC API. Follow the procedures to [Create an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#create-interface-endpoint) using one of the following values.
 + To create a VPC endpoint for AWS KMS, use the following service name: 

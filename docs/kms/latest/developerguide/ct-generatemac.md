@@ -1,11 +1,10 @@
 
 
 # GenerateMac
-<a name="ct-generatemac"></a>
 
 The following example shows an AWS CloudTrail log entry for the [GenerateMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html) operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Find the alias name and alias ARN for a KMS key
-<a name="alias-view"></a>
 
 Aliases make it easy to recognize KMS keys in the AWS KMS console. You can view the aliases for a KMS key in the AWS KMS console or by using the [ListAliases](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html) operation. The [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) operation, which returns the properties of a KMS key, does not include aliases.
 
@@ -43,7 +42,7 @@ The [ListAliases](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAl
 
 The response might also include aliases that have no `TargetKeyId` field. These are predefined aliases that AWS has created but has not yet associated with a KMS key.
 
-```
+```bash
 $ aws kms list-aliases
 {
     "Aliases": [
@@ -97,7 +96,7 @@ To get all aliases that are associated with a particular KMS key, use the option
 
 This example gets all aliases associated with the `0987dcba-09fe-87dc-65ba-ab0987654321` KMS key.
 
-```
+```bash
 $ aws kms list-aliases --key-id 0987dcba-09fe-87dc-65ba-ab0987654321
 {
     "Aliases": [
@@ -123,13 +122,13 @@ The `KeyId` parameter doesn't take wildcard characters, but you can use the feat
 
 For example, the following AWS CLI command gets only the aliases for AWS managed keys.
 
-```
+```bash
 $ aws kms list-aliases --query 'Aliases[?starts_with(AliasName, `alias/aws/`)]'
 ```
 
 The following command gets only the `access-key` alias. The alias name is case-sensitive.
 
-```
+```bash
 $ aws kms list-aliases --query 'Aliases[?AliasName==`alias/access-key`]'
 [
     {

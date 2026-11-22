@@ -1,7 +1,6 @@
 
 
 # Change the primary key in a set of multi-Region keys
-<a name="multi-region-update"></a>
 
 Every set of related multi-Region keys must have a primary key. But you can change the primary key. This action, known as *updating the primary Region*, converts the current primary key to a replica key and converts one of the related replica keys to the primary key. You might do this if you need to delete the current primary key while maintaining the replica keys, or to locate the primary key in the same Region as your key administrators.
 
@@ -60,7 +59,7 @@ Use the `KeyId` parameter to identify the current primary key. Use the `PrimaryR
 
 The following example changes the primary key from the multi-Region key in the `us-west-2` Region to its replica in the `eu-west-1` Region. The `KeyId` parameter identifies the current primary key in the `us-west-2` Region. The `PrimaryRegion` parameter specifies the AWS Region of the new primary key, `eu-west-1`.
 
-```
+```bash
 $ aws kms update-primary-region \
       --key-id arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab \
       --primary-region eu-west-1
@@ -70,7 +69,7 @@ When successful, this operation doesn't return any output; just the HTTP status 
 
 For example, the following `DescribeKey` call gets the details about the multi-Region key in the `eu-west-1` Region. The output shows that the multi-Region key in the `eu-west-1` Region is now the primary key. The related multi-Region key (same key ID) in the `us-west-2` Region is now a replica key.
 
-```
+```bash
 $ aws kms describe-key \
       --key-id arn:aws:kms:eu-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab \
 

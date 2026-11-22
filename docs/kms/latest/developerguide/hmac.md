@@ -1,7 +1,6 @@
 
 
 # HMAC keys in AWS KMS
-<a name="hmac"></a>
 
 Hash-Based Message Authentication Code (HMAC) KMS keys are symmetric keys that you use to generate and verify HMACs within AWS KMS. The unique key material associated with each HMAC KMS key provides the secret key that HMAC algorithms require. You can use an HMAC KMS key with the `[GenerateMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html)` and [`VerifyMac`](https://docs.aws.amazon.com/kms/latest/APIReference/API_VerifyMac.html) operations to verify the integrity and authenticity of data within AWS KMS.
 

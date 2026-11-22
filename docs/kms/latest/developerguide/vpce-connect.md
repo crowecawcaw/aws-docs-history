@@ -1,13 +1,12 @@
 
 
 # Connect to an AWS KMS VPC endpoint
-<a name="vpce-connect"></a>
 
 You can connect to AWS KMS through the VPC endpoint by using an AWS SDK, the AWS CLI, or AWS Tools for PowerShell. To specify the VPC endpoint, use its DNS name. 
 
 For example, this [list-keys](https://docs.aws.amazon.com/cli/latest/reference/kms/list-keys.html) command uses the `endpoint-url` parameter to specify the VPC endpoint. To use a command like this, replace the example VPC endpoint ID with one in your account.
 
-```
+```bash
 $ aws kms list-keys --endpoint-url {{https://vpce-1234abcdf5678c90a-09p7654s-us-east-1a.ec2.us-east-1.vpce.amazonaws.com}}
 ```
 

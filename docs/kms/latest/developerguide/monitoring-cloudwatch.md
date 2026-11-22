@@ -1,7 +1,6 @@
 
 
 # Monitor KMS keys with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor your AWS KMS keys using [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), an AWS service that collects and processes raw data from AWS KMS into readable, near real-time metrics. These data are recorded for a period of two weeks so that you can access historical information and gain a better understanding of the usage of your KMS keys and their changes over time.
 

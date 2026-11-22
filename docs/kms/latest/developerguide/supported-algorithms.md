@@ -1,7 +1,6 @@
 
 
 # Supported cryptographic algorithms
-<a name="supported-algorithms"></a>
 
 AWS KMS supports the following cryptographic algorithms for KMS keys. The algorithms you can use depend on the [key spec](create-keys.md#key-spec) and [key usage](create-keys.md#key-usage) of the KMS key. For detailed descriptions of each key spec and the algorithms it supports, see [Key spec reference](symm-asymm-choose-key-spec.md).
 

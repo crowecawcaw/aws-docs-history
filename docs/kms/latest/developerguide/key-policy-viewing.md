@@ -1,9 +1,10 @@
 
 
 # View a key policies
-<a name="key-policy-viewing"></a>
 
 You can view the key policy for an AWS KMS [customer managed key](concepts.md#customer-mgn-key) or an [AWS managed key](concepts.md#aws-managed-key) in your account by using the AWS KMS console or the [GetKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html) operation in the AWS KMS API. You cannot use these techniques to view the key policy of a KMS key in a different AWS account. 
+
+Every KMS key has a `default` key policy. A customer managed key that you share through AWS Resource Access Manager (AWS RAM) also has an `AWS_RAM` key policy, which AWS RAM creates and manages. You can view the `AWS_RAM` key policy, but you can't change it. For more information about the `AWS_RAM` key policy, see [How managed permissions are shown in KMS keys](key-sharing-ram.md#key-sharing-ram-policy).
 
 To learn more about AWS KMS key policies, see [Key policies in AWS KMS](key-policies.md). To learn how to determine which users and roles have access to a KMS key, see [Determining access to AWS KMS keys](determining-access.md).
 
@@ -31,10 +32,16 @@ To view the key policy for a KMS key in the AWS Management Console, you must hav
    The following example shows the policy view for the [default key policy](key-policy-default.md).   
 ![View of the default key policy in policy view in the AWS KMS console](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-policy-view.png)
 
-   Or, if you created the KMS key in the AWS Management Console, you will see the *default view* with sections for **Key administrators**, **Key deletion**, and **Key Users**. To see the key policy document, choose **Switch to policy view**.
+   Or, if you created the KMS key in the AWS Management Console, you will see the *default view* with sections for **Key administrators**, **Key deletion**, and **Key Users**. To see the key policy document, choose **Switch to policy view**. If the **Key policy** tab shows a **Default view** and **Policy view (JSON)** control instead, choose **Policy view (JSON)**.
 
    The following example shows the default view for the [default key policy](key-policy-default.md).   
 ![View of the default key policy in default view in the AWS KMS console](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-policy-full-vsm.png)
+
+1. (Optional) To view the `AWS_RAM` key policy of a customer managed key that you share through AWS RAM, choose the **Resource shares** tab, and then choose **Policy view (JSON)**.
+
+   The **Key policy** tab shows only the `default` key policy. The **Resource shares** tab lists the resource shares for the KMS key, and its **Policy view (JSON)** shows the `AWS_RAM` key policy. The KMS key is in each resource share with a **Resource status** of **Associated**. You can't edit the `AWS_RAM` key policy in the console. If the **Resource shares** tab shows **No resource shares**, the KMS key isn't in a resource share.
+
+   To list the resource shares, you also need `ram:GetResourceShareAssociations` permission. Without it, the **Resource shares** tab shows **Not authorized**, but you can still choose **Policy view (JSON)** to view the `AWS_RAM` key policy.
 
 ## Using the AWS KMS API
 <a name="key-policy-viewing-api"></a>
@@ -43,12 +50,12 @@ To get the key policy for a KMS key in your AWS account, use the [GetKeyPolicy](
 
 The following example uses the [get-key-policy](https://docs.aws.amazon.com/cli/latest/reference/kms/get-key-policy.html) command in the AWS Command Line Interface (AWS CLI), but you can use any AWS SDK to make this request. 
 
-Note that the `PolicyName` parameter is required even though `default` is its only valid value. Also, this command requests the output in text, rather than JSON, to make it easier to view.
+The valid values of the `PolicyName` parameter are `default` and `AWS_RAM`. If you omit `PolicyName`, GetKeyPolicy returns the `default` key policy. The `--query Policy` and `--output text` parameters return only the key policy document, rather than a JSON object that contains it, to make it easier to view.
 
 Before running this command, replace the example key ID with a valid one from your account.
 
-```
-$ aws kms get-key-policy --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} --policy-name default --output text
+```bash
+$ aws kms get-key-policy --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} --policy-name default --query Policy --output text
 ```
 
 The response should be similar to the following one, which returns the [default key policy](key-policy-default.md).
@@ -58,7 +65,7 @@ The response should be similar to the following one, which returns the [default 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id" : "key-consolepolicy-3",
@@ -75,3 +82,32 @@ The response should be similar to the following one, which returns the [default 
 ```
 
 ------
+
+To find out whether a KMS key has an `AWS_RAM` key policy, use the [list-key-policies](https://docs.aws.amazon.com/cli/latest/reference/kms/list-key-policies.html) command. It returns `default` and, when the KMS key has one, `AWS_RAM`.
+
+```bash
+$ aws kms list-key-policies --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
+```
+
+Replace the following value:
++ `{{1234abcd-12ab-34cd-56ef-1234567890ab}}` – The key ID or key ARN of your KMS key.
+
+For a KMS key that you share through AWS RAM, the output shows both key policies.
+
+```json
+{
+    "PolicyNames": [
+        "AWS_RAM",
+        "default"
+    ]
+}
+```
+
+To view the `AWS_RAM` key policy, set the `--policy-name` parameter to `AWS_RAM`. If the KMS key doesn't have an `AWS_RAM` key policy, GetKeyPolicy returns a `NotFoundException` with the message `No such policy exists`. For an example of an `AWS_RAM` key policy, see [How managed permissions are shown in KMS keys](key-sharing-ram.md#key-sharing-ram-policy).
+
+```bash
+$ aws kms get-key-policy --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} --policy-name AWS_RAM --query Policy --output text
+```
+
+Replace the following value:
++ `{{1234abcd-12ab-34cd-56ef-1234567890ab}}` – The key ID or key ARN of your KMS key.

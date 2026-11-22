@@ -1,7 +1,6 @@
 
 
 # EnableKeyRotation
-<a name="ct-enablekeyrotation"></a>
 
 The following example shows an AWS CloudTrail log entry of a call to the [EnableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html) operation. For an example of the CloudTrail log entry that is written when the key is rotated, see [RotateKey](ct-rotatekey.md). For information about rotating AWS KMS keys, see [Rotate AWS KMS keys](rotate-keys.md).
 
@@ -10,7 +9,7 @@ The [rotation-period](rotate-keys.md#rotation-period) is an optional request par
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # CreateGrant
-<a name="ct-creategrant"></a>
 
 The following example shows an AWS CloudTrail log entry for the [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) operation. For information about creating grants in AWS KMS, see [Grants in AWS KMS](grants.md).
 
@@ -9,7 +8,7 @@ CloudTrail log entries for this operation recorded on or after December 2022 inc
 
 The following example shows a `CreateGrant` log entry for a grant with an encryption context constraint.
 
-```
+```json
 {
   "eventVersion": "1.02",
   "userIdentity": {
@@ -57,7 +56,7 @@ The following example shows a `CreateGrant` log entry for a grant with an encryp
 
 The following example shows a `CreateGrant` log entry for a service principal grant. This grant uses the `GranteeServicePrincipal` parameter to specify an AWS service principal as the grantee, and includes a `SourceArn` grant constraint.
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {

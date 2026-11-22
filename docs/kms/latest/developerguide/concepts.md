@@ -1,7 +1,7 @@
 
 
 # AWS KMS keys
-<a name="concepts"></a><a name="key-mgmt"></a><a name="kms_keys"></a>
+<a name="key-mgmt"></a><a name="kms_keys"></a>
 
 The KMS keys that you create and manage for use in your own cryptographic applications are of a type known as *customer managed keys*. Customer managed keys can also be used in conjunction with AWS services that use KMS keys to encrypt the data the service stores on your behalf. Customer managed keys are recommended for customers who want full control over the lifecycle and usage of their keys. There is a monthly cost to have a customer managed key in your account. In addition, requests use and/or manage the key incur a usage cost. See [AWS Key Management Service Pricing](https://aws.amazon.com/kms/pricing/) for more details.
 

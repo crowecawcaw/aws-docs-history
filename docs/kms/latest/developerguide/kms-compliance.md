@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Key Management Service
-<a name="kms-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Key Management Service as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

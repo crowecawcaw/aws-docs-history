@@ -1,7 +1,6 @@
 
 
 # Use `ListKeys` with an AWS SDK or CLI
-<a name="example_kms_ListKeys_section"></a>
 
 The following code examples show how to use `ListKeys`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.KeyManagementService;
@@ -91,7 +90,7 @@ For more information, see [Viewing Keys](https://docs.aws.amazon.com/kms/latest/
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.kms.KmsAsyncClient;
 import software.amazon.awssdk.services.kms.model.ListKeysRequest;
 import software.amazon.awssdk.services.kms.paginators.ListKeysPublisher;
@@ -152,7 +151,7 @@ public class HelloKMS {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples). 
 
-```
+```kotlin
 suspend fun listAllKeys() {
     val request =
         ListKeysRequest {
@@ -176,7 +175,7 @@ suspend fun listAllKeys() {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
-```
+```php
     /***
      * @return array
      */
@@ -205,7 +204,7 @@ suspend fun listAllKeys() {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class KeyManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -255,7 +254,7 @@ class KeyManager:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples). 
 
-```
+```rust
 async fn show_keys(client: &Client) -> Result<(), Error> {
     let resp = client.list_keys().send().await?;
 
@@ -281,7 +280,7 @@ async fn show_keys(client: &Client) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_kms->listkeys( ).
         MESSAGE 'Retrieved KMS keys list.' TYPE 'I'.

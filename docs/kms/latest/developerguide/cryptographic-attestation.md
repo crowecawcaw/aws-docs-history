@@ -1,7 +1,6 @@
 
 
 # Cryptographic attestation support in AWS KMS
-<a name="cryptographic-attestation"></a>
 
 AWS KMS supports *cryptographic attestation* for [AWS Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/) and [AWS NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm-attestation.html). Applications that support these attestation methods call the following AWS KMS cryptographic operations with a signed attestation document. AWS KMS verifies that the attestation document came from a valid source (either a Nitro enclave or NitroTPM). Then, instead of returning plaintext data in the response, these APIs encrypt the plaintext with the public key from the attestation document and return ciphertext that can be decrypted only by the corresponding private key in the enclave or EC2 instance.
 + [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt)

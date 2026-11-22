@@ -1,7 +1,6 @@
 
 
 # Connect an AWS CloudHSM key store
-<a name="connect-keystore"></a>
 
 New AWS CloudHSM key stores are not connected. Before you can create and use AWS KMS keys in your AWS CloudHSM key store, you need to connect it to its associated AWS CloudHSM cluster. You can connect and disconnect your AWS CloudHSM key store at any time, and [view its connection state](view-keystore.md#view-keystore-console). 
 
@@ -64,7 +63,7 @@ The examples in this section use the [AWS Command Line Interface (AWS CLI)](http
 
 To identify the AWS CloudHSM key store, use its custom key store ID. You can find the ID on the **Custom key stores** page in the console or by using the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) operation with no parameters. Before running this example, replace the example ID with a valid one.
 
-```
+```bash
 $ aws kms connect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
@@ -73,7 +72,7 @@ To verify that the AWS CloudHSM key store is connected, use the [DescribeCustomK
 **Note**  
 The `CustomKeyStoreType` field was added to the `DescribeCustomKeyStores` response to distinguish AWS CloudHSM key stores from external key stores.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcdef0}}
 {
    "CustomKeyStores": [
@@ -90,7 +89,7 @@ $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcde
 
 If the `ConnectionState` value is failed, the `ConnectionErrorCode` element indicates the reason for the failure. In this case, AWS KMS could not find an AWS CloudHSM cluster in your account with the cluster ID `cluster-1a23b4cdefg`. If you deleted the cluster, you can [restore it from a backup](https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-cluster-from-backup.html) of the original cluster and then [edit the cluster ID](update-keystore.md) for the custom key store. For help responding to a connection error code, see [How to fix a connection failure](fix-keystore.md#fix-keystore-failed).
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcdef0}}
 {
    "CustomKeyStores": [

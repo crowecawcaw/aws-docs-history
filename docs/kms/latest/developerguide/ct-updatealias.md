@@ -1,13 +1,12 @@
 
 
 # UpdateAlias
-<a name="ct-updatealias"></a>
 
 The following example shows an AWS CloudTrail log entry for the [UpdateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html) operation. The `resources` element includes fields for the alias and KMS key resources. For information about creating aliases in AWS KMS, see [Create aliases](alias-create.md).
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

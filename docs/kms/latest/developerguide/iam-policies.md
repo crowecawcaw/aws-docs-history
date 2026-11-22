@@ -1,7 +1,6 @@
 
 
 # Using IAM policies with AWS KMS
-<a name="iam-policies"></a>
 
 You can use IAM policies, along with [key policies](key-policies.md), [grants](grants.md), and [VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html#edit-vpc-endpoint-policy), to control access to your AWS KMS keys in AWS KMS. 
 
@@ -28,7 +27,7 @@ The following example shows an IAM policy with AWS KMS permissions. This policy 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

@@ -1,7 +1,6 @@
 
 
 # Identify different key types
-<a name="identify-key-types"></a>
 
 The following topics explain how to identify different key types in the AWS KMS console and [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) responses.
 

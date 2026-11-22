@@ -1,7 +1,6 @@
 
 
 # Use `RevokeGrant` with an AWS SDK or CLI
-<a name="example_kms_RevokeGrant_section"></a>
 
 The following code examples show how to use `RevokeGrant`.
 
@@ -30,7 +29,7 @@ For more information, see [Retiring and revoking grants](https://docs.aws.amazon
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
-```
+```java
     /**
      * Revokes a grant for the specified AWS KMS key asynchronously.
      *
@@ -74,7 +73,7 @@ For more information, see [Retiring and revoking grants](https://docs.aws.amazon
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
-```
+```php
     /***
      * @param string $grantId
      * @param string $keyId
@@ -101,7 +100,7 @@ For more information, see [Retiring and revoking grants](https://docs.aws.amazon
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class GrantManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -142,7 +141,7 @@ class GrantManager:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
         " iv_grant_id = '1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p'

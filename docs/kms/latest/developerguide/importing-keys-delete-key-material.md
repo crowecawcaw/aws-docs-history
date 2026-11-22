@@ -1,7 +1,6 @@
 
 
 # Delete imported key material
-<a name="importing-keys-delete-key-material"></a>
 
 You can delete the imported key material from a KMS key at any time. Also, when imported key material with an expiration date expires, AWS KMS deletes the key material. In either case, when the key material is deleted, the [key state](key-state.md) of the KMS key changes to *Pending import*, and the KMS key can't be used in any cryptographic operations.
 
@@ -45,13 +44,13 @@ To use the [AWS KMS API](https://docs.aws.amazon.com/kms/latest/APIReference/) t
 
 Replace `{{1234abcd-12ab-34cd-56ef-1234567890ab}}` with the key ID of the KMS key whose key material you want to delete. You can use the KMS key's key ID or ARN but you cannot use an alias for this operation. The following command deletes the current key material which may be the only key material associated with the key.
 
-```
+```bash
 $ aws kms delete-imported-key-material --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 ```
 
 To delete a specific key material, specify the key material identified using the `key-material-id` parameter. Replace `{{123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0}}` with the identifier of the key material you want to delete.
 
-```
+```bash
 $ aws kms delete-imported-key-material --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
     --key-material-id {{123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0}}
 ```

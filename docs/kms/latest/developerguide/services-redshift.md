@@ -1,7 +1,6 @@
 
 
 # How Amazon Redshift uses AWS KMS
-<a name="services-redshift"></a>
 
 This topic discusses how Amazon Redshift uses AWS KMS to encrypt data.
 

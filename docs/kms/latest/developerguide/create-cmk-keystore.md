@@ -1,7 +1,6 @@
 
 
 # Create a KMS key in an AWS CloudHSM key store
-<a name="create-cmk-keystore"></a>
 
 After you have created an AWS CloudHSM key store, you can create AWS KMS keys in your key store. They must be [symmetric encryption KMS keys](symm-asymm-choose-key-spec.md#symmetric-cmks) with key material that AWS KMS generates. You cannot create [asymmetric KMS keys](symmetric-asymmetric.md), [HMAC KMS keys](hmac.md) or KMS keys with [imported key material](importing-keys.md) in a custom key store. Also, you cannot use symmetric encryption KMS keys in a custom key store to generate asymmetric data key pairs. KMS cannot communicate over IPv6 with AWS CloudHSM key stores.
 
@@ -114,7 +113,7 @@ Before running this command, replace the example custom key store ID with a vali
 **Note**  
 Do not include confidential or sensitive information in the `Description` or `Tags` fields. These fields may appear in plain text in CloudTrail logs and other output.
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcdef0}}
 {
    "CustomKeyStores": [
@@ -131,7 +130,7 @@ $ aws kms describe-custom-key-stores --custom-key-store-id {{cks-1234567890abcde
 
 The next example command uses the [DescribeClusters](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html) operation to verify that the AWS CloudHSM cluster that is associated with the `ExampleKeyStore` (cluster-1a23b4cdefg) has at least two active HSMs. If the cluster has fewer than two HSMs, the `CreateKey` operation fails.
 
-```
+```bash
 $ aws cloudhsmv2 describe-clusters
 {
     "Clusters": [
@@ -182,7 +181,7 @@ The response includes the IDs of the custom key store and the AWS CloudHSM clust
 
 Before running this command, replace the example custom key store ID with a valid ID.
 
-```
+```bash
 $ aws kms create-key --origin AWS_CLOUDHSM --custom-key-store-id {{cks-1234567890abcdef0}}
 {
   "KeyMetadata": {

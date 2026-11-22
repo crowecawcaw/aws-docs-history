@@ -1,7 +1,6 @@
 
 
 # Create aliases
-<a name="alias-create"></a>
 
 You can create aliases in the AWS KMS console or by using AWS KMS API operations. 
 
@@ -48,7 +47,7 @@ The `TargetKeyId` can be any [customer managed key](concepts.md#customer-mgn-key
 
 The following example creates the `example-key` alias and associates it with the specified KMS key. These examples use the AWS Command Line Interface (AWS CLI). For examples in multiple programming languages, see [Use `CreateAlias` with an AWS SDK or CLI](example_kms_CreateAlias_section.md).
 
-```
+```bash
 $ aws kms create-alias \
     --alias-name alias/example-key \
     --target-key-id 1234abcd-12ab-34cd-56ef-1234567890ab

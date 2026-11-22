@@ -1,7 +1,6 @@
 
 
 # Control access to key deletion
-<a name="deleting-keys-adding-permission"></a>
 
 If you use IAM policies to allow AWS KMS permissions, IAM identities that have AWS administrator access (`"Action": "*"`) or AWS KMS full access (`"Action": "kms:*"`) are already allowed to schedule and cancel key the deletion of KMS keys. To allow key administrators to schedule and cancel key deletion in the key policy, use the AWS KMS console or the AWS KMS API. 
 
@@ -27,7 +26,7 @@ To give key administrators permission to schedule and cancel key deletion.
 
 1. The next step differs for the *default view* and *policy view* of your key policy. Default view is available only if you are using the default console key policy. Otherwise, only policy view is available.
 
-   When default view is available, a **Switch to policy view** or **Switch to default view** button appears on the **Key policy** tab.
+   When default view is available, a **Switch to policy view** or **Switch to default view** button appears on the **Key policy** tab. If the tab shows a **Default view** and **Policy view (JSON)** control instead, use that control to switch between the views.
    + In default view:
 
      1. Under **Key deletion**, choose **Allow key administrators to delete this key**.
@@ -37,7 +36,7 @@ To give key administrators permission to schedule and cancel key deletion.
 
      1. In the policy statement for key administrators, add the `kms:ScheduleKeyDeletion` and `kms:CancelKeyDeletion` permissions to the `Action` element.
 
-        ```
+        ```json
         {
           "Sid": "Allow access for Key Administrators",
           "Effect": "Allow",
@@ -73,7 +72,7 @@ You can use the AWS Command Line Interface to add permissions for scheduling and
 
 1. Open the policy document in your preferred text editor. In the policy statement for key administrators, add the `kms:ScheduleKeyDeletion` and `kms:CancelKeyDeletion` permissions. The following example shows a policy statement with these two permissions:
 
-   ```
+   ```json
    {
      "Sid": "Allow access for Key Administrators",
      "Effect": "Allow",

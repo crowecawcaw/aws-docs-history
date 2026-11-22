@@ -1,7 +1,6 @@
 
 
 # Download public key
-<a name="download-public-key"></a>
 
 You can download the public key from an asymmetric KMS key pair in the AWS KMS console or by using the [GetPublicKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html) operation. To download the public key, you must have `kms:GetPublicKey` permission on the asymmetric KMS key.
 
@@ -39,7 +38,7 @@ To specify a KMS key, use its [key ID](concepts.md#key-id-key-id), [key ARN](con
 
 Before running this command, replace the example alias name with a valid identifier for the KMS key. To run this command, you must have `kms:GetPublicKey` permissions on the KMS key.
 
-```
+```bash
 $ aws kms get-public-key --key-id {{alias/example_RSA_3072}}
 
 {

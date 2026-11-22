@@ -1,7 +1,6 @@
 
 
 # List rotations and key materials
-<a name="list-rotations"></a>
 
 KMS keys that support automatic or on-demand key rotation can have multiple key materials associated with them. These keys have an initial key material and one additional key material for each automatic or on-demand rotation.
 
@@ -37,7 +36,7 @@ The [ListKeyRotations](https://docs.aws.amazon.com/kms/latest/APIReference/API_L
 
 This operation supports an optional `IncludeKeyMaterial` parameter. The default value of this parameter is `ROTATIONS_ONLY`. If you omit this parameter, AWS KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of `ALL_KEY_MATERIAL`, AWS KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.
 
-```
+```bash
 $ aws kms list-key-rotations --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
     --inlcude-key-material ALL_KEY_MATERIAL
 {

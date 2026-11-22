@@ -1,7 +1,6 @@
 
 
 # Dual-stack endpoint support
-<a name="ipv6-kms"></a>
 
 AWS KMS provides a dual-stack public endpoint that supports both IPv4 and IPv6 clients. A dual-stack endpoint enables clients to communicate with AWS KMS using either IPv4 or IPv6 addresses. For more information on the AWS KMS endpoints, see [AWS Key Management Service endpoints and quotas.](https://docs.aws.amazon.com/general/latest/gr/kms.html)
 

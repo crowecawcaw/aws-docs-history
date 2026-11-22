@@ -1,7 +1,6 @@
 
 
 # How multi-Region keys work
-<a name="mrk-how-it-works"></a>
 
 You begin by creating a symmetric or asymmetric [multi-Region primary key](multi-region-keys-overview.md#mrk-primary-key) in an AWS Region that AWS KMS supports, such as US East (N. Virginia). You decide whether a key is single-Region or multi-Region only when you create it; you can't change this property later. As with any KMS key, you set a key policy for the multi-Region key, and you can create grants, and add aliases and tags for categorization and authorization. (These are [independent properties](multi-region-keys-overview.md#mrk-sync-properties) that aren't shared or synchronized with other keys.) You can use your multi-Region primary key in cryptographic operations for encryption or signing.
 

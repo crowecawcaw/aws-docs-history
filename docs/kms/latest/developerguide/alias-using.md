@@ -1,13 +1,12 @@
 
 
 # Learn how to use aliases in your applications
-<a name="alias-using"></a>
 
 You can use an alias to represent a KMS key in your application code. The `KeyId` parameter in AWS KMS [cryptographic operations](kms-cryptography.md#cryptographic-operations), [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html), and [GetPublicKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html) accepts an alias name or alias ARN.
 
 For example, the following `GenerateDataKey` command uses an alias name (`alias/finance`) to identify a KMS key. The alias name is the value of the `KeyId` parameter. 
 
-```
+```json
 $ aws kms generate-data-key --key-id alias/finance --key-spec AES_256
 ```
 
@@ -26,7 +25,7 @@ One of the most powerful uses of aliases is in applications that run in multiple
 
 You could create a different version of your application in each Region or use a dictionary or switch statement to select the right KMS key for each Region. But it's much easier to create an alias with the same alias name in each Region. Remember that the alias name is case-sensitive.
 
-```
+```bash
 aws --region us-west-2 kms create-alias \
     --alias-name alias/new-app \
     --key-id arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
@@ -42,7 +41,7 @@ aws --region ap-southeast-1 kms create-alias \
 
 Then, use the alias in your code. When your code runs in each Region, the alias will refer to its associated KMS key in that Region. For example, this code calls the [Sign](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html) operation with an alias name.
 
-```
+```bash
 aws kms sign --key-id alias/new-app \
     --message $message \
     --message-type RAW \

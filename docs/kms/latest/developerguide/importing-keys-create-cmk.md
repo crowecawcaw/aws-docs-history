@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an AWS KMS key without key material
-<a name="importing-keys-create-cmk"></a>
 
 By default, AWS KMS creates key material for you when you create a KMS key. To import your own key material instead, start by creating a KMS key with no key material. Then import the key material. To create a KMS key with no key material, use AWS KMS console or the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation.
 
@@ -47,7 +46,7 @@ Next: [Step 2: Download the wrapping public key and import token](importing-keys
 
 To use the [AWS KMS API](https://docs.aws.amazon.com/kms/latest/APIReference/) to create a symmetric encryption KMS key with no key material, send a [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) request with the `Origin` parameter set to `EXTERNAL`. The following example shows how to do this with the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/).
 
-```
+```bash
 $ aws kms create-key --origin EXTERNAL
 ```
 
@@ -56,7 +55,7 @@ When the command is successful, you see output similar to the following. The AWS
 **Tip**  
 If the command does not succeed, you might see a `KMSInvalidStateException` or a `NotFoundException`. You can retry the request.
 
-```
+```json
 {
     "KeyMetadata": {
         "Origin": "EXTERNAL",

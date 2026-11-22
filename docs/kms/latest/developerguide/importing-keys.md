@@ -1,7 +1,6 @@
 
 
 # Importing key material for AWS KMS keys
-<a name="importing-keys"></a>
 
 You can create an AWS KMS keys (KMS key) with key material that you supply. 
 

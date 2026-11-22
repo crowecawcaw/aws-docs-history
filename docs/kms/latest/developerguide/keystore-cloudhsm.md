@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM key stores
-<a name="keystore-cloudhsm"></a>
 
 An AWS CloudHSM key store is a [custom key store](key-store-overview.md#custom-key-store-overview) backed by a [AWS CloudHSM cluster](https://docs.aws.amazon.com/cloudhsm/latest/userguide/). When you create an AWS KMS key in a custom key store, AWS KMS generates and stores non-extractable key material for the KMS key in an AWS CloudHSM cluster that you own and manage. When you use a KMS key in a custom key store, the [cryptographic operations](manage-cmk-keystore.md#use-cmk-keystore) are performed in the HSMs in the cluster. This feature combines the convenience and widespread integration of AWS KMS with the added control of an AWS CloudHSM cluster in your AWS account. 
 

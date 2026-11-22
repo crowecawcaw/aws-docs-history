@@ -1,7 +1,6 @@
 
 
 # Rotate keys manually
-<a name="rotate-keys-manually"></a>
 
 You might want to create a new KMS key and use it in place of a current KMS key instead of using automatic or on-demand key rotation. When the new KMS key has different cryptographic material than the current KMS key, using the new KMS key has the same effect as changing the key material in an existing KMS key. The process of replacing one KMS key with another is known as *manual key rotation*.
 
@@ -22,7 +21,7 @@ The `KeyId` parameter is required when calling `Decrypt` or [Verify](https://doc
 
 To change the target KMS key of an alias, use [UpdateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html) operation in the AWS KMS API. For example, this command updates the `alias/TestKey` alias to point to a new KMS key. Because the operation does not return any output, the example uses the [ListAliases](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html) operation to show that the alias is now associated with a different KMS key and the `LastUpdatedDate` field is updated. The ListAliases commands use the [`query` parameter](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html#cli-usage-filter-client-side-specific-values) in the AWS CLI to get only the `alias/TestKey` alias.
 
-```
+```bash
 $ aws kms list-aliases --query 'Aliases[?AliasName==`alias/TestKey`]'
 {
     "Aliases": [

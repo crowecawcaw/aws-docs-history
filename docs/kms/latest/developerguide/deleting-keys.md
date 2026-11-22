@@ -1,7 +1,6 @@
 
 
 # Delete an AWS KMS key
-<a name="deleting-keys"></a>
 
 Deleting an AWS KMS key is destructive and potentially dangerous. It deletes the key material and all metadata associated with the KMS key and is irreversible. After a KMS key is deleted, you can no longer decrypt the data that was encrypted under that KMS key, which means that data becomes unrecoverable. (The only exceptions are [multi-Region replica keys](#deleting-mrks) and asymmetric and HMAC KMS keys with imported key material.) This risk is significant for [asymmetric KMS keys used for encryption](#deleting-asymmetric-cmks) where, without warning or error, users can continue to generate ciphertexts with the public key that cannot be decrypted after the private key is deleted from AWS KMS.
 

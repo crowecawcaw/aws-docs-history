@@ -1,7 +1,6 @@
 
 
 # Use `ReEncrypt` with an AWS SDK or CLI
-<a name="example_kms_ReEncrypt_section"></a>
 
 The following code examples show how to use `ReEncrypt`.
 
@@ -57,7 +56,7 @@ For more information, see [AWS KMS cryptography essentials](https://docs.aws.ama
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class KeyEncrypt:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -113,7 +112,7 @@ class KeyEncrypt:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/kms#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-kms' # v2: require 'aws-sdk'
 
 # Human-readable version of the ciphertext of the data to reencrypt.
@@ -144,7 +143,7 @@ puts resp.ciphertext_blob.unpack('H*')
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples). 
 
-```
+```rust
 async fn reencrypt_string(
     verbose: bool,
     client: &Client,
@@ -196,7 +195,7 @@ async fn reencrypt_string(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_source_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
         " iv_destination_key_id = 'arn:aws:kms:us-east-1:123456789012:key/5678dcba-56cd-78ef-90ab-5678901234cd'

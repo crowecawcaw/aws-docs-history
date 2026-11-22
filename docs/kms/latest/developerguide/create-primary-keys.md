@@ -1,7 +1,6 @@
 
 
 # Create multi-Region primary keys
-<a name="create-primary-keys"></a>
 
 You can create a [multi-Region primary key](multi-region-keys-overview.md#mrk-primary-key) in the AWS KMS console or by using the AWS KMS API. You can create the primary key in any AWS Region where AWS KMS supports multi-Region keys.
 
@@ -99,7 +98,7 @@ The response includes the `MultiRegion` element and the `MultiRegionConfiguratio
 **Important**  
 Do not include confidential or sensitive information in the `Description` or `Tags` fields. These fields may appear in plain text in CloudTrail logs and other output.
 
-```
+```bash
 $ aws kms create-key --multi-region
 {
     "KeyMetadata": {

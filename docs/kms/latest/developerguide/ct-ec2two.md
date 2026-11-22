@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 example two
-<a name="ct-ec2two"></a>
 
 In the following example, an IAM principal running an Amazon EC2 instance creates and mounts a data volume that is encrypted under a KMS key. This action generates multiple CloudTrail log records. For more information on Amazon EBS and encryption, see [Requirements for Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption-instance-permissions).
 
@@ -11,7 +10,7 @@ The `instanceId` of the Amazon EC2 instance, `"i-81e2f56c"`, appears in the `Run
 
 The [key ARN](concepts.md#key-id-key-ARN) of the KMS key that protects the data volume, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`, appears in all three AWS KMS calls (`CreateGrant`, `GenerateDataKeyWithoutPlaintext`, and `Decrypt`).
 
-```
+```json
 {
   "Records": [
     {

@@ -1,7 +1,6 @@
 
 
 # Edit AWS CloudHSM key store settings
-<a name="update-keystore"></a>
 
 You can change the settings of an existing AWS CloudHSM key store. The custom key store must be disconnected its AWS CloudHSM cluster.
 
@@ -72,30 +71,30 @@ The examples in this section use the [AWS Command Line Interface (AWS CLI)](http
 
 Begin by using [DisconnectCustomKeyStore](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisconnectCustomKeyStore.html) to [disconnect the custom key store](disconnect-keystore.md) from its AWS CloudHSM cluster. Replace the example custom key store ID, cks-1234567890abcdef0, with an actual ID.
 
-```
+```bash
 $ aws kms disconnect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
 
 The first example uses [UpdateCustomKeyStore](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateCustomKeyStore.html) to change the friendly name of the AWS CloudHSM key store to `DevelopmentKeys`. The command uses the `CustomKeyStoreId` parameter to identify the AWS CloudHSM key store and the `CustomKeyStoreName` to specify the new name for the custom key store.
 
-```
+```bash
 $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} --new-custom-key-store-name {{DevelopmentKeys}}
 ```
 
 The following example changes the cluster that is associated with an AWS CloudHSM key store to another backup of the same cluster. The command uses the `CustomKeyStoreId` parameter to identify the AWS CloudHSM key store and the `CloudHsmClusterId` parameter to specify the new cluster ID. 
 
-```
+```bash
 $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} --cloud-hsm-cluster-id {{cluster-1a23b4cdefg}}
 ```
 
 The following example tells AWS KMS that the current `kmsuser` password is `ExamplePassword`. The command uses the `CustomKeyStoreId` parameter to identify the AWS CloudHSM key store and the `KeyStorePassword` parameter to specify the current password.
 
-```
+```bash
 $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} --key-store-password {{ExamplePassword}}
 ```
 
 The final command reconnects the AWS CloudHSM key store to its AWS CloudHSM cluster. You can leave the custom key store in the disconnected state, but you must connect it before you can create new KMS keys or use existing KMS keys for [cryptographic operations](manage-cmk-keystore.md#use-cmk-keystore). Replace the example custom key store ID with an actual ID.
 
-```
+```bash
 $ aws kms connect-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}}
 ```

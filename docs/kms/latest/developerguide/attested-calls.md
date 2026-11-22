@@ -1,7 +1,6 @@
 
 
 # How to make attested calls to AWS KMS
-<a name="attested-calls"></a>
 
 To make an attested call to AWS KMS, use the `Recipient` parameter in the request to provide the signed attestation document and the encryption algorithm to use with the public key in the attestation document. When a request includes the `Recipient` parameter with a signed attestation document, the response includes a `CiphertextForRecipient` field with the ciphertext encrypted by the public key. The plaintext field is null or empty. 
 

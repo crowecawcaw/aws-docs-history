@@ -1,7 +1,6 @@
 
 
 # Create a CloudWatch alarm for expiration of imported key material
-<a name="imported-key-material-expiration-alarm"></a>
 
 You can create a CloudWatch alarm that notifies you when the imported key material in a KMS key is approaching its expiration time. For example, the alarm can notify you when the time to expire is less than 30 days away.
 

@@ -1,7 +1,6 @@
 
 
 # Key stores
-<a name="key-store-overview"></a>
 
 A *key store* is a secure location for storing and using cryptographic keys. The standard key store in AWS KMS also supports methods for generating and managing the keys that it stores. The cryptographic key material for the KMS keys that you create is generated in and protected by hardware security modules (HSMs) that are [FIPS 140-3 Level 3 validated](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884). Key material for your KMS keys never leaves the HSMs unencrypted, and all cryptographic operations on your keys are performed within these FIPS 140-3 HSMs.
 

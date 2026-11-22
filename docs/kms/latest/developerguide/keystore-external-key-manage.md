@@ -1,7 +1,6 @@
 
 
 # KMS keys in external key stores
-<a name="keystore-external-key-manage"></a>
 
 To create, view, manage, use, and schedule deletion of the KMS keys in an external key store, you use procedures that are very similar to those you use for other KMS keys. However, when you create a KMS key in an external key store, you specify an [external key store](keystore-external.md#concept-external-key-store) and an [external key](keystore-external.md#concept-external-key). When you use a KMS key in an external key store, [encryption and decryption operations](keystore-external.md#xks-how-it-works) are performed by your external key manager using the specified external key. 
 

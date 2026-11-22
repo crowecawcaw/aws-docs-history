@@ -1,7 +1,6 @@
 
 
 # Generate data keys
-<a name="data-keys"></a>
 
 *Data keys* are symmetric keys you can use to encrypt data, including large amounts of data and other data encryption keys. Unlike symmetric KMS keys, which can't be downloaded, data keys are returned to you for use outside of AWS KMS. 
 

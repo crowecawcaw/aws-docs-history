@@ -1,7 +1,6 @@
 
 
 # Condition keys for NitroTPM
-<a name="conditions-nitro-tpm"></a>
 
 The following condition keys are specific to NitroTPM attestation:
 
@@ -19,13 +18,13 @@ This value is also included in [CloudTrail events](ct-nitro-tpm.md) that represe
 
 To specify a PCR value, use the following format. Concatenate the PCR ID to the condition key name. The PCR value must be a lower-case hexadecimal string of up to 96 bytes.
 
-```
+```json
 "kms:RecipientAttestation:NitroTPMPCR{{PCR_ID}}": "{{PCR_value}}"
 ```
 
 For example, the following condition key specifies a particular value for PCR4:
 
-```
+```json
 kms:RecipientAttestation:NitroTPMPCR4: "abc1abcdef2abcdef3abcdef4abcdef5abcdef6abcdef7abcdef8abcdef9abcdef8abcdef7abcdef6abcdef5abcdef4abcdef3abcdef2abcdef1abcdef0abcde"
 ```
 
@@ -35,7 +34,7 @@ The `kms:RecipientAttestation:NitroTPMPCR` condition key in this statement allow
 
 If the request does not include an attestation document, permission is denied because this condition is not satisfied.
 
-```
+```json
 {
   "Sid" : "Enable NitroTPM data processing",
   "Effect" : "Allow",

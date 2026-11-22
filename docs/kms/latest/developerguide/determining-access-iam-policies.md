@@ -1,7 +1,6 @@
 
 
 # Examining IAM policies
-<a name="determining-access-iam-policies"></a>
 
 In addition to the key policy and grants, you can also use [IAM policies](iam-policies.md) to allow access to a KMS key. For more information about how IAM policies and key policies work together, see [Troubleshooting AWS KMS permissions](policy-evaluation.md).
 

@@ -1,7 +1,6 @@
 
 
 # Connect to AWS KMS through a VPC endpoint
-<a name="kms-vpc-endpoint"></a>
 
 You can connect directly to AWS KMS through a private interface endpoint in your virtual private cloud (VPC). When you use an interface VPC endpoint, communication between your VPC and AWS KMS is conducted entirely within the AWS network.
 

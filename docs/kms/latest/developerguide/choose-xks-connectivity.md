@@ -1,7 +1,6 @@
 
 
 # Choose an external key store proxy connectivity option
-<a name="choose-xks-connectivity"></a>
 
 Before creating your external key store, choose the connectivity option that determines how AWS KMS communicates with your external key store components. The connectivity option that you choose determines the remainder of the planning process.
 

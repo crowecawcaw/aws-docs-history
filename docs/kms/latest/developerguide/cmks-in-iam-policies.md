@@ -1,7 +1,6 @@
 
 
 # Specifying KMS keys in IAM policy statements
-<a name="cmks-in-iam-policies"></a>
 
 You can use an IAM policy to allow a principal to use or manage KMS keys. KMS keys are specified in the `Resource` element of the policy statement. 
 + To specify a KMS key in an IAM policy statement, you must use its [key ARN](concepts.md#key-id-key-ARN). You cannot use a [key id](concepts.md#key-id-key-id), [alias name](concepts.md#key-id-alias-name), or [alias ARN](concepts.md#key-id-alias-ARN) to identify a KMS key in an IAM policy statement. 
@@ -25,7 +24,7 @@ For example, the following IAM policy statement allows the principal to call the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -52,7 +51,7 @@ To apply the permission to all KMS keys in a particular trusted AWS account, you
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -81,7 +80,7 @@ For example, the following policy statement uses a `Deny` effect to prohibit the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -106,7 +105,7 @@ The following policy statement uses a wildcard character alone to represent all 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

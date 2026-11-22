@@ -1,7 +1,6 @@
 
 
 # View external key stores
-<a name="view-xks-keystore"></a>
 
 You can view external key stores in each account and Region by using the AWS KMS console or by using the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) operation.
 
@@ -94,13 +93,13 @@ The examples in this section use the [AWS Command Line Interface (AWS CLI)](http
 
 For example, the following command returns all custom key stores in the account and Region. You can use the `Limit` and `Marker` parameters to page through the custom key stores in the output.
 
-```
+```bash
 $ aws kms describe-custom-key-stores
 ```
 
 The following command uses the `CustomKeyStoreName` parameter to get only the example external key store with the `ExampleXksPublic` friendly name. This example key store uses public endpoint connectivity. It is connected to its external key store proxy. 
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleXksPublic}}
 {
     "CustomKeyStores": [
@@ -123,7 +122,7 @@ $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleXksPublic}
 
 The following command gets an example external key store with VPC endpoint service connectivity. In this example, the external key store is connected to its external key store proxy. 
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleXksVpc}}
 {
     "CustomKeyStores": [
@@ -151,7 +150,7 @@ If the `ConnectionState` of the external key store is `FAILED`, the `DescribeCus
 
 For example, in the following output, the `XKS_PROXY_TIMED_OUT` value indicates AWS KMS can connect to the external key store proxy, but the connection failed because the external key store proxy did not respond to AWS KMS in the time allotted. If you see this connection error code repeatedly, notify your external key store proxy vendor. For help with this and other connection error failures, see [Troubleshooting external key stores](xks-troubleshooting.md).
 
-```
+```bash
 $ aws kms describe-custom-key-stores --custom-key-store-name {{ExampleXksVpc}}
 {
     "CustomKeyStores": [

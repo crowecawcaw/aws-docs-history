@@ -1,7 +1,6 @@
 
 
 # Authorizing AWS KMS to manage AWS CloudHSM and Amazon EC2 resources
-<a name="authorize-kms"></a>
 
 To support your AWS CloudHSM key stores, AWS KMS needs permission to get information about your AWS CloudHSM clusters. It also needs permission to create the network infrastructure that connects your AWS CloudHSM key store to its AWS CloudHSM cluster. To get these permissions, AWS KMS creates the **AWSServiceRoleForKeyManagementServiceCustomKeyStores** service-linked role in your AWS account. Users who create AWS CloudHSM key stores must have the `iam:CreateServiceLinkedRole` permission that allows them to create service-linked roles.
 
@@ -35,7 +34,7 @@ For AWS CloudHSM key stores, AWS KMS creates the **AWSServiceRoleForKeyManagemen
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

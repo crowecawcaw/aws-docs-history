@@ -1,11 +1,10 @@
 
 
 # RotateKeyOnDemand
-<a name="ct-rotatekeyondemand"></a>
 
 The following example shows an AWS CloudTrail log entry for the [RotateKeyOnDemand](https://docs.aws.amazon.com/kms/latest/APIReference/API_RotateKeyOnDemand.html) operation. For an example of the CloudTrail log entry that is written when the key is rotated, see [RotateKey](ct-rotatekey.md). For more information about on-demand rotation of key material for a KMS key, see [Perform on-demand key rotation](rotating-keys-on-demand.md).
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

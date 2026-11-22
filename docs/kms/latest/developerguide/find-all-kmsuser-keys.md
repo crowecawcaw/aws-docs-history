@@ -1,7 +1,6 @@
 
 
 # Find all keys for an AWS CloudHSM key store
-<a name="find-all-kmsuser-keys"></a>
 
 You can identify the keys in your AWS CloudHSM cluster that serve as key material for your AWS CloudHSM key store. To do that, use the [key list](https://docs.aws.amazon.com/cloudhsm/latest/userguide/cloudhsm_cli-key-list.html) command in CloudHSM CLI.
 

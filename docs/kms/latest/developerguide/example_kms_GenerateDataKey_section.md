@@ -1,7 +1,6 @@
 
 
 # Use `GenerateDataKey` with an AWS SDK or CLI
-<a name="example_kms_GenerateDataKey_section"></a>
 
 The following code examples show how to use `GenerateDataKey`.
 
@@ -61,7 +60,7 @@ For more information, see [Data keys](https://docs.aws.amazon.com/kms/latest/dev
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
-```
+```python
 class KeyManager:
     def __init__(self, kms_client):
         self.kms_client = kms_client
@@ -107,7 +106,7 @@ class KeyManager:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples). 
 
-```
+```rust
 async fn make_key(client: &Client, key: &str) -> Result<(), Error> {
     let resp = client
         .generate_data_key()
@@ -137,7 +136,7 @@ async fn make_key(client: &Client, key: &str) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
         " iv_keyspec = 'AES_256'

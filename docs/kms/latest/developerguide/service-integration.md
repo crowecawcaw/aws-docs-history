@@ -1,7 +1,6 @@
 
 
 # Using AWS KMS encryption with AWS services
-<a name="service-integration"></a>
 
 With AWS Key Management Service, you can provide encryption keys for protecting data in other AWS services. Using AWS KMS encryption with AWS services refers to the process of integrating AWS KMS with other AWS services to encrypt and decrypt data at rest or in transit. Developers, system administrators, and security professionals might be interested in this topic to secure sensitive data stored or transmitted through AWS services, meet regulatory compliance requirements, or implement encryption best practices. Common use cases include encrypting Amazon EBS volumes, Amazon S3 buckets, and Amazon RDS databases. The following sections will cover the steps to configure and manage AWS KMS encryption keys for specific AWS services, ensuring data confidentiality and integrity across your AWS environment.For the complete list of AWS services integrated with AWS KMS, see [AWS Service Integration](https://aws.amazon.com/kms/features/#aws-service-integration).
 

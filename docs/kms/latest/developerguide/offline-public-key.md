@@ -1,7 +1,6 @@
 
 
 # Perform offline operations with public keys
-<a name="offline-public-key"></a>
 
 In an asymmetric KMS key, the private key is created in AWS KMS and never leaves AWS KMS unencrypted. To use the private key, you must call AWS KMS. You can use the public key within AWS KMS by calling the AWS KMS API operations. Or, you can [download the public key](download-public-key.md) and share for use outside of AWS KMS.
 

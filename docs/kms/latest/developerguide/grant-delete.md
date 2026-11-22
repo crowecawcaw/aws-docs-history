@@ -1,7 +1,6 @@
 
 
 # Retiring and revoking grants
-<a name="grant-delete"></a>
 
 To delete a grant, retire or revoke it.
 

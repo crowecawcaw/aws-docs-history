@@ -1,7 +1,6 @@
 
 
 # Edit external key store properties
-<a name="update-xks-keystore"></a>
 
 You can edit selected properties of an existing external key store. 
 
@@ -77,17 +76,17 @@ Use the `CustomKeyStoreId` parameter to identify the external key store. Use the
 
 The examples in this section use the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), but you can use any supported programming language. 
 
-Before you begin, [if necessary](#update-xks-keystore), [disconnect the external key store](xks-connect-disconnect.md) from its external key store proxy. After updating, if necessary, you can [reconnect the external key store](xks-connect-disconnect.md) to its external key store proxy. You can leave the external key store in the disconnected state, but you must reconnect it before you can create new KMS keys in the key store or use existing KMS keys in the key store for cryptographic operations.
+Before you begin, [if necessary](update-xks-keystore.md), [disconnect the external key store](xks-connect-disconnect.md) from its external key store proxy. After updating, if necessary, you can [reconnect the external key store](xks-connect-disconnect.md) to its external key store proxy. You can leave the external key store in the disconnected state, but you must reconnect it before you can create new KMS keys in the key store or use existing KMS keys in the key store for cryptographic operations.
 
 **Note**  
 If you use AWS CLI version 1.0, run the following command before specifying a parameter with an HTTP or HTTPS value, such as the `XksProxyUriEndpoint` parameter.  
 
-```
+```bash
 aws configure set cli_follow_urlparam false
 ```
 Otherwise, AWS CLI version 1.0 replaces the parameter value with the content found at that URI address, causing the following error:  
 
-```
+```bash
 Error parsing parameter '--xks-proxy-uri-endpoint': Unable to retrieve 
 https:// : received non 200 status code of 404
 ```
@@ -97,7 +96,7 @@ https:// : received non 200 status code of 404
 
 The first example uses the [UpdateCustomKeyStore](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateCustomKeyStore.html) operation to change the friendly name of the external key store to `XksKeyStore`. The command uses the `CustomKeyStoreId` parameter to identify the custom key store and the `CustomKeyStoreName` to specify the new name for the custom key store. Replace all example values with actual values for your external key store.
 
-```
+```bash
 $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} --new-custom-key-store-name {{XksKeyStore}}
 ```
 
@@ -112,7 +111,7 @@ You must always specify both the access key ID and the secret access key in the 
 
 The first two commands set variables to hold the credential values. The `UpdateCustomKeyStore` operations uses the `CustomKeyStoreId` parameter to identify the external key store. It uses the `XksProxyAuthenticationCredential` parameter with its `AccessKeyId` and `RawSecretAccessKey` fields to specify the new credential. Replace all example values with actual values for your external key store.
 
-```
+```bash
 $ accessKeyID={{access key id}}
 $ secretAccessKey={{secret access key}}
 
@@ -126,7 +125,7 @@ $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}
 
 The following example updates the proxy URI path (`XksProxyUriPath`). The combination of the proxy URI endpoint and the proxy URI path must be unique in the AWS account and Region. Replace all example values with actual values for your external key store.
 
-```
+```bash
 $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} \
             --xks-proxy-uri-path {{/kms/xks/v1}}
 ```
@@ -136,7 +135,7 @@ $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}
 
 The following example uses the [UpdateCustomKeyStore](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateCustomKeyStore.html) operation to change the external key store proxy connectivity type to `VPC_ENDPOINT_SERVICE`. To make this change, you must specify the required values for VPC endpoint service connectivity, including the VPC endpoint service name (`XksProxyVpcEndpointServiceName`) and a proxy URI endpoint (`XksProxyUriEndpoint`) value that includes the private DNS name for the VPC endpoint service. Replace all example values with actual values for your external key store.
 
-```
+```bash
 $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} \
             --xks-proxy-connectivity "VPC_ENDPOINT_SERVICE" \
             --xks-proxy-uri-endpoint {{https://myproxy-private.xks.example.com}} \
@@ -151,7 +150,7 @@ The following example changes the external key store proxy connectivity type to 
 **Note**  
 VPC endpoint connectivity provides greater security than public endpoint connectivity. Before changing to public endpoint connectivity, consider other options, including locating your external key store proxy on premises and using the VPC only for communication. 
 
-```
+```bash
 $ aws kms update-custom-key-store --custom-key-store-id {{cks-1234567890abcdef0}} \
             --xks-proxy-connectivity "PUBLIC_ENDPOINT" \
             --xks-proxy-uri-endpoint https://myproxy.xks.example.com

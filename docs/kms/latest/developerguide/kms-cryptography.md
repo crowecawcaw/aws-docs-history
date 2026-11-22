@@ -1,7 +1,6 @@
 
 
 # AWS KMS cryptography essentials
-<a name="kms-cryptography"></a>
 
 AWS KMS is built on a crypto-agile architecture, enabling smooth migration from one approved algorithm or mode to another as standards evolve. We select strong, widely vetted cryptographic algorithms and prioritize NIST-approved options to ensure customer data remains protected against both current and emerging threats.
 
