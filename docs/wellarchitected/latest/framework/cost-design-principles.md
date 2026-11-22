@@ -1,0 +1,10 @@
+
+
+# Design principles
+
+ Consider the following design principles for cost optimization: 
++  **Implement Cloud Financial Management:** To optimize workload costs effectively, incorporate Cloud Financial Management practices into your development and operations processes. Build capabilities to understand, measure, and optimize the economics of your workloads throughout their lifecycle. Like security and operational excellence, cost optimization should be an integral part of your workload design and operation. 
++  **Adopt a consumption model:** Design workloads to consume resources efficiently and scale based on demand. Implement mechanisms to match resource provisioning with actual utilization patterns. For example, identify components that do not require constant availability and design automation to manage their lifecycle based on usage patterns. 
++  **Measure business outcomes relative to costs:** Define and track metrics that correlate workload costs with business outcomes. Understand the relationship between resource consumption and value delivery for each workload component. Use this data to make informed decisions about architecture choices and optimization efforts. 
++  **Use managed services and automation:** Design workloads to take advantage of managed services and automated operations wherever possible. This reduces operational complexity and allows your teams to focus on workload features that directly contribute to business value rather than maintaining infrastructure. 
++  **Implement granular cost allocation:** Design workloads with cost visibility in mind, enabling detailed tracking and attribution of resource costs. Implement mechanisms to understand the cost impact of different workload components and features. This enables teams to make informed decisions about architecture and optimize resources based on their value contribution. 

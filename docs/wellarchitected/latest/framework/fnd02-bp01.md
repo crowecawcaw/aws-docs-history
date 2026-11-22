@@ -1,0 +1,92 @@
+
+
+# FND02-BP01 Protect account root users, and establish alternate contacts
+
+ The root user is the most privileged identity in any cloud account. It has full administrative access to all resources and cannot be restricted by standard security policies. Strong controls around root user access reduce the risk of credential exposure and unauthorized account access. Protect root user credentials, keep contacts accurate, add detective controls, and use root only by exception. 
+
+ **Desired outcome:** 
++  You have secured root user credentials with multi-factor authentication and removed programmatic access capabilities that cannot be constrained by policy. 
++  Your organization maintains control over root user email addresses and phone numbers used in account recovery flows, rather than relying on individual employees. 
++  You have established detective controls that alert appropriate personnel when actions are taken using the root user. 
++  Your teams understand which tasks require root user access and follow documented procedures with appropriate authorization controls when root access is needed. 
+
+ **Common anti-patterns:** 
++  Using the root user for routine administrative tasks that could be performed by users or roles with more limited permissions. 
++  Storing root user passwords in locations that require access to the same account to retrieve them, creating circular dependencies during recovery scenarios. 
++  Treating DNS providers, email servers, and telephone services outside the critical security perimeter despite their role in account recovery processes. 
++  Neglecting to test root user access procedures until an emergency occurs, leaving broken contact information or lost MFA devices undiscovered. 
++  Creating programmatic access keys for the root user, which cannot be restricted by policies and are one of the highest security risks in cloud environments. 
+
+ **Benefits of establishing this best practice:** 
++  Reduced risk of unauthorized access through proper credential management and the elimination of programmatic access keys that cannot be policy-restricted. 
++  Improved incident response capabilities through detective controls that provide visibility into root user activity across your environment. 
++  Improved business continuity because multiple authorized individuals can collectively access root credentials using documented procedures rather than relying on single individuals. 
++  Stronger security posture in multi-account environments where centralized root access management can remove the need for persistent root credentials on member accounts. 
+
+ **Level of risk exposed if this best practice is not established:** High 
+
+## Implementation guidance
+<a name="implementation-guidance"></a>
+
+ The root user is a foundational security boundary in cloud operations. Unlike other identities that can be constrained through fine-grained permissions, the root user has capabilities that cannot be limited by standard policy mechanisms. This architectural reality calls for a different security approach that reduces both the attack surface and the scope of potential impact. The security model for root users differs between standalone accounts and multi-account environments. In organizations that use centralized account management, you can remove persistent root user credentials for member accounts while keeping centralized emergency access for the few tasks that require root privileges. Apply the most stringent controls to management accounts because of their elevated privileges in the account hierarchy. For standalone accounts, secure the root user as a break-glass mechanism with procedural controls. 
+
+ The account recovery flow creates dependencies beyond the account itself. Password reset and MFA device replacement rely on the email address and phone number associated with the account, so these communication channels are part of your security perimeter. Hosting the root user email address on infrastructure within the same account creates circular dependencies where unauthorized access or misconfiguration could prevent recovery. Email providers, DNS services, and telecommunications providers are critical security dependencies that require the same protection as the account credentials. 
+
+ Programmatic access keys for the root user need special consideration. Unlike IAM user or role credentials that can be constrained through permission boundaries and service control policies, root user access keys provide unlimited access that no policy mechanism can restrict, making them one of the highest-severity security risks in cloud environments. If root user access keys exist, prioritize migrating away from them before other root user hardening activities. Modern cloud architecture patterns built on temporary credentials through roles remove any legitimate need for root user programmatic access. 
+
+ Monitor for root user activity to gain visibility into both authorized emergency access and potential unauthorized use. Cloud security services can detect root user credential usage and generate alerts with context about the actions taken, so teams can respond quickly to legitimate emergency access or unauthorized use. These detective controls complement preventative measures so that root user activity does not go unnoticed. In multi-account environments, the strategy for securing root users depends on account type and organizational maturity. Management accounts require the most stringent controls because of their elevated privileges in the account hierarchy. Member accounts benefit from centralized root access management capabilities that can remove persistent credentials entirely while keeping emergency access through the management account. This tiered approach focuses security investment where risk is highest while reducing operational overhead for member accounts through architectural patterns rather than procedural controls. 
+
+ Teams must know which rare tasks require root access, follow documented authorization procedures when root access is needed, and validate access through periodic testing. Root user security fails when emergency access is needed but credentials are lost, MFA devices are unavailable, or contact information has become outdated. Regular validation of access procedures and contact information turns root user security from a set-and-forget configuration into an operational capability that remains functional when needed. 
+
+ The following implementation steps are cross-referenced to the [CIS AWS Foundations Benchmark version 3.0.0](https://docs.aws.amazon.com/securityhub/latest/userguide/cis-aws-foundations-benchmark.html) and complement the [AWS best practice guidelines](https://repost.aws/knowledge-center/security-best-practices) for securing AWS accounts and resources. 
+
+**Important**  
+ Do not create access keys for the root user. If root user access keys already exist, delete them immediately and transition any dependent processes to use IAM roles with temporary credentials. 
+
+### Implementation steps
+<a name="implementation-steps"></a>
+
+1.  **Configure accurate primary and alternate contact information:** Set contact information to a corporate email distribution list rather than individual email accounts, so continuity is maintained as team members change. Host the email address on your corporate domain, not inside the cloud account itself. If root user email is hosted on infrastructure within the same account (for example, on email servers running on Amazon EC2, or on any managed email service operated inside the account), a misconfiguration or unauthorized access could lock you out of both the account and the email address needed to recover it. Use a dedicated, secure phone number for account security communications rather than an employee's personal or work device. Update both the [primary contact information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html) used for account recovery and the [alternate contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html) used for security notifications. Document where these contact methods are hosted and who maintains access to them. 
+
+1.  **Remove all root user access keys immediately:** Do not create access keys for the root user (CIS 1.4). Verify whether [root user access keys exist](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user_manage_add-key.html) by checking the security credentials page. If access keys exist, identify any processes or applications using them and migrate those workloads to [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) with appropriate permissions and temporary credentials. After migration is complete, [delete the root user access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user_manage_delete-key.html). Use [AWS Config rules](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-wa-Security-Pillar.html) or [IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) to continuously verify that no root user access keys exist. 
+
+1.  **Enable centralized root access management for member accounts:** In multi-account environments using AWS Organizations, enable [centralized root access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html) from the management account to remove and centrally manage root user credentials across member accounts. This feature became available in 2024. New accounts created after enabling the feature have no root user credentials by default. For existing member accounts, remove root user credentials using the centralized management capability. Tasks that require root privileges on member accounts can be performed through [privileged root sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user-privileged-task.html) initiated from the management account or delegated administrator, without persistent root credentials on each account. 
+
+1.  **Secure root user credentials for management and standalone accounts:** For accounts that require persistent root credentials (management accounts in Organizations or standalone accounts), create a [complex password](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-password.html) and enable [multi-factor authentication (MFA)](https://docs.aws.amazon.com/IAM/latest/UserGuide/enable-mfa-for-root.html) (CIS 1.5). Prefer phishing-resistant MFA factors such as passkeys or security keys, particularly for management accounts in multi-account structures. For battery-powered hardware MFA devices, verify that they are replaced regularly (CIS 1.6). Configure [multiple MFA devices](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) (up to 8) for backup and document which devices are registered and where backup devices are stored. Store credentials in a secure password manager with appropriate access controls. Make sure storage does not create circular dependencies where account access is required to retrieve the credentials needed to access the account. 
+**Important**  
+ Enrolling more than one MFA device permanently disables the [lost MFA device recovery flow](https://repost.aws/knowledge-center/reset-root-user-mfa). This prevents social engineering attacks through recovery, but you must keep access to at least one registered MFA device to sign in. 
+
+1.  **Implement preventative controls for member account root users:** Apply [service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that prevent root user actions and creation of root user access keys across member accounts. If using AWS Control Tower, enable the [Disallow Creation of Access Keys for the Root User](https://docs.aws.amazon.com/controltower/latest/controlreference/strongly-recommended-preventive-controls.html#disallow-root-access-keys) and [Disallow Actions as a Root User](https://docs.aws.amazon.com/controltower/latest/controlreference/strongly-recommended-preventive-controls.html#disallow-root-auser-actions) controls. These preventative controls complement credential removal by blocking attempts to create new root user access keys or perform unauthorized root user actions. 
+
+1.  **Manage the root user password according to security best practices:** When the root user is protected by MFA, avoid mandatory periodic password rotation. Modern guidance from [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) and industry consensus finds that forced rotation often leads to weaker password patterns without meaningful security gain. [Change the root user password](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-password.html) when there is evidence of credential exposure, when personnel with password knowledge leave the organization, or when a specific regulatory framework requires it. Focus security effort on strong initial passwords, MFA enforcement, and detective controls rather than routine rotation schedules. 
+
+1.  **Configure detective controls for root user activity:** Create detective controls to detect use of the root credentials (CIS 1.7). Enable [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_settingup.html) to monitor for root user API credential usage through the [Policy:IAMUser/RootCredentialUsage](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#policy-iam-rootcredentialusage) finding. Implement additional [AWS Config rules for root user monitoring](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-wa-Security-Pillar.html) or if using AWS Control Tower, enable relevant [detective controls](https://docs.aws.amazon.com/controltower/latest/controlreference/strongly-recommended-detective-controls.html) that alert on root user activity. Configure alerts to notify security personnel immediately when root user access is detected, so teams can respond quickly to both authorized emergency access and potential unauthorized activity. 
+
+1.  **Document root user access procedures and authorization requirements:** Create documented procedures that specify which tasks require root user access by referencing the [list of AWS tasks that require root user credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#root-user-tasks). Establish a two-person authorization rule where no single individual has access to all credentials and MFA devices required for root user access, so control is organizational rather than individual. Document the escalation process for requesting root user access, including required approvals and the procedure for assembling the necessary credentials. Use root user only by exception (CIS 1.7). The AWS root user must not be used for everyday tasks, even administrative ones. 
+
+1.  **Prepare root misuse incident response:** Define the playbook for responding to suspected root credential exposure or misuse using the [AWS Security Incident Response Guide](https://docs.aws.amazon.com/security-ir/latest/userguide/) and the [incident response guidance in the Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec10.html). The playbook must cover credential rotation, MFA device revocation, session invalidation, and forensic log preservation, with clear escalation paths to the security operations team and, where appropriate, Support. Rehearse the playbook on a regular cadence so the team can run it under pressure, and incorporate lessons learned from each rehearsal back into the runbook. 
+
+1.  **Validate root user access procedures and contact information regularly:** Perform quarterly validation that authorized personnel can access root user credentials following documented procedures. Verify that password storage locations are accessible, MFA devices function correctly, and required approvals can be obtained. Test that emails sent to the root user email address and alternate contacts are received by the appropriate distribution lists. Verify that phone numbers associated with the account remain functional and are answered by appropriate personnel. Review and update contact information whenever organizational changes affect the teams responsible for account security. Monitor email inboxes associated with root user accounts for security notifications from the cloud provider's abuse reporting team. 
+
+## Resources
+<a name="resources"></a>
+
+ **Related best practices:** 
++  [FND02-BP02 Use strong sign-in mechanisms](fnd02-bp02.md) 
++  [SEC01-BP01 Separate workloads using accounts](sec01-bp01.md) 
++  [SEC03-BP01 Grant least privilege access in workload components](sec03-bp01.md) 
+
+ **Related documents:** 
++  [What is AWS Control Tower?](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html) 
++  [AWS security audit guidelines](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-audit-guide.html) 
++  [Root user best practices for AWS accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html) 
++  [Tasks that require AWS account root user credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#root-user-tasks) 
++  [Amazon GuardDuty – root credential usage alert](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#policy-iam-rootcredentialusage) 
++  [Multi-Factor Authentication (MFA) for IAM](https://aws.amazon.com/iam/features/mfa/) 
++  [Organizing Your AWS Environment Using Multiple Accounts - Break glass access](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/) 
++  [AWS Security Incident Response Guide](https://docs.aws.amazon.com/security-ir/latest/userguide/) 
++  [What do I do if I notice unauthorized activity in my AWS account?](https://repost.aws/knowledge-center/potential-account-compromise) 
+
+ **Related videos:** 
++  [AWS re:Invent 2024 - New governance capabilities for multi-account environments (COP378-NEW)](https://www.youtube.com/watch?v=uGlZYoVKcQg) 
++  [AWS re:Inforce 2024 - Security Innovation Talk with Chris Betz, AWS CISO](https://aws.amazon.com/video/watch/651788c74da/) 

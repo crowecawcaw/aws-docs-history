@@ -1,0 +1,83 @@
+
+
+# FND01-BP03 Establish boundaries and scopes for your environments
+
+ Before teams start building in the cloud, define how they can consume cloud resources. Set policies, controls, and governance that balance enablement with compliance. Without clear boundaries, teams make independent decisions that lead to security exposures, compliance violations, cost overruns, and operational inconsistencies. 
+
+ **Desired outcome:** 
++  Your compliance and governance teams have defined your data classifications and the criteria for each, and have mapped every classification to security objectives, whether those objectives are defined internally or by an external regulatory framework. Your tagging schema defines the keys and values that represent those classifications on AWS accounts and resources. 
++  You have created a secure, compliant, and operationally efficient cloud environment that aligns with your organization's objectives. 
++  Your environment supports faster growth and innovation, reduces risks, and applies consistent security and governance controls across all environments. 
++  You have the flexibility to adjust controls centrally as business needs or regulatory requirements change. 
+
+ **Common anti-patterns:** 
++  Ignoring high-level guardrails and delegating these decisions to application owners. 
++  Leaving data classification criteria undefined, or tagging accounts and resources inconsistently, so the classification of the data in an account cannot be determined. 
++  Creating overly restrictive guardrails that bottleneck environment management teams and slow down innovation. 
++  Manually creating and configuring AWS accounts outside of the guardrail boundaries, which creates inconsistencies. 
++  Ignoring existing accounts and lacking a process to integrate them into the controlled environment. 
++  Failing to document and regularly review environment guardrails and controls in response to business and regulatory changes. 
+
+ **Benefits of establishing this best practice:** 
++  Consistent guardrails and security controls across the cloud environment reduce the likelihood and impact of misconfigurations. 
++  Better adherence to organization policies and compliance requirements simplifies audit processes. 
++  Faster provisioning and scaling of AWS accounts and environments supports efficiency while maintaining a high governance bar. 
++  Aggregated monitoring and logging improves risk detection and incident response across the environment. 
++  Better visibility into cloud spending helps prevent unnecessary resource usage and supports proactive cost management. 
+
+ **Level of risk exposed if this best practice is not established:** High 
+
+## Implementation guidance
+<a name="implementation-guidance"></a>
+
+ Base your boundaries on your organization's compliance obligations, data residency requirements, security standards, and operational model. These requirements also determine the policies and technical controls you implement for consistent and secure use of cloud resources across all environments and teams. 
+
+ Without boundaries and scopes in cloud environments, teams move slowly because every decision requires centralized approval, or they move quickly but create security issues and amass technical debt. Establish automated guardrails so teams can self-service safely, and block actions that violate policy. Layer these guardrails across your environment hierarchy. Organization-wide policies apply to every account, and OU- or account-level controls address different risk profiles, compliance requirements, or operational models. 
+
+ Preventive controls block non-compliant actions before they occur. Detective controls identify non-compliant resources after creation. Use both preventive controls for high-risk actions, and detective controls for lower-risk scenarios where context matters or where innovation requires temporary exceptions. [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) are the primary mechanism for preventive controls at the organization level. They set the maximum permissions available to principals in an account, including the account root user, regardless of identity policies. Identity-based permission sets grant role-specific access within those maximum permissions. A centralized identity provider and SCPs work together as defense in depth. [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) rules complement SCPs by continuously evaluating resource configurations against compliance criteria and, where appropriate, triggering automated remediation. 
+
+ Segment workloads under specific compliance frameworks into dedicated organizational units. Examples include PCI DSS for payment card data, HIPAA for healthcare information, SOC 2, ISO 27001, GDPR, and regulations that require AWS GovCloud (US). This separation supports fine-grained controls for those regulations without affecting workloads in other OUs. For example, a PCI OU might enforce stricter network isolation, require specific encryption standards, and restrict access to approved services. Development OUs might allow broader service access for experimentation. This segmentation reduces the scope of impact of policy changes and simplifies audit scoping. 
+
+ When guardrails block legitimate work, teams find workarounds, such as shadow IT, manual processes outside the governed environment, or escalation bottlenecks that slow delivery. Anticipate common use cases and provide approved paths for them. For example, a policy might allow database deletion in non-production accounts but require multi-person approval in production. This preserves agility without exposing production data. A separate policy might permit AI services in innovation accounts, paired with data loss prevention controls that protect sensitive data. 
+
+ SCPs and RCPs are opaque by design. The caller sees only an access denied error, with no indication of which policy denied the request or why. Publish your organizational policies with the reasoning behind them, and provide a documented exception path. Teams can then distinguish an intentional guardrail from a misconfiguration and know where to raise a legitimate use case. 
+
+ Manual reviews and one-time audits cannot match the pace of change in cloud environments. Automate your controls to maintain boundaries at scale. [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) captures API activity across accounts for security investigations and compliance audits, [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) collects operational metrics and logs, and [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) aggregates security findings across accounts into a unified view. Together these services provide continuous visibility for detective controls and incident response. Include accounts that existed before you established governance, along with new ones. Without a plan to bring them under current policies, they become permanent exceptions and long-term sources of risk. Boundaries are not static. Business needs, regulations, and AWS service capabilities all evolve. Review your guardrails quarterly or semi-annually to keep them aligned with organizational goals and to prevent accumulated restrictions from blocking legitimate use cases. 
+
+### Implementation steps
+<a name="implementation-steps"></a>
+
+1.  **Create your AWS Organization:** [Create an AWS Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_create.html) to centrally manage accounts and policies from a management account. Enable all features to support service control policies and advanced governance, and verify that consolidated billing and cross-account visibility are active before proceeding. 
+
+1.  **Structure your organizational unit hierarchy:** [Establish a hierarchy of organizational units (OUs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html) that reflects your multi-account strategy, such as separate OUs for production, non-production, security, and infrastructure workloads. Consider dedicated Policy Staging and Suspended OUs (the latter with an SCP denying all actions) so you can test policy changes and safely quarantine accounts pending closure or investigation. Apply policies at the OU level rather than the account level so inheritance stays predictable as accounts move between OUs. Refer to [Best practices for managing organizational units (OUs) with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous_best_practices.html) for guidance on OU design patterns that balance governance with flexibility. 
+
+1.  **Deploy AWS Control Tower:** Consider using [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html) to establish high-level governance controls across your multi-account environment. Follow [Getting started with AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html) to deploy either a full landing zone with integrated services or the Controls-Only experience if you prefer to adopt managed controls without a complete landing zone. AWS Control Tower controls come in three kinds ([preventive, detective, and proactive](https://docs.aws.amazon.com/controltower/latest/controlreference/controls.html)), are classified against common governance objectives and compliance frameworks, and fall into three categories (mandatory, strongly recommended, and elective). Enable mandatory and strongly recommended controls first, then add elective controls where specific compliance or operational needs justify them. Use [AWS Control Tower Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) for standardized account provisioning that applies controls automatically, and use [drift detection](https://docs.aws.amazon.com/controltower/latest/userguide/drift.html) to catch when governed accounts or OUs deviate from the landing zone baseline. [Customize your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/customize-landing-zone.html) to add custom controls that address specific business or compliance requirements not covered by AWS Control Tower's built-in controls. You are unlikely to need every AWS Region, and regulatory requirements might restrict which Regions you can use, so [configure the Regions your landing zone governs](https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html) accordingly. 
+
+1.  **Implement additional organizational policies:** Where the controls catalog has no managed control that meets a governance objective, define your own organizational policies. [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) constrain the actions that principals in an account can perform, and [resource control policies (RCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html) constrain access to the resources in an account regardless of who is calling. Start with policies that restrict access to high-risk services and limit resource types according to account purpose. Review the [SCP examples](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html) and [RCP examples](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps_examples.html) for common patterns. If your environment has been operational for some time, use [IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) to identify unused services and privileges, and update your policies accordingly. 
+
+1.  **Configure AWS Config rules:** Configure [AWS Config](https://aws.amazon.com/config/) across all accounts and Regions to provide continuous compliance monitoring. [Deploy a common set of AWS Config rules](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) by using AWS Organizations integration for consistent evaluation across your environment. Select rules from the [AWS Config managed rules library](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) that match your compliance requirements, or [deploy custom Config rules](https://aws.amazon.com/blogs/mt/deploying-custom-aws-config-rules-in-an-aws-organization-environment/) for organization-specific policies that are not covered by managed rules. For consistent, version-controlled deployment of rules and related resources across accounts and Regions, use [AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) from a management or delegated administrator account. 
+
+1.  **Implement remediation actions:** Add [automatic remediation actions](https://docs.aws.amazon.com/config/latest/developerguide/remediation.html) to Config rules where possible to correct non-compliant resources without manual intervention. For findings that require review before remediation, [integrate AWS Config with AWS Security Hub CSPM](https://docs.aws.amazon.com/config/latest/developerguide/setting-up-aws-config-rules-with-console-integration.html) to view and triage findings centrally. Define and document a process for investigating and remediating findings that cannot be automatically corrected, including escalation paths and expected response times. 
+
+1.  **Set up cost controls:** [Create budgets using AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-create.html) to track spending against defined thresholds for accounts, OUs, or the entire organization. Configure budget alerts to notify stakeholders when costs approach or exceed limits, and [implement budget actions](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-controls.html) to automatically apply SCPs that restrict resource creation when budgets are exceeded. For a turnkey approach, review [Budget Controls for AWS](https://aws.amazon.com/blogs/aws-cloud-financial-management/introducing-budget-controls-for-aws-automatically-manage-your-cloud-costs/) to implement automated budget-based actions with minimal setup. 
+
+1.  **Establish review processes:** Document all policies, guardrails, and controls deployed in your environment, including the rationale for each control and the process for requesting exceptions. Create a schedule for periodic review (quarterly or semi-annually) to evaluate whether policies remain aligned with organizational objectives, whether new AWS services or features require policy updates, and whether preventive controls are blocking legitimate use cases. Assign ownership for each review cycle so that identified improvements have accountability and follow-through. 
+
+## Resources
+<a name="resources"></a>
+
+ **Related best practices:** 
++  [FND01-BP01 Establish management account and organizational structure](fnd01-bp01.md) 
++  [FND01-BP02 Establish ownership for billing, security, and operations](fnd01-bp02.md) 
++  [FND01-BP04 Establish a strategy for experimental and temporary environments](fnd01-bp04.md) 
++  [FND02-BP06 Define permission guardrails for your organization](fnd02-bp06.md) 
+
+ **Related documents:** 
++  [What is AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html) 
++  [Enforcing enterprise-wide preventive controls with AWS Organizations](https://aws.amazon.com/blogs/mt/enforcing-enterprise-wide-preventive-controls-with-aws-organizations/) 
++  [Organizing Your AWS Environment Using Multiple Accounts](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html) 
++  [How do I add remediation actions for AWS Config organizational rules?](https://repost.aws/knowledge-center/add-config-remediation-actions) 
++  [AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) 
+
+ **Related videos:** 
++  [Cloud Governance Best Practices on AWS](https://aws.amazon.com/video/watch/f973d004042/) 
