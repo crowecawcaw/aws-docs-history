@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
 ## Shared responsibility model
 <a name="shared-responsibility"></a>

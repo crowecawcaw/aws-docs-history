@@ -1,7 +1,6 @@
 
 
 # Applying the pattern beyond CMS
-<a name="tpd-applying"></a>
 
 For a consumer in another cloud, the pattern’s default — subscribe rather than copy — means serving that consumer from a Kafka topic on AWS, over a private multicloud interconnect where the consumer’s workloads must remain in the other cloud, rather than egressing telemetry over best-effort peering. The private interconnect replaces an uncontracted path with a contracted one, and removing the egress altogether where consumption can move onto AWS is the stronger option on both cost and availability.
 

@@ -1,7 +1,6 @@
 
 
 # The operator declares the catalog
-<a name="dp-operator-declares"></a>
 
 This platform is a third-party fleet platform. It has no knowledge of any particular producer’s portal, and does not assume one exists. So a fleet operator declares, inside the platform, every data product they intend to consume — producer identity, connection endpoint, authentication method, credentials pointer, tier, and transform manifest.
 

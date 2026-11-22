@@ -1,7 +1,6 @@
 
 
 # Use cases
-<a name="use-cases"></a>
 
  **Fleet Management and Optimization** 
 

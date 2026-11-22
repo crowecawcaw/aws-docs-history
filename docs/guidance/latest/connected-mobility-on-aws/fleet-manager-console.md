@@ -1,7 +1,6 @@
 
 
 # What it can do
-<a name="fleet-manager-console"></a>
 
 The Fleet Intelligence portal is a React web application built with [Cloudscape Design System](https://cloudscape.design/). The navigation groups its screens by job: **Operations** (vehicles, vehicle map, fleets, drivers, service), **Data products**, **Cost**, **Compliance** (safety, recalls and coverage, preventive-maintenance compliance), **Assets** (lifecycle), and **Setup** (data source catalog, users, simulation, and system monitoring). Every screen respects the fleet selector at the top of the page, and every list is filtered server-side to the fleets the signed-in user may see. The portal calls the Fleet Management API and the Commands API documented in the [Developer guide](developer-guide.md).
 

@@ -1,7 +1,6 @@
 
 
 # Networking and caching
-<a name="infrastructure-stack"></a>
 
 The networking and caching layer provides the foundational infrastructure required by other components in the guidance.
 

@@ -1,7 +1,6 @@
 
 
 # Alarms the Guidance deploys
-<a name="mon-alarms"></a>
 
 
 | Stack | Alarms | Publishes to | Subscribed on deploy | 

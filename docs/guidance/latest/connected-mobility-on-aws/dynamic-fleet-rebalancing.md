@@ -1,7 +1,6 @@
 
 
 # Dynamic fleet rebalancing
-<a name="dynamic-fleet-rebalancing"></a>
 
 Dynamic fleet rebalancing keeps vehicles where demand is. It measures how each vehicle and location is used, forecasts demand per location, detects supply-demand imbalances, and recommends vehicle moves with their transfer cost and revenue impact.
 

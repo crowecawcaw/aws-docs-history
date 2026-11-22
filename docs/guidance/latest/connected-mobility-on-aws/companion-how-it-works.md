@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="companion-how-it-works"></a>
 
 ## Sign-in and driver scope
 <a name="companion-auth"></a>

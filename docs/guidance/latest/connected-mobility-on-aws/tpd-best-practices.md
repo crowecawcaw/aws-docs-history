@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="tpd-best-practices"></a>
 
  **Design topics as contracts.** A third party consumes a stable, versioned topic with a schema held in a registry, not the platform’s internal topics, so producers can evolve without breaking consumers.
 

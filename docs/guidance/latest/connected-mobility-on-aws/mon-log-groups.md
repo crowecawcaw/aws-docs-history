@@ -1,7 +1,6 @@
 
 
 # Where each component logs
-<a name="mon-log-groups"></a>
 
 
 | Component | Log group | 
@@ -13,6 +12,6 @@
 
 Follow a single processor:
 
-```
+```bash
 aws logs tail /aws/kinesis-analytics/cms-<stage>-flink-trip-processor --follow
 ```

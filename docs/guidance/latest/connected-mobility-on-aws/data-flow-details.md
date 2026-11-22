@@ -1,7 +1,6 @@
 
 
 # Data flow details
-<a name="data-flow-details"></a>
 
 ## Telemetry ingestion flow
 <a name="telemetry-ingestion-flow"></a>

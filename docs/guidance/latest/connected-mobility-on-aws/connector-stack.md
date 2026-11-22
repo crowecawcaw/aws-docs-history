@@ -1,7 +1,6 @@
 
 
 # OEM cloud connector
-<a name="connector-stack"></a>
 
 An OEM cloud connector brings telemetry from a vehicle maker’s or telematics provider’s cloud into the platform, for vehicles that send data to that cloud rather than to AWS IoT Core. The `ConnectorStack` deploys one connector per OEM source as an Amazon ECS Fargate task. Each connector writes JSON records to the `cms-telemetry-oem` Kafka topic, tagged with its source, and the rest of the pipeline treats the records like any other telemetry.
 

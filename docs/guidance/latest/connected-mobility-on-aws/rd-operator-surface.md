@@ -1,7 +1,6 @@
 
 
 # Operator surface: unified Diagnostic Triage panel
-<a name="rd-operator-surface"></a>
 
 ![Diagnostic Triage panel on the Diagnostics tab: connection status](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/rd-diagnostic-triage.png)
 

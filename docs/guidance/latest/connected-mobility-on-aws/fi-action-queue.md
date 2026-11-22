@@ -1,7 +1,6 @@
 
 
 # Fleet Intelligence Action Queue
-<a name="fi-action-queue"></a>
 
 The three Fleet Intelligence features share one Action Queue. Their agents run in the companion Agentic Vehicle Experience (AVX) accelerator as Tier 2 components: each runs on a schedule or an event, with nobody waiting, and writes its recommendations to AVX’s findings table. Operator and rule decisions are AVX Actions. CMS reads both and renders the queue screens, the overview’s Action Queue summary and the Agent activity feed. No agent reasons inside a chat turn; an operator’s question about a recommendation goes to the fleet assistant, which reads the stored recommendation and its evidence.
 

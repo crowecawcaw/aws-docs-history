@@ -1,7 +1,6 @@
 
 
 # Simulation platform
-<a name="simulation-platform"></a>
 
 The solution provides two simulation modes: a local service for development and a cloud service for automated testing and demos.
 

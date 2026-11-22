@@ -1,7 +1,6 @@
 
 
 # REST interoperability via a gateway
-<a name="rd-rest-gateway"></a>
 
 Where a client requires the SOVD REST binding — a partner scan tool, a compliance-testing harness, an aftermarket diagnostic application — a REST-to-MQTT gateway provides it. The gateway is a distinct cloud-side component with its own operational envelope.
 

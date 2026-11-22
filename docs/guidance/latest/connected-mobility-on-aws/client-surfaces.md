@@ -1,7 +1,6 @@
 
 
 # Client surfaces
-<a name="client-surfaces"></a>
 
 One platform, three front ends. They differ in audience, in what they are permitted to see, and in which APIs they call — not merely in styling. Deploying all three is optional; the Fleet Intelligence portal is the only one deployed unconditionally.
 

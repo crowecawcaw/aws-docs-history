@@ -1,7 +1,6 @@
 
 
 # Real-time B2B delivery over Amazon MSK
-<a name="tpd-realtime-b2b"></a>
 
 The subscription plane above delivers by REST pull. This section describes the pattern for subscribers that need records in real time, such as a fleet customer or an insurer that runs its own Kafka client. The pattern is opinionated: Amazon MSK is the only delivery mechanism, and each subscription gets its own topic.
 

@@ -1,7 +1,6 @@
 
 
 # What it can do
-<a name="connected-services-portal-walkthrough"></a>
 
 The Connected Services portal is a second React application, deployed by `cms-{stage}-connected-services-ui` when `DEPLOY_CONNECTED_SERVICES_UI=true`. It is not a view within the Fleet Intelligence portal: it has its own CloudFront distribution, its own subdomain, and its own authorization groups. Where the console answers **"how is my fleet operating?"**, the portal answers **"what does this vehicle platform consist of, and who is entitled to its data?"** 
 

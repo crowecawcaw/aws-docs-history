@@ -1,7 +1,6 @@
 
 
 # Credentials by reference, never by value
-<a name="dp-credentials"></a>
 
 The catalog stores an AWS Secrets Manager ARN. The secret itself never enters the catalog record and never reaches the browser.
 

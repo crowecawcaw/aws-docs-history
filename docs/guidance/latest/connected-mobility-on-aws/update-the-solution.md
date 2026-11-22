@@ -1,7 +1,6 @@
 
 
 # Update the guidance
-<a name="update-the-solution"></a>
 
 This chapter describes how to update a previously deployed instance of the Guidance for Connected Mobility on AWS. Choose the appropriate update path based on the scope of changes you are applying.
 
@@ -36,13 +35,13 @@ This path skips the CDK synthesis and CloudFormation change-set cycle. It perfor
 
  **Deploy command:** 
 
-```
+```bash
 make ui-quick-deploy DEPLOYMENT_STAGE=staging
 ```
 
 Run from the `deployment/` directory, or pass `-C deployment` from the repository root:
 
-```
+```bash
 make -C deployment ui-quick-deploy DEPLOYMENT_STAGE=staging
 ```
 
@@ -61,7 +60,7 @@ Use this path when Lambda function code, CDK stack constructs, environment varia
 
  **Full staging redeploy:** 
 
-```
+```bash
 export CMS_DEMO_DEFAULT_PASSWORD='your-staging-password'
 make -C deployment staging-deploy
 ```
@@ -70,7 +69,7 @@ This runs preflight checks, synthesizes all CDK stacks, and deploys only the sta
 
  **Deploy a single stack (faster iteration):** 
 
-```
+```bash
 DEPLOYMENT_STAGE=staging \
 AWS_REGION=us-west-2 \
 CMS_DEMO_DEFAULT_PASSWORD='your-staging-password' \
@@ -85,7 +84,7 @@ Replace `<stack-name>` with the stack you changed, for example `cms-staging-ui`,
 
 Always run the preflight script before a full redeploy. It verifies AWS credentials, CDK bootstrap state, Bedrock model availability, and required environment variables in approximately 30 seconds:
 
-```
+```bash
 bash deployment/scripts/preflight-staging.sh
 ```
 
@@ -97,7 +96,7 @@ All modified CloudFormation stacks reach `UPDATE_COMPLETE` state. Check the AWS 
 
 After the deploy completes, run the publish-gate validator to confirm the environment is healthy before sharing it or cutting a release tag:
 
-```
+```bash
 AWS_PROFILE=default AWS_REGION=us-west-2 DEPLOYMENT_STAGE=staging \
   bash deployment/scripts/validate_staging_publish_gate.sh
 ```
@@ -111,7 +110,7 @@ The guidance uses Kinesis Data Analytics for Apache Flink for real-time telemetr
 
 Use when the Flink application state schema has not changed and it is acceptable to resume processing from the latest checkpoint rather than a clean snapshot.
 
-```
+```bash
 make -C deployment deploy-flink-fast \
   DEPLOYMENT_STAGE=staging \
   AWS_REGION=us-west-2
@@ -121,7 +120,7 @@ make -C deployment deploy-flink-fast \
 
 Use when the Flink application JAR, state schema, or CDK stack configuration has changed, or when you want a clean snapshot before transitioning to the new application version.
 
-```
+```bash
 make -C deployment staging-deploy
 ```
 
@@ -131,7 +130,7 @@ This redeploys all stacks with pending changes, including the Flink stack with t
 
 After either option, verify that all Flink applications return to `RUNNING` state:
 
-```
+```bash
 AWS_PROFILE=default AWS_REGION=us-west-2 DEPLOYMENT_STAGE=staging \
   bash deployment/scripts/validate_staging_publish_gate.sh
 ```

@@ -1,7 +1,6 @@
 
 
 # Accelerate development and deployment of connected vehicle assets
-<a name="solution-overview"></a>
 
 Publication date: *October 2023 ([last update](revisions.md): April 2026)* 
 

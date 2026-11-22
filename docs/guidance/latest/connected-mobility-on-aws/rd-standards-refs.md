@@ -1,7 +1,6 @@
 
 
 # Standards references
-<a name="rd-standards-refs"></a>
 +  **ASAM SOVD** — Service-Oriented Vehicle Diagnostics. The ASAM specification defines the resource model, JSON schemas, and REST binding. Currently in the process of ISO standardisation as ISO 17978 (multi-part series, in development).
 +  **ISO 14229 (UDS)** — Unified Diagnostic Services. The application-layer diagnostic protocol that SOVD servers typically front on the vehicle side.
 +  **ISO 15765-2** — Diagnostic communication over CAN: Transport protocol and network layer services. The ISO-TP layer that carries UDS PDUs over CAN frames.

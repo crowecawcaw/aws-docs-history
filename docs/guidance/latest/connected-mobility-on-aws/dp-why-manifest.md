@@ -1,7 +1,6 @@
 
 
 # Why a transform manifest exists
-<a name="dp-why-manifest"></a>
 
 Three producers describe the same physical quantity three different ways, with three different severity scales — a battery state of charge arrives as a nested camelCase path from one, a snake\_case protobuf field from another, and a flat REST key from a third. Seeing `speedMph`, `vehicle_speed_mph` and `speed` all landing on one canonical signal is the entire argument for normalizing at the boundary rather than downstream.
 

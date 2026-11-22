@@ -1,7 +1,6 @@
 
 
 # Simulation troubleshooting
-<a name="simulation-troubleshooting"></a>
 
 ## Problem: Simulation service not starting
 <a name="problem-simulation-service-not-starting"></a>
@@ -11,7 +10,7 @@
 
 1. Check if port 5001 is already in use:
 
-   ```
+   ```bash
    lsof -i :5001
    # Kill the process if needed
    kill -9 <PID>
@@ -19,20 +18,20 @@
 
 1. Ensure Python dependencies are installed:
 
-   ```
+   ```bash
    cd services/simulation
    pip install flask flask-cors boto3 requests
    ```
 
 1. Make the management script executable:
 
-   ```
+   ```bash
    chmod +x manage_simulation.sh
    ```
 
 1. Start the service and check logs:
 
-   ```
+   ```bash
    ./manage_simulation.sh start
    ./manage_simulation.sh logs
    ```
@@ -49,7 +48,7 @@ The simulation UI shows no vehicles when "Real Vehicles" is selected.
 
 1. Verify vehicles have certificates in DynamoDB:
 
-   ```
+   ```bash
    aws dynamodb scan --table-name cms-dev-storage-vehicles \
      --filter-expression "has_certificate = :t" \
      --expression-attribute-values '{":t": {"BOOL": true}}' \
@@ -68,32 +67,32 @@ The simulation service fails to start FWE agent containers in FleetWise Edge mod
 
 1. Verify Docker is running:
 
-   ```
+   ```bash
    docker info
    ```
 
 1. Check if the FWE Docker image is built:
 
-   ```
+   ```bash
    docker images | grep fwe
    ```
 
 1. If the image is missing, build it:
 
-   ```
+   ```bash
    cd services/simulation
    ./build_sim_image.sh
    ```
 
 1. Check the FWE container logs for startup errors:
 
-   ```
+   ```bash
    docker logs fwe-YOUR_VIN --tail 50
    ```
 
 1. Verify the FWE persistency files are generated correctly:
 
-   ```
+   ```bash
    ls -la services/simulation/fwe_config/persistency/
    ```
 
@@ -105,19 +104,19 @@ The simulation service fails to start FWE agent containers in FleetWise Edge mod
 
 1. Check the simulation logs for MQTT publish errors:
 
-   ```
+   ```bash
    tail -f services/simulation/simulation_service.log
    ```
 
 1. Verify the IoT endpoint is reachable:
 
-   ```
+   ```bash
    aws iot describe-endpoint --endpoint-type iot:Data-ATS
    ```
 
 1. Verify the vehicle’s IoT certificate is activated:
 
-   ```
+   ```bash
    # Get certificate ARN from DynamoDB, then check status
    aws iot describe-certificate --certificate-id YOUR_CERT_ID \
      --query "certificateDescription.status"

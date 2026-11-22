@@ -1,7 +1,6 @@
 
 
 # Resources requiring manual cleanup before or after teardown
-<a name="pre-teardown-resource-notes"></a>
 
 ## Amazon ECS clusters and services
 <a name="ecs-clusters-and-services"></a>

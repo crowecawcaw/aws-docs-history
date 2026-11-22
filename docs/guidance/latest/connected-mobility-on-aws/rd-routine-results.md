@@ -1,7 +1,6 @@
 
 
 # Typed routine result contracts
-<a name="rd-routine-results"></a>
 
  `run_routine` differs from the read commands in one respect: two different ABS pump-cycle tests can complete with the same UDS success code and mean different things — cycles completed as expected, cycles short of expected, or a marginal deviation the operator should track. The transport layer cannot see this; the guidance encodes it at the payload layer as a **per-routine result schema** plus a **verdict**.
 

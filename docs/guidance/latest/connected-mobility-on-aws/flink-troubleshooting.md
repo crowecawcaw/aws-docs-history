@@ -1,7 +1,6 @@
 
 
 # Flink application troubleshooting
-<a name="flink-troubleshooting"></a>
 
 ## Problem: Flink application not running (dead app)
 <a name="problem-flink-app-not-running"></a>
@@ -13,7 +12,7 @@ A Flink application shows status `READY` instead of `RUNNING`, or has stopped pr
 
 1. Check the application status:
 
-   ```
+   ```bash
    # List all CMS Flink applications and their status
    STAGE=dev
    aws kinesisanalyticsv2 list-applications \
@@ -23,7 +22,7 @@ A Flink application shows status `READY` instead of `RUNNING`, or has stopped pr
 
 1. Check CloudWatch alarms:
 
-   ```
+   ```bash
    aws cloudwatch describe-alarms \
      --alarm-name-prefix "cms-dev-flink" \
      --query "MetricAlarms[?StateValue=='ALARM'].[AlarmName,AlarmDescription]" \
@@ -32,7 +31,7 @@ A Flink application shows status `READY` instead of `RUNNING`, or has stopped pr
 
 1. Check the application logs for errors:
 
-   ```
+   ```bash
    APP=cms-dev-flink-trip-processor
    aws logs tail /aws/kinesis-analytics/$APP --since 30m --follow
    ```
@@ -42,14 +41,14 @@ A Flink application shows status `READY` instead of `RUNNING`, or has stopped pr
 
  **If the app is in READY state (stopped):** 
 
-```
+```bash
 APP=cms-dev-flink-trip-processor
 aws kinesisanalyticsv2 start-application --application-name $APP
 ```
 
  **If the app is stuck in UPDATING state:** 
 
-```
+```bash
 # Force stop the application
 APP=cms-dev-flink-trip-processor
 aws kinesisanalyticsv2 stop-application --application-name $APP --force
@@ -60,7 +59,7 @@ aws kinesisanalyticsv2 stop-application --application-name $APP --force
 
 This typically indicates a configuration error (wrong bootstrap servers, missing IAM permissions, or invalid JAR). Check the CloudWatch logs for the root cause, then:
 
-```
+```bash
 # Delete and recreate the application with fresh configuration
 APP=cms-dev-flink-trip-processor
 TIMESTAMP=$(aws kinesisanalyticsv2 describe-application \
@@ -79,14 +78,14 @@ make phase4
 
 The solution includes a helper script to stop all applications, wait for READY status, and reconfigure:
 
-```
+```bash
 cd deployment
 ./update-all-flink-apps.sh
 ```
 
 Or to check and fix stuck applications:
 
-```
+```bash
 cd deployment
 ./fix-flink-apps.sh
 ```
@@ -111,7 +110,7 @@ If errors persist after the automatic reconnect:
 
 1. Delete and recreate the affected Flink application. Deleting and recreating has a higher success rate than updating in place:
 
-   ```
+   ```bash
    APP=cms-dev-flink-fw-telemetry-processor
    TIMESTAMP=$(aws kinesisanalyticsv2 describe-application \
      --application-name $APP \
@@ -134,7 +133,7 @@ The application shows `RUNNING` status but the `numRecordsInPerSecond` metric is
 
 1. Verify the upstream Kafka topic has data:
 
-   ```
+   ```bash
    # Check topic offsets (requires kafka-tools or MSK client)
    # Look at the IoT Rule metrics to confirm messages are reaching MSK
    aws cloudwatch get-metric-statistics \
@@ -166,7 +165,7 @@ Checkpoints fail with timeout errors, causing the application to restart repeate
 
 1. Check if DynamoDB writes are being throttled:
 
-   ```
+   ```bash
    aws cloudwatch get-metric-statistics \
      --namespace "AWS/DynamoDB" \
      --metric-name "ThrottledRequests" \
@@ -194,7 +193,7 @@ The FWE agent starts and checks in but does not collect or upload telemetry data
 
 1. Verify the CampaignSyncProcessor Flink application is in RUNNING state:
 
-   ```
+   ```bash
    aws kinesisanalyticsv2 describe-application \
      --application-name cms-dev-flink-campaign-sync-processor \
      --query "ApplicationDetail.ApplicationStatus"
@@ -202,13 +201,13 @@ The FWE agent starts and checks in but does not collect or upload telemetry data
 
 1. Check that the agent’s checkin is reaching the `fw-checkin` Kafka topic by reviewing the CampaignSyncProcessor CloudWatch logs:
 
-   ```
+   ```bash
    aws logs tail /aws/kinesis-analytics/cms-dev-flink-campaign-sync-processor --follow
    ```
 
 1. Verify that active campaigns exist in DynamoDB for the vehicle’s VIN:
 
-   ```
+   ```bash
    aws dynamodb query --table-name cms-dev-campaigns \
      --index-name targetArn-index \
      --key-condition-expression "targetArn = :arn" \
@@ -219,7 +218,7 @@ The FWE agent starts and checks in but does not collect or upload telemetry data
 
 1. Check the FWE agent container logs for scheme receipt:
 
-   ```
+   ```bash
    # If using the simulation service
    curl http://localhost:5001/api/agent/logs/YOUR_VIN
    # Or directly via Docker
@@ -236,7 +235,7 @@ The FWE agent is collecting signals (visible in agent logs) but telemetry record
 
 1. Verify the IoT Rule `fw_dev_iot_msk_rule` is routing messages to the `fw-telemetry-raw` Kafka topic. Check IoT Core rule metrics in CloudWatch for error counts:
 
-   ```
+   ```bash
    aws cloudwatch get-metric-statistics \
      --namespace "AWS/IoT" \
      --metric-name "Failure" \
@@ -248,7 +247,7 @@ The FWE agent is collecting signals (visible in agent logs) but telemetry record
 
 1. Verify the FWTelemetryProcessor Flink application is RUNNING and not showing SSL or connection errors:
 
-   ```
+   ```bash
    aws logs tail /aws/kinesis-analytics/cms-dev-flink-fw-telemetry-processor --follow
    ```
 
@@ -256,7 +255,7 @@ The FWE agent is collecting signals (visible in agent logs) but telemetry record
 
 1. Verify the decoder manifest exists in DynamoDB with signal mappings:
 
-   ```
+   ```bash
    aws dynamodb scan --table-name cms-dev-decoder-manifest --max-items 5
    ```
 
@@ -272,7 +271,7 @@ The CampaignSyncProcessor is running but the agent does not receive collection s
 
 1. Check the CampaignSyncProcessor logs for IoT Core MQTT publish errors:
 
-   ```
+   ```bash
    aws logs tail /aws/kinesis-analytics/cms-dev-flink-campaign-sync-processor \
      --filter-pattern "ERROR" --since 30m
    ```

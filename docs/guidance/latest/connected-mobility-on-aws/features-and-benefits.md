@@ -1,7 +1,6 @@
 
 
 # Features and benefits
-<a name="features-and-benefits"></a>
 
 The solution provides the following features:
 

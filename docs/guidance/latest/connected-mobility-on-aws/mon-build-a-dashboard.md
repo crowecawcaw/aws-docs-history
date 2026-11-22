@@ -1,7 +1,6 @@
 
 
 # What no alarm covers
-<a name="mon-build-a-dashboard"></a>
 
 No dashboard is deployed. The alarms above cover stream processing thoroughly and the rest of the platform barely, so the following are unwatched until you watch them. None of these is a defect in the Guidance; they are the choices a production deployment makes for itself.
 

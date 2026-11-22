@@ -1,7 +1,6 @@
 
 
 # Telemetry ingestion
-<a name="telemetry-integration-stack"></a>
 
 The telemetry ingestion layer connects IoT Core to the MSK cluster.
 
@@ -12,7 +11,7 @@ Rules route telemetry messages to MSK topics.
 
  **Telemetry rule:** 
 
-```
+```sql
 SELECT * FROM 'cms/telemetry/+'
 ```
 
@@ -20,7 +19,7 @@ SELECT * FROM 'cms/telemetry/+'
 
  **FleetWise telemetry rule:** 
 
-```
+```sql
 SELECT encode(*, 'base64') AS data, topic(4) AS vehicleId, timestamp() AS ts
 FROM 'cms/fleetwise/vehicles/+/signals'
 ```
@@ -29,7 +28,7 @@ FROM 'cms/fleetwise/vehicles/+/signals'
 
  **FleetWise checkin rule:** 
 
-```
+```sql
 SELECT encode(*, 'base64') AS data, topic(4) AS thingName, timestamp() AS ts
 FROM 'cms/fleetwise/vehicles/+/checkins'
 ```
@@ -40,7 +39,7 @@ The FleetWise IoT rules use `topic(4)` to extract the vehicle VIN from the MQTT 
 
  **Command response rule (JSON):** 
 
-```
+```sql
 SELECT * FROM 'cms/commands/+/response'
 ```
 
@@ -48,7 +47,7 @@ SELECT * FROM 'cms/commands/+/response'
 
  **Command response rule (FWE protobuf):** 
 
-```
+```sql
 SELECT encode(*, 'base64') AS b64_payload, topic(3) AS vehicleId
 FROM 'cms/commands/things/+/executions/+/response/protobuf'
 ```
@@ -65,7 +64,7 @@ FROM 'cms/commands/things/+/executions/+/response/protobuf'
 
 IoT Rules can transform messages before sending to MSK:
 
-```
+```sql
 SELECT
   vin,
   timestamp() as serverTimestamp,

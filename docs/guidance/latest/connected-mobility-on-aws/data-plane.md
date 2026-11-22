@@ -1,7 +1,6 @@
 
 
 # Data plane — Message streaming
-<a name="data-plane"></a>
 
 The data plane handles the real-time flow of vehicle telemetry from edge devices through the processing pipeline to storage and consumption. Every message follows the same path regardless of source: ingestion → normalization → routing → storage \+ real-time state.
 

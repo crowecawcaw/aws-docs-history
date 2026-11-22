@@ -1,7 +1,6 @@
 
 
 # Developer guide
-<a name="developer-guide"></a>
 
 This section provides guidance for customizing and extending the Guidance for Connected Mobility on AWS using AWS CDK, developing Flink applications, extending the Fleet Intelligence portal, and integrating with external systems.
 
@@ -27,7 +26,7 @@ The solution uses [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/c
 ### Clone and setup
 <a name="clone-and-setup"></a>
 
-```
+```bash
 # Clone repository
 git clone https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws.git
 cd guidance-for-connected-mobility-on-aws
@@ -132,7 +131,7 @@ Stack definitions are in `deployment/stacks/`. Each stack is a Python class that
 #### Example: Modify MSK configuration
 <a name="example-modify-msk-configuration"></a>
 
-```
+```python
 # In deployment/stacks/msk_stack.py
 
 class MSKStack(Stack):
@@ -161,7 +160,7 @@ class MSKStack(Stack):
 
 To add a custom stack, create a new file in `deployment/stacks/` and register it in `deployment/app.py`:
 
-```
+```python
 # 1. Create deployment/stacks/custom_stack.py
 from aws_cdk import Stack
 from constructs import Construct
@@ -235,7 +234,7 @@ The TripProcessor demonstrates a key pattern for reducing DynamoDB costs in stre
 
  **Solution:** Use `KeyedProcessFunction` with `ValueState<TripState>` keyed by `vehicleId`. All trip state (route buffer, metrics, ignition history) lives in Flink’s managed state. DynamoDB is only written to on state transitions and periodic flushes.
 
-```
+```java
 // Simplified TripProcessor v2 pattern
 public class TripStateFunction
     extends KeyedProcessFunction<String, String, String> {
@@ -283,7 +282,7 @@ This pattern applies to any stream processing scenario where you need to track e
 ### Build and deploy
 <a name="build-and-deploy-flink"></a>
 
-```
+```bash
 # Build JAR
 cd modules/flink
 mvn clean package -DskipTests
@@ -346,7 +345,7 @@ The UI is built with [Cloudscape Design System](https://cloudscape.design/) and 
 ### Example: Add a new page
 <a name="example-add-new-page"></a>
 
-```
+```typescript
 // modules/cms_ui/source/frontend/src/pages/CustomPage.tsx
 
 import React, { useState, useEffect } from 'react';
@@ -399,7 +398,7 @@ export const CustomPage: React.FC = () => {
 ### Build and deploy
 <a name="build-and-deploy-ui"></a>
 
-```
+```bash
 # Build frontend
 cd modules/cms_ui/source/frontend
 npm install
@@ -420,7 +419,7 @@ The solution exposes two API Gateway endpoints: the Fleet Management API (deploy
 
 Both APIs use Amazon Cognito for authentication. Obtain an access token before making API calls:
 
-```
+```bash
 # Get access token
 TOKEN=$(aws cognito-idp initiate-auth \
   --client-id CLIENT_ID \
@@ -500,7 +499,7 @@ The Commands API enables sending remote commands to vehicles via IoT Core MQTT a
 
  **Send a command:** 
 
-```
+```bash
 curl -X POST https://<commands-api-url>/api/commands/VEH-0049 \
   -H "Content-Type: application/json" \
   -d '{
@@ -524,7 +523,7 @@ The command is published to both a protobuf topic for FleetWise Edge agents (`cm
 
  **Get command catalog:** 
 
-```
+```bash
 curl -X GET https://<commands-api-url>/api/commands/catalog
 
 # Response includes actuators grouped by category:
@@ -557,7 +556,7 @@ curl -X GET https://<commands-api-url>/api/commands/catalog
 
  **Create a geofence:** 
 
-```
+```bash
 curl -X POST https://<commands-api-url>/api/geofences \
   -H "Content-Type: application/json" \
   -d '{
@@ -684,7 +683,7 @@ To simulate a highway blowout risk scenario, select "Highway blowout risk" which
 ### Test UI locally
 <a name="test-ui-locally"></a>
 
-```
+```bash
 cd modules/cms_ui/source/frontend
 
 # Start development server
@@ -700,7 +699,7 @@ npm run lint
 ### Debugging Flink applications
 <a name="debugging-flink"></a>
 
-```
+```bash
 # View Flink logs
 aws logs tail /aws/kinesis-analytics/cms-dev-trip-detection --follow
 
@@ -722,7 +721,7 @@ aws cloudwatch get-metric-statistics \
 ### Check deployment status
 <a name="check-stack-status-dev"></a>
 
-```
+```bash
 cd deployment
 make status
 ```
@@ -738,7 +737,7 @@ Global system integrators (GSIs) and independent software vendors (ISVs) can lev
 #### Customize branding
 <a name="customize-branding"></a>
 
-```
+```typescript
 // modules/cms_ui/source/frontend/src/config/branding.ts
 
 export const branding = {
@@ -753,7 +752,7 @@ export const branding = {
 #### Custom domain
 <a name="custom-domain"></a>
 
-```
+```python
 # In deployment/stacks/ui_stack.py
 
 from aws_cdk import aws_certificatemanager as acm
@@ -794,7 +793,7 @@ The Fleet Intelligence portal includes a conversational assistant panel backed b
 
 The `getVsaApiEndpoint()` helper in `modules/cms_ui/source/frontend/src/config/api.ts` reads the `vsaApiEndpoint` field from the runtime configuration JSON that CloudFront serves at `/runtimeConfig.json`. The value points to the deployed AVX API Gateway stage URL. (The `vsa*` prefix on the field, helper, and AgentCore runtime name is a historical artifact of the AVX repository’s earlier "Vehicle Semantic Assistant" naming; the field, the helper, and the runtime identifier are the same values the AVX repository ships today.)
 
-```
+```typescript
 // modules/cms_ui/source/frontend/src/config/api.ts
 
 import { getRuntimeConfig } from './runtimeConfig';
@@ -816,7 +815,7 @@ The helper falls back to an environment variable for local development so the as
 
 The `ChatAgent` component in `modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx` sends each user message to the `/assistant/chat` route of the AVX API endpoint using a standard `fetch` call. The AgentCore text runtime (`vsa_supervisor_text_staging` or the equivalent runtime published by the AVX repository) handles the request and streams back a text response.
 
-```
+```typescript
 // modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx
 // Simplified excerpt showing the fetch pattern
 
@@ -867,7 +866,7 @@ The `ConnectorStack` in `deployment/stacks/connector_stack.py` deploys an OEM cl
 
 Deploy a connector with:
 
-```
+```bash
 make deploy-connector CONNECTOR_NAME=<oem>-feed CONNECTOR_TYPE=<rest_polling|grpc_streaming|websocket_inbound>
 ```
 
@@ -929,7 +928,7 @@ Three Cognito groups control access scope:
 
 The handler extracts these values from the decoded JWT claims:
 
-```
+```python
 # Simplified excerpt from modules/cms_ui/source/handlers/main_api/index.py
 
 _OPERATOR_GROUPS = {'platform-admin', 'fleet-operator', 'fleet-viewer'}
@@ -970,7 +969,7 @@ When adding an endpoint that must be gated on `platform-admin`:
 ### Assigning groups via CLI
 <a name="assigning-groups-via-cli"></a>
 
-```
+```bash
 # Add a user to the platform-admin group
 aws cognito-idp admin-add-user-to-group \
   --user-pool-id <user-pool-id> \

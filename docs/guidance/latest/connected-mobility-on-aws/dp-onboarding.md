@@ -1,7 +1,6 @@
 
 
 # Onboarding a product
-<a name="dp-onboarding"></a>
 
 Four steps, no application code:
 

@@ -1,7 +1,6 @@
 
 
 # Control plane
-<a name="control-plane"></a>
 
 The control plane manages what data is collected from vehicles, how vehicles are configured, and how fleet operators interact with the system. While the data plane handles the flow of telemetry, the control plane determines what telemetry to collect and provides the tools to act on it.
 

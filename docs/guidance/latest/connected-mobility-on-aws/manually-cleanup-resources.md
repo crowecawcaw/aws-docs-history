@@ -1,7 +1,6 @@
 
 
 # Manually clean up resources
-<a name="manually-cleanup-resources"></a>
 
 You must manually clean up the following resources:
 + S3 buckets

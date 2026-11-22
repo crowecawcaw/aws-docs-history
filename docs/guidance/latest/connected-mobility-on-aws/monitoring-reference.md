@@ -1,7 +1,6 @@
 
 
 # Monitoring reference
-<a name="monitoring-reference"></a>
 
 ## CloudWatch alarms
 <a name="cloudwatch-alarms"></a>

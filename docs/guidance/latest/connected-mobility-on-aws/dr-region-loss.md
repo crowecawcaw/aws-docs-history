@@ -1,7 +1,6 @@
 
 
 # Recovering from a Region event
-<a name="dr-region-loss"></a>
 
 Nothing in this Guidance replicates across Regions. Recovery is a redeploy plus a data restore:
 

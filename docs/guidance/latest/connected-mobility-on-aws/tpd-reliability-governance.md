@@ -1,7 +1,6 @@
 
 
 # Reliability and governance
-<a name="tpd-reliability-governance"></a>
 
 Because third-party delivery sits on the same platform that serves safety- and command-critical traffic, the delivery design carries the platform’s availability obligation. Three practices make that concrete. First, isolation is not optional: consumer groups, quotas, and, where the risk warrants, a replicated consumer-owned cluster ensure that a third party’s failure is contained to that third party. Second, the streaming path should checkpoint its position so that a restart resumes cleanly rather than replaying or dropping data — a well-behaved consumer checkpoints its offset to a durable store and resumes from the last committed offset on restart, which lets a consumer survive a broker replacement or a pod recycle without a gap. Third, make delivery state explicit: track each record’s lifecycle through defined terminal states, distinguish failures that should surface immediately from those worth retrying, and reconcile state in the background, so a delivery guarantee is a property of the system rather than an assumption.
 

@@ -1,7 +1,6 @@
 
 
 # Context
-<a name="rd-context"></a>
 
 ## What ASAM SOVD standardises
 <a name="rd-what-sovd-standardises"></a>

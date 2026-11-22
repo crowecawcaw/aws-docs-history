@@ -1,7 +1,6 @@
 
 
 # Reference
-<a name="reference"></a>
 
 ## Contributors
 <a name="contributors"></a>

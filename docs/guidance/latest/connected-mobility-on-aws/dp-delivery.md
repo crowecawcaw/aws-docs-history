@@ -1,7 +1,6 @@
 
 
 # Delivery
-<a name="dp-delivery"></a>
 
 Four properties govern the delivery layer:
 

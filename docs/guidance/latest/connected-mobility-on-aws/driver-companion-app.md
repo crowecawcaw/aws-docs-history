@@ -1,7 +1,6 @@
 
 
 # What it can do
-<a name="driver-companion-app"></a>
 +  **Claim a vehicle.** A driver claims their assigned vehicle, so that trips, safety events, and driver scores are attributed to them without an operator reassigning it.
 +  **See the vehicle live.** Location, state, tire pressure, battery or fuel, and trip history, updated as telemetry arrives.
 +  **Control the vehicle remotely.** Lock the doors, start the vehicle, precondition the cabin, flash the hazards, find the vehicle, open the charge door, and trigger the panic alarm, from a controls sheet that shows whatever the vehicle supports.

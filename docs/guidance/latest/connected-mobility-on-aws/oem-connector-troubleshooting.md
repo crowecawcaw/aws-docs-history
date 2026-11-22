@@ -1,7 +1,6 @@
 
 
 # OEM connector fleet lifecycle troubleshooting
-<a name="oem-connector-troubleshooting"></a>
 
 ## Problem: OEM connector admin Lambda returns 4xx on enrollment or unenrollment
 <a name="problem-oem-admin-lambda-4xx"></a>
@@ -13,7 +12,7 @@ Calls to `/admin/<oem>/bulk-enroll`, `/admin/<oem>/bulk-unenroll`, or `/admin/<o
 
 1. Check the Lambda logs for the root cause:
 
-   ```
+   ```bash
    STAGE=staging
    OEM=<oem>   # the connector name prefix, for example oem1
    aws logs tail /aws/lambda/cms-$STAGE-connector-$OEM-admin-bulk-enroll \
@@ -22,7 +21,7 @@ Calls to `/admin/<oem>/bulk-enroll`, `/admin/<oem>/bulk-unenroll`, or `/admin/<o
 
 1. Verify the calling user belongs to the `platform-admin` or `fleet-operator` Cognito group:
 
-   ```
+   ```bash
    USER_POOL_ID=$(aws cloudformation describe-stacks \
      --stack-name cms-$STAGE-ui \
      --query "Stacks[0].Outputs[?OutputKey=='UserPoolId'].OutputValue" \
@@ -34,7 +33,7 @@ Calls to `/admin/<oem>/bulk-enroll`, `/admin/<oem>/bulk-unenroll`, or `/admin/<o
 
 1. Check remaining hourly enrollment quota:
 
-   ```
+   ```bash
    # Query the quota endpoint directly
    aws lambda invoke \
      --function-name cms-$STAGE-connector-$OEM-admin-enroll-quota \
@@ -48,7 +47,7 @@ Calls to `/admin/<oem>/bulk-enroll`, `/admin/<oem>/bulk-unenroll`, or `/admin/<o
 
 The `/admin/<oem>/*` routes require the caller to be in the `platform-admin` group (cross-fleet authority) or the `fleet-operator` group (per-fleet authority via the `custom:fleetIds` claim). Add the user to the appropriate group:
 
-```
+```bash
 STAGE=staging
 USER_POOL_ID=$(aws cloudformation describe-stacks \
   --stack-name cms-$STAGE-ui \
@@ -68,7 +67,7 @@ The user must sign out and sign back in for the new group claim to take effect i
 
 The connector enforces the OEM API’s enrollment rate limit as a rolling hourly quota per fleet (four per hour in the reference connector, set by `_HOURLY_QUOTA`). This quota is tracked in DynamoDB. Wait until the quota window resets, or check the `enroll-quota` endpoint to see when the window expires:
 
-```
+```bash
 aws lambda invoke \
   --function-name cms-$STAGE-connector-$OEM-admin-enroll-quota \
   --payload '{"fleet_id": "<fleet-id>"}' /tmp/quota.json && cat /tmp/quota.json

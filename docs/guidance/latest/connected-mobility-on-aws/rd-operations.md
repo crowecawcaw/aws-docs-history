@@ -1,7 +1,6 @@
 
 
 # Operational notes
-<a name="rd-operations"></a>
 
 ## Authentication and authorisation
 <a name="rd-auth"></a>

@@ -1,7 +1,6 @@
 
 
 # Plan your deployment
-<a name="plan-your-deployment"></a>
 
 This section describes the prerequisites, supported Regions, cost, security, and quota considerations before deploying the guidance.
 
@@ -371,7 +370,7 @@ Three CDK context flags control optional access behaviors. All three default to 
 
 To enable any of these flags for a demo environment, pass the context override at deploy time rather than changing `cdk.json` defaults:
 
-```
+```bash
 cdk deploy --context cms.allow_self_signup=true <stack-name>
 ```
 

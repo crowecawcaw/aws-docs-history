@@ -1,7 +1,6 @@
 
 
 # Telemetry pipeline troubleshooting
-<a name="telemetry-pipeline-troubleshooting"></a>
 
 ## Problem: IoT Rule not routing messages to MSK
 <a name="problem-iot-rule-not-routing"></a>
@@ -13,7 +12,7 @@ Vehicles are publishing telemetry to IoT Core (visible in MQTT test client) but 
 
 1. Check the IoT Rule error action metrics:
 
-   ```
+   ```bash
    aws cloudwatch get-metric-statistics \
      --namespace "AWS/IoT" \
      --metric-name "Failure" \
@@ -25,14 +24,14 @@ Vehicles are publishing telemetry to IoT Core (visible in MQTT test client) but 
 
 1. Verify the VPC Destination is in `ENABLED` status:
 
-   ```
+   ```bash
    aws iot list-topic-rule-destinations \
      --query "destinationSummaries[*].[arn,status]" --output table
    ```
 
 1. If the VPC Destination shows `ERROR` or `DISABLED`, the MSK security group may not allow inbound traffic from the IoT Rule’s ENI. Redeploy the TelemetryIntegrationStack:
 
-   ```
+   ```bash
    cd deployment && make phase3b
    ```
 
@@ -50,7 +49,7 @@ Check the processing pipeline in order:
 
 1.  **SimulatorPreprocessor** — Must be running to decode gzip\+base64 MQTT Direct telemetry. If this processor is down, no MQTT Direct data reaches downstream processors.
 
-   ```
+   ```bash
    aws kinesisanalyticsv2 describe-application \
      --application-name cms-dev-flink-simulator-preprocessor \
      --query "ApplicationDetail.ApplicationStatus"
@@ -64,7 +63,7 @@ Check the processing pipeline in order:
 
 Start any stopped processors:
 
-```
+```bash
 # Start all stopped Flink apps
 for APP in $(aws kinesisanalyticsv2 list-applications \
   --query "ApplicationSummaries[?contains(ApplicationName, 'cms-dev-flink') && ApplicationStatus=='READY'].ApplicationName" \
@@ -84,7 +83,7 @@ The Fleet Intelligence portal map view shows no vehicles, or vehicle detail page
 
 1. Verify the EventDrivenTelemetryProcessor is running — this is the processor that writes to Redis:
 
-   ```
+   ```bash
    aws kinesisanalyticsv2 describe-application \
      --application-name cms-dev-flink-event-driven-telemetry-processor \
      --query "ApplicationDetail.ApplicationStatus"
@@ -92,7 +91,7 @@ The Fleet Intelligence portal map view shows no vehicles, or vehicle detail page
 
 1. Verify ElastiCache is reachable from the Flink VPC. Check the ElastiCache cluster status:
 
-   ```
+   ```bash
    aws elasticache describe-cache-clusters \
      --cache-cluster-id cms-dev-redis \
      --show-cache-node-info \
@@ -101,7 +100,7 @@ The Fleet Intelligence portal map view shows no vehicles, or vehicle detail page
 
 1. Check the EventDrivenTelemetryProcessor logs for Redis connection errors:
 
-   ```
+   ```bash
    aws logs tail /aws/kinesis-analytics/cms-dev-flink-event-driven-telemetry-processor \
      --filter-pattern "Redis" --since 30m
    ```

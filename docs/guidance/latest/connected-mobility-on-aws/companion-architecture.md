@@ -1,7 +1,6 @@
 
 
 # Architecture details
-<a name="companion-architecture"></a>
 
 ## What it reads, and from where
 <a name="companion-apis"></a>

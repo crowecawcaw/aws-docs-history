@@ -1,7 +1,6 @@
 
 
 # Revisions
-<a name="revisions"></a>
 
 Check the [CHANGELOG.md](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws/blob/main/CHANGELOG.md) file in the GitHub repository for a detailed record of all software changes.
 

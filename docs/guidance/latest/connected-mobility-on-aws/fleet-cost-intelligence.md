@@ -1,7 +1,6 @@
 
 
 # Fleet cost intelligence
-<a name="fleet-cost-intelligence"></a>
 
 Fleet cost intelligence brings every cost a vehicle incurs into one model and joins it with how the vehicle is driven. Operators see total cost of ownership (TCO) for the fleet and for each vehicle, find the vehicles that cost more than they should, and act on recommendations from a cost agent.
 

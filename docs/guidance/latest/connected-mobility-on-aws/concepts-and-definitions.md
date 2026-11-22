@@ -1,7 +1,6 @@
 
 
 # Concepts and definitions
-<a name="concepts-and-definitions"></a>
 
  **Stack** – A collection of AWS resources deployed together as a unit using AWS CDK. the guidance consists of modular stacks including StorageStack, MSKStack, IoTStack, FlinkStack, UIStack, CommandsStack, and optional stacks for FleetWise, simulation, and predictive maintenance.
 

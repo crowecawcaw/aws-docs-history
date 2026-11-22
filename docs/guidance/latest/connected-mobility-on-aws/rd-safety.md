@@ -1,7 +1,6 @@
 
 
 # Safety envelope for remote actuation
-<a name="rd-safety"></a>
 
 UDS `0x14` (Clear Diagnostic Information) and `0x31` (RoutineControl) change the state of the vehicle. Some routines — an ABS pump cycle, an injector cut-out test, an evaporative-emissions purge — are physically unsafe if executed at road speed or with the engine unexpectedly running. This is where the transport-layer design ends and the application-layer safety envelope begins.
 

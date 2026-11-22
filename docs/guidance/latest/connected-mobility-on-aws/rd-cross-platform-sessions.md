@@ -1,7 +1,6 @@
 
 
 # Cross-platform diagnostic sessions
-<a name="rd-cross-platform-sessions"></a>
 
 Deep repair work — invoking `SERVICE_ONLY` routines that require the vehicle on a lift, keys removed, or high-voltage systems isolated — is performed by a technician at a dealership. In this guidance, dealer-side operations run on a companion accelerator (referred to below as the **Dealer Management System** or DMS accelerator) that renders the same routine result payloads described in [Typed routine result contracts](rd-routine-results.md) using byte-identical copies of the six renderers. A drift-guard script in this repository verifies renderer parity across both codebases so the operator- and technician-facing surfaces cannot diverge silently.
 

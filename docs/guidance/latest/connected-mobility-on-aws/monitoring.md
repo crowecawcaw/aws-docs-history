@@ -1,7 +1,6 @@
 
 
 # Monitor the Guidance
-<a name="monitoring"></a>
 
 This Guidance deploys 44 Amazon CloudWatch alarms covering the failure modes that stop telemetry from reaching the platform. They are created for you; they are **not** connected to a person for you.
 

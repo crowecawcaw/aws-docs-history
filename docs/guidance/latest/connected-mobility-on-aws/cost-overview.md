@@ -1,7 +1,6 @@
 
 
 # Cost
-<a name="cost-overview"></a>
 
 As of March 2026, the cost for running this Guidance with the default settings is approximately **$400.00 per month** for processing 1,000 vehicles with moderate usage. This guidance ships as a single-environment deployment.
 

@@ -1,7 +1,6 @@
 
 
 # Vehicle connectivity
-<a name="iot-stack"></a>
 
 The vehicle connectivity layer configures AWS IoT Core for secure vehicle connectivity.
 

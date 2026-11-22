@@ -1,7 +1,6 @@
 
 
 # Design
-<a name="rd-design"></a>
 
 The following reference architecture shows remote diagnostics in five stages: the clients and operations an operator drives, the cloud command plane, the secure MQTT channel, execution on the vehicle, and the typed results that hand off to service.
 

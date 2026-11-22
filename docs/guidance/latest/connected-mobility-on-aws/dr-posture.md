@@ -1,7 +1,6 @@
 
 
 # What each component tolerates
-<a name="dr-posture"></a>
 
 
 | Component | Configuration | On Availability Zone loss | 

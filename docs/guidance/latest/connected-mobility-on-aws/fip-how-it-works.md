@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="fip-how-it-works"></a>
 
 Each screen in the portal reads the output of a stream-processing flow or a command path. The subsections below describe each flow end to end, from vehicle telemetry to the record the portal renders.
 
@@ -73,7 +72,7 @@ A trip record progresses through these states:
 
  **On trip start (ignition ON):** 
 
-```
+```json
 {
   "tripId": "VEH-0049-1709751600000-fc9567",
   "vehicleId": "VEH-0049",
@@ -95,7 +94,7 @@ The processor uses `UpdateItem` (not `PutItem`) to append route points and updat
 
  **On trip end (ignition OFF):** 
 
-```
+```json
 {
   "tripId": "VEH-0049-1709751600000-fc9567",
   "vehicleId": "VEH-0049",
@@ -189,7 +188,7 @@ For each telemetry message:
 ### Safety event DynamoDB record
 <a name="safety-event-record"></a>
 
-```
+```json
 {
   "eventId": "SE-a1b2c3d4",
   "vehicleId": "VEH-0049",
@@ -296,7 +295,7 @@ For each telemetry message:
 ### Maintenance alert DynamoDB record
 <a name="maintenance-alert-record"></a>
 
-```
+```json
 {
   "alertId": "MA-e5f6g7h8",
   "vehicleId": "VEH-0049",
@@ -344,7 +343,7 @@ For FleetWise Edge vehicles, the component that actually executes a command is t
 
    Topic: `cms/commands/{vehicleId}/request` 
 
-   ```
+   ```json
    {
      "commandId": "a1b2c3d4e5f6",
      "commandName": "lock_doors",
@@ -370,7 +369,7 @@ For FleetWise Edge vehicles, the component that actually executes a command is t
 
    Topic: `cms/commands/{vehicleId}/response` 
 
-   ```
+   ```json
    {
      "commandId": "a1b2c3d4e5f6",
      "vehicleId": "VEH-0049",

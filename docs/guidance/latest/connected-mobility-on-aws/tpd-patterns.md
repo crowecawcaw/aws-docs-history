@@ -1,7 +1,6 @@
 
 
 # Four delivery patterns and when each fits
-<a name="tpd-patterns"></a>
 
  **Direct consumer access.** The third party runs a Kafka consumer against the platform’s cluster, authenticated with its own identity and confined to a dedicated consumer group. This gives the lowest latency and no data duplication, and suits consumers that can hold a persistent connection and operate a well-behaved client. Its cost is coupling: the consumer is tied to the platform’s cluster and quotas.
 

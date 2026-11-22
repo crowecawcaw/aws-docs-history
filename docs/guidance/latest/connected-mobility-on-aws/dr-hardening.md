@@ -1,7 +1,6 @@
 
 
 # If you need more than this
-<a name="dr-hardening"></a>
 
 The Guidance is a reference architecture, and its defaults favour a single-Region deployment that is straightforward to operate. Three changes carry most of the benefit if your requirements are stricter:
 +  **Raise the Kafka broker count and replication factor together**, with a minimum in-sync replica setting, per the caution above.
