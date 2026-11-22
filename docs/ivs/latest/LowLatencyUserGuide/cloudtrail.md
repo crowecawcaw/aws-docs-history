@@ -1,7 +1,6 @@
 
 
 # Logging Amazon IVS API Calls with AWS CloudTrail
-<a name="cloudtrail"></a>
 
 Amazon Interactive Video Service (IVS) is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or AWS service in Amazon IVS. CloudTrail captures all API calls for Amazon IVS as events. The calls captured include API calls from the Amazon IVS console and from your applications.
 
@@ -39,7 +38,7 @@ CloudTrail log files contain one or more log entries. CloudTrail log files are n
 
 The following example shows a CloudTrail log entry for the `CreateChannel` operation.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

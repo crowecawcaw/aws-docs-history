@@ -1,7 +1,6 @@
 
 
 # IVS Private Ingest
-<a name="private-ingest-ll"></a>
 
 For workloads that require secure, live video ingestion, you can use an interface VPC (Virtual Private Cloud) endpoint to establish a secure private connection between your Amazon VPC and IVS. This keeps your IVS ingest traffic within the AWS network and off the public internet. Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private communication between AWS services, using an elastic network interface with private IPs in your Amazon VPC. For more information, see [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) and [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) (AWS PrivateLink).
 

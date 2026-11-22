@@ -1,7 +1,6 @@
 
 
 # Create or Import an IVS Playback Key
-<a name="private-channels-create-key"></a>
 
 Amazon IVS allows a maximum of three key pairs that can be used to sign and verify playback tokens. Amazon IVS does not offer any key rotations.
 

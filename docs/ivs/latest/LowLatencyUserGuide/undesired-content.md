@@ -1,7 +1,6 @@
 
 
 # Undesired Content and Viewers in IVS
-<a name="undesired-content"></a>
 
 Malicious users may try to re-stream undesired content (e.g., professional sports) on your platform. This kind of streaming can dramatically increase the amount of live-streamed video that your application is serving as well as the costs associated with it, without adding value to your business. In addition to providing you with controls to stop active streams, Amazon IVS provides resources to help detect and prevent this kind of behavior in the first place.
 

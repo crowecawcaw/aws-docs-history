@@ -1,7 +1,6 @@
 
 
 # IVS Player SDK: iOS Guide
-<a name="player-ios"></a>
 
 The Amazon Interactive Video Service (IVS) iOS player provides the interfaces required to use the Amazon IVS player on iOS.
 

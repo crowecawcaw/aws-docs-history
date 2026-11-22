@@ -1,7 +1,6 @@
 
 
 # IVS Document History \| Low-Latency Streaming
-<a name="doc-history"></a>
 
 The following tables describe the important changes to the documentation for Amazon IVS Low-Latency Streaming. We update the documentation frequently, for new releases and to address the feedback that you send us.
 
@@ -10,6 +9,8 @@ The following tables describe the important changes to the documentation for Ama
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Broadcast SDK: Android 1.49.0, iOS 1.49.0](#history-user-guide) | Updated version number and artifact links in the low-latency-streaming broadcast SDK guides: [Android](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/broadcast-android.html) and [iOS](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/broadcast-ios.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#nov20-26-broadcast-mobile-ll). | November 20, 2026 | 
+| [Broadcast SDK: Web 1.42.0](#history-user-guide) | Updated version number and artifact links in the low-latency-streaming broadcast SDK guide: [Web](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/broadcast-web.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#nov19-26-broadcast-web-ll). | November 19, 2026 | 
 | [Player SDK: Android 1.58.1, iOS 1.58.1](#history-user-guide) | Updated version number and artifact links in the player SDK guides: [Android](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/player-android.html) and [iOS](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/player-ios.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#nov09-26-player-mobile-ll). | November 9, 2026 | 
 | [Broadcast SDK: Android 1.48.1, iOS 1.48.1](#history-user-guide) | Updated version number and artifact links in the low-latency-streaming broadcast SDK guides: [Android](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/broadcast-android.html) and [iOS](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/broadcast-ios.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#nov04-26-broadcast-mobile-ll). | November 4, 2026 | 
 | [Player SDK: Web 1.58.0](#history-user-guide) | Updated version number and artifact links in the player SDK guides: [Web](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/player-web.html), [Video.js integration](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/player-videojs.html), and [JW Player integration](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/player-jwplayer.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#oct29-26-player-web-ll). | October 29, 2026 | 

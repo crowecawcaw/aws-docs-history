@@ -1,7 +1,6 @@
 
 
 # Using Service-Linked Roles for Amazon IVS
-<a name="security-service-linked-roles"></a>
 
 Amazon IVS uses IAM[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to an AWS service. Service-linked roles are predefined by Amazon IVS and include all the permissions that the service requires to call other AWS services on your behalf. 
 

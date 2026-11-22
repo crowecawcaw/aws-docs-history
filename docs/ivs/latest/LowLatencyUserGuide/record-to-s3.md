@@ -1,7 +1,6 @@
 
 
 # IVS Auto-Record to Amazon S3 \| Low-Latency Streaming
-<a name="record-to-s3"></a>
 
 This section provides information about the auto-record-to-S3 feature of Amazon IVS low-latency streaming. We discuss data storage for recorded Amazon IVS streams. We explain the storage contents and metadata file schema. We also discuss playback of your recorded content.
 

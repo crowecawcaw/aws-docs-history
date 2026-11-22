@@ -1,7 +1,6 @@
 
 
 # Getting Started with the IVS Android Player SDK
-<a name="android-getting-started"></a>
 
 This document takes you through the steps involved in getting started with the Amazon IVS Android player SDK.
 

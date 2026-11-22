@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an AWS Account
-<a name="getting-started-create-account"></a>
 
 ## Sign up for an AWS account
 <a name="sign-up-for-aws"></a>

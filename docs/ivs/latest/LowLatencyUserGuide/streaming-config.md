@@ -1,7 +1,6 @@
 
 
 # Amazon IVS Streaming Configuration
-<a name="streaming-config"></a>
 
 Amazon Interactive Video Service (IVS) allows developers to easily deliver low-latency video to viewers worldwide. With Amazon IVS, streamers need to handle only stream production, then send the stream to Amazon IVS. Amazon IVS handles video processing (ingesting and transcoding), delivery, and playback to viewers using the Amazon IVS player.
 

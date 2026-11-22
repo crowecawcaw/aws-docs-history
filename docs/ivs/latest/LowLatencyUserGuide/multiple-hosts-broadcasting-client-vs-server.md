@@ -1,7 +1,6 @@
 
 
 # Broadcasting a Stage: Client-Side versus Server-Side Composition
-<a name="multiple-hosts-broadcasting-client-vs-server"></a>
 
 When developers want to broadcast a stage to an IVS channel, they have two choices:
 + With *client-side composition*, a host connects to a stage, downloads videos from other hosts, combines them into one stream, and broadcasts the mixed stream to an IVS channel. This approach allows for a high degree of layout flexibility: the app developer can control the look of the composition using the mixer API. However, client-side composition requires more client CPU resources to create the composition and more bandwidth to broadcast it. Also, if the host broadcasting the stage has network issues, they may impact the live stream for viewers.

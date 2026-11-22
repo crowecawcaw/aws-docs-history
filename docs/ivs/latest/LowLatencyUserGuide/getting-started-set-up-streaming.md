@@ -1,7 +1,6 @@
 
 
 # Step 4: Set Up Streaming Software
-<a name="getting-started-set-up-streaming"></a>
 
 You can stream (low-latency) to Amazon IVS with:
 + The native [IVS broadcast SDKs](#broadcast-sdk), which support RTMPS. We recommended this, especially for production scenarios.

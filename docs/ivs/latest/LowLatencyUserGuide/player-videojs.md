@@ -1,7 +1,6 @@
 
 
 # IVS Player SDK: Video.js Integration
-<a name="player-videojs"></a>
 
 This document describes the most important functions available in the Amazon Interactive Video Service (IVS) Video.js player.
 

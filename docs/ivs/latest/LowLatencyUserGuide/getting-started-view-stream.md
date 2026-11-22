@@ -1,7 +1,6 @@
 
 
 # Step 5: View Your Live Stream
-<a name="getting-started-view-stream"></a>
 
 You can view your live stream with:
 + The native [IVS player SDKs](#view-stream-player-sdks).

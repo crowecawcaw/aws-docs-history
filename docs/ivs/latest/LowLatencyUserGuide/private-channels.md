@@ -1,7 +1,6 @@
 
 
 # Setting Up IVS Private Channels
-<a name="private-channels"></a>
 
 Amazon Interactive Video Service (IVS) offers customers the ability to create private channels, allowing customers to restrict their streams by channel or viewer. Customers control access to video playback by enabling *playback authorization* on channels and generating signed JSON Web Tokens (JWTs) for authorized playback requests.
 

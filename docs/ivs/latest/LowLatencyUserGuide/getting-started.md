@@ -1,7 +1,6 @@
 
 
 # Getting Started with IVS Low-Latency Streaming
-<a name="getting-started"></a>
 
 This document takes you through the steps to set up your first Amazon Interactive Video Service (IVS) live stream.
 

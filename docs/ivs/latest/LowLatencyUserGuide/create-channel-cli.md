@@ -1,7 +1,6 @@
 
 
 # CLI Instructions for Creating an IVS Channel
-<a name="create-channel-cli"></a>
 
 Creating a channel with the AWS CLI is an advanced option and requires that you first download and configure the CLI on your machine. For details, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 

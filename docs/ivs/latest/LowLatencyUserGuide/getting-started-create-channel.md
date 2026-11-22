@@ -1,7 +1,6 @@
 
 
 # Step 3: Create a Channel with Optional Recording
-<a name="getting-started-create-channel"></a>
 
 An Amazon IVS channel stores configuration information related to your live stream. You first create a channel and then contribute video to it using the channel’s stream key to start your live stream.
 

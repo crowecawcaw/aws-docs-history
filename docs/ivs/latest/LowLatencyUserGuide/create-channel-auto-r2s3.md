@@ -1,7 +1,6 @@
 
 
 # Auto-Record to Amazon S3
-<a name="create-channel-auto-r2s3"></a>
 
 You have the option of enabling recording for a channel. If the auto-record to S3 feature is enabled, all streams on the channel are recorded and saved to an Amazon S3 storage bucket that you own. Subsequently, the recording is available for on-demand playback.
 

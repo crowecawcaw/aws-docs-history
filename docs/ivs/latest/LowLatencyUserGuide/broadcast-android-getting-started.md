@@ -1,7 +1,6 @@
 
 
 # Getting Started​ with the IVS Android Broadcast SDK \| Low-Latency Streaming
-<a name="broadcast-android-getting-started"></a>
 
 This document takes you through the steps involved in getting started with the Amazon IVS low-latency streaming Android broadcast SDK.
 
@@ -15,7 +14,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.48.1'
+     implementation 'com.amazonaws:ivs-broadcast:1.49.0'
 }
 ```
 

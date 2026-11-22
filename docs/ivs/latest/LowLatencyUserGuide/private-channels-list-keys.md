@@ -1,7 +1,6 @@
 
 
 # List IVS Playback Keys
-<a name="private-channels-list-keys"></a>
 
 Amazon IVS customers can get a list of all of their playback-key resources at any time.
 

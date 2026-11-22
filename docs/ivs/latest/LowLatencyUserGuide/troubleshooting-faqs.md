@@ -1,7 +1,6 @@
 
 
 # Troubleshooting IVS Low-Latency Streaming
-<a name="troubleshooting-faqs"></a>
 
 This document describes best practices and troubleshooting tips for Amazon Interactive Video Service (IVS). Unexpected or unintended behaviors may occur when using IVS. These behaviors can occur at various points in the streaming process, from broadcasting to playback of content:
 

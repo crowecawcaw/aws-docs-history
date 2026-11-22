@@ -1,7 +1,6 @@
 
 
 # Embedding Metadata within a Video Stream
-<a name="metadata"></a>
 
 Amazon Interactive Video Service (IVS) timed metadata provides a way to embed metadata in an Amazon IVS stream. It ensures that all your viewers receive the metadata at the same time in the video stream, regardless of stream latency or geographic location.
 
@@ -35,7 +34,7 @@ Next, you must give your IAM user permission to use timed metadata. Follow these
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

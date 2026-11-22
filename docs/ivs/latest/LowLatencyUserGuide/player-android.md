@@ -1,7 +1,6 @@
 
 
 # IVS Player SDK: Android Guide
-<a name="player-android"></a>
 
 The Amazon Interactive Video Service (IVS) Android player SDK provides the interfaces required to use the Amazon IVS player on Android.
 

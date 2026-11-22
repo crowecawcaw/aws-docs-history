@@ -1,7 +1,6 @@
 
 
 # IVS Costs \| Low-Latency Streaming
-<a name="costs"></a>
 
 There are separate costs for Amazon Interactive Video Service (Amazon IVS) live video and Amazon S3 storage related to the auto-record-to-S3 feature. 
 

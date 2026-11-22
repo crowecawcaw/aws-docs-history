@@ -1,7 +1,6 @@
 
 
 # Amazon IVS Multitrack Video: Broadcast Software Integration Guide
-<a name="multitrack-video-sw-integration"></a>
 
 ## Introduction
 <a name="multitrack-video-sw-integration-intro"></a>

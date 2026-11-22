@@ -1,9 +1,50 @@
 
 
 # IVS Release Notes \| Low-Latency Streaming
-<a name="release-notes"></a>
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
+
+## November 20, 2026
+<a name="nov20-26-broadcast-mobile-ll"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.49.0, iOS 1.49.0
+<a name="nov20-26-broadcast-mobile-ll-1490"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.49.0](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/android/)+  Performance improvements to the networking stack  | 
+| [iOS Broadcast SDK 1.49.0](broadcast-ios.md) | **Download for low-latency streaming: ** [https://broadcast.live-video.net/1.49.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.49.0/AmazonIVSBroadcast.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/ios/)+  Performance improvements to the networking stack <br />+  Added modern Swift async annotations for the following classes: `IVSCodecDiscovery`, `IVSDevice`, and `IVSSession`  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1490-ll-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 2.095 MB | 5.633 MB | 
+| armeabi-v7a | 1.822 MB | 3.866 MB | 
+| x86\_64 | 2.183 MB | 5.985 MB | 
+| x86 | 2.199 MB | 5.766 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1490-ll-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 1.060 MB | 2.332 MB | 
+
+## November 19, 2026
+<a name="nov19-26-broadcast-web-ll"></a>
+
+### IVS Broadcast SDK: Web 1.42.0 (Low-Latency Streaming)
+<a name="nov19-26-broadcast-web-ll-1420"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web Broadcast SDK 1.42.0](broadcast-web.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference)+  Bug fixes and stability improvements.  | 
 
 ## November 9, 2026
 <a name="nov09-26-player-mobile-ll"></a>

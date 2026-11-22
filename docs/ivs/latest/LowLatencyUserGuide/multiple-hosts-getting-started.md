@@ -1,7 +1,6 @@
 
 
 # Getting Started with Multiple Hosts in IVS
-<a name="multiple-hosts-getting-started"></a>
 
 This document takes you through the steps involved in getting started using multiple hosts in Amazon IVS.
 

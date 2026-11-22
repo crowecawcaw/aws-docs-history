@@ -1,7 +1,6 @@
 
 
 # Revoke IVS Viewer Sessions
-<a name="private-channels-start-session-revocation"></a>
 
 Amazon IVS customers can revoke the viewer session associated with an auth token, to prevent and stop playback using that token. An example use case is transitioning a public stream to a private stream in which only a subset of the public stream viewers can continue watching.
 

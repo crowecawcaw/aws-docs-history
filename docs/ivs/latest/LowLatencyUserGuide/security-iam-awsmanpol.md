@@ -1,7 +1,6 @@
 
 
 # Managed Policies for Amazon IVS
-<a name="security-iam-awsmanpol"></a>
 
 
 

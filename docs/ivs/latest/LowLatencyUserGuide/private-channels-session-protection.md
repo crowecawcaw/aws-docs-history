@@ -1,7 +1,6 @@
 
 
 # How Session Protection Works
-<a name="private-channels-session-protection"></a>
 
 When you request a playback URL with a valid playback token, IVS creates an authorized session and returns playlist and segment URLs that are unique to that session. These subsequent URLs do not contain a visible token parameter, but they are still tied to the authorized session.
 

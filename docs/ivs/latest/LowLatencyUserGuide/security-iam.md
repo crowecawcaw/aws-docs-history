@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management in IVS
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an account administrator securely control access to AWS resources. Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies. IAM account administrators control who can be authenticated (signed in) and authorized (have permissions) to use Amazon IVS resources. IAM is a feature of your AWS account offered at no additional charge.
 
@@ -116,7 +115,7 @@ The parts of the following policy provide access to:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -184,7 +183,7 @@ This example shows a policy that allows IAM users to view the inline and managed
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -233,7 +232,7 @@ Here, you want to grant an IAM user in your AWS account access to one of your Am
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -282,7 +281,7 @@ You can use conditions in your identity-based policy to control access to Amazon
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

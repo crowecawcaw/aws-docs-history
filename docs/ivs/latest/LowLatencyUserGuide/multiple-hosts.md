@@ -1,7 +1,6 @@
 
 
 # Enabling Multiple Hosts on an Amazon IVS Stream
-<a name="multiple-hosts"></a>
 
 Amazon Interactive Video Service (IVS) enables developers to build applications that combine video and audio from multiple broadcasters (also referred to as *hosts*) into one live stream.
 

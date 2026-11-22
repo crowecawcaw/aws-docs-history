@@ -1,7 +1,6 @@
 
 
-# Amazon IVS Failover Slate
-<a name="failover-slate"></a>
+# Amazon IVS failover slate
 
 Amazon IVS failover slate helps you maintain viewer engagement when broadcasters experience temporary network disruptions or technical difficulties. When a broadcaster's connection is interrupted, IVS automatically displays a failover slate to viewers instead of showing a buffering wheel or frozen frame. This provides a smoother viewing experience and helps retain your audience during momentary interruptions. Failover slate is particularly useful when broadcasting from a mobile device with unreliable connectivity.
 
@@ -9,7 +8,7 @@ When you enable failover slate for a channel, IVS monitors the incoming stream. 
 
 Failover slate activates only on unexpected interruptions. If the broadcaster intentionally stops streaming (a clean disconnect), the stream ends normally and IVS does not show a slate.
 
-## Getting Started with Failover Slate
+## Getting started with failover slate
 <a name="failover-slate-getting-started"></a>
 
 This tutorial helps you get started with Amazon IVS failover slate. At the end of this tutorial, you have an IVS channel configured with a failover slate enabled. IVS uses the following default slate when failover slate is enabled.
@@ -20,14 +19,14 @@ This tutorial helps you get started with Amazon IVS failover slate. At the end o
 **Note**  
 The default failover slate is an animated image provided by Amazon IVS, shown as a static screenshot in the preceding image. Custom slate assets are not currently supported.
 
-### Step 1: Create a Failover Slate Configuration
+### Step 1: Create a failover slate configuration
 <a name="failover-slate-step-1"></a>
 
 A failover slate configuration controls when and how long the slate is displayed during stream disruptions. You can reuse a single failover slate configuration across multiple channels.
 
 To create a failover slate configuration (AWS CLI):
 
-```
+```bash
 aws ivs create-failover-slate-configuration \
   --name "my-failover-slate" \
   --activation-threshold-seconds 5 \
@@ -35,14 +34,14 @@ aws ivs create-failover-slate-configuration \
   --max-slate-display-seconds 180
 ```
 
-### Step 2: Create or Update the Channel
+### Step 2: Create or update the channel
 <a name="failover-slate-step-2"></a>
 
 Associate your failover slate configuration with an IVS channel. You can do this when creating a new channel or by updating an existing one.
 
 To create a new channel with failover slate (AWS CLI):
 
-```
+```bash
 aws ivs create-channel \
   --name "my-channel" \
   --failover-slate-configuration-arn \
@@ -51,7 +50,7 @@ aws ivs create-channel \
 
 To update an existing channel with failover slate configuration (AWS CLI):
 
-```
+```bash
 aws ivs update-channel \
   --arn "arn:aws:ivs:us-west-2:123456789012:channel/ABcdef12ghIJ" \
   --failover-slate-configuration-arn \
@@ -61,12 +60,12 @@ aws ivs update-channel \
 **Note**  
 Live channels cannot be updated. You must stop the ongoing stream, update the channel, and restart the stream for changes to take effect.
 
-### Step 3: Start Streaming
+### Step 3: Start streaming
 <a name="failover-slate-step-3"></a>
 
 To start streaming, use the ingest endpoint and stream key from your channel.
 
-### Step 4: Test the Failover Slate
+### Step 4: Test the failover slate
 <a name="failover-slate-step-4"></a>
 
 IVS shows the failover slate only when it detects an unexpected stream interruption. There are two detection mechanisms:
@@ -85,12 +84,12 @@ If recording is enabled for the channel, recordings include the failover slate c
 **Important**  
 Not all third-party encoders send a clean disconnect signal when a stream ends intentionally. If your encoder does not send a clean disconnect, IVS may display the failover slate when the broadcaster stops streaming. Test failover slate with your encoder to verify the expected behavior for both intentional stops and unexpected interruptions.
 
-### Step 5: Disable Failover Slate
+### Step 5: Disable failover slate
 <a name="failover-slate-step-5"></a>
 
 To remove a failover slate configuration from a channel, update the channel with an empty failover slate configuration ARN:
 
-```
+```bash
 aws ivs update-channel \
   --arn "arn:aws:ivs:us-west-2:123456789012:channel/ABcdef12ghIJ" \
   --failover-slate-configuration-arn ""
@@ -112,6 +111,6 @@ While a failover slate is active, your channel remains live and continues to inc
 
 For details on how video input and output are billed, see the [Amazon IVS Pricing](https://aws.amazon.com/ivs/pricing/) page.
 
-## Known Issues
+## Known issues
 <a name="failover-slate-known-issues"></a>
 + **Brief visual artifacts after the slate ends** — When playback switches from the failover slate back to live content, viewers may see visual artifacts until the next keyframe. Playback then returns to normal on its own.
