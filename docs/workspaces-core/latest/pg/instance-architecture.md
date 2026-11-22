@@ -1,7 +1,6 @@
 
 
 # Architecture
-<a name="instance-architecture"></a>
 
 Amazon WorkSpaces Core Managed Instances introduce an updated architecture that allows EC2 instances to be launched directly into the customer’s AWS account, rather than into an account owned by Amazon WorkSpaces Core. These instances are referred to as WorkSpaces Core managed EC2 instances. Under this model, WorkSpaces Core partners have direct access to most EC2 APIs within the customer’s account. For mutable operations such as launch and terminate an instance, partners must use the Amazon WorkSpaces Core SDK instead of native EC2 APIs.
 

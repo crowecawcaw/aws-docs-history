@@ -1,7 +1,6 @@
 
 
 # Infrastructure setup
-<a name="infrastucture-setup"></a>
 
 Use the following steps to set up your customer’s AWS account. As the technology partner, you perform some steps, and your customer also performs some steps.
 

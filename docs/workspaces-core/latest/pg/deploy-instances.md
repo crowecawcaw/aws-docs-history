@@ -1,7 +1,6 @@
 
 
 # Deployment with WorkSpaces Core Managed Instances
-<a name="deploy-instances"></a>
 
 To deploy a Amazon WorkSpaces Core-based virtual desktop infrastructure (VDI) using WorkSpaces Managed Instances, customers must meet the following requirements:
 

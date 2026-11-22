@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Core bundles management
-<a name="lifecyle-management-of-instances"></a>
 
  To perform various actions for Amazon WorkSpaces Core, use the following API operations. To help you create your workflow, we have provided a recommendation for each API operation. We recommend partners solutions use as many of these APIs as possible so that admin customers don’t need to access the WorkSpaces console.
 + Deployment and setup

@@ -1,7 +1,6 @@
 
 
 # Solution deployment guide example
-<a name="deployment-guide-example"></a>
 
 As a partner who is building a solution using Amazon WorkSpaces Core, it's your responsibility to document how your customers can deploy your solution to their environments. We recommend that you create a deployment guide, with the following suggested table of contents. Some topics might not be relevant to your solution, so revise the topics as necessary.
 

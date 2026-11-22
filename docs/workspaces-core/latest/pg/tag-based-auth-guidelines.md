@@ -1,7 +1,6 @@
 
 
 # Tag-based authorization guidelines
-<a name="tag-based-auth-guidelines"></a>
 
 Tag-based authorization can prevent you from modifying customer resources. This strategy utilizes IAM tag conditions. You assume a role in your customer’s account, and the role will have IAM policies based on tag conditions. When you create a resource in your customer’s account, the policy requires a specific tag to be added. And when you modify a resource in your customer’s account, the policy ensures that it only allows modification on resources with the specified tags. You should not have permission to modify or delete tags on a resource. To create a complete IAM policy for the assume role, the customer can use the following examples.
 
@@ -29,7 +28,7 @@ The following tag keys policy example only allows API actions to use tag keys �
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -66,7 +65,7 @@ The following resource tag policy example ensures that modifications can only ha
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -101,7 +100,7 @@ The following resource tag policy example ensures that modifications can only ha
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -127,7 +126,7 @@ The following resource tag policy example ensures that modifications can only ha
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

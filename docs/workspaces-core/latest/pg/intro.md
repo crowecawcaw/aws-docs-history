@@ -1,7 +1,6 @@
 
 
 # Introduction
-<a name="intro"></a>
 
 ## How Amazon WorkSpaces Core works
 <a name="how-core-works"></a>
