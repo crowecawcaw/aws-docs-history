@@ -1,7 +1,6 @@
 
 
 # FSICOST02: Do you apply the Pareto-principle (80/20 rule) to manage, optimize, and plan your cloud usage and spend?
-<a name="fsicost02"></a>
 
  Investing the right amount of effort in a cost optimization strategy up front allows you to realize the economic benefits of the cloud more readily, by ensuring a consistent adherence to best practices and avoiding unnecessary over provisioning. CFM is paramount not only to effectively manage costs, but also to verify that investments are driving expected business outcomes. 
 

@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="cost-resources"></a>
 
  Refer to the following resources to learn more about our best practices related to cost optimization for financial services customers. For more information, refer to the [FSI Blog](https://aws.amazon.com/blogs/industries/category/industries/financial-services/) and [Amazon Connect Resources](https://aws.amazon.com/connect/resources/?amazon-connect-blogs-leadership.sort-by=item.additionalFields.createdDate&amazon-connect-blogs-leadership.sort-order=desc&amazon-connect-blogs-tech.sort-by=item.additionalFields.createdDate&amazon-connect-blogs-tech.sort-order=desc&whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&ar-cards-connect.sort-by=item.additionalFields.datePublished&ar-cards-connect.sort-order=desc).
 

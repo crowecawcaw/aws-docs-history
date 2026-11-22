@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 **Topics**
 + [FSIOPS4: How do you assess your ability to operate a workload in the cloud?](fsiops4.md)

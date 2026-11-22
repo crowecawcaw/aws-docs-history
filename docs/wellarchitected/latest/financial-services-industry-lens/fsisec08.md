@@ -1,7 +1,6 @@
 
 
 # FSISEC08: How do you isolate your software development lifecycle (SDLC) environments (like development, test, and production)?
-<a name="fsisec08"></a>
 
  We recommend that you separate production workloads from non-production workloads. Maintaining resource isolation between software development lifecycle (SDLC) environments reduces the chance of misuse and accidents in production environments. This is an important guidance for all financial institutions, including those that are subject to Payment Card Industry Data Security Standard (PCI DSS). For generative AI workloads, environment isolation extends to model artifacts, prompt catalogs, AI service endpoints, and data isolation for training datasets and inference data. 
 

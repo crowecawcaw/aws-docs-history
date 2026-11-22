@@ -1,7 +1,6 @@
 
 
 # FSISUS10: Have you selected the storage class with the lowest carbon footprint?
-<a name="fsisus10"></a>
 
  Data is at the heart of strategic innovations for the financial services industry. This can have many use cases ranging from providing hyperpersonalised experiences for customers, training machine learning models to better understand risk and fraud detection. Each use case requires different levels of data availability, processing, and storage and therefore varies in storage technologies from transactional databases, to data lakes and data warehouses. These come with various considerations from a sustainability perspective. 
 

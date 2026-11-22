@@ -1,7 +1,6 @@
 
 
 # Performance efficiency
-<a name="performance-efficiency"></a>
 
  The performance efficiency pillar focuses on the efficient use of resources to meet requirements, and to maintain and improve that efficiency as demands change and technologies evolve. 
 

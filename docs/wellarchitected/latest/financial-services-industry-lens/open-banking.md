@@ -1,7 +1,6 @@
 
 
 # Open banking
-<a name="open-banking"></a>
 
 In open banking, banks use an API messaging framework to securely share their customer data (with consent from customers) to third-party developers and service providers, which allows for automated and secure access to the data in their core banking environment. While open banking initially started as a regulatory requirement in the United Kingdom (UK) and other regions around the world, it has now transformed into a new revenue stream for banks, as they look to monetize their data and core functionality by exposing their core environment through APIs and building new business models such as Banking as a Service (BaaS) and embedded finance on top of the APIs. Banks often choose AWS to build their open banking environment because of its inherent scalability, cost effectiveness, and the speed at which they can build. Open banking architectures supporting these use cases share the following characteristics:
 +  Data is shared to third parties only after consent from the customer using OAuth 2.0. 
@@ -13,6 +12,8 @@ In open banking, banks use an API messaging framework to securely share their cu
  **Reference architecture** 
 
 ![Open banking reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/open-banking-reference-architecture.png)
+
+*Figure 4. Reference architecture for data holder*
 
 
  **Architecture description** 

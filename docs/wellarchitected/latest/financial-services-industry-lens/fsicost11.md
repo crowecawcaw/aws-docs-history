@@ -1,7 +1,6 @@
 
 
 # FSICOST11: Do you use cost tradeoffs of various AWS pricing models in your workload design?
-<a name="fsicost11"></a>
 
  Cloud cost is an important part of the design and architecture process and is used in making trade- offs between quality, performance, security and other non-functional requirements. Cloud cost is considered when selecting AWS services (using building block services such as Amazon EC2 versus using managed services such as Amazon ECS). 
 

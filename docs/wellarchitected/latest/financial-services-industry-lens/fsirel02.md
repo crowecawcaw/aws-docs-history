@@ -1,7 +1,6 @@
 
 
 # FSIREL02: Are you practicing continuous resilience to ensure that your services meet regulatory availability and recovery requirements?
-<a name="fsirel02"></a>
 
  Your workload, and the environment in which it operates, is constantly changing. To keep pace, resiliency practices should not be considered a one-time effort. Make resilience a regular part of your feature delivery and operational cadence throughout a workload's lifetime. To this end, resiliency testing should be part of your CI/CD testing pipelines. 
 

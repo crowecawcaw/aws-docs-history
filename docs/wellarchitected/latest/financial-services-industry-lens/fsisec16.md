@@ -1,7 +1,6 @@
 
 
 # FSISEC16: How do you use AI for threat detection and security automation?
-<a name="fsisec16"></a>
 
  Financial institutions can use AI capabilities to enhance their security posture through automated threat detection, incident response, and security monitoring. AI-powered security solutions can process vast amounts of data to identify patterns and anomalies that might indicate security threats, enabling faster and more effective responses. While implementing these AI security systems, organizations must verify that the AI components themselves remain secure and operate within appropriate governance frameworks. 
 

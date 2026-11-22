@@ -1,7 +1,6 @@
 
 
 # FSISUS15: What is your testing process for workloads that require floating point precision?
-<a name="fsisus15"></a>
 
 ## FSISUS15-BP01 Minimize the bit count while maintaining precision
 <a name="fsisus15-bp01-minimize-the-bit-count-while-maintaining-precision"></a>

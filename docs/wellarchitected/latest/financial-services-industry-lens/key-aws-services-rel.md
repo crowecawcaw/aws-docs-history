@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-rel"></a>
 +  **Resilient architecture** 
   +  ** [Amazon S3](https://aws.amazon.com/s3/):** Leverage Amazon S3 object storage and replication to provide durability and resilience of your data on AWS. It is available Regionally (resilient against events that impact an entire Availability Zone) and also supports cross-Regional replication for geographic isolation. 
   +  ** [Amazon EC2 Auto Scaling](https://aws.amazon.com/ec2/autoscaling/):** Maintain workload availability and automatically add or remove Amazon EC2 instances according to conditions you define. You can also use the dynamic and predictive scaling features of Amazon EC2 Auto Scaling to respond to changing demand as well as schedule the right number of Amazon EC2 instances based on predicted demand to scale faster. 

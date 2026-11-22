@@ -1,7 +1,6 @@
 
 
 # Selection
-<a name="selection"></a>
 
 **Topics**
 + [FSIPERF01: How do you select the best performing architecture?](fsiperf01.md)

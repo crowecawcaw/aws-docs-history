@@ -1,7 +1,6 @@
 
 
 # FSISEC14: How do you monitor AI system outputs for security issues?
-<a name="fsisec14"></a>
 
  Continuous monitoring of AI system outputs is critical for financial institutions to detect harmful responses, potential data leakage, and security violations. Without proper monitoring, AI systems may generate responses that expose sensitive information, violate compliance requirements, or create security vulnerabilities. Implementing comprehensive monitoring across all AI interactions enables organizations to identify and address security issues before they impact customers or operations. 
 

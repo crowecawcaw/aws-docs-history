@@ -1,7 +1,6 @@
 
 
 # Software and architecture
-<a name="software-and-architecture"></a>
 
 **Topics**
 + [FSISUS06: How do you monitor and minimize resource usage for financial services workloads?](fsisus06.md)

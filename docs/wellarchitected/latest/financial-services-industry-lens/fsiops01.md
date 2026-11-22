@@ -1,7 +1,6 @@
 
 
 # FSIOPS01: Have you defined risk management roles for the cloud?
-<a name="fsiops01"></a>
 
  Financial institutions typically adopt a Three Lines of Defense model to improve effectiveness of risk management. The second and third lines of defense must have the appropriate skills and training necessary to understand the risks involved in the delivery of business services using cloud - services owned and managed by the first line. Establish clear roles and responsibilities both within and across the three lines of defense's functions to verify the effectiveness and auditability of the cloud operating model. Reassess these roles and responsibilities at regular intervals to keep the governance model efficient and effective. 
 

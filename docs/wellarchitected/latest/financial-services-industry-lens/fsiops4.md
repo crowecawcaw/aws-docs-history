@@ -1,7 +1,6 @@
 
 
 # FSIOPS4: How do you assess your ability to operate a workload in the cloud?
-<a name="fsiops4"></a>
 
  Financial services institutions often have a robust set of operating policies that govern behaviors and decision-making for activities such as disaster recovery planning, capacity management, security and compliance guardrails, and data backup and recovery. Cloud services support new technologies, architectural patterns, and automations which are not possible or practical for on-premises environments. Policies which were originally created for on-premise environments should be revisited from a cloud perspective, rather than assumed to be necessary and relevant. 
 

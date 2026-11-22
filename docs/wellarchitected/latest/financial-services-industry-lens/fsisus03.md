@@ -1,7 +1,6 @@
 
 
 # FSISUS03: How do you select a Region to optimize financial services workloads for sustainability?
-<a name="fsisus03"></a>
 
  Financial institutions must focus on sustainability within their cloud operating model to reduce their impact on the environment and to encourage sustainable practices. Focusing on these areas helps financial institutions adapt their workloads to financial services industry sustainability best practices, to adopt new environmentally friendly technology trends, and to plan for the business impacts of potential future regulatory requirements. The selection of the best Region might be driven by taking into account a variety of reasons. 
 

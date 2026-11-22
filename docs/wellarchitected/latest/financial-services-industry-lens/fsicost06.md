@@ -1,7 +1,6 @@
 
 
 # FSICOST06: How do you track your workload usage cycles?
-<a name="fsicost06"></a>
 
  Financial services workload usage can be cyclical and can have usage spikes during specific days like month-end or quarter-end, or it can be intra-day during specific hours. AWS provides customers with a number of usage monitoring services that can scale your operations up and down as demand conditions require. Monitor cost at an application-level, and a workload-level on a regular basis, and optimize usage of resources and cost. 
 

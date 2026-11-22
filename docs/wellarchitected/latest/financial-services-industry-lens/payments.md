@@ -1,7 +1,6 @@
 
 
 # Payments
-<a name="payments"></a>
 
  Payment gateways facilitate financial services to make online transactions between customers and merchants. To secure these transactions, payment gateways rely on secure cloud technology. AWS provides a secure and reliable environment for payment processing and storage of payment card information, as well as a number of encryption options for sensitive data, including encryption at rest and in transit. 
 
@@ -17,6 +16,8 @@ Payment gateways can use tokenization to protect customer data by replacing the 
  **Reference architecture** 
 
 ![QR payments reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/payments-reference-architecture.png)
+
+*Figure 5: Architecture for QR Payments on AWS*
 
 
  **Architecture description** 

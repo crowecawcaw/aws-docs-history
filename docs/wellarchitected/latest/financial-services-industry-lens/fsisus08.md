@@ -1,7 +1,6 @@
 
 
 # FSISUS08: How do you optimize your resource usage?
-<a name="fsisus08"></a>
 
  Review and optimize your resource usage by implementing either a pub/sub or pull mechanism instead of relying on a polling approach. 
 

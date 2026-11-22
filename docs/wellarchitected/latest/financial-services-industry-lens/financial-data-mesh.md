@@ -1,7 +1,6 @@
 
 
 # Financial data mesh
-<a name="financial-data-mesh"></a>
 
  A commonly sought-after goal of financial services organizations is to provide access to data and to extract additional value from data that is generated or acquired across their multiple business units. For example, historical market data, alternative investment data, transaction and business process data, and third-party data sets can be combined to provide for analytics and training machine learning models. 
 
@@ -14,6 +13,8 @@ The term *data mesh* refers to any architectural framework that enables access t
  **Reference architecture** 
 
 ![Financial data mesh reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/financial-data-mesh-reference-architecture.png)
+
+*Figure 1. Financial data mesh*
 
 
  **Architecture description** 

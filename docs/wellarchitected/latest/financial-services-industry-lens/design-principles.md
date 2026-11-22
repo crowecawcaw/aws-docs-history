@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The Well-Architected Framework identifies a set of four general design principles to facilitate good design in the cloud for financial services workloads. 
 

@@ -1,7 +1,6 @@
 
 
 # Optimize over time
-<a name="optimize-over-time"></a>
 
  You can optimize cost over time by reviewing new services and implementing them in your workload. As AWS releases new services and features, it is a best practice to review your existing architectural decisions to ensure that they remain cost effective. As your requirements change, be aggressive in decommissioning resources, components, and workloads that you no longer require. Consider the following best practices to help you optimize over time. While optimizing your workloads over time and improving your [CFM](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/practice-cloud-financial-management.html) culture in your organization, evaluate the cost 
 

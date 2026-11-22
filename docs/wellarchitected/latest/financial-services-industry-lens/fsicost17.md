@@ -1,7 +1,6 @@
 
 
 # FSICOST17: Are you continually reviewing your workload to provide the most cost-effective resources?
-<a name="fsicost17"></a>
 
  There are multiple factors that affect the architecture, for example, new enhancements related to business requirements, re-architecting your workload to improve efficiency, new services released by AWS, price changes by AWS, or your team creating an MVP product with services without considering costs. It is necessary to continually review the architecture and resources used by your workload. 
 

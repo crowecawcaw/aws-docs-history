@@ -1,7 +1,6 @@
 
 
 # FSISEC02: How do you achieve, maintain, and monitor ongoing compliance with regulatory guidelines and mandates?
-<a name="fsisec02"></a>
 
  Companies in the financial sector have more demanding compliance monitoring and implementation requirements than most other sectors of the economy. Traditional methods of compliance assessment do not keep pace with the dynamics of the agile cloud environment. For this reason, the best practices and tools required are specific to this type of environment. Regulations ensure that consumers' personal and financial data are protected. Compliance with these regulations helps prevent identity theft, fraud, and unauthorized disclosure of personal information. Compliance also helps maintain the integrity and stability of the financial markets by ensuring that institutions engage in responsible lending and investment practices and avoid excessive risk-taking. The following best practices help facilitate compliance in the cloud. 
 

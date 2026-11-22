@@ -1,7 +1,6 @@
 
 
 # FSISUS14: Do you have multi-architecture images for grid computing systems?
-<a name="fsisus14"></a>
 
  Multi-architecture image support for a particular workload makes it easier for you to build different images and thus different architectures and operating systems from the same source and refer to them all by the same abstract manifest. The manifest specifies the layers of system content that make up the image as well as its runtime characteristics and configuration. Having a multi-architecture image increases the flexibility of the workload thus increases the opportunity to use hardware that may be more sustainable. 
 

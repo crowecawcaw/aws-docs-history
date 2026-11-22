@@ -1,7 +1,6 @@
 
 
 # FSICOST15: Have you reviewed your ongoing cost structure tradeoffs for your current AWS services lately?
-<a name="fsicost15"></a>
 
  You can optimize cost over time by reviewing new services and implementing them in your workload. As AWS releases new services and features, it is a best practice to review your existing architectural decisions to ensure that they remain cost effective. 
 

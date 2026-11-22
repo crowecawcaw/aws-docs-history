@@ -1,7 +1,6 @@
 
 
 # FSISUS11: Do you store processed data or raw data?
-<a name="fsisus11"></a>
 
 ## FSISUS11-BP01 Use processed data to reduce your storage footprint
 <a name="fsisus11-bp01-use-processed-data-to-reduce-your-storage-footprint"></a>

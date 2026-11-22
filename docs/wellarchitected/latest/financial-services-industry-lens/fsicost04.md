@@ -1,7 +1,6 @@
 
 
 # FSICOST04: How do you promote cost-awareness within your organization?
-<a name="fsicost04"></a>
 
  Awareness of usage at all levels in the organization is key to driving change, as change in usage drives changes in cost. Consider taking a multi-faceted approach to becoming aware of your usage and expenditures. Your team must gather data, analyze, and then report. 
 

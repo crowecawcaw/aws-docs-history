@@ -1,7 +1,6 @@
 
 
 # FSISUS16: Do you achieve a judicious use of development resources?
-<a name="fsisus16"></a>
 
 ## FSISUS16-BP01 Verify that all development resources are dedicated to an active project or team
 <a name="fsisus16-bp01-verify-that-all-development-resources-are-dedicated-to-an-active-project-or-team"></a>

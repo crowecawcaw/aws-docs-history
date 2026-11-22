@@ -1,7 +1,6 @@
 
 
 # FSIREL06: To mitigate operational risks, can your workload owners detect, locate, and recover from gray failures?
-<a name="fsirel06"></a>
 
  Failures, such as loss of network connectivity, is often considered in a binary nature where the connectivity is functioning normally or not functioning at all. However there are non-binary failures called *gray failures*, which are defined by the characteristic of differential observability, meaning that different entities observe the failure differently. Gray failures can be subtle and difficult to detect. An example of a gray failure with network connectivity is a 40% packet loss of all TCP packets over a network link. Another example is intermittent failure on one or more servers behind a load balancer where some requests fail, but not enough to initiate the load balancer's health check. Overall service health metrics may be based on aggregate metrics, such as average response time from the load balancer, which may obscure localized failures. 
 

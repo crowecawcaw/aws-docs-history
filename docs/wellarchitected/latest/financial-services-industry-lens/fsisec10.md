@@ -1,7 +1,6 @@
 
 
 # FSISEC10: How are you handling data loss prevention in the cloud environment?
-<a name="fsisec10"></a>
 
  Data loss as part of a security event, accident or business process can affect both your operation and state of compliance. The following recommendations can help with the protection from theft and inadvertent or malicious loss. Generative AI systems introduce new considerations for data loss prevention, including model outputs, prompt security, training data, model artifacts, and AI-generated content. 
 

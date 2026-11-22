@@ -1,7 +1,6 @@
 
 
 # Cost optimization
-<a name="cost-optimization"></a>
 
  The cost optimization pillar provides guidance to help customers apply best practices in the design, delivery, and maintenance of their AWS environments, with the most effective use of services and resources at a minimal cost. Cost optimization includes the continual process of refinement and improvement of a system over its entire lifecycle. 
 

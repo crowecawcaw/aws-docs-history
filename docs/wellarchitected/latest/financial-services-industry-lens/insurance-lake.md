@@ -1,7 +1,6 @@
 
 
 # Insurance lake
-<a name="insurance-lake"></a>
 
  The insurance data lake provides a method for aggregating end user customer data from a large number of diverse sources, including core systems and third parties, and consolidating it within a single, secure location. The four Cs provide a best practice data lake pattern for creation of your insurance data lake: 
 
@@ -16,6 +15,8 @@
  **Reference architecture** 
 
 ![Insurance lake reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/insurance-lake-reference-architecture.png)
+
+*Figure 6: Insurance data lake reference architecture*
 
 
  **Architecture description** 

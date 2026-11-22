@@ -1,7 +1,6 @@
 
 
 # FSISEC04: How do you accommodate separation of duties as part of your identity and access management design?
-<a name="fsisec04"></a>
 
 ## FSISEC04-BP01 Implement the principle of separation of duties
 <a name="fsisec04-bp01-implement-the-principle-of-separation-of-duties"></a>

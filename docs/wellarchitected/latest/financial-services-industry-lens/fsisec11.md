@@ -1,7 +1,6 @@
 
 
 # FSISEC11: How are you protecting against ransomware?
-<a name="fsisec11"></a>
 
  Ransomware refers to a business model and a wide range of associated technologies that bad actors use to extort money. The bad actors use a range of tactics to gain unauthorized access to their victims data and systems, including exploiting unpatched vulnerabilities, taking advantage of weak or stolen credentials, and using social engineering. Access to the data and systems is restricted by the bad actors, and a ransom demand is made for the safe return of these digital assets. Protection against ransomware now includes securing AI models, model registries, prompts, prompt catalogs and training data from manipulation or compromise. 
 

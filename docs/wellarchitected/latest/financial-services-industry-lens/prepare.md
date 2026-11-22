@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
 **Topics**
 + [FSIOPS2: Have you completed an operational risk assessment?](fsiops2.md)

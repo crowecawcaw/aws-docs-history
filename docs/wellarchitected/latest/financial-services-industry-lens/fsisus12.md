@@ -1,7 +1,6 @@
 
 
 # FSISUS12: What is your process for benchmarking instances for existing workloads?
-<a name="fsisus12"></a>
 
  Maximizing your instance utilization is an effective and quantifiable practice that helps you meet your sustainability goals. But reaching an ideal utilization state is a process — it's uncommon for customers to achieve optimal instance utilization on their first attempt. Define a process to monitor resource utilization over time so you can benchmark performance and make the necessary adjustments to your workloads. 
 

@@ -1,13 +1,14 @@
 
 
 # Capital markets: Market data ingestion and distribution
-<a name="capital-markets-market-data-ingestion-and-distribution"></a>
 
  Capital Markets customers need access to data from a variety of sources including: market data, reference data, earnings data, alternative data, and other financial data sources. Financial data is used for making trading decisions, shaping investment strategies, providing information to regulators, and managing risk. AWS helps capital markets customers better manage and understand their data with scalable and agile cloud-based technologies. Using cloud-based solutions, customers can achieve good data governance, adhere to regulatory compliance standards, and drive profitability with financial data insights. 
 
  **Reference architecture** 
 
 ![Market data ingestion and distribution reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/capital-markets-reference-architecture.png)
+
+*Figure 7. Market data ingest and distribution *
 
 
  **Architecture description** 

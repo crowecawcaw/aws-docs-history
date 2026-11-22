@@ -1,7 +1,6 @@
 
 
 # FSISEC03: How do you monitor the use of elevated credentials, such as administrative accounts, and guard against privilege escalation?
-<a name="fsisec03"></a>
 
  IAM policies are powerful and complex, so it's important to study and understand the permissions that are granted by each policy. Mitigate privilege escalation and monitor unauthorized activity in your AWS accounts. With the introduction of generative AI systems, monitoring elevated credentials extends to model access, prompt engineering, and AI service management. 
 

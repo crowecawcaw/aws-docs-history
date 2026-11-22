@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="perf-key-aws-services"></a>
 
  **Compute** 
 +  [Amazon Elastic Compute Cloud (Amazon EC2)](https://aws.amazon.com/ec2/) offers the broadest and deepest compute environment, with over 500 instance types and choices employing the latest processor, storage, networking, operating system, and purchase model to help you best match the needs of your workload. 

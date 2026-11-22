@@ -1,7 +1,6 @@
 
 
 # FSISEC05: How are you monitoring your ongoing cloud environment for potential threats?
-<a name="fsisec05"></a>
 
  Financial services organizations require in-depth visibility into the security of their infrastructure and applications. Achieving this high level of visibility requires the collection of logs and audit trails and the reservation of these logs for analytics and reporting. AWS services and partners' cloud-based solutions help you implement real-time monitoring in your environment for security threats and alerting on threats once detected. With generative AI systems, monitoring extends to model behaviors, response validation, and potential misuse of AI capabilities. 
 

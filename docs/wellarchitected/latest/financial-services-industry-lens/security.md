@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security pillar focuses on the ability to protect information, systems, and assets through risk assessments and mitigation strategies, while also delivering business value to the organization. In addition to the regulations that apply to any business, financial institutions are challenged with industry- specific requirements such as frequsently-changing regulations and their variation by region. Institutions that operate in more than one country or Region must also meet different requirements in different places. Financial institutions (FI) are historically a frequent target of security incidents, both because of the assets they maintain and their fundamental role in the daily functioning of a modern society. FIs have to comply with rules and laws around the protection of personal and financial information. The continuity of their operations depends directly on the security resilience they put in place. 
 

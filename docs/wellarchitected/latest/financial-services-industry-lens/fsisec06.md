@@ -1,7 +1,6 @@
 
 
 # FSISEC06: How do you address emerging threats?
-<a name="fsisec06"></a>
 
  Security-focused enterprises are improving threat identification and remediation with DevSecOps. This approach accelerates application development and identifies threats early, and security testing is performed at each step of the software development lifecycle. Applying a DevSecOps framework is critical for an FI's software development, meeting the needs of a rapidly-changing product and a highly regulated environment. 
 

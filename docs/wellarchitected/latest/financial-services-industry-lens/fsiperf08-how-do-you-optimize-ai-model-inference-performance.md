@@ -1,7 +1,6 @@
 
 
 # FSIPERF08: How do you optimize AI model inference performance?
-<a name="fsiperf08-how-do-you-optimize-ai-model-inference-performance"></a>
 
  Financial services AI applications require sophisticated inference optimization to meet real-time performance requirements while maintaining regulatory compliance and accuracy standards. 
 

@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="opex-key-aws-services"></a>
 +  **Management and governance** 
   +  [AWS Config](https://aws.amazon.com/config) - AWS Config continually assesses, audits, and evaluates the configurations and relationships of your resources. Codify your compliance requirements as AWS Config rules and author remediation actions, automating the assessment of your resource configurations across your organization. Evaluate resource configurations for potential vulnerabilities, and review your configuration history after potential incidents to examine your security posture. 
   +  [AWS Config Rules](https://aws.amazon.com/config/) - AWS Config provides you with pre-built rules evaluating the configurations of your cloud resources, as well as software within managed instances, including EC2 instances and servers running on-premises, before and after provisioning. You can customize pre-built rules to evaluate your AWS resource configurations and configuration changes, or create your own custom rules on AWS Lambda that define your internal best practices and guidelines for resource configurations. 

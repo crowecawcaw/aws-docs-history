@@ -1,7 +1,6 @@
 
 
 # FSIOPS6: How do you assess the business impact of a cloud provider service event?
-<a name="fsiops6"></a>
 
  Financial institutions should assess the business impact of cloud provider service events. 
 

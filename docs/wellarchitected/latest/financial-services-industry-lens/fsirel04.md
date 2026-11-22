@@ -1,7 +1,6 @@
 
 
 # FSIREL04: Does the resilience and the architecture of your workload reflect the business requirements and resilience tier?
-<a name="fsirel04"></a>
 
  Understanding how AWS services can impact your workload's availability is an important step in determining the resilience of your architecture. 
 

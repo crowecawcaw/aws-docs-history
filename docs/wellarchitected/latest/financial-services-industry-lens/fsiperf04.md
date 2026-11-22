@@ -1,7 +1,6 @@
 
 
 # FSIPERF04: How do you select your network architecture?
-<a name="fsiperf04"></a>
 
  Use performance requirements to drive the selection of network components and architecture. 
 

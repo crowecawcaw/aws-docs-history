@@ -1,7 +1,6 @@
 
 
 # FSIOPS5: How do you understand the health of your workload?
-<a name="fsiops5"></a>
 
  Financial services institutions are required to communicate service disruptions, operational events, and failures to downstream stakeholders and regulatory bodies. They should continually monitor their workloads in the cloud and conduct root cause analysis (RCA) as an exercise in understanding the events and circumstances that led to unexpected results, as well as mitigation efforts put in place to prevent recurrence. 
 

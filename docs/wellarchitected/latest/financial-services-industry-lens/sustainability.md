@@ -1,7 +1,6 @@
 
 
 # Sustainability
-<a name="sustainability"></a>
 
  The sustainability pillar provides you with the discipline to address the long-term environmental, economic, and societal impact of your business activities. You can find extensive prescriptive guidance on your implementation's sustainability in the [Well-Architected Sustainability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Generative AI security and governance
-<a name="generative-ai-security-and-governance"></a>
 
  This group of best practices focuses on securing, governing, and leveraging generative AI systems within financial services organizations. As financial institutions increasingly adopt AI technologies, implementing comprehensive security controls, governance frameworks, and monitoring capabilities is essential to protect sensitive financial data, ensure regulatory compliance, and maintain customer trust. 
 

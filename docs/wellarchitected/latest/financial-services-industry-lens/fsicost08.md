@@ -1,7 +1,6 @@
 
 
 # FSICOST08: Are you monitoring usage of Savings Plans regularly?
-<a name="fsicost08"></a>
 
  Capacity planning and usage forecasting is important for managing your commitment plans. Gain better control of the flexibility of Savings Plan usage and manage costs with regular monitoring on a regular cadence over quarterly basis, or reviews at regular time intervals. 
 

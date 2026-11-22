@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Contributors to this version of the Well-Architected FSI Lens document include: 
 +  Sanjay Ohri, Principal Program Manager, Worldwide Financial Services, Amazon Web Services 

@@ -1,7 +1,6 @@
 
 
 # Cost-effective resources
-<a name="cost-effective-resources"></a>
 
  Using the appropriate services, resources, and configurations for your workloads is key to cost savings. Consider the following when creating cost-effective resources: 
 

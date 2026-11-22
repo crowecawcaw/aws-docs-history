@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="detection"></a>
 
 **Topics**
 + [FSISEC05: How are you monitoring your ongoing cloud environment for potential threats?](fsisec05.md)

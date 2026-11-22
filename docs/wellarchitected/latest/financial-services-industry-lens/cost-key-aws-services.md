@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="cost-key-aws-services"></a>
 
  The following is a list of AWS services that are relevant for financial services customers. 
 +  [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)  

@@ -1,7 +1,6 @@
 
 
 # FSICOST03: Do you use automation to drive scale for Cloud Financial Management practices?
-<a name="fsicost03"></a>
 
  Automation can drastically reduce the cost of the CFM. You can provision resources using auto scaling or using managed services, set budgets to meet, and alerts to inform users on cost utilization. For generative AI workloads, this includes automated model scaling, token usage monitoring, and vector store optimization. 
 

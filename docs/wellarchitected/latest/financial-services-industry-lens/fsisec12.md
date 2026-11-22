@@ -1,7 +1,6 @@
 
 
 # FSISEC12: How are you meeting your obligations for incident reporting to regulators?
-<a name="fsisec12"></a>
 
  Various regulations require that the banking organizations and managed service providers notify the regulators as soon as a cyber security incident has been discovered, such as the [Final Issuances](https://www.occ.treas.gov/topics/laws-and-regulations/occ-regulations/final-issuances/index-final-issuances.html) published by the Office of the Comptroller of the Currency (OCC), Security and Exchanges Commision (SEC) [Cybersecurity Disclosure](https://www.sec.gov/news/statement/gerding-cybersecurity-disclosure-20231214) or the Network and Information Systems (NIS) regulation. Incident reporting now includes AI-specific events such as harmful model responses or unauthorized model access, model manipulation and poisoning attacks. 
 

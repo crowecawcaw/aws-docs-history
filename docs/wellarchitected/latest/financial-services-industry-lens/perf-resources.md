@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="perf-resources"></a>
 
  Refer to the following resources to learn more about our best practices related to performance efficiency of financial services industry solutions. 
 

@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
 **Topics**
 + [FSISUS16: Do you achieve a judicious use of development resources?](fsisus16.md)

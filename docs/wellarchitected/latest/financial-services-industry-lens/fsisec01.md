@@ -1,7 +1,6 @@
 
 
 # FSISEC01: How does your governance enable secure cloud adoption at scale?
-<a name="fsisec01"></a>
 
  Cloud infrastructure provides more agility and responsiveness than traditional IT environments. This requires organizations to think differently about how they design, build, and manage applications. Cloud resources can be disposable. Because it is a pay-per-use model, it often requires a strong integration between IT governance and organizational governance. Financial services companies need to operate in a cloud environment that's agile and safe at the same time. With the adoption of generative AI capabilities, organizations need to implement comprehensive security controls across AI components while maintaining agility and innovation. 
 

@@ -1,7 +1,6 @@
 
 
 # FSICOST16: Are you continuously assessing the ongoing costs and usage of your cloud implementations?
-<a name="fsicost16"></a>
 
  There is a process to examine existing cloud spend, and identify cost optimization opportunities using manual analysis, or the use of tools (AWS Billing and Cost Management and AWS Cost Management tools, AWS Partner tools, open-source tools, or DIY tools). As your requirements change, be aggressive in decommissioning resources, components, and workloads that you no longer require. 
 

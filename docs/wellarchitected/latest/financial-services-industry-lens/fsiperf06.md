@@ -1,7 +1,6 @@
 
 
 # FSIPERF06: How do you evaluate compliance with performance requirements?
-<a name="fsiperf06"></a>
 
  Here are several methods for doing so: 
 +  Monitoring of your workload at multiple levels helps verify that your resources are performing as expected and you are aware of deviations. 

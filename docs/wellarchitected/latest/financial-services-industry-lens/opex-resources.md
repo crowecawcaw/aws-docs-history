@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="opex-resources"></a>
 
 ## Documents and blogs
 <a name="documents-and-blogs"></a>

@@ -1,7 +1,6 @@
 
 
 # FSIREL10: How are backups retained?
-<a name="fsirel10"></a>
 
 ## FSIREL10-BP01 Understand requirements for data backup and retention
 <a name="fsirel10-bp01"></a>

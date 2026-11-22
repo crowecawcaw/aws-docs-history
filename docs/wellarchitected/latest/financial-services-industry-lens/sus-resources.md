@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="sus-resources"></a>
 
 ## Documentation and blogs
 <a name="documentation-and-blogs-1"></a>

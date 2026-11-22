@@ -1,7 +1,6 @@
 
 
 # Observability
-<a name="observability"></a>
 
 **Topics**
 + [FSIREL06: To mitigate operational risks, can your workload owners detect, locate, and recover from gray failures?](fsirel06.md)

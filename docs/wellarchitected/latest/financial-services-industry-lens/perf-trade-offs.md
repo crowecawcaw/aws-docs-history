@@ -1,7 +1,6 @@
 
 
 # Trade-offs
-<a name="perf-trade-offs"></a>
 
 **Topics**
 + [FSIPERF07: How do you make trade-offs in your architecture?](fsiperf07.md)

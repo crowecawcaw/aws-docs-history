@@ -1,7 +1,6 @@
 
 
 # FSISUS17: How do you minimize your test, staging, sandbox instances?
-<a name="fsisus17"></a>
 
 ## FSISUS17-BP01 Use infrastructure as code (IaC) code base to snapshot your environment allowing you to decommission test infrastructure
 <a name="fsisus17-bp01-use-infrastructure-as-code-iac-code-base-to-snapshot-your-environment-allowing-you-to-decommission-test-infrastructure"></a>

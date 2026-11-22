@@ -1,7 +1,6 @@
 
 
 # Hardware and services
-<a name="hardware-and-services"></a>
 
 **Topics**
 + [FSISUS12: What is your process for benchmarking instances for existing workloads?](fsisus12.md)

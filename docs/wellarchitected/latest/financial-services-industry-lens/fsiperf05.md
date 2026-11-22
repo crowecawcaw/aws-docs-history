@@ -1,7 +1,6 @@
 
 
 # FSIPERF05: How do you select and optimize generative AI components for your workload?
-<a name="fsiperf05"></a>
 
  Selecting and optimizing generative AI components requires defining your use case requirements—including accuracy thresholds, latency constraints, and compliance needs—then evaluating foundation models using automated benchmarks and task-specific criteria before optimizing through prompt engineering or fine-tuning. This enables you to build generative AI systems that deliver reliable business value while meeting the rigorous standards required for production deployment, particularly in regulated industries like financial services. 
 

@@ -1,7 +1,6 @@
 
 
 # FSIPERF07: How do you make trade-offs in your architecture?
-<a name="fsiperf07"></a>
 
  Financial services workloads often have to make trade-offs in their architecture to meet their most important goals and KPIs, where performance of the system is deemed more important than other factors, or vice-versa. 
 

@@ -1,7 +1,6 @@
 
 
 # FSICOST14: How do you measure the cost of licensing third-party applications and software?
-<a name="fsicost14"></a>
 
  If you are using third-party software, understand the specific licensing terms of each third-party vendor. 
 

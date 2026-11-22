@@ -1,7 +1,6 @@
 
 
 # FSISUS13: Can you complete workloads over more time while not violating your maximum SLA?
-<a name="fsisus13"></a>
 
 How do you avoid load spikes to reduce the provisioned capacity required for your workload? 
 

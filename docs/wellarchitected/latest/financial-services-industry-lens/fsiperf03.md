@@ -1,7 +1,6 @@
 
 
 # FSIPERF03: How do you select your storage architecture?
-<a name="fsiperf03"></a>
 
  AWS offers a wide range of storage options and as with compute, the best performance is obtained when targeting the specific storage needs of an application.
 

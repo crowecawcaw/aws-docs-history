@@ -1,7 +1,6 @@
 
 
 # FSIREL07: How do you monitor your resilience objectives to achieve your strategic objectives and business plan?
-<a name="fsirel07"></a>
 
 ## FSIREL07-BP01 Monitor and validate your RPO
 <a name="fsirel07-bp01"></a>

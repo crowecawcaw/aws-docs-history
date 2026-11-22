@@ -1,7 +1,6 @@
 
 
 # FSICOST12: Are you saving costs by adopting a set of modern microservice architectures?
-<a name="fsicost12"></a>
 
  Financial institutions are moving from monolithic legacy systems such as mainframes into modern microservices architectures, giving them the flexibility of provisioning multiple environments to develop features rapidly, instead of waiting for the single monolith environment to be available, giving them greater agility and faster time-to-market. 
 
