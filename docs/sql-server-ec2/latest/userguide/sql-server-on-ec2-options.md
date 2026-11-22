@@ -1,7 +1,6 @@
 
 
 # Options to run SQL Server on the AWS Cloud
-<a name="sql-server-on-ec2-options"></a>
 
 AWS provides the option to run Microsoft SQL Server in a cloud environment. For developers and database administrators, running SQL Server in the AWS Cloud is similar to running SQL Server databases in a data center. There are three primary options to run SQL Server on AWS:
 + Microsoft SQL Server on Amazon EC2

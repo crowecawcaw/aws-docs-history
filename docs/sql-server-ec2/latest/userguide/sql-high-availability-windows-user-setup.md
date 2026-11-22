@@ -1,7 +1,6 @@
 
 
 # Windows user setup for Amazon EC2 High Availability for SQL Server
-<a name="sql-high-availability-windows-user-setup"></a>
 
 **Note**  
 You only need to perform the steps in this section if you choose to use the default, built-in `[NT AUTHORITY\SYSTEM]` user as described in [ Step 3: Store SQL Server credentials in AWS Secrets Manager](sql-high-availability-get-started.md#sql-high-availability-secret). If you choose to store custom SQL Server credentials in AWS Secrets Manager, these Windows user setup steps are not required.

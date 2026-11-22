@@ -1,7 +1,6 @@
 
 
 # VSS snapshot restore prerequisites
-<a name="ms-ssdb-ec2-vss-restore-prereq"></a>
 
 To restore your SQL Server databases from AWS VSS solution based EBS snapshots, you must meet the following prerequisites.
 
@@ -116,7 +115,7 @@ To attach necessary permissions to the role that starts and manages the `AWSEC2-
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 		 	 	 
        "Statement": [
@@ -151,7 +150,7 @@ To attach necessary permissions to the role that starts and manages the `AWSEC2-
 
 1. If you are to start the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation with an assume role by providing a role arn to the `AutomationAssumeRole` parameter, you will need to add the following permission to the above policy statements, and replace the `[AutomationAssumeRole's ARN]` placeholder with the ARN of the role created in step `Invoke runbook automation with an assumed role (recommended)`. The permission allows the invoker role to pass the automation assume role to Systems Manager.
 
-   ```
+   ```JSON
    {
    	"Action": "iam:PassRole",
    	"Effect": "Allow",

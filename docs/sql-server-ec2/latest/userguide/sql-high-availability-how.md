@@ -1,7 +1,6 @@
 
 
 # How Amazon EC2 High Availability for SQL Server works
-<a name="sql-high-availability-how"></a>
 
 Upon registration, Amazon EC2 High Availability for SQL Server (SQL HA) automatically monitors your Amazon EC2 instances running Windows SQL Server License Included AMIs and classifies them as either active or standby based on their current role in your SQL Server deployment. For High Availability configurations containing at least one active SQL Server instance, one or more standby failover instances in the same cluster may receive a SQL Server licensing fee waiver, meaning you pay only the Windows Server licensing fee for those standby instances. You can monitor your current SQL HA status through the Amazon EC2 console, which displays the latest records of which instances are receiving license savings and historical status changes.
 

@@ -1,7 +1,6 @@
 
 
 # Set up Microsoft SQL Server on Amazon EC2
-<a name="setting-up"></a>
 
 Describes the prerequisites, permissions, and configurations that you should consider when preparing to use Microsoft SQL Server on Amazon EC2 instances for your SQL Server workloads.
 

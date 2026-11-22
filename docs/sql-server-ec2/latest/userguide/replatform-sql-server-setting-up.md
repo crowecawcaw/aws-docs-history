@@ -1,7 +1,6 @@
 
 
 # Replatforming script prerequisites
-<a name="replatform-sql-server-setting-up"></a>
 
 This section covers the steps necessary to run the Windows to Linux replatforming script.
 
@@ -37,7 +36,7 @@ In order to run the Windows to Linux replatforming assistant for Microsoft SQL S
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

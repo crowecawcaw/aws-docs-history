@@ -1,7 +1,6 @@
 
 
 # Run the Windows to Linux replatforming assistant for SQL Server script
-<a name="replatform-sql-server-script"></a>
 
 This section contains the PowerShell parameter definitions and scripts for replatforming your databases. For more information about how to use PowerShell scripts, see [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
@@ -20,7 +19,7 @@ The Windows to Linux Replatforming Assistant for Microsoft SQL Server Databases 
 **Syntax**  
 The Windows to Linux replatforming assistant for Microsoft SQL Server Databases script adheres to the syntax shown in the following example.
 
-```
+```powershell
 PS C:\> C:\MigrateSQLServerToEC2Linux.ps1 [[-SqlServerInstanceName] <String>] [[-DBNames]<Object[]>] [-
 MigrateAllDBs] [PathForBackup] <String> [-SetSourceDBModeReadOnly] [-IamInstanceProfileName] <String>[-
 AWSRegion] <String> [[-EC2InstanceId] <String>] [[-EC2InstanceType] <String>] [[-EC2KeyPair] <String>] [[-
@@ -31,7 +30,7 @@ SubnetId] <String>] [[-AWSProfileName] <String>] [[-AWSProfileLocation] <String>
 **Example 1: Move a database to an EC2 instance**  
 The following example shows how to move a database named `AdventureDB` to an EC2 Microsoft SQL Server on Linux instance, with an instance ID of `i-024689abcdef`, from the Microsoft SQL Server Instance named `MSSQLSERVER`. The backup directory to be used is `D:\\Backup` and the AWS Region is `us-east-2`.
 
-```
+```powershell
 PS C:\> ./MigrateSQLServerToEC2Linux.ps1 - SQLServerInstanceName MSSQLSERVER -EC2InstanceId i-
 024689abcdef -DBNames AdventureDB -PathForBackup D:\\Backup -AWSRegion us-east-2 -
 IamInstanceProfileName AmazonSSMManagedInstanceCore
@@ -40,7 +39,7 @@ IamInstanceProfileName AmazonSSMManagedInstanceCore
 **Example 2: Move a database to an EC2 instance using the AWS credentials profile**  
 The following example shows how to move the database in Example 1 using the AWS credentials profile: `DBMigration`.
 
-```
+```powershell
 PS C:\> ./MigrateSQLServerToEC2Linux.ps1 - SQLServerInstanceName MSSQLSERVER -EC2InstanceId i-
 024689abcdef -DBNames AdventureDB -PathForBackup D:\\Backup -AWSRegion us-east-2 -AWSProfileName
 DBMigration -IamInstanceProfileName AmazonSSMManagedInstanceCore
@@ -49,7 +48,7 @@ DBMigration -IamInstanceProfileName AmazonSSMManagedInstanceCore
 **Example 3: Move a database to a new m5.large type instance**  
 The following example shows how to create an `m5.large` type EC2 Linux instance in `subnet-abc127` using the Key Pair `customer-ec2-keypair` and then moving `AdventureDB` and `TestDB` to the new instance from the database used in Examples 1 and 2.
 
-```
+```powershell
 PS C:\> ./MigrateSQLServerToEC2Linux.ps1 -EC2InstanceType m5.large -SubnetId subnet-abc127 -EC2KeyPair
 customer-ec2-keypair -DBNames AdventureDB,TestDB -PathForBackup D:\\Backup -AWSRegion us-east-2 -
 AWSProfileName DBMigration -IamInstanceProfileName AmazonSSMManagedInstanceCore
@@ -58,7 +57,7 @@ AWSProfileName DBMigration -IamInstanceProfileName AmazonSSMManagedInstanceCore
 **Example 4: Move all databases to a new m5.large type instance**  
 The following example shows how to create an `m5.large` type EC2 Linux instance in `subnet-abc127` using the Key Pair `customer-ec2-keypair` and then migrating all databases to the instance from databases used in Examples 1 and 2.
 
-```
+```powershell
 PS C:\> ./MigrateSQLServerToEC2Linux.ps1 -EC2InstanceType m5.large -SubnetId subnet-abc127 -EC2KeyPair
 customer-ec2-keypair -MigrateAllDBs -PathForBackup D:\\Backup -AWSRegion us-east-2 -AWSProfileName
 DBMigration -IamInstanceProfileName AmazonSSMManagedInstanceCore

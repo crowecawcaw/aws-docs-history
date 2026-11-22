@@ -1,7 +1,6 @@
 
 
 # Migrating an on-premises database to Amazon EC2
-<a name="migrate-sql-from-on-premises"></a>
 
 You can migrate your on-premises Microsoft SQL Server database to Amazon Elastic Compute Cloud (Amazon EC2). If you select a migration method and perform these steps, your on-premises database will reside on an Amazon EC2 instance running Windows Server.
 

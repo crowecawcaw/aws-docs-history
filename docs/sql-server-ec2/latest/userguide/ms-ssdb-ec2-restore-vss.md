@@ -1,7 +1,6 @@
 
 
 # Use an automation runbook to restore your database from AWS VSS solution snapshots
-<a name="ms-ssdb-ec2-restore-vss"></a>
 
 This guide explains how to use the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook to restore a Microsoft SQL Server database running on an EC2 instance from application-consistent snapshots created by the AWS VSS solution. You can tailor the restoration parameters to your specific needs, such as setting the database to restore mode after restoration. By leveraging Windows VSS technology, this solution offers the following advantages:
 + Fast restoration times.

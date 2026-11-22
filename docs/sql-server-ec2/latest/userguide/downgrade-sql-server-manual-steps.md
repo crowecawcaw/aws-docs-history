@@ -1,7 +1,6 @@
 
 
 # Downgrade your SQL Server Enterprise edition
-<a name="downgrade-sql-server-manual-steps"></a>
 
 If you determine that you can downgrade your SQL Server Enterprise edition, you can follow this process to convert to SQL Server Standard or Developer edition. For information on how to automate for this process, see [Downgrade SQL Server Enterprise edition using AWS Systems Manager Document to reduce cost](https://aws.amazon.com/blogs/mt/downgrade-sql-server-enterprise-edition-using-aws-systems-manager-document-to-reduce-cost/).
 

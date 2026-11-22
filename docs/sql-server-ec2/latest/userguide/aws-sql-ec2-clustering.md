@@ -1,7 +1,6 @@
 
 
 # Best practices and recommendations for SQL Server clustering on Amazon EC2
-<a name="aws-sql-ec2-clustering"></a>
 
 You can configure Microsoft SQL Server on Amazon EC2 instances for high availability. SQL Server Always On availability groups offer high availability without the requirement for shared storage. The list of best practices in this topic, in addition to the prerequisites listed at [Prerequisites, Restrictions, and Recommendations for Always On availability groups](https://msdn.microsoft.com/en-us/library/ff878487.aspx), can help you optimize operating a SQL Server Always On availability groups on AWS. The practices listed in this topic also offer a method to gather logs.
 
@@ -57,7 +56,7 @@ When you run this command, the adapter is removed from Device Manager. This comm
 
 To see the complete cluster configuration, run the following PowerShell command.
 
-```
+```powershell
 Get-Cluster | Format-List -Property *
 ```
 
@@ -73,7 +72,7 @@ In Windows Server 2012, Failover Clustering, by default, attempts to register ea
 
 The `RegisterAllProvidersIp` can be modified with the following PowerShell script. 
 
-```
+```powershell
 Import-Module FailoverClusters  
 $cluster = (Get-ClusterResource | where {($_.ResourceType -eq "Network Name") -and ($_.OwnerGroup -ne "Cluster Group")}).Name
 Get-ClusterResource $cluster | Set-ClusterParameter RegisterAllProvidersIP 0  
@@ -107,7 +106,7 @@ In addition to setting the Cluster Resource parameter to **0**, you must ensure 
 
 AWS has identified known issues with some clustering workloads running on ENA driver version 1.2.3. We recommend upgrading to the latest version, and adjusting settings on the NIC in the operating system. For the latest versions, see [Amazon ENA Driver Versions](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/enhanced-networking-ena.html#ena-adapter-driver-versions). The first setting, which applies to all systems, increases Receive Buffers, which you can do with the following example PowerShell command.
 
-```
+```powershell
 Set-NetAdapterAdvancedProperty -Name (Get-NetAdapter | Where-Object {$_.InterfaceDescription -like '*Elastic*'}).Name -DisplayName "Receive Buffers" -DisplayValue 8192
 ```
 
@@ -115,7 +114,7 @@ For instances with more than 16 vCPUs, we recommend preventing RSS from running 
 
 Run the following command.
 
-```
+```powershell
 Set-NetAdapterRss -name (Get-NetAdapter | Where-Object {$_.InterfaceDescription -like '*Elastic*'}).Name -Baseprocessorgroup 0 -BaseProcessorNumber 1
 ```
 
@@ -156,23 +155,23 @@ Microsoft does not recommend disabling IPv6 in a Windows Cluster. While Failover
 
 Set the host record TTL to **300** seconds instead of the default 20 minutes (1200 seconds). For legacy client comparability, set `RegisterAllProvidersIP` to **0** for SQL Availability Group Listeners. This is not required in all environments. These settings are important because some legacy client applications cannot use `MultiSubnetFailover` in their connection strings. See [HostRecordTTL Setting](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/create-or-configure-an-availability-group-listener-sql-server?view=sql-server-2017#HostRecordTTL) for more information. When you change these settings, the Cluster Resource must be restarted. The Cluster Group for the listener stops when the Cluster Resource is restarted, so it must be started. If you do not start the Cluster Group, the Availability Group remains offline in a `RESOLVING` state. The following are example PowerShell scripts for changing the TTL and `RegisterAllProvidersIP` settings.
 
-```
+```powershell
 Get-ClusterResource yourListenerName | Set-ClusterParameter RegisterAllProvidersIP 0 
 ```
 
-```
+```powershell
 Get-ClusterResource yourListenerName|Set-ClusterParameter HostRecordTTL 300 
 ```
 
-```
+```powershell
 Stop-ClusterResource yourListenerName 
 ```
 
-```
+```powershell
 Start-ClusterResource yourListenerName 
 ```
 
-```
+```powershell
 Start-ClusterGroup yourListenerGroupName
 ```
 
@@ -181,7 +180,7 @@ Start-ClusterGroup yourListenerGroupName
 
 The default logging level for the cluster log is **3**. To increase the detail of log information, set the logging level to **5**. See [Set-ClusterLog](https://docs.microsoft.com/en-us/powershell/module/failoverclusters/set-clusterlog?view=win10-ps) for more information about the PowerShell cmdlet.
 
-```
+```powershell
 Set-ClusterLog -Level 5
 ```
 
@@ -190,7 +189,7 @@ Set-ClusterLog -Level 5
 
 In Windows Server 2012 R2, you can increase the speed of the failover process by disabling NetBIOS over TCP. This feature was removed from Windows Server 2016. You should test this procedure if you are using earlier operating systems in your environment. For more information, see [Speeding Up Failover Tips-n-Tricks](https://techcommunity.microsoft.com/t5/Failover-Clustering/Speeding-Up-Failover-Tips-n-Tricks/ba-p/372086). The following is an example PowerShell command to disable NetBIOS over TCP. 
 
-```
+```powershell
 Get-ClusterResource {{“Cluster IP Address”}} | Set-ClusterParameter EnableNetBIOS 0
 ```
 
@@ -199,7 +198,7 @@ Get-ClusterResource {{“Cluster IP Address”}} | Set-ClusterParameter EnableNe
 
 For Windows Server versions earlier than 2016 and non-Hyper-V workloads, Microsoft recommends you enable the NetFT Virtual Adapter Performance Filter on the adapter in the OS. When you enable the NetFT Virtual Adapter, internal cluster traffic is routed directly to the NetFT Virtual Adapter. For more information, see [NetFT Virtual Adapter Performance Filter](https://techcommunity.microsoft.com/t5/Failover-Clustering/NetFT-Virtual-Adapter-Performance-Filter/ba-p/372090). You can enable NetFT Virtual Adapter by selecting the check box in the NIC properties, or by using the following PowerShell command.
 
-```
+```powershell
 Get-NetAdapter | Set-NetAdapterBinding -ComponentID ms_netftflt -Enable $true
 ```
 
@@ -222,11 +221,11 @@ In Windows Server 2012 R2, the network thresholds for the failover heartbeat net
 
 The only time a cluster should fail over is when there is a legitimate outage, such as a service or node that experiences a hard failover, as opposed to a few UDP packets lost in transit. To ensure legitimate outages, we recommend that you adjust the thresholds to match, or even exceed, the settings for Server 2016 listed in [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). You can change the settings with the following PowerShell commands.
 
-```
+```powershell
 (get-cluster).SameSubnetThreshold = 10
 ```
 
-```
+```powershell
 (get-cluster).CrossSubnetThreshold = 20
 ```
 
@@ -234,7 +233,7 @@ When you set these values, unexpected failovers should be dramatically reduced. 
 
 After increasing the `SameSubnetThreshold` or `CrossSubnetThreshold`, we recommend that you increase the `RouteHistoryLength` to double the higher of the two values. This ensures that there is sufficient logging for troubleshooting. You can set the `RouteHistoryLength` with the following PowerShell command.
 
-```
+```powershell
 (Get-Cluster).RouteHistoryLength = 20
 ```
 

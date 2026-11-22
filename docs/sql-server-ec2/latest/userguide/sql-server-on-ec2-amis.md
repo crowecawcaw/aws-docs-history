@@ -1,7 +1,6 @@
 
 
 # Find a SQL Server license-included AMI
-<a name="sql-server-on-ec2-amis"></a>
 
 This topic describes how you can find SQL Server license-included AMIs using the Amazon EC2 console, the AWS Tools for PowerShell, the AWS CLI, or by searching the AWS Marketplace. For SQL Server license-included AMIs, use the installation and setup media included in `C:\SQLServerSetup` to make changes to the default installation, add new features, or install additional named instances.
 
@@ -66,7 +65,7 @@ Get-SSMLatestEC2Image -Path ami-windows-latest -ImageName {{*SQL*}}
 
 To list SQL Server license-included AMIs using commands that match specific criteria, you can use the `Get-EC2Image` cmdlet in addition to filters. The following commands filter for AMIs owned by you, or Amazon, with *SQL* in their name:
 
-```
+```powershell
 $name_values = New-Object 'collections.generic.list[string]'
 $name_values.add("{{*SQL*}}")
 $filter_name = New-Object Amazon.EC2.Model.Filter -Property @{Name = "name"; Values = $name_values}

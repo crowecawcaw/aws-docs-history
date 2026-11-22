@@ -1,7 +1,6 @@
 
 
 # Understand licensing options and considerations for Microsoft SQL Server on Amazon EC2
-<a name="sql-server-on-ec2-licensing"></a>
 
 There are two ways in which you can license Microsoft SQL Server on Amazon EC2 on the AWS Cloud. You acquire your own existing SQL Server licenses, or those which are provided by AWS. The most cost-effective license strategy for your workload will depend on multiple factors. For more information on comparing the costs of SQL Server editions, see [Compare SQL Server editions](https://docs.aws.amazon.com/prescriptive-guidance/latest/optimize-costs-microsoft-workloads/sql-server-editions.html) on the AWS Prescriptive Guidance website.
 

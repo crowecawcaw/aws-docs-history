@@ -1,7 +1,6 @@
 
 
 # What is Microsoft SQL Server on Amazon EC2?
-<a name="sql-server-on-ec2-overview"></a>
 
 You can run Microsoft SQL Server on Amazon EC2. Microsoft SQL Server is a relational database management system (RDBMS) whose primary purpose is to store and retrieve data. SQL Server includes additional services, such as Analysis Services (SSAS), Reporting Services (SSRS), Integration Services (SSIS), and Machine Learning (ML). AWS provides a comprehensive set of services and tools to deploy Microsoft SQL Server on the reliable and secure AWS Cloud infrastructure. The benefits of running SQL Server on AWS include cost savings, scalability, high availability and disaster recovery, improved performance, and ease of management. For more information, see [Learn why AWS is the best cloud to run Microsoft Windows Server and SQL Server workloads](https://aws.amazon.com/blogs/compute/learn-why-aws-is-the-best-cloud-to-run-microsoft-windows-server-and-sql-server-workloads/) on the AWS Compute blog.
 

@@ -1,7 +1,6 @@
 
 
 # Microsoft SQL Server on Amazon EC2 backup with the AWS VSS solution
-<a name="ms-ssdb-ec2-bkup-vss"></a>
 
 You can use the AWS VSS solution to create snapshots of the volumes attached to your EC2 instance, including data from your Microsoft SQL Server database. The AWS VSS solution uses Amazon managed command documents with the [AWS Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html). The snapshot process uses the Windows [Volume Shadow Copy Service (VSS)](https://learn.microsoft.com/en-us/windows-server/storage/file-server/volume-shadow-copy-service) to create EBS volume-level backups without requiring you to shut down or pause your SQL Server application or disconnect active connections.
 

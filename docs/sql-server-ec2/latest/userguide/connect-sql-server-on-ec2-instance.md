@@ -1,7 +1,6 @@
 
 
 # Connect to Microsoft SQL Server on Amazon EC2
-<a name="connect-sql-server-on-ec2-instance"></a>
 
 You can connect to your Microsoft SQL Server instance using one of the following tools.
 

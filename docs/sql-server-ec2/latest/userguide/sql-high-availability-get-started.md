@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon EC2 High Availability for SQL Server
-<a name="sql-high-availability-get-started"></a>
 
 To get started with Amazon EC2 High Availability for SQL Server (SQL HA), perform the following steps:
 
@@ -84,7 +83,7 @@ You can run these commands from [AWS CloudShell](https://docs.aws.amazon.com/clo
 
 Use the [ Enable-EC2InstanceSqlHaStandbyDetection](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2InstanceSqlHaStandbyDetection.html) cmdlet. For `-InstanceId` specify the IDs of the instances to opt in. If you choose to perform Step 3: Create secret for SQL Server credentials, specify the optional `-SqlServerCredential` parameter. This parameter takes the Amazon Web Services secret ARN that has the SQL Server credentials.
 
-```
+```powershell
 Enable-EC2InstanceSqlHaStandbyDetection `
 -InstanceId '{{i-1234567890abcdef0}}','{{i-0fedcba0987654321}}' `
 -SqlServerCredential '{{arn:aws:secretsmanager:us-east-1:111122223333:secret:my-sql-creds}}'

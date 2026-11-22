@@ -1,7 +1,6 @@
 
 
 # Restore your SQL Server database from VSS snapshots
-<a name="ms-ssdb-ec2-vss-restore-from-snap"></a>
 
 The `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook provides a streamlined process to restore your SQL Server databases. This guide outlines the automation runbook functionality and explains the parameters that you can customize to suit your specific restoration needs.
 
@@ -103,7 +102,7 @@ To view instructions, select the tab that matches your environment.
 
    Run the following command to restore a Microsoft SQL Server database on an instance. Replace or add parameters based on your specific use case. For parameter details, see [Parameters for the SQL Server database restore runbook](#ms-ssdb-ec2-vss-restore-params).
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
    	--document-name "AWSEC2-RestoreSqlServerDatabaseWithVss" \
    	--parameters '{"InstanceId":"{{i-1234567890abcdef0}}","SourceDatabaseName":"{{DB_Source}}","TargetDatabaseName":"{{DB_Restored}}"}'
@@ -122,7 +121,7 @@ To get the status of the automation execution, run the following command using t
 
    Run the following PowerShell commands with AWS Tools for Windows PowerShell to restore a SQL Server database on an instance. Replace or add parameters based on your specific use case. For parameter details, see [Parameters for the SQL Server database restore runbook](#ms-ssdb-ec2-vss-restore-params).
 
-   ```
+   ```ps
    Start-SSMAutomationExecution `
    -DocumentName "AWSEC2-RestoreSqlServerDatabaseWithVss" `
    -Parameter @{"InstanceId" = @($InstanceId); "SourceDatabaseName" = @("DB_Source"); "TargetDatabaseName" = @("DB_Restored"); "RestoreWithNorecovery" = @($True); "AutomationAssumeRole" = @("Arn:of:role")}

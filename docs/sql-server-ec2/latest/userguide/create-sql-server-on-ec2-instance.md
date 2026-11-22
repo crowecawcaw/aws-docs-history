@@ -1,7 +1,6 @@
 
 
 # Deploy SQL Server on Amazon EC2
-<a name="create-sql-server-on-ec2-instance"></a>
 
 To launch Microsoft SQL Server using Amazon Elastic Compute Cloud (Amazon EC2) instances with Windows Server, perform the following steps according to your use case.
 
@@ -125,7 +124,7 @@ Perform the following steps to create a two-node Windows cluster.
 
 1. On each instance, install the cluster feature on the nodes from the Server Manager, or run the following Windows PowerShell command:
 
-   ```
+   ```powershell
    Install-WindowsFeature -Name Failover-Clustering -IncludeManagementTools
    ```
 
