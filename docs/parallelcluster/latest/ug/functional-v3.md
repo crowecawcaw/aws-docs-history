@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # How AWS ParallelCluster works
-<a name="functional-v3"></a>
 
 AWS ParallelCluster was built not only as a way to manage clusters, but as a reference on how to use AWS services to build your HPC environment. The following topics describe AWS ParallelCluster processes, the AWS services that AWS ParallelCluster uses and how, and the internal directories.
 

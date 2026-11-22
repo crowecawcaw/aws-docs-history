@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Patch the operating system of a cluster
-<a name="patching-cluster-v3"></a>
 
 This tutorial shows how to apply operating system updates to the nodes of a running AWS ParallelCluster cluster by building a patched AMI and updating the cluster to use it, without recreating the cluster from scratch.
 
@@ -76,7 +75,7 @@ For more information, see [Installing the Lustre client](https://docs.aws.amazon
 
 **Amazon Linux 2023**
 
-```
+```bash
 # Refresh the package manager cache.
 sudo dnf clean all
 sudo dnf makecache --refresh -y
@@ -89,7 +88,7 @@ sudo dnf upgrade -y
 
 **RHEL 8, RHEL 9, Rocky Linux 8, and Rocky Linux 9**
 
-```
+```bash
 # Refresh the package manager cache.
 sudo dnf clean all
 sudo dnf makecache --refresh -y
@@ -116,7 +115,7 @@ fi
 
 **Ubuntu 22.04 and 24.04**
 
-```
+```bash
 # Refresh the package manager cache.
 sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 
@@ -145,6 +144,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "lustre-client-modules-${
 
 After applying the updates, on any operating system, reboot the node to activate them. A reboot is required when the update installs a new kernel:
 
-```
+```bash
 $ sudo reboot
 ```

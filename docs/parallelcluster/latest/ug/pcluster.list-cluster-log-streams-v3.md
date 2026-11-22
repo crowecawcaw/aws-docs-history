@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster list-cluster-log-streams`
-<a name="pcluster.list-cluster-log-streams-v3"></a>
 
 Retrieve the list of log streams associated with a cluster.
 
-```
+```sh
 pcluster list-cluster-log-streams [-h]
                  --cluster-name {{CLUSTER_NAME}}                              
                 [--filters {{FILTERS}} [{{FILTERS}} ...]]

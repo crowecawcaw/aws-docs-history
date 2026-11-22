@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Best practices
-<a name="best-practices-v3"></a>
 
 The following sections provide best practices for using AWS ParallelCluster, which includes network performance and budget alerts. If you encounter problems even though you follow these best practices, see [AWS ParallelCluster troubleshooting](troubleshooting-v3.md) for possible solutions.
 
@@ -22,7 +21,7 @@ Even though the head node doesn't run a job, its functions and its sizing are cr
 Network performance is critical for high performance computing (HPC) applications. Without reliable network performance, these applications can't perform as expected. To optimize network performance, consider the following best practices.
 + **Placement group:** If you're using Slurm, consider configuring each Slurm queue to use a cluster placement group . A cluster's *placement group* is a logical grouping of instances within a single Availability Zone. For more information, see [placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*. You can specify a [`PlacementGroup`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup) in the queue's [`Networking`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking) section, each compute resource is assigned to the queue's placement group. When specifying a [`PlacementGroup`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Networking-PlacementGroup) in the compute resource's [`Networking`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Networking) section, that specific compute resource is assigned to that placement group. The compute resource placement group specification overrides the queue specification for the compute resource. For more information, see [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`Networking`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking) / [`PlacementGroup`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup) and [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`ComputeResources`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources) / [`Networking`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Networking) / [`PlacementGroup`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Networking-PlacementGroup).
 
-  ```
+  ```yaml
   Networking:
     PlacementGroup:
       Enabled: true
@@ -31,7 +30,7 @@ Network performance is critical for high performance computing (HPC) application
 
   Alternatively, have AWS ParallelCluster create a placement group for you.
 
-  ```
+  ```yaml
   Networking:
     PlacementGroup:
       Enabled: true
@@ -45,7 +44,7 @@ Network performance is critical for high performance computing (HPC) application
 + **Enhanced networking:** Consider choosing an instance type that supports enhanced networking. This recommendation applies to all [current generation instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#current-gen-instances). For more information, see [enhanced networking on Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html) in the *Amazon EC2 User Guide*.
 + **Elastic Fabric Adapter:** To support high levels of scalable instance to instance communication, consider choosing EFA network interfaces for your network. The EFA's custom-built operating system (OS) bypass hardware enhances instance to instance communications with the on-demand elasticity and flexibility of the AWS Cloud. You can configure each Slurm queue [`ComputeResource`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources) to use [`Efa`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa). For more information about using EFA with AWS ParallelCluster, see [Elastic Fabric Adapter](efa-v3.md).
 
-  ```
+  ```yaml
   ComputeResources:
     - Name: {{your-compute-resource-name}}
       Efa:

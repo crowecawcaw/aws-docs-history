@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Seeing errors with custom Slurm configuration
-<a name="troubleshooting-v3-custom-slurm-config"></a>
 
 Starting in AWS ParallelCluster version 3.6.0, you can no longer target single `prolog` or `epilog` scripts by including them in a custom Slurm configuration. In AWS ParallelCluster version 3.6.0 and later versions, you must locate custom `prolog` and `epilog` scripts in the respective `Prolog` and `Epilog` folders. These folders are configured by default to point to:
 + `Prolog` points to `/opt/slurm/etc/scripts/prolog.d/`.

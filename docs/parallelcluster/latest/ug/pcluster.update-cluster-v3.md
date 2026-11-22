@@ -3,14 +3,13 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster update-cluster`
-<a name="pcluster.update-cluster-v3"></a>
 
 Updates an existing cluster to match the settings of a specified configuration file.
 
 **Note**  
  The cluster update succeeds only if all cluster nodes have successfully applied the update. If the update fails, refer to the [`clusterStatus` is `UPDATE_FAILED`](troubleshooting-fc-v3-update-cluster.md#update-cluster-failure-v3) section for troubleshooting guidance. 
 
-```
+```sh
 pcluster update-cluster [-h] 
                  --cluster-configuration {{CLUSTER_CONFIGURATION}}
                  --cluster-name {{CLUSTER_NAME}}

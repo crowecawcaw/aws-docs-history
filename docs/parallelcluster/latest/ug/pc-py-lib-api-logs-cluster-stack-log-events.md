@@ -3,9 +3,8 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `get_cluster_log_events`
-<a name="pc-py-lib-api-logs-cluster-stack-log-events"></a>
 
-```
+```python
 get_cluster_log_events(cluster_name, log_stream_name, region, next_token, start_from_head, limit, start_time, end_time)
 ```
 

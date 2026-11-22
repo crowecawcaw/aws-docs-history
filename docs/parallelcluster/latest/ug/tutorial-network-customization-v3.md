@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Customize compute node network interfaces with launch template overrides
-<a name="tutorial-network-customization-v3"></a>
 
 Starting with AWS ParallelCluster 3.15.0, the `LaunchTemplateOverrides` parameter lets you customize the network interfaces of compute nodes by overriding the default network interface configuration with the configuration in a referenced launch template. The entire network interface section of the compute nodes is overwritten by the network interface section of the launch template used to override.
 
@@ -45,7 +44,7 @@ Create a launch template that defines the network interface configuration for `p
 
 Run the following AWS CLI command to create the launch template (`lt-123456789`):
 
-```
+```bash
 aws ec2 create-launch-template \
   --region us-east-1 \
   --launch-template-name override-lt \
@@ -93,7 +92,7 @@ aws ec2 create-launch-template \
 
 Create a cluster configuration that uses the `LaunchTemplateOverrides` parameter to reference the launch template you created.
 
-```
+```yaml
 Region: us-east-1
 HeadNode:
   InstanceType: c5.xlarge

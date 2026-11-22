@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Support NVIDIA-Imex with p6e-gb200 instance
-<a name="support-nvidia-imex-p6e-gb200-instance"></a>
 
 This tutorial shows you how to get started with AWS ParallelCluster on P6e-GB200, to leverage the highest GPU performance for AI training and inference. [ p6e-gb200.36xlarge instances are only available via P6e-GB200 UltraServers](https://aws.amazon.com/ec2/instance-types/p6/) where the `u-p6e-gb200x72` is Ultraserver Size and `p6e-gb200.36xlarge` is the [InstanceType](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-InstanceType) which forms the ultraserver. On purchasing an Ultraserver `u-p6e-gb200x72` it will be available through a [EC2 Capacity Blocks for ML](https://aws.amazon.com/ec2/capacityblocks/) which will have 18 `p6e-gb200.36xlarge` instances. To learn more, see [P6e-GB200](https://aws.amazon.com/ec2/instance-types/p6/).
 
@@ -29,7 +28,7 @@ Below is the `91_nvidia_imex_prolog.sh` script you should configure as a prolog 
 **Note**  
 This script will not be executed in case multiple jobs are started concurrently on the same nodes, therefore we suggest to use the `--exclusive` flag on submission.
 
-```
+```bash
 #!/usr/bin/env bash
 
 # This prolog script configures the NVIDIA IMEX on compute nodes involved in the job execution.
@@ -174,7 +173,7 @@ function create_default_imex_channel() {
 
 Create an `install_custom_action.sh` custom action which will download the aforementioned prolog script in a shared directory `/opt/slurm/etc/scripts/prolog.d/` which is accessed by Compute Nodes and sets the proper permissions to be executed.
 
-```
+```bash
 #!/bin/bash
 set -e
 
@@ -192,7 +191,7 @@ Create a cluster including P6e-GB200 instances. Below you can find an example co
 
 P6e-GB200 is currently only available in Local Zones. Some [Local Zones do not support a NAT Gateway](https://docs.aws.amazon.com/local-zones/latest/ug/local-zones-connectivity-nat.html), so please follow the [Connectivity options for Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/local-zones-connectivity.html) as ParallelCluster needs [Configuring security groups for restricted environments](security-groups-configuration.md) to connect to AWS Services. Please follow the [Launch instances with Capacity Blocks (CB)](launch-instances-capacity-blocks.md) (AWS ParallelClusterLaunch) as Ultraservers are available only as Capacity Blocks. 
 
-```
+```yaml
 HeadNode:
   CustomActions:
     OnNodeStart:
@@ -235,7 +234,7 @@ Scheduling:
 
 The `91_nvidia_imex_prolog.sh` prolog will run when you submit a Slurm job. Below is an example job to check the status NVIDIA-imex domain.
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=nvidia-imex-status-job
 #SBATCH --ntasks-per-node=1

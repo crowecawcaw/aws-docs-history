@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Placement groups and instance launch issues
-<a name="troubleshooting-v3-placemment-groups"></a>
 
 To get the lowest inter-node latency, use a *placement group*. A placement group ensures that your instances are on the same networking backbone. If there aren't enough instances available when a request is made, an `InsufficientInstanceCapacity` error is returned. To reduce the possibility of receiving this error when using cluster placement groups, set the [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`Networking`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking) / [`PlacementGroup`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup) / [`Enabled`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup-Enabled) parameter to `false`.
 

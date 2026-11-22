@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Trying to create a cluster
-<a name="troubleshooting-fc-v3-create-cluster"></a>
 
 When using AWS ParallelCluster version 3.5.0 and later to create a cluster, and a cluster creation failed with `--rollback-on-failure` set to `false`, use the [`pcluster describe-cluster`](pcluster.describe-cluster-v3.md) CLI command to get status and failure information. In this case, the expected `clusterStatus` of the `pcluster describe-cluster` output is `CREATE_FAILED`. Check the `failures` section in the output to find the `failureCode` and `failureReason`. Then, in the following section, find the matching `failureCode` for additional troubleshooting help. For more information, see [`pcluster describe-cluster`](pcluster.describe-cluster-v3.md).
 
@@ -155,7 +154,7 @@ If you see `RuntimeError` exception `Cluster state has been set to PROTECTED mod
 
     This indicates that the `OnNodeConfigured` or `OnNodeStart` custom script took a long time to run and caused a timeout error. Check your custom script for issues that might cause it to run for a long time. If your custom script requires a long time to run, consider changing the timeout limit by adding a `DevSettings` section to your cluster configuration file, as shown in the following example:
 
-    ```
+    ```yaml
     DevSettings:
       Timeouts:
         HeadNodeBootstrapTimeout: 2100 # default setting: 2100 seconds
@@ -164,7 +163,7 @@ If you see `RuntimeError` exception `Cluster state has been set to PROTECTED mod
 
     It's possible that the head node wasn't created successfully and the logs can't be found. In this case, you can get additional failure details by checking the CloudFormation stack events and the head node console log. You can retrieve the head node console log through the Amazon EC2 console or by running the following Amazon EC2 CLI command:
 
-    ```
+    ```bash
     aws ec2 get-console-output --instance-id {{HEAD_NODE_INSTANCE_ID}} --output text
     ```
 

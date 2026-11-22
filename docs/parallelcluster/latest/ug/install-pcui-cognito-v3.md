@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Amazon Cognito user pool options
-<a name="install-pcui-cognito-v3"></a>
 
 The following sections refer to CloudFormation quick-create links or quick-create URLs. A quick-create URL takes you to a **Create Stack Wizard** where you provide quick-create stack template inputs and deploy the stack. For more information about CloudFormation quick-create stacks, see [Creating quick-create links for stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stacks-quick-create-links.html) in the *AWS CloudFormation User Guide*.
 

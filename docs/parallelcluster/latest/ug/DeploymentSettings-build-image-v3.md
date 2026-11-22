@@ -3,14 +3,13 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `DeploymentSettings` section
-<a name="DeploymentSettings-build-image-v3"></a>
 
 **Note**  
 `DeploymentSettings` is added starting with AWS ParallelCluster version 3.4.0.
 
 **(Optional)** Specifies the deployment settings configuration.
 
-```
+```yaml
 DeploymentSettings:
   LambdaFunctionsVpcConfig:
     SecurityGroupIds:
@@ -27,7 +26,7 @@ DeploymentSettings:
 
 **(Optional)** Specifies the AWS Lambda functions VPC configurations. For more information, see [AWS Lambda VPC configuration in AWS ParallelCluster](lambda-vpc-v3.md).
 
-```
+```yaml
 LambdaFunctionsVpcConfig:
   SecurityGroupIds:
     - {{string}}

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Multiple instance type allocation with Slurm
-<a name="slurm-multiple-instance-allocation-v3"></a>
 
 Starting with AWS ParallelCluster version 3.3.0, you can configure your cluster to allocate from a compute resource's set of defined instance types. Allocation can be based on Amazon EC2 fleet low cost or optimal capacity strategies.
 
@@ -38,7 +37,7 @@ $ aws ec2 describe-instance-types --region {{region-id}} \
 
 The next example cluster configuration snippet shows how you can use these InstanceType and AllocationStrategy properties.
 
-```
+```json
 ...
  Scheduling:
   Scheduler: slurm

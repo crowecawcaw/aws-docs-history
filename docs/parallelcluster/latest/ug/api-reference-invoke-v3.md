@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Invoking AWS ParallelCluster API
-<a name="api-reference-invoke-v3"></a>
 
 The AWS ParallelCluster Amazon API Gateway endpoint is configured with [`AWS_IAM` authorization type](https://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html#api-gateway-control-access-iam-permissions-model-for-calling-api), and requires all requests to be SigV4 signed with valid IAM credentials ([API reference: making http requests](https://docs.aws.amazon.com/apigateway/api-reference/making-http-requests/)). 
 
@@ -11,7 +10,7 @@ When deployed with default settings, API invoke permissions are only granted to 
 
 To retrieve the ARN of the default IAM user, run: 
 
-```
+```sh
 $ REGION={{<region>}}
 $ API_STACK_NAME={{<stack-name>}}
 $ aws cloudformation describe-stacks --region ${REGION} --stack-name ${API_STACK_NAME} --query "Stacks[0].Outputs[?OutputKey=='ParallelClusterApiUserRole'].OutputValue" --output text
@@ -21,7 +20,7 @@ To obtain temporary credentials for the default IAM user, run the [ STS AssumeR
 
 To retrieve the AWS ParallelCluster API endpoint run the following command: 
 
-```
+```sh
 $ REGION={{<region>}}
 $ API_STACK_NAME={{<stack-name>}}
 $ aws cloudformation describe-stacks --region ${REGION} --stack-name ${API_STACK_NAME} --query "Stacks[0].Outputs[?OutputKey=='ParallelClusterApiInvokeUrl'].OutputValue" --output text

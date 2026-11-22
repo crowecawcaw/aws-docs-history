@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # buildImage
-<a name="build-image"></a>
 
 Create a custom AWS ParallelCluster image in an AWS Region.
 
@@ -17,7 +16,7 @@ Create a custom AWS ParallelCluster image in an AWS Region.
 ## Request syntax
 <a name="build-image-request"></a>
 
-```
+```json
 POST /v3/images/custom
 {
   "imageConfiguration": "string",
@@ -73,7 +72,7 @@ Required: No
 ## Response syntax
 <a name="build-image-response"></a>
 
-```
+```json
 {
   "image": {
     "imageId": "string",
@@ -150,13 +149,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ build_image({{custom-image-id}}, {{custom-image-config.yaml}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   "image": {
     "cloudformation_stack_arn": "arn:aws:cloudformation:us-east-1:123456789012:stack/custom-image-id/711b76b0-af81-11ec-a29f-0ee549109f1f",

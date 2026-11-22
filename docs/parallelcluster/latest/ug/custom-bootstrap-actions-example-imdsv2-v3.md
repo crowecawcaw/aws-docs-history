@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Example of how to update a custom bootstrap script for IMDSv2
-<a name="custom-bootstrap-actions-example-imdsv2-v3"></a>
 
 In the following example, we update a custom bootstrap action script that was used with IMDSv1 for use with IMDSv2. The IMDSv1 script retrieves Amazon EC2 instance AMI ID metadata.
 
-```
+```bash
 #!/bin/bash
 AMI_ID=$(curl http://169.254.169.254/latest/meta-data/ami-id)
 echo $AMI_ID >> /home/ami_id.txt
@@ -15,7 +14,7 @@ echo $AMI_ID >> /home/ami_id.txt
 
 The following shows the custom bootstrap action script modified to be compatible with IMDSv2.
 
-```
+```bash
 #!/bin/bash
 AMI_ID=$(TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
          && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/ami-id)

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS CloudFormation custom resource
-<a name="cloudformation-v3"></a>
 
 Starting with AWS ParallelCluster version 3.6.0, you can use an AWS ParallelCluster CloudFormation custom resource in an AWS CloudFormation stack. The custom resource is an AWS ParallelCluster hosted stack. This way, you can use CloudFormation to configure and manage your clusters. For example, you can configure cluster external resources such as network, shared storage, and security group infrastructure in a CloudFormation stack. Furthermore, you can manage your cluster with a CloudFormation infrastructure as code pipeline.
 

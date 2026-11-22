@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster AMI customization
-<a name="custom-ami-v3"></a>
 
 There are scenarios where building a custom AMI for AWS ParallelCluster is necessary. This section covers what to consider when building a custom AWS ParallelCluster AMI.
 
@@ -55,7 +54,7 @@ Use this command to get the log stream of build image process events.
 
 For example, you can tail build image events using the following command.
 
-```
+```bash
 $ watch -n 1 'pcluster get-image-log-events -i {{<image-id>}} \
         --log-stream-name/1 {{<pcluster-version>}} \
         --query "events[*].message" | tail -n 50'

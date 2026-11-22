@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `AdditionalPackages` section
-<a name="AdditionalPackages-v3"></a>
 
 **(Optional)** Used to identify additional packages to install.
 
-```
+```yaml
 AdditionalPackages:
   IntelSoftware:
     IntelHpcPlatform: {{boolean}}
@@ -20,7 +19,7 @@ AdditionalPackages:
 
 **(Optional)** Defines the configuration for Intel select solutions.
 
-```
+```yaml
 IntelSoftware:
   IntelHpcPlatform: {{boolean}}
 ```

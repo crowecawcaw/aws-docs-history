@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster list-images`
-<a name="pcluster.list-images-v3"></a>
 
 Retrieve the list of existing custom images.
 
-```
+```sh
 pcluster list-images [-h] 
                  --image-status {AVAILABLE,PENDING,FAILED}
                 [--debug]

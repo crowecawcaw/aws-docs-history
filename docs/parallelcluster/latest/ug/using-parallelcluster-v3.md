@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Using AWS ParallelCluster
-<a name="using-parallelcluster-v3"></a>
 
 **Topics**
 + [AWS ParallelCluster UI](pcui-using-v3.md)

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Install AWS ParallelCluster in a virtual environment (recommended)
-<a name="install-v3-virtual-environment"></a>
 
 We recommend that you install AWS ParallelCluster in a virtual environment to avoid requirement version conflicts with other `pip` packages.
 
@@ -14,7 +13,7 @@ We recommend that you install AWS ParallelCluster in a virtual environment to av
 
 1. If `virtualenv` isn't installed, install `virtualenv` using `pip3`. If `python3 -m virtualenv help` displays help information, go to step 2.
 
-   ```
+   ```sh
    $ python3 -m pip install --upgrade pip
    $ python3 -m pip install --user --upgrade virtualenv
    ```
@@ -23,25 +22,25 @@ We recommend that you install AWS ParallelCluster in a virtual environment to av
 
 1. Create a virtual environment and name it.
 
-   ```
+   ```sh
    $ python3 -m virtualenv {{~/apc-ve}}
    ```
 
    Alternatively, you can use the `-p` option to specify a specific version of Python.
 
-   ```
+   ```sh
    $ python3  -m virtualenv -p $(which python3) {{~/apc-ve}}
    ```
 
 1. <a name="activate-virtual-environment-3"></a>Activate your new virtual environment.
 
-   ```
+   ```sh
    $ source {{~/apc-ve}}/bin/activate
    ```
 
 1. Install AWS ParallelCluster into your virtual environment.
 
-   ```
+   ```sh
    (apc-ve)~$ python3 -m pip install --upgrade "aws-parallelcluster"
    ```
 
@@ -54,7 +53,7 @@ Example Node.js installation command:
    $  nvm install --lts=Hydrogen
    ```
 
-   ```
+   ```sh
    $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
    $ chmod ug+x ~/.nvm/nvm.sh
    $ source ~/.nvm/nvm.sh
@@ -64,10 +63,10 @@ Example Node.js installation command:
 
 1. Verify that AWS ParallelCluster is installed correctly.
 
-   ```
+   ```sh
    $ pcluster version
    {
-     "version": "3.16.2"
+     "version": "3.16.3"
    }
    ```
 
@@ -75,6 +74,6 @@ You can use the `deactivate` command to exit the virtual environment. Each time 
 
 To upgrade to the latest version of AWS ParallelCluster, run the installation command again.
 
-```
+```sh
 (apc-ve)~$ python3 -m pip install --upgrade "aws-parallelcluster"
 ```

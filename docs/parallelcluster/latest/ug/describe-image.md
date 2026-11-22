@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # describeImage
-<a name="describe-image"></a>
 
 Get detailed information about an existing image.
 
@@ -17,7 +16,7 @@ Get detailed information about an existing image.
 ## Request syntax
 <a name="describe-image-request"></a>
 
-```
+```json
 GET /v3/images/custom/{{{imageId}}}
 {
   "region": "string"
@@ -40,7 +39,7 @@ Required: No
 ## Response syntax
 <a name="describe-image-response"></a>
 
-```
+```json
 {
   "imageId": "string",
   "region": "string",
@@ -178,13 +177,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ describe_image({{custom-image-id}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   "cloudformation_stack_arn": "arn:aws:cloudformation:us-east-1:123456789012:stack/custom-image-id/6accc570-b080-11ec-845e-0e2dc6386985",
   "cloudformation_stack_creation_time": datetime.datetime(2022, 3, 30, 23, 23, 33, 731000, tzinfo=tzlocal()),

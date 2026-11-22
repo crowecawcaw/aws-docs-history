@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `Image` section
-<a name="build-Image-v3"></a>
 
 **(Optional)** Defines the image properties for the image build.
 
-```
+```yaml
 Image:
   Name: {{string}}
   RootVolume:
@@ -33,7 +32,7 @@ Specifies the name of the AMI. If not specified, the name used when calling the 
 
 (**Optional**) Specifies key-value pairs for the image.
 
-```
+```yaml
 Tags:
   - Key: {{string}}
     Value: {{string}}
@@ -53,7 +52,7 @@ Defines the value of the tag.
 
 (**Optional**) Specifies properties of the root volume for the image.
 
-```
+```yaml
 RootVolume:
   Size: {{integer}}
   Encrypted: {{boolean}}

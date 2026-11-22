@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Running containerized jobs with Pyxis
-<a name="tutorials_11_running-containerized-jobs-with-pyxis"></a>
 
 Learn how to create a cluster that is able to run containerized jobs using Pyxis, which is a SPANK plugin to manage containerized jobs in SLURM. Containers in Pyxis are managed by Enroot, which is tool to turn traditional container/OS images into unprivileged sandboxes. For more information, see [NVIDIA Pyxis](https://github.com/NVIDIA/pyxis) and [NVIDIA Enroot](https://github.com/NVIDIA/enroot).
 

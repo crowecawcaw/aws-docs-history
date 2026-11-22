@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Slurm configuration customization
-<a name="slurm-configuration-settings-v3"></a>
 
 Starting with AWS ParallelCluster version 3.6.0, you can customize the `slurm.conf` Slurm configuration in an AWS ParallelCluster cluster configuration.
 

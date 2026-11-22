@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Slurm dynamic node allocation strategies in version 3.6.x and previous
-<a name="scheduler-dynamic-node-allocation-v3-3.6.x"></a>
 
 AWS ParallelCluster uses only one type of dynamic node allocation strategy to scale the cluster:
 + Allocation based on available requested node information:

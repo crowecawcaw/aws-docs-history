@@ -3,14 +3,13 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster get-cluster-stack-events`
-<a name="pcluster.get-cluster-stack-events-v3"></a>
 
 Retrieve the events associated with the stack for the specified cluster.
 
 **Note**  
 Starting in version 3.6.0, AWS ParallelCluster uses nested stacks to create the resources associated with queues and compute resources. The `GetClusterStackEvents` API and the `pcluster get-cluster-stack-events` command only return the cluster main stack events. You can view the cluster stack events, including those related to queues and compute resources, in the CloudFormation console.
 
-```
+```sh
 pcluster get-cluster-stack-events [-h] 
                  --cluster-name {{CLUSTER_NAME}}
                 [--debug]

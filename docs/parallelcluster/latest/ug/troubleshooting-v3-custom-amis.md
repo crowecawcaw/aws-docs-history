@@ -3,13 +3,12 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Troubleshooting custom AMI issues
-<a name="troubleshooting-v3-custom-amis"></a>
 
 This section provides possible troubleshooting tips for custom AMI issues.
 
 When you use a custom AMI, you can see the following warnings:
 
-```
+```json
 "validationMessages": [
   {
     "level": "WARNING",
@@ -26,10 +25,10 @@ When you use a custom AMI, you can see the following warnings:
 
 If you're sure that the correct AMI is being used, you can ignore these warnings.
 
-If you don't want to see these warnings in the future, tag the custom AMI with the following tags, where `{{my-os}}` is one of `alinux2023`, `ubuntu2404`, `ubuntu2204`, `rhel8`, or `rhel9` and {{"3.16.2"}} is the `pcluster` version in use:
+If you don't want to see these warnings in the future, tag the custom AMI with the following tags, where `{{my-os}}` is one of `alinux2023`, `ubuntu2404`, `ubuntu2204`, `rhel8`, or `rhel9` and {{"3.16.3"}} is the `pcluster` version in use:
 
-```
+```sh
 $ aws ec2 create-tags \
   --resources {{ami-yourcustomAmi}} \
-  --tags Key="parallelcluster:version",Value={{"3.16.2"}} Key="parallelcluster:os",Value={{"my-os"}}
+  --tags Key="parallelcluster:version",Value={{"3.16.3"}} Key="parallelcluster:os",Value={{"my-os"}}
 ```

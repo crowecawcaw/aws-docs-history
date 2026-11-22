@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Configure FSx for ONTAP, FSx for OpenZFS, and File Cache shared storage
-<a name="shared-storage-config-ontap-zfs-v3"></a>
 
 For FSx for ONTAP, FSx for OpenZFS, and File Cache, you can use [`FsxOntapSettings`](SharedStorage-v3.md#SharedStorage-v3-FsxOntapSettings) / [`VolumeId`](SharedStorage-v3.md#yaml-SharedStorage-FsxOntapSettings-VolumeId), [`FsxOpenZfsSettings`](SharedStorage-v3.md#SharedStorage-v3-FsxOpenZfsSettings) / [`VolumeId`](SharedStorage-v3.md#yaml-SharedStorage-FsxOpenZfsSettings-VolumeId), and [`FileCacheSettings`](SharedStorage-v3.md#SharedStorage-v3-FsxFileCacheSettings) / [`FileCacheId`](SharedStorage-v3.md#yaml-SharedStorage-FsxFileCacheSettings-FileCacheId) to specify mounting an external existing volume or File Cache for your cluster.
 

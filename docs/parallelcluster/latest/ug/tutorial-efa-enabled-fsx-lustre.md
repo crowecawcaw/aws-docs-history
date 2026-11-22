@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Creating a cluster with an EFA-enabled FSx Lustre
-<a name="tutorial-efa-enabled-fsx-lustre"></a>
 
 In this tutorial, you will create a cluster that uses an EFA-enabled FSx Lustre file system as shared storage. Using an FSx Lustre file system with EFA enabled can provide a boost in performance up to 8x. To verify if an EFA-enabled file system is what you need, look at [Working with EFA-enabled file systems](https://docs.aws.amazon.com/fsx/latest/LustreGuide/efa-file-systems.html) in the *FSx for Lustre User Guide*.
 
@@ -21,7 +20,7 @@ When you use AWS ParallelCluster, you only pay for the AWS resources that are cr
 
 Create two security groups in the same VPC where the cluster and the file system will be deployed: one for the client running on cluster nodes and one for the file system.
 
-```
+```bash
 # Create security group for the FSx client
 aws ec2 create-security-group \
     --group-name Fsx-Client-SecurityGroup \
@@ -41,7 +40,7 @@ In the remainder of the tutorial, we will assume `sg-client` and `sg-file-system
 
 Configure the security group for the client to allow all inbound/outbound traffic to and from the file system, as [required by EFA](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-start.html#efa-start-security).
 
-```
+```bash
 # Allow all inbound traffic from the file system to the client
 aws ec2 authorize-security-group-ingress \
     --group-id {{sg-client}} \
@@ -61,7 +60,7 @@ aws ec2 authorize-security-group-egress \
 
 Configure the security group for the file system to allow all inbound/outbound traffic within itself and all inbound traffic from the client, as [required by EFA](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-start.html#efa-start-security). 
 
-```
+```bash
 # Allow all inbound traffic within this security group
 aws ec2 authorize-security-group-ingress \
     --group-id {{sg-file-system}} \
@@ -100,7 +99,7 @@ aws ec2 authorize-security-group-egress \
 
 Create the file system within the same Availability Zone (AZ) where the compute nodes will be; and replace `{{subnet-compute-nodes}}` with its ID in the following code. This is required to allow EFA work with your file system. Note that, as part of the file system creation, we enable EFA using the EfaEnable property.
 
-```
+```bash
 aws fsx create-file-system \
     --file-system-type LUSTRE \
     --storage-capacity 38400 \
@@ -126,7 +125,7 @@ Take note of the file system id returned by the previous command. In the remaind
       + Compute nodes must configure the FSx Lustre client to use EFA by following [Configuring EFA clients](https://docs.aws.amazon.com/fsx/latest/LustreGuide/configure-efa-clients.html) in the *FSx for Lustre User Guide*. That guide provides the `configure-efa-fsx-lustre-client` package, which you download, extract, and run with `setup.sh`. To apply it automatically on every compute node, run these steps from an [OnNodeStart](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-CustomActions-OnNodeStart) custom action, as shown below.
       + Create the file `configure-efa-fsx-lustre-client-wrapper.sh` and upload it to a bucket, for example `your-bucket`, that is reachable from the compute nodes. Following the steps in the FSx documentation referenced above, the wrapper performs the equivalent of:
 
-        ```
+        ```bash
         #!/bin/bash
         set -euo pipefail
         
@@ -145,7 +144,7 @@ Take note of the file system id returned by the previous command. In the remaind
 
 1. Create a cluster configuration file `config.yaml`:
 
-   ```
+   ```YAML
    Region: {{region}}
    Image:
      Os: ubuntu2204
@@ -193,7 +192,7 @@ Take note of the file system id returned by the previous command. In the remaind
 
    Then create a cluster using that configuration:
 
-   ```
+   ```bash
    pcluster create-cluster \
        --cluster-name fsx-efa-tutorial \
        --cluster-configuration config.yaml \
@@ -205,7 +204,7 @@ Take note of the file system id returned by the previous command. In the remaind
 
 To verify that Lustre network traffic is using EFA, use the Lustre `lnetctl` tool that can show the network traffic for a given network interface. To this aim, execute the following commands in a compute node:
 
-```
+```bash
 # Take note of the number of packets flowing through the interface, 
 # which are specified in statistics:send_count and statistics:recv_count
 sudo lnetctl net show --net efa -v

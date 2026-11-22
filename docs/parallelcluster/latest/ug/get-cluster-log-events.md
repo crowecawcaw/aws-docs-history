@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # getClusterLogEvents
-<a name="get-cluster-log-events"></a>
 
 Retrieve the events that are associated with a log stream.
 
@@ -17,7 +16,7 @@ Retrieve the events that are associated with a log stream.
 ## Request syntax
 <a name="get-cluster-log-events-request"></a>
 
-```
+```json
 GET /v3/clusters/{{{clusterName}}}/logstreams/{{{logStreamName}}}
 {
   "endTime": datetime,
@@ -77,7 +76,7 @@ Required: No
 ## Response syntax
 <a name="get-cluster-log-events-response"></a>
 
-```
+```json
 {
   "nextToken": "string",
   "prevToken": "string",
@@ -118,13 +117,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ get_cluster_log_events({{cluster_name_3x}}, {{log_stream_name=ip-192-0-2-26.i-abcdef01234567890.cfn-init}})
 ```
 
 **200 Response**
 
-```
+```json
 "events": [
   {
     "message": "2022-09-22 16:40:15,127 [DEBUG] CloudFormation client initialized with endpoint https://cloudformation.us-east-1.amazonaws.com",

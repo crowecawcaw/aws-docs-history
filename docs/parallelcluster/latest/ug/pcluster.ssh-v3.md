@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster ssh`
-<a name="pcluster.ssh-v3"></a>
 
 Runs a `ssh` command with the cluster user name and IP address pre-populated. Arbitrary arguments are appended to the end of the `ssh` command line.
 
-```
+```sh
 pcluster ssh [-h]
                  --cluster-name {{CLUSTER_NAME}}
                 [--debug]
@@ -35,12 +34,12 @@ Specifies the AWS Region to use. The AWS Region must be specified, using the `AW
 
 Example:
 
-```
+```sh
 $ pcluster ssh --cluster-name {{mycluster}} -i ~/.ssh/id_rsa
 ```
 
 Runs an `ssh` command with the user name and IP address of the cluster pre-populated:
 
-```
+```sh
 ssh ec2-user@1.1.1.1 -i ~/.ssh/id_rsa
 ```

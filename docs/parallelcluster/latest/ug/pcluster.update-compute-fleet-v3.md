@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster update-compute-fleet`
-<a name="pcluster.update-compute-fleet-v3"></a>
 
 Updates the status of the cluster compute fleet.
 
-```
+```sh
 pcluster update-compute-fleet [-h]
                  --cluster-name {{CLUSTER_NAME}}
                  --status {START_REQUESTED,STOP_REQUESTED,ENABLED,DISABLED}

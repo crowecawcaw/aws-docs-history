@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `HeadNode` section
-<a name="HeadNode-v3"></a>
 
 **(Required)** Specifies the configuration for the head node.
 
-```
+```yaml
 HeadNode:
   InstanceType: {{string}}
   Networking:
@@ -106,7 +105,7 @@ When the cluster scales out, the EBS storage type may present performance bottle
 
 **(Required)** Defines the networking configuration for the head node.
 
-```
+```yaml
 Networking:
   SubnetId: {{string}}
   ElasticIp: {{string/boolean}}
@@ -143,7 +142,7 @@ List of additional Amazon VPC security group ids to use for the head node.
 `Proxy` (** Optional**)  
 Specifies the proxy settings for the head node.  
 
-```
+```yaml
 Proxy:
                             HttpProxyAddress: 
                             {{string}}
@@ -158,7 +157,7 @@ There is no default value.
 
 **(Optional)** Defines the configuration for SSH access to the head node.
 
-```
+```yaml
 Ssh:
       KeyName: {{string}}
       AllowedIps: {{string}}
@@ -182,7 +181,7 @@ Specifies the CIDR-formatted IP range or a prefix list id for SSH connections to
 
 **(Optional)** Defines the local storage configuration for the head node.
 
-```
+```yaml
 LocalStorage:
   RootVolume:
     Size: {{integer}}
@@ -203,7 +202,7 @@ LocalStorage:
 `RootVolume` (**Required**)  
 Specifies the root volume storage for the head node.  
 
-```
+```yaml
 RootVolume:
   Size: {{integer}}
   Encrypted: {{boolean}}
@@ -252,7 +251,7 @@ Specifies whether the root volume should be deleted when the head node is termin
 `EphemeralVolume` (**Optional**)  
 Specifies details for any instance store volume. For more information, see [ Instance store volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes) in the *Amazon EC2 User Guide*.  
 
-```
+```yaml
 EphemeralVolume:
   MountDir: {{string}}
 ```
@@ -268,7 +267,7 @@ Specifies the mount directory for the instance store volume. The default is `/sc
 
 For more information, see [Connect to the head and login nodes through Amazon DCV](dcv-v3.md).
 
-```
+```yaml
 Dcv:
   Enabled: {{boolean}}
   Port: {{integer}}
@@ -301,7 +300,7 @@ Specifies the CIDR-formatted IP range for connections to Amazon DCV. This settin
 
 **(Optional)** Specifies custom scripts to run on the head node.
 
-```
+```yaml
 CustomActions:
   OnNodeStart:
     Sequence:
@@ -382,7 +381,7 @@ AWS ParallelCluster doesn't support including both a single script and `Sequence
 
 **(Optional)** Specifies either an instance role or an instance profile to use on the head node to override the default instance role or instance profile for the cluster.
 
-```
+```yaml
 Iam:
   InstanceRole: {{string}}
   InstanceProfile: {{string}}
@@ -419,7 +418,7 @@ Specifies a bucket. This is used to generate policies to grant the specified acc
 If this is specified, the `InstanceProfile` and `InstanceRole` settings can't be specified.  
 We recommend that you specify one or both of the `S3Access` and `AdditionalIamPolicies` settings because features added to AWS ParallelCluster often require new permissions.  
 
-```
+```yaml
 S3Access:
   - BucketName: {{string}}
     EnableWriteAccess: {{boolean}}
@@ -446,7 +445,7 @@ If this is specified, the `InstanceProfile` and `InstanceRole` settings can't be
 We recommend that you use `AdditionalIamPolicies` because `AdditionalIamPolicies` are added to the permissions that AWS ParallelCluster requires, and the `InstanceRole` must include all permissions required. The permissions required often change from release to release as features are added.  
 There is no default value.  
 
-```
+```yaml
 AdditionalIamPolicies:
   - Policy: {{string}}
 ```
@@ -460,7 +459,7 @@ List of IAM policies.
 
 **(Optional)** Specifies the properties for instance metadata service (IMDS). For more information, see [ How instance metadata service version 2 works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html#instance-metadata-v2-how-it-works) in the *Amazon EC2 User Guide*.
 
-```
+```yaml
 Imds:
     Secured: {{boolean}}
 ```
@@ -484,7 +483,7 @@ When a user is granted access to the head node's IMDS, they can use the permissi
 To restrict IMDS access, AWS ParallelCluster manages a chain of `iptables`.  
 Cluster users with `sudo` access can selectively enable or disable access to the head node's IMDS for other individual users, including `default` users, by running the command:  
 
-```
+```bash
 $ sudo /opt/parallelcluster/scripts/imds/imds-access.sh --allow {{<USERNAME>}}
 ```
 You can disable user IMDS access with the `--deny` option for this command.  
@@ -497,7 +496,7 @@ Any customization of `iptables` or `ip6tables` rules can interfere with the mech
 
 **(Optional)** Defines a custom image for the head node.
 
-```
+```yaml
 Image:
      CustomAmi: {{string}}
 ```
@@ -513,7 +512,7 @@ If the custom AMI requires additional permissions for its launch, these permissi
 For example, if a custom AMI has an encrypted snapshot associated with it, the following additional policies are required in both the user and head node policies:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # listClusterLogStreams
-<a name="list-cluster-log-streams"></a>
 
 Retrieve the list of log streams that are associated with a cluster.
 
@@ -17,7 +16,7 @@ Retrieve the list of log streams that are associated with a cluster.
 ## Request syntax
 <a name="list-cluster-log-streams-request"></a>
 
-```
+```json
 GET /v3/clusters/{{{clusterName}}}/logstreams
 {
   "filters": [ "string" ],
@@ -56,7 +55,7 @@ Required: No
 ## Response syntax
 <a name="list-cluster-log-streams-response"></a>
 
-```
+```json
 {
   "nextToken": "string",
   "logStreams": [
@@ -112,13 +111,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ list_cluster_log_streams({{cluster_name_3x}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   'log_streams': [
       {

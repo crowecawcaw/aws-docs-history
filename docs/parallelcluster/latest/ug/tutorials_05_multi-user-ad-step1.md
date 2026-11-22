@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Create the AD infrastructure
-<a name="tutorials_05_multi-user-ad-step1"></a>
 
 Choose the *Automated* tab to create the Active Directory (AD) infrastructure with an CloudFormation quick create template.
 
@@ -56,7 +55,7 @@ The Active Directory (AD) takes at least 15 minutes to create.
 
 Use the following Python script to create the VPC, subnets, and AD resources in your local AWS Region. Save this file as `ad.py` and run it.
 
-```
+```python
 import boto3
 import time
 from pprint import pprint
@@ -149,7 +148,7 @@ After the script completes, continue to the next step.
 
    ResetUserPassword
 
-   ```
+   ```json
    {
           "Statement": [
            {
@@ -205,7 +204,7 @@ After the script completes, continue to the next step.
 
    ResetUserPassword
 
-   ```
+   ```json
    {
            "Statement": [
                {
@@ -261,18 +260,18 @@ After the script completes, continue to the next step.
 
    Run the following commands to connect to the instance.
 
-   ```
+   ```bash
    $ INSTANCE_ID={{"i-1234567890abcdef0"}}
    ```
 
-   ```
+   ```bash
    $ PUBLIC_IP=$(aws ec2 describe-instances \
    --instance-ids $INSTANCE_ID \
    --query "Reservations[0].Instances[0].PublicIpAddress" \
    --output text)
    ```
 
-   ```
+   ```bash
    $ ssh -i {{~/.ssh/keys/keypair.pem}} ec2-user@$PUBLIC_IP
    ```
 
@@ -280,7 +279,7 @@ After the script completes, continue to the next step.
 
 **Install necessary software and join the realm.**
 
-   ```
+   ```bash
    $ sudo yum -y install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python
    ```
 
@@ -288,11 +287,11 @@ After the script completes, continue to the next step.
 
 **Replace the admin password with your `admin` password.**
 
-   ```
+   ```bash
    $ ADMIN_PW={{"asdfASDF1234"}}
    ```
 
-   ```
+   ```bash
    $ echo $ADMIN_PW | sudo realm join -U Admin {{corp.example.com}}
    Password for Admin:
    ```
@@ -308,11 +307,11 @@ After the script completes, continue to the next step.
 
    In this step, you use [adcli](https://www.mankier.com/package/adcli) and [openldap-clients](https://www.mankier.com/package/openldap-clients) tools that you installed in a preceding step.
 
-   ```
+   ```bash
    $ echo $ADMIN_PW | adcli create-user -x -U Admin --domain={{corp.example.com}} --display-name=ReadOnlyUser ReadOnlyUser
    ```
 
-   ```
+   ```bash
    $ echo $ADMIN_PW | adcli create-user -x -U Admin --domain={{corp.example.com}} --display-name={{user000 user000}}
    ```
 
@@ -320,15 +319,15 @@ After the script completes, continue to the next step.
 
    The directory DNS IP addresses are outputs of the Python script.
 
-   ```
+   ```bash
    $ DIRECTORY_IP={{"192.0.2.254"}}
    ```
 
-   ```
+   ```bash
    $ ldapsearch -x -h $DIRECTORY_IP -D Admin -w $ADMIN_PW -b "cn=ReadOnlyUser,ou=Users,ou=CORP,dc={{corp}},dc={{example}},dc={{com}}"
    ```
 
-   ```
+   ```bash
    $ ldapsearch -x -h $DIRECTORY_IP -D Admin -w $ADMIN_PW -b "cn={{user000}},ou=Users,ou=CORP,dc={{corp}},dc={{example}},dc={{com}}"
    ```
 
@@ -345,11 +344,11 @@ After the script completes, continue to the next step.
 
    The `directory-id` is an output of the Python script.
 
-   ```
+   ```bash
    $ DIRECTORY_ID={{"d-abcdef01234567890"}}
    ```
 
-   ```
+   ```bash
    $ aws ds reset-user-password \
    --directory-id $DIRECTORY_ID \
    --user-name "ReadOnlyUser" \
@@ -357,7 +356,7 @@ After the script completes, continue to the next step.
    --region {{"region-id"}}
    ```
 
-   ```
+   ```bash
    $ aws ds reset-user-password \
    --directory-id $DIRECTORY_ID \
    --user-name {{"user000"}} \
@@ -371,7 +370,7 @@ After the script completes, continue to the next step.
 
    Use Secrets Manager to create a new secret to hold the password for the `ReadOnlyUser` as the value. The secret value format must be plain text only (not JSON format). Make note of the secret ARN for future steps.
 
-   ```
+   ```bash
    $ aws secretsmanager create-secret --name {{"ADSecretPassword"}} \
    --region {{region_id}} \
    --secret-string {{"ro-p@ssw0rd"}} \
@@ -399,7 +398,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Store the certificate to Secrets Manager to make it retrievable from within the cluster later on.**
 
-   ```
+   ```bash
    $ aws secretsmanager create-secret --name example-cert \
      --secret-string file://$CERTIFICATE \
      --region {{region-id}}
@@ -414,7 +413,7 @@ Make a note of resource IDs. You use them in steps later on.
 
    `PutDomainCertificateSecrets`
 
-   ```
+   ```json
    {
        "Statement": [
            {
@@ -434,7 +433,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Import the certificate to AWS Certificate Manager (ACM).**
 
-   ```
+   ```bash
    $ aws acm import-certificate --certificate fileb://$CERTIFICATE \
      --private-key fileb://$PRIVATE_KEY \
      --region {{region-id}}
@@ -447,7 +446,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Create and the load balancer that is put in front of the Active Directory endpoints.**
 
-   ```
+   ```bash
    $ aws elbv2 create-load-balancer --name CorpExampleCom-NLB \
      --type network \
      --scheme internal \
@@ -489,7 +488,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Create the target group that's targeting the Active Directory endpoints.**
 
-   ```
+   ```bash
    $ aws elbv2 create-target-group --name CorpExampleCom-Targets --protocol TCP \
      --port 389 \
      --target-type ip \
@@ -521,7 +520,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Register the Active Directory (AD) endpoints into the target group.**
 
-   ```
+   ```bash
    $ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:{{region-id}}:{{123456789012}}:targetgroup/CorpExampleCom-Targets/{{44577c583b695e81}} \
      --targets Id={{192.0.2.254}},Port=389 Id={{203.0.113.237}},Port=389 \
      --region {{region-id}}
@@ -531,7 +530,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Create the LB listener with the certificate.**
 
-   ```
+   ```bash
    $ aws elbv2 create-listener --load-balancer-arn arn:aws:elasticloadbalancing:{{region-id}}:{{123456789012}}:loadbalancer/net/CorpExampleCom-NLB/{{3afe296bf4ba80d4}} \
      --protocol TLS \
      --port 636 \
@@ -573,7 +572,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Create the hosted zone to make the domain discoverable within the cluster VPC.**
 
-   ```
+   ```bash
    $ aws route53 create-hosted-zone --name corp.example.com \
      --vpc VPCRegion={{region-id}},VPCId={{vpc-021345abcdef6789}} \
      --caller-reference "ParallelCluster AD Tutorial"
@@ -604,7 +603,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Create a file that's named `recordset-change.json` with the following content. `HostedZoneId` is the canonical hosted zone ID of the load balancer.**
 
-   ```
+   ```json
    {
      "Changes": [
        {
@@ -629,7 +628,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Submit the recordset change to the hosted zone, this time using the hosted zone ID.**
 
-   ```
+   ```bash
    $ aws route53 change-resource-record-sets --hosted-zone-id {{Z09020002B5MZQNXMSJUB}} \
      --change-batch file://recordset-change.json
    {
@@ -650,7 +649,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -673,7 +672,7 @@ Make a note of resource IDs. You use them in steps later on.
 
 **Create a policy document that is named `policy.json` with the following content.**
 
-   ```
+   ```bash
    $ aws iam create-policy --policy-name ReadCertExample \
      --policy-document file://policy.json
    {

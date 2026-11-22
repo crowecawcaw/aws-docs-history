@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Cluster resource
-<a name="cfn-cluster-resource"></a>
 
 The CloudFormation cluster resource is formatted as shown in the following CloudFormation template snippet:
 
-```
+```yaml
 PclusterCluster:
   Type: Custom::PclusterCluster
   Properties:
@@ -43,7 +42,7 @@ The name of the log group that's used for logging Lambda cluster operations. The
 
 **Example: **`Fn::GetAtt`:
 
-```
+```yaml
 # Provide the public IP address of the head node as an output of a stack
 Outputs:
   HeadNodeIp:
@@ -53,7 +52,7 @@ Outputs:
 
 **Example: **Simple, complete CloudFormation template with an AWS ParallelCluster custom resource:
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: >
  AWS ParallelCluster CloudFormation Template
@@ -77,7 +76,7 @@ Resources:
     Properties:
       TemplateURL: !Sub
         - https://${AWS::Region}-aws-parallelcluster.s3.${AWS::Region}.${AWS::URLSuffix}/parallelcluster/${Version}/templates/custom_resource/cluster.yaml
-        - { Version: 3.16.2 }
+        - { Version: 3.16.3 }
 
   PclusterCluster:
     Type: Custom::PclusterCluster

@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster get-image-stack-events`
-<a name="pcluster.get-image-stack-events-v3"></a>
 
 Retrieve the events associated with the stack for the specified image build.
 
-```
+```sh
 pcluster get-image-stack-events [-h] 
                  --image-id {{IMAGE_ID}}
                 [--debug]

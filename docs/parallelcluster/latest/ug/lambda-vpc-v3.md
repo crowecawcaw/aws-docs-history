@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS Lambda VPC configuration in AWS ParallelCluster
-<a name="lambda-vpc-v3"></a>
 
 AWS ParallelCluster uses AWS Lambda to perform operations during the lifecycle of the cluster. An [AWS Lambda function always runs in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/foundation-networking.html) owned by the Lambda service. This Lambda function can also be connected to private subnets in a virtual private cloud (VPC) to access private resources.
 

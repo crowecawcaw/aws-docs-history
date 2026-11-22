@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Deploy PCUI
-<a name="tutorials_08_custom_domain-v3-deploy-pcui"></a>
 
 Complete the following steps to create a AWS ParallelCluster UI (PCUI) deployment that uses your custom domain, or to add a custom domain to an existing deployment by updating its stack parameters. When you update an existing stack, keep the current template so that the PCUI version doesn't change.
 

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # updateComputeFleet
-<a name="update-compute-fleet"></a>
 
 Update the status of the cluster compute fleet.
 
@@ -17,7 +16,7 @@ Update the status of the cluster compute fleet.
 ## Request syntax
 <a name="update-compute-fleet-request"></a>
 
-```
+```json
 PATCH /v3/clusters/{{{clusterName}}}/computefleet
 {
   "status": "string",
@@ -47,7 +46,7 @@ Required: No
 ## Response syntax
 <a name="update-compute-fleet-response"></a>
 
-```
+```json
 {
   "status": "START_REQUESTED",
   "lastStatusUpdatedTime": "2019-08-24T14:15:22Z"
@@ -74,13 +73,13 @@ Type: datetime
 
 **Request**
 
-```
+```python
 $ update_compute_fleet({{cluster_name_3x}},  "START_REQUESTED")
 ```
 
 **200 Response**
 
-```
+```json
 {
   'last_status_updated_time': datetime.datetime(2022, 3, 28, 22, 27, 14, tzinfo=tzlocal()),
   'status': 'START_REQUESTED'

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Troubleshooting stacks that include the AWS ParallelCluster custom resource
-<a name="cfn-cluster-ops-troubleshooting"></a>
 
 With an AWS ParallelCluster custom resource, CloudFormation deploys a cluster from a new, separate stack. You can monitor cluster creation by taking the following steps:
 

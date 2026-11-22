@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Build image configuration files
-<a name="image-builder-configuration-file-v3"></a>
 
 AWS ParallelCluster version 3 uses YAML 1.1 files for build image configuration parameters. Please confirm that indentation is correct to reduce configuration errors. For more information, see the YAML 1.1 spec at [https://yaml.org/spec/1.1/](https://yaml.org/spec/1.1/).
 

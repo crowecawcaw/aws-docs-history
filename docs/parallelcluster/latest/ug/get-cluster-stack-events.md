@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # getClusterStackEvents
-<a name="get-cluster-stack-events"></a>
 
 Retrieve the events that are associated with the stack for a cluster.
 
@@ -20,7 +19,7 @@ Starting in version 3.6.0, AWS ParallelCluster uses nested stacks to create the 
 ## Request syntax
 <a name="get-cluster-stack-events-request"></a>
 
-```
+```json
 GET /v3/clusters/{{{clusterName}}}/stackevents
 {
   "nextToken": "string",
@@ -49,7 +48,7 @@ Required: No
 ## Response syntax
 <a name="get-cluster-stack-events-response"></a>
 
-```
+```json
 {
   "nextToken": "string",
   "events": [
@@ -122,13 +121,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ get_cluster_stack_events({{cluster_name_3x}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   "events": [
     {

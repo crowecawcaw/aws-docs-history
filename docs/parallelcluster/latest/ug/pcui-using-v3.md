@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster UI
-<a name="pcui-using-v3"></a>
 
 The AWS ParallelCluster UI (PCUI) is a web-based user interface that serves as a dashboard for creating, monitoring, and managing clusters. You install and access the PCUI in your AWS account. The PCUI is added with AWS ParallelCluster version 3.5.0.
 

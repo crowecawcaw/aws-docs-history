@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # listImages
-<a name="list-images"></a>
 
 Retrieve the list of existing custom images.
 
@@ -17,7 +16,7 @@ Retrieve the list of existing custom images.
 ## Request syntax
 <a name="list-images-request"></a>
 
-```
+```json
 GET /images/custom
 {
   "imageStatus": "string",
@@ -48,7 +47,7 @@ Required: No
 ## Response syntax
 <a name="list-images-response"></a>
 
-```
+```json
 {
   "nextToken": "string",
   "images": [
@@ -109,13 +108,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ list_images({{"AVAILABLE"}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   'images': [
     {

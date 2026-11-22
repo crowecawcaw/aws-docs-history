@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Running your first job on AWS ParallelCluster
-<a name="tutorials-running-your-first-job-on-version-3"></a>
 
 This tutorial walks you through running your first Hello World job on AWS ParallelCluster
 
@@ -20,12 +19,12 @@ When using the AWS ParallelCluster command line interface (CLI) or API, you only
 
  First, we verify that AWS ParallelCluster is correctly, including the Node.js dependency, installed and configured. 
 
-```
+```bash
 $ node --version
 v16.8.0
 $ pcluster version
 {
-  "version": "3.16.2"
+  "version": "3.16.3"
 }
 ```
 
@@ -36,7 +35,7 @@ This returns the running version of AWS ParallelCluster.
 
 Now it's time to create your first cluster. Because the workload for this tutorial isn't performance intensive, we can use the default instance size of `t2.micro`. (For production workloads, you choose an instance size that best fits your needs.) Let's call your cluster `hello-world`.
 
-```
+```bash
 $ pcluster create-cluster \
     --cluster-name hello-world \
     --cluster-configuration hello-world.yaml
@@ -47,13 +46,13 @@ The AWS Region to use must be specified for most `pcluster` commands. If it's no
 
 If the output gives you a message about configuration, you need to run the following to configure AWS ParallelCluster: 
 
-```
+```bash
 $ pcluster configure --config hello-world.yaml
 ```
 
  If the [`pcluster create-cluster`](pcluster.create-cluster-v3.md) command succeeds, you see output similar to the following: 
 
-```
+```json
 {
   "cluster": {
     "clusterName": "hello-world",
@@ -68,7 +67,7 @@ $ pcluster configure --config hello-world.yaml
 
  You monitor the creation of the cluster using: 
 
-```
+```bash
 $ pcluster describe-cluster --cluster-name hello-world
 ```
 
@@ -79,13 +78,13 @@ $ pcluster describe-cluster --cluster-name hello-world
 
  Use your OpenSSH pem file to log into your head node. 
 
-```
+```bash
 $ pcluster ssh --cluster-name hello-world -i /path/to/keyfile.pem
 ```
 
  After you log in, run the command `sinfo` to verify that your compute nodes are set up and configured. 
 
-```
+```bash
 $ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 queue1*      up   infinite     10  idle~ queue1-dy-queue1t2micro-[1-10]
@@ -98,7 +97,7 @@ queue1*      up   infinite     10  idle~ queue1-dy-queue1t2micro-[1-10]
 
 Next, we create a job that sleeps for a little while and then outputs its own hostname. Create a file called `hellojob.sh`, with the following contents.
 
-```
+```bash
 #!/bin/bash
 sleep 30
 echo "Hello World from $(hostname)"
@@ -106,14 +105,14 @@ echo "Hello World from $(hostname)"
 
  Next, submit the job using `sbatch`, and verify that it runs. 
 
-```
+```bash
 $ sbatch hellojob.sh
 Submitted batch job 2
 ```
 
  Now, you can view your queue and check the status of the job. The provisioning of a new Amazon EC2 instance is started in the background. You can monitor the status of the cluster instances with the `sinfo` command.
 
-```
+```bash
 $ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  2    queue1 hellojob ec2-user CF       3:30      1 queue1-dy-queue1t2micro-1
@@ -121,14 +120,14 @@ $ squeue
 
  The output shows that the job has been submitted to `queue1`. Wait 30 seconds for the job to finish, and then run `squeue` again. 
 
-```
+```bash
 $ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 ```
 
  Now that there are no jobs in the queue, we can check for output in our current directory. 
 
-```
+```bash
 $ ls -l
 total 8
 -rw-rw-r-- 1 ec2-user ec2-user 57 Sep  1 14:25 hellojob.sh
@@ -137,7 +136,7 @@ total 8
 
  In the output, we see a "`out`" file. We can see output from our job: 
 
-```
+```bash
 $ cat slurm-2.out
 Hello World from queue1-dy-queue1t2micro-1
 ```

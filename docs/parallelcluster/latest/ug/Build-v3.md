@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `Build` section
-<a name="Build-v3"></a>
 
 **(Required)** Specifies the configuration in which the image will be built.
 
-```
+```yaml
 Build:
   Imds:
     ImdsSupport: {{string}}
@@ -66,7 +65,7 @@ Specifies the list of security group IDs for the image.
 
 **(Optional)** Specifies the Amazon EC2 ImageBuilder build and test instance metadata service (IMDS) settings.
 
-```
+```yaml
 Imds:
   ImdsSupport: {{string}}
 ```
@@ -88,7 +87,7 @@ Support for [`Imds`](#Build-v3-Imds) / [`ImdsSupport`](#yaml-build-image-Build-I
 
 (**Optional**) Specifies the IAM resources for the image build.
 
-```
+```yaml
 Iam:
   InstanceRole: {{string}}
   InstanceProfile: {{string}}
@@ -110,7 +109,7 @@ The ARN of the IAM role to use for the AWS Lambda function that backs the CloudF
 `AdditionalIamPolicies` (**Optional**)  
 Specifies additional IAM policies to attach to the EC2 Image Builder instance used to produce the custom AMI.  
 
-```
+```yaml
 AdditionalIamPolicies:
   - Policy: {{string}}
 ```  
@@ -128,7 +127,7 @@ The ARN of the IAM policy to use as permissions boundary for all roles created b
 
 (**Optional**) Specifies Amazon EC2 ImageBuilder components to use during the AMI build process in addition to the ones provided by default by AWS ParallelCluster. Such components can be used to customize the AMI build process. For more information, see [AWS ParallelCluster AMI customization](custom-ami-v3.md).
 
-```
+```yaml
 Components:
   - Type: {{string}}
     Value: {{string}}
@@ -148,7 +147,7 @@ Specifies the value of the type-value pair for the component. When type is `arn`
 
 (**Optional**) Specifies the list of tags to be set in the resources used to build the AMI.
 
-```
+```yaml
 Tags:
   - Key: {{string}}
     Value: {{string}}
@@ -168,7 +167,7 @@ Defines the value of the tag.
 
 (**Optional**) Specifies whether the operating system is updated before installing AWS ParallelCluster software stack.
 
-```
+```yaml
 UpdateOsPackages:
   Enabled: {{boolean}}
 ```
@@ -186,7 +185,7 @@ For example, suppose you want to build an AMI for AWS ParallelCluster version X.
 
 **(Optional)** Specifies additional software to be installed on the image.
 
-```
+```yaml
 Installation:
   NvidiaSoftware: 
     Enabled: {{boolean}}
@@ -197,7 +196,7 @@ Installation:
 `NvidiaSoftware` properties (**Optional**)  
 Specifies the Nvidia Software to be installed.  
 
-```
+```yaml
 NvidiaSoftware: 
     Enabled: {{boolean}}
 ```  
@@ -207,7 +206,7 @@ If `true`, the Nvidia GPU driver and CUDA will be installed. The default is `fal
 `LustreClient` properties (**Optional**)  
 Specifies that the Amazon FSx Lustre client will be installed.  
 
-```
+```yaml
 LustreClient:
     Enabled: {{boolean}}
 ```  

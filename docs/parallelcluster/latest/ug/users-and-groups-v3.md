@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster reserved users and groups
-<a name="users-and-groups-v3"></a>
 
 AWS ParallelCluster creates a set of reserved Linux users and groups on all nodes to run its internal daemons and services, such as the Slurm scheduler and MUNGE authentication. These accounts are assigned UIDs and GIDs from a reserved block, `400`–`405`. AWS ParallelCluster assigns each account **by name** during node bootstrap, and relies on these names, UIDs, and GIDs remaining stable and consistent across every node in the cluster.
 

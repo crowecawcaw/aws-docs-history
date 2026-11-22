@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Cluster configuration file
-<a name="cluster-configuration-file-v3"></a>
 
 AWS ParallelCluster version 3 uses separate configuration files to control the definition of cluster infrastructure and the definition of custom AMIs. All configuration files use YAML 1.1 files. Detailed information for each of these configuration files is linked below. For some example configurations, see [https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example\_configs](https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/example_configs).
 

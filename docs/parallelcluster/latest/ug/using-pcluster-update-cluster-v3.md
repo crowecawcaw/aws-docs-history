@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Using `pcluster update-cluster`
-<a name="using-pcluster-update-cluster-v3"></a>
 
 In AWS ParallelCluster 3.x, [`pcluster update-cluster`](pcluster.update-cluster-v3.md) analyzes the settings used to create the current cluster and the settings in the configuration file for issues. If any issues are discovered, they are reported, and the steps to take to fix the issues are displayed. For example, if the compute [`InstanceType`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-InstanceType) is changed, the compute fleet must be stopped before an update can proceed. This issue is reported when it is discovered. If no blocking issues are discovered, update process is started and the changes are reported.
 
@@ -83,7 +82,7 @@ The compute fleet must be stopped (using [`pcluster update-compute-fleet`](pclus
 These settings can be changed, but if the change would reduce the size of the queue, the compute fleet must be stopped (using pcluster update-compute-fleet) or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy) must be set to TERMINATE. After the compute fleet is stopped or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy) is set to TERMINATE, you can update the cluster ([pcluster update-cluster](pcluster.update-cluster-v3.md) to activate the changes.
 + This example demonstrates an update with some allowed changes and the update is started directly.
 
-  ```
+  ```sh
   $ pcluster update-cluster --cluster-name {{cluster_name}} --cluster-config ~/.parallelcluster/test_cluster --region us-east-1
   {
     "cluster": {
@@ -91,7 +90,7 @@ These settings can be changed, but if the change would reduce the size of the qu
       "cloudformationStackStatus": "UPDATE_IN_PROGRESS",
       "cloudformationStackArn": {{stack_arn}},
       "region": "us-east-1",
-      "version": "3.16.2",
+      "version": "3.16.3",
       "clusterStatus": "UPDATE_IN_PROGRESS"
     },
     "changeSet": [
@@ -109,7 +108,7 @@ These settings can be changed, but if the change would reduce the size of the qu
   ```
 + This example demonstrates a dryrun update with some allowed changes. Dryrun is useful to report the change set without starting the update.
 
-  ```
+  ```sh
   $ pcluster update-cluster --cluster-name {{cluster_name}} --cluster-config ~/.parallelcluster/test_cluster --region us-east-1 --dryrun true
   {
     "message": "Request would have succeeded, but DryRun flag is set.",
@@ -128,7 +127,7 @@ These settings can be changed, but if the change would reduce the size of the qu
   ```
 + This example demonstrates an update with some changes that block the update.
 
-  ```
+  ```sh
   $ pcluster update-cluster --cluster-name {{cluster_name}} --cluster-config ~/.parallelcluster/test_cluster --region us-east-1
   {
     "message": "Update failure",

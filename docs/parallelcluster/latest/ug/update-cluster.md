@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # updateCluster
-<a name="update-cluster"></a>
 
 Update the cluster.
 
@@ -17,7 +16,7 @@ Update the cluster.
 ## Request syntax
 <a name="update-cluster-request"></a>
 
-```
+```json
 PUT /v3/clusters/{{{clusterName}}}
 {
   "clusterConfiguration": "string",
@@ -72,7 +71,7 @@ Required: No
 ## Response syntax
 <a name="update-cluster-response"></a>
 
-```
+```json
 {
   "cluster": {
     "clusterName": "string",
@@ -181,13 +180,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ update_cluster({{cluster_name_3x}}, {{path/config-file.yaml}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   'change_set': [
     {

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Cluster capacity size and update
-<a name="slurm-cluster-capacity-size-and-update"></a>
 
 The capacity of the cluster is defined by the number of compute nodes the cluster can scale. Compute nodes are backed by Amazon EC2 instances defined within compute resources in the AWS ParallelCluster configuration `(Scheduling/SlurmQueues/ ComputeResources)`, and are organized into queues `(Scheduling/SlurmQueues)` that map 1:1 to Slurm partitions. 
 

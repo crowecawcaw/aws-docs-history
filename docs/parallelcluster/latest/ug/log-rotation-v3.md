@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster configured log rotation
-<a name="log-rotation-v3"></a>
 
 The AWS ParallelCluster log rotation configurations are located in `/etc/logrotate.d/parallelcluster_*_log_rotation` files. When a configured log rotates, the current log content is preserved in a single backup and the emptied log resumes logging.
 
@@ -19,7 +18,7 @@ AWS ParallelCluster configures and rotates the following logs:
 
 **Head node logs**
 
-```
+```bash
 /var/log/cloud-init.log
 /var/log/supervisord.log
 /var/log/cfn-init.log
@@ -42,7 +41,7 @@ AWS ParallelCluster configures and rotates the following logs:
 
 **Compute node logs**
 
-```
+```bash
 /var/log/cloud-init.log
 /var/log/supervisord.log
 /var/log/cloud-init-output.log
@@ -52,7 +51,7 @@ AWS ParallelCluster configures and rotates the following logs:
 
 **Login node logs**
 
-```
+```bash
 /var/log/cloud-init.log
 /var/log/cloud-init.log
 /var/log/cloud-init-output.log

@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Configure and create the cluster
-<a name="creating-the-cluster-v3"></a>
 
 The following is an example cluster configuration that includes an Amazon Elastic Block Store shared file system with encryption.
 
-```
+```yaml
 Region: {{eu-west-1}}
 Image:
   Os: alinux2023
@@ -50,7 +49,7 @@ The configuration is similar for Amazon EFS and FSx for Lustre file systems.
 
 The Amazon EFS `SharedStorage` configuration is as follows.
 
-```
+```yaml
 ...
 SharedStorage:
   - MountDir: /shared/{{efs1}}
@@ -63,7 +62,7 @@ SharedStorage:
 
 The FSx for Lustre `SharedStorage` configuration is as follows.
 
-```
+```yaml
 ...
 SharedStorage:
   - MountDir: /shared/{{fsx1}}

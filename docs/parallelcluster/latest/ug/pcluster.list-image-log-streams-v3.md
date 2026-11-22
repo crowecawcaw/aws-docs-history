@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster list-image-log-streams`
-<a name="pcluster.list-image-log-streams-v3"></a>
 
 Retrieve the list of log streams associated with an image.
 
-```
+```sh
 pcluster list-image-log-streams [-h] 
                  --image-id {{IMAGE_ID}}
                 [--next-token {{NEXT_TOKEN}}] [--debug]

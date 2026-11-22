@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Troubleshooting issues in clusters with AWS Batch integration
-<a name="troubleshooting-v3-batch"></a>
 
 This section provides possible troubleshooting tips for clusters with AWS Batch scheduler integration, specifically with head node issues, compute issues, job failures, and timeout errors.
 

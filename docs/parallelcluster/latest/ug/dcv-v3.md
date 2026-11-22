@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Connect to the head and login nodes through Amazon DCV
-<a name="dcv-v3"></a>
 
 Amazon DCV is a remote visualization technology that enables users to securely connect to graphic intensive 3D applications that are hosted on a remote high-performance server. For more information, see [Amazon DCV](https://docs.aws.amazon.com/dcv/).
 
@@ -11,7 +10,7 @@ The Amazon DCV software is automatically installed on the head node and can be e
 
 Starting from AWS ParallelCluster version 3.11, Amazon DCV can be enabled for a login node pool by using the Dcv section from the [`LoginNodes` section](LoginNodes-v3.md) / [Pools](LoginNodes-v3.md#LoginNodes-v3-Pools) configuration.
 
-```
+```yaml
 LoginNodes:
   Pools:
     Dcv: 

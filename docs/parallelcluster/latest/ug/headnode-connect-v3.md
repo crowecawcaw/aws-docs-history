@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Connect to a cluster
-<a name="headnode-connect-v3"></a>
 
 When you use AWS ParallelCluster, you can connect to the cluster head node to run jobs, view results, manage users, and monitor the cluster and job status. To connect to the cluster head node instance, use one of the following methods:
 + You can use `ssh` with a [key pair](install-v3.md#set-up-keypair) to log in. Specify the private key in [`HeadNode`](HeadNode-v3.md) / [`KeyName`](HeadNode-v3.md#yaml-HeadNode-Ssh-KeyName) in the cluster configuration. For more information, see [Connect to your Linux instance using SSH](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html) in the *Amazon EC2 User Guide for Linux Instances*.

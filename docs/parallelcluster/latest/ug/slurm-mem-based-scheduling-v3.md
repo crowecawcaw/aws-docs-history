@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Slurm memory-based scheduling
-<a name="slurm-mem-based-scheduling-v3"></a>
 
 Starting with version 3.2.0, AWS ParallelCluster supports Slurm memory-based scheduling with the [`SlurmSettings`](Scheduling-v3.md#Scheduling-v3-SlurmSettings) / [`EnableMemoryBasedScheduling`](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-EnableMemoryBasedScheduling) cluster configuration parameter.
 

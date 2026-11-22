@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Slurm cluster protected mode
-<a name="slurm-protected-mode-v3"></a>
 
 When a cluster runs with protected mode enabled, AWS ParallelCluster monitors and tracks compute node bootstrap failures as the compute nodes are being launched. It does this to detect whether these failures are occurring continuously.
 
@@ -46,7 +45,7 @@ When a cluster is in protected status, you can check the compute fleet status an
 
 The status of the compute fleet is `PROTECTED` in a cluster running in protected status.
 
-```
+```bash
 $ pcluster describe-compute-fleet --cluster-name {{<cluster-name>}} --region {{<region-id>}}
 {
    "status": "PROTECTED",
@@ -84,7 +83,7 @@ Partition `queue2` isn't impacted by the bootstrap failures in `queue1`. It's in
 
 After the bootstrap error has been resolved, you can run the following command to take the cluster out of protected status.
 
-```
+```bash
 $ pcluster update-compute-fleet --cluster-name {{<cluster-name>}} \
   --region {{<region-id>}} \
   --status START_REQUESTED

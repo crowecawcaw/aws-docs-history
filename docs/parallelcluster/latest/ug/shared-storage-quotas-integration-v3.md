@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Shared storage
-<a name="shared-storage-quotas-integration-v3"></a>
 
 AWS ParallelCluster supports either using [Amazon EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html), [FSx for ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html), and [FSx for OpenZFS](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) shared storage volumes, [Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) and [FSx for Lustre](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) shared storage file systems, or [File Caches](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/what-is.html). We recommend that you follow the [AWS well-architected framework reliability pillar](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/back-up-data.html) guidance and back up your volumes and file systems.
 

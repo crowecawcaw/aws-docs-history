@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster with AWS Batch scheduler
-<a name="network-configuration-v3-batch"></a>
 
 When you use `awsbatch` as the scheduler type, AWS ParallelCluster creates an AWS Batch managed compute environment. The AWS Batch environment manages Amazon Elastic Container Service (Amazon ECS) container instances. These instances are launched in the subnet configured in the [`AwsBatchQueues`](Scheduling-v3.md#Scheduling-v3-AwsBatchQueues) / [`Networking`](Scheduling-v3.md#Scheduling-v3-AwsBatchQueues-Networking) / [`SubnetIds`](Scheduling-v3.md#yaml-Scheduling-AwsBatchQueues-Networking-SubnetIds) parameter. For AWS Batch to function correctly, Amazon ECS container instances need external network access to communicate with the Amazon ECS service endpoint. This translates into the following scenarios: 
 + The Subnet ID specified for the queue uses a [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) to access the internet. We recommended this approach.
@@ -21,7 +20,7 @@ You must configure a [NAT gateway](https://docs.aws.amazon.com/vpc/latest/usergu
 
 All the previous configuration and considerations are valid for AWS Batch, too. The following is an example of a AWS Batch networking configuration.
 
-```
+```yaml
 # Note that all values are only provided as examples
 HeadNode:
   ...

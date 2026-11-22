@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Security for login nodes
-<a name="login-nodes-security"></a>
 
 Login nodes inherit the  `AllowedIPs` settings [`AllowedIps`](HeadNode-v3.md#yaml-HeadNode-Ssh-AllowedIps) from the head node, unless AllowedIps is specified for the [login node pool](LoginNodes-v3.md#LoginNodes-v3-Pools). In this manner, cluster administrators can restrict the security posture of the cluster by specifying the source CIDR or a prefix list from where SSH connections are allowed on either the head node or a pool of login nodes.
 

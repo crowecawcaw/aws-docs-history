@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Amazon EC2 console output logs
-<a name="console-logs-v3"></a>
 
 When AWS ParallelCluster detects that a static compute node instance terminates unexpectedly, it attempts to retrieve the Amazon EC2 console output from the terminated node instance after a period of time elapses. This way, if the compute node was unable to communicate with Amazon CloudWatch, useful troubleshooting information on why the node terminated might still be retrieved from the console output. This console output is recorded in the `/var/log/parallelcluster/compute_console_output` log on the head node. For more information about the Amazon EC2 console output, see [Instance console output](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output) in the *Amazon EC2 User Guide for Linux Instances*.
 

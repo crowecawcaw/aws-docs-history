@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Example AWS Managed Microsoft AD over LDAP(S) cluster configurations
-<a name="examples-addir-v3"></a>
 
 AWS ParallelCluster supports multiple user access by integrating with an AWS Directory Service over the Lightweight Directory Access Protocol (LDAP), or LDAP over TLS/SSL (LDAPS).
 
@@ -30,7 +29,7 @@ You can use this example to integrate your cluster with an AWS Managed Microsoft
 
 **Example cluster configuration file for using AD over LDAPS:**
 
-```
+```yaml
 Region: region-id
 Image:
   Os: alinux2023
@@ -75,7 +74,7 @@ DirectoryService:
 
 **Add certificates and configure domain controllers in post install script:**
 
-```
+```bash
 *#!/bin/bash*
 set -e
 
@@ -102,11 +101,11 @@ echo "${AD_IP_2} ${AD_HOSTNAME_2}" >> /etc/hosts
 
 **From Windows instance**
 
-```
+```bash
 $ nslookup {{192.0.2.254}}
 ```
 
-```
+```bash
 Server:  corp.example.com
 Address:  192.0.2.254
 
@@ -116,11 +115,11 @@ Address:  192.0.2.254
 
 **From Linux instance**
 
-```
+```bash
 $ nslookup {{192.0.2.254}}
 ```
 
-```
+```bash
 192.0.2.254.in-addr.arpa   name = corp.example.com
 192.0.2.254.in-addr.arpa   name = win-abcdef01234567890.corp.example.com
 ```
@@ -141,7 +140,7 @@ You can use this example to integrate your cluster with an AWS Managed Microsoft
 
 **Example cluster configuration file for using AWS Managed Microsoft AD over LDAPS without certificate verification:**
 
-```
+```yaml
 Region: region-id
 Image:
   Os: alinux2023

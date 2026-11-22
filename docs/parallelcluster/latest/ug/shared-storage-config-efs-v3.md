@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Amazon Elastic File System
-<a name="shared-storage-config-efs-v3"></a>
 
 To use an existing external Amazon EFS file system for long-term permanent storage outside of the cluster life cycle, specify [`EfsSettings`](SharedStorage-v3.md#SharedStorage-v3-EfsSettings) / [`FileSystemId`](SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-FileSystemId), by default, AWS ParallelCluster creates a managed Amazon EFS file system from [`EfsSettings`](SharedStorage-v3.md#SharedStorage-v3-EfsSettings) when it creates the cluster. AWS ParallelCluster also deletes the file system and data when the cluster is deleted or when the file system is removed from the cluster configuration.
 

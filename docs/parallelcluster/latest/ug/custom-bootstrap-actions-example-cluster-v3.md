@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Example cluster with custom bootstrap actions
-<a name="custom-bootstrap-actions-example-cluster-v3"></a>
 
 The following steps create a simple script to be executed after the node is configured, that installs the `R,` `curl` and `wget` packages in the nodes of the cluster.
 
@@ -29,7 +28,7 @@ If the script was edited on Windows, line endings must be changed from CRLF to L
 
 1. Update the AWS ParallelCluster configuration to include the new `OnNodeConfigured` action.
 
-   ```
+   ```yaml
    CustomActions:
      OnNodeConfigured:
        Script: https://{{<amzn-s3-demo-bucket>}}.s3.{{<region>}}.amazonaws.com/{{myscript.sh}}
@@ -41,7 +40,7 @@ If the script was edited on Windows, line endings must be changed from CRLF to L
 
    If the bucket doesn't have public-read permission, use `s3` as the URL protocol.
 
-   ```
+   ```yaml
    CustomActions:
      OnNodeConfigured:
        Script: s3://{{amzn-s3-demo-bucket}}/{{myscript.sh}}

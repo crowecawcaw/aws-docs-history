@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Integrating Active Directory
-<a name="tutorials_05_multi-user-ad"></a>
 
 In this tutorial, you create a multiple user environment. This environment includes an AWS ParallelCluster that's integrated with an AWS Managed Microsoft AD (Active Directory) at `corp.example.com`. You configure an `Admin` user to manage the directory, a `ReadOnly` user to read the directory, and a `user000` user to log into the cluster. You can use either the automated path or the manual path to create the networking resources, an Active Directory (AD), and the Amazon EC2 instance that you use to configure the AD. Regardless of the path, the infrastructure that you create is pre-configured to integrate AWS ParallelCluster using one of the following methods:
 + LDAPS with certificate verification (recommended as the most secure option)

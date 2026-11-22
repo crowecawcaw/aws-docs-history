@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # PCUI costs
-<a name="install-pcui-costs-v3"></a>
 
 The PCUI is built on a serverless architecture and you can use it within the AWS Free Tier category for most cases. The following table lists the AWS services that the PCUI depends on and their free-tier limits. Typical usage is estimated to cost less than one dollar each month.
 

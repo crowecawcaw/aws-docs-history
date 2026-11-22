@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Trying to run a job
-<a name="troubleshooting-fc-v3-run-job"></a>
 
 The following section provides possible troubleshooting solutions if you run in to issues while trying to run a job.
 
@@ -36,7 +35,7 @@ Exceeding network limits is often a result of supporting too many NFS connection
 
 For example, the following output shows dropped packages:
 
-```
+```bash
 $ ethtool -S eth0 | grep exceeded
   bw_in_allowance_exceeded: 38750610
   bw_out_allowance_exceeded: 1165693

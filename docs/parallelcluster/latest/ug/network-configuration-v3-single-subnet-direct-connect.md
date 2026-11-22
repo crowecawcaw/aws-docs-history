@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster in a single private subnet connected using AWS Direct Connect
-<a name="network-configuration-v3-single-subnet-direct-connect"></a>
 
 When [`Scheduling`](Scheduling-v3.md) / [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`Networking`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking) / [`AssignPublicIp`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-AssignPublicIp) is set to `false`, the subnets must be correctly set up to use the Proxy for all traffic. Web access is required for both head and compute nodes.
 
@@ -11,7 +10,7 @@ When [`Scheduling`](Scheduling-v3.md) / [`SlurmQueues`](Scheduling-v3.md#Schedul
 
  The configuration for this architecture requires the following settings:
 
-```
+```yaml
 # Note that all values are only provided as examples
 HeadNode:
   ...

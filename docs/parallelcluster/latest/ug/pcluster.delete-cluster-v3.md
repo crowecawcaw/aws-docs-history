@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `pcluster delete-cluster`
-<a name="pcluster.delete-cluster-v3"></a>
 
 Starts the deletion of a cluster.
 
-```
+```sh
 pcluster delete-cluster [-h] 
                  --cluster-name {{CLUSTER_NAME}}
                 [--debug]

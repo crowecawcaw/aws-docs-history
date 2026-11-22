@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `Iam` section
-<a name="Iam-v3"></a>
 
 **(Optional)** Specifies IAM properties for the cluster.
 
-```
+```yaml
 Iam:
   Roles:
     LambdaFunctionsRole: {{string}}
@@ -41,25 +40,25 @@ The resource prefix must follow the [naming rules specified by IAM](https://docs
 + You can combine the path and name `/path/name`.
 Specify a name.  
 
-```
+```yaml
 Iam:
   ResourcePrefix: my-prefix
 ```
 Specify a path.  
 
-```
+```yaml
 Iam:
   ResourcePrefix: /org/dept/team/project/user/
 ```
 Specify a path and name.  
 
-```
+```yaml
 Iam:
   ResourcePrefix: /org/dept/team/project/user/my-prefix
 ```
 If you specify `/my-prefix`, an error is returned.  
 
-```
+```yaml
 Iam:
   ResourcePrefix: /my-prefix
 ```

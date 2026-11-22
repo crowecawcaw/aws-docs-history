@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Getting started with AWS ParallelCluster
-<a name="getting-started-v3"></a>
 
 To get started with AWS ParallelCluster configure and create a cluster using the AWS ParallelCluster command line interface (CLI) or web-based user interface (UI). The PCUI was added in release 3.5.0.
 

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # View tags
-<a name="view-tagging"></a>
 
 Complete the following steps to view tags in the Amazon EC2 section of the AWS Management Console.
 
@@ -40,7 +39,7 @@ View tags
 | `aws:cloudformation:stack-name` | `{{clustername}}` | 
 | `aws:cloudformation:logical-id` | `HeadNode` | 
 | `aws:cloudformation:stack-id` | `arn:aws:cloudformation:{{region-id}}:{{ACCOUNTID}}:stack/{{clustername}}/{{1234abcd-12ab-12ab-12ab-1234567890abcdef0}}` | 
-| `parallelcluster:version` | `{{3.16.2}}` | 
+| `parallelcluster:version` | `{{3.16.3}}` | 
 
 
 **AWS ParallelCluster head node root volume tags**  
@@ -49,7 +48,7 @@ View tags
 | --- | --- | 
 | `parallelcluster:cluster-name` | `{{clustername}}` | 
 | `parallelcluster:node-type` | `HeadNode` | 
-| `parallelcluster:version` | `{{3.16.2}}` | 
+| `parallelcluster:version` | `{{3.16.3}}` | 
 
 
 **AWS ParallelCluster compute node instance tags**  
@@ -62,7 +61,7 @@ View tags
 | `aws:ec2launchtemplate:version` | `{{1}}` | 
 | `parallelcluster:node-type` | `Compute` | 
 | `parallelcluster:queue-name` | `{{queue-name}}` | 
-| `parallelcluster:version` | `{{3.16.2}}` | 
+| `parallelcluster:version` | `{{3.16.3}}` | 
 
 
 **AWS ParallelCluster compute node root volume tags**  
@@ -73,7 +72,7 @@ View tags
 | `parallelcluster:compute-resource-name` | `{{compute-resource-name}}` | 
 | `parallelcluster:node-type` | `Compute` | 
 | `parallelcluster:queue-name` | `{{queue-name}}` | 
-| `parallelcluster:version` | `{{3.16.2}}` | 
+| `parallelcluster:version` | `{{3.16.3}}` | 
 
 
 **PCUI tags**  

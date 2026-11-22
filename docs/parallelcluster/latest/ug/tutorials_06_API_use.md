@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Using the AWS ParallelCluster API
-<a name="tutorials_06_API_use"></a>
 
 In this tutorial, you build and test the API with [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and an AWS ParallelCluster CloudFormation template. Then, you use the example client available on GitHub to use the API. For more information about using the API, see the [AWS ParallelCluster API](api-reference-v3.md).
 

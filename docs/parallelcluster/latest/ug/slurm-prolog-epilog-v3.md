@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Slurm `prolog` and `epilog`
-<a name="slurm-prolog-epilog-v3"></a>
 
 Starting with AWS ParallelCluster version 3.6.0, the Slurm configuration that's deployed with AWS ParallelCluster includes the `Prolog` and `Epilog` configuration parameters:
 
-```
+```bash
 # PROLOG AND EPILOG
 Prolog=/opt/slurm/etc/scripts/prolog.d/*
 Epilog=/opt/slurm/etc/scripts/epilog.d/*

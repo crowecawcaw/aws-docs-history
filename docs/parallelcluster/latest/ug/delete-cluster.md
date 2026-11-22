@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # deleteCluster
-<a name="delete-cluster"></a>
 
 Initiate deleting a cluster.
 
@@ -17,7 +16,7 @@ Initiate deleting a cluster.
 ## Request syntax
 <a name="delete-cluster-request"></a>
 
-```
+```json
 DELETE /v3/clusters/{{{clusterName}}}
 {
   "region": "string"
@@ -40,7 +39,7 @@ Required: No
 ## Response syntax
 <a name="delete-cluster-response"></a>
 
-```
+```json
 {
    "cluster": {
        "clusterName": "string",
@@ -104,13 +103,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ delete_cluster({{cluster_name_3x}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   "cluster": {
     "cloudformation_stack_arn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster_name_3x/16b49540-aee5-11ec-8e18-0ac1d712b241",

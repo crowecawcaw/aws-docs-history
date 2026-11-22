@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster in a single subnet with no internet access
-<a name="aws-parallelcluster-in-a-single-public-subnet-no-internet-v3"></a>
 
 A subnet without internet access doesn't allow inbound or outbound connections to the internet. This AWS ParallelCluster configuration can help customers concerned with security further enhance the security of their AWS ParallelCluster resources. AWS ParallelCluster nodes are built from AWS ParallelCluster AMIs that include all of the software that's required to run a cluster with no internet access. This way, AWS ParallelCluster can create and manage clusters with nodes that don't have internet access.
 
@@ -59,7 +58,7 @@ All instances in the VPC must have proper security groups to communicate with th
 **Note**  
 When you use IAM policies to restrict access to VPC endpoints, you must add the following to the Amazon S3 VPC endpoint:  
 
-```
+```json
 PolicyDocument:
   Version: 2012-10-17
   Statement:
@@ -75,7 +74,7 @@ PolicyDocument:
 
 When creating a Slurm cluster, AWS ParallelCluster creates a private Route 53 hosted zone that is used to resolve the custom compute node hostnames, such as `{queue_name}-{st|dy}-{compute_resource}-{N}`. Because Route 53 doesn't support VPC endpoints, this feature must be disabled. Additionally, AWS ParallelCluster must be configured to use the default Amazon EC2 hostnames, such as `ip-1-2-3-4`. Apply the following settings to your cluster configuration:
 
-```
+```yaml
 ...
 Scheduling:
   ...
@@ -102,7 +101,7 @@ Learn how to configure your cluster to run in a subnet with no connection to the
 
 The configuration for this architecture requires the following settings:
 
-```
+```yaml
 # Note that all values are only provided as examples
 ...
 HeadNode:

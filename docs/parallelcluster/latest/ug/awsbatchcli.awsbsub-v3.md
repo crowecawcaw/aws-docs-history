@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `awsbsub`
-<a name="awsbatchcli.awsbsub-v3"></a>
 
 Submits jobs to the job queue of the cluster.
 
-```
+```sh
 awsbsub [-h] [-jn {{JOB_NAME}}] [-c {{CLUSTER}}] [-cf] [-w {{WORKING_DIR}}]
         [-pw {{PARENT_WORKING_DIR}}] [-if {{INPUT_FILE}}] [-p {{VCPUS}}] [-m {{MEMORY}}]
         [-e {{ENV}}] [-eb {{ENV_DENYLIST}}] [-r {{RETRY_ATTEMPTS}}] [-t {{TIMEOUT}}]

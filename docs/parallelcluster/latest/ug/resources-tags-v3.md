@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster resources and tagging
-<a name="resources-tags-v3"></a>
 
 With AWS ParallelCluster you can create tags to track and manage your AWS ParallelCluster resources. You define the tags that you want AWS CloudFormation to create and propagate to all cluster resources in the [`Tags` section](Tags-v3.md) of the cluster configuration file. You can also use tags that AWS ParallelCluster automatically generates to track and manage your resources.
 

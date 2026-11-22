@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Login Nodes lifecycle
-<a name="login-nodes-lifecycle"></a>
 
 Currently, there is no dedicated command to stop and start the login nodes in a pool. In order to stop the login nodes in a pool the cluster administrator has to update the cluster configuration specifying zero on the count of login nodes (`Count: 0` ) and then run an [`pcluster.update-cluster-v3`](pcluster.update-cluster-v3.md) command. 
 

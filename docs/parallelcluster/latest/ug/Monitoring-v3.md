@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # `Monitoring` section
-<a name="Monitoring-v3"></a>
 
 **(Optional)** Specifies the monitoring settings for the cluster.
 
-```
+```yaml
 Monitoring:
   Logs:
     CloudWatch:

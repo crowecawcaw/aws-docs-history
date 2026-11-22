@@ -3,11 +3,10 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Configuration settings to define actions and arguments
-<a name="custom-bootstrap-actions-config-v3"></a>
 
 The following configuration settings are used to define [`HeadNode`](HeadNode-v3.md) / [`CustomActions`](HeadNode-v3.md#HeadNode-v3-CustomActions) / [`OnNodeStart`](HeadNode-v3.md#yaml-HeadNode-CustomActions-OnNodeStart) & [`OnNodeConfigured`](HeadNode-v3.md#yaml-HeadNode-CustomActions-OnNodeConfigured) & [`OnNodeUpdated`](HeadNode-v3.md#yaml-HeadNode-CustomActions-OnNodeUpdated) and [`Scheduling`](Scheduling-v3.md) / [`CustomActions`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-CustomActions) / [`OnNodeStart`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-CustomActions-OnNodeStart) & [`OnNodeConfigured`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-CustomActions-OnNodeConfigured) actions and arguments.
 
-```
+```yaml
 HeadNode:
   [...]
   CustomActions:
@@ -54,7 +53,7 @@ Scheduling:
 
 Using the `Sequence` setting (added in AWS ParallelCluster version 3.6.0):
 
-```
+```yaml
 HeadNode:
   [...]
   CustomActions:
@@ -130,7 +129,7 @@ The `Sequence` setting is added starting with AWS ParallelCluster version 3.6.0.
 
 AWS ParallelCluster doesn't support including both a single script and `Sequence` for the same custom action. For example, AWS ParallelCluster fails if you specify the following configuration.
 
-```
+```yaml
 [...]
   CustomActions:
     OnNodeStart:

@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Amazon CloudWatch dashboard
-<a name="cloudwatch-dashboard-v3"></a>
 
 An Amazon CloudWatch dashboard is created when a cluster is created. This makes it easier to monitor the nodes in your cluster, and to view the logs stored in Amazon CloudWatch Logs. The name of the dashboard is `{{ClusterName}}-{{Region}}`. {{ClusterName}} is the name of your cluster and {{Region}} is the AWS Region the cluster is in. You can access the dashboard in the console, or by opening `https://console.aws.amazon.com/cloudwatch/home?region={{Region}}#dashboards:name={{ClusterName}}-{{Region}}`.
 

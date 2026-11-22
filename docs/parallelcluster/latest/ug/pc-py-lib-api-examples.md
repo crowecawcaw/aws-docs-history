@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Example
-<a name="pc-py-lib-api-examples"></a>
 
 **Topics**
 + [Create a cluster](#pc-py-lib-api-examples-create-cluster)
@@ -13,7 +12,7 @@ This documentation references AWS ParallelCluster. For running HPC and AI worklo
 
 When you run the following example script, with the given inputs stored in your environment, you create a cluster. The cluster configuration is created as a Python data type based on the [cluster configuration documentation](cluster-configuration-file-v3.md).
 
-```
+```python
 import os
 import pprint
 import pcluster.lib as pc
@@ -41,12 +40,12 @@ pp.pprint(pc.create_cluster(cluster_name="mycluster", cluster_configuration=CONF
 
 **Output:**
 
-```
+```python
 {'cluster': {'cloudformationStackArn': 'arn:aws:cloudformation:us-east-2:123456789012:stack/mycluster/00000000-aaaa-1111-999-000000000000',
              'cloudformationStackStatus': 'CREATE_IN_PROGRESS',
              'clusterName': 'mycluster',
              'clusterStatus': 'CREATE_IN_PROGRESS',
              'region': 'us-east-2',
              'scheduler': {'type': 'slurm'},
-             'version': '3.16.2'}}
+             'version': '3.16.3'}}
 ```

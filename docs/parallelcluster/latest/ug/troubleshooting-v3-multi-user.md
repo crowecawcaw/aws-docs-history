@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Troubleshooting multi-user integration with Active Directory
-<a name="troubleshooting-v3-multi-user"></a>
 
 This section is relevant to clusters integrated with an Active Directory.
 
@@ -41,7 +40,7 @@ This section is relevant to troubleshooting specific to an Active Directory type
 
   `Ldapsearch` syntax must be as follows:
 
-  ```
+  ```bash
   $ ldapsearch -x -D "corp\\Administrator" -w {{"Password"}} -H ldap://{{192.0.2.103}} \
      -b "cn=Users,dc={{corp}},dc={{example}},dc={{com}}"
   ```
@@ -54,7 +53,7 @@ This section is relevant to troubleshooting specific to an Active Directory type
 + Default admin user is `Admin`.
 + `Ldapsearch` syntax must be as follows:
 
-  ```
+  ```bash
   $ ldapsearch -x -D "Admin" -w {{"Password"}} -H ldap://{{192.0.2.103}} \
      -b "ou=Users,ou=CORP,dc={{corp}},dc={{example}},dc={{com}}"
   ```
@@ -64,7 +63,7 @@ This section is relevant to troubleshooting specific to an Active Directory type
 
 Debug logs from SSSD can be useful to troubleshoot issues. To enable debug mode, you must update the cluster with the following changes made to the cluster configuration:
 
-```
+```yaml
 DirectoryService:
   AdditionalSssdConfigs:
     debug_level: "0x1ff"
@@ -79,7 +78,7 @@ You can restore the cluster to its previous configuration by updating the cluste
 
 To move from LDAPS to LDAP, you must update the cluster with the following changes in the cluster configuration:
 
-```
+```yaml
 DirectoryService:
   LdapTlsReqCert: never
   AdditionalSssdConfigs:
@@ -95,7 +94,7 @@ You can restore the cluster to its previous configuration by updating the cluste
 
 To disable the LDAPS server certificate verification, you must update the cluster with the following changes in the cluster configuration:
 
-```
+```yaml
 DirectoryService:
   LdapTlsReqCert: never
 ```
@@ -105,7 +104,7 @@ DirectoryService:
 
 The SSH key is created in `/home/$user/.ssh/id_rsa` after the first time that you log in with a password. To log in with the SSH key, you must log in with your password, copy the SSH key locally, and then use it to SSH password-less as usual:
 
-```
+```bash
 $ ssh -i {{$LOCAL_PATH_TO_SSH_KEY $username@$head_node_ip}}
 ```
 
@@ -116,7 +115,7 @@ If a user loses access to a cluster, their [AWS Managed Microsoft AD password mi
 
 To reset the password, run the following command with a user and role having write permission on the directory:
 
-```
+```bash
 $ aws ds reset-user-password \
   --directory-id {{"d-abcdef01234567890"}} \
   --user-name {{"USER_NAME"}} \
@@ -134,7 +133,7 @@ If you reset the password for the [`DirectoryService`](DirectoryService-v3.md) /
 
    1. Run the following command from within the cluster head node.
 
-      ```
+      ```bash
       $ sudo /opt/parallelcluster/scripts/directory_service/update_directory_service_password.sh
       ```
 
@@ -147,7 +146,7 @@ For more information, see [Reset a user password](https://docs.aws.amazon.com/di
 
 The following command must run from an instance that's joined to the domain, not the head node.
 
-```
+```bash
 $ realm list corp.example.com \
   type: kerberos \
   realm-name: CORP.EXAMPLE.COM \
@@ -189,7 +188,7 @@ To troubleshoot an issue that's related to certificates, follow these verificati
 
    If this step fails, go ahead with next verification.
 
-   ```
+   ```bash
    $ openssl s_client -connect {{SERVER}}:{{PORT}} -CAfile {{PATH_TO_CA_BUNDLE_CERTIFICATE}}
    ```
 
@@ -199,7 +198,7 @@ To troubleshoot an issue that's related to certificates, follow these verificati
 
    If this step fails, go ahead with next verification.
 
-   ```
+   ```bash
    $ openssl verify -verbose -CAfile {{PATH_TO_CA_BUNDLE_CERTIFICATE}} {{PATH_TO_A_SERVER_CERTIFICATE}}
    ```
 
@@ -209,7 +208,7 @@ To troubleshoot an issue that's related to certificates, follow these verificati
 
    If this step fails, you must correct the certificate issued for the domain controllers and re-execute the troubleshooting steps.
 
-   ```
+   ```bash
    $ openssl s_client -connect {{SERVER}}:{{PORT}} -showcerts
    ```
 
@@ -219,7 +218,7 @@ To troubleshoot an issue that's related to certificates, follow these verificati
 
    If this step fails, you must correct the certificate issued for the domain controllers and rerun the troubleshooting steps.
 
-   ```
+   ```bash
    $ openssl s_client -connect {{SERVER}}:{{PORT}} -showcerts
    ```
 
@@ -229,7 +228,7 @@ To troubleshoot an issue that's related to certificates, follow these verificati
 
    If this step fails, you must correct CA certificate bundle issued for the domain controllers and rerun the troubleshooting steps.
 
-   ```
+   ```bash
    $ openssl x509 -in {{PATH_TO_A_CERTIFICATE}} -text
    ```
 
@@ -302,7 +301,7 @@ You can use the following workarounds.
 
 1. Enable SSSD enumeration by setting the [AdditionalSssdConfigs](DirectoryService-v3.md#yaml-DirectoryService-AdditionalSssdConfigs) in cluster configuration as follows.
 
-   ```
+   ```yaml
    AdditionalSssdConfigs:
      enumerate: true
    ```

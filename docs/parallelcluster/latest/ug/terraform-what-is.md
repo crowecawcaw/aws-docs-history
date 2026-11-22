@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # AWS ParallelCluster for Terraform
-<a name="terraform-what-is"></a>
 
 Beginning with AWS ParallelCluster 3.8.0, you can deploy clusters and custom images using [Terraform](https://www.terraform.io/). To begin using this feature, see [Terraform Provider for AWS ParallelCluster](https://registry.terraform.io/providers/aws-tf/aws-parallelcluster/latest) from the Terraform Registry. 
 

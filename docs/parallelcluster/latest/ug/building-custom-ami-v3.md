@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Building a custom AWS ParallelCluster AMI
-<a name="building-custom-ami-v3"></a>
 
 When using the AWS ParallelCluster command line interface (CLI) or API, you only pay for the AWS resources that are created when you create or update AWS ParallelCluster images and clusters. For more information, see [AWS services used by AWS ParallelCluster](aws-services-v3.md).
 
@@ -47,7 +46,7 @@ Steps:
 
 1. Create a basic *build image* configuration file. To do this, specify the [`InstanceType`](Build-v3.md#yaml-build-image-Build-InstanceType) to be used to build the image and the [`ParentImage`](Build-v3.md#yaml-build-image-Build-ParentImage). These are used as the starting point to create the AMI. For more information about optional build parameters, see [Image Configuration](image-builder-configuration-file-v3.md).
 
-   ```
+   ```yaml
    Build:
     InstanceType: {{<BUILD_INSTANCE_TYPE>}}
     ParentImage: {{<BASE_AMI_ID>}}
@@ -55,7 +54,7 @@ Steps:
 
 1. Use the CLI command [`pcluster build-image`](pcluster.build-image-v3.md) to build an AWS ParallelCluster AMI starting from the AMI that you provide as the base.
 
-   ```
+   ```sh
    $ pcluster build-image --image-id {{IMAGE_ID}} --image-configuration {{IMAGE_CONFIG.yaml}} --region {{REGION}}
        {
     "image": {
@@ -64,7 +63,7 @@ Steps:
       "cloudformationStackStatus": "CREATE_IN_PROGRESS",
       "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/IMAGE_ID/abcd1234-ef56-gh78-ij90-1234abcd5678",
       "region": "us-east-1",
-      "version": "3.16.2"
+      "version": "3.16.3"
     }
    }
    ```
@@ -81,13 +80,13 @@ Steps:
 
 1. You can monitor the status of the build process by running the following command. After the build completes, you can run it to retrieve the AMI ID given in the response.
 
-   ```
+   ```sh
    $ pcluster describe-image --image-id {{IMAGE_ID}} --region {{REGION}}
        
    # BEFORE COMPLETE
    {
     "imageConfiguration": {
-      "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.16.2/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?...",
+      "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.16.3/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?...",
     },
     "imageId": "IMAGE_ID",
     "imagebuilderImageStatus": "BUILDING",
@@ -95,10 +94,10 @@ Steps:
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
     "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/IMAGE_ID/abcd1234-ef56-gh78-ij90-1234abcd5678",
     "region": "us-east-1",
-    "version": "3.16.2",
+    "version": "3.16.3",
     "cloudformationStackTags": [
       {
-        "value": "3.16.2",
+        "value": "3.16.3",
         "key": "parallelcluster:version"
       },
       {
@@ -114,7 +113,7 @@ Steps:
    # AFTER COMPLETE
    {
     "imageConfiguration": {
-      "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.16.2/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
+      "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.16.3/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
     },
     "imageId": "IMAGE_ID",
     "imageBuildStatus": "BUILD_COMPLETE",
@@ -133,7 +132,7 @@ Steps:
         ],
       "architecture": "x86_64"
     },
-    "version": "3.16.2"      
+    "version": "3.16.3"      
    }
    ```
 
@@ -143,7 +142,7 @@ Steps:
 
 Image creation completes in about an hour. You can monitor the process by running the [`pcluster describe-image`](pcluster.describe-image-v3.md) command or log retrieval commands.
 
-```
+```sh
 $ pcluster describe-image --image-id {{IMAGE_ID}} --region {{REGION}}
 ```
 
@@ -151,14 +150,14 @@ The [`build-image`](pcluster.build-image-v3.md) command creates a CloudFormation
 
 After running the [`build-image`](pcluster.build-image-v3.md) command, it's possible to retrieve CloudFormation stack events by using [`pcluster get-image-stack-events`](pcluster.get-image-stack-events-v3.md). You can filter results with the `--query` parameter to see the latest events. For more information, see [Filtering AWS CLI output](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html) in the *AWS Command Line Interface User Guide*.
 
-```
+```sh
 $ pcluster get-image-stack-events --image-id {{IMAGE_ID}} --region {{REGION}} --query "events[0]"
 {
  "eventId": "ParallelClusterImage-CREATE_IN_PROGRESS-2022-04-05T21:39:24.725Z",
- "physicalResourceId": "arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-IMAGE_ID/3.16.2/1",
+ "physicalResourceId": "arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-IMAGE_ID/3.16.3/1",
  "resourceStatus": "CREATE_IN_PROGRESS",
  "resourceStatusReason": "Resource creation Initiated",
- "resourceProperties": "{\"InfrastructureConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"ImageRecipeArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/parallelclusterimage-IMAGE_ID/3.16.2\",\"DistributionConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"Tags\":{\"parallelcluster:image_name\":\"IMAGE_ID\",\"parallelcluster:image_id\":\"IMAGE_ID\"}}",
+ "resourceProperties": "{\"InfrastructureConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"ImageRecipeArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/parallelclusterimage-IMAGE_ID/3.16.3\",\"DistributionConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"Tags\":{\"parallelcluster:image_name\":\"IMAGE_ID\",\"parallelcluster:image_id\":\"IMAGE_ID\"}}",
  "stackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/IMAGE_ID/abcd1234-ef56-gh78-ij90-1234abcd5678",
  "stackName": "IMAGE_ID",
  "logicalResourceId": "ParallelClusterImage",
@@ -169,15 +168,15 @@ $ pcluster get-image-stack-events --image-id {{IMAGE_ID}} --region {{REGION}} --
 
 After about 15 minutes, the stack events appear in the log event entry related to Image Builder creation. You can now list image log streams and monitor the Image Builder steps by using [`pcluster list-image-log-streams`](pcluster.list-image-log-streams-v3.md) and [`pcluster get-image-log-events`](pcluster.get-image-log-events-v3.md) commands.
 
-```
+```sh
 $ pcluster list-image-log-streams --image-id {{IMAGE_ID}} --region {{REGION}} \
     --query 'logStreams[*].logStreamName'
 
- "3.16.2/1"
+ "3.16.3/1"
 ]
 
 $ pcluster get-image-log-events --image-id {{IMAGE_ID}} --region {{REGION}} \
---log-stream-name 3.16.2/1 --limit 3
+--log-stream-name 3.16.3/1 --limit 3
 {
  "nextToken": "f/36295977202298886557255241372854078762600452615936671762",
  "prevToken": "b/36295977196879805474012299949460899222346900769983430672",
@@ -187,7 +186,7 @@ $ pcluster get-image-log-events --image-id {{IMAGE_ID}} --region {{REGION}} \
      "timestamp": "2022-04-05T22:13:26.633Z"
    },
    {
-     "message": "Document arn:aws:imagebuilder:us-east-1:123456789012:component/parallelclusterimage-test-abcd1234-ef56-gh78-ij90-1234abcd5678/3.16.2/1",
+     "message": "Document arn:aws:imagebuilder:us-east-1:123456789012:component/parallelclusterimage-test-abcd1234-ef56-gh78-ij90-1234abcd5678/3.16.3/1",
      "timestamp": "2022-04-05T22:13:26.741Z"
    },
    {
@@ -200,11 +199,11 @@ $ pcluster get-image-log-events --image-id {{IMAGE_ID}} --region {{REGION}} \
 
 Continue to check with the [`describe-image`](pcluster.describe-image-v3.md) command until you see the `BUILD_COMPLETE` status.
 
-```
+```sh
 $ pcluster describe-image --image-id {{IMAGE_ID}} --region {{REGION}}
 {
  "imageConfiguration": {
-   "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.16.2/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
+   "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.16.3/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
  },
  "imageId": "IMAGE_ID",
  "imageBuildStatus": "BUILD_COMPLETE",
@@ -223,7 +222,7 @@ $ pcluster describe-image --image-id {{IMAGE_ID}} --region {{REGION}}
      ],
    "architecture": "x86_64"
  },
- "version": "3.16.2"      
+ "version": "3.16.3"      
 }
 ```
 
@@ -231,7 +230,7 @@ If you need to troubleshoot a custom AMI creation issue, create an archive of th
 
 It's possible to archive the logs in an Amazon S3 bucket or in a local file, depending on the `--output` parameter.
 
-```
+```sh
 $ pcluster export-image-logs --image-id {{IMAGE_ID}} --region {{REGION}} \
 --bucket {{BUCKET_NAME}} --bucket-prefix {{BUCKET_FOLDER}}
 {
@@ -281,7 +280,7 @@ Steps:
 
 1. Run the following command to prepare your instance for AMI creation.
 
-   ```
+   ```sh
    sudo /usr/local/sbin/ami_cleanup.sh
    ```
 
@@ -322,7 +321,7 @@ Steps:
 
 1. Run the following command to prepare your instance for AMI creation:
 
-   ```
+   ```sh
    sudo /usr/local/sbin/ami_cleanup.sh
    ```
 

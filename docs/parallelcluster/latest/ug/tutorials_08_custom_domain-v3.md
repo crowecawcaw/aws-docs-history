@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Configure a custom domain
-<a name="tutorials_08_custom_domain-v3"></a>
 
 Learn how to configure a custom domain for the AWS ParallelCluster UI (PCUI). The UI is hosted on Amazon API Gateway in your AWS account. You can configure a custom domain in the API Gateway console.
 

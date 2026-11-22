@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Configuring security groups for restricted environments
-<a name="security-groups-configuration"></a>
 
 By default, AWS ParallelCluster creates and configures security groups that allow all traffic between cluster nodes. In highly restricted environments, you might need to limit network access to only the ports required for cluster operation. This section describes how to configure custom security groups with restricted access for your AWS ParallelCluster deployment.
 
@@ -69,7 +68,7 @@ To create custom security groups for your AWS ParallelCluster deployment, follow
 
 Here's an example of how to create security groups using the AWS CLI:
 
-```
+```bash
 # Create security group for head node
 aws ec2 create-security-group \
   --group-name pcluster-head-node-sg \
@@ -91,7 +90,7 @@ aws ec2 create-security-group \
 
 Once you've created your custom security groups, you can reference them in your cluster configuration file:
 
-```
+```yaml
 # Example cluster configuration with custom security groups
 HeadNode:
   ...
@@ -147,7 +146,7 @@ In highly restricted environments, you might want to deploy AWS ParallelCluster 
 
 When using VPC endpoints, ensure that your security groups allow traffic to and from the VPC endpoints. You can do this by adding the security groups associated with the VPC endpoints to the `AdditionalSecurityGroups` configuration for your head node and compute nodes.
 
-```
+```yaml
 HeadNode:
   ...
   Networking:

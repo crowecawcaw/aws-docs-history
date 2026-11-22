@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # describeComputeFleet
-<a name="describe-compute-fleet"></a>
 
 Describe the status of the compute fleet.
 
@@ -17,7 +16,7 @@ Describe the status of the compute fleet.
 ## Request syntax
 <a name="describe-compute-fleet-request"></a>
 
-```
+```json
 GET /v3/clusters/{{{clusterName}}}/computefleet
 {
   "region": "string"
@@ -40,7 +39,7 @@ Required: No
 ## Response syntax
 <a name="describe-compute-fleet-response"></a>
 
-```
+```json
 {
   "status": "START_REQUESTED",
   "lastStatusUpdatedTime": "2019-08-24T14:15:22Z"
@@ -66,13 +65,13 @@ Type: datetime
 
 **Request**
 
-```
+```python
 $ describe_compute_fleet({{cluster_name_3x}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   "last_status_updated_time": datetime.datetime(2022, 3, 28, 22, 27, 14, tzinfo=tzlocal()),
   "status": "RUNNING"

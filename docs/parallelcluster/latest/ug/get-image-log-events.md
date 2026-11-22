@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # getImageLogEvents
-<a name="get-image-log-events"></a>
 
 Retrieve the events that are associated with an image build.
 
@@ -17,7 +16,7 @@ Retrieve the events that are associated with an image build.
 ## Request syntax
 <a name="get-image-log-events-request"></a>
 
-```
+```json
 GET /v3/images/custom/{{{imageId}}}/logstreams/{{{logStreamName}}}
 {
   "endTime": datetime,
@@ -77,7 +76,7 @@ Required: No
 ## Response syntax
 <a name="get-image-log-events-response"></a>
 
-```
+```json
 {
   "nextToken": "string",
   "prevToken": "string",
@@ -118,13 +117,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ get_image_log_events({{image_id}}, {{log_stream_name=3.2.1/1}})
 ```
 
 **200 Response**
 
-```
+```json
 "events": [
   {
     "message": "ExecuteBash: STARTED EXECUTION",

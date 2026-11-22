@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # Retrieving and preserving logs
-<a name="troubleshooting-v3-get-logs"></a>
 
 AWS ParallelCluster creates Amazon EC2 metrics for HeadNode and Compute instances and storage. You can view the metrics in the CloudWatch console **Custom Dashboards**. AWS ParallelCluster also creates cluster CloudWatch log streams in log groups. You can view these logs in the CloudWatch console **Custom Dashboards** or **Log groups**. The [Monitoring](Monitoring-v3.md#yaml-Monitoring-Logs-CloudWatch) cluster configuration section describes how you can modify the cluster CloudWatch logs and dashboard. For more information, see [Integration with Amazon CloudWatch Logs](cloudwatch-logs-v3.md) and [Amazon CloudWatch dashboard](cloudwatch-dashboard-v3.md).
 
@@ -24,7 +23,7 @@ To add custom logs to the CloudWatch configuration, make sure you append to the 
 
 To restore the AWS ParallelCluster CloudWatch log configuration, you can run the following commands inside an AWS ParallelCluster node:
 
-```
+```bash
 $ PLATFORM="$(ohai platform | jq -r ".[]")"
 LOG_GROUP_NAME="$(cat /etc/chef/dna.json | jq -r ".cluster.log_group_name")"
 SCHEDULER="$(cat /etc/chef/dna.json | jq -r ".cluster.scheduler")"
@@ -76,7 +75,7 @@ If the `/var/log/parallelcluster/compute_console_output` log isn't available or 
 
 Retrieve the console output by using the following command with the `instance-id`:
 
-```
+```bash
 $ aws ec2 get-console-output --instance-id {{i-abcdef01234567890}}
 ```
 
@@ -86,7 +85,7 @@ Log in to the cluster head node and get the compute node `instance-id` from the 
 
 To retrieve the instance console log, use the following command:
 
-```
+```bash
 $ aws ec2 get-console-output --instance-id {{i-abcdef01234567890}}
 ```
 

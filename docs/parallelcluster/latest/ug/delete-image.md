@@ -3,7 +3,6 @@
 This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
 
 # deleteImage
-<a name="delete-image"></a>
 
 Initiate the deletion of the custom AWS ParallelCluster image.
 
@@ -17,7 +16,7 @@ Initiate the deletion of the custom AWS ParallelCluster image.
 ## Request syntax
 <a name="delete-image-request"></a>
 
-```
+```json
 DELETE /v3/images/custom/{{{imageId}}}
 {
   "force": boolean,
@@ -46,7 +45,7 @@ Required: No
 ## Response syntax
 <a name="delete-image-response"></a>
 
-```
+```json
 {
   "image": {
     "imageId": "string",
@@ -99,13 +98,13 @@ Type: string
 
 **Request**
 
-```
+```python
 $ delete_image({{custom-image-id}})
 ```
 
 **200 Response**
 
-```
+```json
 {
   "image": {
     "image_build_status": "DELETE_IN_PROGRESS",
