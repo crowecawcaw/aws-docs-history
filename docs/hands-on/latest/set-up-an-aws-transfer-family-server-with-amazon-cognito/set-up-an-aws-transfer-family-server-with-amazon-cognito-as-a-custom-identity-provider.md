@@ -1,7 +1,6 @@
 
 
 # **Set up an AWS Transfer Family server with Amazon Cognito as a custom identity provider**
-<a name="set-up-an-aws-transfer-family-server-with-amazon-cognito-as-a-custom-identity-provider"></a>
 
 
 |  |  | 
