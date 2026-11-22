@@ -1,7 +1,6 @@
 
 
 # Predictive Maintenance on AWS using Aspen Mtell
-<a name="aspen-mtell-predictive-maintenance"></a>
 
 Publication date: **January 26, 2023 ([Diagram history](#amp-diagram-history))**
 
