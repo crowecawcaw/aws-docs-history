@@ -1,7 +1,6 @@
 
 
 # Logging AWS Launch Wizard API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Launch Wizard is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for AWS Launch Wizard as events. The calls captured include calls from the AWS Management Console and code calls to the AWS Launch Wizard API operations. Using the information collected by CloudTrail, you can determine the request that was made to AWS Launch Wizard, the IP address from which the request was made, when it was made, and additional details.
 
@@ -50,7 +49,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateDeployment` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -103,7 +102,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteDeployment` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -155,7 +154,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 
 The following example shows a CloudTrail log entry that demonstrates the `GetDeployment` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -204,7 +203,7 @@ The following example shows a CloudTrail log entry that demonstrates the `GetDep
 
 The following example shows a CloudTrail log entry that demonstrates the `GetWorkload` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -253,7 +252,7 @@ The following example shows a CloudTrail log entry that demonstrates the `GetWor
 
 The following example shows a CloudTrail log entry that demonstrates the `ListDeploymentEvents` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -302,7 +301,7 @@ The following example shows a CloudTrail log entry that demonstrates the `ListDe
 
 The following example shows a CloudTrail log entry that demonstrates the `ListDeployments` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -351,7 +350,7 @@ The following example shows a CloudTrail log entry that demonstrates the `ListDe
 
 The following example shows a CloudTrail log entry that demonstrates the `ListWorkloadDeploymentPattern` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -401,7 +400,7 @@ The following example shows a CloudTrail log entry that demonstrates the `ListWo
 
 The following example shows a CloudTrail log entry that demonstrates the `ListWorkloads` operation.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

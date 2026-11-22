@@ -1,7 +1,6 @@
 
 
 # How AWS Launch Wizard Active Directory works
-<a name="how-launch-wizard-ad-works"></a>
 
 AWS Launch Wizard provides a complete solution to provision self-managed domain controllers on Amazon EC2 instances, or AWS Directory Service for Microsoft Active Directory, in the AWS Cloud. You select **Microsoft Active Directory** in the wizard and provide the specifications, such as the required number of vCPUs or memory. Based on the infrastructure requirements that you enter, Launch Wizard automatically provisions the appropriate AWS resources in the cloud. For example, Launch Wizard recommends an appropriate instance type from the amount of vCPUs that you specify, then deploys and configures the instances.
 

@@ -1,13 +1,12 @@
 
 
 # AWS Launch Wizard documentation history
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of AWS Launch Wizard.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Launch Wizard supports deploying additional workloads with API operations](#doc-history) | AWS Launch Wizard now supports deploying additional workload deployments with the [CreateDeployment](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_CreateDeployment.html) API operation. For more information, see the **Get started** section for your desired workload. | June 12, 2024 | 
+| [Launch Wizard supports deploying additional workloads with API operations](doc-history.md) | AWS Launch Wizard now supports deploying additional workload deployments with the [CreateDeployment](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_CreateDeployment.html) API operation. For more information, see the **Get started** section for your desired workload. | June 12, 2024 | 
 | [Launch Wizard for SAP supports SAP Web Dispatcher](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap-deploy-web-dispatcher.html) | AWS Launch Wizard for SAP now supports SAP Web Dispatcher as an optional component for NetWeaver stack on HANA deployments. | April 30, 2024 | 
 | [Launch Wizard for SAP supports new application software](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap-versions.html#applications-hana) | AWS Launch Wizard for SAP now supports S/4 HANA 2023 and S/4 HANA Foundations 2023. | March 11, 2024 | 
 | [Launch Wizard for SAP available in additional Regions](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-workload-availability) | AWS Launch Wizard for SAP is now available in the Asia Pacific (Melbourne), Europe (Spain), and Europe (Zurich) Regions. | January 26, 2024 | 
@@ -36,4 +35,4 @@ The following table describes the documentation for this release of AWS Launch W
 | [SQL Server witness node support.](launch-wizard-sql.md) | You can add a witness node to your SQL Server Always On configuration.  | May 11, 2020 | 
 | [Proxy server support](launch-wizard-sap.md) | You can route outbound internet traffic for deployed EC2 instances through a proxy server.  | May 11, 2020 | 
 | [Initial release](launch-wizard-sap.md) | Initial release of AWS Launch Wizard for SAP User Guide. | April 8, 2020 | 
-| [Initial release](#doc-history) | Initial release of the AWS Launch Wizard for SQL Server User Guide. | November 14, 2019 | 
+| [Initial release](doc-history.md) | Initial release of the AWS Launch Wizard for SQL Server User Guide. | November 14, 2019 | 

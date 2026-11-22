@@ -1,7 +1,6 @@
 
 
 # High availability and security best practices for AWS Launch Wizard for Active Directory
-<a name="launch-wizard-ad-best-practices"></a>
 
 The domain controller architecture created by AWS Launch Wizard supports AWS best practices for high availability and security as promoted by the [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html).
 

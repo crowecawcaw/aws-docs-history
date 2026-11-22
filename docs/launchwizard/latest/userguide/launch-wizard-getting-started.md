@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Launch Wizard for SQL Server
-<a name="launch-wizard-getting-started"></a>
 
  This section contains information to help you set up your environment to deploy SQL Server with Launch Wizard, including:
 + Active Directory permissions
@@ -62,7 +61,7 @@ Launch Wizard uses AWS Secrets Manager to manage your domain and SQL Server acco
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

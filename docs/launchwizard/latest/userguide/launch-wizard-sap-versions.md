@@ -1,7 +1,6 @@
 
 
 # Supported versions for SAP deployments
-<a name="launch-wizard-sap-versions"></a>
 
 **Topics**
 + [Operating systems](#launch-wizard-sap-ascs-support-os)

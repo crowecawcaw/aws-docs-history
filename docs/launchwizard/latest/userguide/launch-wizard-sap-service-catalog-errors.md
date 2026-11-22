@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog deployment errors
-<a name="launch-wizard-sap-service-catalog-errors"></a>
 
 For AWS Service Catalog deployments completed prior to February 7, 2022, perform the following steps to remove the `AmazonLambdaRolePolicyForLaunchWizardSAP` policy from the `AmazonLambdaRoleForLaunchWizard` role, and add a new inline policy. Deployments completed after February 7, 2022 do not require you to perform these steps.
 
@@ -20,7 +19,7 @@ For AWS Service Catalog deployments completed prior to February 7, 2022, perform
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

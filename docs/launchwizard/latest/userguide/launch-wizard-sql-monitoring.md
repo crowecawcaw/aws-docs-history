@@ -1,7 +1,6 @@
 
 
 # Monitoring SQL Server Always On deployments
-<a name="launch-wizard-sql-monitoring"></a>
 
 You can monitor your SQL Server Always On deployments using Amazon CloudWatch Application Insights. When you [select the option to monitor your deployment](launch-wizard-deploying.md#deploy-console-launch-wizard) using the Launch Wizard console, Application Insights identifies and sets up key metrics, logs, and alarms across your application resources and technology stack for your Microsoft SQL Server database. Anomalies and errors are detected and correlated as Application Insights continuously monitors metrics and logs. When errors and anomalies are detected, Application Insights generates [CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) that you can use to set up notifications or take action. To help with troubleshooting, Application Insights creates automated dashboards for detected problems, which include correlated metric anomalies and log errors, along with additional insights to point you to a possible root cause. Use the automated dashboards to take remedial actions to keep your applications healthy and prevent end-user impact. You can also resolve problems with [AWS SSM OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html) using generated OpsItems. 
 

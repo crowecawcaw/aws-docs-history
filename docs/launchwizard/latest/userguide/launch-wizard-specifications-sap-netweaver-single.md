@@ -1,13 +1,12 @@
 
 
 # SapNWOnHanaSingle
-<a name="launch-wizard-specifications-sap-netweaver-single"></a>
 
 The following are examples of the specifications required to create single-node deployments.
 
 Single-node deployment with SAP software installed
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "VpcId": "vpc-a1b2c3d4",
@@ -46,7 +45,7 @@ Single-node deployment with SAP software installed
 
 Single-node deployment with only HANA database software installed:
 
-```
+```json
 {
     "KeyPairName": "ExampleKeyPair",
     "VpcId": "vpc-a1b2c3d4",
@@ -86,7 +85,7 @@ Single-node deployment with only HANA database software installed:
 
 Single-node deployment with only infrastructure resources:
 
-```
+```json
 {
     "KeyPairName": "ExampleKeyPair",
     "VpcId": "vpc-a1b2c3d4",

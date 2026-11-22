@@ -1,7 +1,6 @@
 
 
 # AWS Launch Wizard for Active Directory
-<a name="launch-wizard-active-directory-landing"></a>
 
 AWS Launch Wizard for Active Directory is a service that applies [AWS cloud application best practices](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) to guide you through setting up a new Active Directory infrastructure, or adding domain controllers to an existing infrastructure either in the AWS Cloud or on premises. The deployment environment includes various resources such as a new or existing VPC, security groups, and AWS Identity and Access Management (IAM) roles. You can set up a new Active Directory infrastructure with domain controllers on Amazon EC2 instances, add domain controllers on Amazon EC2 instances to extend your existing Active Directory infrastructure, or use AWS Directory Service for Microsoft Active Directory for a managed service experience.
 

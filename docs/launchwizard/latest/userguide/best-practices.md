@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
 The following are the recommended best practices for using Remote Desktop Gateway on AWS.
 

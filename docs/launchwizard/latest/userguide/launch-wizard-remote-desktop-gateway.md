@@ -1,7 +1,6 @@
 
 
 # AWS Launch Wizard for Remote Desktop Gateway
-<a name="launch-wizard-remote-desktop-gateway"></a>
 
 AWS Launch Wizard for Remote Desktop Gateway (RD Gateway) guides you through the sizing, configuration, and deployment of RD Gateway on the AWS Cloud. RD Gateway uses the Remote Desktop Protocol (RDP) over HTTPS to establish a secure, encrypted connection between remote users and Amazon Elastic Compute Cloud instances running Windows, without needing to configure a virtual private network (VPN). This helps reduce the attack surface on your Windows instances while providing a remote administration solution for administrators.
 

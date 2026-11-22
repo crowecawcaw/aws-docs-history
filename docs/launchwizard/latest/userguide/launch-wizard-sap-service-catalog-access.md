@@ -1,7 +1,6 @@
 
 
 # Access AWS Service Catalog products created with AWS Launch Wizard
-<a name="launch-wizard-sap-service-catalog-access"></a>
 
 Perform the following steps to access AWS Service Catalog products created with AWS Launch Wizard.
 

@@ -1,7 +1,6 @@
 
 
 # Deploy standalone Remote Desktop Gateway into a new VPC (Console)
-<a name="launch-wizard-remote-desktop-gateway-deployment-steps-new-vpc"></a>
 
 The following steps guide you through a Remote Desktop Gateway deployment with AWS Launch Wizard after you have launched it from the console.
 

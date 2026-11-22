@@ -1,7 +1,6 @@
 
 
 # Make SAP application software available for AWS Launch Wizard to deploy SAP
-<a name="launch-wizard-sap-software-install-details"></a>
 
 This section describes steps to upload the SAP application software to Amazon S3 to make it available for Launch Wizard to deploy SAP.
 

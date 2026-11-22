@@ -1,7 +1,6 @@
 
 
 # Delete infrastructure configuration
-<a name="launch-wizard-sap-managing-delete-config"></a>
 
 1. From the left navigation pane, choose **SAP**.
 

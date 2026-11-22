@@ -1,7 +1,6 @@
 
 
 # Set up for AWS Launch Wizard for SAP
-<a name="launch-wizard-sap-setting-up"></a>
 
 This section describes the prerequisites that you must verify to deploy an SAP application with AWS Launch Wizard. 
 
@@ -112,7 +111,7 @@ To run custom pre- and post-configuration deployment scripts, you must add the f
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -170,7 +169,7 @@ The following steps guide you through adding the required permissions for saving
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Deploy AWS Directory Service for Microsoft Active Directory to a new VPC
-<a name="launch-wizard-ad-deploying-new-vpc-managed-ad"></a>
 
 The following steps guide you through an Active Directory deployment with AWS Launch Wizard after you have launched it from the console for a new VPC.
 

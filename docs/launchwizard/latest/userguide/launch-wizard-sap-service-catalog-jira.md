@@ -1,7 +1,6 @@
 
 
 # Launch AWS Service Catalog products with Jira
-<a name="launch-wizard-sap-service-catalog-jira"></a>
 
 AWS Service Catalog products created with AWS Launch Wizard can be integrated with Jira workflows. You can use the AWS Service Catalog Connector for Jira to natively provision and operate AWS Service Catalog products created with Launch Wizard by using Atlassian's Jira Service Management. This workflow simplifies product request actions for Jira Service Management users and provides Jira Service Management governance and oversight over AWS products.
 

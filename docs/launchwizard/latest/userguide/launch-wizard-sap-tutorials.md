@@ -1,7 +1,6 @@
 
 
 # AWS Launch Wizard for SAP tutorials
-<a name="launch-wizard-sap-tutorials"></a>
 
 The following tutorials can help you get started with deploying an application with AWS Launch Wizard.
 

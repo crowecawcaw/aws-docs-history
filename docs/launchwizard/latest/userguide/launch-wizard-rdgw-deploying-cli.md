@@ -1,7 +1,6 @@
 
 
 # Deploy Remote Desktop Gateway to a new or existing VPC (AWS CLI)
-<a name="launch-wizard-rdgw-deploying-cli"></a>
 
 You can use the AWS Launch Wizard [CreateDeployment](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_CreateDeployment.html) API operation to deploy Remote Desktop Gateway. To create a deployment, you must provide values for various *specifications*. Specifications are a collection of settings that define how your deployment should be created and configured. A workload will have one or more deployment patterns with differing required and optional specifications.
 

@@ -1,11 +1,10 @@
 
 
 # SapHanaMulti
-<a name="launch-wizard-specifications-sap-hana-multi"></a>
 
 The following is an example of the specifications required to create a SAP HANA deployment with multiple nodes and HANA database software installed:
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "AvailabilityZone1PrivateSubnet1Id": "subnet-11111111aaaaaaaaa",

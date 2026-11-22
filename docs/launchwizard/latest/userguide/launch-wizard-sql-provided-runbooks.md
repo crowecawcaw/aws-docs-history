@@ -1,7 +1,6 @@
 
 
 # AWS Launch Wizard Systems Manager Automation documents
-<a name="launch-wizard-sql-provided-runbooks"></a>
 
 A Systems Manager Automation document defines the actions that Systems Manager performs on your managed instances and other AWS resources when an automation workflow runs. A document contains one or more steps that run in sequential order.
 

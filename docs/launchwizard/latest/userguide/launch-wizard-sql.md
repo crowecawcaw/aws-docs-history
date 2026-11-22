@@ -1,7 +1,6 @@
 
 
 # AWS Launch Wizard for SQL Server
-<a name="launch-wizard-sql"></a>
 
 AWS Launch Wizard is a service that guides you through the sizing, configuration, and deployment of Microsoft SQL Server applications on AWS, following the [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html). AWS Launch Wizard supports both single instance and high availability (HA) application deployments.
 

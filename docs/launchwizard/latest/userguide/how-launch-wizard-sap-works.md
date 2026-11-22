@@ -1,7 +1,6 @@
 
 
 # How AWS Launch Wizard for SAP works
-<a name="how-launch-wizard-sap-works"></a>
 
 AWS Launch Wizard provisions and configures the infrastructure required to run SAP HANA database and SAP NetWeaver based SAP applications on SAP HANA or SAP ASE database on AWS. You select the SAP deployment pattern and provide the specifications, such as operating system, instance size, and vCPU/memory. Or, Launch Wizard can make these selections for you according to [SAP Standard Application Benchmarks](https://www.sap.com/about/benchmark.html). You have the option to manually choose the instance. Based on your selections, Launch Wizard automatically provisions the necessary AWS resources in the cloud. 
 

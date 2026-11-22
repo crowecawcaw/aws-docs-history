@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Launch Wizard for Active Directory
-<a name="launch-wizard-ad-getting-started"></a>
 
 This section contains information to set up your environment for Launch Wizard to deploy domain controllers.
 

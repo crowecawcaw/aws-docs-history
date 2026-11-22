@@ -1,7 +1,6 @@
 
 
 # AWS Launch Wizard workload availability
-<a name="launch-wizard-workload-availability"></a>
 
 **Note**  
 End of support notice: On May 1, 2025, AWS Launch Wizard will discontinue support for Amazon Elastic Kubernetes Service, Microsoft Internet Information Services, and Microsoft Exchange Server. After May 1, 2025, you can no longer use AWS Launch Wizard to access these workloads.

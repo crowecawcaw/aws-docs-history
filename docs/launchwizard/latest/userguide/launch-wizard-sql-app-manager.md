@@ -1,7 +1,6 @@
 
 
 # Manage Launch Wizard application resources with AWS Systems Manager Application Manager
-<a name="launch-wizard-sql-app-manager"></a>
 
 AWS Systems Manager Application Manager, a capability of AWS Systems Manager, helps you to investigate and remediate issues with your AWS resources that make up an application. Application Manager aggregates operations information from multiple AWS services and Systems Manager capabilities to a single console.
 
@@ -41,7 +40,7 @@ To add your own runbooks, you must modify the service setting value for the supp
 
    The following command lists the service settings for `AWS-SQLServerWindows`.
 
-   ```
+   ```json
    aws ssm get-service-setting --setting-id /launchwizard/AWS-SQLServerWindows
    ```
 
@@ -77,7 +76,7 @@ To add your own runbooks, you must modify the service setting value for the supp
 
    The following is the example output.
 
-   ```
+   ```json
    {
        "ServiceSetting": {
            "SettingId": "/launchwizard/AWS-SQLServerWindows",

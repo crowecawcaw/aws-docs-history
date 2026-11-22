@@ -1,7 +1,6 @@
 
 
 # Deploy self-managed Active Directory to a new VPC
-<a name="launch-wizard-ad-deploying-new-vpc-self-managed"></a>
 
 The following steps guide you through an Active Directory deployment with AWS Launch Wizard after you have launched it from the console for a new VPC.
 

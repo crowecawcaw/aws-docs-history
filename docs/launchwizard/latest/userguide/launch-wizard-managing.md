@@ -1,7 +1,6 @@
 
 
 # Manage application resources with AWS Launch Wizard for SQL Server
-<a name="launch-wizard-managing"></a>
 
 After your SQL Server Always On application is deployed, you can manage it by following these steps.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Launch Wizard for SAP
-<a name="launch-wizard-sap"></a>
 
 AWS Launch Wizard for SAP is a service that guides you through the sizing, configuration, and deployment of SAP applications on AWS, and follows [AWS cloud application best practices](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html).
 

@@ -1,7 +1,6 @@
 
 
 # Repeat SAP application deployments using deployment artifacts created with AWS Launch Wizard
-<a name="launch-wizard-deployment-artifacts"></a>
 
 This section contains information about how to repeat deployments using deployment artifacts created with Launch Wizard. The artifacts include AWS Service Catalog products and AWS CloudFormation templates.
 
@@ -23,3 +22,5 @@ In addition to supporting deployments using CloudFormation templates, AWS Servic
 AWS Launch Wizard creates a default Launch Wizard portfolio and products within the portfolio. An AWS Service Catalog product is created for each deployment and given a name that corresponds to the Launch Wizard deployment name.
 
 ![Deploying SAP applications with Launch Wizard, CloudFormation, AWS Service Catalog, and third-party applications](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/lw-sc-architecture.png)
+
+Deploying SAP applications with Launch Wizard, CloudFormation, AWS Service Catalog, and third-party applications

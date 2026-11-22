@@ -1,13 +1,12 @@
 
 
 # SapNWOnHanaHA
-<a name="launch-wizard-specifications-sap-netweaver-ha"></a>
 
 The following are examples of the specifications required to create high-availability deployments with SAP software installed.
 
 High availability (HA) deployment with SAP software installed:
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "VpcId": "vpc-a1b2c3d4",
@@ -70,7 +69,7 @@ High availability (HA) deployment with SAP software installed:
 
 High-availability deployment with SAP HANA database software installed:
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "VpcId": "vpc-a1b2c3d4",
@@ -134,7 +133,7 @@ High-availability deployment with SAP HANA database software installed:
 
 High-availability deployment with only infrastructure resources:
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "VpcId": "vpc-a1b2c3d4",

@@ -1,11 +1,10 @@
 
 
 # SapNWOnAseSingle
-<a name="launch-wizard-specifications-sap-netweaver-ase-single"></a>
 
 The following is an example of the specifications required to create a single-node deployment with SAP software installed:
 
-```
+```json
 {
     "applicationName": "ExampleApp",
     "DisableDeploymentRollback": "Yes",
@@ -52,7 +51,7 @@ The following is an example of the specifications required to create a single-no
 
 The following is an example of the specifications required to create a single-node deployment with only infrastructure resources:
 
-```
+```json
 {
     "applicationName": "ExampleApp2",
     "DisableDeploymentRollback": "Yes",

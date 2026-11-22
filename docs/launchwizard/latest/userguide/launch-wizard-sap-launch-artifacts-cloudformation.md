@@ -1,7 +1,6 @@
 
 
 # Launch CloudFormation templates created in Launch Wizard
-<a name="launch-wizard-sap-launch-artifacts-cloudformation"></a>
 
 You can launch CloudFormation stacks from the CloudFormation templates that you saved from your successful Launch Wizard deployments. Perform the following steps to find and launch your CloudFormation templates created with Launch Wizard.
 
@@ -17,7 +16,7 @@ To create a launch constraint, complete the steps in the following procedure. Pe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -167,7 +166,7 @@ To create a launch constraint, complete the steps in the following procedure. Pe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -425,7 +424,7 @@ To create a launch constraint, complete the steps in the following procedure. Pe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

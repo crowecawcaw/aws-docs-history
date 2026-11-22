@@ -1,7 +1,6 @@
 
 
 # SAP deployment specifications
-<a name="launch-wizard-specifications-sap"></a>
 
 This section details the specifications available for each SAP deployment type. Each deployment pattern has a different set of specifications that are either required or optional.
 

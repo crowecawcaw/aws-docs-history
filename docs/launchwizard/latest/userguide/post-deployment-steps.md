@@ -1,7 +1,6 @@
 
 
 # Post-deployment steps
-<a name="post-deployment-steps"></a>
 
 The following are the recommended post-deployment steps for Remote Desktop Gateway on AWS.
 

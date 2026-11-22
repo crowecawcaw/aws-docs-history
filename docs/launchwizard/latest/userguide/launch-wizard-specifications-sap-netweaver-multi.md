@@ -1,13 +1,12 @@
 
 
 # SapNWOnHanaMulti
-<a name="launch-wizard-specifications-sap-netweaver-multi"></a>
 
 The following are examples of the specifications required to create multi-node deployments.
 
 Multi-node deployment with HANA database software and infrastructure resources for all SAP components without installing SAP software:
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "VpcId": "vpc-a1b2c3d4",
@@ -59,7 +58,7 @@ Multi-node deployment with HANA database software and infrastructure resources f
 
 Multi-node deployment with resources for all SAP components without SAP software installed:
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "VpcId": "vpc-a1b2c3d4",
@@ -109,7 +108,7 @@ Multi-node deployment with resources for all SAP components without SAP software
 
 Multi-node deployment with SAP software installed:
 
-```
+```json
 {
   "KeyPairName": "ExampleKeyPair",
   "VpcId": "vpc-a1b2c3d4",
