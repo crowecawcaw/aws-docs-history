@@ -1,7 +1,6 @@
 
 
 # Identity and access management for WorkSpaces Instances
-<a name="workspaces-access-control"></a>
 
 By default, IAM users don't have permissions for WorkSpaces Instances resources and operations. To allow IAM users to manage WorkSpaces resources Instances, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the IAM users or groups that require those permissions.
 
@@ -36,7 +35,7 @@ The following example shows policy statements that you could use to grant access
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

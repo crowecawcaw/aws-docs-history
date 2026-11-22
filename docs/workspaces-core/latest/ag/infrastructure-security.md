@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in Amazon WorkSpaces Instances
-<a name="infrastructure-security"></a>
 
 As a managed service, Amazon WorkSpaces Core is protected by AWS global network security. For information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/). To design your AWS environment using the best practices for infrastructure security, see [Infrastructure Protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html) in *Security Pillar AWS Well‐Architected Framework*.
 
@@ -24,7 +23,7 @@ You can create an interface endpoint to connect to Amazon WorkSpaces Instances w
 
 *After you have created a VPC endpoint*, you can use the following example CLI commands that use the `endpoint-url` parameter to specify interface endpoints to the Amazon WorkSpaces Instances API endpoint:
 
-```
+```bash
 aws workspaces-instances list-regions --region us-west-2 \
 --endpoint https://workspaces-instances.us-west-2.api.aws
 ```
@@ -60,7 +59,7 @@ The following example VPC endpoint policy specifies that all users who have acce
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 
