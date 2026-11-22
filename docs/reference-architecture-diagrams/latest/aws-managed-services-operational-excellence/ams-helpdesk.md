@@ -1,7 +1,6 @@
 
 
 # AMS for Helpdesk
-<a name="ams-helpdesk"></a>
 
 Use this reference architecture to understand how AWS Managed Services (AMS) provides 24x7 helpdesk in an AWS environment. AMS reduces operational burden by providing incident management, service requests, and problem management for all AWS services.
 

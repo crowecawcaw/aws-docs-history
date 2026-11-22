@@ -1,7 +1,6 @@
 
 
 # AMS for Backup
-<a name="ams-backup"></a>
 
 Use this reference architecture to understand how AWS Managed Services (AMS) manages data availability and continuity. AMS takes complete ownership of backup monitoring, alerting, restoration, and reporting.
 

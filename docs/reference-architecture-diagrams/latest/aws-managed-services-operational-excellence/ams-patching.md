@@ -1,7 +1,6 @@
 
 
 # AMS for Patching
-<a name="ams-patching"></a>
 
 Use this reference architecture to understand how AWS Managed Services (AMS) provides cross-account centralized patching. AMS takes complete ownership of OS patching, notifications, rollback, and reporting.
 
