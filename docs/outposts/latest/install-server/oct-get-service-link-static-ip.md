@@ -1,7 +1,6 @@
 
 
 # get-service-link-static-ip
-<a name="oct-get-service-link-static-ip"></a>
 
 The **get-service-link-static-ip** command, when used after you set the static configuration for the service link with the **set-service-link-static-ip** command, returns the service link static configuration values. These values are applied only after you reboot the Outposts server.
 

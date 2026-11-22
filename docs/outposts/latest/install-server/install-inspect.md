@@ -1,7 +1,6 @@
 
 
 # Step 2: Inspect the Outposts server equipment
-<a name="install-inspect"></a>
 
 To complete an inspection of the Outposts equipment, you should check the shipping package for damage, unpack the shipping package, and locate the Nitro Security Key (NSK). Consider the following information when inspecting the server:
 + The shipping package has shock sensors located on the two largest sides of the box.

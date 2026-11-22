@@ -1,7 +1,6 @@
 
 
 # Configure and test the Outposts server connection to AWS
-<a name="authorize-3"></a>
 
 Use the following procedures to configure and test the connection between your server and AWS using the Outpost Configuration Tool. You don't need IAM credentials to test the connection. Your connection must resolve DNS to access the AWS Region.
 

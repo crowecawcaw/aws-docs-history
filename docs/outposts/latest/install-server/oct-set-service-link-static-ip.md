@@ -1,7 +1,6 @@
 
 
 # set-service-link-static-ip
-<a name="oct-set-service-link-static-ip"></a>
 
 The **set-service-link-static-ip** command sets the static configuration for the service link. These values are applied only after you reboot the Outposts server.
 

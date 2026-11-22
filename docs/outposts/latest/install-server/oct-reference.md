@@ -1,7 +1,6 @@
 
 
 # Outpost Configuration Tool command reference
-<a name="oct-reference"></a>
 
 Use the Outpost Configuration Tool to complete the installation process for your Outposts server. The Outpost Configuration Tool provides the following commands.
 

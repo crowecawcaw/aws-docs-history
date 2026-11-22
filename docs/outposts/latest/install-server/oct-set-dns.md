@@ -1,7 +1,6 @@
 
 
 # set-dns
-<a name="oct-set-dns"></a>
 
 The **set-dns** command sets the DNS (Domain Name Server) IP address.
 

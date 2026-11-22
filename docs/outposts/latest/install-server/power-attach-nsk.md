@@ -1,7 +1,6 @@
 
 
 # Attach the NSK to your Outposts server
-<a name="power-attach-nsk"></a>
 
 You must attach the NSK to the server so it can decrypt data on the server during operation.
 

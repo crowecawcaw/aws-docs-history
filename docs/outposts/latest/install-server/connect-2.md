@@ -1,7 +1,6 @@
 
 
 # Configure the QSFP network for your Outposts server
-<a name="connect-2"></a>
 
 With the QSFP breakout cable, you use breakouts to segment traffic.
 

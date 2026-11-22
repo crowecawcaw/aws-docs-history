@@ -1,7 +1,6 @@
 
 
 # describe-device
-<a name="oct-describe-device"></a>
 
 The **describe-device** command returns information about the Outposts server, including the protocol version, management device type, server type, asset ID, serial number, and manufacturer.
 

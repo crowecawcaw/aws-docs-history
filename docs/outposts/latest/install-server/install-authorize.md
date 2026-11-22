@@ -1,7 +1,6 @@
 
 
 # Step 6: Configure connection and authorize your Outposts server
-<a name="install-authorize"></a>
 
 To authorize the server, you must connect your laptop to the server with a USB cable, then use a command-based serial protocol to test the connection and authorize the server. In addition to IAM credentials, you need a USB cable, a laptop, and serial terminal software, such as PuTTY or **screen**, to complete these steps.
 

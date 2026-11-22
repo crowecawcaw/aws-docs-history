@@ -1,7 +1,6 @@
 
 
 # Step 3: (Optional) Mount your Outposts server in a rack
-<a name="install-mount"></a>
 
 To complete this step, you must attach inner rails to the server, outer rails to the rack, then mount the server on the rack. You need a Phillips-head screwdriver to complete these steps.
 

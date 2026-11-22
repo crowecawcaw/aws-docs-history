@@ -1,7 +1,6 @@
 
 
 # Connect your laptop to the Outposts server
-<a name="authorize-1"></a>
 
 Connect the USB cable to your laptop first and then to the server. The server includes a USB chip that creates a virtual serial port available to you on the laptop. You can use this virtual serial port to connect to the server with serial terminal emulation software. You can only use this virtual serial port to run Outpost Configuration Tool commands.
 

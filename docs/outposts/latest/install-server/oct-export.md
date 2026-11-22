@@ -1,7 +1,6 @@
 
 
 # export
-<a name="oct-export"></a>
 
 The **export** command sets IAM credentials as environment variables. You must export the following variables, one at a time. Do not include a space before or after the equal (=) sign.
 

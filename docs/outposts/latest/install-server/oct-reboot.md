@@ -1,7 +1,6 @@
 
 
 # reboot
-<a name="oct-reboot"></a>
 
 The **reboot** command reboots the Outposts server. The command will not display any response if its successful, as the Outpost device will reboot.
 

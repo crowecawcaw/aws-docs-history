@@ -1,7 +1,6 @@
 
 
 # Step 1: Grant permissions to install the Outposts server
-<a name="install-grant"></a>
 
 To verify the identity of the new device, you must have IAM credentials in the AWS account that contains the Outpost. The [AWS OutpostsAuthorizeServerPolicy](https://docs.aws.amazon.com/outposts/latest/server-userguide/security-iam-awsmanpol.html#AWSOutpostsAuthorizeServerPolicy) policy grants the permissions required to install an Outposts server. For more information, see [Identity and access management (IAM) for AWS Outposts](https://docs.aws.amazon.com/outposts/latest/server-userguide/identity-access-management.html) in the *AWS Outposts user guide for servers*.
 

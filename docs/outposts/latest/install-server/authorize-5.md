@@ -1,7 +1,6 @@
 
 
 # Verify the NSK LEDs for your Outposts server
-<a name="authorize-5"></a>
 
 After the provisioning process completes, check the NSK LEDs.
 

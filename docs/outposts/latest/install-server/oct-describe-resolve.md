@@ -1,7 +1,6 @@
 
 
 # describe-resolve
-<a name="oct-describe-resolve"></a>
 
 **describe-resolve**  
 The **describe-resolve** determines whether the Outposts server can reach a DNS resolver and resolve the IP address of the Outpost configuration endpoint in the Region. Requires at least one link with an IP configuration.

@@ -1,7 +1,6 @@
 
 
 # Check the Power LED on the Atlas 3.0. NSK
-<a name="power-check-led"></a>
 
 AWS Outposts supports two versions of NSK: Atlas 2.0 and Atlas 3.0. Both NSK versions have a RGB **Status** LED. In addition, the Atlas 3.0 has a green **Power** LED. This step is only for the Atlas 3.0 NSK.
 

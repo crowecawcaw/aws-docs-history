@@ -1,7 +1,6 @@
 
 
 # Installing an AWS Outposts server
-<a name="install-server"></a>
 
 When you order an Outposts server, you are responsible for installing the server. You can install the server yourself or contract a third party. The party installing the server must have specific permissions to verify the identity of the new device.
 

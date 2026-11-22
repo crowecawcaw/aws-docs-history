@@ -1,7 +1,6 @@
 
 
 # Authorize the Outposts server using the Outpost Configuration Tool
-<a name="authorize-4"></a>
 
 Use the following procedure to authorize the server. You need the Outpost Configuration Tool and the IAM credentials from the AWS account that owns the Outpost.
 

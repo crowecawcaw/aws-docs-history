@@ -1,7 +1,6 @@
 
 
 # Connect the power source and verify power to your Outposts server
-<a name="power-on"></a>
 
 Use the following procedures to connect your Outposts server to its power source and then verify that the server has powered on.
 

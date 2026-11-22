@@ -1,7 +1,6 @@
 
 
 # get-dns
-<a name="oct-get-dns"></a>
 
 The **get-dns** command returns the DNS (Domain Name Server) IP address.
 

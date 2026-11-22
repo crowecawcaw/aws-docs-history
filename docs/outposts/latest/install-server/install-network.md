@@ -1,7 +1,6 @@
 
 
 # Step 5: Connect your Outposts server to your network
-<a name="install-network"></a>
 
 To complete the network setup, you connect the server to your upstream networking device with network cable. 
 
