@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 17 Installation Instructions for macOS 11 or later
-<a name="macos-install"></a>
 
  This topic describes how to install and uninstall Amazon Corretto 17 on a host running the Mac OS version 11 or later. You must have administrator permissions to install and uninstall Amazon Corretto 17. 
 

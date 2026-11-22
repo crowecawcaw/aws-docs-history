@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 17 Guide for Linux
-<a name="linux-info"></a>
 
 The topics in this section describe installation instructions for Amazon Corretto 17 on Linux platforms.
 

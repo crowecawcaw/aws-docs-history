@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 17 Installation Instructions for Amazon Linux 2, Amazon Linux 2023, and Amazon Linux 2027
-<a name="amazon-linux-install"></a>
 
  This topic describes how to install and uninstall Amazon Corretto 17 on a host or container running the Amazon Linux 2, Amazon Linux 2023, or Amazon Linux 2027 operating systems. 
 
@@ -68,12 +67,12 @@ sudo yum install java-17-amazon-corretto-jmods
 ```
 java -version
 ```
-Expected output for 17.0.21:   
+Expected output for 17.0.21.1:   
 
 ```
-openjdk version "17.0.21" 2026-10-20 LTS
-OpenJDK Runtime Environment Corretto-17.0.21.0.11 (build 17.0.21+11-LTS)
-OpenJDK 64-Bit Server VM Corretto-17.0.21.0.11 (build 17.0.21+11-LTS, mixed mode, sharing)
+openjdk version "17.0.21.1" 2026-11-17 LTS
+OpenJDK Runtime Environment Corretto-17.0.21.1.2 (build 17.0.21.1+2-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.21.1.2 (build 17.0.21.1+2-LTS, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
