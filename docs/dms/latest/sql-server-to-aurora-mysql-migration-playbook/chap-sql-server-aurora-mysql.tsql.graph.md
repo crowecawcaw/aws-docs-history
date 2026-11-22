@@ -1,7 +1,6 @@
 
 
 # SQL server graph features for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.graph"></a>
 
 This topic provides reference content about graph database capabilities in Microsoft SQL Server 2019 and compares them to Amazon Aurora MySQL. You can understand the key features of graph databases in SQL Server, including nodes, edges, and their relationships.
 

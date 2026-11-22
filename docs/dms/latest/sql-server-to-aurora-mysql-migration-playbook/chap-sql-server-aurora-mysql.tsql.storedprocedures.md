@@ -1,7 +1,6 @@
 
 
 # Stored procedures for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures"></a>
 
 This topic provides reference content comparing stored procedures in Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences and similarities between these two database systems' implementations of stored procedures.
 

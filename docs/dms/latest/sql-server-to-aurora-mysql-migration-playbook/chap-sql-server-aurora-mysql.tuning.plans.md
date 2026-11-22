@@ -1,7 +1,6 @@
 
 
 # Tuning run plans
-<a name="chap-sql-server-aurora-mysql.tuning.plans"></a>
 
 This topic provides reference information about query execution plans in Microsoft SQL Server and Amazon Aurora MySQL. You can use these tools to analyze and optimize query performance in your database systems.
 

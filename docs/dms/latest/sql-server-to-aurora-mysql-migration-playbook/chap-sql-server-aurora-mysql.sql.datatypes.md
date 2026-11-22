@@ -1,7 +1,6 @@
 
 
 # Data types for ANSI SQL
-<a name="chap-sql-server-aurora-mysql.sql.datatypes"></a>
 
 This topic provides reference content about data type compatibility when migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can use this information to understand how different data types in SQL Server map to their counterparts in Aurora MySQL.
 

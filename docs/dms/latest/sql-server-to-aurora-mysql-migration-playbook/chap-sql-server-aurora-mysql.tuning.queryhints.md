@@ -1,7 +1,6 @@
 
 
 # Query hints and plan guides
-<a name="chap-sql-server-aurora-mysql.tuning.queryhints"></a>
 
 This topic provides reference information about query hints and their compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this knowledge to understand the differences in query optimization techniques when migrating from SQL Server to Aurora MySQL.
 

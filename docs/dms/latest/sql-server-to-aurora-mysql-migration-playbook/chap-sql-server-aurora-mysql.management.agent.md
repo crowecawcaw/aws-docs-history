@@ -1,7 +1,6 @@
 
 
 # SQL Server Agent and MySQL Agent
-<a name="chap-sql-server-aurora-mysql.management.agent"></a>
 
 This topic provides reference information about the differences between SQL Server Agent functionality in Microsoft SQL Server 2019 and comparable features in Amazon Aurora MySQL. You can understand the limitations and alternatives available when migrating from SQL Server to Aurora MySQL, particularly regarding scheduling, automation, and alerting capabilities.
 

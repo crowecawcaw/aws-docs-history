@@ -1,7 +1,6 @@
 
 
 # Migrating indexes to Aurora MySQL
-<a name="chap-sql-server-aurora-mysql.indexes"></a>
 
 This topic provides reference content comparing index features between Microsoft SQL Server and Amazon Aurora MySQL. You can gain valuable insights into the differences in index implementation, capabilities, and limitations when migrating from SQL Server to Aurora MySQL.
 

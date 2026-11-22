@@ -1,7 +1,6 @@
 
 
 # SQL Server TOP and FETCH and MySQL LIMIT for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.topfetch"></a>
 
 This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL, specifically focusing on result set limiting and paging techniques. You can understand how the TOP and FETCH clauses in SQL Server correspond to the LIMIT and OFFSET clauses in Aurora MySQL.
 

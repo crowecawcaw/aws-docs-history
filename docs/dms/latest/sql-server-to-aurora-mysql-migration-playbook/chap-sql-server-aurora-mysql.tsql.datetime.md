@@ -1,7 +1,6 @@
 
 
 # Date and time functions for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.datetime"></a>
 
 This topic provides reference information about date and time functions in Microsoft SQL Server and Amazon Aurora MySQL, which is valuable for database administrators and developers migrating from SQL Server to Aurora MySQL. You can understand the similarities and differences in how these two database systems handle temporal operations, including system date and time values, time zone considerations, and specific function equivalents.
 

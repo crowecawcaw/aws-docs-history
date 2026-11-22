@@ -1,7 +1,6 @@
 
 
 # Migrating ANSI SQL features
-<a name="chap-sql-server-aurora-mysql.sql"></a>
 
 This chapter provides reference information for ANSI SQL operations required to migrate from Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this information to understand the key differences and similarities in areas such as object name case sensitivity, constraint compatibility, table creation, Common Table Expressions (CTEs), data type compatibility, GROUP BY operations, table joins, views, window functions, and temporary tables.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Schema Conversion Tool overview
-<a name="chap-sql-server-aurora-mysql.tools.awssct"></a>
 
 You can use the AWS Schema Conversion Tool (AWS SCT) to streamline the migration of your Microsoft SQL Server 2019 database to Amazon Aurora MySQL. This tool not only converts compatible objects automatically but also provides detailed recommendations for handling objects that require manual intervention. With AWS SCT, you can efficiently plan and execute your database migration, saving time and minimizing potential errors in the transition to Aurora MySQL.
 

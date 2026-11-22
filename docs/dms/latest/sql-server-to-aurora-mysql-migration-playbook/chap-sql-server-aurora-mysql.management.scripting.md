@@ -1,7 +1,6 @@
 
 
 # Scripting features
-<a name="chap-sql-server-aurora-mysql.management.scripting"></a>
 
 This topic provides reference information about the differences in scripting and automation capabilities between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the contrasting tool sets and scripting languages used in these database systems.
 

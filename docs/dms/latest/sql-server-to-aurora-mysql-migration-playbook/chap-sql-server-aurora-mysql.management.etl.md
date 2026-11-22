@@ -1,7 +1,6 @@
 
 
 # ETL features
-<a name="chap-sql-server-aurora-mysql.management.etl"></a>
 
 This topic provides reference content comparing SQL Server’s ETL capabilities with those of Amazon Aurora MySQL. You can understand the evolution of SQL Server’s ETL tools from DTS to SSIS, and learn about AWS Glue as the recommended ETL solution for Aurora MySQL.
 

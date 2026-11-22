@@ -1,7 +1,6 @@
 
 
 # High availability essentials
-<a name="chap-sql-server-aurora-mysql.hadr.essentials"></a>
 
 This topic provides reference content comparing high availability and disaster recovery features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how Aurora MySQL offers similar or enhanced capabilities for database replication, failover, and read scaling compared to SQL Server’s solutions like Always On Availability Groups and Failover Cluster Instances.
 

@@ -1,7 +1,6 @@
 
 
 # Managing statistics for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.managingstatistics"></a>
 
 This topic provides reference information about statistics management in Microsoft SQL Server and Amazon Aurora MySQL, which is crucial for database performance optimization. You can understand the differences and similarities in how these two database systems handle statistics creation, storage, and maintenance.
 

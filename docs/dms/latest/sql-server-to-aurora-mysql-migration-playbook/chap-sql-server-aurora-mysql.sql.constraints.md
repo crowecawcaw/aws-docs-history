@@ -1,7 +1,6 @@
 
 
 # Constraints for ANSI SQL
-<a name="chap-sql-server-aurora-mysql.sql.constraints"></a>
 
 This topic provides reference information about constraint compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in how these two database systems handle various types of constraints, including check constraints, unique constraints, primary key constraints, and foreign key constraints.
 

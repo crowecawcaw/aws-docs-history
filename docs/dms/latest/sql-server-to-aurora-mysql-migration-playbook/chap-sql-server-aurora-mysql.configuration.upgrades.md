@@ -1,7 +1,6 @@
 
 
 # Configuring upgrades
-<a name="chap-sql-server-aurora-mysql.configuration.upgrades"></a>
 
 This topic provides reference content about upgrading database instances in Amazon Aurora MySQL. You can learn about the reasons for database upgrades, the differences between upgrading SQL Server and Aurora MySQL, and the process of performing upgrades in Aurora MySQL.
 

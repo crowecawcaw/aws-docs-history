@@ -1,7 +1,6 @@
 
 
 # DELETE and UPDATE FROM for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.deleteupdate"></a>
 
 This topic provides reference information about the differences in SQL syntax and functionality between Microsoft SQL Server 2019 and Amazon Aurora MySQL, specifically regarding DELETE and UPDATE statements with joins. You can use this information to understand how to adapt your existing SQL Server queries when migrating to Aurora MySQL.
 

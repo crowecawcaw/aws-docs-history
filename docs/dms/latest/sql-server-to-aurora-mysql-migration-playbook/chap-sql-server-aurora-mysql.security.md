@@ -1,7 +1,6 @@
 
 
 # Migrating security features to Aurora MySQL
-<a name="chap-sql-server-aurora-mysql.security"></a>
 
 This topic provides reference information about security features and encryption capabilities in Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insights into how these database systems handle user permissions, access control, data encryption, and secure connections. The content explores the similarities and differences between SQL Server and Aurora MySQL in areas such as Transparent Data Encryption, user management, authentication methods, and encrypted connections.
 

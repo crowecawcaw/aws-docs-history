@@ -1,7 +1,6 @@
 
 
 # Cursors for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.cursors"></a>
 
 This topic provides reference information about cursor compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in cursor support and functionality when migrating from SQL Server to Aurora MySQL.
 

@@ -1,7 +1,6 @@
 
 
 # Migration quick tips
-<a name="chap-sql-server-aurora-mysql.tips"></a>
 
 This section provides migration tips that can help save time as you transition from SQL Server to Aurora MySQL. They address many of the challenges faced by administrators new to Aurora MySQL. Some of these tips describe functional differences in similar features between SQL Server and Aurora MySQL.
 

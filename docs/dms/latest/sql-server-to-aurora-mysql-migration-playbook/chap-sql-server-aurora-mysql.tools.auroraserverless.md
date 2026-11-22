@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora Serverless v1 overview
-<a name="chap-sql-server-aurora-mysql.tools.auroraserverless"></a>
 
 This topic provides conceptual information about Amazon Aurora Serverless. It introduces Aurora Serverless as an on-demand autoscaling configuration for Amazon Aurora, explaining how it automatically adjusts compute capacity based on application needs.
 

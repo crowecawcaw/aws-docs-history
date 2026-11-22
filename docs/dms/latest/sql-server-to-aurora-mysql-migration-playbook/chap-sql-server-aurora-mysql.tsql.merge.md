@@ -1,7 +1,6 @@
 
 
 # MERGE for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.merge"></a>
 
 This topic provides reference information about migrating from Microsoft SQL Server 2019’s MERGE statement to equivalent functionality in Amazon Aurora MySQL. You can understand the key differences and similarities between SQL Server’s MERGE capabilities and alternatives such as REPLACE and INSERT…​ON DUPLICATE KEY UPDATE statements.
 

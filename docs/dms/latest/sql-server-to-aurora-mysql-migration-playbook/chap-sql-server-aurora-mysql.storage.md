@@ -1,7 +1,6 @@
 
 
 # Storage for Aurora MySQL
-<a name="chap-sql-server-aurora-mysql.storage"></a>
 
 This topic provides reference content comparing partitioning features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insights into the similarities and differences in partitioning capabilities, including partition types, scope, boundary direction, and management.
 

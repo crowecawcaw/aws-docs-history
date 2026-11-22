@@ -1,7 +1,6 @@
 
 
 # Table JOIN for ANSI SQL
-<a name="chap-sql-server-aurora-mysql.sql.tablejoin"></a>
 
 This topic provides reference content comparing table join functionality between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the similarities and differences in join syntax and support between these two database systems.
 

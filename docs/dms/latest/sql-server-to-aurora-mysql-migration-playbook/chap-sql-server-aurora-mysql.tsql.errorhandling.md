@@ -1,7 +1,6 @@
 
 
 # Error handling for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.errorhandling"></a>
 
 This topic provides reference content comparing error handling approaches between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insights into the differences in error handling paradigms, syntax, and capabilities between these two database systems.
 

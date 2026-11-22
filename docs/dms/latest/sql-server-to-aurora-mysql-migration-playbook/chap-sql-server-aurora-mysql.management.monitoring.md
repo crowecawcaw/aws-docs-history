@@ -1,7 +1,6 @@
 
 
 # Monitoring features
-<a name="chap-sql-server-aurora-mysql.management.monitoring"></a>
 
 This topic provides reference information about monitoring and performance management for Microsoft SQL Server and Amazon Aurora MySQL databases. You can learn about the different monitoring capabilities and tools available for each database system, including SQL Server’s dynamic management views and integration with Amazon CloudWatch and Performance Insights.
 

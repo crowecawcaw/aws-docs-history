@@ -1,7 +1,6 @@
 
 
 # String functions for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions"></a>
 
 This topic provides reference information about string function compatibility when migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in string manipulation capabilities between the two database systems.
 

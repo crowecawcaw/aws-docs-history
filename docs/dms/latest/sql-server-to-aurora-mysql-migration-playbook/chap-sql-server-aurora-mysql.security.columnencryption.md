@@ -1,7 +1,6 @@
 
 
 # Column encryption for Aurora MySQL
-<a name="chap-sql-server-aurora-mysql.security.columnencryption"></a>
 
 This topic provides reference information about encryption and decryption functions in SQL Server and Amazon Aurora MySQL. You can use these functions to secure sensitive data in your database, such as individual column contents or application user security tokens.
 

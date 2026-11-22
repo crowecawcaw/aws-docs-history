@@ -1,7 +1,6 @@
 
 
 # Full-text search for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.fulltextsearch"></a>
 
 This topic provides reference information about full-text search capabilities in Microsoft SQL Server 2019 and Amazon Aurora MySQL. It compares the two systems, highlighting their similarities and differences in implementing full-text search functionality. You can understand how full-text indexes are created and used in both platforms, including the types of columns that support full-text indexing and the basic syntax for creating and querying these indexes.
 

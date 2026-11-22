@@ -1,7 +1,6 @@
 
 
 # Alerting features
-<a name="chap-sql-server-aurora-mysql.management.alerting"></a>
 
 This topic provides reference information about event notifications and alerts in SQL Server and Amazon Aurora MySQL. You can use event notifications to monitor and respond to various database events, performance conditions, and system changes.
 

@@ -1,7 +1,6 @@
 
 
 # Linked servers
-<a name="chap-sql-server-aurora-mysql.management.linkedservers"></a>
 
 This topic provides reference information about linked servers in Microsoft SQL Server and their absence in Amazon Aurora MySQL-Compatible Edition. You can understand the functionality and benefits of linked servers in SQL Server, including their ability to connect to external data sources and run distributed queries.
 

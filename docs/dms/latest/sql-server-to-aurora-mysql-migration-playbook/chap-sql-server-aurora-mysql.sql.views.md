@@ -1,7 +1,6 @@
 
 
 # Views for ANSI SQL
-<a name="chap-sql-server-aurora-mysql.sql.views"></a>
 
 This topic provides reference information about views in Microsoft SQL Server and Amazon Aurora MySQL, comparing their features and usage. You can use this content to understand the similarities and differences between views in these two database systems, which is valuable for planning and executing migrations from SQL Server to Aurora MySQL.
 

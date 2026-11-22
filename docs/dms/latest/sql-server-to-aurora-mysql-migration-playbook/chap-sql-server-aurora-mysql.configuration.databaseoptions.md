@@ -1,7 +1,6 @@
 
 
 # Configuring database options
-<a name="chap-sql-server-aurora-mysql.configuration.databaseoptions"></a>
 
 This topic provides reference information about database options in Microsoft SQL Server and how they differ from Amazon Aurora MySQL. You can understand the key differences in database configuration between these two database systems.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon RDS on Outposts overview
-<a name="chap-sql-server-aurora-mysql.tools.rdsoutposts"></a>
 
 This topic provides conceptual information about Amazon RDS on Outposts, a service that extends Amazon RDS capabilities to on-premises environments. You can learn about how this service enables you to run fully managed databases in your own data centers or co-location facilities, offering low-latency access to local systems and data processing capabilities.
 

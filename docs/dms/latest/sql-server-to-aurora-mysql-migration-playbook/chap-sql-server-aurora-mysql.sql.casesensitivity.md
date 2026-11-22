@@ -1,7 +1,6 @@
 
 
 # Case sensitivity differences for ANSI SQL
-<a name="chap-sql-server-aurora-mysql.sql.casesensitivity"></a>
 
 Object name case sensitivity is different for SQL Server and Amazon Aurora MySQL-Compatible Edition (Aurora MySQL). SQL Server object names case sensitivity is being determined by the collection. Aurora MySQL names are case sensitive and can be adjusted based on the parameter mentioned following.
 

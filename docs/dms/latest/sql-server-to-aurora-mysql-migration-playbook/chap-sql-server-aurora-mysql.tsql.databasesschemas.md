@@ -1,7 +1,6 @@
 
 
 # Databases and schemas for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas"></a>
 
 This topic provides reference content comparing database and schema concepts between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how these two database systems differ in their approach to logical containers, security, and object hierarchies.
 

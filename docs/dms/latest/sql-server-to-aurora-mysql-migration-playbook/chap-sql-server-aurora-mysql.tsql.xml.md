@@ -1,7 +1,6 @@
 
 
 # JSON and XML for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.xml"></a>
 
 This topic provides reference information about XML and JSON support in Microsoft SQL Server 2019 and Amazon Aurora MySQL. It compares how these two database systems handle semi-structured data formats, highlighting their respective strengths and limitations. You can understand the differences in native data type support, available functions, and indexing capabilities for XML and JSON between SQL Server and Aurora MySQL.
 

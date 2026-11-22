@@ -1,7 +1,6 @@
 
 
 # Collations for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.collations"></a>
 
 This topic provides reference content comparing collation and character set support between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how these database systems handle string management, storage, and comparison rules.
 

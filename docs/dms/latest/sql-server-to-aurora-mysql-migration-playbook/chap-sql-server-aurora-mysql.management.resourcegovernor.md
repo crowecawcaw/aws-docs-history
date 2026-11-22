@@ -1,7 +1,6 @@
 
 
 # Resource governor features
-<a name="chap-sql-server-aurora-mysql.management.resourcegovernor"></a>
 
 This topic provides reference information about resource management and workload isolation capabilities in SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in how these database systems handle resource limits and workload management.
 

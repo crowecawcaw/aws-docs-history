@@ -1,7 +1,6 @@
 
 
 # Synonyms for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.synonyms"></a>
 
 This topic provides reference information about the compatibility of synonyms between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in how these database systems handle synonyms, which are alternative identifiers for database objects.
 

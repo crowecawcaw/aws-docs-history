@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora Backtrack overview
-<a name="chap-sql-server-aurora-mysql.tools.aurorabacktrack"></a>
 
 This topic provides conceptual information about Amazon Aurora 's Backtrack feature. You can use Backtrack to quickly undo mistakes or explore earlier data changes in your Aurora MySQL database clusters. The feature works by maintaining a log of changes, allowing you to rewind your database to a specific point in time within a configurable window.
 

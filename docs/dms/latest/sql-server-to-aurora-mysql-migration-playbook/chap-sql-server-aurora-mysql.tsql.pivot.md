@@ -1,7 +1,6 @@
 
 
 # PIVOT and UNPIVOT for T-SQL
-<a name="chap-sql-server-aurora-mysql.tsql.pivot"></a>
 
 This topic provides reference content on migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL, specifically focusing on the PIVOT and UNPIVOT operators. You can use this guidance to understand the compatibility differences between these database systems and learn how to adapt your SQL queries.
 

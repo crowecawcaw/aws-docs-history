@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Proxy overview
-<a name="chap-sql-server-aurora-mysql.tools.rdsproxy"></a>
 
 This topic provides conceptual content about Amazon RDS Proxy, a fully managed database proxy service for Amazon RDS. It introduces the key benefits and functionality of RDS Proxy, explaining how it improves application scalability, resilience, and security.understand the purpose and advantages of using Amazon RDS Proxy in their database architecture.
 

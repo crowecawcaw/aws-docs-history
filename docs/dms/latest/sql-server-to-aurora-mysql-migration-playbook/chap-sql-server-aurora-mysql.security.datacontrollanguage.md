@@ -1,7 +1,6 @@
 
 
 # Data control language for Aurora MySQL
-<a name="chap-sql-server-aurora-mysql.security.datacontrollanguage"></a>
 
 This topic provides reference information foruser permissions and access control in Amazon Aurora MySQL compared to Microsoft SQL Server. You can understand the similarities and differences in how these database systems manage user privileges, including the types of permissions available, the granularity of access control, and the commands used to grant or revoke permissions.
 

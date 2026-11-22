@@ -1,7 +1,6 @@
 
 
 # Configuring server options
-<a name="chap-sql-server-aurora-mysql.configuration.serveroptions"></a>
 
 This topic provides reference content comparing server and database configuration options between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences in how these database systems manage global settings, runtime configurations, and security parameters.
 
