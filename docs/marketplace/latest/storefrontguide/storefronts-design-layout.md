@@ -1,7 +1,6 @@
 
 
 # Design and layout
-<a name="storefronts-design-layout"></a>
 
 Choose a layout type and customize your storefront's design, branding, and content sections.
 

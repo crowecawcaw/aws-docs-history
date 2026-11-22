@@ -1,7 +1,6 @@
 
 
 # Getting Amazon Business API credentials
-<a name="connector-amazon-business-credentials"></a>
 
 The connector uses an Amazon Business API application registered for your business. The application authorizes access through Login with Amazon (LWA). To authorize the application, your Amazon Business administrator must administer all legal entities under that Amazon Business account.
 

@@ -1,7 +1,6 @@
 
 
 # Governance
-<a name="storefronts-governance"></a>
 
 Control procurement approvals and product visibility with buyer groups, policies, and segments.
 

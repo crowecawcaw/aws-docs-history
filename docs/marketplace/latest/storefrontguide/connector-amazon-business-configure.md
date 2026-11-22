@@ -1,7 +1,6 @@
 
 
 # Configuring the Amazon Business connector
-<a name="connector-amazon-business-configure"></a>
 
 Add the connector, enter the API credentials, and bind the connector to the storefront that receives Amazon Business products and prices. Unlike other connectors, the Amazon Business connector applies to one storefront.
 

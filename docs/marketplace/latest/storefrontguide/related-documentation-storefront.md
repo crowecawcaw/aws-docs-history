@@ -1,7 +1,6 @@
 
 
 # Related AWS Marketplace documentation
-<a name="related-documentation-storefront"></a>
 
 AWS Marketplace Storefront works with AWS Marketplace for product listing, pricing, procurement, and billing. For information about these underlying AWS Marketplace capabilities, refer to the following resources.
 

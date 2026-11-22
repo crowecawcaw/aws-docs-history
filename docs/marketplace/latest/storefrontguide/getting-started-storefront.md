@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="getting-started-storefront"></a>
 
 Before you begin using AWS Marketplace Storefront, ensure you meet the following requirements.
 

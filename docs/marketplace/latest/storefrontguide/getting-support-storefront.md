@@ -1,7 +1,6 @@
 
 
 # Getting support for AWS Marketplace Storefront
-<a name="getting-support-storefront"></a>
 
 For help with AWS Marketplace Storefront, contact the Storefront support team. For questions about your AWS account or AWS Marketplace billing, contact AWS Customer Service. For questions about the software that you buy through a storefront, contact the seller of that product.
 

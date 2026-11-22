@@ -1,7 +1,6 @@
 
 
 # Connectors
-<a name="connectors"></a>
 
 Integrate AWS Marketplace Storefront with CRM, procurement, and communication platforms.
 

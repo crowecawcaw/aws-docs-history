@@ -1,7 +1,6 @@
 
 
 # Offers and agreements
-<a name="marketplace-offers-agreements"></a>
 
 Create private offers and manage agreements, subscriptions, and metering for your connected account.
 

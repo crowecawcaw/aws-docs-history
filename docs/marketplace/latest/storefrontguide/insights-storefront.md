@@ -1,7 +1,6 @@
 
 
 # Insights
-<a name="insights-storefront"></a>
 
 ## Billed revenue
 <a name="billed-revenue"></a>

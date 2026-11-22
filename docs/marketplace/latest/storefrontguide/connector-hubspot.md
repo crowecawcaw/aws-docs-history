@@ -1,7 +1,6 @@
 
 
 # HubSpot connector
-<a name="connector-hubspot"></a>
 
 Use the HubSpot connector to synchronize deal, company, and contact data with HubSpot.
 

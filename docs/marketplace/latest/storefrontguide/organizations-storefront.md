@@ -1,7 +1,6 @@
 
 
 # Organizations
-<a name="organizations-storefront"></a>
 
 Manage your organization's global settings, team members, security policies, and reusable storefront templates.
 

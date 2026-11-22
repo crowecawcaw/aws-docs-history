@@ -1,7 +1,6 @@
 
 
 # Marketplace accounts
-<a name="marketplace-accounts"></a>
 
 Connect and manage your AWS Marketplace seller accounts.
 

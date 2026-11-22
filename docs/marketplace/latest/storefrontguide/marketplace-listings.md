@@ -1,7 +1,6 @@
 
 
 # Listings
-<a name="marketplace-listings"></a>
 
 Create and manage your AWS Marketplace product listings from the Storefront console.
 

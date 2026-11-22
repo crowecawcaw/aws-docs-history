@@ -1,7 +1,6 @@
 
 
 # Connector overview
-<a name="connectors-overview"></a>
 
 Connectors integrate AWS Marketplace Storefront with external customer relationship management (CRM), procurement, and collaboration systems. Connectors fall into three categories: CRM connectors, procurement catalog connectors, and notifications and collaboration connectors.
 

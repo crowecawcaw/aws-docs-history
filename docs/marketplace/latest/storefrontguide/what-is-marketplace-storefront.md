@@ -1,7 +1,6 @@
 
 
 # What is AWS Marketplace Storefront?
-<a name="what-is-marketplace-storefront"></a>
 
 AWS Marketplace Storefront lets a Partner launch a branded procurement experience connected to AWS Marketplace, where the Partner curates a catalog of products, uses built-in capabilities to automate deal workflows, and routes transactions through an existing AWS Marketplace seller account. A storefront can show products from other Partners alongside the Partner's own AWS Marketplace products.
 

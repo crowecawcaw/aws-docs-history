@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon Business SSO
-<a name="connector-amazon-business-sso"></a>
 
 Complete this page only if you want the Buy button to sign buyers in to Amazon Business with single sign-on (SSO).
 

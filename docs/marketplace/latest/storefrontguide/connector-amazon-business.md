@@ -1,7 +1,6 @@
 
 
 # Amazon Business connector
-<a name="connector-amazon-business"></a>
 
 Use the Amazon Business connector to offer Amazon Business products in your AWS Marketplace Storefront and send buyers to Amazon Business with a **Buy** button. When a buyer chooses the Buy button, the buyer signs in to Amazon Business in one of two ways:
 + Without single sign-on (SSO), buyers sign in to Amazon Business themselves with their Amazon Business credentials. You don't set up SSO.

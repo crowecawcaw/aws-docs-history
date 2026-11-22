@@ -1,7 +1,6 @@
 
 
 # Setting up single sign-on for a storefront
-<a name="sso-storefront"></a>
 
 You can enable single sign-on (SSO) so that buyers sign in to a storefront with your identity provider. AWS Marketplace Storefront supports Okta and Microsoft Entra ID through OpenID Connect (OIDC). It also supports any SAML 2.0 identity provider, such as Okta.
 

@@ -1,7 +1,6 @@
 
 
 # AWS ACE connector
-<a name="connector-aws-ace"></a>
 
 Use the AWS ACE connector to synchronize co-selling opportunities with the AWS Partner Network.
 

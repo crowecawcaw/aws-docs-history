@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="concepts-storefront"></a>
 
 ## Automated offers
 <a name="automated-offers"></a>

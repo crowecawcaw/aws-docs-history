@@ -1,7 +1,6 @@
 
 
 # Co-selling and partners
-<a name="marketplace-coselling-partners"></a>
 
 Manage co-selling opportunities and channel partner selling authorizations.
 

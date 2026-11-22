@@ -1,7 +1,6 @@
 
 
 # Storefronts
-<a name="storefronts"></a>
 
 Create, design, configure, and deploy storefronts.
 

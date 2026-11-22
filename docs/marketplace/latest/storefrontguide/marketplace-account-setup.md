@@ -1,7 +1,6 @@
 
 
 # Account setup
-<a name="marketplace-account-setup"></a>
 
 Connect and manage your AWS Marketplace seller accounts in the Storefront console.
 

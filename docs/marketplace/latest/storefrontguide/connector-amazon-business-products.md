@@ -1,7 +1,6 @@
 
 
 # Adding Amazon Business products and the Buy button
-<a name="connector-amazon-business-products"></a>
 
 After the connector shows **Connected**, import Amazon Business products into the bound storefront, choose a display template, turn on the Buy button, and publish.
 

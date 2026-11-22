@@ -1,7 +1,6 @@
 
 
 # Verifying and troubleshooting the Amazon Business connector
-<a name="connector-amazon-business-verify"></a>
 
 Test the buyer journey after you publish the storefront. If you use single sign-on (SSO), first configure storefront SAML sign-in, activate Amazon Business SSO, and enter the SSO login URL in the connector. For SSO, use a buyer account that's assigned in your identity provider (IdP).
 
