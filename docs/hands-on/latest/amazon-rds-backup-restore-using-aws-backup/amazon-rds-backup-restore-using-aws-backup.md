@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Backup & Restore Using AWS Backup
-<a name="amazon-rds-backup-restore-using-aws-backup"></a>
 
 
 |  |  | 
