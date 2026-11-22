@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Add Ethernet Devices
-<a name="config-wrkr-sm-cg-ethernet-add"></a>
 
 When you installed AWS Elemental Statmux, you configured eth0. If you also set up eth1 at that time, no further configuration is required. If you didn't set up eth1 or want to set up more devices, use these instructions to do so.
 

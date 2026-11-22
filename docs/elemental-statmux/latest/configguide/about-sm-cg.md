@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # About this Guide
-<a name="about-sm-cg"></a>
 
 This guide is intended for engineers who are performing the initial configuration on one or more AWS Elemental Statmux nodes that are each working in a stand-alone mode. The nodes aren't being controlled by AWS Elemental Conductor Live 3. 
 

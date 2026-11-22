@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Configure AWS Elemental Statmux Notifications
-<a name="config-wrkr-sm-cg-notifications"></a>
 
 AWS Elemental Statmux provides status information through alerts. You can configure notifications so you know when the node might need attention. The following table describes alerts and how you can access them.
 

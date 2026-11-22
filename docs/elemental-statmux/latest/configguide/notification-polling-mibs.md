@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Management Information Bases (MIBs) in AWS Elemental Statmux
-<a name="notification-polling-mibs"></a>
 
 AWS Elemental provides the following management information bases (MIBs) for use with AWS Elemental Statmux:
 

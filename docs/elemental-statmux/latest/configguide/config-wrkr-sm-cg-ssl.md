@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Enable SSL
-<a name="config-wrkr-sm-cg-ssl"></a>
 
 The Secure Socket Layer (SSL) enables the secure version of HTTP (HTTPS) and encrypts communications between the client and server. Note the following about SSL:
 + With SSL, all traffic over the communications layer must use a secure protocol. If SSL is disabled, all traffic must use the unsecured version. Traffic that uses the wrong protocol fails.

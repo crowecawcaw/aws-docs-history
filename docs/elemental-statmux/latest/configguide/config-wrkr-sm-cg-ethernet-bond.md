@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Bond Ethernet Devices
-<a name="config-wrkr-sm-cg-ethernet-bond"></a>
 
 You can bond Ethernet devices to suit your networking requirements. For example, you might set-up two Ethernet devices as an active/redundant pair. 
 

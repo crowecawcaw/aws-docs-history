@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Configure Database Backups for AWS Elemental Statmux
-<a name="config-wrkr-sm-cg-bkup"></a>
 
 During a database backup, AWS Elemental Statmux copies the data that's related to your framework (channels, profiles, nodes, MPTS outputs, and redundancy groups) from the Statmux node to another server. You can use this backup to restore the data to the node in case of a major hardware failure or if you have to re-install the software for any reason.
 

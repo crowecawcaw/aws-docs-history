@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Restore a Backup
-<a name="config-wrkr-sm-cg-bkup-restore"></a>
 
 Follow this procedure if you ever need to restore a backed-up version of the database.
 

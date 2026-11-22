@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Simple Network Management Protocol (SNMP) Polling
-<a name="notification-polling"></a>
 
 Rather than passively receiving SNMP traps from AWS Elemental Statmux, you can actively poll the SNMP interface.
 

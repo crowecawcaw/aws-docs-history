@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Enable User Authentication
-<a name="config-wrkr-sm-cg-auth"></a>
 
 You can require users to provide valid credentials when they access AWS Elemental Statmux from both the web interface and REST API.
 + For the web interface, users must complete the fields on the login screen.

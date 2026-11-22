@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Open Ports on the Firewall for AWS Elemental Statmux Nodes
-<a name="config-wrkr-cf-cg-firewall"></a>
 
 You can enable or disable the firewall. We recommend that your nodes always be installed behind a customer firewall on a private network, regardless of if the individual firewall is enabled on each node. The node firewall is enabled by default.
 
