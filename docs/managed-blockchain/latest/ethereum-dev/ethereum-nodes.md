@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Working with Ethereum nodes using AMB Access
-<a name="ethereum-nodes"></a>
 
 You can use AMB Access Ethereum to create nodes and join them to Ethereum public networks. A node is a computer that connects to a blockchain network. A blockchain network consists of multiple parties (or peers) that are connected to each other in a decentralized way. When you use AMB Access Ethereum, you pay for the nodes, the storage that you use, and the requests that are made between the nodes and the network. 
 

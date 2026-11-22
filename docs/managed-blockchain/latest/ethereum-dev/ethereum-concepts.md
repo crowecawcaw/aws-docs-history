@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Key concepts: Amazon Managed Blockchain (AMB) Access Ethereum
-<a name="ethereum-concepts"></a>
 
 **Note**  
 This guide assumes that you're familiar with the concepts that are essential to Ethereum. These concepts include nodes, dapps, transactions, gas, Ether, and others. Before you deploy a node using AMB Access Ethereum and develop dapps, we recommend that you review the [Ethereum Development Documentation](https://ethereum.org/en/developers/docs/) and [Mastering Ethereum](https://cypherpunks-core.github.io/ethereumbook/01what-is.html).

@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Making JSON-RPC API calls to an Ethereum node in Amazon Managed Blockchain (AMB)
-<a name="json-rpc-api-examples"></a>
 
 The following examples demonstrate ways to make Ethereum JSON-RPC API calls to an Ethereum node in Amazon Managed Blockchain (AMB).
 
@@ -66,19 +65,19 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
    Export these variables as strings on your client using the following commands. Replace the values with appropriate values from your IAM user account.
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID="{{AKIAIOSFODNN7EXAMPLE}}"
    ```
 
-   ```
+   ```bash
    export AWS_SECRET_ACCESS_KEY="{{wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY}}"
    ```
 
-   ```
+   ```bash
    export AMB_HTTP_ENDPOINT="https://{{nd-6eaj5va43jggnpxouzp7y47e4y}}.ethereum.managedblockchain.us-east-1.amazonaws.com/"
    ```
 
-   ```
+   ```bash
    export AMB_WS_ENDPOINT="wss://{{nd-6eaj5va43jggnpxouzp7y47e4y}}.wss.ethereum.managedblockchain.us-east-1.amazonaws.com/"
    ```
 
@@ -88,7 +87,7 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
 1. This example script uses the ECMAScript (ES) module. Therefore, add the `"type": "module"` line to your `package.json` file. The example `package.json` snippet that follows shows the contents required to successfully run this example.
 
-   ```
+   ```javascript.js
    {
      "type": "module",
      "dependencies": {
@@ -114,7 +113,7 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
    **Contents of awsHttpSigV4-v2.js**
 
-   ```
+   ```javascript.js
    /////////////////////////////////////////////////////
    // Authored by Rafia Tapia
    // Senior Blockchain Solutions Architect, AWS
@@ -198,7 +197,7 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
    **Contents of web3-example-http.js**
 
-   ```
+   ```javascript.js
    import AWSHttpSigV4_v2Provider from './awsHttpSigV4-v2.js';
    const endpoint = process.env.AMB_HTTP_ENDPOINT
    const web3 = new Web3(new AWSHttpSigV4_v2Provider(endpoint));
@@ -207,7 +206,7 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
 1. Run the script to call the Ethereum API method over HTTP on your Ethereum node.
 
-   ```
+   ```bash
    node web3-example-http.js
    ```
 
@@ -221,7 +220,7 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
 1. The following example `package.json` snippet that follows shows the *dependencies* required to successfully run the example.
 
-   ```
+   ```json
    "@aws-sdk/credential-providers": "^3.352.0",
    "@aws-sdk/fetch-http-handler": "^3.353.0",
    "@aws-sdk/protocol-http": "^3.347.0",
@@ -241,7 +240,7 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
    **Contents of web3-example-ws.js**
 
-   ```
+   ```javascript.js
    // Authored by Rafia Tapia
    // Senior Blockchain Solutions Architect, AWS
    // licensed under GNU Lesser General Public License
@@ -290,7 +289,7 @@ Running the example scripts requires the following prerequisites. Prerequisites 
 
 1. Run the script to call the Ethereum API method over WebSocket on your Ethereum node.
 
-   ```
+   ```bash
    node web3-example-ws.js
    ```
 
@@ -309,7 +308,7 @@ Running the example script requires the following:
 + Node.js is installed on your machine. If you are using an Amazon EC2 instance, see [Tutorial: Setting Up Node.js on an Amazon EC2 Instance](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html).
 + The following example `package.json` snippet that follows shows the *dependencies* required to successfully run the example. 
 
-  ```
+  ```json
   "@aws-sdk/credential-providers": "^3.352.0",
   "@aws-sdk/fetch-http-handler": "^3.353.0",
   "@aws-sdk/protocol-http": "^3.347.0",
@@ -329,7 +328,7 @@ Running the example script requires the following:
 
    **Contents of ws-ethereum-example.js**
 
-   ```
+   ```javascript.js
    // Authored by Rafia Tapia
    // Senior Blockchain Solutions Architect, AWS
    // licensed under GNU Lesser General Public License
@@ -382,7 +381,7 @@ Running the example script requires the following:
 
 1. Run the following command to call the Ethereum API method over WebSocket on your Ethereum node.
 
-   ```
+   ```bash
    node ws-ethereum-example.js
    ```
 
@@ -400,7 +399,7 @@ Running the example script requires the following:
 The example that follows uses [awscurl](https://pypi.org/project/awscurl/0.6/), which sends a signed HTTP request based on the current credentials you have set for the AWS CLI. If you construct your own HTTP requests, see [Signing AWS requests with Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html) in the *AWS General Reference*.  
 Replace `{{your-node-id-lowercase}}` with the ID of a node in your account (for example, `nd-6eaj5va43jggnpxouzp7y47e4y`). The example calls the `web3_clientVersion` method, which takes an empty parameter block. You can replace this method and its parameters with any method that's listed in [Supported JSON-RPC methods](supported-json-rpc.md).  
 
-```
+```bash
 awscurl --service managedblockchain \
 -X POST -d '{"jsonrpc": "2.0", "method": "web3_clientVersion", "params": [], "id": 67}' \
 https://{{your-node-id-lowercase}}.ethereum.managedblockchain.us-east-1.amazonaws.com

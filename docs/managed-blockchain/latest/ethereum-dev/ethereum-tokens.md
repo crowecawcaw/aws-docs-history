@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Using token based access to make Ethereum API calls to Ethereum nodes in Amazon Managed Blockchain (AMB)
-<a name="ethereum-tokens"></a>
 
 You can use Accessor tokens to make Ethereum API calls to an Ethereum node as a convenient alternative to the Signature Version 4 (SigV4) signing process. You must provide a `BILLING_TOKEN` from one of the Accessor tokens that you create as a query parameter with the call.
 
@@ -53,7 +52,7 @@ aws managedblockchain create-accessor --accessor-type BILLING_TOKEN --network-ty
 
 The previous command returns the `AccessorId` along with the `BillingToken`, as shown in the following example.
 
-```
+```json
 {
 "AccessorId": "ac-NGQ6QNKXLNEBXD3UI6XFDIL3VA",
 "NetworkType": "ETHEREUM_MAINNET", 
@@ -93,7 +92,7 @@ aws managedblockchain get-accessor --accessor-id {{ac-NGQ6QNKXLNEBXD3UI6XFDIL3VA
 
  The `BillingToken` and other key properties are returned as shown in the following example.
 
-```
+```json
 {
   "Accessor": {
   "Id": "ac-NGQ6QNKXLNEBXD3UI6XFDIL3VA",

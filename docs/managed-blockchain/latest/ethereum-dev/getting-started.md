@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Getting started with Amazon Managed Blockchain (AMB) Access Ethereum
-<a name="getting-started"></a>
 
 The step-by-step tutorials in this section will show you how to perform the following tasks using Amazon Managed Blockchain (AMB) Access Ethereum. Each task builds on the previous one, ending in making JSON-RPC calls to your Ethereum node.
 
@@ -29,7 +28,7 @@ This example shows how you grant users AWS account access in the `us-east-1` Reg
 If you want to grant access across all Regions, replace `us-east-1` with `*`.
 You must specify the AWS account ID of the node and accessor resources in the policy that you want to enforce.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

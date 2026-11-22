@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Logging Amazon Managed Blockchain API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Managed Blockchain is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Managed Blockchain. CloudTrail captures all API calls for Managed Blockchain as events. The calls captured include calls from the Managed Blockchain console and code calls to the Managed Blockchain API operations.
 
@@ -41,7 +40,7 @@ CloudTrail log files contain one or more log entries. An event represents a sing
 **Example – Management event log entry**  
 The following example shows a CloudTrail management event log entry that demonstrates the `GetNode` action.  
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -83,7 +82,7 @@ You can track Ethereum API as *data events * using CloudTrail. By default, when 
 
 To log data events for a trail, run the [put-event-selectors](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/put-event-selectors.html) command after you create the trail. Use the `--advanced-event-selectors` option to specify the data events to log. The following example demonstrates a `put-event-selectors` command that logs all Ethereum API calls for a trail that's named `{{my-ethereum-trail}}` in the `{{us-east-1}}` Region.
 
-```
+```bash
 aws cloudtrail put-event-selectors \
 --region {{us-east-1}} \
 --trail-name {{my-ethereum-trail}} \
@@ -97,7 +96,7 @@ aws cloudtrail put-event-selectors \
 **Example Data event log entry for an Ethereum JSON-RPC API call**  
 The following example demonstrates a CloudTrail data event log entry for an Ethereum JSON-RPC API all, `web3_clientVersion`, from a client to a node in Amazon Managed Blockchain.  
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
