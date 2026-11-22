@@ -1,7 +1,6 @@
 
 
 # 11 Additional services
-<a name="elpg-additional-services"></a>
 
  
 

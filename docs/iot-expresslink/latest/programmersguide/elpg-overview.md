@@ -1,7 +1,6 @@
 
 
 # 1 Overview
-<a name="elpg-overview"></a>
 
 An AWS IoT ExpressLink qualified module is a hardware connectivity module that communicates with a host processor by means of a serial interface (UART) and allows it to quickly and securely access AWS IoT Core and its services. In so doing, an ExpressLink module offloads complex and undifferentiated workloads, such as authentication, device management, connectivity, and messaging, from the application (host) processor. ExpressLink modules were conceived after discussions with microcontroller vendors, OEMs, and module makers regarding the complexity and repetitiveness of migrating existing hardware and software designs to new or different MCUs and RTOSs. They enable a scalable migration for millions of embedded applications to cloud-connected applications.
 

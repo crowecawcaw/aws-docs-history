@@ -1,7 +1,6 @@
 
 
 # AWS IoT ExpressLink programmer's guide v1.3
-<a name="elpg"></a>
 
 This document defines the Application Programming Interface (API) that all AWS IoT ExpressLink compliant connectivity modules are required to implement to connect any host processor to the AWS cloud. 
 

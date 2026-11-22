@@ -1,7 +1,6 @@
 
 
 # 5 Messaging
-<a name="elpg-messaging"></a>
 
 ## 5.1 Messaging topic model
 <a name="elpg-messaging-topic"></a>

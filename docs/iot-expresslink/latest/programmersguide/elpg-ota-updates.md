@@ -1,7 +1,6 @@
 
 
 # 9 ExpressLink module Updates
-<a name="elpg-ota-updates"></a>
 
 ExpressLink modules natively support firmware updates utilizing the AWS IoT OTA service and, locally, using Over the Wire (OTW) updates.
 
@@ -72,10 +71,14 @@ The Host processor is not required to retrieve the entire payload at once, nor t
 
 <a name="elpg-figure3"></a>![Figure 3 - ExpressLink module OTA state diagrams](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/ota-states.png)
 
+Figure 3 - ExpressLink module OTA state diagrams
+
 
  
 
 <a name="elpg-figure4"></a>![Figure 4 - ExpressLink Host OTA state diagrams](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/hota-states.png)
+
+Figure 4 - ExpressLink Host OTA state diagrams
 
 
  

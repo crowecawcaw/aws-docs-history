@@ -1,7 +1,6 @@
 
 
 # 10 AWS IoT Services
-<a name="elpg-iot-services"></a>
 
 ## 10.1 AWS IoT Device Defender
 <a name="elpg-device-defender"></a>

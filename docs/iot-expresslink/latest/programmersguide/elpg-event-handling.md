@@ -1,7 +1,6 @@
 
 
 # 8 Event handling
-<a name="elpg-event-handling"></a>
 
 ## 8.1 Introduction
 <a name="elpg-event-handling-introduction"></a>

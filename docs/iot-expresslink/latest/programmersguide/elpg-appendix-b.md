@@ -1,7 +1,6 @@
 
 
 # Appendix – Manufacturer Module Datasheet Requirements
-<a name="elpg-appendix-b"></a>
 
 The following is a summary of commands and features that are listed as optional for implementation by the manufacturer. Their availability must be explicitly documented on the device datasheet:
 + *EVENT\!* – long polling, support host communication purely over the serial interface (see [8.2.2 EVENT\! *time*   »Wait (blocking) for the next event or timeout«](elpg-event-handling.md#elpg-eventq-time))

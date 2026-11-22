@@ -1,7 +1,6 @@
 
 
 # 13 Bluetooth Low Energy (BLE)
-<a name="elpg-ble"></a>
 
 ExpressLink modules can take advantage of additional (local) connectivity capabilities, optionally available on selected SoCs. Bluetooth Low Energy (BLE) is one prominent example of such capabilities used to communicate with accessories and other modules or gateways over a local (personal) area network.
 
@@ -96,7 +95,7 @@ BLE devices adopting a peripheral role require the host to initialize the BLEPer
 
 Example 1
 
-```
+```bash
 AT+CONF BLEPeripheral={"mode": "LEGACY", 
     "IOCapability":{"display":0,"keyboard":0,"YesNo": 0}, 
     "filterPolicy": {"ALLOW_LIST_SCAN":0,"ALLOW_LIST_CONNECT": 0}, 
@@ -193,7 +192,7 @@ Details:
 + Application: uint8(0x04) = soil
 + Measurement Uncertainty: uint8(0xFF) = Unknown uncertainty
 
-```
+```bash
 AT+CONF BLEGATT1={"service":"181A", "chr":"2A6E", "read":"1"} 
 AT+CONF BLEGATT2={"service":"181A", "chr":"2A6E", "desc":"290C", "read":"1"} 
 AT+BLE SET1 6009Big endian: 0x0960, Actual: 2400 in C/100 = 24 C) 
@@ -207,7 +206,7 @@ AT+BLE SET2 00000296000084030004FF
 **Example 1:**  
 1. Configure BLE in Peripheral mode:  
 
-```
+```bash
 AT+CONF BLEPeripheral={
  "mode": "LEGACY",
  "IOCapability":{"display":0,"keyboard":0,"YesNo": 0},
@@ -224,24 +223,24 @@ Where:
 + **"address":{"type":"RPARandom"}** Random Identity Address (automatically generated random static address) with identity resolution.
 2. Define service 180D, characteristic 2A37:  
 
-```
+```bash
 AT+CONF BLEGATT1={"service":"180D", "chr":"2A37", "write":18, "read":3}
 ```
 The write bitmask (18) enables write operations but allows only write-without-response operations. The read bitmask (3) enables read operations but requires an encrypted link.  
 3. Define service 180D, characteristic 2A38:  
 
-```
+```bash
 AT+CONF BLEGATT2={"service":"180D", "chr":"2A38", "write":3, "read":1,"indicate":1, "notify":1}
 ```
 The write bitmask (3) enables write (with response) operations but requires an encrypted link. The read bitmask (1) enables read operations and does not require an encrypted link. The indicate bitmask (1) enables indicate operations and does not require an encrypted link. The notify bitmask (1) enables notify operations and does not require an encrypted link.  
 4. Initialize the peripheral:  
 
-```
+```bash
 AT+BLE INIT PERIPHERAL
 ```
 5. Advertise the peripheral:  
 
-```
+```bash
 AT+BLE ADVERTISE
 ```
 After successful connection, you receive the event: **40 0 BLE CONNECTED**. Any Central device (for example, smartphone) can now see the device and connect to it.
@@ -252,13 +251,13 @@ After successful connection, you receive the event: **40 0 BLE CONNECTED**. Any 
 **Example 2:** Configuring a device as peripheral and retrieve its BDAddress.  
 1. Configure the device as a peripheral with automatically assigned address and identity resolution:  
 
-```
+```bash
 AT+CONF BLEPeripheral = {"address": {"type":"RPARandom"}}
 OK
 ```
 2. Configure characteristics and descriptors:  
 
-```
+```bash
 AT+CONF BLEGATT1={"service":"180D", "chr":"2A37", "write":1, "read":1, "indicate":1}
 OK
 AT+CONF BLEGATT2={"service":"180D", "chr":"FFF1", "write":1, "read":1, "notify":1}
@@ -268,13 +267,13 @@ OK
 ```
 3. Initialize the peripheral:  
 
-```
+```bash
 AT+BLE INIT PERIPHERAL
 OK
 ```
 4. Retrieve the automatically assigned address:  
 
-```
+```bash
 AT+CONF? BLEPeripheral
 OK
 {"mode":"LEGACY", "address": {"type":"RPARandom","BDAddress":"FD:15:18:24:FC:6D"}}
@@ -343,6 +342,8 @@ OK
 BLE capable devices can communicate with accessories without establishing permanent connections by means of a scanning and advertising protocol. This protocol is commonly used for characteristics whose value is required infrequently (device battery level, or ambient temperature sensors).
 
 <a name="elpg-figure7"></a>![Figure 7 - BLE scanning for devices](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/ble-scanning-for-devices.png)
+
+Figure 7 - BLE scanning for devices
 
 
  
@@ -460,6 +461,8 @@ OK{EOL}
 In some use cases, instead of just reading sensor data provided in the advertisement message, the host may want to inspect what type of services and characteristics a peripheral exposes. To do this, the ExpressLink module must first establish a direct connection to the BLE peripheral device (using the BLE GAP protocol).
 
 <a name="elpg-figure8"></a>![Figure 8 - Connecting to a BLE device](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/connecting-to-ble-device.png)
+
+Figure 8 - Connecting to a BLE device
 
 
  
@@ -584,6 +587,8 @@ The READ command allows the host to request the value of a characteristic when c
 
 <a name="elpg-figure9"></a>![Figure 9 - Reading a connected BLE peripheral](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/reading-a-connected-ble-peripheral.png)
 
+Figure 9 - Reading a connected BLE peripheral
+
 
  Returns:
 
@@ -647,6 +652,8 @@ The maximum value that can be written to a characteristic is *MaxBLECharLen* byt
 
 <a name="elpg-figure10"></a>![Figure 10 - Writing to a connected BLE device](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/writing-to-connected-ble-device.png)
 
+Figure 10 - Writing to a connected BLE device
+
 
  Returns:
 
@@ -702,6 +709,8 @@ OK{EOL}
 The host can subscribe to receive notifications (see [Table 4 - ExpressLink event codes](elpg-event-handling.md#elpg-table4)) when connected to a peripheral and the selected characteristic is updated (it must be configured as notify or indicate). The BLE (first) numerical suffix \# identifies the connected device by the corresponding BLECentral\# parameter. The SUBSCRIBE (second) numerical suffix \#, identifies the characteristic by its corresponding BLEGATT\# parameter.
 
 <a name="elpg-figure11"></a>![Figure 11 - Subscribing to receive peripheral notifications](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/subscribe-to-peripheral-notifications.png)
+
+Figure 11 - Subscribing to receive peripheral notifications
 
 
  Returns:
@@ -993,6 +1002,8 @@ The BLE GET command allows the host to perform a synchronous read of the value o
 
 <a name="elpg-figure12"></a>![Figure 12 - Reading from a local characteristic in BLE peripheral mode](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/reading-from-a-local-characteristic.jpg)
 
+Figure 12 - Reading from a local characteristic in BLE peripheral mode
+
 
  Returns:
 
@@ -1027,6 +1038,8 @@ OK 014A{EOL}
 The BLE SET command allows the host to perform a synchronous write to the value of a local peripheral characteristic. TThe maximum value that can be retrieved from a characteristic is *MaxBLECharLen* bytes, where *MaxBLECharLen* is a value (>=31) defined by the vendor and documented in the module datasheet. 
 
 <a name="elpg-figure13"></a>![Figure 13 - Writing to a connected BLE device](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/writing-to-a-local-characteristic.jpg)
+
+Figure 13 - Writing to a connected BLE device
 
 
  Returns:
@@ -1119,6 +1132,8 @@ Pairing not possible, device not connected or not initialized.
 Pairing failed, device could not be paired.
 
 <a name="elpg-figure14"></a>![Figure 14 - Typical BLE Peripheral initialization and pairing flow](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/typical-peripheral-pairing.png)
+
+Figure 14 - Typical BLE Peripheral initialization and pairing flow
 
 
 ### 13.4.3 BLE PAIR?   »Query device pairing status«

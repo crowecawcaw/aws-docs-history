@@ -1,7 +1,6 @@
 
 
 # 14 GPIO control (new with v1.3)
-<a name="elpg-gpio-control"></a>
 
 General Purpose I/O control is provided to allow ExpressLink modules to act as I/O expanders for the host processor by allowing control with serial interface of additional pins beyond the basic set defined in section 2.2. This command group is optional, and dependent on the capabilities of the connectivity module and underlying SoC. GPIOs will be numbered 0..MaxIO and made available individually to operate in digital and analog input/output modes, as available. Each I/O has an associated output register which can be set independently of the control mode. Reading I/O inputs will always report the current state of the pin.
 
