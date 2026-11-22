@@ -1,7 +1,6 @@
 
 
 # Available MCP tools
-<a name="available-tools"></a>
 
 With the AWS for SAP Model Context Protocol (MCP) Server, your AI agents can access tools and prompts for interacting with SAP systems. These tools are split into two categories: Read tools, which are available by default, and Write tools, which you must explicitly enable before they can be used.
 

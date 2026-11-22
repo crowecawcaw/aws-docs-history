@@ -1,7 +1,6 @@
 
 
 # Pricing
-<a name="pricing"></a>
 
 The AWS for SAP MCP Server package (Container and AWS CloudFormation) has no cost. Costs depend on the underlying infrastructure and services that you use, including:
 +  **Amazon Bedrock AgentCore** – For more information, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) on the AWS website.

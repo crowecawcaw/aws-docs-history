@@ -1,7 +1,6 @@
 
 
 # Deployment via AWS CloudFormation
-<a name="deployment"></a>
 
 You deploy the AWS for SAP Model Context Protocol (MCP) Server onto Amazon Bedrock AgentCore Runtime by using an AWS CloudFormation template. The template creates all required resources for you, including the AgentCore runtime, Identity and Access Management (IAM) roles, and networking configuration.
 
@@ -27,13 +26,13 @@ Before you begin, ensure you have completed the necessary setup detailed in the 
 
 1. Under **Specify template**, select **Amazon S3 URL** and enter:
 
-   ```
+   ```text
    https://awsforsap-mcp-server-setup-{region}.s3.{region}.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json
    ```
 
    Example:
 
-   ```
+   ```text
    https://awsforsap-mcp-server-setup-us-east-1.s3.us-east-1.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json
    ```
 
@@ -78,9 +77,10 @@ The MCP Server supports the following authentication flows for connecting to SAP
 | --- | --- | --- | --- | --- | --- | --- | 
 |  `AuthFlow`  | Authentication Flow | Authentication flow to use: `BASIC`, `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`. | ✓ | ✓ | ✓ | ✓ | 
 |  `SapCredentialsSecret`  | Auth Credentials Secret Name |  AWS Secrets Manager secret name containing SAP credentials (BASIC) or OAuth client credentials. | Required | Required | Required | Required | 
-|  `SapAuthorizeUrl`  | Authorization Endpoint | OAuth2 authorization URL. | — | Required | Required | — | 
-|  `SapTokenUrl`  | Token Endpoint | OAuth2 token URL. | — | Required | Required | — | 
+|  `SapAuthorizeUrl`  | Authorization Endpoint | OAuth2 authorization URL. | — | Required | Required | Required for Okta | 
+|  `SapTokenUrl`  | Token Endpoint | OAuth2 token URL. | — | Required | Required | Required for Okta | 
 |  `OauthScopes`  | Scope(s) | OAuth scopes for SAP access. | — | Required | Required | Required | 
+|  `OboAudience`  | On-Behalf-Of Audience | The audience to request in the on-behalf-of token exchange, such as `api://sap-api`. Okta on-behalf-of only; otherwise leave as `None`. | — | — | — | Required for Okta | 
 |  `AppCallbackEndpoint`  | Application Callback Endpoint | Client application callback URL. | — | — | Required | — | 
 
  **Inbound Authentication Configuration** 
@@ -88,12 +88,12 @@ The MCP Server supports the following authentication flows for connecting to SAP
 
 | Parameter | Parameter Label | Description | Notes | 
 | --- | --- | --- | --- | 
-|  `InboundAuthProvider`  | Inbound Authentication Provider | Identity provider for validating incoming requests to the MCP Server. | Default: Cognito (or Entra ID) | 
-|  `DiscoveryUrl`  | Discovery Url | URL to fetch authorization server metadata for JWT validation. | Required for Entra ID; not needed for Cognito | 
-|  `AllowedAudiences`  | Allowed Audiences | Audience values validated in incoming JWT tokens. | Required for Entra ID; not needed for Cognito | 
+|  `InboundAuthProvider`  | Inbound Authentication Provider | Identity provider for validating incoming requests to the MCP Server. | Allowed values: `Cognito`, `EntraId`, `Okta`. Default: `Cognito`  | 
+|  `DiscoveryUrl`  | Discovery Url | URL to fetch authorization server metadata for JWT validation. | Required for an external IdP; not needed for Cognito | 
+|  `AllowedAudiences`  | Allowed Audiences | Audience values validated in incoming JWT tokens. | Required for an external IdP; not needed for Cognito | 
 
 **Note**  
- `DiscoveryUrl` and `AllowedAudiences` are only required when using an external identity provider (for example, Entra ID). Leave these fields empty if using Cognito.
+ `DiscoveryUrl` and `AllowedAudiences` are only required when using an external identity provider. Leave these fields empty if using Cognito.
 
  **MCP Server configuration** 
 
@@ -180,7 +180,7 @@ If the stack reaches `ROLLBACK_COMPLETE`, check the Events tab for the root caus
 
 The MCP Server connects to SAP SuccessFactors with Basic Authentication only. The following command deploys the AWS for SAP MCP Server against SuccessFactors. SuccessFactors does not use `SapClientNumber`, and the SAP standard catalog is not supported, so `McpServerUseSapCatalog` must be `false` and a custom catalog must be supplied through `McpServerCustomCatalogBucketUri`. Replace the placeholder values with your actual configuration:
 
-```
+```bash
 aws cloudformation create-stack \
   --stack-name <your-stack-name> \
   --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
@@ -212,7 +212,7 @@ For Basic Authentication with Cognito as the inbound provider, `DiscoveryUrl` an
 
 For machine-to-machine OAuth authentication, include the additional OAuth parameters:
 
-```
+```bash
 aws cloudformation create-stack \
   --stack-name <your-stack-name> \
   --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
@@ -251,7 +251,7 @@ aws cloudformation create-stack \
 ## Example: User Federation Authentication Deployment
 <a name="deploy-user-federation-auth"></a>
 
-```
+```bash
 aws cloudformation create-stack \
   --stack-name <your-stack-name> \
   --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
@@ -287,10 +287,10 @@ aws cloudformation create-stack \
 **Note**  
  `USER_FEDERATION` does not require `SapCredentialsSecret`. `AppCallbackEndpoint` is required for this flow only.
 
-## Example: On-Behalf-Of Token Exchange Deployment
+## Example: On-Behalf-Of Token Exchange Deployment (Entra ID)
 <a name="deploy-obo-token-exchange-auth"></a>
 
-```
+```bash
 aws cloudformation create-stack \
   --stack-name <your-stack-name> \
   --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
@@ -322,14 +322,44 @@ aws cloudformation create-stack \
 ```
 
 **Note**  
- `ON_BEHALF_OF_TOKEN_EXCHANGE` requires `SapCredentialsSecret`, `DiscoveryUrl`, and `AllowedAudiences`. `AppCallbackEndpoint` and `SapAuthorizeUrl`/`SapTokenUrl` are not required for this flow.
+ `ON_BEHALF_OF_TOKEN_EXCHANGE` requires `SapCredentialsSecret`, `DiscoveryUrl`, `AllowedAudiences`, and `OauthScopes`.  
+This flow does not use the Application Callback Endpoint parameter. With Entra ID, you also don’t need `SapAuthorizeUrl` or `SapTokenUrl`. With Okta, `SapAuthorizeUrl`, `SapTokenUrl`, and `OboAudience` are required (see [the Okta example](#deploy-okta-obo-token-exchange-auth)).
+
+## Example: On-Behalf-Of Token Exchange Deployment (Okta)
+<a name="deploy-okta-obo-token-exchange-auth"></a>
+
+The following command deploys the MCP Server with Okta inbound authentication and the On-Behalf-Of Token Exchange flow. Replace the placeholder values with your own.
+
+```bash
+aws cloudformation create-stack \
+  --stack-name <your-stack-name> \
+  --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
+  --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
+  --parameters \
+    ParameterKey=UniqueId,ParameterValue=<your-unique-id> \
+    ParameterKey=SapBaseUrl,ParameterValue=<your-sap-base-url> \
+    ParameterKey=SapSystemType,ParameterValue=S4HANA \
+    ParameterKey=SapClientNumber,ParameterValue=<your-client-number> \
+    ParameterKey=InboundAuthProvider,ParameterValue=Okta \
+    ParameterKey=DiscoveryUrl,ParameterValue=https://<your-okta-domain>/oauth2/<authorization-server-id>/.well-known/openid-configuration \
+    'ParameterKey=AllowedAudiences,ParameterValue="<your-allowed-audiences>"' \
+    ParameterKey=AuthFlow,ParameterValue=ON_BEHALF_OF_TOKEN_EXCHANGE \
+    ParameterKey=SapCredentialsSecret,ParameterValue=<your-secret-name> \
+    ParameterKey=SapAuthorizeUrl,ParameterValue=https://<your-okta-domain>/oauth2/<sap-trusted-server-id>/v1/authorize \
+    ParameterKey=SapTokenUrl,ParameterValue=https://<your-okta-domain>/oauth2/<sap-trusted-server-id>/v1/token \
+    ParameterKey=OauthScopes,ParameterValue=<your-oauth-scopes> \
+    ParameterKey=OboAudience,ParameterValue=<your-sap-token-audience> \
+    ParameterKey=McpServerLogLevel,ParameterValue=INFO \
+    ParameterKey=McpServerVpcSecurityGroup,ParameterValue=<your-security-group-id> \
+    'ParameterKey=McpServerNetworkSubnets,ParameterValue="<your-subnet-ids>"'
+```
 
 ## Example: OData V4 Deployment
 <a name="deploy-v4-mode"></a>
 
 The following command deploys the AWS for SAP MCP Server in OData V4 mode using Machine-to-Machine (M2M) authentication and group prefix filtering.
 
-```
+```bash
 aws cloudformation create-stack \
   --stack-name <your-stack-name> \
   --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \

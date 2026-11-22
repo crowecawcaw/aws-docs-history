@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions
-<a name="supported-regions"></a>
 
 The AWS for SAP Model Context Protocol (MCP) Server runs on Amazon Bedrock AgentCore Runtime. You can deploy the MCP Server in any AWS Region where AgentCore Runtime is available and where the AWS for SAP MCP Server container image is published.
 

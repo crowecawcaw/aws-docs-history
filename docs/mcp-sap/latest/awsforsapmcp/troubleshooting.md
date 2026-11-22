@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 Use this section to diagnose and resolve common issues with the AWS for SAP Model Context Protocol (MCP) Server. You can find CloudWatch Logs Insights queries for log analysis, common error scenarios with resolutions, and guidance on contacting AWS Support.
 
@@ -12,7 +11,7 @@ The AWS for SAP MCP Server emits structured logs to CloudWatch Logs. You can use
 
  **All errors in time range** 
 
-```
+```text
 fields @timestamp, @message
 | filter @message like /ERROR/
 | sort @timestamp desc
@@ -21,7 +20,7 @@ fields @timestamp, @message
 
  **Session trace by ID** 
 
-```
+```text
 fields @timestamp, @message
 | filter @message like /\[session:<session-id>\]/
 | sort @timestamp asc
@@ -29,7 +28,7 @@ fields @timestamp, @message
 
  **Authentication failures** 
 
-```
+```text
 fields @timestamp, @message
 | filter @message like /ODataAuthError|AuthenticationError|401|403/
 | sort @timestamp desc
@@ -38,7 +37,7 @@ fields @timestamp, @message
 
  **Tool execution failures** 
 
-```
+```text
 fields @timestamp, @message
 | filter @message like /TOOL CALL END \(FAILURE\)/
 | sort @timestamp desc
@@ -47,7 +46,7 @@ fields @timestamp, @message
 
  **Tool execution latency** 
 
-```
+```text
 fields @timestamp, @message
 | filter @message like /Execution Time:/
 | parse @message "Execution Time: *s" as exec_time
@@ -56,7 +55,7 @@ fields @timestamp, @message
 
  **Configuration validation errors at startup** 
 
-```
+```text
 fields @timestamp, @message
 | filter @message like /ValidationError|Invalid configuration|ValueError/
 | sort @timestamp desc
@@ -65,7 +64,7 @@ fields @timestamp, @message
 
  **Function import audit log** 
 
-```
+```text
 fields @timestamp, @message
 | filter @message like /\[AUDIT\]/
 | sort @timestamp desc

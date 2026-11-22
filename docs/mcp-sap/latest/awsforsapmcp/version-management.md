@@ -1,7 +1,6 @@
 
 
 # Version management
-<a name="version-management"></a>
 
 You access the AWS for SAP Model Context Protocol (MCP) Server as a container image distributed through AgentCore Runtime. There are two ways to consume the image, each offering a different trade-off between convenience and control.
 

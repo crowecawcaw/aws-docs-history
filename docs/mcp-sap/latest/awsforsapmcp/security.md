@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
 Learn about the security features of the Model Context Protocol (MCP) Server, including its network configuration, create, read, update, and delete (CRUD) default read-only mode, credential management, and authentication and authorization mechanisms.
 

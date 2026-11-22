@@ -1,7 +1,6 @@
 
 
 # Identity and Authentication
-<a name="identity-and-authentication"></a>
 
 The AWS for SAP MCP Server uses two layers of authentication: inbound authentication controls access to the Model Context Protocol (MCP) Server, and outbound authentication controls access to SAP. For more information about the authentication patterns supported by Bedrock AgentCore Identity, see [Supported authentication patterns](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-auth-patterns.html).
 
@@ -18,7 +17,7 @@ The CloudFormation template supports two inbound authentication options:
 
 1.  **External Identity Provider** 
 
-   When an external identity provider such as [Microsoft Entra ID](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-idp-microsoft.html) is selected, the CloudFormation template configures the AgentCore runtime to validate tokens issued by that provider.
+   When an external identity provider is selected, the CloudFormation template configures the AgentCore runtime to validate tokens issued by that provider.
 
 ## Outbound Authentication
 <a name="outbound-authentication"></a>
@@ -36,10 +35,10 @@ The MCP Server connects to SAP SuccessFactors with Basic Authentication only.
 | --- | --- | --- | --- | --- | 
 | Direct SAP credentials, no IdP | BASIC | Basic Auth | None | SAP System User | 
 | SAP as Authorization Server with OAuth2 | M2M | OAuth2 | SAP | SAP OAuth2 Client | 
-| External IdP with OIDC | M2M | OIDC | Entra ID | SAP OIDC trust | 
+| External IdP with OIDC | M2M | OIDC | External IdP | SAP OIDC trust | 
 | SAP as Authorization Server with OAuth2 and SAML IdP redirect | User Federation | OAuth2 \+ SAML | Entra ID or other SAML IdP | SAP OAuth2 client \+ SAML trusted provider | 
-| External IdP with OIDC | User Federation | OIDC | Entra ID | SAP OIDC trust | 
-| External IdP with token exchange | On-Behalf-Of Token Exchange | OIDC | Entra ID | SAP OIDC trust | 
+| External IdP with OIDC | User Federation | OIDC | External IdP | SAP OIDC trust | 
+| External IdP with token exchange | On-Behalf-Of Token Exchange | OIDC | External IdP | SAP OIDC trust | 
 
 ### Basic Authentication
 <a name="auth-basic"></a>
@@ -120,3 +119,11 @@ The On-Behalf-Of (OBO) Token Exchange authentication flow uses Bedrock AgentCore
 + No additional user interaction required after initial login.
 + The token exchange is fully server-side.
 + Requires an identity provider that supports the On-Behalf-Of token exchange grant type.
+
+## Identity providers supported
+<a name="identity-providers-supported"></a>
+
+The CloudFormation template supports the following identity providers:
++ Amazon Cognito
++ Microsoft Entra ID
++ Okta

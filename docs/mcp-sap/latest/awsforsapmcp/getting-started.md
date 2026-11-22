@@ -1,7 +1,6 @@
 
 
 # Getting Started
-<a name="getting-started"></a>
 
 Before you deploy the AWS for SAP Model Context Protocol (MCP) Server by using the CloudFormation template, verify that you meet the following prerequisites across your AWS environment, SAP system, and network.
 
@@ -72,7 +71,7 @@ The prerequisites for credential setup depend on which authentication flow you p
 
 Inbound authentication requires a JSON Web Token (JWT) compatible identity provider. The CloudFormation template supports two options:
 +  **Amazon Cognito:** No prerequisites.
-+  **External Identity Provider (Entra ID):** If you use an external identity provider (IdP) for inbound authentication, you must configure your IdP before deployment and provide the following through the CloudFormation template parameters:
++  **External Identity Provider:** If you use an external identity provider (IdP) for inbound authentication, configure your IdP before deployment. Then provide the following through the CloudFormation template parameters:
   +  **Discovery URL:** Your identity provider’s well-known configuration endpoint, used by AgentCore Identity to fetch token validation keys and issuer information.
   +  **Allowed audiences:** The audience values that AgentCore Identity accepts when validating incoming tokens.
 
@@ -85,7 +84,7 @@ Inbound authentication requires a JSON Web Token (JWT) compatible identity provi
 
  AWS Secrets Manager secret containing SAP username and password is required in the following Key-Value Pair format.
 
-```
+```yaml
 username: <sap_username>
 password: <sap_password>
 ```
@@ -94,7 +93,7 @@ password: <sap_password>
 
  AWS Secrets Manager secret containing IdP clientId and clientSecret is required in the following Key-Value Pair format, for both M2M and User Federation.
 
-```
+```yaml
 clientId: <oauth_client_id>
 clientSecret: <oauth_client_secret>
 ```
@@ -109,7 +108,7 @@ Additionally, SAP and IdP related OAuth2/OIDC/SAML configuration are required as
 + OAuth Client Setup via [OAuth client configuration](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fd0fc52fd22b45f29d274a7f8236e768/cdb122d5b0784c77bf1bcce17f730e74.html).
 + Scopes correspond to SAP OData service names (for example, `ZAPI_SALES_ORDER_SRV_0001`).
 
- **Pattern 2: External IdP (Entra ID) with OIDC** 
+ **Pattern 2: External IdP with OIDC** 
 + Your identity provider must be configured and accessible before deployment. You will need the authorization URL, token URL, and scope from your IdP for the CloudFormation template parameters.
 + OIDC Trust Setup via [SOIDC configuration](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/e815bb97839a4d83be6c4fca48ee5777/d72c1a254a584d579c476a998b8ec0b2.html).
 + This is applicable only to SAP S/4HANA.
@@ -126,7 +125,7 @@ Additionally, SAP and IdP related OAuth2/OIDC/SAML configuration are required as
   + A SAML identity provider (Entra ID) configured as a trusted provider in SAP ([SAML2 transaction](https://help.sap.com/doc/saphelp_scm700_ehp02/7.0.2/en-US/4a/b4c93185376d61e10000000a42189c/frameset.htm)).
   + The AgentCore callback URL must be registered with SAP as a redirect URI in the OAuth2 client configuration. This URL is auto-generated during deployment.
 
- **Pattern 3: External IdP (Entra ID) with OIDC** 
+ **Pattern 3: External IdP with OIDC** 
 + Same as External IdP M2M OIDC prerequisites, plus:
   + The AgentCore callback URL must be registered as a redirect URI in your identity provider’s application configuration. This URL is auto-generated during deployment.
   + This is applicable only to SAP S/4HANA.
@@ -141,3 +140,8 @@ Additionally, SAP and IdP related OAuth2/OIDC/SAML configuration are required as
   + User consent (or admin consent) granted to the outbound app in Entra ID.
   + The AgentCore callback URL must be registered as a redirect URI in the outbound app’s configuration. This URL is auto-generated during deployment.
   + Certain MCP Clients might need a Three App setup. Three Entra ID app registrations include a Client app (for user authentication), a Resource app (representing AgentCore for token validation), and an Outbound app (for the token exchange to SAP). The Resource app performs the OBO exchange using its own credentials to obtain a token scoped to the Outbound app.
+
+ **Pattern: External IdP (Okta) with token exchange** 
++ Same as M2M Pattern 2 (External IdP with OIDC) prerequisites, plus:
+  + Configure Okta for the OAuth 2.0 token exchange. For more information, see [Okta](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-idp-okta.html) and [On-behalf-of token exchange with AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html).
+  + Provide the Okta values through the CloudFormation template parameters: `DiscoveryUrl` and `AllowedAudiences` for inbound authentication, and `SapAuthorizeUrl`, `SapTokenUrl`, and `OboAudience` for the token exchange.

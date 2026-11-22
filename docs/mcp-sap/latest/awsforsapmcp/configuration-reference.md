@@ -1,7 +1,6 @@
 
 
 # Configuration Reference
-<a name="configuration-reference"></a>
 
 You configure the AWS for SAP Model Context Protocol (MCP) Server by using environment variables that begin with the prefix `MCP_SERVER_`. These variables fall into two groups: mandatory variables that must be set for the server to start, and optional variables that come with default values. When the server starts, it validates all configurations and returns a descriptive error if any validation rule is violated. After deployment, you can edit these configuration variables directly in the Amazon Bedrock AgentCore Runtime console.
 
@@ -103,7 +102,7 @@ Each entry also supports two optional fields:
 
  **Example catalog.json:** 
 
-```
+```json
 {
   "SapServices": [
     {
@@ -124,7 +123,7 @@ Each entry also supports two optional fields:
 
  **Example catalog.json (MIXED):** 
 
-```
+```json
 {
   "SapServices": [
     {
@@ -147,7 +146,7 @@ Each entry also supports two optional fields:
 
 SAP SuccessFactors uses the custom catalog exclusively because it does not expose the SAP standard catalog endpoint. The example below targets OData V2 services on a SuccessFactors tenant; set `McpServerCustomCatalogODataVersion=V2` when using it, or `V4`/`MIXED` with the matching `ODataVersion` field on each entry.
 
-```
+```json
 {
   "SapServices": [
     {
@@ -183,7 +182,7 @@ SAP SuccessFactors uses the custom catalog exclusively because it does not expos
 
 Upload `catalog.json` to the root of your bucket, or into a subfolder:
 
-```
+```bash
 # Root of bucket
 aws s3 cp catalog.json s3://awsforsap-mcp-server-mycatalog/catalog.json
 
@@ -208,7 +207,7 @@ Choose one of the three configuration options below based on your use case.
 
 Use this when you want to supplement or override specific entries in the live SAP catalog with your own definitions. The server fetches the SAP catalog at runtime and merges your custom entries on top. Custom entries override SAP entries that share the same service name; new custom entries are added.
 
-```
+```bash
 MCP_SERVER_CUSTOM_CATALOG_BUCKET="awsforsap-mcp-server-mycatalog"
 # MCP_SERVER_USE_SAP_CATALOG defaults to true, no need to set it
 
@@ -220,7 +219,7 @@ MCP_SERVER_CUSTOM_CATALOG_BUCKET="awsforsap-mcp-server-mycatalog/my-environment"
 
 Use this when you want to disable all SAP catalog network requests and serve only the services you have explicitly defined. This is the right choice for air-gapped environments, testing without a live SAP system, or scenarios where the SAP catalog is unreliable.
 
-```
+```bash
 MCP_SERVER_USE_SAP_CATALOG="false"
 MCP_SERVER_CUSTOM_CATALOG_BUCKET="awsforsap-mcp-server-mycatalog"
 ```
@@ -251,7 +250,7 @@ With service hints, you can provide custom natural-language guidance for differe
 
 To enable custom service hints, set the following environment variable:
 
-```
+```bash
 MCP_SERVER_SERVICE_HINTS_S3_URL=s3://awsforsap-mcp-server-service-hints-bucket/path/to/file.json
 ```
 
@@ -262,7 +261,7 @@ After you configure service hints, the `get_service_hints` tool becomes availabl
 
 The service hints file must follow the JSON schema below. The two required top-level fields are `version` and `hints`.
 
-```
+```json
 {
   "version": "1.0",
   "_description": "Optional human-readable description of the hints file",
@@ -344,12 +343,12 @@ The service hints file must follow the JSON schema below. The two required top-l
 
 Service prefix filtering restricts which SAP OData services are discoverable by AI agents. When enabled, the `find_sap_services` tool returns only services whose technical name starts with one of the configured prefixes.
 
-```
+```bash
 # Allow only services starting with ZAPI_ or ZCUSTOM_
 MCP_SERVER_ALLOWED_SERVICE_PREFIXES=ZAPI_,ZCUSTOM_
 ```
 
-```
+```bash
 # Allow all services
 MCP_SERVER_ALLOWED_SERVICE_PREFIXES=*
 ```
@@ -359,7 +358,7 @@ MCP_SERVER_ALLOWED_SERVICE_PREFIXES=*
 
 Under OData V4, `find_sap_services` can filter by SAP catalog `GroupId` by setting `MCP_SERVER_ALLOWED_GROUP_PREFIXES`. When enabled, only services belonging to a catalog group whose `GroupId` starts with one of the configured prefixes are returned. Group prefix filtering is supported for OData V4 only.
 
-```
+```bash
 # Allow only services in groups starting with API_SALES or API_ORDER
 MCP_SERVER_ALLOWED_GROUP_PREFIXES=API_SALES,API_ORDER
 ```
