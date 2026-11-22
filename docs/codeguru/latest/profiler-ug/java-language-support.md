@@ -1,7 +1,6 @@
 
 
 # Java
-<a name="java-language-support"></a>
 
 You can add support for the CodeGuru Profiler agent into your Java application by adding the following lines into your startup or `main` function. 
 

@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies for CodeGuru Profiler
-<a name="auth-and-access-control-iam-identity-based-access-control"></a>
 
 By default, IAM users and roles don't have permission to create or modify CodeGuru Profiler resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions. To learn how to attach policies to an IAM user or group, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*.
 
@@ -47,7 +46,7 @@ For more information, see [Enabling the agent with code](enabling-the-agent-with
 
  The following example policy grants the current AWS user permission to write to a single profiling group in the current AWS Region. 
 
-```
+```json
 {
    "Statement": [{
       "Effect": "Allow",
@@ -71,7 +70,7 @@ For more information, see [Working with visualizations](working-with-visualizati
 
 The following is an example.
 
-```
+```json
 {
    "Statement": [{
       "Effect": "Allow",
@@ -86,7 +85,7 @@ The following is an example.
 
 For the CodeGuru Profiler console, it can be useful to have an additional policy statement providing `ListProfilingGroups` permissions to allow users to see the list of `ProfilingGroups`. For example, the following allows users to see a list of all profiling groups in their AWS account and Region. 
 
-```
+```json
 {
    "Statement": [{
       "Effect": "Allow",
@@ -128,7 +127,7 @@ The `AmazonCodeGuruProfilerFullAccess` policy contains the following statement.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -160,7 +159,7 @@ The `AmazonCodeGuruProfilerReadOnlyAccess` policy contains the following stateme
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -194,7 +193,7 @@ The `AmazonCodeGuruProfilerAgentAccess` policy contains the following statement.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -265,7 +264,7 @@ The following permissions policy uses a wildcard character (`"codeguru-profiler:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -295,7 +294,7 @@ You can create a policy that allows users to view a CodeGuru Profiler profiling 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

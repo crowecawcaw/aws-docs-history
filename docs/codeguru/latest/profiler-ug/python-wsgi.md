@@ -1,7 +1,6 @@
 
 
 # WSGI servers
-<a name="python-wsgi"></a>
 
 Start the profiler based on the configuration for your web server.
 

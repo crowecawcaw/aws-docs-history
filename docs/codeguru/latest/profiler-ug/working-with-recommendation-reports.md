@@ -1,7 +1,6 @@
 
 
 # Working with anomalies and recommendation reports
-<a name="working-with-recommendation-reports"></a>
 
 Amazon CodeGuru Profiler continuously analyzes your application profiles in real-time to identify potential performance-impacting issues, and also anomalies in your normal application behavior. Each issue identified during analysis results in creating performance improvement recommendations and anomalies which are then included in the recommendation report. The recommendation report is available in the console summary page. If configured, an Amazon SNS notification will also be sent when a new Anomaly is detected.
 

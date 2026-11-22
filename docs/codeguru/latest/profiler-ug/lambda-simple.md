@@ -1,7 +1,6 @@
 
 
 # Easier option for Java 8 on Amazon Linux 2 and Java 11 and Java 17 (Corretto) runtimes
-<a name="lambda-simple"></a>
 
 You can enable CodeGuru Profiler from the AWS console by setting environment variables and updating configuration for your AWS Lambda function. This method works for Java 8 on Amazon Linux 2 and Java 11 and Java 17 (Corretto) runtimes.
 

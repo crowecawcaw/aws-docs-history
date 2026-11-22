@@ -1,7 +1,6 @@
 
 
 # Profiling your applications that run on AWS Lambda
-<a name="python-lambda"></a>
 
 CodeGuru Profiler integration for AWS Lambda is currently available for applications that run on Python 3.7 up to Python 3.9. To start CodeGuru Profiler in your application running on Lambda, you can either apply the CodeGuru Profiler function decorator to your handler function, update your Lambda function configuration by adding layers, or enable profiling in the Lambda console.
 

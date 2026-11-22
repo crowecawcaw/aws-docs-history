@@ -1,7 +1,6 @@
 
 
 # Edit tags for a profiling group
-<a name="how-to-tag-profiling-group-update"></a>
 
 You can change the value for a tag associated with a profiling group. While you can't change the key, you can deleting a tag and creating a new one with the updated key. Keep in mind that there are limits on the characters you can use in the key and value fields.
 

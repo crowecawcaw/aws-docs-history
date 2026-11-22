@@ -1,7 +1,6 @@
 
 
 # Deleting a profiling group
-<a name="working-with-profiling-groups-delete"></a>
 
 When you delete a profiling group, the profiling group and recommendations reports are deleted. Application data in the profiling group will be inaccessible.
 

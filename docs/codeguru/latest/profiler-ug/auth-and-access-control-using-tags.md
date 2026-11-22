@@ -1,7 +1,6 @@
 
 
 # Using tags to control access to Amazon CodeGuru Profiler resources
-<a name="auth-and-access-control-using-tags"></a>
 
 Conditions in IAM policy statements are part of the syntax that you can use to specify permissions for CodeGuru Profiler profiling group-based actions. You can create a policy that allows or denies actions for profiling groups based on the tags associated with those profiling groups, and then apply those policies to the IAM groups you configure for managing IAM users. For information about applying tags to a profiling group, see [Tagging profiling groups](tagging-profiling-groups.md).
 
@@ -9,7 +8,7 @@ Conditions in IAM policy statements are part of the syntax that you can use to s
 The first statement gives all CodeGuru Profiler permissions to all groups with the role. The second statement provides deny permissions to delete any profiling group with tag `{stage: prod}` from the role.     
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -40,7 +39,7 @@ The first statement gives all CodeGuru Profiler permissions to all groups with t
 The following policy prevents a role from tagging or untagging a resource if the resource is marked with the tag `{stage: prod}`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Add a tag to a profiling group
-<a name="how-to-tag-profiling-group-add"></a>
 
 Adding tags to a profiling group can help you identify and organize your profiling groups and manage access to them. First, you add one or more tags (key-value pairs) to a profiling group. Keep in mind that there are limits on the number of tags you can have on a profiling group. After you have tags, you can create IAM policies to manage access to the profiling group based on these tags. You can use the CodeGuru Profiler console to add tags to a profiling group. 
 

@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in Amazon CodeGuru Profiler
-<a name="infrastructure-security"></a>
 
 **Note**  
 CodeGuru Profiler uses edge optimized endpoints that route traffic through Amazon CloudFront POP (Point of Presence) infrastructure to mitigate DDOS attacks and reduce latency in unsupported AWS Regions. The endpoints communicate with CloudFront over HTTPS/TLS and meet [AWS's Security Standards](https://d1.awsstatic.com/legal/aws-dpa/aws-dpa.pdf) and [CloudFront's compliance assurance programs](https://aws.amazon.com/compliance/services-in-scope/). 

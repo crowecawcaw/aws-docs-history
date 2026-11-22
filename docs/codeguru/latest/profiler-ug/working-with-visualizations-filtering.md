@@ -1,7 +1,6 @@
 
 
 # Filtering visualization data
-<a name="working-with-visualizations-filtering"></a>
 
 This section contains information about how to filter profiling data.
 

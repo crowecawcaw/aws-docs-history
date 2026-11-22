@@ -1,7 +1,6 @@
 
 
 # Integrating with your JVM-based application
-<a name="integrating-with-java"></a>
 
 To start profiling your application, enable the CodeGuru Profiler agent to be loaded and started when your JVM-based application starts. After the agent starts, it automatically sends profiles to CodeGuru Profiler service. You’ll see continuous updates and recommendations.
 

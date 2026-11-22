@@ -1,7 +1,6 @@
 
 
 # Working with visualizations
-<a name="working-with-visualizations"></a>
 
 In Amazon CodeGuru Profiler, you can use visualizations to explore profiling data collected from applications in a profiling group. When a profiling group has enough information to display, you can view an *overview* visualization of the profiling group data. 
 

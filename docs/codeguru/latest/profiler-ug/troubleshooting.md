@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
  This section helps you troubleshoot common problems you might encounter when working with Amazon CodeGuru Profiler. 
 

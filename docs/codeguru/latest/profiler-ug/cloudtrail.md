@@ -1,7 +1,6 @@
 
 
 # Logging Amazon CodeGuru Profiler API calls with AWS CloudTrail
-<a name="cloudtrail"></a>
 
 Amazon CodeGuru Profiler is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in CodeGuru Profiler. CloudTrail captures most API calls for CodeGuru Profiler as events, including calls from the CodeGuru Profiler console and from code calls to the CodeGuru Profiler APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for CodeGuru Profiler. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to CodeGuru Profiler, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -37,7 +36,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
  A log entry created by [`DescribeProfilingGroup`](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_DescribeProfilingGroup.html) includes the name of the proﬁle group in the `requestParameters` ﬁeld. 
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -85,7 +84,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
  A log entry created by [`GetProfile`](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html) includes the name of the proﬁle group and the period in the `requestParameters` ﬁeld. 
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {

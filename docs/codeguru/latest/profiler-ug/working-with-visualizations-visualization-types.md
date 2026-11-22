@@ -1,7 +1,6 @@
 
 
 # Types of visualizations
-<a name="working-with-visualizations-visualization-types"></a>
 
 Amazon CodeGuru Profiler uses three types of visualizations to display profiling data collected from applications. 
 + An *overview* visualization provides a bottom-up view of your profiling data. 

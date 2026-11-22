@@ -1,7 +1,6 @@
 
 
 # JRuby
-<a name="jruby-language-support"></a>
 
 You can add support for the CodeGuru Profiler agent into your JRuby application by adding the following lines into your startup or `main` function. 
 

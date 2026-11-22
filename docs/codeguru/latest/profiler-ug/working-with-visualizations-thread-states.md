@@ -1,7 +1,6 @@
 
 
 # Selecting and coloring thread states
-<a name="working-with-visualizations-thread-states"></a>
 
 In a visualization view, you can filter profiling data by thread state. You can color thread states inside of stack frames to make it easy to spot how the application is behaving. You can also select which thread states are displayed.
 

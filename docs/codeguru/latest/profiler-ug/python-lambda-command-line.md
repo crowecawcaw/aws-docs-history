@@ -1,7 +1,6 @@
 
 
 # Apply the CodeGuru Profiler function decorator to your handler function
-<a name="python-lambda-command-line"></a>
 
 Pull your `codeguru_profiler_agent` dependency to your local environment through `pip` and include it in the .zip file for Lambda.
 

@@ -1,7 +1,6 @@
 
 
 # Inspecting a frame
-<a name="working-with-visualizations-inspect"></a>
 
 You can inspect frames that appear in many places in a visualization. This can happen when your application code has a common set of shared functions. 
 

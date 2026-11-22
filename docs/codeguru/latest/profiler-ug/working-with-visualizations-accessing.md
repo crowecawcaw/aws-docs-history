@@ -1,7 +1,6 @@
 
 
 # Accessing visualizations
-<a name="working-with-visualizations-accessing"></a>
 
  The following instructions show you where to find the visualizations of your profiling group data in the CodeGuru Profiler console.
 

@@ -1,7 +1,6 @@
 
 
 # Working with unsupported AWS Regions
-<a name="working-with-unsupported-regions"></a>
 
 To use Amazon CodeGuru Profiler in an AWS Region it doesn't support, you can configure your agent to submit profiles to one of the supported Regions instead. You can specify which AWS Region to submit profiles to by adding a specified region name to your code or adding an environment variable. For example, using CodeGuru Profiler in `eu-west-1` would mean that profiled data would be stored in that Region, even while your application is running in an unsupported region. 
 

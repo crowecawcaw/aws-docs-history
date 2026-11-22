@@ -1,7 +1,6 @@
 
 
 # Profiling your applications that run on AWS Lambda
-<a name="setting-up-lambda"></a>
 
 To start CodeGuru Profiler in your application running on AWS Lambda, you can either update your Lambda function configuration or modify your application code. The former option is available only for Java 8 on Amazon Linux 2 and Java 11 and Java 17 (Corretto) runtimes, while the latter is available for all Java runtimes.
 

@@ -1,7 +1,6 @@
 
 
 # Clojure
-<a name="clojure-language-support"></a>
 
 You can add support for the CodeGuru Profiler agent into your Clojure application by adding the following lines into your startup or `main` function. 
 

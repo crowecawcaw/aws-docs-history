@@ -1,7 +1,6 @@
 
 
 # What is Amazon CodeGuru Profiler?
-<a name="what-is-codeguru-profiler"></a>
 
 Amazon CodeGuru Profiler collects runtime performance data from your live applications, and provides recommendations that can help you fine-tune your application performance. Using machine learning algorithms, CodeGuru Profiler can help you find your most expensive lines of code and suggest ways you can improve efficiency and remove CPU bottlenecks. 
 

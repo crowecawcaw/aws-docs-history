@@ -1,7 +1,6 @@
 
 
 # Using CodeGuru Profiler with VPC Endpoints
-<a name="private-link"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC and Amazon CodeGuru Profiler. You can use this connection to access and submit profiles to your profiling group without crossing the public internet.
 

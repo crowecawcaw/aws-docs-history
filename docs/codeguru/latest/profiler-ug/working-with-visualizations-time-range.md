@@ -1,7 +1,6 @@
 
 
 # Selecting a custom time range
-<a name="working-with-visualizations-time-range"></a>
 
 By default, visualizations display the latest hour of data from the profiling group. You can select a different start time and end time to explore other data for other time ranges. This can be helpful to see how performance has changed over time. 
 

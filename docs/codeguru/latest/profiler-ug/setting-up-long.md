@@ -1,7 +1,6 @@
 
 
 # Set up in the CodeGuru Profiler console
-<a name="setting-up-long"></a>
 
 ## Step 2: Create a CodeGuru Profiler profiling group
 <a name="setting-up-step-2"></a>

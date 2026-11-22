@@ -1,7 +1,6 @@
 
 
 # Setting up CodeGuru Profiler
-<a name="setting-up"></a>
 
 An Amazon CodeGuru Profiler proﬁling group is a group of applications for which data is meant to be aggregated and analyzed together. To create a proﬁling group, sign in to the AWS Management Console and set permissions for the CodeGuru Profiler proﬁling agent.
 

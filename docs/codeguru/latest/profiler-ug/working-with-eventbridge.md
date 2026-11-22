@@ -1,7 +1,6 @@
 
 
 # Working with Amazon EventBridge
-<a name="working-with-eventbridge"></a>
 
  This section helps you get started using Amazon EventBridge with Amazon CodeGuru Profiler. 
 

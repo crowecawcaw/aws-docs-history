@@ -1,7 +1,6 @@
 
 
 # Hiding a frame
-<a name="working-with-visualizations-hiding-frame"></a>
 
 When you hide a frame, the visualization no longer shows that frame or its callee frames. This is useful when you want to remove certain execution paths from the visualization. For example, you can exclude the `myFunction` function if it's not causing performance issues. All occurrences of that frame in the visualization will be hidden.
 

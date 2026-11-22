@@ -1,7 +1,6 @@
 
 
 # Choosing my code in visualizations
-<a name="working-with-visualizations-choosing-my-code"></a>
 
 CodeGuru Profiler differentiates your code in the overview visualization, so you can quickly identify the methods you are working on. 
 

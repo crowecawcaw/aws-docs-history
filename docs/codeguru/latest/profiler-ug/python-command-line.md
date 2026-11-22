@@ -1,7 +1,6 @@
 
 
 # Enabling the agent from the command line
-<a name="python-command-line"></a>
 
 If your application runs on a platform other than Lambda, install `codeguru_profiler_agent` through `pip`.
 

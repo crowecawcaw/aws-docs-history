@@ -1,7 +1,6 @@
 
 
 # Remove a tag from a profiling group
-<a name="how-to-tag-profiling-group-delete"></a>
 
 You can remove one or more tags associated with a profiling group. You can also change the name of the key, which is equivalent to removing the current tag and adding a different one with the new name and the same value as the other key. Removing a tag does not delete the tag from other AWS resources that are associated with that tag.
 

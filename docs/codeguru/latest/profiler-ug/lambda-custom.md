@@ -1,7 +1,6 @@
 
 
 # All Java runtimes
-<a name="lambda-custom"></a>
 
 If you're profiling applications that run on AWS Lambda, add the following environment variables to your Lambda function.
 + `AWS_CODEGURU_PROFILER_GROUP_ARN` – Identifies the profiling group ARN.

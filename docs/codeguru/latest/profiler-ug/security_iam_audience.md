@@ -1,7 +1,6 @@
 
 
 # Audience in CodeGuru Profiler
-<a name="security_iam_audience"></a>
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 + **Service user** - request permissions from your administrator if you cannot access features (see [Troubleshooting CodeGuru Profiler identity and access](security_iam_troubleshoot.md))

@@ -1,7 +1,6 @@
 
 
 # Amazon CodeGuru Profiler permissions reference
-<a name="auth-and-access-control-permissions-reference"></a>
 
 You can use AWS-wide condition keys in your CodeGuru Profiler policies to express conditions. For a list, see the [IAM JSON Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*. 
 

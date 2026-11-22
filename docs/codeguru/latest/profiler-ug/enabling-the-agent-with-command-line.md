@@ -1,7 +1,6 @@
 
 
 # Enabling the agent from the command line
-<a name="enabling-the-agent-with-command-line"></a>
 
 The command line option for integrating the CodeGuru Profiler agent is the easiest way to start profiling your application, because it doesn't require recompiling and redeploying your application. Add the appropriate command line options to your JVM-based runtime environment and you’re ready to go.
 

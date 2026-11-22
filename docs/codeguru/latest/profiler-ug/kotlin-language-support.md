@@ -1,7 +1,6 @@
 
 
 # Kotlin
-<a name="kotlin-language-support"></a>
 
 You can add support for the CodeGuru Profiler agent into your Kotlin application by adding the following lines into your startup or `main` function. 
 

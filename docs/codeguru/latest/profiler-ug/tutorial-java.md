@@ -1,7 +1,6 @@
 
 
 # Java sample application
-<a name="tutorial-java"></a>
 
 This tutorial walks through the complete setup necessary to run Amazon CodeGuru Profiler within two sample applications: one that features issues to generate CodeGuru Profiler recommendations and one that does not. You can then view the resulting CodeGuru Profiler runtime data and recommendations.
 

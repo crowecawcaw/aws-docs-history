@@ -1,7 +1,6 @@
 
 
 # Exploring visualization data
-<a name="working-with-visualizations-exploring"></a>
 
 CodeGuru Profiler makes it easy to explore visualization data. You can pause over frames to see information about methods, zoom in on a frame to see more context, and inspect a frame to see the data in an inspect visualization.
 

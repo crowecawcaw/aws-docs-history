@@ -1,7 +1,6 @@
 
 
 # Django
-<a name="python-django"></a>
 
 Start the profiler in your settings file. This is usually the file that you’re setting for `DJANGO_SETTINGS_MODULE`. Then, start your application as usual.
 

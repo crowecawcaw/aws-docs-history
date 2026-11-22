@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon CodeGuru Profiler with Amazon CloudWatch
-<a name="monitoring"></a>
 
  You can use Amazon CloudWatch to monitor the number of recommendations created on your profiling groups over time. You can set a CloudWatch alarm that notifies you when the number of recommendations on a profiling group exceeds a threshold you set. 
 
