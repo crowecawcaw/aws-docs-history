@@ -1,7 +1,6 @@
 
 
 # Viewing details of an organization from the management account
-<a name="orgs_view_org"></a>
 
 When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details of the organization.
 
@@ -27,7 +26,7 @@ You can use one of the following commands to view details of an organization:
 
   The following example shows the information included in the output of this command.
 
-  ```
+  ```bash
   $ aws organizations describe-organization
   {
       "Organization": {

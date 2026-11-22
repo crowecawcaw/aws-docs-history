@@ -1,7 +1,6 @@
 
 
 # AWS Resource Access Manager and AWS Organizations
-<a name="services-that-can-integrate-ram"></a>
 
 AWS Resource Access Manager (AWS RAM) enables you to share specified AWS resources that you own with other AWS accounts. It's a centralized service that provides a consistent experience for sharing different types of AWS resources across multiple accounts.
 
@@ -67,7 +66,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Resource Access Manager as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal ram.amazonaws.com
   ```
@@ -119,7 +118,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS Resource Access Manager as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal ram.amazonaws.com
   ```

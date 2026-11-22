@@ -1,7 +1,6 @@
 
 
 # Managing access permissions for an organization with AWS Organizations
-<a name="orgs_permissions_overview"></a>
 
 All AWS resources, including the roots, OUs, accounts, and policies in an organization, are owned by an AWS account, and permissions to create or access a resource are governed by permissions policies. For an organization, its management account owns all resources. An account administrator can control access to AWS resources by attaching permissions policies to IAM identities (users, groups, and roles).
 
@@ -85,7 +84,7 @@ This global condition also applies to the management account of an organization.
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -114,7 +113,7 @@ This global condition also applies to the management account of an organization.
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -183,7 +182,7 @@ The following are examples of policies that allows a user to perform the `Create
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -208,7 +207,7 @@ You can also provide a partial ARN in the `Resource` element of the policy to in
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -231,7 +230,7 @@ You can also deny the creation of accounts that do not include specific tags to 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

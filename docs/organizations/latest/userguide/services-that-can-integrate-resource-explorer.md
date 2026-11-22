@@ -1,7 +1,6 @@
 
 
 # AWS Resource Explorer and AWS Organizations
-<a name="services-that-can-integrate-resource-explorer"></a>
 
 AWS Resource Explorer is a resource search and discovery service. With Resource Explorer, you can explore your resources, such as Amazon Elastic Compute Cloud instances, Amazon Kinesis Data Streams, or Amazon DynamoDB tables, using an internet search engine-like experience. You can search for your resources using resource metadata such as names, tags, and IDs. Resource Explorer works across AWS Regions in your account to simplify your cross-Region workloads.
 
@@ -53,7 +52,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Resource Explorer as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \
       --service-principal resource-explorer-2.amazonaws.com
   ```
@@ -87,7 +86,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable AWS Resource Explorer as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal resource-explorer-2.amazonaws.com
   ```
@@ -116,7 +115,7 @@ If you configure a delegated administrator using the AWS Resource Explorer conso
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $ aws organizations register-delegated-administrator \
       --account-id 123456789012 \
       --service-principal resource-explorer-2.amazonaws.com

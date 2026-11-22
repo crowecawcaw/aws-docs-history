@@ -1,7 +1,6 @@
 
 
 # Managing organization policies with AWS Organizations
-<a name="orgs_manage_policies"></a>
 
 Policies in AWS Organizations enable you to apply additional types of management to the AWS accounts in your organization. You can use policies when [all features are enabled ](orgs_manage_org_support-all-features.md) in your organization.
 

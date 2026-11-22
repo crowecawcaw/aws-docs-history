@@ -1,7 +1,6 @@
 
 
 # Managing the management account with AWS Organizations
-<a name="orgs-manage_accounts_management"></a>
 
 *A management account* is the AWS account you use to create your organization.
 

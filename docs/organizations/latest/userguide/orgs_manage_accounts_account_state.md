@@ -1,7 +1,6 @@
 
 
 # Monitor the state of your AWS accounts
-<a name="orgs_manage_accounts_account_state"></a>
 
 AWS Organizations provides a way to quickly assess the health and operational status of all accounts in your organization. You can view this information in the AWS Organizations console or programmatically through AWS Organizations APIs. In the console, accounts that aren't active show their state next to the account name. You can also find the state of any account on its **Account details** page. This enables you to track where each AWS account is in its life cycle, from creation through closure.
 
@@ -65,7 +64,7 @@ To view account state values in API responses, use AWS CLI version 2.29.0 or lat
 
   The following example shows how to retrieve the details about a specified account including its `State` value.
 
-  ```
+  ```bash
   $ aws organizations describe-account --account-id 123456789012
   
   {

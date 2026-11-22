@@ -1,7 +1,6 @@
 
 
 # Creating a VPC endpoint for AWS Organizations
-<a name="create-vpc-endpoint"></a>
 
 You can create an AWS Organizations endpoint in your VPC using the Amazon VPC Console, the AWS Command Line Interface (AWS CLI) or CloudFormation.
 

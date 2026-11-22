@@ -1,7 +1,6 @@
 
 
 # Leaving an organization from a member account with AWS Organizations
-<a name="orgs_manage_accounts_leave-as-member"></a>
 
 When you sign in to a member account, you can leave an organization. The management account can't leave the organization using this technique. To remove the management account, you must [delete the organization](orgs_manage_org_delete.md).
 
@@ -60,7 +59,7 @@ If you sign in as an IAM user and the account is missing payment information, th
 
 1. If the **Confirm leaving the organization?** dialog box displays the message **You can't leave the organization yet**, choose the **Complete the account sign-up steps** link.
 
-   If you do not see the **Complete the account sign-up steps** link, use [this link](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?client=organizations&enforcePI=True) to go the **Sign up for AWS** page complete the missing registration steps.
+   If you don't see the **Complete the account sign-up steps** link, complete the missing registration steps on the [Sign up for AWS](https://signup.aws.amazon.com/gp/aws/developer/registration/index.html?client=organizations&enforcePI=True) page.
 
 1. On the **Sign up for AWS** page, enter all of the required information necessary for this to become a standalone account. This might include the following types of information:
    + Contact name and address
@@ -85,7 +84,7 @@ You can use one of the following commands to leave an organization:
 
   The following example causes the account whose credentials are used to run the command to leave the organization.
 
-  ```
+  ```bash
   $ aws organizations leave-organization
   ```
 

@@ -1,7 +1,6 @@
 
 
 # Closing a member account in an organization with AWS Organizations
-<a name="orgs_manage_accounts_close"></a>
 
 If you no longer need a member account in your organization, you can close it from the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2) following the instructions in this topic. You can only close a member account using the AWS Organizations console if your organization is in [All features](orgs_getting-started_concepts.md#feature-set-all) mode.
 
@@ -49,7 +48,7 @@ Optionally, you can close an AWS member account directly from the **Accounts** p
 You can use one of the following commands to close an AWS account:
 + AWS CLI: [close-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/close-account.html)
 
-  ```
+  ```bash
   $ aws organizations close-account \
       --account-id 123456789012
   ```

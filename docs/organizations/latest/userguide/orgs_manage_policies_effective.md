@@ -1,7 +1,6 @@
 
 
 # Viewing effective declarative policies
-<a name="orgs_manage_policies_effective"></a>
 
 Determine the effective declarative policy for an account in your organization.
 
@@ -64,7 +63,7 @@ You can use one of the following to view the effective policy:
 
   The following example shows the effective AI services opt-out policy for an account.
 
-  ```
+  ```bash
   $ aws organizations describe-effective-policy \
       --policy-type AISERVICES_OPT_OUT_POLICY \
       --target-id 123456789012

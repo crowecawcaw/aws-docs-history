@@ -1,7 +1,6 @@
 
 
 # Resource control policies (RCPs)
-<a name="orgs_manage_policies_rcps"></a>
 
 **Note**  
 **Service control policies (SCPs) and resource control policies (RCPs)**  
@@ -37,6 +36,7 @@ RCPs apply to actions for the following AWS services:
 + [Amazon AppIntegrations](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_AppIntegrations_Service.html) `(prefix:app-integrations)`
 + [Amazon AppStream](https://docs.aws.amazon.com/appstream2) `(prefix:appstream)`
 + [Amazon Aurora DSQL](https://docs.aws.amazon.com/aurora-dsql) `(prefix:dsql)`
++ [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore) `(prefix:bedrock-agentcore)`
 + [Amazon Cloud Directory](https://docs.aws.amazon.com/clouddirectory) `(prefix:clouddirectory)`
 + [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront) `(prefix:cloudfront)`
 + [Amazon CloudSearch](https://docs.aws.amazon.com/cloudsearch) `(prefix:cloudsearch)`
@@ -81,11 +81,13 @@ RCPs apply to actions for the following AWS services:
 + [Amazon Transcribe](https://docs.aws.amazon.com/transcribe) `(prefix:transcribe)`
 + [Amazon Translate](https://docs.aws.amazon.com/translate) `(prefix:translate)`
 + [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces) `(prefix:workspaces)`
++ [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html) `(prefix:agent-registry)`
 + [AWS Amplify](https://docs.aws.amazon.com/amplify) `(prefix:amplify)`
 + [AWS AppConfig](https://docs.aws.amazon.com/appconfig) `(prefix:appconfig)`
 + [Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html) `(prefix:application-autoscaling)`
 + [AWS Audit Manager](https://docs.aws.amazon.com/audit-manager) `(prefix:auditmanager)`
 + [AWS Auto Scaling](https://docs.aws.amazon.com/autoscaling/plans/userguide) `(prefix:autoscaling-plans)`
++ [AWS Backup](https://docs.aws.amazon.com/aws-backup) `(prefix:backup)`
 + [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) `(prefix:budgets)`
 + [AWS Clean Rooms](https://docs.aws.amazon.com/clean-rooms) `(prefix:cleanrooms)`
 + [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map) `(prefix:servicediscovery)`
@@ -106,6 +108,7 @@ RCPs apply to actions for the following AWS services:
 + [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service) `(prefix:opensearch)`
 + [AWS Pricing Calculator](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html) `(prefix:pricing)`
 + [AWS Private CA Connector for Active Directory](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad) `(prefix:pca-connector-ad)`
++ [AWS Private Certificate Authority](https://docs.aws.amazon.com/privateca) `(prefix:acm-pca)`
 + [AWS Resilience Hub](https://docs.aws.amazon.com/resilience-hub) `(prefix:resiliencehub)`
 + [AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide) `(prefix:resource-groups)`
 + [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager) `(prefix:secretsmanager)`

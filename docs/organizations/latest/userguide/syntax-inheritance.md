@@ -1,7 +1,6 @@
 
 
 # Policy syntax and inheritance for declarative policy types
-<a name="syntax-inheritance"></a>
 
 Exactly how policies affect the OUs and accounts that inherit them depends on the type of declarative policy you choose. Declarative policy types include:
 + [EC2 policies](orgs_manage_policies_ec2.md)

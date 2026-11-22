@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch and AWS Organizations
-<a name="services-that-can-integrate-cloudwatch"></a>
 
 You can use AWS Organizations for Amazon CloudWatch for the following use cases:
 + Discover and understand the state of telemetry configuration for your AWS resources from a central view in the CloudWatch console. This simpliﬁes the process of auditing your telemetry collection configurations for multiple resource types across your AWS organization or account. You must turn on trusted access to use telemetry config across your organization.
@@ -73,7 +72,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable Amazon CloudWatch as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal observabilityadmin.amazonaws.com
   ```
@@ -110,7 +109,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable Amazon CloudWatch as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal observabilityadmin.amazonaws.com
   ```

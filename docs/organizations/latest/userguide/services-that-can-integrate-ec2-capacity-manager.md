@@ -1,7 +1,6 @@
 
 
 # EC2 Capacity Manager and AWS Organizations
-<a name="services-that-can-integrate-ec2-capacity-manager"></a>
 
 EC2 Capacity Manager is a new UI experience with accompanying APIs for you to aggregate, view, analyze, and manage your capacity usage across EC2 On-Demand, Spot, and Capacity Reservations. When you grant trusted access for EC2 Capacity Manager to your AWS Organization, the service gains permission to read organization membership information across all member accounts. Specifically, Capacity Manager performs the following actions in member accounts: it collects EC2 usage data (including on-demand instances, spot instances, and capacity reservations) from all member accounts to aggregate into organization-wide capacity reports and dashboards. The service does not modify resources or configurations in member accounts - it only reads usage telemetry data that is already collected by AWS. This allows organization administrators to view consolidated capacity utilization, forecast future needs, and optimize resource allocation across their entire organization from a single dashboard. For more information, see [EC2 Capacity Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-manager.html) in the *Amazon EC2 User Guide*. 
 
@@ -70,7 +69,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable EC2 Capacity Manager as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal ec2.capacitymanager.amazonaws.com
   ```
@@ -104,7 +103,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable EC2 Capacity Manager as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal ec2.capacitymanager.amazonaws.com
   ```
@@ -130,7 +129,7 @@ You can specify a delegated administrator account using the EC2 Capacity Manager
 You can register a delegated administrator account using the AWS CLI or one of the AWS SDKs:
 + AWS CLI: [register-delegated-administrator](https://docs.aws.amazon.com/cli/latest/reference/organizations/register-delegated-administrator.html)
 
-  ```
+  ```bash
   $ aws organizations register-delegated-administrator \
       --account-id {{ACCOUNT_ID}} \
       --service-principal ec2.capacitymanager.amazonaws.com
@@ -150,7 +149,7 @@ Only an administrator in either the Organizations management account or the EC2 
 You can remove a delegated administrator account using the AWS CLI or one of the AWS SDKs:
 + AWS CLI: [deregister-delegated-administrator](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html)
 
-  ```
+  ```bash
   $ aws organizations deregister-delegated-administrator \
       --account-id {{ACCOUNT_ID}} \
       --service-principal ec2.capacitymanager.amazonaws.com

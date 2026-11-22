@@ -1,7 +1,6 @@
 
 
 # Tagging an organizational unit (OU) with AWS Organizations
-<a name="tag_ou"></a>
 
 When you sign in to your organization's management account, you can add or remove the tags attached to an OU. To do this, complete the following steps.
 
@@ -39,7 +38,7 @@ You can use one of the following commands to change the tags attached to an OU:
 
   The following example attaches the tag `"Department"="12345"` to an OU. Note that `Key` and `Value` are case sensitive.
 
-  ```
+  ```bash
   $ aws organizations tag-resource \
       --resource-id ou-a1b2-f6g7h222 \
       --tags Key=Department,Value=12345
@@ -49,7 +48,7 @@ You can use one of the following commands to change the tags attached to an OU:
 
   The following example removes the `Department` tag from an OU.
 
-  ```
+  ```bash
   $ aws organizations untag-resource \
       --resource-id ou-a1b2-f6g7h222 \
       --tag-keys Department

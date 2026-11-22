@@ -1,7 +1,6 @@
 
 
 # Amazon GuardDuty and AWS Organizations
-<a name="services-that-can-integrate-guardduty"></a>
 
 Amazon GuardDuty is a continuous security monitoring service that analyzes and processes a variety data sources, using threat intelligence feeds and machine learning to identify unexpected and potentially unauthorized and malicious activity within your AWS environment. This can include issues like escalations of privileges, uses of exposed credentials, communication with malicious IP addresses, URLs, or domains, or presence of malware on your Amazon Elastic Compute Cloud instances and container workloads. 
 
@@ -54,7 +53,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable Amazon GuardDuty as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal guardduty.amazonaws.com
   ```

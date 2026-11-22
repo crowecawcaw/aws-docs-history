@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM policy syntax and examples
-<a name="orgs_manage_policies_security_hub_cspm_syntax"></a>
 
 Security Hub CSPM policies follow a standardized JSON syntax that defines how Security Hub CSPM and its security standards and controls are enabled and configured across your organization. Understanding the policy structure helps you create effective policies for your security requirements.
 
@@ -36,7 +35,7 @@ Before creating Security Hub CSPM policies, understand these key points about po
 
 A Security Hub CSPM policy uses this basic structure:
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -125,7 +124,7 @@ The following examples demonstrate common Security Hub CSPM policy configuration
 
 This first example enables Security Hub CSPM in all current and future Regions. By using `ALL_SUPPORTED` in the `enable_in_regions` list and leaving `disable_in_regions` empty, this policy ensures comprehensive security coverage as new Regions become available. In each Region where Security Hub CSPM is enabled, the AWS Foundational Security Best Practices standard and all of its regionally available controls are also enabled.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -154,7 +153,7 @@ This first example enables Security Hub CSPM in all current and future Regions. 
 
 This example disables Security Hub CSPM in all Regions, including any future Regions, because the `disable_in_regions` list takes precedence over `enable_in_regions`. The configurations under `default` in `cspm_standards_controls` do not apply to any Region, because no Region has Security Hub CSPM enabled by the policy.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -183,7 +182,7 @@ This example disables Security Hub CSPM in all Regions, including any future Reg
 
 This example enables Security Hub CSPM in multiple specific Regions without using `ALL_SUPPORTED`. This provides precise control over which Regions have Security Hub CSPM enabled, while leaving unspecified Regions unmanaged by the policy. In this case, four Regions (us-east-1, us-east-2, us-west-1, and eu-central-1) have the AWS Foundational Security Best Practices standard enabled, and all other Regions are left ungoverned.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -212,7 +211,7 @@ This example enables Security Hub CSPM in multiple specific Regions without usin
 
 This example shows how to enable specific controls in Security Hub CSPM. This provides precise control over which controls are enabled and generate Security Hub CSPM findings. In this example, Security Hub CSPM is enabled in us-east-1, us-east-2, us-west-1, and eu-central-1. The `default_control_association_status` is set to `DISABLED`, and only the controls ACM.1, Account.1, Config.1, IAM.7, and EC2.20 are enabled.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -244,7 +243,7 @@ This example shows how to enable specific controls in Security Hub CSPM. This pr
 
 The following example enables Security Hub CSPM in all current and future Regions. By default, every Region has only the AWS Foundational Security Best Practices v1.0.0 standard and all its controls enabled. However, in us-east-1 and us-west-2, both the AWS Foundational Security Best Practices v1.0.0 standard and the NIST Special Publication 800-171 Revision 2 standard are enabled, with all of their regionally available controls except ACM.1, which is explicitly disabled.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -301,7 +300,7 @@ This example uses the `custom_control_parameters` field to set custom control pa
 
 In addition, the policy sets the `daysToExpiration` customizable parameter for the ACM.1 control to 30 days instead of its default value. Parameters that aren't listed use their default values.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -337,7 +336,7 @@ In addition, the policy sets the `daysToExpiration` customizable parameter for t
 
 The following example enables Security Hub CSPM in most Regions and explicitly disables it in two Regions. Because `disable_in_regions` takes precedence, Security Hub CSPM stays disabled in those Regions regardless of other policy settings.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -360,7 +359,7 @@ The following example enables Security Hub CSPM in most Regions and explicitly d
 
 Security Hub CSPM policies don't have a home Region. The following example enables the AWS Foundational Security Best Practices standard in every Region, but disables controls that evaluate global IAM resources in every Region except `us-east-1`. This avoids duplicate findings for the same global resources.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -394,7 +393,7 @@ Security Hub CSPM policies don't have a home Region. The following example enabl
 
 The following example shows how a child policy can extend a parent policy with inheritance operators. The parent policy, attached to the organization root, sets the baseline and prevents child policies from disabling Security Hub CSPM in any Region.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {
@@ -427,7 +426,7 @@ The following example shows how a child policy can extend a parent policy with i
 
 The child policy, attached to an OU for payment workloads, adds the PCI DSS v4.0.1 standard with `@@append`. Accounts in that OU run both standards. All other accounts run only the baseline standard.
 
-```
+```json
 {
   "securityhub_cspm": {
     "cspm_enablement": {

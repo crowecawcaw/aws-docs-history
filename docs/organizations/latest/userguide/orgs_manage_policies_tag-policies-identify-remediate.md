@@ -1,7 +1,6 @@
 
 
 # Identify and remediate tagging inconsistencies
-<a name="orgs_manage_policies_tag-policies-identify-remediate"></a>
 
 After implementing tag policies in your organization, you can identify resources with non-compliant tags and remediate them to ensure consistency across your AWS environment. This section provides guidance on finding and correcting tagging inconsistencies.
 

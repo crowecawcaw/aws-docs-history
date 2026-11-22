@@ -1,7 +1,6 @@
 
 
 # Amazon Security Lake and AWS Organizations
-<a name="services-that-can-integrate-sl"></a>
 
 Amazon Security Lake centralizes security data from cloud, on-premises, and custom sources into a data lake that's stored in your account. By integrating with Organizations, you can create a data lake that collects logs and events across your accounts. For more information see [ Managing multiple accounts with AWS Organizations](https://docs.aws.amazon.com/security-lake/latest/userguide/multi-account-management.html) in the *Amazon Security Lake user guide*. 
 
@@ -63,7 +62,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable Amazon Security Lake as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal securitylake.amazonaws.com
   ```
@@ -108,7 +107,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable Amazon Security Lake as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal securitylake.amazonaws.com
   ```
@@ -138,7 +137,7 @@ You can specify a delegated administrator account by using the Amazon Security L
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $  aws organizations register-delegated-administrator \
       --account-id 123456789012 \ --service-principal securitylake.amazonaws.com
   ```

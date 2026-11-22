@@ -1,7 +1,6 @@
 
 
 # Creating an organization with AWS Organizations
-<a name="orgs_manage_org_create"></a>
 
 You can create an organization with your AWS account as the management account. When you create an organization, you can choose whether the organization supports [all features (recommended)](orgs_getting-started_concepts.md#feature-set-all) or only [consolidated billing](orgs_getting-started_concepts.md#feature-set-cb-only). By default, an organization you create supports all features.
 
@@ -56,7 +55,7 @@ The following code examples show how to use `CreateOrganization`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;

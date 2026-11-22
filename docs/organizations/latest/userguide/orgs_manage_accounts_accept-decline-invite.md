@@ -1,7 +1,6 @@
 
 
 # Accepting or declining account invitations with AWS Organizations
-<a name="orgs_manage_accounts_accept-decline-invite"></a>
 
 If you receive an invitation to join an organization, you can accept or decline the invitation.
 
@@ -71,7 +70,7 @@ You can use the following commands to accept or decline an invitation:
 
   The following example shows how to accept an invitation to join an organization.
 
-  ```
+  ```bash
   $ aws organizations accept-handshake --handshake-id h-examplehandshakeid111
   {
       "Handshake": {

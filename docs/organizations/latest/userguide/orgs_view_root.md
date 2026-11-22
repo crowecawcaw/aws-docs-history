@@ -1,7 +1,6 @@
 
 
 # Viewing details of the root with AWS Organizations
-<a name="orgs_view_root"></a>
 
 When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details of the administrative root.
 
@@ -32,7 +31,7 @@ You can use one of the following commands to view details of a root:
 
   The following example shows how to retrieve the details of the root, including which policy types are currently enabled in the organization:
 
-  ```
+  ```bash
   $ aws organizations list-roots
   {
       "Roots": [

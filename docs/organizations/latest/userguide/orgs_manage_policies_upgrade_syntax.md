@@ -1,7 +1,6 @@
 
 
 # Upgrade rollout policy syntax and examples
-<a name="orgs_manage_policies_upgrade_syntax"></a>
 
 An upgrade rollout policy defines how AWS services apply automatic upgrades across your resources. Understanding the policy syntax helps you create effective policies that match your organization's upgrade requirements.
 

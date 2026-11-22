@@ -1,7 +1,6 @@
 
 
 # Enabling a policy type
-<a name="enable-policy-type"></a>
 
 Before you can create and attach a policy to your organization, you must enable that policy type for use. Enabling a policy type is a one-time task on the organization root. You can enable a policy type from only the organization's management account or a member account designated as a delegated administrator.
 
@@ -33,7 +32,7 @@ You can use one of the following commands to enable a policy type:
 
   The following example shows how to enable backup policies for your organization. Note that you must specify the ID of your organization's root.
 
-  ```
+  ```bash
   $ aws organizations enable-policy-type \
       --root-id r-a1b2 \
       --policy-type BACKUP_POLICY

@@ -1,7 +1,6 @@
 
 
 # Policy to grant full access to Compute Optimizer Automation for standalone AWS accounts
-<a name="example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.3_section"></a>
 
 The following code example shows how to This permission-based policy grant full access to Compute Optimizer Automation for standalone AWS accounts
 
@@ -10,7 +9,7 @@ The following code example shows how to This permission-based policy grant full 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	                    
     "Statement": [

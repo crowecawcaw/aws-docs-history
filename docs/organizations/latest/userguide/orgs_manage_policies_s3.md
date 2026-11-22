@@ -1,7 +1,6 @@
 
 
 # Amazon S3 policies
-<a name="orgs_manage_policies_s3"></a>
 
 Amazon S3 policies allow you to centrally manage configurations for Amazon S3 resources at scale across the accounts in an organization. Amazon S3 policies currently support settings for blocking public access.
 

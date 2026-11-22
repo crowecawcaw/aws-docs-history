@@ -1,7 +1,6 @@
 
 
 # Managing accounts in an organization with AWS Organizations
-<a name="orgs_manage_accounts"></a>
 
 An *AWS account* is a container for your AWS resources. You create and manage your AWS resources in an AWS account.
 

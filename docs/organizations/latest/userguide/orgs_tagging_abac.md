@@ -1,7 +1,6 @@
 
 
 # Attribute-based access control with tags for AWS Organizations
-<a name="orgs_tagging_abac"></a>
 
 *[Attribute-based access control](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html)* let you use administrator-managed attributes such as [tags](https://docs.aws.amazon.com/ARG/latest/userguide/tag-editor.html) attached to both AWS resources and AWS identities to control access to those resources. For example, you can specify that a user can access a resource when both the user and the resource have the same value for a certain tag. 
 
@@ -28,7 +27,7 @@ For example, the following sample policy allows the user or role to perform any 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [
@@ -68,7 +67,7 @@ The following example shows how to allow an action only when the specified tag (
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -106,7 +105,7 @@ You can use [`ForAllValues:`](https://docs.aws.amazon.com/IAM/latest/UserGuide/r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -135,7 +134,7 @@ Alternatively, you can use [`ForAnyValue:`](https://docs.aws.amazon.com/IAM/late
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -166,7 +165,7 @@ For example, the following sample policy denies any request by the user or role 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Amazon GuardDuty policy syntax and examples
-<a name="orgs_manage_policies_guardduty_syntax"></a>
 
 Amazon GuardDuty policies follow a standardized JSON syntax that defines how GuardDuty is enabled and configured across your organization. A GuardDuty policy is a plaintext file structured according to the rules of JSON, and its syntax follows the syntax for all declarative policy types. For a complete discussion of that general syntax, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md). This topic applies that general syntax to the specific requirements of the GuardDuty policy type: it defines which features GuardDuty automatically enables, and in which Regions, for the organizational entities the policy is attached to.
 
@@ -23,7 +22,7 @@ Before creating GuardDuty policies, understand these key points about policy syn
 
 A GuardDuty policy uses this basic structure:
 
-```
+```json
 {
   "guardduty": {
     "enablement": {
@@ -108,7 +107,7 @@ The following examples demonstrate common GuardDuty policy configurations.
 
 The following policy enables foundational threat detection and S3 protection in every Region for all accounts, using a single `default` block. When attached to the organization root, all accounts automatically enable these GuardDuty features, and their findings are available to the GuardDuty delegated administrator. Any new account joining the organization inherits enablement automatically.
 
-```
+```json
 {
   "guardduty": {
     "enablement": {
@@ -130,7 +129,7 @@ The following policy enables foundational threat detection and S3 protection in 
 
 The following policy enables a broad feature set everywhere through `default`, but overrides `us-east-1` to disable EBS malware protection there. Because a Region block fully replaces the default, the `us-east-1` block re-lists every feature it wants active in that Region.
 
-```
+```json
 {
   "guardduty": {
     "enablement": {
@@ -168,7 +167,7 @@ When attached to an OU, all accounts in it get the default feature set in every 
 
 The `runtime_monitoring` feature supports an `additional_configuration` object for its agent-management sub-features. The following policy enables runtime monitoring with automated agent management for EKS, EC2, and Fargate.
 
-```
+```json
 {
   "guardduty": {
     "enablement": {
@@ -203,7 +202,7 @@ When attached, all accounts in scope enable runtime monitoring and have GuardDut
 
 The `default` block is optional. The following policy omits it and configures only two Regions: `us-east-1` and `eu-west-1`. Every other Region is left unmanaged; the policy neither enables nor disables GuardDuty there, and existing settings in those Regions are unchanged.
 
-```
+```json
 {
   "guardduty": {
     "enablement": {

@@ -1,7 +1,6 @@
 
 
 # Using tags
-<a name="use-tags"></a>
 
 Tags help you to organize resources in your organization by enabling you to group them by whatever categories are useful to you. For example, you can assign a "Department" tag that tracks the owning department. You can assign an "Environment" tag to track whether a given resource is part of your alpha, beta, gamma, or production environments.
 

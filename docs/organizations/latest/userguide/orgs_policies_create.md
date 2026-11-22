@@ -1,7 +1,6 @@
 
 
 # Creating organization policies with AWS Organizations
-<a name="orgs_policies_create"></a>
 
 After you [enable policies](enable-policy-type.md) for your organization, you can create a policy.
 
@@ -110,7 +109,7 @@ You can use one of the following commands to create an SCP:
 
   The following example assumes that you have a file named `Deny-IAM.json` with the JSON policy text in it. It uses that file to create a new service control policy.
 
-  ```
+  ```bash
   $ aws organizations create-policy \
       --content file://Deny-IAM.json \
       --description "Deny all IAM actions" \
@@ -214,7 +213,7 @@ You can use one of the following commands to create an RCP:
 
   The following example assumes that you have a file named `Deny-IAM.json` with the JSON policy text in it. It uses that file to create a new resource control policy.
 
-  ```
+  ```bash
   $ aws organizations create-policy \
       --content file://Deny-IAM.json \
       --description "Deny all IAM actions" \
@@ -278,7 +277,7 @@ You can use one of the following to create a declarative policy:
 
   1. Create a declarative policy like the following, and store it in a text file.
 
-     ```
+     ```json
      {
          "ec2_attributes": {
              "image_block_public_access": {
@@ -294,7 +293,7 @@ You can use one of the following to create a declarative policy:
 
   1. Import the JSON policy file to create a new policy in the organization. In this example, the previous JSON file was named `policy.json`.
 
-     ```
+     ```bash
      $ aws organizations create-policy \
          --type DECLARATIVE_POLICY_EC2 \
          --name "{{MyTestPolicy}}" \
@@ -389,7 +388,7 @@ You can use one of the following to create a backup policy:
 
   Create a backup plan as JSON text similar to the following, and store it in a text file. For complete rules for the syntax, see [Backup policy syntax and examples](orgs_manage_policies_backup_syntax.md).
 
-  ```
+  ```JSON
   {
       "plans": {
           "PII_Backup_Plan": {
@@ -432,7 +431,7 @@ You can use one of the following to create a backup policy:
 
   Next, import the JSON policy file backup plan to create a new backup policy in the organization. Note the policy ID at the end of the policy ARN in the output.
 
-  ```
+  ```bash
   $ aws organizations create-policy \
       --name "MyBackupPolicy" \
       --type BACKUP_POLICY \
@@ -534,7 +533,7 @@ You can use one of the following to create a tag policy:
 
      Contents of `testpolicy.json`:
 
-     ```
+     ```json
      {
          "tags": {
              "CostCenter": {
@@ -550,7 +549,7 @@ You can use one of the following to create a tag policy:
 
   1. Create a policy that contains the policy content from the file. Extra white space in the output has been truncated for readability.
 
-     ```
+     ```bash
      $ aws organizations create-policy \
          --name "MyTestTagPolicy" \
          --description "My Test policy" \
@@ -641,7 +640,7 @@ You can use one of the following to create a chat applications policy:
 
      Contents of `testpolicy.json`:
 
-     ```
+     ```json
      {
         "chatbot": {
            "platforms": {
@@ -676,7 +675,7 @@ You can use one of the following to create a chat applications policy:
 
   1. Create a policy that contains the policy content from the file. Extra white space in the output has been truncated for readability.
 
-     ```
+     ```bash
      $ aws organizations create-policy \
          --name "MyTestChatbotPolicy" \
          --description "My Test policy" \
@@ -733,7 +732,7 @@ You can use one of the following to create a tag policy:
 
   1. Create an AI services opt-out policy like the following, and store it in a text file. Note that "`optOut`" and "`optIn`" are case-sensitive.
 
-     ```
+     ```json
      {
          "services": {
              "default": {
@@ -754,7 +753,7 @@ You can use one of the following to create a tag policy:
 
   1. Import the JSON policy file to create a new policy in the organization. In this example, the previous JSON file was named `policy.json`.
 
-     ```
+     ```bash
      $ aws organizations create-policy \
          --type AISERVICES_OPT_OUT_POLICY \
          --name "{{MyTestPolicy}}" \
@@ -826,7 +825,7 @@ You can use one of the following to create a upgrade rollout policy:
 
   1. Create a upgrade rollout policy like the following, and store it in a text file.
 
-     ```
+     ```json
      {
          "upgrade_rollout": {
              "default": {
@@ -863,7 +862,7 @@ You can use one of the following to create a upgrade rollout policy:
 
   1. Import the JSON policy file to create a new policy in the organization. In this example, the previous JSON file was named `policy.json`.
 
-     ```
+     ```bash
      $ aws organizations create-policy \
          --type UPGRADE_ROLLOUT_POLICY \
          --name "{{MyTestPolicy}}" \
@@ -922,7 +921,7 @@ You can use one of the following to create a Security Hub policy:
 
   The following example assumes that you have a file named `testPolicy_enableAllSupportedRegions.json` with the JSON policy text in it. It uses that file to create a new Security Hub policy.
 
-  ```
+  ```bash
   $ aws organizations create-policy \
       --content file://./testPolicy_enableAllSupportedRegions.json \
       --name "testPolicy_enableAllSupportedRegions" \
@@ -947,7 +946,7 @@ You can use one of the following to create a Security Hub policy:
 
   The following example assumes that you have a file named `testPolicy_enableAllSupportedRegions_Disable_us-east-1.json` with the JSON policy text in it. It uses that file to create a new Security Hub policy.
 
-  ```
+  ```bash
   $ aws organizations create-policy \
       --content file://./testPolicy_enableAllSupportedRegions_Disable_us-east-1.json \
       --name "testPolicy_enableAllSupportedRegions_Disable_us-east-1" \
@@ -1006,7 +1005,7 @@ You can use one of the following to create a Security Hub CSPM policy:
 
   The following example assumes that you have a file named `testPolicy_enableAllSupportedRegions.json` with the JSON policy text in it. It uses that file to create a new Security Hub CSPM policy.
 
-  ```
+  ```bash
   $ aws organizations create-policy \
       --content file://./testPolicy_enableAllSupportedRegions.json \
       --name "testPolicy_enableAllSupportedRegions" \
@@ -1031,7 +1030,7 @@ You can use one of the following to create a Security Hub CSPM policy:
 
   The following example assumes that you have a file named `testPolicy_enableAllSupportedRegions_FSBP.json` with the JSON policy text in it. It uses that file to create a new Security Hub CSPM policy.
 
-  ```
+  ```bash
   $ aws organizations create-policy \
       --content file://./testPolicy_enableAllSupportedRegions_FSBP.json \
       --name "testPolicy_enableAllSupportedRegions_FSBP" \

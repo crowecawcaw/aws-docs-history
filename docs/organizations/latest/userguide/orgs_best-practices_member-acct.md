@@ -1,7 +1,6 @@
 
 
 # Best practices for member accounts
-<a name="orgs_best-practices_member-acct"></a>
 
 Follow these recommendations to help protect the security of the member accounts in your organization. These recommendations assume that you also adhere to the [best practice of using the root user only for those tasks that truly require it](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html).
 
@@ -48,7 +47,7 @@ You can deny all root actions except a specific root only action that you must p
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Inheritance terminology
-<a name="inheritance-terminology"></a>
 
 This topic uses the following terms when discussing declarative policy inheritance.
 

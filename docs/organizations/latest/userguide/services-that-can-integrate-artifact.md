@@ -1,7 +1,6 @@
 
 
 # AWS Artifact and AWS Organizations
-<a name="services-that-can-integrate-artifact"></a>
 
 AWS Artifact is a service that allows you to download AWS security compliance reports such as ISO and PCI reports. Using AWS Artifact, a user in the organization's management account can automatically accept agreements on behalf of all member accounts in an organization, even as new reports and accounts are added. Member account users can view and download agreements. For more information, see [Managing an agreement for multiple accounts in AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/manage-org-agreement.html) in the *AWS Artifact User Guide*.
 
@@ -62,7 +61,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Artifact as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal artifact.amazonaws.com
   ```
@@ -113,7 +112,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS Artifact as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal artifact.amazonaws.com
   ```

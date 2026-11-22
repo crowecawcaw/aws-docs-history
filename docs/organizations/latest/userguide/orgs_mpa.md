@@ -1,7 +1,6 @@
 
 
 # Multi-party approval for AWS Organizations
-<a name="orgs_mpa"></a>
 
 Multi-party approval is a capability of [AWS Organizations](https://aws.amazon.com/organizations) that allows you to protect a predefined list of operations through a distributed approval process. Use Multi-party approval to establish approval workflows and transform security processes into team-based decisions.
 

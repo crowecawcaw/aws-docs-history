@@ -1,7 +1,6 @@
 
 
 # API operations by account type
-<a name="orgs_reference_actions-by-account"></a>
 
 This page lists all AWS Organizations API operations, grouped by the account that can call them. Choose any API operation to learn more about using it. 
 

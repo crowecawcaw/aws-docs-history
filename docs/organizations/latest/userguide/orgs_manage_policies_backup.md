@@ -1,7 +1,6 @@
 
 
 # Backup policies
-<a name="orgs_manage_policies_backup"></a>
 
 Backup policies allow you to centrally manage and apply backup plans to the AWS resources across an organization's accounts.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with chat applications policies
-<a name="orgs_manage_policies-chatbot_getting-started"></a>
 
 Follow these steps to get started using chat applications policies.
 

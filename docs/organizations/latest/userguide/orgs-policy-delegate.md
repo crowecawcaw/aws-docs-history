@@ -1,7 +1,6 @@
 
 
 # Create a resource-based delegation policy with AWS Organizations
-<a name="orgs-policy-delegate"></a>
 
 From the management account, create a resource-based delegation policy for your organization and add a statement that specifies which member accounts can perform actions on policies. You can add multiple statements in the policy to denote a different set of permissions to member accounts.
 
@@ -69,7 +68,7 @@ You can use the following command to create a delegation policy:
 
   The following example creates a delegation policy.
 
-  ```
+  ```bash
   $ aws organizations put-resource-policy --content
   {
       "Version": "2012-10-17",		 	 	 

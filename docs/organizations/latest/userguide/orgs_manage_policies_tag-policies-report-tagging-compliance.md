@@ -1,7 +1,6 @@
 
 
 # Report tagging compliance
-<a name="orgs_manage_policies_tag-policies-report-tagging-compliance"></a>
 
 Tag policies provide reporting mode for "Basic compliance rules" and "Required tag key". You can use this mode to evaluate the compliance of an account in your organization with its effective tag policy. The generated report includes only resources that have had at least one user-defined tag at any point in their lifecycle.
 
@@ -28,7 +27,7 @@ From the Visual editor tab, enter the value for the tag key that you want to rep
 
 The JSON below generates a compliance report for resources against a lowercase value of the "CostCenter" tag key.
 
-```
+```json
 {
     "tags": {
         "CostCenter": {}
@@ -45,7 +44,7 @@ From the Visual editor tab, enter the value for the tag key that you want to rep
 
 The JSON below generates a compliance report for resources against the "CostCenter" tag key with capitalization.
 
-```
+```json
 {
     "tags": {
         "CostCenter": {
@@ -66,7 +65,7 @@ From the Visual editor tab, enter the value for the tag key that you want to rep
 
 The JSON below generates a compliance report for resources against the "CostCenter" tag key with capitalization and allowed tag values "HR" and "Legal".
 
-```
+```json
 {
     "tags": {
         "CostCenter": {
@@ -92,7 +91,7 @@ The AWS Resource Groups console does not currently support reporting for require
 
 With reporting for required tag keys, you can evaluate whether your resource creation operation is missing required or mandatory tag keys. Run the following command in your CLI to list required tag keys that are defined in the account's effective tag policy. You can use this information to manually verify that you are creating a resource with all required tags as defined by your account administrator.
 
-```
+```bash
 $ aws resourcegroupstaggingapi list-required-tags
 ```
 
@@ -110,7 +109,7 @@ Selecting only Capitalization will generate a report for ALL tagged resources, a
 
 The JSON below generates a compliance report for resources against the "CostCenter" tag key with capitalization and mark tag as required for reporting.
 
-```
+```json
 {
     "tags": {
         "CostCenter": {

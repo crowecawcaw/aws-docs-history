@@ -1,7 +1,6 @@
 
 
 # Service control policies (SCPs)
-<a name="orgs_manage_policies_scps"></a>
 
 Service control policies (SCPs) are a type of organization policy that you can use to manage permissions in your organization. SCPs offer central control over the maximum available permissions for the IAM users and IAM roles in your organization. SCPs help you to ensure your accounts stay within your organization’s access control guidelines. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md). SCPs aren't available if your organization has enabled only the consolidated billing features. For instructions on enabling SCPs, see [Enabling a policy type](enable-policy-type.md).
 

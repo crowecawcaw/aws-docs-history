@@ -1,7 +1,6 @@
 
 
 # Viewing details of an organizational unit (OU) with AWS Organizations
-<a name="orgs_view_ou"></a>
 
 When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details of the OUs in your organization.
 
@@ -35,7 +34,7 @@ You can use the following commands to view details of an OU:
 
   The following example shows how to find the ID of on OU using the AWS CLI. You find the OU ID by traversing the hierarchy starting with the `list-roots` command and then performing `list-children` on the root and iteratively on each of its children until you find the one you want.
 
-  ```
+  ```bash
   $ aws organizations list-roots
   {
       "Roots": [
@@ -60,7 +59,7 @@ You can use the following commands to view details of an OU:
 
   After you have the OU's ID, the following example shows how to retrieve the details about the OU.
 
-  ```
+  ```bash
   $ aws organizations describe-organizational-unit --organizational-unit-id ou-a1b2-f6g7h111
   {
       "OrganizationalUnit": {

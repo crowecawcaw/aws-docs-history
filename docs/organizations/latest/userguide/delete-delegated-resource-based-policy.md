@@ -1,7 +1,6 @@
 
 
 # Delete a resource-based delegation policy with AWS Organizations
-<a name="delete-delegated-resource-based-policy"></a>
 
 When you no longer need to delegate the management of policies in your organization, you can delete the resource-based delegation policy from the organization's management account.
 
@@ -33,7 +32,7 @@ You can use the following command to delete a delegation policy:
 
   The following example deletes the policy.
 
-  ```
+  ```bash
   $ aws organizations delete-resource-policy
   ```
 + AWS SDK: [DeleteResourcePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteResourcePolicy.html)

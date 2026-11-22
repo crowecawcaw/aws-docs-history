@@ -1,7 +1,6 @@
 
 
 # Inheritance operators
-<a name="policy-operators"></a>
 
 Inheritance operators control how inherited policies and account policies merge into the account's effective policy. These operators include value-setting operators and child control operators. 
 

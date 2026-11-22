@@ -1,7 +1,6 @@
 
 
 # Amazon DevOps Guru and AWS Organizations
-<a name="services-that-can-integrate-devops"></a>
 
 Amazon DevOps Guru analyzes operational data and application metrics and events to identify behaviors that deviate from normal operating patterns. Users are notified when DevOps Guru detects an operational issue or risk. 
 
@@ -122,7 +121,7 @@ Only a user or role in the Organizations management account can configure a memb
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $ aws organizations register-delegated-administrator \
       --account-id 123456789012 \
       --service-principal devops-guru.amazonaws.com

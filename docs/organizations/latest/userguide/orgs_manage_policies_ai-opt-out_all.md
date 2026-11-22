@@ -1,7 +1,6 @@
 
 
 # Opt out from all supported AWS AI services
-<a name="orgs_manage_policies_ai-opt-out_all"></a>
 
 **In this topic:**
 + You can opt out with a one button selection in the AWS Organizations console.

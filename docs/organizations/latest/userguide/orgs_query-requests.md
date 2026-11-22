@@ -1,7 +1,6 @@
 
 
 # Calling the API by making HTTP Query requests
-<a name="orgs_query-requests"></a>
 
 This section contains general information about using the Query API for AWS Organizations. For details about the API operations and errors, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/).
 

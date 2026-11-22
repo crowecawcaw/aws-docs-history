@@ -1,7 +1,6 @@
 
 
 # Getting started with Security Hub CSPM policies
-<a name="orgs_manage_policies_security_hub_cspm_getting_started"></a>
 
 Before you configure Security Hub CSPM policies, make sure that you understand the prerequisites and implementation requirements. This topic guides you through the process of setting up and managing these policies in your organization.
 
@@ -63,7 +62,7 @@ The following AWS CLI commands show the end-to-end flow from the management acco
 
 The following commands enable trusted access for Security Hub CSPM, enable the Security Hub CSPM policy type on the organization root, create a policy, and attach it to the organization root:
 
-```
+```bash
 # 1. Enable trusted access for Security Hub CSPM.
 aws organizations enable-aws-service-access \
     --service-principal securityhub.amazonaws.com
@@ -92,7 +91,7 @@ The preceding commands use the following replaceable values:
 
 Use the following command to view the effective policy for an account:
 
-```
+```bash
 # 5. View the effective policy for an account.
 aws organizations describe-effective-policy \
     --policy-type SECURITYHUB_CSPM_POLICY \
@@ -112,7 +111,7 @@ If you no longer want the changes from this example, use the following commands 
 
 When you detach the policy, the accounts that it covered become self-managed, and the policy no longer configures Security Hub CSPM in those accounts. If you disable the policy type, AWS Organizations detaches all Security Hub CSPM policies from every target in the root. For more information, see [Detachment behavior](orgs_manage_policies_security_hub_cspm.md#security-hub-cspm-policies-detachment).
 
-```
+```bash
 # 1. Detach the policy from the organization root.
 aws organizations detach-policy \
     --policy-id {{p-examplepolicyid111}} \

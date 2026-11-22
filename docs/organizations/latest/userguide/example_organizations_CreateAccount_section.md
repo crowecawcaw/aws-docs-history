@@ -1,7 +1,6 @@
 
 
 # Use `CreateAccount` with an AWS SDK or CLI
-<a name="example_organizations_CreateAccount_section"></a>
 
 The following code examples show how to use `CreateAccount`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `CreateAccount`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;

@@ -1,7 +1,6 @@
 
 
 # Allows the AWS Compute Optimizer Automation feature to apply recommended actions
-<a name="example_iam-policies.AWSMettleDocs.latest.userguide.managed-policies.xml.10_section"></a>
 
 The following code example shows how to This permission-based policy allows the AWS Compute Optimizer Automation feature to apply recommended actions
 
@@ -10,7 +9,7 @@ The following code example shows how to This permission-based policy allows the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

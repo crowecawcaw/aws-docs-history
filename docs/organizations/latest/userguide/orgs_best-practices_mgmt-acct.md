@@ -1,7 +1,6 @@
 
 
 # Best practices for the management account
-<a name="orgs_best-practices_mgmt-acct"></a>
 
 Follow these recommendations to help protect the security of the management account in AWS Organizations. These recommendations assume that you also adhere to the [best practice of using the root user only for those tasks that truly require it](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html).
 

@@ -1,7 +1,6 @@
 
 
 # AWS Account Management and AWS Organizations
-<a name="services-that-can-integrate-account"></a>
 
 AWS Account Management helps you manage the account information and metadata for all of the AWS accounts in your organization. You can set, modify, or delete the alternate contact information for each of your organization's member accounts. For more information, see [Using AWS Account Management in your organization](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs.html) in the *AWS Account Management User Guide*. 
 
@@ -46,7 +45,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Account Management as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal account.amazonaws.com
   ```
@@ -93,7 +92,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS Account Management as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal account.amazonaws.com
   ```
@@ -122,7 +121,7 @@ For general instructions on how to configure a delegation policy, see [Create a 
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $  aws organizations register-delegated-administrator \
       --account-id 123456789012 \
       --service-principal account.amazonaws.com

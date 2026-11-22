@@ -1,7 +1,6 @@
 
 
 # AWS CloudFormation StackSets and AWS Organizations
-<a name="services-that-can-integrate-cloudformation"></a>
 
 CloudFormation StackSets enables you to create, update, or delete stacks across multiple AWS accounts and AWS Regions with a single operation. StackSets integration with AWS Organizations enables you to create stack sets with service-managed permissions, using a service-linked role that has the relevant permission in each member account. This lets you deploy stack instances to member accounts in your organization. You don't have to create the necessary AWS Identity and Access Management roles; StackSets creates the IAM role in each member account on your behalf.
 
@@ -93,7 +92,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS CloudFormation StackSets as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal stacksets.cloudformation.amazonaws.com
   ```

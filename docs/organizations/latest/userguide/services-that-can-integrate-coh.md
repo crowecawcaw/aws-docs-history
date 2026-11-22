@@ -1,7 +1,6 @@
 
 
 # AWS Cost Optimization Hub and AWS Organizations
-<a name="services-that-can-integrate-coh"></a>
 
 AWS Cost Optimization Hub is an AWS Billing and Cost Management feature that helps you consolidate and prioritize cost optimization recommendations across your AWS accounts and AWS Regions, so that you can get the most out of your AWS spend. When you use Cost Optimization Hub with AWS Organizations you can easily identify, filter, and aggregate AWS cost optimization recommendations across your Organizations member accounts and AWS Regions. 
 
@@ -61,7 +60,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Cost Optimization Hub as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal cost-optimization-hub.bcm.amazonaws.com
   ```
@@ -92,7 +91,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable AWS Cost Optimization Hub as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal cost-optimization-hub.bcm.amazonaws.com
   ```

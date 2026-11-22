@@ -1,7 +1,6 @@
 
 
 # AWS Transform MGN (MGN) and AWS Organizations
-<a name="services-that-can-integrate-application-migration"></a>
 
 AWS Transform MGN simplifies, expedites, and reduces the cost of migrating applications to AWS. By integrating with Organizations, you can use the global view feature to manage large-scale migrations across multiple accounts. For more information see [ Setting up your AWS Organizations](https://docs.aws.amazon.com/mgn/latest/ug/setting-up-organizations.html) in the *MGN user guide*. 
 
@@ -64,7 +63,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Transform MGN as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal mgn.amazonaws.com
   ```
@@ -113,7 +112,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS Transform MGN as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal mgn.amazonaws.com
   ```
@@ -137,7 +136,7 @@ Only a user or role in the Organizations management account can configure a memb
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $ aws organizations register-delegated-administrator \
       --account-id 123456789012 \
       --service-principal mgn.amazonaws.com

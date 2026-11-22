@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM policies
-<a name="orgs_manage_policies_security_hub_cspm"></a>
 
 AWS Security Hub CSPM policies let you centrally enable and configure Security Hub CSPM across the accounts and Regions in your organization. With a Security Hub CSPM policy, you specify the organization targets (the root, organizational units (OUs), or individual accounts) where Security Hub CSPM is enabled or disabled. You also specify which security standards, controls, and custom control parameters apply in each Region. Accounts that join your organization, or move into an OU that has an attached policy, automatically inherit the policy. This keeps your security posture management consistent as your organization grows.
 

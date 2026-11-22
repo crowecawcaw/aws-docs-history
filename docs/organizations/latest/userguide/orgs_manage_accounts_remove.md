@@ -1,7 +1,6 @@
 
 
 # Removing a member account from an organization with AWS Organizations
-<a name="orgs_manage_accounts_remove"></a>
 
  Removing a member account does not close the account, instead it removes the member account from the organization. The former member account becomes a standalone AWS account that is no longer managed by AWS Organizations.
 
@@ -93,7 +92,7 @@ If you sign in as an IAM user and the account is missing payment information, th
 
 1. If AWS Organizations fails to remove one or more of the accounts, it's typically because you have not provided all the required information for the account to operate as a standalone account. Perform the following steps:
 
-   1. Sign in to the failed accounts. We recommend that you sign in to the member account by choosing **Copy link**, and then pasting it into the address bar of a new incognito browser window. If you do not see **Copy link**, use [this link](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?client=organizations&enforcePI=True) to go the **Sign up for AWS** page and complete the missing registration steps. If you don't use an incognito window, you're signed out of the management account and won't be able to navigate back to this dialog box.
+   1. Sign in to the failed accounts. We recommend that you sign in to the member account by choosing **Copy link**, and then pasting it into the address bar of a new incognito browser window. If you don't see **Copy link**, complete the missing registration steps on the [Sign up for AWS](https://signup.aws.amazon.com/gp/aws/developer/registration/index.html?client=organizations&enforcePI=True) page. If you don't use an incognito window, you're signed out of the management account and won't be able to navigate back to this dialog box.
 
    1. The browser takes you directly to the sign-up process to complete any steps that are missing for this account. Complete all the steps presented. They might include the following:
       + Provide contact information
@@ -114,7 +113,7 @@ If your account was created in the organization, then Organizations automaticall
 You can use one of the following commands to remove a member account:
 + AWS CLI: [remove-account-from-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/remove-account-from-organization.html)
 
-  ```
+  ```bash
   $ aws organizations remove-account-from-organization \
       --account-id 123456789012
   ```

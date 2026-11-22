@@ -1,7 +1,6 @@
 
 
 # Best practices for using Amazon GuardDuty policies
-<a name="orgs_manage_policies_guardduty_best_practices"></a>
 
 When implementing Amazon GuardDuty policies across your organization, following established best practices helps ensure successful deployment and maintenance of your threat-detection configuration. These guidelines address the aspects of GuardDuty policy management and enforcement within AWS Organizations, including its per-Region enablement model and inheritance behavior.
 

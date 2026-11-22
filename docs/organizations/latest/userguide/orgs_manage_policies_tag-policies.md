@@ -1,7 +1,6 @@
 
 
 # Tag policies
-<a name="orgs_manage_policies_tag-policies"></a>
 
 Tag policies allow you to standardize the tags attached to the AWS resources in your organization's accounts.
 

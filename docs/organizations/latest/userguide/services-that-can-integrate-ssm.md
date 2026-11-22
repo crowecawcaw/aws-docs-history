@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager and AWS Organizations
-<a name="services-that-can-integrate-ssm"></a>
 
 AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources. The following Systems Manager capabilities work with Organizations across all of the AWS accounts in your organization:
 + Systems Manager Explorer, is a customizable operations dashboard that reports information about your AWS resources. You can synchronize operations data across all AWS accounts in your organization by using Organizations and Systems Manager Explorer. For more information, see [Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer.html) in the *AWS Systems Manager User Guide*.
@@ -70,7 +69,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Systems Manager as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal ssm.amazonaws.com
   ```
@@ -117,7 +116,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS Systems Manager as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal ssm.amazonaws.com
   ```

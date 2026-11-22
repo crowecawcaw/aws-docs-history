@@ -1,7 +1,6 @@
 
 
 # Supported Regions
-<a name="orgs_manage_policies_tag-policies-supported-regions"></a>
 
 Tag policy features are available in the following Regions: 
 

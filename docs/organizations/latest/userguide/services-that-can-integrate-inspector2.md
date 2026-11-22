@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector and AWS Organizations
-<a name="services-that-can-integrate-inspector2"></a>
 
 Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 and container workloads for software vulnerabilities and unintended network exposure. 
 
@@ -52,7 +51,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable Amazon Inspector as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \
       --service-principal inspector2.amazonaws.com
   ```
@@ -85,7 +84,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable Amazon Inspector as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal inspector2.amazonaws.com
   ```
@@ -122,7 +121,7 @@ You must call `inspector2:enableDelegatedAdminAccount` in each region where you 
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $ aws organizations register-delegated-administrator \
       --account-id 123456789012 \
       --service-principal inspector2.amazonaws.com

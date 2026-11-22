@@ -1,7 +1,6 @@
 
 
 # Resend the verification email with AWS Organizations
-<a name="about-email-verification-resend"></a>
 
 If you don't verify your email address within 24 hours, you can resend the verification request. After you have verified your email address, you can invite other AWS accounts to your organization. If you don't receive the verification email, check that your email address is correct and, if necessary, modify it.
 + To find out what email address is associated with your management account, see [Viewing details of an organization from the management account](orgs_view_org.md).

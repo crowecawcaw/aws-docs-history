@@ -1,7 +1,6 @@
 
 
 # Use `ListPolicies` with an AWS SDK or CLI
-<a name="example_organizations_ListPolicies_section"></a>
 
 The following code examples show how to use `ListPolicies`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListPolicies`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;
@@ -133,7 +132,7 @@ For more information, see [Getting information about your organization's policie
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
-```
+```python
 def list_policies(policy_filter, orgs_client):
     """
     Lists the policies for the account, limited to the specified filter.
@@ -160,7 +159,7 @@ def list_policies(policy_filter, orgs_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_org->listpolicies(       " oo_result is returned for testing purposes. "
           iv_filter = iv_filter ).

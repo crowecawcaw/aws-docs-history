@@ -1,7 +1,6 @@
 
 
 # Managing member accounts with AWS Organizations
-<a name="orgs-manage_accounts_members"></a>
 
 A *member account* is an AWS account, other than the management account, that is part of an organization.
 

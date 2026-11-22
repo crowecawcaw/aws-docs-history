@@ -1,7 +1,6 @@
 
 
 # Managing pending account invitations with AWS Organizations
-<a name="orgs_manage_accounts_manage-invites"></a>
 
 When you sign in to your management account, you can view all the linked AWS accounts in your organization and cancel any pending (open) invitations. To do this, complete the following steps. To learn how an invited account responds to an invitation, see [Accepting or declining account invitations with AWS Organizations](orgs_manage_accounts_accept-decline-invite.md).
 
@@ -42,7 +41,7 @@ You can use the following commands to view or cancel invitations:
 + AWS CLI: [list-handshakes-for-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html), [cancel-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/cancel-handshake.html) 
 + The following example shows the invitations sent by this organization to other accounts.
 
-  ```
+  ```bash
   $ aws organizations list-handshakes-for-organization
   {
       "Handshakes": [
@@ -140,7 +139,7 @@ You can use the following commands to view or cancel invitations:
 
   The following example shows how to cancel an invitation to an account.
 
-  ```
+  ```bash
   $ aws organizations cancel-handshake --handshake-id h-examplehandshakeid111
   {
       "Handshake": {

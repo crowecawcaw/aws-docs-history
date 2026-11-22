@@ -1,7 +1,6 @@
 
 
 # Deleting organization policies with AWS Organizations
-<a name="orgs_policies_delete"></a>
 
 When you no longer need a policy and after you detach it from all organizational units (OUs) and accounts, you can delete it.
 
@@ -163,7 +162,7 @@ The following code examples show how to use `DeletePolicy`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;
@@ -226,7 +225,7 @@ For more information, see [Deleting organization policies with AWS Organizations
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
-```
+```python
 def delete_policy(policy_id, orgs_client):
     """
     Deletes a policy.
@@ -249,7 +248,7 @@ def delete_policy(policy_id, orgs_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_org->deletepolicy(
           iv_policyid = iv_policy_id ).

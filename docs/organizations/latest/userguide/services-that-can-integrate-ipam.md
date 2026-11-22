@@ -1,7 +1,6 @@
 
 
 # Amazon VPC IP Address Manager (IPAM) and AWS Organizations
-<a name="services-that-can-integrate-ipam"></a>
 
 Amazon VPC IP Address Manager (IPAM) is a VPC feature that makes it easier for you to plan, track, and monitor IP addresses for your AWS workloads.
 
@@ -65,7 +64,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable Amazon VPC IP Address Manager (IPAM) as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal ipam.amazonaws.com
   ```

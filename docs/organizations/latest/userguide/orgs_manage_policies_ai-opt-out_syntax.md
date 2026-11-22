@@ -1,7 +1,6 @@
 
 
 # AI services opt-out policy syntax and examples
-<a name="orgs_manage_policies_ai-opt-out_syntax"></a>
 
 This topic describes Artificial Intelligence (AI) services opt-out policy syntax and provides examples.
 
@@ -15,7 +14,7 @@ The capitalization of the values discussed in this section are important. Enter 
 
 The following policy shows the basic AI services opt-out policy syntax. If this example was attached directly to an account, that account would be explicitly opted out of one service and opted in to another. Other services could be opted in or opted out by policies inherited from higher levels (OU or root policies).
 
-```
+```json
 {
     "services": {
         "rekognition": {
@@ -34,7 +33,7 @@ The following policy shows the basic AI services opt-out policy syntax. If this 
 
 Imagine the following example policy attached to the organization's root. It sets the default for the organization to opt out of all AI services. This automatically includes any AI services not otherwise explicitly exempted, including any AI services that AWS might deploy in the future. You can attach child policies to OUs or directly to accounts to override this setting for any AI service except Amazon Comprehend. The second entry in the following example uses `@@operators_allowed_for_child_policies` set to `none` to prevent it from being overridden. The third entry in the example makes an organization-wide exemption for Amazon Rekognition. It opts in the entire organization for that service, but the policy does allow child policies to override where appropriate.
 
-```
+```json
 {
     "services": {
         "default": {
@@ -134,7 +133,7 @@ The following example shows a policy that you could attach to your organization'
 **Tip**  
 If you copy the following example using the copy button in the example's upper-right corner, the copy doesn't include the line numbers. It's ready to paste.
 
-```
+```json
     | {
     |     "services": {
 [1] |         "@@operators_allowed_for_child_policies": ["@@none"],
@@ -162,7 +161,7 @@ The following example policy sets an organization-wide default for all AI servic
 
 **Organization root userAI services opt-out parent policy**
 
-```
+```json
 {
     "services": {
         "default": {
@@ -180,7 +179,7 @@ The following example policy assumes that the previous example policy is attache
 
 **AI services opt-out child policy**
 
-```
+```json
 {
     "services": {
         "lex": {
@@ -199,7 +198,7 @@ The resulting effective policy for the AWS account is that the account opts in t
 
 The following example shows an AI services opt-out policy that defines an `optOut` setting for a single AI service. If this policy is attached to the organization's root, it prevents any child policy from overriding the `optOut` setting for this one service. Other services are not addressed by this policy, but could be affected by child policies in other OUs or accounts.
 
-```
+```json
 {
     "services": {
         "rekognition": {

@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog and AWS Organizations
-<a name="services-that-can-integrate-servicecatalog"></a>
 
 Service Catalog enables you to create and manage catalogs of IT services that are approved for use on AWS.
 
@@ -68,7 +67,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Service Catalog as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal servicecatalog.amazonaws.com
   ```
@@ -118,7 +117,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS Service Catalog as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal servicecatalog.amazonaws.com
   ```

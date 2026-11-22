@@ -1,7 +1,6 @@
 
 
 # Updating the root user email address for a member account with AWS Organizations
-<a name="orgs_manage_accounts_update_primary_email"></a>
 
 For increased security and administrative resilience, IAM principals in the management account (that have the necessary IAM permissions) can centrally update a root user email address (also referred to as the primary email address) for any of their member accounts without having to sign into each account individually. This gives administrators in the management account (or in a delegated administrator account) more control over their member accounts. It also ensures that root user email addresses from any member accounts across your AWS Organizations can be kept up to date, even when you may have lost access to the original root user email address or administrative credentials.
 

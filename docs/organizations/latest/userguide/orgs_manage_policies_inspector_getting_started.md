@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Inspector policies
-<a name="orgs_manage_policies_inspector_getting_started"></a>
 
 Before you configure Amazon Inspector policies, ensure you understand the prerequisites and implementation requirements. This topic guides you through the process of setting up and managing these policies in your organization.
 

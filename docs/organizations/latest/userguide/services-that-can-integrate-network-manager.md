@@ -1,7 +1,6 @@
 
 
 # AWS Network Manager and AWS Organizations
-<a name="services-that-can-integrate-network-manager"></a>
 
 Network Manager enables you to centrally manage your AWS Cloud WAN core network and your AWS Transit Gateway network across AWS accounts, Regions, and on-premises locations. With multi-account support you can create a single global network for any of your AWS accounts, and register transit gateways from multiple accounts to the global network using the Network Manager console. 
 

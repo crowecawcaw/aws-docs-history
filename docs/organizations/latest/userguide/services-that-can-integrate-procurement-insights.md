@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace procurement insights dashboard and AWS Organizations
-<a name="services-that-can-integrate-procurement-insights"></a>
 
 You use the AWS Marketplace procurement insights dashboard to view agreements and cost-analysis data for all of the AWS accounts in your organization. When integrated with Organizations, AWS Marketplace procurement insights dashboard listens to organization changes, such as an account joining the organization, and aggregates data for their corresponding agreements to build their dashboards. 
 
@@ -62,7 +61,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Marketplace procurement insights dashboard as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal procurement-insights.marketplace.amazonaws.com
   ```
@@ -90,7 +89,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable AWS Marketplace procurement insights dashboard as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal procurement-insights.marketplace.amazonaws.com
   ```

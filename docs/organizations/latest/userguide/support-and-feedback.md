@@ -1,7 +1,6 @@
 
 
 # Support and feedback for AWS Organizations
-<a name="support-and-feedback"></a>
 
 We welcome your feedback. You can post your feedback and questions in the [AWS Organizations support forum](https://forums.aws.amazon.com/forum.jspa?forumID=219). For more information about the AWS Support forums, see [Forums Help](https://forums.aws.amazon.com/help.jspa).
 

@@ -1,7 +1,6 @@
 
 
 # Understanding declarative policy inheritance
-<a name="orgs_manage_policies_inheritance_mgmt"></a>
 
 **Important**  
 The information in this section does ***not*** apply to authorization policies: service control policies (SCPs) and resource control policies (RCPs). For more information about how SCPs and RCPs work in an AWS Organizations hierarchy, see [SCP evaluation](orgs_manage_policies_scps_evaluation.md) and [RCP evaluation](orgs_manage_policies_rcps_evaluation.md).

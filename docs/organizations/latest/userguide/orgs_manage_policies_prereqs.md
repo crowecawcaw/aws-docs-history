@@ -1,7 +1,6 @@
 
 
 # Prerequisites and permissions for declarative policies for AWS Organizations
-<a name="orgs_manage_policies_prereqs"></a>
 
 This page describes the prerequisites and required permissions for declarative policies for AWS Organizations.
 
@@ -27,7 +26,7 @@ The following example IAM policy provides permissions to use all aspects of decl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

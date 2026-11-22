@@ -1,7 +1,6 @@
 
 
 # AWS Trusted Advisor and AWS Organizations
-<a name="services-that-can-integrate-ta"></a>
 
 AWS Trusted Advisor inspects your AWS environment and makes recommendations when opportunities exist to save money, to improve system availability and performance, or to help close security gaps. When integrated with Organizations, you can receive Trusted Advisor check results for all of the accounts in your organization and download reports to view the summaries of your checks and any affected resources.
 
@@ -62,7 +61,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable AWS Trusted Advisor as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal reporting.trustedadvisor.amazonaws.com
   ```
@@ -88,7 +87,7 @@ For instruction about enabling a delegated administrator account for Trusted Adv
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $  aws organizations register-delegated-administrator \
       --account-id 123456789012 \
       --service-principal reporting.trustedadvisor.amazonaws.com

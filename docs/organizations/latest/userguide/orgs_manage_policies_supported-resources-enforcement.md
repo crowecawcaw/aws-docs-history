@@ -1,7 +1,6 @@
 
 
 # Services and resource types that support enforcement
-<a name="orgs_manage_policies_supported-resources-enforcement"></a>
 
 The following services and resource types support enforcement with tag policies:
 

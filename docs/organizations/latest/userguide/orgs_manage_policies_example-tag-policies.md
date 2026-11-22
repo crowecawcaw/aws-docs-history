@@ -1,7 +1,6 @@
 
 
 # Tag policy syntax and examples
-<a name="orgs_manage_policies_example-tag-policies"></a>
 
 This page describes tag policy syntax and provides examples.
 
@@ -20,7 +19,7 @@ A tag policy is a plaintext file that is structured according to the rules of [J
 
 The following tag policy shows basic tag policy syntax:
 
-```
+```json
 {
     "tags": {
         "costcenter": {
@@ -87,7 +86,7 @@ The following example shows a tag policy that only defines two tag keys and the 
 
 **Policy A – organization root tag policy**
 
-```
+```json
 {
     "tags": {
         "CostCenter": {
@@ -121,7 +120,7 @@ Assume that you attached the previous tag policy to the organization root. Next,
 
 **Policy B – account tag policy**
 
-```
+```json
 {
     "tags": {
         "CostCenter": {
@@ -148,7 +147,7 @@ If you attach Policy A to the organization root and Policy B to an account, the 
 
 **Policy A \+ Policy B = effective tag policy for account**
 
-```
+```json
 {
     "tags": {
         "Project": {
@@ -178,7 +177,7 @@ To prevent the use of a tag key, you can attach a tag policy like the following 
 
 This example policy specifies that no values are acceptable for the `Color` tag key. It also specifies that no [operators](policy-operators.md) are allowed in child tag policies. Therefore, any `Color` tags on resources in affected accounts are considered non-compliant. However, the `enforced_for` option actually prevents affected accounts from tagging ***only*** Amazon DynamoDB tables with the `Color` tag.
 
-```
+```json
 {
     "tags": {
         "Color": {
@@ -211,7 +210,7 @@ To specify a tag policy for all supported resource types of a specific AWS servi
 
 This policy uses the `ALL_SUPPORTED` wildcard to specify that all Amazon EC2 instances with the tag key `Environment` can only have a tag value of `Prod` or `Non-prod`. This wildcard provides an effective, single-line alternative to listing each Amazon EC2 instance individually. For a list of services and resource types that support the `ALL_SUPPORTED` wildcard, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md). 
 
-```
+```json
 {
     "tags": {
         "Environment": {
@@ -241,7 +240,7 @@ This policy uses the `ALL_SUPPORTED` wildcard to specify that all Amazon EC2 ins
 
 This example demonstrates how to define a tag policy that requires all resources to include mandatory compliance tags. Organizations commonly use this pattern to ensure proper cost allocation, ownership tracking, and environment identification.
 
-```
+```json
 {
     "tags": {
         "CostCenter": {
@@ -298,7 +297,7 @@ When you apply this policy and configure your IaC tool with tag policy enforceme
 
 Example infrastructure code that complies with this policy:
 
-```
+```yaml
 EC2Instance:
     Type: AWS::EC2::Instance
     Properties:

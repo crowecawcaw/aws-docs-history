@@ -1,7 +1,6 @@
 
 
 # Terminology and concepts for AWS Organizations
-<a name="orgs_getting-started_concepts"></a>
 
 This topic explains some of the key concepts for AWS Organizations.
 

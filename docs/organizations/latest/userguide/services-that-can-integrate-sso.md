@@ -1,7 +1,6 @@
 
 
 # AWS IAM Identity Center and AWS Organizations
-<a name="services-that-can-integrate-sso"></a>
 
 AWS IAM Identity Center provides single sign-on access for all of your AWS accounts and cloud applications. It connects with Microsoft Active Directory through AWS Directory Service to allow users in that directory to sign in to a personalized AWS access portal using their existing Active Directory user names and passwords. From the AWS access portal, users have access to all the AWS accounts and cloud applications that they have permissions for.
 
@@ -66,7 +65,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS IAM Identity Center as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal sso.amazonaws.com
   ```
@@ -115,7 +114,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   Run the following command to disable AWS IAM Identity Center as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal sso.amazonaws.com
   ```

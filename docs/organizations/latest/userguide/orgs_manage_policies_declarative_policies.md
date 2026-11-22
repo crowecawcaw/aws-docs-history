@@ -1,7 +1,6 @@
 
 
 # Declarative policies in AWS Organizations
-<a name="orgs_manage_policies_declarative_policies"></a>
 
 Declarative policies enable you to centrally configure and manage AWS services and their features. How those policies affect the OUs and accounts that inherit them depends on the type of declarative policy you apply in AWS Organizations. Review the topics in this section to understand relevant terms and concepts about declarative policies.
 

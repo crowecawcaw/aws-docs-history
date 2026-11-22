@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Organizations
-<a name="orgs_security_iam"></a>
 
 
 

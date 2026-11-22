@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Organizations
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Organizations resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -44,7 +43,7 @@ To ensure that users and roles can still use the Organizations console, also att
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -132,7 +131,7 @@ In a service control policy (SCP), the wildcard (\*) character in an `Action` el
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -163,7 +162,7 @@ The first statement of the following policy allows an IAM user read access to th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -203,7 +202,7 @@ The following statement shows how you can restrict the ability to enable trusted
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

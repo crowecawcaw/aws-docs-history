@@ -1,7 +1,6 @@
 
 
 # Renaming an organizational unit (OU) with AWS Organizations
-<a name="rename_ou"></a>
 
 When you sign in to your organization's management account, you can rename an OU. To do this, complete the following steps.
 
@@ -32,7 +31,7 @@ You can use one of the following commands to rename an OU:
 
   The following example shows how to rename an OU.
 
-  ```
+  ```bash
   $ aws organizations update-organizational-unit \
       --organizational-unit-id ou-a1b2-f6g7h222 \
       --name "Renamed-OU"

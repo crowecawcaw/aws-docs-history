@@ -1,7 +1,6 @@
 
 
 # Quotas and service limits for AWS Organizations
-<a name="orgs_reference_limits"></a>
 
 This topic describes quotas and service limits for AWS Organizations.
 

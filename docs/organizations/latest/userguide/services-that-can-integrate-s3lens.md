@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Storage Lens and AWS Organizations
-<a name="services-that-can-integrate-s3lens"></a>
 
 By giving Amazon S3 Storage Lens trusted access to your organization, you allow it to collect and aggregate metrics across all of the AWS accounts in your organization. S3 Storage Lens does this by accessing the list of accounts that belong to your organization and collects and analyzes the storage and usage and activity metrics for all of them. 
 
@@ -67,7 +66,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable Amazon S3 Storage Lens as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal storage-lens.s3.amazonaws.com
   ```

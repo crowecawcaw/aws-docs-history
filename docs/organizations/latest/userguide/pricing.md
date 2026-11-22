@@ -1,7 +1,6 @@
 
 
 # Billing and pricing for AWS Organizations
-<a name="pricing"></a>
 
 AWS Organizations is offered at no additional charge. You are charged only for AWS resources that users and roles in your member accounts use. For example, you are charged the standard fees for Amazon EC2 instances that are used by users or roles in your member accounts. For information about the pricing of other AWS services, see [AWS Pricing](https://aws.amazon.com/pricing/services/).
 

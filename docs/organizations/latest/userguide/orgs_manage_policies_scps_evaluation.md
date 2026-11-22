@@ -1,7 +1,6 @@
 
 
 # SCP evaluation
-<a name="orgs_manage_policies_scps_evaluation"></a>
 
 **Note**  
 The information in this section does ***not*** apply to declarative policy types, including backup policies, tag policies, chat applications policies, or AI services opt-out policies. For more information, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md).
@@ -61,7 +60,7 @@ AWS Organizations attaches an AWS managed SCP named [**FullAWSAccess**](https://
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -87,7 +86,7 @@ A policy combining the two statements might look like the following example, whi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

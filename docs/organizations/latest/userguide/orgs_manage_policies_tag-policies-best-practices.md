@@ -1,7 +1,6 @@
 
 
 # Best practices for using tag policies
-<a name="orgs_manage_policies_tag-policies-best-practices"></a>
 
 AWS recommends the following best practices for using tag policies.
 

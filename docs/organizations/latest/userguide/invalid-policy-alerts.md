@@ -1,7 +1,6 @@
 
 
 # About invalid effective policy alerts
-<a name="invalid-policy-alerts"></a>
 
 *Invalid policy alerts* let you know about invalid effective policies and provide mechanisms (APIs) to identify accounts with invalid policies. AWS Organizations notifies you asynchronously when one of your accounts has an invalid effective policy. The notification appears as a banner in the AWS Organizations console page, and it is recorded as an AWS CloudTrail event.
 

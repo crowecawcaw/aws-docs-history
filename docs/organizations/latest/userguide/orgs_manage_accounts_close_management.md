@@ -1,7 +1,6 @@
 
 
 # Closing a management account in your organization
-<a name="orgs_manage_accounts_close_management"></a>
 
 To close the management account in your organization, you must first either [close](orgs_manage_accounts_close.md) or [remove](orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account) all member accounts in the organization. The act of closing the management account also deletes the instance of AWS Organizations and any policies that you created inside of that organization after the [post-closure period](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html#post-closure-period) has expired.
 

@@ -1,7 +1,6 @@
 
 
 # Best practices for managing organizational units (OUs) with AWS Organizations
-<a name="orgs_manage_ous_best_practices"></a>
 
 Follow these recommendations to help walk you through managing a multi-account environment in AWS Organizations using organization units (OUs).
 

@@ -1,7 +1,6 @@
 
 
 # Deleting an organization with AWS Organizations
-<a name="orgs_manage_org_delete"></a>
 
 When you no longer need your organization, you can delete it. Deleting an organization does not close the management account, instead it removes the management account from the organization and deletes the organization itself.
 
@@ -79,7 +78,7 @@ The following code examples show how to use `DeleteOrganization`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;

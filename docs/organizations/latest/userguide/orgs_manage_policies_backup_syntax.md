@@ -1,7 +1,6 @@
 
 
 # Backup policy syntax and examples
-<a name="orgs_manage_policies_backup_syntax"></a>
 
 This page describes backup policy syntax and provides examples.
 
@@ -54,7 +53,7 @@ For a list of quotas see, [AWS Backup quotas](https://docs.aws.amazon.com/aws-ba
 
 Backup policy syntax includes the following components: 
 
-```
+```JSON
 {
     "plans": {
         "PlanName": {
@@ -188,7 +187,7 @@ The `advanced_backup_settings` key specifies the configuration options for speci
 
 The following example shows advanced backup settings for both Amazon EC2 and Amazon S3 resources:
 
-```
+```JSON
 "advanced_backup_settings": {
     "ec2": { 
         "windows_vss": {
@@ -236,7 +235,7 @@ The following shows how to configure `scan_actions` in a backup rule and `scan_s
 
 `scan_actions` in a rule:
 
-```
+```JSON
 "scan_actions": {
     "GUARDDUTY": {
         "scan_mode": {
@@ -248,7 +247,7 @@ The following shows how to configure `scan_actions` in a backup rule and `scan_s
 
 `scan_settings` at the plan level:
 
-```
+```JSON
 "scan_settings": {
     "GUARDDUTY": {
         "resource_types": {
@@ -281,7 +280,7 @@ The following example shows a backup policy that is assigned to one of the paren
 
 **Parent policy** – This policy can be attached to the organization's root, or to any OU that is a parent of all of the intended accounts.
 
-```
+```JSON
 {
     "plans": {
         "PII_Backup_Plan": {
@@ -396,7 +395,7 @@ The following example shows a backup policy that is assigned to one of the paren
 
 If no other policies are inherited or attached to the accounts, the effective policy rendered in each applicable AWS account looks like the following example. The CRON expression causes the backup to run once an hour on the hour. The account ID 123456789012 will be the actual account ID for each account.
 
-```
+```JSON
 {
     "plans": {
         "PII_Backup_Plan": {
@@ -477,7 +476,7 @@ In the following example, an inherited parent policy and a child policy either i
 
 **Parent policy** – This policy can be attached to the organization's root or to any parent OU.
 
-```
+```JSON
 {
     "plans": {
        "PII_Backup_Plan": {
@@ -530,7 +529,7 @@ In the following example, an inherited parent policy and a child policy either i
 
 **Child policy** – This policy can be attached directly to the account or to an OU any level below the one the parent policy is attached to.
 
-```
+```JSON
 {
     "plans": {
        "Monthly_Backup_Plan": {
@@ -576,7 +575,7 @@ In the following example, an inherited parent policy and a child policy either i
 
 **Resulting effective policy** – The effective policy applied to the accounts contains two plans, each with its own set of rules and set of resources to apply the rules to. 
 
-```
+```JSON
 {
     "plans": {
        "PII_Backup_Plan": {
@@ -670,7 +669,7 @@ In the following example, an inherited parent policy uses the [child control ope
 
 **Parent policy** – This policy can be attached to the organization's root or to any parent OU. The presence of `"@@operators_allowed_for_child_policies": ["@@none"]` at every node of the policy means that a child policy can't make changes of any kind to the plan. Nor can a child policy add additional plans to the effective policy. This policy becomes the effective policy for every OU and account under the OU to which it is attached.
 
-```
+```JSON
 {
     "plans": {
         "@@operators_allowed_for_child_policies": ["@@none"],
@@ -792,7 +791,7 @@ In the following example, an inherited parent policy uses the [child control ope
 
 **Resulting effective policy** – If any child backup policies exist, they are ignored and the parent policy becomes the effective policy.
 
-```
+```JSON
 {
     "plans": {
         "PII_Backup_Plan": {
@@ -858,7 +857,7 @@ In the following example, an inherited parent policy uses the [child control ope
 
 The sections in the plan are truncated for clarity.
 
-```
+```JSON
 {
     "plans": {
         "@@operators_allowed_for_child_policies": ["@@append"],
@@ -876,7 +875,7 @@ The sections in the plan are truncated for clarity.
 
 The sections in the plan are truncated for clarity.
 
-```
+```JSON
 {
     "plans": {
         "MonthlyBackupPlan": {
@@ -890,7 +889,7 @@ The sections in the plan are truncated for clarity.
 
 **Resulting effective policy** – The effective policy includes both plans.
 
-```
+```JSON
 {
     "plans": {
         "PII_Backup_Plan": {
@@ -914,7 +913,7 @@ In the following example, a child policy uses [value-setting operators](policy-o
 
 **Parent policy** – This policy can be attached to the organization's root or to any parent OU. Any of the settings can be overridden by a child policy because the default behavior, in the absence of a [child-control operator](policy-operators.md#child-control-operators) that prevents it, is to allow the child policy to `@@assign`, `@@append`, or `@@remove`. The parent policy contains all of the required elements for a valid backup plan, so it backs up your resources successfully if it is inherited as is.
 
-```
+```JSON
 {
     "plans": {
         "PII_Backup_Plan": {
@@ -976,7 +975,7 @@ In the following example, a child policy uses [value-setting operators](policy-o
 
 **Child policy** – The child policy includes only the settings that need to be different from the inherited parent policy. There must be an inherited parent policy that provides the other required settings when merged into an effective policy. Otherwise, the effective backup policy contains a backup plan that is not valid and doesn't back up your resources as expected.
 
-```
+```JSON
 {
     "plans": {
         "PII_Backup_Plan": {
@@ -1010,7 +1009,7 @@ In the following example, a child policy uses [value-setting operators](policy-o
 + AWS Backup uses the `Default` vault instead of `FortKnox`.
 + The lifecycle is extended for both the transfer to cold storage and the eventual deletion of the backup.
 
-```
+```JSON
 {
     "plans": {
         "PII_Backup_Plan": {
@@ -1071,7 +1070,7 @@ In the following example, a child policy uses [value-setting operators](policy-o
 
 The following example includes all resources with the `tag_key` = `“env”` and `tag_value` = `"prod"` or `"gamma"`. This example excludes resources with the `tag_key` = `"backup"` and the `tag_value` = `"false"`.
 
-```
+```json
 ...
 "selections":{
     "tags":{
@@ -1103,7 +1102,7 @@ The following are examples of using the `resources` block to specify resources.
 
 The Boolean logic is similar to what you might use in IAM policies. The `"resource_types"` block uses a Boolean `AND` to combine the resource types.
 
-```
+```json
 ...
 "resources":{
     "{{resource_selection_name}}":{
@@ -1123,7 +1122,7 @@ The Boolean logic is similar to what you might use in IAM policies. The `"resour
 
 The Boolean logic is similar to what you might use in IAM policies. The `"resource_types"` and `"not_resource_types"` blocks use a Boolean `AND` to combine the resource types.
 
-```
+```json
 ...
 "resources":{
     "{{resource_selection_name}}":{
@@ -1148,7 +1147,7 @@ The Boolean logic is similar to what you might use in IAM policies. The `"resour
 
 The Boolean logic is similar to what you might use in IAM policies. The `"resource_types"` and `"not_resource_types"` blocks use a Boolean `AND` to combine the resource types. The `"conditions"` block uses a Boolean `AND`. 
 
-```
+```json
 ...
 "resources":{
     "{{resource_selection_name}}":{
@@ -1181,7 +1180,7 @@ The Boolean logic is similar to what you might use in IAM policies. The `"resour
 
 The Boolean logic is similar to what you might use in IAM policies. The `"resource_types"` block uses a Boolean `AND` to combine the resource types. The `"conditions"` block uses a Boolean `AND` to combine resource types and tag conditions.
 
-```
+```json
 ...
 "resources":{
     "{{resource_selection_name}}":{
@@ -1214,7 +1213,7 @@ The Boolean logic is similar to what you might use in IAM policies. The `"resour
 
 The Boolean logic is similar to what you might use in IAM policies. The `"resource_types"` block uses a Boolean `AND` to combine the resource types. The `"conditions"` block uses a Boolean `AND` to combine resource types and tag conditions.
 
-```
+```json
 ...
 "resources":{
     "{{resource_selection_name}}":{
@@ -1251,7 +1250,7 @@ The Boolean logic is similar to what you might use in IAM policies. The `"resour
 
 In this example, note the use of the wildcard character `(*)` in `include*`, `*exclude*`, and `arn:aws:rds:*:*:db:*`. You can use the wildcard character `(*)` at the start, end, and middle of a string.
 
-```
+```json
 ...
 "resources":{
     "{{resource_selection_name}}":{
@@ -1285,7 +1284,7 @@ In this example, note the use of the wildcard character `(*)` in `include*`, `*e
 
 The Boolean logic is similar to what you might use in IAM policies. The `"resource_types"` and `"not_resource_types"` blocks use a Boolean `AND` to combine the resource types. The `"conditions"` block uses a Boolean `AND` to combine resource types and tag conditions.
 
-```
+```json
 ...
 "resources":{
     "{{resource_selection_name}}":{
@@ -1323,7 +1322,7 @@ The following example shows a backup policy that enables Amazon GuardDuty Malwar
 
 To use this feature, you must have the appropriate IAM role permissions. For more information, see [Access](https://docs.aws.amazon.com/aws-backup/latest/devguide/malware-protection.html#malware-access) in the *AWS Backup Developer Guide*.
 
-```
+```JSON
 {
     "plans": {
         "Malware_Scan_Backup_Plan": {

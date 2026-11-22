@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating and configuring an organization
-<a name="orgs_tutorials_basic"></a>
 
 In this tutorial, you create your organization and configure it with two AWS member accounts. You create one of the member accounts in your organization, and you invite the other account to join your organization. Next, you use the [allow list](orgs_manage_policies_scps_evaluation.md#how_scps_allow) technique to specify that account administrators can delegate only explicitly listed services and actions. This allows administrators to validate any new service that AWS introduces before they permit its use by anyone else in your company. That way, if AWS introduces a new service, it remains prohibited until an administrator adds the service to the allow list in the appropriate policy. The tutorial also shows you how to use a [deny list](orgs_manage_policies_scps_evaluation.md#how_scps_deny) to ensure that no users in a member account can change the configuration for the auditing logs that AWS CloudTrail creates.
 
@@ -217,7 +216,7 @@ Now that service control policies are enabled in your organization, you can crea
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -265,7 +264,7 @@ The second policy defines an [allow list](orgs_manage_policies_scps_evaluation.m
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -313,7 +312,7 @@ The final policy provides a [deny list](orgs_manage_policies_scps_evaluation.md#
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

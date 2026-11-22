@@ -1,7 +1,6 @@
 
 
 # Attaching organization policies with AWS Organizations
-<a name="orgs_policies_attach"></a>
 
 This topic describes how to attach policies with AWS Organizations. A *policy* defines the controls that you want to apply to a group of AWS accounts.
 
@@ -285,7 +284,7 @@ The following code examples show how to use `AttachPolicy`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;
@@ -361,7 +360,7 @@ For more information, see [Attaching organization policies with AWS Organization
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
-```
+```python
 def attach_policy(policy_id, target_id, orgs_client):
     """
     Attaches a policy to a target. The target is an organization root, account, or
@@ -388,7 +387,7 @@ def attach_policy(policy_id, target_id, orgs_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_org->attachpolicy(
           iv_policyid = iv_policy_id

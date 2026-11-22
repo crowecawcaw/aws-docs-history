@@ -1,7 +1,6 @@
 
 
 # What is AWS Organizations?
-<a name="orgs_introduction"></a>
 
 **Centrally manage your environment as you scale your AWS resources**
 

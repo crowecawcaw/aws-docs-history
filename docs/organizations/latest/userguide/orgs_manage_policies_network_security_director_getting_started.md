@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Shield Network Security Director policies
-<a name="orgs_manage_policies_network_security_director_getting_started"></a>
 
 **Important**  
 The AWS Shield Network Security Director public preview has ended, and the Network Security Director policy is no longer available. For more information, contact [AWS Support](https://aws.amazon.com/premiumsupport/) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/).

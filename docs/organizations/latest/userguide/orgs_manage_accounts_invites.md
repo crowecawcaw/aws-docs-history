@@ -1,7 +1,6 @@
 
 
 # Managing account invitations with AWS Organizations
-<a name="orgs_manage_accounts_invites"></a>
 
 After you [create an organization](orgs_manage_org_create.md) and [verify that you own the email address](about-email-verification.md) associated with the management account, you can invite existing AWS accounts to join your organization. Use the AWS Organizations console to initiate and manage invitations that you send to other accounts. You can send an invitation to other accounts only from the management account of your organization.
 

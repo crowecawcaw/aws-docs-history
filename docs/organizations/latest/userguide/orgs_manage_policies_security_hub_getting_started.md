@@ -1,7 +1,6 @@
 
 
 # Getting started with Security Hub policies
-<a name="orgs_manage_policies_security_hub_getting_started"></a>
 
 Before you configure Security Hub policies, ensure you understand the prerequisites and implementation requirements. This topic guides you through the process of setting up and managing these policies in your organization.
 

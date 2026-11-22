@@ -1,7 +1,6 @@
 
 
 # Using AWS Organizations with other AWS services
-<a name="orgs_integrate_services"></a>
 
 You can use *trusted access* to enable a supported AWS service that you specify, called the *trusted service*, to perform tasks in your organization and its accounts on your behalf. This involves granting permissions to the trusted service but does *not* otherwise affect the permissions for users or roles. When you enable access, the trusted service can create an IAM role called a *service-linked role* in every account in your organization whenever that role is needed. That role has a permissions policy that allows the trusted service to do the tasks that are described in that service's documentation. This enables you to specify settings and configuration details that you would like the trusted service to maintain in your organization's accounts on your behalf. The trusted service only creates service-linked roles when it needs to perform management actions on accounts, and not necessarily in all accounts of the organization. <a name="important-note-about-integration"></a>
 

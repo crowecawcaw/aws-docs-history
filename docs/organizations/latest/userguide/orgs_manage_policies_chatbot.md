@@ -1,7 +1,6 @@
 
 
 # Chat applications policies
-<a name="orgs_manage_policies_chatbot"></a>
 
 Chat applications policies in AWS Organizations enable you to control access to your organization's accounts from chat applications such as Slack and Microsoft Teams.
 

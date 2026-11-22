@@ -1,7 +1,6 @@
 
 
 # RCP syntax
-<a name="orgs_manage_policies_rcps_syntax"></a>
 
 Resource control policies (RCPs) use a similar syntax to that used by [resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based). For more information about IAM policies and their syntax, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*.
 
@@ -146,7 +145,7 @@ For more information, see [IAM JSON Policy Elements: Resource](https://docs.aws.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

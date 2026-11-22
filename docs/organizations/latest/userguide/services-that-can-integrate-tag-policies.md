@@ -1,7 +1,6 @@
 
 
 # Tag policies and AWS Organizations
-<a name="services-that-can-integrate-tag-policies"></a>
 
 *Tag policies* are a type of policy in AWS Organizations that can help you standardize tags across resources in your organization's accounts. For more information about tag policies, see [Tag policies](orgs_manage_policies_tag-policies.md). 
 
@@ -53,7 +52,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable tag policies as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal tagpolicies.tag.amazonaws.com
   ```

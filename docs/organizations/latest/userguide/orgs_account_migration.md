@@ -1,7 +1,6 @@
 
 
 # Migrate an account to another organization with AWS Organizations
-<a name="orgs_account_migration"></a>
 
 You can migrate an AWS account from one organization to another at any time. For example, migrating an account can be helpful in the case of a merger and acquisition when you need to consolidate one or more AWS accounts from multiple organizations into one organization.
 

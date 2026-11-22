@@ -1,7 +1,6 @@
 
 
 # Changing your email address for an organization with AWS Organizations
-<a name="about-email-verification-change-email"></a>
 
 To change the email address that is associated with your management account, see [Update the AWS account name, email address, or password for the root user](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user.html) in the *AWS Account Management Reference Guide*.
 

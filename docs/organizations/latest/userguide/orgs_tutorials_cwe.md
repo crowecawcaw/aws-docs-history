@@ -1,7 +1,6 @@
 
 
 # Tutorial: Monitor important changes to your organization with Amazon EventBridge
-<a name="orgs_tutorials_cwe"></a>
 
 This tutorial shows how to configure Amazon EventBridge, formerly Amazon CloudWatch Events, to monitor your organization for changes. You start by configuring a rule that is triggered when users invoke specific AWS Organizations operations. Next, you configure Amazon EventBridge to run an AWS Lambda function when the rule is triggered, and you configure Amazon SNS to send an email with details about the event. 
 

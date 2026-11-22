@@ -1,7 +1,6 @@
 
 
 # Default security controls in AWS Organizations
-<a name="orgs_security_default_controls"></a>
 
 Managing security in a multi-account environment requires consistent governance from the start. When you create an organization using the AWS Organizations console, the service automatically applies security controls to protect your organization from common risks. These controls establish an AWS-recommended security baseline from the moment you create your organization.
 
@@ -12,7 +11,7 @@ Organizations turns on service control policies (SCPs) and attaches an SCP to th
 
 The following policy shows the SCP that denies member accounts from leaving the organization or closing their accounts:
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [

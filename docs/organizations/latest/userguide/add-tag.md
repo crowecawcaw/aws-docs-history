@@ -1,7 +1,6 @@
 
 
 # Adding, updating, and removing tags
-<a name="add-tag"></a>
 
 When you sign in to your organization's management account, you can add tags to the resources in your organization. 
 

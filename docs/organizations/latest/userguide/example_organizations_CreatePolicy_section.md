@@ -1,7 +1,6 @@
 
 
 # Use `CreatePolicy` with an AWS SDK or CLI
-<a name="example_organizations_CreatePolicy_section"></a>
 
 The following code examples show how to use `CreatePolicy`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `CreatePolicy`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;
@@ -143,7 +142,7 @@ For more information, see [Creating organization policies with AWS Organizations
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
-```
+```python
 def create_policy(name, description, content, policy_type, orgs_client):
     """
     Creates a policy.
@@ -179,7 +178,7 @@ def create_policy(name, description, content, policy_type, orgs_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_org->createpolicy(       " oo_result is returned for testing purposes. "
           iv_name        = iv_policy_name

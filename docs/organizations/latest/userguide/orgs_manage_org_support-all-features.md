@@ -1,7 +1,6 @@
 
 
 # Enabling all features for an organization with AWS Organizations
-<a name="orgs_manage_org_support-all-features"></a>
 
 AWS Organizations has two available feature sets:
 + [All features](orgs_getting-started_concepts.md#feature-set-all) – This feature set is the preferred and default way to work with AWS Organizations, and it includes all the features of consolidating billing. When you create an organization, enabling all features is the default. With all features enabled, you can use the advanced account management features available in Organizations such as [integration with supported AWS services](orgs_integrate_services_list.md) and [organization policies](orgs_manage_policies.md).

@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer and AWS Organizations
-<a name="services-that-can-integrate-amazon-q-dev"></a>
 
  Amazon Q Developer is a generative AI powered conversational assistant that can help you understand, build, extend, and operate AWS applications. It is also a general purpose, machine learning-powered code generator that provides you with code recommendations in real time. The paid subscription version of Amazon Q Developer requires Organizations integration. For more information see [ Account, IAM Identity Center, and Organizations setup ](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-admin-setup-topic-account.html#admin-setup-org) in the *Amazon Q user guide*. 
 

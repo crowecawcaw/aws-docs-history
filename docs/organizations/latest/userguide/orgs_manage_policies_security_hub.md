@@ -1,7 +1,6 @@
 
 
 # Security Hub policies
-<a name="orgs_manage_policies_security_hub"></a>
 
 AWS Security Hub policies provide security teams with a centralized approach to managing security configurations across their AWS Organizations. By leveraging these policies, you can establish and maintain consistent security controls through a central configuration mechanism. This integration allows you to address security coverage gaps by creating policies that align with your organization's security requirements and centrally applying them across accounts and organizational units (OUs).
 

@@ -1,7 +1,6 @@
 
 
 # Creating a member account in an organization with AWS Organizations
-<a name="orgs_manage_accounts_create"></a>
 
 This topic describes how to create AWS accounts within your organization in AWS Organizations. For information about creating a single AWS account, see the [Getting Started Resource Center](https://aws.amazon.com/getting-started/).
 
@@ -96,7 +95,7 @@ The following code examples show how to use `CreateAccount`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;

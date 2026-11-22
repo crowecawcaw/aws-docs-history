@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Organizations
-<a name="orgs_reference_available-policies"></a>
 
 This section identifies the AWS-managed policies provided for your use to manage your organization. You can't modify or delete an AWS managed policy, but you can attach or detach them to entities in your organization as needed.
 

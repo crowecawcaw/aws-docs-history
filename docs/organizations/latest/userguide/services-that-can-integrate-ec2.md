@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Compute Cloud and AWS Organizations
-<a name="services-that-can-integrate-ec2"></a>
 
 Amazon Elastic Compute Cloud provides on-demand, scalable computing capacity in the AWS Cloud. When you use Amazon EC2 with Organizations; you enable the Organizations admin to create a report of what the existing configuration is for accounts across their organization after using Amazon EC2's [Declarative Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html) feature. 
 
@@ -60,7 +59,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable Amazon Elastic Compute Cloud as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal ec2.amazonaws.com
   ```
@@ -88,7 +87,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable Amazon Elastic Compute Cloud as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal ec2.amazonaws.com
   ```

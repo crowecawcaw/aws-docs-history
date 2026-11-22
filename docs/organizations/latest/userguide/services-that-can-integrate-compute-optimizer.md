@@ -1,7 +1,6 @@
 
 
 # AWS Compute Optimizer and AWS Organizations
-<a name="services-that-can-integrate-compute-optimizer"></a>
 
 AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of your AWS resources. Resource examples include Amazon Elastic Compute Cloud (Amazon EC2) instances and Auto Scaling groups. Compute Optimizer reports whether your resources are optimal and generates optimization recommendations to reduce the cost and improve the performance of your workloads. For more information about Compute Optimizer, see the [AWS Compute Optimizer User Guide](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is.html).
 
@@ -66,7 +65,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Compute Optimizer as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \ 
       --service-principal compute-optimizer.amazonaws.com
   ```
@@ -94,7 +93,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable AWS Compute Optimizer as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal compute-optimizer.amazonaws.com
   ```
@@ -120,7 +119,7 @@ For instructions about enabling a delegated administrator account for Compute Op
 If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
 + AWS CLI: 
 
-  ```
+  ```bash
   $  aws organizations register-delegated-administrator \
       --account-id 123456789012 \
       --service-principal compute-optimizer.amazonaws.com

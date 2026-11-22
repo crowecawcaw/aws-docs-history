@@ -1,7 +1,6 @@
 
 
 # Getting information about your organization's policies
-<a name="orgs_manage_policies_info-operations"></a>
 
 This topic describes various ways to get details about the policies in your organization. These procedures apply to *all* policy types. You must enable a policy type on the organization root before you can attach policies of that type to any entities in that organization root. 
 
@@ -44,7 +43,7 @@ The following code examples show how to use `ListPolicies`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;
@@ -166,7 +165,7 @@ For more information, see [Getting information about your organization's policie
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
-```
+```python
 def list_policies(policy_filter, orgs_client):
     """
     Lists the policies for the account, limited to the specified filter.
@@ -193,7 +192,7 @@ def list_policies(policy_filter, orgs_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_org->listpolicies(       " oo_result is returned for testing purposes. "
           iv_filter = iv_filter ).
@@ -238,7 +237,7 @@ You can use one of the following commands to list policies that are attached to 
 
   The following example lists all of the service control policies attached to the specified OU. You must specify both the ID of the root, OU, or account, and the type of policy that you want to list.
 
-  ```
+  ```bash
   $ aws organizations list-policies-for-target \
       --target-id ou-a1b2-f6g7h222 \
       --filter SERVICE_CONTROL_POLICY
@@ -286,7 +285,7 @@ You can use one of the following commands to list entities that have a policy:
 
   The following example shows all of the attachments to root, OUs, and accounts for the specified policy.
 
-  ```
+  ```bash
   $ aws organizations list-targets-for-policy \
       --policy-id p-FullAWSAccess
   {
@@ -387,7 +386,7 @@ For more information, see [Getting information about your organization's policie
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
-```
+```python
 def describe_policy(policy_id, orgs_client):
     """
     Describes a policy.
@@ -414,7 +413,7 @@ def describe_policy(policy_id, orgs_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_org->describepolicy(     " oo_result is returned for testing purposes. "
           iv_policyid = iv_policy_id ).

@@ -1,7 +1,6 @@
 
 
 # Detaching organization policies with AWS Organizations
-<a name="orgs_policies_detach"></a>
 
 This topic describes how to detach policies with AWS Organizations. A *policy* defines the controls that you want to apply to a group of AWS accounts.
 
@@ -288,7 +287,7 @@ The following code examples show how to use `DetachPolicy`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Organizations;
@@ -355,7 +354,7 @@ For more information, see [Detaching organization policies with AWS Organization
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
-```
+```python
 def detach_policy(policy_id, target_id, orgs_client):
     """
     Detaches a policy from a target.
@@ -381,7 +380,7 @@ def detach_policy(policy_id, target_id, orgs_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_org->detachpolicy(
           iv_policyid = iv_policy_id

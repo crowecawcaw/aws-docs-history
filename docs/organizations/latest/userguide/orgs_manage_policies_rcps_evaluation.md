@@ -1,7 +1,6 @@
 
 
 # RCP evaluation
-<a name="orgs_manage_policies_rcps_evaluation"></a>
 
 **Note**  
 The information in this section does ***not*** apply to declarative policy types, including backup policies, tag policies, chat applications policies, or AI services opt-out policies. For more information, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md).

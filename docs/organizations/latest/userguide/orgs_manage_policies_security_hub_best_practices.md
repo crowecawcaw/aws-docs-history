@@ -1,7 +1,6 @@
 
 
 # Best practices for using Security Hub policies
-<a name="orgs_manage_policies_security_hub_best_practices"></a>
 
 When implementing Security Hub policies across your organization, following established best practices helps ensure successful deployment and maintenance of your security configurations. These guidelines specifically address the unique aspects of Security Hub policy management and enforcement within AWS Organizations.
 

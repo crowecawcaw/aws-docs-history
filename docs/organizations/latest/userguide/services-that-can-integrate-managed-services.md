@@ -1,7 +1,6 @@
 
 
 # AWS Managed Services (AMS) Self-Service Reporting (SSR) and AWS Organizations
-<a name="services-that-can-integrate-managed-services"></a>
 
 [AWS Managed Services (AMS) Self-Service Reporting (SSR)](https://aws.amazon.com/managed-services) collects data from various native AWS services and provides access to reports on major AMS offerings. SSR provides the information that you can use to support operations, configuration management, asset management, security management, and compliance.
 
@@ -41,7 +40,7 @@ Use the following AWS CLI commands or API operations to enable trusted service a
 
   Run the following command to enable AWS Managed Services (AMS) Self-Service Reporting (SSR) as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations enable-aws-service-access \
       --service-principal selfservicereporting.managedservices.amazonaws.com
   ```
@@ -69,7 +68,7 @@ Use the following AWS CLI commands or API operations to disable trusted service 
 
   Run the following command to disable AWS Managed Services (AMS) Self-Service Reporting (SSR) as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal selfservicereporting.managedservices.amazonaws.com
   ```

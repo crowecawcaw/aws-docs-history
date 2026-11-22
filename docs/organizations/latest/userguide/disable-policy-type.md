@@ -1,7 +1,6 @@
 
 
 # Disabling a policy type
-<a name="disable-policy-type"></a>
 
 If you no longer want to use a certain policy type in your organization, you can disable that type to prevent its accidental use. You can disable a policy type from only the organization's management account or a member account designated as a delegated administrator..
 
@@ -49,7 +48,7 @@ You can use one of the following commands to disable a policy type:
 
   The following example shows how to disable backup policies for your organization. Note that you must specify the ID of your organization's root.
 
-  ```
+  ```bash
   $ aws organizations disable-policy-type \
       --root-id r-a1b2 \
       --policy-type BACKUP_POLICY

@@ -1,7 +1,6 @@
 
 
 # AWS License Manager and AWS Organizations
-<a name="services-that-can-integrate-license-manager"></a>
 
 AWS License Manager streamlines the process of bringing software vendor licenses to the cloud. As you build out cloud infrastructure on AWS, you can save costs by using bring-your-own-license (BYOL) opportunities—that is, by repurposing your existing license inventory for use with cloud resources. With rule-based controls on the consumption of licenses, administrators can set hard or soft limits on new and existing cloud deployments, stopping noncompliant server usage before it happens.
 
@@ -64,7 +63,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   You can run the following command to disable AWS License Manager as a trusted service with Organizations.
 
-  ```
+  ```bash
   $ aws organizations disable-aws-service-access \
       --service-principal license-manager.amazonaws.com
   ```
@@ -73,7 +72,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   To disable trusted access for Linux subscriptions use:
 
-  ```
+  ```bash
   $  aws organizations disable-aws-service-access \
       --service-principal license-manager-linux-subscriptions.amazonaws.com
   ```

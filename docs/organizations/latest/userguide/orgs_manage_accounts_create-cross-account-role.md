@@ -1,7 +1,6 @@
 
 
 # Creating OrganizationAccountAccessRole for an invited account with AWS Organizations
-<a name="orgs_manage_accounts_create-cross-account-role"></a>
 
 By default, if you create a member account in your organization by using the AWS Organizations console, the AWS CLI, or the `CreateAccount` API operation, AWS Organizations automatically creates a role in the account. This role grants administrator permissions to IAM users in the management account who can assume the role. By default, that role is named `OrganizationAccountAccessRole`. You can specify a different name when you create the account. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md).
 

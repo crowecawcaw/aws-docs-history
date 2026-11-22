@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector policies
-<a name="orgs_manage_policies_inspector"></a>
 
 Amazon Inspector policies allow you to centrally enable and manage Amazon Inspector across accounts in your AWS organization. With an Amazon Inspector policy, you specify which organizational entities (root, OUs, or accounts) have Amazon Inspector automatically enabled and linked to the Amazon Inspector delegated administrator account. You can use Amazon Inspector policies to simplify service-wide onboarding and ensure consistent enablement of Amazon Inspector in all existing and newly created accounts.
 

@@ -1,7 +1,6 @@
 
 
 # Resource-based policy examples for AWS Organizations
-<a name="security_iam_resource-based-policy-examples"></a>
 
 The following code examples show how you can use resource-based delegation policies. For more information, see [Delegated administrator for AWS Organizations](orgs_delegate_policies.md).
 
@@ -29,7 +28,7 @@ This example delegation policy grants the permissions necessary to complete acti
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -83,7 +82,7 @@ When you validate this policy, IAM Access Analyzer might return a warning that t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -162,7 +161,7 @@ To use this delegation policy, replace the AWS placeholder text for {{MemberAcco
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -240,7 +239,7 @@ This example delegation policy grants the permissions necessary to complete acti
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -293,7 +292,7 @@ This example delegation policy grants the permissions necessary to complete acti
 
 To delegate attaching and detaching policies to any OU or account in the organizations, replace the resource in the previous example with the following resources:
 
-```
+```json
 "Resource": [
     "arn:aws:organizations::{{ManagementAccountId}}:ou/o-{{OrganizationId}}/*",
     "arn:aws:organizations::{{ManagementAccountId}}:account/o-{{OrganizationId}}/*",
@@ -316,7 +315,7 @@ This example delegation policy grants the permissions necessary to complete acti
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

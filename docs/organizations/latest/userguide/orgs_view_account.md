@@ -1,7 +1,6 @@
 
 
 # View details of an account in AWS Organizations
-<a name="orgs_view_account"></a>
 
 When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details about your member accounts.
 
@@ -35,7 +34,7 @@ You can use the following commands to view details of an account:
 
   The following example shows how to retrieve the details about a specified account.
 
-  ```
+  ```bash
   $ aws organizations describe-account --account-id 123456789012
   
   {

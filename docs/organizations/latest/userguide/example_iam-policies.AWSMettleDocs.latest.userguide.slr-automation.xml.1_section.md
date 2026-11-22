@@ -1,7 +1,6 @@
 
 
 # Policy to grants service-linked role permissions for Compute Optimization Automation
-<a name="example_iam-policies.AWSMettleDocs.latest.userguide.slr-automation.xml.1_section"></a>
 
 The following code example shows how to This permission-based policy grants service-linked role permissions for Compute Optimization Automation
 
@@ -10,7 +9,7 @@ The following code example shows how to This permission-based policy grants serv
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	                    
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # AI services opt-out policies
-<a name="orgs_manage_policies_ai-opt-out"></a>
 
 AWS AI services may use and store customer content for service improvement, such as fixing operational issues, evaluating service performance, debugging, or model training. For this purpose, we might store such content in an AWS Region outside of the AWS Region where you are using the service. You can opt out of use of your content for service improvement by using the AWS Organizations opt-out policy.
 

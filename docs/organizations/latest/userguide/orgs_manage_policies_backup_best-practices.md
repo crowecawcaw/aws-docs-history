@@ -1,7 +1,6 @@
 
 
 # Best practices for using backup policies
-<a name="orgs_manage_policies_backup_best-practices"></a>
 
 AWS recommends the following best practices for using backup policies.
 

@@ -1,7 +1,6 @@
 
 
 # Export details for all accounts in AWS Organizations
-<a name="orgs_manage_accounts_export"></a>
 
 With AWS Organizations, management account users and delegated administrators for an organization can export a .csv file with all account details within an organization. As a result, organization administrators can easily view accounts and filter by state: `PENDING_ACTIVATION`, `ACTIVE`, `SUSPENDED`, `PENDING_CLOSURE`, or `CLOSED`. If your organization has many accounts, the .csv file download option provides an easy way to view and sort account details in a spreadsheet. We recommend generating new CSV exports rather than using previously saved versions to maintain current account information.
 
