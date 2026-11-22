@@ -1,7 +1,6 @@
 
 
 # Response Planning on AWS using Aera
-<a name="response-planning-aera"></a>
 
 Publication date: **November 4, 2022 ([Diagram history](#aera-history))**
 
