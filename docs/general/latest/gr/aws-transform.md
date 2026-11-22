@@ -1,7 +1,6 @@
 
 
 # AWS Transform endpoints and quotas
-<a name="aws-transform"></a>
 
 Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. The following are the service quotas for this service.
 
@@ -11,7 +10,7 @@ Service quotas, also referred to as limits, are the maximum number of service re
 
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
-| .NET monthly lines of code (web & IDE) | ap-northeast-1: 2,000,000<br />ap-southeast-2: 2,000,000<br />eu-west-2: 2,000,000<br />Each of the other supported Regions: 3,000,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/qt-platform/quotas/L-C59A2C65)  | The maximum number of lines of .NET application code that can be transformed in a calendar month in each supported AWS Region of an AWS IAM Identity Center account. | 
+| .NET monthly lines of code (web & IDE) | Each supported Region: 3,000,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/qt-platform/quotas/L-C59A2C65)  | The maximum number of lines of .NET application code that can be transformed in a calendar month in each supported AWS Region of an AWS IAM Identity Center account. | 
 | Concurrent .NET jobs with the Microsoft Visual Studio Extension per IAM Identity Center account | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/qt-platform/quotas/L-072080F6)  | The maximum number of concurrent .NET transformation jobs in each supported AWS Region of an IAM Identity Center account when using the Microsoft Visual Studio Extension | 
 | Concurrent .NET web jobs per IAM Identity Center account | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/qt-platform/quotas/L-6D744CF7)  | The maximum number of concurrent .NET transformation jobs in each supported AWS Region of an AWS IAM Identity Center account when using the AWS Transform web app. | 
 | Concurrent mainframe jobs per IAM Identity Center account | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/qt-platform/quotas/L-BFAAF0CB)  | The maximum number of concurrent Mainframe jobs in an IAM Identity Center account | 

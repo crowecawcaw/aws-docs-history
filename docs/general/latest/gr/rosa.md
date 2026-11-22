@@ -1,7 +1,6 @@
 
 
 # Red Hat OpenShift Service on AWS endpoints and quotas
-<a name="rosa"></a>
 
 Red Hat OpenShift Service on AWS (ROSA) currently does not support programmatic access to service endpoints via the AWS CLI. The following are the AWS Regions and service quotas for this service. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). 
 

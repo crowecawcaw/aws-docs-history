@@ -1,7 +1,6 @@
 
 
 # AWS IoT Core endpoints and quotas
-<a name="iot-core"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -481,7 +480,7 @@ This table describes the maximum number of transactions per second (TPS) that ca
 
 The levels in the `desired` and `reported` sections of the Device Shadow's JSON state document are counted as shown here for the `desired` object.
 
-```
+```json
 "desired": {
     "one": {
         "two": {

@@ -1,7 +1,6 @@
 
 
 # Services in Maintenance
-<a name="maintenance_services"></a>
 
 Customers can't on-board to services and features in the maintenance stage. Customers already using these services and features can continue to do so. AWS will continue to operate and support these services and features but won't enhance or add functionality to them. We recommend that customers learn about and explore the alternatives suggested in the product pages and documentation.
 

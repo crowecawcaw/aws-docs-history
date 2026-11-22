@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Block Store endpoints and quotas
-<a name="ebs-service"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -89,6 +88,7 @@ Even though Amazon EBS automatically increases your quotas based on your usage, 
 | --- | --- | --- | --- | 
 | Archived snapshots per volume | Each supported Region: 25 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ebs/quotas/L-E20676C1)  | The maximum number of archived snapshots per volume. | 
 | CompleteSnapshot requests per account | Each supported Region: 10 per second | No | The maximum number of CompleteSnapshot requests allowed per account. | 
+| Concurrent associated KMS keys per snapshot | Each supported Region: 2 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ebs/quotas/L-3ED94175)  | The maximum number of concurrent KMS keys that can be associated with a single snapshot at any one time. | 
 | Concurrent snapshot copies per destination Region | Each supported Region: 20 | No | The maximum number of concurrent snapshot copies to a single destination Region. | 
 | Concurrent snapshots per Cold HDD (sc1) volume | Each supported Region: 1 | No | The maximum number of concurrent snapshots per Cold HDD (sc1) volume in this Region. | 
 | Concurrent snapshots per General Purpose SSD (gp2) volume | Each supported Region: 5 | No | The maximum number of concurrent snapshots per General Purpose SSD (gp2) volume in this Region. | 

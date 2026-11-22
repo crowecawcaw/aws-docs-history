@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone endpoints and quotas
-<a name="datazone"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -51,6 +50,7 @@ The following are the service endpoints and service quotas for this service.
 | Glossaries | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/datazone/quotas/L-2C2845D2)  | The maximum number of business glossaries that can be created in an Amazon DataZone domain. | 
 | SageMaker Unified Studio Compute environments running on sc.t3.large instances | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/datazone/quotas/L-B890B049)  | SageMaker Unified Studio Compute environments running on sc.t3.large instances | 
 | SageMaker Unified Studio Data Apps | Each supported Region: 5,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/datazone/quotas/L-B3D47A94)  | The maximum number of data apps that can be created in a domain. | 
+| SageMaker Unified Studio Data Apps Per Notebook | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/datazone/quotas/L-707F1F84)  | The maximum number of data apps that can be created from a single notebook. | 
 | SageMaker Unified Studio Notebook Runs running on sc.c5.12xlarge instances | Each supported Region: 0 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/datazone/quotas/L-A2EE1D3F)  | SageMaker Unified Studio Notebook Runs running on sc.c5.12xlarge instances | 
 | SageMaker Unified Studio Notebook Runs running on sc.c5.18xlarge instances | Each supported Region: 0 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/datazone/quotas/L-83EE0703)  | SageMaker Unified Studio Notebook Runs running on sc.c5.18xlarge instances | 
 | SageMaker Unified Studio Notebook Runs running on sc.c5.24xlarge instances | Each supported Region: 0 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/datazone/quotas/L-BA52119F)  | SageMaker Unified Studio Notebook Runs running on sc.c5.24xlarge instances | 

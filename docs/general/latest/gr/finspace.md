@@ -1,7 +1,6 @@
 
 
 # Amazon FinSpace quotas
-<a name="finspace"></a>
 
 The following are the service quotas for this service. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 

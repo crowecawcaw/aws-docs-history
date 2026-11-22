@@ -1,7 +1,6 @@
 
 
 # AWS Management Console endpoints and quotas
-<a name="mgmt-console"></a>
 
 AWS Management Console has Regional endpoints that allow you to directly access the console in a given AWS Region. The general syntax of a Regional endpoint is as follows:
 

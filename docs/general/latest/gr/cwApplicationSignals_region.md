@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Application Signals endpoints and quotas
-<a name="cwApplicationSignals_region"></a>
 
 
 | Region Name | Region | Endpoint | Protocol | 

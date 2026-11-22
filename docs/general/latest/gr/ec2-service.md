@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 endpoints and quotas
-<a name="ec2-service"></a>
 
 **Important**  
 AWS Regions launched after **October 30, 2021** will no longer support Amazon EC2 API requests over connections that are established using TLSv1, TLSv1.1, or unencrypted HTTP.

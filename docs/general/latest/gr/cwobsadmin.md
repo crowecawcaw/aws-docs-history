@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Observability Admin endpoints and quotas
-<a name="cwobsadmin"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -56,21 +55,29 @@ The following are the service endpoints and service quotas for this service.
 
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
+| Connectors | Each supported Region: 50 | No | The maximum number of connectors that you can create per account and per Region | 
 | CreateCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of create-centralization-rule-for-organization calls per second per account/per region | 
+| CreateConnector throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of CreateConnector calls per second per account and per Region | 
 | CreateTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of CreateTelemetryPipeline calls per second per account and per Region | 
 | CreateTelemetryRule throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of create-telemetry-rule calls per second per account/per region | 
 | CreateTelemetryRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of create-telemetry-rule-for-organization calls per second per account/per region | 
 | DeleteCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of delete-centralization-rule-for-organization calls per second per account/per region | 
+| DeleteConnector throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of DeleteConnector calls per second per account and per Region | 
 | DeleteTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of DeleteTelemetryPipeline calls per second per account and per Region | 
 | DeleteTelemetryRule throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of delete-telemetry-rule calls per second per account/per region | 
 | DeleteTelemetryRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of delete-telemetry-rule-for-organization calls per second per account/per region | 
 | GetCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of get-centralization-rule-for-organization calls per second per account/per region | 
+| GetConnector throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of GetConnector calls per second per account and per Region | 
+| GetConnectorTelemetryManifest throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of GetConnectorTelemetryManifest calls per second per account and per Region | 
+| GetConnectorTelemetrySetup throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of GetConnectorTelemetrySetup calls per second per account and per Region | 
 | GetTelemetryEnrichmentStatus throttle limit in transactions per second | Each supported Region: 5 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-B19247CC)  | The maximum number of GetTelemetryEnrichmentStatus calls per second per account and per region | 
 | GetTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of GetTelemetryPipeline calls per second per account and per Region | 
 | GetTelemetryRule throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of get-telemetry-rule calls per second per account/per region | 
 | GetTelemetryRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of get-telemetry-rule-for-organization calls per second per account/per region | 
 | GetThirdPartyTelemetryEnrichment throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of GetThirdPartyTelemetryEnrichment calls per second per account and per region | 
 | ListCentralizationRulesForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of list-centralization-rules-for-organization calls per second per account/per region | 
+| ListConnectors throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of ListConnectors calls per second per account and per Region | 
+| ListResourcesByConnector throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of ListResourcesByConnector calls per second per account and per Region | 
 | ListTagsForResource throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of list-tags-for-resource calls per second per account/per region | 
 | ListTelemetryPipelines throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of ListTelemetryPipelines calls per second per account and per Region | 
 | ListTelemetryRules throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of list-telemetry-rules calls per second per account/per region | 
@@ -82,6 +89,8 @@ The following are the service endpoints and service quotas for this service.
 | Pipelines for managed OTel metrics experience | Each supported Region: 300 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-7964BA6F)  | The maximum number of pipelines for managed OTel metrics experience allowed per account and per Region | 
 | Pipelines with a CloudWatch Logs source | Each supported Region: 300 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-928E7B34)  | The maximum number of pipelines with a CloudWatch Logs source allowed per account per Region | 
 | Pipelines with a third-party integration source | Each supported Region: 30 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-57445DF8)  | The maximum number of pipelines with a third-party integration source allowed per account per Region | 
+| Pipelines with an external cloud source | Each supported Region: 30 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-73C6BA2C)  | The maximum number of pipelines with an external cloud source allowed per account per Region | 
+| PutConnectorTelemetryManifest throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of PutConnectorTelemetryManifest calls per second per account and per Region | 
 | StartTelemetryEnrichment throttle limit in transactions per second | Each supported Region: 1 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-E3DAB469)  | The maximum number of StartTelemetryEnrichment calls per second per account and per region | 
 | StartThirdPartyTelemetryEnrichment throttle limit in transactions per second | Each supported Region: 1 per second | No | The maximum number of StartThirdPartyTelemetryEnrichment calls per second per account and per region | 
 | StopTelemetryEnrichment throttle limit in transactions per second | Each supported Region: 1 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-C6A78D4B)  | The maximum number of StopTelemetryEnrichment calls per second per account and per region | 

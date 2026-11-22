@@ -1,7 +1,6 @@
 
 
 # AWS Global Accelerator endpoints and quotas
-<a name="global_accelerator"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -13,7 +12,7 @@ The following are the service endpoints and service quotas for this service.
 <a name="global_accelerator_region"></a>
 
 
-| Region Name | Region | Endpoint | Protocol | Amazon Route 53 Hosted Zone ID\* | 
+| Region Name | Region | Endpoint | Protocol | Amazon Route 53 Hosted Zone ID\* | 
 | --- | --- | --- | --- | --- | 
 | US West (Oregon) Region | us-west-2 | globalaccelerator.amazonaws.com | HTTPS | Z2BJ6XQ5FK7U4H | 
 | US West (Oregon) Region | us-west-2 | globalaccelerator-fips.us-west-2.amazonaws.com | HTTPS | Z018824593QZ67JH632G | 

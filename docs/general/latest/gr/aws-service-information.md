@@ -1,13 +1,13 @@
 
 
 # Service endpoints and quotas
-<a name="aws-service-information"></a>
 
 The following pages describe the service endpoints and service quotas for AWS services. To connect programmatically to an AWS service, you use an endpoint. For more information, see [AWS service endpoints](rande.md). Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 Choose one of the following links to go to the page for that service. To view the service quotas for all AWS services in the documentation without switching pages, view the information in the [Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/aws-general.pdf#aws-service-information) page in the PDF instead.
 
 **Topics**
++ [AWS Abuse Signal API](abuse-signal.md)
 + [Account access management](account-access.md)
 + [Amazon AI Operations](aiops_region.md)
 + [Amplify](amplify.md)

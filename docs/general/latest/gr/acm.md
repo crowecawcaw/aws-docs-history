@@ -1,7 +1,6 @@
 
 
 # AWS Certificate Manager endpoints and quotas
-<a name="acm"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -100,5 +99,6 @@ The following are the service endpoints and service quotas for this service.
 | Rate of RevokeCertificate requests (Public CA) | Each supported Region: 50 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/acm/quotas/L-4C8B8B5F)  | The maximum number of RevokeCertificate requests per second to an ACME endpoint (Public CA). | 
 | Rate of UpdateAcmeDomainValidation API requests | Each supported Region: 50 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/acm/quotas/L-B97889A6)  | The maximum number of UpdateAcmeDomainValidation API requests per second. | 
 | Rate of UpdateAcmeEndpoint API requests | Each supported Region: 50 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/acm/quotas/L-8849A1A8)  | The maximum number of UpdateAcmeEndpoint API requests per second. | 
+| Throttle rate limit for CreateTimeStamp | Each supported Region: 1,000 per second | No | The maximum number of CreateTimeStamp requests you can make per second per account, in the current region | 
 
 For more information, see [Quotas](https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html) in the *AWS Certificate Manager User Guide*.

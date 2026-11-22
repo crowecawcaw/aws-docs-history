@@ -1,7 +1,6 @@
 
 
 # Amazon CloudFront endpoints and quotas
-<a name="cf_region"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -31,7 +30,7 @@ The following are the service endpoints and service quotas for this service.
 CloudFront KeyValueStore is a global service. Specify your AWS account ID for the endpoint. 
 
 
-| Endpoint | Protocol | Amazon Route 53 Hosted Zone ID\* | 
+| Endpoint | Protocol | Amazon Route 53 Hosted Zone ID\* | 
 | --- | --- | --- | 
 | {{AWS account}}.cloudfront-kvs.global.api.aws | HTTPS | The root host zone is the following. Each customer endpoint has its own hosted zone.<br />`Z024645223JLTKL21A7KJ` | 
 
@@ -45,6 +44,7 @@ CloudFront KeyValueStore is a global service. Specify your AWS account ID for th
 | Anycast static IP lists per AWS account | Each supported Region: 0 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-6A19EDFD)  | The maximum number of Anycast static IP lists per AWS account. | 
 | Cache behaviors per distribution | Each supported Region: 75 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-F432D044)  | The maximum number of cache behaviors per distribution. | 
 | Cache policies per AWS account | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-7D134442)  | The maximum number of cache policies per AWS account. | 
+| CloudFront Functions per AWS account | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-84F3B695)  | The maximum number of CloudFront Functions per AWS account. | 
 | CloudFront Functions: Maximum number of distributions associated with a single function | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-435C8433)  | The maximum number of CloudFront distributions associated with a single CloudFront function. | 
 | Connection attempts per origin | Each supported Region: 3 | No | The number of connection attempts per origin (1-3). | 
 | Connection timeout per origin | Each supported Region: 10 Seconds | No | The connection timeout per origin (1-10 seconds). | 
@@ -55,13 +55,14 @@ CloudFront KeyValueStore is a global service. Specify your AWS account ID for th
 | Custom headers: maximum length of a header name | Each supported Region: 256 | No | The maximum length of a header name in characters. | 
 | Custom headers: maximum length of a header value | Each supported Region: 1,783 | No | The maximum length of a header value in characters. | 
 | Custom headers: maximum length of all header values and names combined | Each supported Region: 10,240 | No | The maximum length of all header values and names combined. | 
-| Custom headers: maximum number of custom headers that you can configure CloudFront to add to origin requests | Each supported Region: 30 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-BE7788E4)  | The maximum number of custom headers that you can configure CloudFront to add to origin requests. | 
+| Custom headers: maximum number of custom headers that you can configure CloudFront to add to origin requests | Each supported Region: 30 | No | The maximum number of custom headers that you can configure CloudFront to add to origin requests. | 
 | Data transfer rate per distribution | Each supported Region: 150 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-0F1E9017)  | The maximum data transfer rate (in Gbps) per distribution. | 
+| Distribution tenants per connection group | Each supported Region: 1,000,000 | No | The maximum number of distribution tenants that can be associated with a single connection group. | 
 | Distributions associated with a single key group | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-C19110C4)  | The maximum number of distributions associated with a single key group. | 
 | Distributions associated with the same VPC origin | Each supported Region: 50 | No | The maximum number of distributions that can be associated with a single VPC origin. | 
-| Distributions associated with the same cache policy | Each supported Region: 100 | No | The maximum number of distributions associated with the same cache policy. | 
+| Distributions associated with the same cache policy | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-D50EE3A2)  | The maximum number of distributions associated with the same cache policy. | 
 | Distributions associated with the same origin access control | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-7E654D79)  | The maximum number of distributions that you can associate with an origin access control. | 
-| Distributions associated with the same origin request policy | Each supported Region: 100 | No | The maximum number of distributions associated with the same origin request policy. | 
+| Distributions associated with the same origin request policy | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-8D662304)  | The maximum number of distributions associated with the same origin request policy. | 
 | Distributions associated with the same response headers policy | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-F5EED448)  | The maximum number of distributions that you can associate with the same response headers policy. | 
 | Distributions per AWS account that you can create triggers for | Each supported Region: 500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-D0C8D03A)  | The maximum number of distributions per AWS account that you can create triggers for. | 
 | File invalidation: maximum number of active wildcard invalidations allowed | Each supported Region: 15 | No | The maximum number of active wildcard invalidations allowed. | 
@@ -74,8 +75,9 @@ CloudFront KeyValueStore is a global service. Specify your AWS account ID for th
 | Keep-alive timeout for a custom origin associated with distribution | Each supported Region: 300 Seconds |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-7429AF8A)  | How long (in seconds) CloudFront tries to maintain a connection to your distributions custom origin after it gets the last packet of a response. | 
 | Key groups associated with a single distribution | Each supported Region: 4 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-E7E9ACEB)  | The maximum number of key groups associated with a single distribution. | 
 | Key groups per AWS account | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-D64DA6E2)  | The maximum number of key groups per AWS account. | 
+| Key value stores per AWS account | Each supported Region: 200 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-BB92AA27)  | The maximum number of key value stores per AWS account. | 
 | Length of the content security policy value in a response headers policy | Each supported Region: 1,783 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-E9944CCE)  | The maximum length of the content security policy value in a response headers policy. | 
-| Maximum CA bundle size per trust store | Each supported Region: 64 Kilobytes |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-59F2769C)  | The maximum size (in KB) of a CA bundle that can be uploaded to a trust store. | 
+| Maximum CA bundle size per trust store | Each supported Region: 1,024 Kilobytes | No | The maximum size (in KB) of a CA bundle that can be uploaded to a trust store. | 
 | Maximum certificate size in trust store CA bundle | Each supported Region: 16 Kilobytes |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-E55DEA80)  | The maximum size (in KB) of an individual certificate within a trust stores CA bundle. | 
 | Maximum compressed size of a Lambda function and any included libraries. (Origin request and response event) | Each supported Region: 50 Megabytes | No | The maximum compressed size (in MB) of a Lambda function and any included libraries. (Origin request and response event) | 
 | Maximum compressed size of a Lambda function and any included libraries. (Viewer request and response event) | Each supported Region: 50 Megabytes | No | The maximum compressed size (in MB) of a Lambda function and any included libraries. (Viewer request and response event) | 
@@ -92,20 +94,21 @@ CloudFront KeyValueStore is a global service. Specify your AWS account ID for th
 | Maximum number of characters total for all whitelisted query strings in the same parameter | Each supported Region: 512 | No | The maximum number of characters total for all whitelisted query strings in the same parameter. | 
 | Maximum number of connection functions per AWS account | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-D0422299)  | The maximum number of connection functions that you can have for an AWS account. | 
 | Maximum number of connection groups per AWS account | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-4024A45A)  | The maximum number of connection groups that you can have for an AWS account. | 
-| Maximum number of connection groups per Anycast static IP list | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-8AB980CD)  | The maximum number of connection groups that can be associated with the same Anycast static IP list. | 
+| Maximum number of connection groups per Anycast static IP list | Each supported Region: 5 | No | The maximum number of connection groups that can be associated with the same Anycast static IP list. | 
 | Maximum number of distribution tenants per AWS account | Each supported Region: 1,000,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-D2BD2B16)  | The maximum number of distribution tenants that you can have for an AWS account. | 
 | Maximum number of distributions associated with the same trust store | Each supported Region: 300 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-3FC44142)  | The maximum number of distributions that can be associated with a single trust store. | 
-| Maximum number of field-level encryption configurations that can be associated with one AWS account | Each supported Region: 10 | No | The maximum number of field-level encryption configurations that can be associated with one AWS account. | 
-| Maximum number of field-level encryption profiles that can be associated with one AWS account | Each supported Region: 10 | No | The maximum number of field-level encryption profiles that can be associated with one AWS account. | 
+| Maximum number of field-level encryption configurations that can be associated with one AWS account | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-DE0FED64)  | The maximum number of field-level encryption configurations that can be associated with one AWS account. | 
+| Maximum number of field-level encryption profiles that can be associated with one AWS account | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-469B97CA)  | The maximum number of field-level encryption profiles that can be associated with one AWS account. | 
 | Maximum number of fields in a request body when field-level encryption is configured | Each supported Region: 10 | No | The maximum number of fields in a request body when field-level encryption is configured. | 
 | Maximum number of fields to encrypt that can be specified in one profile | Each supported Region: 10 | No | The maximum number of fields to encrypt that can be specified in one profile. | 
 | Maximum number of multi-tenant distributions per AWS account | Each supported Region: 500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-0AB8CD5F)  | The maximum number of multi-tenant distributions that you can have for an AWS account. | 
 | Maximum number of parameters in a field in a multi-tenant distribution | Each supported Region: 2 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-4B3F61D0)  | The maximum number of parameters that you can have in a field in a multi-tenant distribution. | 
 | Maximum number of parameters per distribution tenant | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-B41C610F)  | The maximum number of parameters that you can have for a distribution tenant. | 
 | Maximum number of parameters per multi-tenant distribution | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-7EA57369)  | The maximum number of parameters that you can have for a multi-tenant distribution. | 
-| Maximum number of public keys that can be added to one AWS account | Each supported Region: 10 | No | The maximum number of public keys that can be added to one AWS account. | 
+| Maximum number of public keys that can be added to one AWS account | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-302B5900)  | The maximum number of public keys that can be added to one AWS account. | 
 | Maximum number of query argument profile mappings that can be included in a field-level encryption configuration | Each supported Region: 5 | No | The maximum number of query argument profile mappings that can be included in a field-level encryption configuration. | 
 | Maximum number of trust stores per AWS account | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-F6F30A7D)  | The maximum number of trust stores that you can have for an AWS account. | 
+| Origin access controls per AWS account | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-CC3E0D9B)  | The maximum number of origin access controls per AWS account. | 
 | Origin access identities per account | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-08884E5C)  | The maximum number of origin access identities per account. | 
 | Origin groups per distribution | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-1B2BD627)  | The maximum number of origin groups per distribution. | 
 | Origin request policies per AWS account | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-C3659C43)  | The maximum number of origin request policies per AWS account. | 
@@ -137,7 +140,7 @@ CloudFront KeyValueStore is a global service. Specify your AWS account ID for th
 | VPC origins per AWS account | Each supported Region: 25 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-A53701DE)  | The maximum number of VPC origins per AWS account. | 
 | Web distributions per AWS account | Each supported Region: 500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-24B04930)  | The maximum number of web distributions per AWS account. | 
 | Whitelisted cookies per cache behavior | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-9D26CF6B)  | The maximum number of whitelisted cookies per cache behavior. | 
-| Whitelisted headers per cache behavior | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-1685304C)  | The maximum number of whitelisted headers per cache behavior. | 
+| Whitelisted headers per cache behavior | Each supported Region: 25 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-1685304C)  | The maximum number of whitelisted headers per cache behavior. | 
 | Whitelisted query strings per cache behavior | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudfront/quotas/L-779C7A0B)  | The maximum number of whitelisted query strings per cache behavior. | 
 
 For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.

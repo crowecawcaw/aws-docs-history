@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager endpoints and quotas
-<a name="ssm"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -238,9 +237,14 @@ Unless otherwise specified, each quota applies to an individual AWS Region in ea
 | Maximum size for parameter value | Standard parameter: 4 KB<br />Advanced parameter: 8 KB ¹ | 
 | Maximum number of parameter policies per advanced parameter | 10 ¹ | 
 | Maximum number of parameter versions retained | 100 | 
-| Transactions per second for the following API Actions:+  [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html) <br />+  [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) <br />+  [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)  |  +  Default: 40 <br />This default maximum of 40 TPS is shared by all three API actions. <br />+  Higher throughput enabled: ², ³   `GetParameter`: 10,000   `GetParameters`: 1,000   `GetParametersByPath`: 100     | 
-| Transactions per second for the following API actions:+  [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html) <br />+  [DeleteParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)  |  +  Default: 3 <br />+  Higher throughput enabled: 5 ²   | 
-| Transactions per second for the following API actions:+  [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) <br />+  [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html) <br />+  [LabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_LabelParameterVersion.html) <br />+  [UnlabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UnlabelParameterVersion.html) <br />+  [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)  |  +  Default: 3 <br />+  Higher throughput enabled: 10 ²   | 
+| Transactions per second for the following API actions:+  [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html) <br />+  [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) <br />+  [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)  | Default: 40<br />This default maximum of 40 TPS is shared by all three API actions.<br />Higher throughput enabled: ², ³<br />The following maximum TPS applies to each API action.+  `GetParameter`: 10,000 <br />+  `GetParameters`: 1,000 <br />+  `GetParametersByPath`: 500  | 
+| Transactions per second for the [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html) API action | Default: 3<br />Higher throughput enabled: 50 ² | 
+| Transactions per second for the [DeleteParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html) API action | Default: 3<br />Higher throughput enabled: 5 ² | 
+| Transactions per second for the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API action | Default: 10<br />Higher throughput enabled: 100 ² | 
+| Transactions per second for the [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html) API action | Default: 3<br />Higher throughput enabled: 100 ² | 
+| Transactions per second for the [LabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_LabelParameterVersion.html) API action | Default: 3<br />Higher throughput enabled: 10 ² | 
+| Transactions per second for the [UnlabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UnlabelParameterVersion.html) API action | Default: 3<br />Higher throughput enabled: 10 ² | 
+| Transactions per second for the [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html) API action | Default: 3<br />Higher throughput enabled: 50 ² | 
 
 ¹ Enabling the advanced parameter tier incurs a charge on your AWS account. For more information, see [Managing parameter tiers](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html) in the *AWS Systems Manager User Guide*.
 

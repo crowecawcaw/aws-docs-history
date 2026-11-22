@@ -1,7 +1,6 @@
 
 
 # AWS Well-Architected endpoints and quotas
-<a name="wellarchitected"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -66,7 +65,7 @@ The following are the service endpoints and service quotas for this service.
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
 | Applications per profile | Each supported Region: 0 | No | The maximum number of applications that can be associated with a Well-Architected Agent profile. | 
-| Architecture recommendation generations per day | Each supported Region: 5 | No | Maximum number of on-demand architecture recommendation generations per day per account. | 
+| Architecture recommendation generations per day | Each supported Region: 200 | No | Maximum number of on-demand architecture recommendation generations per day per account. | 
 | Choices per question | Each supported Region: 15 | No | The maximum number of choices that can be created for a question. | 
 | Lens size | Each supported Region: 500 Kilobytes | No | The maximum lens size, in KB. | 
 | Lenses per account per Region | Each supported Region: 15 | No | The maximum number of lenses that can be created per account in a Region. | 

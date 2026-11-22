@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Prometheus endpoints and quotas
-<a name="prometheus-service"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -70,7 +69,7 @@ Unless otherwise noted, these quotas are per workspace.
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
 | Active metrics with metadata per workspace | Each supported Region: 20,000 | No | The number of unique active metrics with metadata per workspace. Note: If the limit is reached, metric sample is recorded, but metadata over the limit is dropped. | 
-| Active series per workspace | Each supported Region: 50,000,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/aps/quotas/L-5A151448)  | The number of unique active series per workspace (up to a maximum of 1.5 billion). A series is active if a sample has been reported in the past 2 hours. Capacity from 2 M to 50 M is automatically adjusted based on the last 30 min of usage. | 
+| Active series per workspace | Each supported Region: 50,000,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/aps/quotas/L-5A151448)  | The number of unique active series per workspace (up to a maximum of 2 billion). A series is active if a sample has been reported in the past 2 hours. Capacity from 2 M to 50 M is automatically adjusted based on the last 30 min of usage. | 
 | Alert aggregation group size in alert manager definition file | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/aps/quotas/L-BDF9895D)  | The maximum size of an alert aggregation group in alert manager definition file. Each label value combination of group\_by would create an aggregation group. | 
 | Alert manager definition file size | Each supported Region: 1,000,000 | No | The maximum size of an alert manager definition file, in bytes. | 
 | Alert payload size in Alert Manager | Each supported Region: 20,000,000 | No | The maximum alert payload size of all Alert Manager alerts per workspace, in bytes. Alert size is dependent on labels and annotations. | 

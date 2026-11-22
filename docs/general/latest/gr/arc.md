@@ -1,7 +1,6 @@
 
 
 # Amazon Application Recovery Controller (ARC) endpoints and quotas
-<a name="arc"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -115,7 +114,7 @@ For the ARC **Recovery Readiness API** (for readiness checks) or **Recovery Cont
 
 For the ARC **Recovery Cluster API**, in addition to specifying the Region as `us-west-2`, you also must specify one of your five Regional cluster endpoints. The endpoint that you specify must target the ARC cluster that hosts the routing controls that you want to get or update the state for. 
 
-ARC creates endpoints for each cluster in the following five Regions: US East (N. Virginia) (us-east-1), Europe (Ireland) (eu-west-1), US West (Oregon) (us-west-2), Asia Pacific (Tokyo) (ap-northeast-1), and Asia Pacific (Sydney) (ap-southeast-2). Routing Controls provide five regional endpoints to ensure high availability, even in the face of failures. To achieve their full resilience, it's important to have retry logic that can use all five endpoints as necessary. To learn more, see [Get and update routing control states using the API](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.api.html) and [ Best practices for Amazon Application Recovery Controller (ARC)](https://docs.aws.amazon.com/r53recovery/latest/dg/route53-arc-best-practices.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
+ARC creates endpoints for each cluster in the following five Regions: US East (N. Virginia) (us-east-1), Europe (Ireland) (eu-west-1), US West (Oregon) (us-west-2), Asia Pacific (Tokyo) (ap-northeast-1), and Asia Pacific (Sydney) (ap-southeast-2). Routing Controls provide five regional endpoints to ensure high availability, even in the face of failures. To achieve their full resilience, it's important to have retry logic that can use all five endpoints as necessary. To learn more, see [Get and update routing control states using the API](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.api.html) and [ Best practices for Amazon Application Recovery Controller (ARC)](https://docs.aws.amazon.com/r53recovery/latest/dg/route53-arc-best-practices.html) in the Amazon Application Recovery Controller (ARC) Developer Guide.
 
 The following are examples of the Regional cluster endpoints for routing control in ARC.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Lifecycle Changes
-<a name="service-lifecycle"></a>
 
 When the availability of an AWS service or feature changes, we provide customers guidance on available alternatives and support for migration so that disruptions to customer operations are minimized.
 

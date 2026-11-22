@@ -1,7 +1,6 @@
 
 
 # AWS Storage Gateway endpoints and quotas
-<a name="sg"></a>
 
 The following are the service endpoints and service quotas for this service. To connect to an AWS service, you use an endpoint. In addition to the standard AWS endpoints, some AWS services offer FIPS endpoints in selected Regions. For more information, see [AWS service endpoints](rande.md). Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 

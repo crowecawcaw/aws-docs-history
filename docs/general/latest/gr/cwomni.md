@@ -1,13 +1,31 @@
 
 
 # Amazon CloudWatch Omni endpoints and quotas
-<a name="cwomni"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
 Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
+
+## Service endpoints
+<a name="cwomni_region"></a>
+
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  cloudwatch-omni.us-east-2.api.aws  | HTTPS | 
+| US East (N. Virginia) | us-east-1 |  cloudwatch-omni.us-east-1.api.aws  | HTTPS | 
+| US West (Oregon) | us-west-2 |  cloudwatch-omni.us-west-2.api.aws  | HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  cloudwatch-omni.ap-south-1.api.aws  | HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  cloudwatch-omni.ap-southeast-1.api.aws  | HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  cloudwatch-omni.ap-southeast-2.api.aws  | HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  cloudwatch-omni.ap-northeast-1.api.aws  | HTTPS | 
+| Canada (Central) | ca-central-1 |  cloudwatch-omni.ca-central-1.api.aws  | HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  cloudwatch-omni.eu-central-1.api.aws  | HTTPS | 
+| Europe (Ireland) | eu-west-1 |  cloudwatch-omni.eu-west-1.api.aws  | HTTPS | 
+| Europe (London) | eu-west-2 |  cloudwatch-omni.eu-west-2.api.aws  | HTTPS | 
+| South America (São Paulo) | sa-east-1 |  cloudwatch-omni.sa-east-1.api.aws  | HTTPS | 
 
 ## Service quotas
 <a name="limits_cwomni"></a>

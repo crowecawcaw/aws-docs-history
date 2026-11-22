@@ -1,7 +1,6 @@
 
 
 # AWS Parallel Computing Service endpoints and quotas
-<a name="pcs"></a>
 
 The following tables describe the service endpoints and service quotas for AWS Parallel Computing Service. Service quotas, also referred to as *limits*, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 

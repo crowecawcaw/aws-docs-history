@@ -1,7 +1,6 @@
 
 
 # AWS General Reference
-<a name="Welcome"></a>
 
 The AWS General Reference provides AWS service endpoint and quota information for Amazon Web Services. Additionally, you can find links to other common topics.
 

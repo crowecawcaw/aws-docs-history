@@ -1,7 +1,6 @@
 
 
 # AWS License Manager endpoints and quotas
-<a name="licensemanager"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
@@ -10,7 +9,7 @@ Service quotas, also referred to as limits, are the maximum number of service re
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
-<a name="w2aac14d350b9"></a>
+<a name="w2aac14d352b9"></a>
 
 **Topics**
 + [Endpoints for working with licenses](#licensemanager_region)

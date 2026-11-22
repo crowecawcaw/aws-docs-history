@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog endpoints and quotas
-<a name="servicecatalog"></a>
 
 The following are the service endpoints and service quotas for this service. To connect programmatically to an AWS service, you use an endpoint. In addition to the standard AWS endpoints, some AWS services offer FIPS endpoints in selected Regions. For more information, see [Amazon service endpoints.](https://docs.aws.amazon.com/general/latest/gr/rande.html) Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [Amazon service quotas.](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
 
