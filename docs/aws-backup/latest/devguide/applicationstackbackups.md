@@ -1,7 +1,6 @@
 
 
 # CloudFormation stack backups
-<a name="applicationstackbackups"></a>
 
 A CloudFormation stack consists of multiple stateful and stateless resources that you can back up as a single unit. In other words, you can backup and restore an application containing multiple resources by backing up a stack and restoring the resources within it. All the resources in a stack are defined by the stack's CloudFormation template.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Backup feature availability
-<a name="backup-feature-availability"></a>
 
 AWS Backup features are offered according to resource and AWS Region. The following sections and tables can help you determine feature availability.
 
@@ -39,7 +38,7 @@ If a resource type does not have a checkmark in the Cross-Region backup or Cross
 | Amazon EC2 | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  | ✓ |  | 
 | Amazon S3 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Amazon EBS | ✓ | ✓ | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ 14 | ✓ |  | ✓ |  | 
-| Amazon RDS DB instance (single-AZ and Multi-AZ) 12 | ✓ 3 | ✓ 3 | ✓ 4 | ✓ | ✓ |  |  |  | ✓ |  |  |  |  |  | 
+| Amazon RDS DB instance (single-AZ and Multi-AZ) 12 | ✓ 3 | ✓ 3 | ✓ 4 | ✓ | ✓ |  |  |  | ✓ | ✓ |  |  |  |  | 
 | Amazon RDS cluster 13 | ✓ 3 | ✓ 3 | ✓ 4 | ✓ |  |  |  |  | ✓ |  |  |  |  |  | 
 | Amazon Aurora | ✓ 3 | ✓ 3 | ✓ | ✓ 6 | ✓ |  |  |  | ✓ | ✓ |  |  |  |  | 
 | Amazon Aurora DSQL | ✓ | ✓ |  |  |  | ✓ | ✓ |  |  | ✓ |  |  |  |  | 
@@ -58,7 +57,7 @@ If a resource type does not have a checkmark in the Cross-Region backup or Cross
 | Virtual machines | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ |  | ✓ |  |  |  |  | 
 | AWS CloudFormation | ✓ 5 |  | ✓ | ✓ 5 |  |  | ✓ |  |  |  |  |  |  |  | 
 | Amazon DynamoDB |  |  | ✓ |  |  |  |  |  | ✓ |  |  |  |  |  | 
-| DynamoDB with [AWS Backup advanced features](advanced-ddb-backup.md) | ✓ | ✓ | ✓ |  |  | ✓ | ✓ |  | ✓ | ✓ |  |  |  |  | 
+| DynamoDB with [AWS Backup advanced features](advanced-ddb-backup.md) | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ |  | ✓ | ✓ |  |  |  |  | 
 | SAP HANA databases on Amazon EC2 instances | ✓ | ✓ |  | ✓ 6 | ✓ | ✓ | ✓ |  |  |  |  |  |  |  | 
 | Amazon EKS10 | ✓ | ✓ |  |  |  | ✓ |  | ✓ |  | ✓11 |  |  |  |  | 
 
@@ -177,7 +176,7 @@ AWS Backup is available for these resource types in all Regions in which AWS Bac
 AWS Backup cannot be deployed or operated locally on AWS Outposts infrastructure. All backup operations and storage are performed in the associated AWS Region, and local backup retention on Outposts is not supported.
 
 
-| Region and service | [Aurora DSQL](backup-aurora.md) 2 | [Amazon FSx](restoring-fsx.md) | [Amazon RDS Multi-AZ](rds-backup.md#rds-multiaz) | [SAP HANA on EC2 instances](backup-saphana.md) | [Amazon S3](s3-backups.md) | [Storage Gateway](working-with-gateways.md) | [Amazon Timestream](timestream-backup.md) | [VMware](backing-up-vms.md) and [Backup gateway](working-with-gateways.md) | [Amazon EKS](eks-backups.md) | [Amazon Neptune](creating-a-backup.md) | [Amazon DocumentDB](creating-a-backup.md) | [Amazon Redshift Serverless](redshift-serverless-backups.md) | 
+| Region and service | [Aurora DSQL](backup-aurora.md) | [Amazon FSx](restoring-fsx.md) | [Amazon RDS Multi-AZ](rds-backup.md#rds-multiaz) | [SAP HANA on EC2 instances](backup-saphana.md) | [Amazon S3](s3-backups.md) | [Storage Gateway](working-with-gateways.md) | [Amazon Timestream](timestream-backup.md) | [VMware](backing-up-vms.md) and [Backup gateway](working-with-gateways.md) | [Amazon EKS](eks-backups.md) | [Amazon Neptune](creating-a-backup.md) | [Amazon DocumentDB](creating-a-backup.md) | [Amazon Redshift Serverless](redshift-serverless-backups.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | US East (N. Virginia) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | US East (Ohio) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
@@ -222,5 +221,3 @@ AWS Backup cannot be deployed or operated locally on AWS Outposts infrastructure
 A check under Amazon FSx indicates that FSx for Windows File Server, FSx for Lustre, FSx for ONTAP, and FSx for OpenZFS are all supported in that Region by AWS Backup; otherwise, the supported configurations will be listed.
 
 1 Cross-account copy is not supported.
-
-2 For multi-Region backup and restore supported Regions, see [Amazon Aurora DSQL backups](backup-aurora.md).

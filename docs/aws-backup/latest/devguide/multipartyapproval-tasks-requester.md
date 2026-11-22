@@ -1,7 +1,6 @@
 
 
 # Requester tasks
-<a name="multipartyapproval-tasks-requester"></a>
 
 ## Associate a Multi-party approval team with a logically air-gapped vault
 <a name="associate-multipartyapproval-team"></a>
@@ -36,7 +35,7 @@ If this is the first approval team to be associated with the vault, the team wil
 
 Use the CLI command `associate-backup-vault-mpa-approval-team`, modified with the following parameters:
 
-```
+```json
 aws backup associate-backup-vault-mpa-approval-team \
 --backup-vault-name {{VAULT_NAME}} \
 --mpa-approval-team-arn {{MPA_TEAM_ARN}} \
@@ -89,7 +88,7 @@ Once the request is approved by the required number ("threshold") of team member
 
 Use the CLI command `create-restore-access-backup-vault`:
 
-```
+```json
 aws backup create-restore-access-backup-vault \
 --source-backup-vault-arn {{SOURCE_VAULT_ARN}} \
 --backup-vault-name {{OPTIONAL_VAULT_NAME}} \
@@ -101,7 +100,7 @@ The MPA approval team members associated with the source vault will receive a no
 
 You can check the status of the vault using:
 
-```
+```json
 aws backup describe-backup-vault \
 --backup-vault-name {{VAULT_NAME}} \
 --region {{REGION}}
@@ -142,7 +141,7 @@ Once approved by the required number of team members, the team will be disassoci
 
 Use the CLI command `disassociate-backup-vault-mpa-approval-team`:
 
-```
+```json
 aws backup disassociate-backup-vault-mpa-approval-team \
 --backup-vault-name {{VAULT_NAME}} \
 --requester-comment "{{OPTIONAL_COMMENT}}" \
@@ -188,7 +187,7 @@ Once approved by the required number of team members, the restore access backup 
 
 First, list the restore access backup vaults associated with your source vault:
 
-```
+```json
 aws backup list-restore-access-backup-vaults \
 --backup-vault-name {{SOURCE_VAULT_NAME}} \
 --region {{REGION}}
@@ -196,7 +195,7 @@ aws backup list-restore-access-backup-vaults \
 
 Then, use the CLI command `revoke-restore-access-backup-vault`:
 
-```
+```json
 aws backup revoke-restore-access-backup-vault \
 --backup-vault-name {{SOURCE_VAULT_NAME}} \
 --restore-access-backup-vault-arn {{RESTORE_ACCESS_VAULT_ARN}} \
@@ -243,7 +242,7 @@ Once approved by the required number of team members (threshold) from the curren
 
 Use the CLI command `associate-backup-vault-mpa-approval-team` with the new team ARN:
 
-```
+```json
 aws backup associate-backup-vault-mpa-approval-team \
 --backup-vault-name {{VAULT_NAME}} \
 --mpa-approval-team-arn {{NEW_MPA_TEAM_ARN}} \

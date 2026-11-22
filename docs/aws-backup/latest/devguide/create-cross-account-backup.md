@@ -1,7 +1,6 @@
 
 
 # Creating backup copies across AWS accounts
-<a name="create-cross-account-backup"></a>
 
 Using AWS Backup, you can back up to multiple AWS accounts on demand or automatically as part of a scheduled backup plan. Use a cross-account backup if you want to securely copy your backups to one or more AWS accounts in your organization for operational or security reasons. If your original backup is inadvertently deleted, you can copy the backup from its destination account to its source account, and then start the restore. Before you can do this, you must have two accounts that belong to the same organization in the AWS Organizations service. For more information, see [ Tutorial: Creating and configuring an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tutorials_basic.html) in the *Organizations User Guide*.
 
@@ -34,7 +33,7 @@ For resources [fully managed by AWS Backup](whatisbackup.md#full-management), yo
 
   The AWS managed policy `AWSBackupServiceRolePolicyForBackup` includes both of these permissions. If you use a custom IAM role, you must add these permissions explicitly. The following is an example identity-based policy:
 
-  ```
+  ```JSON
   {
     "Statement": [
       {
@@ -121,7 +120,7 @@ For **Allow Backup vault access**, choose **Allow**. Then choose **Allow** in th
 AWS Backup needs permissions to access the external account to copy backup to the specified value. The wizard shows the following example policy that provides this access.    
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -181,7 +180,7 @@ You can copy a backup to a different AWS account on demand.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -264,7 +263,7 @@ The following policy configures vault access for account number `4444555566666` 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -293,7 +292,7 @@ The following policy shares a backup vault with organizational units using their
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -325,7 +324,7 @@ The following policy shares a backup vault with the organization with `Principal
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -361,7 +360,7 @@ When attached to an AWS Organizations root, OU, or individual account, this poli
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -389,7 +388,7 @@ When attached to an AWS Organizations root, OU, or individual account, this poli
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -421,7 +420,7 @@ When attached to an AWS Organizations root or OU that contains your source accou
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -451,4 +450,4 @@ Be aware of the following when using performing cross-account backups in AWS Bac
 + The destination vault cannot be the default vault. This is because the default vault is encrypted with a key that cannot be shared with other accounts. 
 + Cross-account backups might still run for up to 15 minutes after you disable cross-account backup. This is due to eventual consistency, and might result in some cross-account jobs starting or completing even after you disable cross-account backup.
 + If the destination account leaves the organization at a later date, that account will retain the backups. To avoid potential data leakage, place a deny permission on the `organizations:LeaveOrganization` permission in a service control policy (SCP) attached to the destination account. For detailed information about SCPs, see [Removing a member account from your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) in the *Organizations User Guide*.
-+ If you delete a copy job role during a cross-account copy, AWS Backup can't unshare snapshots from the source account when the copy job completes. In this case, the backup job finishes, but the copy job status shows as Failed to unshare snapshot.
++ If you delete a copy job role during a cross-account copy, AWS Backup can't unshare snapshots from the source account when the copy job completes. In this case, the backup job finishes, but the copy job status shows as `Failed to unshare snapshot`.

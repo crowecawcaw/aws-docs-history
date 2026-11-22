@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift backups
-<a name="redshift-backups"></a>
 
 Amazon Redshift is a fully managed, scalable cloud data warehouse that accelerates your time to insights with fast, easy, and secure analytics. You can use AWS Backup to protect your data warehouses with immutable backups, separate access policies, and centralized organizational governance of backup and restore jobs.
 
@@ -72,6 +71,6 @@ To view and modify your Amazon Redshift table backups within the console:
 1. To delete one or more recovery points, check the box(es) you wish to delete. Under the button **Actions**, you can select **Delete**.
 
 ### Restore a Amazon Redshift cluster
-<a name="w2aac17c19c31c11c11c11"></a>
+<a name="w2aac17c19c33c11c11c11"></a>
 
 See how to [Restore a Amazon Redshift cluster](https://docs.aws.amazon.com/aws-backup/latest/devguide/redshift-restores.html) for more information.

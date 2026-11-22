@@ -1,7 +1,6 @@
 
 
 # Updating audit frameworks
-<a name="updating-frameworks"></a>
 
 You can update the description, controls, and parameters of an existing audit framework.
 

@@ -1,7 +1,6 @@
 
 
 # Backup tiering
-<a name="backup-tiering"></a>
 
 ## Overview
 <a name="backup-tiering-overview"></a>
@@ -103,7 +102,7 @@ Configuration constraints:
 
 To create an all vaults tiering configuration (default) using the AWS CLI
 
-```
+```json
 aws backup create-tiering-configuration \
 --tiering-configuration '{
   "TieringConfigurationName":{{"MyTieringConfig"}},
@@ -139,13 +138,13 @@ You can view existing tiering configurations through the AWS Backup console, AWS
 
 To list all tiering configurations using the AWS CLI
 
-```
+```json
 aws backup list-tiering-configurations --max-results 50
 ```
 
 To get specific tiering configuration details
 
-```
+```json
 aws backup get-tiering-configuration --tiering-configuration-name {{"MyTieringConfig"}}
 ```
 
@@ -177,7 +176,7 @@ You can update existing tiering configurations to change transition timing, reso
 
 To update a tiering configuration using the AWS CLI
 
-```
+```json
 aws backup update-tiering-configuration \
 --tiering-configuration-name {{"MyTieringConfig"}} \
 --tiering-configuration '{
@@ -216,7 +215,7 @@ You can delete tiering configurations when they are no longer needed.
 
 To delete a tiering configuration using the AWS CLI
 
-```
+```json
 aws backup delete-tiering-configuration \
 --tiering-configuration-name {{"MyTieringConfig"}}
 ```
@@ -265,7 +264,7 @@ For a 500TB S3 bucket with 1 billion objects where 60% are eligible for tiering:
 
 Apply tiering to all S3 resources across all backup vaults:
 
-```
+```json
 {
   "TieringConfigurationName":"MyTieringConfig",
   "BackupVaultName":"*",
@@ -283,7 +282,7 @@ Apply tiering to all S3 resources across all backup vaults:
 
 Tier all resources in a MyBackupVault4 vault:
 
-```
+```json
 {
   "TieringConfigurationName":"MyTieringConfig",
   "BackupVaultName":"MyBackupVault4",
@@ -301,7 +300,7 @@ Tier all resources in a MyBackupVault4 vault:
 
 Tier specific buckets with different rules:
 
-```
+```json
 {
   "TieringConfigurationName":"MyTieringConfig",
   "BackupVaultName":"MyBackupVault",
@@ -324,7 +323,7 @@ Tier specific buckets with different rules:
 
 Set the rule to not tier a bucket (set tiering to 36500):
 
-```
+```json
 {
   "TieringConfigurationName":"MyTieringConfig",
   "BackupVaultName":"*",

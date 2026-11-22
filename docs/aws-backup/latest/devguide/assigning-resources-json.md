@@ -1,7 +1,6 @@
 
 
 # Assign resources with AWS CLI
-<a name="assigning-resources-json"></a>
 
 ## Filter by services or resource types
 <a name="resource-assignment-filter"></a>
@@ -30,7 +29,7 @@ You can specify conditions, tags, or resources to define what will be included i
 
 This sample resource assignment assigns all Amazon EC2 instances to the backup plan {{BACKUP-PLAN-ID}}:
 
-```
+```JSON
 {
   "BackupPlanId":"{{BACKUP-PLAN-ID}}",
   "BackupSelection":{
@@ -45,7 +44,7 @@ This sample resource assignment assigns all Amazon EC2 instances to the backup p
 
 Assuming this JSON is stored as `backup-selection.json`, you can assign these resources to your backup plan using the following CLI command:
 
-```
+```sh
 aws backup create-backup-selection --cli-input-json file://{{PATH-TO-FILE}}/{{backup-selection}}.json
 ```
 
@@ -56,7 +55,7 @@ The `*` wildcard does not match whitespace characters such as spaces. If your ta
 
 **Example: Select all resources in my account**  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -68,7 +67,7 @@ The `*` wildcard does not match whitespace characters such as spaces. If your ta
 
 **Example: Select all resources in my account, but exclude EBS volumes**  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -83,7 +82,7 @@ The `*` wildcard does not match whitespace characters such as spaces. If your ta
 
 **Example: Select all resources tagged with "backup":"true", but exclude EBS volumes**  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -111,7 +110,7 @@ RDS, Aurora, Neptune, and DocumentDB ARNs start with `arn:aws:rds:`. Refine your
 The Boolean arithmetic is similar to that in IAM policies, with those in "Resources" combined using a Boolean OR and those in `"Conditions"` combined with a Boolean AND.  
 The `"Resources"` expression `"arn:aws:rds:*:*:db:*"` only selects RDS DB instances because there are no corresponding Aurora, Neptune, or DocumentDB resources.  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -136,7 +135,7 @@ The `"Resources"` expression `"arn:aws:rds:*:*:db:*"` only selects RDS DB instan
 
 **Example: Select all EBS volumes and RDS instances tagged with "backup":"true" but not "stage":"test"**  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -164,7 +163,7 @@ The `"Resources"` expression `"arn:aws:rds:*:*:db:*"` only selects RDS DB instan
 **Example: Select all resources tagged with "key1" and a value which begins with "include" but not with "key2" and value that contains the word "exclude"**  
 You can use the wildcard character at the start, end, and middle of a string. Note the use of the wildcard character (\*) in `include*` and `*exclude*` in the example above. You can also use the wildcard character in the middle of a string as shown in the previous example, `arn:aws:rds:*:*:db:*`.  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -191,7 +190,7 @@ You can use the wildcard character at the start, end, and middle of a string. No
 **Example: Select all resources tagged with "backup":"true" except FSx file systems and RDS, Aurora, Neptune, and DocumentDB resources**  
 Items in `NotResources` are combined using the Boolean OR.  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -215,7 +214,7 @@ Items in `NotResources` are combined using the Boolean OR.
 
 **Example: Select all resources tagged with a tag "backup" and any value**  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -235,7 +234,7 @@ Items in `NotResources` are combined using the Boolean OR.
 
 **Example: Select all FSx file systems, the Aurora cluster "my-aurora-cluster", and all resources tagged with "backup":"true", except for resources tagged with "stage":"test"**  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -264,7 +263,7 @@ Items in `NotResources` are combined using the Boolean OR.
 **Example: Select all resources tagged with tag `"backup":"true"` except for EBS volumes tagged with `"stage":"test"`**  
 Use two CLI commands to create two selections to select this group of resources. The first selection applies to all resources except for EBS volumes. The second selection applies to EBS volumes.  
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[
@@ -285,7 +284,7 @@ Use two CLI commands to create two selections to select this group of resources.
 }
 ```
 
-```
+```JSON
 {
   "BackupSelection":{
     "Resources":[

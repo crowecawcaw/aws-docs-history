@@ -1,7 +1,6 @@
 
 
 # Restore a virtual machine using AWS Backup
-<a name="restoring-vm"></a>
 
 You can restore a virtual machine to VMware, VMware Cloud on AWS, VMware Cloud on AWS Outposts, an Amazon EBS volume, or [to an Amazon EC2 instance](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-ec2.html). Restoring (or migrating) a virtual machine to EC2 requires a license. By default, AWS will include a license (charges apply). For more information, see [Licensing options](https://docs.aws.amazon.com/vm-import/latest/userguide/licensing.html) in the *VM Import/Export User Guide*.
 
@@ -159,7 +158,7 @@ Use `[StartRestoreJob](https://docs.aws.amazon.com/aws-backup/latest/devguide/AP
 
 You can specify the following metadata for a virtual machine restore to Amazon EC2 and Amazon EBS:
 
-```
+```json
 RestoreTo
 InstanceType
 VpcId
@@ -189,7 +188,7 @@ AWS Backup supports both partial restores to Amazon EBS and full restores to Ama
 
 You can specify the following metadata for a virtual machine restore to VMware, VMware Cloud on AWS, and VMware cloud on AWS Outpost:
 
-```
+```json
 RestoreTo
 HypervisorArn
 VMName
@@ -204,6 +203,6 @@ AWS Backup supports both partial and full restores to an on-premises virtual mac
 
 This example shows how to conduct a full restore to VMware:
 
-```
+```json
 '{"RestoreTo":"VMware","HypervisorArn":"arn:aws:backup-gateway:us-east-1:209870788375:hypervisor/hype-9B1AB1F1","VMName":"name","VMPath":"/Labster/vm","ComputeResourceName":"Cluster","VMDatastore":"vsanDatastore","DisksToRestore":"[{\"DiskId\":\"2000\",\"Label\":\"Hard disk 1\"}]","vmId":"vm-101"}'
 ```

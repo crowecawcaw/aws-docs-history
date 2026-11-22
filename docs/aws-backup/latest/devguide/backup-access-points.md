@@ -1,7 +1,6 @@
 
 
 # Access points
-<a name="backup-access-points"></a>
 
 ## Overview
 <a name="backup-access-points-overview"></a>
@@ -99,7 +98,7 @@ Before creating/managing a backup access point, ensure:
 ------
 #### [ AWS CLI ]
 
-```
+```sh
 aws backup create-backup-access-point \
   --recovery-point-arn "arn:aws:backup:us-east-1:123456789012:recovery-point:rp-1234567890abcdef0" \
   --name "my-access-point" \
@@ -108,7 +107,7 @@ aws backup create-backup-access-point \
 
 Response:
 
-```
+```json
 {
   "AccessPointArn": "arn:aws:backup:us-east-1:123456789012:accesspoint/my-access-point",
   "Status": "CREATING"
@@ -117,14 +116,14 @@ Response:
 
 After creation, describe the access point to get the S3 ARN and alias:
 
-```
+```sh
 aws backup describe-backup-access-point \
   --access-point-arn "arn:aws:backup:us-east-1:123456789012:accesspoint/my-access-point"
 ```
 
 Response (when AVAILABLE):
 
-```
+```json
 {
   "AccessPointArn": "arn:aws:backup:us-east-1:123456789012:accesspoint/my-access-point",
   "AccessPointMetadata": {
@@ -151,7 +150,7 @@ Once the access point is in AVAILABLE status, use the S3 access point alias or A
 ### Using the alias
 <a name="accessing-backup-data-using-the-alias"></a>
 
-```
+```sh
 # List objects in the backup
 aws s3api list-objects-v2 \
   --bucket "my-access-point-abc123-ext-s3alias"
@@ -171,7 +170,7 @@ aws s3api head-object \
 ### Using the S3 access point ARN
 <a name="accessing-backup-data-using-the-arn"></a>
 
-```
+```sh
 aws s3api list-objects-v2 \
   --bucket "arn:aws:s3:us-east-1:123456789012:accesspoint/my-access-point"
 ```
@@ -184,7 +183,7 @@ aws s3api list-objects-v2 \
 
 List all backup access points in your account:
 
-```
+```sh
 aws backup list-backup-access-points
 ```
 
@@ -193,14 +192,14 @@ List backup access points for a specific recovery point:
 **Note**  
 If you are the recovery point owner and have shared the recovery point with other accounts, the response includes access points created by those accounts.
 
-```
+```sh
 aws backup list-backup-access-points-by-recovery-point \
   --recovery-point-arn "arn:aws:backup:us-east-1:123456789012:recovery-point:rp-1234567890abcdef0"
 ```
 
 List backup access points for a specific resource:
 
-```
+```sh
 aws backup list-backup-access-points-by-resource \
   --resource-arn "arn:aws:s3:::my-bucket"
 ```
@@ -208,7 +207,7 @@ aws backup list-backup-access-points-by-resource \
 ### Deleting an access point
 <a name="deleting-a-backup-access-point"></a>
 
-```
+```sh
 aws backup delete-backup-access-point \
   --access-point-arn "arn:aws:backup:us-east-1:123456789012:accesspoint/my-access-point"
 ```
@@ -263,7 +262,7 @@ When you edit a policy, AWS Identity and Access Management Access Analyzer runs 
 ------
 #### [ AWS CLI ]
 
-```
+```sh
 aws s3control put-access-point-policy \
   --account-id 123456789012 \
   --name "my-access-point" \

@@ -1,7 +1,6 @@
 
 
 # Advanced DynamoDB backup
-<a name="advanced-ddb-backup"></a>
 
 AWS Backup supports additional, advanced features for your Amazon DynamoDB data protection needs.
 
@@ -25,6 +24,7 @@ It's best practice for existing AWS Backup customers to enable advanced features
 
 After you enable AWS Backup's advanced features in your AWS Region, you unlock the following features for all new for DynamoDB table backups you create:
 + Cost savings and optimization:
+  + Incremental backups — capture only the data that changed since the last backup, so you can keep frequent backup schedules without storing a full copy of the table each time. See [Amazon DynamoDB incremental backups](incremental-ddb-backups.md).
   + [Tiering backups to cold storage](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_Lifecycle.html) to reduce storage costs
   + [ Cost allocation tagging for use with Cost Explorer](https://docs.aws.amazon.com/aws-backup/latest/devguide/metering-and-billing.html#cost-allocation-tags)
 + Additional copy options:
@@ -54,6 +54,8 @@ To learn more about AWS-managed policies and view examples of customer-managed p
 <a name="advanced-ddb-backup-overlap-costs"></a>
 
 AWS Backup advanced DynamoDB features provide periodic snapshot-based backups with additional capabilities. These do not replace or duplicate native DynamoDB point-in-time recovery (PITR), which provides continuous backup with second-level granularity. If your recovery strategy requires both periodic snapshots (for long-term retention, cross-Region DR, or compliance) and continuous recovery (for operational recovery within a short window), you may choose to enable both AWS Backup advanced features and native DynamoDB PITR. In this case, you will incur charges for both — this is intentional complementary protection, not unintended duplication. If your recovery requirements are met by periodic snapshots alone, native DynamoDB PITR can be disabled to reduce costs.
+
+For how costs work across an incremental backup chain, including how AWS Backup handles cold storage and early deletes, see [Understanding incremental backups and costs](incremental-ddb-backups.md#incremental-ddb-backups-costs).
 
 ## Enabling advanced DynamoDB backup using the console
 <a name="advanced-ddb-backup-enable-console"></a>
@@ -85,7 +87,7 @@ You can also enable AWS Backup advanced features for DynamoDB backups using the 
 
 1. Check if you already enabled AWS Backup advanced features for DynamoDB using the following command:
 
-   ```
+   ```sh
    $ aws backup describe-region-settings
    ```
 
@@ -93,7 +95,7 @@ You can also enable AWS Backup advanced features for DynamoDB backups using the 
 
    If, like the following output, you have at least one instance of `"DynamoDB":false`, you have not yet enabled advanced DynamoDB backup, proceed to the next step.
 
-   ```
+   ```JSON
    {
      "ResourceTypeManagementPreference":{
        "DynamoDB":false,
@@ -116,7 +118,7 @@ You can also enable AWS Backup advanced features for DynamoDB backups using the 
 
 1. Use the following [`UpdateRegionSettings`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html) operation to set both `"ResourceTypeManagementPreference"` and `"ResourceTypeOptInPreference"` to `"DynamoDB":true`:
 
-   ```
+   ```sh
    aws backup update-region-settings \ 
                  --resource-type-opt-in-preference DynamoDB=true \
                  --resource-type-management-preference DynamoDB=true

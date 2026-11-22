@@ -1,7 +1,6 @@
 
 
 # Continuous backups and point-in-time recovery (PITR)
-<a name="point-in-time-recovery"></a>
 
 For some resources, AWS Backup supports continuous backups and point-in-time recovery (PITR) in addition to snapshot backups.
 
@@ -143,7 +142,7 @@ The following examples demonstrate how to restore RDS and Aurora databases to a 
 **Example: Restore RDS database to a point in time with metadata**  
 
 
-```
+```bash
 aws backup start-restore-job \
     --recovery-point-arn arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45 \
     --metadata '{"DBInstanceIdentifier":"restored-db-instance","Engine":"mysql","UseLatestRestorableTime":"false","RestoreTime":"2024-01-15T10:30:00Z"}' \
@@ -155,7 +154,7 @@ aws backup start-restore-job \
 **Example: Restore Aurora cluster to a point in time**  
 
 
-```
+```bash
 aws backup start-restore-job \
     --recovery-point-arn arn:aws:backup:us-east-1:123456789012:recovery-point:2FC4C6F8-0FC1-546B-B91C-209C599C1D56 \
     --metadata '{"DBClusterIdentifier":"restored-aurora-cluster","Engine":"aurora-mysql","UseLatestRestorableTime":"true"}' \

@@ -1,7 +1,6 @@
 
 
 # Add or remove tags on existing recovery points
-<a name="tagging-recovery-points"></a>
 
 In addition to copying tags from source resources at backup creation time, you can add, modify, or remove tags on existing recovery points.
 
@@ -40,7 +39,7 @@ The IAM role or user performing the tagging operation must have the following pe
 
 **Add tags to a recovery point:**
 
-```
+```sh
 aws backup tag-resource \
     --resource-arn {{arn:aws:backup:us-east-1:123456789012:recovery-point:abcdef12-3456-7890-abcd-ef1234567890}} \
     --tags Key1=Value1,Key2=Value2
@@ -48,7 +47,7 @@ aws backup tag-resource \
 
 **Remove tags from a recovery point:**
 
-```
+```sh
 aws backup untag-resource \
     --resource-arn {{arn:aws:backup:us-east-1:123456789012:recovery-point:abcdef12-3456-7890-abcd-ef1234567890}} \
     --tag-key-list Key1 Key2
@@ -56,7 +55,7 @@ aws backup untag-resource \
 
 **List tags on a recovery point:**
 
-```
+```sh
 aws backup list-tags \
     --resource-arn {{arn:aws:backup:us-east-1:123456789012:recovery-point:abcdef12-3456-7890-abcd-ef1234567890}}
 ```

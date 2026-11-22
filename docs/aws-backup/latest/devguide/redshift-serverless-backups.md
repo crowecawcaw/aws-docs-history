@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift Serverless backups
-<a name="redshift-serverless-backups"></a>
 
 ## Overview
 <a name="redshift-serverless-backups-overview"></a>

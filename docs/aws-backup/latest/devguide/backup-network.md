@@ -1,7 +1,6 @@
 
 
 # AWS Backup network
-<a name="backup-network"></a>
 
 ## AWS Backup endpoints
 <a name="backup-endpoints"></a>
@@ -82,7 +81,7 @@ For more information, see [Control access to services using endpoint policies](h
 
 The following is an example of an endpoint policy for AWS Backup. When attached to an endpoint, this policy grants access to the listed AWS Backup actions for all principles on all resources.
 
-```
+```json
 {
   "Statement":[
     {
@@ -104,7 +103,7 @@ The following VPC endpoint policy denies AWS account `123456789012` all access t
 
 ****  
 
-```
+```json
 {
   "Id":"Policy1645236617225",
   "Version":"2012-10-17",		 	 	 

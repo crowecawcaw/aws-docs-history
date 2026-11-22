@@ -1,7 +1,6 @@
 
 
 # Controls and remediation
-<a name="controls-and-remediation"></a>
 
 This page lists the available controls for AWS Backup Audit Manager. You can choose the right info pane to see a list of controls and jump to a specific control. To quickly compare controls, see the table in [Choosing your controls](https://docs.aws.amazon.com/aws-backup/latest/devguide/choosing-controls.html). To programmatically define controls, see the code snippets in [Creating frameworks using the AWS Backup API](https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-frameworks-api.html). 
 

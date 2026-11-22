@@ -1,7 +1,6 @@
 
 
 # Identity and access management in AWS Backup
-<a name="backup-iam"></a>
 
 Access to AWS Backup requires credentials. Those credentials must have permissions to access AWS resources, such as an Amazon DynamoDB database or an Amazon EFS file system. Moreover, recovery points created by AWS Backup for some AWS Backup-supported services cannot be deleted using the source service (such as Amazon EFS). You can delete those recovery points using AWS Backup.
 

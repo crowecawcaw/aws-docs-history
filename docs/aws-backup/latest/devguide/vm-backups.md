@@ -1,7 +1,6 @@
 
 
 # Virtual machine backups
-<a name="vm-backups"></a>
 
 AWS Backup supports centralized and automated data protection for on-premises VMware virtual machines (VMs) along with VMs in the VMware Cloud™ (VMC) on AWS and VMware Cloud™ (VMC) on AWS Outposts. You can back up from your on-premises and VMC virtual machines to AWS Backup. Then, you can restore from AWS Backup to on-premises VMs, VMs in the VMC, or the VMC on AWS Outposts.
 

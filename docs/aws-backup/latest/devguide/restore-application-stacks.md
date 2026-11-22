@@ -1,7 +1,6 @@
 
 
 # Restore CloudFormation stacks
-<a name="restore-application-stacks"></a>
 
 A CloudFormation composite backup is a combination of a CloudFormation template and all associated nested recovery points. Any number of nested recovery points can be restored, but the composite recovery point (which is the top-level recovery point) cannot be restored.
 
@@ -50,7 +49,7 @@ In the command line interface, [`start-restore-job`](https://awscli.amazonaws.co
 
 The following list is the accepted metadata to restore an CloudFormation resource.
 
-```
+```json
 // Mandatory metadata:
 ChangeSetName // This is the name of the change set which will be created
 StackName // This is the name of the stack that will be created by the new change set

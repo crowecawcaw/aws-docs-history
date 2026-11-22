@@ -1,7 +1,6 @@
 
 
 # Amazon Timestream backups
-<a name="timestream-backup"></a>
 
 Amazon Timestream is a scalable time series database that allows storage and analysis of up to trillions of time series data points daily. Timestream is optimized for cost and time savings by keeping recent data in memory and by storing historical data in a cost-optimized storage tier in accordance with your policies.
 
@@ -72,7 +71,7 @@ After you’ve created or modified your backup plan, navigate to Backup plans in
 
 You can use the operation name `start-backup-job`. Include the following parameters:
 
-```
+```java
 aws backup start-backup-job \
 --backup-vault-name {{backup-vault-name}} \
 --resource-arn arn:aws:timestream:{{region}}:{{account}}:database/{{database-name}}/table/{{table-name}} \
@@ -97,6 +96,6 @@ To view and modify your Timestream table backups within the console:
    1. You can check the box to the left of the recovery point ID and click **Actions** to delete the recovery points that are no longer needed.
 
 ## Restore a Timestream table
-<a name="w2aac17c19c41c15"></a>
+<a name="w2aac17c19c43c15"></a>
 
 See how to [restore a Timestream table](https://docs.aws.amazon.com/aws-backup/latest/devguide/timestream-restore.html) 

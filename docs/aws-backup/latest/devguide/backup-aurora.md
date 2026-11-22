@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora DSQL backups
-<a name="backup-aurora"></a>
 
 You can use AWS Backup to create backups of your Amazon Aurora DSQL single-Region and multi-Region clusters. Amazon Aurora DSQL cluster backups are always full backups.
 
@@ -13,12 +12,7 @@ To use AWS Backup to create backups of your Amazon Aurora DSQL clusters, you mus
 
 When you backup a multi-Region cluster, consider the following items:
 + A multi-Region cluster backup requires a separate backup for each Region within the cluster; a backup in one Region doesn't create a recovery point for all Regions in a multi-Region cluster.
-+ As a best practice, AWS Backup recommends you create a recovery point in one Region and copy it to another related Region. For [multi-Region restore](restore-auroradsql.md#restore-auroradsql-multiregion), you need a recovery point in one supported Region, and a copy of that recovery point in another Region within the same continent group.
-
-  The following supported continent groups are available:
-  + **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
-  + **Europe**: Europe (Frankfurt), Europe (Stockholm), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris)
-  + **Asia-Pacific**: Asia Pacific (Hong Kong), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Singapore)
++ As a best practice, AWS Backup recommends you create a recovery point in one Region and copy it to the peer Region. For [restoring an Aurora DSQL multi-Region cluster](restore-auroradsql.md#restore-auroradsql-multiregion), you need a copy of the recovery point in both peer Regions. The two active peer Regions and the witness Region must each support Aurora DSQL multi-Region clusters. The three Regions must be distinct. They can be located on any continent. For more information about supported Regions, see [Multi-Region availability](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/what-is-aurora-dsql.html#aurora-dsql-multi-region-availability) in the *Amazon Aurora DSQL User Guide*.
 
 AWS Backup recommends that you add the backup copy rule to the backup plan. If you do not add the copy rule to the backup plan, you must manually copy the backup to the required Region in which to perform the restore, which will increase your Recovery Time Objective (RTO) times.
 

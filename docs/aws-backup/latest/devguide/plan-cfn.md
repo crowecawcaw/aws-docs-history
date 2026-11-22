@@ -1,14 +1,13 @@
 
 
 # CloudFormation templates for backup plans
-<a name="plan-cfn"></a>
 
 We provide three sample CloudFormation templates for your reference. The first template creates a simple backup plan. The second template enables VSS backups in a backup plan. The third template enables Amazon GuardDuty Malware Protection scanning in a backup plan.
 
 **Note**  
 If you are using the default service role, replace {{backup-policy-name}} with `AWSBackupServiceRolePolicyForBackup`.
 
-```
+```yml
 Description: backup plan template to back up all resources daily at 5am UTC, and tag all recovery points with backup:daily.
 
 Resources:
@@ -91,7 +90,7 @@ Resources:
     DependsOn: BackupPlanWithDailyBackups
 ```
 
-```
+```yml
 Description: backup plan template to enable Windows VSS and add backup rule to take backup of assigned resources daily at 5am UTC.
 
 Resources:
@@ -134,7 +133,7 @@ Resources:
     DependsOn: BackupVaultWithDailyBackups
 ```
 
-```
+```yml
 Description: Backup plan template with Amazon GuardDuty Malware Protection scanning enabled.
 
 Resources:

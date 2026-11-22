@@ -1,7 +1,6 @@
 
 
 # AWS Backup quotas
-<a name="aws-backup-limits"></a>
 
 The following quotas apply when working with AWS Backup.
 
@@ -179,6 +178,7 @@ The following quotas apply per source account and per copy destination Region. T
 | --- | --- | --- | 
 | EC2 | The EBS concurrent copy limit applies to any snapshots being copied as part of an AMI copy. | No | 
 | EBS | 20 | No | 
+| RDS | 50 | No | 
 | Aurora | 20 | No | 
 | DocumentDB | 20 | No | 
 | Neptune | 20 | No | 

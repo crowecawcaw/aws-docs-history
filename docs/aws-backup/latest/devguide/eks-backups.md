@@ -1,7 +1,6 @@
 
 
 # Amazon EKS backups
-<a name="eks-backups"></a>
 
 An Amazon Elastic Kubernetes Service (Amazon EKS) cluster consists of multiple resources that you can back up as a single unit. When you back up an Amazon EKS cluster, AWS Backup creates a composite recovery point that includes both EKS cluster state and persistent volume backups.
 

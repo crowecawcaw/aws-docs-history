@@ -1,7 +1,6 @@
 
 
 # Restore a Storage Gateway volume
-<a name="restoring-storage-gateway"></a>
 
 If you are restoring an AWS Storage Gateway volume snapshot, you can choose to restore the snapshot as an Storage Gateway volume or as an Amazon EBS volume. This is because AWS Backup integrates with both services, and any Storage Gateway snapshot can be restored to either an Storage Gateway volume or an Amazon EBS volume.
 
@@ -45,7 +44,7 @@ In the command line interface, [`start-restore-job`](https://awscli.amazonaws.co
 
 The following list is the accepted metadata.
 
-```
+```json
 gatewayArn // The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region.
 gatewayType // The type of created gateway. Valid value is BACKUP_VM
 targetName

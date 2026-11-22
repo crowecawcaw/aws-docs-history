@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift Serverless restore
-<a name="redshift-serverless-restore"></a>
 
 You can restore manual snapshots of databases or tables using the AWS Backup console or AWS CLI.
 

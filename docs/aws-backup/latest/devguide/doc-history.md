@@ -1,15 +1,16 @@
 
 
 # Document history for AWS Backup
-<a name="doc-history"></a>
 + **API version: **November 19, 2025
-+ **Latest documentation update: **November 12, 2026
++ **Latest documentation update: **November 18, 2026
 
 The following table lists all AWS Backup launches since the launch of the service in January 2019 to present. For notifications about updates to this documentation you can subscribe to the RSS feed above.
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Aurora DSQL multi-Region restore across continents | AWS Backup now supports restoring Aurora DSQL multi-Region clusters whose active peer Regions and witness Region are located on different continents. The same-continent-group restriction no longer applies. For more information, see [Restore an Aurora DSQL multi-Region cluster](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-auroradsql.html#restore-auroradsql-multiregion). | November 18, 2026 | 
+| Logically air-gapped vault support for Amazon RDS | AWS Backup now supports copying Amazon RDS DB instance backups to logically air-gapped vaults. See [Overview of logically air-gapped vaults](https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html#lag-overview). | November 16, 2026 | 
 | Logically air-gapped vault support for Amazon EBS cold storage | AWS Backup now supports transitioning EBS backups from warm to cold storage in logically air-gapped vaults. For more information, see [ Logically air-gapped vault](https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html), [ Amazon EBS Archive Tier for cold storage](https://docs.aws.amazon.com/aws-backup/latest/devguide/multi-volume-crash-consistent.html#ebs-archive-tier), and [ Lifecycle and storage tiers](https://docs.aws.amazon.com/aws-backup/latest/devguide/plan-options-and-configuration.html#backup-lifecycle). | November 12, 2026 | 
 | Cross-account backup copy and cross-account management in the AWS European Sovereign Cloud (Germany) Region | AWS Backup now supports cross-account backup copy and cross-account management in the AWS European Sovereign Cloud (Germany) Region. See [Feature availability by AWS Region](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-region). | October 29, 2026 | 
 | Restore testing support for Amazon Redshift | You can now include Amazon Redshift provisioned clusters in a restore testing plan. For more information, see [Restore testing](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing.html) and [Restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html). | October 28, 2026 | 

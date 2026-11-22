@@ -1,7 +1,6 @@
 
 
 # Primary backups to logically air-gapped vaults
-<a name="lag-vault-primary-backup"></a>
 
 ## Overview
 <a name="lag-primary-backup-overview"></a>
@@ -33,7 +32,7 @@ There is no new pricing for this feature. You are only charged for backups store
 
 You can onboard to this feature by updating your existing backup plan or creating a new one and adding a logically air-gapped vault ARN (field name: `TargetLogicallyAirGappedBackupVaultArn`) as a primary backup target. You can perform this operation either through the AWS Backup console or through AWS Backup CLI commands.
 
-```
+```json
 "TargetLogicallyAirGappedBackupVaultArn": "arn:aws:backup:us-east-1:123456789012:backup-vault:AirGappedVault",
 ```
 
@@ -149,13 +148,13 @@ Use the CLI command [`create-backup-plan`](https://docs.aws.amazon.com/aws-backu
 
 Example CLI command to create a backup plan using a JSON document:
 
-```
+```sh
 aws backup create-backup-plan --cli-input-json file://PATH-TO-FILE/test-backup-plan.json
 ```
 
 Example CLI command to create a backup plan directly in CLI:
 
-```
+```json
 aws backup create-backup-plan --backup-plan '{
   "BackupPlanName": "MyPlan",
   "Rules": [
@@ -204,7 +203,7 @@ aws backup create-backup-plan --backup-plan '{
 
 Use the start-backup-job command with the new `--logically-air-gapped-backup-vault-arn` parameter:
 
-```
+```json
 aws backup start-backup-job \
   --backup-vault-name {{MyBackupVault}} \
   --logically-air-gapped-backup-vault-arn {{arn:aws:backup:us-east-1:123456789012:backup-vault:MyLagVault}}  \

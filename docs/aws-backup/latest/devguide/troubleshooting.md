@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Backup
-<a name="troubleshooting"></a>
 
 When you use AWS Backup, you might encounter issues. The following sections can help you troubleshoot some common issues that might occur.
 

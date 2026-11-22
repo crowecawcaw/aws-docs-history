@@ -1,7 +1,6 @@
 
 
 # Restore testing inferred metadata
-<a name="restore-testing-inferred-metadata"></a>
 
 Restoring a recovery point requires restore metadata. To perform restore tests, AWS Backup automatically infers metadata that is likely to result in a successful restore. The command `get-restore-testing-inferred-metadata` can be used to preview what AWS Backup will infer. The command `get-restore-job-metadata` returns the set of metadata inferred by AWS Backup. Note that for some resource types (Amazon FSx), AWS Backup is not able to infer a complete set of metadata.
 
@@ -35,26 +34,26 @@ Because `RestoreMetadataOverrides` is a map of string key-value pairs, override 
 
 For example, to specify a single security group:
 
-```
+```json
 "vpcSecurityGroupIds": "[\"sg-012d52c68c6e88f00\"]"
 ```
 
 To specify multiple security groups:
 
-```
+```json
 "vpcSecurityGroupIds": "[\"sg-012d52c68c6e88f00\",\"sg-abcdef01234567890\"]"
 ```
 
 In AWS CloudFormation templates, you can use the `!Sub` intrinsic function to reference resource attributes within the JSON-array string:
 
-```
+```yaml
 RestoreMetadataOverrides:
   vpcSecurityGroupIds: !Sub '["${DBSecurityGroup.GroupId}"]'
 ```
 
 For multiple values in CloudFormation:
 
-```
+```yaml
 RestoreMetadataOverrides:
   vpcSecurityGroupIds: !Sub '["${DBSecurityGroup.GroupId}","${AnotherSecurityGroup.GroupId}"]'
 ```

@@ -1,7 +1,6 @@
 
 
 # Viewing audit reports
-<a name="view-reports"></a>
 
 You can open, view, and analyze AWS Backup Audit Manager reports using the programs that you ordinarily use to work with CSV or JSON files. Note that reports for multiple regions or multiple accounts are only available in CSV format.
 

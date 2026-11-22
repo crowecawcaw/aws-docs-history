@@ -1,7 +1,6 @@
 
 
 # Backup plans
-<a name="about-backup-plans"></a>
 
 In AWS Backup, a *backup plan* is a policy expression that defines when and how you want to back up your AWS resources, such as Amazon DynamoDB tables or Amazon Elastic File System (Amazon EFS) file systems. You can assign resources to backup plans, and AWS Backup automatically backs up and retains backups for those resources according to the backup plan. You can create multiple backup plans if you have workloads with different backup requirements. By default, backup windows are optimized by AWS Backup. You can customize the backup window in the console or programmatically.
 

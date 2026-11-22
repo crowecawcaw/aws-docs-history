@@ -1,7 +1,6 @@
 
 
 # Create Windows VSS backups
-<a name="windows-backups"></a>
 
 With AWS Backup, you can back up and restore VSS (Volume Shadow Copy Service)-enabled Windows applications running on Amazon EC2 instances. If the application has VSS writer registered with Windows VSS, then AWS Backup creates a snapshot that will be consistent for that application.
 

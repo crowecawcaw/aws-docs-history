@@ -1,7 +1,6 @@
 
 
 # AWS Backup: How it works
-<a name="how-it-works"></a>
 
 AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backing up of data across AWS services. With AWS Backup, you can create backup policies called *backup plans*. You can use these plans to define your backup requirements, such as how frequently to back up your data and how long to retain those backups. 
 

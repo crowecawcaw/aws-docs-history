@@ -1,7 +1,6 @@
 
 
 # Delete a backup plan
-<a name="deleting-a-backup-plan"></a>
 
 You can delete a backup plan only after all associated selections of resources have been deleted. These selections are also known as *resource assignments*. If these have not been deleted prior to deletion of the backup plan, the console will display the error: "Related backup plan selections must be deleted prior to backup plan deletion." Use the console or use [`DeleteBackupSelection`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DeleteBackupSelection.html).
 

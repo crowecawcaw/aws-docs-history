@@ -1,7 +1,6 @@
 
 
 # Backing up virtual machines
-<a name="backing-up-vms"></a>
 
 After [Adding a hypervisor](working-with-hypervisors.md#add-hypervisor), Backup gateway automatically lists your virtual machines. You can view your virtual machines by choosing either **Hypervisors** or **Virtual machines** in the left navigation pane.
 + Choose **Hypervisors** to view only the virtual machines managed by a specific hypervisor. With this view, you can work with one virtual machine at a time.
@@ -105,7 +104,7 @@ The IAM role trust relationship should be modified to add the backup-gateway.ama
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -130,7 +129,7 @@ The IAM role trust relationship should be modified to add the backup-gateway.ama
 See [Editing the trust relationship for an existing role](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/edit_trust.html) in the *AWS Directory Service Administration Guide* for more detail.
 
 ### View VMware tag mappings
-<a name="w2aac17c19c43c25c15c23"></a>
+<a name="w2aac17c19c45c25c15c23"></a>
 
 In the [AWS Backup console](https://console.aws.amazon.com/backup/), click on **External Resources**, then click on **Hypervisors**, then click on the Hypervisor name link to view properties for the selected hypervisor. Under the summary pane, there are four tabs, the last of which is **VMware tag mappings**. Note if you do not yet have mappings, "No VMware tag mappings." will be displayed.
 
@@ -139,7 +138,7 @@ From here, you can sync the metadata of virtual machines discovered by the hyper
 In the console, to see which tags are applied to a selected virtual machine, click **Virtual machines**, then the virtual machine name, then **AWS tags** or **VMware tags**. You can view the tags associated with this virtual machine, and additionally you can manage the tags.
 
 ### Assign virtual machines to plan using VMware tag mappings
-<a name="w2aac17c19c43c25c15c31"></a>
+<a name="w2aac17c19c45c25c15c31"></a>
 
 To assign virtual machines to a backup plan using mapped tags, do the following:
 
@@ -156,13 +155,13 @@ To assign virtual machines to a backup plan using mapped tags, do the following:
 1. Click **Confirm**. This opens the **Assign resources** page with **Refine selection using tags** fields with values pre-populated.
 
 ### VMware tags using the AWS CLI
-<a name="w2aac17c19c43c25c15c37"></a>
+<a name="w2aac17c19c45c25c15c37"></a>
 
 AWS Backup uses the API call [`PutHypervisorPropertyMappings`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_PutHypervisorPropertyMappings.html) to map hypervisor entity properties in on-premise to properties in AWS.
 
 In the AWS CLI, use the operation `put-hypervisor-property-mappings`:
 
-```
+```json
 aws backup-gateway put-hypervisor-property-mappings \
 --hypervisor-arn arn:aws:backup-gateway:region:account:hypervisor/hypervisorId \
 --vmware-to-aws-tag-mappings {{list of VMware to AWS tag mappings}} \
@@ -173,7 +172,7 @@ aws backup-gateway put-hypervisor-property-mappings \
 
 Here is an example:
 
-```
+```json
 aws backup-gateway put-hypervisor-property-mappings \
 --hypervisor-arn arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-12345 \
 --vmware-to-aws-tag-mappings VmwareCategory=OS,VmwareTagName=Windows,AwsTagKey=OS-Windows,AwsTagValue=Windows \
@@ -183,21 +182,21 @@ aws backup-gateway put-hypervisor-property-mappings \
 
 You can also use [`GetHypervisorPropertyMappings`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_GetHypervisorPropertyMappings.html) to assist with property mappings information. In the AWS CLI, use the operation `get-hypervisor-property-mappings`. Here is an example template: 
 
-```
+```json
 aws backup-gateway get-hypervisor-property-mappings --hypervisor-arn {{HypervisorARN}} 
 --region {{AWSRegion}}
 ```
 
 Here is an example:
 
-```
+```json
 aws backup-gateway get-hypervisor-property-mappings \
 --hypervisor-arn arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-12345 \
 --region us-east-1
 ```
 
 ### Sync metadata of virtual machines discovered by the hypervisor in AWS using API, CLI, or SDK
-<a name="w2aac17c19c43c25c15c57"></a>
+<a name="w2aac17c19c45c25c15c57"></a>
 
 You can sync the metadata of virtual machines. When you do, the VMware tags present on the virtual machine that are part of the mappings will be synched. Also, AWS tags mapped to the VMware tags present on the virtual machine will be applied to the AWS Virtual Machine resource.
 
@@ -205,7 +204,7 @@ AWS Backup uses the API call [`StartVirtualMachinesMetadataSync`](https://docs.a
 
 Example template:
 
-```
+```json
 aws backup-gateway start-virtual-machines-metadata-sync \
 --hypervisor-arn {{Hypervisor ARN}} 
 --region {{AWSRegion}}
@@ -213,7 +212,7 @@ aws backup-gateway start-virtual-machines-metadata-sync \
 
 Example:
 
-```
+```json
 aws backup-gateway start-virtual-machines-metadata-sync \
 --hypervisor-arn arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-12345 \
 --region us-east-1
@@ -223,7 +222,7 @@ You can also use [`GetHypervisor`](https://docs.aws.amazon.com/aws-backup/latest
 
 Example template:
 
-```
+```json
 aws backup-gateway get-hypervisor \
 --hypervisor-arn {{Hypervisor ARN}} 
 --region {{AWSRegion}}
@@ -231,7 +230,7 @@ aws backup-gateway get-hypervisor \
 
 Example:
 
-```
+```json
 aws backup-gateway get-hypervisor \
 --hypervisor-arn arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-12345 \
 --region us-east-1
@@ -243,7 +242,7 @@ This feature will be available on new gateways deployed after December 15, 2022.
 
 Example:
 
-```
+```json
 aws backup-gateway update-gateway-software-now \
 --gateway-arn arn:aws:backup-gateway:us-east-1:123456789012:gateway/bgw-12345 \
 --region us-east-1

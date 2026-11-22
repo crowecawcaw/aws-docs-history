@@ -1,7 +1,6 @@
 
 
 # Multi-party approval for logically air-gapped vaults
-<a name="multipartyapproval"></a>
 
 
 

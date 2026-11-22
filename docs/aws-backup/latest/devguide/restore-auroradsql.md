@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora DSQL restore
-<a name="restore-auroradsql"></a>
 
 **Topics**
 + [Overview](#restore-auroradsql-overview)
@@ -51,7 +50,7 @@ AWS Backup will create a new Aurora DSQL cluster.
 1. Include the necessary metadata for the restore job. Example:  
 **Example**  
 
-   ```
+   ```bash
    aws backup start-restore-job \
        --recovery-point-arn "arn:aws:dsql:us-east-1:123456789012:cluster/example-cluster/backup/example-backup" \
        --iam-role-arn "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole" \
@@ -64,12 +63,7 @@ AWS Backup will create a new Aurora DSQL cluster.
 ## Restore an Aurora DSQL multi-Region cluster
 <a name="restore-auroradsql-multiregion"></a>
 
-Aurora DSQL multi-Region cluster restore occurs within a continent group, which is a set of AWS Regions peers. Multi-Region restore requires that the Regions you specify in the operation are contained in one continent group. For more information about multi-Region clusters, see [Configuring multi-Region clusters](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/configuring-multi-region-clusters.html).
-
-The following continent groups are supported:
-+ **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
-+ **Europe**: Europe (Frankfurt), Europe (Stockholm), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris)
-+ **Asia-Pacific**: Asia Pacific (Hong Kong), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Singapore)
+When you restore an Aurora DSQL multi-Region cluster, you specify two active peer Regions and one witness Region. Each of these Regions must support Aurora DSQL multi-Region clusters. The three Regions must be distinct. They can be located on any continent. For more information about multi-Region clusters, see [Configuring multi-Region clusters](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/configuring-multi-region-clusters.html). For more information about supported Regions, see [Multi-Region availability](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/what-is-aurora-dsql.html#aurora-dsql-multi-region-availability) in the *Amazon Aurora DSQL User Guide*.
 
 To complete multi-Region restore, ensure you have the following permissions:
 + `backup:StartRestoreJob`
@@ -103,13 +97,13 @@ The AWS Backup console now supports multi-Region restore for Aurora DSQL cluster
 
 1. On the restore page, under **Restore options**, select **Add peer Regions** to enable multi-Region restore.
 
-1. Select a **Peer cluster Region** from the dropdown menu. This Region must be within the same continent group as your current Region and also must contain a cross-Region copy from the recovery point in the current (first) Region.
+1. Select a **Peer cluster Region** from the dropdown menu. This Region must support Aurora DSQL multi-Region clusters and must contain an identical cross-Region copy of the recovery point from your current (first) Region.
 
-1. Select a **Witness Region** from the dropdown menu. This Region must also be within the same continent group.
+1. Select a **Witness Region** from the dropdown menu. This Region must support Aurora DSQL multi-Region clusters, and must be different from your current Region and the peer Region.
 
-1. Configure the **Cluster settings** for both the primary and peer Region clusters:
+1. Configure the **Cluster settings** for both active peer Region clusters:
 
-   1. For the primary cluster, configure:
+   1. For the cluster in your current Region, configure:
       + **Cluster encryption** (optional): Select a KMS key for encryption.
       + **Deletion protection**: Enable or disable deletion protection.
 
@@ -127,17 +121,14 @@ The AWS Backup console now supports multi-Region restore for Aurora DSQL cluster
 Multi-Region restore can now be achieved using the new orchestrated restore metadata with AWS Backup CLI commands. This approach simplifies the process by handling the cluster linking automatically. For more information about creating multi-Region clusters programmatically, see [Configuring multi-Region clusters](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/configuring-multi-region-clusters.html) in the Aurora DSQL User Guide.
 
 **Important**  
-Both the primary cluster and peer cluster must be in Regions within the same continent group. The operation will fail if the clusters are in Regions outside the continent group. Supported continent groups include:  
-**Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
-**Europe**: Europe (Frankfurt), Europe (Stockholm), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris)
-**Asia-Pacific**: Asia Pacific (Hong Kong), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Singapore)
+Both active peer clusters and the witness must be in Regions that support Aurora DSQL multi-Region clusters. The three Regions must be distinct. They can be located on any continent. The restore requires a copy of the recovery point in both peer Regions.
 
 **Multi-Region restore through AWS CLI using orchestrated restore metadata**
 
 1. Create a restore job using the CLI command `aws backup start-restore-job` with the new multi-Region orchestration metadata:  
 **Example**  
 
-   ```
+   ```json
    aws backup start-restore-job \
    --recovery-point-arn "arn:aws:backup:us-east-1:123456789012:recovery-point:abcd1234" \
    --iam-role-arn "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole" \

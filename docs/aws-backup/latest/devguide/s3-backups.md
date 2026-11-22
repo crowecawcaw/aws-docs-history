@@ -1,7 +1,6 @@
 
 
 # Amazon S3 backups
-<a name="s3-backups"></a>
 
 ## Overview
 <a name="s3-backup-overview"></a>
@@ -144,7 +143,7 @@ If the bucket-level Amazon EventBridge notification setting is disabled, S3 stop
 
 **CLI:**
 
-```
+```sh
 aws s3api get-bucket-notification-configuration --bucket {{amzn-s3-demo-bucket}}
 ```
 
@@ -159,7 +158,7 @@ Interpret the response as follows:
 
 **CLI:**
 
-```
+```sh
 aws s3api put-bucket-notification-configuration \
     --bucket {{amzn-s3-demo-bucket}} \
     --notification-configuration '{"EventBridgeConfiguration": {}}'
@@ -183,7 +182,7 @@ aws s3api put-bucket-notification-configuration \
 Because AWS Backup cannot detect when bucket-level Amazon EventBridge is disabled, consider setting up proactive monitoring to alert you when notification settings change. You can use either or both of the following approaches:
 + **CloudTrail \+ Amazon EventBridge** – Create an Amazon EventBridge rule that matches `PutBucketNotificationConfiguration` API calls via CloudTrail to alert in real time when someone changes a bucket's notification configuration. The following event pattern can be used:
 
-  ```
+  ```JSON
   {
     "source": ["aws.s3"],
     "detail-type": ["AWS API Call via CloudTrail"],
@@ -202,7 +201,7 @@ Because AWS Backup cannot detect when bucket-level Amazon EventBridge is disable
 
 The IAM role used for S3 continuous backup (PITR) jobs must have the following Amazon EventBridge permissions to allow AWS Backup to manage the `AwsBackupManagedRule`:
 
-```
+```JSON
 {
   "Sid": "EventBridgePermissionsForAwsBackupManagedRule",
   "Effect": "Allow",
@@ -235,7 +234,7 @@ The AWS managed policy `AWSBackupServiceRolePolicyForS3Backup` already includes 
 
 To use system tag-based event configuration and protect more than 1,000 S3 buckets, the IAM role used for S3 backup jobs must have the following permission:
 
-```
+```JSON
 {
   "Sid": "S3BucketTagReadPermissions",
   "Effect": "Allow",
@@ -269,7 +268,7 @@ AWS Backup emits CloudTrail events when integrity checks start, complete, or fai
 
 If you use the AWS managed policy [AWSBackupServiceRolePolicyForS3Backup](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Backup.html), no action is required. If you use a custom IAM policy for your backup role, add the `s3:PutInventoryConfiguration` and `s3:GetInventoryConfiguration` permissions.
 
-```
+```JSON
 {
   "Sid": "S3InventoryPermissionsForIntegrityChecks",
   "Effect": "Allow",

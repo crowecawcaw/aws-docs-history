@@ -1,7 +1,6 @@
 
 
 # Creating report plans using the AWS Backup console
-<a name="create-report-plan-console"></a>
 
 There are two types of reports. One type is a **jobs report**, which shows jobs finished in the last 24 hours and all active jobs. The second type of report is a **compliance report**. Compliance reports can monitor resource levels or the different controls that are in effect. When you create a report, you choose which type of report to create.
 
@@ -86,7 +85,7 @@ If you encrypt your bucket using a customer managed KMS key, the KMS key policy 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -113,7 +112,7 @@ If you encrypt your bucket using a customer managed KMS key, the KMS key policy 
 
 If you use a custom AWS Key Management Service to encrypt your target S3 bucket that stores the reports, include the following action in your policy:
 
-```
+```JSON
       "Action":[
         "kms:GenerateDataKey"
       ],  
@@ -133,7 +132,7 @@ If your S3 bucket (in Account A) is encrypted with a customer managed KMS key fr
 
 1. Update the KMS key policy in Account B to grant permissions to the `AWSServiceRoleForBackupReports` service-linked role in Account A and to the IAM entity that creates the report plan:
 
-   ```
+   ```JSON
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Creating an on-demand backup using AWS Backup
-<a name="recov-point-create-on-demand-backup"></a>
 
 On the AWS Backup console, the **Protected resources** page lists resources that have been backed up by AWS Backup at least once. If you’re using AWS Backup for the first time, there aren’t any resources (such as Amazon EBS volumes or Amazon RDS databases) listed on this page. This is true even if a resource was assigned to a backup plan and that backup plan has not run a scheduled backup job at least once.
 

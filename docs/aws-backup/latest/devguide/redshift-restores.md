@@ -1,7 +1,6 @@
 
 
 # Restore an Amazon Redshift cluster
-<a name="redshift-restores"></a>
 
 You can restore automated and manual snapshots in the AWS Backup console or through CLI.
 
@@ -101,7 +100,7 @@ Use [`StartRestoreJob`](https://docs.aws.amazon.com/aws-backup/latest/devguide/A
 
 To restore a Amazon Redshift using the AWS CLI, use the command `start-restore-job` and specify the following metadata:
 
-```
+```java
 ClusterIdentifier // required string
 AdditionalInfo // optional string
 AllowVersionUpgrade // optional Boolean
@@ -142,7 +141,7 @@ RestoreType // CLUSTER_RESTORE or TABLE_RESTORE or NAMESPACE_RESTORE
 
 Here is an example template:
 
-```
+```json
 aws backup start-restore-job \
 -\-recovery-point-arn "arn:aws:redshift:{{region}}:{{account-id}}:snapshot:{{cluster-name}}/{{snapshot-name}}" \
 -\-iam-role-arn "arn:aws:iam::{{account}}:role/{{role-name}}" \
@@ -154,7 +153,7 @@ aws backup start-restore-job \
 
 Here is an example:
 
-```
+```json
 aws backup start-restore-job \
 -\-recovery-point-arn "arn:aws:redshift:us-west-2:123456789012:snapshot:redshift-cluster-1/awsbackup:job-c40dda3c-fdcc-b1ba-fa56-234d23209a40" \
 -\-iam-role-arn "arn:aws:iam::974288443796:role/Backup-Redshift-Role" \
@@ -167,20 +166,20 @@ You can also use [`DescribeRestoreJob`](https://docs.aws.amazon.com/aws-backup/l
 
 In the AWS CLI, use the operation `describe-restore-job` and use the following metadata:
 
-```
+```java
 Region
 ```
 
 Here is an example template:
 
-```
+```json
 aws backup describe-restore-job -\-restore-job-id {{restore job ID}} \
 -\-region {{AWS Region}}
 ```
 
 Here is an example:
 
-```
+```json
 aws backup describe-restore-job -\-restore-job-id BEA3B353-576C-22C0-9E99-09632F262620 \
 -\-region us-west-2 \
 ```

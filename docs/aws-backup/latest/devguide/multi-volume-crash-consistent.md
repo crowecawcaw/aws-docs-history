@@ -1,7 +1,6 @@
 
 
 # Amazon EBS and AWS Backup
-<a name="multi-volume-crash-consistent"></a>
 
 The backup process for Amazon EBS resources is similar to the steps used to back up other resources types:
 + [Create an on-demand backup](recov-point-create-on-demand-backup.md)

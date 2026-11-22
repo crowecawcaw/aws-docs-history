@@ -1,7 +1,6 @@
 
 
 # Backup and tag edits
-<a name="editing-a-backup"></a>
 
 After you create a backup using AWS Backup, you can change the lifecycle or tags of the backup. The lifecycle defines when a backup is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 

@@ -1,7 +1,6 @@
 
 
 # Finding non-compliant resources
-<a name="finding-non-compliant-resources"></a>
 
 AWS Backup Audit Manager helps you find which resources are non-compliant in two ways.
 + When [Viewing framework compliance status](https://docs.aws.amazon.com/aws-backup/latest/devguide/viewing-frameworks.html), choose the control name in the **Details section**. Doing so takes you to the AWS Config console, where you can view a list of your of your `Non-Compliant` resources.

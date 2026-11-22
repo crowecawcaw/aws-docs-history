@@ -1,7 +1,6 @@
 
 
 # Restore an Amazon Timestream table
-<a name="timestream-restore"></a>
 
 When you restore a Amazon Timestream table, there are several options to configure, including the new table name, the destination database, your storage allocation preferences (memory and magnetic storage), and which role you’ll use to complete the restore job. You can also choose an Amazon S3 bucket in which to store error logs. Magnetic storage writes are asynchronous, so you may wish you log the errors.
 
@@ -52,7 +51,7 @@ Use [`StartRestoreJob` to restore a Timestream table via API.](https://docs.aws.
 
 To restore a Timestream using the AWS CLI, use the operation `start-restore-job.` and specify the following metadata:
 
-```
+```java
 TableName: string;
 DatabaseName: string;
 MemoryStoreRetentionPeriodInHours: value: number unit: 'hours' | 'days' | 'weeks' | 'months' 
@@ -63,7 +62,7 @@ aws:backup:request-id
 
 Here is an example template:
 
-```
+```json
 aws backup start-restore-job \
 --recovery-point-arn "arn:aws:backup:us-west-2:{{accountnumber}}:recovery-point:1a2b3cde-f405-6789-012g-3456hi789012_beta" \
 --iam-role-arn "arn:aws:iam::{{accountnumber}}:role/{{rolename}}" \
@@ -76,7 +75,7 @@ You can also use [`GetRecoveryPointRestoreMetadata`](https://docs.aws.amazon.com
 
 In the AWS CLI, use the operation `get-recovery-point-restore-metadata` and use the following metadata:
 
-```
+```java
 TableName: string;
 DatabaseName: string;
 MemoryStoreRetentionPeriodInHours: value: number unit: 'hours' | 'days' | 'weeks' | 'months' 
@@ -86,7 +85,7 @@ EnableMagneticStoreWrites?: boolean;
 
 Here is an example template:
 
-```
+```json
 aws backup describe-restore-job \
 --restore-job-id {{restore job ID}} \
 --region {{awsregion}} \

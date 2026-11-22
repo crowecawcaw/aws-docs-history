@@ -1,7 +1,6 @@
 
 
 # Finding a continuous backup
-<a name="point-in-time-recovery-finding"></a>
 
 You can use the AWS Backup console to find your continuous backup.
 

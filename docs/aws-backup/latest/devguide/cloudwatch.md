@@ -1,7 +1,6 @@
 
 
 # AWS Backup metrics with Amazon CloudWatch
-<a name="cloudwatch"></a>
 
 **Topics**
 + [CloudWatch Dashboard](#cloudwatch-dashboard)

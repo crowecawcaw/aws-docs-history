@@ -1,7 +1,6 @@
 
 
 # SAP HANA backup on Amazon EC2
-<a name="backup-saphana"></a>
 
 **Note**  
 [Supported services by AWS Region](backup-feature-availability.md#supported-services-by-region) contains the currently supported Regions where SAP HANA database backups on Amazon EC2 instances are available.

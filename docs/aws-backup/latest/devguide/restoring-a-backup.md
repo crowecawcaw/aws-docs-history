@@ -1,7 +1,6 @@
 
 
 # Restore a backup by resource type
-<a name="restoring-a-backup"></a>
 
 ## How to restore
 <a name="how-to-restore"></a>

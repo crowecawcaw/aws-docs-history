@@ -1,7 +1,6 @@
 
 
 # Creating frameworks using the AWS Backup API
-<a name="creating-frameworks-api"></a>
 
 The following table contains sample API requests to [CreateFramework](https://docs.aws.amazon.com/aws-backup/latest/APIReference/API_CreateFramework.html) for each control, along with sample API responses to the corresponding [DescribeFramework](https://docs.aws.amazon.com/aws-backup/latest/APIReference/API_DescribeFramework.html) requests. To work with AWS Backup Audit Manager programmatically, you can refer to these code snippets.
 

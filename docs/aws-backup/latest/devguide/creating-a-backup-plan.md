@@ -1,7 +1,6 @@
 
 
 # Create a backup plan
-<a name="creating-a-backup-plan"></a>
 
 You can create a backup plan using the AWS Backup console, API, CLI, SDK, or an AWS CloudFormation template.
 
@@ -82,7 +81,7 @@ Before enabling malware protection, ensure your backup role and scanner role hav
 
 You can also define your backup plan in a JSON document and provide it using the AWS Backup console or AWS CLI. The following JSON document contains a sample backup plan that creates a daily backup at 1:00 Pacific time (the local time adjusts to daylight, standard, or summer time conditions if applicable). It automatically deletes a backup after one year.
 
-```
+```json
 {
   "BackupPlan":{
     "BackupPlanName":"{{test-plan}}",
@@ -110,7 +109,7 @@ You can also define your backup plan in a JSON document and provide it using the
 
 You can store your JSON document with a name you choose. The following CLI command shows [`create-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html) with a JSON named `test-backup-plan.json`:
 
-```
+```sh
 aws backup create-backup-plan --cli-input-json file://{{PATH-TO-FILE}}/{{test-backup-plan}}.json
 ```
 

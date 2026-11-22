@@ -1,7 +1,6 @@
 
 
 # Encryption for backups in AWS Backup
-<a name="encryption"></a>
 
 ## Independent encryption
 <a name="independent-encryption"></a>
@@ -42,13 +41,17 @@ The following table lists each supported resource type, how encryption is config
 ## Encryption for copies of a backup to a different account or AWS Region
 <a name="copy-encryption"></a>
 
-When you copy your backups across accounts or Regions, AWS Backup automatically encrypts those copies for most resource types, even if the original backup is unencrypted. AWS Backup encrypts the copy using the KMS key of the target vault.
+When you copy your backups across accounts or Regions, AWS Backup automatically encrypts those copies for most resource types, even if the original backup is unencrypted. The key that encrypts the copy depends on whether the resource is fully managed by AWS Backup and on the key that the destination vault uses.
 
 Before you copy a backup from one account to another (cross-account copy job) or copy a backup from one Region to another (cross-Region copy job), note the following conditions, many of which depend on whether the resource type in the backup (recovery point) is [fully managed by AWS Backup or not fully managed](backup-feature-availability.md#features-by-resource).
-+ A copy of a backup to another AWS Region is encrypted using the key of the destination vault.
-+ For a copy of a recovery point (backup) of a resource that is **fully managed by AWS Backup**, you can choose to encrypt it with a [customer managed key (CMK)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) or an AWS Backup managed key (`aws/backup`).
++ For a resource that is **fully managed by AWS Backup**, a copy to another AWS Region, to another AWS account, or to both is encrypted with the key of the destination vault. The destination vault can use either a [customer managed key (CMK)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) or the AWS Backup managed key (`aws/backup`).
++ For a copy of a recovery point of a resource that is **not fully managed** by AWS Backup (for example, an Amazon EC2 or Amazon EBS resource), the key that encrypts the copy depends on whether you copy within the same account or across accounts:
+  + For a same-account copy to another AWS Region, if the destination vault uses a CMK, the copy is encrypted with that key. If the destination vault uses the AWS Backup managed key (`aws/backup`), the copy is encrypted with the AWS managed key of the underlying service in the destination AWS Region (for example, `aws/ebs` for Amazon EBS unless the account's default EBS key was changed).
+  + For a cross-account copy, the destination vault must use a CMK. If the destination vault uses the AWS Backup managed key (`aws/backup`), the copy job fails with the following error, because AWS managed keys can't be shared across accounts (see the following condition):
 
-  For a copy of a recovery point of a resource that is **not fully managed** by AWS Backup, the key associated to the destination vault must be a CMK or the managed key of the service that owns the underlying resource. For example, if you are copying an EC2 instance, a Backup managed key cannot be used. Instead, a CMK or Amazon EBS KMS key (`aws/ebs`) must be used to avoid copy job failure.
+    **Access denied**
+
+    Copy job failed because the destination Backup vault is encrypted with the default Backup service managed key. The contents of this vault cannot be copied. Only the contents of a Backup vault encrypted by an AWS KMS key may be copied.
 + Cross-account copy with AWS managed keys isn't supported for resources that aren't fully managed by AWS Backup. The [key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) of an AWS managed key is immutable, which prevents copying the key across accounts. If your resources are encrypted with AWS managed keys and you want to perform a cross-account copy, you may [change the encryption keys](https://repost.aws/knowledge-center/update-encryption-key-rds) to a customer managed key, which can be used for cross-account copying. Or, you can follow the instructions in [ Protecting encrypted Amazon RDS instances with cross-account and cross-Region backups](https://aws.amazon.com/blogs/storage/protecting-encrypted-amazon-rds-instances-with-cross-account-and-cross-region-backups/) to continue using AWS managed keys. 
 + Copies of unencrypted Amazon Aurora, Amazon DocumentDB, and Amazon Neptune clusters are also unencrypted.
 
@@ -70,7 +73,7 @@ If Deny policies are necessary, you will need to allowlist the required roles fo
 
 These elements can look like:
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [

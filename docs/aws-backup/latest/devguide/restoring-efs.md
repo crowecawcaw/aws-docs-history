@@ -1,7 +1,6 @@
 
 
 # Restore an Amazon EFS file system
-<a name="restoring-efs"></a>
 
 If you are restoring an Amazon Elastic File System (Amazon EFS) instance, you can perform a full restore or an item-level restore.
 
@@ -110,7 +109,7 @@ You may also include `aws:backup:request-id`.
 
 One Zone restores can be performed by including parameters:
 
-```
+```JSON
 "singleAzFilesystem": "true" 
 "availabilityZoneName": "{{ap-northeast-3}}"
 ```

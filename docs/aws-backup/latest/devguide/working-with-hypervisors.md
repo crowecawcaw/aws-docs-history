@@ -1,7 +1,6 @@
 
 
 # Working with hypervisors
-<a name="working-with-hypervisors"></a>
 
 After you finish [Creating a gateway](working-with-gateways.md#create-gateway), you can connect it to a hypervisor to enable AWS Backup to work with the virtual machines managed by that hypervisor. For example, the hypervisor for VMware VMs is VMware vCenter Server. Ensure your hypervisor is configured with the [necessary permissions for AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/configure-infrastructure-bgw.html#bgw-vmware-permissions). 
 

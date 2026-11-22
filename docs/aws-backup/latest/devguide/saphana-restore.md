@@ -1,7 +1,6 @@
 
 
 # Restore an SAP HANA database on an Amazon EC2 instance
-<a name="saphana-restore"></a>
 
 SAP HANA databases on EC2 instances can be restored using the AWS Backup console, using API, or using AWS CLI.
 
@@ -59,7 +58,7 @@ This action recovers the saved resource identified by an Amazon Resource Name (A
 
 **Request Syntax**
 
-```
+```json
 PUT /restore-jobs HTTP/1.1
 Content-type: application/json
 {
@@ -92,7 +91,7 @@ To retrieve the relevant metadata, you can use the call [`GetRecoveryPointRestor
 
 Example of a standard SAP HANA database recovery point:
 
-```
+```json
 "RestoreMetadata": {
         "BackupSize": "1660948480", 
         "DatabaseName": "{{DATABASENAME}}",
@@ -112,7 +111,7 @@ Example of a standard SAP HANA database recovery point:
 
 Example of a continuous SAP HANA database recovery point:
 
-```
+```json
 "RestoreMetadata": {
         "AvailableRestoreBases": "[1234567890123,9876543210987,1472583691472,7418529637418,1678942598761]",
         "BackupSize": "1711284224",
@@ -140,7 +139,7 @@ The command `start-restore-job` recovers the saved resource identified by an Ama
 
 **Synopsis:**
 
-```
+```java
 start-restore-job
 --recovery-point-arn {{value}}
 --metadata {{value}}
@@ -184,7 +183,7 @@ KeyName1=string,KeyName2=string
 
 JSON syntax:
 
-```
+```JSON
 {"string": "string"
   ...}
 ```

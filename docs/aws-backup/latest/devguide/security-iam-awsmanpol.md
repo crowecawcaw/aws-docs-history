@@ -1,7 +1,6 @@
 
 
 # Managed policies for AWS Backup
-<a name="security-iam-awsmanpol"></a>
 
 Managed policies are standalone identity-based policies that you can attach to multiple users, groups, and roles in your AWS account. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy.
 
@@ -165,7 +164,7 @@ This policy’s version defines the permissions for the policy. When the user or
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -264,7 +263,7 @@ This policy’s version defines the permissions for the policy. When the user or
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -324,7 +323,7 @@ For EC2 instance restores, you must also include the following permissions to la
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -391,7 +390,7 @@ Each service section below lists the specific statement names (Sids) you need fr
 
 1. Wrap the statements in a valid IAM policy structure. Include the `Version` element to avoid [IAM Access Analyzer warnings](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-policy-checks.html#access-analyzer-reference-policy-checks-general-warning-missing-version):
 
-   ```
+   ```JSON
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -404,7 +403,7 @@ Each service section below lists the specific statement names (Sids) you need fr
 
 Alternatively, you can retrieve the full policy JSON using the AWS CLI:
 
-```
+```sh
 aws iam get-policy-version \
     --policy-arn arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup \
     --version-id $(aws iam get-policy --policy-arn arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup --query "Policy.DefaultVersionId" --output text) \
@@ -483,7 +482,7 @@ Start with the `EBSPermissions` statement from [AWSBackupServiceRolePolicyForRes
 
 Add the following statement.
 
-```
+```json
 {
       "Effect":"Allow",
       "Action": [
@@ -520,7 +519,7 @@ Start with the following statements from [AWSBackupServiceRolePolicyForRestores]
 
 Add the following statement.
 
-```
+```json
 {
       "Effect": "Allow",
       "Action": "iam:PassRole",
@@ -627,7 +626,7 @@ Start with the following statements from [AWSBackupServiceRolePolicyForBackup](h
 
 Add the following statement.
 
-```
+```json
 {
       "Effect": "Allow",
       "Action": [

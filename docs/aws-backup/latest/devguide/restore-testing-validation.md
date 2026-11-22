@@ -1,7 +1,6 @@
 
 
 # Restore testing validation
-<a name="restore-testing-validation"></a>
 
 You have the option of creating an event-driven validation that runs when a restore testing job completes.
 
@@ -19,7 +18,7 @@ First, create a validation workflow with any target supported by Amazon EventBri
 
    Here is a sample:
 
-   ```
+   ```node
    import { Backup } from "@aws-sdk/client-backup";
    
    export const handler = async (event) => {
@@ -51,7 +50,7 @@ First, create a validation workflow with any target supported by Amazon EventBri
 
    Optionally, you can filter events by resource type or restore testing plan ARN. Set the target of this rule to invoke the validation workflow you defined in Step 1. Here is an example:
 
-   ```
+   ```json
    {
      "source":[
        "aws.backup"

@@ -1,7 +1,6 @@
 
 
 # Managing AWS Backup resources across multiple AWS accounts
-<a name="manage-cross-account"></a>
 
 **Note**  
 Before you manage resources across multiple AWS accounts in AWS Backup, your accounts must belong to the same organization in the AWS Organizations service.
@@ -166,7 +165,7 @@ Use the CLI command `register-delegated-administrator`. You can specify the foll
 
 Below is an example of a CLI request to register a member account programmatically:
 
-```
+```java
 aws organizations register-delegated-administrator \
 --account-id 012345678912 \
 --service-principal "backup.amazonaws.com"
@@ -199,7 +198,7 @@ Use the CLI command `deregister-delegated-administrator` to deregister a delegat
 
 Below is an example of a CLI request to deregister a member account programmatically:
 
-```
+```java
 aws organizations deregister-delegated-administrator \
 --account-id 012345678912 \
 --service-principal "backup.amazonaws.com"

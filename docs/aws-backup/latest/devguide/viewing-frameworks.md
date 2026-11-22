@@ -1,7 +1,6 @@
 
 
 # Viewing framework compliance status
-<a name="viewing-frameworks"></a>
 
 Once you create an audit framework, it appears in your **Frameworks** table. You can view this table by choosing **Frameworks** in the left navigation pane of the AWS Backup console. To view the audit results for your framework, choose its **Framework name**. Doing so takes you to the **Framework detail** page, which has two sections: **Summary** and **Controls**.
 

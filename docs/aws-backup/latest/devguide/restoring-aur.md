@@ -1,7 +1,6 @@
 
 
 # Restoring an Amazon Aurora cluster
-<a name="restoring-aur"></a>
 
 ## Use the AWS Backup console to restore Aurora recovery points
 <a name="aur-restore-console"></a>
@@ -49,13 +48,13 @@ If role manager is enabled in your account, AWS Backup selects the default servi
    Using the AWS CLI:
    + For Linux, macOS, or Unix:
 
-     ```
+     ```sh
      aws rds create-db-instance --db-instance-identifier {{sample-instance}} \ 
                    --db-cluster-identifier {{sample-cluster}} --engine aurora-mysql --db-instance-class db.{{r4.large}}
      ```
    + For Windows:
 
-     ```
+     ```sh
      aws rds create-db-instance --db-instance-identifier {{sample-instance}} ^ 
                    --db-cluster-identifier {{sample-cluster}} --engine aurora-mysql --db-instance-class db.{{r4.large}}
      ```
@@ -70,7 +69,7 @@ Use `[StartRestoreJob](https://docs.aws.amazon.com/aws-backup/latest/devguide/AP
 **Restore a cluster from a snapshot**  
 You can specify the following metadata for an Aurora snapshot restore job. See [`RestoreDBClusterFromSnapshot`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterFromSnapshot.html) in the *Amazon Relational Database Service API Reference* for additional information and accepted values.
 
-```
+```java
 // Required metadata:
 dbClusterIdentifier // string
 engine // string
@@ -95,14 +94,14 @@ vpcSecurityGroupIds // array of strings
 
 Example:
 
-```
+```json
 "restoreMetadata":"{\"EngineVersion\":\"5.6.10a\",\"KmsKeyId\":\"arn:aws:kms:us-east-{{1:234567890123:key/45678901-ab23-4567-8cd9-012d345e6f7}}\",\"EngineMode\":\"serverless\",\"AvailabilityZones\":\"[\\\"us-east-1b\\\",\\\"us-east-1e\\\",\\\"us-east-1c\\\"]\",\"Port\":\"3306\",\"DatabaseName\":\"\",\"DBSubnetGroupName\":\"default-vpc-05a3b07cf6e193e1g\",\"VpcSecurityGroupIds\":\"[\\\"sg-012d52c68c6e88f00\\\"]\",\"ScalingConfiguration\":\"{\\\"MinCapacity\\\":2,\\\"MaxCapacity\\\":64,\\\"AutoPause\\\":true,\\\"SecondsUntilAutoPause\\\":300,\\\"TimeoutAction\\\":\\\"RollbackCapacityChange\\\"}\",\"EnableIAMDatabaseAuthentication\":\"false\",\"DBClusterParameterGroupName\":\"default.aurora5.6\",\"CopyTagsToSnapshot\":\"true\",\"Engine\":\"aurora\",\"EnableCloudwatchLogsExports\":\"[]\"}"
 ```
 
 **Restore a cluster to a point in time (PITR)**  
 You can specify the following metadata when you want to restore an Aurora continuous backup (recovery point) to a specific point in time (PITR). See [`RestoreDBClusterToPointInTime`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.html) in the *Amazon Relational Database Service API Reference* for additional information and accepted values.
 
-```
+```java
 // Required metadata:
 dbClusterIdentifier // string
 engine // string

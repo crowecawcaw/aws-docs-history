@@ -1,7 +1,6 @@
 
 
 # Assign resources using the AWS Backup console
-<a name="assigning-resources-console"></a>
 
 **To navigate to the **Assign resources** page:**
 

@@ -1,7 +1,6 @@
 
 
 # Deleting audit frameworks
-<a name="deleting-frameworks"></a>
 
 **To delete an existing framework**
 

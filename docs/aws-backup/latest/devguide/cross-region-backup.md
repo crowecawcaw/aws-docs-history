@@ -1,7 +1,6 @@
 
 
 # Creating backup copies across AWS Regions
-<a name="cross-region-backup"></a>
 
 Using AWS Backup, you can copy backups to multiple AWS Regions on demand or automatically as part of a scheduled backup plan. Cross-Region replication is particularly valuable if you have business continuity or compliance requirements to store backups a minimum distance away from your production data. For a video tutorial, see [Managing cross-Region copies of backups](https://www.youtube.com/watch?v=qMN18Lpj3PE).
 

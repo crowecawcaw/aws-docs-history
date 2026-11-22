@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Backup
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS Backup is protected by AWS global network security. For more information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/). To design your AWS environment using the best practices for infrastructure security, see [Infrastructure protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html) in *Security Pillar AWS Well‐Architected Framework*.
 

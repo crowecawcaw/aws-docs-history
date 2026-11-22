@@ -1,7 +1,6 @@
 
 
 # Backup creation by resource type
-<a name="creating-a-backup"></a>
 
 With AWS Backup, you can create backups automatically using backup plans or manually by initiating an on-demand backup. 
 
@@ -39,8 +38,13 @@ For example, if your day 1 (full) backup was deleted due to a 3-day lifecycle po
 
 Backups of resources which are fully managed by AWS Backup can only be incremental if the vault in which the backup is created also contains an earlier backup (incremental or full); other resource types (not fully managed by AWS Backup) can have incremental backups as long as there is a previous backup of the resource within the same *Region*.
 
+**Periodic rebasing**
+
+For most resource types that support incremental backups, AWS Backup keeps a single initial full backup and stores every later backup as an increment (an approach known as incremental forever). Some resource types instead reset the incremental chain periodically by taking a new full backup. This is called periodic rebasing. Rebasing shortens the chain of backups that any single restore depends on, which keeps restore times predictable and limits how long shared reference data must be retained. Amazon DynamoDB incremental backups use periodic rebasing. AWS Backup manages the rebase schedule automatically, and it is not customer configurable. For behavior specific to DynamoDB, see [Advanced DynamoDB backup](advanced-ddb-backup.md).
+
 **Note**  
-Not all resource types support incremental backups. Some resources, such as Amazon Aurora, offer incremental backup only through continuous backups and point-in-time restore (PITR), not through snapshot-based backups. For a full list of which resources support incremental backups, see the [Feature availability by resource](backup-feature-availability.md#features-by-resource) table.
+Not all resource types support incremental backups. Some resources, such as Amazon Aurora, offer incremental backup only through continuous backups and point-in-time restore (PITR), not through snapshot-based backups. For a full list of which resources support incremental backups, see the [Feature availability by resource](backup-feature-availability.md#features-by-resource) table.  
+Amazon DynamoDB supports incremental snapshot backups after you enable the Incremental Backup setting; until then, each DynamoDB backup is a full backup. See [Advanced DynamoDB backup](advanced-ddb-backup.md).
 
 ## Access to source resources
 <a name="source-resource-statuses"></a>
@@ -65,6 +69,7 @@ AWS Backup retains previously-created backups consistent with your lifecycle pol
 + [CloudFormation stack backups](applicationstackbackups.md)
 + [Amazon Aurora DSQL backups](backup-aurora.md)
 + [Advanced DynamoDB backup](advanced-ddb-backup.md)
++ [Amazon DynamoDB incremental backups](incremental-ddb-backups.md)
 + [Amazon EBS and AWS Backup](multi-volume-crash-consistent.md)
 + [Amazon Relational Database Service backups](rds-backup.md)
 + [Amazon Redshift backups](redshift-backups.md)

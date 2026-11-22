@@ -1,7 +1,6 @@
 
 
 # Understanding backup plan summary
-<a name="understanding-backup-plan-summaries"></a>
 
 The backup plan summary feature provides a comprehensive view of your backup plan configuration to help you validate that your backup strategy meets your requirements. The summary includes three key components that address common customer challenges when managing complex backup configurations across multiple AWS services.
 

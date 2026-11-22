@@ -1,7 +1,6 @@
 
 
 # Virtual machine hypervisor credential encryption
-<a name="bgw-hypervisor-encryption-page"></a>
 
 Virtual machines [ managed by a hypervisor](https://docs.aws.amazon.com/aws-backup/latest/devguide/working-with-hypervisors.html) use [AWS Backup Gateway](https://docs.aws.amazon.com/aws-backup/latest/devguide/working-with-gateways.html) to connect on-premises systems to AWS Backup. It is important that hypervisors have the same robust and reliable security. This security can be achieved by encrypting the hypervisor, either by AWS owned keys or by customer managed keys.
 

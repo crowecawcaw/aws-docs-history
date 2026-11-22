@@ -1,7 +1,6 @@
 
 
 # Restore testing
-<a name="restore-testing"></a>
 
 *Restore testing*, a feature offered by AWS Backup, provides automated and periodic evaluation of restore viability, as well as the ability to monitor restore job duration times.
 

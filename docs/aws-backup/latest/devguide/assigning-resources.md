@@ -1,7 +1,6 @@
 
 
 # Select AWS services to backup
-<a name="assigning-resources"></a>
 
 ## Opt in to services, then assign resources
 <a name="w2aac13c19b3"></a>

@@ -1,7 +1,6 @@
 
 
 # Logically air-gapped vault
-<a name="logicallyairgappedvault"></a>
 
 ## Overview of logically air-gapped vaults
 <a name="lag-overview"></a>
@@ -47,6 +46,8 @@ A logically air-gapped vault is a secondary vault that serves as part of a data 
 + Contains backups which, through AWS RAM or MPA, can be shared with and restored from a different account than the one that created the backup
 
 **Considerations and limitations**
++ Cross-Region copy to or from a logically air-gapped vault is not currently available for backups that contain Amazon RDS DB instances.
++ When you restore an Amazon RDS DB instance from a shared logically air-gapped vault encrypted with a customer managed key, the key policy must allow your restore role and your account's AWS Backup service-linked role to use the key. See [Key policy for CMK encrypted logically air-gapped vault](#key-policy-lag-vault-creation).
 + Unencrypted Amazon Aurora, Amazon DocumentDB, and Amazon Neptune clusters are not supported for logically air-gapped vault, as they do not support encryption of unencrypted DB cluster snapshots.
 + Amazon EC2 offers [EC2 Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html). If this setting is enabled in your account, add the alias `aws-backup-vault` to your allowlist.
 
@@ -137,7 +138,7 @@ You can use AWS CLI to programmatically carry out operations for logically air-g
 
 Use the CLI command [`create-logically-air-gapped-backup-vault`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-logically-air-gapped-backup-vault.html), modified with the following parameters:
 
-```
+```json
 aws backup create-logically-air-gapped-backup-vault
 --region us-east-1 // optional
 --backup-vault-name {{sampleName}} // required
@@ -151,7 +152,7 @@ The optional `--encryption-key-arn` parameter allows you to specify a customer-m
 
 Example CLI command to create a logically air-gapped vault:
 
-```
+```json
 aws backup create-logically-air-gapped-backup-vault
 --region us-east-1
 --backup-vault-name sampleName
@@ -162,7 +163,7 @@ aws backup create-logically-air-gapped-backup-vault
 
 Example CLI command to create a logically air-gapped vault with customer-managed encryption:
 
-```
+```json
 aws backup create-logically-air-gapped-backup-vault
 --region us-east-1
 --backup-vault-name sampleName
@@ -203,7 +204,7 @@ View details of a logically air-gapped vault through CLI
 
 The CLI command [`describe-backup-vault`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/describe-backup-vault.html) can be used to obtain details about a vault. Parameter `backup-vault-name` is required; `region` is optional.
 
-```
+```json
 aws backup describe-backup-vault
 --region {{us-east-1}}
 --backup-vault-name {{testvaultname}}
@@ -211,7 +212,7 @@ aws backup describe-backup-vault
 
 Example of response:
 
-```
+```json
 {
             "BackupVaultName": "LOG-AIR-GAP-VAULT-TEST",
             "BackupVaultArn": "arn:aws:backup:us-east-1:234567890123:backup-vault:IAD-LAGV-01",
@@ -254,7 +255,7 @@ You can copy a backup from one logically air-gapped vault to another logically a
 
 You can transition Amazon EBS backups in a logically air-gapped vault to Amazon EBS Snapshots Archive, a lower-cost storage tier for backups that you rarely access. In a backup rule that runs monthly or less often, add a copy action with a logically air-gapped vault as the destination. In the copy lifecycle, select Archive Amazon EBS snapshots, then set the time in warm storage and the total retention period. If you use a logically air-gapped vault as the primary backup target, select Archive Amazon EBS snapshots in the backup rule lifecycle instead. The backup transitions to the archive tier after it is copied to the vault. The total retention period must be at least 90 days longer than the time in warm storage, and it must fall within the minimum and maximum retention period of the vault.
 
-If the vault is encrypted with a customer managed key, update the key policy before you enable this option. For more information, see [Key policy for CMK encrypted logically air-gapped vault creation](#key-policy-lag-vault-creation).
+If the vault is encrypted with a customer managed key, update the key policy before you enable this option. For more information, see [Key policy for CMK encrypted logically air-gapped vault](#key-policy-lag-vault-creation).
 
 **On-demand backup copy to a logically air-gapped vault**
 
@@ -294,7 +295,7 @@ Use [start-copy-job](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_
 
 Sample CLI input:
 
-```
+```json
 aws backup start-copy-job
 --region {{us-east-1}}
 --recovery-point-arn {{arn:aws:resourcetype:region::snapshot/snap-12345678901234567}}
@@ -370,7 +371,7 @@ Steps 1 through 4 are conducted with the account that owns the logically air-gap
 
    1. Example input:
 
-      ```
+      ```json
       aws ram create-resource-share
       --name {{MyLogicallyAirGappedVault}}
       --resource-arns arn:aws:backup:us-east-1:{{123456789012}}:backup-vault:{{test-vault-1}}
@@ -380,7 +381,7 @@ Steps 1 through 4 are conducted with the account that owns the logically air-gap
 
    1. Example output:
 
-      ```
+      ```json
       {
          "resourceShare":{
             "resourceShareArn":"arn:aws:ram:us-east-1:123456789012:resource-share/12345678-abcd-09876543",
@@ -434,7 +435,7 @@ Once a backup has been shared from a logically air-gapped vault to your account,
 
 A sample CLI input can include the following command and parameters:
 
-```
+```json
 aws backup start-restore-job
 --recovery-point-arn {{arn:aws:backup:us-east-1:accountnumber:recovery-point:RecoveryPointID}}
 --metadata {\"availabilityzone\":\"us-east-1d\"}
@@ -456,7 +457,7 @@ Deletion of a vault also deletes the key associated with the vault seven days af
 
 The following sample CLI command [`delete-backup-vault`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/delete-backup-vault.html) can be used to delete a vault.
 
-```
+```json
 aws backup delete-backup-vault
 --region us-east-1 
 --backup-vault-name {{testvaultname}}
@@ -467,20 +468,20 @@ aws backup delete-backup-vault
 
 The CLI command [`list-backup-vaults`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupVaults.html) can be modified to list all the vaults owned by and present in the account:
 
-```
+```json
 aws backup list-backup-vaults
 --region us-east-1
 ```
 
 To list just the logically air-gapped vaults, add the parameter
 
-```
+```java
 --by-vault-type LOGICALLY_AIR_GAPPED_BACKUP_VAULT
 ```
 
 Include the parameter `by-shared` to filter the returned list of vaults to show only shared logically air-gapped vaults. The response will include encryption key type information for each shared vault.
 
-```
+```json
 aws backup list-backup-vaults
 --region us-east-1
 --by-shared
@@ -488,7 +489,7 @@ aws backup list-backup-vaults
 
 Example response showing encryption key type information:
 
-```
+```json
 {
     "BackupVaultList": [
         {
@@ -525,13 +526,13 @@ AWS Backup recommends using AWS owned keys with logically air-gapped vaults.
 If your organization policy requires using a customer managed key, AWS does not recommend using keys from the same account, except for testing. For production workloads, use a customer managed key from another account in a secondary organization dedicated to recovery as a best practice. You can reference the blog [ Encrypt AWS Backup logically air-gapped vaults with customer-managed keys](https://aws.amazon.com/blogs/storage/encrypt-aws-backup-logically-air-gapped-vaults-with-customer-managed-keys/) to gather more insights into setting up CMK based logically air-gapped vaults.
  You can only select an AWS KMS encryption key during vault creation. Once created, all backups contained in the vault will be encrypted with that key. You cannot change or migrate your vaults to use a different encryption key.
 
-### Key policy for CMK encrypted logically air-gapped vault creation
+### Key policy for CMK encrypted logically air-gapped vault
 <a name="key-policy-lag-vault-creation"></a>
 
 When creating a logically air-gapped vault with a customer managed key, you must apply the AWS-managed policy `AWSBackupFullAccess` to your account role. This policy includes `Allow` actions that enable AWS Backup to interact with AWS KMS for grant creation on KMS keys during backup, copy, and storage operations. Additionally, you must ensure your customer managed key (if used) policy includes specific required permissions.
 + The CMK must be shared with the account where the logically air-gapped vault resides
 
-```
+```json
 {  
     "Sid": "Allow use of the key to create a logically air-gapped vault",  
     "Effect": "Allow",  
@@ -554,9 +555,9 @@ When creating a logically air-gapped vault with a customer managed key, you must
 **Key policy for copy/restore**
 
 To prevent job failures, review your AWS KMS key policy to ensure it includes all required permissions and doesn't contain any deny statements that could block operations. The following conditions apply:
-+ For all copy scenarios, the CMKs must be shared with the source copy role
++ For all copy scenarios, the logically air-gapped vault's CMK must be shared with the source copy role. For the source resource's CMK, see [Key policy for CMK encrypted source resources](#key-policy-lag-source-resource).
 
-```
+```json
 {  
     "Sid": "Allow use of the key for copy",  
     "Effect": "Allow",  
@@ -599,7 +600,7 @@ To prevent job failures, review your AWS KMS key policy to ensure it includes al
 ```
 + When copying from a CMK encrypted logically air-gapped vault to a backup vault, the CMK must also be shared with the destination account SLR
 
-```
+```json
 {  
     "Sid": "Allow use of the key for copy from a CMK encrypted logically air-gapped vault to normal backup vault",
     "Effect": "Allow",  
@@ -636,12 +637,13 @@ To prevent job failures, review your AWS KMS key policy to ensure it includes al
 ```
 + When copying or restoring from a recovery account using RAM/MPA shared logically air-gapped vault
 
-```
+```json
 {  
     "Sid": "Allow use of the key for copy/restore from a recovery account",  
     "Effect": "Allow",  
     "Principal": {  
         "AWS": ["arn:aws:iam::[recovery-account-id]:role/service-role/AWSBackupDefaultServiceRole", //[Recovery account copy/restore role]
+                "arn:aws:iam::[recovery-account-id]:role/aws-service-role/backup.amazonaws.com/AWSServiceRoleForBackup", //[Recovery account SLR]
                 "arn:aws:iam::[destination-account-id]:role/aws-service-role/backup.amazonaws.com/AWSServiceRoleForBackup"] //[Destination SLR]    
     },  
     "Action": [  
@@ -657,7 +659,8 @@ To prevent job failures, review your AWS KMS key policy to ensure it includes al
     "Sid": "Allow AWS Backup to create grant on the key for copy",  
     "Effect": "Allow",  
     "Principal": {  
-        "AWS": ["arn:aws:iam::[recovery-account-id]:role/service-role/AWSBackupDefaultServiceRole" //[Recovery account copy/restore role]    
+        "AWS": ["arn:aws:iam::[recovery-account-id]:role/service-role/AWSBackupDefaultServiceRole", //[Recovery account copy/restore role]
+                "arn:aws:iam::[recovery-account-id]:role/aws-service-role/backup.amazonaws.com/AWSServiceRoleForBackup", //[Recovery account SLR]
                 "arn:aws:iam::[destination-account-id]:role/aws-service-role/backup.amazonaws.com/AWSServiceRoleForBackup"], //[Destination SLR]  
                   
     },  
@@ -674,7 +677,7 @@ To prevent job failures, review your AWS KMS key policy to ensure it includes al
 ```
 + When transitioning Amazon EBS Snapshot to cold storage in CMK encrypted logically air-gapped vault, the vault-owning account's SLR must have create grant permission on the CMK key policy.
 
-```
+```json
 {  
     "Sid": "Allow AWS Backup to create grant on the key for snapshot archival",
     "Effect": "Allow",  
@@ -691,14 +694,54 @@ To prevent job failures, review your AWS KMS key policy to ensure it includes al
         }  
     } 
 }
+```<a name="key-policy-lag-source-resource"></a>
+
+**Key policy for CMK encrypted source resources**
+
+For resources that don't support [full AWS Backup management](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management), such as Amazon EBS, Amazon EC2, Aurora, and Amazon RDS, a backup keeps the encryption key of the source resource. If that key is a customer managed key, AWS Backup uses it and creates a grant on it when it copies the backup into a logically air-gapped vault. This applies whether the vault uses an AWS owned key or a customer managed key, and to primary backups as well as copy jobs.
+
+The source key's policy must allow the IAM role that AWS Backup uses for the job to use the key and create grants on it. That's the role in your backup plan, or the role you specify for an on-demand copy. Add the following statements to the source resource's key policy. If they're missing, the copy job fails.
+
+```json
+{  
+    "Sid": "Allow use of the source resource key for copy to a logically air-gapped vault",  
+    "Effect": "Allow",  
+    "Principal": {  
+        "AWS": "arn:aws:iam::[source-account-id]:role/service-role/AWSBackupDefaultServiceRole"      //[AWS Backup role]  
+    },  
+    "Action": [  
+        "kms:Encrypt",  
+        "kms:Decrypt",  
+        "kms:ReEncrypt*",  
+        "kms:GenerateDataKey*",  
+        "kms:DescribeKey"  
+    ],  
+    "Resource": "*"  
+},  
+{  
+    "Sid": "Allow AWS Backup to create grant on the source resource key",  
+    "Effect": "Allow",  
+    "Principal": {  
+        "AWS": "arn:aws:iam::[source-account-id]:role/service-role/AWSBackupDefaultServiceRole"      //[AWS Backup role]  
+    },  
+    "Action": [  
+        "kms:CreateGrant"  
+    ],  
+    "Resource": "*",  
+    "Condition": {  
+        "Bool": {  
+            "kms:GrantIsForAWSResource": "true"  
+        }  
+    }  
+}
 ```
 
 **IAM Role**
 
 When performing logically air-gapped vault copy operations, customers can utilize the `AWSBackupDefaultServiceRole` which includes the AWS-managed policy `AWSBackupServiceRolePolicyForBackup`. However, if customers prefer to implement a least-privilege policy approach, their IAM policy must include a specific requirement:
-+ The source account's copy role must have access permissions to both the source and destination CMKs.
++ The source account's copy role must have access permissions to the source resource's CMK and to the source and destination logically air-gapped vault CMKs.
 
-```
+```json
 {  
     "Version": "2012-10-17"		 	 	 ,		 	 	   
     "Statement": [  
@@ -707,6 +750,7 @@ When performing logically air-gapped vault copy operations, customers can utiliz
             "Effect": "Allow",  
             "Action": "kms:DescribeKey",  
             "Resource": [  
+                "arn:aws:kms:*:[source-resource-key-account-id]:key/*",  //[Source resource CMK]  
                 "arn:aws:kms:*:[source-account-id]:key/*",  //[Source logically air-gapped vault CMK]  
                 "arn:aws:kms:*:[destination-account-id]:key/*"  //[Destination logically air-gapped vault CMK]  
             ]  
@@ -716,6 +760,7 @@ When performing logically air-gapped vault copy operations, customers can utiliz
             "Effect": "Allow",  
             "Action": "kms:CreateGrant",  
             "Resource": [  
+                "arn:aws:kms:*:[source-resource-key-account-id]:key/*",  //[Source resource CMK]  
                 "arn:aws:kms:*:[source-account-id]:key/*",  //[Source logically air-gapped vault CMK]  
                 "arn:aws:kms:*:[destination-account-id]:key/*"  //[Destination logically air-gapped vault CMK]  
             ],  
@@ -780,7 +825,7 @@ This exclusion is safe because the copy is authorized by your vault access polic
 
 Example EventBridge rule event pattern that excludes AWS Backup operations:
 
-```
+```json
 {
   "source": ["aws.ec2"],
   "detail-type": ["AWS API Call via CloudTrail"],
@@ -811,8 +856,17 @@ This can similarly happen for copy jobs for other resources like Amazon FSx.
 
 **Resolution:** Update your EventBridge rule event pattern to exclude operations performed by AWS Backup. Specifically, exclude events where `userIdentity.invokedBy` is `backup.amazonaws.com` to ensure your auto-remediation logic does not revoke the temporary cross-account permissions that AWS Backup grants during the copy process.
 
-### `AccessDeniedException`
+### Copy job to a logically air-gapped vault fails with AccessDenied on `kms:CreateGrant`
 <a name="w2aac15c13c31b7"></a>
+
+**Error:** `User: arn:aws:sts::{{account-id}}:assumed-role/{{role-name}}/AWSBackup-{{role-name}} is not authorized to perform: kms:CreateGrant on resource: arn:aws:kms:{{region}}:{{account-id}}:key/{{key-id}} because no resource-based policy allows the kms:CreateGrant action`
+
+**Possible cause:** The source resource is encrypted with a customer managed key, and that key's policy doesn't allow the AWS Backup role to create grants on it. The key in the error is the source resource's key, not the vault's key. This applies to resources that don't support full AWS Backup management, such as Amazon EBS, Aurora, and Amazon RDS.
+
+**Resolution:** Add the statements in [Key policy for CMK encrypted source resources](#key-policy-lag-source-resource) to the source key's policy, then retry the copy. For [primary backups](lag-vault-primary-backup.md), the temporary recovery point stays in your backup vault. You can copy it to the logically air-gapped vault manually, and AWS Backup deletes it after that copy completes.
+
+### `AccessDeniedException`
+<a name="w2aac15c13c31b9"></a>
 
 **Error:** `An error occured (AccessDeniedException) when calling the [command] operation: Insufficient privileges to perform this action."`
 
@@ -826,7 +880,7 @@ This can similarly happen for copy jobs for other resources like Amazon FSx.
 **Resolution:** Retry the command that returned the error, but include the parameter `--backup-vault-account-id` that specifies the account that owns the vault.
 
 ### `OperationNotPermittedException`
-<a name="w2aac15c13c31b9"></a>
+<a name="w2aac15c13c31c11"></a>
 
 **Error:** `OperationNotPermittedException` is returned after a `CreateResourceShare` call.
 
@@ -835,7 +889,7 @@ This can similarly happen for copy jobs for other resources like Amazon FSx.
 **Resolution:** Retry the operation, but specify an account as the value for `principals` instead of an organization or OU.
 
 ### Encryption key type not displayed
-<a name="w2aac15c13c31c11"></a>
+<a name="w2aac15c13c31c13"></a>
 
 **Issue:** The encryption key type is not visible when viewing a logically air-gapped vault or its recovery points.
 
@@ -851,7 +905,7 @@ This can similarly happen for copy jobs for other resources like Amazon FSx.
 + For shared vaults, verify that the vault is properly shared through AWS Resource Access Manager
 
 ### "FAILED" VaultState with AccessDeniedException in CloudTrail logs
-<a name="w2aac15c13c31c13"></a>
+<a name="w2aac15c13c31c15"></a>
 
 **Error in CloudTrail:** `"User: <assumed role> is not authorized to perform: kms:CreateGrant on this resource because the resource does not exist in this Region, no resource-based policies allow access, or a resource-based policy explicitly denies access"`
 
@@ -859,10 +913,10 @@ This can similarly happen for copy jobs for other resources like Amazon FSx.
 + The vault was created using a customer managed key, but the assumed role does not have CreateGrant permission on the key policy required to use the key for vault creation
 
 **Resolution:**
-+ Grant the permissions specified in the [Key policy for CMK encrypted logically air-gapped vault creation](#key-policy-lag-vault-creation) section, then retry the vault creation workflow.
++ Grant the permissions specified in the [Key policy for CMK encrypted logically air-gapped vault](#key-policy-lag-vault-creation) section, then retry the vault creation workflow.
 
 ### Restore access backup vault in "FAILED" state cannot be removed
-<a name="w2aac15c13c31c15"></a>
+<a name="w2aac15c13c31c17"></a>
 
 **Error: **A restore access backup vault is stuck in FAILED state. `RevokeRestoreAccessBackupVault` returns an error requiring the vault to be in AVAILABLE state, and `CreateRestoreAccessBackupVault` returns `LimitExceededException`.
 

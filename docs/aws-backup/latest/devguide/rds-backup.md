@@ -1,7 +1,6 @@
 
 
 # Amazon Relational Database Service backups
-<a name="rds-backup"></a>
 
 ## Amazon RDS and AWS Backup
 <a name="rds-backup-differences"></a>
@@ -14,14 +13,21 @@ Amazon RDS gives the option of making [automated backups](https://docs.aws.amazo
 
 This distinction is important because manual and automated backups have different retention behaviors and lifecycle management in Amazon RDS.
 
-When you use AWS Backup to [create a backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-a-backup-plan.html#create-backup-plan-console) (recovery point) of an Amazon RDS instance, AWS Backup creates a manual DB snapshot of that instance by using the `create-db-snapshot` operation in Amazon RDS. All snapshots of a DB instance, whether they come from Amazon RDS automated backups, manual snapshots, or AWS Backup, belong to the same incremental snapshot chain for that instance.
+When you use AWS Backup to [create a backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-a-backup-plan.html#create-backup-plan-console) (recovery point) of an Amazon RDS instance, AWS Backup creates a manual DB snapshot of that instance by using the `create-db-snapshot` operation in Amazon RDS. If an available Amazon RDS automated snapshot already exists in the backup window of the job, AWS Backup copies that snapshot instead, using the `copy-db-snapshot` operation.
+
+Snapshots taken directly of a DB instance belong to the same incremental snapshot chain. This includes Amazon RDS automated backups, Amazon RDS manual snapshots, and snapshots that AWS Backup takes. During a backup job, when AWS Backup copies an existing snapshot instead of taking a new snapshot, the recovery point is outside that chain. The chain of the instance does not change.
 
 Only the first snapshot ever taken of a DB instance stores the full contents of the database. Every later snapshot of the same instance is incremental, which means it stores only the data that changed since the most recent snapshot. As a result, if the instance already has automated backups or earlier snapshots, the first recovery point that AWS Backup creates is also incremental, not a new full snapshot. In this context, "full" means a snapshot that you can restore the entire database from. It does not mean a full storage-level copy of the data.
 
-When using cross account or cross Region copies, incremental snapshot copy jobs process faster than full snapshot copy jobs. Keeping a previous snapshot copy until the new copy job is complete may reduce the copy job duration. If you choose to copy snapshots from RDS database instances, it is important to note that deleting previous copies first will cause full snapshot copies to be made (instead of incremental). For more information on optimizing copying, see [Incremental snapshot copying](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Incremental) in the *Amazon RDS User Guide*.
+When using cross account or cross Region copies, incremental snapshot copy jobs process faster than full snapshot copy jobs. A copy job is incremental only when the destination already holds the most recent copy from the same chain. For example, the following reasons can cause a copy job to run as a full copy:
++ The most recent copy in the destination was deleted. To avoid this, retain that copy until the new copy job is complete.
++ The source recovery point is in a new chain. AWS Backup creates a recovery point in a new chain when it copies a pre-existing Amazon RDS automated snapshot during a backup job.
+
+For more information on optimizing copying, see [Incremental snapshot copying](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Incremental) in the *Amazon RDS User Guide*.
 
 **Important**  
-When a AWS Backup backup plan is scheduled to create multiple daily snapshots of an Amazon RDS instance, and when one of those scheduled [AWS Backup Start Backup window](https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-a-backup-plan.html#plan-options-and-configuration) coincides with the [Amazon RDS Backup window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ManagingAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow), the data lineage of the backups can branch off into non-identical backups, creating unplanned and conflicting backups. To prevent this, ensure your AWS Backup backup plan or Amazon RDS window do not coincide in their times.
+When a AWS Backup backup plan is scheduled to create multiple daily snapshots of an Amazon RDS instance, and when one of those scheduled [AWS Backup Start Backup window](https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-a-backup-plan.html#plan-options-and-configuration) coincides with the [Amazon RDS Backup window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ManagingAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow), the data lineage of the backups can branch off into non-identical backups, creating unplanned and conflicting backups. To prevent this, ensure your AWS Backup backup plan or Amazon RDS window do not coincide in their times.  
+In some cases, Amazon RDS creates automated snapshots outside the Amazon RDS Backup window. For example, Amazon RDS takes a snapshot of the source instance when you [create a read replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Create.html). Avoid these operations during an AWS Backup backup window.
 
 ### Considerations
 <a name="rds-backup-considerations"></a>
@@ -35,7 +41,7 @@ AWS Backup does not support backup and restore of RDS on Outposts or in Local Zo
 ## Understanding backup overlap and costs
 <a name="rds-backup-overlap-costs"></a>
 
-AWS Backup periodic snapshots are classified as manual backups in Amazon RDS. While they share the same incremental snapshot chain as automated backups, they count toward your total backup storage alongside automated backups. Amazon RDS provides a free backup storage allocation equal to your provisioned DB instance storage — this covers both automated backups and manual snapshots combined. Storage beyond that allocation is billed. If you run both scheduled AWS Backup snapshots and Amazon RDS automated backups, both contribute to this total, and you should factor this into your cost planning.
+AWS Backup periodic snapshots are classified as manual backups in Amazon RDS. Although these snapshots are incremental, they count toward your total backup storage alongside automated backups. Amazon RDS provides a free backup storage allocation equal to your provisioned DB instance storage — this covers both automated backups and manual snapshots combined. Storage beyond that allocation is billed. If you run both scheduled AWS Backup snapshots and Amazon RDS automated backups, both contribute to this total, and you should factor this into your cost planning.
 
 When you use AWS Backup to back up an Amazon RDS DB instance, an automated snapshot might appear with an unexpected timestamp; it matches the AWS Backup snapshot creation time rather than the Amazon RDS automated backup window. If Amazon RDS does not find a recent automated backup within the past day, it consolidates the backup. Amazon RDS attaches automated backup metadata to the manual snapshot that AWS Backup created. This ensures the DB instance maintains a regular automated backup. This most commonly occurs when an AWS Backup operation runs long enough to overlap with the Amazon RDS automated backup window.
 

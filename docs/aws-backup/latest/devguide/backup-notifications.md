@@ -1,7 +1,6 @@
 
 
 # Notification options with AWS Backup
-<a name="backup-notifications"></a>
 
 There are two ways to receive notifications about AWS Backup:
 + User Notifications can send notifications, including Amazon CloudWatch alarms, AWS Support, and other services' notifications.
@@ -68,7 +67,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: Backup job completed**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -96,7 +95,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: Backup job failed**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -124,7 +123,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: Backup job could not complete during the backup window**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -152,7 +151,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: Recovery point indexing completed**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -180,7 +179,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: EKS backup object failed**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -208,7 +207,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: EKS restore object failed**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -238,7 +237,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: EKS restore object skipped**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -268,7 +267,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: EKS restore modification succeeded**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -298,7 +297,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: EKS restore modification failed**  
 
-```
+```JSON
 {
     "Records": [{
         "EventSource": "aws:sns",
@@ -329,7 +328,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: Access point available**  
 
-```
+```JSON
 {
     "Type": "Notification",
     "MessageId": "dd7579e6-47bb-51af-866c-1b36e07d9aaa",
@@ -349,7 +348,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: Access point creation failed**  
 
-```
+```JSON
 {
     "Type": "Notification",
     "MessageId": "abcdef01-2345-6789-abcd-ef0123456789",
@@ -369,7 +368,7 @@ AWS Backup for EKS supports five additional events:
 
 **Example: Access point expired**  
 
-```
+```JSON
 {
     "Type": "Notification",
     "MessageId": "fedcba98-7654-3210-fedc-ba9876543210",
@@ -397,7 +396,7 @@ You can use AWS CLI commands to subscribe to, list, and delete Amazon SNS notifi
 
 The following command subscribes to an Amazon SNS topic for the specified backup vault that notifies you when a restore job is started or completed, or when a recovery point is modified.
 
-```
+```sh
 aws backup put-backup-vault-notifications 
     --backup-vault-name {{myBackupVault}} 
     --sns-topic-arn arn:aws:sns:{{region}}:{{account-id}}:{{myBackupTopic}}
@@ -409,14 +408,14 @@ aws backup put-backup-vault-notifications
 
 The following command lists all events currently subscribed to an Amazon SNS topic for the specified backup vault.
 
-```
+```sh
 aws backup get-backup-vault-notifications 
     --backup-vault-name {{myVault}}
 ```
 
 The sample output is as follows:
 
-```
+```JSON
 {
     "SNSTopicArn": "arn:aws:sns:region:account-id:myBackupTopic",
     "BackupVaultEvents": [
@@ -447,7 +446,7 @@ To allow AWS Backup to publish SNS topics on your behalf, you must specify AWS B
 
 Include the following JSON in the access policy of the Amazon SNS topic that you use to track AWS Backup events. You must specify the resource Amazon Resource Name (ARN) of your topic.
 
-```
+```JSON
 {
       "Sid": "My-statement-id",
       "Effect": "Allow",

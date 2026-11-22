@@ -1,7 +1,6 @@
 
 
 # Working with gateways
-<a name="working-with-gateways"></a>
 
 To back up and restore your virtual machines (VMs) using AWS Backup, you must first install a Backup gateway. A gateway is software in the form of an OVF (Open Virtualization Format) template that connects Amazon Web Services Backup to your hypervisor, allowing it to automatically detect your virtual machines, and enables you to back up and restore them.
 
@@ -113,15 +112,17 @@ Replace the highlighted variables with actual values for your gateway. Acceptabl
 {{gateway\_ip\_address}} - The IPv4 address of your gateway, for example `172.31.29.201`
 {{region\_code}} - The Region where you want to activate your gateway. See [Regional endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) in the *AWS General Reference Guide*. If this parameter is not specified, or if the value provided is misspelled or doesn't match a valid region, the command will default to the `us-east-1` region.
 
+**Dual-stack endpoints (IPv6 support)**
+
 IPv4:
 
-```
+```sh
 curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&gatewayType=BACKUP_VM&endpointType=DUALSTACK&ipVersion=ipv4&no_redirect"
 ```
 
 IPv6:
 
-```
+```sh
 curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&gatewayType=BACKUP_VM&endpointType=DUALSTACK&ipVersion=ipv6&no_redirect"
 ```
 
@@ -154,7 +155,7 @@ Use the AWS CLI to create the gateway after obtaining an activation key:
 
 1. Create gateway using AWS CLI, for more information, see [CreateGateway](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_CreateGateway.html) in the *Backup gateway API Reference*.
 
-   ```
+   ```sh
    aws backup-gateway create-gateway \
                        --region {{region_code}} \
                        --activation-key {{activation_key}} \
@@ -239,12 +240,12 @@ Bandwidth rate-limit intervals cannot overlap. The start time of an interval mus
 
 The [`GetBandwidthRateLimitSchedule`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_GetBandwidthRateLimitSchedule.html) action can be used to view the bandwidth throttle schedule for a specified gateway. If there is no schedule set, the schedule will be an empty list of intervals. Here is an example using the AWS CLI to fetch the bandwidth schedule of a gateway:
 
-```
+```json
 aws backup-gateway get-bandwidth-rate-limit-schedule --gateway-arn "arn:aws:backup-gateway:{{region}}:{{account-id}}:gateway/bgw-{{gw id}}"
 ```
 
 To edit a gateway’s bandwidth throttle schedule, you can use the [`PutBandwidthRateLimitSchedule`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_PutBandwidthRateLimitSchedule.html) action. Note that you can only update a gateway’s schedule as a whole, rather than modifying, adding, or removing individual intervals. Calling this action will overwrite the gateway’s previous bandwidth throttle schedule.
 
-```
+```json
 aws backup-gateway put-bandwidth-rate-limit-schedule --gateway-arn "arn:aws:backup-gateway:{{region}}:{{account-id}}:gateway/{{gw-id}}" --bandwidth-rate-limit-intervals ...
 ```

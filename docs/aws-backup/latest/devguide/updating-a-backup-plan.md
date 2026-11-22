@@ -1,7 +1,6 @@
 
 
 # Update a backup plan
-<a name="updating-a-backup-plan"></a>
 
 After creating a backup plan, you can edit the plan—for example, you can add tags, or you can add, edit, or delete backup rules. Any changes that you make to a backup plan have no effect on existing backups created by the backup plan. The changes apply only to backups that are created in the future. 
 

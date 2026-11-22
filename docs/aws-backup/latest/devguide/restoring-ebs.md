@@ -1,7 +1,6 @@
 
 
 # Restore an Amazon EBS volume
-<a name="restoring-ebs"></a>
 
 When you restore an Amazon Elastic Block Store (EBS) snapshot, you can choose to restore it as an EBS volume, restore it to a AWS Storage Gateway volume, or restore selected items from it to an Amazon S3 bucket.
 
@@ -120,7 +119,7 @@ If role manager is enabled in your account, AWS Backup selects the default servi
 
 To restore Amazon EBS using the API or CLI, use `[StartRestoreJob](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StartRestoreJob.html)`. You can specify the following metadata during an Amazon EBS restore:
 
-```
+```java
 aws:backup:request-id
 availabilityZone
 encrypted // if set to true, encryption will be enabled as volume is restored
@@ -135,7 +134,7 @@ volumeSize
 
 Example:
 
-```
+```json
 "restoreMetadata": "{\"encrypted\":\"false\",\"volumeId\":\"vol-04cc95f3490b5ceea\",\"availabilityZone\":null}"
 ```
 

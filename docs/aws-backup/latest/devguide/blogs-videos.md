@@ -1,7 +1,6 @@
 
 
 # AWS Backup blogs, videos, tutorials, and other resources
-<a name="blogs-videos"></a>
 
 For more information about AWS Backup, see the following:
 + [ Lower your Amazon S3 backup costs with AWS Backup S3 tiering](https://aws.amazon.com/blogs/storage/lower-your-amazon-s3-backup-cost-with-aws-backup-s3-tiering/) by Stuart Lupton and Sravan Rachiraju (November 2025)

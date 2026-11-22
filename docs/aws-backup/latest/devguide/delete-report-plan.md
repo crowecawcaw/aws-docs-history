@@ -1,7 +1,6 @@
 
 
 # Deleting report plans
-<a name="delete-report-plan"></a>
 
 You can delete an existing report plan. When you delete a report plan, any reports already created by that report plan will remain in their destination Amazon S3 bucket.
 

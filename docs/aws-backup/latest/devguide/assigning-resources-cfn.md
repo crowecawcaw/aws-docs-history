@@ -1,7 +1,6 @@
 
 
 # Assign AWS Backup resources through CloudFormation
-<a name="assigning-resources-cfn"></a>
 
 This end-to-end CloudFormation template creates a resource assignment, a backup plan, and a destination backup vault:
 + A backup vault named {{CloudFormationTestBackupVault}}.
@@ -15,7 +14,7 @@ This end-to-end CloudFormation template creates a resource assignment, a backup 
     + Any RDS, Aurora, Neptune, or DocumentDB cluster.
     + Any resource tagged with the value `test` or values beginning with `test/`.
 
-```
+```yml
 Description: "Template that creates Backup Selection and its dependencies"
 Parameters:
   BackupVaultName:

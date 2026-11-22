@@ -1,7 +1,6 @@
 
 
 # Restore an RDS database
-<a name="restoring-rds"></a>
 
 Restoring an Amazon RDS database requires specifying multiple restore options. For more information about these options, see [Backing Up and Restoring an Amazon RDS DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html) in the *Amazon RDS User Guide*.
 
@@ -41,7 +40,7 @@ If role manager is enabled in your account, AWS Backup selects the default servi
 
 Use `[StartRestoreJob](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StartRestoreJob.html)`. For information on accepted metadata and values, see [`RestoreDBInstanceFromDBSnapshot`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html) and [`RestoreDBInstanceToPointInTime`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html) in the *Amazon RDS API Reference*. Additionally, AWS Backup accepts the following information-only attributes. However, including them will not affect the restore:
 
-```
+```json
 EngineVersion
 KmsKeyId       
 Encrypted       

@@ -1,7 +1,6 @@
 
 
 # Changing your retention period
-<a name="point-in-time-recovery-retention-period"></a>
 
 You must use your backup plan to increase or decrease the retention period for your existing continuous backup rule. The minimum retention period is 1 day. The maximum retention period is 35 days. The change in retention period will take effect when the next backup is completed following this change. You cannot use the `UpdateRecoveryPointLifecycle` API or CLI to update the retention period of any continuous backup.
 

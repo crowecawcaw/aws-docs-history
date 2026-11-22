@@ -1,7 +1,6 @@
 
 
 # Access control
-<a name="access-control"></a>
 
 You can have valid credentials to authenticate your requests, but unless you have the appropriate permissions, you can't access AWS Backup resources such as backup vaults. You also can't back up AWS resources such as Amazon Elastic Block Store (Amazon EBS) volumes.
 
@@ -101,7 +100,7 @@ For restore testing selections, AWS Backup passes the IAM role to the service pr
 ## API permissions: actions, resources, and conditions reference
 <a name="backup-api-permissions-ref"></a>
 
-When you are setting up [Access control](#access-control) and writing a permissions policy that you can attach to an IAM identity (identity-based policies), you can use the following table as a reference. The table lists each AWS Backup API operation, the corresponding actions for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions. You specify the actions in the policy's `Action` field, and you specify the resource value in the policy's `Resource` field. If `Resource` field is blank, you can use the wildcard (`*`) to include all resources.
+When you are setting up [Access control](access-control.md) and writing a permissions policy that you can attach to an IAM identity (identity-based policies), you can use the following table as a reference. The table lists each AWS Backup API operation, the corresponding actions for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions. You specify the actions in the policy's `Action` field, and you specify the resource value in the policy's `Resource` field. If `Resource` field is blank, you can use the wildcard (`*`) to include all resources.
 
 You can use AWS-wide condition keys in your AWS Backup policies to express conditions. For a complete list of AWS-wide keys, see [Available Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*. 
 

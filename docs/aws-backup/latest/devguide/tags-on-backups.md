@@ -1,7 +1,6 @@
 
 
 # Copy tags onto backups
-<a name="tags-on-backups"></a>
 
 In general, AWS Backup copies tags from the resources it protects to your *recovery points*. For more information on how to copy tags during a restore, see [ Copy tags during a restore](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-a-backup.html#tag-on-restore).
 

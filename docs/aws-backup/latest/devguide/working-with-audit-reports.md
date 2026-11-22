@@ -1,7 +1,6 @@
 
 
 # Working with audit reports
-<a name="working-with-audit-reports"></a>
 
 AWS Backup Audit Manager reports are automatically generated evidence of your AWS Backup activity, such as: 
 + Which backup jobs finished and when

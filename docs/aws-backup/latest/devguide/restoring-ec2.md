@@ -1,7 +1,6 @@
 
 
 # Restore an Amazon EC2 instance
-<a name="restoring-ec2"></a>
 
 When you restore an EC2 instance, AWS Backup creates an Amazon Machine Image (AMI), an instance, the Amazon EBS root volume, Amazon EBS data volumes (if the protected resource had data volumes), and Amazon EBS snapshots. You can customize some instance settings using the AWS Backup console, or a larger number of settings using the AWS CLI or an AWS SDK.
 
@@ -12,7 +11,7 @@ The following considerations apply to restoring EC2 instances:
 
   If you use the original instance profile, you must grant AWS Backup the following permissions, where the resource ARN is the ARN of the IAM role associated with the instance profile.
 
-  ```
+  ```json
   {
         "Effect": "Allow",
         "Action": "iam:PassRole",
@@ -57,7 +56,7 @@ In the command line interface, [`start-restore-job`](https://awscli.amazonaws.co
 
 The following list is the accepted metadata you can pass to restore an Amazon EC2 recovery point.
 
-```
+```json
 InstanceType
 KeyName
 SubnetId
@@ -91,7 +90,7 @@ aws:backup:request-id
 
 AWS Backup accepts the following information-only attributes. However, including them will not affect the restore:
 
-```
+```json
 vpcId
 ```
 
@@ -100,7 +99,7 @@ vpcId
 **Note**  
 `SnapshotId` and `OutpostArn` are not supported.
 
-```
+```json
 {
   "BlockDeviceMappings": [
     {
@@ -122,7 +121,7 @@ vpcId
 
 For example:
 
-```
+```json
 {
   "BlockDeviceMappings": [
     {
