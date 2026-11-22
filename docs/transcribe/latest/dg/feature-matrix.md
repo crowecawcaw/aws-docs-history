@@ -1,7 +1,6 @@
 
 
 # Amazon Transcribe features
-<a name="feature-matrix"></a>
 
 To help you decide which Amazon Transcribe solution best fits your use case, the following table offers a feature comparison.
 

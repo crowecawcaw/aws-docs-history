@@ -1,7 +1,6 @@
 
 
 # Enabling generative call summarization
-<a name="tca-enable-summarization"></a>
 
 **Note**  
  **Powered by Amazon Bedrock:** AWS implements [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html). Because post-contact summarization powered by generative AI is built on Amazon Bedrock, users can take full advantage of the controls implemented in Amazon Bedrock to enforce safety, security, and the responsible use of artificial intelligence (AI). 
@@ -42,7 +41,7 @@ aws transcribe start-call-analytics-job \
 
 The file *my-call-analytics-job.json* contains the following request body.
 
-```
+```json
 {
   "CallAnalyticsJobName": {{"my-first-call-analytics-job"}},
   "DataAccessRoleArn": {{"arn:aws:iam::111122223333:role/ExampleRole"}},
@@ -75,7 +74,7 @@ This example uses the AWS SDK for Python (Boto3) to start a Call Analytics with 
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 from __future__ import print_function
 import time

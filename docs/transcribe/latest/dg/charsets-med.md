@@ -1,7 +1,6 @@
 
 
 # Character set for Amazon Transcribe Medical
-<a name="charsets-med"></a>
 
 To use custom vocabularies in Amazon Transcribe Medical, use the following character set.
 

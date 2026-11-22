@@ -1,7 +1,6 @@
 
 
 # Transcribing a medical conversation in a real-time stream
-<a name="streaming-medical-conversation"></a>
 
 You can transcribe an audio stream of a medical conversation using either the HTTP/2 or [WebSocket ](https://tools.ietf.org/html/rfc6455) protocols. For information on how to start a stream using the WebSocket protocol, see [Setting up a WebSocket stream](streaming-setting-up.md#streaming-websocket). To start an HTTP/2 stream, use the [`StartMedicalStreamTranscription`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalStreamTranscription.html) API.
 

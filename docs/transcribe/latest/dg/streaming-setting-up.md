@@ -1,7 +1,6 @@
 
 
 # Setting up a streaming transcription
-<a name="streaming-setting-up"></a>
 
 This section expands on the main [streaming](streaming.md) section. It's intended to provide information for users who want to set up their stream with HTTP/2 or WebSockets directly, rather than with an AWS SDK. The information in this section can also be used to build your own SDK.
 
@@ -26,7 +25,7 @@ Amazon Transcribe only supports one stream per HTTP/2 session. If you attempt to
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -44,7 +43,7 @@ Amazon Transcribe only supports one stream per HTTP/2 session. If you attempt to
 
 1. To start the session, send an HTTP/2 request to Amazon Transcribe.
 
-   ```
+   ```http
    POST /stream-transcription HTTP/2
    host: transcribestreaming.{{us-west-2}}.amazonaws.com
    X-Amz-Target: com.amazonaws.transcribe.Transcribe.{{StartStreamTranscription}}
@@ -62,7 +61,7 @@ Amazon Transcribe only supports one stream per HTTP/2 session. If you attempt to
 
    Amazon Transcribe sends the following response:
 
-   ```
+   ```http
    HTTP/2.0 200
    x-amzn-transcribe-language-code: en-US
    x-amzn-transcribe-media-encoding: flac
@@ -252,7 +251,7 @@ Amazon Transcribe only supports one stream per WebSocket session. If you attempt
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -292,7 +291,7 @@ The maximum value for `X-Amz-Expires` is 300 (5 minutes).
 
    1. Create a canonical request. A canonical request is a string that includes information from your request in a standardized format. This ensures that when AWS receives the request, it can calculate the same signature you created for your URL. For more information, see [Create a Canonical Request for Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html).
 
-      ```
+      ```http
       # HTTP verb
       method = "GET"
       # Service name
@@ -426,7 +425,7 @@ The maximum value for `X-Amz-Expires` is 300 (5 minutes).
 
    The following is the response from Amazon Transcribe. Line breaks have been added for readability.
 
-   ```
+   ```http
    HTTP/1.1 101 WebSocket Protocol Handshake
    
    Connection: upgrade

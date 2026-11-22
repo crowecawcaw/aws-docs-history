@@ -1,7 +1,6 @@
 
 
 # Creating a customer managed key
-<a name="health-scribe-encryption-customer"></a>
 
  You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. To create a symmetric customer managed key, follow the steps for [Creating symmetric customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the AWS Key Management Service Developer Guide. 
 
@@ -22,7 +21,7 @@ The following is an example key policy you can use to grant your ResourceAccessR
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -80,7 +79,7 @@ The following IAM policy example shows how to grant a ResourceAccessRole permiss
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -124,7 +123,7 @@ The following is trust policy example for the ResourceAccessRole. For DataAccess
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

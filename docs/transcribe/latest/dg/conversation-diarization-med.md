@@ -1,7 +1,6 @@
 
 
 # Enabling speaker partitioning
-<a name="conversation-diarization-med"></a>
 
 To enable speaker partitioning in Amazon Transcribe Medical, use *speaker diarization*. This enables you to see what the patient said and what the clinician said in the transcription output.
 

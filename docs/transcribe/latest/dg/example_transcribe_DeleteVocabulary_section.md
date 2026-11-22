@@ -1,7 +1,6 @@
 
 
 # Use `DeleteVocabulary` with an AWS SDK or CLI
-<a name="example_transcribe_DeleteVocabulary_section"></a>
 
 The following code examples show how to use `DeleteVocabulary`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an existing custom vocabulary.
     /// </summary>
@@ -53,7 +52,7 @@ For more information, see [Custom Vocabularies](https://docs.aws.amazon.com/tran
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
-```
+```python
 def delete_vocabulary(vocabulary_name, transcribe_client):
     """
     Deletes a custom vocabulary.
@@ -76,7 +75,7 @@ def delete_vocabulary(vocabulary_name, transcribe_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_tnb->deletevocabulary( iv_vocabulary_name ).
         MESSAGE 'Vocabulary deleted.' TYPE 'I'.

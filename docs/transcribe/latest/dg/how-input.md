@@ -1,7 +1,6 @@
 
 
 # Data input and output
-<a name="how-input"></a>
 
 Amazon Transcribe takes audio data, as a media file in an Amazon S3 bucket or a media stream, and converts it to text data.
 
@@ -92,7 +91,7 @@ Basic batch transcripts contain two main sections:
 
 Each additional feature you include in your transcription request produces additional information in your transcript.
 
-```
+```json
 {
     "jobName": "my-first-transcription-job",
     "accountId": "111122223333",

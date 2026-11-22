@@ -1,7 +1,6 @@
 
 
 # Starting a post-call analytics transcription
-<a name="tca-start-batch"></a>
 
 Before starting a post-call analytics transcription, you must create all the [categories](tca-categories-batch.md) you want Amazon Transcribe to match in your audio.
 
@@ -60,7 +59,7 @@ aws transcribe start-call-analytics-job \
 
 The file *my-call-analytics-job.json* contains the following request body.
 
-```
+```json
 {
       "CallAnalyticsJobName": "{{my-first-call-analytics-job}}",
       "DataAccessRoleArn": "arn:aws:iam::{{111122223333}}:role/{{ExampleRole}}",
@@ -88,7 +87,7 @@ This example uses the AWS SDK for Python (Boto3) to start a Call Analytics job u
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

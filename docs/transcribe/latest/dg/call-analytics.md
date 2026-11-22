@@ -1,7 +1,6 @@
 
 
 # Analyzing call center audio with Call Analytics
-<a name="call-analytics"></a>
 
 Use Amazon Transcribe Call Analytics to gain insight into customer-agent interactions. Call Analytics is designed specifically for call center audio and automatically provides you with valuable data relating to each call and each participant. You can also hone in on data at specific points throughout call. For example, you can compare customer sentiment in a call's first few seconds to the last quarter of the call to see if your agent provided a positive experience. Other use case examples are listed in the [following section](#call-analytics-use-cases).
 

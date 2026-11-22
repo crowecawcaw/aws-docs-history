@@ -1,7 +1,6 @@
 
 
 # Redacting PII in your batch job
-<a name="pii-redaction-batch"></a>
 
 When redacting personally identifiable information (PII) from a transcript during a batch transcription job, Amazon Transcribe replaces each identified instance of PII with `[PII]` in the main text body of your transcript. You can also view the type of PII that is redacted in the word-for-word portion of the transcription output. For an output sample, see [Example redacted output (batch)](pii-redaction-output.md#pii-redaction-output-batch).
 
@@ -88,7 +87,7 @@ aws transcribe start-transcription-job \
 
 The file *my-first-redaction-job.json* contains the following request body.
 
-```
+```json
 {
   "TranscriptionJobName": "{{my-first-transcription-job}}",
   "Media": {
@@ -116,7 +115,7 @@ This example uses the AWS SDK for Python (Boto3) to redact content using the `Co
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

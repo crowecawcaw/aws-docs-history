@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Transcribe using AWS SDKs
-<a name="service_code_examples"></a>
 
 The following code examples show how to use Amazon Transcribe with an AWS software development kit (SDK). 
 

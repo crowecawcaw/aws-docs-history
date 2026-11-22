@@ -1,13 +1,13 @@
 
 
 # Document history for Amazon Transcribe
-<a name="doc-history"></a>
 + **Latest documentation update:** 13 November 2023
 
 The following table describes important changes in each release of Amazon Transcribe. For notification about updates to this documentation, you can subscribe to an RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added FAQ page for supported protocols](doc-history.md) | Added a new FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/transcribe/latest/dg/cbor-faq.html). | November 10, 2026 | 
 | [Feature Update](https://docs.aws.amazon.com/transcribe/latest/dg/data-encryption.html#kms-resource-encryption) | Amazon Transcribe now supports customer-managed KMS keys to encrypt the artifacts associated with your custom vocabularies, custom vocabulary filters, and custom language models. | September 25, 2026 | 
 | [Feature Update](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction-batch.html) | PII redaction for batch transcription jobs now supports additional English dialects: Australian (`en-AU`), British (`en-GB`), Indian (`en-IN`), Irish (`en-IE`), New Zealand (`en-NZ`), Scottish (`en-AB`), South African (`en-ZA`), and Welsh (`en-WL`). | July 1, 2026 | 
 | [Feature Update](https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction-batch.html) | PII redaction for batch transcription jobs now supports additional entity types: `AGE`, `AWS_ACCESS_KEY`, `AWS_SECRET_KEY`, `CA_HEALTH_NUMBER`, `CA_SOCIAL_INSURANCE_NUMBER`, `DATE_TIME`, `DRIVER_ID`, `INTERNATIONAL_BANK_ACCOUNT_NUMBER`, `IP_ADDRESS`, `LICENSE_PLATE`, `MAC_ADDRESS`, `PASSPORT_NUMBER`, `PASSWORD`, `SWIFT_CODE`, `URL`, `US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER`, `USERNAME`, and `VEHICLE_IDENTIFICATION_NUMBER`. | May 22, 2026 | 
@@ -99,4 +99,4 @@ The following table describes important changes in each release of Amazon Transc
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptionJobSummary.html) | You can now specify your own location to store the output from a transcription job. | July 11, 2018 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/monitoring-transcribe.html) | Added AWS CloudTrail and Amazon CloudWatch Events integration. | June 28, 2018 | 
 | [New feature](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html) | Amazon Transcribe adds support for custom vocabularies. | April 4, 2018 | 
-| [New guide](#doc-history) | This is the first release of the *Amazon Transcribe Developer Guide*. | November 29, 2017 | 
+| [New guide](doc-history.md) | This is the first release of the *Amazon Transcribe Developer Guide*. | November 29, 2017 | 

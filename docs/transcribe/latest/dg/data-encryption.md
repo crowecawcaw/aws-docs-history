@@ -1,7 +1,6 @@
 
 
 # Data encryption
-<a name="data-encryption"></a>
 
 Data encryption refers to protecting data while in transit and at rest. You can protect your data by using Amazon S3-managed keys or KMS keys at rest, alongside standard Transport Layer Security (TLS) while in transit.
 

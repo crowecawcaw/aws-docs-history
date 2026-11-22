@@ -1,7 +1,6 @@
 
 
 # Transcribing numbers
-<a name="how-numbers-med"></a>
 
 Amazon Transcribe Medical transcribes digits as numbers instead of words. For example, the spoken number "one thousand two hundred forty-two" is transcribed as `1242`.
 

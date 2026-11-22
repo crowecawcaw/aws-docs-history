@@ -1,7 +1,6 @@
 
 
 # Improving transcription accuracy with medical custom vocabularies
-<a name="vocabulary-med"></a>
 
 To improve transcription accuracy in Amazon Transcribe Medical, create and use one or more medical custom vocabularies. A *custom vocabulary* is a collection of words or phrases that are domain-specific. This collection helps improve the performance of Amazon Transcribe Medical in transcribing those words or phrases.
 

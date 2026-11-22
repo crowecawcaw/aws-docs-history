@@ -1,7 +1,6 @@
 
 
 # Create and refine an Amazon Transcribe custom vocabulary using an AWS SDK
-<a name="example_transcribe_Scenario_CustomVocabulary_section"></a>
 
 The following code example shows how to:
 + Upload an audio file to Amazon S3.
@@ -16,7 +15,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 Transcribe an audio file that contains a reading of Jabberwocky by Lewis Carroll. Start by creating functions that wrap Amazon Transcribe actions.  
 
-```
+```python
 def start_job(
     job_name,
     media_uri,
@@ -230,7 +229,7 @@ def delete_vocabulary(vocabulary_name, transcribe_client):
 ```
 Call the wrapper functions to transcribe audio without a custom vocabulary and then with different versions of a custom vocabulary to see improved results.  
 
-```
+```python
 def usage_demo():
     """Shows how to use the Amazon Transcribe service."""
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")

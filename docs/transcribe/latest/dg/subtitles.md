@@ -1,7 +1,6 @@
 
 
 # Creating video subtitles
-<a name="subtitles"></a>
 
 Amazon Transcribe supports WebVTT (\*.vtt) and SubRip (\*.srt) output for use as video subtitles. You can select one or both file types when setting up your batch video transcription job. When using the subtitle feature, your selected subtitle file(s) and a regular transcript file (containing additional information) are produced. Subtitle and transcription files are output to the same destination.
 
@@ -71,7 +70,7 @@ aws transcribe start-transcription-job \
 
 The file *my-first-subtitle-job.json* contains the following request body.
 
-```
+```json
 {
   "TranscriptionJobName": "{{my-first-transcription-job}}",
   "Media": {
@@ -96,7 +95,7 @@ This example uses the AWS SDK for Python (Boto3) to add subtitles using the `Sub
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

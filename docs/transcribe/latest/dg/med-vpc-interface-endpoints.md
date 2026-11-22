@@ -1,7 +1,6 @@
 
 
 # Amazon Transcribe Medical and interface VPC endpoints (AWS PrivateLink)
-<a name="med-vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and Amazon Transcribe Medical by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access Amazon Transcribe Medical APIs without an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with Amazon Transcribe Medical APIs. Traffic between your VPC and Amazon Transcribe Medical does not leave the Amazon network. 
 
@@ -44,7 +43,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 **Example: VPC endpoint policy for Amazon Transcribe Medical streaming transcription actions**  
 The following is an example of an endpoint policy for streaming transcription in Amazon Transcribe Medical. When attached to an endpoint, this policy grants access to the listed Amazon Transcribe Medical actions for all principals on all resources.
 
-```
+```json
 {
    "Statement":[
       {
@@ -62,7 +61,7 @@ The following is an example of an endpoint policy for streaming transcription in
 **Example: VPC endpoint policy for Amazon Transcribe Medical batch transcription actions**  
 The following is an example of an endpoint policy for batch transcription in Amazon Transcribe Medical. When attached to an endpoint, this policy grants access to the listed Amazon Transcribe Medical actions for all principals on all resources.
 
-```
+```json
 {
    "Statement":[
       {

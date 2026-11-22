@@ -1,7 +1,6 @@
 
 
 # Post-call analytics with real-time transcriptions
-<a name="tca-post-call"></a>
 
 Post-call analytics is an optional feature available with real-time Call Analytics transcriptions. In addition to the standard [real-time analytics insights](call-analytics-streaming.md#call-analytics-insights-streaming), post-call analytics provides you with the following:
 + **Action items**: Lists any action items identified in the call
@@ -64,7 +63,7 @@ To increase accuracy and further customize your transcripts to your use case, su
 
 Here is a compiled post-call analytics output example:
 
-```
+```json
 {
     "JobStatus": "COMPLETED",
     "LanguageCode": "en-US",

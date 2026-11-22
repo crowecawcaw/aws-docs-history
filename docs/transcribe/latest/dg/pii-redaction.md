@@ -1,7 +1,6 @@
 
 
 # Redacting or identifying personally identifiable information
-<a name="pii-redaction"></a>
 
 Redaction is used to mask or remove sensitive content, in the form of personally identifiable information (PII), from your transcripts. The types of PII Amazon Transcribe can redact varies between batch and streaming transcriptions. To view the PII list for each transcription method, refer to [Redacting PII in your batch job](pii-redaction-batch.md) and [Redacting or identifying PII in a real-time stream](pii-redaction-stream.md). With streaming transcriptions, you also have the option to flag PII without redacting it; refer to [Example PII identification output](pii-redaction-output.md#pii-redaction-output-id) for an output example.
 

@@ -1,7 +1,6 @@
 
 
 # Alternative transcriptions
-<a name="alternatives"></a>
 
 When Amazon Transcribe transcribes audio, it creates different versions of the same transcript and assigns a confidence score to each version. In a typical transcription, you only get the version with the highest confidence score.
 
@@ -15,7 +14,7 @@ Your transcription output is structured as follows. The ellipses ({{...}}) in th
 
 1. A complete final transcription for a given segment.
 
-   ```
+   ```json
    "results": {
        "language_code": "en-US",
        "transcripts": [
@@ -27,7 +26,7 @@ Your transcription output is structured as follows. The ellipses ({{...}}) in th
 
 1. A confidence score for each word in the preceding `transcript` section.
 
-   ```
+   ```json
    "items": [
        {
            "start_time": "1.15",
@@ -55,7 +54,7 @@ Your transcription output is structured as follows. The ellipses ({{...}}) in th
 
 1. Your alternative transcriptions are located in the `segments` portion of your transcription output. The alternatives for each segment are ordered by descending confidence score.
 
-   ```
+   ```json
    "segments": [
                {
                    "start_time": "1.04",
@@ -91,7 +90,7 @@ Your transcription output is structured as follows. The ellipses ({{...}}) in th
 
 1. A status at the end of your transcription output.
 
-   ```
+   ```json
    "status": "COMPLETED"
    }
    ```
@@ -144,7 +143,7 @@ aws transcribe start-transcription-job \
 
 The file *my-first-alt-transcription-job.json* contains the following request body.
 
-```
+```json
 {
   "TranscriptionJobName": "{{my-first-transcription-job}}",  
   "Media": {
@@ -169,7 +168,7 @@ For additional examples using the AWS SDKs, including feature-specific, scenario
 
 Note that if you include `'ShowAlternatives':True` in your request, you must also include `MaxAlternatives`.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

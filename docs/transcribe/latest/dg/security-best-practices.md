@@ -1,7 +1,6 @@
 
 
 # Security best practices for Amazon Transcribe
-<a name="security-best-practices"></a>
 
 The following best practices are general guidelines and don’t represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, use them as helpful considerations rather than prescriptions.
 + **Use data encryption, such as AWS KMS encryption context**

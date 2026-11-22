@@ -1,7 +1,6 @@
 
 
 # Using a custom language model
-<a name="custom-language-models-using"></a>
 
 Once you've created your custom language model, you can include it in your transcription requests; refer to the following sections for examples.
 
@@ -61,7 +60,7 @@ aws transcribe start-transcription-job \
 
 The file *my-first-model-job.json* contains the following request body.
 
-```
+```json
 {
   "TranscriptionJobName": "{{my-first-transcription-job}}",
   "Media": {
@@ -83,7 +82,7 @@ This example uses the AWS SDK for Python (Boto3) to include a custom language mo
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3
@@ -137,7 +136,7 @@ To use a custom language model with a streaming transcription, see the following
 
 This example creates an HTTP/2 request that includes your custom language model. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-setting-up.md#streaming-http2). For more detail on parameters and headers specific to Amazon Transcribe, see [`StartStreamTranscription`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html).
 
-```
+```http
 POST /stream-transcription HTTP/2
 host: transcribestreaming.{{us-west-2}}.amazonaws.com
 X-Amz-Target: com.amazonaws.transcribe.Transcribe.{{StartStreamTranscription}}

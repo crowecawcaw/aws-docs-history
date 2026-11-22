@@ -1,7 +1,6 @@
 
 
 # Use `ListTranscriptionJobs` with an AWS SDK or CLI
-<a name="example_transcribe_ListTranscriptionJobs_section"></a>
 
 The following code examples show how to use `ListTranscriptionJobs`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListTranscriptionJobs`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List transcription jobs, optionally with a name filter.
     /// </summary>
@@ -102,7 +101,7 @@ For more information, see [Getting Started (AWS Command Line Interface)](https:/
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/transcribe#code-examples). 
 
-```
+```java
 public class ListTranscriptionJobs {
     public static void main(String[] args) {
         TranscribeClient transcribeClient = TranscribeClient.builder()
@@ -149,7 +148,7 @@ public class ListTranscriptionJobs {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples). 
 List transcription jobs.  
 
-```
+```javascript
 // Import the required AWS SDK clients and commands for Node.js
 
 import { ListTranscriptionJobsCommand } from "@aws-sdk/client-transcribe";
@@ -176,7 +175,7 @@ run();
 ```
 Create the client.  
 
-```
+```javascript
 import { TranscribeClient } from "@aws-sdk/client-transcribe";
 // Set the AWS Region.
 const REGION = "REGION"; //e.g. "us-east-1"
@@ -193,7 +192,7 @@ export { transcribeClient };
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
-```
+```python
 def list_jobs(job_filter, transcribe_client):
     """
     Lists summaries of the transcription jobs for the current AWS account.
@@ -228,7 +227,7 @@ def list_jobs(job_filter, transcribe_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
-```
+```sap-abap
     TRY.
         IF iv_job_filter IS NOT INITIAL.
           oo_result = lo_tnb->listtranscriptionjobs( iv_jobnamecontains = iv_job_filter ).

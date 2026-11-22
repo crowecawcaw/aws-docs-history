@@ -1,7 +1,6 @@
 
 
 # Using a text file to create a medical custom vocabulary
-<a name="create-med-custom-vocabulary"></a>
 
 To create a custom vocabulary, you must have prepared a text file that contains a collection a words or phrases. Amazon Transcribe Medical uses this text file to create a custom vocabulary that you can use to improve the transcription accuracy of those words or phrases. You can create a custom vocabulary using the [`CreateMedicalVocabulary`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateMedicalVocabulary.html) API or the Amazon Transcribe Medical console.
 
@@ -40,7 +39,7 @@ To see the processing status of your custom vocabulary, use the [`GetMedicalVoca
 
 The following is an example request using the AWS SDK for Python (Boto3) to create a custom vocabulary.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3  

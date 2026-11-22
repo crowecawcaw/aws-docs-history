@@ -1,7 +1,6 @@
 
 
 # Use `ListMedicalTranscriptionJobs` with an AWS SDK or CLI
-<a name="example_transcribe_ListMedicalTranscriptionJobs_section"></a>
 
 The following code examples show how to use `ListMedicalTranscriptionJobs`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListMedicalTranscriptionJobs`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List medical transcription jobs, optionally with a name filter.
     /// </summary>
@@ -114,7 +113,7 @@ For more information, see [Amazon Transcribe Medical](https://docs.aws.amazon.co
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples). 
 Create the client.  
 
-```
+```javascript
 import { TranscribeClient } from "@aws-sdk/client-transcribe";
 // Set the AWS Region.
 const REGION = "REGION"; //e.g. "us-east-1"
@@ -124,7 +123,7 @@ export { transcribeClient };
 ```
 List medical transcription jobs.  
 
-```
+```javascript
 // Import the required AWS SDK clients and commands for Node.js
 import { StartMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe";
 import { transcribeClient } from "./libs/transcribeClient.js";

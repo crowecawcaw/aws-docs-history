@@ -1,7 +1,6 @@
 
 
 # Medical specialties and terms
-<a name="how-it-works-med"></a>
 
 When creating a medical transcription job, you specify the language, the medical specialty, and the audio type of the source file. You input US English (en-US) as the language and `PRIMARYCARE` as the medical specialty. Entering primary care as the value enables you to generate transcriptions from source audio in the following medical specialties:
 + Family Medicine
@@ -15,7 +14,7 @@ To store the output of your transcription job, select an Amazon S3 bucket that y
 
 The following are the minimum number of request parameters to enter in the sample JSON.
 
-```
+```json
 {
    "MedicalTranscriptionJobName": "{{my-first-transcription-job}}",
    "LanguageCode": "en-US",

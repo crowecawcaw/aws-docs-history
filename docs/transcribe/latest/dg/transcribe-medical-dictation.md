@@ -1,7 +1,6 @@
 
 
 # Transcribing a medical dictation
-<a name="transcribe-medical-dictation"></a>
 
 You can use Amazon Transcribe Medical to transcribe clinician-dictated medical notes using either a batch transcription job or a real-time stream. Batch transcription jobs enable you to transcribe audio files. You specify the medical specialty of the clinician in your transcription job or stream to ensure that Amazon Transcribe Medical produces transcription results with the highest possible accuracy.
 

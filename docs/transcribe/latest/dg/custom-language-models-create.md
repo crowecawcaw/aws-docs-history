@@ -1,7 +1,6 @@
 
 
 # Creating a custom language model
-<a name="custom-language-models-create"></a>
 
 Before you can create your custom language model, you must:
 + Prepare your data. Data must be saved in plain text format and can't contain any special characters.
@@ -96,7 +95,7 @@ aws transcribe create-language-model \
 
 The file *my-first-language-model.json* contains the following request body.
 
-```
+```json
 {
   "BaseModelName": "{{NarrowBand}}",
   "ModelName": "{{my-first-language-model}}",
@@ -116,7 +115,7 @@ This example uses the AWS SDK for Python (Boto3) to create a CLM using the [crea
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

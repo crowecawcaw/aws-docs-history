@@ -1,7 +1,6 @@
 
 
 # AWS HealthScribe streaming
-<a name="health-scribe-streaming"></a>
 
 With AWS HealthScribe streaming, you can transcribe medical conversations in real-time. AWS HealthScribe streaming is a real-time HTTP2 based bi-directional service that accepts audio stream on one channel and vends an audio transcription on the other channel. After streaming is complete, AWS HealthScribe analyzes the stream contents and produces a transcript JSON file and a clinical note JSON file. 
 
@@ -43,7 +42,7 @@ The following is an example IAM policy that grants Amazon S3 bucket permissions 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -80,7 +79,7 @@ The following is an example trust policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

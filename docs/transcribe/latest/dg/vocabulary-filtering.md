@@ -1,7 +1,6 @@
 
 
 # Using custom vocabulary filters to delete, mask, or flag words
-<a name="vocabulary-filtering"></a>
 
 A custom vocabulary filter is a text file that contains a custom list of individual words that you want to modify in your transcription output.
 
@@ -10,17 +9,17 @@ A common use case is the removal of offensive or profane terms; however, custom 
 Vocabulary filtering has three display methods: `mask`, `remove`, and `tag`. Refer to the following examples to see how each works.
 + **Mask**: Replaces specified words with three asterisks (\*\*\*).
 
-  ```
+  ```json
   "transcript": "You can specify a list of *** or *** words, and *** *** removes them from transcripts automatically."
   ```
 + **Remove**: Deletes specified words, leaving nothing in their place.
 
-  ```
+  ```json
   "transcript": "You can specify a list of or words, and removes them from transcripts automatically."
   ```
 + **Tag**: Adds a tag (`"vocabularyFilterMatch": true`) to each specified word, but doesn't alter the word itself. Tagging allows for rapid transcript substitutions and edits.
 
-  ```
+  ```json
   "transcript": "You can specify a list of profane or offensive words, and amazon transcribe removes them from transcripts automatically."
   {{...}}
       "alternatives": [

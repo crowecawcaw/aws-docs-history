@@ -1,7 +1,6 @@
 
 
 # Use `GetTranscriptionJob` with an AWS SDK or CLI
-<a name="example_transcribe_GetTranscriptionJob_section"></a>
 
 The following code examples show how to use `GetTranscriptionJob`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get details about a transcription job.
     /// </summary>
@@ -81,7 +80,7 @@ For more information, see [Getting Started (AWS Command Line Interface)](https:/
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
-```
+```python
 def get_job(job_name, transcribe_client):
     """
     Gets details about a transcription job.
@@ -110,7 +109,7 @@ def get_job(job_name, transcribe_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_tnb->gettranscriptionjob( iv_job_name ).
         DATA(lo_job) = oo_result->get_transcriptionjob( ).

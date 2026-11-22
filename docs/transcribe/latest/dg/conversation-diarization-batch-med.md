@@ -1,7 +1,6 @@
 
 
 # Enabling speaker partitioning in batch transcriptions
-<a name="conversation-diarization-batch-med"></a>
 
 You can enable speaker partitioning in a batch transcription job using either the [`StartMedicalTranscriptionJob`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console. This enables you to partition the text per speaker in a clinician-patient conversation and determine who said what in the transcription output.
 
@@ -54,7 +53,7 @@ To use the AWS Management Console to enable speaker diarization in your transcri
 
 The following request uses the AWS SDK for Python (Boto3) to start a batch transcription job of a primary care clinician patient dialogue with speaker partitioning enabled.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3
@@ -87,7 +86,7 @@ print(status)
 
 The following example code shows the transcription results of a transcription job with speaker partitioning enabled.
 
-```
+```json
 {
     "jobName": "job ID",
     "accountId": "111122223333",
@@ -171,7 +170,7 @@ The following example code shows the transcription results of a transcription jo
 
   The following code shows the contents of `example-start-command.json`.
 
-  ```
+  ```json
   {
       "MedicalTranscriptionJobName": "{{my-first-med-transcription-job}}",       
        "Media": {

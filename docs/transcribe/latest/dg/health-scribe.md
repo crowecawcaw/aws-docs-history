@@ -1,7 +1,6 @@
 
 
 # AWS HealthScribe
-<a name="health-scribe"></a>
 
 **Introducing Amazon Connect Health Ambient agent**  
 You can now use the ambient agent to power your healthcare workflow. For more details, see [Amazon Connect Health Ambient](https://docs.aws.amazon.com/connecthealth/latest/userguide/ambient-documentation.html) documentation.

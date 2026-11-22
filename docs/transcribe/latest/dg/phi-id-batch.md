@@ -1,7 +1,6 @@
 
 
 # Identifying PHI in an audio file
-<a name="phi-id-batch"></a>
 
 Use a batch transcription job to transcribe audio files and identify the personal health information (PHI) within them. When you activate Personal Health Information (PHI) Identification, Amazon Transcribe Medical labels the PHI that it identified in the transcription results. For information about the PHI that Amazon Transcribe Medical can identify, see [Identifying personal health information (PHI) in a transcription](phi-id.md).
 
@@ -54,7 +53,7 @@ To use the AWS Management Console to transcribe a clinician-patient dialogue, cr
 
   The following is an example request that uses the AWS SDK for Python (Boto3) to transcribe an audio file and identify the PHI of a patient.
 
-  ```
+  ```python
   from __future__ import print_function
   import time
   import boto3
@@ -81,7 +80,7 @@ To use the AWS Management Console to transcribe a clinician-patient dialogue, cr
 
 The following example code shows the transcription results with patient PHI identified.
 
-```
+```json
 {
     "jobName": "my-medical-transcription-job-name",
     "accountId": "111122223333",

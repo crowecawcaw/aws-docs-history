@@ -1,7 +1,6 @@
 
 
 # Character sets for custom vocabularies and vocabulary filters
-<a name="charsets"></a>
 
 For each language Amazon Transcribe supports, there is a specific set of characters Amazon Transcribe can recognize. When you create a custom vocabulary or vocabulary filter, use only the characters listed in your language's character set. If you use unsupported characters, your custom vocabulary or vocabulary filter fails.
 

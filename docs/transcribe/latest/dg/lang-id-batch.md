@@ -1,7 +1,6 @@
 
 
 # Language identification with batch transcription jobs
-<a name="lang-id-batch"></a>
 
 Use batch language identification to automatically identify the language, or languages, in your media file.
 
@@ -30,7 +29,7 @@ The following languages are currently supported with multi-language identificati
 
 Multi-language transcripts provide a summary of detected languages and the total time that each language is spoken in your media. Here's an example:
 
-```
+```json
 "results": {
         "transcripts": [
             {
@@ -151,7 +150,7 @@ The file *my-first-language-id-job.json* contains the following request body.
 
 **Option 1**: Without the `LanguageIdSettings` parameter. Use this option if you are **not** including a custom language model, custom vocabulary, or custom vocabulary filter in your request. `LanguageOptions` is optional, but recommended.
 
-```
+```json
 {
   "TranscriptionJobName": "{{my-first-transcription-job}}",  
   "Media": {
@@ -168,7 +167,7 @@ The file *my-first-language-id-job.json* contains the following request body.
 
 **Option 2**: With the `LanguageIdSettings` parameter. Use this option if you **are** including a custom language model, custom vocabulary, or custom vocabulary filter in your request.
 
-```
+```json
 {
    "TranscriptionJobName": "{{my-first-transcription-job}}",  
    "Media": {
@@ -203,7 +202,7 @@ For additional examples using the AWS SDKs, including feature-specific, scenario
 
 **Option 1**: Without the `LanguageIdSettings` parameter. Use this option if you are **not** including a custom language model, custom vocabulary, or custom vocabulary filter in your request. `LanguageOptions` is optional, but recommended.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3
@@ -235,7 +234,7 @@ print(status)
 
 **Option 2**: With the `LanguageIdSettings` parameter. Use this option if you **are** including a custom language model, custom vocabulary, or custom vocabulary filter in your request.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

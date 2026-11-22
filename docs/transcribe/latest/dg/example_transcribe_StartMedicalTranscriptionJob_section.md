@@ -1,7 +1,6 @@
 
 
 # Use `StartMedicalTranscriptionJob` with an AWS SDK or CLI
-<a name="example_transcribe_StartMedicalTranscriptionJob_section"></a>
 
 The following code examples show how to use `StartMedicalTranscriptionJob`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `StartMedicalTranscriptionJob`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Start a medical transcription job for a media file. This method returns
     /// as soon as the job is started.
@@ -378,7 +377,7 @@ For more information, see [Improving transcription accuracy with medical custom 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples). 
 Create the client.  
 
-```
+```javascript
 import { TranscribeClient } from "@aws-sdk/client-transcribe";
 // Set the AWS Region.
 const REGION = "REGION"; //e.g. "us-east-1"
@@ -388,7 +387,7 @@ export { transcribeClient };
 ```
 Start a medical transcription job.  
 
-```
+```javascript
 // Import the required AWS SDK clients and commands for Node.js
 import { StartMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe";
 import { transcribeClient } from "./libs/transcribeClient.js";

@@ -1,7 +1,6 @@
 
 
 # Transcribing an audio file of a medical dictation
-<a name="batch-medical-dictation"></a>
 
 Use a batch transcription job to transcribe audio files of medical conversations. You can use this to transcribe a clinician-patient dialogue. You can start a batch transcription job in either the [`StartMedicalTranscriptionJob`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) API or the AWS Management Console.
 
@@ -52,7 +51,7 @@ To use the AWS Management Console to transcribe a clinician-patient dialogue, cr
 
   The following is an example request that uses the AWS SDK for Python (Boto3) to transcribe a medical dictation of a clinician in the `PRIMARYCARE` specialty.
 
-  ```
+  ```python
    from __future__ import print_function
    import time
    import boto3
@@ -81,7 +80,7 @@ To use the AWS Management Console to transcribe a clinician-patient dialogue, cr
 
 The following example code shows the transcription results of a medical dictation.
 
-```
+```json
 {
     "jobName": "dictation-medical-transcription-job",
     "accountId": "{{111122223333}}",
@@ -178,7 +177,7 @@ The following example code shows the transcription results of a medical dictatio
 
   The following code shows the contents of `example-start-command.json`.
 
-  ```
+  ```json
   {
         "MedicalTranscriptionJobName": "{{my-first-med-transcription-job}}",        
         "Media": {

@@ -1,7 +1,6 @@
 
 
 # Enabling speaker partitioning in real-time streams
-<a name="conversation-diarization-streaming-med"></a>
 
 To partition speakers and label their speech in a real-time stream, use the AWS Management Console or a streaming request. Speaker partitioning works best for between two and five speakers in a stream. Although Amazon Transcribe Medical can partition more than five speakers in a stream, the accuracy of the partitions decrease if you exceed that number.
 
@@ -61,7 +60,7 @@ GET wss://transcribestreaming.{{us-west-2}}.amazonaws.com:8443/medical-stream-tr
 
 The following code shows the truncated example response of a streaming request.
 
-```
+```json
 {
   "Transcript": {
     "Results": [

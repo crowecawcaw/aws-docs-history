@@ -1,7 +1,6 @@
 
 
 # Identifying the dominant languages in your media
-<a name="lang-id"></a>
 
 Amazon Transcribe is able to automatically identify the languages spoken in your media without you having to specify a language code.
 

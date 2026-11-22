@@ -1,7 +1,6 @@
 
 
 # Creating categories for real-time transcriptions
-<a name="tca-categories-stream"></a>
 
 Real-time Call Analytics supports the creation of custom categories, which you can use to tailor your transcript analyses to best suit your specific business needs.
 
@@ -64,7 +63,7 @@ aws transcribe create-call-analytics-category \
 
 The file *my-first-analytics-category.json* contains the following request body.
 
-```
+```json
 {
   "CategoryName": "{{my-new-real-time-category}}",
   "InputType": "{{REAL_TIME}}",
@@ -92,7 +91,7 @@ For additional examples using the AWS SDKs, including feature-specific, scenario
 The following example creates a category with the rule:
 + The customer spoke the phrase "speak to the manager" at any point in the call.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3
@@ -137,7 +136,7 @@ Rules using keywords ([`TranscriptFilter`](https://docs.aws.amazon.com/transcrib
 
 Here's an example of the parameters available with [`TranscriptFilter`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_TranscriptFilter.html):
 
-```
+```json
 "TranscriptFilter": { 
     "AbsoluteTimeRange": { 
        {{Specify the time frame, in milliseconds, when the match should occur}}

@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Transcribe
-<a name="getting-started"></a>
 
 Before you can create transcriptions, you have a few prerequisites:
 + [Sign up for an AWS account](#getting-started-api)
@@ -77,7 +76,7 @@ Policies have the format:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -99,7 +98,7 @@ Policies have the format:
 
 Amazon Resource Names (ARNs) uniquely identify all AWS resources, such as an Amazon S3 bucket. You can use ARNs in your policy to grant permissions for specific actions to use specific resources. For example, if you want to grant read access to an Amazon S3 bucket and its sub-folders, you can add the following code to your trust policy's `Statement` section:
 
-```
+```json
 {
         "Effect": "Allow",
         "Action": [
@@ -120,7 +119,7 @@ Here's an example policy that grants Amazon Transcribe read (`GetObject`, `ListB
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

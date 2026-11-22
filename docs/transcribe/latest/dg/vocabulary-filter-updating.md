@@ -1,7 +1,6 @@
 
 
 # Updating a custom vocabulary filter
-<a name="vocabulary-filter-updating"></a>
 
 To update the word list in an existing custom vocabulary filter, use the [`UpdateVocabularyFilter`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateVocabularyFilter.html) operation.
 
@@ -32,7 +31,7 @@ aws transcribe update-vocabulary-filter \
 
 The file *my-updated-vocab-filter.json* contains the following request body.
 
-```
+```json
 {
   "VocabularyFilterName": "{{my-first-vocabulary-filter}}",
   "VocabularyFilterFileUri": "s3://{{amzn-s3-demo-bucket}}/{{my-vocabulary-filters}}/{{my-updated-vocabulary-filter}}.txt"

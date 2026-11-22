@@ -1,7 +1,6 @@
 
 
 # Post-call analytics
-<a name="call-analytics-batch"></a>
 
 Call Analytics provides post-call analyses, which are useful for monitoring customer service trends. 
 

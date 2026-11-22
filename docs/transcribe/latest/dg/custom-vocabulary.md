@@ -1,7 +1,6 @@
 
 
 # Custom vocabularies
-<a name="custom-vocabulary"></a>
 
 Use custom vocabularies to improve transcription accuracy for one or more specific words. These are generally domain-specific terms, such as brand names and acronyms, proper nouns, and words that Amazon Transcribe isn't rendering correctly.
 

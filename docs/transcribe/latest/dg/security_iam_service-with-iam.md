@@ -1,7 +1,6 @@
 
 
 # How Amazon Transcribe works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon Transcribe, learn what IAM features are available to use with Amazon Transcribe.
 
@@ -66,7 +65,7 @@ To see a list of Amazon Transcribe actions, see [Actions defined by Amazon Trans
 
 Policy actions in Amazon Transcribe use the `transcribe` prefix before the action. To specify multiple actions in a single statement, separate them with commas.
 
-```
+```json
 "Action": [
       "transcribe:{{action1}}",
       "transcribe:{{action2}}"
@@ -79,7 +78,7 @@ Policy actions in Amazon Transcribe use the `transcribe` prefix before the actio
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "transcribe:List*"
 ```
 

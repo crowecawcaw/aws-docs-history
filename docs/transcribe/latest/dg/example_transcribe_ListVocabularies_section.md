@@ -1,7 +1,6 @@
 
 
 # Use `ListVocabularies` with an AWS SDK or CLI
-<a name="example_transcribe_ListVocabularies_section"></a>
 
 The following code examples show how to use `ListVocabularies`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List custom vocabularies for the current account. Optionally specify a name
     /// filter and a specific state to filter the vocabularies list.
@@ -94,7 +93,7 @@ For more information, see [Custom Vocabularies](https://docs.aws.amazon.com/tran
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
-```
+```python
 def list_vocabularies(vocabulary_filter, transcribe_client):
     """
     Lists the custom vocabularies created for this AWS account.
@@ -133,7 +132,7 @@ def list_vocabularies(vocabulary_filter, transcribe_client):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
-```
+```sap-abap
     TRY.
         IF iv_vocab_filter IS NOT INITIAL.
           oo_result = lo_tnb->listvocabularies( iv_namecontains = iv_vocab_filter ).

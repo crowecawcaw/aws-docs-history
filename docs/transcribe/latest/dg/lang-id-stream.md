@@ -1,7 +1,6 @@
 
 
 # Language identification with streaming transcriptions
-<a name="lang-id-stream"></a>
 
 Streaming language identification can identify the dominant language spoken in your media stream. Amazon Transcribe requires a minimum of one second of speech to identify the language.
 
@@ -62,7 +61,7 @@ You can use automatic language identification in a streaming transcription using
 
 This example creates an HTTP/2 request with language identification enabled. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-setting-up.md#streaming-http2). For more detail on parameters and headers specific to Amazon Transcribe, see [`StartStreamTranscription`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html).
 
-```
+```http
 POST /stream-transcription HTTP/2
 host: transcribestreaming.{{us-west-2}}.amazonaws.com
 X-Amz-Target: com.amazonaws.transcribe.Transcribe.{{StartStreamTranscription}}
@@ -80,7 +79,7 @@ transfer-encoding: chunked
 
 This example creates an HTTP/2 request with multiple languages identification enabled. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-setting-up.md#streaming-http2). For more detail on parameters and headers specific to Amazon Transcribe, see [`StartStreamTranscription`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html).
 
-```
+```http
 POST /stream-transcription HTTP/2
 host: transcribestreaming.{{us-west-2}}.amazonaws.com
 X-Amz-Target: com.amazonaws.transcribe.Transcribe.{{StartStreamTranscription}}

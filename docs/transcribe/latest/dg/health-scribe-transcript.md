@@ -1,7 +1,6 @@
 
 
 # AWS HealthScribe Transcript file
-<a name="health-scribe-transcript"></a>
 
 In the transcript file, in addition to standard turn-by-turn transcription output with word level timestamps, AWS HealthScribe provides you with:
 + **Participant role detection** so you can distinguish the patients from the clinicians in the conversation transcript.

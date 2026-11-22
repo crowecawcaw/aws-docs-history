@@ -1,7 +1,6 @@
 
 
 # Creating a custom vocabulary using a table
-<a name="custom-vocabulary-create-table"></a>
 
 Using a table format is the preferred way to create your custom vocabulary. Vocabulary tables must consist of four columns (Phrase, SoundsLike, IPA, and DisplayAs), which can be included in any order:
 
@@ -133,7 +132,7 @@ aws transcribe create-vocabulary \
 
 The file *my-first-vocab-table.json* contains the following request body.
 
-```
+```json
 {
   "VocabularyName": "{{my-first-vocabulary}}",
   "VocabularyFileUri": "s3://{{amzn-s3-demo-bucket}}/{{my-vocabularies}}/{{my-vocabulary-table}}.txt",
@@ -157,7 +156,7 @@ To use an existing custom vocabulary in a transcription job, set the `Vocabulary
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

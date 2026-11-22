@@ -1,11 +1,10 @@
 
 
 # Example diarization output (batch)
-<a name="diarization-output-batch"></a>
 
 Here's an output example for a batch transcription with diarization enabled.
 
-```
+```json
 {
     "jobName": "my-first-transcription-job",
     "accountId": "111122223333",

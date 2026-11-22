@@ -1,7 +1,6 @@
 
 
 # Transcribing an audio file using a medical custom vocabulary
-<a name="start-med-custom-vocab-job"></a>
 
 Use the [`StartMedicalTranscriptionJob`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalTranscriptionJob.html) or the AWS Management Console to start a transcription job that uses a custom vocabulary to improve transcription accuracy.
 
@@ -48,7 +47,7 @@ Use the [`StartMedicalTranscriptionJob`](https://docs.aws.amazon.com/transcribe/
 
 The following request uses the AWS SDK for Python (Boto3) to start a batch transcription job with a custom vocabulary.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3

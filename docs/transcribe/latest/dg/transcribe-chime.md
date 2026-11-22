@@ -1,7 +1,6 @@
 
 
 # Transcribing your Amazon Chime calls in real time
-<a name="transcribe-chime"></a>
 
 Amazon Transcribe is integrated with the Amazon Chime SDK, facilitating real-time transcriptions of your Amazon Chime calls.
 

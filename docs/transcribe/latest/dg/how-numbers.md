@@ -1,7 +1,6 @@
 
 
 # Transcribing numbers and punctuation
-<a name="how-numbers"></a>
 
 Amazon Transcribe automatically adds punctuation to all supported languages, and capitalizes words appropriately for languages that use case distinction in their writing systems.
 

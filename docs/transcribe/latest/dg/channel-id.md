@@ -1,7 +1,6 @@
 
 
 # Transcribing multi-channel audio
-<a name="channel-id"></a>
 
 If your audio has two channels, you can use channel identification to transcribe the speech from each channel separately. Amazon Transcribe doesn't currently support audio with more than two channels.
 
@@ -9,7 +8,7 @@ In your transcript, channels are assigned the labels `ch_0` and `ch_1`.
 
 In addition to the [standard transcript sections](how-input.md#how-it-works-output) (`transcripts` and `items`), requests with channel identification enabled include a `channel_labels` section. This section contains each utterance or punctuation mark, grouped by channel, and its associated channel label, timestamps, and confidence score.
 
-```
+```json
 "channel_labels": {
     "channels": [
         {
@@ -97,7 +96,7 @@ aws transcribe start-transcription-job \
 
 The file *my-first-transcription-job.json* contains the following request body.
 
-```
+```json
 {
     "TranscriptionJobName": "{{my-first-transcription-job}}",
     "Media": {
@@ -117,7 +116,7 @@ The file *my-first-transcription-job.json* contains the following request body.
 
 This example uses the AWS SDK for Python (Boto3) to identify channels using the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html).
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3
@@ -156,7 +155,7 @@ To identify channels in a streaming transcription, you can use **HTTP/2** or **W
 
 This example creates an HTTP/2 request that separates channels in your transcription output. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-setting-up.md#streaming-http2). For more detail on parameters and headers specific to Amazon Transcribe, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html).
 
-```
+```http
 POST /stream-transcription HTTP/2
 host: transcribestreaming.{{us-west-2}}.amazonaws.com
 X-Amz-Target: com.amazonaws.transcribe.Transcribe.{{StartStreamTranscription}}

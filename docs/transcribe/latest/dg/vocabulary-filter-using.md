@@ -1,7 +1,6 @@
 
 
 # Using a custom vocabulary filter
-<a name="vocabulary-filter-using"></a>
 
 Once your custom vocabulary filter is created, you can include it in your transcription requests; refer to the following sections for examples.
 
@@ -58,7 +57,7 @@ aws transcribe start-transcription-job \
 
 The file *my-first-vocabulary-filter-job.json* contains the following request body.
 
-```
+```json
 {
   "TranscriptionJobName": "{{my-first-transcription-job}}",
   "Media": {
@@ -81,7 +80,7 @@ This example uses the AWS SDK for Python (Boto3) to include a custom vocabulary 
 
 For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3
@@ -136,7 +135,7 @@ To use a custom vocabulary filter with a streaming transcription, see the follow
 
 This example creates an HTTP/2 request that includes your custom vocabulary filter and filter method. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-setting-up.md#streaming-http2). For more detail on parameters and headers specific to Amazon Transcribe, see [`StartStreamTranscription`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html).
 
-```
+```http
 POST /stream-transcription HTTP/2
 host: transcribestreaming.{{us-west-2}}.amazonaws.com
 X-Amz-Target: com.amazonaws.transcribe.Transcribe.{{StartStreamTranscription}}

@@ -1,7 +1,6 @@
 
 
 # Transcribing a medical conversation
-<a name="transcribe-medical-conversation"></a>
 
 You can use Amazon Transcribe Medical to transcribe a medical conversation between a clinician and a patient using either a batch transcription job or a real-time stream. Batch transcription jobs enable you to transcribe audio files. To ensure that Amazon Transcribe Medical produces transcription results with the highest possible accuracy, you must specify the medical specialty of the clinician in your transcription job or stream.
 

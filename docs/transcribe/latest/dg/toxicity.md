@@ -1,7 +1,6 @@
 
 
 # Detecting toxic speech
-<a name="toxicity"></a>
 
  Toxic speech detection is designed to help moderate social media platforms that involve peer-to-peer dialogue, such as online gaming and social chat platforms. The use of toxic speech can be deeply detrimental to individuals, peer groups, and communities. Flagging harmful language helps organizations keep conversations civil and maintain a safe and inclusive online environment for users to create, share and participate freely. 
 

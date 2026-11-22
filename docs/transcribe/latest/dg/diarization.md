@@ -1,13 +1,12 @@
 
 
 # Partitioning speakers (diarization)
-<a name="diarization"></a>
 
 With speaker diarization, you can distinguish between different speakers in your transcription output. Amazon Transcribe can differentiate between a maximum of 30 unique speakers and labels the text from each unique speaker with a unique value (`spk_0` through `spk_29`).
 
 In addition to the [standard transcript sections](how-input.md#how-it-works-output) (`transcripts` and `items`), requests with speaker partitioning enabled include a `speaker_labels` section. This section is grouped by speaker and contains information on each utterance, including speaker label and timestamps.
 
-```
+```json
 "speaker_labels": {
     "channel_label": "ch_0",
     "speakers": 2,
@@ -83,7 +82,7 @@ aws transcribe start-transcription-job \
 
 The file *my-first-transcription-job.json* contains the following request body.
 
-```
+```json
 {
   "TranscriptionJobName": "{{my-first-transcription-job}}",
   "Media": {
@@ -102,7 +101,7 @@ The file *my-first-transcription-job.json* contains the following request body.
 
 This example uses the AWS SDK for Python (Boto3) to identify channels using the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method. For more information, see [StartTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html).
 
-```
+```python
 from __future__ import print_function
 import time
 import boto3
@@ -155,7 +154,7 @@ To partition speakers in a streaming transcription, see the following examples:
 
 This example creates an HTTP/2 request that partitions speakers in your transcription output. For more information on using HTTP/2 streaming with Amazon Transcribe, see [Setting up an HTTP/2 stream](streaming-setting-up.md#streaming-http2). For more detail on parameters and headers specific to Amazon Transcribe, see [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html).
 
-```
+```http
 POST /stream-transcription HTTP/2
 host: transcribestreaming.{{us-west-2}}.amazonaws.com
 X-Amz-Target: com.amazonaws.transcribe.Transcribe.{{StartStreamTranscription}}

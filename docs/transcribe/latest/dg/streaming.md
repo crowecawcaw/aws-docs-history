@@ -1,7 +1,6 @@
 
 
 # Transcribing streaming audio
-<a name="streaming"></a>
 
 Using Amazon Transcribe streaming, you can produce real-time transcriptions for your media content. Unlike batch transcriptions, which involve uploading media files, streaming media is delivered to Amazon Transcribe in real time. Amazon Transcribe then returns a transcript, also in real time.
 
