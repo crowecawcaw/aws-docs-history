@@ -1,7 +1,6 @@
 
 
 # Listeners for your Classic Load Balancer
-<a name="elb-listener-config"></a>
 
 Before you start using Elastic Load Balancing, you must configure one or more *listeners* for your Classic Load Balancer. A listener is a process that checks for connection requests. It is configured with a protocol and a port for front-end (client to load balancer) connections, and a protocol and a port for back-end (load balancer to back-end instance) connections.
 

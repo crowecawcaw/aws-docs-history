@@ -1,7 +1,6 @@
 
 
 # Health checks for the instances for your Classic Load Balancer
-<a name="elb-healthchecks"></a>
 
 Your Classic Load Balancer periodically sends requests to its registered instances to test their status. These tests are called *health checks*. The status of the instances that are healthy at the time of the health check is `InService`. The status of any instances that are unhealthy at the time of the health check is `OutOfService`. The load balancer performs health checks on all registered instances, whether the instance is in a healthy state or an unhealthy state.
 

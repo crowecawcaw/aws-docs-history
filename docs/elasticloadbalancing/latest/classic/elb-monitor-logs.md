@@ -1,7 +1,6 @@
 
 
 # Monitor your Classic Load Balancer
-<a name="elb-monitor-logs"></a>
 
 You can use the following features to monitor your load balancers, analyze traffic patterns, and troubleshoot issues with your load balancers and back-end instances.
 

@@ -1,7 +1,6 @@
 
 
 # What is a Classic Load Balancer?
-<a name="introduction"></a>
 
 **Note**  
 Classic Load Balancers are the previous generation of load balancers from Elastic Load Balancing. We recommend that you migrate to a current generation load balancer. For more information, see [Migrate your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/migrate-classic-load-balancer.html).

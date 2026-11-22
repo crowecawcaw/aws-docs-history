@@ -1,7 +1,6 @@
 
 
 # Configure a custom domain name for your Classic Load Balancer
-<a name="using-domain-names-with-elb"></a>
 
 Each Classic Load Balancer receives a default Domain Name System (DNS) name. This DNS name includes the name of the AWS Region in which the load balancer is created. For example, if you create a load balancer named `my-loadbalancer` in the US West (Oregon) Region, your load balancer receives a DNS name such as `my-loadbalancer-1234567890.us-west-2.elb.amazonaws.com`. To access the website on your instances, you paste this DNS name into the address field of a web browser. However, this DNS name is not easy for your customers to remember and use.
 

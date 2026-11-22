@@ -1,7 +1,6 @@
 
 
 # Predefined SSL security policies for Classic Load Balancers
-<a name="elb-security-policy-table"></a>
 
 You can choose one of the predefined security policies for your HTTPS/SSL listeners. You can use one of the `ELBSecurityPolicy-TLS` policies to meet compliance and security standards that require disabling certain TLS protocol versions. Alternatively, you can create a custom security policy. For more information, see [Update the SSL negotiation configuration](ssl-config-update.md).
 

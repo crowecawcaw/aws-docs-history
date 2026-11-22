@@ -1,7 +1,6 @@
 
 
 # Registered instances for your Classic Load Balancer
-<a name="elb-backend-instances"></a>
 
 After you've created your Classic Load Balancer, you must register your EC2 instances with the load balancer. You can select EC2 instances from a single Availability Zone or multiple Availability Zones within the same Region as the load balancer. Elastic Load Balancing routinely performs health checks on registered EC2 instances, and automatically distributes incoming requests to the DNS name of your load balancer across the registered, healthy EC2 instances.
 

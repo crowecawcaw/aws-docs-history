@@ -1,7 +1,6 @@
 
 
 # Troubleshoot a Classic Load Balancer: API errors
-<a name="ts-elb-error-api-response"></a>
 
 The following are error messages returned by Elastic Load Balancing API, the potential causes, and the steps you can take to resolve the issues.
 

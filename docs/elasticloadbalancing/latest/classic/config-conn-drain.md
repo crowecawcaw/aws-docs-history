@@ -1,7 +1,6 @@
 
 
 # Configure connection draining for your Classic Load Balancer
-<a name="config-conn-drain"></a>
 
 To ensure that a Classic Load Balancer stops sending requests to instances that are de-registering or unhealthy, while keeping the existing connections open, use *connection draining*. This enables the load balancer to complete in-flight requests made to instances that are de-registering or unhealthy.
 
@@ -51,7 +50,7 @@ aws elb modify-load-balancer-attributes --load-balancer-name {{my-loadbalancer}}
 
 The following is an example response:
 
-```
+```json
 {
     "LoadBalancerAttributes": {
         "ConnectionDraining": {
@@ -91,7 +90,7 @@ aws elb modify-load-balancer-attributes --load-balancer-name {{my-loadbalancer}}
 
 The following is an example response:
 
-```
+```json
 {
     "LoadBalancerAttributes": {
         "ConnectionDraining": {

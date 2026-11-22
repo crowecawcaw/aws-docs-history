@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics for your Classic Load Balancer
-<a name="elb-cloudwatch-metrics"></a>
 
 Elastic Load Balancing publishes data points to Amazon CloudWatch for your load balancers and your back-end instances. CloudWatch enables you to retrieve statistics about those data points as an ordered set of time-series data, known as *metrics*. Think of a metric as a variable to monitor, and the data points as the values of that variable over time. For example, you can monitor the total number of healthy EC2 instances for a load balancer over a specified time period. Each data point has an associated time stamp and an optional unit of measurement.
 

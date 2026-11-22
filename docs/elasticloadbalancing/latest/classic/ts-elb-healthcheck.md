@@ -1,7 +1,6 @@
 
 
 # Troubleshoot a Classic Load Balancer: Health checks
-<a name="ts-elb-healthcheck"></a>
 
 Your load balancer checks the health of its registered instances using either the default health check configuration provided by Elastic Load Balancing or a custom health check configuration that you specify. The health check configuration contains information such as the protocol, ping port, ping path, response timeout, and health check interval. An instance is considered healthy if it returns a 200 response code within the health check interval. For more information, see [Health checks for the instances for your Classic Load Balancer](elb-healthchecks.md).
 

@@ -1,7 +1,6 @@
 
 
 # Configure subnets for your Classic Load Balancer
-<a name="elb-manage-subnets"></a>
 
 When you add a subnet to your load balancer, Elastic Load Balancing creates a load balancer node in the Availability Zone. Load balancer nodes accept traffic from clients and forward requests to the healthy registered instances in one or more Availability Zones. We recommend that you add one subnet per Availability Zone for at least two Availability Zones. This improves the availability of your load balancer. Note that you can modify the subnets for your load balancer at any time.
 
@@ -61,7 +60,7 @@ aws elb attach-load-balancer-to-subnets --load-balancer-name {{my-load-balancer}
 
 The response lists all subnets for the load balancer. For example:
 
-```
+```json
 {
     "Subnets": [
         "subnet-5c11033e",
@@ -80,7 +79,7 @@ aws elb detach-load-balancer-from-subnets --load-balancer-name {{my-loadbalancer
 
 The response lists the remaining subnets for the load balancer. For example:
 
-```
+```json
 {
     "Subnets": [
         "subnet-15aaab61"

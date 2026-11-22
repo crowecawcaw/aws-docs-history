@@ -1,7 +1,6 @@
 
 
 # Configure an HTTPS listener for your Classic Load Balancer
-<a name="elb-add-or-delete-listeners"></a>
 
 A *listener* is a process that checks for connection requests. It is configured with a protocol and a port for front-end (client to load balancer) connections and a protocol and a port for back-end (load balancer to instance) connections. For information about the ports, protocols, and listener configurations supported by Elastic Load Balancing, see [Listeners for your Classic Load Balancer](elb-listener-config.md).
 
@@ -102,7 +101,7 @@ You can add an HTTPS listener to an existing load balancer.
 
    The following is an example response:
 
-   ```
+   ```json
    {
        "LoadBalancerDescriptions": [
            {

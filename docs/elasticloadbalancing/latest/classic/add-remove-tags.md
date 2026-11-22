@@ -1,7 +1,6 @@
 
 
 # Tag your Classic Load Balancer
-<a name="add-remove-tags"></a>
 
 Tags help you to categorize your load balancers in different ways, for example, by purpose, owner, or environment.
 

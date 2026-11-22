@@ -1,7 +1,6 @@
 
 
 # Register instances with your Classic Load Balancer
-<a name="elb-deregister-register-instances"></a>
 
 Registering an EC2 instance adds it to your load balancer. The load balancer continuously monitors the health of registered instances in its enabled Availability Zones, and routes requests to the instances that are healthy. If demand on your instances increases, you can register additional instances with the load balancer to handle the demand.
 
@@ -51,7 +50,7 @@ aws elb register-instances-with-load-balancer --load-balancer-name {{my-loadbala
 
 The following is an example response that lists the instances registered with the load balancer:
 
-```
+```json
 {
     "Instances": [
         {
@@ -128,7 +127,7 @@ aws elb deregister-instances-from-load-balancer --load-balancer-name {{my-loadba
 
 The following is an example response that lists the remaining instances registered with the load balancer:
 
-```
+```json
 {
     "Instances": [
         {

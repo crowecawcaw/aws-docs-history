@@ -1,7 +1,6 @@
 
 
 # Access logs for your Classic Load Balancer
-<a name="access-log-collection"></a>
 
 Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
 

@@ -1,7 +1,6 @@
 
 
 # Create an internal Classic Load Balancer
-<a name="elb-create-internal-load-balancer"></a>
 
 You can create an internal load balancer to distribute traffic to your EC2 instances from clients with access to the VPC for the load balancer.
 
@@ -134,7 +133,7 @@ By default, Elastic Load Balancing creates an internet-facing load balancer. Use
 
    The following is an example response. Note that the name indicates that this is an internal load balancer.
 
-   ```
+   ```json
    {
        "DNSName": "internal-my-internal-loadbalancer-786501203.us-west-2.elb.amazonaws.com"
    }
@@ -148,7 +147,7 @@ By default, Elastic Load Balancing creates an internet-facing load balancer. Use
 
    The following is an example response:
 
-   ```
+   ```json
    {
        "Instances": [
            {
@@ -169,7 +168,7 @@ By default, Elastic Load Balancing creates an internet-facing load balancer. Use
 
    The response includes the `DNSName` and `Scheme` fields, which indicate that this is an internal load balancer.
 
-   ```
+   ```json
    {
        "LoadBalancerDescriptions": [
            {

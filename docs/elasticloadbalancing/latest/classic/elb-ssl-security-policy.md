@@ -1,7 +1,6 @@
 
 
 # SSL negotiation configurations for Classic Load Balancers
-<a name="elb-ssl-security-policy"></a>
 
 Elastic Load Balancing uses a Secure Socket Layer (SSL) negotiation configuration, known as a *security policy*, to negotiate SSL connections between a client and the load balancer. A security policy is a combination of SSL protocols, SSL ciphers, and the Server Order Preference option. For more information about configuring an SSL connection for your load balancer, see [Listeners for your Classic Load Balancer](elb-listener-config.md).
 

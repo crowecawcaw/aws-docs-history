@@ -1,7 +1,6 @@
 
 
 # Enable access logs for your Classic Load Balancer
-<a name="enable-access-logs"></a>
 
 To enable access logs for your load balancer, you must specify the name of the Amazon S3 bucket where the load balancer will store the logs. You must also attach a bucket policy to this bucket that grants Elastic Load Balancing permission to write to the bucket.
 
@@ -51,7 +50,7 @@ This policy grants permissions to the log delivery service.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -69,7 +68,7 @@ This policy grants permissions to the log delivery service.
 
 For `Resource`, enter the ARN of the location for the access logs, using the format shown in the example policy. Always include the account ID of the account with the load balancer in the resource path of the S3 bucket ARN. This ensures that only load balancers from the specified account can write access logs to the S3 bucket.
 
-The ARN that you specify depends on whether you plan to include a prefix when you enable access logs in [step 3](#enable-access-logs).
+The ARN that you specify depends on whether you plan to include a prefix when you enable access logs in [step 3](enable-access-logs.md).
 
 **Example S3 bucket ARN with a prefix**  
 The S3 bucket name is amzn-s3-demo-logging-bucket and the prefix is logging-prefix.
@@ -192,7 +191,7 @@ The bucket must meet the requirements described in [step 1](#create-s3-bucket), 
 **To configure access logs for your load balancer using the AWS CLI**  
 First, create a .json file that enables Elastic Load Balancing to capture and deliver logs every 60 minutes to the S3 bucket that you created for the logs:
 
-```
+```json
 { 
   "AccessLog": {
     "Enabled": true,
@@ -211,7 +210,7 @@ aws elb modify-load-balancer-attributes --load-balancer-name {{my-loadbalancer}}
 
 The following is an example response.
 
-```
+```json
 {
     "LoadBalancerAttributes": {
         "AccessLog": {

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot your Classic Load Balancer
-<a name="elb-troubleshooting"></a>
 
 The following tables list the troubleshooting resources that you'll find useful as you work with a Classic Load Balancer.
 

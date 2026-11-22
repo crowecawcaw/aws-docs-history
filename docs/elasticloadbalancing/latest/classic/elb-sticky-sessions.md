@@ -1,7 +1,6 @@
 
 
 # Configure sticky sessions for your Classic Load Balancer
-<a name="elb-sticky-sessions"></a>
 
 By default, a Classic Load Balancer routes each request independently to the registered instance with the smallest load. However, you can use the *sticky session* feature (also known as *session affinity*), which enables the load balancer to bind a user's session to a specific instance. This ensures that all requests from the user during the session are sent to the same instance.
 
@@ -77,7 +76,7 @@ The `set-load-balancer-policies-of-listener` command replaces the current set of
 
    The response includes the following information, which shows that the policy is enabled for the listener on the specified port:
 
-   ```
+   ```json
    {
        "LoadBalancerDescriptions": [
            {
@@ -169,7 +168,7 @@ The `set-load-balancer-policies-of-listener` command replaces the current set of
 
 1. The response includes the following information, which shows that the policy is enabled for the listener on the specified port:
 
-   ```
+   ```json
    {
        "LoadBalancerDescriptions": [
            {

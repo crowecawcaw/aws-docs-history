@@ -1,7 +1,6 @@
 
 
 # SSL/TLS certificates for Classic Load Balancers
-<a name="ssl-server-cert"></a>
 
 If you use HTTPS (SSL or TLS) for your front-end listener, you must deploy an SSL/TLS certificate on your load balancer. The load balancer uses the certificate to terminate the connection and then decrypt requests from clients before sending them to the instances.
 

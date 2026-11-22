@@ -1,7 +1,6 @@
 
 
 # Create a Classic Load Balancer with an HTTPS listener
-<a name="elb-create-https-ssl-load-balancer"></a>
 
 A load balancer takes requests from clients and distributes them across the EC2 instances that are registered with the load balancer.
 
@@ -205,7 +204,7 @@ Because the second listener uses HTTPS for the front-end connection, you must de
 
    The following is an example response:
 
-   ```
+   ```json
    {
      "DNSName": "my-loadbalancer-012345678.us-west-2.elb.amazonaws.com"
    }
@@ -231,7 +230,7 @@ aws elb describe-load-balancers --load-balancer-name {{my-loadbalancer}}
 
 The following is an example response. Note that `ELBSecurityPolicy-2016-08` is associated with the load balancer on port 443.
 
-```
+```json
 {
     "LoadBalancerDescriptions": [
         {
@@ -309,7 +308,7 @@ The `set-load-balancer-policies-of-listener` command replaces the current set of
 
    The following is an example response showing that the policy is enabled on port 443.
 
-   ```
+   ```json
    {
        "LoadBalancerDescriptions": [
            {
@@ -382,7 +381,7 @@ The `set-load-balancer-policies-of-listener` command replaces the current set of
 
    The following is an example response showing that the policy is enabled on port 443.
 
-   ```
+   ```json
    {
        "LoadBalancerDescriptions": [
            {
@@ -498,7 +497,7 @@ aws elb configure-health-check --load-balancer-name {{my-loadbalancer}} --health
 
 The following is an example response:
 
-```
+```json
 {
     "HealthCheck": {
         "HealthyThreshold": 2,
@@ -523,7 +522,7 @@ aws elb register-instances-with-load-balancer --load-balancer-name {{my-loadbala
 
 The following is an example response:
 
-```
+```json
 {
     "Instances": [
         {
@@ -549,7 +548,7 @@ aws elb describe-instance-health  --load-balancer-name {{my-loadbalancer}} --ins
 
 The following is an example response:
 
-```
+```json
 {
     "InstanceStates": [
         {

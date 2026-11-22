@@ -1,7 +1,6 @@
 
 
 # HTTPS listeners for your Classic Load Balancer
-<a name="elb-https-load-balancers"></a>
 
 You can create a load balancer that uses the SSL/TLS protocol for encrypted connections (also known as *SSL offload*). This feature enables traffic encryption between your load balancer and the clients that initiate HTTPS sessions, and for connections between your load balancer and your EC2 instances.
 

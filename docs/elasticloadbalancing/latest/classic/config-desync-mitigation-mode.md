@@ -1,7 +1,6 @@
 
 
 # Configure desync mitigation mode for your Classic Load Balancer
-<a name="config-desync-mitigation-mode"></a>
 
 Desync mitigation mode protects your application from issues due to HTTP Desync. The load balancer classifies each request based on its threat level, allows safe requests, and then mitigates risk as specified by the mitigation mode that you specify. The desync mitigation modes are monitor, defensive, and strictest. The default is the defensive mode, which provides durable mitigation against HTTP desync while maintaining the availability of your application. You can switch to strictest mode to ensure that your application receives only requests that comply with RFC 7230.
 
@@ -94,7 +93,7 @@ aws elb modify-load-balancer-attributes --load-balancer-name {{my-load-balancer}
 
 The following is the contents of `attribute.json`.
 
-```
+```json
 {
     "AdditionalAttributes": [
         {

@@ -1,7 +1,6 @@
 
 
 # Configure cross-zone load balancing for your Classic Load Balancer
-<a name="enable-disable-crosszone-lb"></a>
 
 With *cross-zone load balancing*, each load balancer node for your Classic Load Balancer distributes requests evenly across the registered instances in all enabled Availability Zones. If cross-zone load balancing is disabled, each load balancer node distributes requests evenly across the registered instances in its Availability Zone only. For more information, see [Cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#cross-zone-load-balancing) in the *Elastic Load Balancing User Guide*.
 
@@ -44,7 +43,7 @@ You can enable cross-zone load balancing for your Classic Load Balancer at any t
 
    The following is an example response:
 
-   ```
+   ```json
    {
       "LoadBalancerAttributes": {
         "CrossZoneLoadBalancing": {
@@ -63,7 +62,7 @@ You can enable cross-zone load balancing for your Classic Load Balancer at any t
 
    The following is an example response:
 
-   ```
+   ```json
    {
        "LoadBalancerAttributes": {
            "ConnectionDraining": {
@@ -114,7 +113,7 @@ To disable cross-zone load balancing, set the `CrossZoneLoadBalancing` attribute
 
    The following is an example response:
 
-   ```
+   ```json
    {
       "LoadBalancerAttributes": {
         "CrossZoneLoadBalancing": {
@@ -133,7 +132,7 @@ To disable cross-zone load balancing, set the `CrossZoneLoadBalancing` attribute
 
    The following is an example response:
 
-   ```
+   ```json
    {
        "LoadBalancerAttributes": {
            "ConnectionDraining": {

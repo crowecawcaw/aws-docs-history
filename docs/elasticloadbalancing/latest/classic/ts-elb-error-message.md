@@ -1,7 +1,6 @@
 
 
 # Troubleshoot a Classic Load Balancer: HTTP errors
-<a name="ts-elb-error-message"></a>
 
 The HTTP method (also called the *verb*) specifies the action to be performed on the resource receiving an HTTP request. The standard methods for HTTP requests are defined in RFC 2616, [Method Definitions](http://tools.ietf.org/html/rfc2616#section-9). The standard methods include GET, POST, PUT, HEAD, and OPTIONS. Some web applications require (and sometimes introduce) methods that are extensions of HTTP/1.1 methods. Common examples of HTTP extended methods include PATCH, REPORT, MKCOL, PROPFIND, MOVE, and LOCK. Elastic Load Balancing accepts all standard and non-standard HTTP methods.
 

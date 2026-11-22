@@ -1,7 +1,6 @@
 
 
 # Listener configurations for Classic Load Balancers
-<a name="using-elb-listenerconfig-quickref"></a>
 
 The following table describes possible configurations for HTTP and HTTPS listeners for a Classic Load Balancer.
 

@@ -1,7 +1,6 @@
 
 
 # Disable access logs for your Classic Load Balancer
-<a name="disable-access-logs"></a>
 
 You can disable access logs for your load balancer at any time. After you disable access logs, your access logs remain in your Amazon S3 until you delete the them. For more information, see [Working with S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the *Amazon S3 User Guide*.
 
@@ -26,7 +25,7 @@ aws elb modify-load-balancer-attributes --load-balancer-name {{my-loadbalancer}}
 
 The following is an example response:
 
-```
+```json
 {
     "LoadBalancerName": "my-loadbalancer",
     "LoadBalancerAttributes": {
