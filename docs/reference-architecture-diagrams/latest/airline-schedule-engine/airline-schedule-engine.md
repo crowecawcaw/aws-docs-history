@@ -1,7 +1,6 @@
 
 
 # Airline Schedule Engine
-<a name="airline-schedule-engine"></a>
 
 Publication date: **May 3, 2021 ([Diagram history](#schedule-engine-history))**
 
