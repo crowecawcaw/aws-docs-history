@@ -1,7 +1,6 @@
 
 
 # AI-Enabled Audio Insight Processing Pipeline
-<a name="ai-audio-insight-pipeline"></a>
 
 Publication date: **June 20, 2022 ([Diagram history](#diagram-history))**
 
