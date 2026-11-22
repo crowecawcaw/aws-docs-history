@@ -1,7 +1,6 @@
 
 
 # Troubleshooting cache mount issues
-<a name="mount-troubleshooting"></a>
 
 There are a number of potential causes when a cache mount command fails, as described in the following topics.
 

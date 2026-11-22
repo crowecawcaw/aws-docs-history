@@ -1,7 +1,6 @@
 
 
 # Unmounting caches
-<a name="unmounting-fs"></a>
 
 Before you delete a cache, we recommend that you unmount it from every Amazon EC2 instance that it's connected to. You can unmount a cache on your Amazon EC2 instance by running the `umount` command on the instance itself. You can't unmount a cache through the AWS CLI, the AWS Management Console, or through any of the AWS SDKs. To unmount a cache connected to an Amazon EC2 instance running Linux, use the `umount` command as follows:
 

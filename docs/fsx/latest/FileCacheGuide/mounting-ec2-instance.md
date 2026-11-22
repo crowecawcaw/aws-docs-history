@@ -1,7 +1,6 @@
 
 
 # Mounting from an Amazon EC2 instance
-<a name="mounting-ec2-instance"></a>
 
 You can mount your cache from an Amazon EC2 instance.
 

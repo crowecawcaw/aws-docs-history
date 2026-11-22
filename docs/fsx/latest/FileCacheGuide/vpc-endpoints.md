@@ -1,7 +1,6 @@
 
 
 # Amazon File Cache and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-endpoints"></a>
 
 You can improve the security posture of your VPC by configuring Amazon File Cache to use an interface VPC endpoint. Interface VPC endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access AWS APIs without an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with AWS APIs. Traffic between your VPC and Amazon FSx does not leave the AWS network.
 

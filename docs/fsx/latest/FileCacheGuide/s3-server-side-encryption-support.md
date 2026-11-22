@@ -1,7 +1,6 @@
 
 
 # Working with server-side encrypted Amazon S3 buckets
-<a name="s3-server-side-encryption-support"></a>
 
 Amazon File Cache supports Amazon Simple Storage Service (Amazon S3) buckets that use server-side encryption with S3-managed keys (SSE-S3), and with AWS Key Management Service (AWS KMS) stored in AWS KMS (SSE-KMS). 
 

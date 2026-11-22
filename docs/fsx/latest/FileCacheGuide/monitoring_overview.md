@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon File Cache
-<a name="monitoring_overview"></a>
 
 You can use the following automated monitoring tools to watch Amazon File Cache and report when something is wrong:
 + **Monitoring using Amazon CloudWatch** – CloudWatch collects and processes raw data from Amazon File Cache into readable, near real-time metrics. You can create a CloudWatch alarm that sends an Amazon SNS message when the alarm changes state.

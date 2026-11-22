@@ -1,7 +1,6 @@
 
 
 # Accessing caches
-<a name="accessing-caches"></a>
 
 In the following topics, you can learn how to access your cache on a Linux instance. In addition, you can find how to use the file `fstab` to automatically remount your cache after any system restarts.
 

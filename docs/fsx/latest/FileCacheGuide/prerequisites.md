@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="prerequisites"></a>
 
 To perform this getting started exercise, you'll need the following:
 + An AWS account with the permissions necessary to create an Amazon File Cache and an Amazon Elastic Compute Cloud (Amazon EC2) instance. For more information, see [Setting up](setting-up.md).

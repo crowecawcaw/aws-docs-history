@@ -1,7 +1,6 @@
 
 
 # Overview of data repositories
-<a name="overview-data-repo"></a>
 
 Amazon File Cache is well integrated with data repositories in Amazon S3 or on Network File System (NFS) file systems that support the NFSv3 protocol. This integration means that you can seamlessly access the objects stored in your Amazon S3 buckets or NFS data repositories from applications that mount your cache. You can also run your compute-intensive workloads on Amazon EC2 instances in the AWS Cloud and export the results to your data repository after your workload is complete.
 

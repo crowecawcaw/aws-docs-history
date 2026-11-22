@@ -1,11 +1,10 @@
 
 
 # Installing the Lustre client
-<a name="install-lustre-client"></a>
 
 To mount your cache from a Linux instance, first install the open-source Lustre client. Amazon File Cache version 2.12 supports access from the 2.12 versions of the Lustre client. Then, depending on your operating system version, use one of the following procedures.
 
-If your compute instance isn't running the Linux kernel specified in the installation instructions, and you can't change the kernel, you can build your own Lustre client. For more information, see [Compiling Lustre](http://wiki.lustre.org/Compiling_Lustre) on the Lustre Wiki.
+If your compute instance isn't running a supported kernel, update the kernel or launch an instance from a supported AMI, as described in the following procedures. Note that you can't use Lustre clients built from source with Amazon File Cache.
 
 ## Amazon Linux 2 and Amazon Linux
 <a name="lustre-client-amazon-linux"></a>

@@ -1,7 +1,6 @@
 
 
 # Encrypting data at rest
-<a name="encryption-at-rest"></a>
 
 Encryption of data at rest is automatically enabled when you create an Amazon File Cache resource through the AWS Management Console, the AWS CLI, or programmatically through the AWS API or one of the AWS SDKs. Your organization might require the encryption of all data that meets a specific classification or is associated with a particular application, workload, or environment. You can specify the AWS Key Management Service (AWS KMS) key to use for encrypting the data when you create an Amazon File Cache resource. For more information about creating a cache encrypted at rest using the console, see [Step 1: Create your cache](getting-started-step1.md).
 

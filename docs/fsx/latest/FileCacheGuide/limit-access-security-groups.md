@@ -1,7 +1,6 @@
 
 
 # Cache access control with Amazon VPC
-<a name="limit-access-security-groups"></a>
 
 A cache is accessible through an elastic network interface that resides in the virtual private cloud (VPC) based on the Amazon VPC service that you associate with your cache. You access your cache through its DNS name, which maps to the cache's network interface. Only resources within the associated VPC, or a peered VPC, can access your cache's network interface. For more information, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the* Amazon VPC User Guide.*
 

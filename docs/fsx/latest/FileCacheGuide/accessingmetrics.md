@@ -1,7 +1,6 @@
 
 
 # Accessing CloudWatch metrics
-<a name="accessingmetrics"></a>
 
 You can see Amazon File Cache metrics for Amazon CloudWatch Logs in many ways. You can view them through the CloudWatch console, or you can access them using the CloudWatch CLI or the CloudWatch API. The following procedures show you how to access the metrics using these various tools.
 

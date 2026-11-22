@@ -1,7 +1,6 @@
 
 
 # Managing Amazon File Cache resources
-<a name="managing-resources"></a>
 
 Amazon File Cache provides a set of features that simplify the performance of administrative tasks. These include the ability to manage caches (such as creating and deleting caches), to manage storage quotas, and to set maintenance windows for performing routine software patching of the system.
 

@@ -1,7 +1,6 @@
 
 
 # Mounting specific filesets
-<a name="mounting-from-fileset"></a>
 
 By using the Lustre fileset feature, you can mount only a subset of the cache namespace, which is called a *fileset*. To mount a fileset of the cache on the client, specify the subdirectory path after the cache name. A fileset mount (also called a subdirectory mount) limits the cache namespace visibility on a specific client.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting file access issues
-<a name="file-access-issues"></a>
 
 There are a number of potential causes for being unable to access files.
 

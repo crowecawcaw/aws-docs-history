@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="limits"></a>
 
 Learn about quotas when working with Amazon File Cache.
 

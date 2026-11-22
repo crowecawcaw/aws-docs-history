@@ -1,7 +1,6 @@
 
 
 # Lazy load
-<a name="mdll-lazy-load"></a>
 
 When you access data on a linked Amazon S3 or NFS data repository using the cache, Amazon File Cache automatically loads the metadata (the name, ownership, timestamps, and permissions) and file contents if they're not already present in the cache. The data in your data repositories appears as files and directories in the cache. 
 

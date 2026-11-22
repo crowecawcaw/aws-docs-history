@@ -1,7 +1,6 @@
 
 
 # Amazon File Cache maintenance windows
-<a name="maintenance-windows"></a>
 
 Amazon File Cache performs routine software patching for the Lustre software that it manages. The maintenance window is your opportunity to control what day and time of the week this software patching occurs.
 

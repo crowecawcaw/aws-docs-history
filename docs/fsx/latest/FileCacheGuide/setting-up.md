@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="setting-up"></a>
 
 Before you use Amazon File Cache for the first time, complete the tasks in the [Sign up for an AWS account](#sign-up-for-aws) section. To complete the [Getting started tutorial](getting-started.md), make sure the Amazon S3 bucket that you'll link to your cache has the permissions listed in [Adding permissions to use data repositories in Amazon S3](#fsx-adding-permissions-s3).
 
@@ -46,7 +45,7 @@ You can't embed an inline policy in a service-linked role in IAM. Because the li
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {

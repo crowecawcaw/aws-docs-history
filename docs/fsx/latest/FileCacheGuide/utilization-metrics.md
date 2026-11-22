@@ -1,7 +1,6 @@
 
 
 # Cache utilization metrics
-<a name="utilization-metrics"></a>
 
 The following metrics report cache-level storage information. These metrics take one dimension (`FileCacheId`) and are published into the `AWS/FSx` namespace in CloudWatch.
 

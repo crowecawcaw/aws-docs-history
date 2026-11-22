@@ -1,7 +1,6 @@
 
 
 # Preloading files into your cache
-<a name="preload-file-contents-hsm"></a>
 
 If the data you're accessing doesn't already exist in the cache, Amazon File Cache copies the data from your Amazon S3 or NFS data repository into the cache in line with file access. Because of this approach, the initial read or write to a file incurs a small amount of latency. If your application is sensitive to this latency, and you know which files or directories your application needs to access, you can optionally preload contents of individual files or directories. You do so using the `hsm_restore` command.
 

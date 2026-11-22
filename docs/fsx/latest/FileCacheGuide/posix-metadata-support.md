@@ -1,7 +1,6 @@
 
 
 # POSIX metadata support for data repositories
-<a name="posix-metadata-support"></a>
 
 Amazon File Cache automatically transfers Portable Operating System Interface (POSIX) metadata for files, directories, and symbolic links (symlinks) when importing and exporting data to and from a linked Amazon S3 or NFS data repository. When you export changes in your cache to a linked data repository, Amazon File Cache also exports POSIX metadata changes along with data changes. Because of this metadata export, you can implement and maintain access controls between your cache and its linked data repositories.
 

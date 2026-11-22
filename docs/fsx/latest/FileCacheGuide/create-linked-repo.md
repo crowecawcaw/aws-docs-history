@@ -1,7 +1,6 @@
 
 
 # Creating a link to a data repository
-<a name="create-linked-repo"></a>
 
 The following procedure walks you through the process of creating a data repository association (DRA) while creating an Amazon File Cache resource, using the AWS Management Console. The DRA links the cache to an existing Amazon S3 bucket or NFS file system.
 

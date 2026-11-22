@@ -1,7 +1,6 @@
 
 
 # Walkthrough: Attaching POSIX permissions when uploading objects into an Amazon S3 bucket
-<a name="attach-s3-posix-permissions"></a>
 
 The following procedure walks you through the process of uploading objects into Amazon S3 with POSIX permissions. By doing so, you can import the POSIX permissions when you create an Amazon File Cache that is linked to that S3 bucket.
 

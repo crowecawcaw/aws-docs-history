@@ -1,7 +1,6 @@
 
 
 # Amazon File Cache performance
-<a name="performance"></a>
 
 Amazon File Cache is built on Lustre, the popular, high-performance file system, and provides scale-out performance that increases linearly with an Amazon File Cache’s size. Lustre file systems scale horizontally across multiple file servers and disks. This scaling gives each client direct access to the data stored on each disk to remove many of the bottlenecks present in traditional file systems. Amazon File Cache builds on Lustre's scalable architecture to support high levels of performance across large numbers of clients.
 

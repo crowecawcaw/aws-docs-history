@@ -1,7 +1,6 @@
 
 
 # Using tags with Amazon File Cache
-<a name="using-tags"></a>
 
 You can use tags to control access to Amazon File Cache resources and to implement attribute-based access control (ABAC). Users need to have permission to apply tags to Amazon File Cache resources during creation.
 
@@ -14,7 +13,7 @@ To enable users to tag resources on creation, they must have permissions to use 
 
 The following example demonstrates a policy that allows users to create caches and apply tags to them during creation in a specific AWS account.
 
-```
+```json
 {
   "Statement": [
     {
@@ -74,7 +73,7 @@ This policy allows the user to create a cache only when they tag it with a speci
 This policy allows a user to delete only caches that are tagged with `Department=Finance`. If they create a final backup, then it must be tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

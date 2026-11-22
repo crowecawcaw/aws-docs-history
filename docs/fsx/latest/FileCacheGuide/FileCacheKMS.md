@@ -1,7 +1,6 @@
 
 
 # How Amazon File Cache uses AWS KMS
-<a name="FileCacheKMS"></a>
 
 Amazon File Cache integrates with AWS Key Management Service (AWS KMS) for key management for encrypting data at rest. File Cache uses AWS KMS keys to encrypt your cache in the following way:
 + **Encrypting data at rest** – Amazon File Cache encrypts data automatically before it is written to the cache, and automatically decrypts data as it is read. Data is encrypted using an XTS-AES-256 block cipher. You choose the KMS key that's used to encrypt and decrypt data, either the AWS managed key for Amazon File Cache, `aws/fsx`, or a customer managed key. You can enable, disable, or revoke grants on this KMS key. This KMS key can be one of the two following types:

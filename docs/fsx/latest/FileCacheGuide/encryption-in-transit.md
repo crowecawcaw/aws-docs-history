@@ -1,7 +1,6 @@
 
 
 # Encrypting data in transit
-<a name="encryption-in-transit"></a>
 
 Encryption of data in transit is automatically enabled when you access an Amazon File Cache resource from compute instances that support encryption in transit. To learn which EC2 instances support encryption in transit, see [Encryption in Transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide*.
 

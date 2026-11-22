@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon File Cache
-<a name="security-iam"></a>
 
 
 

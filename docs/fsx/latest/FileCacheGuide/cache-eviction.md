@@ -1,7 +1,6 @@
 
 
 # Cache eviction
-<a name="cache-eviction"></a>
 
 Files can be evicted (released) from the cache to free up space for new files. Releasing a file retains the file listing and metadata, but removes the local copy of that file's contents. You can't release a file if it's in use or if it hasn't been exported to a linked data repository. There are two methods to release files:
 + Automatic cache eviction releases files automatically when the cache begins to fill up.

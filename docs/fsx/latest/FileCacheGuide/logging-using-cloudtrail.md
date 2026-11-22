@@ -1,7 +1,6 @@
 
 
 # Logging Amazon File Cache API calls with CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon File Cache is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon File Cache. CloudTrail captures all API calls for Amazon File Cache as events. Captured calls include calls from the Amazon File Cache console and from code calls to Amazon File Cache API operations.
 

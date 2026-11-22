@@ -1,7 +1,6 @@
 
 
 # Mounting from Amazon Elastic Container Service
-<a name="mounting-ecs"></a>
 
 You can access your cache from an Amazon Elastic Container Service (Amazon ECS) Docker container on an Amazon EC2 instance. You can do so by using either of the following options:
 

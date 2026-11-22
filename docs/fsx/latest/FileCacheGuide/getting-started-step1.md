@@ -1,7 +1,6 @@
 
 
 # Step 1: Create your cache
-<a name="getting-started-step1"></a>
 
 Next, you create your cache. For this exercise, there are instructions about creating a data repository association to link to an Amazon S3 bucket when you create the File Cache.
 
