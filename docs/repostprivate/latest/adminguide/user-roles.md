@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # User roles in AWS re:Post Private
-<a name="user-roles"></a>
 
 AWS re:Post Private defines the following user roles:
 + re:Post Private console administrator: A user who has administrative permissions in re:Post Private to create and delete private re:Posts. Console administrators can also add or remove re:Post Private users, and add or remove the roles for these users. For more information, see [Assign a role to a user in your private re:Post](https://docs.aws.amazon.com/repostprivate/latest/caguide/assign-user-role.html).
